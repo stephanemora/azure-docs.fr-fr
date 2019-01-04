@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.openlocfilehash: d7a6abaeff0e939ed9e299e16e2fe59b65127aba
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 81618446930a23a7ea713da19bb7c63a06d135ed
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785958"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162431"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Procédure d’édition des visages avec Azure Media Analytics
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 **Azure Media Redactor** est un processeur multimédia [Azure Media Analytics](media-services-analytics-overview.md) qui offre la rédaction de face évolutive dans le cloud. La rédaction de face vous permet de modifier votre vidéo afin de flouter les visages des individus sélectionnés. Vous souhaitez peut-être utiliser le service de rédaction de face dans des scénarios de média et de sécurité publics. Quelques minutes de séquences vidéo contenant plusieurs visages peuvent nécessiter des heures de traitement manuel, mais avec ce service, le processus de rédaction de face ne nécessitera que quelques étapes simples. Pour plus d’informations, consultez [ce blog](https://azure.microsoft.com/blog/azure-media-redactor/).
 
@@ -35,7 +35,7 @@ Pour plus d’informations, consultez [ce](https://azure.microsoft.com/blog/reda
 
 ## <a name="azure-media-services-explorer-workflow"></a>Worfkflow d’Azure Media Services Explorer
 
-La manière la plus simple de prendre en main Redactor consiste à utiliser l’outil AMSE open source sur github. Vous pouvez exécuter un workflow simplifié via le mode **combiné** si vous n’avez pas besoin d’accéder au json d’annotations ou aux images jpg de face.
+La manière la plus simple de prendre en main Redactor consiste à utiliser l’outil AMSE open source sur GitHub. Vous pouvez exécuter un workflow simplifié via le mode **combiné** si vous n’avez pas besoin d’accéder au json d’annotations ou aux images jpg de face.
 
 ### <a name="download-and-setup"></a>Téléchargement et configuration
 
@@ -49,7 +49,7 @@ La manière la plus simple de prendre en main Redactor consiste à utiliser l’
 ### <a name="first-pass--analyze-mode"></a>Premier passage - Mode d’analyse
 
 1. Chargez votre fichier multimédia via Ressource -> Charger, ou par un glisser -déplacer. 
-1. Cliquez avec le bouton droit de la souris et traitez votre fichier multimédia en utilisant 	Analytique multimédia –> Azure Media Redactor –> Mode Analyze. 
+1. Cliquez avec le bouton droit sur le fichier multimédia et traitez-le à l’aide de Media Analytics -> Azure Media Redactor -> mode Analyse. 
 
 
 ![Rédaction de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough002.png)

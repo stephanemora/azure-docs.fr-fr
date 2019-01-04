@@ -5,30 +5,32 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/14/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 957aa05efab68f9531fb6576de775aa9901ab44d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 9f701f0f6d00d2913eaf5b237435fd375b2030e0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685801"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435274"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Verrouillage intelligent Azure Active Directory
 
-Le verrouillage intelligent utilise l’intelligence cloud pour empêcher les pirates de deviner vos mots de passe ou d’utiliser des méthodes de force brute pour rentrer dans vos systèmes. Cette intelligence est capable de reconnaître les connexions provenant des utilisateurs validés, et les traite différemment de celles des pirates et autres utilisateurs inconnus. Le verrouillage intelligent empêche les attaquants de pénétrer dans le système, tout en permettant à vos utilisateurs d’accéder à leurs comptes et de travailler.
+Le verrouillage intelligent empêche les personnes malveillantes de deviner vos mots de passe ou d’utiliser des méthodes de force brute pour rentrer dans vos systèmes. Il peut reconnaître les connexions provenant d’utilisateurs validés et les traiter différemment de celles des attaquants et autres sources inconnues. Le verrouillage intelligent empêche les attaquants de pénétrer dans le système, tout en permettant à vos utilisateurs d’accéder à leurs comptes et de travailler.
 
 Par défaut, le verrouillage intelligent empêche les tentatives de connexion au compte pendant une minute après 10 tentatives infructueuses. Le compte se verrouille à nouveau après chaque échec de connexion consécutif. Le premier verrouillage dure une minute, les suivants durent plus longtemps.
 
-* Le verrouillage intelligent effectue le suivi des trois derniers hachages de mots de passe incorrects pour éviter de réincrémenter le compteur de verrouillages. Si un utilisateur entre plusieurs fois le même mot de passe incorrect, le compte n'est pas verrouillé.
-   * Cette fonctionnalité n'est pas disponible lorsque l'authentification unique est activée.
+Le verrouillage intelligent effectue le suivi des trois derniers hachages de mots de passe incorrects pour éviter de réincrémenter le compteur de verrouillages. Si un utilisateur entre plusieurs fois le même mot de passe incorrect, le compte n'est pas verrouillé.
+
+ > [!NOTE]
+ > La fonctionnalité de suivi du hachage n’est pas disponible pour les clients sur lesquels l’authentification directe est activée dans la mesure où l’authentification est effectuée localement et pas dans le cloud.
 
 Le verrouillage intelligent est activé en permanence pour les clients Azure AD disposant des paramètres par défaut qui offrent la combinaison idéale de sécurité et de facilité d’utilisation. Pour personnaliser les paramètres de verrouillage intelligent en vue de répondre aux besoins de votre organisation, vos utilisateurs doivent disposer d’une licence Azure AD Basic ou plus élevée.
 
-L'utilisation du verrouillage intelligent ne garantit pas qu'un véritable utilisateur ne sera jamais verrouillé. Lorsque le verrouillage intelligent verrouille un compte d'utilisateur, nous mettons tout en œuvre pour ne pas verrouiller le véritable utilisateur. Le service de verrouillage veille à ce que des personnes mal intentionnées n'aient pas accès au compte d'un véritable utilisateur.  
+L'utilisation du verrouillage intelligent ne garantit pas qu'un véritable utilisateur ne sera jamais verrouillé. Lorsque le verrouillage intelligent verrouille un compte d'utilisateur, nous mettons tout en œuvre pour ne pas verrouiller le véritable utilisateur. Le service de verrouillage veille à ce que des personnes mal intentionnées n’aient pas accès au compte d’un véritable utilisateur.  
 
 * Chaque centre de données Azure Active Directory assure indépendamment le suivi des verrouillages. Un utilisateur disposera d'un nombre de tentatives de (seuil_limite x nombre_de_centres_de_données) s'il atteint chaque centre de données.
 * Le verrouillage intelligent utilise un emplacement familier par opposition à un emplacement inconnu pour faire la différence entre une personne mal intentionnée et un véritable utilisateur. Les emplacements familiers et inconnus disposent tous deux de compteurs de verrouillages distincts.

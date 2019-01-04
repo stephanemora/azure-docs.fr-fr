@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 76bef5fcae8e95a52b7a35fdbb657db5dde01bc3
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: af6915a522788f95aaac8ec1b690a7e53b31aac6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035184"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863429"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Créer des clusters basés sur Linux dans HDInsight à l’aide d’Azure PowerShell
 
@@ -62,7 +62,7 @@ Les valeurs que vous spécifiez pour l’utilisateur SSH sont utilisées pour cr
 
 La création d’un cluster peut prendre jusqu’à 20 minutes.
 
-## <a name="create-cluster-configuration-object"></a>Création de cluster : objet de configuration
+## <a name="create-cluster-configuration-object"></a>Créez un cluster : Objet de configuration
 
 Vous pouvez également créer un objet de configuration HDInsight à l’aide de l’applet de commande `New-AzureRmHDInsightClusterConfig`. Il est ensuite possible de modifier cet objet de configuration pour activer des options de configuration supplémentaires pour votre cluster. Enfin, utilisez le paramètre `-Config` de l’applet de commande `New-AzureRmHDInsightCluster` pour utiliser la configuration.
 
@@ -90,16 +90,16 @@ Si vous rencontrez des problèmes lors de la création de clusters HDInsight, re
 
 Maintenant que vous avez créé un cluster HDInsight, parcourez les ressources ci-dessous pour apprendre à l’utiliser.
 
-### <a name="hadoop-clusters"></a>Clusters Hadoop
+### <a name="apache-hadoop-clusters"></a>Clusters Apache Hadoop
 
-* [Utilisation de Hive avec HDInsight](hadoop/hdinsight-use-hive.md)
-* [Utilisation de Pig avec HDInsight](hadoop/hdinsight-use-pig.md)
-* [Utilisation de MapReduce avec HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Utilisation d’Apache Hive avec HDInsight](hadoop/hdinsight-use-hive.md)
+* [Utilisation d’Apache Pig avec HDInsight](hadoop/hdinsight-use-pig.md)
+* [Utiliser Apache Hadoop MapReduce avec HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
-### <a name="hbase-clusters"></a>Clusters HBase
+### <a name="apache-hbase-clusters"></a>Clusters Apache HBase
 
-* [Prise en main de HBase sur HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Développement d’applications Java pour HBase sur HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
+* [Bien démarrer avec Apache HBase sur HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Développer des applications Java pour Apache HBase sur HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Clusters Storm
 
@@ -107,10 +107,10 @@ Maintenant que vous avez créé un cluster HDInsight, parcourez les ressources c
 * [Utilisation de composants Python dans Storm sur HDInsight](storm/apache-storm-develop-python-topology.md)
 * [Déploiement et analyse des topologies avec Storm sur HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 
-### <a name="spark-clusters"></a>Clusters Spark
+### <a name="apache-spark-clusters"></a>Clusters Apache Spark
 
 * [Créer une application autonome avec Scala](spark/apache-spark-create-standalone-application.md)
-* [Exécution de travaux à distance avec Livy sur un cluster Spark](spark/apache-spark-livy-rest-interface.md)
-* [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](spark/apache-spark-use-bi-tools.md)
-* [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Exécuter des tâches à distance avec Apache Livy sur un cluster Apache Spark](spark/apache-spark-livy-rest-interface.md)
+* [Apache Spark avec BI : effectuer une analyse interactive des données avec Spark sur HDInsight avec des outils décisionnels](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour prédire les résultats de l’inspection d’aliments](spark/apache-spark-machine-learning-mllib-ipython.md)
 

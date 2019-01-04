@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/04/2018
+ms.date: 10/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a65a0b8e054b1d0bb6cd4cbeb2daf9be2b132a9e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 381f8c5fb59379c0494dabcd22f4675be9535837
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304526"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016689"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Démarrage d’un runbook Azure Automation avec un webhook
 
@@ -31,7 +31,7 @@ Le tableau suivant décrit les propriétés que vous devez configurer pour un we
 |:--- |:--- |
 | NOM |Vous pouvez attribuer le nom de votre choix à un webhook, car il n'apparaît pas au client. Il est uniquement utilisé pour que vous puissiez identifier le Runbook dans Azure Automation. <br> À titre de meilleure pratique, nommez le webhook d’après le client qui l’utilise. |
 | URL |L'URL du webhook est l'adresse unique qu'un client appelle avec une méthode HTTP POST pour démarrer le Runbook lié au webhook. Elle est générée automatiquement lorsque vous créez le webhook. Vous ne pouvez pas spécifier d'URL personnalisée. <br> <br> L'URL contient un jeton de sécurité qui permet que le Runbook soit appelé par un système tiers sans authentification supplémentaire. Pour cette raison, elle doit être traitée comme un mot de passe. Pour des raisons de sécurité, vous pouvez uniquement afficher l’URL dans le portail Azure au moment de la création du webhook. Notez l'URL dans un emplacement sécurisé en vue d'une utilisation ultérieure. |
-| Date d'expiration |Comme un certificat, chaque webhook possède une date d'expiration à partir de laquelle il ne peut plus être utilisé. Cette date d’expiration peut être modifiée après la création du webhook. |
+| Date d'expiration |Comme un certificat, chaque webhook possède une date d'expiration à partir de laquelle il ne peut plus être utilisé. Cette date d’expiration peut être modifiée après la création du webhook tant que le webhook n’a pas expiré. |
 | activé |Un webhook est activé par défaut lorsqu'il est créé. Si vous le définissez sur Disabled, aucun client n’est en mesure de l'utiliser. Vous pouvez définir la propriété **Enabled** lorsque vous créez le webhook ou à tout moment après qu'il a été créé. |
 
 ### <a name="parameters"></a>parameters
@@ -122,6 +122,12 @@ En supposant que la requête aboutisse, la réponse webhook contient l’ID de t
 
 Le client ne peut pas déterminer l'issue du travail du Runbook ou de son état d'achèvement à partir du webhook. Il peut déterminer ces informations à l’aide de l’ID de travail avec une autre méthode telle que [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) ou l’[API Azure Automation](/rest/api/automation/job).
 
+## <a name="renew-webhook"></a>Renouveler un webhook
+
+Quand un webhook est créé, il a une durée de validité d’un an. Une fois l’année écoulée, le webhook expire automatiquement. Une fois qu’un webhook est arrivé à expiration, il ne peut pas être réactivé. Il doit être supprimé et recréé. Si un webhook n’a pas atteint sa date d’expiration, il peut être faire l’objet d’une extension.
+
+Pour étendre un webhook, accédez au runbook qui le contient. Sélectionnez **Webhooks** sous **Ressources**. Cliquez sur le webhook que vous voulez étendre. La page **Webhook** s’ouvre alors.  Choisissez une nouvelle date et heure d’expiration, puis cliquez sur **Enregistrer**.
+
 ## <a name="sample-runbook"></a>Exemple de runbook
 
 L’exemple de runbook suivant accepte les données du webhook et démarre les machines virtuelles spécifiées dans le corps de la demande. Pour tester ce runbook, dans votre compte Automation sous **Runbooks**, cliquez sur **+ Ajouter un runbook**. Si vous ne savez pas comment créer un runbook, consultez [Création d’un runbook](automation-quickstart-create-runbook.md).
@@ -133,8 +139,20 @@ param
     [object] $WebhookData
 )
 
+
+
 # If runbook was called from Webhook, WebhookData will not be null.
 if ($WebhookData) {
+
+    # Check header for message to validate request
+    if ($WebhookData.RequestHeader.message -eq 'StartedbyContoso')
+    {
+        Write-Output "Header has required information"}
+    else
+    {
+        Write-Output "Header missing required information";
+        exit;
+    }
 
     # Retrieve VM's from Webhook request body
     $vms = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
@@ -143,7 +161,7 @@ if ($WebhookData) {
 
     Write-Output "Authenticating to Azure with service principal and certificate"
     $ConnectionAssetName = "AzureRunAsConnection"
-    Write-Output "Get connection asset: $ConnectionAssetName" 
+    Write-Output "Get connection asset: $ConnectionAssetName"
 
     $Conn = Get-AutomationConnection -Name $ConnectionAssetName
             if ($Conn -eq $null)
@@ -171,7 +189,7 @@ else {
 
 L'exemple suivant utilise Windows PowerShell pour démarrer un Runbook avec un webhook. N'importe quel langage qui peut effectuer une requête HTTP peut utiliser un webhook ; Windows PowerShell est utilisé ici à titre d'exemple.
 
-Le Runbook s'attend à une liste de machines virtuelles au format JSON dans le corps de la requête.
+Le Runbook s'attend à une liste de machines virtuelles au format JSON dans le corps de la requête. Le runbook vérifie également que les en-têtes contiennent un message spécifiquement défini pour valider que l’appelant Webhook est valide.
 
 ```azurepowershell-interactive
 $uri = "<webHook Uri>"
@@ -181,8 +199,8 @@ $vms  = @(
             @{ Name="vm02";ResourceGroup="vm02"}
         )
 $body = ConvertTo-Json -InputObject $vms
-
-$response = Invoke-RestMethod -Method Post -Uri $uri -Body $body
+$header = @{ message="StartedbyContoso"}
+$response = Invoke-RestMethod -Method Post -Uri $uri -Body $body -Headers $header
 $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 ```
 

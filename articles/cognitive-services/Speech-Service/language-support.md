@@ -1,31 +1,32 @@
 ---
 title: Prise en charge linguistique - API du service de reconnaissance vocale
 titleSuffix: Azure Cognitive Services
-description: Liste des langages naturels pris en charge par le service de reconnaissance vocale.
+description: Les services Azure Speech prennent en charge de nombreuses langues, que ce soit pour la reconnaissance vocale, la synthèse vocale ou la traduction vocale. Cet article fournit une liste complète des langues prise en charge par service.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: fa4563b84eb0882832a89ccc98396ff487f51b48
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.custom: seodec18
+ms.openlocfilehash: 65c89e337d62ccb7ce58a1ea4e7414527bf9af19
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284759"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342088"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Prise en charge de la région et de la langue pour l’API du service de reconnaissance vocale
 
-Différentes langues sont prises en charge pour différentes fonctions du service de reconnaissance vocale. Les tableaux suivants récapitulent la prise en charge linguistique.
+Les langues prises en charge varient selon les fonctions des services Speech. Les tableaux suivants récapitulent la prise en charge linguistique.
 
 ## <a name="speech-to-text"></a>Reconnaissance vocale
 
 L’API de reconnaissance vocale Microsoft prend en charge les langues suivantes. Différents niveaux de personnalisation sont disponibles pour chaque langue.
 
-  Code | Langage | [Adaptation acoustique](how-to-customize-acoustic-models.md) | [Adaptation de langage](how-to-customize-language-model.md) | [Adaptation de prononciation](how-to-customize-pronunciation.md)
+  Code | Langue | [Adaptation acoustique](how-to-customize-acoustic-models.md) | [Adaptation de langage](how-to-customize-language-model.md) | [Adaptation de prononciation](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
  ar-EG | Arabe (Égypte), standard moderne | Non  | Oui | Non 
  ca-ES | Catalan (Espagne) | Non  | Non  | Non 
@@ -37,7 +38,7 @@ L’API de reconnaissance vocale Microsoft prend en charge les langues suivantes
  en-IN | Anglais (Inde) | Oui | OUI | Oui
  en-NZ | Anglais (Nouvelle-Zélande) | Non  | OUI | Oui  
  en-US | Anglais (États-Unis) | Oui | OUI | Oui
- es-ES | Espagnol (Espagne) | Non  | Oui | Non 
+ es-ES | Espagnol (Espagne) | Oui | Oui | Non 
  es-MX | Espagnol (Mexique) | Non  | Oui | Non 
  fi-FI | Finnois (Finlande) | Non  | Non  | Non 
  fr-CA | Français (Canada) | Non  | Oui | Non 
@@ -49,7 +50,7 @@ L’API de reconnaissance vocale Microsoft prend en charge les langues suivantes
  nb-NO | Norvégien( Bokmål) (Norvège) | Non  | Non  | Non 
  nl-NL | Néerlandais (Pays-Bas) | Non  | Oui | Non 
  pl-PL | Polonais (Pologne) | Non  | Non  | Non 
- pt-br | Portugais (Brésil) | Non  | Oui | Non 
+ pt-br | Portugais (Brésil) | Oui | Oui | Non 
  pt-PT | Portugais (Portugal) | Non  | Oui | Non 
  ru-RU | Russe (Russie) | Oui | Oui | Non 
  sv-SE | Suédois (Suède) | Non  | Non  | Non 
@@ -61,9 +62,26 @@ L’API de reconnaissance vocale Microsoft prend en charge les langues suivantes
 
 ## <a name="text-to-speech"></a>Synthèse vocale
 
-L’API Synthèse vocale offre les voix suivantes, chacune d’elles prenant en charge une langue et un dialecte spécifiques, identifiés par les paramètres régionaux.
+L’API REST de synthèse vocale prend en charge ces voix qui, à leur tour, prennent chacune en charge une langue et un dialecte spécifiques, identifiés par les paramètres régionaux.
 
-Paramètres régionaux | Langage | Sexe | Mappage du nom du service
+### <a name="neural-voices-preview"></a>Voix neuronales (préversion)
+
+La synthèse vocale neuronale est un nouveau type de synthèse vocale alimentée par les réseaux neuronaux profonds. Lorsque vous utilisez une voix neuronale, il est presque impossible de distinguer la voix synthétisée des enregistrements humains.
+
+Les voix neuronales peuvent être utilisées pour rendre les interactions avec les chatbots et les assistants virtuels plus naturelles et agréables, convertir des textes numériques comme les livres électroniques en livres audio et améliorer les systèmes de navigation embarqués. Grâce à la prosodie naturelle quasi humaine et à la bonne articulation des mots, les voix neuronales réduisent considérablement la fatigue d’écoute des utilisateurs qui interagissent avec les systèmes d’intelligence artificielle.
+
+Pour obtenir la liste complète des voix neuronales et la disponibilité régionale, consultez [régions](regions.md#neural-voices).
+
+| Paramètres régionaux | Langue | Sexe | Mappage du nom du service|
+|--------|----------|---------|--------------------|
+| en-US | Anglais (US) | Masculin | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (en-US, GuyNeural) » |
+| en-US | Anglais (US) | Féminin | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (en-US, JessaNeural) » |
+
+### <a name="standard-voices"></a>Voix standard
+
+Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètres régionaux, ce qui vous permet de convertir le texte en parole synthétisée. Pour plus d’informations sur la disponibilité régionale, consultez [régions](regions.md#standard-voices).
+
+Paramètres régionaux | Langue | Sexe | Mappage du nom du service
 -------|----------|---------|--------------------
 ar-EG\* | Arabe (Égypte) | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ar-EG, Hoda) »
 ar-SA | Arabe (Arabie saoudite) | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ar-SA, Naayf) »
@@ -158,7 +176,7 @@ La personnalisation vocale est disponible pour l’anglais américain (en-US), l
 
 ## <a name="speech-translation"></a>Traduction vocale
 
-L’API **Traduction vocale** prend en charge différentes langues pour la traduction de parole en parole et de parole en texte. La langue source doit toujours figurer dans le tableau des langues vocales suivant. Les langues cibles disponibles dépendent selon que cible de la traduction est de la parole ou du texte. Vous pouvez traduire les conversations entrantes dans plus de [60 langues](https://www.microsoft.com/translator/business/languages/). Un sous-ensemble de ces langues est disponible pour la [synthèse vocale](language-support.md#text-languages). 
+L’API **Traduction vocale** prend en charge différentes langues pour la traduction de parole en parole et de parole en texte. La langue source doit toujours figurer dans le tableau des langues vocales suivant. Les langues cibles disponibles dépendent selon que cible de la traduction est de la parole ou du texte. Vous pouvez traduire les conversations entrantes dans plus de [60 langues](https://www.microsoft.com/translator/business/languages/). Un sous-ensemble de ces langues est disponible pour la [synthèse vocale](language-support.md#text-languages).
 
 ### <a name="speech-languages"></a>Langues de synthèse vocale
 

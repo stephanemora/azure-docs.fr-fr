@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 56160b8db3bad5ebd04fc30442833d36f1633ed1
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a8bb5e7ca71a24f36b102938668d57bdccd0b0b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123519"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101804"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Copier des données d’Oracle Eloqua à l’aide d’Azure Data Factory (préversion)
 
@@ -45,7 +45,7 @@ Les propriétés prises en charge pour le service lié Oracle Eloqua sont les su
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **Eloqua** | Oui |
+| Type | La propriété type doit être définie sur : **Eloqua** | Oui |
 | endpoint | Le point de terminaison du serveur Eloqua. Eloqua prend en charge plusieurs centres de données. Pour déterminer votre point de terminaison, connectez-vous à https://login.eloqua.com avec vos informations d’identification, puis copiez la partie **URL de base** à partir de l’URL redirigée avec le modèle `xxx.xxx.eloqua.com`. | Oui |
 | username | Nom du site et nom d’utilisateur de votre compte Eloqua au format : `SiteName\Username`, par exemple `Eloqua\Alice`.  | Oui |
 | password | Mot de passe correspondant au nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
@@ -76,7 +76,12 @@ Les propriétés prises en charge pour le service lié Oracle Eloqua sont les su
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données Oracle Eloqua.
 
-Pour copier des données depuis Oracle Eloqua, affectez la valeur **EloquaObject** à la propriété type du jeu de données. Il n’y a aucune autre propriété propre au type dans cette sorte de jeu de données.
+Pour copier des données depuis Oracle Eloqua, affectez la valeur **EloquaObject** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| Type | La propriété type du jeu de données doit être définie sur : **EloquaObject** | Oui |
+| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -88,7 +93,8 @@ Pour copier des données depuis Oracle Eloqua, affectez la valeur **EloquaObject
         "linkedServiceName": {
             "referenceName": "<Eloqua linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -97,14 +103,14 @@ Pour copier des données depuis Oracle Eloqua, affectez la valeur **EloquaObject
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Pipelines](concepts-pipelines-activities.md). Cette section fournit la liste des propriétés prises en charge par la source Oracle Eloqua.
 
-### <a name="eloquasource-as-source"></a>EloquaSource en tant que source
+### <a name="eloqua-as-source"></a>Eloqua en tant que source
 
 Pour copier des données d’Oracle Eloqua, définissez le type de source dans l’activité de copie sur **EloquaSource**. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **EloquaSource** | Oui |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Accounts"`. | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **EloquaSource** | Oui |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Accounts"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
 

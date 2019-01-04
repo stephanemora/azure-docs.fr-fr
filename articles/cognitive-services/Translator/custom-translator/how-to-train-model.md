@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 9ec8cbe3d2467714a4b2586db79566aaef30d6d7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 60e0485c28d90050a6ff775db41f8696a09fe033
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626767"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165756"
 ---
 # <a name="train-a-model"></a>Effectuer l’apprentissage d’un modèle
 
@@ -28,19 +28,15 @@ Pour effectuer l'apprentissage d'un modèle :
 
     -  Nom du document : nom du document.
 
-    -  Association : déterminez si le document est un document bilingue ou unilingue.
+    -  Association : déterminez si le document est un document bilingue ou unilingue. Les documents unilingues ne sont actuellement pas pris en charge pour l'apprentissage.
 
-    - Les documents unilingues ne sont actuellement pas pris en charge pour l'apprentissage.
-
-    -  Type de document : apprentissage, optimisation, test ou dictionnaire.
+    -  Type de document : entraînement, optimisation, test ou dictionnaire.
 
     -  Paire de langues : affiche la langue source et la langue cible du projet.
 
-    -  Phrases sources : affiche le nombre de phrases extraites du
-    - fichier source.
+    -  Phrases sources : affiche le nombre de phrases extraites du fichier source.
 
-    -  Phrases cibles : affiche le nombre de phrases extraites du
-    - fichier cible.
+    -  Phrases cibles : affiche le nombre de phrases extraites du fichier cible.
 
     ![Effectuer l'apprentissage d'un modèle](media/how-to/how-to-train-model.png)
 
@@ -67,7 +63,7 @@ Vous pouvez modifier un modèle à l'aide du lien Modifier de la page Détails d
 
 2.  Dans la boîte de dialogue modifier,
 
-    1.  Nom du modèle (champ obligatoire) : donnez un nom significatif à votre modèle.
+    1.  Nom du modèle (obligatoire) : donnez un nom significatif à votre modèle.
 
         ![Boîte de dialogue Modifier plus](media/how-to/how-to-edit-model-dialog.png)
 

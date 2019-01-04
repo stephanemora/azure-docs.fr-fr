@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 38e2589365c2f1c88145fbf068d3ed267d4a4621
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: a95c9f1edd6983c915316f2900885a8131245860
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284563"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437825"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Résoudre les problèmes liés aux Runbooks Workers hybrides
 
@@ -24,7 +24,7 @@ Cet article fournit des informations sur la résolution des problèmes liés aux
 
 Le Runbook Worker hybride dépend d’un agent pour communiquer avec votre compte Automation et ainsi enregistrer le worker, recevoir des travaux de runbook et signaler l’état. Pour Windows, cet agent est Microsoft Monitoring Agent. Pour Linux, il s’agit de l’Agent OMS pour Linux.
 
-### <a name="runbook-execution-fails"></a>Scénario : Échec de l’exécution d’un Runbook
+### <a name="runbook-execution-fails"></a>Scénario : Échec de l’exécution d’un runbook
 
 #### <a name="issue"></a>Problème
 
@@ -34,7 +34,7 @@ L’exécution du Runbook échoue et l’erreur suivante s’affiche :
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-Le runbook est interrompu peu après la tentative de l’exécuter trois fois. Il existe des conditions susceptibles d’interrompre l’exécution correcte du runbook et le message d’erreur lié n’inclut pas d’informations supplémentaires indiquant pourquoi.
+Le runbook est interrompu peu après la tentative de l’exécuter trois fois. Il existe des conditions susceptibles d’interrompre la bonne exécution du runbook et le message d’erreur lié n’inclut pas d’informations supplémentaires indiquant pourquoi.
 
 #### <a name="cause"></a>Cause :
 
@@ -52,7 +52,7 @@ Voici quelques causes possibles :
 
 Vérifiez que l’ordinateur dispose d’un accès sortant à *.azure-automation.net sur le port 443.
 
-Les ordinateurs qui exécutent les workers hybrides doivent respecter la configuration matérielle minimale requise avant de pouvoir héberger cette fonctionnalité. Sinon, en fonction de l’utilisation des ressources d’autres processus d’arrière-plan et de la contention due aux runbooks lors de l’exécution, l’ordinateur est surchargé, entraînant des retards ou des délais d’attente pour la tâche du runbook.
+Les ordinateurs qui exécutent les workers hybrides doivent respecter la configuration matérielle minimale requise avant de pouvoir héberger cette fonctionnalité. Sinon, en fonction de l’utilisation des ressources d’autres processus en arrière-plan et de la contention pendant l’exécution de runbooks, l’ordinateur peut être surchargé, entraînant des retards ou des délais d’attente pour la tâche de runbook.
 
 Vérifiez que l’ordinateur désigné pour exécuter la fonctionnalité Runbook Worker hybride répond à la configuration matérielle minimale requise. Si c’est le cas, surveillez l’utilisation du processeur et de la mémoire pour déterminer toute corrélation entre les performances des processus Runbook Worker hybride et de Windows. S’il existe une surcharge de la mémoire ou du processeur, cela peut indiquer la nécessité de mettre à niveau ou d’ajouter des processeurs supplémentaires, ou d’augmenter la mémoire pour résoudre le goulot d’étranglement des ressources et résoudre l’erreur. Vous pouvez également sélectionner une ressource de calcul différente qui peut prendre en charge la configuration minimale requise et évoluer lorsque les demandes en matière de charge de travail indiquent qu’une augmentation est nécessaire.
 
@@ -62,7 +62,7 @@ Vérifiez dans le journal des événements **Microsoft-SMA** la présence d’un
 
 Le Runbook Worker hybride Linux dépend de l’agent OMS pour Linux pour communiquer avec votre compte Automation et ainsi enregistrer le Worker, recevoir des travaux de runbook et signaler l’état. Si l’inscription du worker échoue, voici les causes possibles de l’erreur :
 
-### <a name="oms-agent-not-running"></a>Scénario : L’Agent OMS pour Linux n’est pas en cours d’exécution
+### <a name="oms-agent-not-running"></a>Scénario : L’agent OMS pour Linux n’est pas en cours d’exécution.
 
 Si l’agent OMS pour Linux n’est pas en cours d’exécution, le Runbook Worker hybride Linux ne peut pas communiquer avec Azure Automation. Vérifiez que l’agent est en cours d’exécution en entrant la commande suivante : `ps -ef | grep python`. Vous devez voir une sortie similaire à celle qui suit, les processus python avec le compte d’utilisateur **nxautomation**. Si les solutions Update Management ou Azure Automation ne sont pas activées, aucun des processus suivants n’est activé.
 
@@ -72,19 +72,19 @@ nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
 ```
 
-La liste suivante présente les processus démarrés pour un Runbook Worker hybride Linux. Ils se trouvent tous dans l’annuaire `/var/opt/microsoft/omsagent/state/automationworker/`.
+La liste suivante présente les processus démarrés pour un Runbook Worker hybride Linux. Ils se trouvent tous dans le répertoire `/var/opt/microsoft/omsagent/state/automationworker/`.
 
-* **oms.conf** : processus du gestionnaire de Workers, directement démarré à partir de DSC.
+* **oms.conf** : processus de gestionnaire de workers, démarré directement à partir de DSC.
 
-* **worker.conf** : processus Worker hybride automatiquement inscrit, démarré par le gestionnaire de Workers. Ce processus est utilisé par Update Management et il est transparent pour l’utilisateur. Ce processus n’est pas présent si la solution Update Management n’est pas activée sur la machine.
+* **worker.conf** : processus Worker hybride automatiquement inscrit, démarré par le gestionnaire de workers. Ce processus est utilisé par Update Management et il est transparent pour l’utilisateur. Ce processus n’est pas présent si la solution Update Management n’est pas activée sur l’ordinateur.
 
 * **diy/worker.conf** : processus Worker hybride personnalisé. Le processus Worker hybride personnalisé est utilisé pour exécuter des runbooks utilisateur sur le Runbook Worker hybride. Il diffère uniquement du processus Worker hybride automatiquement inscrit par le fait qu’il utilise une configuration différente. Ce processus n’est pas présent si la solution Azure Automation n’est pas activée et si le Worker hybride Linux personnalisé n’est pas inscrit.
 
-Si l’agent OMS pour Linux n’est pas en cours d’exécution, exécutez la commande suivante pour démarrer le service : `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+Si l’agent OMS pour Linux n’est pas en cours d’exécution, exécutez la commande suivante pour démarrer le service : `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
-### <a name="class-does-not-exist"></a>Scénario : La classe spécifiée n’existe pas
+### <a name="class-does-not-exist"></a>Scénario : La classe spécifiée n’existe pas
 
-Si vous voyez l’erreur **La classe spécifiée n’existe pas...** dans `/var/opt/microsoft/omsconfig/omsconfig.log`, alors l’agent OMS pour Linux a besoin d’une mise à jour. Exécutez la commande suivante pour réinstaller l’agent OMS :
+Si vous recevez l’erreur : **La classe spécifiée n’existe pas.** dans `/var/opt/microsoft/omsconfig/omsconfig.log`, alors l’agent OMS pour Linux a besoin d’une mise à jour. Exécutez la commande suivante pour réinstaller l’agent OMS :
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -94,15 +94,15 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 Le Runbook Worker hybride Windows dépend de l’agent Microsoft Monitoring Agent pour communiquer avec votre compte Automation, et ainsi enregistrer le Worker, recevoir des travaux de Runbook et signaler l’état. Si l’inscription du worker échoue, voici les causes possibles de l’erreur :
 
-### <a name="mma-not-running"></a>Scénario : Microsoft Monitoring Agent n’est pas en cours d’exécution
+### <a name="mma-not-running"></a>Scénario : Microsoft Monitoring Agent n’est pas en cours d’exécution
 
 #### <a name="issue"></a>Problème
 
-Le service `healthservice` n’est pas exécuté sur la machine où se trouve le Runbook Worker hybride.
+Le service `healthservice` n’est pas en cours d’exécution sur l’ordinateur où se trouve le Runbook Worker hybride.
 
 #### <a name="cause"></a>Cause :
 
-Si le service Windows de Microsoft Monitoring Agent n’est pas en cours d’exécution, le Runbook Worker hybride ne peut pas communiquer avec Azure Automation.
+Si le service Windows Microsoft Monitoring Agent n’est pas en cours d’exécution, ce scénario empêche le Runbook Worker hybride de communiquer avec Azure Automation.
 
 #### <a name="resolution"></a>Résolution :
 
@@ -112,21 +112,51 @@ Vérifiez que l’agent est en cours d’exécution en entrant la commande suiva
 
 #### <a name="issue"></a>Problème
 
-Dans le journal des événements **Application et journaux des services\Operations Manager**, vous voyez l’événement 4502 et l’EventMessage contenant **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** avec la description suivante : *le certificat présenté par le service \<wsid\>.oms.opinsights.azure.com n’a pas été émis par une autorité de certification utilisée par les services Microsoft. Veuillez contacter votre administrateur réseau pour déterminer si un proxy en cours d’exécution intercepte la communication TLS/SSL. L’article KB3126513 contient des informations supplémentaires pour la résolution des problèmes de connectivité.*
+Dans le journal des événements **Journaux des applications et des services\Operations Manager**, vous voyez l’événement 4502 et l’EventMessage contenant **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** avec la description suivante : *Le certificat présenté par le service \<wsid\>.oms.opinsights.azure.com n’a pas été émis par une autorité de certification utilisée par les services Microsoft. Veuillez contacter votre administrateur réseau pour déterminer si un proxy en cours d’exécution intercepte la communication TLS/SSL. L’article KB3126513 contient des informations supplémentaires pour la résolution des problèmes de connectivité.*
 
 #### <a name="cause"></a>Cause :
 
-Une cause possible est que votre proxy ou votre pare-feu réseau bloque les communications vers Microsoft Azure. Vérifiez que l’ordinateur dispose d’un accès sortant à *.azure-automation.net sur les ports 443.
+Une cause possible de ce problème est que votre proxy ou votre pare-feu réseau bloque les communications vers Microsoft Azure. Vérifiez que l’ordinateur dispose d’un accès sortant à *.azure-automation.net sur les ports 443.
 
 #### <a name="resolution"></a>Résolution :
 
-Les journaux sont stockés localement sur chaque Worker hybride à l’emplacement C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Vous pouvez vérifier s’il existe des événements d’avertissement ou d’erreur écrits dans les journaux des évènements **Application et journal des services\Microsoft SMA\gestionnaire des opérations** et **Application et journal des services\gestionnaire des opérations** qui indiqueraient une connectivité ou tout autre problème affectant l’intégration du rôle à Azure Automation ou un problème lors de l’exécution d’opérations normales.
+Les journaux sont stockés localement sur chaque Worker hybride à l’emplacement C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Vous pouvez vérifier s’il existe des événements d’avertissement ou d’erreur dans les journaux des évènements **Journaux des applications et des services\Microsoft-SMA\Operations** et **Journaux des applications et des services\Operations Manager** qui indiqueraient une connectivité ou tout autre problème affectant l’intégration du rôle à Azure Automation ou un problème dans le cadre d’un fonctionnement normal.
 
-[Sortie et messages de Runbooks](../automation-runbook-output-and-messages.md) : ils sont envoyés à Azure Automation à partir de Workers hybrides tout comme les tâches de Runbook exécutées dans le cloud. Vous pouvez également activer les flux Détaillé et Progression comme vous le feriez pour d’autres runbooks.
+La [sortie et les messages de runbooks](../automation-runbook-output-and-messages.md) sont envoyés à Azure Automation à partir de Workers hybrides tout comme les tâches de runbook qui sont exécutées dans le cloud. Vous pouvez également activer les flux Détaillé et Progression comme vous le feriez pour d’autres runbooks.
+
+### <a name="corrupt-cache"></a> Runbook Worker hybride ne créant pas de rapports
+
+#### <a name="issue"></a>Problème
+
+Votre ordinateur Runbook Worker hybride est en cours d’exécution, mais vous ne voyez pas les données de pulsation de l’ordinateur dans l’espace de travail.
+
+L’exemple de requête suivant montre les ordinateurs d’un espace de travail et leur dernière pulsation :
+
+```loganalytics
+// Last heartbeat of each computer
+Heartbeat 
+| summarize arg_max(TimeGenerated, *) by Computer
+```
+
+#### <a name="cause"></a>Cause :
+
+Ce problème peut être lié à un cache endommagé sur le Runbook Worker hybride.
+
+#### <a name="resolution"></a>Résolution :
+
+Pour résoudre ce problème, connectez-vous au Runbook Worker hybride et exécutez le script suivant. Ce script arrête l’agent Microsoft Monitoring Agent supprime son cache et redémarre le service. Cette action force le Runbook Worker hybride à télécharger de nouveau sa configuration à partir d’Azure Automation.
+
+```powershell
+Stop-Service -Name HealthService
+
+Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State' -Recurse
+
+Start-Service -Name HealthService
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à le résoudre, utilisez un des canaux suivants pour obtenir de l’aide :
+Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à le résoudre, utilisez un des canaux suivants pour obtenir de l’aide :
 
 * Obtenez des réponses de la part d’experts Azure via les [Forums Windows](https://azure.microsoft.com/support/forums/)
 * Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), qui est le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées : réponses, support technique et experts.

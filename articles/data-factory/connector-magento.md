@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 36afc89ef583baa5484aa4e69c6969e7448c93c1
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 03757aaf13d48730a3061f07ae3138f0aadbdf00
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127582"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077849"
 ---
 # <a name="copy-data-from-magento-using-azure-data-factory-preview"></a>Copier des données de Magento avec Azure Data Factory (préversion)
 
@@ -45,7 +45,7 @@ Les propriétés prises en charge pour le service lié Magento sont les suivante
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **Magento** | Oui |
+| Type | La propriété type doit être définie sur : **Magento** | Oui |
 | host | L’URL de l’instance Magento (autrement dit, 192.168.222.110/magento3).  | Oui |
 | accessToken | Le jeton d’accès de Magento. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non  |
@@ -77,7 +77,12 @@ Les propriétés prises en charge pour le service lié Magento sont les suivante
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données Magento.
 
-Pour copier des données de Magento, affectez la valeur **MagentoObject** à la propriété type du jeu de données. Il n’y a aucune autre propriété propre au type dans cette sorte de jeu de données.
+Pour copier des données de Magento, affectez la valeur **MagentoObject** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| Type | La propriété type du jeu de données doit être définie sur : **MagentoObject** | Oui |
+| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -89,7 +94,8 @@ Pour copier des données de Magento, affectez la valeur **MagentoObject** à la 
         "linkedServiceName": {
             "referenceName": "<Magento linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -98,14 +104,14 @@ Pour copier des données de Magento, affectez la valeur **MagentoObject** à la 
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Pipelines](concepts-pipelines-activities.md). Cette section fournit la liste des propriétés prises en charge par la source Magento.
 
-### <a name="magentosource-as-source"></a>MagentoSource en tant que source
+### <a name="magento-as-source"></a>Magento en tant que source
 
 Pour copier des données de Magento, affectez la valeur **MagentoSource** au type source de l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **MagentoSource** | Oui |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Customers"`. | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **MagentoSource** | Oui |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Customers"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
 

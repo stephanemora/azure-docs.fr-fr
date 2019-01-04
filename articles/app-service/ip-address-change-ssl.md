@@ -1,5 +1,5 @@
 ---
-title: Comment se préparer à un changement d’adresse IP SSL - Azure
+title: Se préparer à un changement d’adresse IP SSL - Azure App Service
 description: Si votre adresse IP SSL va être modifiée, découvrez les choses à faire pour que votre application continue de fonctionner après la modification.
 services: app-service\web
 author: cephalin
@@ -10,12 +10,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: e8558b4c3c7dafca8d4fff7e2aae0597a66c031d
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.custom: seodec18
+ms.openlocfilehash: 4de20ba46d3c16d6cd7bde8e17efb0a6212bc771
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576540"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270788"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Comment se préparer à un changement d’adresse IP SSL
 
@@ -31,7 +32,7 @@ Si vous avez reçu une notification indiquant la modification de l’adresse IP 
 
 4.  Sous l’en-tête **Paramètres**, cliquez sur **Paramètres SSL** dans le volet de navigation gauche.
 
-5. Dans la section Liaisons SSL, sélectionnez l’enregistrement du nom d’hôte. Dans l’éditeur qui s’ouvre, choisissez **SNI SSL** dans le menu déroulant **Type SSL** et cliquez sur **Ajouter une liaison**. Lorsque le message de réussite d’opération s’affiche, l’adresse IP existante a été libérée.
+1. Dans la section Liaisons SSL, sélectionnez l’enregistrement du nom d’hôte. Dans l’éditeur qui s’ouvre, choisissez **SNI SSL** dans le menu déroulant **Type SSL** et cliquez sur **Ajouter une liaison**. Lorsque le message de réussite d’opération s’affiche, l’adresse IP existante a été libérée.
 
 6.  Dans la section **liaisons SSL**, sélectionnez à nouveau le même enregistrement de nom d’hôte avec le certificat. Dans l’éditeur qui s’ouvre, choisissez cette fois **SSL sur IP** dans le menu déroulant **Type SSL** et cliquez sur **Ajouter une liaison**. Lorsque vous voyez le message de réussite d’opération, vous avez acquis une nouvelle adresse IP.
 

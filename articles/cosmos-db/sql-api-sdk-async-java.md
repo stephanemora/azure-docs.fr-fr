@@ -1,23 +1,22 @@
 ---
-title: 'Azure Cosmos DB : API, Kit de développement logiciel (SDK) et ressources Java Async SQL | Microsoft Docs'
+title: 'Azure Cosmos DB : API, SDK et ressource SQL Async Java'
 description: Découvrez l’API et le Kit de développement logiciel (SDK) Java Async SQL, notamment les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Java Async SQL d’Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/02/2018
+ms.date: 11/29/2018
 ms.author: moderakh
-ms.openlocfilehash: c8b8397e5d51b67895a6a95ed6d1611813a9aaf6
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 5284de9a5b0f4f78b3b8b68e3848c2cb2783b839
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300844"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338615"
 ---
-# <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Async Azure Cosmos DB pour API SQL : notes de publication et ressources
+# <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Async Azure Cosmos DB pour API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Flux de modification .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -28,11 +27,11 @@ ms.locfileid: "51300844"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-Le Kit de développement logiciel (SDK) Java Async de l’API SQL est différent du Kit de développement logiciel (SDK) Java de l’API SQL en fournissant des opérations asynchrones avec prise en charge de la [bibliothèque Netty](http://netty.io/). Le [Kit de développement logiciel (SDK) Java de l’API SQL](sql-api-sdk-java.md) existant ne prend pas en charge les opérations asynchrones. 
+Le Kit de développement logiciel (SDK) Java Async de l’API SQL est différent du Kit de développement logiciel (SDK) Java de l’API SQL en fournissant des opérations asynchrones avec prise en charge de la [bibliothèque Netty](https://netty.io/). Le [Kit de développement logiciel (SDK) Java de l’API SQL](sql-api-sdk-java.md) existant ne prend pas en charge les opérations asynchrones. 
 
 <table>
 
@@ -44,7 +43,7 @@ Le Kit de développement logiciel (SDK) Java Async de l’API SQL est différent
 
 <tr><td>**Prise en main**</td><td>[Prise en main du Kit de développement logiciel (SDK) Java Async](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
 
-<tr><td>**Code sample**</td><td>[Github](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
+<tr><td>**Code sample**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
 
 <tr><td>**Conseils sur les performances**</td><td>[Fichier Readme de GitHub](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
 
@@ -53,13 +52,18 @@ Le Kit de développement logiciel (SDK) Java Async de l’API SQL est différent
 
 ## <a name="release-notes"></a>Notes de publication
 
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+* Correction d’un bogue de fuite de ressources.
+* Ajout de la prise en charge de multipolygones
+* Ajout de la prise en charge des en-têtes personnalisés dans RequestOptions.
+
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 * Correction d’un bogue d’empaquetage.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Correction d’un bogue NPE dans le chemin de nouvelle tentative d’écriture.
 * Correction d’un bogue NPE dans la gestion des points de terminaison.
-* Mise à niveau des dépendances vulnérables ([github #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
+* Mise à niveau des dépendances vulnérables ([GitHub #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
 * Ajout de la prise en charge de la journalisation réseau Netty à des fins de dépannage.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
@@ -68,16 +72,16 @@ Le Kit de développement logiciel (SDK) Java Async de l’API SQL est différent
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Ajout de la prise en charge de Proxy.
 * Ajout de la prise en charge de l’autorisation de jeton de ressource.
-* Correction d’un bogue dans la gestion des clés de partition volumineuse ([github #63](https://github.com/Azure/azure-cosmosdb-java/issues/63)).
+* Correction d’un bogue dans la gestion des clés de partition volumineuse ([GitHub n° 63](https://github.com/Azure/azure-cosmosdb-java/issues/63)).
 * Amélioration de la documentation.
 * Kit de développement logiciel (SDK) restructuré en modules plus petits.
 
 ### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
-* Correction d’un bogue pour les paramètres régionaux non anglais ([github n° 51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
+* Correction d’un bogue pour les paramètres régionaux non anglais ([GitHub n° 51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
 * Ajout de méthodes d’assistance dans la ressource liée au conflit.
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
-* Remplacement de la dépendance org.json par jackson pour des raisons de performance et de licences ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
+* Remplacement de la dépendance org.json par jackson pour des raisons de performance et de licences ([GitHub n° 29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
 * Suppression de la classe déconseillée OfferV2.
 * Ajout d’une méthode d’accesseur à la classe Offre pour le contenu de débit.
 * Modification de toutes les méthodes dans Document/Ressource renvoyant des types org.json afin qu’elles renvoient un type d’objet jackson.
@@ -90,18 +94,18 @@ Le Kit de développement logiciel (SDK) Java Async de l’API SQL est différent
 * Ajout de la prise en charge de la stratégie d’index unique.
 * Ajout de la possibilité de limiter la taille du jeton de continuation de réponse dans les options de flux.
 * Ajout de la prise en charge de la division de partition dans une requête portant sur plusieurs partitions.
-* Correction d’un bogue lié à la sérialisation de timestamp Json ([github n°32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
+* Correction d’un bogue lié à la sérialisation de timestamp Json ([GitHub n° 32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
 * Correction d’un bogue lié à la sérialisation d’énumération Json.
-* Correction d’un bogue lié à la gestion des documents d’une taille de 2 Mo ([github n°33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
-* Mise à niveau de la dépendance com.fasterxml.jackson.core:jackson-databind vers 2.9.5 en raison d’un bogue ([jackson-databind: github n°1 599](https://github.com/FasterXML/jackson-databind/issues/1599)).
-* Mise à niveau de la dépendance rxjava-extras vers 0.8.0.17 en raison d’un bogue ([rxjava-extras: github n°30](https://github.com/davidmoten/rxjava-extras/issues/30)).
+* Correction d’un bogue lié à la gestion des documents d’une taille de 2 Mo ([GitHub n° 33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
+* Mise à niveau de la dépendance com.fasterxml.jackson.core:jackson-databind vers 2.9.5 en raison d’un bogue ([jackson-databind: github n° 1599](https://github.com/FasterXML/jackson-databind/issues/1599)).
+* Mise à niveau de la dépendance rxjava-extras vers 0.8.0.17 en raison d’un bogue ([rxjava-extras: GitHub n° 30](https://github.com/davidmoten/rxjava-extras/issues/30)).
 * Mise à jour de la description des métadonnées du fichier pom en fonction du reste de la documentation.
-* Amélioration de la syntaxe ([github n°41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([github n°40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
+* Amélioration de la syntaxe ([GitHub n° 41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([GitHub n° 40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
 
 ### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
 * Ajout de la prise en charge de la contre-pression dans la requête.
 * Ajout de la prise en charge de l’ID de plage de clés de partition dans la requête.
-* Correction visant à autoriser un jeton de continuation plus grand dans l’en-tête de demande (correctif de bogue github n°24).
+* Correction visant à autoriser un jeton de continuation plus grand dans l’en-tête de demande (correctif de bogue GitHub n° 24).
 * Mise à niveau de la dépendance Netty vers 4.1.22.Final pour que la machine virtuelle Java s’arrête après la fin du thread principal.
 * Correction visant à éviter la transmission d’un jeton de session durant la lecture de ressources principales.
 * Ajout d’exemples.
@@ -109,7 +113,7 @@ Le Kit de développement logiciel (SDK) Java Async de l’API SQL est différent
 * Correction de fichiers d’en-tête Java pour que les documents java soient correctement générés.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* Kit de développement logiciel (SDK) GA avec prise en charge de bout en bout des E/S non bloquantes à l’aide de la [bibliothèque Netty](http://netty.io/) en mode passerelle. 
+* Kit de développement logiciel (SDK) GA avec prise en charge de bout en bout des E/S non bloquantes à l’aide de la [bibliothèque Netty](https://netty.io/) en mode passerelle. 
 
 ## <a name="release-and-retirement-dates"></a>Dates de lancement et de suppression
 Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
@@ -122,6 +126,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.3.0](#2.3.0) |29 novembre 2018|--- |
 | [2.2.2](#2.2.2) |8 novembre 2018|--- |
 | [2.2.1](#2.2.1) |2 novembre 2018|--- |
 | [2.2.0](#2.2.0) |22 septembre 2018|--- |

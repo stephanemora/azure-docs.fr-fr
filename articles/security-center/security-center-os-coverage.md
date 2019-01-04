@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: f4bc90b2d1a80125ae88b4b5c4c11e42a34a985a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4108355415d1230f98db36a4f83497de2fa848f7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240424"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185577"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plateformes et fonctionnalités prises en charge par Azure Security Center
 
-La surveillance de l’état de la sécurité et des recommandations sont disponibles pour les machines virtuelles créées à l’aide des modèles de déploiement classique et Resource Manager, ainsi que des ordinateurs.
+La supervision de l’état de la sécurité et des recommandations sont disponibles pour les machines virtuelles créées à l’aide des modèles de déploiement classique et Resource Manager, ainsi que des ordinateurs.
 
 > [!NOTE]
 > En savoir plus sur les [modèles de déploiement de type Classique et Resource Manager](../azure-classic-rm.md) pour les ressources Azure.
@@ -35,7 +35,7 @@ La surveillance de l’état de la sécurité et des recommandations sont dispon
 Cette section liste les plateformes sur lesquelles l’agent Azure Security Center peut s’exécuter et à partir desquelles il peut collecter des données.
 
 ### <a name="supported-platforms-for-windows-computers-and-vms"></a>Plateformes prises en charge pour les ordinateurs et machines virtuelles Windows
-Systèmes d’exploitation Windows pris en charge :
+Les systèmes d’exploitation Windows suivants sont pris en charge :
 
 * Windows Server 2008
 * Windows Server 2008 R2
@@ -45,16 +45,16 @@ Systèmes d’exploitation Windows pris en charge :
 
 
 ### <a name="supported-platforms-for-linux-computers-and-vms"></a>Plateformes prises en charge pour les ordinateurs et machines virtuelles Linux
-Systèmes d’exploitation Linux pris en charge :
+Les systèmes d’exploitation Linux suivants sont pris en charge :
 
-* Ubuntu versions 12.04 LTS, 14.04 LTS et 16.04 LTS
-* Debian versions 6, 7, 8 et 9
-* CentOS versions 5, 6 et 7
-* Red Hat Enterprise Linux (RHEL) versions 5, 6 et 7
-* SUSE Linux Enterprise Server (SLES) versions 11 et 12
-* Oracle Linux versions 5, 6 et 7
-* Amazon Linux entre 2012.09 et 2017
-* OpenSSL 1.1.0 n’est pris en charge que sur les plateformes x86_64 (64 bits)
+* Ubuntu versions 12.04 LTS, 14.04 LTS et 16.04 LTS.
+* Debian versions 6, 7, 8 et 9.
+* CentOS versions 5, 6 et 7.
+* Red Hat Enterprise Linux (RHEL) versions 5, 6 et 7.
+* SUSE Linux Enterprise Server (SLES) versions 11 et 12.
+* Oracle Linux versions 5, 6 et 7.
+* Amazon Linux, des versions 2012.09 à 2017.
+* OpenSSL 1.1.0 n’est pris en charge que sur les plateformes x86_64 (64 bits).
 
 > [!NOTE]
 > L’analytique comportementale de machine virtuelle n’est pas encore disponible pour les systèmes d’exploitation Linux.
@@ -62,7 +62,7 @@ Systèmes d’exploitation Linux pris en charge :
 >
 
 ## <a name="vms-and-cloud-services"></a>Machines virtuelles et services cloud
-Les machines virtuelles en cours d’exécution dans un service cloud sont également prises en charge. Seuls les rôles de travail et web des services cloud en cours d’exécution dans des emplacements de production sont surveillés. Pour en savoir plus sur le service cloud, consultez [Vue d’ensemble de Cloud Services](../cloud-services/cloud-services-choose-me.md).
+Les machines virtuelles en cours d’exécution dans un service cloud sont également prises en charge. Seuls les rôles de travail et web des services cloud en cours d’exécution dans des emplacements de production sont surveillés. Pour en savoir plus sur les services cloud, consultez [Vue d’ensemble d’Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
 
 ## <a name="supported-iaas-features"></a>Fonctionnalités IaaS prises en charge
@@ -70,7 +70,7 @@ Les machines virtuelles en cours d’exécution dans un service cloud sont égal
 > [!div class="mx-tableFixed"]
 > 
 
-|Serveur|Windows||Linux||
+|Serveur| Windows||Linux||
 |----|----|----|----|----|
 |Environnement|Azure|Non-Azure|Azure|Non-Azure|
 |Alertes de détection des menaces VMBA|✔|✔|✔ (sur les versions prises en charge)|✔|
@@ -78,21 +78,21 @@ Les machines virtuelles en cours d’exécution dans un service cloud sont égal
 |Intégration de Windows Defender ATP*|✔ (sur les versions prises en charge)|✔|X|X|
 |Correctifs manquants|✔|✔|✔|✔|
 |Configurations de sécurité|✔|✔|✔|✔|
-|Anti-programme malveillant|✔|✔|X|X|
+|Logiciels anti-programme malveillant|✔|✔|X|X|
 |Accès JIT à la machine virtuelle|✔|X|✔|X|
 |Contrôles d’application adaptative|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
 |Chiffrement de disque|✔|X|✔|X|
 |Déploiement tiers|✔|X|✔|X|
 |Groupes de sécurité réseau|✔|X|✔|X|
-|Détection des menaces sur les fichiers|✔|✔|X|X|
+|Détection des menaces sans fichier|✔|✔|X|X|
 |Mappage réseau|✔|X|✔|X|
 |Contrôles réseau adaptatifs|✔|X|✔|X|
 
 \* Ces fonctionnalités sont actuellement prises en charge en préversion publique.
 
 
-## <a name="supported-paas-features"></a>Fonctionnalités PaaS prises en charge
+## <a name="supported-paas-features"></a>Fonctionnalités PaaS prises en charge 
 
 
 |de diffusion en continu|Recommandations|Détection de menaces|
@@ -100,20 +100,20 @@ Les machines virtuelles en cours d’exécution dans un service cloud sont égal
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
-|Comptes de stockage d’objets blob*|✔| ✔|
+|Comptes de stockage Azure blob*|✔| ✔|
 |App Services|✔| ✔|
-|Services cloud|✔| X|
+|Cloud Services|✔| X|
 |Réseaux virtuels|✔| N/D|
 |Sous-réseaux|✔| N/D|
 |Cartes réseau|✔| ✔|
 |Groupes de sécurité réseau|✔| N/D|
 |Abonnement|✔| ✔|
 
-\* Ces fonctionnalités sont actuellement prises en charge en préversion publique.
+\* Ces fonctionnalités sont actuellement prises en charge en préversion publique. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Guide des opérations et de planification d’Azure Security Center](security-center-planning-and-operations-guide.md) : découvrez comment planifier l’adoption d’Azure Security Center et prenez connaissance des considérations relatives à la conception
-- [Alertes de sécurité par type dans Azure Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis) : en savoir plus sur l’analytique comportementale de machine virtuelle et l’analyse de mémoire de vidage sur incident dans Security Center
-- [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service
-- [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure
+- [Découvrez comment planifier l’adoption d’Azure Security Center et prenez connaissance des considérations relatives à la conception](security-center-planning-and-operations-guide.md).
+- En savoir plus sur [l’analyse comportementale de machine virtuelle et l’analyse de mémoire de vidage sur incident dans Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis).
+- Découvrez [les réponses aux questions le plus souvent posées sur l’utilisation d’Azure Security Center](security-center-faq.md).
+- Accédez à des [billets de blog sur la sécurité et la conformité Azure](https://blogs.msdn.com/b/azuresecurity/).

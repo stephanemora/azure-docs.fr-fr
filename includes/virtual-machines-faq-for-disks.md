@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 56a36e61bb9938ceb7e3cdaf2676c24c037b1d16
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a5f1e728f7a13f763367abc3f380fb9fbdb67b5c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585701"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53326537"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -85,9 +85,9 @@ Vous configurez un compte de stockage privé pour les diagnostics de machine vir
 
 Managed Disks prend en charge trois rôles principaux par défaut :
 
-* Propriétaire : il dispose d’une liberté totale de gestion et contrôle l’accès
-* Contributeur : il dispose d’une liberté totale de gestion, mais ne contrôle pas l’accès
-* Lecteur : il peut afficher tous les éléments, mais ne peut y apporter de modifications
+* Propriétaire : Gérer tout, y compris l’accès
+* Collaborateur : Gérer tout sauf les accès
+* Lecteur : Afficher tout, mais ne pas apporter de modifications
 
 **Existe-t-il un moyen de copier ou d’exporter un disque géré vers un compte de stockage privé ?**
 
@@ -137,9 +137,9 @@ Non, quand le nouveau disque est créé, il constitue à ce moment-là une copie
 
 Vous ne pouvez pas renommer les disques managés. Par contre, vous pouvez renommer les disques non managés tant qu’ils ne sont pas attachés à une machine virtuelle ou un disque dur virtuel.
 
-**Puis-je utiliser le partitionnement GBT sur un disque Azure ?**
+**Puis-je utiliser le partitionnement GPT sur un disque Azure ?**
 
-Le partitionnement GBT peut être utilisé uniquement sur les disques de données, pas sur les disques de système d’exploitation. Les disques de système d’exploitation doivent utiliser le style de partition MBR.
+Le partitionnement GPT peut être utilisé uniquement sur les disques de données, pas sur les disques de système d’exploitation. Les disques de système d’exploitation doivent utiliser le style de partition MBR.
 
 ## <a name="standard-ssd-disks"></a>Disques SSD Standard
 
@@ -188,6 +188,10 @@ Non, les disques SSD Standard sont disponibles seulement comme disques managés.
 Non, les disques SSD standard n’ont pas de SLA de machine virtuelle à instance unique. Utiliser des disques SSD Premium pour une instance unique de contrat SLA de machine virtuelle.
 
 ## <a name="migrate-to-managed-disks"></a>Migrer vers Managed Disks
+
+**La migration a-t-elle un impact sur les performances des disques managés ?
+
+La migration implique le déplacement du disque d’un emplacement de stockage à un autre. Cette opération est effectuée par une copie en arrière-plan des données, qui peuvent prendre plusieurs heures (généralement moins de 24 heures), selon la quantité de données stockées sur les disques. Pendant ce temps, votre application peut afficher une latence de lecture supérieure à la normale car certaines lectures sont redirigées vers l’emplacement d’origine et prennent donc plus de temps. Il n’y a aucun impact sur la latence d’écriture pendant cette période.  
 
 **Quelles sont les modifications nécessaires dans une configuration de service Sauvegarde Azure préexistante avant/après la migration vers Managed Disks ?**
 
@@ -292,7 +296,7 @@ Le disque local SSD est un stockage temporaire inclus avec une machine virtuell
 
 Il n’existe aucun inconvénient à l’utilisation de TRIM sur des disques Azure Premium ou Standard.
 
-## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nouvelles tailles de disque : gérés et non-gérés
+## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nouvelles tailles de disque : gérés et non gérés
 
 **Quelle est la plus grande taille de disque managé prise en charge pour les disques de système d’exploitation et de données ?**
 
@@ -312,10 +316,10 @@ Vous n’avez pas besoin de mettre à niveau votre version des outils Azure pour
 
 |Outils Azure      | Versions prises en charge                                |
 |-----------------|---------------------------------------------------|
-|Azure PowerShell | Numéro de version 4.1.0 : version de juin 2017 ou version ultérieure|
-|Azure CLI v1     | Numéro de version 0.10.13 : version de mai 2017 ou version ultérieure|
-|Azure CLI v2     | Numéro de version 2.0.12 : version de juillet 2017 ou version ultérieure|
-|AzCopy           | Numéro de version 6.1.0 : version de juin 2017 ou version ultérieure|
+|Azure PowerShell | Numéro de version 4.1.0 : Version de juin 2017 ou ultérieure|
+|Azure CLI v1     | Numéro de version 0.10.13 : Version de mai 2017 ou ultérieure|
+|Azure CLI v2     | Numéro de version 2.0.12 : Version de juillet 2017 ou ultérieure|
+|AzCopy           | Numéro de version 6.1.0 : Version de juin 2017 ou ultérieure|
 
 **Les tailles de disque P4 et P6 sont-elles prises en charge pour les disques non gérés ou les objets blob de pages ?**
 
@@ -339,7 +343,7 @@ La plus grande taille de disque prise en charge par Sauvegarde Azure et Azure Si
 
 **Quels sont les tailles de machines virtuelles recommandées pour les disques de grande taille (> 4 Tio) pour les disques SSD Standard et HDD Standard afin de bénéficier d’IOPS et d’une bande passante optimisées ?**
 
-Pour atteindre le débit de disque des disques SSD Standard et HDD Standard de plus grande taille (> 4 To) au-delà de 500 IOPS et 60 Mio/s, vous devez utiliser une des tailles de machines virtuelles suivantes pour optimiser vos performances : série B, série DSv2, série Dsv3, série ESv3, série Fs, série Fsv2, série M, série GS, série NCv2, série NCv3 ou série Ls.
+Pour atteindre un débit de disques SSD standard et de disques durs HDD standard de grande capacité (> 4 To) supérieur à 500 IOPS et 60 Mio/s, vous devez utiliser une des tailles de machine virtuelle suivantes pour optimiser vos performances : machines virtuelles des séries B, DSv2, Dsv3, ESv3, Fs, Fsv2, M, GS, NCv2, NCv3 ou Ls.
 
 **Dans quelles régions les tailles de disques managés supérieures à 4 Tio sont-elles prises en charge ?**
 

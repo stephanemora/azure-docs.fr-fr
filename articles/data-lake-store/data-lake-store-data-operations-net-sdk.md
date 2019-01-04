@@ -1,5 +1,5 @@
 ---
-title: '.NET SDK : opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1 | Microsoft Docs'
+title: 'Kit de développement logiciel (SDK) .NET : opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Utilisez le Kit de développement logiciel (SDK) .NET Azure Data Lake Storage Gen1 pour effectuer des opérations de gestion du système de fichiers sur Data Lake Storage Gen1, comme la création de dossiers, etc.
 services: data-lake-store
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 71ddbc2363075b721bfbd418bd29e5154baba866
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 57f4485e70bf91713539b3398fc93d6810c3c28e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391485"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163229"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1 à l’aide de .NET
 > [!div class="op_single_selector"]
@@ -146,7 +146,7 @@ L’extrait de code suivant permet de renvoyer les propriétés associées à un
     var directoryEntry = client.GetDirectoryEntry(fileName);
     PrintDirectoryEntry(directoryEntry);
 
-La définition de la méthode `PrintDirectoryEntry` n’est disponible que dans l’exemple [sur Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
+La définition de la méthode `PrintDirectoryEntry` n’est disponible que dans l’exemple [sur GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
 
 ## <a name="rename-a-file"></a>Renommer un fichier
 L’extrait de code suivant renomme un fichier existant dans un compte Data Lake Storage Gen1.
@@ -164,7 +164,7 @@ L’extrait de code suivant permet d’énumérer des répertoires dans un compt
         PrintDirectoryEntry(entry);
     }
 
-La définition de la méthode `PrintDirectoryEntry` n’est disponible que dans l’exemple [sur Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
+La définition de la méthode `PrintDirectoryEntry` n’est disponible que dans l’exemple [sur GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
 
 ## <a name="delete-directories-recursively"></a>Supprimer des répertoires de manière récursive
 L’extrait de code suivant permet de supprimer un répertoire et tous ses sous-répertoires de manière récursive.

@@ -1,12 +1,11 @@
 ---
-title: Capacité dédiée pour les travaux du service d’exécution de lot de machine learning - Azure Machine Learning Studio | Microsoft Docs
-description: Vue d’ensemble du service Azure Batch pour les travaux Machine Learning.
+title: Service Azure Batch pour les travaux Machine Learning Studio | Microsoft Docs
+description: Vue d’ensemble du service Azure Batch pour les travaux Machine Learning. Le traitement par pool Batch vous permet de créer des pools dans lesquels vous pouvez soumettre des programmes de traitement par lots.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.service: machine-learning
 ms.component: studio
@@ -15,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 13e9921b15faff10ac250aa7c19d655ada782ce2
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 44b63a51049e663e55cc59a623837cf65cab9ccc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308130"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275191"
 ---
-# <a name="azure-batch-service-for-machine-learning-jobs"></a>Service Azure Batch pour les travaux Machine Learning
+# <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Service Azure Batch pour les travaux Azure Machine Learning Studio
 
 Le traitement par pool Batch de Machine Learning utilise une échelle gérée par le client pour le service d’exécution de lot d’Azure Machine Learning. Le traitement par lots classique pour Machine Learning a lieu dans un environnement multi-clients, qui limite le nombre de travaux simultanés que vous pouvez soumettre. Les travaux sont mis en file d’attente d’après le principe premier entré, premier sorti. Cette incertitude signifie que vous ne pouvez pas prédire précisément à quel moment votre travail sera exécuté.
 

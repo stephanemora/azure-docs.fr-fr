@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7b460efbdc50c5b243c3ef78bad568b720e75e59
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: ffceb8fd6f1afcd054bfc4c4035fb2b8b93ed390
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635555"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720539"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Paramétrer les URL de redirection sur b2clogin.com pour Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ L’utilisation de b2clogin.com vous offre des avantages supplémentaires, tels 
 Tenez compte du fait que ces paramètres devront peut-être être modifiés lors de l’utilisation de b2clogin.com :
 
 - Paramétrez les URL de redirection dans vos applications de fournisseur d’identité de façon à utiliser b2clogin.com. 
-- Paramétrez votre application Azure AD B2C pour utiliser b2clogin.com pour les références de stratégie et les points de terminaison de jeton. 
+- Paramétrez votre application Azure AD B2C pour utiliser b2clogin.com pour les références de flux d’utilisateur et les points de terminaison de jeton. 
 - Si vous utilisez MSAL, vous devez définir la propriété **ValidateAuthority** sur `false`.
 - Veillez à remplacer les **origines autorisées** que vous avez définies dans les paramètres CORS de [personnalisation de l’interface utilisateur](active-directory-b2c-ui-customization-custom-dynamic.md).  
 
@@ -56,7 +56,7 @@ Vous trouverez des informations de configuration pour les fournisseurs d’ident
 
 ## <a name="update-your-application"></a>Mettre à jour votre application
 
-Votre application Azure AD B2C fait probablement référence à `login.microsoftonline.com` à plusieurs emplacements, par exemple au niveau des références de stratégie ou des points de terminaison de jeton.  Assurez-vous que votre point de terminaison d’autorisation, votre point de terminaison de jeton et votre émetteur ont été mis à jour pour utiliser `your-tenant-name.b2clogin.com`.  
+Votre application Azure AD B2C fait probablement référence à `login.microsoftonline.com` à plusieurs emplacements, par exemple au niveau des références de flux d’utilisateur ou des points de terminaison de jeton.  Assurez-vous que votre point de terminaison d’autorisation, votre point de terminaison de jeton et votre émetteur ont été mis à jour pour utiliser `your-tenant-name.b2clogin.com`.  
 
 ## <a name="set-the-validateauthority-property"></a>Définir la propriété ValidateAuthority
 

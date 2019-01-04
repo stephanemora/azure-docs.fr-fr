@@ -1,6 +1,6 @@
 ---
-title: Implémentation de la navigation à facettes dans Recherche Azure | Microsoft Docs
-description: Ajoutez la navigation à facettes aux applications qui s'intègrent à Azure Search, un service de recherche cloud hébergé sur Microsoft Azure.
+title: Implémentation de la navigation à facettes dans une hiérarchie de catégorie - Recherche Azure
+description: Ajoutez la navigation à facettes aux applications qui s'intègrent à Recherche Azure, un service de recherche cloud hébergé sur Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 3/10/2017
 ms.author: heidist
-ms.openlocfilehash: e00e875619e4ed6800f5739362ff0c52971f6f16
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: 337ee5259e980509c73099f0e3417bb31ec3276d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195292"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313936"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implémentation de la navigation à facettes dans Azure Search
 La navigation à facettes est un mécanisme de filtrage qui fournit une navigation autonome d'extraction dans les applications de recherche. Le terme « navigation à facettes » peut vous sembler peu familier, mais vous l’avez très certainement déjà utilisé. Comme l'indique l'exemple ci-dessous, la navigation à facettes correspond tout simplement aux catégories utilisées pour filtrer les résultats.
@@ -70,7 +71,7 @@ La précision, interprétée comme la possibilité de filtrer les résultats non
     La valeur de ce paramètre constitue l’expression de recherche. Il peut s'agir d'une portion de texte unique ou d'une expression de recherche complexe qui comprend plusieurs termes et opérateurs. Sur le serveur, une expression de recherche est utilisée pour la recherche en texte intégral. Elle interroge les champs pouvant faire l'objet d'une recherche dans l'index pour la correspondance des termes et renvoie les résultats classés. Si vous définissez `search` sur null, l'exécution de la requête est effectuée sur la totalité de l'index (c'est-à-dire, `search=*`). Dans ce cas, d’autres éléments de la requête, comme `$filter` ou un profil de score, sont les principaux facteurs qui influencent les documents renvoyés (`($filter`) ainsi que leur ordre (`scoringProfile` ou `$orderby`).
 
 -   **$filter =**  
-    Un filtre est un mécanisme puissant pour limiter la taille des résultats de la recherche basés sur les valeurs des attributs de document spécifiques. Un `$filter` est évalué en premier, suivi de la logique de facettes qui génère les valeurs disponibles et les décomptes correspondants pour chaque valeur
+     Un filtre est un mécanisme puissant pour limiter la taille des résultats de la recherche basés sur les valeurs des attributs de document spécifiques. Un `$filter` est évalué en premier, suivi de la logique de facettes qui génère les valeurs disponibles et les décomptes correspondants pour chaque valeur
 
 Les expressions de recherche complexes diminuent les performances de la requête. Si possible, utilisez des expressions de filtre bien construites pour accroître la précision et améliorer les performances de la requête.
 
@@ -269,11 +270,11 @@ Si vous générez dynamiquement la liste de facettes en fonction d’une entrée
 ### <a name="filtering-tips"></a>Conseils de filtrage
 **Augmenter la précision de la recherche avec des filtres**
 
-Utilisation de filtres. Si vous utilisez uniquement les expressions de recherche, la recherche de radical peut entraîner le renvoi d'un document qui ne contient pas la valeur de facette précise dans aucun de ses champs.
+ Utilisation de filtres. Si vous utilisez uniquement les expressions de recherche, la recherche de radical peut entraîner le renvoi d'un document qui ne contient pas la valeur de facette précise dans aucun de ses champs.
 
 **Augmenter les performances de recherche avec des filtres**
 
-Les filtres réduisent le jeu de documents candidats pour la recherche et les excluent du classement. Pour les grands jeux de documents, l’utilisation d’une exploration à facettes sélective offre souvent de meilleures performances.
+ Les filtres réduisent le jeu de documents candidats pour la recherche et les excluent du classement. Pour les grands jeux de documents, l’utilisation d’une exploration à facettes sélective offre souvent de meilleures performances.
   
 **Filtrer uniquement les champs à facettes**
 
@@ -306,9 +307,9 @@ Notez la différence entre les résultats de la recherche et les résultats de l
 * `@colorFacet.count`<br/>
   Dans le code de présentation, un paramètre de décompte doit s’afficher sur la facette. Il est utilisé pour afficher le nombre de résultats de la facette. Dans les résultats de la facette, le décompte indique le nombre de documents qui correspondent au terme ou à la plage de la facette.
 * `&facet=City,count:12`<br/>
-  Dans une requête de facette, vous pouvez définir le décompte sur une valeur.  La valeur par défaut est 10, mais vous pouvez définir une valeur supérieure ou inférieure. Le paramètre `count:12` renvoie les 12 premières correspondances dans les résultats de la facette selon le décompte de documents.
+   Dans une requête de facette, vous pouvez définir le décompte sur une valeur.  La valeur par défaut est 10, mais vous pouvez définir une valeur supérieure ou inférieure. Le paramètre `count:12` renvoie les 12 premières correspondances dans les résultats de la facette selon le décompte de documents.
 * "`@odata.count`"<br/>
-  Dans la réponse de la requête, cette valeur indique le nombre d'éléments correspondants dans les résultats de la recherche. En moyenne, il est supérieur à la somme de tous les résultats de la facette combinés, en raison de la présence d'éléments qui correspondent au terme de la recherche, mais sans correspondance avec la valeur de la facette.
+   Dans la réponse de la requête, cette valeur indique le nombre d'éléments correspondants dans les résultats de la recherche. En moyenne, il est supérieur à la somme de tous les résultats de la facette combinés, en raison de la présence d'éléments qui correspondent au terme de la recherche, mais sans correspondance avec la valeur de la facette.
 
 **Obtenir les décomptes dans les résultats de facettes**
 
@@ -334,11 +335,11 @@ L’utilisation de facettes sur des plages de valeurs est une condition d’appl
 
 Azure Search simplifie la création de plage en fournissant deux approches pour calculer une plage. Pour les deux approches, Azure Search crée les plages appropriées avec les entrées que vous avez fournies. Par exemple, si vous spécifiez des valeurs de plage de 10|20|30, Recherche Azure crée automatiquement les plages 0-10, 10-20, 20-30. Votre application peut éventuellement supprimer les intervalles vides. 
 
-**Approche 1 : utiliser le paramètre d’intervalle**  
+**Approche 1 : Utiliser le paramètre d’intervalle**  
 Pour définir les facettes de prix par incréments de 10 $, vous devez spécifier :`&facet=price,interval:10`
 
-**Approche 2 : utiliser une liste de valeurs**  
-Pour les données numériques, vous pouvez utiliser une liste de valeurs.  Prenez en compte la plage de facette pour un champ `listPrice`, indiquée comme suit :
+**Approche 2 : Utiliser une liste de valeurs**  
+ Pour les données numériques, vous pouvez utiliser une liste de valeurs.  Prenez en compte la plage de facette pour un champ `listPrice`, indiquée comme suit :
 
   ![Exemple de liste de valeurs][5]
 
@@ -400,7 +401,7 @@ Regardez la [Présentation approfondie de la Recherche Azure](http://channel9.ms
 Pour plus d'informations sur les principes de conception pour la navigation à facettes, nous vous recommandons les liens suivants :
 
 * [Conception pour la recherche à facettes](http://www.uie.com/articles/faceted_search/)
-* [Modèles de conception : navigation à facettes](http://alistapart.com/article/design-patterns-faceted-navigation)
+* [Modèles de conception : Navigation à facettes](http://alistapart.com/article/design-patterns-faceted-navigation)
 
 
 <!--Anchors-->

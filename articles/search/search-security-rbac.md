@@ -1,6 +1,6 @@
 ---
-title: Définir les rôles RBAC pour un accès administratif à Recherche Azure dans le portail | Microsoft Docs
-description: Contrôle administratif en fonction du rôle dans le Portail Azure.
+title: Définir les rôles RBAC pour un accès administratif à Azure dans le portail - Recherche Azure
+description: Contrôle d’accès en fonction du rôle (RBAC) sur le portail Azure pour le contrôle et la délégation de tâches d’administration dans le cadre de gestion de Recherche Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: heidist
-ms.openlocfilehash: 1a463c9eb52ffe2a667cdeace7478e67233a0806
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 38b8e8a0e413f367d34a4ccf5dbd87817891b8ea
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792924"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313018"
 ---
 # <a name="set-rbac-roles-for-administrative-access"></a>Définir des rôles RBAC pour l’accès des administrateurs
 

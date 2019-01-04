@@ -1,21 +1,22 @@
 ---
-title: Ajouter des intentions dans les applications LUIS
-titleSuffix: Azure Cognitive Services
+title: Ajouter des intentions
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Ajoutez des intentions à votre application LUIS pour identifier des groupes de questions ou de commandes qui ont les mêmes intentions.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.component: language-understanding
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 495b7e99319126b3ee9e655b2d9aa4af940e1d56
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3e6064b4c202c36e4b63d6e06edfbf3149f6665f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139911"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139855"
 ---
 # <a name="add-intents"></a>Ajouter des intentions 
 
@@ -27,11 +28,11 @@ Les intentions sont gérées à partir du volet gauche **Intents**, accessible e
 
 1. Connectez-vous au portail [LUIS](https://www.luis.ai).
 
-1. Sélectionnez **Create new app** (Créer une application). 
+1. Sélectionnez **Créer une application**. 
 
 1. Nommez la nouvelle application `MyHumanResourcesApp`. Sélectionnez la culture **English**. La description est facultative. 
 
-1. Sélectionnez **Done** (Terminé). 
+1. Sélectionnez **Terminé**. 
 
 ## <a name="add-intent"></a>Ajouter une intention
 
@@ -57,7 +58,7 @@ Les exemples d’énoncés sont des exemples de texte de questions ou de command
 
 Un énoncé dans une intention peut présenter une différence de prédiction d’intention entre l’intention sélectionnée et le score de prédiction. LUIS signale cette différence en entourant en rouge l’**intention étiquetée** sur la ligne de l’exemple d’énoncé. 
 
-![Capture d’écran de la page de détails Intents (Intentions), avec l’énoncé en surbrillance](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+![Capture d’écran de la page de détails Intents (Intentions), avec erreurs d’incohérence de prédiction d’énoncé](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
 
 Dans la barre de navigation supérieure, sélectionnez **Train** (Entraîner). La différence de prédiction a désormais disparu.
 
@@ -75,7 +76,7 @@ Une fois qu’un énoncé a été ajouté à une intention, vous pouvez sélecti
 
     ![Capture d’écran de la page de détails d’intention, avec création de nom d’entité personnalisée](./media/luis-how-to-add-intents/create-custom-entity-name.png) 
 
-1. Dans la fenêtre contextuelle **What type of entity do you want to create?** (Quel type d’entité voulez-vous créer ?) pour la création d’entité, vérifiez que le **nom de l’entité** est _Location_ et le **type de l’entité**  est _Simple_. Sélectionnez **Done**.
+1. Dans la fenêtre contextuelle **What type of entity do you want to create?** (Quel type d’entité voulez-vous créer ?) pour la création d’entité, vérifiez que le **nom de l’entité** est _Location_ et le **type de l’entité**  est _Simple_. Sélectionnez **Terminé**.
 
 ## <a name="entity-prediction-discrepancy-errors"></a>Erreurs de différence de prédiction d’entité 
 
@@ -106,11 +107,11 @@ Vous pouvez effectuer les actions suivantes en cliquant sur les points de suspen
 
 * Modifier : changer le texte de l’énoncé
 * Supprimer : supprimer l’énoncé de l’intention. Si vous souhaitez conserver l’énoncé, une meilleure méthode consiste à le déplacer vers l’intention **None** 
-* Ajouter un modèle : un modèle vous permet de prendre un énoncé courant et de marquer le texte remplaçable et le texte pouvant être ignoré, ce qui réduit le besoin d’énoncés supplémentaires dans l’intention 
+* Ajouter un modèle : un modèle vous permet de prendre un énoncé courant et de marquer le texte remplaçable et le texte pouvant être ignoré, ce qui réduit le besoin d’énoncés supplémentaires dans l’intention. 
 
 La colonne **Labeled intent** (Intention étiquetée) vous permet de changer l’intention de l’énoncé.
 
-## <a name="train-your-app-after-changing-model-with-intents"></a>Entraîner votre application après modification du modèle avec des intentions
+## <a name="train-your-app-after-changing-model-with-intents"></a>Former votre application après modification du modèle avec des intentions
 
 Après avoir ajouté, modifié ou supprimé des intentions, [entraînez](luis-how-to-train.md) et [publiez](luis-how-to-publish-app.md) votre application pour que vos modifications soient appliquées aux requêtes de point de terminaison. 
 

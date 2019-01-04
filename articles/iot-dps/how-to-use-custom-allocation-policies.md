@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: f2c9194b07774443a70eef8e879d895efeb338e9
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 0229b83a1b19e422954879ea9660373a34b18002
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458188"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340049"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Comment utiliser des stratégies d’allocation personnalisées
 
@@ -27,8 +27,8 @@ Par exemple, vous souhaitez peut-être examiner le certificat utilisé par un ap
 
 Cet article présente une stratégie d’allocation personnalisée qui utilise du code Azure Functions en C#. Deux nouveaux hubs IoT sont créés pour les divisions *Contoso Toasters Division* et *Contoso Heat Pumps Division*. Les appareils à provisionner doivent avoir un ID d’inscription contenant l’un des suffixes suivants pour être éligibles au provisionnement :
 
-- **-contoso-tstrsd-007** : Contoso Toasters Division
-- **-contoso-hpsd-088** : Contoso Heat Pumps Division
+- **-contoso-tstrsd-007** : Contoso Toasters Division
+- **-contoso-hpsd-088** : Contoso Heat Pumps Division
 
 Les appareils seront provisionnés sur la base de la présence d’un de ces suffixes obligatoires dans l’ID d’inscription. Ces appareils seront simulés à l’aide d’un exemple de provisionnement inclus dans le [SDK Azure IoT pour C](https://github.com/Azure/azure-iot-sdk-c). 
 
@@ -96,13 +96,13 @@ Dans cette section, vous allez créer un groupe d’inscriptions qui utilise la 
 
 3. Dans **Ajouter un groupe d’inscriptions**, entrez les informations suivantes, puis cliquez sur le bouton **Enregistrer**.
 
-    **Nom du groupe** : entrez **contoso-custom-allocated-devices**.
+    **Nom du groupe** : entrez **contoso-custom-allocated-devices**.
 
-    **Type d’attestation** : sélectionnez **Clé symétrique**.
+    **Type d’attestation** : sélectionnez **Clé symétrique**.
 
-    **Générer automatiquement les clés** : cette case est normalement déjà cochée.
+    **Générer automatiquement les clés** : cette case est normalement déjà cochée.
 
-    **Sélectionner le mode d’affectation des appareils aux hubs** : sélectionnez **Personnalisé (Utiliser Azure Functions)**.
+    **Sélectionner le mode d’affectation des appareils aux hubs** : sélectionnez **Personnalisé (utiliser la fonction Azure)**.
 
     ![Ajouter un groupe d’inscription d’allocation personnalisée pour l’attestation de clé symétrique](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
@@ -111,11 +111,11 @@ Dans cette section, vous allez créer un groupe d’inscriptions qui utilise la 
 
     Vous devez exécuter cette étape pour vos deux hubs IoT de division.
 
-    **Abonnement** : si vous avez plusieurs abonnements, sélectionnez celui où vous avez créé les hubs IoT des divisions.
+    **Abonnement**: si vous avez plusieurs abonnements, choisissez celui où vous avez créé les hubs IoT des divisions.
 
-    **Hub IoT** : sélectionnez un des hubs que vous avez créés pour les divisions.
+    **Hub IoT** : sélectionnez un des hubs que vous avez créés pour les divisions.
 
-    **Stratégie d’accès** : sélectionnez **iothubowner**.
+    **Stratégie d’accès** : choisissez **iothubowner**.
 
     ![Lier les hubs IoT des divisions au service de provisionnement](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
 
@@ -129,11 +129,11 @@ Dans cette section, vous allez créer un groupe d’inscriptions qui utilise la 
 
 7. Dans la page **Function App** qui s’ouvre, entrez les paramètres suivants pour votre nouvelle fonction et cliquez sur **Créer** :
 
-    **Nom de l’application** : entrez un nom unique pour votre application de fonction. **contoso-function-app-1098** est un exemple de nom.
+    **Nom de l’application** : entrez un nom unique pour votre application de fonction. **contoso-function-app-1098** est un exemple de nom.
 
-    **Groupe de ressources** : sélectionnez **Utiliser existant** et **contoso-us-resource-group** pour garder ensemble toutes les ressources créées dans cet article.
+    **Groupe de ressources** : sélectionnez **Utiliser existant** et **contoso-us-resource-group** pour conserver ensemble toutes les ressources créées dans cet article.
 
-    **Application Insights** : dans cet exercice, vous pouvez désactiver cette option.
+    **Application Insights** : dans cet exercice, vous pouvez désactiver cette option.
 
     ![Créer l’application de fonction](./media/how-to-use-custom-allocation-policies/function-app-create.png)
 
@@ -390,7 +390,7 @@ Cette section s’applique à une station de travail Windows. Pour obtenir un ex
 4. Exécutez la commande suivante qui génère une version du SDK propre à votre plateforme cliente de développement. Une solution Visual Studio pour l’appareil simulé est générée dans le répertoire `cmake`. 
 
     ```cmd
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
     Si `cmake` ne trouve pas votre compilateur C++, vous obtiendrez peut-être des erreurs de build lors de l’exécution de la commande ci-dessus. Si cela se produit, essayez d’exécuter cette commande dans [l’invite de commandes de Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -398,7 +398,7 @@ Cette section s’applique à une station de travail Windows. Pour obtenir un ex
     Une fois la génération terminée, les dernières lignes de sortie doivent ressembler à la sortie suivante :
 
     ```cmd/sh
-    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -449,20 +449,24 @@ Cet exemple de code simule une séquence de démarrage d’un appareil qui envoi
 
 6. Cliquez avec le bouton droit sur le projet **prov\_dev\_client\_sample** et sélectionnez **Définir comme projet de démarrage**. 
 
+
 #### <a name="simulate-the-contoso-toaster-device"></a>Simuler l’appareil Toaster de Contoso
 
-1. Dans la fenêtre *Explorateur de solutions* de Visual Studio, accédez au projet **hsm\_security\_client** et développez-le. Développez **Fichiers sources**, puis ouvrez **hsm\_client\_key.c**. 
-
-    Recherchez la déclaration des constantes `REGISTRATION_NAME` et `SYMMETRIC_KEY_VALUE`. Apportez les changements suivants au fichier, puis enregistrez-le.
-
-    Mettez à jour la valeur de la constante `REGISTRATION_NAME` avec l’ID d’inscription de l’appareil Toaster **breakroom499-contoso-tstrsd-007**.
-    
-    Mettez à jour la valeur de la constante `SYMMETRIC_KEY_VALUE` avec la clé d’appareil que vous avez générée pour l’appareil Toaster. La valeur **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** est uniquement donnée à titre d’exemple.
+1. Pour simuler le toaster, recherchez l’appel à `prov_dev_set_symmetric_key_info()` dans **prov\_dev\_client\_sample.c**, qui est placé en commentaire.
 
     ```c
-    static const char* const REGISTRATION_NAME = "breakroom499-contoso-tstrsd-007";
-    static const char* const SYMMETRIC_KEY_VALUE = "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
+
+    Décommentez l’appel de fonction et remplacez les valeurs des espaces réservés (y compris les crochets) par l’ID d’inscription du toaster et la clé d’appareil dérivée que vous avez générée précédemment. La valeur **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** est donnée seulement à titre d’exemple.
+
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("breakroom499-contoso-tstrsd-007", "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=");
+    ```
+   
+    Enregistrez le fichier .
 
 2. Dans le menu Visual Studio, sélectionnez **Déboguer** > **Exécuter sans débogage** pour exécuter la solution. Dans l’invite pour régénérer le projet, cliquez sur **Oui** pour régénérer le projet avant l’exécution.
 
@@ -485,20 +489,16 @@ Cet exemple de code simule une séquence de démarrage d’un appareil qui envoi
 
 #### <a name="simulate-the-contoso-heat-pump-device"></a>Simuler l’appareil Heat pump de Contoso
 
-1. Revenez dans la fenêtre *Explorateur de solutions* de Visual Studio, accédez au projet **hsm\_security\_client** et développez-le. Développez **Fichiers sources**, puis ouvrez **hsm\_client\_key.c**. 
-
-    Recherchez la déclaration des constantes `REGISTRATION_NAME` et `SYMMETRIC_KEY_VALUE`. Apportez les changements suivants au fichier, puis enregistrez-le.
-
-    Mettez à jour la valeur de la constante `REGISTRATION_NAME` avec l’ID d’inscription de l’appareil Heat pump **mainbuilding167-contoso-hpsd-088**.
-    
-    Mettez à jour la valeur de la constante `SYMMETRIC_KEY_VALUE` avec la clé d’appareil que vous avez générée pour l’appareil Toaster. La valeur **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** est uniquement donnée à titre d’exemple.
+1. Pour simuler l’appareil pompe à chaleur, mettez à jour l’appel à `prov_dev_set_symmetric_key_info()` dans **prov\_dev\_client\_sample.c** à nouveau avec l’ID d’inscription et la clé d’appareil dérivée de la pompe à chaleur générée précédemment. La valeur **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** est donnée seulement à titre d’exemple.
 
     ```c
-    static const char* const REGISTRATION_NAME = "mainbuilding167-contoso-hpsd-088";
-    static const char* const SYMMETRIC_KEY_VALUE = "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=";
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("mainbuilding167-contoso-hpsd-088", "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=");
     ```
+   
+    Enregistrez le fichier .
 
-7. Dans le menu Visual Studio, sélectionnez **Déboguer** > **Exécuter sans débogage** pour exécuter la solution. Dans l’invite pour régénérer le projet, cliquez sur **Oui** pour régénérer le projet avant l’exécution.
+2. Dans le menu Visual Studio, sélectionnez **Déboguer** > **Exécuter sans débogage** pour exécuter la solution. Dans l’invite pour régénérer le projet, cliquez sur **Oui** pour régénérer le projet avant l’exécution.
 
     La sortie suivante est un exemple illustrant le démarrage réussi de l’appareil Heat pump simulé, et sa connexion à l’instance du service Device Provisioning à assigner au hub IoT Heat pumps de Contoso à l’aide de la stratégie d’allocation personnalisée :
 
@@ -517,8 +517,6 @@ Cet exemple de code simule une séquence de démarrage d’un appareil qui envoi
     ```
 
 
-
-
 ## <a name="troubleshooting-custom-allocation-policies"></a>Résolution des problèmes liés aux stratégies d’allocation personnalisées
 
 Le tableau suivant présente les scénarios attendus et les codes d’erreur de résultats que vous pouvez rencontrer. Aidez-vous de ce tableau pour résoudre les problèmes de stratégie d’allocation personnalisée avec Azure Functions.
@@ -526,12 +524,12 @@ Le tableau suivant présente les scénarios attendus et les codes d’erreur de 
 
 | Scénario | Résultat de l’inscription retourné par le service Provisioning | Résultat du provisionnement retourné par le SDK |
 | -------- | --------------------------------------------- | ------------------------ |
-| Le webhook retourne 200 OK avec 'iotHubHostName' défini sur un nom d’hôte IoT Hub valide | État du résultat : Assigné  | Le SDK retourne PROV_DEVICE_RESULT_OK et des informations sur le hub |
-| Le webhook retourne 200 OK avec 'iotHubHostName' présent dans la réponse, mais défini sur une chaîne vide ou null | État du résultat : Échec<br><br> Code d’erreur : CustomAllocationIotHubNotSpecified (400208) | Le SDK retourne PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
-| Le webhook retourne 401 Unauthorized | État du résultat : Échec<br><br>Code d’erreur : CustomAllocationUnauthorizedAccess (400209) | Le SDK retourne PROV_DEVICE_RESULT_UNAUTHORIZED |
-| Une inscription individuelle a été créée pour désactiver l’appareil | État du résultat : Désactivé | Le SDK retourne PROV_DEVICE_RESULT_DISABLED |
-| Le webhook retourne le code d’erreur >= 429 | L’orchestration de DPS va effectuer plusieurs nouvelles tentatives. La stratégie de nouvelles tentatives est actuellement la suivante :<br><br>&nbsp;&nbsp;- Nombre de nouvelles tentatives : 10<br>&nbsp;&nbsp;- Intervalle initial : 1 s<br>&nbsp;&nbsp;- Incrément : 9 s | Le SDK ignore l’erreur et envoie un autre message d’état get dans le délai spécifié |
-| Le webhook retourne un autre code d’état | État du résultat : Échec<br><br>Code d’erreur : CustomAllocationFailed (400207) | Le SDK retourne PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
+| Le webhook retourne 200 OK avec 'iotHubHostName' défini sur un nom d’hôte IoT Hub valide | État du résultat : Attribué  | Le SDK retourne PROV_DEVICE_RESULT_OK et des informations sur le hub |
+| Le webhook retourne 200 OK avec 'iotHubHostName' présent dans la réponse, mais défini sur une chaîne vide ou null | État du résultat : Échec<br><br> Code d’erreur : CustomAllocationIotHubNotSpecified (400208) | Le SDK retourne PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
+| Le webhook retourne 401 Unauthorized | État du résultat : Échec<br><br>Code d’erreur : CustomAllocationUnauthorizedAccess (400209) | Le SDK retourne PROV_DEVICE_RESULT_UNAUTHORIZED |
+| Une inscription individuelle a été créée pour désactiver l’appareil | État du résultat : Désactivé | Le SDK retourne PROV_DEVICE_RESULT_DISABLED |
+| Le webhook retourne le code d’erreur >= 429 | L’orchestration de DPS va effectuer plusieurs nouvelles tentatives. La stratégie de nouvelles tentatives est actuellement la suivante :<br><br>&nbsp;&nbsp;- Nombre de nouvelles tentatives : 10<br>&nbsp;&nbsp;- Intervalle initial : 1 s<br>&nbsp;&nbsp;- Incrément : 9 s | Le SDK ignore l’erreur et envoie un autre message d’état get dans le délai spécifié |
+| Le webhook retourne un autre code d’état | État du résultat : Échec<br><br>Code d’erreur : CustomAllocationFailed (400207) | Le SDK retourne PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources

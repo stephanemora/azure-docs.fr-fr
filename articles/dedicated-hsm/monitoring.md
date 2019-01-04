@@ -1,22 +1,23 @@
 ---
-title: Supervision du HSM dédié Azure | Microsoft Docs
-description: Azure HSM dédié fournit des fonctionnalités de stockage de clés dans Azure qui répondent à la norme FIPS 140-2 de niveau 3.
+title: Options de supervision - HSM Azure dédié| Microsoft Docs
+description: Vue d’ensemble des options de supervision et responsabilités de supervision des HSM Azure dédiés
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 4e2089c62da5fec1e1cfe96ce27b363cfb35eadf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b577c2c68512c6e7e36f80b75245d9db4f839d9e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319218"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085686"
 ---
 # <a name="azure-dedicated-hsm-monitoring"></a>Supervision du HSM dédié
 

@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: a93d504af925c0082c1141c8f291c4325620428f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 67738a810968024e9006c142f5d8b1a975870c54
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632898"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436821"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Exécuter des travaux MapReduce avec le Kit de développement logiciel (SDK) .NET HDInsight
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
 Apprenez à envoyer des travaux MapReduce à l’aide du Kit de développement logiciel (SDK) .NET HDInsight. Les clusters HDInsight comportent un fichier jar qui contient des exemples MapReduce. Le fichier jar est le suivant : */example/jars/hadoop-mapreduce-examples.jar*.  Un des exemples est *wordcount*. Vous développez une application de console C# pour envoyer une tâche wordcount.  Le travail lit le fichier */example/data/gutenberg/davinci.txt* et renvoie les résultats vers */example/data/davinciwordcount*.  Si vous souhaitez réexécuter l’application, vous devez nettoyer le dossier de sortie.
 
-> [!NOTE]
+> [!NOTE]  
 > Les étapes décrites dans cet article doivent être effectuées à partir d'un client Windows. Pour plus d’informations sur l’utilisation d’un client Linux, OS X ou Unix pour utiliser Hive, utilisez le sélecteur d’onglet en haut de l’article.
 > 
 > 
@@ -29,7 +29,7 @@ Apprenez à envoyer des travaux MapReduce à l’aide du Kit de développement l
 ## <a name="prerequisites"></a>Prérequis
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
-* **Cluster Hadoop dans HDInsight**. Consultez [Prise en main de Hadoop sous Linux dans HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+* **Cluster Hadoop dans HDInsight**. Consultez [Bien démarrer avec Apache Hadoop Linux dans HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 * **Visual Studio 2013/2015/2017**.
 
 ## <a name="submit-mapreduce-jobs-using-hdinsight-net-sdk"></a>Envoi de tâches MapReduce avec le Kit de développement logiciel (SDK) .NET HDInsight
@@ -171,9 +171,9 @@ Lorsque la tâche se termine correctement, l’application imprime le contenu du
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
-* Pour soumettre un travail Hive, consultez [Exécuter des requêtes Hive avec le Kit de développement logiciel (SDK) .NET HDInsight](apache-hadoop-use-hive-dotnet-sdk.md).
-* Pour créer des clusters HDInsight, consultez [Création de clusters Hadoop basés sur Linux dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
-* Pour gérer des clusters HDInsight, consultez [Gestion de clusters Hadoop basés sur Linux dans HDInsight](../hdinsight-administer-use-portal-linux.md).
+* Pour envoyer un travail Hive, consultez [Exécuter des requêtes Apache Hive avec SDK .NET HDInsight](apache-hadoop-use-hive-dotnet-sdk.md).
+* Pour créer des clusters HDInsight, consultez [Créer des clusters Apache Hadoop Linux dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+* Pour gérer des clusters HDInsight, consultez [Gérer des clusters Apache Hadoop Linux dans HDInsight](../hdinsight-administer-use-portal-linux.md).
 * Pour découvrir le Kit de développement logiciel (SDK) .NET HDInsight, consultez [Référence du Kit de développement logiciel (SDK) .NET de HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
 * Pour l’authentification non interactive sur Azure, consultez [Créer des applications HDInsight .NET d’authentification non interactive](../hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Collecter les données à partir de CollectD dans OMS Log Analytics | Microsoft Docs
-description: CollectD est un démon Linux open source qui collecte périodiquement les données des applications et des informations de niveau système.  Cet article fournit des informations sur la collecte de données à partir de CollectD dans Log Analytics.
+title: Collecter les données à partir de CollectD dans Azure Monitor | Microsoft Docs
+description: CollectD est un démon Linux open source qui collecte périodiquement les données des applications et des informations de niveau système.  Cet article fournit des informations sur la collecte de données à partir de CollectD dans Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -8,22 +8,20 @@ manager: carmonm
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+ms.date: 11/27/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: b393fcefbc2de1941118d02a671e5696e1510fa2
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 72f47794d8798c6d4b7bcc1c75c3c6d4dc41e6a3
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336447"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434601"
 ---
-# <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Collecter des données à partir de CollectD sur les agents Linux dans Log Analytics
-[CollectD](https://collectd.org/) est un démon Linux open source qui collecte périodiquement des mesures de performances à partir d’applications et d’informations de niveau système. Les applications peuvent être, par exemple, la machine virtuelle Java (JVM), le serveur MySQL et Nginx. Cet article fournit des informations sur la collecte des données de performances à partir de CollectD dans Log Analytics.
+# <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Collecter des données à partir de CollectD sur les agents Linux dans Azure Monitor
+[CollectD](https://collectd.org/) est un démon Linux open source qui collecte périodiquement des mesures de performances à partir d’applications et d’informations de niveau système. Les applications peuvent être, par exemple, la machine virtuelle Java (JVM), le serveur MySQL et Nginx. Cet article fournit des informations sur la collecte des données de performances à partir de CollectD dans Azure Monitor.
 
 Vous trouverez la liste complète des plug-ins disponibles dans le [tableau de plug-ins](https://collectd.org/wiki/index.php/Table_of_Plugins).
 
@@ -59,7 +57,7 @@ La configuration CollectD utilise le plug-in par défaut `write_http` pour envoy
 > [!NOTE]
 > Ce port peut être configuré sur un port personnalisé, si nécessaire.
 
-L’agent Log Analytics pour Linux écoute également les mesures CollectD sur le port 26000 et les convertit ensuite en mesures de schéma Log Analytics. La configuration de l’agent Log Analytics pour Linux est la suivante : `collectd.conf`.
+L’agent Log Analytics pour Linux écoute également les métriques CollectD sur le port 26000 et les convertit ensuite en métriques de schéma Azure Monitor. La configuration de l’agent Log Analytics pour Linux est la suivante : `collectd.conf`.
 
     <source>
       type http
@@ -73,12 +71,12 @@ L’agent Log Analytics pour Linux écoute également les mesures CollectD sur l
 
 
 ## <a name="versions-supported"></a>Versions prises en charge
-- Log Analytics prend actuellement en charge la version 4.8 et les versions ultérieures de CollectD.
+- Azure Monitor prend actuellement en charge CollectD  version 4.8 et ultérieure.
 - L’agent Log Analytics pour Linux v1.1.0-217 ou version ultérieure est requis pour la collecte des mesures CollectD.
 
 
 ## <a name="configuration"></a>Configuration
-Les étapes de base pour configurer la collecte des données CollectD dans Log Analytics sont les suivantes.
+Les étapes de base pour configurer la collecte des données CollectD dans Azure Monitor sont les suivantes.
 
 1. Configurez CollectD pour qu’il envoie des données à l’agent Log Analytics pour Linux à l’aide du plug-in write_http.  
 2. Configurez l’agent Log Analytics pour Linux afin qu’il écoute les données CollectD sur le port approprié.
@@ -109,10 +107,10 @@ Les étapes de base pour configurer la collecte des données CollectD dans Log A
 
     sudo service collectd restart  sudo /opt/microsoft/omsagent/bin/service_control restart
 
-## <a name="collectd-metrics-to-log-analytics-schema-conversion"></a>Mesures CollectD pour la conversion de schéma Log Analytics
+## <a name="collectd-metrics-to-azure-monitor-schema-conversion"></a>Métriques CollectD pour la conversion de schéma Azure Monitor
 Pour conserver un modèle cohérent entre les mesures d’infrastructure déjà collectées par l’agent Log Analytics pour Linux et les nouvelles mesures collectées par CollectD, le mappage de schéma suivant est utilisé :
 
-| Champ Mesure CollectD | Champ Log Analytics |
+| Champ Mesure CollectD | Champ Azure Monitor |
 |:--|:--|
 | host | Ordinateur |
 | plugin | Aucun |
@@ -124,6 +122,5 @@ Pour conserver un modèle cohérent entre les mesures d’infrastructure déjà 
 | values[] | CounterValue |
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez les [recherches de journaux](../../log-analytics/log-analytics-queries.md) pour analyser les données collectées à partir de sources de données et de solutions. 
+* Découvrez les [requêtes dans les journaux](../../log-analytics/log-analytics-queries.md) pour analyser les données collectées à partir de sources de données et de solutions. 
 * Utilisez les [Champs personnalisés](../../log-analytics/log-analytics-custom-fields.md) pour analyser les données des enregistrements syslog dans des champs individuels.
-

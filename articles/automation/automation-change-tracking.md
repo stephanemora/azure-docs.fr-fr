@@ -10,12 +10,12 @@ ms.date: 10/12/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2678b9a1b80b1c9de6f1b554ce43bcd4f2dd5d50
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 27bacb12c66ac57a0bf1aea88a447d395b6dde8c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166999"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408916"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications
 
@@ -85,7 +85,7 @@ Utilisez les étapes ci-dessous pour configurer le suivi des fichiers sur des or
 |Récursivité     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
 |Utiliser sudo     | Ce paramètre détermine si sudo est utilisé lorsque vous vérifiez l’élément.         |
 |Liens     | Ce paramètre détermine le traitement des liens symboliques lorsque vous parcourez les répertoires.<br> **Ignorer** : ignore les liens symboliques et n’inclut pas les fichiers/répertoires référencés.<br>**Suivre** : suit les liens symboliques pendant les opérations de récursivité et inclut aussi les fichiers/répertoires référencés.<br>**Gérer** : suit les liens symboliques et autorise la modification du contenu retourné.     |
-|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
+|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
 
 > [!NOTE]
 > L’option permettant de « Gérer » les liens n’est pas recommandée. L’extraction du contenu du fichier n’est pas prise en charge.
@@ -105,7 +105,7 @@ Utilisez les étapes suivantes pour configurer le suivi des fichiers sur des ord
 |Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
 |Entrer le chemin     | Chemin d’accès pour rechercher le fichier. Exemple : « c:\temp\\\*.txt »<br>Vous pouvez également utiliser des variables d’environnement telles que « %winDir%\System32\\\*.* »       |
 |Récursivité     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
-|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
+|Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>Caractère générique, récursivité et paramètres d’environnement
 
@@ -135,7 +135,7 @@ Utilisez les étapes suivantes pour configurer le suivi des clés de Registre su
 |activé     | Détermine si le paramètre est appliqué.        |
 |Item Name     | Nom convivial du fichier à suivre.        |
 |Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
-|Clé de Registre Windows   | Chemin dans lequel rechercher le fichier. Exemple : « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup »      |
+|Clé de Registre Windows   | Chemin dans lequel rechercher le fichier. Par exemple :  « HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup »      |
 
 ## <a name="limitations"></a>Limites
 
@@ -167,10 +167,21 @@ Le tableau suivant indique la fréquence de collecte de données selon les types
 | Registre Windows | 50 minutes |
 | Fichier Windows | 30 minutes |
 | Fichier Linux | 15 minutes |
-| Services Windows | 10 secondes à 30 minutes</br> Par défaut : 30 minutes |
+| Services Windows | 10 secondes à 30 minutes</br> Valeur par défaut : 30 minutes |
 | Démons Linux | 5 minutes |
 | Logiciels Windows | 30 minutes |
 | Logiciels Linux | 5 minutes |
+
+Le tableau suivant montre les limites des éléments suivis par machine pour Change Tracking.
+
+| **Ressource** | **Limite**| **Remarques** |
+|---|---|---|
+|Fichier|500||
+|Registre|250||
+|Logiciels Windows|250|N’inclut pas les mises à jour logicielles|
+|Packages Linux|1250||
+|Services|250||
+|Daemon|250||
 
 ### <a name="windows-service-tracking"></a>Suivi du service Windows
 

@@ -10,25 +10,23 @@ ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: bbf38d17f2f411fde240a67f6666953b275fb788
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ec56e21a989fb0e8db7b8bafb1357c6ed64eae75
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637244"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192246"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Créer des vues personnalisées à l’aide du Concepteur de vues dans Log Analytics
-Grâce au Concepteur de vues d’[Azure Log Analytics](../../log-analytics/log-analytics-queries.md), vous pouvez créer plusieurs vues personnalisées dans le portail Azure qui peuvent vous aider à visualiser les données dans votre espace de travail Log Analytics. Cet article fournit une présentation du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
+Grâce au Concepteur de vues d’[Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md), vous pouvez créer plusieurs vues personnalisées dans le portail Azure qui peuvent vous aider à visualiser les données dans votre espace de travail Log Analytics. Cet article fournit une présentation du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
 
 Pour plus d’informations sur le Concepteur de vues, consultez :
 
-* [Référence de la vignette](view-designer-tiles.md) : fournit un guide de référence pour les paramètres de chacune des vignettes disponibles dans vos vues personnalisées.
-* [Référence des composants de visualisation](view-designer-parts.md) : fournit un guide de référence pour les paramètres des composants de visualisation disponibles dans vos vues personnalisées.
+* [Référence de vignette](view-designer-tiles.md) : guide de référence pour les paramètres de chacune des vignettes disponibles dans vos vues personnalisées.
+* [Référence des composants de visualisation](view-designer-parts.md) : guide de référence pour les paramètres des composants de visualisation disponibles dans vos vues personnalisées.
 
 
 ## <a name="concepts"></a>Concepts
@@ -42,7 +40,7 @@ Les vues que vous créez avec le Concepteur de vues contiennent les éléments d
 |:--- |:--- |
 | Vignettes | Affichées dans la page **Vue d’ensemble** de votre espace de travail Log Analytics. Chaque vignette affiche une synthèse visuelle de la vue personnalisée qu’elle représente. Chaque type de vignette fournit une visualisation différente de vos enregistrements. Vous sélectionnez une vignette pour afficher une vue personnalisée. |
 | Vue personnalisée | Affichée quand vous sélectionnez une vignette. Chaque vue contient un ou plusieurs composants de visualisation. |
-| Composants de visualisation | Présente une visualisation de données dans l’espace de travail Log Analytics en fonction d’une ou plusieurs [recherches dans les journaux](../../log-analytics/log-analytics-queries.md). La plupart des composants incluent un en-tête, qui fournit une visualisation d’ensemble, et une liste, qui montre les premiers résultats. Chaque type de composant produit différentes visualisations des enregistrements dans l’espace de travail Log Analytics. Vous sélectionnez des éléments dans le composant pour effectuer une recherche dans les journaux qui fournit des enregistrements détaillés. |
+| Composants de visualisation | Présente une visualisation de données dans l’espace de travail Log Analytics en fonction d’une ou plusieurs [recherches dans les journaux](../../azure-monitor/log-query/log-query-overview.md). La plupart des composants incluent un en-tête, qui fournit une visualisation d’ensemble, et une liste, qui montre les premiers résultats. Chaque type de composant produit différentes visualisations des enregistrements dans l’espace de travail Log Analytics. Vous sélectionnez des éléments dans le composant pour effectuer une recherche dans les journaux qui fournit des enregistrements détaillés. |
 
 
 ## <a name="work-with-an-existing-view"></a>Utiliser une vue existante
@@ -55,7 +53,7 @@ Les options sont décrites dans le tableau suivant :
 | Option | Description |
 |:--|:--|
 | Actualiser   | Actualise la vue avec les données les plus récentes. | 
-| Analytics | Ouvre le [portail Analytique avancée](../../log-analytics/log-analytics-log-search-portals.md) pour analyser des données avec des requêtes de journal. |
+| Analytics | Ouvre le [portail Analytique avancée](../../azure-monitor/log-query/portals.md) pour analyser des données avec des requêtes de journal. |
 | Modifier       | Ouvre la vue dans le Concepteur de vues pour modifier son contenu et sa configuration.  |
 | Cloner      | Crée une vue et l’ouvre dans le Concepteur de vues. Le nom de la nouvelle vue est identique à celui de la vue d’origine, avec le mot *Copy* ajouté à la fin. |
 | Plage de dates | Définissez un filtre de date et d’heure pour les données incluses dans la vue. Cette plage de dates est appliquée avant les plages de dates définies dans les requêtes dans la vue.  |
@@ -79,12 +77,12 @@ Le Concepteur de vues comporte trois volets :
 ![Concepteur de vues](media/view-designer/view-designer-screenshot.png)
 
 ### <a name="configure-the-view-tile"></a>Configurer la vignette de vue
-Un vue personnalisée ne peut avoir qu’une seule vignette. Pour afficher la vignette active ou en sélectionner une autre, dans le volet **Contrôle** sélectionnez l’onglet **Vignette**. Le volet **Propriétés** affiche les propriétés de la vignette active. 
+Une vue personnalisée ne peut avoir qu’une seule vignette. Pour afficher la vignette active ou en sélectionner une autre, dans le volet **Contrôle** sélectionnez l’onglet **Vignette**. Le volet **Propriétés** affiche les propriétés de la vignette active. 
 
 Vous pouvez configurer les propriétés de la vignette conformément aux informations fournies dans [Référence de la vignette](view-designer-tiles.md), puis cliquer sur **Appliquer** pour enregistrer les modifications.
 
 ### <a name="configure-the-visualization-parts"></a>Configurer les composants de visualisation
-Une vue peut inclure une nombre quelconque de composants de visualisation. Pour ajouter des composants à une vue, sélectionnez l’onglet **Vue**, puis sélectionnez un composant de visualisation. Le volet **Propriétés** affiche les propriétés du composant sélectionné. 
+Une vue peut inclure un nombre quelconque de composants de visualisation. Pour ajouter des composants à une vue, sélectionnez l’onglet **Vue**, puis sélectionnez un composant de visualisation. Le volet **Propriétés** affiche les propriétés du composant sélectionné. 
 
 Vous pouvez configurer les propriétés de la vue conformément aux informations fournies dans la [Référence du composant de visualisation](view-designer-parts.md), puis cliquer sur **Appliquer** pour enregistrer les modifications.
 

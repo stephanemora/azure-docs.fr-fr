@@ -1,19 +1,20 @@
 ---
-title: Résoudre les erreurs à l’aide de blueprints Azure
+title: Résolution des erreurs courantes
 description: Découvrez comment résoudre les problèmes de création et d’affectation des blueprints.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/25/2018
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b910f90e70af4ce6d4243c06bfe5bd03d25d74d6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 40668fed2fcc2a04e39fa3a4d7e8e8923c75ae05
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092932"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315520"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Résoudre les erreurs à l’aide de blueprints Azure
 
@@ -33,7 +34,7 @@ De nombreuses erreurs sont dues à l’affectation d’un blueprint à une éten
 
 Il est courant que l’erreur soit due à un artefact et non au blueprint lui-même. Si un artefact crée un coffre de clés, mais que la stratégie Azure empêche la création du coffre de clés, l’affectation entière échoue.
 
-## <a name="general-errors"></a>Erreurs générales
+## <a name="general-errors"></a>Erreurs générales.
 
 ### <a name="policy-violation"></a>Scénario : Violation de stratégie
 

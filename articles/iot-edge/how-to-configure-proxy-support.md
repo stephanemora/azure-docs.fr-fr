@@ -1,5 +1,5 @@
 ---
-title: Configurer des appareils Azure IoT Edge pour des proxys réseau | Microsoft Docs
+title: Configurer des appareils pour des proxys réseau - Azure IoT Edge | Microsoft Docs
 description: Découvrez comment configurer le runtime Azure IoT Edge et les modules IoT Edge accessibles sur Internet pour communiquer via un serveur proxy.
 author: kgremban
 manager: ''
@@ -8,12 +8,13 @@ ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 72855058c5e8294eece55f8dbcdc501025c9aabf
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.custom: seodec18
+ms.openlocfilehash: a7d32c98b77568e02fa14b70e969eeb254989062
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913221"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100448"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurer un appareil IoT Edge pour communiquer via un serveur proxy
 
@@ -103,7 +104,7 @@ Vérifiez que votre variable d’environnement a été créée et que la nouvell
 systemctl show --property=Environment iotedge
 ```
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 Ouvrez une fenêtre PowerShell en tant qu’administrateur et exécutez la commande suivante pour modifier le registre avec la nouvelle variable d’environnement. Remplacez **\<proxy url>** par l’adresse et le port de votre serveur proxy. 
 
@@ -173,7 +174,7 @@ Pour configurer les modules edgeAgent et edgeHub, sélectionnez **Configurer les
 
 Ajoutez la variable d’environnement **https_proxy** aux définitions des deux modules edgeAgent et edgeHub. Si vous avez inclus la variable d’environnement **UpstreamProtocol** dans le fichier config.yaml sur votre appareil IoT Edge, ajoutez-la également à la définition du module edgeAgent. 
 
-![Définition des variables d'environnement](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
+![Définir la variable d’environnement https_proxy](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 
 Tous les autres modules que vous ajoutez à un manifeste de déploiement suivent le même modèle. La page où vous définissez le nom et l’image du module contient une section de variables d’environnement.
 

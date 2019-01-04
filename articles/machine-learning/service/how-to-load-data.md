@@ -1,5 +1,6 @@
 ---
-title: Charger des données avec le kit SDK Azure Machine Learning Data Prep - Python
+title: 'Charge : Kit de développement logiciel (SDK) Python de préparation des données'
+titleSuffix: Azure Machine Learning service
 description: Découvrez comment charger des données avec le kit SDK Azure Machine Learning Data Prep. Vous pouvez charger les différents types de données d’entrée, spécifier les paramètres et types de fichiers de données ou utiliser la fonctionnalité de lecture intelligente du kit SDK pour détecter automatiquement le type de fichier.
 services: machine-learning
 ms.service: machine-learning
@@ -9,13 +10,14 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 11/20/2018
-ms.openlocfilehash: 208d6958b56dafbfacc45ecb05a71c14ac024ab4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 9d3b72e62c778d02b25b082643e0de4c6cc09a60
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309871"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190762"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Charger et lire des données avec Azure Machine Learning
 

@@ -1,5 +1,5 @@
 ---
-title: Bonnes pratiques pour la mise en forme de JSON dans les requêtes Azure Time Series Insights.
+title: JSON Azure Time Series Insights - Meilleures pratiques pour la mise en forme de JSON dans des requêtes Azure Time Series Insights | Microsoft Docs
 description: Découvrez comment améliorer l’efficacité de vos requêtes Azure Time Series Insights.
 services: time-series-insights
 author: ashannon7
@@ -8,12 +8,13 @@ ms.service: time-series-insights
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: anshan
-ms.openlocfilehash: b9d5e922a9a0a5f50e2ced896f5957fbc90d7eb4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: 284bbf435c7940658753e7bbf1daff00a79d57a1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364361"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273848"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>Guide pratique pour la mise en forme de JSON afin d’optimiser les performances des requêtes 
 
@@ -96,7 +97,7 @@ Table de données de référence (la propriété de clé est deviceId) :
 
 Table d’événements Time Series Insights (après l’aplanissement) :
 
-| deviceId | messageId | deviceLocation | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
+| deviceId | messageId | deviceLocation |  timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
 | --- | --- | --- | --- | --- | --- |
 | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
 | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
@@ -172,7 +173,7 @@ Données de référence (les propriétés de clé sont deviceId et series.tagId)
 
 Table d’événements Time Series Insights (après l’aplanissement) :
 
-| deviceId | series.tagId | messageId | deviceLocation | Type | unité | timestamp | series.value |
+| deviceId | series.tagId | messageId | deviceLocation | Type | unité |  timestamp | series.value |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | FXXX | pumpRate | LINE\_DATA | EU | Débit | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 |
 | FXXX | oilPressure | LINE\_DATA | EU | Pression d’huile moteur | psi | 2018-01-17T01:17:00Z | 34.7 |

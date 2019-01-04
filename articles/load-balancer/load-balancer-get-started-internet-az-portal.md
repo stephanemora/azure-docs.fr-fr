@@ -1,24 +1,26 @@
 ---
-title: Créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique redondant interzone à l’aide du portail Azure | Microsoft Docs
-description: Découvrez comment créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique redondant interzone à l’aide du portail Azure.
+title: Créer un équilibreur de charge standard avec un front-end redondant interzone en utilisant le portail Azure
+titlesuffix: Azure Load Balancer
+description: Découvrez comment créer un équilibreur de charge standard public avec un front-end d’adresse IP publique redondant interzone en utilisant le portail Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 70514433d11bbe7606d75a3e2c1f6dffc251621f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: fc5dcd76ca8ecfb820a8d157fee9cc0a92bd2d5b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740941"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135682"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique redondant interzone à l’aide du portail Azure
+#  <a name="create-a-public-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Créer un équilibreur de charge standard public avec un front-end redondant interzone en utilisant le portail Azure
 
 Cet article décrit les étapes de création d’une instance publique de [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) avec un frontend redondant interzone qui utilise une adresse IP publique Standard. Par défaut, une adresse IP de serveur frontal unique dans un équilibreur de charge standard est redondante interzone.
 

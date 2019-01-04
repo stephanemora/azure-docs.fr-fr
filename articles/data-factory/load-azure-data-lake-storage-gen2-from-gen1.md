@@ -9,18 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 953585ffcc5a40d9ae48055f68a1c1fa84db25cc
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 40cf8dcf6729d577c4fff694b0380833fccb142d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249330"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679356"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-preview-with-azure-data-factory"></a>Copier les données depuis Azure Data Lake Storage Gen1 vers Gen2 (Préversion) avec Azure Data Factory
 
-[Azure Data Lake Storage Gen2 (Préversion)](../storage/data-lake-storage/introduction.md) ajoute un protocole avec des fonctionnalités d’espace de noms et de sécurité d’un système de fichiers hiérarchique au Stockage Blob Azure, ce qui facilite la connexion de frameworks d’analytique à une couche de stockage durable. Dans Data Lake Storage Gen2 (Preview), toutes les qualités du stockage d’objets sont conservées, avec en plus les avantages d’une interface de système de fichiers.
+Azure Data Lake Storage Gen2 (préversion) est un ensemble de fonctionnalités dédié à l’analytique du Big Data, et intégré au [stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md). Il vous permet d’interagir avec vos données selon les deux paradigmes que sont le système de fichiers et le stockage d’objets.
 
 Si vous utilisez actuellement Azure Data Lake Storage Gen1, vous pouvez évaluer les nouvelles capacités de Gen2 en copiant les données à partir de Data Lake Storage Gen1 vers Gen2 avec Azure Data Factory.
 
@@ -32,9 +32,9 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Abonnement Azure : si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+* Abonnement Azure : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Compte Azure Data Lake Storage Gen1 contenant des données.
-* Compte Stockage Azure avec Data Lake Storage Gen2 activé : si vous n’avez pas de compte de stockage, cliquez sur [ici](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) pour en créer un.
+* Compte de stockage Azure avec Data Lake Storage Gen2 activé : Si vous n’avez pas de compte de stockage, cliquez [ici](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) pour en créer un.
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
@@ -45,11 +45,11 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
       
    ![Page Nouvelle fabrique de données](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
  
-    * **Nom** : saisissez un nom global unique pour votre fabrique de données Azure. Si l’erreur « Le nom de fabrique de données \"LoadADLSDemo\" n’est pas disponible » apparaît, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_**ADFTutorialDataFactory**. Essayez à nouveau de créer la fabrique de données. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
-    * **Abonnement** : sélectionnez l’abonnement Azure dans lequel créer la fabrique de données. 
-    * **Groupe de ressources** : sélectionnez un groupe de ressources existant dans la liste déroulante, ou sélectionnez l’option **Créer** et indiquez le nom d’un groupe de ressources. Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
-    * Pour **Version** : sélectionnez **V2**.
-    * **Emplacement** : sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données utilisés par la fabrique de données peuvent se trouver dans d’autres emplacements et régions. 
+    * **Nom** : Entrez un nom global unique pour votre fabrique de données Azure. Si l’erreur « Le nom de fabrique de données \"LoadADLSDemo\" n’est pas disponible » apparaît, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_**ADFTutorialDataFactory**. Essayez à nouveau de créer la fabrique de données. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
+    * **Abonnement**: Sélectionnez l’abonnement Azure dans lequel créer la fabrique de données. 
+    * **Groupe de ressources** : Sélectionnez un groupe de ressources existant dans la liste déroulante ou sélectionnez l’option **Créer** et entrez le nom d’un groupe de ressources. Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
+    * **Version** : Sélectionnez **V2**.
+    * **Emplacement** : Sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données utilisés par la fabrique de données peuvent se trouver dans d’autres emplacements et régions. 
 
 3. Sélectionnez **Créer**.
 4. Une fois la création terminée, accédez à votre fabrique de données. La page d’accueil **Data Factory** devrait s’afficher comme dans l’image suivante : 
@@ -75,17 +75,15 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
     ![Page de la banque de données sources d’Azure Data Lake Storage Gen1](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
     
 4. Dans la page **Spécifier la connexion Data Lake Storage Gen1**, effectuez les étapes suivantes :
-   1. Sélectionnez votre solution Data Lake Storage Gen1 pour le nom du compte.
-   2. Spécifiez ou validez le **Locataire**, puis sélectionnez Terminer.
-   3. Sélectionnez **Suivant**.
+   1. Sélectionnez votre Data Lake Storage Gen1 pour le nom du compte, puis spécifiez ou confirmez le **locataire**.
+   2. Cliquez sur **Tester la connexion** pour vérifier les paramètres, puis sélectionnez **Terminer**.
+   3. Vous voyez qu’une nouvelle connexion est créée. Sélectionnez **Suivant**.
    
    > [!IMPORTANT]
-   > Dans cette procédure pas à pas, vous utilisez une identité managée pour ressources Azure afin d’authentifier votre solution Data Lake Storage Gen1. Veillez à accorder au MSI les autorisations appropriées dans Azure Data Lake Storage Gen1, en suivant [ces instructions](connector-azure-data-lake-store.md#managed-identity).
+   > Dans cette procédure pas à pas, vous utilisez une identité managée pour des ressources Azure afin d’authentifier votre solution Data Lake Storage Gen1. Veillez à accorder au MSI les autorisations appropriées dans Azure Data Lake Storage Gen1, en suivant [ces instructions](connector-azure-data-lake-store.md#managed-identity).
    
    ![Indiquer un compte Azure Data Lake Storage Gen1](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
-   
-   4. Vous voyez qu’une nouvelle connexion est créée. Sélectionnez **Suivant**.
-   
+      
 5. Sur la page de **sélection du fichier ou dossier d’entrée**, accédez au dossier et au fichier sur lesquels effectuer la copie. Sélectionnez le dossier/fichier, puis sélectionnez **Choisir** :
 
     ![Choisir le fichier ou le dossier d’entrée](./media/load-azure-data-lake-storage-gen2-from-gen1/choose-input-folder.png)
@@ -101,7 +99,7 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 8. Dans la page **Spécifier la connexion Data Lake Storage Gen2**, effectuez les étapes suivantes :
 
    1. Sélectionnez votre compte activé pour Data Lake Storage Gen2 dans la liste déroulante « Nom du compte de stockage ».
-   2. Sélectionnez **Suivant**.
+   2. Sélectionnez **Terminer** pour créer la connexion. Sélectionnez ensuite **Suivant**.
    
    ![Indiquer un compte Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 

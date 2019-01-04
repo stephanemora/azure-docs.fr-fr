@@ -1,5 +1,5 @@
 ---
-title: Compétences prédéfinies pour l’extraction de données, le langage naturel et le traitement des images (Recherche Azure) | Microsoft Docs
+title: Extraction de données, langage naturel et traitement des images intégrés - Recherche Azure
 description: Les compétences cognitives pour l’extraction de données, le langage naturel et le traitement des images renforcent la sémantique et la structure du contenu brut dans un pipeline Recherche Azure.
 manager: pablocas
 author: luiscabrer
@@ -9,19 +9,22 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: c342eca8f27db713e139c187147abddd80eb854e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: bc1353ffb4514622ce0ef6e5c3ced76adc7f999f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734532"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314786"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Compétences prédéfinies pour l’enrichissement de contenu (Recherche Azure)
 
 Dans cet article, vous allez découvrir les compétences cognitives fournies avec Recherche Azure. Une *compétence cognitive* est une opération qui transforme du contenu d’une certaine façon. Souvent, il s’agit d’un composant qui extrait des données ou déduit une structure, renforçant ainsi notre compréhension des données d’entrée. Presque toujours, la sortie est basée sur du texte. Un *ensemble de compétences* est la collection des compétences qui définissent le pipeline d’enrichissement. 
 
 > [!NOTE]
-> La recherche cognitive est disponible en version préliminaire publique. L’exécution de l’ensemble de compétences ainsi que l’extraction et la normalisation d’images sont à l’heure actuelle proposées gratuitement. Le prix de ces fonctionnalités sera annoncé à une date ultérieure. 
+> À compter du 21 décembre 2018, vous pouvez associer une ressource Cognitive Services à un ensemble de qualifications Recherche Azure. Cela nous permet de commencer la facturation pour l’exécution des ensembles de qualifications. Ce jour-là, nous commencerons également à facturer l’extraction d’images dans le cadre de notre étape de décodage de documents. L’extraction de texte à partir de documents continuera d’être offerte sans frais supplémentaires.
+>
+> L’exécution des compétences intégrées sera facturée au prix actuel du [paiement à l’utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les tarifs de l’extraction d’images sont ceux de la préversion. Ils sont décrits dans la page [Tarification de Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400). En savoir [plus](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="predefined-skills"></a>Compétences prédéfinies
 
@@ -43,4 +46,4 @@ Diverses compétences sont flexibles du point de vue de ce qu’elles consomment
 
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
 + [Définition d’une interface de compétences personnalisée](cognitive-search-custom-skill-interface.md)
-+ [Tutoriel : indexation enrichie avec la recherche cognitive](cognitive-search-tutorial-blob.md)
++ [Tutoriel : Indexation enrichie avec la recherche cognitive](cognitive-search-tutorial-blob.md)

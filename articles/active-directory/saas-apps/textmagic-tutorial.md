@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec TextMagic | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory dans TextMagic | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et TextMagic.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 3e5b49d2-7096-46bc-a9ce-90e09177ba28
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 12/06/2018
 ms.author: jeedes
-ms.openlocfilehash: b8ffd732221604d55c65d4623de89f716bba49eb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5ab193d908063230946ebb2bb6320ab50bf14971
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427456"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014886"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Didacticiel : Intégration d’Azure Active Directory avec TextMagic
+# <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Didacticiel : Intégration d’Azure Active Directory dans TextMagic
 
 Ce didacticiel explique comment intégrer TextMagic avec Azure Active Directory (Azure AD).
 
@@ -32,7 +32,7 @@ L’intégration de TextMagic avec Azure AD offre les avantages suivants :
 - Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à TextMagic (via l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique auprès d’Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -50,12 +50,14 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
+
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de TextMagic à partir de la galerie
-1. Configuration et test de l’authentification unique Azure AD
+2. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-textmagic-from-the-gallery"></a>Ajout de TextMagic à partir de la galerie
+
 Pour configurer l’intégration de TextMagic avec Azure AD, vous devez ajouter TextMagic à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter TextMagic à partir de la galerie, procédez comme suit :**
@@ -64,15 +66,15 @@ Pour configurer l’intégration de TextMagic avec Azure AD, vous devez ajouter 
 
     ![Bouton Azure Active Directory][1]
 
-1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
     
-1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
 
-1. Dans la zone de recherche, tapez **TextMagic**, sélectionnez **TextMagic** dans le panneau des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **TextMagic**, sélectionnez **TextMagic** dans le panneau des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![TextMagic dans la liste des résultats](./media/textmagic-tutorial/tutorial_textmagic_addfromgallery.png)
 
@@ -82,17 +84,15 @@ Dans cette section, vous allez configurer et tester l’authentification unique 
 
 Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur TextMagic correspondant à un utilisateur dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et l’utilisateur TextMagic associé doit être établie.
 
-Dans TextMagic, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** pour établir la relation.
-
 Pour configurer et tester l’authentification unique Azure AD avec TextMagic, vous devez suivre les indications des sections suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Créer un utilisateur de test TextMagic](#create-a-textmagic-test-user)** pour avoir dans TextMagic un équivalent de Britta Simon lié à la représentation Azure AD associée.
-1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Création d’un utilisateur de test TextMagic](#creating-a-textmagic-test-user)** pour avoir dans TextMagic un équivalent de Britta Simon lié à la représentation Azure AD associée.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le nouveau portail Azure et configurer l’authentification unique dans votre application TextMagic.
 
@@ -102,150 +102,162 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Configurer l’authentification unique][4]
 
-1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
-    ![Boîte de dialogue Authentification unique](./media/textmagic-tutorial/tutorial_textmagic_samlbase.png)
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, cliquez sur **Sélectionner** pour le mode **SAML** afin d’activer l’authentification unique.
 
-1. Dans la section **Domaine et URL TextMagic**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP** :
+    ![Configurer l'authentification unique](common/tutorial_general_301.png)
+
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+
+    ![Configurer l'authentification unique](common/editconfigure.png)
+
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL TextMagic](./media/textmagic-tutorial/tutorial_textmagic_url.png)
 
     Dans la zone de texte **Identificateur**, tapez une URL : `https://my.textmagic.com/saml/metadata`
 
-1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de service**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
+5. L’application TextMagic attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur et revendications** dans la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur et revendications**.
 
-    ![Informations d’authentification unique dans Domaine et URL TextMagic](./media/textmagic-tutorial/url1.png)
+    ![image](./media/textmagic-tutorial/i4-attribute.png)
 
-    Dans la zone de texte **URL d’authentification**, tapez l’URL `https://my.textmagic.com/login/sso`
+6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur et revendications**, configurez le jeton SAML comme sur l’image ci-dessus, puis effectuez les étapes suivantes :
 
+    | NOM  | Attribut source  | Espace de noms |
+    | --------------- | --------------- | --------------- |
+    | société | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | firstName               | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | lastName            | user.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | phone               | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    
+    a. Cliquez sur l’**icône de modification** pour modifier la **valeur du nom d’identificateur** **user.userprincipalname** en **user.mail**.
 
-1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+    ![Attribut TextMagic](./media/textmagic-tutorial/tutorial_textmagic_email.png)
+
+    b. Cliquez sur **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
+
+    ![image](./common/new_save_attribute.png)
+
+    ![image](./common/new_attribute_details.png)
+
+    c. Dans la zone de texte **Nom**, indiquez le nom d’attribut pour cette ligne.
+
+    d. Entrez la valeur **Espace de noms**.
+
+    e. Sélectionnez Source comme **Attribut**.
+
+    f. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
+
+    g. Cliquez sur **OK**.
+
+    h. Cliquez sur **Enregistrer**. 
+
+7. Dans la page **Certificat de signature SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)**, puis enregistrez le fichier de certificat sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](./media/textmagic-tutorial/tutorial_textmagic_certificate.png) 
 
-1. Cliquez sur le bouton **Enregistrer** .
+8. Dans la section **Configurer TextMagic**, copiez l’URL appropriée en fonction de vos besoins.
 
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/textmagic-tutorial/tutorial_general_400.png)
-    
-1. Dans la section **TextMagic Configuration** (Configuration de TextMagic), cliquez sur **Configure TextMagic** (Configurer TextMagic) pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+    a. URL de connexion
 
-    ![Configuration de TextMagic](./media/textmagic-tutorial/tutorial_textmagic_configure.png) 
+    b. Identificateur Azure AD
 
-1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise TextMagic en tant qu’administrateur.
+    c. URL de déconnexion
 
-1. Sélectionnez **Paramètres du compte** sous le nom d’utilisateur.
+    ![Configuration de TextMagic](common/configuresection.png)
 
-    ![Configuration de TextMagic](./media/textmagic-tutorial/config1.png) 
-1. Cliquez sur l’onglet **Authentification unique (SSO)**, puis complétez les champs suivants :  
+9. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise TextMagic en tant qu’administrateur.
+
+10. Sélectionnez **Paramètres du compte** sous le nom d’utilisateur.
+
+    ![Configuration de TextMagic](./media/textmagic-tutorial/config1.png)
+
+11. Cliquez sur l’onglet **Authentification unique (SSO)**, puis complétez les champs suivants :  
     
     ![Configuration de TextMagic](./media/textmagic-tutorial/config2.png)
 
-    a. Dans la zone de texte **Identity Provider Entity ID** (ID d’entité du fournisseur d’identité), collez la valeur d’**ID d’entité SAML** copiée à partir du portail Azure.
+    a. Dans la zone de texte  **ID d’entité du fournisseur d’identité** , collez la valeur  **Identificateur Azure AD** copiée à partir du Portail Azure.
 
-    b. Dans la zone de texte **URL SSO du fournisseur d’identité**, collez la valeur **URL du service d’authentification unique** que vous avez copiée à partir du portail Azure.
+    b. Dans la zone de texte  **URL SSO du fournisseur d’identité** , collez la valeur  **URL de connexion** copiée à partir du Portail Azure.
 
-    c. Dans la zone de texte **URL SLO du fournisseur d’identité**, collez la valeur d’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
+    c. Dans la zone de texte  **URL SLO du fournisseur d’identité** , collez la valeur  **URL de déconnexion** copiée à partir du Portail Azure.
 
-    d. Ouvrez dans le Bloc-notes votre **certificat codé en base 64** téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat x509 public**.
+    d. Ouvrez dans le Bloc-notes votre **certificat codé en base 64** téléchargé à partir du Portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte  **Certificat x509 public** .
 
-    e. Cliquez sur **Enregistrer**.
-
-
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-   ![Créer un utilisateur de test Azure AD][100]
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+    ![Créer un utilisateur Azure AD][100]
 
-1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
+2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 
-    ![Bouton Azure Active Directory](./media/textmagic-tutorial/create_aaduser_01.png)
+    ![Création d’un utilisateur de test Azure AD](common/create_aaduser_01.png) 
 
-1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/textmagic-tutorial/create_aaduser_02.png)
+    ![Création d’un utilisateur de test Azure AD](common/create_aaduser_02.png)
 
-1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
+  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    Par exemple, BrittaSimon@contoso.com
 
-    ![Bouton Ajouter](./media/textmagic-tutorial/create_aaduser_03.png)
+    c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
-1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+    d. Sélectionnez **Créer**.
+  
+### <a name="creating-a-textmagic-test-user"></a>Création d’un utilisateur de test TextMagic
 
-    ![Boîte de dialogue Utilisateur](./media/textmagic-tutorial/create_aaduser_04.png)
-
-    a. Dans la zone **Nom**, tapez **BrittaSimon**.
-
-    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
-
-    d. Cliquez sur **Créer**.
- 
-### <a name="create-a-textmagic-test-user"></a>Créer un utilisateur de test TextMagic
-
-L’application prend en charge la configuration d’utilisateur juste à temps, et après authentification, les utilisateurs sont créés automatiquement dans l’application. Vous devez entrer les informations une seule fois lors de la première connexion pour activer le sous-compte dans le système.
+L’application prend en charge la **configuration d’utilisateur juste à temps**, et après authentification, les utilisateurs sont créés automatiquement dans l’application. Vous devez entrer les informations une seule fois lors de la première connexion pour activer le sous-compte dans le système.
 Vous n’avez aucune opération à effectuer dans cette section.
 
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à TextMagic.
 
-![Attribuer le rôle utilisateur][200] 
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
-**Pour affecter Britta Simon à TextMagic, procédez comme suit :**
+    ![Affecter des utilisateurs][201]
 
-1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+2. Dans la liste des applications, sélectionnez **TextMagic**.
 
-    ![Affecter des utilisateurs][201] 
+    ![Configurer l'authentification unique](./media/textmagic-tutorial/tutorial_textmagic_app.png) 
 
-1. Dans la liste des applications, sélectionnez **TextMagic**.
+3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
-    ![Lien TextMagic dans la liste des applications](./media/textmagic-tutorial/tutorial_textmagic_app.png)  
+    ![Affecter des utilisateurs][202]
 
-1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
-    ![Lien « Utilisateurs et groupes »][202]
+    ![Affecter des utilisateurs][203]
 
-1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-    ![Volet Ajouter une attribution][203]
+6. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez le bouton **Attribuer**.
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
-
-1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
-
-1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette TextMagic dans le panneau d’accès, vous devez être connecté automatiquement à votre application TextMagic.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
-
-
 <!--Image references-->
 
-[1]: ./media/textmagic-tutorial/tutorial_general_01.png
-[2]: ./media/textmagic-tutorial/tutorial_general_02.png
-[3]: ./media/textmagic-tutorial/tutorial_general_03.png
-[4]: ./media/textmagic-tutorial/tutorial_general_04.png
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
 
-[100]: ./media/textmagic-tutorial/tutorial_general_100.png
+[100]: common/tutorial_general_100.png
 
-[200]: ./media/textmagic-tutorial/tutorial_general_200.png
-[201]: ./media/textmagic-tutorial/tutorial_general_201.png
-[202]: ./media/textmagic-tutorial/tutorial_general_202.png
-[203]: ./media/textmagic-tutorial/tutorial_general_203.png
-
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png

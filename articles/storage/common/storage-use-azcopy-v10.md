@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.component: common
-ms.openlocfilehash: a1b183e5b0929a2149502aa340e2e69c725dba6d
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 2ab933506ea03ae72198113d70888460e5001a6d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49168225"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958409"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>Transférer des données avec AzCopy v10 (préversion)
 
@@ -84,6 +84,16 @@ Pour afficher la page d’aide et des exemples pour une commande spécifique, ex
 .\azcopy cp -h
 ```
 
+## <a name="create-a-file-system-azure-data-lake-storage-gen2-only"></a>Créer un système de fichiers (Azure Data Lake Storage Gen2 uniquement)
+
+Si vous avez activé des espaces de noms hiérarchiques sur votre compte de stockage d’objets blob, vous pouvez utiliser la commande suivante pour créer un système de fichiers où vous pourrez charger et télécharger des fichiers.
+
+```azcopy
+.\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name" --recursive=true
+```
+
+La partie ``account`` de cette chaîne est le nom de votre compte de stockage. La partie ``top-level-resource-name`` de cette chaîne est le nom du système de fichiers que vous souhaitez créer.
+
 ## <a name="copy-data-to-azure-storage"></a>Copier des données vers Stockage Azure
 
 Utilisez la commande copy pour transférer des données de la source à la destination. La source/destination peut être l’un des éléments suivants :
@@ -107,10 +117,22 @@ La commande suivante charge tous les fichiers sous le dossier C:\local\path de m
 .\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
 ```
 
+Si vous avez activé des espaces de noms hiérarchiques sur votre compte de stockage d’objets blob, vous pouvez utiliser la commande suivante pour charger des fichiers sur votre système de fichiers :
+
+```azcopy
+.\azcopy cp "C:\local\path" "https://myaccount.dfs.core.windows.net/myfolder<sastoken>" --recursive=true
+```
+
 La commande suivante charge tous les fichiers sous le dossier C:\local\path (sans traiter de manière récursive les sous-répertoires) sur le conteneur « mycontainer1 » :
 
 ```azcopy
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
+```
+
+Si vous avez activé des espaces de noms hiérarchiques sur votre compte de stockage d’objets blob, vous pouvez utiliser la commande suivante :
+
+```azcopy
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/myfolder<sastoken>"
 ```
 
 Pour obtenir d’autres exemples, utilisez la commande suivante :
@@ -127,6 +149,8 @@ Pour copier les données entre deux comptes de stockage, utilisez la commande su
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
+
+Pour utiliser des comptes de stockage d’objets blob avec espaces de noms hiérarchiques activés, remplacez la chaîne ``blob.core.windows.net`` par ``dfs.core.windows.net`` dans ces exemples.
 
 > [!NOTE]
 > La commande énumère tous les conteneurs d’objets blob et les copie dans le compte de destination. Pour l’instant, AzCopy v10 prend en charge la copie des objets blob de blocs entre deux comptes de stockage. Tous les autres objets de compte de stockage (objets blob d’ajout, objets blob de pages, fichiers, tables et files d’attente) sont ignorés.
@@ -154,6 +178,8 @@ De la même façon, vous pouvez synchroniser un conteneur d’objets blob vers u
 ```
 
 La commande vous permet de synchroniser de façon incrémentielle la source vers la destination en fonction des horodatages de dernière modification. Si vous ajoutez ou supprimez un fichier dans la source, AzCopy v10 fait de même dans la destination.
+
+[!NOTE] Pour utiliser des comptes de stockage d’objets blob avec espaces de noms hiérarchiques activés, remplacez la chaîne ``blob.core.windows.net`` par ``dfs.core.windows.net`` dans ces exemples.
 
 ## <a name="advanced-configuration"></a>Configuration avancée
 

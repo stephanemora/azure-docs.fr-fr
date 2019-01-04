@@ -2,50 +2,52 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: 9ad715f47f2de9c6f9032ed07232f45fb33b0114
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 0d9f0a24d84bd18bdf1fac84c744cc34a7d89ab3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133133"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742506"
 ---
-Si vous souhaitez activer la modification de profil dans votre application, vous utilisez une stratégie de **modification de profil**. Cette stratégie décrit les expériences clients lors de la modification du profil, ainsi que le contenu des jetons que l’application reçoit en cas d’opération réussie.
+Si vous souhaitez activer la modification de profil dans votre application, vous utilisez un flux utilisateur de **modification de profil**. Ce flux utilisateur décrit les expériences clients lors de la modification du profil, ainsi que le contenu des jetons que l’application reçoit en cas d’opération réussie.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Dans la section stratégie des paramètres, sélectionnez **Stratégies de modification de profil** et cliquez sur **+ Ajouter**.
+Sous **Gérer**, sélectionnez **Flux utilisateur** et cliquez sur +**Nouveau flux utilisateur**.
 
-![Sélectionnez les stratégies de modification de profil et cliquez sur le bouton Ajouter.](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-policy.png)
+![Sélectionnez Nouveau flux utilisateur](media/active-directory-b2c-create-profile-editing-policy/add-b2c-new-user-flow.png)
 
-Entrez un **Nom** de stratégie servant de référence pour votre application. Par exemple, entrez : `SiPe`.
+Sous l’onglet **Recommandé**, sélectionnez **Modification de profil**.
 
-Cliquez sur **Fournisseurs d’identité** et sélectionnez **Connexion du compte local**. Si vous le souhaitez, vous pouvez également sélectionner des fournisseurs d'identité sociaux, s'ils sont déjà configurés. Cliquez sur **OK**.
+Entrez un **Nom** de flux utilisateur servant de référence pour votre application. Par exemple, entrez : `SiPe`.
 
-![Sélectionnez la Connexion du compte local comme fournisseur d’identité et cliquez sur le bouton OK](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-identity-providers.png)
+Sous **Fournisseurs d’identité**, cochez **Connexion du compte local**. Si vous le souhaitez, vous pouvez également sélectionner des fournisseurs d'identité sociaux, s'ils sont déjà configurés.
 
-Cliquez sur **Attributs de profil**. Choisissez les attributs que le client peut afficher et modifier sur son profil. Par exemple, vérifiez **Pays/région**, **Nom d’affichage** et **Code postal**. Cliquez sur **OK**.
+![Sélectionnez la Connexion du compte local comme fournisseur d’identité et cliquez sur le bouton OK](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-identity-providers.png)
 
-![Sélectionnez certains attributs et cliquez sur le bouton OK](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-attributes.png)
+Sous **Attributs utilisateur**, cliquez sur **Afficher plus**. Dans la colonne **Collecter l'attribut**, choisissez les attributs que le client peut afficher et modifier sur son profil. Par exemple, vérifiez **Pays/région**, **Nom d’affichage** et **Code postal**.
 
-Cliquez sur **Revendications de l’application**. Choisissez les revendications à renvoyer à votre application dans les jetons d’authentification après une expérience de modification de profil réussie. Par exemple, sélectionnez **Nom d’affichage** et **Code postal**.
+Dans la colonne **Revendication de retour**, choisissez les revendications à renvoyer à votre application dans les jetons d’authentification après une expérience de modification de profil réussie. Par exemple, sélectionnez **Nom d’affichage** et **Code postal**.
 
-![Sélectionnez des revendications d’application et cliquez sur le bouton OK](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-application-claims.png)
+Cliquez sur **OK**.
 
-Cliquez sur **Créer** pour ajouter la stratégie. La stratégie est répertoriée en tant que **B2C_1_SiPe**. Le préfixe **B2C_1_** est ajouté au nom.
+![Sélectionnez des revendications d’application et cliquez sur le bouton OK](media/active-directory-b2c-create-profile-editing-policy/add-b2c-user-attributes.png)
 
-Ouvrez la stratégie en sélectionnant **B2C_1_SiPe**. Vérifiez les paramètres spécifiés dans la table, puis cliquez sur **Exécuter maintenant**.
+Cliquez sur **Créer** pour ajouter le flux utilisateur. Le flux utilisateur est répertorié en tant que **B2C_1_SiPe**. Le préfixe **B2C_1_** est ajouté au nom.
 
-![Sélectionner la stratégie et l’exécuter](media/active-directory-b2c-create-profile-editing-policy/run-b2c-editing-policy.png)
+Sélectionnez **Exécuter le flux utilisateur**. Vérifiez les paramètres spécifiés dans la table, puis cliquez sur **Exécuter le flux utilisateur**.
+
+![Sélectionnez le flux utilisateur et exécutez-le](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-run-user-flow.png)
 
 | Paramètre      | Valeur  |
 | ------------ | ------ |
-| **Applications** | Application de Contoso B2C |
-| **Sélectionner l’URL de réponse** | `https://localhost:44316/` |
+| **Application** | Application de Contoso B2C |
+| **URL de réponse** | `https://localhost:44316/` |
 
 Un nouvel onglet de navigateur s’ouvre et vous pouvez vérifier l’expérience du client consistant à modifier un profil telle qu’elle a été configurée.
 
 > [!NOTE]
-> La création de la stratégie et les mises à jour peuvent prendre jusqu’à une minute.
+> La création du flux utilisateur et les mises à jour peuvent prendre jusqu’à une minute.
 >

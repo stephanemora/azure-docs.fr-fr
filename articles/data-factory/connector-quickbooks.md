@@ -1,6 +1,6 @@
 ---
-title: Copier des données de QuickBooks à l’aide d’Azure Data Factory (préversion) | Microsoft Docs
-description: Découvrez comment copier des données de QuickBooks dans une banque de données réceptrice en utilisant une activité de copie dans un pipeline Azure Data Factory.
+title: Copier des données de QuickBooks Online à l’aide d’Azure Data Factory (préversion) | Microsoft Docs
+description: Découvrez comment copier des données de QuickBooks Online dans une banque de données réceptrice en utilisant une activité de copie dans un pipeline Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,25 +11,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 83e3007a7c3198c5ae37cf95d2b21cde88bd8210
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 51a48576b56413e0e779a49829a6eccaa0266a57
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127131"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076098"
 ---
-# <a name="copy-data-from-quickbooks-using-azure-data-factory-preview"></a>Copier des données de QuickBooks à l’aide d’Azure Data Factory (préversion)
+# <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Copier des données de QuickBooks Online à l’aide d’Azure Data Factory (préversion)
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de QuickBooks. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de QuickBooks Online. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 > [!IMPORTANT]
 > Ce connecteur est actuellement en préversion. Essayez-le et envoyez-nous vos commentaires. Si vous souhaitez établir une dépendance sur les connecteurs en préversion dans votre solution, veuillez contacter le [support Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
-Vous pouvez copier des données de QuickBooks dans une banque de données récepteur pris en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Vous pouvez copier des données de QuickBooks Online dans une banque de données réceptrice prise en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n’avez donc pas besoin d’installer manuellement un pilote à l’aide de ce connecteur.
 
@@ -47,9 +47,9 @@ Les propriétés prises en charge pour le service lié QuickBooks sont les suiva
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être **QuickBooks**. | Oui |
-| endpoint | Le point de terminaison du serveur QuickBooks. (À savoir, quickbooks.api.intuit.com.)  | Oui |
-| companyId | L’ID de la société QuickBooks à autoriser.  | Oui |
+| Type | La propriété type doit être définie sur : **QuickBooks** | Oui |
+| endpoint | Le point de terminaison du serveur QuickBooks Online. (À savoir, quickbooks.api.intuit.com.)  | Oui |
+| companyId | L’ID de la société QuickBooks à autoriser. Pour plus d’informations sur la recherche d’ID d’entreprise, consultez [Comment trouver mon ID d’entreprise ?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Oui |
 | consumerKey | Clé de consommateur pour l’authentification OAuth 1.0. | Oui |
 | consumerSecret | Secret du client pour l’authentification OAuth 1.0. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | accessToken | Le jeton d’accès pour l’authentification OAuth 1.0. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
@@ -89,8 +89,12 @@ Les propriétés prises en charge pour le service lié QuickBooks sont les suiva
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données QuickBooks.
 
-Pour copier des données de QuickBooks, affectez la valeur **QuickBooksObject** à la propriété type du jeu de données. Il n’y a aucune autre propriété propre au type dans cette sorte de jeu de données.
+Pour copier des données de QuickBooks Online, définissez la propriété de type du jeu de données sur **QuickBooksObject**. Les propriétés prises en charge sont les suivantes :
 
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| Type | La propriété type du jeu de données doit être définie sur : **QuickBooksObject** | Oui |
+| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 **Exemple**
 
 ```json
@@ -101,7 +105,8 @@ Pour copier des données de QuickBooks, affectez la valeur **QuickBooksObject** 
         "linkedServiceName": {
             "referenceName": "<QuickBooks linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -110,14 +115,14 @@ Pour copier des données de QuickBooks, affectez la valeur **QuickBooksObject** 
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Pipelines](concepts-pipelines-activities.md). Cette section fournit la liste des propriétés prises en charge par la source QuickBooks.
 
-### <a name="quickbookssource-as-source"></a>QuickBooksSource comme source
+### <a name="quickbooks-as-source"></a>QuickBooks en tant que source
 
-Pour copier des données de QuickBooks, définissez le type de source **DynamicsSource** dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
+Pour copier des données de QuickBooks Online, définissez le type de source dans l’activité de copie sur **DynamicsSource**. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type de la source de l’activité de copie doit être **QuickBooksSource**. | Oui |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM "Bill" WHERE Id = '123'"`. | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **QuickBooksSource** | Oui |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
 
@@ -150,6 +155,9 @@ Pour copier des données de QuickBooks, définissez le type de source **Dynamics
     }
 ]
 ```
+## <a name="copy-data-from-quickbooks-desktop"></a>Copier des données à partir de QuickBooks Desktop
+
+L’activité de copie dans Azure Data Factory ne permet pas de copier des données directement depuis Quickbooks Desktop. Pour copier des données de Quickbooks Desktop, exportez vos données Quickbooks dans un fichier CSV (valeurs séparées par des virgules), puis chargez le fichier vers le stockage Blob Azure. À partir de là, vous pouvez utiliser Data Factory pour copier les données vers le récepteur de votre choix.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

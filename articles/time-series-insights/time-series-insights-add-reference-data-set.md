@@ -1,5 +1,5 @@
 ---
-title: Guide d’ajout d’un jeu de données de référence à votre environnement Azure Time Series Insights
+title: Données de référence Azure Time Series Insights – Ajouter un jeu de données de référence à votre environnement Azure Time Series Insights | Microsoft Docs
 description: Cet article décrit comment ajouter un jeu de données de référence pour augmenter le volume de données dans votre environnement Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: 45520a556d109158987dd47e33a1efb52a1cd356
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: de5f4735e7dde7a3e631d14c83d42ccb9fd5c9db
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364735"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273831"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Créer un jeu de données de référence pour votre environnement Time Series Insights à l’aide du portail Azure
 
@@ -59,9 +60,9 @@ Les données de référence ne sont pas jointes rétroactivement. Cela signifie 
    - Collez les données dans l’éditeur de texte. Ensuite, cliquez sur le bouton **Analyser les données de référence**.
    - Cliquez sur le bouton **Choisir un fichier** pour ajouter des données à partir d’un fichier texte local. 
 
-   Par exemple, collez des données CSV : ![Données CSV collées](media/add-reference-data-set/csv_data_pasted.png)
+   Par exemple, collez des données CSV : ![Données CSV collées](media/add-reference-data-set/csv_data_pasted.png)
 
-   Par exemple, collez des données de tableau JSON : ![Coller des données JSON](media/add-reference-data-set/json_data_pasted.png)
+   Par exemple, collez les données d’un tableau JSON : ![Données JSON collées](media/add-reference-data-set/json_data_pasted.png)
 
    En cas d’erreur lors de l’analyse des valeurs de données, l’erreur s’affiche en rouge au bas de la page : `CSV parsing error, no rows extracted`.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: cb8644ea4d949e81e4fb68bf572956bfe3444c0c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 04ed8e0e99f0aba4ca067700f8a651b6d6c52423
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997894"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727475"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Créer une homologation de réseaux virtuels - Resource Manager - Abonnements différents
 
@@ -52,13 +52,13 @@ Les étapes suivantes utilisent des comptes différents pour chaque abonnement. 
     - **Nom** : *myVnetA*
     - **Espace d’adressage** : *10.0.0.0/16*
     - **Nom du sous-réseau** : *par défaut*
-    - **Espace d’adressage de sous-réseau** : *10.0.0.0/24*
-    - **Abonnement :** sélectionnez l’abonnement A.
-    - **Groupe de ressources** : sélectionnez **Créer** et entrez *myResourceGroupA*
-    - **Emplacement** : *États-Unis de l’Est*
+    - **Plage d’adresses de sous-réseau** : *10.0.0.0/24*
+    - **Abonnement**: sélectionnez l’abonnement A.
+    - **Groupe de ressources** : sélectionnez **Créer** et entrez *myResourceGroupA*.
+    - **Emplacement** : *USA Est*
 4. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetA*. Quand **myVnetA** apparaît dans les résultats de la recherche, sélectionnez cette entrée. 
 5. Dans la liste verticale d’options située à gauche, sélectionnez **Contrôle d’accès (IAM)**.
-6. Sous **myVnetA - Contrôle d’accès (IAM)**, sélectionnez **+ Ajouter**.
+6. Sous **myVnetA - Contrôle d’accès (IAM)**, sélectionnez **+ Ajouter une attribution de rôle**.
 7. Dans la zone **Rôle**, sélectionnez **Contributeur de réseaux**.
 8. Dans la zone **Sélectionner**, sélectionnez *UserB* ou tapez l’adresse e-mail de UserB pour rechercher cet utilisateur.
 9. Sélectionnez **Enregistrer**.
@@ -69,10 +69,10 @@ Les étapes suivantes utilisent des comptes différents pour chaque abonnement. 
     - **Nom** : *myVnetB*
     - **Espace d’adressage** : *10.1.0.0/16*
     - **Nom du sous-réseau** : *par défaut*
-    - **Espace d’adressage de sous-réseau** : *10.1.0.0/24*
-    - **Abonnement :** sélectionnez l’abonnement B.
-    - **Groupe de ressources** : sélectionnez **Créer** et entrez *myResourceGroupB*
-    - **Emplacement** : *États-Unis de l’Est*
+    - **Plage d’adresses de sous-réseau** : *10.1.0.0/24*
+    - **Abonnement**: sélectionnez l’abonnement B.
+    - **Groupe de ressources** : sélectionnez **Créer** et entrez *myResourceGroupB*.
+    - **Emplacement** : *USA Est*
 
 13. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetB*. Quand **myVnetB** apparaît dans les résultats de recherche, sélectionnez cette entrée.
 14. Sous **myVnetB**, sélectionnez **Propriétés** dans la liste verticale d’options située à gauche. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de ressource est similaire à l’exemple suivant : /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
@@ -84,10 +84,10 @@ Les étapes suivantes utilisent des comptes différents pour chaque abonnement. 
 20. Sous **myVnetA - Homologations**, sélectionnez **+ Ajouter**.
 21. Sous **Ajouter l’homologation**, entrez ou sélectionnez les options suivantes, puis sélectionnez **OK** :
      - **Nom** : *myVnetAToMyVnetB*
-     - **Modèle de déploiement de réseau virtuel** : sélectionnez **Resource Manager**.
+     - **Modèle de déploiement de réseau virtuel** :  Sélectionnez **Gestionnaire des ressources**.
      - **Je connais mon ID de ressource** : cochez cette case.
      - **ID de ressource** : entrez l’ID de ressource noté à l’étape 14.
-     - **Autoriser l’accès au réseau virtuel :** vérifiez que l’option **Activé** est sélectionnée.
+     - **Autoriser l’accès au réseau virtuel** : vérifiez que **Activé** est sélectionné.
     Il n’y aucun autre paramètre utilisé dans ce didacticiel. Pour en savoir plus sur tous les paramètres d’homologation, consultez [Create, change, or delete a virtual network peering](virtual-network-manage-peering.md#create-a-peering) (Créer, modifier ou supprimer une homologation de réseaux virtuels).
 22. L’homologation créée s’affiche quelques instants après que vous avez sélectionné **OK** à l’étape précédente. **Lancé** est indiqué dans la colonne **ÉTAT D’APPAIRAGE** pour l’homologation **myVnetAToMyVnetB** que vous avez créée. Vous avez homologué myVnetA à myVnetB, mais vous devez maintenant homologuer myVnetB à myVnetA. L’homologation doit être créée dans les deux directions pour permettre aux ressources des réseaux virtuels de communiquer entre elles.
 23. Déconnectez-vous du portail en tant que UserA, puis connectez-vous en tant que UserB.
@@ -95,8 +95,8 @@ Les étapes suivantes utilisent des comptes différents pour chaque abonnement. 
 25. Quelques secondes après que vous avez sélectionné **OK** pour créer l’homologation pour myVnetB, l’homologation **myVnetBToMyVnetA** que vous venez de créer est répertoriée avec **Connecté** dans la colonne **ÉTAT D’APPAIRAGE**.
 26. Déconnectez-vous du portail en tant que UserB, puis connectez-vous en tant que UserA.
 27. Répétez les étapes 17-19. L’**ÉTAT D’APPAIRAGE** pour l’homologation **myVnetAToVNetB** est maintenant également défini sur **Connecté**. L’homologation est établie avec succès une fois que vous voyez **Connecté** dans la colonne **ÉTAT D’APPAIRAGE** pour les deux réseaux virtuels de l’homologation. Les ressources Azure que vous créez dans un réseau virtuel sont désormais en mesure de communiquer entre elles via leurs adresses IP. Si vous utilisez la résolution de noms Azure par défaut pour les réseaux virtuels, les ressources dans les réseaux virtuels ne sont pas en mesure de résoudre les noms dans les réseaux virtuels. Si vous souhaitez résoudre les noms dans les réseaux virtuels d’une homologation, vous devez créer votre propre serveur DNS. Apprenez à configurer la [résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
-28. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce didacticiel, vous pouvez créer une machine virtuelle dans chaque réseau virtuel et vous connecter d’une machine virtuelle à l’autre pour valider la connectivité.
-29. **Facultatif :** pour supprimer les ressources créées dans ce didacticiel, procédez de la manière décrite dans la section [Supprimer des ressources](#delete-portal) de cet article.
+28. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce tutoriel, vous pouvez créer une machine virtuelle sur chaque réseau virtuel et vous connecter d’une machine virtuelle à l’autre pour valider la connectivité.
+29. **Facultatif** : pour supprimer les ressources créées dans ce tutoriel, effectuez les étapes décrites dans la section [Supprimer des ressources](#delete-portal) de cet article.
 
 ## <a name="cli"></a>Créer une homologation - interface de ligne de commande Azure
 
@@ -173,8 +173,8 @@ Au lieu d’installer l’interface CLI et ses dépendances, vous pouvez utilise
     > [!NOTE]
     > L’homologation n’est pas établie tant que l’état d’homologation n’est pas **Connecté** pour les deux réseaux virtuels.
 
-11. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce didacticiel, vous pouvez créer une machine virtuelle dans chaque réseau virtuel et vous connecter d’une machine virtuelle à l’autre pour valider la connectivité.
-12. **Facultatif :** pour supprimer les ressources créées dans ce didacticiel, procédez de la manière décrite dans la section [Supprimer des ressources](#delete-cli) de cet article.
+11. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce tutoriel, vous pouvez créer une machine virtuelle sur chaque réseau virtuel et vous connecter d’une machine virtuelle à l’autre pour valider la connectivité.
+12. **Facultatif** : pour supprimer les ressources créées dans ce tutoriel, effectuez les étapes décrites dans la section [Supprimer des ressources](#delete-cli) de cet article.
 
 Les ressources Azure que vous créez dans un réseau virtuel sont désormais en mesure de communiquer entre elles via leurs adresses IP. Si vous utilisez la résolution de noms Azure par défaut pour les réseaux virtuels, les ressources dans les réseaux virtuels ne sont pas en mesure de résoudre les noms dans les réseaux virtuels. Si vous souhaitez résoudre les noms dans les réseaux virtuels d’une homologation, vous devez créer votre propre serveur DNS. Apprenez à configurer la [résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
  
@@ -243,8 +243,8 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
 
     Les ressources Azure que vous créez dans un réseau virtuel sont désormais en mesure de communiquer entre elles via leurs adresses IP. Si vous utilisez la résolution de noms Azure par défaut pour les réseaux virtuels, les ressources dans les réseaux virtuels ne sont pas en mesure de résoudre les noms dans les réseaux virtuels. Si vous souhaitez résoudre les noms dans les réseaux virtuels d’une homologation, vous devez créer votre propre serveur DNS. Apprenez à configurer la [résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
-13. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce didacticiel, vous pouvez créer une machine virtuelle dans chaque réseau virtuel et vous connecter d’une machine virtuelle à l’autre pour valider la connectivité.
-14. **Facultatif :** pour supprimer les ressources créées dans ce didacticiel, procédez de la manière décrite dans la section [Supprimer des ressources](#delete-powershell) de cet article.
+13. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce tutoriel, vous pouvez créer une machine virtuelle sur chaque réseau virtuel et vous connecter d’une machine virtuelle à l’autre pour valider la connectivité.
+14. **Facultatif** : pour supprimer les ressources créées dans ce tutoriel, effectuez les étapes décrites dans la section [Supprimer des ressources](#delete-powershell) de cet article.
 
 ## <a name="template"></a>Créer une homologation - modèle Resource Manager
 
@@ -285,11 +285,11 @@ Si les réseaux virtuels se trouvent dans des abonnements différents et que les
 
 3. Connectez-vous à Azure en tant qu’UtilisateurA et déployez le modèle à l’aide de [portail](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-a-template-from-your-local-machine) ou [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Spécifiez le nom de fichier dans lequel vous avez enregistré l’exemple de texte json à l’étape 2.
 4. Copiez l’exemple json de l’étape 2 dans un fichier sur votre ordinateur et apporter des modifications pour les lignes qui commencent par :
-    - **nom** : modifiez *myVnetA/myVnetAToMyVnetB* par *myVnetB/myVnetBToMyVnetA*.
-    - **ID** : remplacez `<subscription ID>` avec l’ID d’abonnement UtilisateurB et modifiez *myVnetB* par *myVnetA*.
+    - **nom** : remplacez *myVnetA/myVnetAToMyVnetB* par *myVnetB/myVnetBToMyVnetA*.
+    - **ID** : remplacez `<subscription ID>` par l’ID d’abonnement de UserB et remplacez *myVnetB* par *myVnetA*.
 5. Effectuez l’étape 3 à nouveau, connecté à Azure en tant qu’UtilisateurB.
-6. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce didacticiel, vous pouvez créer une machine virtuelle dans chaque réseau virtuel et vous connecter d’une machine virtuelle à l’autre pour valider la connectivité.
-7. **Facultatif :** pour supprimer les ressources créées dans ce didacticiel, procédez de la manière décrite dans la section [Supprimer des ressources](#delete) de cet article, soit avec le portail Azure, PowerShell ou l’interface de ligne de commande Azure.
+6. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce tutoriel, vous pouvez créer une machine virtuelle sur chaque réseau virtuel et vous connecter d’une machine virtuelle à l’autre pour valider la connectivité.
+7. **Facultatif** : pour supprimer les ressources créées dans ce tutoriel, effectuez les étapes décrites dans la section [Supprimer des ressources](#delete) de cet article avec le portail Azure, PowerShell ou Azure CLI.
 
 ## <a name="delete"></a>Supprimer des ressources
 Lorsque vous aurez terminé ce didacticiel, vous souhaiterez peut-être supprimer les ressources que vous avez créées, afin que leur utilisation ne soit pas facturée. La suppression d’un groupe de ressources supprime également toutes les ressources qu’il contient.

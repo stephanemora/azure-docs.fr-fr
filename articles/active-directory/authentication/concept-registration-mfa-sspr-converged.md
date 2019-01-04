@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 12/10/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 44a5b32b68b0365e957d97a516f0d767e6501c0f
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: dbced5cfa2a47dc2fdcf630d62104bb7ba8e7bc0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630322"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186648"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Inscription convergée pour la réinitialisation de mot de passe en libre-service et l’authentification multifacteur Azure (préversion publique)
 
@@ -74,6 +74,8 @@ Sur cette page, les utilisateurs peuvent voir les méthodes d’authentification
 Les journaux d’audit de cette nouvelle expérience existent sous la catégorie Méthodes d’authentification du journal d’audit.  
 
 ## <a name="known-issues"></a>Problèmes connus
+
+Nous avons identifié un bogue avec l’inscription convergée. Les utilisateurs invités B2B qui sont activés pour l’inscription convergée ne peuvent pas s’enregistrer pour l’authentification multifacteur. Quand ils sont dirigés vers la page d’inscription, la page rencontre une erreur. Nos développeurs sont conscients de ce problème et travaillent à sa résolution. Pour l’instant, nous vous recommandons de créer un groupe et d’exclure tous les utilisateurs B2B de ce groupe.
 
 **La méthode MFA par défaut est définie sur « Appel téléphonique » lorsqu’un utilisateur a inscrit un numéro de téléphone à l’aide d’un SMS**
 

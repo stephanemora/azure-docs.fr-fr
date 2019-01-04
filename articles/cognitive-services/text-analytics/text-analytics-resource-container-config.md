@@ -1,21 +1,22 @@
 ---
 title: Configurer des conteneurs
-titlesuffix: Text Analytics - Cognitive Services - Azure
-description: Paramètres de configuration des conteneurs Analyse de texte.
+titlesuffix: Text Analytics - Azure Cognitive Services
+description: Analyse de texte fournit pour chaque conteneur une infrastructure de configuration commune qui vous permettre de configurer et de gérer facilement les paramètres de stockage, de journalisation, de télémétrie et de sécurité de vos conteneurs.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 0f6b8fa27d2db45be2c677a52c53cff5847acf4a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 7e993b9ccc57359ac64186765b7b704535eb5a57
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634880"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086672"
 ---
 # <a name="configure-containers"></a>Configurer des conteneurs
 
@@ -55,7 +56,7 @@ Par exemple, les commandes suivantes utilisent une variable d’environnement po
 
 Vous pouvez utiliser la [syntaxe des arguments de ligne de commande ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#arguments) pour spécifier des paramètres de configuration.
 
-Vous pouvez spécifier des paramètres de configuration dans le paramètre facultatif `ARGS` de la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) utilisée pour instancier un conteneur à partir d’une image de conteneur téléchargée. L’utilisation d’arguments de ligne de commande présente l’avantage de permettre à chaque conteneur d’utiliser un ensemble de paramètres de configuration distinct et personnalisé.
+Vous pouvez spécifier des paramètres de configuration dans le paramètre facultatif `ARGS` de la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) utilisée pour instancier un conteneur à partir d’une image conteneur téléchargée. L’utilisation d’arguments de ligne de commande présente l’avantage de permettre à chaque conteneur d’utiliser un ensemble de paramètres de configuration distinct et personnalisé.
 
 Par exemple, la commande suivante instancie un conteneur à partir de l’image de conteneur Analyse des sentiments et configure le niveau de journalisation de console sur LogLevel.Information, remplaçant ainsi le paramètre de configuration par défaut.
 
@@ -92,7 +93,7 @@ Le tableau suivant décrit les paramètres de configuration pris en charge sous 
 
 ## <a name="billing-configuration-setting"></a>Paramètre de configuration Billing
 
-Le paramètre de configuration `Billing` permet de spécifier l’URI du point de terminaison de la ressource Analyse de texte sur Azure servant à suivre les informations de facturation du conteneur. Vous devez attribuer une valeur à ce paramètre de configuration, et cette valeur doit être un URI de point de terminaison valide pour une ressource Analyse de texte sur Azure.
+Le paramètre de configuration `Billing` permet de spécifier l’URI du point de terminaison de la ressource Analyse de texte sur Azure servant à contrôler les informations de facturation du conteneur. Vous devez attribuer une valeur à ce paramètre de configuration, et cette valeur doit être un URI de point de terminaison valide pour une ressource Analyse de texte sur Azure.
 
 > [!IMPORTANT]
 > Les paramètres de configuration [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) et [`Eula`](#eula-configuration-setting) sont utilisés conjointement, et vous devez fournir des valeurs valides pour les trois ; à défaut, votre conteneur ne démarrera pas. Pour plus d’informations sur l’instanciation d’un conteneur à l’aide de ces paramètres de configuration, consultez [Facturation](how-tos/text-analytics-how-to-install-containers.md#billing).
@@ -103,6 +104,8 @@ Le paramètre de configuration `Eula` indique que vous avez accepté la licence 
 
 > [!IMPORTANT]
 > Les paramètres de configuration [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) et [`Eula`](#eula-configuration-setting) sont utilisés conjointement, et vous devez fournir des valeurs valides pour les trois ; à défaut, votre conteneur ne démarrera pas. Pour plus d’informations sur l’instanciation d’un conteneur à l’aide de ces paramètres de configuration, consultez [Facturation](how-tos/text-analytics-how-to-install-containers.md#billing).
+
+Les conteneurs Cognitive Services sont accordés sous licence selon les termes d’[un contrat](https://go.microsoft.com/fwlink/?linkid=2018657) qui régit votre utilisation d’Azure. Si vous ne disposez pas d’un contrat existant régissant votre utilisation d’Azure, vous acceptez que celle-ci soit régie par le [Contrat d’abonnement à Microsoft Online](https://go.microsoft.com/fwlink/?linkid=2018755) (qui intègre les [conditions des services en ligne](https://go.microsoft.com/fwlink/?linkid=2018760)). Pour les préversions, vous acceptez également les [conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://go.microsoft.com/fwlink/?linkid=2018815). En utilisant le conteneur, vous acceptez les termes du contrat.
 
 ## <a name="fluentd-configuration-settings"></a>Paramètres de configuration Fluentd
 
@@ -133,8 +136,8 @@ Les paramètres de configuration `Logging` gèrent la prise en charge de la jour
 
   | NOM | Type de données | Description |
   |------|-----------|-------------|
-  | `Format` | Chaîne | Format de sortie des fichiers journaux.<br/> **Remarque :** Cette valeur doit être définie sur `json` pour activer le fournisseur de journalisation. Si cette valeur est spécifiée sans que le montage de sortie soit aussi spécifié pendant l’instanciation d’un conteneur, une erreur se produit. |
-  | `MaxFileSize` | Entier  | Taille maximale, en mégaoctets (Mo), d’un fichier journal. Quand la taille du fichier journal actif atteint ou dépasse cette valeur, un nouveau fichier journal est démarré par le fournisseur de journalisation. Si la valeur -1 est spécifiée, la taille du fichier journal est limitée uniquement par la taille de fichier maximale, le cas échéant, pour le montage de sortie. La valeur par défaut est 1. |
+  | `Format` | Chaîne | Format de sortie des fichiers journaux.<br/> **Remarque :** Cette valeur doit être `json` pour activer le fournisseur de journalisation. Si cette valeur est spécifiée sans que le montage de sortie soit aussi spécifié pendant l’instanciation d’un conteneur, une erreur se produit. |
+  | `MaxFileSize` | Entier  | Taille maximale, en mégaoctets (Mo), d’un fichier journal. Dès que la taille du fichier journal actif atteint ou dépasse cette valeur, un nouveau fichier journal est commencé par le fournisseur de journalisation. Si la valeur -1 est spécifiée, la taille du fichier journal est limitée uniquement par la taille de fichier maximale, le cas échéant, pour le montage de sortie. La valeur par défaut est 1. |
 
 Pour plus d’informations sur la configuration de la prise en charge de la journalisation ASP.NET Core, consultez [Configuration d’un fichier de paramètres](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
 
@@ -164,7 +167,7 @@ Par défaut, chaque conteneur peut prendre en charge un *montage d’entrée*, d
 |[Détection de la langue](#working-with-language-detection) | Non pris en charge | Facultatif |
 |[Analyse des sentiments](#working-with-sentiment-analysis) | Non pris en charge | Facultatif |
 
-Vous pouvez spécifier un montage d’entrée ou de sortie en spécifiant l’option`--mount` dans la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) utilisée pour instancier un conteneur à partir d’une image conteneur téléchargée. Par défaut, le montage d’entrée utilise `/input` comme destination, et le montage de sortie `/output`. Toute option de stockage Docker accessible à l’hôte de conteneur Docker peut être spécifiée dans l’option `--mount`.
+Vous pouvez spécifier un montage d’entrée et un montage de sortie en spécifiant l’option `--mount` de la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) utilisée pour instancier un conteneur à partir d’une image conteneur téléchargée. Par défaut, le montage d’entrée utilise `/input` comme destination, et le montage de sortie `/output`. Toute option de stockage Docker accessible à l’hôte de conteneur Docker peut être spécifiée dans l’option `--mount`.
 
 Par exemple, la commande suivante définit un montage de liaison Docker sur le dossier `D:\Output` de la machine hôte comme montage de sortie, puis instancie un conteneur à partir de l’image de conteneur Analyse des sentiments, les fichiers journaux étant enregistrés au format JSON sur le montage de sortie.
 

@@ -4,12 +4,12 @@ ms.service: cloud-shell
 ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
-ms.openlocfilehash: 6055b70c7df2704a334b7f14c9365863ddafbd5a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: a66f5ca9501d09f2ef89f421191f617c177e10eb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44164540"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52886349"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Conserver des fichiers dans Azure Cloud Shell
 Cloud Shell utilise le stockage de fichiers Azure pour conserver les fichiers entre les sessions. Lors du premier démarrage, Cloud Shell vous invite à associer un partage de fichiers nouveau ou existant afin de conserver les fichiers entre les sessions.
@@ -35,11 +35,14 @@ Le partage de fichiers contient également une image de 5 Go. Automatiquement c
 
 ## <a name="use-existing-resources"></a>Utiliser les ressources existantes
 
-L’option Avancé vous permet d’associer des ressources existantes. Lorsque l’invite de configuration du stockage s’affiche, sélectionnez **Afficher les paramètres avancés** pour visualiser des options supplémentaires. Les options de stockage renseignées filtrent les comptes de stockage localement redondant (LRS), de stockage géoredondant (GRS) et de stockage redondant interzone (ZRS). Accédez [ici pour en savoir plus](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option) sur les options de réplication pour les comptes de Stockage Azure.
+L’option Avancé vous permet d’associer des ressources existantes. Lorsque vous sélectionnez une région Cloud Shell, vous devez également choisir un compte de stockage de sauvegarde dans cette région. Par exemple, si votre région affectée est Ouest des États-Unis, vous devez alors associer un partage de fichiers qui se trouve également dans Ouest des États-Unis.
+
+Lorsque l’invite de configuration du stockage s’affiche, sélectionnez **Afficher les paramètres avancés** pour visualiser des options supplémentaires. Les options de stockage renseignées filtrent les comptes de stockage localement redondant (LRS), de stockage géoredondant (GRS) et de stockage redondant interzone (ZRS). 
+
+> [!NOTE]
+> Il est recommandé d’utiliser des comptes de stockage GRS ou ZRS afin d’offrir une résilience supplémentaire pour votre partage de fichiers de sauvegarde. Le type de redondance dépend de vos objectifs et de votre budget. [En savoir plus sur les options de réplication pour les comptes de Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option).
 
 ![Paramètre Groupe de ressources](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
-
-Lorsque vous sélectionnez une région Cloud Shell, vous devez choisir de monter un compte de stockage de sauvegarde également dans cette région.
 
 ### <a name="supported-storage-regions"></a>Régions de stockage prises en charge
 Les comptes de stockage Azure associées doivent résider dans la même région que la machine Cloud Shell sur laquelle le montage est effectué. Pour déterminer votre région actuelle, vous pouvez exécuter `env` dans Bash et localiser la variable `ACC_LOCATION`. Les partages de fichiers reçoivent une image de 5 Go créée pour conserver votre répertoire `$Home`.

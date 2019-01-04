@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 558df3fa70989aaf9ba182df3a918994c7dc9db6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1f1797cf3022285f81991eb15818b68df195de4b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243707"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834126"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Ajouter des propriétaires et des utilisateurs dans Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -45,7 +45,7 @@ Le tableau suivant décrit les actions pouvant être effectuées par les utilisa
 | **Tâches de base de machine virtuelle** | | | |
 | Ajouter et supprimer des images personnalisées |Non  |OUI |Oui |
 | Ajouter, mettre à jour et supprimer des formules |Oui |OUI |Oui |
-| Images Place de marché Azure de liste verte |Non  |OUI |Oui |
+| Images Place de marché Azure de liste blanche |Non  |OUI |Oui |
 | **Tâches de machine virtuelle** | | | |
 | Créer des machines virtuelles |Oui |OUI |Oui |
 | Démarrer, arrêter et supprimer des machines virtuelles |Seules les machines virtuelles créées par l’utilisateur |Oui |Oui |
@@ -69,15 +69,11 @@ Les étapes suivantes vous guident dans le processus d’ajout d’un propriéta
 3. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.
 4. Dans le panneau du laboratoire, sélectionnez **Configuration et stratégies**. 
 5. Dans la page **Configuration et stratégies**, sélectionnez **Contrôle d’accès (IAM)** à partir du menu de gauche. 
-6. Sélectionnez **Ajouter** sur la barre d’outils pour ajouter un utilisateur à un rôle.
-
-    ![Ajouter un utilisateur](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
+6. Sélectionnez **Ajouter une attribution de rôle** sur la barre d’outils pour ajouter un utilisateur à un rôle.
 1. Dans la fenêtre **Ajouter des autorisations**, effectuez les actions suivantes : 
-    1. Sélectionnez un rôle (par exemple : utilisateur DevTest Labs). La section [Actions qui peuvent être effectuées dans chaque rôle](#actions-that-can-be-performed-in-each-role) répertorie les différentes actions qui peuvent être effectuées par les utilisateurs dans les rôles Propriétaire, Utilisateur de DevTest Labs et Collaborateur.
+    1. Sélectionnez un rôle (par exemple : Utilisateur de DevTest Labs). La section [Actions qui peuvent être effectuées dans chaque rôle](#actions-that-can-be-performed-in-each-role) répertorie les différentes actions qui peuvent être effectuées par les utilisateurs dans les rôles Propriétaire, Utilisateur de DevTest Labs et Collaborateur.
     2. Sélectionnez l’utilisateur à ajouter au rôle. 
     3. Sélectionnez **Enregistrer**. 
-
-        ![Ajouter l’utilisateur au rôle](./media/devtest-lab-add-devtest-user/add-user.png) 
 11. Lorsque vous revenez sur le panneau **Utilisateurs** , l’utilisateur a été ajouté.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>Ajouter un utilisateur externe à un laboratoire à l’aide de PowerShell

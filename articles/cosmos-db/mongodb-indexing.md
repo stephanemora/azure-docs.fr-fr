@@ -1,24 +1,22 @@
 ---
-title: Indexation dans l’API MongoDB Azure Cosmos DB | Microsoft Docs
+title: Indexation dans l’API MongoDB Azure Cosmos DB
 description: Présente une vue d’ensemble des fonctionnalités d’indexation dans l’API MongoDB Azure Cosmos DB.
 services: cosmos-db
 author: orestis-ms
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
-ms.openlocfilehash: ad04976136fc8db04dbe52bf78bea49a9149e5db
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: bdb2ceb45950b99b1a5a351c6301599a791ef8cc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312695"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875295"
 ---
-# <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Indexation dans Azure Cosmos DB : API MongoDB
+# <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Indexation dans Azure Cosmos DB : API MongoDB
 
 L’API MongoDB Azure Cosmos DB tire parti des fonctionnalités de gestion automatique des index d’Azure Cosmos DB. Par conséquent, les utilisateurs ont accès aux stratégies d’indexation par défaut d’Azure Cosmos DB. Ainsi, si aucun index n’a été défini par l’utilisateur ou n’a été supprimé, tous les champs seront automatiquement indexés par défaut lorsqu’ils seront insérés dans la collection. Pour la plupart des scénarios, nous vous recommandons d’utiliser la stratégie d’indexation par défaut définie sur le compte.
 

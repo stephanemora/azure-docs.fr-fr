@@ -3,7 +3,7 @@ title: Prise en main des tâches de base de données élastiques | Microsoft Doc
 description: Utilisez des tâches de base de données élastique pour exécuter des scripts T-SQL qui s’étendent sur plusieurs bases de données.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,27 +12,27 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: ada95f9fc09aeb7e8dac67bc5f9c4af96f9700df
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 0269a8ea460667d44b6173e4504a9ccb5695d722
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241359"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863531"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Prise en main de Tâches de bases de données élastiques
 
-
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
-
 
 Les tâches de base de données élastique (préversion) pour Azure SQL Database vous permettent d’exécuter, de manière efficace, des scripts T-SQL qui s’étendent sur plusieurs bases de données, tout en apportant automatiquement de nouvelles tentatives et des garanties d’achèvement final. Pour plus d’informations sur la fonctionnalité Tâches de base de données élastique, voir [Travaux élastiques](sql-database-elastic-jobs-overview.md).
 
 Cet article développe l’exemple présenté dans [Prise en main des outils de base de données élastique](sql-database-elastic-scale-get-started.md). Il explique comment créer et gérer des tâches qui gèrent un groupe de bases de données associées. Il n’est pas nécessaire d’utiliser les outils de mise à l’échelle élastique pour tirer parti des avantages des tâches élastiques.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Téléchargez et exécutez l’exemple de la rubrique [Prise en main des outils de base de données élastique](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Créez un gestionnaire des cartes de partitions à l’aide de l’exemple d’application
+
 Vous allez maintenant créer un gestionnaire de cartes de partitions avec plusieurs partitions, puis insérer des données dans les partitions. Si vos partitions comportent déjà des données partitionnées, vous pouvez ignorer ces étapes et passer à la section suivante.
 
 1. Créez et exécutez l’exemple d’application de la rubrique **Prise en main des outils de base de données élastique** . Suivez la procédure jusqu’à l’étape 7 dans la section [Télécharger et exécuter l’exemple d’application](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). À la fin de l’étape 7, vous verrez l’invite de commande suivante :
@@ -48,8 +48,9 @@ Vous allez maintenant créer un gestionnaire de cartes de partitions avec plusie
 
 Dans ce cas précis, nous créons généralement une cible de carte de partitions, à l’aide de l’applet de commande **New-AzureSqlJobTarget** . La base de données du gestionnaire de cartes de partitions doit être définie en tant que base de données cible et la carte de partitions spécifique doit être spécifiée en tant que cible. Au lieu de cela, nous énumérerons toutes les bases de données du serveur et nous ajouterons les bases de données à la nouvelle collecte personnalisée, à l'exception de la base de données principale.
 
-## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Crée une collecte personnalisée et ajoute toutes les bases de données du serveur à la cible de la collecte personnalisée, à l’exception de la base de données principale.
-   ```
+## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Créer une collecte personnalisée et ajouter toutes les bases de données du serveur à la cible de la collecte personnalisée, à l’exception de la base de données principale
+
+   ```Powershell
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
@@ -257,20 +258,20 @@ Tâches de bases de données prend en charge la création de stratégies d'exéc
 
 Les stratégies d'exécution permettent de définir :
 
-* Le nom : l'identificateur de la stratégie d'exécution.
+* Nom : identificateur de la stratégie d’exécution.
 * Délai d’attente de la tâche : délai avant l’annulation d’une tâche par Tâches de base de données élastique.
-* Intervalle avant nouvelle tentative initiale : l'intervalle d'attente avant la première nouvelle tentative.
+* Intervalle avant nouvelle tentative initiale : intervalle d’attente avant la première nouvelle tentative.
 * Intervalle maximal avant nouvelle tentative : plafond des intervalles avant nouvelle tentative à utiliser.
-* Coefficient d'interruption de l’intervalle avant nouvelle tentative : ce coefficient permet de calculer le prochain intervalle entre les tentatives.  La formule suivante est utilisée : (intervalle avant nouvelle tentative initiale) * Math.pow (coefficient d’interruption de l’intervalle), (nombre de tentatives) - 2).
-* Nombre maximal de tentatives : le nombre maximal de nouvelles tentatives effectuées dans une tâche.
+* Coefficient d’interruption de l’intervalle avant nouvelle tentative : ce coefficient permet de calculer le prochain intervalle entre les tentatives.  La formule utilisée est la suivante : (intervalle avant nouvelle tentative initiale) * Math.pow((coefficient d’interruption de l’intervalle), (nombre de tentatives) - 2).
+* Nombre maximal de tentatives : nombre maximal de nouvelles tentatives effectuées dans une tâche.
 
 La stratégie d'exécution par défaut utilise les valeurs suivantes :
 
-* Le nom : la stratégie d'exécution par défaut
-* Délai d’attente de la tâche : 1 semaine
-* Intervalle avant nouvelle tentative initiale : 100 millisecondes
+* Nom : stratégie d’exécution par défaut
+* Délai d’attente de la tâche : 1 semaine
+* Intervalle avant nouvelle tentative initiale :  100 millisecondes
 * Intervalle maximal avant nouvelle tentative : 30 minutes
-* Coefficient de l'intervalle avant nouvelle tentative : 2
+* Coefficient de l’intervalle avant nouvelle tentative : 2
 * Nombre maximal de tentatives : 2 147 483 647
 
 Créez la stratégie d'exécution souhaitée :
@@ -301,23 +302,25 @@ Mettez à jour la stratégie d'exécution souhaitée :
    ```
 
 ## <a name="cancel-a-job"></a>Annulation d’une tâche
+
 La fonctionnalité Tâches de bases de données élastiques prend en charge les demandes d’annulation de tâches.  Si la fonctionnalité Tâches de base de données élastique détecte une demande d’annulation d’une tâche en cours d’exécution, elle tente d’arrêter la tâche.
 
 La fonctionnalité Tâches de bases de données élastiques peut effectuer une annulation de deux manières différentes :
 
-1. Annulation des tâches en cours d’exécution : si une annulation est détectée pendant qu’une tâche est en cours d’exécution, l’annulation est tentée au sein de l’étape de la tâche en cours d’exécution.  Par exemple : si une requête de longue durée s’exécute quand une annulation est tentée, une tentative d’annulation de la requête est effectuée.
-2. Annuler des tentatives de tâches : si une annulation est détectée par le thread de contrôle avant de lancer l’exécution d’une tâche, le thread de contrôle évite le lancement de la tâche et déclare la requête comme étant annulée.
+1. Annulation des tâches en cours d’exécution : si une annulation est détectée pendant qu’une tâche est en cours d’exécution, l’annulation est tentée dans l’élément en cours d’exécution de la tâche.  Par exemple :  si une requête de longue durée s’exécute quand une annulation est tentée, une tentative d’annulation de la requête est effectuée.
+2. Annulation des tentatives de tâches : si une annulation est détectée par le thread de contrôle avant le lancement d’une tâche à exécuter, le thread de contrôle évite le lancement de la tâche et déclare la requête comme étant annulée.
 
 Si une annulation de tâche est demandée pour une tâche parente, la demande d’annulation est honorée pour la tâche parente et toutes ses tâches enfants.
 
 Pour envoyer une demande d’annulation, utilisez l’applet de commande **Stop-AzureSqlJobExecution** et définissez le paramètre **JobExecutionId**.
 
-   ```
+   ```Powershell
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
 ## <a name="delete-a-job-by-name-and-the-jobs-history"></a>Supprimez une tâche via son nom et l'historique de la tâche
+
 Tâches de bases de données élastiques prend en charge la suppression des tâches asynchrone. Une tâche peut être marquée pour suppression. Le système supprime alors la tâche et son historique une fois toutes les exécutions de tâches accomplies. Le système n’annule pas automatiquement les exécutions de tâches actives.  
 
 Au lieu de cela, Stop-AzureSqlJobExecution doit être appelé pour annuler les exécutions de tâches actives.

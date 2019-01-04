@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8d2550d6a1f99adaec7423997365412eb61ffbdf
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e9271081b36681c4011d96b329de5058aeaf8472
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124693"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090616"
 ---
 # <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>Copier des données de Shopify avec Azure Data Factory (préversion)
 
@@ -45,7 +45,7 @@ Les propriétés prises en charge pour le service lié Shopify sont les suivante
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **Shopify** | Oui |
+| Type | La propriété type doit être définie sur : **Shopify** | Oui |
 | host | Point de terminaison du serveur Shopify (autrement dit, mystore.myshopify.com).  | Oui |
 | accessToken | Jeton d’accès d’API qui peut être utilisé pour accéder aux données de Shopify. Le jeton n’expire pas s’il est en mode hors connexion. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non  |
@@ -74,7 +74,12 @@ Les propriétés prises en charge pour le service lié Shopify sont les suivante
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données Shopify.
 
-Pour copier des données de Shopify, affectez la valeur **ShopifyObject** à la propriété de type du jeu de données. Il n’y a aucune autre propriété propre au type dans cette sorte de jeu de données.
+Pour copier des données de Shopify, affectez la valeur **ShopifyObject** à la propriété de type du jeu de données. Les propriétés prises en charge sont les suivantes :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| Type | La propriété type du jeu de données doit être définie sur : **ShopifyObject** | Oui |
+| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -86,7 +91,8 @@ Pour copier des données de Shopify, affectez la valeur **ShopifyObject** à la 
         "linkedServiceName": {
             "referenceName": "<Shopify linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -95,14 +101,14 @@ Pour copier des données de Shopify, affectez la valeur **ShopifyObject** à la 
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Pipelines](concepts-pipelines-activities.md). Cette section fournit la liste des propriétés prises en charge par la source Shopify.
 
-### <a name="shopifysource-as-source"></a>ShopifySource en tant que source
+### <a name="shopify-as-source"></a>Shopify en tant que source
 
 Pour copier des données à partir de Shopify, définissez **ShopifySource** comme type source dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type de la source d’activité de copie doit être définie sur **ShopifySource** | Oui |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **ShopifySource** | Oui |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
 

@@ -1,18 +1,18 @@
 ---
 title: Ajouter des runbooks Azure Automation à des plans de reprise d’activité avec Site Recovery | Microsoft Docs
 description: Découvrez comment étendre des plans de reprise d’activité avec Azure Automation pour la reprise d’activité avec Azure Site Recovery.
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
-ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 1853d8d23aeb96cda3148c6c9e7668b9c2c28924
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/27/2018
+ms.author: rajanaki
+ms.openlocfilehash: 5587d86cb4b3a213961ce46e77c75e947de2d29e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244013"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866370"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Ajouter des runbooks Azure Automation à des plans de récupération
 Cet article décrit comment Azure Site Recovery s’intègre avec Azure Automation pour vous aider à étendre vos plans de récupération. Des plans de récupération peuvent orchestrer la récupération de machines virtuelles protégées par Site Recovery. Les plans de récupération fonctionnent aussi bien pour la réplication sur un cloud secondaire que pour la réplication sur Azure. Ils aident également à rendre la récupération **toujours précise**, **répétable** et **automatisée**. Si vous basculez de vos machines virtuelles vers Azure, l’intégration avec Azure Automation étend vos plans de récupération. Vous pouvez l’utiliser pour exécuter des runbooks qui offrent des tâches d’automatisation puissantes.
@@ -27,9 +27,9 @@ Cet article explique comment intégrer des runbooks Azure Automation dans vos 
     ![Cliquer sur le bouton Personnaliser](media/site-recovery-runbook-automation-new/essentials-rp.png)
 
 
-2. Cliquez avec le bouton droit sur **Group 1: Start**, puis sélectionnez **Ajouter une action postérieure**.
+2. Cliquez avec le bouton droit sur **Group 1: Start**, puis sélectionnez **Ajouter une action postérieure**.
 
-    ![Cliquer avec le bouton droit sur Group 1: Start, puis ajouter une action postérieure](media/site-recovery-runbook-automation-new/customize-rp.png)
+    ![Cliquer avec le bouton droit sur Group 1: Start et ajouter une action postérieure](media/site-recovery-runbook-automation-new/customize-rp.png)
 
 3. Cliquez sur **Choisir un script**.
 
@@ -43,7 +43,7 @@ Cet article explique comment intégrer des runbooks Azure Automation dans vos 
 
 6. Dans votre compte Automation, sélectionnez un runbook. Ce runbook est le script qui s’exécute pendant l’exécution du plan de récupération après la récupération du premier groupe.
 
-7. Pour enregistrer le script, cliquez sur **OK**. Le script est ajouté à **Group 1: Post-steps**.
+7. Pour enregistrer le script, cliquez sur **OK**. Le script est ajouté à **Group 1: Post-steps**.
 
     ![Action postérieure Group 1:Start](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
 
@@ -213,7 +213,7 @@ Dans l’exemple suivant, nous utilisons une nouvelle technique et créons une [
 4. Utilisez cette variable dans votre runbook. Si le GUID de machine virtuelle indiqué figure dans le contexte du plan de récupération, appliquez le groupe de sécurité réseau à la machine virtuelle :
 
     ```
-    $VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
+    $VMDetailsObj = (Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
     ```
 
 4. Dans votre runbook, parcourez les machines virtuelles du contexte du plan de récupération. Vérifiez l’existence de la machine virtuelle dans **$VMDetailsObj**. Si la variable existe, accédez à ses propriétés pour appliquer le groupe de sécurité réseau :
@@ -223,13 +223,13 @@ Dans l’exemple suivant, nous utilisons une nouvelle technique et créons une [
         $vmMap = $RecoveryPlanContext.VmMap
 
         foreach($VMID in $VMinfo) {
-            Write-output $VMDetailsObj.value.$VMID
-
-            if ($VMDetailsObj.value.$VMID -ne $Null) { #If the VM exists in the context, this will not b Null
+            $VMDetails = $VMDetailsObj[$VMID].ToObject([hashtable]);
+            Write-output $VMDetails
+            if ($VMDetails -ne $Null) { #If the VM exists in the context, this will not be Null
                 $VM = $vmMap.$VMID
                 # Access the properties of the variable
-                $NSGname = $VMDetailsObj.value.$VMID.'NSGName'
-                $NSGRGname = $VMDetailsObj.value.$VMID.'NSGResourceGroupName'
+                $NSGname = $VMDetails.NSGName
+                $NSGRGname = $VMDetails.NSGResourceGroupName
 
                 # Add code to apply the NSG properties to the VM
             }

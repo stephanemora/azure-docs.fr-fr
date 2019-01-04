@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: hrasheed
-ms.openlocfilehash: 77f1d0f9d1f9ad07b977750e7701b660781d63e5
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c615188e5f198cb8707b12643e0942e8d8821983
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499375"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725180"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gérer des clusters Apache Hadoop dans HDInsight à l’aide du portail Azure
 
@@ -64,7 +64,7 @@ Vous devez spécifier un abonnement Azure lorsque vous créez un cluster HDInsig
     1. Connectez-vous au [Portail Azure](https://portal.azure.com).
     2. Cliquez sur **Groupes de ressources** dans le menu de gauche pour répertorier les groupes de ressources.
     3. Cliquez sur le groupe de ressources que vous souhaitez utiliser pour la création de votre cluster HDInsight.
-    4. Cliquez sur **Contrôle d’accès (IAM)** et vérifiez que vous (ou le groupe auquel vous appartenez) avez au moins un accès Collaborateur au groupe de ressources.
+    4. Cliquez sur **Contrôle d’accès (IAM)** et **Attributions de rôles**, puis vérifiez que vous (ou le groupe auquel vous appartenez) avez au moins un accès Contributeur au groupe de ressources.
 
 Si l’erreur NoRegisteredProviderFound ou MissingSubscriptionRegistration s’affiche, consultez la page [Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
@@ -75,56 +75,56 @@ Si l’erreur NoRegisteredProviderFound ou MissingSubscriptionRegistration s’a
 4. Double-cliquez sur un cluster dans la liste pour afficher la page de la vue d’ensemble :
 
     ![Éléments principaux du cluster HDInsight du portail Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)**Menu Vue d’ensemble :**
-    * **Tableau de bord** : ouvre l’interface utilisateur web d’Ambari pour le cluster.
-    * **Secure Shell**: affiche les instructions pour se connecter au cluster à l’aide d’une connexion Secure Shell (SSH).
-    * **Mise à l’échelle du cluster**: permet de modifier le nombre de nœuds de travail pour ce cluster.
-    * **Déplacer** : déplace le cluster vers un autre groupe de ressources ou un autre abonnement.
-    * **Supprimer**: supprime le cluster.
+    * **Tableau de bord** : ouvre l’interface utilisateur web d’Ambari pour le cluster.
+    * **Secure Shell** : affiche les instructions pour se connecter au cluster avec une connexion Secure Shell (SSH).
+    * **Mettre le cluster à l’échelle** : permet de modifier le nombre de nœuds worker pour ce cluster.
+    * **Déplacer** : déplace le cluster vers un autre groupe de ressources ou un autre abonnement.
+    * **Supprimer** : supprime le cluster.
 
 **Menu de gauche :**
-    * **Journaux d’activité** : affiche et interroge les journaux d’activité.
-    * **Contrôle d’accès (IAM)**  : utilise les attributions de rôle.  Consultez [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../role-based-access-control/role-assignments-portal.md).
-    * **Balises** : permet de spécifier des paires clé/valeur pour définir une taxonomie personnalisée de vos services cloud. Vous pouvez par exemple créer une clé nommée **projet**, puis utiliser une valeur commune pour tous les services associés à un projet spécifique.
-* **Diagnostiquer et résoudre les problèmes** : affiche les informations de dépannage.
-    * **Démarrage rapide** : affiche des informations qui vous aident à prendre en main HDInsight.
+    * **Journaux d’activité** : afficher et interroger les journaux d’activité.
+    * **Contrôle d’accès (IAM)**  : utiliser des attributions de rôles.  Consultez [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../role-based-access-control/role-assignments-portal.md).
+    * **Étiquettes** : permet de spécifier des paires clé/valeur pour définir une taxonomie personnalisée de vos services cloud. Vous pouvez par exemple créer une clé nommée **projet**, puis utiliser une valeur commune pour tous les services associés à un projet spécifique.
+* **Diagnostiquer et résoudre les problèmes** : affiche des informations sur la résolution des problèmes.
+    * **Démarrage rapide** :  affiche des informations qui vous aident à bien démarrer avec HDInsight.
     * **Outils pour HDInsight** : informations d’aide pour les outils associés à HDInsight.
 **Paramètres**
-* **Taille du cluster** : permet de vérifier, d’augmenter et de réduire le nombre de nœuds worker de cluster. Voir [Mettre à l’échelle des clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
+* **Taille du cluster** : permet de vérifier, d’augmenter et de réduire le nombre de nœuds worker du cluster. Voir [Mettre à l’échelle des clusters](hdinsight-administer-use-management-portal.md#scale-clusters).
     * **Limites de quota** : permet d’afficher les cœurs utilisés et disponibles pour votre abonnement.
-    * **Connexion SSH + Cluster** : affiche les instructions pour se connecter au cluster à l’aide d’une connexion Secure Shell (SSH). Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
-* **Accès à Data Lake Store Gen1** : permet de configurer l’accès à Data Lake Storage Gen1.  Voir [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+    * **SSH + Connexion du cluster** : affiche les instructions pour se connecter au cluster avec une connexion Secure Shell (SSH). Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Data Lake Store Gen1** : permet de configurer l’accès à Data Lake Store Gen1.  Consultez [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
     * **Comptes de stockage** : permet d’afficher les comptes de stockage et les clés. Les comptes de stockage sont configurés pendant le processus de création de cluster.
     * **Applications** : permet d’ajouter/supprimer des applications HDInsight.  Consultez [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md).
-    * **Actions de script**: exécutent des scripts Bash sur le cluster. Consultez [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md).
-    * **Partenaire HDInsight**: permet d’ajouter ou de supprimer le partenaire HDInsight actuel.
-    * **Propriétés**: affichez les propriétés du cluster
-* **Verrous** : permet d’ajouter un verrou pour empêcher la modification ou la suppression du cluster.
-    * **Script d’automatisation** : permet d’afficher et d’exporter le modèle Azure Resource Manager pour le cluster. Actuellement, vous pouvez exporter uniquement le compte de stockage Azure dépendant. Consultez [Création de clusters Apache Hadoop basés sur Linux dans HDInsight à l’aide de modèles Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+    * **Actions de script** : permet d’exécuter des scripts Bash sur le cluster. Consultez [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md).
+    * **Partenaire HDInsight** : ajouter/supprimer le partenaire HDInsight actuel.
+    * **Propriétés** : afficher les propriétés du cluster.
+* **Verrous** : permet d’ajouter un verrou pour empêcher la modification ou la suppression du cluster.
+    * **Script Automation** : permet d’afficher et d’exporter le modèle Azure Resource Manager pour le cluster. Actuellement, vous pouvez exporter uniquement le compte de stockage Azure dépendant. Consultez [Création de clusters Apache Hadoop basés sur Linux dans HDInsight à l’aide de modèles Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 **Surveillance**
-* **Alertes** : permet de gérer les alertes et actions.
+* **Alertes** : permet de gérer les alertes et les actions.
     * **Métriques** : permet de surveiller les métriques du cluster dans Azure Log Analytics.
 * **Paramètres de diagnostic** : paramètres de l’emplacement de stockage des métriques de diagnostic **Support + dépannage**.
-    * **Resource Health** : consultez [Vue d’ensemble d’Azure Resource Health](../service-health/resource-health-overview.md).
+    * **Intégrité des ressources** : Consultez [Vue d’ensemble d’Azure Resource Health](../service-health/resource-health-overview.md).
     * **Nouvelle demande de support** : permet de créer un ticket de support auprès du support Microsoft.
-
+    
 6. Cliquez sur **Propriétés**:
 
     Les propriétés sont les suivantes :
 
-   * **Nom d’hôte**: nom du Cluster.
-   * **URL du cluster** : URL de l’interface web Ambari.
-   * **Secure Shell (SSH)** : nom d’utilisateur et nom d’hôte à utiliser pour accéder au cluster via SSH.
-   * **État** : Abandonné, Accepté, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, En fonctionnement, En cours d’exécution, Erreur, En cours de suppression, Supprimé, TimedOut, DeleteQueued, DeleteTimedOut, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued ou ClusterCustomization.
-   * **Région**: emplacement Azure. Pour obtenir la liste des emplacements Azure pris en charge, consultez la zone de liste déroulante **Région** sur [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
-   * **Créé le** : date à laquelle le cluster a été déployé.
-   * **Système d’exploitation** : **Windows** ou **Linux**.
-   * **Type**: Hadoop, Hbase, Storm, Spark.
+   * **Nom d’hôte** : Nom du cluster.
+   * **URL du cluster** : URL de l’interface web Ambari.
+   * **Secure Shell (SSH)**  : nom d’utilisateur et nom d’hôte à utiliser pour accéder au cluster via SSH.
+   * **État** : Un des états suivants : Abandonné, Accepté, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, En fonctionnement, En cours d’exécution, Erreur, En cours de suppression, Supprimé, TimedOut, DeleteQueued, DeleteTimedOut, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued ou ClusterCustomization.
+   * **Région** : Emplacement Azure. Pour obtenir la liste des emplacements Azure pris en charge, consultez la zone de liste déroulante **Région** sur [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+   * **Date de création** : date à laquelle le cluster a été déployé.
+   * **Système d’exploitation** : **Windows** ou **Linux**.
+   * **Type** : Hadoop, HBase, Storm, Spark.
    * **Version**. Voir [Versions HDInsight](hdinsight-component-versioning.md).
-   * **Abonnement**: nom de l’abonnement.
-   * **Source de données par défaut**: système de fichiers de cluster par défaut.
-   * **Taille des nœuds de travail** : taille de machine virtuelle des nœuds de travail sélectionnée.
-   * **Taille du nœud principal** : taille de machine virtuelle des nœuds principaux sélectionnée.
-   * **Réseau virtuel** : nom du réseau virtuel sur lesquel le cluster est déployé, si vous en avez sélectionné un au moment du déploiement.
+   * **Abonnement**: Nom de l’abonnement.
+   * **Source de données par défaut** : système de fichiers du cluster par défaut.
+   * **Taille des nœuds worker** : taille de machine virtuelle sélectionnée pour les nœuds worker.
+   * **Taille du nœud principal** : taille de machine virtuelle sélectionnée pour les nœuds principaux.
+   * **Réseau virtuel** : nom du réseau virtuel sur lequel le cluster est déployé, si vous en avez sélectionné un au moment du déploiement.
 
 ## <a name="delete-clusters"></a>Suppression des clusters
 La suppression d’un cluster ne supprime pas le compte de stockage par défaut ni les comptes de stockage liés. Vous pouvez recréer le cluster en utilisant les mêmes comptes de stockage et les mêmes metastores. Il est recommandé d’utiliser un nouveau conteneur d’objets blob par défaut quand vous recréez le cluster.

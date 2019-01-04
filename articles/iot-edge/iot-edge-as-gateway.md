@@ -1,6 +1,6 @@
 ---
-title: Utiliser des appareils Azure IoT Edge en tant que passerelles | Microsoft Docs
-description: Utilisez Azure IoT Edge pour créer un appareil de passerelle proxy ou opaque et transparent qui envoie des données à partir de plusieurs appareils en aval vers le cloud ou qui traite ces données localement.
+title: Passerelles pour les appareils en aval - Azure IoT Edge | Microsoft Docs
+description: Utilisez Azure IoT Edge pour créer un appareil de passerelle proxy, opaque ou transparent qui envoie des données à partir de plusieurs appareils en aval vers le cloud ou qui traite ces données localement.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 11/01/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 53f0f1e77f8879807b2fb93b86d825e3bd044f41
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 6e54d28d494a58966ea5312492dc79ced4c50a8d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567211"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092279"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Guide pratique pour utiliser un appareil IoT Edge en tant que passerelle
 
@@ -26,7 +27,7 @@ Il existe trois modèles où il est possible d’utiliser un appareil IoT Edge e
 * **Traduction de protocole** : également appelée modèle de passerelle opaque, les appareils ne prenant pas en charge MQTT, AMQP ou HTTP peuvent utiliser un appareil de passerelle pour envoyer des données à IoT Hub en leur nom. La passerelle comprend le protocole utilisé par les appareils situés en aval ; toutefois, il s'agit du seul appareil doté d'une identité dans IoT Hub. Toutes les informations semblent provenir d’un seul appareil, la passerelle. Les appareils situés en aval doivent intégrer des informations d'identification supplémentaires dans leurs messages si les applications cloud veulent analyser les données pour chaque appareil. De plus, les primitives IoT Hub comme la représentation (twin) et les méthodes (methods) sont uniquement disponibles pour l’appareil de passerelle, et non pour les appareils situés en aval.
 * **Traduction d’identité** : les appareils qui n'ont pas accès à IoT Hub peuvent se connecter à un appareil de passerelle. La passerelle fournit la traduction de protocole et d’identité IoT Hub pour le compte des appareils en aval. La passerelle est suffisamment intelligente pour comprendre le protocole utilisé par les appareils en aval, leur fournir une identité et traduire les primitives IoT Hub. Les appareils en aval s’affichent dans IoT Hub comme des appareils de premier niveau avec des représentations et des méthodes. Un utilisateur qui interagit avec les appareils dans IoT Hub et n’a pas connaissance de l’appareil de passerelle intermédiaire.
 
-![Diagrammes des modèles de passerelles](./media/iot-edge-as-gateway/edge-as-gateway.png)
+![Diagramme - Modèles de passerelles d’identité, de protocole et transparentes](./media/iot-edge-as-gateway/edge-as-gateway.png)
 
 ## <a name="use-cases"></a>Cas d'utilisation
 Tous les modèles de passerelles fournissent les avantages suivants :

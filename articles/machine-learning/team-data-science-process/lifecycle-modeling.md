@@ -1,5 +1,5 @@
 ---
-title: Phase de modélisation du cycle de vie du processus TDSP (Team Data Science Process) - Azure | Microsoft Docs
+title: Phase de modélisation du cycle de vie du processus TDSP (Team Data Science Process)
 description: Objectifs, tâches et livrables associés à la phase de modélisation de vos projets de science des données
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b486083e4dc76f6d9ebc5e24e7d52b5ef3b99f3a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: dac686878ff128e3d556c0dbd7e9a2d51ac1756d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442405"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139947"
 ---
-# <a name="modeling"></a>Modélisation
+# <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Phase de modélisation du cycle de vie du processus TDSP (Team Data Science Process)
 
 Cet article présente les objectifs, tâches et livrables associés à la phase de modélisation du processus TDSP. Ce processus indique un cycle de vie recommandé que vous pouvez utiliser pour structurer vos projets de science des données. Le cycle de vie expose les principales phases que les projets exécutent généralement, souvent de manière itérative :
 
@@ -41,8 +41,8 @@ Voici une représentation visuelle du cycle de vie TDSP :
 ## <a name="how-to-do-it"></a>Marche à suivre
 Trois tâches principales sont traitées dans cette phase :
 
-  * **Ingénierie des caractéristiques** : créez des caractéristiques de données à partir des données brutes pour faciliter l’apprentissage du modèle.
-  * **Apprentissage du modèle** : recherchez le modèle qui répond le plus précisément à la question en comparant leurs mesures de réussite.
+  * **Ingénierie des caractéristiques** : Créez des caractéristiques de données à partir des données brutes pour faciliter l’apprentissage du modèle.
+  * **Apprentissage du modèle** : Recherchez le modèle qui répond le plus précisément à la question en comparant leurs mesures de réussite.
   * Déterminez si votre modèle est **approprié pour la production**.
 
 ### <a name="feature-engineering"></a>Ingénierie des caractéristiques
@@ -63,7 +63,7 @@ Le processus d’apprentissage du modèle comprend les étapes suivantes :
    * **Déterminer la solution « optimale »** pour répondre à la question en comparant les mesures de réussite entre différentes méthodes.
 
 > [!NOTE]
-> **Éviter la fuite**: vous pouvez utiliser la fuite de données si vous incluez des données extérieures au jeu de données d’apprentissage, qui permet à un modèle ou à un algorithme d’apprentissage automatique d’effectuer des prédictions anormalement correctes. La nervosité qui gagne les scientifiques de données quand ils obtiennent des résultats prédictifs semblant trop beaux pour être vrais est souvent liée à une fuite. Ces dépendances peuvent être difficiles à détecter. Pour éviter toute fuite, il est souvent nécessaire de jongler entre la création d’un jeu de données d’analyse, la création d’un modèle et l’évaluation de la précision des résultats. 
+> **Éviter la fuite** : Une fuite de données peut avoir lieu si vous incluez des données extérieures au jeu de données d’apprentissage, qui permet à un modèle ou à un algorithme d’apprentissage automatique d’effectuer des prédictions anormalement correctes. La nervosité qui gagne les scientifiques de données quand ils obtiennent des résultats prédictifs semblant trop beaux pour être vrais est souvent liée à une fuite. Ces dépendances peuvent être difficiles à détecter. Pour éviter toute fuite, il est souvent nécessaire de jongler entre la création d’un jeu de données d’analyse, la création d’un modèle et l’évaluation de la précision des résultats. 
 > 
 > 
 
@@ -72,9 +72,9 @@ Nous fournissons avec le processus TDSP un [outil de modélisation et de créati
 ## <a name="artifacts"></a>Artefacts
 Les artefacts générés au cours de cette phase sont les suivants :
 
-   * [Jeux de caractéristiques](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets) : les caractéristiques développées pour la modélisation sont décrites dans la section **Feature Sets (Jeux de caractéristiques)** du rapport **Data Definition (Définition des données)**. Elle contient des pointeurs vers le code permettant de générer les caractéristiques et une description de la génération de la caractéristique.
-   * [Modèle de rapport](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md) : pour chaque modèle tenté, un rapport standard basé sur le modèle fournissant des détails sur chaque expérience est produit.
-   * **Décision de point de contrôle** : déterminez si le modèle est suffisamment performant pour être déployé sur un système de production. Voici certaines questions clés que vous devez vous poser :
+   * [Jeux de caractéristiques](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets) : Les caractéristiques développées pour la modélisation sont décrites dans la section **Feature Sets (Jeux de caractéristiques)** du rapport **Data Definition (Définition des données)**. Elle contient des pointeurs vers le code permettant de générer les caractéristiques et une description de la génération de la caractéristique.
+   * [Modèle de rapport](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md) : Pour chaque modèle tenté, un rapport standard basé sur le modèle fournissant des détails sur chaque expérience est produit.
+   * **Décision de point de contrôle** : Déterminez si le modèle est suffisamment performant pour être déployé sur un système de production. Voici certaines questions clés que vous devez vous poser :
      * Le modèle répond-il à la question avec une fiabilité suffisante compte tenu des données de test ? 
      * Devez-vous essayer d’appliquer d’autres approches ? Devez-vous collecter des données supplémentaires, poursuivre l’ingénierie des caractéristiques ou faire des essais avec d’autres algorithmes ?
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 2c862dcaf5f9267265879faa8ac927ddf7515419
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 6251a0c7fd43a12dbe02a0013f1530557d142d25
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277271"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969955"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Utiliser des profils de version des API avec Azure CLI dans Azure Stack
 
@@ -36,7 +36,7 @@ Vous devriez voir la version d’Azure CLI et d’autres bibliothèques dépenda
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Approuver le certificat racine d’autorité de certification Azure Stack
 
-1. Récupérez le certificat racine d’autorité de certification Azure Stack auprès de [votre opérateur Azure Stack](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) et approuvez-le. Pour approuver le certificat racine d’autorité de certification Azure Stack, ajoutez-le au certificat Python existant.
+1. Récupérez le certificat racine d’autorité de certification Azure Stack auprès de [votre opérateur Azure Stack](../azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) et approuvez-le. Pour approuver le certificat racine d’autorité de certification Azure Stack, ajoutez-le au certificat Python existant.
 
 1. Trouvez l’emplacement du certificat sur votre machine. L’emplacement peut varier en fonction de l’endroit où vous avez installé Python. [pip](https://pip.pypa.io) et le module [certifi](https://pypi.org/project/certifi/) doivent être installés. Vous pouvez utiliser la commande Python suivante depuis l’invite de commandes bash :
 
@@ -76,7 +76,7 @@ sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 ```
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 ```powershell
 $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -181,7 +181,7 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
 1. Connectez-vous à votre environnement Azure Stack avec la commande `az login`. Vous pouvez vous connecter à l’environnement Azure Stack en tant qu’utilisateur ou que [principal de service](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
     * Environnements AAD
-      * Connexion en tant *qu’utilisateur* : vous pouvez spécifier directement le nom d’utilisateur et le mot de passe dans la commande `az login` ou vous authentifier avec un navigateur. Vous devez choisir cette dernière solution si l’authentification multifacteur est activée sur votre compte.
+      * Connectez-vous en tant qu’*utilisateur* : vous pouvez spécifier directement le nom d’utilisateur et le mot de passe dans la commande `az login` ou vous authentifier avec un navigateur. Vous devez choisir cette dernière solution si l’authentification multifacteur est activée sur votre compte.
 
       ```azurecli
       az login \
@@ -192,7 +192,7 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
       > [!NOTE]
       > Si l’authentification multifacteur est activée sur votre compte d’utilisateur, vous pouvez utiliser la commande `az login command` sans fournir le paramètre `-u`. Elle vous donne une URL et un code qui vous permettent de vous authentifier.
    
-      * Connexion en tant que *principal de service* : avant de vous connecter, [créez un principal de service avec le portail Azure](azure-stack-create-service-principals.md) ou l’interface CLI, et attribuez-lui un rôle. Ensuite, connectez-vous avec la commande suivante :
+      * Connectez-vous en tant que *principal de service* : avant de vous connecter, [créez un principal de service avec le portail Azure](azure-stack-create-service-principals.md) ou l’interface CLI, et attribuez-lui un rôle. Ensuite, connectez-vous avec la commande suivante :
 
       ```azurecli
       az login \
@@ -242,6 +242,6 @@ Il existe certains problèmes connus dont vous devez prendre connaissance quand 
 
 [Déployer des modèles avec l’interface de ligne de commande Azure](azure-stack-deploy-template-command-line.md)
 
-[Activer Azure CLI pour les utilisateurs d’Azure Stack (opérateur)](..\azure-stack-cli-admin.md)
+[Activer Azure CLI pour les utilisateurs d’Azure Stack (opérateur)](../azure-stack-cli-admin.md)
 
 [Gérer les autorisations utilisateur](azure-stack-manage-permissions.md)

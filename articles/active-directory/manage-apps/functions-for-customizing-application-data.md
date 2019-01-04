@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 7a7f959f54281dcce5b8d1349f5d6607f0e5da30
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 058cadec0776e05daf9fddbf715020953478ff58
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345791"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105153"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 Quand vous configurez l’approvisionnement pour une application SaaS, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. Dans ce cas, vous devez écrire une expression semblable à un script qui vous permet de transformer les données des utilisateurs dans des formats plus acceptables pour l’application SaaS.
@@ -32,9 +32,9 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 * Vous pouvez passer trois différents types d’arguments dans des fonctions :
   
   1. Des attributs, qui doivent être placés entre crochets. Par exemple : [nom_attribut]
-  2. Des constantes de chaîne, qui doivent être placées entre des guillemets doubles. Par exemple : "États-Unis"
-  3. D’autres fonctions. Par exemple : fonction_une (<<argument1>>, fonction_deux(<<argument2>>))
-* Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\). Par exemple : « Nom de la société : \"Contoso\" »
+  2. Des constantes de chaîne, qui doivent être placées entre des guillemets doubles. Par exemple :  « États-Unis »
+  3. D’autres fonctions. Par exemple :  FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
+* Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\). Par exemple :  « Nom de l’entreprise : \"Contoso\" »
 
 ## <a name="list-of-functions"></a>Liste des fonctions
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
@@ -63,7 +63,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 | NOM | Requis / Répétition | type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
-| **inputFormat** |Obligatoire |Chaîne |Format attendu de la valeur source. Pour connaitre les formats pris en charge, consultez [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** |Obligatoire |Chaîne |Format attendu de la valeur source. Pour connaitre les formats pris en charge, consultez [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Obligatoire |Chaîne |Format de la date de sortie. |
 
 - - -
@@ -79,7 +79,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 | NOM | Requis / Répétition | type | Notes |
 | --- | --- | --- | --- |
 | **separator** |Obligatoire |Chaîne |Chaîne utilisée pour séparer les valeurs sources quand elles sont concaténées en une seule chaîne. Peut être "" si aucun séparateur n’est requis. |
-| **source1  … sourceN ** |Requis, nombre de fois variable |Chaîne |Valeurs de chaîne à joindre ensemble. |
+| **source1  … sourceN** |Requis, nombre de fois variable |Chaîne |Valeurs de chaîne à joindre ensemble. |
 
 - - -
 ### <a name="mid"></a>Mid
@@ -141,6 +141,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
   * Si **source** a une valeur, la fonction utilise **regexPattern** et **regexGroupName** pour extraire la valeur de remplacement de la propriété avec **replacementPropertyName**. La valeur de remplacement est retournée comme résultat.
 
 **Paramètres :**<br> 
+
 | NOM | Requis / Répétition | type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
@@ -166,7 +167,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 | NOM | Requis / Répétition | type | Notes |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN ** |Au moins 2 requis, aucune limite supérieure |Chaîne | Liste des règles de génération de valeur unique à évaluer |
+| **uniqueValueRule1  … uniqueValueRuleN** |Au moins 2 requis, aucune limite supérieure |Chaîne | Liste des règles de génération de valeur unique à évaluer |
 
 
 - - -
@@ -240,9 +241,9 @@ Vous devez générer un alias d’utilisateur en prenant les trois premières le
 
 **Exemple d’entrée/sortie :** <br>
 
-* **ENTRÉE** (givenName): « John »
-* **ENTRÉE** (surname) : « Doe »
-* **SORTIE** : « JohDoe »
+* **ENTRÉE** (givenName) : "John"
+* **ENTRÉE** (surname) : "Doe"
+* **SORTIE** :  "JohDoe"
 
 ### <a name="remove-diacritics-from-a-string"></a>Supprimer les signes diacritiques d’une chaîne
 Vous devez remplacer les caractères accentués par leurs équivalents non accentués.
@@ -252,8 +253,8 @@ NormalizeDiacritics([givenName])
 
 **Exemple d’entrée/sortie :** <br>
 
-* **ENTRÉE** (givenName) : « Zoë »
-* **SORTIE** : « Zoe »
+* **ENTRÉE** (givenName) : "Zoë"
+* **SORTIE** :  "Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Sortir une date sous la forme d’une chaîne dans un certain format
 
@@ -266,8 +267,8 @@ Vous souhaitez envoyer des dates à une application SaaS dans un format donné. 
 
 **Exemple d’entrée/sortie :**
 
-* **ENTRÉE** (extensionAttribute1) : « 20150123105347.1Z »
-* **SORTIE** : « 2015-01-23 »
+* **ENTRÉE** (extensionAttribute1) : "20150123105347.1Z"
+* **SORTIE** :  "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Remplacer une valeur en fonction d’un ensemble d’options prédéfini
 
@@ -280,8 +281,8 @@ Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d�
 
 **Exemple d’entrée/sortie :**
 
-* **ENTRÉE** (state) : « QLD »
-* **SORTIE**: « Australia/Brisbane »
+* **ENTRÉE** (état) : "QLD"
+* **SORTIE** : "Australia/Brisbane"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Générer une valeur unique pour l’attribut userPrincipalName (UPN)
 
@@ -297,8 +298,8 @@ En fonction du prénom, du deuxième prénom et du nom de famille de l’utilisa
 
 **Exemple d’entrée/sortie :**
 
-* **ENTRÉE** (PreferredFirstName) : "John"
-* **ENTRÉE** (PreferredLastName) : "John"
+* **ENTRÉE** (PreferredFirstName) : "John"
+* **ENTRÉE** (PreferredLastName) : "Smith"
 * **SORTIE** : « John.Smith@contoso.com » si la valeur UPN de John.Smith@contoso.com n’existe pas déjà dans le répertoire
 * **SORTIE** : « J.Smith@contoso.com » si la valeur UPN de John.Smith@contoso.com existe déjà dans le répertoire
 * **SORTIE** : « Jo.Smith@contoso.com » si les deux valeurs UPN précédentes existent déjà dans le répertoire

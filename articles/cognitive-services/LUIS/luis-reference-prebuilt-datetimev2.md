@@ -1,33 +1,34 @@
 ---
-title: Documentation de référence pour l’entité prédéfinie datetimev2 de LUIS - Azure | Microsoft Docs
+title: Entités prédéfinies DatetimeV2
 titleSuffix: Azure
 description: Cet article contient des informations sur l’entité prédéfinie datetimev2 dans Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: bd28981ae0c5b4d6ccff3168f92f0f99be768b10
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 0e2353107d6554a8ecbbd2e4d9850f8d8b5fda5c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335774"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165178"
 ---
-# <a name="datetimev2-entity"></a>Entité Datetimev2
+# <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie datetimeV2 pour une application LUIS
 
 L’entité prédéfinie **datetimeV2** extrait des valeurs de date et d’heure. Ces valeurs se résolvent dans un format standardisé que les programmes clients peuvent exploiter. Quand un énoncé a une date ou une heure incomplètes, LUIS inclut les _valeurs passées et futures_ dans la réponse du point de terminaison. Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant datetimev2 aux intentions de l’application. 
 
 ## <a name="types-of-datetimev2"></a>Types de datetimev2
-Datetimev2 est géré à partir du dépôt GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml)
+Datetimev2 est gérée à partir du dépôt GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml)
 
-## <a name="example-json"></a>Exemple de JSON 
+## <a name="example-json"></a>Exemple JSON 
 L’exemple suivant de réponse JSON a une entité `datetimeV2` avec un sous-type `datetime`. Pour obtenir des exemples d’autres types d’entités datetimev2, voir [Sous-types de datetimev2](#subtypes-of-datetimev2)</a>.
 
-```JSON
+```json
 "entities": [
   {
     "entity": "8am on may 2nd 2017",
@@ -103,7 +104,7 @@ Par exemple, prenons l’énoncé "May 2nd" (2 mai) :
 L’exemple suivant montre la résolution de l’entité "may 2nd" (2 mai). Cette solution suppose que la date du jour est comprise entre le 2 mai 2017 et le 1er mai 2018.
 Les `X` dans le champ `timex` correspondent à des parties de la date qui ne sont pas explicitement spécifiées dans l’énoncé.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "may 2nd",
@@ -132,7 +133,7 @@ Les `X` dans le champ `timex` correspondent à des parties de la date qui ne son
 
 L’entité `datetimeV2` extrait les plages de dates et d’heures. Les champs `start` et `end` indiquent respectivement le début et la fin de la plage. Pour l’énoncé "may 2nd to may 5th" (du 2 mai au 5 mai), LUIS fournit les valeurs **daterange** (plage de dates) valeurs pour l’année en cours et l’année suivante. Dans le champ `timex`, les valeurs `XXXX` indiquent l’ambiguïté de l’année. `P3D` indique que la période est de trois jours.
 
-```JSON
+```json
 "entities": [
     {
       "entity": "may 2nd to may 5th",
@@ -163,7 +164,7 @@ L’entité `datetimeV2` extrait les plages de dates et d’heures. Les champs `
 
 L’exemple suivant montre comment LUIS utilise **datetimev2** pour résoudre l’énoncé "Tuesday to Thursday" (Mardi à jeudi). Dans cet exemple, la date du jour est le 19 juin. LUIS inclut les valeurs **daterange** (plage de dates) pour les plages de dates qui précèdent et qui suivent la date du jour.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "tuesday to thursday",
@@ -196,7 +197,7 @@ Le tableau des valeurs contient deux éléments si l’heure ou la plage d’heu
 
 L’exemple suivant montre comment LUIS utilise **datetimev2** pour résoudre l’énoncé contenant une plage d’heures.
 
-```
+```json
   "entities": [
     {
       "entity": "6pm to 7pm",

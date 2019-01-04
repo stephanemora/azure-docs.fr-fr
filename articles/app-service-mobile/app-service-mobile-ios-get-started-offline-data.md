@@ -14,25 +14,25 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 2f415f1886c654f3bdd880cdccaadc7aa3e69892
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bc0afcf1ac7d9e7a777d850e1b6df7b915837f3a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32156493"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956872"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Activer la synchronisation hors connexion avec des applications mobiles iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce didacticiel traite de la synchronisation hors connexion à l’aide de la fonctionnalité Mobile Apps d’Azure App Service pour iOS. La synchronisation hors connexion permet aux utilisateurs finaux d’interagir avec une application mobile pour afficher, ajouter ou modifier des données, même en l’absence d’une connexion réseau. Les modifications sont stockées dans une base de données locale. Quand l’appareil est de nouveau en ligne, les modifications sont synchronisées avec le backend distant.
 
-Si c’est la première fois que vous utilisez Mobile Apps, commencez par suivre le didacticiel [Créer une application iOS]. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter les packages d’extension d’accès aux données à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Si c’est la première fois que vous utilisez Mobile Apps, commencez par suivre le didacticiel [Création d’une application iOS]. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter les packages d’extension d’accès aux données à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 Pour en savoir plus sur la fonctionnalité de synchronisation hors connexion, consultez [Synchronisation des données hors connexion dans Mobile Apps].
 
 ## <a name="review-sync"></a>Examiner le code de synchronisation client
-Le projet client que vous avez téléchargé pour le didacticiel [Créer une application iOS] contient déjà du code prenant en charge la synchronisation hors connexion à l’aide d’une base de données Core Data locale. Cette section résume ce qui est déjà inclus dans le code du didacticiel. Pour obtenir une vue d’ensemble conceptuelle de la fonctionnalité, consultez [Synchronisation des données hors connexion dans Mobile Apps].
+Le projet client que vous avez téléchargé pour le didacticiel [Création d’une application iOS] contient déjà du code prenant en charge la synchronisation hors connexion à l’aide d’une base de données Core Data locale. Cette section résume ce qui est déjà inclus dans le code du didacticiel. Pour obtenir une vue d’ensemble conceptuelle de la fonctionnalité, consultez [Synchronisation des données hors connexion dans Mobile Apps].
 
 La fonctionnalité de synchronisation des données hors connexion de Mobile Apps permet aux utilisateurs d’interagir avec une base de données locale quand le réseau n’est pas accessible. Pour pouvoir utiliser ces fonctionnalités dans votre application, vous devez initialiser le contexte de synchronisation de `MSClient` et référencer un magasin local. Ensuite, référencez votre table par le biais de l’interface **MSSyncTable**.
 
@@ -143,7 +143,7 @@ Quand vous utilisez le magasin hors connexion Core Data, vous devez définir cer
 Ouvrez **QSDataModel.xcdatamodeld**. Quatre tables sont définies : trois sont utilisées par le SDK et la dernière est utilisée pour les éléments de tâche :
   * MS_TableOperations : effectue le suivi des éléments à synchroniser avec le serveur.
   * MS_TableOperationErrors : effectue le suivi des erreurs qui se produisent pendant la synchronisation hors connexion.
-  * MS_TableConfig : effectue le suivi de l’heure de la dernière mise à jour de la dernière opération de synchronisation pour toutes les opérations d’extraction.
+  * MS_TableConfig : effectue le suivi de l’heure de la dernière mise à jour de la dernière opération de synchronisation pour toutes les opérations d’extraction (pull).
   * TodoItem : stocke les éléments de tâche. Les colonnes système **createdAt**, **updatedAt** et **version** sont des propriétés système facultatives.
 
 > [!NOTE]
@@ -199,7 +199,7 @@ Quand vous utilisez la fonctionnalité de synchronisation hors connexion, défin
 | --- | --- | --- |
 | id | Chaîne, marquée requise |Clé primaire dans le magasin distant |
 | terminé | Booléen | Champ d’élément de tâche |
-| text |Chaîne |Champ d’élément de tâche |
+| texte |Chaîne |Champ d’élément de tâche |
 | createdAt | Date | (facultatif) Correspond à la propriété système **createdAt** |
 | updatedAt | Date | (facultatif) Correspond à la propriété système **updatedAt** |
 | version | Chaîne | (facultatif) Permet de détecter les conflits, correspond à version |
@@ -272,12 +272,12 @@ Pour synchroniser le magasin local avec le serveur, nous avons utilisé la méth
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Synchronisation des données hors connexion dans Mobile Apps]
-* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]\( La vidéo traite de Mobile Services, mais la synchronisation hors connexion Mobile Apps fonctionne de façon similaire.\)
+* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] \(La vidéo traite de Mobile Services, mais la synchronisation hors connexion Mobile Apps fonctionne de façon similaire.\)
 
 <!-- URLs. -->
 
 
-[Créer une application iOS]: app-service-mobile-ios-get-started.md
+[Création d’une application iOS]: app-service-mobile-ios-get-started.md
 [Synchronisation des données hors connexion dans Mobile Apps]: app-service-mobile-offline-data-sync.md
 
 [defining-core-data-tableoperationerrors-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableoperationerrors-entity.png
@@ -285,5 +285,5 @@ Pour synchroniser le magasin local avec le serveur, nous avons utilisé la méth
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 
-[Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Cloud Cover : synchronisation hors connexion dans Azure Mobile Services]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Azure Friday: Offline-enabled apps in Azure Mobile Services]: https://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/

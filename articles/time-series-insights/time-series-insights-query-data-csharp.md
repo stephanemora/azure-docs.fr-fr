@@ -1,5 +1,5 @@
 ---
-title: Interroger des données à partir d’un environnement Azure Time Series Insights à l’aide de code C# | Microsoft Docs
+title: Requêtes Azure Time Series Insights en C#– Interroger des données à partir d’un environnement Azure Time Series Insights à l’aide du code C# | Microsoft Docs
 description: Cet article décrit comment interroger des données à partir d’un environnement Azure Time Series Insights en codant une application personnalisée écrite en langage C# (C-sharp) .NET.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: 6c4a99096efc95f439d6c9479cb9014957207ea6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 82a3d4527d241aba80eb471508c99c7781dd4a41
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630855"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277946"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>Interroger des données à partir de l’environnement Azure Time Series Insights en utilisant C#
 
@@ -25,7 +26,7 @@ L’exemple montre plusieurs exemples de base de l’utilisation de l’API de r
 1. En guise de préparation, obtenez le jeton d’accès via l’API Azure Active Directory. Transmettez le jeton dans l’en-tête `Authorization` de chaque demande de l’API de requête. Pour configurer les applications non interactives, voir [Authentification et autorisation](time-series-insights-authentication-and-authorization.md). Vérifiez aussi que toutes les constantes définies au début de l’exemple sont correctement configurées.
 2. La liste des environnements auxquels l’utilisateur a accès est obtenue. L’un des environnements est récupéré en tant qu’environnement d’intérêt, et les autres données sont interrogées pour cet environnement.
 3. Exemple de demande HTTPS : les données de disponibilité sont demandées pour l’environnement d’intérêt.
-4. Exemple de demande de socket web : les données d’agrégats d’évènement sont demandées pour l’environnement d’intérêt. Des données sont demandées pour l’intégralité de la période de disponibilité.
+4. Exemple de demande de socket web : les données d’agrégats d’événement sont demandées pour l’environnement d’intérêt. Des données sont demandées pour l’intégralité de la période de disponibilité.
 
 Cet exemple de code est également disponible à l’adresse [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
 

@@ -7,17 +7,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/07/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5f95b71497b59eafff09d4add2b4bb1c20656592
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 9dbe88e1e179df4560d5094cf3f58ca770541323
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339356"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842270"
 ---
-# <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure Active Directory B2C : Se connecter à l’aide d’une application iOS
+# <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C : Se connecter à l’aide d’une application iOS
 
 La plateforme d’identité Microsoft utilise des normes ouvertes telles que OAuth2 et OpenID Connect. L’utilisation d’un protocole standard ouvert offre plusieurs options de développeur lors de la sélection d’une bibliothèque à intégrer à nos services. Nous proposons cette procédure pas à pas et d’autres similaires pour aider les développeurs à écrire des applications qui se connectent à la plateforme Microsoft Identity. La plupart des bibliothèques qui implémentent [la spécification RFC6749 OAuth2](https://tools.ietf.org/html/rfc6749) sont en mesure de se connecter à la plateforme Microsoft Identity.
 
@@ -38,16 +38,16 @@ Vous devez maintenant créer dans votre répertoire B2C une application L’insc
 * Copiez l’ **ID d’application** affecté à votre application. Vous aurez besoin de ce GUID ultérieurement.
 * Configurez un **URI de redirection** avec un schéma personnalisé (par exemple, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Vous aurez besoin de cet URI ultérieurement.
 
-## <a name="create-your-policies"></a>Création de vos stratégies
-Dans Azure AD B2C, chaque expérience utilisateur est définie par une [stratégie](active-directory-b2c-reference-policies.md). Cette application contient une seule expérience liée à l’identité : une connexion et une inscription combinées. Créez cette stratégie, comme décrit dans l’[article de référence sur les stratégies](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Lorsque vous créez la stratégie, prenez soin de :
+## <a name="create-your-user-flows"></a>Créer vos flux d’utilisateurs
+Dans Azure AD B2C, chaque expérience utilisateur est définie par un [flux utilisateur](active-directory-b2c-reference-policies.md). Cette application contient une seule expérience liée à l’identité : une connexion et une inscription combinées. Créez ce flux utilisateur, comme décrit dans [l’article de référence sur les flux d’utilisateurs](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Lorsque vous créez le flux utilisateur, veillez à effectuer les actions suivantes :
 
 * Sous **Sign-up attributes** (Attributs d’abonnement), sélectionnez l’attribut **Nom complet**.  Vous pouvez sélectionner d’autres attributs également.
 * Sous **Revendications d’applications**, sélectionnez le **Nom d’affichage** et l’**ID d’objet de l’utilisateur** des revendications. Vous pouvez aussi sélectionner d’autres revendications.
-* Copiez le **nom** de chaque stratégie après sa création. Lorsque vous enregistrez la stratégie, son nom a le préfixe `b2c_1_` .  Le nom de stratégie vous est demandé ultérieurement.
+* Copiez le **nom** de chaque flux utilisateur après sa création. Lorsque vous enregistrez le flux utilisateur, son nom porte le préfixe `b2c_1_`.  Vous aurez besoin du nom du flux utilisateur.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Une fois vos stratégies créées, vous pouvez générer votre application.
+Une fois vos flux d’utilisateurs créés, vous pouvez générer votre application.
 
 ## <a name="download-the-sample-code"></a>Télécharger l’exemple de code
 Nous avons fourni un exemple fonctionnel qui utilise AppAuth avec Azure AD B2C [sur GitHub](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Vous pouvez télécharger le code et l’exécuter. Pour utiliser votre propre client Azure AD B2C, suivez les instructions du fichier [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md).
@@ -64,7 +64,7 @@ Cet exemple a été créé en suivant les instructions du fichier README par le 
 
 Vous pouvez configurer la communication avec Azure AD B2C en spécifiant les URI du point de terminaison d’autorisation et du point de terminaison de jeton.  Pour générer ces URI, vous avez besoin des informations suivantes :
 * ID client (par exemple, contoso.onmicrosoft.com)
-* Nom de la stratégie (par exemple, B2C\_1\_SignUpIn)
+* Nom du flux utilisateur (par exemple, B2C\_1\_SignUpIn)
 
 L’URI du point de terminaison de jeton peut être généré en remplaçant l’\_ID client et le nom de la stratégie\_ dans l’URL suivante :
 

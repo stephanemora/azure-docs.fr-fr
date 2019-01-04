@@ -1,21 +1,22 @@
 ---
-title: Ajouter des entités dans des applications LUIS
-titleSuffix: Azure Cognitive Services
+title: Ajouter des entités
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Ajoutez des entités (données clés dans le domaine de l’application) dans les applications Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5beb952c2330d44ffe090fc422afa6da67376b0d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: f95d7851241dfd5b077c215e2df893c6ba8ef36c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288048"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139484"
 ---
 # <a name="create-entities-without-utterances"></a>Créer des entités sans énoncés
 
@@ -156,13 +157,13 @@ Pour une application de ressources humaines, vous pouvez avoir une liste de tous
 
 1. Si vous voulez d’autres éléments normalisés pour la liste, sélectionnez **Recommander** pour voir les options du [dictionnaire sémantique](luis-glossary.md#semantic-dictionary).
 
-    ![Capture d’écran d’ajout du rôle Origin à l’entité Location](./media/add-entities/hr-list-2.png)
+    ![Capture d’écran de sélection de la fonctionnalité Recommander pour afficher les options](./media/add-entities/hr-list-2.png)
 
 
 1. Sélectionnez un élément de la liste recommandée pour l’ajouter aux valeurs normalisées, ou sélectionnez **Tout ajouter** pour ajouter tous les éléments. 
     Vous pouvez importer des valeurs dans une entité de liste existante en utilisant le format JSON suivant :
 
-    ```
+    ```JSON
     [
         {
             "canonicalForm": "Blue",

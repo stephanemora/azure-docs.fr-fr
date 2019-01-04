@@ -1,5 +1,5 @@
 ---
-title: Traiter et extraire du texte d’images dans Recherche Azure | Microsoft Docs
+title: Traiter et extraire du texte depuis des images dans la recherche cognitive - Recherche Azure
 description: Traitez et extrayez du texte et d’autres informations d’images dans des pipelines de recherche cognitive dans Recherche Azure.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 5ee821f3d1e81e581f376d4b14b3e8393a8f190c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: b4829b0da656c648db732b2e7564de6db8fbf2eb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444631"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312610"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Comment traiter et extraire des informations d’images dans des scénarios de recherche cognitive
 

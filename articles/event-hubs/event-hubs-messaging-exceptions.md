@@ -1,6 +1,6 @@
 ---
-title: Exceptions de la messagerie Azure Event Hubs | Microsoft Docs
-description: Liste des exceptions de la messagerie Azure Event Hubs et les actions suggérées.
+title: Exceptions de messagerie - Azure Event Hubs | Microsoft Docs
+description: Cet article fournit la liste des exceptions de messagerie Azure Event Hubs et les actions suggérées.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/03/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 4576aad82b8c581cbe1630b56a07fc469207ef5f
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 013386d86d29b75591a938b2805bde25ecf176d3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038140"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104458"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Exceptions de la messagerie Event Hubs
 
@@ -80,15 +81,15 @@ Cette erreur peut se produire pour deux raisons :
 
 1. La charge n’est pas répartie de manière égale entre toutes les partitions de l’Event Hub et une partition atteint la limite d’unité de débit locale.
     
-    Résolution : revoir la stratégie de distribution de partition ou essayer [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_).
+    Résolution : Passez en revue la stratégie de distribution de partition ou essayez [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_).
 
 2. L’espace de noms Event Hubs n’a pas suffisamment d’unités de débit (vous pouvez consulter l’écran **Mesures** dans la fenêtre de l’espace de noms Event Hubs du [portail Azure](https://portal.azure.com) pour vous en assurer). Le portail affiche des informations agrégées (1 minute), toutefois, nous mesurons le débit en temps réel. Cette valeur n’est donc qu’une estimation.
 
-    Résolution : augmenter les unités de débit sur l’espace de noms. Vous pouvez réaliser cette opération sur le portail, dans la fenêtre **Mise à l’échelle** de l’écran de l’espace de noms Event Hubs. Vous pouvez également utiliser la [majoration automatique](event-hubs-auto-inflate.md).
+    Résolution : Augmentez les unités de débit sur l’espace de noms. Vous pouvez réaliser cette opération sur le portail, dans la fenêtre **Mise à l’échelle** de l’écran de l’espace de noms Event Hubs. Vous pouvez également utiliser la [majoration automatique](event-hubs-auto-inflate.md).
 
 ### <a name="error-code-50001"></a>Code d’erreur 50001
 
-Cette erreur survient rarement. Elle se présente lorsque le conteneur exécutant le code pour votre espace de noms n’a pas suffisamment de ressources d’UC ; pas plus de quelques secondes avant que l’équilibreur de charge Event Hubs commence.
+Cette erreur survient rarement. Elle se présente lorsque le conteneur exécutant le code pour votre espace de noms n’a pas suffisamment de ressources d’UC ; pas plus de quelques secondes avant que l’équilibrage de charge des Event Hubs commence.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -96,5 +97,5 @@ Cette erreur survient rarement. Elle se présente lorsque le conteneur exécutan
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d’ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Créer un hub d’événements](event-hubs-create.md)
+* [Create an Event Hub](event-hubs-create.md) (Créer un Event Hub)
 * [FAQ sur les hubs d'événements](event-hubs-faq.md)

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 9057d9f5d63598ea249e8f3193b84fd715018829
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 787da07c5b8d8610e264963f81d858fce98d304f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109969"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436158"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Rendre un pipeline d’analytique de données opérationnel
 
@@ -30,13 +30,13 @@ Dans le scénario suivant, les données d’entrée sont un fichier plat contena
 | 2017 | 1 | 3 | AS | 9,435449 | 5,482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6,935409 | -2,1893024 | 1909696 |
 
-L’exemple de pipeline attend les données de vol d’une nouvelle période, puis stocke ces informations de vol détaillées dans l’entrepôt de données Hive à des fins d’analyse à long terme. Il crée également un jeu de données beaucoup plus petit, qui résume simplement les données de vol quotidiennes. Ce résumé est envoyé à une base de données SQL pour générer des rapports, par exemple, pour un site web.
+L’exemple de pipeline attend les données de vol d’une nouvelle période, puis stocke ces informations de vol détaillées dans l’entrepôt de données Apache Hive à des fins d’analyse à long terme. Il crée également un jeu de données beaucoup plus petit, qui résume simplement les données de vol quotidiennes. Ce résumé est envoyé à une base de données SQL pour générer des rapports, par exemple, pour un site web.
 
 Le diagramme suivant illustre l’exemple de pipeline.
 
 ![Pipeline de données de vol](./media/hdinsight-operationalize-data-pipeline/pipeline-overview.png)
 
-## <a name="oozie-solution-overview"></a>Vue d’ensemble de la solution Oozie
+## <a name="apache-oozie-solution-overview"></a>Vue d’ensemble de la solution Apache Oozie
 
 Ce pipeline utilise Apache Oozie sur un cluster HDInsight Hadoop.
 
@@ -139,7 +139,7 @@ Votre base de données Azure SQL Database est prête.
 
 Pour utiliser la console Web Oozie afin d’afficher l’état de vos instances de coordinateurs et de workflows, configurez un tunnel SSH vers votre cluster HDInsight. Pour plus d’informations, consultez la page [Tunnel SSH](hdinsight-linux-ambari-ssh-tunnel.md).
 
-> [!NOTE]
+> [!NOTE]  
 > Vous pouvez également utiliser Chrome avec l’extension [FoxyProxy](https://getfoxyproxy.org/) pour parcourir les ressources web de votre cluster à travers le tunnel SSH. Configurez-la de façon à rediriger toutes les requêtes via l’hôte `localhost` sur le port 9876 du tunnel. Cette approche est compatible avec le sous-système Windows pour Linux, également connu sous le nom de Bash sous Windows 10.
 
 1. Exécutez la commande suivante pour ouvrir un tunnel SSH vers votre cluster :
@@ -430,7 +430,7 @@ Le tableau suivant résume chacune des propriétés et indique l’emplacement d
 | month | Composant « mois » de la journée pour laquelle sont calculés les résumés de vols. Laissez la valeur actuelle. |
 | day | Composant « jour du mois » de la journée pour laquelle sont calculés les résumés de vols. Laissez la valeur actuelle. |
 
-> [!NOTE]
+> [!NOTE]  
 > Veillez à mettre à jour votre copie du fichier `job.properties` en ajoutant les valeurs propres à votre environnement pour pouvoir déployer et exécuter votre workflow Oozie.
 
 ### <a name="deploy-and-run-the-oozie-workflow"></a>Déployer et exécuter le workflow Oozie
@@ -545,7 +545,7 @@ Pour planifier une exécution quotidienne de ce workflow (ou tous les jours d’
 
 Comme vous pouvez le voir, la majeure partie du coordinateur consiste en une simple transmission d’informations de configuration à l’instance de workflow. Toutefois, il existe quelques éléments importants à appeler.
 
-* Point 1 : les attributs `start` et `end` de l’élément `coordinator-app` lui-même contrôlent l’intervalle de temps pendant lequel s’exécute le coordinateur.
+* Point 1 : les attributs `start` et `end` de l’élément `coordinator-app` lui-même contrôlent l’intervalle de temps pendant lequel s’exécute le coordinateur.
 
     ```
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
@@ -553,7 +553,7 @@ Comme vous pouvez le voir, la majeure partie du coordinateur consiste en une sim
 
     Un coordinateur est responsable de la planification d’actions pendant la plage de dates comprise entre `start` et `end`, en fonction de l’intervalle spécifié par l’attribut `frequency`. Chaque action planifiée exécute à son tour le workflow tel qu’il est configuré. Dans la définition ci-dessus, le coordinateur est configuré pour exécuter des actions entre le 1er janvier 2017 et le 5 janvier 2017. La fréquence est définie sur un jour par l’expression de fréquence `${coord:days(1)}` en [Langage d’expression Oozie](http://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation). En conséquence, le coordinateur planifie une action (et, par conséquent, le workflow) une fois par jour. Pour les plages de dates passées, comme dans cet exemple, l’action s’exécutera sans délai. Le début de la date à partir de laquelle une action doit s’exécuter s’appelle *l’heure nominale*. Par exemple, pour traiter les données du 1er janvier 2017, le coordinateur planifiera une action associée à une heure nominale de 2017-01-01T00:00:00 GMT.
 
-* Point 2 : dans la plage de dates du workflow, l’élément `dataset` indique l’endroit, dans HDFS, où rechercher les données d’une plage de dates donnée et configure la manière dont Oozie détermine si les données sont prêtes ou non pour le traitement.
+* Point 2 : dans la plage de dates du workflow, l’élément `dataset` indique l’endroit, dans HDFS, où rechercher les données d’une plage de dates donnée et configure la manière dont Oozie détermine si les données sont prêtes ou non pour le traitement.
 
     ```
     <dataset name="ds_input1" frequency="${coord:days(1)}" initial-instance="2016-12-31T00:00Z" timezone="UTC">
@@ -566,7 +566,7 @@ Comme vous pouvez le voir, la majeure partie du coordinateur consiste en une sim
 
     L’élément `done-flag` vide indique qu’Oozie détermine si les données d’entrée sont disponibles à l’heure prévue par la présence d’un répertoire ou d’un fichier. Dans ce cas, il s’agit d’un fichier CSV. S’il en existe un, Oozie suppose que les données sont prêtes et lance une instance de workflow pour le traiter. Si aucun fichier CSV n’est présent, il suppose que les données ne sont pas encore prêtes, et cette exécution du workflow passe à l’état En attente.
 
-* Point 3 : l’élément `data-in` spécifie le timestamp à utiliser en particulier comme heure nominale lors du remplacement de valeurs dans `uri-template` pour le jeu de données associé.
+* Point 3 : l’élément `data-in` spécifie le timestamp à utiliser en particulier comme heure nominale lors du remplacement de valeurs dans `uri-template` pour le jeu de données associé.
 
     ```
     <data-in name="event_input1" dataset="ds_input1">
@@ -578,11 +578,11 @@ Comme vous pouvez le voir, la majeure partie du coordinateur consiste en une sim
 
 Les trois points précédents se combinent pour créer une situation dans laquelle le coordinateur planifie le traitement des données sources jour après jour. 
 
-* Point 1 : le coordinateur commence avec la date nominale 2017-01-01.
+* Point 1 : le coordinateur commence avec la date nominale 2017-01-01.
 
-* Point 2 : Oozie recherche les données disponibles dans `sourceDataFolder/2017-01-FlightData.csv`.
+* Point 2 : Oozie recherche les données disponibles dans `sourceDataFolder/2017-01-FlightData.csv`.
 
-* Point 3 : lorsque Oozie trouve ce fichier, il planifie une instance du workflow qui traitera les données pour 2017-01-01. Oozie continue alors le traitement pour 2017-01-02. Cette évaluation se répète jusqu’à 2017-01-05 non inclus.
+* Point 3 : lorsque Oozie trouve ce fichier, il planifie une instance du workflow qui traitera les données pour 2017-01-01. Oozie continue alors le traitement pour 2017-01-02. Cette évaluation se répète jusqu’à 2017-01-05 non inclus.
 
 Comme pour les workflows, la configuration d’un coordinateur est définie dans un fichier `job.properties`, qui contient un sur-ensemble des paramètres utilisés par le workflow.
 

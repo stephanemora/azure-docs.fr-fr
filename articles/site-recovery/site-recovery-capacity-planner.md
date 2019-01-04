@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: d53e8fe6588b7e1b068431a4cd530d0a80a603e6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d8ba4fa1b5f5efd671c13ad2201b0cd34642d346
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261874"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844938"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planifier la capacité pour la reprise d’activité de machines virtuelles Hyper-V 
 
@@ -65,17 +65,17 @@ Vous pouvez exécuter l’outil en deux modes :
 
 4. Une fois que vous avez entré les valeurs de l’environnement source, la sortie affichée inclut ce qui suit :
 
-   * **Bande passante requise pour la réplication delta (en mégabits par seconde)**  : la bande passante réseau pour la réplication delta est calculée sur le taux de modification de données moyen par jour.
+   * **Bande passante requise pour la réplication delta (en mégabits par seconde)**  : La bande passante réseau pour la réplication delta est calculée sur le taux de modification de données moyen par jour.
    * **Bande passante requise pour la réplication initiale (en mégabits par seconde)**  : la bande passante réseau pour la réplication initiale est calculée sur les valeurs de réplication initiale que vous entrez.
    * **Stockage requis (en Go)**  : stockage Azure total requis.
-   * **Nombre total d’E/S par seconde sur le compte de stockage standard** : calculé sur la base d’une taille d’unité d’E/S par seconde de 8K sur la totalité des comptes de stockage standard. Pour Quick Planner, le nombre est calculé en fonction de l’ensemble des disques de machine virtuelle sources et du taux de changement de données quotidien. Pour Detailed Planner, le nombre est calculé en fonction du nombre total de machines virtuelles mappées aux machines virtuelles Azure standard et du taux de modification de données sur ces dernières.
-   * **Nombre de comptes de stockage standard requis** : nombre total de comptes de stockage standard nécessaire pour protéger les machines virtuelles. Un compte de stockage standard peut prendre en charge jusqu’à 20 000 E/S par seconde sur toutes les machines virtuelles appartenant à un stockage standard. Le maximum d’E/S par seconde prises en charge par disque est de 500.
-   * **Nombre de disques blob requis** : nombre de disques qui seront créés sur le stockage Azure.
-   * **Nombre de comptes premium requis** : nombre total de comptes de stockage premium nécessaire pour protéger les machines virtuelles. Une machine virtuelle source avec une valeur d’E/S par seconde élevée (supérieure à 20 000) a besoin d’un compte de stockage premium. Un compte de stockage premium peut prendre en charge jusqu’à 80 000 E/S par seconde.
-   * **Total d’E/S par seconde sur un stockage premium** : nombre calculé sur la base d’une taille d’unité d’E/S par seconde de 256 K sur l’ensemble des comptes de stockage premium. Pour Quick Planner, le nombre est calculé en fonction de l’ensemble des disques de machine virtuelle sources et du taux de changement de données quotidien. Concernant le Detailed Planner, le nombre est calculé en fonction du nombre total de machines virtuelles mappées sur des machines virtuelles Azure premium (séries DS et GS) et du taux de modification des données sur ces dernières.
+   * **Nombre total d’E/S par seconde sur le compte de stockage standard** : calculé sur la base d’une taille d’unité d’IOPS de 8K sur la totalité des comptes de stockage standard. Pour Quick Planner, le nombre est calculé en fonction de l’ensemble des disques de machine virtuelle sources et du taux de changement de données quotidien. Pour Detailed Planner, le nombre est calculé en fonction du nombre total de machines virtuelles mappées aux machines virtuelles Azure standard et du taux de modification de données sur ces dernières.
+   * **Nombre de comptes de stockage standard requis** : Nombre total de comptes de stockage standard nécessaire pour protéger les machines virtuelles. Un compte de stockage standard peut prendre en charge jusqu’à 20 000 E/S par seconde sur toutes les machines virtuelles appartenant à un stockage standard. Le maximum d’E/S par seconde prises en charge par disque est de 500.
+   * **Nombre de disques blob requis** : Nombre de disques qui seront créés sur le stockage Azure.
+   * **Nombre de comptes Premium requis** : Nombre total de comptes de stockage premium nécessaire pour protéger les machines virtuelles. Une machine virtuelle source avec une valeur d’E/S par seconde élevée (supérieure à 20 000) a besoin d’un compte de stockage premium. Un compte de stockage premium peut prendre en charge jusqu’à 80 000 E/S par seconde.
+   * **Total d’E/S par seconde sur un stockage Premium** : nombre calculé sur la base d’une taille d’unité d’IOPS de 256 K sur l’ensemble des comptes de stockage Premium. Pour Quick Planner, le nombre est calculé en fonction de l’ensemble des disques de machine virtuelle sources et du taux de changement de données quotidien. Concernant le Detailed Planner, le nombre est calculé en fonction du nombre total de machines virtuelles mappées sur des machines virtuelles Azure premium (séries DS et GS) et du taux de modification des données sur ces dernières.
    * **Nombre de serveurs de configuration requis** : indique le nombre de serveurs de configuration requis pour le déploiement.
-   * **Nombre de serveurs de traitement supplémentaires requis** : indique si des serveurs de traitement supplémentaires sont nécessaires en plus du serveur de traitement qui est exécuté sur le serveur de configuration par défaut.
-   * **100 % de stockage supplémentaire sur la source** : indique si un stockage supplémentaire est nécessaire dans l’emplacement source.
+   * **Nombre de serveurs de traitement supplémentaires requis** : Indique si des serveurs de processus supplémentaires sont nécessaires en plus du serveur de processus qui est exécuté sur le serveur de configuration par défaut.
+   * **100 % de stockage supplémentaire sur la source** : Indique si un stockage supplémentaire est nécessaire dans l’emplacement source.
 
       ![Sortie](./media/site-recovery-capacity-planner/output.png)
 

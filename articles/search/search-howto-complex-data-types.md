@@ -1,5 +1,5 @@
 ---
-title: Modélisation de types de données complexes dans Recherche Azure | Microsoft Docs
+title: Modélisation de types de données complexes - Recherche Azure
 description: Les structures de données imbriquées ou hiérarchiques peuvent être modélisées dans un index Recherche Azure à l’aide d’un ensemble de lignes aplati et du type de données Collection.
 author: brjohnstmsft
 manager: jlembicz
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 81298bedd43a89ea948753dffc5f80248f5429ca
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 973623d6c4cb57518af2012bccf67c969146d23c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799071"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311981"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Modélisation de types de données complexes dans Recherche Azure
 Les jeux de données externes utilisés pour remplir un index Recherche Azure inclut parfois des sous-structures hiérarchiques ou imbriquées qui ne sont pas réparties proprement en un ensemble de lignes tabulaire. Des exemples de telles structures incluent les emplacements et les numéros de téléphone multiples pour un même client, les couleurs et les tailles multiples pour une même référence, les auteurs multiples pour un même livre, etc. En termes de modélisation, ces structures peuvent être désignées sous le nom de *types de données complexes*, *types de données composées*, *types de données composites* ou *types de données agrégées*, entre autres.
@@ -65,14 +66,14 @@ Bien que les champs nommés « id », « name » et « company » puissent facil
 > 
 > 
 
-## <a name="part-1-flatten-the-array-into-individual-fields"></a>Partie 1 : Aplatir le tableau en champs individuels
+## <a name="part-1-flatten-the-array-into-individual-fields"></a>Partie 1 : Aplatir le tableau en champs individuels
 Pour créer un index Recherche Azure prenant en charge ce jeu de données, créez des champs individuels pour la sous-structure imbriquée : `locationsID` et `locationsDescription` avec un type de données [collections](https://msdn.microsoft.com/library/azure/dn798938.aspx) (ou un tableau de chaînes). Vous devez indexer les valeurs « 1 » et « 2 » dans le champ `locationsID` pour John Smith et les valeurs « 3 » et « 4 » dans le champ `locationsID` pour Jen Campbell.  
 
 Vos données dans Recherche Azure présentent l’aspect suivant : 
 
 ![Exemple de données, 2 lignes](./media/search-howto-complex-data-types/sample-data.png)
 
-## <a name="part-2-add-a-collection-field-in-the-index-definition"></a>Partie 2 : Ajouter un champ collection dans la définition d’index
+## <a name="part-2-add-a-collection-field-in-the-index-definition"></a>Partie 2 : Ajouter un champ collection dans la définition d’index
 Dans le schéma d’index, les définitions de champ peuvent ressembler à cet exemple.
 
 ~~~~
@@ -130,7 +131,6 @@ Cette technique est utile pour un certain nombre de scénarios, mais elle n’es
 ## <a name="sample-code"></a>Exemple de code
 Pour obtenir un exemple de l’indexation d’un jeu de données JSON complexe dans Recherche Azure de l’exécution d’un certain nombre de requêtes sur ce jeu de données, consultez ce [référentiel GitHub](https://github.com/liamca/AzureSearchComplexTypes).
 
-## <a name="next-step"></a>Étapes suivantes
-
+## <a name="next-step"></a>Étape suivante
 [Votez pour la prise en charge native des types de données complexes](https://feedback.azure.com/forums/263029-azure-search) sur la page UserVoice de Recherche Azure et ajoutez tout commentaire que vous aimeriez que nous prenions en compte concernant l’implémentation de fonctionnalités. Vous pouvez également me contacter directement sur Twitter sur @liamca.
 

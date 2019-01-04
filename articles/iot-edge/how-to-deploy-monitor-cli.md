@@ -1,6 +1,6 @@
 ---
-title: Déployer et surveiller des modules pour Azure IoT Edge (CLI) | Microsoft Docs
-description: Gérer les modules qui s’exécutent sur des appareils Edge
+title: Créer des déploiements automatique à partir de la ligne de commande - Azure IoT Edge | Microsoft Docs
+description: Utilisez l’extension IoT pour Azure CLI afin de créer des déploiements automatiques pour les groupes d’appareils IoT Edge
 keywords: ''
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3f2e7de6b32b4cca6320933050775f843e2cdf39
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 64c4b82208b2f8a20f7fd00fb574d5e017030e81
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567931"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094149"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Déployer et surveiller des modules IoT Edge à grande échelle à l’aide d’Azure CLI
 

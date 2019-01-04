@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ed0001d8d88a2604e3128a4d5f7a365aeb7b00b1
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c6b8312a08d1d92bccf70e7d3dda5f01811b4f87
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440789"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848525"
 ---
 # <a name="configure-password-complexity-in-custom-policies"></a>Configurer la complexité du mot de passe dans les stratégies personnalisées
 
@@ -23,7 +23,7 @@ ms.locfileid: "37440789"
 
 Cet article offre une description avancée du fonctionnement de la complexité du mot de passe et de son activation grâce aux stratégies personnalisées Azure AD B2C.
 
-## <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C : configurer les exigences de complexité des mots de passe
+## <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C : configurer les exigences de complexité des mots de passe
 
 Azure Active Directory B2C (Azure AD B2C) prend en charge la modification des exigences de complexité des mots de passe fournis par un utilisateur final à la création d’un compte.  Par défaut, Azure AD B2C utilise des mots de passe **forts**.  Azure AD B2C prend également en charge les options de configuration permettant de contrôler la complexité des mots de passe utilisables par les clients.  Cet article explique comment configurer la complexité du mot de passe dans les stratégies personnalisées.  Il est également possible de [configurer la complexité du mot de passe dans les stratégies intégrées](active-directory-b2c-reference-password-complexity.md).
 
@@ -51,7 +51,7 @@ L’objectif de ces éléments est le suivant :
 
 ### <a name="defining-a-predicate-element"></a>Définir un élément de prédicat
 
-Les prédicats ont deux types de méthodes : IsLengthRange et MatchesRegex. Examinons un exemple de chaque.  Nous avons tout d’abord un exemple de MatchesRegex, utilisé pour correspondre à une expression régulière.  Ici, il correspond à une chaîne qui contient des nombres.
+Les prédicats ont deux types de méthode : IsLengthRange ou MatchesRegex. Examinons un exemple de chaque.  Nous avons tout d’abord un exemple de MatchesRegex, utilisé pour correspondre à une expression régulière.  Ici, il correspond à une chaîne qui contient des nombres.
 
 ```XML
       <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
@@ -124,8 +124,8 @@ Cet exemple contient une validation pour les codes confidentiels et une autre po
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
   TenantId="yourtenant.onmicrosoft.com"

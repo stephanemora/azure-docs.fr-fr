@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: f0bd0a57aff9767c78be63fc918b8689f7b06514
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 61b331c330da5e2083a7a029e3f3137e6d4a1aab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122703"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077832"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-preview"></a>Copier des données de Jira à l’aide d’Azure Data Factory (préversion)
 
@@ -45,7 +45,7 @@ Les propriétés prises en charge pour le service lié Jira sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **Jira** | Oui |
+| Type | La propriété type doit être définie sur : **Jira** | Oui |
 | host | Adresse IP ou nom d’hôte du serveur Jira (par exemple, jira.exemple.com).  | Oui |
 | port | Port TCP utilisé par le serveur Jira pour écouter les connexions clientes. La valeur par défaut est 443 si vous vous connectez via HTTPS, ou 8080 via HTTP.  | Non  |
 | username | Nom d’utilisateur utilisé pour accéder au service Jira.  | Oui |
@@ -78,7 +78,12 @@ Les propriétés prises en charge pour le service lié Jira sont les suivantes :
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données Jira.
 
-Pour copier des données de Jira, affectez la valeur **JiraObject** à la propriété de type du jeu de données. Il n’y a aucune autre propriété propre au type dans cette sorte de jeu de données.
+Pour copier des données de Jira, affectez la valeur **JiraObject** à la propriété de type du jeu de données. Les propriétés prises en charge sont les suivantes :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| Type | La propriété type du jeu de données doit être définie sur : **JiraObject** | Oui |
+| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -90,7 +95,8 @@ Pour copier des données de Jira, affectez la valeur **JiraObject** à la propri
         "linkedServiceName": {
             "referenceName": "<Jira linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -105,8 +111,8 @@ Pour copier des données de Jira, définissez le type de source dans l’activit
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type de la source d’activité de copie doit être définie sur **JiraSource** | Oui |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **JiraSource** | Oui |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
 

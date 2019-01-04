@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 57929b23e437e17ceb90196e3cfa59c16d518f5a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: af738b655b4070da1cfe7555daff82c0e40ff91c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527435"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138583"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objectifs de performance et d’extensibilité d'Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles via le protocole SMB standard. Cet article présente les objectifs de performance et d’extensibilité pour Azure Files et Azure File Sync.
@@ -39,13 +39,14 @@ Avec Azure File Sync, nous nous sommes efforcés de proposer un usage illimité,
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ### <a name="azure-file-sync-performance-metrics"></a>Métriques de performances Azure File Sync
-Comme l’agent Azure File Sync s’exécute sur une machine Windows Server qui se connecte aux partages de fichiers Azure, les performances de synchronisation dépendent de plusieurs facteurs dans votre infrastructure : la configuration de Windows Server et des disques sous-jacents, la bande passante réseau entre le serveur et le stockage Azure, la taille de fichier, la taille totale du jeu de données et l’activité sur le jeu de données. Comme Azure File Sync fonctionne au niveau du fichier, les caractéristiques de performances d’une solution Azure File Sync est exprimée de façon optimale en nombre d’objets (fichiers et répertoires) traités par seconde. 
+Étant donné que l’agent Azure File Sync s’exécute sur un ordinateur Windows Server qui se connecte aux partages de fichiers Azure, les performances de synchronisation réelles dépendent de plusieurs facteurs dans votre infrastructure : Windows Server et la configuration de disque sous-jacente, la bande passante réseau entre le serveur et le stockage Azure, la taille des fichiers, la taille totale du jeu de données et l’activité sur le jeu de données. Comme Azure File Sync fonctionne au niveau du fichier, les caractéristiques de performances d’une solution Azure File Sync est exprimée de façon optimale en nombre d’objets (fichiers et répertoires) traités par seconde. 
  
 Pour Azure File Sync, les performances sont essentielles dans deux phases :
-1. **Provisionnement initial unique** : Pour optimiser les performances au moment du provisionnement initial, consultez [Intégrer Azure File Sync](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) pour plus d’informations sur un déploiement optimal.
-2. **Synchronisation continue** : Une fois que les données sont initialement provisionnées dans les partages de fichiers Azure, Azure File Sync synchronise plusieurs points de terminaison.
+1. **Approvisionnement initial unique** : pour optimiser les performances au moment de l’approvisionnement initial, consultez [Intégrer Azure File Sync](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) pour plus d’informations sur un déploiement optimal.
+2. **Synchronisation continue** : une fois que les données sont initialement approvisionnées dans les partages de fichiers Azure, Azure File Sync synchronise plusieurs points de terminaison.
 
 Pour vous aider à planifier votre déploiement pour chacune des phases, voici les résultats observés durant le test interne sur un système avec une configuration
+
 | Configuration système |  |
 |-|-|
 | UC | 64 cœurs virtuels avec cache L3 64 MiB |
@@ -58,7 +59,7 @@ Pour vous aider à planifier votre déploiement pour chacune des phases, voici l
 |-|-|
 | Nombre d’objets | 10 millions d’objets | 
 | Taille du jeu de données| ~4 TiB |
-| Taille de fichier moyenne | ~500 KiB (plus gros fichier : 100 GiB) |
+| Taille de fichier moyenne | ~500 Kio (plus gros fichier : 100 Gio) |
 | Débit de chargement | 15 objets par seconde |
 | Débit de téléchargement d’espace de noms* | 350 objets par seconde |
  

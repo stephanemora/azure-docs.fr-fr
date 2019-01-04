@@ -1,23 +1,22 @@
 ---
-title: 'Azure Cosmos DB : API, SDK et ressources du processeur de flux de modification .NET | Microsoft Docs'
+title: 'Azure Cosmos DB : API, SDK et ressources du processeur de flux de modification .NET'
 description: Découvrez l’API et le kit SDK du processeur de flux de modification, notamment les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du kit SDK du processeur de flux de modification .NET.
 services: cosmos-db
 author: ealsur
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 327873d228fe92a9da495f802c97eb73612caef9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7b6fefd575901648a99bb3a67a05e705622bb74a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632481"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407862"
 ---
-# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit SDK du processeur de flux de modification .NET : téléchargement et notes de publication
+# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit de développement logiciel (SDK) du processeur de flux de modification .NET Téléchargement et notes de publication
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Flux de modification .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -28,7 +27,7 @@ ms.locfileid: "52632481"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -42,6 +41,10 @@ ms.locfileid: "52632481"
 ## <a name="release-notes"></a>Notes de publication
 
 ### <a name="v2-builds"></a>Builds V2
+
+### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
+* Ajout de la prise en charge de la gestion des collections fractionnées qui utilisent un débit de base de données partagé.
+  * Cette version corrige un problème qui peut se produire dans les collections fractionnées utilisant un débit de base de données partagé lorsque le fractionnement entraîne un rééquilibrage des partitions avec la création d’une seule plage de clés de partition enfants au lieu de deux. Dans ce cas, le processeur de flux de modification peut se bloquer lors de la suppression du bail pour l’ancienne plage de clés de partition et ne pas créer de nouveaux baux. Ce problème a été résolu dans cette version.
 
 ### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
 * Ajout de la nouvelle propriété ChangeFeedProcessorOptions.StartContinuation pour prendre en charge le démarrage du flux de modification à partir d’un jeton de continuation de requête. Elle est utilisée uniquement quand la collection de baux est vide ou quand aucune propriété ContinuationToken n’est définie pour un bail. Pour les baux de la collection dont la propriété ContinuationToken est définie, ContinuationToken est utilisée et ChangeFeedProcessorOptions.StartContinuation est ignorée.
@@ -155,6 +158,10 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.2.5](#2.2.5) |13 décembre 2018 |--- |
+| [2.2.4](#2.2.4) |29 novembre 2018 |--- |
+| [2.2.3](#2.2.3) |19 novembre 2018 |--- |
+| [2.2.2](#2.2.2) |31 octobre 2018 |--- |
 | [2.2.1](#2.2.1) |24 octobre 2018 |--- |
 | [1.3.3](#1.3.3) |8 mai 2018 |--- |
 | [1.3.2](#1.3.2) |18 avril 2018 |--- |

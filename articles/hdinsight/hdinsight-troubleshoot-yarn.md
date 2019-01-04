@@ -1,38 +1,31 @@
 ---
-title: Résolution de problèmes YARN à l’aide d’Azure HDInsight | Microsoft Docs
+title: Résoudre les problèmes liés à YARN dans Azure HDInsight
 description: Obtenez les réponses aux questions courantes sur l’utilisation d’Apache Hadoop YARN et d’Azure HDInsight.
-keywords: Azure HDInsight, YARN, FAQ, guide de dépannage, questions courantes
-services: Azure HDInsight
-documentationcenter: na
-author: arijitt
-manager: ''
-editor: ''
-ms.assetid: F76786A9-99AB-4B85-9B15-CA03528FC4CD
+services: hdinsight
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: article
-ms.date: 11/2/2017
-ms.author: arijitt
-ms.openlocfilehash: 338d678fb31a86046b8bc6424d0e8aac2de1a0c5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+author: hrasheed-msft
+ms.author: hrasheed
+ms.topic: conceptual
+ms.date: 12/06/2018
+ms.openlocfilehash: d5582038c35ba3b599be89b7b7939e644d55ea78
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407044"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408828"
 ---
-# <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Résoudre les problèmes YARN à l’aide d’Azure HDInsight
+# <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Résoudre les problèmes d’Apache Hadoop YARN avec Azure HDInsight
 
 Découvrez les principaux problèmes rencontrés lors de l’utilisation de charges utiles Apache Hadoop YARN dans Apache Ambari, et leur résolution.
 
 ## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Comment créer une file d’attente YARN dans un cluster ?
-
 
 ### <a name="resolution-steps"></a>Étapes de résolution 
 
 Effectuez les étapes suivantes via Ambari pour créer une file d’attente YARN, puis équilibrer l’allocation de capacité entre toutes les files d’attente. 
 
 Dans cet exemple, la capacité de deux files d’attente existantes (**default** et **thriftsvr**) est modifiée de 50 % à 25 %, ce qui permet à la nouvelle file d’attente (spark) de bénéficier d’une capacité de 50 %.
-| File d'attente | Capacity | Capacité maximale |
+| File d'attente | Capacité | Capacité maximale |
 | --- | --- | --- | --- |
 | default | 25% | 50% |
 | thrftsvr | 25% | 50% |
@@ -66,7 +59,7 @@ Ces modifications se répercutent immédiatement sur l’interface utilisateur d
 
 ### <a name="additional-reading"></a>Documentation supplémentaire
 
-- [YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
+- [Apache Hadoop YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
 
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Comment télécharger les journaux YARN à partir d’un cluster ?
@@ -138,16 +131,9 @@ Ces modifications se répercutent immédiatement sur l’interface utilisateur d
 
 ### <a name="additional-reading-2"></a>Documentation supplémentaire
 
-- [Se connecter à HDInsight (Hadoop) à l’aide de SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [Se connecter à HDInsight (Apache Hadoop) avec SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop YARN concepts and applications](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/) (Concepts et applications Apache Hadoop Yarn, en anglais)
 
 
 ### <a name="see-also"></a>Voir aussi
 [Résoudre des problèmes à l’aide d’Azure HDInsight](hdinsight-troubleshoot-guide.md)
-
-
-
-
-
-
-

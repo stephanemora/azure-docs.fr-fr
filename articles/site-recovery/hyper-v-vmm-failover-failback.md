@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 80a26f7f2c97fdbc5342d8845277facd79f22a62
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 828f8e78f24380303f30260c39f837f0ba3524e6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210004"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832362"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Basculer et restaurer automatiquement des machines virtuelles Hyper-V répliquées sur votre site local secondaire
 
@@ -30,8 +30,8 @@ Cet article explique comment basculer une machine virtuelle Hyper-V managée dan
 
 Le basculement et la restauration automatique comportent trois étapes :
 
-1. **Basculement vers le site secondaire** : les machines basculent du site principal vers le site secondaire.
-2. **Restauration automatique à partir du site secondaire** : les machines virtuelles sont répliquées depuis le site secondaire sur le site principal, et un basculement planifié est exécuté pour la restauration automatique.
+1. **Basculement vers le site secondaire** : les machines basculent du site principal vers le site secondaire.
+2. **Restauration automatique à partir du site secondaire** : les machines virtuelles sont répliquées depuis le site secondaire sur le site principal, et un basculement planifié est exécuté pour la restauration automatique.
 3. Après le basculement planifié, vous pouvez, si vous le souhaitez, effectuer de nouveau une réplication du site primaire sur le site secondaire.
 
 
@@ -58,7 +58,7 @@ Cette procédure explique comment effectuer régulièrement un basculement.
 3. Après avoir vérifié la machine virtuelle, **validez** le basculement. Cela supprime tous les points de récupération disponibles.
 
 > [!WARNING]
-> **N’annulez pas un basculement en cours** : avant que le basculement soit démarré, la réplication de la machine virtuelle est arrêtée. Si vous annulez un basculement en cours, le basculement s’arrête mais la machine virtuelle ne sera pas à nouveau répliquée.  
+> **N’annulez pas un basculement en cours** : Avant le démarrage du basculement, la réplication de la machine virtuelle est arrêtée. Si vous annulez un basculement en cours, le basculement s’arrête mais la machine virtuelle ne sera pas à nouveau répliquée.  
 
 
 ## <a name="reverse-replicate-and-failover"></a>Réplication inverse et basculement

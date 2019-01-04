@@ -1,6 +1,6 @@
 ---
-title: 'Processus TDSP (Team Data Science Process) en action : utilisation de SQL Data Warehouse | Microsoft Docs'
-description: Processus d’analyse avancé et technologie en action
+title: Créer et déployer un modèle à l’aide de SQL Data Warehouse - Team Data Science Process
+description: Créez et déployez un modèle Machine Learning à l’aide de SQL Data Warehouse avec un ensemble de données disponible publiquement.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 87c3b0b597a401041b8bf1b6f3997431d8816e92
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: ed3731db88d7f829634a03c55e5ec033c03e4b0f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445703"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139118"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Processus TDSP (Team Data Science Process) en action : utilisation de SQL Data Warehouse
 Dans ce didacticiel, nous vous guidons dans la création et le déploiement d’un modèle d’apprentissage automatique utilisant SQL Data Warehouse (SQL DW) pour un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). Le modèle de classification binaire établi prédit si un pourboire a été donné pour une course. Des modèles de classification multiclasse et de régression sont également présentés, qui prévoient la distribution des montants de pourboire réglés.
@@ -52,15 +52,15 @@ La **clé unique** utilisée pour joindre trip\_data et trip\_fare se compose de
 ## <a name="mltasks"></a>Traiter trois types de tâches de prédiction
 Nous formulons trois problèmes de prédiction reposant sur la valeur *tip\_amount* pour illustrer trois genres de tâches de modélisation :
 
-1. **Classification binaire** : pour prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une *valeur tip\_amount* de 0 $ est un exemple négatif.
-2. **Classification multiclasse**: prédire la fourchette des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
+1. **Classification binaire** : Prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une *tip\_amount* de 0 $ est un exemple négatif.
+2. **Classification multiclasse** : Prédire la fourchette des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. **Tâche de régression**: prédire le montant du pourboire versé pour une course.  
+3. **Tâche de régression** : Prédire le montant du pourboire versé pour une course.  
 
 ## <a name="setup"></a>Configurer l’environnement de science des données Azure pour l’analyse avancée
 Pour configurer votre environnement de science des données Azure, procédez comme suit :
@@ -117,7 +117,7 @@ Ouvrez une console de commandes Windows PowerShell. Exécutez les commandes Powe
 
 Une fois le script exécuté, *-DestDir*devient votre répertoire de travail. Vous devez voir un écran semblable à ce qui suit :
 
-![][19]
+![Modification du répertoire de travail actuel][19]
 
 Dans *-DestDir*, exécutez le script PowerShell suivant en mode administrateur :
 
@@ -321,7 +321,7 @@ Vous devez décider ce que vous souhaitez faire si vous avez des fichiers source
 > 
 > 
 
-![Diagramme n°21][21]
+![Sortie AzCopy][21]
 
 Vous pouvez utiliser vos propres données. Si vos données sont stockées sur votre ordinateur sur site dans votre application réelle, vous pouvez toujours utiliser AzCopy pour charger les données locales vers l’espace de stockage privé d’objets blob Azure. Vous devez uniquement modifier l’emplacement **Source**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, dans la commande AzCopy du fichier de script PowerShell et le remplacer par le répertoire local qui contient vos données.
 
@@ -334,7 +334,7 @@ Ce script Powershell relie également les informations d’Azure SQL DW aux fi
 
 À l’issue d’une exécution réussie, un écran semblable à ce qui suit s’affiche :
 
-![][20]
+![Sortie d’une exécution de script réussie][20]
 
 ## <a name="dbexplore"></a>Exploration des données et conception de fonctionnalités dans Azure SQL Data Warehouse
 Dans cette section, nous effectuons une exploration des données et une génération de caractéristiques en exécutant des requêtes SQL directement dans Azure SQL DW à l’aide de **Visual Studio Data Tools**. Toutes les requêtes SQL utilisées dans cette section se trouvent dans l’exemple de script nommé *SQLDW_Explorations.sql*. Ce fichier a déjà été téléchargé dans votre répertoire local par le script PowerShell. Vous pouvez également le récupérer à partir de [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql), mais les informations d’Azure SQL DW ne sont pas reliées à ce fichier situé dans GitHub.
@@ -363,9 +363,9 @@ Les requêtes ci-après procèdent à une vérification rapide du nombre de lign
     -- Report number of columns in table <nyctaxi_trip>
     SELECT COUNT(*) FROM information_schema.columns WHERE table_name = '<nyctaxi_trip>' AND table_schema = '<schemaname>'
 
-**Sortie :** vous devez obtenir 173 179 759 lignes et 14 colonnes.
+**Output:** vous devez obtenir 173 179 759 lignes et 14 colonnes.
 
-### <a name="exploration-trip-distribution-by-medallion"></a>Exploration : distribution des courses par médaillon
+### <a name="exploration-trip-distribution-by-medallion"></a>Exploration : Distribution des courses par médaillon
 Cet exemple de requête identifie les médaillons (numéros de taxi) qui ont effectué plus de 100 courses au cours d’une période spécifiée. Cette requête tire avantage de l’accès aux tables partitionnées, car elle est conditionnée par le schéma de partition de **pickup\_datetime**. L’exécution d’une requête portant sur le jeu de données complet tire également profit de l’analyse d’index et/ou de table partitionnée.
 
     SELECT medallion, COUNT(*)
@@ -374,9 +374,9 @@ Cet exemple de requête identifie les médaillons (numéros de taxi) qui ont eff
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-**Sortie :** la requête doit retourner une table dont les lignes recensent les 13 369 médaillons (taxis) et le nombre correspondant de courses effectuées en 2013. La dernière colonne contient le nombre de courses effectuées.
+**Output:** la requête doit retourner une table dont les lignes recensent les 13 369 médaillons (taxis) et le nombre correspondant de courses effectuées en 2013. La dernière colonne contient le nombre de courses effectuées.
 
-### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Exploration : distribution des courses par médaillon et par licence de taxi
+### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Exploration : Distribution des courses par médaillon et par licence de taxi
 Cet exemple identifie les médaillons (numéros de taxi) et les numéros hack_license (chauffeurs) qui ont effectué plus de 100 courses au cours d’une période spécifiée.
 
     SELECT medallion, hack_license, COUNT(*)
@@ -385,9 +385,9 @@ Cet exemple identifie les médaillons (numéros de taxi) et les numéros hack_li
     GROUP BY medallion, hack_license
     HAVING COUNT(*) > 100
 
-**Sortie :** la requête doit retourner une table de 13 369 lignes recensant les 13 369 ID de voiture/chauffeur qui ont effectué plus de 100 courses en 2013. La dernière colonne contient le nombre de courses effectuées.
+**Output:** la requête doit retourner une table de 13 369 lignes recensant les 13 369 ID de voiture/chauffeur qui ont effectué plus de 100 courses en 2013. La dernière colonne contient le nombre de courses effectuées.
 
-### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Évaluation de la qualité des données : Vérifier les enregistrements indiquant une longitude et/ou une latitude incorrectes
+### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Évaluation de la qualité des données : Vérifier les enregistrements indiquant une longitude et/ou une latitude incorrectes
 Cet exemple vérifie si l’un des champs de longitude et/ou de latitude contient une valeur incorrecte (le nombre de degrés doit être compris entre -90 et 90) ou présente des coordonnées (0, 0).
 
     SELECT COUNT(*) FROM <schemaname>.<nyctaxi_trip>
@@ -399,9 +399,9 @@ Cet exemple vérifie si l’un des champs de longitude et/ou de latitude contien
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-**Sortie :** la requête retourne 837 467 courses dont les champs de longitude et/ou de latitude ne sont pas valides.
+**Output:** la requête retourne 837 467 courses dont les champs de longitude et/ou de latitude ne sont pas valides.
 
-### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploration : Distribution des courses avec et sans pourboire
+### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploration : Distribution des courses avec et sans pourboire
 Cet exemple détermine le nombre de courses qui ont fait l’objet d’un pourboire et celles qui n’ont pas donné lieu à un pourboire pendant une période spécifiée (ou dans le jeu de données complet si la période couvre l’année complète comme dans le cas présent). Cette distribution reflète la distribution des étiquettes binaires à utiliser par la suite pour la modélisation de classification binaire.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
@@ -410,9 +410,9 @@ Cet exemple détermine le nombre de courses qui ont fait l’objet d’un pourbo
       WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tipped
 
-**Sortie :** la requête doit retourner la distribution des courses avec et sans pourboire pour l’année 2013 suivante : 90 447 622 avec pourboire et 82 264 709 sans pourboire.
+**Output:** la requête doit retourner la distribution des courses avec et sans pourboire pour l’année 2013 suivante : 90 447 622 avec pourboire et 82 264 709 sans pourboire.
 
-### <a name="exploration-tip-classrange-distribution"></a>Exploration : Distribution des classes/fourchettes de pourboires
+### <a name="exploration-tip-classrange-distribution"></a>Exploration : Distribution des classes/fourchettes de pourboires
 Cet exemple calcule la distribution des fourchettes de pourboires sur une période donnée (ou dans le jeu de données complet si la requête porte sur l’année entière). Il s’agit de la distribution des classes d’étiquette à utiliser par la suite pour la modélisation de classification multiclasse.
 
     SELECT tip_class, COUNT(*) AS tip_freq FROM (
@@ -437,7 +437,7 @@ Cet exemple calcule la distribution des fourchettes de pourboires sur une pério
 | 0 |82264625 |
 | 4 |85765 |
 
-### <a name="exploration-compute-and-compare-trip-distance"></a>Exploration : Calculer et comparer les distances des courses
+### <a name="exploration-compute-and-compare-trip-distance"></a>Exploration : Calculer et comparer les distances des courses
 Cet exemple convertit la longitude et la latitude des points d’embarquement et de débarquement en points géographiques SQL, calcule la distance des trajets en se basant sur la différence entre ces points géographiques et renvoie un échantillon aléatoire des résultats pour comparaison. Cet exemple limite les résultats aux coordonnées valides en utilisant la requête d’évaluation de la qualité des données précédemment décrite.
 
     /****** Object:  UserDefinedFunction [dbo].[fnCalculateDistance] ******/
@@ -531,7 +531,7 @@ Voici un exemple d’appel de cette fonction pour générer des fonctionnalités
     AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
     AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
-**Sortie :** cette requête génère une table (de 2 803 538 lignes) indiquant les latitudes et longitudes des points de prise en charge et de dépose, ainsi que les distances directes correspondantes en miles. Voici les résultats pour les 3 premières lignes :
+**Output:** cette requête génère une table (de 2 803 538 lignes) indiquant les latitudes et longitudes des points de prise en charge et de dépose, ainsi que les distances directes correspondantes en miles. Voici les résultats pour les 3 premières lignes :
 
 |  | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | DirectDistance |
 | --- | --- | --- | --- | --- | --- |
@@ -571,16 +571,16 @@ Si vous avez déjà configuré un espace de travail AzureML, vous pouvez directe
 
 1. Connectez-vous à votre espace de travail AzureML et cliquez successivement sur Studio en haut de l’écran et sur NOTEBOOKS sur la gauche de la page web.
    
-    ![Diagramme n°22][22]
+    ![Cliquer sur Studio puis sur NOTEBOOKS][22]
 2. Cliquez sur NOUVEAU dans le coin inférieur gauche de la page web, puis sélectionnez Python 2. Indiquez alors un nom pour le notebook et cochez la case pour créer le IPython Notebook vide.
    
-    ![Diagramme n°23][23]
+    ![Cliquer sur Nouveau, puis sélectionner Python 2][23]
 3. Cliquez sur le symbole Jupyter dans le coin supérieur gauche du nouvel IPython Notebook.
    
-    ![Diagramme n°24][24]
+    ![Cliquer sur le symbole Jupyter][24]
 4. Effectuez un glisser-déplacer de l’exemple d’IPython Notebook vers la page **d’arborescence** du service AzureML IPython Notebook, puis cliquez sur **Charger**. L’exemple de IPython Notebook est alors chargé vers le service AzureML IPython Notebook.
    
-    ![Diagramme n°25][25]
+    ![Cliquez sur Charger][25]
 
 Pour exécuter l’exemple de IPython Notebook ou le fichier de script Python, vous avez besoin des packages Python ci-dessous. Si vous utilisez le service AzureML IPython Notebook, ces packages ont été préinstallés.
 
@@ -679,14 +679,14 @@ Vous êtes désormais prêt à explorer les données échantillonnées. Nous all
 
     df1['trip_distance'].describe()
 
-### <a name="visualization-box-plot-example"></a>Visualisation : Exemple de diagramme à surfaces
+### <a name="visualization-box-plot-example"></a>Visualisation : Exemple de diagramme à surfaces
 Nous examinons ensuite le diagramme à surfaces concernant la distance des courses afin de visualiser les quantiles.
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
-![Diagramme #1][1]
+![Sortie de diagramme à surfaces][1]
 
-### <a name="visualization-distribution-plot-example"></a>Visualisation : Exemple de diagramme de distribution
+### <a name="visualization-distribution-plot-example"></a>Visualisation : Exemple de diagramme de distribution
 Graphiques qui visualisent la distribution et histogramme correspondant aux distances des courses échantillonnées.
 
     fig = plt.figure()
@@ -695,9 +695,9 @@ Graphiques qui visualisent la distribution et histogramme correspondant aux dist
     df1['trip_distance'].plot(ax=ax1,kind='kde', style='b-')
     df1['trip_distance'].hist(ax=ax2, bins=100, color='k')
 
-![Diagramme #2][2]
+![Sortie de diagramme de distribution][2]
 
-### <a name="visualization-bar-and-line-plots"></a>Visualisation : Diagrammes en bâtons et linéaires
+### <a name="visualization-bar-and-line-plots"></a>Visualisation : Diagrammes en bâtons et linéaires
 Dans cet exemple, nous compartimentons la distance des trajets en cinq zones et nous visualisons les résultats de cette opération.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
@@ -709,38 +709,38 @@ Nous pouvons représenter la distribution des compartiments ci-dessus dans un di
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
-![Diagramme #3][3]
+![Sortie de diagramme en bâtons][3]
 
 and
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
-![Diagramme #4][4]
+![Sortie de diagramme linéaire][4]
 
-### <a name="visualization-scatterplot-examples"></a>Visualisation : Exemples de nuage de points
+### <a name="visualization-scatterplot-examples"></a>Visualisation : Exemple de diagramme de dispersion
 Nous représentons le diagramme de dispersion entre **trip\_time\_in\_secs** et **trip\_distance** pour déterminer s’il existe une corrélation.
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
-![Diagramme #6][6]
+![Sortie de diagramme de dispersion de la relation entre l’heure et la distance][6]
 
 De la même façon, nous pouvons vérifier la relation entre **rate\_code** et **trip\_distance**.
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
-![Diagramme #8][8]
+![Sortie de diagramme de dispersion de la relation entre le code et la distance][8]
 
 ### <a name="data-exploration-on-sampled-data-using-sql-queries-in-ipython-notebook"></a>Exploration des données échantillonnées à l’aide de requêtes SQL dans IPython Notebook
 Dans cette section, nous allons explorer les distributions de données à l’aide de l’échantillon de données que nous avons stocké dans la table créée ci-dessus. Notez que des explorations similaires peuvent être effectuées à l’aide des tables d’origine.
 
-#### <a name="exploration-report-number-of-rows-and-columns-in-the-sampled-table"></a>Exploration : Afficher le nombre de lignes et de colonnes dans la table échantillonnée
+#### <a name="exploration-report-number-of-rows-and-columns-in-the-sampled-table"></a>Exploration : Afficher le nombre de lignes et de colonnes dans la table échantillonnée
     nrows = pd.read_sql('''SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_sample>')''', conn)
     print 'Number of rows in sample = %d' % nrows.iloc[0,0]
 
     ncols = pd.read_sql('''SELECT count(*) FROM information_schema.columns WHERE table_name = ('<nyctaxi_sample>') AND table_schema = '<schemaname>'''', conn)
     print 'Number of columns in sample = %d' % ncols.iloc[0,0]
 
-#### <a name="exploration-tippednot-tripped-distribution"></a>Exploration : Distribution avec et sans pourboire
+#### <a name="exploration-tippednot-tripped-distribution"></a>Exploration : Distribution avec et sans pourboire
     query = '''
         SELECT tipped, count(*) AS tip_freq
         FROM <schemaname>.<nyctaxi_sample>
@@ -749,7 +749,7 @@ Dans cette section, nous allons explorer les distributions de données à l’ai
 
     pd.read_sql(query, conn)
 
-#### <a name="exploration-tip-class-distribution"></a>Exploration : Distribution des classes de pourboires
+#### <a name="exploration-tip-class-distribution"></a>Exploration : Distribution des classes de pourboires
     query = '''
         SELECT tip_class, count(*) AS tip_freq
         FROM <schemaname>.<nyctaxi_sample>
@@ -758,12 +758,12 @@ Dans cette section, nous allons explorer les distributions de données à l’ai
 
     tip_class_dist = pd.read_sql(query, conn)
 
-#### <a name="exploration-plot-the-tip-distribution-by-class"></a>Exploration : Tracer la distribution des pourboires par classe
+#### <a name="exploration-plot-the-tip-distribution-by-class"></a>Exploration : Tracer la distribution des pourboires par classe
     tip_class_dist['tip_freq'].plot(kind='bar')
 
 ![Diagramme n°26][26]
 
-#### <a name="exploration-daily-distribution-of-trips"></a>Exploration : distribution quotidienne des courses
+#### <a name="exploration-daily-distribution-of-trips"></a>Exploration : Distribution quotidienne des courses
     query = '''
         SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
         FROM <schemaname>.<nyctaxi_sample>
@@ -772,7 +772,7 @@ Dans cette section, nous allons explorer les distributions de données à l’ai
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-per-medallion"></a>Exploration : distribution des courses par médaillon
+#### <a name="exploration-trip-distribution-per-medallion"></a>Exploration : Distribution des courses par médaillon
     query = '''
         SELECT medallion,count(*) AS c
         FROM <schemaname>.<nyctaxi_sample>
@@ -781,20 +781,20 @@ Dans cette section, nous allons explorer les distributions de données à l’ai
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Exploration : Distribution des courses par médaillon et par licence de taxi
+#### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Exploration : Distribution des courses par médaillon et par licence de taxi
     query = '''select medallion, hack_license,count(*) from <schemaname>.<nyctaxi_sample> group by medallion, hack_license'''
     pd.read_sql(query,conn)
 
 
-#### <a name="exploration-trip-time-distribution"></a>Exploration : Distribution des durées de course
+#### <a name="exploration-trip-time-distribution"></a>Exploration : Distribution des durées de course
     query = '''select trip_time_in_secs, count(*) from <schemaname>.<nyctaxi_sample> group by trip_time_in_secs order by count(*) desc'''
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distance-distribution"></a>Exploration : Distribution des distances de course
+#### <a name="exploration-trip-distance-distribution"></a>Exploration : Distribution des distances de course
     query = '''select floor(trip_distance/5)*5 as tripbin, count(*) from <schemaname>.<nyctaxi_sample> group by floor(trip_distance/5)*5 order by count(*) desc'''
     pd.read_sql(query,conn)
 
-#### <a name="exploration-payment-type-distribution"></a>Exploration : Distribution des types de paiement
+#### <a name="exploration-payment-type-distribution"></a>Exploration : Distribution des types de paiement
     query = '''select payment_type,count(*) from <schemaname>.<nyctaxi_sample> group by payment_type'''
     pd.read_sql(query,conn)
 
@@ -805,9 +805,9 @@ Dans cette section, nous allons explorer les distributions de données à l’ai
 ## <a name="mlmodel"></a>Créer des modèles dans Azure Machine Learning
 Nous pouvons à présent passer aux phases de création et de déploiement de modèles dans [Azure Machine Learning](https://studio.azureml.net). Les données sont prêtes à être utilisées dans tous les problèmes de prédiction identifiés précédemment, à savoir :
 
-1. **Classification binaire**: prédire si un pourboire a ou non été versé pour une course.
-2. **Classification multiclasse**: prédire la fourchette du pourboire versé en fonction des classes précédemment définies.
-3. **Tâche de régression**: prédire le montant du pourboire versé pour une course.  
+1. **Classification binaire** : Prédire si un pourboire a ou non été versé pour une course.
+2. **Classification multiclasse** : Prédire la fourchette du pourboire versé en fonction des classes précédemment définies.
+3. **Tâche de régression** : Prédire le montant du pourboire versé pour une course.  
 
 Pour démarrer l’exercice de modélisation, connectez-vous à votre espace de travail **Azure Machine Learning** . Si vous n’avez pas encore créé d’espace de travail d’apprentissage automatique, consultez l’article [Créer un espace de travail Azure Machine Learning](../studio/create-workspace.md).
 

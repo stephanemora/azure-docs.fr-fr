@@ -1,5 +1,5 @@
 ---
-title: Surveiller le cluster Azure Kubernetes - Sysdig
+title: (DÉPRÉCIÉ) Superviser un cluster Kubernetes Azure - Sysdig
 description: Surveillance du cluster Kubernetes dans Azure Container Service à l’aide de Sysdig
 services: container-service
 author: bburns
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: bbf59a35f420b5bbf292fbdaa5a8bbc173e4ee24
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 4aef241e2c86e4016c3c468fcdcfdfc620fc7aa9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091305"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998720"
 ---
-# <a name="monitor-an-azure-container-service-kubernetes-cluster-using-sysdig"></a>Surveiller un cluster Kubernetes Azure Container Service avec Sysdig
+# <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-using-sysdig"></a>(DÉPRÉCIÉ) Superviser un cluster Kubernetes Azure Container Service avec Sysdig
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 Cette procédure pas à pas suppose que vous avez [créé un cluster Kubernetes à l’aide d’Azure Container Service](container-service-kubernetes-walkthrough.md).

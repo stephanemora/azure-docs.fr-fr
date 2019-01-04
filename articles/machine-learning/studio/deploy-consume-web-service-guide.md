@@ -1,12 +1,11 @@
 ---
-title: 'Services web Machine Learning : déploiement et consommation - Azure Machine Learning Studio | Microsoft Docs'
+title: Déploiement et consommation - Azure Machine Learning Studio | Microsoft Docs
 description: Vous pouvez utiliser Azure Machine Learning pour déployer des flux de travail et des modèles de machine learning en tant que services web. Ces services web peuvent ensuite servir à appeler les modèles de machine learning à partir d’applications via Internet pour effectuer des prévisions en temps réel ou par lots.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a192bb50fe6931130492fad037f83e301e401762
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ed57f80a210cdb9c7ff8e77da2269d8494892fcc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315543"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268425"
 ---
-# <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Services web Azure Machine Learning : déploiement et consommation
+# <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Services web Azure Machine Learning Studio : Déploiement et consommation
 Vous pouvez utiliser Azure Machine Learning pour déployer des flux de travail et des modèles de machine learning en tant que services web. Ces services web peuvent ensuite servir à appeler les modèles de machine learning à partir d’applications via Internet pour effectuer des prévisions en temps réel ou par lots. Les services web, RESTful, peuvent être appelés avec divers langages et plateformes de programmation, notamment Java, .NET et des applications comme Excel.
 
 Les sections suivantes fournissent des liens vers des procédures pas à pas, du code et de la documentation pour vous aider à démarrer.
@@ -37,10 +36,10 @@ Les liens suivants fournissent des informations générales sur le processus de 
 
 * Pour une vue d’ensemble du déploiement d’un nouveau service web basé sur Azure Resource Manager, consultez [Déployer un nouveau service web](publish-a-machine-learning-web-service.md).
 * Pour une présentation du déploiement d’un service web, consultez [Déployer un service web Azure Machine Learning](publish-a-machine-learning-web-service.md).
-* Pour une présentation complète de la création et du déploiement d’un service web, consultez [Étape 1 du didacticiel pas à pas : créer un espace de travail Machine Learning](walkthrough-1-create-ml-workspace.md).
+* Pour une présentation complète de la création et du déploiement d’un service web, consultez [Étape 1 du didacticiel pas à pas : créer un espace de travail Machine Learning](walkthrough-1-create-ml-workspace.md).
 * Pour des exemples spécifiques de déploiement d’un service web, consultez :
 
-  * [Étape 5 du didacticiel pas à pas : Déploiement du service web Azure Machine Learning](walkthrough-5-publish-web-service.md)
+  * [Étape 5 du didacticiel pas à pas : déployer le service web Azure Machine Learning](walkthrough-5-publish-web-service.md)
   * [Comment déployer un service web dans plusieurs régions](how-to-deploy-to-multiple-regions.md)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Avec les API du fournisseur de ressources des services web (API Azure Resource Manager)
@@ -90,7 +89,7 @@ Vous pouvez tester votre service web sur le portail de services web Azure Machin
 
 * [Déployer comme un nouveau service web](publish-a-machine-learning-web-service.md)
 * [Déploiement d’un service web Azure Machine Learning](publish-a-machine-learning-web-service.md)
-* [Étape 5 du didacticiel pas à pas : Déploiement du service web Azure Machine Learning](walkthrough-5-publish-web-service.md)
+* [Étape 5 du didacticiel pas à pas : déployer le service web Azure Machine Learning](walkthrough-5-publish-web-service.md)
 
 ### <a name="from-excel"></a>À partir d’Excel
 Vous pouvez télécharger un modèle Excel qui consomme le service web :

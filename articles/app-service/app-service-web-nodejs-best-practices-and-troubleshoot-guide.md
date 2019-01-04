@@ -1,6 +1,6 @@
 ---
-title: Meilleures pratiques et guide de dépannage pour les applications node sur Azure Web Apps
-description: Découvrez les meilleures pratiques et les procédures de dépannage pour les applications node sur Azure Web Apps.
+title: Bonnes pratiques et résolution des problèmes pour Node.js - Azure App Service
+description: Découvrez les bonnes pratiques et les procédures de résolution des problèmes pour les applications Node sur Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
 author: ranjithr
@@ -14,14 +14,15 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
-ms.openlocfilehash: 860874ed49056e6b4695c060b06bf061820c390e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec18
+ms.openlocfilehash: 5a8760bc67125f857998f23ca33733a62a0d8fb5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31789671"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315721"
 ---
-# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-web-apps"></a>Meilleures pratiques et guide de dépannage pour les applications node sur Azure Web Apps
+# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Bonnes pratiques et guide de résolution des problèmes pour les applications Node sur Azure App Service
 
 Cet article présente des bonnes pratiques et des procédures de dépannage pour les [applications node](app-service-web-get-started-nodejs.md) exécutées dans Azure Web Apps (avec [iisnode](https://github.com/azure/iisnode)).
 
@@ -62,7 +63,7 @@ Ce paramètre contrôle le répertoire dans lequel iisnode enregistre stdout/std
 
 ### <a name="debuggerextensiondll"></a>debuggerExtensionDll
 
-Ce paramètre contrôle la version de node inspector qu’utilise iisnode durant le débogage de votre application node. Les versions iisnode-inspector-0.7.3.dll et iisnode-inspector.dll sont actuellement les deux seules valeurs valides pour ce paramètre. La valeur par défaut est iisnode-inspector 0.7.3.dll. La version iisnode-inspector-0.7.3.dll utilise node-inspector-0.7.3 et des websockets. Activez les websockets sur votre application web Azure pour utiliser cette version. Consultez <http://ranjithblogs.azurewebsites.net/?p=98> pour plus d’informations sur la manière de configurer iisnode pour utiliser le nouveau node-inspector.
+Ce paramètre contrôle la version de node inspector qu’utilise iisnode durant le débogage de votre application node. Les versions iisnode-inspector-0.7.3.dll et iisnode-inspector.dll sont actuellement les deux seules valeurs valides pour ce paramètre. La valeur par défaut est iisnode-inspector 0.7.3.dll. La version iisnode-inspector-0.7.3.dll utilise node-inspector-0.7.3 et des websockets. Activez les websockets sur votre application web Azure pour utiliser cette version. Consultez <https://ranjithblogs.azurewebsites.net/?p=98> pour plus d’informations sur la manière de configurer iisnode pour utiliser le nouveau node-inspector.
 
 ### <a name="flushresponse"></a>flushResponse
 
@@ -282,6 +283,6 @@ Cliquez sur ces liens pour en savoir plus sur les applications node.js dans Azur
 * [Prise en main des applications web Node.js dans Azure App Service](app-service-web-get-started-nodejs.md)
 * [Débogage d’une application web Node.js dans Azure Web Service](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [Utilisation de modules Node.js avec des applications Azure](../nodejs-use-node-modules-azure-apps.md)
-* [Azure App Service Web Apps : Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Azure App Service Web Apps : Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Centre de développement Node.js](../nodejs-use-node-modules-azure-apps.md)
 * [Exploring the Super Secret Kudu Debug Console (Exploration de la console de débogage Kudu Super Secret)](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

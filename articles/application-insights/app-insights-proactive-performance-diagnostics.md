@@ -9,17 +9,16 @@ ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 099e597982172bcea39fedd0fd1445f466eb2bc1
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b9428e4451ebef921907809b1250238bf084706d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960818"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864959"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Détection intelligente - anomalies de performances
 
@@ -70,7 +69,7 @@ Les courriers électroniques relatifs aux anomalies de performances de détectio
 ## <a name="faq"></a>Forum Aux Questions
 
 * *Les équipes Microsoft consultent-elles mes données ?*
-  * Non. Le service est entièrement automatique. Vous seul obtenez ces notifications. Vos données sont [privées](app-insights-data-retention-privacy.md).
+  *  Non. Le service est entièrement automatique. Vous seul obtenez ces notifications. Vos données sont [privées](app-insights-data-retention-privacy.md).
 * *Analysez-vous toutes les données collectées par Application Insights ?*
   * Pas à l'heure actuelle. Actuellement, nous analysons le temps de réponse des demandes, le temps de réponse des dépendances et le temps de chargement des pages. L’analyse d’autres métriques se trouve sur notre liste de travaux en souffrance.
 
@@ -86,7 +85,7 @@ Les courriers électroniques relatifs aux anomalies de performances de détectio
 
   * Nous exécutons l’analyse tous les jours sur la télémétrie du jour précédent (jour complet en heure UTC).
 * *Cela remplace-t-il les [alertes de métrique](app-insights-alerts.md)?*
-  * Non.  Nous ne détectons pas tous les comportements que vous pouvez considérer comme étant anormaux.
+  *  Non.  Nous ne détectons pas tous les comportements que vous pouvez considérer comme étant anormaux.
 
 
 * *Si je ne fais rien suite à une notification, un rappel me sera-t-il envoyé ?*
@@ -117,7 +116,7 @@ Ouvrez le panneau métrique des navigateurs. L'affichage segmenté du temps de c
 ### <a name="improve-slow-pages"></a>Améliorer les pages lentes
 Il existe un site web plein de conseils sur l’amélioration des temps de chargement des réponses serveur et des pages, et nous n’essaierons pas de tous les répéter ici. Voici quelques conseils que vous connaissez sans doute déjà, simplement pour susciter votre réflexion :
 
-* Chargement lent du à de gros fichiers : charger des scripts et les autres éléments de façon asynchrone. Utiliser le regroupement de scripts. Divisez la page principale en widgets chargeant leurs données séparément. N’envoyez pas d’ancien langage HTML pour les longs tableaux : utilisez un script pour demander les données JSON ou un autre format compact, puis renseignez le tableau sur place. Il existe de grandes structures pour aider à cela. (Elles aussi comportent des scripts volumineux, bien sûr.)
+* Chargement lent dû à de gros fichiers : charger des scripts et les autres éléments de façon asynchrone. Utiliser le regroupement de scripts. Divisez la page principale en widgets chargeant leurs données séparément. N’envoyez pas d’ancien langage HTML pour les longs tableaux : utilisez un script pour demander les données JSON ou un autre format compact, puis renseignez le tableau sur place. Il existe de grandes structures pour aider à cela. (Elles aussi comportent des scripts volumineux, bien sûr.)
 * Ralentir les dépendances de serveur : prendre en compte des emplacements géographiques de vos composants. Par exemple, si vous utilisez Azure, assurez-vous que le serveur web et la base de données se trouvent dans la même région. Les requêtes récupèrent-elles plus d’informations que nécessaire ? La mise en mémoire cache ou en lot peut-elle aider ?
 * Problèmes de capacité : examinez les métriques de serveur des temps de réponse et le nombre de demandes. Si les temps de réponse présentent des pics disproportionnés en termes de nombre de requêtes, vos serveurs sont étirés.
 
@@ -185,7 +184,7 @@ Ces outils de diagnostic vous aident à inspecter les données de télémétrie 
 
 * [Profileur](app-insights-profiler.md) 
 * [Débogueur de capture instantanée](app-insights-snapshot-debugger.md)
-* [Analyse](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Analyse](../azure-monitor/log-query/get-started-portal.md)
 * [Diagnostics intelligents Analytics](app-insights-analytics.md)
 
 Les détections intelligentes sont entièrement automatiques. Mais vous souhaitez peut-être configurer des alertes supplémentaires ?

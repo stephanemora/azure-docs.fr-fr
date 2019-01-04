@@ -7,49 +7,49 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: 1b2a122cc8a04d4f0044ecb0fe0341357bc29c0f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 5506b27ce56ca7a83ce16aab818767a392d77430
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514823"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680292"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Types de conflits et stratégies de résolution
 
-Les conflits et les stratégies de résolution des conflits sont applicables si votre compte Cosmos est configuré avec plusieurs régions d’écriture.
+Les conflits et les stratégies de résolution de conflits sont applicables si votre compte Azure Cosmos DB est configuré avec plusieurs régions d’écriture.
 
-Pour les comptes Cosmos configurés avec plusieurs régions d’écriture, des conflits de mise à jour peuvent se produire lorsque plusieurs rédacteurs mettent à jour simultanément le même élément dans plusieurs régions. Les conflits de mise à jour sont classés selon les trois types suivants :
+Pour les comptes Azure Cosmos DB configurés avec plusieurs régions d’écriture, des conflits de mise à jour peuvent se produire lorsque des rédacteurs mettent à jour simultanément le même élément dans plusieurs régions. Les conflits de mise à jour sont classés selon les trois types suivants :
 
-1. **Conflits d’insertion** : ces conflits peuvent se produire quand une application insère simultanément deux éléments, ou plus, avec le même index unique (par exemple, propriété ID) à partir de deux régions, ou plus. Dans ce cas, toutes les écritures peuvent réussir initialement dans leur région locale respective, mais en fonction de la stratégie de résolution des conflits que vous choisissez, un seul élément avec l’ID d’origine est validé.
+* **Conflits d’insertion** : ces conflits peuvent se produire quand une application insère simultanément deux éléments, ou plus, avec le même index unique à partir de deux régions, ou plus. Par exemple, ce conflit peut apparaître avec une propriété ID. Toutes les écritures peuvent réussir initialement dans leur région locale respective. Toutefois, selon la stratégie de résolution de conflit que vous choisissez, seul un élément doté de l’ID d’origine est finalement validé.
 
-1. **Conflits de remplacement** : ces conflits peuvent se produire quand une application met à jour un seul élément à partir de deux régions, ou plus, simultanément.
+* **Conflits de remplacement** : ces conflits peuvent se produire quand une application met à jour un seul élément à partir de deux régions, ou plus, simultanément.
 
-1. **Conflits de suppression** : ces conflits peuvent se produire quand une application supprime un élément à partir d’une région et le met à jour à partir d’une autre région, simultanément.
+* **Conflits de suppression** : ces conflits peuvent se produire quand une application supprime un élément à partir d’une région et le met à jour à partir d’une autre région, simultanément.
 
 ## <a name="conflict-resolution-policies"></a>Stratégies de résolution des conflits
 
-Cosmos DB offre un mécanisme flexible piloté par la stratégie pour résoudre les conflits de mise à jour. Vous pouvez sélectionner parmi les deux stratégies de résolution des conflits suivantes sur un conteneur Cosmos :
+Azure Cosmos DB offre un mécanisme souple, piloté par les stratégies, pour résoudre les conflits de mise à jour. Vous pouvez choisir entre deux stratégies de résolution de conflits sur un conteneur Azure Cosmos DB :
 
-- **Dernière écriture prioritaire (LWW)**  : cette stratégie de résolution par défaut utilise une propriété timestamp définie par le système (basée sur le protocole d’horloge de synchronisation de l’heure). Ou bien, lorsque vous utilisez l’API SQL, Cosmos DB vous permet de spécifier toute autre propriété numérique personnalisée (également appelée « chemin de résolution des conflits ») à utiliser pour la résolution des conflits.  
+- **Dernière écriture prioritaire (LWW)** : cette stratégie de résolution, par défaut, utilise une propriété d’horodatage définie par le système. Elle est basée sur le protocole d’horloge de synchronisation de l’heure. Si vous utilisez l’API SQL Azure Cosmos DB, vous pouvez spécifier toute autre propriété numérique personnalisée à utiliser pour la résolution de conflits. Une propriété numérique personnalisée est également appelée « chemin de résolution du conflit ». 
 
-  Si deux ou plusieurs éléments sont en conflit lors d’opérations d’insertion ou de remplacement, l’élément qui contient la valeur la plus élevée pour le « chemin de résolution des conflits » devient le « gagnant ». Si plusieurs éléments ont la même valeur numérique pour le chemin de résolution des conflits, la version du « gagnant » sélectionné est déterminée par le système. Toutes les régions sont assurées de converger vers un seul gagnant et obtiennent une version identique de l’élément validé. Si des conflits de suppression sont impliqués, la version supprimée gagne toujours sur les conflits d’insertion ou de remplacement, quelle que soit la valeur du chemin de résolution du conflit.
-
-  > [!NOTE]
-  > Last-Write-Wins (LWW) est la stratégie de résolution des conflits par défaut et est disponible pour les comptes d’API SQL, Table, MongoDB, Cassandra et Gremlin.
-
-  Pour plus d’informations, consultez les [exemples d’utilisation des stratégies de résolution des conflits LWW](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
-
-- **Personnalisé** : cette stratégie de résolution est conçue pour la sémantique définie au niveau de l’application pour le rapprochement des conflits. Lors de la définition de cette stratégie sur votre conteneur Cosmos, vous devez également inscrire une procédure stockée de fusion, qui est appelée automatiquement lorsque des conflits de mise à jour sont détectés sous une transaction de base de données sur le serveur. Le système fournit exactement une garantie pour l’exécution d’une procédure de fusion dans le cadre du protocole d’engagement.  
-
-  Toutefois, si vous configurez votre conteneur avec l’option de résolution personnalisée, mais qu’il est impossible d’inscrire une procédure de fusion sur le conteneur, ou si la procédure de fusion lève une exception lors de l’exécution, les conflits sont écrits dans le flux de conflits. Votre application devra ensuite résoudre manuellement les conflits dans le flux de conflits. Pour plus d’informations, consultez les [exemples d’utilisation de la stratégie personnalisée de résolution et comment utiliser le flux de conflits](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Si deux ou plusieurs éléments sont en conflit lors d’opérations d’insertion ou de remplacement, l’élément ayant la valeur la plus élevée pour le chemin de résolution du conflit l’emporte. Le système détermine le gagnant si plusieurs éléments présentent la même valeur numérique pour le chemin de résolution du conflit. Toutes les régions sont assurées de converger vers un seul gagnant et obtiennent une version identique de l’élément validé. Lorsque des conflits de suppression sont impliqués, la version supprimée l’emporte toujours sur les conflits d’insertion ou de remplacement. Ce résultat se produit quelle que soit la valeur du chemin de résolution du conflit.
 
   > [!NOTE]
-  > La stratégie personnalisée de résolution des conflits est uniquement disponible pour les comptes d’API SQL.
+  > La stratégie Dernière écriture prioritaire (LWW) est la stratégie de résolution de conflit par défaut. Elle est disponible pour les comptes d’API SQL, MongoDB, Cassandra, Gremlin et Table Azure Cosmos DB.
+
+  Pour plus d’informations, consultez les [exemples qui utilisent des stratégies de résolution de conflit LWW](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+
+- **Personnalisé** : cette stratégie de résolution est destinée à la sémantique définie au niveau de l’application pour le rapprochement des conflits. Lorsque vous définissez cette stratégie sur votre conteneur Azure Cosmos DB, vous devez également inscrire une procédure stockée de fusion. Cette procédure est automatiquement appelée lorsque des conflits sont détectés sous une transaction de base de données côté serveur. Le système fournit exactement une garantie pour l’exécution d’une procédure de fusion dans le cadre du protocole d’engagement.  
+
+  Deux points sont à retenir si vous configurez votre conteneur avec l’option de résolution personnalisée. Si vous ne procédez pas à l’inscription d’une procédure de fusion sur le conteneur, ou si la procédure de fusion lève une exception lors de l’exécution, les conflits sont écrits dans le flux de conflits. Les conflits de l’application doivent ensuite être résolus manuellement dans le flux de conflits. Pour plus d’informations, consultez les [exemples illustrant la façon d’utiliser la stratégie de résolution personnalisée, et comment utiliser le flux de conflits](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+
+  > [!NOTE]
+  > La stratégie personnalisée de résolution de conflits est disponible uniquement pour les comptes d’API SQL.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ensuite, vous pouvez apprendre à configurer des stratégies de résolution des conflits en utilisant les articles suivants :
+Découvrez comment configurer des stratégies de résolution de conflits. Consultez les articles suivants :
 
-* [Comment utiliser la stratégie de résolution des conflits LWW](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
-* [Comment utiliser la stratégie personnalisée de résolution des conflits](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
-* [Comment utiliser le flux de conflits](how-to-manage-conflicts.md#read-from-conflict-feed)
+* [Utiliser la stratégie de résolution de conflits LWW](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
+* [Utiliser la stratégie personnalisée de résolution de conflits](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
+* [Utiliser le flux de conflits](how-to-manage-conflicts.md#read-from-conflict-feed)

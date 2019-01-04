@@ -1,5 +1,5 @@
 ---
-title: Mettre automatiquement à l’échelle les unités de débit Azure Event Hubs | Microsoft Docs
+title: Mettre automatiquement à l’échelle les unités de débit - Azure Event Hubs | Microsoft Docs
 description: Activez la majoration automatique sur un espace de noms pour automatiquement mettre à l’échelle les unités de débit.
 services: event-hubs
 documentationcenter: na
@@ -10,19 +10,19 @@ ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 19525086b1bd41afcc730fb3860d7a01875e4832
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d705993c7cd3816e89da21625dc5b003435b9128
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986999"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408154"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Mettre automatiquement à l’échelle les unités de débit Azure Event Hubs
-
 Azure Event Hubs est une plateforme hautement évolutive de diffusion de données en continu. Ainsi, l’utilisation des unités Event Hubs augmente souvent une fois le service démarré. Ces augmentations obligent à rehausser les [unités de débit](event-hubs-features.md#throughput-units) prédéterminées pour mettre à l’échelle Event Hubs et gérer des taux de transfert plus conséquents. La fonctionnalité **Majoration automatique** d’Event Hubs augmente automatiquement la taille des instances en augmentant le nombre d’unités de débit pour répondre aux besoins d’utilisation. Cette opération permet d’éviter les situations de limitation, dans lesquelles :
 
 * Les taux d’entrée de données sont supérieurs aux unités de débit définies.
@@ -47,15 +47,25 @@ Vous pouvez activer et désactiver la majoration automatique sur un espace de no
 
 ### <a name="enable-auto-inflate-through-the-portal"></a>Activer la majoration automatique via le portail
 
-Vous pouvez activer la fonctionnalité de majoration automatique lors de la création d’un espace de noms Event Hub :
+
+#### <a name="enable-at-the-time-of-creation"></a>Activer l’option au moment de la création 
+Vous pouvez activer la fonctionnalité d’augmentation automatique **lors de la création d’un espace de noms Event Hub** :
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
+![Activer l’augmentation automatique lors de la création d’un Event Hub](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
 Une fois cette option activée, vous pouvez commencer par utiliser le nombre minimal d’unités de débit, puis monter en puissance à mesure que vos besoins d’utilisation augmentent. La limite supérieure de la majoration n’affecte pas immédiatement les prix, qui dépendent du nombre d’unités de débit utilisées par heure.
 
-Vous pouvez également activer la majoration automatique à l’aide de l’option **Mettre à l’échelle** dans le panneau des paramètres du portail :
+#### <a name="enable-auto-inflate-for-an-existing-event-hub"></a>Activer l’augmentation automatique pour un Event Hub existant
+Vous pouvez également activer la fonctionnalité d’augmentation automatique et modifier ses paramètres en suivant les instructions ci-après : 
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+1. Dans la page **Espace de noms Event Hubs**, sélectionnez **Désactivé** sous **Augmentation automatique des unités de débit**.  
+
+    ![Sélectionner les unités de débit dans la page Espace de noms Event Hubs](./media/event-hubs-auto-inflate/select-throughput-units.png)
+2. Dans la page **Paramètres de mise à l’échelle**, cochez la case **Activer** (si la fonctionnalité de mise à l’échelle automatique n’a pas été activée).
+
+    ![Sélectionner Activer](./media/event-hubs-auto-inflate/scale-settings.png)
+3. Entrez le nombre **maximal** d’unités de débit ou utilisez la barre de défilement pour définir une valeur. 
+4. (facultatif) Mettez à jour nombre **minimal** d’unités de débit en haut de cette page. 
 
 
 > [!NOTE]

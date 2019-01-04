@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: b429f9dab0411dba599fd696dff3d424916007e0
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4da64f01f3b4f39bd10fd3cb1b67910ffca886b8
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635167"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413266"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x  
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Sélectionnez la version du runtime Azure Functions que vous utilisez: "]
 > * [Version 1](functions-host-json-v1.md)
 > * [Version 2](functions-host-json.md)
 
@@ -96,7 +96,23 @@ Les sections suivantes de cet article expliquent chaque propriété de niveau su
 
 Ce paramètre est un enfant de la [journalisation](#logging).
 
-[!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
+Contrôle la [fonctionnalité d’échantillonnage dans Application Insights](./functions-monitoring.md#configure-sampling).
+
+```json
+{
+    "applicationInsights": {
+        "samplingSettings": {
+          "isEnabled": true,
+          "maxTelemetryItemsPerSecond" : 5
+        }
+    }
+}
+```
+
+|Propriété  |Default | Description |
+|---------|---------|---------| 
+|isEnabled|true|Active ou désactive l’échantillonnage.| 
+|maxTelemetryItemsPerSecond|5.|Seuil à partir duquel l’échantillonnage débute.| 
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -185,7 +201,28 @@ Contrôle les comportements de journalisation de l’application de fonction, y 
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Définit le niveau de journalisation de fichiers activé.  Options : `never`, `always`, `debugOnly`. |
 |logLevel|n/a|Objet qui définit le filtrage par catégorie du journal pour les fonctions de l’application. La version 2.x suit la disposition d’ASP.NET Core pour le filtrage de catégorie de journal. Cela vous permet de filtrer la journalisation pour des fonctions spécifiques. Pour plus d’informations, consultez [Filtrage de journal](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) dans la documentation ASP.NET Core. |
+|console|n/a| Le paramètre de journalisation de la [console](#console). |
 |applicationInsights|n/a| Le paramètre [applicationInsights](#applicationinsights). |
+
+## <a name="console"></a>console
+
+Ce paramètre est un enfant de la [journalisation](#logging). Il contrôle la journalisation de la console lorsque le mode débogage n’est pas activé.
+
+```json
+{
+    "logging": {
+    ...
+        "console": {
+          "isEnabled": "false"
+        },
+    ...
+    }
+}
+```
+
+|Propriété  |Default | Description |
+|---------|---------|---------| 
+|isEnabled|false|Active ou désactive la journalisation de la console.| 
 
 ## <a name="queues"></a>queues
 

@@ -1,21 +1,22 @@
 ---
-title: Entités prédéfinies pour Language Understanding (LUIS).
+title: Entités prédéfinies
 titleSuffix: Azure Cognitive Services
 description: LUIS comprend un ensemble d’entités prédéfinies pour reconnaître des types courants d’informations telles que des dates, heures, nombres, mesures et devises. La prise en charge de l’entité prédéfinie varie selon la culture de votre application LUIS.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: 0fe9dbed302fd2d61305167a3bda25b1b403b761
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 9e0d1ae39431ca75b43680981802b82f16703d4d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139972"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103929"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Entités prédéfinies pour reconnaître les types de données courants
 
@@ -54,6 +55,12 @@ Testez la nouvelle intention au niveau du point de terminaison en ajoutant une v
 |Annuler le rendez-vous du 3 mars|LUIS a renvoyé la date du 3 mars précédent (2018-03-03) et celle du 3 mars prochain (2019-03-03), car l’énoncé n’a pas spécifié l’année.|
 |Planifier une réunion à 10 h|10:00:00|
 
+## <a name="marking-entities-containing-a-prebuilt-entity-token"></a>Marquage des entités contenant un jeton d’entité prédéfinie
+ Si vous avez du texte, tel que `HH-1234`, que vous souhaitez marquer comme une entité personnalisée _et_ que vous avez l’[entité prédéfinie number](luis-reference-prebuilt-number.md) ajoutée au modèle, vous ne pouvez pas marquer l’entité personnalisée dans le portail LUIS. Vous pouvez la marquer avec l’API. 
+
+ Pour marquer ce type de jeton, où une partie est déjà marquée avec une entité prédéfinie, supprimez l’entité prédéfinie de l’application LUIS. Vous n’avez pas besoin d’entraîner l’application. Marquez le jeton avec votre propre entité personnalisée. Ensuite, rajoutez l’entité prédéfinie à l’application LUIS.
+
+ En guise d’autre exemple, considérez l’énoncé comme une liste de préférences de classes : `I want first year spanish, second year calculus, and fourth year english lit.` Si l’application LUIS a l’entité prédéfinie ordinal ajoutée, `first`, `second` et `fourth` seront déjà marquées avec des ordinaux. Si vous souhaitez capturer l’ordinal et la classe, vous pouvez créer une entité composite et l’envelopper autour de l’entité prédéfinie ordinal et de l’entité personnalisée pour le nom de la classe.
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]

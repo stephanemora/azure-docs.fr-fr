@@ -1,5 +1,5 @@
 ---
-title: Surveiller le cluster DC/OS Azure – Dynatrace
+title: (DÉPRÉCIÉ) Superviser un cluster DC/OS Azure - Dynatrace
 description: Surveillez un cluster DC/OS Azure Container Service avec Dynatrace. Déployez Dynatrace OneAgent à l’aide du tableau de bord DC/OS.
 services: container-service
 author: MartinGoodwell
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 3d1bfc3bb61781d487c40831edd5da6fcb5a7df9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8f34a00d9256c288a2842e905c06d5336522eece
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162039"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001994"
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>Surveiller un cluster DC/OS Azure Container Service avec Dynatrace SaaS/Managed
+# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>(DÉPRÉCIÉ) Superviser un cluster DC/OS Azure Container Service avec Dynatrace SaaS/Managé
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Dans cet article, nous vous montrons comment déployer [Dynatrace](https://www.dynatrace.com/) OneAgent pour surveiller tous les nœuds d’agents de votre cluster Azure Container Service. Vous avez besoin d’un compte Dynatrace SaaS/Managé pour cette configuration. 
 
@@ -27,8 +29,7 @@ La figure suivante illustre l’interface utilisateur de Dynatrace :
 
 ![IU de Dynatrace](./media/container-service-monitoring-dynatrace/dynatrace.png)
 
-## <a name="prerequisites"></a>Prérequis
- 
+## <a name="prerequisites"></a>Prérequis 
 [Déployez](container-service-deployment.md) et [connectez](./../container-service-connect.md) sur un cluster configuré par Azure Container Service. Explorez [l’interface utilisateur Marathon](container-service-mesos-marathon-ui.md). Accédez à [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) pour configurer un compte SaaS Dynatrace.  
 
 ## <a name="configure-a-dynatrace-deployment-with-marathon"></a>Configurer un déploiement Dynatrace avec Marathon

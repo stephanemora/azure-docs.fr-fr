@@ -1,5 +1,5 @@
 ---
-title: Étiqueter des entités automatiquement avec une entité de liste à l’aide de Nodejs | Microsoft Docs
+title: Extraire des entités de correspondance de texte
 description: Apprenez à ajouter une entité de liste pour aider LUIS à étiqueter les variations d’un mot ou d’une phrase.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 42fde2b24f851129e24257bbfe6d65a96e235485
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: be2c7aea356f6d7b73438499b7e4d680ed4bad7c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036777"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259237"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Utiliser une entité de liste pour améliorer la détection d’entité 
 Ce didacticiel détaille l’utilisation d’une [entité de liste](luis-concept-entity-types.md) afin d’améliorer la détection d’entité. Les entités de liste n’ont pas besoin d’être étiquetées car elles correspondent parfaitement aux termes.  
@@ -37,7 +37,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!Tip]
 > Si vous n’avez pas encore d’abonnement, vous pouvez vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/).
 
-Tout le code de ce didacticiel est disponible dans le [référentiel LUIS-Samples sur GitHub](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-list-entity). 
+Tout le code de ce tutoriel est disponible dans le [dépôt LUIS-Samples sur GitHub](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-list-entity). 
 
 ## <a name="use-homeautomation-app"></a>Utiliser l’application HomeAutomation
 L’application HomeAutomation vous donne le contrôle d’appareils tels que l’éclairage, les systèmes de divertissement, mais aussi de l’environnement comme le chauffage et la climatisation. Ces systèmes ont plusieurs noms différents, dont les noms du fabricant, les surnoms, les acronymes et les noms familiers. 
@@ -81,15 +81,16 @@ Créez un fichier Node.js et copiez-y le code suivant. Modifiez les valeurs Auth
 
 Utilisez la commande suivante pour installer les dépendances NPM et exécutez le code pour créer l’entité de liste :
 
-```Javascript
+```console
 npm install && node add-entity-list.js
 ```
 
 La sortie de l’exécution représente l’ID de l’entité de liste :
 
-```Javascript
+```console
 026e92b3-4834-484f-8608-6114a83b03a6
 ```
+
 ## <a name="train-the-model"></a>Formation du modèle
 Formez LUIS afin que la nouvelle liste y affecte les résultats de requête. La formation se fait en deux parties : la formation, puis la vérification. Une application disposant de nombreux modèles peut prendre un certain moment à être formée. Le code suivant forme l’application puis patiente jusqu’à la réalisation de la formation. Le code utilise une stratégie de nouvelle tentative afin d’éviter l’erreur 429 « Trop de requêtes ». 
 
@@ -99,13 +100,13 @@ Créez un fichier Node.js et copiez-y le code suivant. Modifiez les valeurs Auth
 
 Utilisez la commande suivante pour exécuter le code afin de former l’application :
 
-```Javascript
+```console
 node train.js
 ```
 
 Le statut de chaque itération de la formation des modèles LUIS est la sortie de l’exécution. L’exécution suivante n’a nécessité qu’une seule vérification de la formation :
 
-```Javascript
+```console
 1 trained = true
 [ { modelId: '2c549f95-867a-4189-9c35-44b95c78b70f',
     details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
@@ -130,13 +131,13 @@ Créez un fichier Node.js et copiez-y le code suivant. Modifiez les valeurs endp
 
 Utilisez la commande suivante pour exécuter le code afin d’interroger l’application :
 
-```Javascript
+```console
 node publish.js
 ```
 
 La sortie suivante comprend l’URL du point de terminaison pour n’importe quelle requête. Les véritables résultats JSON devraient inclure la véritable valeur appID. 
 
-```JSON
+```json
 { 
   versionId: null,
   isStaging: false,
@@ -157,13 +158,13 @@ Créez un fichier Node.js et copiez-y le code suivant. Modifiez les valeurs endp
 
 Utilisez la commande suivante pour exécuter le code afin d’interroger l’application :
 
-```Javascript
+```console
 node train.js
 ```
 
 Vous obtenez les résultats de la requête. Comme le code a ajouté la paire nom/valeur **verbose** à la chaîne de requête, la sortie inclut toutes les intentions et leurs scores :
 
-```JSON
+```json
 {
   "query": "turn up the heat",
   "topScoringIntent": {

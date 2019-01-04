@@ -3,7 +3,7 @@ title: Notes de publication de l’Explorateur Stockage Microsoft Azure
 description: Notes de publication de l’Explorateur Stockage Microsoft Azure
 services: storage
 documentationcenter: na
-author: cawa
+author: cawaMS
 manager: paulyuk
 editor: ''
 ms.assetid: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: dde2983c57d0f3ec9c58537809f2d2d952b4a00e
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 956482a30d383df558eee775b9d89c211bc53e61
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741944"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101413"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notes de publication de l’Explorateur Stockage Microsoft Azure
 
@@ -165,9 +165,9 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * Bien que Azure Stack ne prend actuellement pas en charge les partages de fichiers, un nœud de partages de fichiers apparaît toujours sous un compte de stockage d’Azure Stack joint.
 * L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Les utilisateurs Linux doivent installer [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre machine :
@@ -221,9 +221,9 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * Bien que Azure Stack ne prend actuellement pas en charge les partages de fichiers, un nœud de partages de fichiers apparaît toujours sous un compte de stockage d’Azure Stack joint.
 * L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Les utilisateurs Linux doivent installer [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre machine :
@@ -276,9 +276,9 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * Bien que Azure Stack ne prend actuellement pas en charge les partages de fichiers, un nœud de partages de fichiers apparaît toujours sous un compte de stockage d’Azure Stack joint.
 * L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Les utilisateurs Linux doivent installer [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre machine :
@@ -336,9 +336,9 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * Bien que Azure Stack ne prend actuellement pas en charge les partages de fichiers, un nœud de partages de fichiers apparaît toujours sous un compte de stockage d’Azure Stack joint.
 * L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Les utilisateurs Linux doivent installer [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre machine :
@@ -363,7 +363,7 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * L’accès aux conteneurs $web utilisés par des sites web statiques est désormais pris en charge. Cela vous permet de charger et gérer facilement les fichiers et dossiers utilisés par votre site web. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
 * La barre d’applications sur macOS a été réorganisée. Les modifications incluent un menu Fichier, certaines modifications de touches de raccourci, et plusieurs nouvelles commandes dans le menu de l’application. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
 * Le point de terminaison d’autorité pour la connexion à Azure - Gouvernement des États-Unis a été remplacé par https://login.microsoftonline.us/.
-* Accessibilité : quand un lecteur d’écran est actif, la navigation au clavier fonctionne désormais avec les tableaux utilisés pour afficher des éléments sur le côté droit. Vous pouvez utiliser les touches de direction pour naviguer dans les lignes et colonnes, la touche Entrée pour appeler des actions par défaut, la touche du menu contextuel pour ouvrir celui-ci pour un élément, et les touches Maj ou Ctrl pour opérer une sélection multiple. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+* Accessibilité : lorsqu'un lecteur d’écran est actif, la navigation au clavier fonctionne désormais avec les tableaux utilisés pour afficher des éléments sur le côté droit. Vous pouvez utiliser les touches de direction pour naviguer dans les lignes et colonnes, la touche Entrée pour appeler des actions par défaut, la touche du menu contextuel pour ouvrir celui-ci pour un élément, et les touches Maj ou Ctrl pour opérer une sélection multiple. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
 
 ### <a name="fixes"></a>Correctifs
 *  Sur certains ordinateurs, le démarrage des processus enfants prenait beaucoup de temps. Lorsque cela se produisait, le message d’erreur « child process failed to start in a timely manner » (Échec du démarrage en temps opportun du processus enfant) s’affichait. Le temps alloué au démarrage d’un processus enfant a été augmenté de 20 à 90 secondes. Si vous continuez à rencontrer ce problème, veuillez commenter le problème GitHub lié. [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
@@ -372,7 +372,7 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * « AccessTierChangeTime » était tronqué dans la boîte de dialogue de Propriétés. Ce problème a été résolu. [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
 * Le préfixe « Explorateur Stockage Microsoft Azure - » était manquant dans la boîte de dialogue Créer un nouvel annuaire. Ce problème a été résolu. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
 * Accessibilité : la navigation à l’aide de VoiceOver dans la boîte de dialogue Ajouter une entité était difficile. Des améliorations ont été apportées. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
-* Accessibilité : la couleur d’arrière-plan du bouton réduire/développer dans les volet Actions et Propriétés était incompatible avec les contrôles d’interface utilisateur similaires dans le thème Contraste noir élevé. La couleur a été modifiée. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
+* Accessibilité : la couleur d’arrière-plan du bouton réduire/développer dans le panneau Actions et Propriétés était incompatible avec les contrôles d’interface utilisateur similaires dans le thème Contraste noir élevé. La couleur a été modifiée. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
 * Accessibilité : dans le thème Contraste noir élevé, le focus pour le bouton « X » dans la boîte de dialogue Propriétés n’était pas visible. Ce problème a été résolu. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
 * Accessibilité : plusieurs valeurs aria étaient absentes des onglets Actions et Propriétés, ce qui altérait l’expérience de lecteur d’écran. Les valeurs aria manquantes ont été ajoutées. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
 * Accessibilité : les nœuds d’arborescence réduits sur le côté gauche n’avaient pas de valeur développée d’aria false. Ce problème a été résolu. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
@@ -393,9 +393,9 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
    * Suppression réversible
 * L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Les utilisateurs Linux doivent installer [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre machine :
@@ -450,9 +450,9 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * Bien que Azure Stack ne prend actuellement pas en charge les partages de fichiers, un nœud de partages de fichiers apparaît toujours sous un compte de stockage d’Azure Stack joint.
 * L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Les utilisateurs Linux doivent installer [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre machine :
@@ -504,9 +504,9 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * Bien que Azure Stack ne prend actuellement pas en charge les partages de fichiers, un nœud de partages de fichiers apparaît toujours sous un compte de stockage d’Azure Stack joint.
 * L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Les utilisateurs Linux doivent installer [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre machine :
@@ -570,9 +570,9 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * Bien que Azure Stack ne prend actuellement pas en charge les partages de fichiers, un nœud de partages de fichiers apparaît toujours sous un compte de stockage d’Azure Stack joint.
 * L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Les utilisateurs Linux doivent installer [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre machine :
@@ -607,9 +607,9 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * Bien que Azure Stack ne prend actuellement pas en charge les partages de fichiers, un nœud de partages de fichiers apparaît toujours sous un compte de stockage d’Azure Stack joint.
 * L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre machine :
 
@@ -656,9 +656,9 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * Bien que Azure Stack ne prend actuellement pas en charge les partages de fichiers, un nœud de partages de fichiers apparaît toujours sous un compte de stockage d’Azure Stack joint.
 * L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre machine :
 
@@ -702,9 +702,11 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * Les captures instantanées ne sont pas conservées lorsque les blobs sont renommés (individuellement ou dans un conteneur d’objets blob renommé). Lors d’un changement de nom, toutes les autres propriétés et métadonnées des objets blob, fichiers et entités sont conservées.
 * Bien que Azure Stack ne prend actuellement pas en charge les partages de fichiers, un nœud de partages de fichiers apparaît toujours sous un compte de stockage d’Azure Stack joint.
 * L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
-```
-./StorageExplorer --disable-gpu
-```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre machine :
 
     ```
@@ -764,9 +766,11 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * Les captures instantanées ne sont pas conservées lorsque les blobs sont renommés (individuellement ou dans un conteneur d’objets blob renommé). Lors d’un changement de nom, toutes les autres propriétés et métadonnées des objets blob, fichiers et entités sont conservées.
 * Bien que Azure Stack ne prend actuellement pas en charge les partages de fichiers, un nœud de partages de fichiers apparaît toujours sous un compte de stockage d’Azure Stack joint.
 * L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
-```
-./StorageExplorer --disable-gpu
-```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre machine :
 
     ```
@@ -818,9 +822,11 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * Les captures instantanées ne sont pas conservées lorsque les blobs sont renommés (individuellement ou dans un conteneur d’objets blob renommé). Lors d’un changement de nom, toutes les autres propriétés et métadonnées des objets blob, fichiers et entités sont conservées.
 * Bien que Azure Stack ne prend actuellement pas en charge les partages de fichiers, un nœud de partages de fichiers apparaît toujours sous un compte de stockage d’Azure Stack joint.
 * L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
-```
-./StorageExplorer --disable-gpu
-```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre machine :
 
     ```
@@ -914,9 +920,9 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 #### <a name="fixes"></a>Correctifs
 
 * Problème résolu : le chargement du fichier peut provoquer très probablement une erreur de mémoire insuffisante
-* Problème résolu : vous pouvez maintenant vous connecter avec le code PIN/carte à puce
+* Problème résolu : vous pouvez désormais vous connecter avec le code PIN/carte à puce
 * Problème résolu : l’ouverture dans le portail fonctionne à présent avec Azure Chine, Azure Allemagne, Azure US Government et Azure Stack
-* Problème résolu : lors du téléchargement d’un dossier dans un conteneur d’objets blob, une erreur « Opération non conforme » peut se produire
+* Problème résolu : lors du téléchargement d’un dossier dans un conteneur d’objets blob, une erreur « Opération non conforme » peur se produit
 * Problème résolu : sélectionner tout est désactivé lors de gestion des instantanés
 * Problème résolu : les métadonnées de l’objet blob de base peuvent être remplacées lorsque vous avez affiché les propriétés de ses instantanés
 
@@ -1027,7 +1033,7 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 
 #### <a name="fixes"></a>Correctifs
 
-* Problème résolu : Storage Explorer est désormais une application approuvée sur Mac
+* Problème résolu : l'Explorateur Stockage est désormais une application approuvée sur Mac
 * Problème résolu : Ubuntu 14.04 est de nouveau pris en charge
 * Problème résolu : l’interface utilisateur de compte d’ajout clignote parfois lors du chargement des abonnements
 * Problème résolu : certaines ressources de stockage ne sont pas répertoriées dans le volet de navigation de gauche
@@ -1055,7 +1061,7 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * Nous avons réintroduit une recherche étendue avec notre nouvelle recherche de sous-chaîne améliorée. Vous disposez désormais de deux options de recherche :
     * Recherche globale : il suffit d’entrer un terme à rechercher dans la zone de texte de recherche
     * Recherche étendue : cliquez sur l’icône de loupe, en regard d’un nœud, puis ajouter un terme de recherche à la fin du chemin ou cliquez avec le bouton droit et sélectionnez « Rechercher d’ici »
-* Nous avons ajouté différents thèmes : Clair (par défaut), Foncé, Contraste noir élevé et Contraste blanc élevé. Allez à Modifier -&gt; Thèmes pour modifier vos préférences de thème
+* Nous avons ajouté plusieurs thèmes : Clair (par défaut), Foncé, Contraste noir élevé et Contraste blanc élevé. Allez à Modifier -&gt; Thèmes pour modifier vos préférences de thème
 * Vous pouvez modifier les propriétés des objets blob et des fichiers
 * Nous prenons désormais en charge les messages des files d’attente codés (base 64) et non codés
 * Sous Linux, un système d’exploitation 64 bits est désormais obligatoire. Pour cette version, nous ne prenons en charge que Ubuntu 16.04.1 LTS 64 bits
@@ -1064,7 +1070,7 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 #### <a name="fixes"></a>Correctifs
 
 * Problème résolu : blocage de l’écran
-* Sécurité améliorée
+* Problème résolu : Sécurité améliorée
 * Problème résolu : il peut arriver que des comptes joints en double s’affichent
 * Problème résolu : un objet blob avec un type de contenu non défini peut générer une exception
 * Problème résolu : impossible d’ouvrir le panneau de requête sur une table vide
@@ -1138,7 +1144,7 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 
 #### <a name="fixes"></a>Correctifs
 
-* Problème résolu : les comptes Microsoft nécessitent une nouvelle authentification toutes les 8 à 12 heures
+* Problème résolu : les comptes Microsoft nécessitent une nouvelle authentification toutes les 8 à 12 heures
 
 #### <a name="known-issues"></a>Problèmes connus
 

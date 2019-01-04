@@ -1,18 +1,18 @@
 ---
-title: Basculer et restaurer automatiquement des serveurs physiques répliqués sur Azure avec Site Recovery | Microsoft Docs
-description: Découvrez comment basculer des serveurs physiques vers Azure, et comment restaurer automatiquement sur le site local avec Azure Site Recovery
+title: Basculer et restaurer automatiquement des serveurs physiques pour la reprise d’activité sur Azure avec Site Recovery | Microsoft Docs
+description: Découvrez comment basculer des serveurs physiques vers Azure, et comment les restaurer automatiquement sur le site local pour la reprise d’activité avec Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 1a818d37efd370ce0b3e27bff73a153544763ebb
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: d105968d13960409a60e2fde9c811a042f444d8f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456624"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848627"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Basculer et restaurer automatiquement des serveurs physiques répliqués vers Azure
 
@@ -24,10 +24,10 @@ Les serveurs physiques répliqués dans Azure à l’aide de Site Recovery peuve
 
 Le basculement et la restauration automatique comportent quatre étapes :
 
-1. **Basculer vers Azure** : basculer les machines du site local vers Azure.
+1. **Basculer vers Azure** : basculez les machines du site local vers Azure.
 2. **Reprotéger des machines virtuelles Azure** : reprotégez les machines virtuelles Azure afin qu’elles soient répliquées sur les machines virtuelles VMware locales.
-3. **Basculer sur un site local** : effectuez un basculement pour restaurer automatiquement depuis Azure.
-4. **Reprotéger les machines virtuelles locales** : une fois les données restaurées automatiquement, reprotégez les machines virtuelles locales VMware vers lesquelles vous avez restauré automatiquement pour qu’elles soient répliquées vers Azure.
+3. **Basculer sur un site local** : effectuez un basculement pour restaurer automatiquement à partir d’Azure.
+4. **Reprotéger les machines virtuelles locales** : une fois les données restaurées automatiquement, reprotégez les machines virtuelles locales VMware vers lesquelles vous avez procédé à la restauration automatique pour qu’elles soient répliquées vers Azure.
 
 ## <a name="verify-server-properties"></a>Vérifier les propriétés du serveur
 
@@ -44,10 +44,10 @@ Vérifiez les propriétés du serveur et que le serveur est conforme aux [condit
 
 1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine > **Basculement**.
 2. Dans **Basculer**, sélectionnez un **point de récupération** vers lequel basculer. Vous pouvez utiliser l’une des options suivantes :
-   - **Dernier** : cette option traite d’abord toutes les données envoyées à Site Recovery. Elle fournit l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle Azure créée après le basculement a toutes les données qui ont été répliquées vers Site Recovery quand le basculement a été déclenché.
-   - **Dernier point traité** : cette option bascule la machine vers le dernier point de récupération traité par Site Recovery. Cette option fournit un objectif de délai de récupération (RTO) faible, car aucun temps n’est consacré à traiter les données non traitées.
-   - **Dernier point de cohérence des applications** : cette option bascule la machine vers le dernier point de récupération de cohérence des applications traité par Site Recovery.
-   - **Personnalisé** : spécifiez un point de récupération.
+   - **Les dernières** : cette option traite d’abord toutes les données envoyées à Site Recovery. Elle fournit l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle Azure créée après le basculement a toutes les données qui ont été répliquées vers Site Recovery quand le basculement a été déclenché.
+   - **Dernier point traité** : cette option bascule la machine vers le dernier point de récupération traité par Site Recovery. Cette option fournit un objectif de délai de récupération (RTO) faible, car aucun temps n’est consacré à traiter les données non traitées.
+   - **Dernier point de cohérence des applications** : cette option bascule la machine vers le dernier point de récupération de cohérence des applications traité par Site Recovery.
+   - **Personnalisé** : spécifiez un point de récupération.
 
 3. Sélectionnez **Arrêter la machine avant de commencer le basculement** si vous souhaitez que Site Recovery tente d’arrêter la machine source avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
 4. Si vous avez préparé la connexion à la machine virtuelle Azure, connectez-vous pour la vérifier après le basculement.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3e8333b521832579a942d3fffb06103ad0431acc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d0c61f6e905ca109f3f178996a08f353c36e7880
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316615"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337204"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gestion des recommandations de sécurité dans le Centre de sécurité Azure
 Ce document explique comment les recommandations du Centre de sécurité Azure peuvent vous aider à protéger vos ressources Azure.
@@ -34,13 +34,13 @@ Le Centre de sécurité analyse l’état de sécurité de vos ressources Azure
 
 ## <a name="implementing-security-recommendations"></a>Mise en œuvre des recommandations de sécurité
 ### <a name="set-recommendations"></a>Définition de recommandations
-Dans la section [Définition des stratégies de sécurité dans Azure Security Center](security-center-azure-policy.md), vous apprendrez à :
+Dans la section [Définition des stratégies de sécurité dans Azure Security Center](tutorial-security-policy.md), vous apprendrez à :
 
 * configurer des stratégies de sécurité ;
 * activer la collecte des données ;
 * choisir les recommandations à afficher dans le cadre de votre stratégie de sécurité.
 
-Les recommandations de stratégie actuelles se concentrent sur les mises à jour système, les règles de base, les logiciels anti-programme malveillant, les [groupes de sécurité réseau](../virtual-network/security-overview.md) pour les sous-réseaux et les interfaces réseau, l’audit des bases de données SQL, le chiffrement transparent des données de bases de données SQL et les pare-feu d’applications web.  [Définition de stratégies de sécurité](security-center-azure-policy.md) fournit une description de chacune des recommandations.
+Les recommandations de stratégie actuelles se concentrent sur les mises à jour système, les règles de base, les logiciels anti-programme malveillant, les [groupes de sécurité réseau](../virtual-network/security-overview.md) pour les sous-réseaux et les interfaces réseau, l’audit des bases de données SQL, le chiffrement transparent des données de bases de données SQL et les pare-feu d’applications web.  [Définition de stratégies de sécurité](tutorial-security-policy.md) fournit une description de chacune des recommandations.
 
 ### <a name="monitor-recommendations"></a>Suivi des recommandations
 Après la définition d’une stratégie de sécurité, le Centre de sécurité analyse l’état de sécurité de vos ressources pour identifier les vulnérabilités potentielles. La vignette **Recommandations** sous **Vue d’ensemble** vous permet de connaître le nombre total de recommandations fournies par Security Center.
@@ -55,16 +55,16 @@ Vous pouvez filtrer les recommandations. Pour filtrer les recommandations, séle
 
 Les recommandations sont affichées dans un tableau où chaque ligne correspond à une recommandation. Les colonnes du tableau sont les suivantes :
 
-* **DESCRIPTION**: explication de la recommandation et de la procédure à suivre pour résoudre le problème.
-* **RESSOURCE**: ressources auxquelles s’appliquent les recommandations.
-* **ÉTAT**: décrit l’état actuel de la recommandation :
-  * **Ouverte**: la recommandation n’a pas encore été prise en compte.
-  * **En cours**: la recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
-  * **Résolue**: la recommandation a déjà été appliquée (dans ce cas, la ligne est grisée).
-* **GRAVITÉ**: donne le niveau de gravité de chaque recommandation :
-  * **Élevée** : existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle ou groupe de sécurité réseau). Le problème doit être analysé.
-  * **Moyenne**: il existe une vulnérabilité ; des étapes supplémentaires ou non critiques sont requises pour l’éliminer ou pour terminer un processus.
-  * **Faible**: existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite pas une attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
+* **DESCRIPTION** : Explication de la recommandation et de la procédure à suivre pour résoudre le problème.
+* **RESSOURCE** : Ressources auxquelles s’appliquent les recommandations.
+* **ÉTAT** : Décrit l’état actuel de la recommandation :
+  * **Ouverte** : La recommandation n’a pas encore été prise en compte.
+  * **En cours** : La recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
+  * **Résolue** : La recommandation a déjà été appliquée (dans ce cas, la ligne est grisée).
+* **GRAVITÉ** : Donne le niveau de gravité de chaque recommandation :
+  * **Élevée** : Existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle ou groupe de sécurité réseau). Le problème doit être analysé.
+  * **Moyenne** : Il existe une vulnérabilité ; des étapes supplémentaires ou non critiques sont requises pour l’éliminer ou pour terminer un processus.
+  * **Faible** : Existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite pas une attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
 
 Utilisez le tableau ci-dessous pour mieux comprendre les recommandations et leurs effets.
 
@@ -135,7 +135,7 @@ Dans le tableau de recommandations ci-dessus, sélectionnez une recommandation e
 ## <a name="next-steps"></a>Étapes suivantes
 Ce document vous a présenté les recommandations de sécurité du Centre de sécurité. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
-* [Définition des stratégies de sécurité dans Azure Security Center](security-center-azure-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
+* [Définition des stratégies de sécurité dans Azure Security Center](tutorial-security-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
 * [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.

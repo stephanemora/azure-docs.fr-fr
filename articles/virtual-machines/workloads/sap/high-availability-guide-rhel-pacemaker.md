@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: f8e16af629eaa18b49b054be9fc478d633263ddb
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: d023bf4428790667ef192a3ce981087694224f50
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45636795"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724534"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuration de Pacemaker sur Red Hat Entreprise Linux dans Azure
 
@@ -50,8 +50,8 @@ Commencez par lire les notes et publications SAP suivantes :
   * Les logiciels SAP pris en charge et les combinaisons entre système d’exploitation et base de données.
   * La version du noyau SAP requise pour Windows et Linux sur Microsoft Azure.
 * La note SAP [2015553] répertorie les conditions préalables au déploiement de logiciels SAP pris en charge par SAP sur Azure.
-* La note SAP [2002167] recommande des paramètres de système d’exploitation pour Red Hat Enterprise Linux.
-* La note SAP [2009879] conseille sur SAP HANA pour Red Hat Enterprise Linux.
+* La note SAP [2002167] recommande des paramètres de système d’exploitation pour Red Hat Enterprise Linux
+* La note SAP [2009879] conseille sur SAP HANA pour Red Hat Enterprise Linux
 * La note SAP [2178632] contient des informations détaillées sur toutes les métriques de surveillance rapportées pour SAP sur Azure.
 * La note SAP [2191498] contient la version requise de l’agent hôte SAP pour Linux sur Azure.
 * La note SAP [2243692] contient des informations sur les licences SAP sur Linux dans Azure.
@@ -224,10 +224,10 @@ Affectez au principal de service le rôle personnalisé Linux Fence Agent Role (
 1. Ouvrez le panneau Toutes les ressources
 1. Sélectionnez la machine virtuelle du premier nœud de cluster.
 1. Cliquez sur Contrôle d’accès (IAM)
-1. Cliquez sur Ajouter.
+1. Cliquez sur Ajouter une attribution de rôle.
 1. Sélectionnez le rôle Linux Fence Agent Role (Rôle d’agent d’isolation Linux).
 1. Entrez le nom de l’application que vous avez créée ci-dessus
-1. Cliquez sur OK
+1. Cliquez sur Enregistrer.
 
 Répétez les étapes ci-dessus pour le deuxième nœud de cluster.
 

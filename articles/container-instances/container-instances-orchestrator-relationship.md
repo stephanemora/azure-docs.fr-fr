@@ -5,15 +5,15 @@ services: container-instances
 author: seanmck
 ms.service: container-instances
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 11/30/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: c17bdb5a81640a7162ae735a4633a31cdfffbb1d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 08bc344a20ade3d8bb0f7dd23a854fd03ddac006
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803509"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845800"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances et les orchestrateurs de conteneurs
 
@@ -25,12 +25,12 @@ Azure Container Instances fournit certaines des fonctionnalités de planificatio
 
 La définition standard de l’orchestration comprend les tâches suivantes :
 
-- **Planification** : étant donné une image conteneur et une demande de ressource, rechercher un ordinateur adapté sur lequel exécuter le conteneur.
-- **Affinité/Anti-affinité** : spécifier qu’un ensemble de conteneurs doivent s’exécuter à proximité les uns des autres (à des fins de performances) ou suffisamment éloignés les uns des autres (à des fins de disponibilité).
-- **Contrôle d’intégrité** : détecter les échecs de conteneur et les replanifier automatiquement.
-- **Basculement** : effectuer le suivi de ce qui s’exécute sur chaque machine et replanifier des conteneurs à partir des machines ayant échoué sur des nœuds intègres.
+- **Planification** : avec une image conteneur et une requête de ressource données, rechercher une machine adaptée sur laquelle exécuter le conteneur.
+- **Affinité/Anti-affinité** : spécifier que les conteneurs d’un ensemble doivent s’exécuter à proximité les uns des autres (à des fins de performances) ou suffisamment éloignés les uns des autres (à des fins de disponibilité).
+- **Supervision de l’intégrité** : détecter les échecs de conteneur et les replanifier automatiquement.
+- **Basculement** : effectuer le suivi de ce qui s’exécute sur chaque machine et replanifier des conteneurs à partir des machines ayant échoué sur des nœuds sains.
 - **Mise à l’échelle** : ajouter ou supprimer des instances de conteneurs en fonction de la demande, manuellement ou automatiquement.
-- **Mise en réseau** : fournir une surcouche réseau pour la coordination des conteneurs et la communication entre plusieurs ordinateurs hôtes.
+- **Réseau** : fournir un réseau superposé pour la coordination des conteneurs et la communication entre plusieurs machines hôtes.
 - **Détection de service** : permettre aux conteneurs de se trouver mutuellement et automatiquement, même quand ils sont déplacés entre des machines hôtes et que leur adresse IP est modifiée.
 - **Coordination des mises à niveau d’application** : gérer les mises à niveau des conteneurs pour éviter les temps d’arrêt des applications et autoriser une restauration en cas de problème.
 
@@ -40,7 +40,7 @@ Azure Container Instances permet d’adopter une approche en couches de l’orch
 
 Toute l’infrastructure sous-jacente pour Container Instances étant managée par Azure, une plateforme d’orchestration n’a pas besoin de rechercher une machine hôte appropriée sur laquelle exécuter un conteneur unique. L’élasticité du cloud garantit qu’un ordinateur est toujours disponible. Au lieu de cela, l’orchestrateur peut se concentrer sur les tâches qui simplifient le développement des architectures multi-conteneurs, notamment la mise à l’échelle et la coordination des mises à niveau.
 
-## <a name="potential-scenarios"></a>Scénarios potentiels
+## <a name="scenarios"></a>Scénarios
 
 Bien que l’intégration d’orchestrateur avec Azure Container Instances en soit encore à sa phase initiale, nous prévoyons l’émergence de plusieurs environnements différents :
 
@@ -54,13 +54,15 @@ Pour les charges de travail longues et stables, l’orchestration des conteneurs
 
 Au lieu de mettre à l’échelle le nombre de machines virtuelles dans votre cluster et de déployer ensuite des conteneurs supplémentaires sur ces machines, l’orchestrateur peut simplement planifier les conteneurs supplémentaires à l’aide d’Azure Container Instances et les supprimer quand ils ne sont plus nécessaires.
 
-## <a name="sample-implementation-virtual-kubelet-for-kubernetes"></a>Exemple d’implémentation : Virtual Kubelet pour Kubernetes
+## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>Exemple d’implémentation : nœuds virtuels pour Azure Kubernetes Service (AKS)
 
-Le projet [Virtual Kubelet][aci-connector-k8s] illustre comment les plateformes d’orchestration de conteneurs s’intègrent dans Azure Container Instances.
+Pour rapidement mettre à l’échelle des charges de travail dans un cluster [Azure Kubernetes Service](../aks/intro-kubernetes.md) (AKS), vous pouvez utiliser des *nœuds virtuels* créés dynamiquement dans Azure Container Instances. Actuellement disponibles en préversion, les nœuds virtuels permettent la communication réseau entre les pods qui s’exécutent dans ACI et le cluster AKS. 
 
-Virtual Kubelet imite le [kubelet][kubelet-doc] de Kubernetes en s’inscrivant en tant que nœud avec une capacité illimitée et en répartissant la création de [pods][pod-doc] dans des groupes de conteneurs dans Azure Container Instances.
+Les nœuds virtuels prennent actuellement en charge les instances de conteneur Linux. Découvrez les nœuds virtuels avec [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) ou le [Portail Azure](https://go.microsoft.com/fwlink/?linkid=2047545).
 
-Nous pourrions générer des connecteurs pour d’autres orchestrateurs qui s’intégreraient de la même façon avec des primitives de plateforme pour combiner la puissance de l’API d’orchestrateur avec la vitesse et la simplicité offertes par la gestion des conteneurs dans Azure Container Instances.
+Les nœuds virtuels utilisent [Virtual Kubelet][aci-connector-k8s] open source pour imiter le [kubelet][kubelet-doc] dans Kubernetes en s’inscrivant en tant que nœud avec une capacité illimitée. Le kubelet virtuel distribue la création de [pods][pod-doc] en tant que groupes de conteneurs dans Azure Container Instances.
+
+Consultez le projet [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) pour obtenir des exemples supplémentaires de l’extension de l’API Kubernetes aux plateformes de conteneurs serverless.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

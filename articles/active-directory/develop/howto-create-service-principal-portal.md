@@ -14,14 +14,14 @@ ms.workload: na
 ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
-ms.openlocfilehash: b60be3db14a756407e62540bb89f3b0924597067
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 87e197821be7c7c72ca1704d6b0123d76d41b30f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959793"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721083"
 ---
-# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procédure : Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources
+# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Activation Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources
 
 Si vous utilisez du code qui doit accéder aux ressources ou les modifier, vous pouvez créer une identité pour l’application. Cette identité est connue en tant que principal de service. Vous pouvez alors assigner les autorisations nécessaires au principal de service. Cet article explique comment utiliser le portail pour créer le principal de service. Elle se concentre sur une application à locataire unique conçue pour s’exécuter au sein d’une seule organisation. Les applications à locataire unique sont généralement utilisées pour les applications métier exécutées au sein de votre organisation.
 
@@ -50,7 +50,7 @@ Vous avez créé votre application Azure AD et le principal de service.
 
 ## <a name="assign-the-application-to-a-role"></a>Affecter l’application à un rôle
 
-Pour accéder aux ressources de votre abonnement, vous devez affecter un rôle à l’application. Déterminez quel rôle fournit les autorisations appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](../../role-based-access-control/built-in-roles.md).
+Pour accéder aux ressources de votre abonnement, vous devez affecter un rôle à l’application. Déterminez quel rôle fournit les autorisations appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](../../role-based-access-control/built-in-roles.md).
 
 Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue (par exemple, l’ajout d’une application au rôle Lecteur pour un groupe de ressources signifie qu’elle peut lire le groupe de ressources et toutes les ressources qu’il contient).
 
@@ -65,9 +65,9 @@ Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ress
    Si vous ne voyez pas l’abonnement recherché, sélectionnez le **filtre des abonnements généraux**. Assurez-vous que l’abonnement souhaité est sélectionné dans le portail. 
 
 1. Sélectionnez **Contrôle d’accès (IAM)**.
-1. Sélectionnez **Ajouter**.
+1. Sélectionnez **Ajouter une attribution de rôle**.
 
-   ![Sélection de l’option Ajouter](./media/howto-create-service-principal-portal/select-add.png)
+   ![Sélectionner Ajouter une attribution de rôle](./media/howto-create-service-principal-portal/select-add.png)
 
 1. Sélectionnez le rôle que vous souhaitez affecter à l’application. Pour autoriser l’application à exécuter des actions telles que **redémarrer**, **démarrer** et **arrêter** des instances, sélectionnez le rôle **Contributeur**. Par défaut, les applications Azure AD ne figurent pas dans les options disponibles. Pour trouver votre application, recherchez-la par son nom et sélectionnez-la.
 

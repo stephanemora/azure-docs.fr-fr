@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à ArcGIS Online | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à ArcGIS Online | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ArcGIS Online.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 12ab224481c519db36ae21dd11916649ff0bfbe3
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 3284202ffaa6767a8dd4a6a5050dbdc928075237
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269032"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846112"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Didacticiel : Intégration d’Azure Active Directory à ArcGIS Online
+# <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Tutoriel : Intégration d’Azure Active Directory à ArcGIS Online
 
 Dans ce didacticiel, vous allez apprendre à intégrer ArcGIS Online à Azure Active Directory (Azure AD).
 
@@ -117,7 +117,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     ![image](./media/arcgis-tutorial/b1-domains_and_urlsedit.png)
 
-5. Dans la section **Configuration de SAML de base**, procédez comme suit :
+5. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.maps.arcgis.com`.
 
@@ -126,7 +126,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
     ![image](./media/arcgis-tutorial/b1-domains_and_urls.png)
 
     > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support ArcGIS Online](http://support.esri.com/en/).
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support ArcGIS Online](https://support.esri.com/en/).
 
 6. Dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger **XML de métadonnées de fédération**, puis enregistrez le fichier XML sur votre ordinateur.
 
@@ -168,7 +168,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Microsoft Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![image](./media/arcgis-tutorial/d_users_and_groups.png)
 
@@ -176,13 +176,13 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![image](./media/arcgis-tutorial/d_adduser.png)
 
-3. Dans les propriétés de l’utilisateur, procédez comme suit.
+3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
     ![image](./media/arcgis-tutorial/d_userproperties.png)
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -224,7 +224,7 @@ Pour ArcGIS Online, cette attribution s’effectue manuellement.
 
 Dans cette section, vous autorisez Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à ArcGIS Online.
 
-1. Dans le portail Microsoft Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![image](./media/arcgis-tutorial/d_all_applications.png)
 
@@ -240,7 +240,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 
     ![image](./media/arcgis-tutorial/d_assign_user.png)
 
-4. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton**Sélectionner** au bas de l’écran.
+4. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
 5. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez le bouton **Attribuer**.
 

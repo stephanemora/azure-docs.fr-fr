@@ -10,16 +10,16 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1e6bd1b7ddb38d0fad33ab9d282f8edc4ff8c765
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4b24ba4b4d83ac3f0c8291308debb6317efa4a55
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129128"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967995"
 ---
-# <a name="translator-text-api-30-dictionary-examples"></a>API Translator Text 3.0 : Exemples de dictionnaire
+# <a name="translator-text-api-30-dictionary-examples"></a>API de traduction de texte Translator Text 3.0 : Exemples de dictionnaire
 
-Fournit des exemples qui illustrent l’utilisation en contexte des termes du dictionnaire. Cette opération est utilisée conjointement à la [recherche dans le dictionnaire](.\v3-0-dictionary-lookup.md).
+Fournit des exemples qui illustrent l’utilisation en contexte des termes du dictionnaire. Cette opération est utilisée conjointement à la [recherche dans le dictionnaire](./v3-0-dictionary-lookup.md).
 
 ## <a name="request-url"></a>URL de la demande
 
@@ -42,11 +42,11 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
   </tr>
   <tr>
     <td>from</td>
-    <td>*Paramètre obligatoire*.<br/>Spécifie la langue du texte d’entrée. La langue source doit être l’une des [langues prises en charge](.\v3-0-languages.md) incluses dans l’étendue `dictionary`.</td>
+    <td>*Paramètre obligatoire*.<br/>Spécifie la langue du texte d’entrée. La langue source doit être l’une des [langues prises en charge](./v3-0-languages.md) incluses dans l’étendue `dictionary`.</td>
   </tr>
   <tr>
     <td>to</td>
-    <td>*Paramètre obligatoire*.<br/>Spécifie la langue du texte de sortie. La langue cible doit être l’une des [langues prises en charge](.\v3-0-languages.md) incluses dans l’étendue `dictionary`.</td>
+    <td>*Paramètre obligatoire*.<br/>Spécifie la langue du texte de sortie. La langue cible doit être l’une des [langues prises en charge](./v3-0-languages.md) incluses dans l’étendue `dictionary`.</td>
   </tr>
 </table>
 
@@ -77,9 +77,9 @@ Les en-têtes de demande sont les suivants :
 
 Le corps de la demande est un tableau JSON. Chaque élément du tableau est un objet JSON avec les propriétés suivantes :
 
-  * `Text` : chaîne spécifiant le terme à rechercher. Elle doit correspondre à la valeur d’un champ `normalizedText` d’après les traductions inverses d’une précédente demande de [recherche dans le dictionnaire](.\v3-0-dictionary-lookup.md). Elle peut également correspondre à la valeur du champ `normalizedSource`.
+  * `Text`: chaîne spécifiant le terme à rechercher. Elle doit correspondre à la valeur d’un champ `normalizedText` d’après les traductions inverses d’une précédente demande de [recherche dans le dictionnaire](./v3-0-dictionary-lookup.md). Elle peut également correspondre à la valeur du champ `normalizedSource`.
 
-  * `Translation` : chaîne spécifiant le texte traduit et renvoyé au préalable par l’opération de [recherche dans le dictionnaire](.\v3-0-dictionary-lookup.md). Elle doit correspondre à la valeur du champ `normalizedTarget` dans la liste `translations` de la réponse à la [recherche dans le dictionnaire](.\v3-0-dictionary-lookup.md). Le service renvoie des exemples pour la paire de mots source-cible indiquée.
+  * `Translation`: chaîne spécifiant le texte traduit et retourné au préalable par l’opération de [recherche dans le dictionnaire](./v3-0-dictionary-lookup.md). Elle doit correspondre à la valeur du champ `normalizedTarget` dans la liste `translations` de la réponse à la [recherche dans le dictionnaire](./v3-0-dictionary-lookup.md). Le service renvoie des exemples pour la paire de mots source-cible indiquée.
 
 Voici un exemple :
 
@@ -98,23 +98,23 @@ Les limites suivantes s'appliquent :
 
 Une réponse correcte est un tableau JSON avec un résultat pour chaque chaîne dans le tableau d’entrée. Un objet de résultat inclut les propriétés suivantes :
 
-  * `normalizedSource` : chaîne indiquant la forme normalisée du terme source. En règle générale, elle doit être identique à la valeur du champ `Text` dans l’index de la liste correspondante, dans le corps de la demande.
+  * `normalizedSource`: chaîne indiquant la forme normalisée du terme source. En règle générale, elle doit être identique à la valeur du champ `Text` dans l’index de la liste correspondante, dans le corps de la demande.
     
-  * `normalizedTarget` : chaîne indiquant la forme normalisée du terme cible. En règle générale, elle doit être identique à la valeur du champ `Translation` dans l’index de la liste correspondante, dans le corps de la demande.
+  * `normalizedTarget`: chaîne indiquant la forme normalisée du terme cible. En règle générale, elle doit être identique à la valeur du champ `Translation` dans l’index de la liste correspondante, dans le corps de la demande.
   
-  * `examples` : liste d’exemples pour la paire (terme source, terme cible). Chaque élément de la liste est un objet dont les propriétés sont les suivantes :
+  * `examples`: liste d’exemples pour la paire (terme source, terme cible). Chaque élément de la liste est un objet dont les propriétés sont les suivantes :
 
-    * `sourcePrefix` : chaîne à concaténer _avant_ la valeur de `sourceTerm` pour former un exemple complet. N’ajoutez aucun espace, car la chaîne en contient déjà si besoin. Cette valeur peut être une chaîne vide.
+    * `sourcePrefix`: chaîne à concaténer _avant_ la valeur de `sourceTerm` pour former un exemple complet. N’ajoutez aucun espace, car la chaîne en contient déjà si besoin. Cette valeur peut être une chaîne vide.
 
-    * `sourceTerm` : chaîne égale au terme à rechercher. Cette chaîne est ajoutée avec `sourcePrefix` et `sourceSuffix` pour former un exemple complet. Sa valeur est séparée afin de pouvoir être signalée dans une interface utilisateur (par exemple, en caractères gras).
+    * `sourceTerm`: chaîne égale au terme à rechercher. Cette chaîne est ajoutée avec `sourcePrefix` et `sourceSuffix` pour former un exemple complet. Sa valeur est séparée afin de pouvoir être signalée dans une interface utilisateur (par exemple, en caractères gras).
 
-    * `sourceSuffix` : chaîne à concaténer _après_ la valeur de `sourceTerm` pour former un exemple complet. N’ajoutez aucun espace, car la chaîne en contient déjà si besoin. Cette valeur peut être une chaîne vide.
+    * `sourceSuffix`: chaîne à concaténer _après_ la valeur de `sourceTerm` pour former un exemple complet. N’ajoutez aucun espace, car la chaîne en contient déjà si besoin. Cette valeur peut être une chaîne vide.
 
-    * `targetPrefix` : chaîne similaire à `sourcePrefix`, mais pour la cible.
+    * `targetPrefix`: chaîne similaire à `sourcePrefix`, mais pour la cible.
 
-    * `targetTerm` : chaîne similaire à `sourceTerm`, mais pour la cible.
+    * `targetTerm`: chaîne similaire à `sourceTerm`, mais pour la cible.
 
-    * `targetSuffix` : chaîne similaire à `sourceSuffix`, mais pour la cible.
+    * `targetSuffix`: chaîne similaire à `sourceSuffix`, mais pour la cible.
 
     > [!NOTE]
     > Si le dictionnaire ne contient aucun exemple, la réponse est 200 (OK), mais la liste `examples` est vide.

@@ -1,5 +1,5 @@
 ---
-title: Comment se préparer à un changement d’adresse IP entrante - Azure
+title: Se préparer à un changement d’adresse IP entrante – Azure App Service
 description: Si votre adresse IP entrante va être modifiée, découvrez les choses à faire pour que votre application continue de fonctionner après la modification.
 services: app-service\web
 author: cephalin
@@ -10,12 +10,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: 28741e858b0c938ec8b2b2ff983106c6b08e18fc
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.custom: seodec18
+ms.openlocfilehash: 2a494b318011d601609033bc877134f0b0eeff09
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578216"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249326"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Comment se préparer à un changement d’adresse IP entrante
 
@@ -23,13 +24,13 @@ Si vous avez reçu une notification indiquant que l’adresse IP entrante de vot
 
 ## <a name="determine-if-you-have-to-do-anything"></a>Déterminer si vous avez quelque chose à faire
 
-* Option 1 : si votre application app Service ne dispose pas d’un domaine personnalisé, aucune action n’est requise.
+* Option 1 : si votre application app Service ne dispose pas d’un domaine personnalisé, aucune action n’est requise.
 
-* Option 2 : si seul un enregistrement CNAME (enregistrement DNS qui pointe vers un URI) est configuré dans votre portail d’inscription de domaine (fournisseur DNS tiers ou Azure DNS), aucune action n’est requise.
+* Option 2 : si seul un enregistrement CNAME (enregistrement DNS qui pointe vers un URI) est configuré dans votre portail d’inscription de domaine (fournisseur DNS tiers ou Azure DNS), aucune action n’est requise.
 
-* Options 3 : si un enregistrement A (enregistrement DNS qui pointe directement vers votre adresse IP) est configuré dans votre portail d’inscription de domaine (fournisseur DNS tiers ou Azure DNS), remplacez l’adresse IP existante par la nouvelle. Vous trouverez la nouvelle adresse IP en suivant les instructions fournies dans la section suivante.
+* Option 3 : si un enregistrement A (enregistrement DNS qui pointe directement vers votre adresse IP) est configuré dans votre portail d’inscription de domaine (fournisseur DNS tiers ou Azure DNS), remplacez l’adresse IP existante par la nouvelle. Vous trouverez la nouvelle adresse IP en suivant les instructions fournies dans la section suivante.
 
-* Option 4 : si votre application se trouve derrière un équilibreur de charge, filtre IP ou tout autre mécanisme IP nécessitant l’adresse IP de votre application, remplacez l’adresse IP existante par la nouvelle. Vous trouverez la nouvelle adresse IP en suivant les instructions fournies dans la section suivante.
+* Option 4 : si votre application se trouve derrière un équilibreur de charge, filtre IP ou tout autre mécanisme IP nécessitant l’adresse IP de votre application, remplacez l’adresse IP existante par la nouvelle. Vous trouverez la nouvelle adresse IP en suivant les instructions fournies dans la section suivante.
 
 ## <a name="find-the-new-inbound-ip-address-in-the-azure-portal"></a>Trouver la nouvelle adresse IP entrante sur le Portail Azure
 
@@ -41,7 +42,7 @@ La nouvelle adresse IP entrante attribuée à votre application se trouve dans l
 
 3.  Sélectionnez votre application App Service dans la liste.
 
-4.  Si l’application est une application de fonction, consultez [Function app inbound IP address](../azure-functions/ip-addresses.md#function-app-inbound-ip-address) (Adresse IP entrante de l’application de fonction).
+1.  Si l’application est une application de fonction, consultez [Function app inbound IP address](../azure-functions/ip-addresses.md#function-app-inbound-ip-address) (Adresse IP entrante de l’application de fonction).
 
 4.  Sous l’en-tête **Paramètres**, cliquez sur **Propriétés** dans le volet de navigation de gauche, puis recherchez la section intitulée **Adresse IP virtuelle**.
 

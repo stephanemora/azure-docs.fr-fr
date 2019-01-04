@@ -68,8 +68,8 @@ Le tableau suivant fournit plusieurs exemples de requêtes qui extraient des enr
 |:---|:---|
 | Événement |Tous les événements Windows. |
 | Événement &#124; où valeur EventLevelName == « erreur » |Tous les événements Windows avec la gravité de l'erreur. |
-| Événement & #124 ; résumer count() par source |Nombre d’événements Windows par source. |
-| Événement & #124 ; où valeur EventLevelName == « erreur » & #124 ; résumer count() par source |Nombre d’événements d’erreur Windows par source. |
+| Événement &#124; résumer count() par source |Nombre d’événements Windows par source. |
+| Événement &#124; où valeur EventLevelName == « erreur » &#124; résumer count() par source |Nombre d’événements d’erreur Windows par source. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

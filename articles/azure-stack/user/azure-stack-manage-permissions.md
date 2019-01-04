@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/06/2018
 ms.author: patricka
 ms.reviewer: ''
-ms.openlocfilehash: ef9c096989eeb37159d0deb705e7870afe2eff8b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 70641084d2213b50803800a64000611d139facec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975394"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075765"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Gérer l’accès aux ressources à l’aide du contrôle d’accès en fonction du rôle dans Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Azure Stack prend en charge le contrôle d’accès en fonction du rôle (RBAC), qui est le même [modèle de sécurité de la gestion des accès](https://docs.microsoft.com/azure/role-based-access-control/overview) que celui utilisé par Microsoft Azure. Le contrôle d’accès en fonction du rôle vous permet de gérer les accès des utilisateurs, groupes et applications aux abonnements, ressources et services.
 
@@ -91,9 +91,9 @@ Les étapes suivantes permettent de configurer des autorisations pour un utilisa
 1. Connectez-vous avec un compte disposant des autorisations de propriétaire sur la ressource que vous souhaitez gérer.
 2. Dans le volet de navigation de gauche, sélectionnez **Groupes de ressources**.
 3. Choisissez le nom du groupe de ressources sur lequel vous souhaitez définir des autorisations.
-4. Dans le volet de navigation du groupe de ressources, choisissez **Contrôle d’accès (IAM)**. La vue **Contrôle d’accès** répertorie les éléments qui ont accès au groupe de ressources. Vous pouvez filtrer ces résultats, mais aussi ajouter ou supprimer des autorisations à l’aide de la barre de menus proposée.
-5. Dans la barre de menus **Contrôle d’accès**, choisissez **+ Ajouter**.
-6. Dans **Ajouter des autorisations** :
+4. Dans le volet de navigation du groupe de ressources, choisissez **Contrôle d’accès (IAM)**. La vue **Attributions de rôles** liste les éléments qui ont accès au groupe de ressources. Vous pouvez regrouper et filtrer les résultats.
+5. Dans la barre de menus **Contrôle d’accès**, choisissez **+ Ajouter une attribution de rôle**.
+6. Dans le volet **Ajouter une attribution de rôle** :
 
    * Choisissez le rôle que vous souhaitez attribuer dans la liste déroulante **Rôle**.
    * Choisissez la ressource dont vous voulez autoriser l’accès dans la liste déroulante **Attribuer l'accès à**.

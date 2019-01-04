@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: dce9c26d9f836a2238642521be4d88ba089058d7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8b410cc85584f45d4a3e9d7bce180a2c6aa46114
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445956"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134964"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 
@@ -47,7 +47,7 @@ TLS 1.2 doit être activé sur le serveur Windows Server avant l’installation 
 2. Redémarrez le serveur
 
 
-Pour plus d’informations sur la configuration réseau requise pour le serveur du connecteur, consultez [Prise en main du proxy d’application et de l’installation d’un connecteur](application-proxy-enable.md).
+Pour plus d’informations sur la configuration réseau requise pour le serveur du connecteur, consultez [Prise en main du proxy d’application et de l’installation d’un connecteur](application-proxy-add-on-premises-application.md).
 
 ## <a name="maintenance"></a>Maintenance 
 Les connecteurs et le service se chargent de toutes les tâches de haut niveau de disponibilité. Vous pouvez les ajouter ou supprimer de manière dynamique. Chaque fois qu’une nouvelle requête arrive, elle est acheminée vers un des connecteurs actuellement disponibles. Si un connecteur est temporairement indisponible, il ne répond pas à ce trafic.
@@ -64,7 +64,7 @@ Vous n’êtes pas obligé de supprimer manuellement les connecteurs qui ne sont
 
 ## <a name="automatic-updates"></a>Mises à jour automatiques
 
-Azure AD fournit les mises à jour automatiques pour tous les connecteurs que vous déployez. Tant que le service de mise à jour du connecteur de proxy d’application est en cours d’exécution, vos connecteurs se mettent automatiquement à jour. Si vous ne voyez pas le service de mise à jour du connecteur sur votre serveur, vous devez [réinstaller votre connecteur](application-proxy-enable.md) afin d’obtenir les mises à jour. 
+Azure AD fournit les mises à jour automatiques pour tous les connecteurs que vous déployez. Tant que le service de mise à jour du connecteur de proxy d’application est en cours d’exécution, vos connecteurs se mettent automatiquement à jour. Si vous ne voyez pas le service de mise à jour du connecteur sur votre serveur, vous devez [réinstaller votre connecteur](application-proxy-add-on-premises-application.md) afin d’obtenir les mises à jour. 
 
 Si vous ne souhaitez pas attendre le chargement d’une mise à jour automatique sur votre connecteur, vous pouvez effectuer une mise à niveau manuelle. Accédez à la [page de téléchargement du connecteur](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) sur le serveur où votre connecteur se trouve et sélectionnez **Télécharger**. Ce processus lance une mise à niveau du connecteur local. 
 
@@ -120,9 +120,9 @@ L’équilibrage de charge se produit entre les connecteurs d’un groupe de con
 
 Un autre facteur affectant les performances est la qualité de la connexion réseau entre les connecteurs, y compris : 
 
-* **Le service en ligne** : les connexions à latence faible ou élevée au service du proxy d’application d’Azure influence les performances du connecteur. Pour des performances optimales, connectez votre organisation à Azure avec Express Route. Sinon, assurez-vous que l’équipe réseau garantit que les connexions à Azure sont gérées de la façon la plus efficace. 
-* **Applications principales** : dans certains cas, il existe des proxys supplémentaires entre le connecteur et les applications principales capables de ralentir ou d’empêcher des connexions. Pour résoudre les problèmes de ce scénario, ouvrez un navigateur à partir du serveur du connecteur et essayez d’accéder à l’application. Si vous exécutez les connecteurs dans Azure alors que les applications sont locales, l’expérience peut ne pas être celle que vos utilisateurs attendent.
-* **Contrôleurs de domaine** : si les connecteurs effectuent l’authentification unique à l’aide de la délégation Kerberos contrainte (KCD), ils contactent les contrôleurs de domaine avant d’envoyer la requête au serveur principal. Les connecteurs ont un cache de tickets Kerberos, mais dans un environnement occupé, la réactivité des contrôleurs de domaine peut affecter les performances. Ce problème est plus courant pour les connecteurs qui s’exécutent dans Azure mais qui communiques avec les contrôleurs de domaine locaux. 
+* **Le service en ligne** : les connexions à latence faible ou élevée au service du proxy d’application d’Azure influencent les performances du connecteur. Pour des performances optimales, connectez votre organisation à Azure avec Express Route. Sinon, assurez-vous que l’équipe réseau garantit que les connexions à Azure sont gérées de la façon la plus efficace. 
+* **Applications principales** : dans certains cas, il existe des proxys supplémentaires entre le connecteur et les applications principales capables de ralentir ou d’empêcher des connexions. Pour résoudre les problèmes de ce scénario, ouvrez un navigateur à partir du serveur du connecteur et essayez d’accéder à l’application. Si vous exécutez les connecteurs dans Azure alors que les applications sont locales, l’expérience peut ne pas être celle que vos utilisateurs attendent.
+* **Contrôleurs de domaine** : si les connecteurs effectuent l’authentification unique à l’aide de la délégation Kerberos contrainte (KCD), ils contactent les contrôleurs de domaine avant d’envoyer la requête au serveur principal. Les connecteurs ont un cache de tickets Kerberos, mais dans un environnement occupé, la réactivité des contrôleurs de domaine peut affecter les performances. Ce problème est plus courant pour les connecteurs qui s’exécutent dans Azure mais qui communiques avec les contrôleurs de domaine locaux. 
 
 Pour plus d’informations sur l’optimisation de votre réseau, consultez [Considérations sur la topologie du réseau lors de l’utilisation du proxy d’application Azure Active Directory](application-proxy-network-topology.md).
 
@@ -136,7 +136,7 @@ Les connecteurs peuvent également être joints à des domaines ou forêts qui d
 
 Généralement, le déploiement de connecteurs est simple et ne nécessite aucune configuration spéciale. Mais certaines conditions uniques doivent être prises en compte :
 
-* Les organisations qui limitent le trafic sortant doivent [ouvrir les ports requis](application-proxy-enable.md#open-your-ports).
+* Les organisations qui limitent le trafic sortant doivent [ouvrir les ports requis](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 * Des machines conformes aux normes FIPS peuvent être requises pour modifier leur configuration afin d’autoriser les processus du connecteur à générer et stocker un certificat.
 * Les organisations qui verrouillent leur environnement sur la base des processus qui émettent des requêtes réseau doivent s’assurer que les deux services de connecteur sont activés pour accéder à tous les ports et adresses IP nécessaires.
 * Dans certains cas, les proxys de transfert sortants peuvent arrêter l’authentification de certificat bidirectionnelle et entraîner un échec de la communication.

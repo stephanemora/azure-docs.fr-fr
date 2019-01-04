@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: 974ef7a51736c2e2b0a0de3c13d23ddc37fa13b7
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 76bfcd5e1b7e0215cfea7fbbfe1c51726d305fbc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855015"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969837"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Comment configurer un pipeline CI/CD pour Azure Data Lake Analytics  
 
@@ -99,7 +99,7 @@ Outre la ligne de commande, vous pouvez également utiliser une tâche Visual St
     ![Définir des variables CI/CD MSBuild pour un projet U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png) 
 
     ```
-    /p:USQLSDKPath=/p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime /p:USQLTargetType=SyntaxCheck /p:DataRoot=$(Build.SourcesDirectory) /p:EnableDeployment=true
+    /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime /p:USQLTargetType=SyntaxCheck /p:DataRoot=$(Build.SourcesDirectory) /p:EnableDeployment=true
     ```
 
 ### <a name="u-sql-project-build-output"></a>Sortie de build de projet U-SQL
@@ -335,7 +335,7 @@ Outre la ligne de commande, vous pouvez utiliser une tâche Visual Studio Build 
    ![Définir des variables CI/CD MSBuild pour un projet de base de données U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
 
     ```
-    /p:USQLSDKPath=/p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
+    /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
     ```
  
 ### <a name="u-sql-database-project-build-output"></a>Sortie de build de projet de base de données U-SQL
@@ -457,7 +457,7 @@ Suivez les étapes ci-dessous pour configurer une tâche de déploiement d’une
 |Package|Chemin du package de déploiement de base de données U-SQL à déployer|null|true|
 |Base de données|Nom de la base données à créer ou dans laquelle le déploiement doit être effectué|master|false|
 |LogFile|Chemin du fichier de journalisation. Par défaut, défini sur sortie standard (console).|null|false|
-|LogLevel|Niveau de journal : détaillé, normal, avertissement ou erreur|LogLevel.Normal|false|
+|LogLevel|Niveau de journal : détaillé, normal, avertissement ou erreur.|LogLevel.Normal|false|
 
 #### <a name="parameter-for-local-deployment"></a>Paramètre pour le déploiement local
 

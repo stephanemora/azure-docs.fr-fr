@@ -1,6 +1,6 @@
 ---
-title: Connexion d’Azure SQL Database à la Recherche Azure à l’aide d’indexeurs | Microsoft Docs
-description: Découvrez comment extraire des données d’Azure SQL Database à un index Azure à l'aide d'indexeurs.
+title: Se connecter à Azure SQL Database et indexer le contenu à l’aide d’indexeurs - Recherche Azure
+description: Découvrez comment analyser des données dans Azure SQL Database à l’aide d’indexeurs pour la recherche en texte intégral dans Recherche Azure. Cet article traite des connexions, de la configuration des indexeurs et de l’ingestion des données.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,14 +9,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: ba2ce12fcfad14b0910144b1a95efd44be54811f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 28b72f63360b4ce323c1cd82b11c2798b1fbc2ff
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245645"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313392"
 ---
-# <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Connexion d'Azure SQL Database à Azure Search à l'aide d'indexeurs
+# <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Se connecter à Azure SQL Database et indexer le contenu à l’aide d’indexeurs Recherche Azure
 
 Avant d’interroger un [index Recherche Azure](search-what-is-an-index.md), vous devez le remplir avec vos données. Si les données se trouvent dans une base de données Azure SQL Database, un **indexeur Recherche Azure pour Azure SQL Database** (ou **indexeur Azure SQL**) peut automatiser le processus d’indexation. En d’autres termes, vous avez moins de code à écrire et la maintenance de l’infrastructure est moins lourde.
 
@@ -34,7 +35,7 @@ Un **indexeur** est une ressource qui connecte une source de données unique à 
 * Synchroniser un index avec les modifications apportées à la source de données selon une planification donnée.
 * S’exécuter à la demande afin de mettre à jour un index en fonction des besoins.
 
-Un indexeur unique peut utiliser une seule table ou une seule vue, mais vous pouvez créer plusieurs indexeurs pour remplir plusieurs index de recherche. Pour plus d’informations sur ces concepts, consultez [Opérations d’indexeur : Flux de travail classique](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow).
+Un indexeur unique peut utiliser une seule table ou une seule vue, mais vous pouvez créer plusieurs indexeurs pour remplir plusieurs index de recherche. Pour plus d’informations sur ces concepts, consultez [Opérations d’indexeur : workflow classique](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow).
 
 Vous pouvez installer et configurer un indexeur SQL Azure avec les outils suivants :
 
@@ -314,23 +315,23 @@ Ces paramètres sont utilisés dans l’objet `parameters.configuration`, dans l
 
 ## <a name="faq"></a>Forum Aux Questions
 
-**Q. : Puis-je utiliser l’indexeur SQL Azure avec des bases de données SQL exécutées sur des machines virtuelles IaaS dans Azure ?**
+**Q : Puis-je utiliser l’indexeur SQL Azure avec des bases de données SQL exécutées sur des machines virtuelles IaaS dans Azure ?**
 
 Oui. Toutefois, vous devez autoriser votre service de recherche à se connecter à votre base de données. Pour plus d’informations, consultez l’article [Configurer une connexion d’un indexeur de Recherche Azure à SQL Server sur une machine virtuelle Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
 
-**Q. : Puis-je utiliser l’indexeur Azure SQL avec des bases de données SQL exécutées localement ?**
+**Q : Puis-je utiliser l’indexeur Azure SQL avec des bases de données SQL exécutées localement ?**
 
 Pas directement. La connexion directe n’est pas prise en charge, ni recommandée, car elle vous oblige à ouvrir vos bases de données au trafic Internet. Les clients ont réussi à l’aide de technologies de pont telles qu’Azure Data Factory. Pour plus d’informations, consultez [Envoyer des données à un index Recherche Azure à l’aide d’Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
 
-**Q. : Puis-je utiliser l’indexeur Azure SQL avec des bases de données autres que SQL Server exécutées en IaaS sur Azure ?**
+**Q : Puis-je utiliser l’indexeur Azure SQL avec des bases de données autres que SQL Server exécutées en IaaS sur Azure ?**
 
-Non. Ce cas de figure n’est pas pris en charge, car nous n’avons pas testé l’indexeur avec des bases de données autres que SQL Server.  
+ Non. Ce cas de figure n’est pas pris en charge, car nous n’avons pas testé l’indexeur avec des bases de données autres que SQL Server.  
 
-**Q. : Puis-je créer plusieurs indexeurs qui s’exécutent selon une planification ?**
+**Q : Puis-je créer plusieurs indexeurs qui s’exécutent selon une planification ?**
 
 Oui. Cependant, seul un indexeur peut s'exécuter sur un nœud à la fois. Si vous avez besoin d’exécuter plusieurs indexeurs simultanément, envisagez d’ajouter d’autres unités de recherche à votre service de recherche.
 
-**Q. : L’exécution d’un indexeur affecte-t-elle la charge de travail de mes requêtes ?**
+**Q : L’exécution d’un indexeur affecte-t-elle la charge de travail de mes requêtes ?**
 
 Oui. L’indexeur s'exécute sur un des nœuds de votre service de recherche, et les ressources de ce nœud sont partagées entre l'indexation et le traitement du trafic de requêtes d’une part, et d’autres requêtes d’API d’autre part. Si vous exécutez des charges de travail intensives d’indexation et de requête et si vous rencontrez un taux élevé d’erreurs 503 ou une augmentation des délais de réponse, [redimensionnez votre service de recherche](search-capacity-planning.md).
 
@@ -338,7 +339,7 @@ Oui. L’indexeur s'exécute sur un des nœuds de votre service de recherche, et
 
 Cela dépend. Pour l’indexation intégrale d’une table ou d’une vue, vous pouvez utiliser un réplica secondaire. 
 
-Pour une indexation incrémentielle, Recherche Azure prend en charge deux stratégies de détection des modifications : le suivi de modifications intégré SQL et la définition d’une limite supérieure.
+Pour l’indexation incrémentielle, la Recherche Azure prend en charge deux stratégies de détection des modifications : le suivi des modifications intégré SQL et la limite supérieure.
 
 Sur les réplicas en lecture seule, la base de données SQL ne prend pas en charge le suivi des modifications intégré. Par conséquent, vous devez utiliser la stratégie de limite supérieure. 
 

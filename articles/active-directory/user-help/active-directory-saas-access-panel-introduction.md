@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: d9ed140d404387b94428cea5d925911806b62552
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 129f77ec9ea4d4e2633e1ea0b02795bc0df26433
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705853"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834704"
 ---
 # <a name="what-is-the-myapps-portal"></a>Qu’est-ce que le portail MyApps ?
 
@@ -41,11 +41,11 @@ Le portail MyApps est séparé du portail Azure. Il ne nécessite pas de dispose
 
 ## <a name="access-the-myapps-portal"></a>Accéder au portail MyApps
 
-Vous pouvez accéder au portail MyApps à l’adresse `http://myapps.microsoft.com`.
+Vous pouvez accéder au portail MyApps à l’adresse `https://myapps.microsoft.com`.
 
-Si vous avez configuré la personnalisation de votre page de connexion, vous pouvez charger cette personnalisation en ajoutant le domaine de votre organisation à l’URL (par exemple, `http://myapps.microsoft.com/<your domain>.com`).
+Si vous avez configuré la personnalisation de votre page de connexion, vous pouvez charger cette personnalisation en ajoutant le domaine de votre organisation à l’URL (par exemple, `https://myapps.microsoft.com/<your domain>.com`).
 
-Vous pouvez utiliser n’importe quel nom de domaine actif ou vérifié ayant été configuré dans votre portail Azure, comme illustré ici : ![Nom de domaine Jouets Wingtip][2]  
+Vous pouvez utiliser n’importe quel nom de domaine actif ou vérifié ayant été configuré dans votre portail Azure, comme illustré ici : ![Nom de domaine Wingtip Toys][2]  
 
 Distribuez l’URL à tous les utilisateurs qui se connectent aux applications intégrées à Azure AD.
 

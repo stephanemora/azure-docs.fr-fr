@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: b841dee766399f1e3c7325d2ab67e342dfa8657a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8f0eaf8918913836cfe724ffea4f93b62eb3bf6a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211857"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841640"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Exécuter une restauration automatique pour les machines virtuelles Hyper-V
 
@@ -30,8 +30,8 @@ Après le basculement du site principal vers l’emplacement secondaire, les mac
 2. Sur la page **Confirmer le basculement planifié**, choisissez les emplacements source et cible. Notez le sens du basculement. Si le basculement depuis le site principal a fonctionné comme prévu, et si toutes les machines virtuelles se trouvent à l’emplacement secondaire, ces éléments sont fournis à titre informatif uniquement.
 3. Si vous effectuez la restauration à partir de Microsoft Azure, sélectionnez différents paramètres dans la zone **Synchronisation des données**:
     - **Synchroniser les données avant le basculement (synchroniser seulement les modifications d’ordre différentiel)**  : cette option minimise le temps d’arrêt des machines virtuelles, car elles sont synchronisées sans être arrêtées. Elle effectue les étapes suivantes :
-        - Phase 1 : Un instantané de la machine virtuelle est créé dans Microsoft Azure, puis copié sur l’hôte Hyper-V local. La machine continue de s’exécuter dans Microsoft Azure.
-        - Phase 2 : La machine virtuelle est arrêtée dans Microsoft Azure, afin de ne faire l’objet d’aucune nouvelle modification. L’ensemble final des modifications différentielles est transféré au serveur local, et la machine virtuelle locale est démarrée.
+        - Phase 1 : un instantané de la machine virtuelle est créé dans Azure, puis copié sur l’hôte Hyper-V local. La machine continue de s’exécuter dans Microsoft Azure.
+        - Phase 2 : la machine virtuelle est arrêtée dans Azure pour qu’aucun changement n’ait lieu. L’ensemble final des modifications différentielles est transféré au serveur local, et la machine virtuelle locale est démarrée.
 
     - **Synchroniser les données uniquement lors du basculement (téléchargement complet)** - Cette option est plus rapide.
         - Cette option est plus rapide, car nous nous attendons à ce que la majeure partie du disque ait changé et nous ne voulons pas passer du temps au calcul de la somme de contrôle. Elle effectue un téléchargement du disque. C’est également utile lorsque la machine virtuelle locale a été supprimée.
@@ -59,8 +59,8 @@ Si vous avez déployé la fonction de protection entre un [site Hyper-V et Micro
 5. Dans Nom d’hôte,** sélectionnez le nouveau serveur hôte Hyper-V sur lequel vous souhaitez placer la machine virtuelle.
 6. Dans le champ Synchronisation des données, nous vous recommandons de sélectionner l’option de synchronisation des données avant le basculement. Cela permet de réduire le temps d’arrêt des machines virtuelles, car elles sont synchronisées sans être arrêtées. Il effectue les opérations suivantes :
 
-    - Phase 1 : Un instantané de la machine virtuelle est créé dans Microsoft Azure, puis copié sur l’hôte Hyper-V local. La machine continue de s’exécuter dans Microsoft Azure.
-    - Phase 2 : La machine virtuelle est arrêtée dans Microsoft Azure, afin de ne faire l’objet d’aucune nouvelle modification. L’ensemble final des modifications est transféré au serveur local, et la machine virtuelle locale est démarrée.
+    - Phase 1 : un instantané de la machine virtuelle est créé dans Azure, puis copié sur l’hôte Hyper-V local. La machine continue de s’exécuter dans Microsoft Azure.
+    - Phase 2 : la machine virtuelle est arrêtée dans Azure pour qu’aucun changement n’ait lieu. L’ensemble final des modifications est transféré au serveur local, et la machine virtuelle locale est démarrée.
     
 7. Cochez la base pour commencer le basculement (restauration automatique).
 8. Lorsque la synchronisation initiale se termine et que vous êtes prêt à arrêter la machine virtuelle dans Microsoft Azure, cliquez sur **Tâches** > <planned failover job> > **Terminer le basculement**. Cette action arrête la machine Microsoft Azure et transfère les dernières modifications apportées à la machine virtuelle locale, qui est ensuite démarrée.

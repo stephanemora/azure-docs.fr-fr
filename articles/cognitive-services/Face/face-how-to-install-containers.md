@@ -1,21 +1,22 @@
 ---
-title: Guide pratique pour installer et exécuter des conteneurs
-titlesuffix: Face - Cognitive Services - Azure
+title: Installer et exécuter des conteneurs
+titlesuffix: Face - Azure Cognitive Services
 description: Ce tutoriel pas à pas décrit comment télécharger, installer et exécuter des conteneurs pour Visage.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 1d13e2ccbbc1d5c1bc80dffc260a3759fe378d7d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 556cf755890f49e540afe64de6e485d9ebde2147
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634538"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086434"
 ---
 # <a name="install-and-run-containers"></a>Install and run containers
 
@@ -37,7 +38,7 @@ Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Az
 
 Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).
 
-### <a name="server-requirements-and-recommendations"></a>Configuration serveur requise et recommandations
+### <a name="container-requirements-and-recommendations"></a>Exigences et recommandations relatives au conteneur
 
 Le conteneur Visage nécessite au minimum 1 cœur de processeur d’au moins 2,6 gigahertz (GHz) et 4 gigaoctets (Go) de mémoire allouée, mais nous recommandons d’utiliser au moins 2 cœurs de processeur et 6 Go de mémoire allouée.
 
@@ -57,7 +58,7 @@ Si vous souhaitez utiliser le conteneur Visage, vous devez créer une ressource 
 Procédez comme suit pour créer et récupérer des informations à partir d’une ressource Visage :
 
 1. Créer une ressource Visage dans le portail Azure.  
-   Si vous souhaitez utiliser le conteneur Visage, vous devez d’abord créer une ressource Visage correspondante dans le portail Azure. Pour plus d’informations, consultez [Démarrage rapide : créer un compte Cognitive Services dans le portail Azure](../cognitive-services-apis-create-account.md).
+   Si vous souhaitez utiliser le conteneur Visage, vous devez d’abord créer une ressource Visage correspondante dans le portail Azure. Pour plus d’informations, consultez [Démarrage rapide : Créer un compte Cognitive Services dans le portail Azure.](../cognitive-services-apis-create-account.md)
 
 1. Obtenez l’URL de point de terminaison et la clé d’abonnement pour la ressource Azure.  
    Une fois la ressource Azure créée, vous devez utiliser l’URL de point de terminaison et la clé de l’abonnement de cette ressource pour instancier le conteneur Visage correspondant. Vous pouvez copier l’URL du point de terminaison et la clé de l’abonnement, respectivement sur les pages Démarrage rapide et Clés de la ressource Visage sur le portail Azure.
@@ -167,7 +168,9 @@ Dans cet article, vous avez découvert des concepts et le flux de travail pour l
 * Les images de conteneur s’exécutent dans Docker.
 * Vous pouvez utiliser l’API REST ou kit de développement logiciel (SDK) pour appeler des opérations dans des conteneurs Visage en spécifiant l’URI hôte du conteneur.
 * Vous devez spécifier les informations de facturation lors de l’instanciation d’un conteneur.
-* ** Les conteneurs Cognitives Services ne sont pas concédés sous licence pour s’exécuter sans être connectés à Azure pour le contrôle. Les clients doivent configurer les conteneurs de manière à ce qu’ils communiquent les informations de facturation au service de contrôle à tout moment. Les conteneurs Cognitive Services n’envoient pas les données des clients (p. ex., l’image ou le texte analysés) à Microsoft.  
+
+> [!IMPORTANT]
+> Les conteneurs Cognitives Services ne sont pas concédés sous licence pour s’exécuter sans être connectés à Azure pour le contrôle. Les clients doivent configurer les conteneurs de manière à ce qu’ils communiquent les informations de facturation au service de contrôle à tout moment. Les conteneurs Cognitive Services n’envoient pas les données des clients (p. ex., l’image ou le texte analysés) à Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

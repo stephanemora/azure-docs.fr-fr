@@ -1,5 +1,5 @@
 ---
-title: Planification des projets Team Data Science Process - Azure | Microsoft Docs
+title: Planification des projets Team Data Science Process
 description: Modèles Microsoft Project et Excel qui vous permettent de planifier et de gérer des projets de science des données.
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 702ea6152ce5bf90d1d1f61b566e91d1859e672b
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 3675d3cd8959d78270a491aeb443cb8e458d2472
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443098"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137909"
 ---
 # <a name="team-data-science-process-project-planning"></a>Planification des projets Team Data Science Process
 

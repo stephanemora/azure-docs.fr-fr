@@ -3,21 +3,21 @@ title: Configuration de la sécurité du fractionnement et de la fusion | Micro
 description: Configurez des certificats x409 pour le chiffrement à l’aide du service de fractionnement/fusion pour la mise à l’échelle élastique.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: VanMSFT
+ms.author: vanto
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 6967805044bb11e9aed3fe66d580df059f7a461a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: 06e9b443c5b0dc1c23b325c7127511f8542a1a11
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231395"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964830"
 ---
 # <a name="split-merge-security-configuration"></a>Configuration de la sécurité du fractionnement et de la fusion
 Pour utiliser le service de fusion et de fractionnement, vous devez configurer correctement la sécurité. Ce service fait partie de la fonctionnalité d’infrastructure élastique de la base de données SQL Microsoft Azure. Pour plus d’informations, consultez le [didacticiel sur le service de fusion et de fractionnement de l’infrastructure élastique](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
@@ -43,7 +43,7 @@ Si ces options ne sont pas disponibles, vous pouvez générer des **certificats 
     Si installée, accédez à :
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* Obtenez le kit WDK de [Windows 8.1 : téléchargement des kits et outils](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Procurez-vous le kit WDK à partir de [Windows 8.1 : Télécharger les kits et les outils](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>Pour configurer le certificat SSL
 Un certificat SSL est nécessaire pour chiffrer les communications et authentifier le serveur. Choisissez le plus approprié des trois scénarios ci-dessous et exécutez toutes les étapes associées :
@@ -142,7 +142,7 @@ Il existe deux mécanismes différents pris en charge pour détecter et préveni
 Ces mécanismes sont basés sur les fonctionnalités plus longuement documentées dans la rubrique Sécurité IP dynamique dans IIS. Lors de la modification de cette configuration, soyez attentif aux facteurs suivants :
 
 * Le comportement des proxys et des appareils de traduction d’adresses réseau sur les informations de l’hôte distant
-* Chaque demande à une ressource du rôle web est prise en compte (par exemple, le chargement de scripts, les images, etc.)
+* Chaque demande à destination d’une ressource du rôle web est prise en compte (par exemple, le chargement de scripts, des images, etc.)
 
 ## <a name="restricting-number-of-concurrent-accesses"></a>Limitation du nombre d'accès simultanés
 Les paramètres qui configurent ce comportement sont les suivants :
@@ -178,7 +178,7 @@ Exécutez :
       -n "CN=myservice.cloudapp.net" ^
       -e MM/DD/YYYY ^
       -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -sv MySSL.pvk MySSL.cer
 
 Pour personnaliser :
@@ -221,9 +221,9 @@ Suivez les étapes suivantes pour tous les comptes/ordinateurs qui communiquent 
 * Importez le certificat dans le magasin racine des autorités de certification approuvées
 
 ## <a name="turn-off-client-certificate-based-authentication"></a>Désactivation de l’authentification par certificat client
-Seule l’authentification par certificat client est prise en charge et sa désactivation permet l’accès public aux points de terminaison de service, à moins que d’autres mécanismes soient en place (par exemple, Microsoft Azure Virtual Network).
+Seule l’authentification par certificat client est prise en charge et sa désactivation autorise l’accès public aux points de terminaison de service, à moins que d’autres mécanismes soient en place (par exemple, Réseau virtuel Microsoft Azure).
 
-Définissez les paramètres suivants sur false dans le fichier de configuration de service pour désactiver la fonctionnalité :
+Définissez ces paramètres sur false dans le fichier de configuration de service pour désactiver la fonctionnalité :
 
     <Setting name="SetupWebAppForClientCertificates" value="false" />
     <Setting name="SetupWebserverForClientCertificates" value="false" />
@@ -239,7 +239,7 @@ Exécutez les étapes suivantes pour créer un certificat auto-signé qui agit c
     -n "CN=MyCA" ^
     -e MM/DD/YYYY ^
      -r -cy authority -h 1 ^
-     -a sha1 -len 2048 ^
+     -a sha256 -len 2048 ^
       -sr localmachine -ss my ^
       MyCA.cer
 
@@ -280,7 +280,7 @@ Mettez à jour la valeur du paramètre suivant avec la même empreinte numériqu
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
 
 ## <a name="issue-client-certificates"></a>Émission de certificats clients
-Chaque personne autorisée à accéder au service doit être dotée d’un certificat client émis pour son utilisation exclusive et doit choisir un mot de passe fort pour protéger sa clé privée. 
+Chaque personne autorisée à accéder au service doit disposer d’un certificat client émis pour son utilisation exclusive et doit choisir un mot de passe fort pour protéger sa clé privée. 
 
 Les étapes suivantes doivent être exécutées sur l’ordinateur sur lequel le certificat auto-signé de l’autorité de certification a été généré et stocké :
 
@@ -288,7 +288,7 @@ Les étapes suivantes doivent être exécutées sur l’ordinateur sur lequel le
       -n "CN=My ID" ^
       -e MM/DD/YYYY ^
       -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -in "MyCA" -ir localmachine -is my ^
       -sv MyID.pvk MyID.cer
 
@@ -316,14 +316,14 @@ Entrez le mot de passe et exportez le certificat avec les options suivantes :
 * La personne pour laquelle ce certificat a été émis doit choisir le mot de passe d’exportation
 
 ## <a name="import-client-certificate"></a>Importation d’un certificat client
-Chaque personne pour laquelle un certificat client a été émis doit importer la paire de clés dans les ordinateurs qu’elle utilise pour communiquer avec le service :
+Chaque personne pour laquelle un certificat client a été émis doit importer la paire de clés dans les machines qu’elle utilise pour communiquer avec le service :
 
 * Double-cliquez sur le fichier .PFX dans l'Explorateur Windows
 * Importez un certificat dans le magasin Personnel avec au moins l'option suivante :
   * Inclure toutes les propriétés étendues activées
 
 ## <a name="copy-client-certificate-thumbprints"></a>Copie des empreintes numériques des certificats clients
-Chaque personne pour laquelle un certificat client a été émis doit suivre les étapes ci-dessous afin d'obtenir l'empreinte numérique de son certificat qui sera ajoutée au fichier de configuration de service :
+Chaque personne pour laquelle un certificat client a été émis doit suivre ces étapes pour obtenir l’empreinte numérique de son certificat, qui sera ajoutée au fichier de configuration de service :
 
 * Exécutez certmgr.exe
 * Sélectionnez l'onglet Personnel

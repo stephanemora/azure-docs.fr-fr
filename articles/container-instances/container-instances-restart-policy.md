@@ -1,18 +1,18 @@
 ---
-title: Exécuter des tâches conteneurisées dans Azure Container Instances avec des stratégies de redémarrage
+title: Utilisez des stratégies de redémarrage avec des tâches conteneurisées dans Azure Container Instances.
 description: Découvrez comment utiliser Azure Container Instances pour exécuter des tâches jusqu’à complétion, telles que des tâches de génération, de test ou de rendu d’image.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 12/10/2018
 ms.author: danlep
-ms.openlocfilehash: c9e3fadd5164ca0d770f36ba95c30db933efcd39
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b254adb050aa9826170c0849c3811380db6d9b38
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853882"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321031"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Exécuter des tâches conteneurisées avec des stratégies de redémarrage
 
@@ -24,7 +24,7 @@ Les exemples présentés dans cet article utilisent l’interface de ligne de co
 
 ## <a name="container-restart-policy"></a>Stratégie de redémarrage des conteneurs
 
-Lorsque vous créez un conteneur dans Azure Container Instances, vous pouvez spécifier l’un des trois paramètres de stratégie de redémarrage disponibles.
+Lorsque vous créez un [groupe de conteneurs](container-instances-container-groups.md) dans Azure Container Instances, vous pouvez spécifier l’un des trois paramètres de stratégie de redémarrage disponibles.
 
 | Stratégie de redémarrage   | Description |
 | ---------------- | :---------- |
@@ -93,6 +93,24 @@ Sortie :
 
 Cet exemple montre la sortie du script envoyé à STDOUT. Toutefois, il est possible que vos tâches en conteneur écrivent leur sortie dans un stockage persistant, en vue d’une récupération ultérieure. Par exemple, vers un [partage de fichiers Azure](container-instances-mounting-azure-files-volume.md).
 
+## <a name="manually-stop-and-start-a-container-group"></a>Arrêter et démarrer un groupe de conteneurs manuellement
+
+Quelle que soit la stratégie de redémarrage configurée pour un [groupe de conteneurs](container-instances-container-groups.md), vous souhaiterez peut-être arrêter ou démarrer manuellement un groupe de conteneurs.
+
+* **Arrêter** - Vous pouvez arrêter manuellement un groupe de conteneurs en cours d’exécution à tout moment - par exemple, en utilisant la commande [az container stop][az-container-stop]. Pour certaines charges de travail de conteneur, vous pouvez vouloir arrêter un groupe de conteneurs après une période définie afin de réduire les coûts. 
+
+  L’arrêt d’un groupe de conteneurs se termine et recycle les conteneurs du groupe, mais ne préserve pas l’état du conteneur. 
+
+* **Démarrer** - Quand un groupe de conteneurs est arrêté - soit parce que les conteneurs s’arrêtent d’eux-mêmes, soit parce que vous avez arrêté manuellement le groupe - vous pouvez utiliser l’[API de démarrage de conteneur](/rest/api/container-instances/containergroups/start) ou le portail Azure pour démarrer manuellement les conteneurs dans le groupe. Si l’image d’un conteneur est mise à jour, une nouvelle image est extraite. 
+
+  Le démarrage d’un groupe de conteneurs commence un nouveau déploiement avec la même configuration de conteneur. Cette action peut vous aider à réutiliser rapidement une configuration de groupe de conteneurs connue qui fonctionne comme prévu. Vous n’avez pas besoin de créer un nouveau groupe de conteneurs pour exécuter la même charge de travail.
+
+* **Redémarrer** - Vous pouvez redémarrer un groupe de conteneurs en cours d’exécution - par exemple, en utilisant la commande [az container restart][az-container-restart]. Cette action redémarre tous les conteneurs du groupe de conteneurs. Si l’image d’un conteneur est mise à jour, une nouvelle image est extraite. 
+
+  Le redémarrage d’un groupe de conteneurs est utile lorsque vous souhaitez résoudre un problème de déploiement. Par exemple, si une limitation temporaire des ressources empêche le bon fonctionnement de vos conteneurs, le redémarrage du groupe peut résoudre le problème.
+
+Après que vous avez démarré ou redémarré manuellement un groupe de conteneurs, le groupe de conteneurs fonctionne conformément à la stratégie de redémarrage configurée.
+
 ## <a name="configure-containers-at-runtime"></a>Configurer des conteneurs au moment de l’exécution
 
 Lorsque vous créez une instance de conteneur, vous pouvez définir ses **variables d’environnement**, et spécifier la **ligne de commande** personnalisée à exécuter une fois le conteneur démarré. Vous pouvez utiliser ces paramètres dans vos programmes de traitement par lots en vue d’appliquer à chacun des conteneurs une configuration spécifique aux tâches.
@@ -103,9 +121,9 @@ Définissez des variables d’environnement dans votre conteneur pour permettre 
 
 Par exemple, vous pouvez modifier le comportement du script dans l’exemple de conteneur en spécifiant les variables d’environnement suivantes lorsque vous créez l’instance de conteneur :
 
-*NumWords* : nombre de mots envoyés à STDOUT.
+*NumWords* : Nombre de mots envoyés à STDOUT.
 
-*MinLength* : nombre minimal de caractères dans un mot pour que celui-ci soit comptabilisé. Cela vous permet d’ignorer les mots communs tels que « de » et « le ».
+*MinLength* : Nombre minimal de caractères dans un mot pour que celui-ci soit comptabilisé. Cela vous permet d’ignorer les mots communs tels que « de » et « le ».
 
 ```azurecli-interactive
 az container create \
@@ -131,6 +149,8 @@ Sortie :
  ('ROSENCRANTZ', 69),
  ('GUILDENSTERN', 54)]
 ```
+
+
 
 ## <a name="command-line-override"></a>Remplacement de la ligne de commande
 
@@ -174,5 +194,7 @@ Pour plus d’informations sur la conservation de la sortie de vos conteneurs qu
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
+[az-container-restart]: /cli/azure/container?view=azure-cli-latest#az-container-restart
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
+[az-container-stop]: /cli/azure/container?view=azure-cli-latest#az-container-stop
 [azure-cli-install]: /cli/azure/install-azure-cli

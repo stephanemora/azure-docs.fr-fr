@@ -1,5 +1,6 @@
 ---
-title: Configurer des ports de haute disponibilité pour Azure Load Balancer | Microsoft Docs
+title: Configurer des ports haute disponibilité pour Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: Découvrir comment utiliser les ports haute disponibilité pour équilibrer la charge du trafic interne entre tous les ports
 services: load-balancer
 documentationcenter: na
@@ -7,23 +8,24 @@ author: rdhillon
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 8e1b94dbdef66c6423d16ffcbc9df4cd60a13c69
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d104fd8a88a55af75faa2a0958733442c083451c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415540"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084564"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configurer des ports haute disponibilité pour un équilibreur de charge interne
 
 Cet article montre un exemple de déploiement de ports haute disponibilité sur un équilibreur de charge interne. Pour plus d’informations sur les configurations spécifiques aux appliances virtuelles réseau, consultez les sites web des fournisseurs correspondants.
 
 >[!NOTE]
->Azure Load Balancer prend en charge deux types différents : Basic et Standard. Cet article décrit un équilibreur de charge standard. Pour plus d’informations sur l’équilibreur de charge de base, voir [Vue d’ensemble de l’équilibreur de charge](load-balancer-overview.md).
+>Azure Load Balancer prend en charge deux types différents : De base et Standard. Cet article décrit un équilibreur de charge standard. Pour plus d’informations sur l’équilibreur de charge de base, voir [Vue d’ensemble de l’équilibreur de charge](load-balancer-overview.md).
 
 L’illustration montre la configuration suivante de l’exemple de déploiement décrit dans cet article :
 

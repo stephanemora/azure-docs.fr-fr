@@ -8,18 +8,17 @@ manager: jwhit
 editor: tysonn
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: b590a6ce6d92c78f2020d5ef7cffe6d7f277433c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51827220"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187209"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Intégration de Service Map avec System Center Operations Manager
   > [!NOTE]
@@ -77,7 +76,7 @@ Pour configurer l’intégration de Service Map, procédez comme suit :
 
     ![Groupe de configuration d’Operations Manager](media/service-map-scom/scom-config-group.png)
 
-6. Facultatif : Sélectionnez le pool de ressources du serveur d’administration pour communiquer avec Log Analytics et cliquez sur **Ajouter un espace de travail**.
+6. Facultatif : Sélectionnez le pool de ressources du serveur d’administration pour communiquer avec Log Analytics et cliquez sur **Ajouter un espace de travail**.
 
     ![Pool de ressources de configuration d’Operations Manager](media/service-map-scom/scom-config-pool.png)
 
@@ -102,7 +101,7 @@ Le dossier Service Map possède quatre nœuds :
 
     ![Diagramme d’application distribuée Operations Manager](media/service-map-scom/scom-group-dad.png)
 
-* **Vues de dépendance au serveur** : répertorie tous les serveurs synchronisés à partir de Service Map. Vous pouvez cliquer sur n’importe quel serveur pour afficher son diagramme d’application distribuée.
+* **Vues de dépendance du serveur** : répertorie tous les groupes d’ordinateurs synchronisés depuis Service Map. Vous pouvez cliquer sur n’importe quel serveur pour afficher son diagramme d’application distribuée.
 
     ![Diagramme d’application distribuée Operations Manager](media/service-map-scom/scom-dad.png)
 
@@ -121,7 +120,7 @@ Une règle _Microsoft.SystemCenter.ServiceMapImport.Rule_ est créée pour extra
 
 ![Fenêtre des propriétés des valeurs de remplacement Operations Manager](media/service-map-scom/scom-overrides.png)
 
-* **Enabled** : activer ou désactiver les mises à jour automatiques. 
+* **Enabled** : activer ou désactiver les mises à jour automatiques. 
 * **IntervalMinutes** : réinitialiser la durée entre les mises à jour. L’intervalle par défaut est égal à une heure. Si vous voulez synchroniser les mappages de serveurs plus régulièrement, vous pouvez modifier la valeur.
 * **TimeoutSeconds** : réinitialiser la durée avant l’expiration de la demande. 
 * **TimeWindowMinutes** : réinitialiser la fenêtre de temps pour l’interrogation des données. Valeur par défaut : fenêtre de 60 minutes. La valeur maximale autorisée par Service Map est de 60 minutes.

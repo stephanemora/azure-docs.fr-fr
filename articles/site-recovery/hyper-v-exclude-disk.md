@@ -1,17 +1,17 @@
 ---
-title: Exclure des disques de la protection à l’aide d’Azure Site Recovery | Microsoft Docs
-description: Décrit pourquoi et comment exclure des disques de machine virtuelle de la réplication pour Hyper-V vers Azure.
+title: Exclure des disques de la réplication lors de la configuration de la récupération d’urgence avec le service Azure Site Recovery | Microsoft Docs
+description: Décrit comment exclure des disques de machine virtuelle de la réplication pendant la récupération d’urgence sur Azure.
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 38b7e965a85bf7014167f9a5c3fd66202c02e0fa
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 7de9dc497b1c9ee29b46aa0d645b7b28676cb22d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091910"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849018"
 ---
 # <a name="exclude-disks-from-replication"></a>Exclure les disques de la réplication
 Cet article décrit comment exclure des disques de la réplication. Cette exclusion permet d’optimiser la bande passante utilisée pour la réplication ou les ressources côté serveur que ces disques utilisent.
@@ -57,7 +57,7 @@ Pour vous aider à bien comprendre la fonctionnalité d’exclusion de disques, 
 - Disque de base de données tempdb SQL Server
 - Disque de fichier d’échange (pagefile.sys)
 
-## <a name="excample-1-exclude-the-sql-server-tempdb-disk"></a>Exemple 1 : Exclure le disque de base de données tempdb SQL Server
+## <a name="excample-1-exclude-the-sql-server-tempdb-disk"></a>Exemple 1 : Exclure le disque de base de données tempdb SQL Server
 Considérons l’exemple d’une machine virtuelle SQL Server dotée d’un disque de base de données tempdb pouvant être exclu.
 
 Le nom du disque virtuel est SalesDB.
@@ -160,12 +160,12 @@ DB-Disk2 (disque exclu) | Disk2 | E:\ | Fichiers temporaires
 DB-Disk3 (disque exclu) | Disk3 | F:\ | Base de données tempdb SQL (chemin du dossier (F:\MSSQL\Data\)
 DB-Disk4 | Disk4 | G:\ | Base de données utilisateur 2
 
-## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Exemple 2 : Exclure le disque de fichier d’échange (pagefile.sys)
+## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Exemple 2 : Exclure le disque de fichier d’échange (pagefile.sys)
 
 Considérons l’exemple d’une machine virtuelle dotée d’un disque de fichier d’échange pouvant être exclu.
 Il existe deux cas.
 
-### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Cas 1 : le fichier d’échange est configuré sur le lecteur D:
+### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Cas 1 : le fichier d’échange est configuré sur le lecteur D:
 Voici la configuration des disques :
 
 **Nom du disque** | **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
@@ -194,7 +194,7 @@ Voici les paramètres du fichier d’échange sur la machine virtuelle Azure :
 
 ![Paramètres du fichier d’échange sur la machine virtuelle Azure](./media/hyper-v-exclude-disk/pagefile-on-Azure-vm-after-failover.png)
 
-### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Cas 2 : le fichier d’échange est configuré sur un autre lecteur (autre que le lecteur D:)
+### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Cas 2 : le fichier d’échange est configuré sur un autre lecteur (autre que le lecteur D:)
 
 Voici la configuration des disques de la machine virtuelle source :
 

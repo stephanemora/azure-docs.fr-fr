@@ -2,38 +2,38 @@
 title: Utiliser une action de script pour installer Solr sur HDInsight basé sur Linux - Azure
 description: Découvrez comment installer Solr sur des clusters Hadoop HDInsight basés sur Linux à l’aide des actions de script.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: 205983344be8ae5bbe566a208ceb862b2e93cb8d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 3500a29c1cdd8b1997f67a3cf1918090dc4ca812
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093095"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383593"
 ---
-# <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Installation et utilisation de Solr sur des clusters HDInsight Hadoop
+# <a name="install-and-use-apache-solr-on-hdinsight-hadoop-clusters"></a>Installer et utiliser Apache Solr sur des clusters HDInsight Hadoop
 
-Découvrez comment installer Solr sur Azure HDInsight en utilisant une action de script. Solr est une puissante plateforme de recherche qui fournit des fonctionnalités de recherche au niveau de l'entreprise pour les données gérées par Hadoop.
+Découvrez comment installer Apache Solr sur Azure HDInsight avec une action de script. Solr est une puissante plateforme de recherche qui fournit des fonctionnalités de recherche au niveau de l'entreprise pour les données gérées par Hadoop.
 
-> [!IMPORTANT]
-    > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> [!IMPORTANT]  
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > L’exemple de script utilisé dans ce document installe un cluster Solr 4.9 avec une configuration spécifique. Si vous souhaitez configurer le cluster Solr avec d’autres collections, partitions, schémas, réplicas, etc., vous devez modifier le script et les fichiers binaires Solr.
 
 ## <a name="whatis"></a>Présentation de Solr
 
 [Apache Solr](http://lucene.apache.org/solr/features.html) est une plateforme de recherche d’entreprises qui permet d’effectuer de puissantes opérations de recherche en texte intégral sur des données. Alors que Hadoop permet de stocker et de gérer de grandes quantités de données, Apache Solr fournit les fonctionnalités de recherche nécessaires pour les récupérer rapidement.
 
-> [!WARNING]
+> [!WARNING]   
 > Les composants fournis avec le cluster HDInsight sont entièrement pris en charge par Microsoft.
 >
-> Les composants personnalisés, tels que Solr, bénéficient d'un support commercialement raisonnable pour vous aider à résoudre le problème. Il se peut que le support Microsoft ne soit pas en mesure de résoudre les problèmes avec des composants personnalisés. Vous devrez peut-être contacter les communautés open source pour obtenir de l’aide. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme le [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org), par exemple [Hadoop](http://hadoop.apache.org/).
+> Les composants personnalisés, tels que Solr, bénéficient d'un support commercialement raisonnable pour vous aider à résoudre le problème. Il se peut que le support Microsoft ne soit pas en mesure de résoudre les problèmes avec des composants personnalisés. Vous devrez peut-être contacter les communautés open source pour obtenir de l’aide. Il existe par exemple de nombreux sites communautaires, comme : [Forum MSDN pour HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Par ailleurs, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org), par exemple : [Hadoop](http://hadoop.apache.org/).
 
 ## <a name="what-the-script-does"></a>Ce que fait le script
 
@@ -54,12 +54,12 @@ Pour créer un cluster sur lequel Solr est installé, utilisez les étapes décr
 
 1. Dans la section __Résumé du cluster__ sélectionnez__Paramètres avancés__, puis __Actions de script__. Utilisez les informations suivantes pour remplir le formulaire :
 
-   * **NAME**: saisissez un nom convivial pour l’action de script.
+   * **NOM** : entrez un nom convivial pour l’action de script.
    * **URI DU SCRIPT** : https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
-   * **HEAD**: cochez cette option.
-   * **WORKER** : cochez cette option
-   * **ZOOKEEPER** : cochez cette option pour installer le nœud ZooKeeper
-   * **PARAMETERS**: laissez ce champ vide.
+   * **PRINCIPAL** : cochez cette option.
+   * **WORKER** : cochez cette option.
+   * **ZOOKEEPER** : cochez cette option pour installer le nœud ZooKeeper.
+   * **PARAMÈTRES** : laissez ce champ vide.
 
 2. En bas de la section **Actions de script**, utilisez le bouton **Sélectionner** pour enregistrer la configuration. Enfin, cliquez sur **Suivant** pour revenir au __résumé du cluster__
 
@@ -67,7 +67,7 @@ Pour créer un cluster sur lequel Solr est installé, utilisez les étapes décr
 
 ## <a name="usesolr"></a>Utilisation de Solr dans HDInsight
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Les étapes de cette section présentent les fonctionnalités de base de Solr. Pour plus d’informations sur l’utilisation de Solr, consultez le [site Apache Solr](http://lucene.apache.org/solr/).
 
 ### <a name="index-data"></a>Données d'index
@@ -76,7 +76,7 @@ Procédez comme suit pour ajouter des exemples de données vers Solr, puis proc�
 
 1. Connectez-vous au cluster HDInsight à l’aide de SSH :
 
-    > [!NOTE]
+    > [!NOTE]  
     > Remplacez `sshuser` par l’utilisateur SSH du cluster. Remplacez `clustername` par le nom du cluster.
 
     ```bash
@@ -85,7 +85,7 @@ Procédez comme suit pour ajouter des exemples de données vers Solr, puis proc�
 
     Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-     > [!IMPORTANT]
+     > [!IMPORTANT]  
      > Les étapes suivantes de ce document utilisent un tunnel SSH pour se connecter à l’interface utilisateur web Solr. Pour utiliser ces étapes, vous devez établir un tunnel SSH, puis configurer votre navigateur pour l’utiliser.
      >
      > Pour plus d’informations, consultez le document [Utilisation du tunnel SSH avec HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
@@ -175,7 +175,7 @@ Une fois que vous avez établi un tunnel SSH, procédez comme suit pour utiliser
 
 1. Déterminez le nom d’hôte du nœud principal primaire :
 
-   1. Utilisez SSH pour vous connecter au nœud principal du cluster. Par exemple : `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+   1. Utilisez SSH pour vous connecter au nœud principal du cluster. Par exemple : `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
 
        Pour plus d’informations sur l’utilisation de SSH, consultez le document [Utilisation de SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -316,11 +316,11 @@ Pour sauvegarder les données de Solr sur le stockage par défaut pour votre clu
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-Pour plus d’informations sur l’utilisation des sauvegardes et restaurations Solr, consultez [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
+Pour plus d’informations sur les sauvegardes et restaurations Solr, voir [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Installation de Giraph sur des clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md). Utilisez la personnalisation de clusters pour installer Giraph sur des clusters HDInsight Hadoop. Giraph permet de traiter des graphiques à l’aide de Hadoop et peut être utilisé avec Azure HDInsight.
+* [Installer Apache Giraph sur des clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md). Utilisez la personnalisation de clusters pour installer Giraph sur des clusters HDInsight Hadoop. Giraph permet de traiter des graphiques à l’aide de Hadoop et peut être utilisé avec Azure HDInsight.
 
 * [Installer Hue sur les clusters HDInsight](hdinsight-hadoop-hue-linux.md). Utilisez la personnalisation de clusters pour installer Hue sur des clusters HDInsight Hadoop. Hue est un ensemble d’applications web permettant d’interagir avec un cluster Hadoop.
 

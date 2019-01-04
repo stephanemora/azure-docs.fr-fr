@@ -10,41 +10,42 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 6ce3fc774d23914ab150e1dc1371391fc9fc548b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.custom: seodec18
+ms.openlocfilehash: 5b0dfe1753686015c88bdc1214273354dd00c958
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034383"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086304"
 ---
-# <a name="test-your-knowledge-base"></a>Tester votre base de connaissances
+# <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Tester votre base de connaissances de manière interactive dans QnA Maker
 
 Le test de votre base de connaissances QnA Maker est une partie importante d’un processus itératif afin d’améliorer la précision des réponses retournées. Vous pouvez tester la base de connaissances via une interface de conversation améliorée qui vous permet également d’apporter des modifications.
 
 ## <a name="test-answer-matching"></a>Tester la concordance de réponse
 
-1.  Accédez à votre base de connaissances en sélectionnant son nom dans la page **Mes bases de connaissances**.
-2.  Pour accéder au panneau déroulant Test, sélectionnez **Test** dans le panneau supérieur de votre application.
+1.  Accédez à votre base de connaissances en sélectionnant son nom dans la page **Mes bases de connaissances**.
+2.  Pour accéder au panneau déroulant Test, sélectionnez **Test** dans le panneau supérieur de votre application.
 
-    ![Accéder à Test](../media/qnamaker-how-to-test-kb/access-test.png)
+    ![Accéder au panneau Test](../media/qnamaker-how-to-test-kb/access-test.png)
 
-3.  Entrez une question dans la zone de texte, puis sélectionnez Entrée.
+3.  Entrez une requête dans la zone de texte, puis sélectionnez Entrée.
 
 4.  La réponse la plus concordante de la base de connaissances est retournée.
 
 ## <a name="clear-test-panel"></a>Effacer le panneau Test
 
-Pour effacer toutes les questions de test entrées et leurs résultats de la console de test, sélectionnez **Recommencer** dans l’angle supérieur gauche du panneau Test.
+Pour effacer toutes les requêtes de test entrées et leurs résultats de la console de test, sélectionnez **Recommencer** dans l’angle supérieur gauche du panneau Test.
 
 ## <a name="close-test-panel"></a>Fermer le panneau Test
 
-Pour fermer le panneau Test, sélectionnez le bouton **Test** à nouveau. Tant que le panneau Test est ouvert, vous ne pouvez pas modifier le contenu de la base de connaissances.
+Pour fermer le panneau Test, sélectionnez à nouveau le bouton  **Test** . Tant que le panneau Test est ouvert, vous ne pouvez pas modifier le contenu de la base de connaissances.
 
 ## <a name="inspect-score"></a>Inspecter le score
 
-Vous inspectez les détails du résultat du test dans le panneau Inspecter.
+Vous pouvez inspecter les détails du résultat du test dans le panneau Inspecter.
 
-1.  Avec le panneau déroulant Test ouvert, sélectionnez **Inspecter** pour obtenir plus d’informations sur cette réponse.
+1.  Dans le panneau déroulant Test ouvert, sélectionnez **Inspecter** pour obtenir des détails sur la réponse.
 
     ![Inspecter des réponses](../media/qnamaker-how-to-test-kb/inspect.png)
 
@@ -54,13 +55,13 @@ Vous inspectez les détails du résultat du test dans le panneau Inspecter.
 
 Si la réponse avec le score le plus élevé est incorrecte, sélectionnez la réponse correcte dans la liste et sélectionnez **Enregistrer et former**.
 
-![Accéder à Test](../media/qnamaker-how-to-test-kb/choose-answer.png)
+![Corriger la réponse avec le score le plus élevé](../media/qnamaker-how-to-test-kb/choose-answer.png)
 
 ## <a name="add-alternate-questions"></a>Ajouter des questions alternatives
 
 Vous pouvez ajouter des formes alternatives d’une question à une réponse donnée. Tapez les réponses alternatives dans la zone de texte et cliquez sur Entrée pour les ajouter. Sélectionnez **Enregistrer et former** pour stocker les mises à jour.
 
-![Accéder à Test](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
+![Ajouter des questions alternatives](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
 
 ## <a name="add-a-new-answer"></a>Ajouter une nouvelle réponse
 
@@ -68,7 +69,7 @@ Vous pouvez ajouter une nouvelle réponse si les réponses existantes qui ont é
 
 Sélectionnez **Enregistrer et former** pour conserver cette réponse. Une nouvelle paire question/réponse a maintenant été ajoutée à votre base de connaissances.
 
-![Accéder à Test](../media/qnamaker-how-to-test-kb/add-answer.png)
+![Ajouter une nouvelle paire question/réponse](../media/qnamaker-how-to-test-kb/add-answer.png)
 
 > [!NOTE]
 > Toutes les modifications apportées à votre base de connaissances ne sont enregistrées que lorsque vous appuyez sur le bouton **Enregistrer et former**.

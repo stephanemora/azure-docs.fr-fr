@@ -1,20 +1,20 @@
 ---
-title: Envoyer des événements à Azure Event Hubs avec Python | Microsoft Docs
-description: Bien démarrer avec l’envoi d’événements à Azure Event Hubs avec Python
+title: Envoyer des événements à l’aide de Python - Azure Event Hubs | Microsoft Docs
+description: Cet article décrit la procédure à suivre pour créer une application Node.js qui envoie des événements à Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/16/2018
 ms.author: shvija
-ms.openlocfilehash: 05feab0227633ab52f0865fa7c19a310b612eb1c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: b7adf3976f5f7e028ffa9ffeb13db22d3d4bba8e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286892"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102977"
 ---
 # <a name="send-events-to-event-hubs-using-python"></a>Envoyer des événements à Event Hubs avec Python
 
@@ -29,11 +29,16 @@ Ce tutoriel décrit comment envoyer des événements à un hub d’événements 
 
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
+- Un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 - Python 3.4 ou version ultérieure.
 
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Création d’un espace de noms Event Hubs et d’un concentrateur d’événements
-La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le concentrateur d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md), puis passez aux étapes suivantes de ce tutoriel.
+La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le concentrateur d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md).
+
+Obtenez la valeur de la clé d’accès du hub d’événements en suivant les instructions de l’article : [Obtenir la chaîne de connexion](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Vous utilisez la clé d’accès dans le code que vous écrivez plus loin dans ce tutoriel. Le nom de clé par défaut est : **RootManageSharedAccessKey**.
+
+Maintenant, continuez avec les étapes suivantes du tutoriel.
 
 ## <a name="install-python-package"></a>Installer le package Python
 

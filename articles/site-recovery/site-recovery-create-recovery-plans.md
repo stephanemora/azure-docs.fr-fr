@@ -1,20 +1,18 @@
 ---
-title: Créer et personnaliser des plans de récupération pour le basculement et la récupération dans Azure Site Recovery | Microsoft Docs
-description: Découvrez comment créer et personnaliser des plans de récupération dans Azure Site Recovery. Cet article explique comment basculer et récupérer des machines virtuelles et des serveurs physiques.
-services: site-recovery
-documentationcenter: ''
+title: Créer et personnaliser des plans de reprise d’activité pour la reprise d’activité après sinistre avec Azure Site Recovery | Microsoft Docs
+description: Découvrez comment créer et personnaliser des plans de reprise d’activité pour la reprise d’activité après sinistre avec le service Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 145b23aa7b8e48a0301676595c8d59a64bebdd0b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 85e649f3065d7f8d601541bbac6e93f4b2a0dc85
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226666"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878628"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Créer et personnaliser des plans de récupération
 

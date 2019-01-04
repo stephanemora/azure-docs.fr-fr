@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à ServiceNow | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à ServiceNow | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ServiceNow.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: jeedes
-ms.openlocfilehash: 470805b2bb77e367887767b95e0f1e04d79c8f9d
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 5b7baffea8e718810a91ea9687a007d36c806aab
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830733"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850004"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Didacticiel : Intégration d’Azure Active Directory à ServiceNow
+# <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Tutoriel : Intégration d’Azure Active Directory à ServiceNow
 
 Dans ce tutoriel, vous allez apprendre à intégrer Azure Active Directory (Azure AD) dans ServiceNow.
 
@@ -41,7 +41,7 @@ Pour configurer l’intégration d’Azure AD à ServiceNow, vous avez besoin de
 - Un abonnement Azure AD
 - Pour ServiceNow, une instance ou un locataire ServiceNow, version Calgary ou supérieure
 - Pour ServiceNow Express, une instance ServiceNow Express, version Helsinki ou supérieure
-- Le locataire ServiceNow doit avoir le [plug-in d’authentification unique à plusieurs fournisseurs](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) activé. Cette opération est possible en [envoyant une demande de service](https://hi.service-now.com).
+- Le locataire ServiceNow doit avoir le [plug-in d’authentification unique à plusieurs fournisseurs](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) activé. Cette opération est possible en [envoyant une demande de service](https://hi.service-now.com).
 - Pour la configuration automatique, activez le plug-in multifournisseur pour ServiceNow.
 
 > [!NOTE]
@@ -117,11 +117,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique](./media/servicenow-tutorial/tutorial_general_301.png)
 
-4. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+4. Sur la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![Configurer l'authentification unique](./media/servicenow-tutorial/tutorial_general_302.png)
 
-5. Dans la section **Configuration SAML de base**, procédez comme suit :
+5. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL ServiceNow](./media/servicenow-tutorial/tutorial_servicenow_url.png)
 
@@ -305,11 +305,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique](./media/servicenow-tutorial/tutorial_general_301.png)
 
-4. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+4. Sur la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![Configurer l'authentification unique](./media/servicenow-tutorial/tutorial_general_302.png)
 
-5. Dans la section **Configuration SAML de base**, procédez comme suit :
+5. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
     ![Configurer l'authentification unique](./media/servicenow-tutorial/tutorial_servicenow_url.png)
 
@@ -356,7 +356,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/servicenow-tutorial/ic7694975.png "Configurer l’authentification unique")
 
-    a. Dans la zone de texte **Name**, indiquez le nom de votre configuration (par exemple, **TestSAML2.0**).
+    a. Dans la zone de texte **Name** (Nom), indiquez le nom de votre configuration (par exemple, **TestSAML2.0**).
 
     b. Sélectionnez **Active**.
 
@@ -376,7 +376,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l’authentification unique](./media/servicenow-tutorial/ic7694982ex.png "Configurer l’authentification unique")
 
-    a. Dans la zone de texte **Name**, indiquez le nom de votre configuration (par exemple, **SAML 2.0**).
+    a. Dans la zone de texte **Name** (Nom), indiquez le nom de votre configuration (par exemple, **SAML 2.0**).
 
     b. Dans le champ **URL du fournisseur d’identité**, collez la valeur **ID du fournisseur d’identité** copiée sur le Portail Azure.
 
@@ -424,7 +424,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le portail Azure, dans le volet de gauche, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![Créer un utilisateur Azure AD][100]
 

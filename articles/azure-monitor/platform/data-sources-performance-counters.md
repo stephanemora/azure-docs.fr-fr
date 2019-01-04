@@ -1,6 +1,6 @@
 ---
-title: Collecter et analyser les compteurs de performances dans Azure Log Analytics | Microsoft Docs
-description: Log Analytics collecte les compteurs de performances pour analyser les performances sur les agents Windows et Linux.  Cet article explique comment configurer la collecte des compteurs de performances sur les agents Windows et Linux, comment ils sont stockés dans l’espace de travail et comment les analyser dans le portail Azure.
+title: Collecter et analyser les compteurs de performances dans Azure Monitor | Microsoft Docs
+description: Azure Monitor collecte les compteurs de performances pour analyser les performances sur les agents Windows et Linux.  Cet article explique comment configurer la collecte des compteurs de performances sur les agents Windows et Linux, comment ils sont stockés dans l’espace de travail et comment les analyser dans le portail Azure.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -8,29 +8,27 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 11/28/2018l
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: ffc3443c0c4bca214cc576e1345ad09874287426
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: f6b6d04df3e3b705fd57e7dffe1570a5e10adb5d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336475"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438368"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Sources de données de performance Windows et Linux dans Log Analytics
-Les compteurs de performances dans Windows et Linux fournissent des informations sur les performances des composants matériels, systèmes d’exploitation et applications.  Log Analytics peut non seulement collecter les compteurs de performances à intervalles réguliers pour effectuer une analyse en temps quasi réel, mais aussi agréger les données de performances pour réaliser des analyses à plus long terme et créer des rapports.
+# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Sources de données de performance Windows et Linux dans Azure Monitor
+Les compteurs de performances dans Windows et Linux fournissent des informations sur les performances des composants matériels, systèmes d’exploitation et applications.  Azure Monitor peut non seulement collecter les compteurs de performances à intervalles réguliers pour effectuer une analyse en temps quasi réel, mais aussi agréger les données de performances pour réaliser des analyses à plus long terme et créer des rapports.
 
 ![Compteurs de performances](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configuration des compteurs de performances
-Configurez les compteurs de performances dans le [menu Données de Paramètres Log Analytics](agent-data-sources.md#configuring-data-sources).
+Configurez les compteurs de performances dans le [menu Données des Paramètres avancés](agent-data-sources.md#configuring-data-sources).
 
-Quand vous procédez à la configuration initiale des compteurs de performances Windows ou Linux pour un nouvel espace de travail Log Analytics, la possibilité vous est offerte de créer rapidement plusieurs compteurs courants.  Ils s’affichent avec une case à cocher en regard.  Vérifiez que les compteurs que vous voulez créer sont cochés, puis cliquez sur **Ajouter les compteurs de performances sélectionnés**.
+Lorsque vous configurez initialement des compteurs de performances Windows ou Linux pour un nouvel espace de travail, vous avez la possibilité de créer rapidement plusieurs compteurs communs.  Ils s’affichent avec une case à cocher en regard.  Vérifiez que les compteurs que vous voulez créer sont cochés, puis cliquez sur **Ajouter les compteurs de performances sélectionnés**.
 
 Pour les compteurs de performances Windows, vous pouvez choisir une instance spécifique de chaque compteur de performances. Pour les compteurs de performances Linux, l’instance de chaque compteur choisi s’applique à tous les compteurs enfants du compteur parent. Le tableau suivant montre les instances courantes disponibles pour les compteurs de performances Linux et Windows.
 
@@ -90,7 +88,7 @@ Les paramètres de cet élément sont décrits dans le tableau suivant.
 | interval | Fréquence de collecte des compteurs de l’objet. |
 
 
-Le tableau suivant répertorie les objets et compteurs que vous pouvez indiquer dans le fichier de configuration.  Des compteurs supplémentaires sont disponibles pour certaines applications tel que décrit dans [Collecte des compteurs de performances pour les applications Linux dans Log Analytics](data-sources-linux-applications.md).
+Le tableau suivant répertorie les objets et compteurs que vous pouvez indiquer dans le fichier de configuration.  Des compteurs supplémentaires sont disponibles pour certaines applications tel que décrit dans [Collecte des compteurs de performances pour les applications Linux dans Azure Monitor](data-sources-linux-applications.md).
 
 | Nom d’objet | Nom de compteur |
 |:--|:--|
@@ -184,7 +182,7 @@ La configuration par défaut des mesures de performances est la suivante.
     </source>
 
 ## <a name="data-collection"></a>Collecte des données
-Log Analytics collecte tous les compteurs de performances spécifiés selon l’intervalle d’échantillonnage spécifié sur tous les agents où le compteur est installé.  Les données ne sont pas agrégées, et les données brutes sont disponibles dans toutes les vues de recherche de journal pendant la durée spécifiée par votre abonnement.
+Azure Monitor collecte tous les compteurs de performances spécifiés selon l’intervalle d’échantillonnage spécifié sur tous les agents où le compteur est installé.  Les données ne sont pas agrégées, et les données brutes sont disponibles dans toutes les vues de requête de journal pendant la durée spécifiée par votre abonnement.
 
 ## <a name="performance-record-properties"></a>Propriétés des enregistrements de performances
 Les enregistrements de performances sont de type **Perf** et leurs propriétés sont décrites dans le tableau suivant.
@@ -205,8 +203,8 @@ Les enregistrements de performances sont de type **Perf** et leurs propriétés 
 
     1 MB x (number of counters) x (number of agents) x (number of instances)
 
-## <a name="log-searches-with-performance-records"></a>Recherches de journal avec des enregistrements de performances
-Le tableau suivant fournit plusieurs exemples de recherches qui extraient des enregistrements de performances.
+## <a name="log-queries-with-performance-records"></a>Requêtes de journal avec des enregistrements de performances
+Le tableau suivant fournit plusieurs exemples de requêtes qui extraient des enregistrements de performances.
 
 | Requête | Description |
 |:--- |:--- |
@@ -214,12 +212,12 @@ Le tableau suivant fournit plusieurs exemples de recherches qui extraient des en
 | Perf &#124; où l’ordinateur == « MyComputer » |Toutes les données de performances d’un ordinateur particulier |
 | Perf &#124; où CounterName == « longueur de la file d’attente de disque actuelle » |Toutes les données de performances d’un compteur particulier |
 | Perf &#124; où ObjectName == « Processeur », CounterName == « % du temps processeur » et InstanceName == « _Total » &#124; résumer AVGCPU = avg(moyenne) par ordinateur |Utilisation moyenne du processeur entre tous les ordinateurs |
-| Perf & #124 ; où CounterName == « % du temps processeur » & #124 ; résumer AggregatedValue = max(Max) par ordinateur |Utilisation maximale du processeur entre tous les ordinateurs |
+| Perf &#124; où CounterName == « % du temps processeur » &#124; résumer AggregatedValue = max(Max) par ordinateur |Utilisation maximale du processeur entre tous les ordinateurs |
 | Perf &#124; où ObjectName == « LogicalDisk », CounterName == « longueur de la file d’attente de disque actuelle » et l’ordinateur == « MyComputerName » &#124; résumer AggregatedValue = avg(moyenne) par InstanceName |Longueur actuelle moyenne de file d’attente du disque pour toutes les instances d’un ordinateur donné |
 | Perf &#124; où CounterName == « DiskTransfers/sec » &#124; résumer AggregatedValue = centile(moyenne, 95) par ordinateur |95e centile de transferts disque/s entre tous les ordinateurs |
 | Perf &#124; où CounterName == « % du temps processeur » et InstanceName == « _Total » &#124; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), ordinateur |Moyenne horaire d’utilisation du processeur sur tous les ordinateurs |
 | Perf &#124; où l’ordinateur == « MyComputer », CounterName startswith_cs « % » et InstanceName == « _Total » &#124; résumer AggregatedValue = centile(CounterValue, 70) par emplacement (TimeGenerated, 1 h), CounterName | 70e centile horaire de chaque compteur de pourcentage pour un ordinateur particulier |
-| Perf & #124 ; où CounterName == « % du temps processeur », InstanceName == « _Total » et l’ordinateur == « MyComputer » & #124 ; résumer [« min(CounterValue) »] = min(CounterValue), [« avg(CounterValue) »] = avg(CounterValue), [« percentile75(CounterValue) »] = centile (CounterValue, 75), [« max(CounterValue) »] = max(CounterValue) par emplacement (TimeGenerated, 1 h), ordinateur |Moyenne horaire, minimum, maximum et 75e centile d’utilisation du processeur pour un ordinateur spécifique |
+| Perf &#124; où CounterName == « % du temps processeur », InstanceName == « _Total » et l’ordinateur == « MyComputer » &#124; résumer [« min(CounterValue) »] = min(CounterValue), [« avg(CounterValue) »] = avg(CounterValue), [« percentile75(CounterValue) »] = centile (CounterValue, 75), [« max(CounterValue) »] = max(CounterValue) par emplacement (TimeGenerated, 1 h), ordinateur |Moyenne horaire, minimum, maximum et 75e centile d’utilisation du processeur pour un ordinateur spécifique |
 | Perf &#124; où ObjectName == « MSSQL$ INST2 : bases de données » et InstanceName == « maître » | Toutes les données de performances de l’objet de performance de base de données pour la base de données MASTER à partir de l’instance de SQL Server nommée INST2.  
 
 
@@ -227,5 +225,5 @@ Le tableau suivant fournit plusieurs exemples de recherches qui extraient des en
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Collectez des compteurs de performances à partir d’applications Linux](data-sources-linux-applications.md), y compris Apache HTTP Server et MySQL.
-* Découvrez les [recherches de journaux](../../log-analytics/log-analytics-queries.md) pour analyser les données collectées à partir de sources de données et de solutions.  
-* Exporter les données collectées vers [Power BI](../../log-analytics/log-analytics-powerbi.md) à des fins d’analyse et de visualisation.
+* Découvrez les [requêtes dans les journaux](../log-query/log-query-overview.md) pour analyser les données collectées à partir de sources de données et de solutions.  
+* Exporter les données collectées vers [Power BI](powerbi.md) à des fins d’analyse et de visualisation.

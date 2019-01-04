@@ -10,14 +10,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 50e9162da5fda98d73ccfeea0776dc89ddd25dac
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0adc8ad651989d198fecabf00d38fbdeb7cf3cd1
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256916"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407092"
 ---
-# <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Téléchargement de données pour les tâches Hadoop dans HDInsight
+# <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Charger des données pour des travaux Apache Hadoop dans HDInsight
 
 Azure HDInsight fournit un système HDFS (Hadoop Distributed File System) complet pour Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2). Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2) sont conçus en tant qu’extensions HDFS pour offrir aux clients une expérience fluide. Ils permettent à l’ensemble des composants de l’écosystème Hadoop de fonctionner directement sur les données qu’il gère. Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2) sont des systèmes de fichiers distincts, optimisés pour le stockage de données et pour les calculs réalisés à partir de ces données. Pour connaître les avantages associés à l’utilisation de Stockage Azure, voir [Utiliser Stockage Azure avec HDInsight][hdinsight-storage], [Utiliser Data Lake Storage Gen1 avec HDInsight](hdinsight-hadoop-use-data-lake-store.md) et [Utiliser Data Lake Storage Gen2 avec HDInsight](../storage/data-lake-storage/use-hdi-cluster.md).
 
@@ -44,7 +44,7 @@ Microsoft fournit les utilitaires suivants pour utiliser le Stockage Azure :
 | [AzCopy][azure-azcopy] |✔ | |✔ |
 | [Commande Hadoop](#commandline) |✔ |✔ |✔ |
 
-> [!NOTE]
+> [!NOTE]  
 > Alors que l’interface Azure Classic CLI, Azure PowerShell et AzCopy peuvent tous être utilisés en dehors d’Azure, la commande Hadoop est disponible uniquement sur le cluster HDInsight. En outre, la commande autorise uniquement le chargement de données du système de fichiers local sur le Stockage Azure.
 >
 >
@@ -95,11 +95,11 @@ L’interface Azure Classic CLI est un outil multiplateforme qui vous permet de 
         azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
         ```
     
-> [!NOTE]
+> [!NOTE]  
 > Si vous utilisez toujours le même compte de stockage, vous pouvez définir les variables d’environnement suivantes au lieu de spécifier le compte et la clé de chaque commande :
 >
-> * **AZURE\_STORAGE\_ACCOUNT** : le nom du compte de stockage
-> * **AZURE\_STORAGE\_ACCESS\_KEY** : la clé du compte de stockage
+> * **AZURE\_STORAGE\_ACCOUNT** : Nom du compte de stockage
+> * **AZURE\_STORAGE\_ACCESS\_KEY** : clé du compte de stockage.
 >
 >
 
@@ -152,8 +152,8 @@ La ligne de commande Hadoop est utile uniquement pour stocker les données dans 
 
 Pour utiliser la commande Hadoop, vous devez d'abord vous connecter au nœud principal à l'aide de l'une des méthodes suivantes :
 
-* **HDInsight Windows**: [connexion à l'aide du Bureau à distance](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **HDInsight Linux** : connexion à l’aide de [SSH ou PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md)
+* **HDInsight Windows** : [Connexion à l’aide de Bureau à distance](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
+* **HDInsight Linux** : Connectez-vous à l’aide de [SSH ou PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Une fois connecté, vous pouvez utiliser la syntaxe suivante pour télécharger un fichier dans le stockage.
 
@@ -173,8 +173,8 @@ or
 
 Pour la liste des autres commandes Hadoop qui fonctionnent avec des fichiers, voir [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
-> [!WARNING]
-> Sur les clusters HBase, la taille de bloc par défaut durant l’écriture de données est de 256 Ko. Bien que cela fonctionne bien quand vous utilisez les API HBase ou les API REST, l’utilisation des commandes `hadoop` ou `hdfs dfs` pour écrire des données supérieures à ~12 Go génère une erreur. Pour plus d’informations, consultez la section [Exception de stockage pour l’écriture sur un objet blob](#storageexception) dans cet article.
+> [!WARNING]  
+> Sur les clusters Apache HBase, la taille de bloc par défaut durant l’écriture de données est de 256 Ko. Bien que cela fonctionne bien quand vous utilisez les API HBase ou les API REST, l’utilisation des commandes `hadoop` ou `hdfs dfs` pour écrire des données supérieures à ~12 Go génère une erreur. Pour plus d’informations, consultez la section [Exception de stockage pour l’écriture sur un objet blob](#storageexception) dans cet article.
 >
 >
 
@@ -243,7 +243,7 @@ Pour plus d'informations sur l'installation des kits de développement logiciel 
 
 ### <a name="troubleshooting"></a>Résolution de problèmes
 #### <a id="storageexception"></a>Exception de stockage pour l’écriture sur un objet blob
-**Symptômes** : quand vous utilisez la commande `hadoop` ou `hdfs dfs` pour écrire des fichiers supérieurs à ~12 Go sur un cluster HBase, vous pouvez rencontrer l’erreur suivante :
+**Symptômes** : Quand vous utilisez la commande `hadoop` ou `hdfs dfs` pour écrire des fichiers supérieurs à ~12 Go sur un cluster HBase, vous pouvez rencontrer l’erreur suivante :
 
     ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
     copyFromLocal: java.io.IOException
@@ -265,15 +265,15 @@ Pour plus d'informations sur l'installation des kits de développement logiciel 
             at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:354)
             ... 7 more
 
-**Cause** : les clusters HBase sur HDInsight ont par défaut une taille de bloc de 256 Ko lors de l’écriture dans le stockage Azure. Bien que cela fonctionne pour les API HBase ou les API REST, cela génère une erreur quand vous utilisez les utilitaires en ligne de commande `hadoop` ou `hdfs dfs`.
+**Cause** : Les clusters HBase sur HDInsight ont par défaut une taille de bloc de 256 Ko lors de l’écriture dans le stockage Azure. Bien que cela fonctionne pour les API HBase ou les API REST, cela génère une erreur quand vous utilisez les utilitaires en ligne de commande `hadoop` ou `hdfs dfs`.
 
-**Résolution** : utilisez `fs.azure.write.request.size` pour spécifier une plus grande taille de bloc. Vous pouvez le faire sur une base par utilisation à l’aide du paramètre `-D`. La commande suivante illustre l’utilisation de ce paramètre avec la commande `hadoop` :
+**Résolution** : Utilisez `fs.azure.write.request.size` pour spécifier une plus grande taille de bloc. Vous pouvez le faire sur une base par utilisation à l’aide du paramètre `-D`. La commande suivante illustre l’utilisation de ce paramètre avec la commande `hadoop` :
 
 ```bash
 hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
 ```
 
-Vous pouvez également augmenter la valeur de `fs.azure.write.request.size` globalement à l’aide d’Ambari. Vous pouvez utiliser les étapes suivantes pour modifier la valeur dans l’interface utilisateur Web d’Ambari :
+Vous pouvez également augmenter la valeur de `fs.azure.write.request.size` globalement à l’aide d’Apache Ambari. Vous pouvez utiliser les étapes suivantes pour modifier la valeur dans l’interface utilisateur Web d’Ambari :
 
 1. Dans votre navigateur, accédez à l’interface utilisateur Web d’Ambari pour votre cluster. Il s’agit de https://CLUSTERNAME.azurehdinsight.net, où **CLUSTERNAME** est le nom de votre cluster.
 
@@ -284,18 +284,18 @@ Vous pouvez également augmenter la valeur de `fs.azure.write.request.size` glob
 
 ![Image de la modification de la valeur via l’interface utilisateur Web d’Ambari](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
 
-Pour plus d’informations sur l’utilisation d’Ambari, voir [Gestion des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md).
+Pour plus d’informations sur l’utilisation d’Ambari, voir [Gestion des clusters HDInsight à l’aide de l’interface utilisateur Web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous savez comment obtenir des données avec HDInsight, consultez les articles suivants pour apprendre à effectuer des analyses :
 
 * [Prise en main d’Azure HDInsight][hdinsight-get-started]
-* [Envoi de tâches Hadoop par programme][hdinsight-submit-jobs]
-* [Utilisation de Hive avec HDInsight][hdinsight-use-hive]
-* [Utilisation de Pig avec HDInsight][hdinsight-use-pig]
+* [Envoi de tâches Apache Hadoop par programmation][hdinsight-submit-jobs]
+* [Utilisation d’Apache Hive avec HDInsight][hdinsight-use-hive]
+* [Utilisation d’Apache Pig avec HDInsight][hdinsight-use-pig]
 
 [azure-management-portal]: https://porta.azure.com
-[azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
+[azure-powershell]: https://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 
 [azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
 [azure-create-storage-account]:../storage/common/storage-create-storage-account.md

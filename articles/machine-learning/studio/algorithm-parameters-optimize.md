@@ -1,12 +1,11 @@
 ---
-title: Optimiser les algorithmes pour Azure Machine Learning Studio | Microsoft Docs
+title: Optimiser les algorithmes – Azure Machine Learning Studio | Microsoft Docs
 description: Explique comment choisir l’ensemble de paramètres optimal pour un algorithme dans Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
 ms.service: machine-learning
@@ -16,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: f4b7ba04f643fc823ca627e279faea31dee9d2a4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 57561c9841297b7ea2991bda1e94065a854597cd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314710"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269411"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Choisir les paramètres permettant d’optimiser des algorithmes dans Azure Machine Learning Studio
 
-Cette rubrique explique comment choisir le bon ensemble d’hyperparamètres pour un algorithme dans Microsoft Azure Machine Learning. La plupart des algorithmes Machine Learning ont des paramètres qui doivent être définis. Lorsque vous gérez l’apprentissage d’un modèle, vous devez fournir des valeurs pour ces paramètres. L’efficacité du modèle entraîné dépend des paramètres de modèle choisis. Le processus de recherche de l’ensemble optimal de paramètres est connu sous le nom de *sélection du modèle*.
+Cette rubrique explique comment choisir le bon ensemble d’hyperparamètres pour un algorithme dans Microsoft Azure Machine Learning. La plupart des algorithmes Machine Learning ont des paramètres qui doivent être définis. Lorsque vous gérez l’apprentissage d’un modèle, vous devez fournir des valeurs pour ces paramètres. L’efficacité du modèle formé dépend des paramètres de modèle choisis. Le processus de recherche de l’ensemble optimal de paramètres est connu sous le nom de *sélection du modèle*.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 Il existe différentes manières d’effectuer une sélection de modèle. Dans ML, la méthode de validation croisée est l’une des plus largement utilisées pour la sélection de modèle. Il s’agit du mécanisme par défaut utilisé à cette fin dans Azure Machine Learning. Comme les langages R et Python sont pris en charge par Azure Machine Learning, vous pouvez toujours implémenter votre propre mécanisme de sélection de modèle, via l’un ou l’autre de ces langages.
 
 Le processus de recherche de l’ensemble de paramètres idéal comprend quatre étapes :
 
-1. **Définir l’espace de paramètre** : pour l’algorithme, vous devez d’abord déterminer les valeurs de paramètres exactes que vous souhaitez prendre en compte.
-2. **Définir les paramètres de validation croisée** : déterminez comment choisir les plis de validation croisée pour le jeu de données.
-3. **Définir la mesure** : déterminez la mesure à utiliser pour évaluer l’ensemble de paramètres le plus approprié (exactitude, erreur quadratique moyenne, précision, rappel ou f-score).
-4. **Apprentissage, évaluation et comparaison** : pour chaque combinaison unique de valeurs de paramètres, la validation croisée est effectuée selon la mesure d’erreur que vous définissez. Après évaluation et comparaison, vous pouvez choisir le modèle le plus performant.
+1. **Définir l’espace de paramètre :** Pour l’algorithme, vous devez d’abord déterminer les valeurs de paramètres exactes que vous souhaitez prendre en compte.
+2. **Définir les paramètres de validation croisée** : Déterminez comment choisir les plis de validation croisée pour le jeu de données.
+3. **Définir la métrique** : Déterminez la métrique à utiliser pour évaluer l’ensemble de paramètres le plus approprié (exactitude, erreur quadratique moyenne, précision, rappel ou f-score).
+4. **Apprentissage, évaluation et comparaison** : Pour chaque combinaison unique de valeurs de paramètres, la validation croisée est effectuée selon la métrique d’erreur que vous définissez. Après évaluation et comparaison, vous pouvez choisir le modèle le plus performant.
 
 L’image ci-dessous illustre cette opération dans Azure Machine Learning.
 
 ![Trouver l’ensemble de paramètres idéal](./media/algorithm-parameters-optimize/fig1.png)
 
 ## <a name="define-the-parameter-space"></a>Définir l’espace de paramètre
-L’ensemble de paramètres peut être défini lors de l’étape d’initialisation du modèle. Le volet de paramètres de l’ensemble des algorithmes ML propose deux modes de formation : *Paramètre unique* et *Plage de paramètres*. Choisissez le mode Plage de paramètres. En mode Plage de paramètres, vous pouvez entrer plusieurs valeurs pour chaque paramètre. Vous pouvez entrer des valeurs séparées par des virgules dans la zone de texte.
+L’ensemble de paramètres peut être défini lors de l’étape d’initialisation du modèle. Pour l’ensemble des algorithmes Machine Learning, le volet des paramètres de propose deux modes d’apprentissage : *Paramètre unique* et *Plage de paramètres*. Choisissez le mode Plage de paramètres. En mode Plage de paramètres, vous pouvez entrer plusieurs valeurs pour chaque paramètre. Vous pouvez entrer des valeurs séparées par des virgules dans la zone de texte.
 
 ![Arbre de décision optimisé à deux classes, paramètre unique](./media/algorithm-parameters-optimize/fig2.png)
 
@@ -75,7 +74,7 @@ Le modèle est ensuite évalué sur le jeu de données de validation. Le port de
 
 ![Jeu de données de validation](./media/algorithm-parameters-optimize/fig6b.png)
 
-Vous pouvez voir les paramètres exacts choisis en visualisant le port de sortie de droite. Ce modèle peut être utilisé lors du calcul de la notation d’un ensemble de test ou dans un service web mis en œuvre après l’enregistrement en tant que modèle entraîné.
+Vous pouvez voir les paramètres exacts choisis en visualisant le port de sortie de droite. Ce modèle peut être utilisé lors du calcul de la notation d’un ensemble de test ou dans un service web mis en œuvre après l’enregistrement en tant que modèle formé.
 
 <!-- Module References -->
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/

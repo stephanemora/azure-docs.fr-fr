@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec ScaleX Enterprise | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à ScaleX Enterprise | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ScaleX Enterprise.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 04708806b9e1ba224e7b438f11c68dca82d6320e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 60beecc0895fbfb5d3af7817e8b76e0819c89a99
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448816"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835384"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Didacticiel : Intégration d’Azure Active Directory avec ScaleX Enterprise
+# <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Tutoriel : Intégration d’Azure Active Directory à ScaleX Enterprise
 
 Dans ce didacticiel, vous allez apprendre à intégrer ScaleX Enterprise à Azure Active Directory (Azure AD).
 
@@ -123,7 +123,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     Dans la zone de texte **URL de connexion**, tapez la valeur au format suivant : `https://platform.rescale.com/saml2/<company id>/sso/`
      
     > [!NOTE] 
-    > Il ne s’agit pas des valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels et l’URL de connexion. Pour obtenir ces valeurs, contactez [l’équipe de support technique ScaleX Enterprise](http://info.rescale.com/contact_sales). 
+    > Il ne s’agit pas des valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels et l’URL de connexion. Pour obtenir ces valeurs, contactez [l’équipe de support technique ScaleX Enterprise](https://info.rescale.com/contact_sales). 
 
 1. Votre application ScaleX s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à modifier des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. Cliquez sur la case **Afficher et modifier tous les autres attributs utilisateur** pour ouvrir les attributs personnalisés.
 
@@ -168,22 +168,22 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     
     a. Sélectionnez **Créer n’importe quel utilisateur pouvant s’authentifier avec l’authentification unique.**
 
-    b. **Fournisseur de service SAML** : collez la valeur ***urn:oasis:names:tc:SAML:2.0:nameid-format:persistent***
+    b. **Service Provider saml** (SAML du fournisseur de services) : Collez la valeur ***urn:oasis:names:tc:SAML:2.0:nameid-format:persistent***
 
-    c. **Nom du champ d’adresse de messagerie de fournisseur d’identité dans la réponse ACS** : collez la valeur `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    c. **Name of Identity Provider email field in ACS response** (Nom du champ d’adresse e-mail du fournisseur d’identité dans la réponse ACS) : Collez la valeur `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-    d. **ID entité de EntityDescriptor du fournisseur d’identité :** collez la valeur **ID d’entité SAML** copiée à partir du portail Azure.
+    d. **Identity Provider EntityDescriptor Entity ID** (ID d’entité EntityDescriptor du fournisseur d’identité) : Collez la valeur **ID d’entité SAML** copiée à partir du portail Azure.
 
-    e. **URL SingleSignOnService du fournisseur d’identité :** collez **l’URL du service d’authentification unique SAML** à partir du portail Azure.
+    e. **URL SingleSignOnService du fournisseur d’identité :** Collez l’**URL du service d’authentification unique SAML** à partir du portail Azure.
 
-    f. **Certificat X509 public du fournisseur d’identité :** ouvrez le certificat X509 téléchargé à partir d’Azure dans le bloc-notes et collez le contenu dans cette zone. Assurez-vous qu’aucun saut de ligne ne se trouve au milieu du contenu du certificat.
+    f. **Identity Provider public X509 certificate** (Certificat X509 public du fournisseur d’identité) : Ouvrez le certificat X509 téléchargé à partir d’Azure dans le bloc-notes et collez le contenu dans cette zone. Assurez-vous qu’aucun saut de ligne ne se trouve au milieu du contenu du certificat.
     
-    g. Cochez les cases suivantes : **Activé, Chiffrer NameID et Signer AuthnRequests.**
+    g. Cochez les cases suivantes : **Enabled (Activé), Encrypt NameID (Chiffrer NameID) et Sign AuthnRequests (Signer AuthnRequests).**
 
     h. Cliquez sur **Mettre à jour les paramètres de l’authentification unique** pour enregistrer les paramètres.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD

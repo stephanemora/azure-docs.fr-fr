@@ -7,19 +7,19 @@ editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: ac05a2dcee3adaa93d31e28e5597a788c0159ddd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/03/2018
+ms.openlocfilehash: 4fb774341b19034d3905341a99be2114a0d1e18b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955433"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835707"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitations dans Azure Database for MariaDB
-Le service Azure Database for MariaDB est en préversion publique. Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données.
+Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données.
 
 ## <a name="maximum-connections"></a>Nombre maximal de connexions
-Le nombre maximal de connexions par niveau tarifaire et de vCores en préversion est le suivant :
+Le nombre maximal de connexions par niveau tarifaire et de vCores est le suivant :
 
 |**Niveau tarifaire**|**vCore(s)**| **Nombre maximal de connexions**|
 |---|---|---|
@@ -36,7 +36,7 @@ Le nombre maximal de connexions par niveau tarifaire et de vCores en préversion
 |Mémoire optimisée| 16| 5 000|
 
 Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l’erreur suivante :
-> ERROR 1040 (08004): Too many connections
+> ERREUR 1040 (08004) : Trop de connexions
 
 ## <a name="storage-engine-support"></a>Prise en charge du moteur de stockage
 
@@ -52,8 +52,8 @@ Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l
 ## <a name="privilege-support"></a>Prise en charge des privilèges
 
 ### <a name="unsupported"></a>Non pris en charge
-- Rôle d’administrateur de bases de données : plusieurs paramètres de server peuvent dégrader les performances du serveur ou nier les propriétés ACID du système de gestion de base de données (SGBD). Par conséquent, pour préserver l’intégrité du service et le contrat SLA au niveau du produit, ce service n’expose pas le rôle d’administrateur de bases de données. Le compte d’utilisateur par défaut, qui est créé en même temps qu’une instance de base de données, permet à l’utilisateur d’exécuter la plupart des instructions DDL et DML dans l’instance de base de données gérée.
-- Privilèges de super utilisateur : de la même façon, les [privilèges de super utilisateur](https://mariadb.com/kb/en/library/grant/#global-privileges) sont eux aussi limités.
+- Rôle d’administrateur de base de données : plusieurs paramètres de serveur peuvent dégrader de façon inattendue les performances du serveur ou nier les propriétés ACID du système de gestion de base de données. Par conséquent, pour préserver l’intégrité du service et le contrat SLA au niveau du produit, ce service n’expose pas le rôle d’administrateur de bases de données. Le compte d’utilisateur par défaut, qui est créé en même temps qu’une instance de base de données, permet à l’utilisateur d’exécuter la plupart des instructions DDL et DML dans l’instance de base de données gérée.
+- Privilège de superutilisateur : de la même façon, les [privilèges de superutilisateur](https://mariadb.com/kb/en/library/grant/#global-privileges) sont eux aussi limités.
 
 ## <a name="data-manipulation-statement-support"></a>Prise en charge des instructions de manipulation des données
 

@@ -1,6 +1,6 @@
 ---
-title: Vue d’ensemble des fonctionnalités Azure Event Hubs | Microsoft Docs
-description: Vue d’ensemble et détails sur les fonctionnalités des concentrateurs d’événements
+title: Vue d’ensemble des fonctionnalités d’Azure Event Hubs | Microsoft Docs
+description: Cet article décrit en détails les fonctionnalités et la terminologie d’Azure Event Hubs.
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -8,18 +8,19 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c4a9a3189f3de101528871e4dba95bf7a76b9846
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 917a551b8a187db6645e523d0189533e333d5371
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746912"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075164"
 ---
-# <a name="event-hubs-features-overview"></a>Vue d’ensemble des fonctionnalités des concentrateurs d’événements
+# <a name="features-and-terminology-in-azure-event-hubs"></a>Fonctionnalités et terminologie dans Azure Event Hubs
 
 Azure Event Hubs est un service évolutif de traitement d’événements qui ingère et traite de gros volumes de données et d’événements avec une faible latence et une haute fiabilité. Consultez la page [Qu’est-ce qu’Event Hubs ?](event-hubs-what-is-event-hubs.md) pour une vue d’ensemble de haut niveau.
 
@@ -28,13 +29,21 @@ Cet article s’appuie sur les informations de l’[article de présentation](ev
 ## <a name="namespace"></a>Espace de noms
 Un espace de noms Event Hubs fournit un conteneur d’étendue unique, référencé par son [nom de domaine complet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), dans lequel vous créez un ou plusieurs Event Hubs ou rubriques Kafka. 
 
+## <a name="event-hubs-for-apache-kafka"></a>Event Hubs pour Apache Kafka
+
+[Cette fonctionnalité](event-hubs-for-kafka-ecosystem-overview.md) fournit un point de terminaison qui permet aux clients de communiquer avec Event Hubs à l'aide du protocole Kafka. Cette intégration fournit aux clients un point de terminaison Kafka. Cela permet aux clients de configurer leurs applications Kafka existantes pour communiquer avec Event Hubs, offrant ainsi une alternative à l'exécution de leurs propres clusters Kafka. Event Hubs pour Apache Kafka prend en charge le protocole Kafka 1.0 et versions ultérieures. 
+
+Avec cette intégration, vous n'avez pas besoin d'exécuter des clusters Kafka ni de les gérer avec Zookeeper. Cela vous permet également d'utiliser certaines des fonctionnalités les plus exigeantes d'Event Hubs, comme la Capture, l'Augmentation automatique et la Géo-reprise d'activité après sinistre.
+
+Cette intégration permet aussi à des applications comme Mirror Maker ou à une infrastructure comme Kafka Connect de fonctionner sans cluster en utilisant uniquement des modifications de configuration. 
+
 ## <a name="event-publishers"></a>Éditeurs d'événements
 
-Toute entité qui envoie des données à un concentrateur d’événements est un producteur ou *éditeur d’événements*. Les éditeurs d’événements peuvent publier des événements à l’aide du protocole HTTPS ou AMQP 1.0. Ils utilisent un jeton SAS (Shared Access Signature) pour s’identifier auprès d’un concentrateur d’événements et peuvent avoir une identité unique ou utiliser un jeton SAS commun.
+Toute entité qui envoie des données à un concentrateur d’événements est un producteur ou *éditeur d’événements*. Les éditeurs d’événements peuvent publier des événements à l’aide du protocole HTTPS, AMQP 1.0 ou Kafka 1.0 (et versions ultérieures). Ils utilisent un jeton SAS (Shared Access Signature) pour s’identifier auprès d’un concentrateur d’événements et peuvent avoir une identité unique ou utiliser un jeton SAS commun.
 
 ### <a name="publishing-an-event"></a>Publication d'un événement
 
-Vous pouvez publier un événement avec AMQP 1.0 ou HTTPS. Event Hubs fournit des [bibliothèques et des classes client](event-hubs-dotnet-framework-api-overview.md) pour la publication d’événements sur un concentrateur d’événements à partir de clients .NET. Pour les autres runtimes et plateformes, vous pouvez utiliser n'importe quel client AMQP 1.0, comme [Apache Qpid](http://qpid.apache.org/). Vous pouvez publier les événements individuellement ou par lots. Une publication unique (instance de données d’événement) a une limite de 256 Ko, qu’il s’agisse d’un événement unique ou d’un lot. La publication d'événements plus volumineux que ce seuil entraîne une erreur. Il est préférable pour les éditeurs de ne pas être au courant des partitions dans le concentrateur d’événements et de spécifier uniquement une *clé de partition* (présentée dans la section suivante) ou leur identité par le biais de leur jeton SAS.
+Vous pouvez publier un événement avec AMQP 1.0, Kafka 1.0 (ou version ultérieure) ou HTTPS. Event Hubs fournit des [bibliothèques et des classes client](event-hubs-dotnet-framework-api-overview.md) pour la publication d’événements sur un concentrateur d’événements à partir de clients .NET. Pour les autres runtimes et plateformes, vous pouvez utiliser n'importe quel client AMQP 1.0, comme [Apache Qpid](http://qpid.apache.org/). Vous pouvez publier les événements individuellement ou par lots. Une publication unique (instance de données d’événement) est limitée à 1 Mo, qu’il s’agisse d’un événement unique ou d’un lot. La publication d'événements plus volumineux que ce seuil entraîne une erreur. Il est préférable pour les éditeurs de ne pas être au courant des partitions dans le concentrateur d’événements et de spécifier uniquement une *clé de partition* (présentée dans la section suivante) ou leur identité par le biais de leur jeton SAS.
 
 Le choix d'utiliser AMQP ou HTTPS est spécifique au scénario d'utilisation. AMQP requiert l'établissement d'un socket bidirectionnel persistant en plus de la sécurité au niveau du transport (TLS) ou SSL/TLS. Le protocole AMQP présente des coûts de gestion réseau plus élevés lors de l’initialisation de la session, mais le protocole HTTPS nécessite un temps de traitement SSL supplémentaire pour chaque demande. Par ailleurs, AMQP propose des performances plus élevées pour les éditeurs courants.
 
@@ -169,7 +178,7 @@ Pour obtenir des informations de tarification détaillées des concentrateurs d�
 Pour plus d’informations sur les concentrateurs d’événements, accédez aux liens suivants :
 
 * Prise en main avec un [didacticiel des hubs d'événements][Event Hubs tutorial]
-* [Guide de programmation de hubs d’événements](event-hubs-programming-guide.md)
+* [Guide de programmation Event Hubs](event-hubs-programming-guide.md)
 * [Disponibilité et cohérence dans Event Hubs](event-hubs-availability-and-consistency.md)
 * [FAQ sur les hubs d’événements](event-hubs-faq.md)
 * [Exemples de hubs d’événements][]

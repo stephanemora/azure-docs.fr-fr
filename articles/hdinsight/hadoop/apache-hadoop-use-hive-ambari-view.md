@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1328119917276b8135c4a6d4188b67bcff2fc069
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 16c9e1cb568533e8dcad046c4ee21bfeaf19d5b7
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632745"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407845"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utiliser la vue Apache Ambari Hive avec Apache Hadoop dans HDInsight
 
@@ -26,7 +26,7 @@ Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. 
 
 * Un cluster Apache Hadoop Linux sur HDInsight version 3.4 ou ultérieure.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Un navigateur web
@@ -70,18 +70,18 @@ Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. 
 
     Ces instructions effectuent les opérations suivantes :
 
-   * `DROP TABLE` : supprime la table et le fichier de données, si la table existe déjà.
+   * `DROP TABLE`: Supprime la table et le fichier de données, si la table existe déjà.
 
-   * `CREATE EXTERNAL TABLE` : crée une table « externe » dans Hive.
+   * `CREATE EXTERNAL TABLE`: Crée une nouvelle table « externe » dans Hive.
    Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.
 
-   * `ROW FORMAT` : montre la mise en forme des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
+   * `ROW FORMAT`: Montre la mise en forme des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
 
-   * `STORED AS TEXTFILE LOCATION` : montre où sont stockées les données, et qu’elles sont stockées sous forme de texte.
+   * `STORED AS TEXTFILE LOCATION`: Montre où sont stockées les données, et qu’elles sont stockées sous forme de texte.
 
-   * `SELECT` : sélectionne toutes les lignes où la colonne t4 contient la valeur [ERROR].
+   * `SELECT`: Sélectionne toutes les lignes où la colonne t4 contient la valeur [ERROR].
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Conservez la sélection __Base de données__ par __défaut__. Les exemples de ce document utilisent la base de données par défaut incluse avec HDInsight.
 
 5. Pour démarrer la requête, utilisez le bouton **Exécuter** situé sous la feuille de calcul. Ce bouton devient orange et le texte affiche **Stop** (Arrêter).
@@ -93,7 +93,7 @@ Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. 
 
     Vous pouvez utiliser l’onglet **Logs** (Journaux) pour afficher les informations de journalisation que la tâche a créées.
 
-   > [!TIP]
+   > [!TIP]  
    > Téléchargez ou enregistrez les résultats à partir de la boîte de dialogue déroulante **Save results** (Enregistrer les résultats), dans le coin supérieur gauche de la section **Query Process Results** (Résultats du processus de requête).
 
 ### <a name="visual-explain"></a>Visual Explain
@@ -106,7 +106,7 @@ La vue **Visual Explain** de la requête peut être utile pour comprendre le dé
 
 Sélectionnez l’onglet **Tez** au-dessous de la feuille de calcul afin d’afficher l’interface utilisateur Tez pour la requête.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Tez n’est pas utilisé pour résoudre toutes les requêtes. Vous pouvez résoudre de nombreuses requêtes sans utiliser Tez. 
 
 Si Tez a été utilisé pour résoudre la requête, le graphe orienté acyclique (DAG) s’affiche. Si vous souhaitez afficher le DAG pour les requêtes que vous avez exécutées par le passé, ou déboguer le processus Tez, utilisez plutôt la [vue Tez](../hdinsight-debug-ambari-tez-view.md).
@@ -129,7 +129,7 @@ Vous pouvez utiliser l’onglet __Tables__ onglet pour travailler avec des table
 
 ![Image de l’onglet de requêtes enregistrées](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
-> [!TIP]
+> [!TIP]  
 > Les requêtes enregistrées sont stockées dans le stockage en cluster par défaut. Vous pouvez rechercher les requêtes enregistrées sous le chemin `/user/<username>/hive/scripts`. Ces fichiers sont stockés en tant que fichiers `.hql` en texte brut.
 >
 > Si vous supprimez le cluster, tout en conservant le stockage, vous pouvez employer un utilitaire tel que [l’Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) ou l’Explorateur de stockage Data Lake (à partir du [portail Azure](https://portal.azure.com)) pour récupérer les requêtes.
@@ -165,8 +165,8 @@ Vous pouvez ensuite utiliser la fonction UDF dans votre requête. Par exemple :
 
 Pour plus d’informations sur l’utilisation des fonctions définies par l’utilisateur avec Hive sur HDInsight, consultez les articles suivants :
 
-* [Utilisation de Python avec Hive et Pig dans HDInsight](python-udf-hdinsight.md)
-* [Comment ajouter une UDF personnalisée Hive à HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Utilisation de Python UDF avec Apache Hive et Apache Pig dans HDInsight](python-udf-hdinsight.md)
+* [Comment ajouter une UDF personnalisée Apache Hive à HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 ## <a name="hive-settings"></a>Paramètres Hive
 
@@ -176,9 +176,9 @@ Vous pouvez modifier différents paramètres Hive, par exemple pour passer du mo
 
 Pour obtenir des informations générales sur Hive dans HDInsight :
 
-* [Utilisation de Hive avec Hadoop sur HDInsight](hdinsight-use-hive.md)
+* [Utiliser Apache Hive avec Apache Hadoop sur HDInsight](hdinsight-use-hive.md)
 
 Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur HDInsight :
 
-* [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
-* [Utilisation de MapReduce avec Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
+* [Utiliser Apache Pig avec Apache Hadoop sur HDInsight](hdinsight-use-pig.md)
+* [Utiliser MapReduce avec Apache Hadoop sur HDInsight](hdinsight-use-mapreduce.md)

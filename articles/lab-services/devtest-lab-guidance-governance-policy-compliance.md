@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 016daa7ed57650a42b224df4e4173c7593893eb7
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 8165efaa10eb31410f00dfa9bfffb2c02d7396ae
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250808"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872325"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Gouvernance de l’infrastructure Azure DevTest Labs : stratégie d’entreprise et conformité
 Cet article fournit des conseils concernant la stratégie de l’entreprise et la conformité de l’infrastructure Azure DevTest Labs. 
@@ -42,10 +42,10 @@ Une organisation doit-elle planifier un référentiel unique ou autoriser plusie
 ### <a name="answer"></a>Réponse
 Dans le cadre de la stratégie générale de gouvernance et de la gestion des configurations au sein de votre organisation, nous vous recommandons d’utiliser un référentiel centralisé. Lorsque plusieurs référentiels sont utilisés, ils peuvent au fil du temps se transformer en silos de logiciels non managés. Avec un référentiel central, plusieurs équipes peuvent utiliser les artefacts de ce référentiel pour leurs projets. Il renforce la normalisation, la sécurité et la facilité de gestion. Cela permet également d’éviter de faire double emploi. Dans le cadre de la centralisation, nous recommandons les mesures suivantes pour la gestion et la viabilité à long terme :
 
-- Associez Visual Studio Team Services au même locataire Azure Active Directory que celui utilisé par l’abonnement Azure pour l’authentification et l’autorisation.
+- Associez Azure Repos au même locataire Azure Active Directory que celui utilisé par l’abonnement Azure pour l’authentification et l’autorisation.
 - Dans Azure Active Directory, créez un groupe nommé **Tous les développeurs DevTest Labs** qui soit géré de façon centralisée. Tous les développeurs qui contribuent au développement d’artefacts doivent être placés dans ce groupe.
-- Le même groupe Azure Active Directory peut être utilisé pour donner accès au référentiel Visual Studio Team Services et au laboratoire.
-- Dans Visual Studio Team Services, la création de branches ou de duplications doit permettre de séparer un référentiel de développement du référentiel de production principal. Le contenu n’est ajouté à la branche maître qu’avec une requête d’extraction après un examen approprié du code. Une fois la modification approuvée par l’examinateur du code, le code actualisé est fusionné par un développeur principal responsable de la maintenance de la branche maître. 
+- Le même groupe Azure Active Directory peut être utilisé pour donner accès au dépôt Azure Repos et au lab.
+- Dans Azure Repos, la création de branches ou la duplication doit permettre de séparer un dépôt de développement du dépôt de production principal. Le contenu n’est ajouté à la branche maître qu’avec une requête d’extraction après un examen approprié du code. Une fois la modification approuvée par l’examinateur du code, le code actualisé est fusionné par un développeur principal responsable de la maintenance de la branche maître. 
 
 ## <a name="corporate-security-policies"></a>Stratégies de sécurité de l’entreprise
 

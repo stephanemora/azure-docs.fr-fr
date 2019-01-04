@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: cynthn
-ms.openlocfilehash: b9cce5658b705e9d3255d2662b2a0157a2e548c3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: fdd0c82f64b55c801ef04f1d533ed91683a07f9a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409026"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867067"
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Connexion à une machine virtuelle Azure exécutant Windows
 Vous utilisez le bouton **Connecter** dans le portail Azure pour démarrer une session Bureau à distance (RDP) depuis un bureau Windows. Tout d’abord, connectez-vous à la machine virtuelle, puis ouvrez une session.
@@ -41,7 +41,7 @@ Pour vous connecter à une machine virtuelle Windows à partir d’un Mac, vous 
    
      **Compte local** : il s’agit généralement du nom d’utilisateur et du mot de passe du compte local que vous avez spécifiés quand vous avez créé la machine virtuelle. Le domaine correspond alors au nom de la machine virtuelle et vous devez l’entrer sous la forme *nom_machine_virtuelle*&#92;*nom_utilisateur*.  
    
-    **Machine virtuelle jointe à un domaine** : si la machine virtuelle appartient à un domaine, entrez le nom d’utilisateur au format *Domaine*&amp;#92;*Nom d’utilisateur*. Le compte doit également être membre du groupe Administrateurs ou bénéficier de privilèges d’accès à distance à la machine virtuelle.
+    **Machine virtuelle jointe à un domaine** : si la machine virtuelle appartient à un domaine, entrez le nom d’utilisateur au format *Domaine*&#92;*Nom d’utilisateur*. Le compte doit également être membre du groupe Administrateurs ou bénéficier de privilèges d’accès à distance à la machine virtuelle.
    
     **Contrôleur de domaine** : si la machine virtuelle est un contrôleur de domaine, entrez le nom d’utilisateur et le mot de passe d’un compte d’administrateur de domaine pour ce domaine.
 4. Sélectionnez **Oui** pour vérifier l’identité de la machine virtuelle et terminer la connexion.
@@ -54,6 +54,21 @@ Pour vous connecter à une machine virtuelle Windows à partir d’un Mac, vous 
    > 
    > 
 
+## <a name="connect-to-the-virtual-machine-using-powershell"></a>Se connecter à la machine virtuelle à l’aide de PowerShell
+
+Si vous utilisez PowerShell et si vous avez installé le module AzureRM, vous pouvez également vous connecter à l’aide de la cmdlet `Get-AzureRmRemoteDesktopFile`, comme indiqué ci-dessous.
+
+Cet exemple lance immédiatement la connexion RDP : vous êtes alors redirigé par le biais d’invites semblables à celles présentées ci-dessus.
+
+```powershell
+Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
+```
+
+Vous pouvez également enregistrer le fichier RDP pour une utilisation ultérieure.
+
+```powershell
+Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous avez des difficultés à vous connecter, consultez [Résoudre des problèmes de connexion Bureau à distance](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 

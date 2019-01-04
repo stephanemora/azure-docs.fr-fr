@@ -12,21 +12,26 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 526b6ac9c510b13461181d76c0032602d8f3f435
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 80e807a8fcbd6c087ad0995a4481180fa28ef42f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377980"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872881"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Niveau de service Hyperscale (préversion) jusqu’à 100 To
+
+Azure SQL Database est basé sur une architecture de moteur de base de données SQL Server. Celle-ci est ajustée pour l’environnement cloud afin de garantir une disponibilité de 99,99 % même en cas de panne d’infrastructure. Trois modèles d’architecture sont utilisés dans Azure SQL Database :
+- Usage général/Standard 
+- Critique pour l’entreprise/Premium
+- Hyperscale
 
 Le niveau de service Hyperscale dans Azure SQL Database est le tout nouveau niveau de service du modèle d’achat basé sur le nombre de vCores. Ce niveau de service est un stockage hautement scalable et un niveau de performances de calcul qui tire partie de l’architecture Azure pour augmenter le stockage et les ressources de calcul d’une base de données SQL Azure bien au-delà des limites disponibles des niveaux Usage général et Critique pour l’entreprise.
 
 > [!IMPORTANT]
 > Le niveau de service Hyperscale est actuellement disponible en préversion publique dans un nombre limité de régions Azure. Pour obtenir la liste complète des régions, consultez [Régions disponibles pour le niveau de service Hyperscale](#available-regions). Nous vous recommandons de ne pas exécuter des charges de travail de production dans des bases de données Hyperscale pour le moment. Vous ne pouvez pas mettre à jour une base de données Hyperscale vers d’autres niveaux de service. À des fins de test, nous vous recommandons de faire une copie de votre base de données actuelle et de mettre à jour la copie vers le niveau de service Hyperscale.
 > [!NOTE]
-> Pour obtenir des informations détaillées sur les niveaux de service Usage général et Critique pour l’entreprise dans le modèle d’achat basé sur le nombre de vCores, consultez [Niveaux de service Usage général et Critique pour l’entreprise](sql-database-service-tiers-general-purpose-business-critical.md). Pour obtenir une comparaison du modèle d’achat basé sur le nombre de vCores avec le modèle d’achat basé sur des unités DTU, consultez [Ressources et modèles d’achat Azure SQL Database](sql-database-service-tiers.md).
+> Pour en savoir plus sur les niveaux de service Usage général et Critique pour l’entreprise du modèle d’achat vCore, consultez les niveaux de service [Usage général](sql-database-service-tier-general-purpose.md) et [Critique pour l’entreprise](sql-database-service-tier-business-critical.md). Pour obtenir une comparaison du modèle d’achat basé sur le nombre de cœurs virtuels avec le modèle d’achat basé sur des unités DTU, consultez [Ressources et modèles d’achat Azure SQL Database](sql-database-service-tiers.md).
 > [!IMPORTANT]
 > Le niveau de service Hyperscale est actuellement en préversion publique. Nous vous recommandons de ne pas exécuter des charges de travail de production dans des bases de données Hyperscale pour le moment. Vous ne pouvez pas mettre à jour une base de données Hyperscale vers d’autres niveaux de service. À des fins de test, nous vous recommandons de faire une copie de votre base de données actuelle et de mettre à jour la copie vers le niveau de service Hyperscale.
 
@@ -142,7 +147,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## <a name="available-regions"></a>Régions disponibles
 
-Le niveau de service Hyperscale est actuellement en préversion publique et disponible dans les régions Azure suivantes : EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
+Le niveau de service Hyperscale est actuellement disponible en préversion publique dans les régions Azure suivantes : EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
 
 ## <a name="known-limitations"></a>Limites connues
 
@@ -159,6 +164,6 @@ Le niveau de service Hyperscale est actuellement en préversion publique et disp
 
 - Pour consultez un forum aux questions sur Hyperscale, consultez [Questions fréquentes (FAQ) sur Hyperscale](sql-database-service-tier-hyperscale-faq.md).
 - Pour plus d’informations sur les niveaux de service, consultez [Niveaux de service](sql-database-service-tiers.md)
-- Pour plus d’informations sur les limites au niveau du serveur et de l’abonnement, consultez [Vue d’ensemble des limites de ressources sur un serveur logique](sql-database-resource-limits-logical-server.md).
+- Pour plus d’informations sur les limites au niveau du serveur et de l’abonnement, consultez l’article de [vue d’ensemble des limites de ressources sur un serveur logique](sql-database-resource-limits-logical-server.md).
 - Pour connaître les limites du modèle d’achat pour une base de données unique, consultez [Limites du modèle d’achat basé sur le nombre de vCores d’Azure SQL Database pour une base de données unique](sql-database-vcore-resource-limits-single-databases.md).
 - Pour consulter la liste des fonctionnalités et les comparer, consultez [Fonctionnalités SQL communes](sql-database-features.md).

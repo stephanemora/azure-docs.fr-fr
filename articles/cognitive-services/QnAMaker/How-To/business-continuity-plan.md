@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 41e7425a2e2e6dd8dc8416538cf77e5b8f273284
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 10d3809de590a79b6efa86e3d55fbbe535ea13b6
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041936"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413113"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Créer un plan de continuité d’activité pour votre service QnA Maker
 
@@ -27,7 +27,7 @@ L’idée générale représentée plus haut est la suivante :
 
 1. Configurez deux [services QnA Maker](../How-To/set-up-qnamaker-service-azure.md) parallèles dans des [régions Azure associées](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-2. Synchronisez les index de recherche Azure principal et secondaire. Utilisez l’exemple github [ici](https://github.com/pchoudhari/QnAMakerBackupRestore) pour voir comment la sauvegarde-restauration Azure s’indexe.
+2. Synchronisez les index de recherche Azure principal et secondaire. Utilisez l’exemple GitHub [ici](https://github.com/pchoudhari/QnAMakerBackupRestore) pour savoir comment sauvegarder/restaurer les index Azure.
 
 3. Sauvegardez Application Insights avec [exportation continue](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry).
 

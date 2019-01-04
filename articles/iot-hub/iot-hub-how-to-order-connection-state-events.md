@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 77615705ade42a2afcc8e3a9f662b0551a2411fd
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: daf4a6142c0e30fa7b8534e5598cec39c69079c0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582444"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184047"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Commander des événements de connexion d’appareils depuis Azure IoT Hub à l’aide d’Azure Cosmos DB
 
@@ -200,11 +200,11 @@ Dans votre workflow d’application logique, les conditions contribuent à exéc
 
 2. Remplissez la condition comme indiqué ci-dessous pour l’exécuter uniquement pour les événements de connexion et de déconnexion d’appareils :
 
-  * Choisissez une valeur : **eventType**
-  * Remplacer « est égal à » par **se termine par**
-  * Sélectionnez une valeur : **nected**
+   * Choisissez une valeur : **eventType**
+   * Remplacer « est égal à » par **se termine par**
+   * Sélectionnez une valeur : **nected**
 
-   ![Remplir une condition](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
+     ![Remplir une condition](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
 3. Si la condition est vraie, cliquez sur **Ajouter une action**.
   
@@ -248,7 +248,7 @@ Dans cette section, vous configurez votre hub IoT pour publier des événements 
 
 4. Créez l’abonnement aux événements avec les valeurs suivantes : 
 
-   * **Type d’événement** : décochez la case S’abonner à tous les types d’événements et sélectionnez **Appareil connecté** et **Appareil déconnecté** à partir du menu.
+   * **Type d’événement** : décochez la case S’abonner à tous les types d’événements et sélectionnez **Appareil connecté** et **Appareil déconnecté** à partir du menu.
 
    * **Détails du point de terminaison** : sélectionnez **Webhook** comme type de point de terminaison puis cliquez sur le point de terminaison sélectionné et collez l’URL copiée à partir de votre application logique et confirmez la sélection.
 

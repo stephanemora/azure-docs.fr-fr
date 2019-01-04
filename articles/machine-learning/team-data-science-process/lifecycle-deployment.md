@@ -1,5 +1,5 @@
 ---
-title: Phase de déploiement du cycle de vie du processus TDSP (Team Data Science Process) - Azure | Microsoft Docs
+title: Phase de déploiement du cycle de vie du processus TDSP (Team Data Science Process)
 description: Objectifs, tâches et livrables associés à la phase de déploiement de vos projets de science des données
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 30d54b1475188fa886a811b22460d88e53aa564e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: d05f831aa1ae1f9b0912dce66bf7f5e15c109d49
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446583"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138566"
 ---
-# <a name="deployment"></a>Déploiement
+# <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Phase de déploiement du cycle de vie du processus TDSP (Team Data Science Process)
 
 Cet article présente les objectifs, tâches et livrables associés au déploiement du processus TDSP. Ce processus indique un cycle de vie recommandé que vous pouvez utiliser pour structurer vos projets de science des données. Le cycle de vie expose les principales phases que les projets exécutent généralement, souvent de manière itérative :
 

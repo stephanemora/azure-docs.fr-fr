@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 98eee29dc6810d35ee1792c601e6d2f147602cae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ee62e81b8c75200f26dfb5f7303083190f83eb8e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262180"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016842"
 ---
 # <a name="securing-paas-deployments"></a>Sécurisation des déploiements PaaS
 
@@ -84,19 +84,19 @@ Les principes et modèles pour le périmètre du réseau existaient depuis des d
 
 Voici les bonnes pratiques en matière de gestion du périmètre d’identité.
 
-**Bonne pratique** : sécurisez vos clés et informations d’identification pour sécuriser votre déploiement PaaS.   
-**Détail** : la perte de clés ou d‘informations d’identification est un problème courant. Vous pouvez utiliser une solution centralisée où les clés et les secrets peuvent être stockés dans des modules de sécurité matériels. Azure vous fournit un HSM dans le cloud avec [Azure Key Vault](../key-vault/key-vault-whatis.md).
+**Bonne pratique** : sécurisez vos clés et informations d’identification pour sécuriser votre déploiement PaaS.   
+**Détail** : La perte de clés ou d'informations d’identification est un problème courant. Vous pouvez utiliser une solution centralisée où les clés et les secrets peuvent être stockés dans des modules de sécurité matériels. Azure vous fournit un HSM dans le cloud avec [Azure Key Vault](../key-vault/key-vault-whatis.md).
 
-**Bonne pratique** : ne placez pas vos informations d’identification et autres secrets dans le code source ni GitHub.   
-**Détail** : la seule chose qui est pire que la perte de vos clés et informations d’identification serait qu’un tiers non autorisé y accède. Des pirates peuvent tirer parti de technologies de robot pour rechercher les clés et les secrets stockés dans des référentiels de code, tels que GitHub. Ne placez pas de clé ni de secrets dans ces référentiels de code publics.
+**Bonne pratique** : ne placez pas vos informations d’identification et autres secrets dans le code source ni GitHub.   
+**Détail** : la seule chose qui est pire que la perte de vos clés et informations d’identification serait qu’un tiers non autorisé y accède. Des pirates peuvent tirer parti de technologies de robot pour rechercher les clés et les secrets stockés dans des référentiels de code, tels que GitHub. Ne placez pas de clé ni de secrets dans ces référentiels de code publics.
 
-**Bonne pratique** : protégez vos interfaces de gestion de machine virtuelle sur les services hybrides PaaS et IaaS à l’aide d’une interface de gestion qui vous permet de gérer directement à distance ces machines virtuelles.   
-**Détail** : des protocoles de gestion à distance tels que [SSH](https://en.wikipedia.org/wiki/Secure_Shell), [RDP](https://support.microsoft.com/kb/186607) et [communication à distance PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) peuvent être utilisés. En règle générale, nous vous recommandons de ne pas activer l’accès à distance direct aux machines virtuelles à partir d’Internet.
+**Bonne pratique** : protégez vos interfaces de gestion de machine virtuelle sur les services hybrides PaaS et IaaS à l’aide d’une interface de gestion qui vous permet de gérer directement à distance ces machines virtuelles.   
+**Détail** : des protocoles de gestion à distance tels que [SSH](https://en.wikipedia.org/wiki/Secure_Shell), [RDP](https://support.microsoft.com/kb/186607) et [communication à distance PowerShell](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting) peuvent être utilisés. En règle générale, nous vous recommandons de ne pas activer l’accès à distance direct aux machines virtuelles à partir d’Internet.
 
 Si possible, utilisez d’autres approches, comme les réseaux privés virtuels dans un réseau virtuel Azure. Si aucune autre approche n‘est disponible, assurez-vous d’utiliser des phrases secrètes complexes et l’authentification à deux facteurs (notamment [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)).
 
-**Bonne pratique** : utilisez une authentification forte et des plateformes d’autorisation.   
-**Détail** : utilisez des identités fédérées dans Azure AD au lieu des magasins d’utilisateurs personnalisés. Lorsque vous utilisez des identités fédérées, vous tirez parti d'une approche basée sur une plateforme et vous déléguez la gestion des identités autorisées à vos partenaires. Une approche d’identité fédérée est particulièrement importante quand le contrat de certains employés prend fin et que des informations doivent être répercutées sur plusieurs systèmes d’identité et d’autorisation.
+**Bonne pratique** : utilisez une authentification forte et des plateformes d’autorisation.   
+**Détail** : Utilisez des identités fédérées dans Azure AD au lieu des magasins d’utilisateurs personnalisés. Lorsque vous utilisez des identités fédérées, vous tirez parti d'une approche basée sur une plateforme et vous déléguez la gestion des identités autorisées à vos partenaires. Une approche d’identité fédérée est particulièrement importante quand le contrat de certains employés prend fin et que des informations doivent être répercutées sur plusieurs systèmes d’identité et d’autorisation.
 
 Utilisez les mécanismes d‘authentification et d‘autorisation fournis par les plateformes au lieu d‘un code personnalisé. La raison est que le développement d'un code d’authentification personnalisé peut être sujet aux erreurs. La plupart de vos développeurs ne sont pas des experts en sécurité et ont peu de chance d’être conscients des subtilités et des derniers développements dans les domaines de l’authentification et l’autorisation. Le code commercial (par exemple, de Microsoft) est souvent très contrôlé en ce qui concerne la sécurité.
 
@@ -123,20 +123,20 @@ Le tableau suivant répertorie les menaces STRIDE et donne des exemples d’att�
 
 Voici les bonnes pratiques relatives à l’utilisation d’App Service.
 
-**Bonne pratique** : [Authentifiez-vous via Azure Active Directory](../app-service/app-service-authentication-overview.md).   
-**Détail** : App Service fournit un service OAuth 2.0 pour votre fournisseur d’identité. OAuth 2.0 privilégie la simplicité du développement client tout en fournissant des flux d’autorisation spécifiques pour les applications web, les applications de bureau et les téléphones mobiles. Azure AD utilise OAuth 2.0 pour vous permettre d’autoriser l’accès aux applications mobiles et web.
+**Bonne pratique** : [S’authentifier par le biais d’Azure Active Directory (AD)](../app-service/app-service-authentication-overview.md).   
+**Détail** : App Service fournit un service OAuth 2.0 pour votre fournisseur d’identité. OAuth 2.0 privilégie la simplicité du développement client tout en fournissant des flux d’autorisation spécifiques pour les applications web, les applications de bureau et les téléphones mobiles. Azure AD utilise OAuth 2.0 pour vous permettre d’autoriser l’accès aux applications mobiles et web.
 
-**Bonne pratique** : Limitez l’accès en fonction des principes de sécurité du besoin de connaître et du privilège minimum.   
-**Détail** : La restriction de l’accès est indispensable pour les organisations qui veulent appliquer des stratégies de sécurité portant sur l’accès aux données. Vous pouvez utiliser la fonction de contrôle d’accès en fonction du rôle (RBAC) pour affecter des autorisations aux utilisateurs, groupes et applications à une certaine étendue. Pour en savoir plus sur l’octroi aux utilisateurs du droit d’accès aux applications, consultez [Prise en main de la gestion des accès](../role-based-access-control/overview.md).
+**Bonne pratique** : Restreindre l’accès en fonction des principes du besoin de connaître et du privilège minimum.   
+**Détail** : La restriction de l’accès est indispensable pour les organisations qui veulent appliquer des stratégies de sécurité portant sur l’accès aux données. Vous pouvez utiliser la fonction de contrôle d’accès en fonction du rôle (RBAC) pour affecter des autorisations aux utilisateurs, groupes et applications à une certaine étendue. Pour en savoir plus sur l’octroi aux utilisateurs du droit d’accès aux applications, consultez [Prise en main de la gestion des accès](../role-based-access-control/overview.md).
 
-**Bonne pratique** : Protégez vos clés.   
-**Détail** : Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Avec Key Vault, vous pouvez chiffrer les clés et les secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers .PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM). Pour une meilleure garantie, vous pouvez importer ou générer des clés HSM. Pour en savoir plus, consultez [Azure Key Vault](../key-vault/key-vault-whatis.md). Vous pouvez également utiliser Key Vault pour gérer vos certificats TLS avec renouvellement automatique.
+**Bonne pratique** : Protégez vos clés.   
+**Détail** : Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Avec Key Vault, vous pouvez chiffrer les clés et les secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers .PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM). Pour une meilleure garantie, vous pouvez importer ou générer des clés HSM. Pour en savoir plus, consultez [Azure Key Vault](../key-vault/key-vault-whatis.md). Vous pouvez également utiliser Key Vault pour gérer vos certificats TLS avec renouvellement automatique.
 
-**Bonne pratique** : Limitez les adresses IP source entrantes.   
-**Détail** : L’[environnement App Service](../app-service/environment/intro.md) propose une fonctionnalité d’intégration de réseau virtuel qui vous permet de limiter les adresses IP sources entrantes par le biais de groupes de sécurité réseau. Les réseaux virtuels vous permettent de placer des ressources Azure dans un réseau routable non-Internet auquel vous contrôlez l’accès. Pour en savoir plus, consultez [Intégrer une application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md).
+**Bonne pratique** : Limitez les adresses IP source entrantes.   
+**Détail** : [App Service Environment](../app-service/environment/intro.md) propose une fonctionnalité d’intégration de réseau virtuel qui vous permet de limiter les adresses IP sources entrantes par le biais de groupes de sécurité réseau. Les réseaux virtuels vous permettent de placer des ressources Azure dans un réseau routable non-Internet auquel vous contrôlez l’accès. Pour en savoir plus, consultez [Intégrer une application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md).
 
-**Bonne pratique** : Surveillez l’état de sécurité de vos environnements App Service.   
-**Détail** : Utilisez Azure Security Center pour surveiller vos environnements App Service. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des [recommandations](../security-center/security-center-virtual-machine-recommendations.md) qui vous guident tout au long du processus de configuration des contrôles nécessaires.
+**Bonne pratique** : supervisez l’état de sécurité de vos environnements App Service.   
+**Détail** : utilisez Azure Security Center pour superviser vos environnements App Service. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des [recommandations](../security-center/security-center-virtual-machine-recommendations.md) qui vous guident tout au long du processus de configuration des contrôles nécessaires.
 
 > [!NOTE]
 > La surveillance d’App Service est uniquement disponible en préversion, au [niveau Standard](../security-center/security-center-pricing.md) dans Security Center.
@@ -163,7 +163,7 @@ Dans cet article, nous avons vu les avantages d’un déploiement PaaS Azure et 
 - [Azure App Service](security-paas-applications-using-app-services.md)
 - [Azure SQL Database et Azure SQL Data Warehouse](security-paas-applications-using-sql.md)
 - [Stockage Azure](security-paas-applications-using-storage.md)
-- Cache REDIS Azure
+- Cache Azure pour Redis
 - Azure Service Bus
 - Pare-feu d’applications web
 

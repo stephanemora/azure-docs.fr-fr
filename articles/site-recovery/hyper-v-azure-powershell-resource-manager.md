@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: f8f690a4f94ee56cfaa5532fa090fada1a33bddf
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c20f61788086806d3eebb62d35b7ac9fbcbd6fb9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214781"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846927"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurer la récupération d’urgence dans Azure pour les machines virtuelles Hyper-V à l’aide de PowerShell et de Azure Resource Manager
 
@@ -24,7 +24,7 @@ Cet article décrit comment utiliser Windows PowerShell, ainsi que Azure Resourc
 
 Azure PowerShell fournit des applets de commande pour gérer Azure à l’aide de Windows PowerShell. Les applets de commande PowerShell de Site Recovery, disponibles avec Azure PowerShell pour Azure Resource Manager, vous permettent de protéger et récupérer vos serveurs dans Azure.
 
-Vous n’avez pas besoin d’être un expert de PowerShell pour utiliser cet article, mais vous devez tout de même connaître des concepts de base, tels que les modules, les applets de commande et les sessions. Lisez [Prise en main de Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx) et [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
+Vous n’avez pas besoin d’être un expert de PowerShell pour utiliser cet article, mais vous devez tout de même connaître des concepts de base, tels que les modules, les applets de commande et les sessions. Lisez [Prise en main de Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx) et [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 > [!NOTE]
 > Les partenaires Microsoft membres du programme Cloud Solution Provider (CSP) peuvent configurer et gérer la protection des serveurs clients sur leurs abonnements CSP respectifs (abonnements des locataires).
@@ -43,11 +43,11 @@ De plus, l’exemple décrit dans cet article présente les conditions préalabl
 * Un hôte Hyper-V exécuté sous Windows Server 2012 R2 ou Microsoft Hyper-V Server 2012 R2 et hébergeant une ou plusieurs machines virtuelles. Les serveurs Hyper-V doivent être connectés à Internet, directement ou à travers un proxy.
 * Les machines virtuelles que vous souhaitez répliquer doivent respecter ces [conditions préalables](hyper-v-azure-support-matrix.md#replicated-vms).
 
-## <a name="step-1-sign-in-to-your-azure-account"></a>Étape 1 : Connexion à votre compte Azure
+## <a name="step-1-sign-in-to-your-azure-account"></a>Étape 1 : Connexion à votre compte Azure
 
-1. Ouvrez une console PowerShell et exécutez la commande suivante pour vous connecter à votre compte Azure. L’applet de commande permet d’afficher une page web qui vous demande les informations d’identification de votre compte : **Connect-AzureRmAccount**.
+1. Ouvrez une console PowerShell et exécutez la commande suivante pour vous connecter à votre compte Azure. L’applet de commande permet d’afficher une page web qui vous demande les informations d’identification de votre compte : **Connect-AzureRmAccount**.
     - Vous pouvez également ajouter les informations d’identification de votre compte en tant que paramètre dans l’applet de commande **Connect-AzureRmAccount** à l’aide du paramètre **-Credential**.
-    - Si vous êtes partenaire CSP travaillant pour le compte d’un locataire, spécifiez le client en tant que locataire à l’aide de son ID locataire ou de son nom de domaine principal. Par exemple : **Connect-AzureRmAccount -Tenant "fabrikam.com"**
+    - Si vous êtes partenaire CSP travaillant pour le compte d’un locataire, spécifiez le client en tant que locataire à l’aide de son ID locataire ou de son nom de domaine principal. Par exemple :  **Connect-AzureRmAccount -Tenant "fabrikam.com"**
 2. Associez l’abonnement que vous souhaitez utiliser avec le compte, car un compte peut compter plusieurs abonnements :
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
@@ -64,7 +64,7 @@ De plus, l’exemple décrit dans cet article présente les conditions préalabl
 
     `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`.
 
-## <a name="step-2-set-up-the-vault"></a>Étape 2 : Configuration du coffre
+## <a name="step-2-set-up-the-vault"></a>Étape 2 : Configurer le coffre
 
 1. Créez un groupe de ressources Azure Resource Manager dans lequel vous allez créer le coffre, ou utilisez un groupe de ressources existant. Créez un nouveau groupe de ressources de la manière suivante. La variable $ResourceGroupName contient le nom du groupe de ressources que vous souhaitez créer et la variable $Geo contient la région Azure dans laquelle créer le groupe de ressources (par exemple, « Brésil Sud »).
 
@@ -78,13 +78,13 @@ De plus, l’exemple décrit dans cet article présente les conditions préalabl
     Vous pouvez récupérer la liste des coffres existants avec l’applet de commande **Get-AzureRmRecoveryServicesVault**.
 
 
-## <a name="step-3-set-the-recovery-services-vault-context"></a>Étape 3 : Définition du contexte du coffre Recovery Services
+## <a name="step-3-set-the-recovery-services-vault-context"></a>Étape 3 : Définir le contexte du coffre Recovery Services
 
 Définissez le contexte d’archivage comme suit :
 
 `Set-AsrVaultSettings -Vault $vault`
 
-## <a name="step-4-create-a-hyper-v-site"></a>Étape 4 : Créer un site Hyper-V
+## <a name="step-4-create-a-hyper-v-site"></a>Étape 4 : Créer un site Hyper-V
 
 1. Créez un nouveau site Hyper-V comme suit :
 
@@ -102,7 +102,7 @@ Définissez le contexte d’archivage comme suit :
 
 5. Copiez la clé téléchargée sur l’hôte Hyper-V. Vous avez besoin de la clé pour inscrire l’hôte Hyper-V sur le site.
 
-## <a name="step-5-install-the-provider-and-agent"></a>Étape 5 : Installez le fournisseur et l’agent
+## <a name="step-5-install-the-provider-and-agent"></a>Étape 5 : Installer le fournisseur et l’agent
 
 1. Téléchargez le programme d’installation de la dernière version du fournisseur sur le site de [Microsoft](https://aka.ms/downloaddra).
 2. Exécutez le programme d’installation sur l’ordinateur hôte Hyper-V.
@@ -112,7 +112,7 @@ Définissez le contexte d’archivage comme suit :
 
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
 
-## <a name="step-6-create-a-replication-policy"></a>Étape 6 : Créer une stratégie de réplication
+## <a name="step-6-create-a-replication-policy"></a>Étape 6 : Créer une stratégie de réplication
 
 Avant de commencer, notez que le compte de stockage spécifié doit se trouver dans la même région Azure que le coffre et doit utiliser la fonction de géo-réplication.
 
@@ -136,7 +136,7 @@ Avant de commencer, notez que le compte de stockage spécifié doit se trouver d
 
 4. Attendez que la tâche d’association se termine.
 
-## <a name="step-7-enable-vm-protection"></a>Étape 7 : Activation de la protection de machine virtuelle
+## <a name="step-7-enable-vm-protection"></a>Étape 7 : Activer la protection des machines virtuelles
 
 1. Récupérez l’élément protégeable correspondant à la machine virtuelle que vous souhaitez protéger comme suit :
 
@@ -175,7 +175,7 @@ Avant de commencer, notez que le compte de stockage spécifié doit se trouver d
 
 
 
-## <a name="step-8-run-a-test-failover"></a>Étape 8 : Exécution d’un test de basculement
+## <a name="step-8-run-a-test-failover"></a>Étape 8 : Exécuter un test de basculement
 1. Exécutez un test de basculement, en procédant comme suit :
 
         $nw = Get-AzureRmVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #Specify Azure vnet name and resource group

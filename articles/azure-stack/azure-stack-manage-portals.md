@@ -12,18 +12,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/04/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4453516626c39f73deea8fce0d744fcecbd5c3fc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 58856875fa7d7bb3ba63c489fb17790e68f99aec
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085783"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872184"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Utilisation du portail administrateur dans Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Il existe deux portails dans Azure Stack : le portail administrateur et le portail utilisateur (parfois appelé portail du *locataire*). En tant qu’opérateur Azure Stack, vous pouvez utiliser le portail administrateur pour la gestion et les opérations quotidiennes d’Azure Stack.
 
@@ -86,6 +86,10 @@ Si vous sélectionnez l’icône d’aide et de support (point d’interrogation
 
 - Si vous utilisez un système intégré, cette action ouvre un site sur lequel vous pouvez ouvrir directement un ticket de support auprès des services de support technique Microsoft. Reportez-vous à la section [Où obtenir un support technique ?](azure-stack-manage-basics.md#where-to-get-support) pour comprendre quand vous devez vous adresser au support technique Microsoft ou au support technique de votre fournisseur de matériel OEM.
 - Si vous utilisez le Kit de développement, cette action ouvre directement le site des forums Internet d’Azure Stack. Ces forums sont consultés régulièrement. Le Kit de développement étant un environnement d’évaluation, il n’y a aucune prise en charge officielle de la part des services de support technique Microsoft.
+
+### <a name="quick-access-to-the-azure-roadmap"></a>Accès rapide à la feuille de route Azure
+
+Si vous sélectionnez **Aide et support** (le point d’interrogation) dans le coin supérieur droit du portail de l’administrateur et que vous sélectionnez **Feuille de route Azure**, un nouvel onglet de navigateur s’ouvre et vous amène à la feuille de route Azure. En tapant **Azure Stack** dans la zone de recherche **Produits**, vous pouvez voir toutes les mises à jour de feuille de route Azure Stack.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

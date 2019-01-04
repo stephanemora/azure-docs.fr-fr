@@ -3,7 +3,7 @@ title: Création de rapports sur des bases de données cloud mises à l’échel
 description: comment configurer des requêtes élastiques sur les partitions horizontales
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: e1eec489bf33cbf03269f68413c39c9fb03bbb22
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: de96de96d68164d021f8b823e69bc52322642aa7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240390"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865401"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Création de rapports sur des bases de données cloud mises à l’échelle (version préliminaire)
 ![Requête sur plusieurs partitions][1]
@@ -140,7 +140,7 @@ La clause DISTRIBUTION spécifie la distribution des données utilisée pour cet
 2. **REPLICATED** signifie que des copies identiques de la table sont présentes sur chaque base de données. La responsabilité de vous assurer que les réplicas sont identiques d’une base de données à l’autre vous incombe.
 3. **ROUND\_ROBIN** signifie que la table est partitionnée horizontalement à l’aide d’une méthode de distribution liée à l’application. 
 
-**Référence de couche de données**: la table externe DDL fait référence à une source de données externe. La source de données externe spécifie un mappage de partition qui fournit à la table externe les informations nécessaires à la localisation de toutes les bases de données de votre couche de données. 
+**Référence de la couche Données** : Le DDL de table externe fait référence à une source de données externe. La source de données externe spécifie un mappage de partition qui fournit à la table externe les informations nécessaires à la localisation de toutes les bases de données de votre couche de données. 
 
 ### <a name="security-considerations"></a>Considérations relatives à la sécurité
 Les utilisateurs ayant accès à la table externe acquièrent un accès automatique aux tables distantes sous-jacentes avec les informations d’identification fournies dans la définition de source de données externe. Évitez une élévation de privilèges non souhaitée par le biais d’informations d'identification de la source de données externe. Utilisez GRANT ou REVOKE pour une table externe, comme s'il s'agissait d'une table standard.  
@@ -168,10 +168,10 @@ La requête suivante effectue une jonction tridirectionnelle entre les entrepôt
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Procédure stockée pour l’exécution de T-SQL à distance : sp\_execute_remote
 La requête élastique introduit également une procédure stockée qui offre un accès direct aux partitions. La procédure stockée est appelée [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714) et peut être utilisée pour exécuter le code T-SQL ou les procédures stockées distantes sur des bases de données distantes. Les paramètres suivants sont pris en compte : 
 
-* Nom de la source de données (nvarchar) : nom de la source de données externe de type SGBDR. 
-* Requête (nvarchar) : requête T-SQL à exécuter sur chaque partition. 
-* Déclaration de paramètre (nvarchar) : facultatif : chaîne contenant des définitions de type de données correspondant aux paramètres utilisés dans le paramètre de requête (par exemple, sp_executesql). 
-* Liste de valeurs de paramètre : facultative : valeurs de paramètre de liste séparées par des virgules (par exemple, sp_executesql).
+* Nom de la source de données (nvarchar) : nom de la source de données externe de type SGBDR. 
+* Requête (nvarchar) : requête T-SQL à exécuter sur chaque partition. 
+* Déclaration de paramètre (nvarchar) - facultatif : chaîne contenant des définitions de type de données pour les paramètres utilisés dans le paramètre de requête (comme sp_executesql). 
+* Liste de valeurs de paramètre - facultatif : liste de valeurs de paramètre séparées par des virgules (comme sp_executesql).
 
 sp\_execute\_remote utilise la source de données externe fournie dans les paramètres d’appel pour exécuter l’instruction T-SQL donnée sur toutes les bases de données distantes. Il utilise les informations d’identification de la source de données externe pour se connecter à la base de données shardmap et aux bases de données distantes.  
 

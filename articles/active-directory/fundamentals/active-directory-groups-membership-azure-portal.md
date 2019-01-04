@@ -1,6 +1,6 @@
 ---
-title: Comment ajouter ou supprimer un groupe d’un autre groupe avec Azure Active Directory | Microsoft Docs
-description: Découvrez comment ajouter ou supprimer un groupe d’un autre groupe à l’aide d’Azure Active Directory.
+title: Ajouter ou supprimer un groupe dans un autre groupe - Azure Active Directory | Microsoft Docs
+description: Instructions pour ajouter ou supprimer un groupe dans un autre groupe à l’aide d’Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,16 +10,16 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 09e023d1d562ea53d9927adf609335beac38a2d7
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 12f557e9453db0d8bff2ab91fe8453e026e0320c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468024"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104269"
 ---
-# <a name="how-to-add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Comment : ajouter ou supprimer un groupe d’un autre groupe à l’aide d’Azure Active Directory
+# <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Ajouter ou supprimer un groupe dans un autre groupe à l’aide d’Azure Active Directory
 Cet article vous aide à ajouter et supprimer un groupe d’un autre groupe à l’aide d’Azure Active Directory.
 
 >[!Note]
@@ -29,7 +29,7 @@ Cet article vous aide à ajouter et supprimer un groupe d’un autre groupe à l
 Vous pouvez ajouter un groupe de sécurité existant à un autre groupe de sécurité (aussi appelé groupe imbriqué), créer un groupe (ou sous-groupe) de membres et un groupe parent. Le groupe de membres hérite des attributs et des propriétés du groupe parent, vous permettant ainsi de gagner du temps de configuration.
 
 >[!Important]
->Nous ne prenons actuellement pas en charge :<ul><li>L’ajout de groupes de sécurité aux groupes Office 365</li><li>L’ajout de groupes Office 365 à des groupes de sécurité ou à d’autres groupes Office 365</li><li>L’affectation d’applications à des groupes imbriqués</li><li>L’application de licences à des groupes imbriqués</li></ul>
+>Nous ne prenons actuellement pas en charge :<ul><li>Ajout de groupes à un groupe synchronisé avec Active Directory en local</li><li>L’ajout de groupes de sécurité aux groupes Office 365</li><li>L’ajout de groupes Office 365 à des groupes de sécurité ou à d’autres groupes Office 365</li><li>L’affectation d’applications à des groupes imbriqués</li><li>L’application de licences à des groupes imbriqués</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Pour ajouter un groupe en tant que membre d’un autre groupe
 

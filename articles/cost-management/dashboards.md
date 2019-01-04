@@ -1,21 +1,21 @@
 ---
 title: Afficher les métriques clés dans des tableaux de bord Cloudyn dans Azure | Microsoft Docs
-description: Cet article décrit comment afficher les métriques clés dans des tableaux de bord de Cloudyn.
+description: Cet article explique comment afficher les mesures clés avec les tableaux de bord de Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: e053f2387df5d9a2855ce3242d4d7121452a73d8
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: f232ee89993998eb25ecce73e9c2ac8e08f3198b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275936"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094103"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Afficher les métriques de coût clés dans des tableaux de bord
 
@@ -43,7 +43,7 @@ Pour commencer rapidement avec un tableau de bord personnalisé, vous pouvez dup
 Pour créer un tableau de bord personnalisé :
 
 1. Dans la page d’accueil, cliquez sur **Ajouter nouveau +**. La page My Dashboard (Mon tableau de bord) s’affiche.  
-    ![My dashboard (Mon tableau de bord)](./media/dashboards/my-dashboard.png)
+    ![Ma page de tableau de bord pour ajouter de nouveaux rapports](./media/dashboards/my-dashboard.png)
 2. Cliquez sur **Add New Report (Ajouter un nouveau rapport)**. La zone Add Report (Ajouter un rapport) s’affiche.
 3. Sélectionnez le rapport que vous souhaitez ajouter au widget de tableau de bord. Le widget est ajouté au tableau de bord.
 4. Répétez les étapes précédentes jusqu’à ce que le tableau de bord soit complet.
@@ -63,7 +63,7 @@ Vous pouvez partager un tableau de bord personnalisé avec _Public_ ou _My Entit
 Pour partager un tableau de bord personnalisé avec Public :
 
 1. Dans un tableau de bord, cliquez sur **Dashboard Settings (Paramètres du tableau de bord)**. La zone Dashboard Settings (Paramètres du tableau de bord) s’affiche.  
-    ![options de tableau de bord](./media/dashboards/dashboard-options.png)
+    ![Paramètres d’un tableau de bord personnalisé](./media/dashboards/dashboard-options.png)
 2. Dans la zone Dashboard Settings (Paramètres du tableau de bord), cliquez sur le symbole de flèche, puis sur **Public**. La boîte de dialogue de confirmation Public Dashboard (Tableau de bord public) s’affiche.
 3. Cliquez sur **Yes (Oui)**. Le tableau de bord est désormais disponible pour d’autres utilisateurs.
 
@@ -116,13 +116,13 @@ Vous pouvez définir tout tableau de bord en tant que tableau de bord par défau
 -Ou-
 
 1. Cliquez sur **Dashboard Settings (Paramètres du tableau de bord)** pour afficher la liste des tableaux de bord disponibles, puis sélectionnez le tableau de bord que vous souhaitez définir en tant tableau de bord par défaut.  
-    ![options de tableau de bord](./media/dashboards/dashboard-options.png)
+    ![Options d’un tableau de bord par défaut](./media/dashboards/dashboard-options.png)
 2. Cliquez sur **Default (Par défaut)** dans la ligne du tableau de bord. La boîte de dialogue de confirmation Default Dashboard (Tableau de bord par défaut) s’affiche.
 3. Cliquez sur **Oui**. Le tableau de bord est défini en tant que tableau de bord par défaut.
 
 ## <a name="management-dashboard"></a>Tableau de bord de gestion
 Le tableau de bord Management (Gestion), ou le tableau de bord MSP pour les utilisateurs de MSP, inclut les principales informations des types de rapports principaux.  
-![Tableau de bord de gestion](./media/dashboards/management-dash.png)
+![Tableau de bord Management montrant différents rapports](./media/dashboards/management-dash.png)
 
 ### <a name="cost-entity-summary-enterprise-only"></a>Cost Entity Summary (Résumé de l’entité de coût) (version Enterprise uniquement)
 Ce widget résume les entités de coût gérées, dont le nombre d’entités et le nombre de comptes.
@@ -158,7 +158,7 @@ Ce widget affiche les services de stockage utilisés par les départements. Poin
 
 ## <a name="cost-controller-dashboard"></a>Tableau de bord Cost Controller (Contrôleur de coût)
 Le tableau de bord Cost Controller (Contrôleur de coût) affiche les informations d’allocation de coût prédéfinies.  
-![Tableau de bord Cost Controller (Contrôleur de coût)](./media/dashboards/cost-controller-dashboard.png)
+![Tableau de bord Cost Controller montrant différents rapports](./media/dashboards/cost-controller-dashboard.png)
 
 ### <a name="cost-over-time"></a>Cost Over Time (Coût au fil du temps)
 Ce widget vous aide à repérer des tendances de coût. Il met en évidence le coût du dernier jour, en fonction de la tendance des 30 derniers jours.
@@ -198,7 +198,7 @@ Ce widget met en évidence les dépenses au cours des six derniers mois.
 ## <a name="asset-controller-dashboard"></a>Tableau de bord Asset Controller (Contrôleur de ressource)
 
 Ce tableau de bord affiche le nombre d’instances en cours d’exécution, les disques disponibles et utilisés, la distribution des types d’instances et des informations sur le stockage.  
-![Tableau de bord Asset Controller (Contrôleur de ressource)](./media/dashboards/asset-controller-dashboard.png)
+![Tableau de bord Asset Controller montrant différents rapports](./media/dashboards/asset-controller-dashboard.png)
 
 ### <a name="compute-instances"></a>Compute Instances (Instances de calcul)
 Ce widget affiche le nombre d’instances en cours d’exécution en fonction de la tendance d’utilisation au cours des 30 derniers jours.
@@ -227,7 +227,7 @@ Ce widget met en évidence le nombre d’instances Amazon RDS en cours d’exéc
 
 ## <a name="optimizer-dashboard"></a>Tableau de bord Optimizer (Optimiseur)
 Ce tableau de bord affiche les suggestions de réduction de taille, les ressources inutilisées et les économies potentielles.  
-![Tableau de bord Optimizer (Optimiseur)](./media/dashboards/optimizer-dashboard.png)
+![Tableau de bord Optimizer montrant différents rapports](./media/dashboards/optimizer-dashboard.png)
 
 ### <a name="ri-calculator"></a>RI Calculator (Calculatrice d’instances réservées)
 Ce widget affiche des suggestions d’achat en lien avec le nombre d’instances réservées, et met en évidence les économies annuelles potentielles.
@@ -257,7 +257,7 @@ Les suggestions d’optimisation sont basées sur les données d’utilisation e
 
 ## <a name="s3-tracker-dashboard"></a>Tableau de bord S3 Tracker (Traqueur S3)
 Le tableau de bord S3 Tracker (Traqueur S3) vous aide à trouver, à analyser et à afficher votre utilisation du stockage et les tendances actuelles.  
-![Tableau de bord S3 Tracker (Traqueur S3)](./media/dashboards/s3-tracker-dashboard.png)
+![Tableau de bord S3 Tracker montrant différents rapports](./media/dashboards/s3-tracker-dashboard.png)
 
 ### <a name="all-buckets"></a>All Buckets (Tous les compartiments)
 Ce widget met en évidence la taille totale de tous vos compartiments, exprimée en Go, et le nombre total d’objets dans ceux-ci.
@@ -281,7 +281,7 @@ Ce widget met en évidence le nombre d’objets par compartiment en chiffres ré
 
 ## <a name="cloud-comparison-dashboard"></a>Tableau de bord Cloud Comparison (Comparaison cloud)
 Le tableau de bord Cloud Comparison (Comparaison cloud) vous permet de comparer les coûts de différents fournisseurs de cloud en fonction de la tarification, du type de processeur et de la taille de la RAM.  
-![Tableau de bord Cloud Comparison (Comparaison cloud)](./media/dashboards/cloud-comparison-dashboard.png)
+![Tableau de bord Cloud Comparison montrant différents rapports](./media/dashboards/cloud-comparison-dashboard.png)
 
 ### <a name="ec2-cost-in-azure-by-instance-type"></a>EC2 Cost in Azure by Instance Type (Coût EC2 dans Azure par type d’instance)
 Ce widget met en évidence les 30 derniers jours d’utilisation aux taux d’utilisation à la demande. Il compare le coût actuel d’Amazon EC2 au coût potentiel dans Azure.

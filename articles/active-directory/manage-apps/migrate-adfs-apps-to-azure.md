@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: b799a3947770b44752b599dbb2c47cbf1cfbcda2
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7657ac2e2d5a169607c73b8934328ce41ecea78e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959058"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141932"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Déplacer des applications entre AD FS et Azure AD 
 
@@ -82,7 +82,7 @@ Les applications fédérées comprennent les applications incluses dans les cat�
 
 ### <a name="non-federated-apps"></a>Applications non fédérées
 Vous pouvez intégrer des applications non fédérées à Azure AD à l’aide du Proxy d’application Azure Active Directory et des fonctions associées. Applications non fédérées :
-- Applications utilisant l’Authentification intégrée à Windows directement dans Active Directory. Vous pouvez intégrer ces applications à Azure AD via le [Proxy d’application Azure Active Directory](application-proxy-publish-azure-portal.md).
+- Applications utilisant l’Authentification intégrée à Windows directement dans Active Directory. Vous pouvez intégrer ces applications à Azure AD via le [Proxy d’application Azure Active Directory](application-proxy-add-on-premises-application.md).
 - Applications s’intégrant à votre fournisseur d’authentification unique via un agent et utilisant des en-têtes pour l’autorisation. Les applications locales qui utilisent un agent installé pour l’authentification et une autorisation basée sur l’en-tête peuvent être configurées pour une authentification basée sur Azure AD via le Proxy d’application Azure Active Directory avec [Ping Access pour Azure AD](https://blogs.technet.microsoft.com/enterprisemobility/2017/06/15/ping-access-for-azure-ad-is-now-generally-available-ga/).
 
 ## <a name="translating-on-premises-federated-apps-to-azure-ad"></a>Traduire des applications fédérées locales dans Azure AD 
@@ -203,26 +203,26 @@ Pour assigner des utilisateurs dans le portail Azure AD, naviguez jusqu’à la 
 
 ![Volet « Ajouter une attribution »](media/migrate-adfs-apps-to-azure/migrate7.png)
 
-Pour vérifier l’accès, les utilisateurs doivent voir l’application SaaS dans leur [panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md) quand ils se connectent. Le panneau d’accès se trouve à l’adresse http://myapps.microsoft.com. Dans cet exemple, un utilisateur a obtenu l’accès à Salesforce et ServiceNow.
+Pour vérifier l’accès, les utilisateurs doivent voir l’application SaaS dans leur [panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md) quand ils se connectent. Le panneau d’accès se trouve à l’adresse https://myapps.microsoft.com. Dans cet exemple, un utilisateur a obtenu l’accès à Salesforce et ServiceNow.
 
 ![Exemple de panneau d’accès avec les applications Salesforce et ServiceNow](media/migrate-adfs-apps-to-azure/migrate8.png)
 
 ### <a name="configure-the-saas-app"></a>Configurer l’application SaaS
 Le processus de basculement depuis la fédération locale vers Azure AD ne peut se faire que si l’application SaaS sur laquelle vous travaillez prend en charge plusieurs fournisseurs d’identité. Voici certaines questions fréquentes sur la prise en charge de fournisseurs d’identité multiples :
 
-   **Q : Qu’est-ce que la prise en charge de fournisseurs d’identité multiples pour une application ?**
+   **Q : Qu’est-ce que la prise en charge de fournisseurs d’identité multiples pour une application ?**
     
-   R : Les applications SaaS qui prennent en charge plusieurs fournisseurs d’identité vous permet d’entrer toutes les informations du nouveau fournisseur (ici, Azure AD) avant de vous engager à changer l’expérience d’authentification. Une fois la configuration terminée, vous pouvez changer la configuration d’authentification de l’application pour qu’elle pointe vers Azure AD.
+   R : Les applications SaaS qui prennent en charge plusieurs fournisseurs d’identité vous permettent d’entrer toutes les informations du nouveau fournisseur (ici, Azure AD) avant de vous engager à changer l’expérience d’authentification. Une fois la configuration terminée, vous pouvez changer la configuration d’authentification de l’application pour qu’elle pointe vers Azure AD.
 
-   **Q : En quoi la prise en charge de plusieurs fournisseurs d’identité est importante ?**
+   **Q : En quoi la prise en charge de plusieurs fournisseurs d’identité est importante?**
 
-   R : Si l’application ne prend pas en charge plusieurs fournisseurs d’application, l’administrateur doit prévoir un temps de service ou de maintenance pour configurer Azure AD comme nouveau fournisseur d’identité de l’application. Pendant cette maintenance, les utilisateurs sont informés qu’ils ne pourront pas se connecter à leur compte.
+   R : Si l’application ne prend pas en charge plusieurs fournisseurs d’application, l’administrateur doit prévoir un temps de service ou de maintenance pour configurer Azure AD comme nouveau fournisseur d’identité de l’application. Pendant cette maintenance, les utilisateurs sont informés qu’ils ne pourront pas se connecter à leur compte.
 
    Si une application ne prend pas en charge les fournisseurs d’identité multiples, les fournisseurs d’identité supplémentaires peuvent être configurés à l’avance. L’administrateur peut ensuite changer de fournisseur lors du basculement Azure.
 
    Si l’application prend en charge plusieurs fournisseurs d’identité, et que vous faites en sorte que plusieurs fournisseurs gèrent l’authentification en même temps, l’utilisateur peut choisir son fournisseur pour s’authentifier sur la page de connexion.
 
-#### <a name="example-support-for-multiple-idps"></a>Exemple : prise en charge de plusieurs fournisseurs d’identité
+#### <a name="example-support-for-multiple-idps"></a>Exemple : prise en charge de plusieurs fournisseurs d’identité
 Par exemple, dans Salesforce, la configuration du fournisseur d’identité se situe sous **Paramètres** > **Paramètres de la société** > **Mon domaine** > **Configuration de l’authentification**.
 
 ![Section « Configuration de l’authentification » de l’application Salesforce](media/migrate-adfs-apps-to-azure/migrate9.png)

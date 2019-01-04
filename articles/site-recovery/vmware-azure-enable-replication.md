@@ -3,15 +3,15 @@ title: Activer la réplication des machines virtuelles VMware pour la récupéra
 description: Cet article décrit la procédure d’activation de la réplication de machines virtuelles VMware pour la récupération d’urgence dans Azure à l’aide d’Azure Site Recovery.
 author: asgang
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: c6c5aeece9e49a44654d63a7dc243991a62f2d9a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 51470e9f8e0bffe18d1dc4007433246d084a5cb2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566351"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846656"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Activer la réplication des machines virtuelles VMware dans Azure
 
@@ -39,7 +39,7 @@ Lors de la réplication de machines virtuelles VMware :
 
 ## <a name="enable-replication"></a>Activer la réplication
 
-1. Cliquez sur **Étape 2 : Répliquer l’application** > **Source**. Après avoir activé la réplication pour la première fois, cliquez sur l’option **+Répliquer** dans le coffre pour activer la réplication des autres machines.
+1. Cliquez sur **Étape 2 : Répliquer l’application** > **Source**. Après avoir activé la réplication pour la première fois, cliquez sur l’option **+Répliquer** dans le coffre pour activer la réplication des autres machines.
 2. Dans la page **Source** > **Source**, sélectionnez le serveur de configuration.
 3. Dans la zone **Type de machine**, sélectionnez **Machines virtuelles** ou **Machines physiques**.
 4. Dans la zone **Hyperviseur vCenter/vSphere**, sélectionnez le serveur vCenter qui gère l’hôte vSphere, ou sélectionnez l’hôte. Ce paramètre n’est pas utile si vous répliquez des machines physiques.

@@ -5,46 +5,42 @@ items:
   items:
   - name: Qu’est-ce que l’API Recherche visuelle Bing ?
     href: overview.md
-- name: Démarrages rapides de l’API REST
+- name: Démarrages rapides
   items:
-  - name: Première requête dans C#
-    href: quickstarts/csharp.md
-  - name: Première requête dans Java
-    href: quickstarts/java.md
-  - name: Première requête dans Node.js
-    href: quickstarts/nodejs.md
-  - name: Première requête dans Python
-    href: quickstarts/python.md
-  expanded: true
-- name: Foundation
-  items:
-  - name: Vue d’ensemble des exemples de kit de développement logiciel (SDK)
-    href: sdk.md
-  - name: Kit de développement logiciel dans C#
-    href: visual-search-sdk-c-sharp.md
-  - name: Kit de développement logiciel dans Node
-    href: visual-search-sdk-node.md
-  - name: Kit de développement logiciel dans Python
-    href: visual-search-sdk-python.md
-  expanded: true
+  - name: API REST
+    items:
+    - name: Utilisation de C#
+      href: quickstarts/csharp.md
+    - name: Utilisation de Java
+      href: quickstarts/java.md
+    - name: Utilisation de Node.js
+      href: quickstarts/nodejs.md
+    - name: Utilisation de Python
+      href: quickstarts/python.md
+    expanded: true
+  - name: Foundation
+    items:
+    - name: Utilisation de C#
+      href: visual-search-sdk-c-sharp.md
+    - name: Utilisation de Node.js
+      href: visual-search-sdk-node.md
+    - name: Utilisation de Python
+      href: visual-search-sdk-python.md
+    expanded: true
 - name: Didacticiels
   items:
-  - name: Application web de chargement d’image
+  - name: Chargement d’une image
     href: tutorial-visual-search-image-upload.md
-  - name: Application web à page unique
-    href: tutorial-bing-visual-search-single-page-app.md
-  - name: Application web à page unique (code source)
-    href: tutorial-bing-visual-search-single-page-app-source.md
-  - name: Résultats et zone de rognage de l’image du SDK de Recherche visuelle Bing
+  - name: Rogner et rechercher dans une zone d’image
     href: tutorial-visual-search-crop-area-results.md
-  - name: Résultats et jeton d’informations de l’image du SDK de Recherche visuelle Bing
-    href: tutorial-visual-search-insights-token.md
 - name: Exemples
   items:
   - name: Exemples de code
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search
 - name: Concepts
   items:
+  - name: Envoi de requêtes
+    href: concepts/sending-queries.md
   - name: Informations sur les images par défaut
     href: default-insights-tag.md
   - name: Utilisation des informations Bing
@@ -59,11 +55,22 @@ items:
     href: use-and-display-requirements.md
   - name: Redimensionner et rogner les miniatures
     href: resize-and-crop-thumbnails.md
+  - name: Rechercher une image à l’aide de jetons d’insight d’image
+    href: tutorial-visual-search-insights-token.md
+  - name: Créer une application web monopage
+    href: tutorial-bing-visual-search-single-page-app.md
 - name: Informations de référence
   items:
   - name: API REST v7
     href: https://aka.ms/bingvisualsearchreferencedoc
-  expanded: true
+  - name: Kits de développement logiciel (SDK)
+    items:
+    - name: .NET
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet
+    - name: Java
+      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/visualsearch?view=azure-java-stable
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python
 - name: Ressources
   items:
   - name: Prise en charge de la région et de la langue
@@ -76,9 +83,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/bing-search
   - name: User Voice
     href: https://cognitive.uservoice.com/forums/555907-bing-search
-ms.openlocfilehash: f33e0fe7c13a7686c244d10297fd23e7ca59d452
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6291b480d8c1ba44f6c0306c090cdee3df1fec95
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432424"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789175"

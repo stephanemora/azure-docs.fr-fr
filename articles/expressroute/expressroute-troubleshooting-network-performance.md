@@ -1,25 +1,19 @@
 ---
-title: Résolution des problèmes de performances du réseau virtuel Azure | Microsoft Docs
+title: 'Résoudre les problèmes de performances de réseau virtuel : Azure | Microsoft Docs'
 description: Cette page fournit une méthode standardisée pour tester le niveau de performance de la liaison réseau Azure.
 services: expressroute
-documentationcenter: na
 author: tracsman
-manager: rossort
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 12/20/2017
 ms.author: jonor
-ms.openlocfilehash: 56f011632a2aa3ef0632efd5ace472c0fc79a329
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: seodec18
+ms.openlocfilehash: 2572ff3711fb86cda88a86744192980a5b2d5361
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27318772"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277622"
 ---
 # <a name="troubleshooting-network-performance"></a>Résolution des problèmes de performances réseau
 ## <a name="overview"></a>Vue d’ensemble
@@ -136,7 +130,7 @@ Si deux réseaux virtuels (réseaux virtuels A et B dans le diagramme) sont conn
 ### <a name="test-plan"></a>Plan de test
 1. Exécutez le test Get-LinkPerformance entre VM1 et VM2. Ce test indique si le problème est local ou non. Si ce test génère des résultats acceptables concernant la latence et la bande passante, vous pouvez marquer le réseau virtuel local comme étant correct.
 2. En supposant que le trafic du réseau virtuel local est correct, exécutez le test Get-LinkPerformance entre VM1 et VM3. Ce test teste la connexion via le réseau Microsoft jusqu’au MSEE, puis jusqu’à Azure. Si ce test génère des résultats acceptables concernant la latence et la bande passante, vous pouvez marquer le réseau Azure comme étant correct.
-3. Si Azure est écarté, vous pouvez effectuer une séquence similaire de tests sur votre réseau d’entreprise. Si ces tests sont également concluants, il est temps de collaborer avec votre fournisseur de services ou fournisseur de services Internet pour diagnostiquer votre connexion WAN. Exemple : Exécuter ce test entre deux succursales, ou entre votre bureau et un serveur de centre de données. Selon ce que vous testez, recherchez des points de terminaison (serveurs, PC, etc.) qui peuvent constituer ce chemin.
+3. Si Azure est écarté, vous pouvez effectuer une séquence similaire de tests sur votre réseau d’entreprise. Si ces tests sont également concluants, il est temps de collaborer avec votre fournisseur de services ou fournisseur de services Internet pour diagnostiquer votre connexion WAN. Exemple : Exécuter ce test entre deux succursales, ou entre votre bureau et un serveur de centre de données. Selon ce que vous testez, recherchez des points de terminaison (serveurs, PC, etc.) qui peuvent constituer ce chemin.
 
 >[!IMPORTANT]
 > Il est essentiel que pour chaque test vous notiez l’heure du jour à laquelle vous l’exécutez et que vous centralisiez l’enregistrement des résultats (j’ai un faible pour OneNote ou Excel). Chaque série de tests doit avoir une sortie identique afin que vous puissiez comparer les données résultantes entre les séries de tests et que vous n’ayez pas de « trous » dans les données. L’importance de la cohérence entre les différents tests est la raison principale qui m’amène à utiliser la boîte à outils AzureCT pour la résolution des problèmes. Ce ne sont pas les scénarios de charge exacts que j’exécute qui importent, mais le fait que j’obtiens une *sortie de données et de test cohérente* à l’issue de chaque test. Le fait d’enregistrer l’heure et d’avoir systématiquement des données cohérentes s’avère particulièrement utile si vous êtes amené à constater que le problème est sporadique. Faites preuve de diligence avec la collecte de données en amont ; vous devriez ainsi éviter de passer des heures à tester les mêmes scénarios plusieurs fois (je l’ai appris à mes dépens il y a de nombreuses années).
@@ -185,26 +179,26 @@ Configuration des tests :
 
 | | | | | | |
 |-|-|-|-|-|-|
-|ExpressRoute<br/>Lieu|Azure<br/>Région|Distance<br/>estimée (km)|Latency|1 Session<br/>Bande passante|Maximale<br/>Bande passante|
-| Seattle | Ouest des États-Unis 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s | 21
-| Seattle | États-Unis de l’Ouest          |  1.094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s | 20
-| Seattle | Centre des États-Unis       |  2.357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s | 17
-| Seattle | États-Unis - partie centrale méridionale |  2.877 km |  51 ms |  30,6 Mbits/s |  2,49 Gbits/s | 19
-| Seattle | Centre-Nord des États-Unis |  2.792 km |  55 ms |  27,7 Mbits/s |  2,19 Gbits/s | 18
-| Seattle | Est des États-Unis 2        |  3.769 km |  73 ms |  21,3 Mbits/s |  1,79 Gbit/s | 16
-| Seattle | Est des États-Unis          |  3.699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbit/s | 15
-| Seattle | Est du Japon       |  7.705 km | 106 ms |  14,6 Mbits/s |  1,22 Gbit/s | 28
+|ExpressRoute<br/>Lieu|Azure<br/>Région|Distance<br/>estimée (km)|Latence|1 Session<br/>Bande passante|Maximale<br/>Bande passante|
+| Seattle | USA Ouest 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s | 21
+| Seattle | USA Ouest          |  1.094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s | 20
+| Seattle | USA Centre       |  2.357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s | 17
+| Seattle | USA Centre Sud |  2.877 km |  51 ms |  30,6 Mbits/s |  2,49 Gbits/s | 19
+| Seattle | USA Centre Nord |  2.792 km |  55 ms |  27,7 Mbits/s |  2,19 Gbits/s | 18
+| Seattle | USA Est 2        |  3.769 km |  73 ms |  21,3 Mbits/s |  1,79 Gbit/s | 16
+| Seattle | USA Est          |  3.699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbit/s | 15
+| Seattle | Japon Est       |  7.705 km | 106 ms |  14,6 Mbits/s |  1,22 Gbit/s | 28
 | Seattle | Sud du Royaume-Uni         |  7.708 km | 146 ms |  10,6 Mbits/s |   896 Mbits/s | 24
-| Seattle | Europe de l'Ouest      |  7.834 km | 153 ms |  10,2 Mbits/s |   761 Mbits/s | 23
-| Seattle | Est de l’Australie   | 12.484 km | 165 ms |   9,4 Mbits/s |   794 Mbits/s | 26
-| Seattle | Asie du Sud-Est   | 12.989 km | 170 ms |   9,2 Mbits/s |   756 Mbits/s | 25
-| Seattle | Sud du Brésil *   | 10.930 km | 189 ms |   8,2 Mbits/s |   699 Mbits/s | 22
-| Seattle | Inde du Sud      | 12.918 km | 202 ms |   7,7 Mbits/s |   634 Mbits/s | 27
+| Seattle | Europe Ouest      |  7.834 km | 153 ms |  10,2 Mbits/s |   761 Mbits/s | 23
+| Seattle | Australie Est   | 12.484 km | 165 ms |   9,4 Mbits/s |   794 Mbits/s | 26
+| Seattle | Asie Sud-Est   | 12.989 km | 170 ms |   9,2 Mbits/s |   756 Mbits/s | 25
+| Seattle | Brésil Sud *   | 10.930 km | 189 ms |   8,2 Mbits/s |   699 Mbits/s | 22
+| Seattle | Inde Sud      | 12.918 km | 202 ms |   7,7 Mbits/s |   634 Mbits/s | 27
 
 \* La latence au Brésil est un bon exemple où la distance à vol d’oiseau diffère considérablement de la distance en fibre optique. Alors que la latence devrait normalement se situer aux alentours de 160 ms, elle s’élève à 189 ms. Cette différence par rapport à mes attentes pourrait indiquer un problème réseau quelque part, mais très probablement que la fibre optique en direction du Brésil n’emprunte pas une ligne droite, ce qui se traduit par un supplément de 1 000 km environ sur l’itinéraire entre Seattle et le Brésil.
 
-## <a name="next-steps"></a>étapes suivantes
-1. Télécharger la boîte à outils de connectivité Azure à partir de GitHub à l’adresse [http://aka.ms/AzCT][ACT].
+## <a name="next-steps"></a>Étapes suivantes
+1. Télécharger la boîte à outils de connectivité Azure à partir de GitHub à l’adresse [http://aka.ms/AzCT][ACT]
 2. Suivre les instructions pour [tester le niveau de performance des liaisons][Performance Doc].
 
 <!--Image References-->

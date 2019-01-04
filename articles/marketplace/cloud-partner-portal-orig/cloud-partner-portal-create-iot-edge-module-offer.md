@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d3cc1a09963c5f7fee613af24c63fd15b1cfffee
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: bf7d639c682e443f29b31b3c6d7438e89c406fde
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806053"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838631"
 ---
 # <a name="how-to-publish-a-new-iot-edge-module-in-the-cloud-partner-portal"></a>Comment publier un nouveau module IoT Edge sur le Portail Cloud Partner
 
@@ -53,7 +53,7 @@ Pour préparer votre liste de module IoT Edge, procédez comme suit :
 -   Connectez-vous à votre [compte CPP](https://cloudpartner.azure.com/).
 
 >[!Note]
->Pour obtenir des informations générales sur le Portail Cloud Partner, consultez la [ documentation d’apprentissage](https://cloudpartner.azure.com/#learn)
+>Pour obtenir des informations générales sur le Portail Cloud Partner, consultez la [ documentation d’apprentissage](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal)
 
 -   Sélectionnez **Nouvelle offre**, puis **Module IoT Edge**.
 
@@ -75,7 +75,7 @@ Dans l’onglet Paramètres de l’offre, entrez les informations de votre offre
 
 Chaque référence SKU correspond à une image de conteneur. Vous devez disposer d’au moins une référence SKU et vous pouvez en ajouter plusieurs. Une référence SKU comprend deux parties :
 
--   Métadonnées de la référence SKU
+-   Métadonnées de référence SKU
 
 -   Métadonnées de conteneur
 

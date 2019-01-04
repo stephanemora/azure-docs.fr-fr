@@ -1,6 +1,6 @@
 ---
-title: Mise à niveau vers la version v1.1 du Kit de développement logiciel (SDK) .NET Recherche Azure | Microsoft Docs
-description: Mise à niveau vers la version du Kit de développement logiciel Azure Search .NET SDK version 1.1
+title: Mise à niveau vers le Kit de développement logiciel (SDK) .NET Recherche Azure version 1.1 - Recherche Azure
+description: Migrez le code vers le Kit de développement logiciel (SDK) .NET Recherche Azure version 1.1 à partir de versions d’API antérieures. Découvrez les nouveautés et les modifications de code nécessaires.
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,12 +9,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: ccefd21e2aa89a2b46129956b3c4417d548cbf32
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 82823bae76521080634d4f7ff285d94ce8495fbf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796742"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317285"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>Mise à niveau vers la version du Kit de développement logiciel Azure Search .NET SDK version 1.1
 
@@ -47,15 +48,15 @@ Enfin, une fois que vous avez résolu les erreurs de build, vous pouvez apporter
 
 <a name="ListOfChangesV1"></a>
 
-### <a name="list-of-breaking-changes-in-version-11"></a>Liste des dernières modifications dans la version 1.1
+## <a name="list-of-breaking-changes-in-version-11"></a>Liste des dernières modifications dans la version 1.1
 La liste qui suit est classée selon la probabilité que la modification affecte votre code d’application.
 
-#### <a name="indexbatch-and-indexaction-changes"></a>Modifications IndexBatch et IndexAction
+### <a name="indexbatch-and-indexaction-changes"></a>Modifications IndexBatch et IndexAction
 `IndexBatch.Create` a été renommé `IndexBatch.New` et ne comporte plus d’argument `params`. Vous pouvez utiliser `IndexBatch.New` pour les lots qui combinent différents types d’actions (fusions, suppressions, etc.). En outre, voici les nouvelles méthodes statiques pour la création de lots comportant tous les mêmes actions : `Delete`, `Merge`, `MergeOrUpload` et `Upload`.
 
 `IndexAction` ne contient plus de constructeurs publics et ses propriétés sont immuables. Vous devez utiliser les nouvelles méthodes statiques pour la création d’actions à des fins différentes : `Delete`, `Merge`, `MergeOrUpload` et `Upload`. `IndexAction.Create` a été supprimé. Si vous avez utilisé la surcharge qui accepte uniquement un document, veillez à utiliser `Upload` à la place.
 
-##### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemples
 Si votre code ressemble à ce qui suit :
 
     var batch = IndexBatch.Create(documents.Select(doc => IndexAction.Create(doc)));
@@ -71,10 +72,10 @@ Si vous le souhaitez, vous pouvez encore le simplifier en le ramenant à ce qui 
     var batch = IndexBatch.Upload(documents);
     indexClient.Documents.Index(batch);
 
-#### <a name="indexbatchexception-changes"></a>Modifications IndexBatchException
+### <a name="indexbatchexception-changes"></a>Modifications IndexBatchException
 La propriété `IndexBatchException.IndexResponse` a été renommée `IndexingResults`, et son type est désormais `IList<IndexingResult>`.
 
-##### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemples
 Si votre code ressemble à ce qui suit :
 
     catch (IndexBatchException e)
@@ -95,7 +96,7 @@ vous pouvez le modifier pour résoudre les éventuelles erreurs de build :
 
 <a name="OperationMethodChanges"></a>
 
-#### <a name="operation-method-changes"></a>Modifications des méthodes d’opération
+### <a name="operation-method-changes"></a>Modifications des méthodes d’opération
 Chaque opération du kit de développement logiciel .NET Azure Search est exposée en tant qu’ensemble de chargements de méthode pour les appelants synchrones et asynchrones. Les signatures et la factorisation de ces surcharges de méthode ont changé dans la version 1.1.
 
 Par exemple, l’opération « Obtenir des statistiques d’Index » dans les versions antérieures du kit de développement expose ces signatures :
@@ -151,10 +152,10 @@ Dans `IndexesOperationsExtensions`:
 * Les méthodes d’extension masquent maintenant un grand nombre des détails superflus de HTTP de la part de l’appelant. Par exemple, les versions antérieures du SDK ont renvoyé un objet de réponse avec un code d’état HTTP, que vous n’avez pas besoin de contrôler, car les méthodes de fonctionnement lèvent `CloudException` pour un code d’état qui signale une erreur. Les nouvelles méthodes d’extension ne retournent que des objets de modèle, ce qui vous évite de les désencapsuler dans votre code.
 * À l’inverse, les principales interfaces exposent maintenant les méthodes qui vous offrent davantage de contrôle au niveau HTTP si vous en avez besoin. Vous pouvez maintenant transférer des en-têtes HTTP personnalisés à inclure dans les demandes et le nouveau type de retour `AzureOperationResponse<T>` vous donne un accès direct à `HttpRequestMessage` et à `HttpResponseMessage` pour l’opération. `AzureOperationResponse` est défini dans l’espace de noms `Microsoft.Rest.Azure` et remplace `Hyak.Common.OperationResponse`.
 
-#### <a name="scoringparameters-changes"></a>Modifications ScoringParameters
+### <a name="scoringparameters-changes"></a>Modifications ScoringParameters
 Une nouvelle classe nommée `ScoringParameter` a été ajoutée à la dernière version du Kit de développement logiciel (SDK) pour faciliter la fourniture de paramètres de profils de score dans une requête de recherche. Précédemment, la propriété `ScoringProfiles` de la classe `SearchParameters` était de type `IList<string>`. À présent, elle est de type `IList<ScoringParameter>`.
 
-##### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemples
 Si votre code ressemble à ce qui suit :
 
     var sp = new SearchParameters();
@@ -172,7 +173,7 @@ vous pouvez le modifier pour résoudre les éventuelles erreurs de build :
             new ScoringParameter("mapCenterParam", GeographyPoint.Create(lat, lon))
         };
 
-#### <a name="model-class-changes"></a>Modifications de modèles de classe
+### <a name="model-class-changes"></a>Modifications de modèles de classe
 En raison des modifications de signature décrites dans [Modifications des méthodes d’opération](#OperationMethodChanges), de nombreuses classes de l’espace de noms `Microsoft.Azure.Search.Models` ont été renommées ou supprimées. Par exemple : 
 
 * `IndexDefinitionResponse` a été remplacé par `AzureOperationResponse<Index>`
@@ -184,7 +185,7 @@ En raison des modifications de signature décrites dans [Modifications des méth
 
 Pour résumer, les classes dérivées de `OperationResponse`qui servaient uniquement à encapsuler un objet de modèle ont été supprimées. Les classes restantes ont vu leur suffixe passer de `Response` à `Result`.
 
-##### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemples
 Si votre code ressemble à ce qui suit :
 
     IndexerGetStatusResponse statusResponse = null;
@@ -217,7 +218,7 @@ vous pouvez le modifier pour résoudre les éventuelles erreurs de build :
 
     IndexerExecutionResult lastResult = status.LastResult;
 
-##### <a name="response-classes-and-ienumerable"></a>Les classes de réponse et IEnumerable
+#### <a name="response-classes-and-ienumerable"></a>Les classes de réponse et IEnumerable
 Une modification supplémentaire pouvant affecter votre code est que les classes de réponse contenant des collections ne sont plus mises en œuvre `IEnumerable<T>`. Au lieu de cela, vous pourrez directement accéder à la propriété de collection. Par exemple, si votre code ressemble à ceci :
 
     DocumentSearchResponse<Hotel> response = indexClient.Documents.Search<Hotel>(searchText, sp);
@@ -234,7 +235,7 @@ vous pouvez le modifier pour résoudre les éventuelles erreurs de build :
         Console.WriteLine(result.Document);
     }
 
-##### <a name="special-case-for-web-applications"></a>Cas particulier pour les applications web
+#### <a name="special-case-for-web-applications"></a>Cas particulier pour les applications web
 Si vous disposez d’une application web qui sérialise `DocumentSearchResponse` directement pour envoyer des résultats de recherche au navigateur, vous devez modifier votre code sinon les résultats ne seront pas sérialisés correctement. Par exemple, si votre code ressemble à ceci :
 
     public ActionResult Search(string q = "")
@@ -267,10 +268,10 @@ Vous pouvez le modifier en faisant en sorte que la propriété `.Results` de la 
 
 Vous devrez rechercher ces cas dans votre code vous-même. **Le compilateur ne vous avertira pas** parce que `JsonResult.Data` est de type `object`.
 
-#### <a name="cloudexception-changes"></a>Modifications CloudException
+### <a name="cloudexception-changes"></a>Modifications CloudException
 La classe `CloudException` a été déplacée de l’espace de noms `Hyak.Common` à l’espace de noms `Microsoft.Rest.Azure`. En outre, sa propriété `Error` a été renommée en `Body`.
 
-#### <a name="searchserviceclient-and-searchindexclient-changes"></a>Modifications de SearchServiceClient et SearchIndexClient
+### <a name="searchserviceclient-and-searchindexclient-changes"></a>Modifications de SearchServiceClient et SearchIndexClient
 Le type de la propriété `Credentials` est passé de `SearchCredentials` à sa classe de base, `ServiceClientCredentials`. Si vous avez besoin d’accéder à l’élément `SearchCredentials` d’un élément `SearchIndexClient` ou `SearchServiceClient`, veuillez utiliser la nouvelle propriété `SearchCredentials`.
 
 Dans les versions antérieures du Kit de développement logiciel (SDK), `SearchServiceClient` et `SearchIndexClient` avaient des constructeurs incluant un paramètre `HttpClient`. Ils ont été remplacés par des constructeurs qui incluent un élément `HttpClientHandler` et un tableau d’objets `DelegatingHandler`. Cela facilite l’installation de gestionnaires personnalisés pour pré-traiter des demandes HTTP si nécessaire.
@@ -291,7 +292,7 @@ vous pouvez le modifier pour résoudre les éventuelles erreurs de build :
 
 Notez également que le type du paramètre d’informations d’identification a été modifié en `ServiceClientCredentials`. Il est peu probable que cela affecte votre code, car l’élément `SearchCredentials` est dérivé de `ServiceClientCredentials`.
 
-#### <a name="passing-a-request-id"></a>Transfert d’un ID de requête
+### <a name="passing-a-request-id"></a>Transfert d’un ID de requête
 Dans les versions antérieures du Kit de développement logiciel (SDK), vous pouviez définir un ID de demande sur `SearchServiceClient` ou `SearchIndexClient`, et il était inclus dans chaque demande adressée à l’API REST. Cela peut s’avérer utile pour résoudre les problèmes de votre service de recherche si vous devez contacter le support technique. Cependant, il peut être plus utile de définir un ID de requête unique pour chaque opération plutôt que d’utiliser le même ID pour toutes les informations. Pour cette raison, les méthodes `SetClientRequestId` de `SearchServiceClient` et `SearchIndexClient` ont été supprimées. Vous pouvez en revanche transférer un ID de demande à chaque méthode d’opération avec le paramètre facultatif `SearchRequestOptions` .
 
 > [!NOTE]
@@ -299,7 +300,7 @@ Dans les versions antérieures du Kit de développement logiciel (SDK), vous pou
 > 
 > 
 
-#### <a name="example"></a>Exemples
+### <a name="example"></a>Exemples
 Si vous avez un code qui ressemble à ce qui suit :
 
     client.SetClientRequestId(Guid.NewGuid());
@@ -310,7 +311,7 @@ vous pouvez le modifier pour résoudre les éventuelles erreurs de build :
 
     long count = client.Documents.Count(new SearchRequestOptions(requestId: Guid.NewGuid()));
 
-#### <a name="interface-name-changes"></a>Modifications de nom d’interface
+### <a name="interface-name-changes"></a>Modifications de nom d’interface
 Les noms d’interface du groupe d’opération ont tous changé pour être cohérents avec les noms de propriété correspondants :
 
 * Le type de `ISearchServiceClient.Indexes` a été renommé de `IIndexOperations` en `IIndexesOperations`.
@@ -322,17 +323,17 @@ Cette modification n’affectera probablement pas votre code, à moins que vous 
 
 <a name="BugFixesV1"></a>
 
-### <a name="bug-fixes-in-version-11"></a>Résolution des bogues dans la version 1.1
+## <a name="bug-fixes-in-version-11"></a>Résolution des bogues dans la version 1.1
 Les versions antérieures du kit de développement logiciel .NET Azure Search relatif à la sérialisation de classes de modèle personnalisé présentaient un bogue. Le bogue peut se produire si vous avez créé une classe de modèle personnalisé avec une propriété de type de valeur ne pouvant être définie sur null.
 
-#### <a name="steps-to-reproduce"></a>Opérations à reproduire
+### <a name="steps-to-reproduce"></a>Opérations à reproduire
 Créez une classe de modèle personnalisé avec une propriété de type avec valeur ne pouvant être définie sur null. Par exemple, ajoutez une propriété `UnitCount` publique de type `int` au lieu de `int?`.
 
 Si vous indexez un document avec une valeur par défaut de ce type (par exemple, 0 pour `int`), le champ sera null dans Azure Search. Si par la suite vous recherchez ce document, l’appel `Search` lancera une exception `JsonSerializationException` signalant qu’il est impossible de convertir `null` en `int`.
 
 Les filtres peuvent également ne pas fonctionner comme prévu car c’est la valeur null qui est inscrite dans l’index, en non la valeur attendue.
 
-#### <a name="fix-details"></a>Corriger des détails
+### <a name="fix-details"></a>Corriger des détails
 Nous avons résolu ce problème dans la version 1.1 du Kit de développement logiciel (SDK). Maintenant, si vous avez une classe de modèle comme suit :
 
     public class Model
@@ -344,7 +345,7 @@ Nous avons résolu ce problème dans la version 1.1 du Kit de développement lo
 
 et si vous définissez `IntValue` sur 0, cette valeur est correctement sérialisée en tant que 0 sur le câble et stockée en tant que 0 dans l’index. Le retour fonctionne également comme prévu.
 
-Cette approche présente un problème à ne pas ignorer : si vous utilisez un type de modèle avec une propriété ne pouvant être définie sur null, vous devez **garantir** qu’aucun document dans votre index ne contient de valeur null pour le champ correspondant. Ni le kit de développement logiciel ni l’API REST Azure Search ne vous aideront à appliquer cette recommandation.
+Cette approche risque d’engendrer un problème : si vous utilisez un type de modèle avec une propriété ne pouvant être définie sur null, vous devez **garantir** qu’aucun document de cet index ne contient de valeur null pour le champ correspondant. Ni le kit de développement logiciel ni l’API REST Azure Search ne vous aideront à appliquer cette recommandation.
 
 Il ne s’agit pas d’une préoccupation hypothétique : imaginez un scénario dans lequel vous ajoutez un nouveau champ à un index existant qui est de type `Edm.Int32`. Après la mise à jour de la définition d’index, ce nouveau champ prendra la valeur null pour tous les documents (car tous les types peuvent avoir la valeur null dans Azure Search). Si vous utilisez ensuite une classe de modèle avec une propriété `int` ne pouvant être définie sur null pour ce champ, vous obtiendrez l’exception `JsonSerializationException` ci-dessous lorsque vous tenterez de récupérer des documents :
 

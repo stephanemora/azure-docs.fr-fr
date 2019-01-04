@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f7d13c946ce9d74d23ceef63c31e3858591ae42e
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b297be16110e24342b224f7f89c2a3c0c44229a9
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637704"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341404"
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnostics dans Fonctions durables (Azure Functions)
 
@@ -31,25 +31,27 @@ L’extension Fonctions durables d’Azure émet également des *événements de
 
 Chaque événement du cycle de vie d’une instance d’orchestration entraîne l’inscription d’un événement de suivi dans la collection des **suivis** d’Application Insights. Cet événement contient une charge utile **customDimensions** avec plusieurs champs.  Les noms de champs contiennent tous le préfixe `prop__`.
 
-* **hubName** : nom du hub de tâches dans lequel vos orchestrations sont en cours d’exécution.
-* **appName** : nom de l’application de fonction. Utile si plusieurs de vos applications de fonction partagent la même instance Application Insights.
-* **slotName**: [emplacement de déploiement](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/) dans lequel s’exécute l’application de fonction actuelle. Utile pour tirer parti des emplacements de déploiement pour la version de vos orchestrations.
-* **functionName**: nom de la fonction d’orchestrateur ou d’activité.
-* **functionType** : type de la fonction, par exemple **Orchestrateur** or **Activité**.
-* **instanceId** : ID unique de l’instance d’orchestration.
-* **state** : état d’exécution du cycle de vie de l’instance. Les valeurs valides incluent :
-    * **Scheduled** : la fonction a été planifiée pour être exécutée, mais elle n’a pas encore démarré.
-    * **Started** : la fonction a démarré, mais elle n’a pas encore été attendue ou s’est terminée.
-    * **Awaited** : l’orchestrateur a planifié des tâches et attend qu’elles se terminent.
-    * **Listening** : l’orchestrateur écoute une notification d’événement externe.
-    * **Completed** : la fonction s’est terminée avec succès.
-    * **Failed** : la fonction a échoué avec une erreur.
-* **reason**: données supplémentaires associées à l’événement de suivi. Par exemple, si une instance attend une notification d’événement externe, ce champ indique le nom de l’événement attendu. Si une fonction a échoué, il contient les détails de l’erreur.
-* **isReplay** : valeur booléenne qui indique si l’événement de suivi est destiné à une réexécution.
-* **extensionVersion** : version de l’extension Tâche durable. Ces données sont particulièrement importantes pour signaler d’éventuels bogues dans l’extension. Des instances à long terme peuvent signaler plusieurs versions si une mise à jour se produit pendant leur exécution. 
-* **sequenceNumber** : numéro séquentiel d’extension pour un événement. Combiné avec le timestamp, il permet de classer les événements par durée d’exécution. *Notez que ce numéro sera réinitialisé à zéro si l’hôte redémarre alors que l’instance est en cours d’exécution, il est donc important de toujours d’abord trier par timestamp, puis par sequenceNumber.*
+* **hubName** : Nom du hub de tâches dans lequel vos orchestrations sont en cours d’exécution.
+* **appName** : Le nom de l’application de fonction. Utile si plusieurs de vos applications de fonction partagent la même instance Application Insights.
+* **slotName** : [emplacement de déploiement](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/) dans lequel s’exécute l’application de fonction actuelle. Utile pour tirer parti des emplacements de déploiement pour la version de vos orchestrations.
+* **functionName** : Nom de la fonction d’orchestrateur ou d’activité.
+* **functionType** : Type de la fonction, par exemple **Orchestrateur** ou **Activité**.
+* **instanceId** : ID unique de l’instance d’orchestration.
+* **state** : État d’exécution du cycle de vie de l’instance. Les valeurs valides incluent :
+  * **Scheduled** : La fonction a été planifiée pour être exécutée, mais elle n’a pas encore démarré.
+  * **Started** : La fonction a démarré, mais elle n’a pas encore été attendue ou s’est terminée.
+  * **Awaited** : L’orchestrateur a planifié des tâches et attend qu’elles se terminent.
+  * **Listening** : L’orchestrateur écoute une notification d’événement externe.
+  * **Completed** : La fonction s’est terminée avec succès.
+  * **Failed** : La fonction a échoué avec une erreur.
+* **reason** : Données supplémentaires associées à l’événement de suivi. Par exemple, si une instance attend une notification d’événement externe, ce champ indique le nom de l’événement attendu. Si une fonction a échoué, il contient les détails de l’erreur.
+* **isReplay** : Valeur booléenne qui indique si l’événement de suivi est destiné à une réexécution.
+* **extensionVersion** : Version de l’extension Tâche durable. Ces données sont particulièrement importantes pour signaler d’éventuels bogues dans l’extension. Des instances à long terme peuvent signaler plusieurs versions si une mise à jour se produit pendant leur exécution.
+* **sequenceNumber** : Numéro séquentiel d’extension pour un événement. Combiné avec le timestamp, il permet de classer les événements par durée d’exécution. *Notez que ce numéro sera réinitialisé à zéro si l’hôte redémarre alors que l’instance est en cours d’exécution, il est donc important de toujours d’abord trier par timestamp, puis par sequenceNumber.*
 
-Le niveau de détail des données de suivi transmises à Application Insights peut être configuré dans la section `logger` du fichier `host.json`.
+Le niveau de détail des données de suivi transmises à Application Insights peut être configuré dans la section `logger` (Functions 1.x) ou `logging` (Functions 2.x) du fichier `host.json`.
+
+#### <a name="functions-1x"></a>Functions 1.x
 
 ```json
 {
@@ -63,9 +65,23 @@ Le niveau de détail des données de suivi transmises à Application Insights pe
 }
 ```
 
+#### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+    "logging": {
+        "logLevel": {
+          "Host.Triggers.DurableTask": "Information",
+        },
+    }
+}
+```
+
 Par défaut, tous les événements de suivi non rejoués sont transmis. Le volume de données peut être réduit en définissant `Host.Triggers.DurableTask` sur `"Warning"` ou `"Error"`. Dans ce cas, les événements de suivi seront uniquement transmis en cas de situation exceptionnelle.
 
 Pour activer l’émission d’événements de relecture d’orchestration détaillée, `LogReplayEvents` peut être défini sur `true` dans le fichier `host.json` sous `durableTask` comme indiqué :
+
+#### <a name="functions-1x"></a>Functions 1.x
 
 ```json
 {
@@ -75,12 +91,24 @@ Pour activer l’émission d’événements de relecture d’orchestration déta
 }
 ```
 
+#### <a name="functions-2x"></a>Functions 2.x
+
+```javascript
+{
+    "extensions": {
+        "durableTask": {
+            "logReplayEvents": true
+        }
+    }
+}
+```
+
 > [!NOTE]
 > Par défaut, les données de télémétrie Application Insights sont échantillonnées par le runtime Azure Functions pour éviter un transfert trop fréquent de données. Cela peut entraîner une perte des informations de suivi si de nombreux événements de cycle de vie se produisent sur une courte période. L’article sur [la surveillance d’Azure Functions](../functions-monitoring.md#configure-sampling) explique comment configurer ce comportement.
 
 ### <a name="single-instance-query"></a>Requête d’instance unique
 
-La requête suivante affiche les données de suivi historiques d’une seule instance de la fonction d’orchestration [Séquence Hello](durable-functions-sequence.md). Elle s’écrit à l’aide du langage [Application Insights Query Language (AIQL)](https://aka.ms/LogAnalyticsLanguageReference). Elle exclut la réexécution afin que seul le chemin d’exécution *logique* s’affiche. Les événements peuvent être classés en les triant par `timestamp` et `sequenceNumber` comme indiqué dans la requête ci-dessous : 
+La requête suivante affiche les données de suivi historiques d’une seule instance de la fonction d’orchestration [Séquence Hello](durable-functions-sequence.md). Elle s’écrit à l’aide du langage [Application Insights Query Language (AIQL)](https://aka.ms/LogAnalyticsLanguageReference). Elle exclut la réexécution afin que seul le chemin d’exécution *logique* s’affiche. Les événements peuvent être classés en les triant par `timestamp` et `sequenceNumber` comme indiqué dans la requête ci-dessous :
 
 ```AIQL
 let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
@@ -92,7 +120,7 @@ traces
 | extend instanceId = customDimensions["prop__instanceId"]
 | extend state = customDimensions["prop__state"]
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
-| extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
+| extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"])
 | where isReplay != true
 | where instanceId == targetInstanceId
 | sort by timestamp asc, sequenceNumber asc
@@ -102,7 +130,6 @@ traces
 Le résultat est une liste d’événements de suivi indiquant le chemin d’exécution de l’orchestration, y compris toutes les fonctions d’activité triées par durée d’exécution par ordre ascendant.
 
 ![Requête Application Insights](./media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
-
 
 ### <a name="instance-summary-query"></a>Requête de résumé de l’instance
 
@@ -123,6 +150,7 @@ traces
 | project timestamp, instanceId, functionName, state, output, appName = cloud_RoleName
 | order by timestamp asc
 ```
+
 Le résultat est une liste d’ID d’instances et leur actuel état d’exécution.
 
 ![Requête Application Insights](./media/durable-functions-diagnostics/app-insights-single-summary-query.png)
@@ -131,24 +159,24 @@ Le résultat est une liste d’ID d’instances et leur actuel état d’exécut
 
 Il est important de garder à l’esprit le comportement de réexécution de l’orchestrateur lors de l’écriture des journaux directement à partir d’une fonction d’orchestrateur. Par exemple, considérez la fonction d’orchestrateur suivante :
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```cs
 public static async Task Run(
-    DurableOrchestrationContext ctx,
+    DurableOrchestrationContext context,
     ILogger log)
 {
     log.LogInformation("Calling F1.");
-    await ctx.CallActivityAsync("F1");
+    await context.CallActivityAsync("F1");
     log.LogInformation("Calling F2.");
-    await ctx.CallActivityAsync("F2");
+    await context.CallActivityAsync("F2");
     log.LogInformation("Calling F3");
-    await ctx.CallActivityAsync("F3");
+    await context.CallActivityAsync("F3");
     log.LogInformation("Done!");
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
 ```javascript
 const df = require("durable-functions");
@@ -188,20 +216,20 @@ Si vous souhaitez uniquement consigner une non réexécution, vous pouvez écrir
 
 ```cs
 public static async Task Run(
-    DurableOrchestrationContext ctx,
+    DurableOrchestrationContext context,
     ILogger log)
 {
-    if (!ctx.IsReplaying) log.LogInformation("Calling F1.");
-    await ctx.CallActivityAsync("F1");
-    if (!ctx.IsReplaying) log.LogInformation("Calling F2.");
-    await ctx.CallActivityAsync("F2");
-    if (!ctx.IsReplaying) log.LogInformation("Calling F3");
-    await ctx.CallActivityAsync("F3");
+    if (!context.IsReplaying) log.LogInformation("Calling F1.");
+    await context.CallActivityAsync("F1");
+    if (!context.IsReplaying) log.LogInformation("Calling F2.");
+    await context.CallActivityAsync("F2");
+    if (!context.IsReplaying) log.LogInformation("Calling F3");
+    await context.CallActivityAsync("F3");
     log.LogInformation("Done!");
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
 ```javascript
 const df = require("durable-functions");
@@ -230,21 +258,36 @@ Done!
 
 L’état d’orchestration personnalisé vous permet de définir une valeur d’état personnalisée pour votre fonction d’orchestrateur. Cet état est fourni par le biais de l’API de requête d’état HTTP ou l’API `DurableOrchestrationClient.GetStatusAsync`. L’état d’une orchestration personnalisée permet de surveiller plus précisément les fonctions d’orchestrateur. Par exemple, le code de fonction d’orchestrateur peut inclure les appels `DurableOrchestrationContext.SetCustomStatus` afin de mettre à jour la progression d’une opération de longue durée. Un client, comme une page web ou un autre système externe, peut ensuite interroger régulièrement les API de requête d’état HTTP pour en savoir plus sur l’état d’avancement. Voici un exemple de syntaxe utilisant `DurableOrchestrationContext.SetCustomStatus` :
 
+### <a name="c"></a>C#
+
 ```csharp
-public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext ctx)
+public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext context)
 {
     // ...do work...
 
     // update the status of the orchestration with some arbitrary data
     var customStatus = new { completionPercentage = 90.0, status = "Updating database records" };
-    ctx.SetCustomStatus(customStatus);
+    context.SetCustomStatus(customStatus);
 
     // ...do more work...
 }
 ```
 
-> [!NOTE]
-> Les statuts d’orchestration personnalisés pour JavaScript seront disponibles dans une prochaine version.
+### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    // ...do work...
+
+    // update the status of the orchestration with some arbitrary data
+    const customStatus = { completionPercentage: 90.0, status: "Updating database records", };
+    context.df.setCustomStatus(customStatus);
+
+    // ...do more work...
+});
+```
 
 Pendant l’exécution de l’orchestration, les clients externes peuvent récupérer cet état personnalisé :
 
@@ -253,7 +296,7 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 
 ```
 
-Les clients obtiennent la réponse suivante : 
+Les clients obtiennent la réponse suivante :
 
 ```http
 {
@@ -267,15 +310,15 @@ Les clients obtiennent la réponse suivante :
 ```
 
 > [!WARNING]
->  La charge utile de l’état personnalisé est limitée à 16 Ko de texte JSON UTF-16, car elle doit pouvoir tenir dans une colonne de Stockage Table Azure. Vous pouvez utiliser un stockage externe si vous avez besoin d’une charge utile plus importante.
+> La charge utile de l’état personnalisé est limitée à 16 Ko de texte JSON UTF-16, car elle doit pouvoir tenir dans une colonne de Stockage Table Azure. Vous pouvez utiliser un stockage externe si vous avez besoin d’une charge utile plus importante.
 
 ## <a name="debugging"></a>Débogage
 
 Azure Functions prend directement en charge un code de fonction de débogage, et cette prise en charge s’applique également à Fonctions durables, que ce soit avec une exécution dans Azure ou localement. Toutefois, vous devez tenir compte de certains comportements lors du débogage :
 
-* **Réexécution** : les fonctions d’orchestrateur sont régulièrement réexécutées lors de la réception de nouvelles entrées. Cela signifie qu’une seule exécution *logique* d’une fonction d’orchestrateur peut atteindre le même point d’arrêt plusieurs fois, en particulier si elle est définie très tôt dans le code de la fonction.
-* **Await** : chaque fois qu’un événement `await` est rencontré, le contrôle repasse au répartiteur Durable Task Framework. Si c’est la première fois qu’un événement `await` particulier est détecté, la tâche associée n’est *jamais* reprise. Puisque la tâche ne reprend jamais, vous ne pouvez pas *parcourir* l’événement await (F10 dans Visual Studio). Parcourez uniquement des travaux lorsqu’une tâche est réexécutée.
-* **Délais d’expiration des messages** : Durable Functions utilise en interne des files d’attente de messages pour gérer l’exécution des fonctions d’orchestrateur et d’activité. Dans un environnement à plusieurs machines virtuelles, si vous arrêtez le débogage pendant de longues périodes, une autre machine virtuelle risque de récupérer le message, ce qui entraîne une double exécution. Ce comportement s’applique également aux fonctions déclenchées par une file d’attente standard, mais il est important de le souligner car les files d’attente constituent un détail d’implémentation.
+* **Réexécution** : Les fonctions Orchestrator sont régulièrement réexécutées lors de la réception de nouvelles entrées. Cela signifie qu’une seule exécution *logique* d’une fonction d’orchestrateur peut atteindre le même point d’arrêt plusieurs fois, en particulier si elle est définie très tôt dans le code de la fonction.
+* **Await** : Chaque fois qu’un événement `await` est rencontré, le contrôle repasse au répartiteur Durable Task Framework. Si c’est la première fois qu’un événement `await` particulier est détecté, la tâche associée n’est *jamais* reprise. Puisque la tâche ne reprend jamais, vous ne pouvez pas *parcourir* l’événement await (F10 dans Visual Studio). Parcourez uniquement des travaux lorsqu’une tâche est réexécutée.
+* **Délais d’expiration des messages** : Durable Functions utilise en interne des files d’attente de messages pour gérer l’exécution des fonctions d’orchestrateur et d’activité. Dans un environnement à plusieurs machines virtuelles, si vous arrêtez le débogage pendant de longues périodes, une autre machine virtuelle risque de récupérer le message, ce qui entraîne une double exécution. Ce comportement s’applique également aux fonctions déclenchées par une file d’attente standard, mais il est important de le souligner car les files d’attente constituent un détail d’implémentation.
 
 > [!TIP]
 > Lors de la définition de points d’arrêt, si vous voulez uniquement arrêter en cas de non réexécution, vous pouvez définir un point d’arrêt conditionnel qui s’arrête uniquement si `IsReplaying` est `false`.

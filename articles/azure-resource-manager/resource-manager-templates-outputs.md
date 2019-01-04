@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: e3c5a581b02f1dd7b7415ebd93de0e425ac2f8ae
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 85aab429fd59afd36cd026e6d8aef2b7e6f6e122
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358363"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140453"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Section outputs des modèles Azure Resource Manager
 Dans la section des sorties, vous spécifiez des valeurs retournées à partir du déploiement. Par exemple, vous pouvez retourner l'URI d'accès à une ressource déployée.
@@ -48,7 +48,9 @@ Pour l’interface de ligne de commande Azure, consultez :
 az group deployment show -g <resource-group-name> -n <deployment-name> --query properties.outputs.resourceID.value
 ```
 
-Vous pouvez récupérer la valeur de sortie à partir d’un modèle lié à l’aide de la fonction [reference](resource-group-template-functions-resource.md#reference). Pour obtenir une valeur de sortie d’un modèle lié, récupérez la valeur de propriété à l’aide d’une syntaxe comme : `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
+Vous pouvez récupérer la valeur de sortie à partir d’un modèle lié à l’aide de la fonction [reference](resource-group-template-functions-resource.md#reference). Pour obtenir une valeur de sortie d’un modèle lié, récupérez la valeur de propriété à l’aide d’une syntaxe comme : `"[reference('deploymentName').outputs.propertyName.value]"`.
+
+Lors de l’obtention d’une propriété de sortie à partir d’un modèle lié, le nom de propriété ne peut pas inclure de tiret.
 
 Par exemple, vous pouvez définir l’adresse IP sur un équilibreur de charge en récupérant une valeur à partir d’un modèle lié.
 
@@ -58,7 +60,7 @@ Par exemple, vous pouvez définir l’adresse IP sur un équilibreur de charge e
 }
 ```
 
-Vous ne pouvez pas utiliser la fonction `reference` dans la section outputs d’un [modèle imbriqué](resource-group-linked-templates.md#link-or-nest-a-template). Pour renvoyer les valeurs d’une ressource déployée dans un modèle imbriqué, convertissez votre modèle imbriqué en modèle lié.
+Vous ne pouvez pas utiliser la fonction `reference` dans la section de sortie d’un [modèle imbriqué](resource-group-linked-templates.md#link-or-nest-a-template). Pour renvoyer les valeurs d’une ressource déployée dans un modèle imbriqué, convertissez votre modèle imbriqué en modèle lié.
 
 ## <a name="available-properties"></a>Propriétés disponibles
 
@@ -75,9 +77,9 @@ L'exemple suivant illustre la structure de la définition d'une sortie :
 
 | Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
-| outputName |OUI |Nom de la valeur de sortie. Doit être un identificateur JavaScript valide. |
-| Type |OUI |Type de la valeur de sortie. Les valeurs de sortie prennent en charge les mêmes types que les paramètres d'entrée du modèle. |
-| value |OUI |Expression du langage du modèle évaluée et retournée sous forme de valeur de sortie. |
+| outputName |Oui |Nom de la valeur de sortie. Doit être un identificateur JavaScript valide. |
+| Type |Oui |Type de la valeur de sortie. Les valeurs de sortie prennent en charge les mêmes types que les paramètres d'entrée du modèle. |
+| value |Oui |Expression du langage du modèle évaluée et retournée sous forme de valeur de sortie. |
 
 ## <a name="recommendations"></a>Recommandations
 

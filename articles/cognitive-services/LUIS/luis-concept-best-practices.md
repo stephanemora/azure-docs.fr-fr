@@ -1,21 +1,22 @@
 ---
-title: Bonnes pratiques pour la création d’applications avec LUIS - Language Understanding
-titleSuffix: Azure Cognitive Services
-description: Découvrez les meilleures pratiques LUIS pour obtenir des résultats optimaux.
+title: Bonnes pratiques
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Découvrez les bonnes pratiques LUIS pour obtenir les meilleurs résultats à partir du modèle de votre application LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6b7b9c8a2a3e7da1628ef3e6f93a4b632ce38615
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: e63d6ed584c0e8afc823bbcdc6e70ceabbf43db6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637778"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085278"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Bonnes pratiques pour la création d’une application Language Understanding avec Cognitive Services
 Suivez le processus de création d’applications pour générer votre application LUIS. 
@@ -50,10 +51,10 @@ Si le vocabulaire des deux intentions est identique, combinez l’intention et u
 
 Prenons les exemples d’énoncés suivants :
 
-```
-Book a flight
-Book a hotel
-```
+|Exemples d’énoncés|
+|--|
+|Book a flight|
+|Book a hotel|
 
 « Book a flight » (« Réserver un vol ») et « Book a hotel » (« Réserver un hôtel ») utilisent le même vocabulaire « Book a » (« Réserver un »). Il y a chevauchement ; il doit donc s’agir de la même intention avec différentes entités extraites pour les mots « flight » (« vol ») et « hotel » (« hôtel »). 
 

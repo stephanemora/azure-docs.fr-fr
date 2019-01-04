@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de Azure Active Directory à MobileIron | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à MobileIron | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et MobileIron.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2017
 ms.author: jeedes
-ms.openlocfilehash: 1b6527207793558c132be4cf004b7d6fdde14a90
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 8bdf49f4cea7c6f0ff30e37bcf1cf2fed3abc2bb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584109"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963808"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Didacticiel : Intégration de Azure Active Directory à MobileIron
+# <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Didacticiel : Intégration d’Azure Active Directory à MobileIron
 
 Dans ce didacticiel, vous allez apprendre à intégrer MobileIron à Azure Active Directory (Azure AD).
 
@@ -50,24 +50,27 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test.
+Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de MobileIron à partir de la galerie
 1. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-mobileiron-from-the-gallery"></a>Ajout de MobileIron à partir de la galerie
+
 Pour configurer l’intégration de MobileIron à Azure AD, vous devez ajouter MobileIron à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter MobileIron à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory][1]
 
 1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
-    
+
 1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
@@ -103,7 +106,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Lien Configurer l’authentification unique][4]
 
 1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
+
     ![Boîte de dialogue Authentification unique](./media/mobileiron-tutorial/tutorial_mobileiron_samlbase.png)
 
 1. Dans la section **Domaine et URL MobileIron**, effectuez les étapes suivantes si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité (IDP)** :
@@ -119,12 +122,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Authentification unique dans Domaine et URL MobileIron](./media/mobileiron-tutorial/tutorial_mobileiron_url1.png)
 
     Dans la zone de texte  **URL de connexion** , tapez une URL au format suivant : `https://<host>.mobileiron.com/user/login.html`
-    
-    > [!NOTE]  Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Vous obtiendrez les valeurs de la clé et de l’hôte à partir du portail d’administration de MobileIron, expliqué plus loin dans le didacticiel.
+
+    > [!NOTE]
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Vous obtiendrez les valeurs de la clé et de l’hôte à partir du portail d’administration de MobileIron, expliqué plus loin dans le didacticiel.
 
 1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](./media/mobileiron-tutorial/tutorial_mobileiron_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/mobileiron-tutorial/tutorial_mobileiron_certificate.png)
 
 1. Cliquez sur le bouton **Enregistrer** .
 
@@ -134,7 +138,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Accédez à **Admin** > **Identité**.
 
-   * Sélectionnez l’option **AAD** dans le champ **Informations sur la configuration de fournisseur d’identité cloud**.
+   - Sélectionnez l’option **AAD** dans le champ **Informations sur la configuration de fournisseur d’identité cloud**.
 
     ![Bouton Administrateur de la page Configurer l’authentification unique](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
@@ -143,11 +147,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Bouton Administrateur de la page Configurer l’authentification unique](./media/mobileiron-tutorial/key.png)
 
 1. Dans le champ **Exporter le fichier de métadonnées de AAD et l’importer dans MobileIron Cloud**, cliquez sur **Choisir un fichier** pour charger les métadonnées téléchargées à partir du portail Azure. Cliquez sur **Fait** une fois le chargement terminé.
- 
+
     ![Bouton de métadonnées d’administrateur de la page Configurer l’authentification unique](./media/mobileiron-tutorial/tutorial_mobileiron_adminmetadata.png)
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -203,20 +207,20 @@ Dans le cas de MobileIron, l’approvisionnement est une tâche manuelle.
     1. Dans la zone de texte **Prénom**, saisissez le prénom de l’utilisateur, par exemple Britta.
 
     1. Dans la zone de texte **Nom**, saisissez le nom de famille de l’utilisateur, par exemple Simon.
-    
-    1. Cliquez sur **Done**.  
+
+    1. Cliquez sur **Done**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à MobileIron.
 
-![Attribuer le rôle utilisateur][200] 
+![Attribuer le rôle utilisateur][200]
 
 **Pour affecter Britta Simon à MobileIron, procédez comme suit :**
 
 1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 
-    ![Affecter des utilisateurs][201] 
+    ![Affecter des utilisateurs][201]
 
 1. Dans la liste des applications, sélectionnez **MobileIron**.
 
@@ -235,19 +239,18 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
 1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
+
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Quand vous cliquez sur la vignette MobileIron dans le volet d’accès, vous devez être connecté automatiquement à votre application MobileIron.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -262,4 +265,3 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/mobileiron-tutorial/tutorial_general_201.png
 [202]: ./media/mobileiron-tutorial/tutorial_general_202.png
 [203]: ./media/mobileiron-tutorial/tutorial_general_203.png
-

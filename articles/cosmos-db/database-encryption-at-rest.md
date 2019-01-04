@@ -1,20 +1,18 @@
 ---
-title: 'Chiffrement de base de données au repos : Azure Cosmos DB | Microsoft Docs'
-description: Découvrez comment Azure Cosmos DB assure le chiffrement par défaut de toutes les données.
-services: cosmos-db
-author: voellm
-manager: kfile
+title: Chiffrement au repos dans Azure Cosmos DB
+description: Découvrez comment Azure Cosmos DB assure le chiffrement des données au repos, et comment s’effectue son implémentation.
+author: rafats
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/23/2017
-ms.author: voellm
-ms.openlocfilehash: ab22cc64265efe3948256d81f964796b6d21d3d5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 12/06/2018
+ms.author: sngun
+ms.custom: seodec18
+ms.openlocfilehash: 8138a7dcae427d5f5f622170a7825306a7bf8dae
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611022"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140317"
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Chiffrement de base de données Azure Cosmos DB au repos
 
@@ -38,26 +36,26 @@ Le flux de base d’une demande d’un utilisateur est le suivant :
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>Q : Quel est le coût supplémentaire de Stockage Azure si le chiffrement du service de stockage est activé ?
-R : Aucun coût supplémentaire n’est facturé.
+### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>Q : Quel est le coût supplémentaire du stockage Azure si la fonctionnalité Storage Service Encryption est activée ?
+R : Aucun coût supplémentaire n’est facturé.
 
-### <a name="q-who-manages-the-encryption-keys"></a>Q : Qui gère les clés de chiffrement ?
-R : Les clés sont gérées par Microsoft.
+### <a name="q-who-manages-the-encryption-keys"></a>Q : Qui gère les clés de chiffrement ?
+R : Les clés sont gérées par Microsoft.
 
-### <a name="q-how-often-are-encryption-keys-rotated"></a>Q : À quelle fréquence les clés de chiffrement tournent-elles ?
-R : Microsoft a un ensemble de règles internes pour la rotation des clés de chiffrement, qui sont suivies par Cosmos DB. Les règles spécifiques ne sont pas publiées. Microsoft publie le [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), qui est vu comme un sous-ensemble de règles internes et qui contient des bonnes pratiques utiles pour les développeurs.
+### <a name="q-how-often-are-encryption-keys-rotated"></a>Q : À quelle fréquence les clés de chiffrement tournent-elles ?
+R : Microsoft a constitué un ensemble de règles internes pour la rotation des clés de chiffrement, celles-ci sont suivies par Cosmos DB. Les règles spécifiques ne sont pas publiées. Microsoft publie le [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), qui est vu comme un sous-ensemble de règles internes et qui contient des bonnes pratiques utiles pour les développeurs.
 
-### <a name="q-can-i-use-my-own-encryption-keys"></a>Q : Puis-je utiliser mes propres clés de chiffrement ?
-R : Cosmos DB est un service PaaS et nous avons beaucoup travaillé pour le rendre facile à utiliser. Nous avons constaté que cette question est souvent posée en rapport avec la conformité à des normes comme PCI-DSS. Dans le cadre du développement de cette fonctionnalité, nous avons collaboré avec des auditeurs de conformité pour garantir que les clients utilisant Cosmos DB répondent à leurs exigences sans devoir gérer les clés eux-mêmes.
+### <a name="q-can-i-use-my-own-encryption-keys"></a>Q : Puis-je utiliser mes propres clés de chiffrement ?
+R : Cosmos DB est un service PaaS, et nous nous sommes efforcés de le rendre facile à utiliser. Nous avons constaté que cette question est souvent posée en rapport avec la conformité à des normes comme PCI-DSS. Dans le cadre du développement de cette fonctionnalité, nous avons collaboré avec des auditeurs de conformité pour garantir que les clients utilisant Cosmos DB répondent à leurs exigences sans devoir gérer les clés eux-mêmes.
 
-### <a name="q-what-regions-have-encryption-turned-on"></a>Q : Dans quelles régions le chiffrement est-il activé ?
-R : Le chiffrement est activé dans toutes les régions Azure Cosmos DB pour l’ensemble des données utilisateur.
+### <a name="q-what-regions-have-encryption-turned-on"></a>Q : Dans quelles régions le chiffrement est-il activé ?
+R : Le chiffrement est activé dans toutes les régions Azure Cosmos DB pour l’ensemble des données utilisateur.
 
-### <a name="q-does-encryption-affect-the-performance-latency-and-throughput-slas"></a>Q : Le chiffrement modifie-t-il les SLA en termes de débit et de latence des performances ?
-R : L’activation du chiffrement au repos sur tous les comptes (existants et nouveaux) ne modifie en rien les SLA en termes de performance. Pour en savoir plus sur les dernières garanties, consultez la page [SLA pour Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db).
+### <a name="q-does-encryption-affect-the-performance-latency-and-throughput-slas"></a>Q : Le chiffrement modifie-t-il les SLA en termes de débit et de latence des performances ?
+R : L’activation du chiffrement au repos sur tous les comptes (existants et nouveaux) ne modifie en rien les SLA en termes de performance. Pour en savoir plus sur les dernières garanties, consultez la page [SLA pour Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db).
 
-### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>Q : L’émulateur local prend-il en charge le chiffrement au repos ?
-R : L’émulateur est un outil de développement/test autonome, qui n’exploite pas les services de gestion de clés que le service Cosmos DB géré utilise. Nous vous conseillons d’activer BitLocker sur les lecteurs où vous stockez des données de test d’émulateur sensibles. [L’émulateur prend en charge la modification du répertoire de données par défaut](local-emulator.md) ainsi que l’utilisation d’un emplacement connu.
+### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>Q : L’émulateur local prend-il en charge le chiffrement au repos ?
+R : L’émulateur est un outil de développement/de test autonome ; il n’exploite pas les services de gestion de clés que le service Cosmos DB managé utilise. Nous vous conseillons d’activer BitLocker sur les lecteurs où vous stockez des données de test d’émulateur sensibles. [L’émulateur prend en charge la modification du répertoire de données par défaut](local-emulator.md) ainsi que l’utilisation d’un emplacement connu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

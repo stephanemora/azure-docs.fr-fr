@@ -1,25 +1,19 @@
 ---
-title: Azure ExpressRoute pour les fournisseurs de solutions Cloud | Microsoft Docs
-description: Cet article fournit des informations pour les fournisseurs de services Cloud qui souhaitent intégrer dans leurs offres des services Azure et ExpressRoute.
-documentationcenter: na
+title: ExpressRoute pour les fournisseurs de solutions cloud - Azure | Microsoft Docs
+description: Cet article fournit des informations pour les fournisseurs de services cloud qui souhaitent intégrer dans leurs offres ExpressRoute et des services Azure.
 services: expressroute
 author: richcar
-manager: carmonm
-editor: ''
-ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: article
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: 9991da5d5ab6f43cc8c5ebf1672d7da0f1ad061e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.custom: seodec18
+ms.openlocfilehash: 842654f860a94481b53ebf9732fc4ed8be24cf4a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405702"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077509"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute pour les fournisseurs de solutions Cloud (CSP)
 Microsoft fournit des services à très grande échelle afin que les revendeurs et les distributeurs traditionnels puissent configurer rapidement de nouveaux services et solutions pour vos clients sans avoir à investir dans le développement de ces nouveaux services. Pour permettre au fournisseur de solutions Cloud (CSP) de gérer directement ces nouveaux services, Microsoft fournit des programmes et des API lui permettant de gérer les ressources Microsoft Azure pour le compte de vos clients. L’une de ces ressources est ExpressRoute. ExpressRoute permet au fournisseur de solutions Cloud de connecter les ressources client existantes aux services Azure. ExpressRoute est une liaison de communication privée haut débit vers les services d’Azure. 
@@ -37,7 +31,7 @@ Microsoft Azure fournit un nombre croissant de services que vous pouvez proposer
 Microsoft fournit des API aux fournisseurs de solutions Cloud afin de gérer les abonnements client Azure en permettant l’intégration de la programmation dans vos propres systèmes de gestion des services. Les fonctionnalités de gestion prises en charge sont indiquées [ici](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
 ## <a name="microsoft-azure-resource-management"></a>Gestion des ressources Microsoft Azure
-Le contrat signé avec votre client détermine le mode de gestion de l’abonnement. Le fournisseur de solutions Cloud peut gérer directement la création et la maintenance des ressources ou bien le client peut garder le contrôle de l’abonnement Microsoft Azure et créer les ressources Azure requises. Si vos clients gèrent la création des ressources dans leur abonnement Microsoft Azure, ils doivent utiliser l’un des deux modèles disponibles : « *Connect-Through* » ou « *Direct-To* ». Ces modèles sont décrits en détail dans les sections suivantes.  
+Le contrat signé avec votre client détermine le mode de gestion de l’abonnement. Le fournisseur de solutions Cloud peut gérer directement la création et la maintenance des ressources ou bien le client peut garder le contrôle de l’abonnement Microsoft Azure et créer les ressources Azure requises. Si vos clients gèrent la création des ressources dans leur abonnement Microsoft Azure, ils doivent utiliser l’un des deux modèles disponibles : le modèle « *Connect-Through* » ou le modèle « *Direct-To* ». Ces modèles sont décrits en détail dans les sections suivantes.  
 
 ### <a name="connect-through-model"></a>Modèle « Connect-through »
 ![texte de remplacement](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -94,7 +88,7 @@ Vous pouvez l’aider en configurant la connexion et les itinéraires afin que l
 ## <a name="expressroute-routing-domains"></a>Domaines de routage ExpressRoute
 ExpressRoute propose trois domaines de routage : publics, privés et homologation Microsoft. Chaque domaine de routage est configuré avec des routeurs identiques dans une configuration actif-actif pour la haute disponibilité. Pour plus d’informations sur les domaines de routage ExpressRoute, cliquez [ici](expressroute-circuit-peerings.md).
 
-Vous pouvez définir des filtres d’itinéraires personnalisés pour autoriser uniquement le ou les itinéraires souhaités. Pour en savoir plus ou pour savoir comment effectuer ces modifications, consultez l’article : [Créer et modifier le routage pour un circuit ExpressRoute à l’aide de PowerShell](expressroute-howto-routing-classic.md) pour plus d’informations sur les filtres de routage.
+Vous pouvez définir des filtres d’itinéraires personnalisés pour autoriser uniquement le ou les itinéraires souhaités. Pour plus d’informations ou pour voir comment effectuer ces changements, consultez l’article : [Créer et modifier le routage d’un circuit ExpressRoute à l’aide de PowerShell](expressroute-howto-routing-classic.md) pour plus d’informations sur les filtres de routage.
 
 > [!NOTE]
 > Pour Microsoft et l’homologation publique, la connectivité doit utiliser une adresse IP publique appartenant au client ou au fournisseur de services Cloud et doit respecter toutes les règles définies. Pour plus d’informations, consultez la page [Conditions préalables d’ExpressRoute](expressroute-prerequisites.md) .  
@@ -126,7 +120,7 @@ Selon le modèle en cours d’utilisation (Connect-To ou Connect-Through), votre
 1. **Isolation du client** : la plateforme Azure assure l’isolation du client en stockant les informations d’ID client et de réseau virtuel dans une base de données sécurisée, utilisée pour encapsuler le trafic de chaque client dans un tunnel GRE.
 2. **groupe de sécurité réseau (NSG)** permettent de définir le trafic autorisé vers et depuis les sous-réseaux au sein des réseaux virtuels dans Azure. Par défaut, le groupe de sécurité réseau contient des règles de blocage servant à bloquer le trafic d’Internet vers le réseau virtuel et des règles d’autorisation pour le trafic au sein d’un réseau virtuel. Pour plus d’informations concernant les groupes de sécurité réseau, cliquez [ici](https://azure.microsoft.com/blog/network-security-groups/).
 3. **Tunneling forcé** : il s’agit d’une option permettant de rediriger le trafic Internet sortant provenant d’Azure vers la connexion ExpressRoute sur le centre de données local. Pour plus d’informations sur le tunneling forcé, cliquez [ici](expressroute-routing.md#advertising-default-routes).  
-4. **Cryptage** : même si les circuits ExpressRoute sont dédiés à un client spécifique, il est possible que le fournisseur réseau subisse une attaque, permettant ainsi à un intrus d’examiner le trafic de paquets. Pour éviter ce problème, un client ou un fournisseur de services Cloud peut chiffrer le trafic sur la connexion en définissant des stratégies IPSec en mode tunnel pour tout le trafic circulant entre les ressources locales et les ressources Azure (reportez-vous à l’IPSec en mode tunnel facultatif pour le client 1 dans la Figure 5 : Sécurité ExpressRoute, ci-dessus). La deuxième option consiste à utiliser un dispositif pare-feu sur chaque point de terminaison du circuit ExpressRoute. Cela nécessite l’installation de machines virtuelles/dispositifs de pare-feu tiers supplémentaires à chaque extrémité afin de chiffrer le trafic sur le circuit ExpressRoute.
+4. **Cryptage** : même si les circuits ExpressRoute sont dédiés à un client spécifique, il est possible que le fournisseur réseau subisse une attaque, permettant ainsi à un intrus d’examiner le trafic de paquets. Pour éviter ce problème, un client ou un fournisseur de services cloud peut chiffrer le trafic sur la connexion en définissant des stratégies IPSec en mode tunnel pour tout le trafic circulant entre les ressources locales et les ressources Azure (consultez le mode tunnel IPSec facultatif pour le client 1 dans la Figure 5 : Sécurité ExpressRoute, ci-dessus). La deuxième option consiste à utiliser un dispositif pare-feu sur chaque point de terminaison du circuit ExpressRoute. Cela nécessite l’installation de machines virtuelles/dispositifs de pare-feu tiers supplémentaires à chaque extrémité afin de chiffrer le trafic sur le circuit ExpressRoute.
 
 ![texte de remplacement](./media/expressroute-for-cloud-solution-providers/expressroute-security.png)  
 
@@ -136,5 +130,5 @@ Le service du fournisseur de solutions Cloud vous permet d’augmenter la valeur
 Vous trouverez des informations supplémentaires en cliquant sur les liens suivants :
 
 [Azure et le programme des fournisseurs de solutions cloud](https://docs.microsoft.com/azure/cloud-solution-provider).  
-[Préparez-vous à opérer en tant que fournisseur de solutions cloud](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
+[Préparez-vous à opérer en tant que fournisseur de solutions Cloud](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
 [Ressources des fournisseurs de solutions cloud Microsoft](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).

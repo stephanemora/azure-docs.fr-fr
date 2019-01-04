@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 06a7e23eb16cf6296a8997273ea8d554851600c3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 275dd48e08aa74d84b0e1b91d5df9599ce524489
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456488"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957689"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Mise à jour automatique du service Mobilité dans la réplication Azure à Azure
 
@@ -66,11 +66,11 @@ Lorsque vous activez la réplication pour une machine virtuelle [à partir de la
 
 1. Si de nouvelles mises à jour sont disponibles pour le service Mobilité installé sur vos machines virtuelles Azure, vous voyez une notification indiquant que la nouvelle mise à jour de l’agent de réplication de Site Recovery est disponible. Cliquez pour installer. »
 
-     ![Fenêtre Éléments répliqués](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+     ![Fenêtre Éléments répliqués](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 3. Sélectionnez la notification pour ouvrir la page de sélection des machines virtuelles.
 4. Sélectionnez les machines virtuelles sur lesquelles vous souhaitez mettre à niveau le service Mobilité, puis sélectionnez **OK**.
 
-     ![Éléments répliqués - Liste des machines virtuelles](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+     ![Éléments répliqués - Liste des machines virtuelles](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 La tâche Mettre à jour le service Mobilité est alors démarrée pour chacune des machines virtuelles sélectionnées.
 
@@ -81,8 +81,8 @@ S’il existe un problème avec les mises à jour automatiques, vous en êtes av
 
 Si vous avez tenté d’activer les mises à jour automatiques et que l’opération a échoué, reportez-vous à la section ci-dessous relative à la résolution des problèmes.
 
-**Erreur** : Vous ne disposez pas des autorisations nécessaires pour créer un compte d’identification Azure (principal du service) ni pour accorder le rôle de contributeur au principal du service. 
-- Action recommandée : Vérifiez que le rôle Contributeur est attribué au compte connecté et recommencez l’opération. Reportez-vous à [ce document](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) pour en savoir plus sur l’attribution des autorisations adéquates.
+**Erreur** : Vous n’avez pas les autorisations nécessaires pour créer un compte d’identification Azure (principal du service) et octroyer le rôle Contributeur au principal du service. 
+- Action recommandée : Vérifiez que le rôle Contributeur est attribué au compte connecté et recommencez l’opération. Reportez-vous à [ce document](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) pour en savoir plus sur l’attribution des autorisations adéquates.
  
 Une fois que les mises à jour automatiques sont activées, la plupart des problèmes peuvent être corrigés par le service Site Recovery. Vous devez pour cela cliquer sur le bouton **Réparation**.
 
@@ -90,10 +90,10 @@ Une fois que les mises à jour automatiques sont activées, la plupart des probl
 
 Si le bouton de réparation n’est pas disponible, consultez le message d’erreur affiché sous le volet des paramètres d’extension.
 
- - **Erreur** : Le compte d’identification n’a pas l’autorisation d’accéder à la ressource Recovery Services.
+ - **Erreur** : le compte d’identification n’a pas l’autorisation d’accéder à la ressource Recovery Services.
 
     **Action recommandée** : supprimez puis [recréez le compte d’identification](https://docs.microsoft.com/azure/automation/automation-create-runas-account) ou vérifiez que le compte d’identification Automation de l’application Azure Active Directory a accès à la ressource Recovery Services.
 
-- **Erreur** : Le compte d’identification est introuvable. Un de ces éléments a été supprimé ou n’a pas été créé : Application Azure Active Directory, Principal du service, Rôle, Ressource de certificat Automation, Ressource de connexion Automation, ou l’empreinte numérique n’est pas identique entre le certificat et la connexion. 
+- **Erreur** : le compte d’identification est introuvable. Un de ces éléments a été supprimé ou n’a pas été créé : Application Azure Active Directory, Principal du service, Rôle, Ressource de certificat Automation, Ressource de connexion Automation, ou l’empreinte numérique n’est pas identique entre le certificat et la connexion. 
 
     **Action recommandée** : supprimez [puis recréez le compte d’identification](https://docs.microsoft.com/azure/automation/automation-create-runas-account).

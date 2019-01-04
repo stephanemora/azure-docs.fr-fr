@@ -1,33 +1,23 @@
 ---
-title: Déplacer un appairage public sur Azure ExpressRoute vers l’appairage Microsoft | Microsoft Docs
+title: Déplacer un peering public vers le peering Microsoft | Microsoft Docs
 description: Cet article explique comment déplacer votre appairage public vers l’appairage Microsoft sur ExpressRoute.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: f34fabc95d5b56edc6e37c323bebf60bd98c8b90
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.custom: seodec18
+ms.openlocfilehash: 6b2bce6b488698db0a72c9a17f67c2555c6afa5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314297"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100019"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Déplacer un appairage public vers l’appairage Microsoft
 
-ExpressRoute prend en charge l’utilisation de l’appairage Microsoft avec les filtres de routes dans les services PaaS Azure, tels que le stockage Azure et Azure SQL Database. Vous avez maintenant besoin d’un seul domaine de routage pour accéder aux services SaaS et PaaS Microsoft. Vous pouvez utiliser les filtres de routes afin de publier sélectivement les préfixes de service PaaS pour les régions Azure que vous souhaitez utiliser.
-
-Cet article vous permet de déplacer la configuration d’un appairage public vers l’appairage Microsoft sans temps d’arrêt. Pour plus d’informations sur les domaines de routage et les appairages, consultez [Circuits ExpressRoute et domaines de routage](expressroute-circuit-peerings.md).
-
+Cet article vous permet de déplacer la configuration d’un appairage public vers l’appairage Microsoft sans temps d’arrêt. ExpressRoute prend en charge l’utilisation de l’appairage Microsoft avec les filtres de routes dans les services PaaS Azure, tels que le stockage Azure et Azure SQL Database. Vous avez maintenant besoin d’un seul domaine de routage pour accéder aux services SaaS et PaaS Microsoft. Vous pouvez utiliser les filtres de routes afin de publier sélectivement les préfixes de service PaaS pour les régions Azure que vous souhaitez utiliser. Pour plus d’informations sur les domaines de routage et les appairages, consultez [Circuits ExpressRoute et domaines de routage](expressroute-circuit-peerings.md).
 
 ## <a name="before"></a>Avant de commencer
 
@@ -51,13 +41,13 @@ Vérifiez que l’appairage Microsoft est activé et que les préfixes publics p
 
   * [Portail Azure](expressroute-howto-routing-portal-resource-manager.md#getmsft)
   * [Azure PowerShell](expressroute-howto-routing-arm.md#getmsft)
-  * [interface de ligne de commande Azure](howto-routing-cli.md#getmsft)
+  * [Interface de ligne de commande Azure](howto-routing-cli.md#getmsft)
 
 ## <a name="routefilter"></a>3. Configurer un filtre de routes et le joindre au circuit
 
 Par défaut, les nouveaux appairages Microsoft ne publient pas de préfixes tant qu’un filtre de routes n’est pas joint au circuit. Quand vous créez une règle de filtre de routes, vous pouvez spécifier la liste des communautés de service pour les régions Azure que vous souhaitez utiliser pour les services PaaS Azure, comme l’indique la capture d’écran suivante :
 
-![Fusionner l’appairage public](.\media\how-to-move-peering\public.png)
+![Fusionner l’appairage public](./media/how-to-move-peering/public.png)
 
 Configurez les filtres de routes à l’aide des articles suivants :
 

@@ -1,24 +1,21 @@
 ---
-title: Architecture lambda avec Azure Cosmos DB et HDInsight (Apache Spark) | Microsoft Docs
+title: Architecture lambda avec Azure Cosmos DB et HDInsight (Apache Spark)
 description: Cet article explique comment implémenter une architecture lambda à l’aide d’Azure Cosmos DB, HDInsight et Spark
 keywords: lambda-architecture
 services: cosmos-db
-author: tknandu
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.devlang: na
+author: tknandu
+ms.author: ramkris
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: ramkris
-ms.openlocfilehash: c926c67a330648e09c1fd8133164f64582ad9a34
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b6831e9c6b679d2fd4fa585331213290d67068c2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701073"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084010"
 ---
-# <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB : implémenter une architecture lambda sur la plateforme Azure 
+# <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB : implémenter une architecture lambda sur la plateforme Azure 
 
 Les architectures lambda permettent de traiter efficacement de gros volumes de jeux de données. Les architectures lambda utilisent le traitement par lots, le traitement de flux et une couche de service afin de réduire la latence inhérente à l’interrogation de Big Data. 
 
@@ -37,7 +34,7 @@ Une architecture lambda est une architecture de traitement générique, scalable
 
 Source : http://lambda-architecture.net/
 
-Les principes de base d’une architecture lambda sont décrits dans le diagramme précédent, conformément à [https://lambda-architecture.net](http://lambda-architecture.net/).
+Les principes de base d’une architecture lambda sont décrits dans le diagramme précédent, conformément à [http://lambda-architecture.net](http://lambda-architecture.net/).
 
  1. Toutes les **données** sont transmises aux *deux* couches (*traitement par lots* et *vitesse*).
  2. La **couche traitement par lots** a un jeu de données master (jeu de données brutes immuable en ajout seul) et précalcule les vues de traitement par lots.
@@ -64,7 +61,7 @@ Ce qui est important dans ces couches :
  4. La **couche vitesse** utilise HDInsight (Apache Spark) pour lire le flux de modification Azure Cosmos DB. Vous pouvez ainsi conserver vos données, ainsi qu’interroger et traiter celles-ci simultanément.
  5. Vous pouvez traiter les requêtes en fusionnant les résultats à partir des vues de traitement par lots et des vues en temps réel ou en récupérant les résultats individuellement via la commande ping.
  
-### <a name="code-example-spark-structured-streaming-to-an-azure-cosmos-db-change-feed"></a>Exemple de code : streaming structuré Spark vers un flux de modification Azure Cosmos DB
+### <a name="code-example-spark-structured-streaming-to-an-azure-cosmos-db-change-feed"></a>Exemple de code : flux structuré Spark vers un flux de modification Azure Cosmos DB
 Pour exécuter un prototype rapide du flux de modification Azure Cosmos DB dans le cadre de la **couche vitesse**, vous pouvez le tester à l’aide de données Twitter dans le cadre de l’exemple [Stream Processing Changes using Azure Cosmos DB Change Feed and Apache Spark](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark) (Diffuser des modifications de traitement à l’aide du flux de modification Azure Cosmos DB et d’Apache Spark). Pour obtenir votre sortie Twitter, consultez l’exemple de code dans [Stream feed from Twitter to Cosmos DB](https://github.com/tknandu/TwitterCosmosDBFeed) (Diffuser un flux de Twitter vers Cosmos DB). Avec l’exemple précédent, vous chargez des données Twitter dans Azure Cosmos DB ; vous pouvez ensuite configurer votre cluster HDInsight (Apache Spark) pour qu’il se connecte au flux de modification. Pour plus d’informations sur la façon de définir cette configuration, consultez [Apache Spark to Azure Cosmos DB Connector Setup](https://github.com/Azure/azure-cosmosdb-spark/wiki/Spark-to-Cosmos-DB-Connector-Setup) (Configuration du connecteur Apache Spark-Azure Cosmos DB).  
 
 L’extrait de code suivant montre comment configurer `spark-shell` pour exécuter une tâche de streaming structuré afin de se connecter à un flux de modification Azure Cosmos DB, qui examine le flux de données Twitter en temps réel, pour faire le compte des intervalles au fur et à mesure.
@@ -245,7 +242,7 @@ var streamingQuery = streamingQueryWriter.start()
 
 ```
 
-## <a name="lambda-architecture-rearchitected"></a>Architecture lambda remaniée
+## <a name="lambda-architecture-rearchitected"></a>Architecture lambda : remaniée
 Comme indiqué dans les sections précédentes, vous pouvez simplifier l’architecture lambda d’origine à l’aide des composants suivants :
 * Azure Cosmos DB
 * La bibliothèque de flux de modification Azure Cosmos DB, pour ne pas avoir à effectuer plusieurs casts de vos données entre les couches vitesse et traitement par lots
@@ -263,12 +260,12 @@ Grâce à cette conception, seuls deux services managés sont nécessaires : Azu
 
 ### <a name="resources"></a>Ressources
 
- * **Nouvelles données** : le [flux de Twitter à CosmosDB](https://github.com/tknandu/TwitterCosmosDBFeed), mécanisme utilisé pour transmettre les nouvelles données à Azure Cosmos DB.
- * **Couche traitement par lots :** la couche traitement par lots est composée du *jeu de données master* (ensemble de données brutes immuable en mode ajout seul) ; c’est à ce niveau que peuvent être précalculées les vues de traitement par lots des données qui sont envoyées à la **couche service**.
+ * **Nouvelles données** : [flux de Twitter vers CosmosDB](https://github.com/tknandu/TwitterCosmosDBFeed), mécanisme utilisé pour transmettre les nouvelles données à Azure Cosmos DB.
+ * **Couche de traitement par lots :** la couche de traitement par lots est composée du *jeu de données master* (ensemble de données brutes immuable en mode ajout seul) ; c’est à ce niveau que peuvent être précalculées les vues de traitement par lots des données qui sont envoyées à la **couche service**.
     * Le Notebook **Lambda Architecture Rearchitected - Batch Layer** [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) interroge le *jeu de données master* des vues de traitement par lots.
  * **Couche service :** la **couche service** est composée des données précalculées qui aboutissent à des vues de traitement par lots (par exemple, agrégations, segments spécifiques, etc.) pour accélérer le traitement des requêtes.
     * Le Notebook **Lambda Architecture Rearchitected - Batch to Serving Layer** [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) transmet les données de lot à la couche service ; autrement dit, Spark interroge une collection de lots de tweets, la traite et la stocke dans une autre collection (lot calculé).
-* **Couche vitesse :** la **couche vitesse** est composé de Spark, qui utilise le flux de modification Azure Cosmos DB pour lire et agir immédiatement. Les données peuvent également être enregistrées comme *données en temps réel calculées (Computed RT)* afin que d’autres systèmes puissent interroger les données traitées en temps réel, au lieu d’exécuter eux-mêmes une requête en temps réel.
+* **Couche vitesse :** la **couche vitesse** est composée de Spark, qui utilise le flux de modification Azure Cosmos DB pour lire et agir immédiatement. Les données peuvent également être enregistrées comme *données en temps réel calculées (Computed RT)* afin que d’autres systèmes puissent interroger les données traitées en temps réel, au lieu d’exécuter eux-mêmes une requête en temps réel.
     * Le script scala [Streaming Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) exécute une requête de streaming à partir du flux de modification Azure Cosmos DB pour calculer un compte d’intervalles à partir de l’interpréteur de commandes de Spark.
     * Le script scala [Streaming Tags Query from Cosmos DB Change Feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) exécute une requête de streaming à partir du flux de modification Azure Cosmos DB pour calculer un compte d’intervalles de mots-clés à partir de l’interpréteur de commandes de Spark.
   
@@ -281,4 +278,4 @@ Si vous ne l’avez pas encore fait, téléchargez le connecteur Spark-Azure Cos
 * [Change feed demos](https://github.com/Azure/azure-cosmosdb-spark/wiki/Change-Feed-demos) (Démonstrations de flux de modification)
 * [Stream processing changes using Azure Cosmos DB Change Feed and Apache Spark](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark) (Diffuser des modifications de traitement avec le flux de modification Azure CosmosDB et Apache Spark)
 
-Vous pouvez également consulter [Apache Spark SQL, DataFrames, and Datasets Guide](http://spark.apache.org/docs/latest/sql-programming-guide.html) (Guide sur Apache Spark SQL, les tableaux de données et les jeux de données) et l’article [Apache Spark sur Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
+Vous pouvez également consulter [Apache Spark SQL, DataFrames, and Datasets Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html) (Guide sur Apache Spark SQL, les tableaux de données et les jeux de données) et l’article [Apache Spark sur Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md).

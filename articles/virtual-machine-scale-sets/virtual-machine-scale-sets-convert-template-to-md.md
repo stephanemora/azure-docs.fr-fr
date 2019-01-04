@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: manayar
-ms.openlocfilehash: be56fd80229010090216413a7c1833d94e8bac25
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: b2d1738b85799079b3af7ab39c5cb1799a38d382
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739564"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339873"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Convertir un modèle de groupe identique pour utiliser modèle de jeu de mise à l’échelle de disque géré
 
@@ -126,7 +126,7 @@ Il n’existe aucune propriété explicite dans la configuration du jeu de mise 
 
 ## <a name="data-disks"></a>Disques de données
 
-Avec les modifications ci-dessus, le jeu de mise à l’échelle utilise des disques gérés pour le disque de système d’exploitation, mais qu’en est-il des disques de données ? Pour ajouter des disques de données, ajoutez la propriété « dataDisks » sous « storageProfile » au même niveau que « osDisk ». La valeur de la propriété est une liste JSON d’objets, chacun d'entre eux possédant les propriétés « lun » (qui doit être unique pour chaque disque de données sur une machine virtuelle), « createOption » (« empty » est actuellement la seule option prise en charge) et « diskSizeGB » (la taille du disque en gigaoctets ; doit être supérieure à 0 et inférieure à 1024) comme dans l’exemple suivant : 
+Avec les modifications ci-dessus, le jeu de mise à l’échelle utilise des disques gérés pour le disque de système d’exploitation, mais qu’en est-il des disques de données ? Pour ajouter des disques de données, ajoutez la propriété « dataDisks » sous « storageProfile » au même niveau que « osDisk ». La valeur de la propriété est une liste JSON d’objets, chacun d'entre eux possédant les propriétés « lun » (qui doit être unique pour chaque disque de données sur une machine virtuelle), « createOption » (« empty » est actuellement la seule option prise en charge) et « diskSizeGB » (la taille du disque en gigaoctets ; doit être supérieure à 0 et inférieure à 1024) comme dans l’exemple suivant :
 
 ```
 "dataDisks": [
@@ -144,7 +144,7 @@ Pour en savoir plus sur l’utilisation de disques de données avec des jeux de 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour les modèles Resource Manager utilisant des jeux de mise à l’échelle, recherchez « vmss » dans le [dépôt Github de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates).
+Pour les modèles Resource Manager utilisant des jeux de mise à l’échelle, recherchez « vmss » dans le [dépôt GitHub de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates).
 
-Pour plus d’informations, consultez la [page d’accueil principale pour les jeux de mise à l’échelle](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+Pour des informations générales, voir la [page d’accueil principale pour les jeux de mise à l’échelle](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 

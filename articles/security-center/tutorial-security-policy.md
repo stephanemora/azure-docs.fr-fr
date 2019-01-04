@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel Azure Security Center : définir et évaluer les stratégies de sécurité | Microsoft Docs'
-description: 'Didacticiel Azure Security Center : définir et évaluer les stratégies de sécurité'
+title: Utilisation de stratégies de sécurité | Microsoft Docs
+description: Cet article décrit comment utiliser des stratégies de sécurité dans Azure Security Center.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -9,102 +9,233 @@ editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 12/4/2018
 ms.author: rkarlin
-ms.openlocfilehash: fcd3c2a95cea0a838fc16149a0a74fad95ea3300
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: f9cc6f5c35b528d3a545293b9a946bc3eda3d7ac
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027059"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339330"
 ---
-# <a name="tutorial-define-and-assess-security-policies"></a>Didacticiel : définir et évaluer les stratégies de sécurité
-Security Center garantit la conformité aux exigences de l’entreprise et de sécurité réglementaires à l’aide de stratégies de sécurité, afin de définir la configuration souhaitée de vos charges de travail. Une fois les stratégies de vos abonnements Azure définies et adaptées au type de charge de travail ou à la sensibilité de vos données, Security Center peut fournir des recommandations de sécurité pour votre ordinateur, mais aussi sur la mise en réseau, les données et le stockage, ainsi que l’identité et l’accès aux ressources. Ce didacticiel vous apprendra à effectuer les opérations suivantes :
+# <a name="working-with-security-policies"></a>Utilisation de stratégies de sécurité
 
-> [!div class="checklist"]
-> * Configurer une stratégie de sécurité
-> * Évaluer la sécurité de vos ressources
+Cet article explique comment configurer des stratégies de sécurité et comment les afficher dans Security Center. Azure Security Center attribue automatiquement ses [stratégies de sécurité intégrées](security-center-policy-definitions.md) sur chaque abonnement qui est intégré. Vous pouvez les configurer dans [Azure Policy](../azure-policy/azure-policy-introduction.md), ce qui vous permet également de définir des stratégies pour plusieurs groupes d’administration et abonnements.
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
+Pour obtenir des instructions sur la façon de définir des stratégies à l’aide de PowerShell, consultez [Démarrage rapide : Créer une affectation de stratégie pour identifier les ressources non conformes à l’aide du module Azure RM PowerShell](../azure-policy/assign-policy-definition-ps.md).
 
-## <a name="prerequisites"></a>Prérequis
-Pour parcourir les fonctionnalités traitées dans ce didacticiel, vous devez avoir accès au niveau tarifaire Standard de Security Center. Vous pouvez essayer Security Center Standard sans frais pendant 60 jours. Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](security-center-get-started.md) vous guide dans la mise à niveau vers le plan Standard.
+## <a name="what-are-security-policies"></a>Que sont les stratégies de sécurité ?
+Une stratégie de sécurité définit la configuration souhaitée de vos charges de travail, tout en garantissant leur conformité aux exigences de sécurité réglementaires. Dans Azure Policy, vous pouvez définir des stratégies pour vos abonnements Azure, et les adapter à votre type de charge de travail ou à la sensibilité de vos données. Par exemple, les applications qui utilisent des données réglementées, telles que les informations d’identification personnelle, peuvent nécessiter un niveau de sécurité plus élevé que d’autres charges de travail. Pour définir des stratégies sur des abonnements ou des groupes d’administration, configurez-les dans [Azure Policy](../azure-policy/azure-policy-introduction.md).
 
-## <a name="configure-security-policy"></a>Configurer une stratégie de sécurité
-Security Center crée automatiquement une stratégie de sécurité par défaut, pour chacun de vos abonnements Azure. Les stratégies de sécurité sont constituées de recommandations que vous pouvez activer ou désactiver en fonction des exigences de sécurité de cet abonnement. Pour modifier la stratégie de sécurité par défaut, vous devez avoir le rôle de propriétaire, de collaborateur ou d’administrateur de la sécurité de l’abonnement.
 
-1. Dans le menu principal de Security Center, sélectionnez **Stratégie de sécurité**.
-2. Sélectionnez l’abonnement à utiliser.
 
-  ![Stratégie de sécurité](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
+Vos stratégies de sécurité sont à la source des suggestions de sécurité que vous obtenez dans Azure Security Center. Vous pouvez surveiller la conformité avec elles pour mieux identifier les vulnérabilités potentielles et atténuer les menaces. Pour plus d’informations sur la façon de déterminer l’option adaptée à votre situation, consultez la liste des [stratégies de sécurité intégrées](security-center-policy-definitions.md).
 
-3. Sous **Compute et applications**, **Réseau**, et **Données**, définissez chaque configuration de sécurité que vous souhaitez analyser sur **On** (activé). Security Center évalue en permanence la configuration de votre environnement, et quand il existe une vulnérabilité, Security Center génère une recommandation de sécurité. Sélectionnez **Désactiver** si la configuration de sécurité n’est pas recommandée ou n’est pas pertinente. Par exemple, dans un environnement de développement et de test, vous n’aurez pas besoin du même niveau de sécurité que pour un environnement de production. Après avoir sélectionné les stratégies qui s’appliquent à votre environnement, cliquez sur **Enregistrer**.
 
-  ![Configuration de la sécurité](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
+### <a name="management-groups"></a>Groupes d’administration
+Si votre organisation dispose de plusieurs abonnements, vous pouvez avoir besoin d’un moyen de gérer efficacement l’accès, les stratégies et la conformité de ces abonnements. Les groupes d’administration Azure fournissent un niveau d’étendue au-dessus des abonnements. Vous organisez les abonnements en conteneurs appelés « groupes d’administration » et vous appliquez vos stratégies de gouvernance aux groupes d’administration. Tous les abonnements d’un groupe d’administration héritent automatiquement des stratégies appliquées à ce groupe d’administration. Chaque annuaire reçoit un groupe d’administration de niveau supérieur unique appelé groupe d’administration « racine ». Ce groupe d’administration racine est intégré à la hiérarchie et contient tous les groupes d’administration et abonnements. Il permet d’appliquer des stratégies globales et des affectations RBAC au niveau de l’annuaire. Pour configurer des groupes d’administration à utiliser avec Azure Security Center, suivez les instructions fournies dans [Gagner en visibilité au niveau locataire dans Azure Security Center](security-center-management-groups.md).
 
-Attendez que Security Center traite ces stratégies et génère des recommandations. Certaines configurations, telles que les mises à jour système et les configurations de système d’exploitation, peuvent prendre jusqu'à 12 heures, tandis que les groupes de sécurité réseau et les configurations de chiffrement peuvent être évalués presque instantanément. Une fois que vous voyez les recommandations s’afficher sur le tableau de bord de Security Center, vous pouvez passer à l’étape suivante.
-
-## <a name="assess-security-of-resources"></a>Évaluer la sécurité des ressources
-1. Selon les stratégies de sécurité qui ont été activées, Security Center fournit un ensemble de recommandations de sécurité en fonction des besoins. Vous devez commencer par examiner la machine virtuelle et les recommandations d’ordinateurs. Sur le tableau de bord de Security Center, cliquez sur **Vue d’ensemble**, puis sur **Calculs et applications**.
-
-  ![Calcul](./media/tutorial-security-policy/tutorial-security-policy-fig2.png)
-
-  Passez en revue chaque recommandation en donnant la priorité aux recommandations en rouge (priorité haute). Certaines de ces recommandations possèdent des mises à jour qui peuvent être implémentées directement depuis Security Center, telles que [les problèmes de protection de point de terminaison](https://docs.microsoft.com/azure/security-center/security-center-install-endpoint-protection). D’autres recommandations n’ont que des instructions pour réaliser la mise à jour, telles que la recommandation de chiffrement de disque manquant.
-
-2. Une fois toutes les recommandations de calcul appropriées traitées, vous devez passer à la charge de travail suivante : la mise en réseau. Sur le tableau de bord de Security Center, cliquez sur **Vue d’ensemble**, puis sur **Mise en réseau**.
-
-  ![Mise en réseau](./media/tutorial-security-policy/tutorial-security-policy-fig3.png)
-
-  La page de recommandations relatives à la mise en réseau possède une liste de problèmes de sécurité pour la configuration du réseau, les points de terminaison sur Internet et la topologie du réseau. Comme pour **Calculs et applications**, certaines recommandations concernant la mise en réseau possèdent une mise à jour intégrée, tandis que d’autres non.
-
-3. Une fois toutes les recommandations de mise en réseau appropriées traitées, vous devez passer à la charge de travail suivante : stockage et données. Sur le tableau de bord de Security Center, cliquez sur **Vue d’ensemble**, puis sur **Stockage et données**.
-
-  ![Ressources de données](./media/tutorial-security-policy/tutorial-security-policy-fig4.png)
-
-  La page **Ressources de données** comporte des recommandations centrées autour de l’audit des bases de données et des serveurs SQL Azure, de l’activation du chiffrement pour les bases de données SQL et de l’activation du chiffrement pour votre compte de stockage Azure. Si vous n’avez pas ces charges de travail, vous ne verrez pas de recommandation. Comme pour **Calculs et applications**, certaines recommandations concernant le stockage et les données possèdent une mise à jour intégrée, tandis que d’autres non.
-
-4. Une fois toutes les recommandations de stockage et de données traitées, vous devez passer à la charge de travail suivante : Identité et accès. Sur le tableau de bord de Security Center, cliquez sur **Vue d’ensemble**, puis sur **Identité et accès**.
-
-  ![Identité et accès](./media/tutorial-security-policy/tutorial-security-policy-fig5.png)
-
-  La page **Identité et accès** contient des recommandations telles que :
-
-   - Activer l’authentification multi-facteur pour les comptes privilégiés sur votre abonnement
-   - Supprimer les comptes externes disposant d’autorisations d’écriture de votre abonnement
-   - Supprimer des comptes externes disposant de privilèges de votre abonnement
-
-## <a name="clean-up-resources"></a>Supprimer les ressources
-D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous envisagez de suivre les didacticiels et guides de démarrage rapide suivants, conservez le niveau Standard et gardez l’approvisionnement automatique activé. Dans le cas contraire, ou si vous voulez revenir au niveau Gratuit :
-
-1. Revenez au menu principal de Security Center et sélectionnez **Stratégie de sécurité**.
-2. Sélectionnez la stratégie ou l’abonnement pour lequel vous voulez revenir au niveau Gratuit. La fenêtre **Stratégie de sécurité** s’ouvre.
-3. Dans **COMPOSANTS DE LA STRATÉGIE**, sélectionnez **Niveau tarifaire**.
-4. Sélectionnez **Gratuit** pour modifier l’abonnement et passer du niveau Standard au niveau Gratuit.
-5. Sélectionnez **Enregistrer**.
-
-Si vous voulez désactiver l’approvisionnement automatique :
-
-1. Revenez au menu principal de Security Center et sélectionnez **Stratégie de sécurité**.
-2. Sélectionnez l’abonnement pour lequel vous souhaitez désactiver l’approvisionnement automatique.
-3. Dans **Stratégie de sécurité : collecte de données**, sélectionnez **Désactivé** sous **Intégration** pour désactiver l’approvisionnement automatique.
-4. Sélectionnez **Enregistrer**.
-
->[!NOTE]
-> La désactivation de l’approvisionnement automatique ne supprime pas Microsoft Monitoring Agent des machines virtuelles Azure sur lesquelles l’agent a été approvisionné. La désactivation de l’approvisionnement automatique limite la surveillance de la sécurité pour vos ressources.
+> [!NOTE]
+> Il est important de bien comprendre la hiérarchie des groupes d’administration et des abonnements. Pour en savoir plus sur les groupes d’administration, l’administration racine et l’accès aux groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../governance/management-groups/index.md#root-management-group-for-each-directory).
 >
 
+## <a name="how-security-policies-work"></a>Fonctionnement des stratégies de sécurité
+Security Center crée automatiquement une stratégie de sécurité par défaut, pour chacun de vos abonnements Azure. Vous pouvez modifier les stratégies dans Azure Policy pour effectuer les opérations suivantes :
+- Créer de nouvelles définitions de stratégie.
+- Affecter des stratégies pour des groupes d’administration et des abonnements, qui peuvent représenter une organisation entière ou une unité commerciale au sein de l’organisation.
+- Surveiller la conformité à la stratégie.
+
+Pour plus d’informations sur Azure Policy, consultez [Créer et gérer des stratégies pour mettre en vigueur la conformité](../azure-policy/create-manage-policy.md).
+
+Une stratégie Azure est constituée des composants suivants :
+
+- Une **stratégie** est une règle.
+- Une **initiative** est une collection de stratégies.
+- Une **affectation** est l’application d’une initiative ou d’une stratégie à une étendue spécifique (groupe d’administration, abonnement ou groupe de ressources).
+
+Une ressource est évaluée par rapport aux stratégies qui lui sont affectées, et reçoit un taux de conformité en fonction du nombre de stratégies avec lesquelles la ressource est conforme.
+
+## <a name="view-security-policies"></a>Afficher les stratégies de sécurité
+
+Pour afficher vos stratégies de sécurité dans Security Center :
+
+1. Dans le tableau de bord **Security Center**, sélectionnez **Stratégie de sécurité**.
+
+    ![Le volet Gestion des stratégies](./media/security-center-policies/security-center-policy-mgt.png)
+
+  Dans l’écran **Gestion de stratégie**, vous pouvez voir le nombre de groupes d’administration, d’abonnements et d’espaces de travail, ainsi que votre structure de groupes d’administration.
+
+  > [!NOTE]
+  > - Le tableau de bord Security Center peut afficher sous **Couverture de l’abonnement** un nombre d’abonnements plus élevé que celui indiqué sous **Gestion de stratégie**. Couverture de l’abonnement montre le nombre d’abonnements Standard, Gratuits et « Non couverts ». Security Center n’est pas activé pour les abonnements « Non couverts », et ceux-ci ne sont pas affichés sous **Gestion de stratégie**.
+  >
+
+  Le tableau contient les colonnes suivantes :
+
+ - **Affectation d’initiative de stratégie** – [Stratégies](security-center-policy-definitions.md) et initiatives intégrées Security Center qui sont affectées à un groupe d’administration ou un abonnement.
+ - **Conformité** – Score général de conformité pour un groupe d’administration, un abonnement ou un espace de travail. Le score est la moyenne pondérée des affectations. La moyenne pondérée prend en compte le nombre de stratégies dans une seule affectation et le nombre de ressources auxquelles l’affectation s’applique.
+
+ Par exemple, si votre abonnement a deux machines virtuelles et qu’une initiative avec cinq stratégies lui est affectée, vous avez 10 évaluations dans votre abonnement. Si l’une des machines virtuelles n’est pas conforme à deux des stratégies, le score général de conformité de l’affectation de votre abonnement est de 80 %.
+
+ - **Couverture** – Identifie le niveau tarifaire (Gratuit ou Standard) sur lequel s’exécute le groupe d’administration, l’abonnement ou l’espace de travail.  Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center.
+ - **Paramètres** – Les abonnements disposent du lien **Modifier les paramètres**. En sélectionnant **Modifier les paramètres**, vous pouvez mettre à jour vos [paramètres Security Center](security-center-policies-overview.md) pour chaque groupe d’administration ou abonnement.
+
+2. Sélectionnez le groupe d’administration ou l’abonnement dont vous souhaitez afficher les stratégies.
+
+  - L’écran **Stratégie de sécurité** reflète l’action effectuée par les stratégies affectées sur le groupe d’administration ou l’abonnement que vous avez sélectionné.
+  - En haut, utilisez les liens fournis pour ouvrir chaque **affectation** de stratégie qui s’applique au groupe d’administration ou à l’abonnement. Vous pouvez utiliser ces liens pour accéder à l’affectation et modifier ou désactiver la stratégie. Par exemple, si vous voyez qu’une affectation de stratégie particulière refuse effectivement la protection du point de terminaison, vous pouvez utiliser le lien pour accéder à la stratégie et la modifier ou la désactiver.
+  - Dans la liste des stratégies, vous pouvez voir l’application effective de la stratégie sur votre groupe d’administration ou abonnement. Cela signifie que les paramètres de chaque stratégie qui s’appliquent à la portée sont pris en compte et que le résultat cumulé de l’action entreprise par la stratégie vous est fourni. Par exemple, si la stratégie est désactivée dans une affectation, mais qu’elle est définie sur AuditIfNotExist dans une autre, l’effet cumulatif applique AuditIfNotExist. L’effet le plus actif est toujours prioritaire.
+  - L’effet des stratégies peut être : Append, Audit, AuditIfNotExists, Deny, DeployIfNotExists, Disabled. Pour plus d’informations sur la manière dont les effets sont appliqués, consultez [Comprendre les effets de Policy](../governance/policy/concepts/effects.md).
+
+   ![Écran des stratégies](./media/security-center-policies/policy-screen.png)
+
+> [!NOTE]
+> - Lorsque vous affichez les stratégies attribuées, vous pouvez voir plusieurs affectations et comment chacune d’elles est configurée individuellement.
+
+## <a name="edit-security-policies"></a>Modifier des stratégies de sécurité
+Vous pouvez modifier la stratégie de sécurité par défaut pour chacun de vos groupes d’administration et abonnements Azure dans [Azure Policy](../governance/policy/tutorials/create-and-manage.md). Pour modifier une stratégie de sécurité, vous devez avoir le rôle d’administrateur de la sécurité, de propriétaire ou de collaborateur pour l’abonnement concerné ou le groupe de gestion dans laquelle elle se trouve.
+
+Pour obtenir des instructions sur la façon de modifier une stratégie de sécurité dans Azure Policy, consultez [Créer et gérer des stratégies pour appliquer la conformité](../governance/policy/tutorials/create-and-manage.md).
+
+Vous pouvez modifier les stratégies de sécurité sur le portail Azure Policy, par l’intermédiaire de l’API REST ou à l’aide de Windows PowerShell. L’exemple suivant fournit des instructions pour la modification à l’aide de l’API REST.
+
+### <a name="configure-a-security-policy-using-the-rest-api"></a>Configurer une stratégie de sécurité à l’aide de l’API REST
+
+Dans le cadre de l’intégration native à Azure Policy, Azure Security Center vous permet de tirer parti de l’API REST d’Azure Policy pour créer des affectations de stratégie. Les instructions suivantes vous guident tout au long de la création d’affectations de stratégies, ainsi que de la personnalisation d’affectations existantes. 
+
+Concepts importants utilisés dans Azure Policy : 
+
+- Une  **définition de stratégie**  est une règle 
+
+- Une  **initiative**  est une collection de définitions de stratégies (règles) 
+
+- Une  **affectation**  est une application d’une initiative ou d’une stratégie à une étendue spécifique (groupe d’administration, abonnement, etc.) 
+
+Security Center dispose d’une initiative intégrée qui inclut toutes ses stratégies de sécurité. Afin d’évaluer les stratégies de Security Center sur vos ressources Azure, vous devez créer une affectation sur le groupe d’administration ou un abonnement que vous voulez évaluer.  
+
+L’initiative intégrée a toutes les stratégies de Security Center activées par défaut. Vous pouvez choisir de désactiver certaines stratégies de l’initiative intégrée. Par exemple, vous pouvez appliquer toutes les stratégies de Security Center à l’exception du **pare-feu d’applications web** en définissant la valeur du paramètre d’effet de la stratégie sur **Désactivé**. 
+
+### <a name="api-examples"></a>Exemples d'API
+
+Dans les exemples suivants, remplacez les variables suivantes :
+
+- **{scope}** Entrez le nom du groupe d’administration ou de l’abonnement auquel vous appliquez la stratégie.
+- **{poicyAssignmentName}** Entrez le [nom de l’affectation de stratégie appropriée](#policy-names).
+- **{name}** Entrez votre nom ou le nom de l’administrateur qui a approuvé le changement de stratégie.
+
+Cet exemple vous montre comment affecter l’initiative Security Center intégrée sur un abonnement ou un groupe d’administration :
+ 
+    PUT  
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+
+    Request Body (JSON) 
+
+    { 
+
+      "properties":{ 
+
+    "displayName":"Enable Monitoring in Azure Security Center", 
+
+    "metadata":{ 
+
+    "assignedBy":"{Name}" 
+
+    }, 
+
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+
+    "parameters":{}, 
+
+    } 
+
+    } 
+
+Cet exemple vous montre comment affecter l’initiative Security Center intégrée sur un abonnement, avec les stratégies suivantes désactivées : 
+
+- Mises à jour système (“systemUpdatesMonitoringEffect”) 
+
+- Configurations de sécurité (« systemConfigurationsMonitoringEffect ») 
+
+- Protection du point de terminaison (« endpointProtectionMonitoringEffect ») 
+
+ 
+      PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+
+      Request Body (JSON) 
+
+      { 
+
+        "properties":{ 
+
+      "displayName":"Enable Monitoring in Azure Security Center", 
+
+      "metadata":{ 
+
+      "assignedBy":"{Name}" 
+
+      }, 
+
+      "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+
+      "parameters":{ 
+
+      "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
+
+      "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
+
+      "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
+
+      }, 
+
+       } 
+
+      } 
+
+Cet exemple vous montre comment supprimer une affectation :
+
+    DELETE   
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+
+
+### Informations de référence sur les noms de stratégies <a name="policy-names"></a>
+
+|Nom de stratégie dans Security Center|Nom de stratégie affiché dans Azure Policy |Nom du paramètre d’effet de la stratégie|
+|----|----|----|
+|Chiffrement SQL |Superviser les bases de données SQL non chiffrées dans Azure Security Center |sqlEncryptionMonitoringEffect| 
+|Audit SQL |Superviser les bases de données SQL non auditées dans Azure Security Center |sqlAuditingMonitoringEffect|
+|Mises à jour système |Superviser les mises à jour système manquantes dans Azure Security Center |systemUpdatesMonitoringEffect|
+|Chiffrement du stockage |Auditer le chiffrement d’objet blob manquant pour les comptes de stockage |storageEncryptionMonitoringEffect|
+|Accès réseau JIT |Superviser l’éventuel accès juste-à-temps (JIT) au réseau dans Azure Security Center |jitNetworkAccessMonitoringEffect |
+|Contrôles d’application adaptative |Superviser la configuration éventuelle d’une liste verte d’applications dans Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
+|Groupes de sécurité réseau |Superviser l’accès réseau permissif dans Azure Security Center |networkSecurityGroupsMonitoringEffect| 
+|Configurations de sécurité |Superviser les vulnérabilités du système d’exploitation dans Azure Security Center |systemConfigurationsMonitoringEffect| 
+|Protection du point de terminaison |Superviser les agents Endpoint Protection manquants dans Azure Security Center |endpointProtectionMonitoringEffect |
+|Chiffrement de disque |Superviser les disques de machine virtuelle non chiffrés dans Azure Security Center |diskEncryptionMonitoringEffect|
+|Évaluation des vulnérabilités |Superviser les vulnérabilités de machine virtuelle dans Azure Security Center |vulnerabilityAssesmentMonitoringEffect|
+|Pare-feu d’application web |Superviser les applications web non protégées dans Azure Security Center |webApplicationFirewallMonitoringEffect |
+|Pare-feu de nouvelle génération |Superviser les points de terminaison réseau non protégés dans Azure Security Center| |
+
+
+### <a name="who-can-edit-security-policies"></a>Qui peut modifier des stratégies de sécurité ?
+Security Center utilise le contrôle d’accès en fonction du rôle (RBAC) qui fournit des rôles intégrés susceptibles d’être assignés à des utilisateurs, des groupes et des services dans Azure. Lorsque les utilisateurs ouvrent Security Center, ils ne voient que les informations associées aux ressources auxquelles ils ont accès. Autrement dit, les utilisateurs se voient assigner le rôle de propriétaire, contributeur ou lecteur, pour l’abonnement ou le groupe de ressources auquel appartiennent les ressources. Outre ces rôles, il existe deux rôles propres à Security Center :
+
+- Lecteur Sécurité : l’utilisateur ayant ce rôle a des droits d’affichage dans Security Center. Il peut afficher les suggestions, les alertes, la stratégie et l’intégrité, mais il ne peut pas apporter de changements.
+- Administrateur de la sécurité : l’utilisateur ayant ce rôle a les mêmes droits d’affichage que le lecteur Sécurité, mais il peut en plus mettre à jour la stratégie de sécurité, et ignorer les alertes et les suggestions.
+
+
+
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez développé des connaissances à propos de la définition de stratégie de base et de l’évaluation de la sécurité de votre charge de travail avec Security Center, telles que :
+Dans cet article, vous avez appris à modifier les stratégies de sécurité dans Azure Policy. Pour plus d’informations sur Security Center, consultez les articles suivants :
 
-> [!div class="checklist"]
-> * La configuration de stratégie de sécurité pour assurer leur conformité avec les exigences de votre entreprise ou de sécurité réglementaires
-> * L’évaluation de la sécurité de votre ordinateur, de la mise en réseau, de SQL et du stockage et des ressources d’application
+* [Guide des opérations et de planification d’Azure Security Center](security-center-planning-and-operations-guide.md) : découvrez comment planifier la conception d’Azure Security Center et en étudier le processus.
+* [Supervision de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
+* [Gérer et résoudre les alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
+* [Superviser les solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaire.
+* [Gagner en visibilité à l’échelle du locataire dans Azure Security Center](security-center-management-groups.md) : découvrez comment configurer des groupes d’administration pour Azure Security Center.
+* [FAQ d’Azure Security Center](security-center-faq.md) : Obtenez des réponses aux questions fréquentes concernant l’utilisation du service.
+* [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
 
-Passer au didacticiel suivant pour apprendre à utiliser Security Center pour protéger vos ressources.
-
-> [!div class="nextstepaction"]
-> [Protéger vos ressources](tutorial-protect-resources.md)
+Pour en savoir plus sur Azure, consultez [Présentation d’Azure Policy](../azure-policy/azure-policy-introduction.md).

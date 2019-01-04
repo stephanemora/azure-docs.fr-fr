@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 753f666c9ac0167f672353ff33e28d0f7e68b755
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2f9c4c0b973efe26e6ece2235f2d0c7a6878ebef
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212945"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844989"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Résoudre les problèmes de réplication et de basculement de Hyper-V sur Azure
 
@@ -111,8 +111,8 @@ Une capture instantanée de cohérence des applications est un instantané à un
 6. Vérifiez qu’il n’y a aucun conflit avec les applications qui prennent des captures instantanées VSS. Si plusieurs applications essaient de prendre des captures instantanées VSS en même temps, des conflits peuvent survenir. Par exemple, si une application Sauvegarde Microsoft Azure prend des captures instantanées VSS lorsque votre stratégie de réplication lui indique de le faire.   
 7. Vérifiez si la machine virtuelle affiche un taux d’activité élevé :
     - Vous pouvez mesurer le taux quotidien de modification de données sur les machines virtuelles invitées, à l’aide des compteurs de performance de l’hôte Hyper-V. Pour mesurer le taux de modification de données, activez le compteur suivant. Cumulez un échantillon de cette valeur sur les disques de la machine virtuelle pendant 5 à 15 minutes, pour obtenir l’activité de la machine virtuelle.
-        - Catégorie : « Dispositif de stockage virtuel Hyper-V »
-        - Compteur : « Octets écrits/s »</br>
+        - Catégorie : « Dispositif de stockage virtuel Hyper-V »
+        - Compteur : « Octets écrits/s »</br>
         - Ce taux d’activité des données va augmenter ou se maintenir à un niveau élevé, selon le niveau d’activité de la machine virtuelle ou de ses applications.
         - L’activité moyenne des données du disque source est de 2 Mo/s pour le stockage standard d’Azure Site Recovery. [En savoir plus](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - En outre, vous pouvez [vérifier les objectifs d’évolutivité du stockage](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account).
@@ -125,7 +125,7 @@ Une capture instantanée de cohérence des applications est un instantané à un
 1. Recherchez les erreurs et recommandations pour VSS dans les journaux d’événements :
     - Sur le serveur hôte Hyper-V, ouvrez le journal des événements de l’administrateur Hyper-V dans **Observateur d’événements** > **Journaux des applications et des services** > **Microsoft**  >  **Windows** > **Hyper-V** > **Admin**.
     - Vérifiez si des événements signalent des défaillances des captures instantanées de cohérence des applications.
-    - Voici une erreur typique : « Hyper-V failed to generate VSS snapshot set for virtual machine 'XYZ': The writer experienced a non-transient error. Restarting the VSS service might resolve issues if the service is unresponsive. (Hyper-V n’a pas pu générer l’ensemble de captures instantanées VSS pour la machine virtuelle 'XYZ' : L’enregistreur a rencontré une erreur non transitoire. Le redémarrage du service VSS peut résoudre le problème si le service ne répond pas.) »
+    - Erreur type : « Hyper-V failed to generate VSS snapshot s et for virtual machine ’XYZ’: The writer experienced a non-transient error. Restarting the VSS service might resolve issues if the service is unresponsive. (Hyper-V n’a pas pu générer l’ensemble de captures instantanées VSS pour la machine virtuelle 'XYZ' : L’enregistreur a rencontré une erreur non transitoire. Le redémarrage du service VSS peut résoudre le problème si le service ne répond pas.) »
 
 2. Pour générer des captures instantanées VSS pour la machine virtuelle, vérifiez que les services d’intégration de Hyper-V sont installés sur la machine virtuelle et que le service d’intégration de sauvegarde (VSS) est activé.
     - Assurez-vous que le service VSS/les démons des services d’intégration sont en cours d’exécution sur l’invité et qu’ils sont dans un état **OK**.
@@ -136,7 +136,7 @@ Une capture instantanée de cohérence des applications est un instantané à un
 
 **Code d’erreur** | **Message** | **Détails**
 --- | --- | ---
-**0x800700EA** | « Hyper-V failed to generate VSS snapshot set for virtual machine: More data is available. (Hyper-V n’a pas pu générer l’ensemble de captures instantanées VSS pour la machine virtuelle : d’autres données sont disponibles.) (0x800700EA). VSS snapshot set generation can fail if backup operation is in progress. (La génération du jeu de captures instantanées VSS peut échouer si l’opération de sauvegarde est en cours.)<br/><br/> Replication operation for virtual machine failed: More data is available. (L’opération de réplication de la machine virtuelle a échoué : d’autres données sont disponibles.) » | Vérifiez si votre machine virtuelle possède un disque dynamique activé. Ceci n’est pas pris en charge.
+**0x800700EA** | « Hyper-V failed to generate VSS snapshot set for virtual machine: More data is available. (0x800700EA). VSS snapshot set generation can fail if backup operation is in progress. (La génération du jeu de captures instantanées VSS peut échouer si l’opération de sauvegarde est en cours.)<br/><br/> Replication operation for virtual machine failed: More data is available. (L’opération de réplication de la machine virtuelle a échoué : d’autres données sont disponibles.) » | Vérifiez si votre machine virtuelle possède un disque dynamique activé. Ceci n’est pas pris en charge.
 **0x80070032** | « Hyper-V Volume Shadow Copy Requestor failed to connect to virtual machine <./VMname> because the version does not match the version expected by Hyper-V (Requête du service VSS Microsoft Hyper-V n’a pas pu se connecter à la machine virtuelle <./nom_MV>, car la version ne correspond pas à la version attendue par Hyper-V) | Vérifiez si les dernières mises à jour de Windows sont installées.<br/><br/> [Mettez à niveau](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services vers la dernière version en date.
 
 
@@ -167,6 +167,6 @@ Tous les événements relatifs à la réplication Hyper-V sont consignés dans l
 
 Ces outils peuvent aider à résoudre des problèmes plus complexes :
 
--   Pour VMM, collectez les journaux de récupération de site à l’aide de l’[outil SDP (Support Diagnostics Platform)](http://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
+-   Pour VMM, collectez les journaux de récupération de site à l’aide de l’[outil SDP (Support Diagnostics Platform)](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
 -   Pour Hyper-V sans VMM, [téléchargez cet outil](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab) et exécutez-le sur l’hôte Hyper-V afin de collecter les journaux.
 

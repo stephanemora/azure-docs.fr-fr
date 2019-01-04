@@ -1,5 +1,5 @@
 ---
-title: Compétences cognitives déconseillées (Recherche Azure) | Microsoft Docs
+title: Compétences cognitives déconseillées - Recherche Azure
 description: Cette page contient la liste des compétences cognitives de recherche qui sont considérées comme déconseillées et qui ne seront pas prises en charge dans un avenir proche.
 services: search
 manager: pablocas
@@ -10,20 +10,21 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: 6bd364ea9923b1c8cdd7c96fc29cb91dff88ec95
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: 85f02acf05e89db3e22dd24ecd0e100a9ec4af6f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447584"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311726"
 ---
-#    <a name="deprecated-cognitive-seach-skills"></a>Compétences cognitives de recherche déconseillées
+#    <a name="deprecated-cognitive-search-skills"></a>Compétences de recherche cognitive déconseillées
 
 Ce document décrit les compétences cognitives qui sont considérées comme déconseillées. Utilisez le guide suivant pour le contenu :
 
-* Nom de la compétence : nom de la compétence qui sera déconseillée, il est mappé sur l’attribut @odata.type.
-* Dernière version de l’API disponible : dernière version de l’API publique de recherche Azure via laquelle les compétences contenant la compétence déconseillée correspondante peut être créée/mise à jour.
-* Fin de la prise en charge : dernier jour après lequel la compétence correspondante est considérée non prise en charge. Les compétences créées précédemment doivent continuer à fonctionner, mais il est recommandé aux utilisateurs de migrer hors d’une compétence déconseillée.
+* Nom de la compétence : nom de la compétence qui sera déconseillée, il est mappé sur l’attribut @odata.type.
+* Dernière version de l’API disponible : dernière version de l’API publique de recherche Azure via laquelle les compétences contenant la compétence déconseillée correspondante peut être créée/mise à jour.
+* Fin de la prise en charge : dernier jour après lequel la compétence correspondante est considérée non prise en charge. Les compétences créées précédemment doivent continuer à fonctionner, mais il est recommandé aux utilisateurs de migrer hors d’une compétence déconseillée.
 * Recommandations : chemin de migration vers l’avant pour utiliser une compétence prise en charge. Il est conseillé aux utilisateurs de suivre ces suggestions pour continuer à bénéficier du support technique.
 
 ## <a name="microsoftskillstextnamedentityrecognitionskill"></a>Microsoft.Skills.Text.NamedEntityRecognitionSkill
@@ -42,7 +43,7 @@ Utilisez [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-e
 
 Pour migrer vers la [compétence de reconnaissance des entités](cognitive-search-skill-entity-recognition.md), vous devrez apporter une ou plusieurs des modifications suivantes à votre définition de compétence. Vous pouvez mettre à jour la définition de compétence à l’aide de l’[API de mise à jour de compétences](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
-_Remarque_ : actuellement, le score de confiance comme concept n’est pas pris en charge. Il sera pris en charge dans un futur proche. Le paramètre `minimumPrecision` existe sur `EntityRecognitionSkill` pour une utilisation ultérieure et la compatibilité descendante.
+_Remarque_: actuellement, le score de confiance comme concept n’est pas pris en charge. Il sera pris en charge dans un futur proche. Le paramètre `minimumPrecision` existe sur `EntityRecognitionSkill` pour une utilisation ultérieure et la compatibilité descendante.
 
 1. *(Obligatoire)* Modifiez `@odata.type` en remplaçant `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` par `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 

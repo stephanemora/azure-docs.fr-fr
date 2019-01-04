@@ -1,21 +1,19 @@
 ---
-title: Conseils sur les performances pour Azure Cosmos DB pour .NET | Microsoft Docs
+title: Conseils sur les performances Azure Cosmos DB pour .NET
 description: Découvrez les options de configuration clientes pour améliorer les performances de base de données Azure Cosmos DB
 keywords: comment améliorer les performances de base de données
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 91da40613e940b3dd577362273cf14e68d019f26
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: d4d730fe6c72b55a01f7c5f1f95cbd94ff145fba
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442474"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873748"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Conseils sur les performances pour Azure Cosmos DB et .NET
 
@@ -32,7 +30,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 ## <a name="networking"></a>Mise en réseau
 <a id="direct-connection"></a>
 
-1. **Stratégie de connexion : utilisation du mode de connexion direct**
+1. **Stratégie de connexion : Utiliser le mode de connexion directe**
 
     La façon dont un client se connecte à Azure Cosmos DB a des conséquences importantes sur les performances, notamment en termes de latence côté client. Il existe deux paramètres de configuration essentiels pour la stratégie de connexion client : le *mode* de connexion et le [*protocole* de connexion](#connection-protocol).  Les deux modes disponibles sont :
 

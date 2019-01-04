@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Workday | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Workday | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Workday.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
-ms.openlocfilehash: 78b9fe704c5c8a1f81da480787f1791e88bf4f72
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9c789f5fec9b31b53d316b23faad5c438b52137c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714716"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843340"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workday"></a>Didacticiel : Intégration d’Azure Active Directory à Workday
+# <a name="tutorial-azure-active-directory-integration-with-workday"></a>Didacticiel : Intégration d’Azure Active Directory à Workday
 
 Dans ce didacticiel, vous allez apprendre à intégrer Workday avec Azure Active Directory (Azure AD).
 
@@ -114,7 +114,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://impl.workday.com/<tenant>/login-saml2.htmld`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL : `http://www.workday.com`
+    b. Dans la zone de texte **Identificateur**, tapez une URL : `https://www.workday.com`
 
 4. Cochez l’option **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
 
@@ -180,7 +180,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     ![Fournisseurs d’identité SAML](./media/workday-tutorial/IC7829271.png "Fournisseurs d’identité SAML")
 
-    a. Dans la zone de texte **Identity Provider Name** (Nom du fournisseur d’identité), entrez le nom d’un fournisseur (par exemple *SPInitiatedSSO*).
+    a. Dans la zone de texte **Identity Provider Name** (Nom du fournisseur d’identité), entrez le nom d’un fournisseur (par exemple : *SPInitiatedSSO*).
 
     b. Dans le portail Azure, dans la fenêtre **Configurer l’authentification**, copiez la valeur **ID d’entité SAML**, puis collez-la dans la zone de texte **Issuer**.
 
@@ -204,7 +204,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     ![Afficher la clé publique x509](./media/workday-tutorial/IC782930.png "Afficher la clé publique x509")
 
-    a. Dans la zone de texte **Name**, tapez le nom du certificat (par exemple *PPE\_SP*).
+    a. Dans la zone de texte **Name**, tapez le nom du certificat (par exemple : *PPE\_SP*).
 
     b. Dans la zone de texte **Valid From** , tapez la valeur correspondante du certificat.
 
@@ -225,7 +225,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     ![Configuration SSO](./media/workday-tutorial/WorkdaySSOConfiguratio.png "Configuration SSO")
 
-    a.  Dans la zone de texte **ID fournisseur de services**, tapez**http://www.workday.com**.
+    a.  Dans la zone de texte **ID fournisseur de services**, tapez**https://www.workday.com**.
 
     b. Sélectionnez **Ne pas compresser la demande d’authentification initiée par le fournisseur de services**.
 

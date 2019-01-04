@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/28/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 3096a79737c816747f36956958f9a16f86b9715d
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: secdec18
+ms.openlocfilehash: ab5f334b1c830ea5e9c0164b8e75ef0f4fab8e1b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582596"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075639"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Affecter une autorisation d’accès aux données Cost Management
 
@@ -64,12 +64,12 @@ L’accès à l’étendue du compte de facturation nécessite une autorisation 
 1. Connectez-vous au portail EA sur [https://ea.azure.com](https://ea.azure.com) avec un compte administrateur d’entreprise.
 2. Sélectionnez **Gérer** dans le volet gauche.
 3. Sous l’onglet **Inscription**, sélectionnez l’inscription à gérer.  
-    ![Portail EA](./media/assign-access-acm-data/ea-portal.png)
+    ![sélectionner votre inscription dans le portail EA](./media/assign-access-acm-data/ea-portal.png)
 4. Cliquez sur **+ Ajouter un administrateur**.
 5. Dans la zone Ajouter un administrateur, sélectionnez le type d’authentification, puis tapez l’adresse e-mail de l’utilisateur.
 6. Si l’utilisateur doit avoir un accès en lecture seule aux données de coût et d’utilisation, sous **Lecture seule**, sélectionnez **Oui**.  Sinon, sélectionnez **Non**.
 7. Cliquez sur **Ajouter** pour créer le compte.  
-    ![Zone Ajouter un administrateur](./media/assign-access-acm-data/add-admin.png)
+    ![exemple d’informations indiquées dans la zone Ajouter un administrateur](./media/assign-access-acm-data/add-admin.png)
 
 Un délai pouvant aller jusqu’à 30 minutes est parfois nécessaire pour que le nouvel utilisateur puisse accéder aux données dans Cost Management.
 
@@ -85,7 +85,7 @@ L’accès à l’étendue de service nécessite un accès d’administrateur de
 6. Si l’utilisateur doit avoir un accès en lecture seule aux données de coût et d’utilisation, sous **Lecture seule**, sélectionnez **Oui**.  Sinon, sélectionnez **Non**.
 7. Sélectionnez les services auxquels vous souhaitez accorder une autorisation d’administration.
 8. Cliquez sur **Ajouter** pour créer le compte.  
-    ![Zone d’ajout d’administrateur de service](./media/assign-access-acm-data/add-depart-admin.png)
+    ![entrer les informations requises dans la zone d’ajout d’un administrateur de service](./media/assign-access-acm-data/add-depart-admin.png)
 
 ## <a name="assign-enrollment-account-scope-access"></a>Affecter une autorisation d’accès à l’étendue du compte d’inscription
 
@@ -99,7 +99,7 @@ L’accès à l’étendue du compte d’inscription nécessite un accès de pro
 6. Sélectionnez le type d’authentification, puis tapez le nom du compte.
 7. Tapez l’adresse e-mail de l’utilisateur, puis indiquez éventuellement le centre de coûts.
 8. Cliquez sur **Ajouter** pour créer le compte.  
-    ![Zone Ajouter un compte](./media/assign-access-acm-data/add-account.png)
+    ![entrer les informations requises dans la zone Ajouter un compte pour un compte d’inscription](./media/assign-access-acm-data/add-account.png)
 
 Après les étapes ci-dessus, le compte d’utilisateur devient un compte d’inscription, capable de créer des abonnements, sur Enterprise Portal. L’utilisateur peut accéder aux données de coût et d’utilisation des abonnements qu’il crée.
 
@@ -107,7 +107,7 @@ Après les étapes ci-dessus, le compte d’utilisateur devient un compte d’in
 
 L’accès à une étendue de groupe d’administration requiert au minimum l’autorisation de lecteur Cost Management (ou lecteur). Vous pouvez configurer les autorisations d’accès à un groupe d’administration sur le Portail Azure. L’autorisation d’administrateur des accès utilisateur (ou propriétaire) du groupe d’administration est nécessaire au minimum pour donner accès à d’autres utilisateurs. De plus, vous devez également avoir activé le paramètre d’**affichage des frais pour le propriétaire du compte** dans le portail EA.
 
-1. Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azure.com).
+1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Dans la barre latérale, sélectionnez **Tous les services**, recherchez _groupes d’administration_, puis sélectionnez **groupes d’administration**.
 3. Sélectionnez le groupe d’administration dans la hiérarchie.
 4. En regard du nom de votre groupe d’administration, cliquez sur **Détails**.
@@ -117,13 +117,13 @@ L’accès à une étendue de groupe d’administration requiert au minimum l’
 8. Sous **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou application Azure AD**.
 9. Pour affecter une autorisation d’accès, recherchez, puis sélectionnez l’utilisateur.
 10. Cliquez sur **Enregistrer**.  
-    ![Zone Ajouter des autorisations](./media/assign-access-acm-data/add-permissions.png)
+    ![exemple d’informations figurant dans la zone Ajouter des autorisations d’un groupe d’administration](./media/assign-access-acm-data/add-permissions.png)
 
 ## <a name="assign-subscription-scope-access"></a>Affecter une autorisation d’accès à l’étendue d’abonnement
 
 L’accès à un abonnement requiert au minimum l’autorisation de lecteur Cost Management (ou lecteur). Vous pouvez configurer les autorisations d’accès à un abonnement sur le Portail Azure. L’autorisation d’administrateur des accès utilisateur (ou propriétaire) de l’abonnement est nécessaire au minimum pour donner accès à d’autres utilisateurs. De plus, vous devez également avoir activé le paramètre d’**affichage des frais pour le propriétaire du compte** dans le portail EA.
 
-1. Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azure.com).
+1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Dans la barre latérale, sélectionnez **Tous les services**, recherchez _abonnements_, puis sélectionnez **Abonnements**.
 3. Sélectionnez votre abonnement.
 4. Dans le volet gauche, sélectionnez **Contrôle d’accès (IAM)**.
@@ -137,7 +137,7 @@ L’accès à un abonnement requiert au minimum l’autorisation de lecteur Cost
 
 L’accès à un groupe de ressources requiert au minimum l’autorisation de lecteur Cost Management (ou lecteur). Vous pouvez configurer les autorisations d’accès à un groupe de ressources sur le Portail Azure. L’autorisation d’administrateur des accès utilisateur (ou propriétaire) du groupe de ressources est nécessaire au minimum pour donner accès à d’autres utilisateurs. De plus, vous devez également avoir activé le paramètre d’**affichage des frais pour le propriétaire du compte** dans le portail EA.
 
-1. Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azure.com).
+1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Dans la barre latérale, sélectionnez **Tous les services**, recherchez _groupes de ressources_, puis sélectionnez **Groupes de ressources**.
 3. Sélectionnez votre groupe de ressources.
 4. Dans le volet gauche, sélectionnez **Contrôle d’accès (IAM)**.

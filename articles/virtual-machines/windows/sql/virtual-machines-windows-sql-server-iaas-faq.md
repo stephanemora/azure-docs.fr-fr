@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: edfd2e9e03aefa4833c8472a43d4857f08b95780
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0956d9bdbf6390f2d64f15ca267545ca15289a46
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495474"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339397"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Forum aux questions (FAQ) relatives à l’exécution de SQL Server sur les machines virtuelles Windows dans Azure
 
@@ -55,7 +55,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Est-il possible de définir des configurations non affichées dans la galerie de machines virtuelles (par exemple, Windows 2008 R2 + SQL Server 2012) ?**
 
-    Non. Pour les images de la galerie de machines virtuelles incluant SQL Server, vous devez sélectionner une des images fournies.
+   Non. Pour les images de la galerie de machines virtuelles incluant SQL Server, vous devez sélectionner une des images fournies.
 
 ## <a name="creation"></a>Création
 
@@ -112,7 +112,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Est-il possible d’inscrire des machines virtuelles SQL Server auto-déployées auprès du fournisseur de ressources de machine virtuelle SQL ?**
 
-   Oui. Si vous avez déployé SQL Server à partir de votre propre support, vous pouvez inscrire votre machine virtuelle SQL auprès du fournisseur de ressources pour profiter des avantages de facilité de gestion fournis par l’extension IaaS de SQL. Toutefois, vous ne pouvez pas convertir une machine virtuelle SQL auto-déployée en PAYG. 
+   Oui. Si vous avez déployé SQL Server à partir de votre propre support et installé l’extension SQL IaaS, vous pouvez inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources pour profiter des avantages de facilité de gestion fournis par l’extension IaaS de SQL. Toutefois, vous ne pouvez pas convertir une machine virtuelle SQL auto-déployée en paiement à l’utilisation.  
 
 ## <a name="administration"></a>Administration
 
@@ -122,7 +122,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Puis-je désinstaller l’instance SQL Server par défaut ?**
 
-   Oui, mais il existe quelques considérations à prendre en compte. Comme indiqué dans la réponse précédente, les fonctionnalités qui reposent sur [l’extension de l’agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md) fonctionnent uniquement sur l’instance par défaut. Si vous désinstallez l’instance par défaut, l’extension continue à la rechercher et peut générer des erreurs du journal des événements. Ces erreurs peuvent avoir deux sources : **gestion des informations d’identification Microsoft SQL Server** et **agent IaaS Microsoft SQL Server**. L’une des erreurs peut se présenter comme suit :
+   Oui, mais il existe quelques considérations à prendre en compte. Comme indiqué dans la réponse précédente, les fonctionnalités qui reposent sur [l’extension de l’agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md) fonctionnent uniquement sur l’instance par défaut. Si vous désinstallez l’instance par défaut, l’extension continue à la rechercher et peut générer des erreurs du journal des événements. Ces erreurs peuvent avoir deux sources : **Gestion des informations d’identification Microsoft SQL Server** et **Agent IaaS Microsoft SQL Server**. L’une des erreurs peut se présenter comme suit :
 
       Une erreur liée au réseau ou propre à une instance s’est produite lors de l’établissement d’une connexion à SQL Server. Le serveur est introuvable ou inaccessible.
 
@@ -153,7 +153,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Quelle est la différence entre les machines virtuelles SQL et le service SQL Database ?**
 
-   Conceptuellement, l’exécution de SQL Server sur une machine virtuelle Azure n’est pas si différente de l’exécution de SQL Server dans un centre de données distant. En revanche, la [base de données SQL](../../../sql-database/sql-database-technical-overview.md) fournit une base de données relationnelle complète en tant que service. Avec SQL Database, vous n’avez pas besoin d’accéder aux machines qui hébergent vos bases de données. Pour obtenir une comparaison complète, consultez la rubrique [Choisir une option de SQL Server cloud : Base de données SQL Azure (PaaS) ou SQL Server sur des machines virtuelles Azure (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
+   Conceptuellement, l’exécution de SQL Server sur une machine virtuelle Azure n’est pas si différente de l’exécution de SQL Server dans un centre de données distant. En revanche, la [base de données SQL](../../../sql-database/sql-database-technical-overview.md) fournit une base de données relationnelle complète en tant que service. Avec SQL Database, vous n’avez pas besoin d’accéder aux machines qui hébergent vos bases de données. Pour une comparaison complète, consultez [Choisir une option SQL Serveur cloud : Base de données SQL Azure (PaaS) ou SQL Server sur des machines virtuelles Azure (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
 1. **Comment installer les outils SQL Data sur ma machine virtuelle Azure ?**
 

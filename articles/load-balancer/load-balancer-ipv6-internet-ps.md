@@ -1,23 +1,25 @@
 ---
-title: Créer un équilibrage de charge Azure accessible sur Internet avec IPv6 - PowerShell | Microsoft Docs
+title: Créer un équilibrage de charge Internet avec IPv6 - PowerShell
+titlesuffix: Azure Load Balancer
 description: Découvrez comment créer un équilibrage de charge accessible sur Internet avec IPv6 à l’aide de PowerShell pour Resource Manager
 services: load-balancer
 documentationcenter: na
 author: KumudD
 keywords: IPv6, équilibreur de charge azure, double pile, adresse ip publique, ipv6 natif, mobile, iot
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 71164899de9e4351e2da5ce469f0d7ae0373829f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: c62ef62a4a16f78003087347548c12793d61b10f
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741332"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162407"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Création d’un équilibrage de charge accessible sur Internet avec IPv6 à l’aide de PowerShell pour Resource Manager
 

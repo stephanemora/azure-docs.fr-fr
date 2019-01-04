@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: victorh
-ms.openlocfilehash: 782e5c4b33cc62ab5af80e823dc63b3e79a707b3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 89a88d79b6b93a233dbd4f335d0eb449e49d5289
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980523"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001775"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configurer une passerelle d’application pour le déchargement SSL en utilisant le modèle de déploiement classique
 
@@ -27,7 +27,7 @@ ms.locfileid: "46980523"
 > * [Portail Azure](application-gateway-ssl-portal.md)
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [Azure Classic PowerShell](application-gateway-ssl.md)
-> * [interface de ligne de commande Azure](application-gateway-ssl-cli.md)
+> * [Interface de ligne de commande Azure](application-gateway-ssl-cli.md)
 
 Il est possible de configurer Azure Application Gateway de façon à mettre fin à la session SSL (Secure Sockets Layer) sur la passerelle pour éviter les tâches de déchiffrement SSL coûteuses au niveau de la batterie de serveurs web. Le déchargement SSL simplifie aussi la configuration de serveur principal et la gestion de l’application web.
 
@@ -99,17 +99,17 @@ La configuration d'une passerelle Application Gateway se compose de plusieurs va
 
 Les valeurs sont :
 
-* **Pool de serveurs principaux :** la liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau du réseau virtuel ou doivent correspondre à une adresse IP/VIP publique.
-* **Paramètres du pool de serveurs principaux** : chaque pool comporte des paramètres tels que le port, le protocole et une affinité basée sur des cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
-* **Port frontal** : il s’agit du port public ouvert sur la passerelle d’application. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
-* **Écouteur** : l’écouteur a un port frontal, un protocole (Http ou Https ; avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL).
-* **Règle** : la règle lie l’écouteur et le pool de serveurs principaux et définit vers quel pool de serveurs principaux le trafic doit être dirigé quand il atteint un écouteur spécifique. Actuellement, seule la règle *de base* est prise en charge. La règle de *base* est la distribution de charge par tourniquet.
+* **Pool de serveurs principaux** : Liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau du réseau virtuel ou doivent correspondre à une adresse IP/VIP publique.
+* **Paramètres du pool de serveurs principaux** : Chaque pool dispose de paramètres tels que le port, le protocole et l’affinité en fonction des cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
+* **Port frontal** : Il s’agit du port public ouvert sur la passerelle d’application. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
+* **Écouteur** : L’écouteur dispose d’un port frontal, d’un protocole (HTTP ou HTTPS ; valeurs sensibles à la casse) et du nom du certificat SSL (en cas de configuration du déchargement SSL).
+* **Règle** : La règle lie l’écouteur et le pool de serveurs principaux et définit le pool de serveurs principaux vers lequel le trafic doit être dirigé quand il atteint un écouteur spécifique. Actuellement, seule la règle *de base* est prise en charge. La règle de *base* est la distribution de charge par tourniquet.
 
 **Notes de configuration supplémentaires :**
 
-Pour configurer des certificats SSL, le protocole dans **HttpListener** doit passer à **Https** (sensible à la casse). Ajoutez l’élément **SslCert** à **HttpListener** avec la valeur définie sur le même nom que celui utilisé dans la section [Charger des certificats SSL](#upload-ssl-certificates). Le port frontal doit être mis à jour sur **443**.
+Pour configurer des certificats SSL, le protocole dans **HttpListener** doit passer à **Https** (sensible à la casse). Ajoutez l’élément **SslCert** à **HttpListener** avec la valeur définie sur le même nom que celui utilisé dans la section [Charger des certificats SSL](#upload-ssl-certificates). Le port du serveur frontal doit être mis à jour sur **443**.
 
-**Pour activer l’affinité basée sur les cookies** : vous pouvez configurer une passerelle Application Gateway pour garantir qu’une requête d’une session client est toujours dirigée vers la même machine virtuelle dans la batterie de serveurs web. Pour ce faire, insérez un cookie de session permettant à la passerelle de diriger le trafic de manière appropriée. Pour activer l’affinité basée sur les cookies, définissez **CookieBasedAffinity** sur **Activé** dans l’élément **BackendHttpSettings**.
+**Pour activer l’affinité en fonction des cookies** : Vous pouvez configurer une passerelle d’application pour garantir qu’une requête issue d’une session client est toujours dirigée vers la même machine virtuelle dans la batterie de serveurs Web. Pour ce faire, insérez un cookie de session permettant à la passerelle de diriger le trafic de manière appropriée. Pour activer l’affinité basée sur les cookies, définissez **CookieBasedAffinity** sur **Activé** dans l’élément **BackendHttpSettings**.
 
 Vous pouvez construire votre configuration en créant un objet de configuration ou en utilisant un fichier XML de configuration.
 Pour construire votre configuration à l’aide d’un fichier XML de configuration, entrez l’exemple suivant :
@@ -117,7 +117,7 @@ Pour construire votre configuration à l’aide d’un fichier XML de configurat
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+<ApplicationGatewayConfiguration xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendIPConfigurations />
     <FrontendPorts>
         <FrontendPort>
@@ -209,5 +209,5 @@ DnsName       : appgw-4c960426-d1e6-4aae-8670-81fd7a519a43.cloudapp.net
 
 Pour plus d'informations sur les options d'équilibrage de charge en général, consultez :
 
-* [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
+* [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)

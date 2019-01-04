@@ -1,20 +1,21 @@
 ---
-title: Répliquer des applications avec SQL Server et Azure Site Recovery | Microsoft Docs
-description: Cet article explique comment répliquer SQL Server à l’aide d’Azure Site Recovery pour les fonctionnalités de récupération d’urgence de SQL Server.
+title: Configurer la récupération après sinistre pour SQL Server avec SQL Server et Azure Site Recovery | Microsoft Docs
+description: Cet article explique comment configurer la récupération après sinistre pour SQL Server à l’aide de SQL Server et d’Azure Site Recovery.
 services: site-recovery
-author: rayne-wiselman
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/22/2018
-ms.author: raynew
-ms.openlocfilehash: a734999f0fa473b5f1ee8ed55c4b73950566490d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.date: 11/27/2018
+ms.author: sutalasi
+ms.openlocfilehash: d4be7b9c7774163aed8c0efb3414dbd6a794cf7f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188771"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847794"
 ---
-# <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Protéger SQL Server à l’aide de la récupération d’urgence SQL Server et d’Azure Site Recovery
+# <a name="set-up-disaster-recovery-for-sql-server"></a>Configurer la récupération après sinistre pour SQL Server 
 
 Cet article décrit comment protéger le serveur SQL Server principal d’une application en combinant les technologies de continuité d’activité et de récupération d’urgence (BCDR) de SQL Server et [Azure Site Recovery](site-recovery-overview.md).
 
@@ -25,9 +26,9 @@ Avant de commencer, assurez-vous de bien comprendre les fonctionnalités de réc
 
 De nombreuses charges de travail utilisent SQL Server comme base, qui peut être intégré avec des applications telles que SharePoint, Dynamics et SAP pour mettre en œuvre des services de données.  SQL Server peut être déployé de plusieurs façons :
 
-* **SQL Server autonome**: le serveur SQL et toutes les bases de données sont hébergés sur un seul ordinateur (physique ou une machine virtuelle). Quand le serveur est virtualisé, le cluster hôte est utilisé pour la haute disponibilité locale. La haute disponibilité pour le niveau invité n’est pas mise en œuvre.
-* **Instances de clustering de basculement SQL Server (Always On FCI)** : au moins deux nœuds exécutant des instances SQL Server avec des disques partagés sont configurés dans un cluster de basculement Windows. Si un nœud est inactif, le cluster peut basculer SQL Server vers une autre instance. Cette configuration est généralement utilisée pour mettre en œuvre la haute disponibilité sur un site principal. Ce type de déploiement ne protège pas contre la défaillance ou une panne dans la couche de stockage partagé. Un disque partagé peut être mis en œuvre avec iSCSI, Fibre Channel ou VHDx partagé.
-* **Groupes de disponibilité SQL Always On** : au moins deux nœuds sont configurés dans un cluster sans partage avec des bases de données SQL Server configurées dans un groupe de disponibilité avec réplication synchrone et basculement automatique.
+* **SQL Server autonome** : SQL Server et toutes les bases de données sont hébergés sur un seul ordinateur (physique ou une machine virtuelle). Quand le serveur est virtualisé, le cluster hôte est utilisé pour la haute disponibilité locale. La haute disponibilité pour le niveau invité n’est pas mise en œuvre.
+* **Instances de clustering de basculement SQL Server (AlwaysOn FCI)**  : au moins deux nœuds exécutant des instances SQL Server avec des disques partagés sont configurés dans un cluster de basculement Windows. Si un nœud est inactif, le cluster peut basculer SQL Server vers une autre instance. Cette configuration est généralement utilisée pour mettre en œuvre la haute disponibilité sur un site principal. Ce type de déploiement ne protège pas contre la défaillance ou une panne dans la couche de stockage partagé. Un disque partagé peut être mis en œuvre avec iSCSI, Fibre Channel ou VHDx partagé.
+* **Groupes de disponibilité SQL AlwaysOn** : Au moins deux nœuds sont configurés dans un cluster sans partage avec des bases de données SQL Server configurées dans un groupe de disponibilité avec réplication synchrone et basculement automatique.
 
  Cet article s’appuie sur les technologies de récupération d’urgence SQL natives suivantes pour mettre en œuvre la récupération des bases de données vers un site distant :
 
@@ -100,7 +101,7 @@ Voici ce que vous devez faire :
 
 1. Importez les scripts sur votre compte Azure Automation. Ce dernier contient les scripts pour le basculement du groupe de disponibilité SQL dans une [machine virtuelle Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) et une [machine virtuelle classique](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1).
 
-    [![Déploiement sur Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![Déployer sur Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 
 1. Ajoutez ASR-SQL-FailoverAG comme une action préalable du premier groupe dans le plan de récupération.

@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 3a980abc7b9611cfd6a3933a54505b0208b67f50
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e12e29a5a627110ce845cd44be6dd97b717f9b26
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253718"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014495"
 ---
-# <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Stockage Blob Azure : niveaux de stockage Premium (préversion), chaud, froid et archive
+# <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Stockage Blob Azure : niveaux de stockage Premium (préversion), chaud, froid et archive
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -62,7 +62,7 @@ Pour utiliser ce niveau, provisionnez un nouveau compte de stockage d’objets b
 Durant la période de préversion, le niveau d’accès Premium :
 
 - Est disponible en tant que stockage localement redondant (LRS)
-- Est uniquement disponible dans les régions USA Est 2, USA Centre et USA Ouest
+- Est disponible uniquement dans les régions suivantes : USA Est 2, USA Centre et USA Ouest
 - Ne prend pas en charge la hiérarchisation automatique ni la gestion du cycle de vie des données
 
 Pour savoir comment s’inscrire à la préversion du niveau d’accès Premium, consultez [Présentation du service Stockage Blob Premium Azure](https://aka.ms/premiumblob).
@@ -113,7 +113,7 @@ Les objets blob des trois niveaux de stockage peuvent coexister au sein d’un m
 Les données stockées dans le niveau d’accès Premium ne peuvent pas être déplacées dans le niveau chaud, froid ou archive avec [Définir le niveau du blob](/rest/api/storageservices/set-blob-tier) ou à l’aide de la gestion du cycle de vie du stockage d’objets blob Azure. Pour déplacer les données, effectuez une copie synchrone des objets blob du niveau Premium dans le niveau chaud, en utilisant la nouvelle [API Put Block From URL](/rest/api/storageservices/put-block-from-url) ou une version d’AzCopy qui prend en charge cette API. L’API *Put Block From URL* copie les données sur le serveur de manière synchrone, ce qui signifie que l’appel est effectué uniquement quand toutes les données ont été déplacées de l’emplacement d’origine sur le serveur vers l’emplacement de destination.
 
 ### <a name="blob-lifecycle-management"></a>Gestion de cycle de vie des objets blob
-La gestion du cycle de vie du stockage d’objets blob Azure (préversion) offre une stratégie enrichie, basée sur des règles, que vous pouvez utiliser pour faire passer vos données au niveau d’accès le plus adapté et faire expirer les données à la fin de leur cycle de vie. Consultez [Gérer le cycle de vie du stockage Blob Azure](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts) pour en savoir plus.  
+La gestion du cycle de vie du stockage d’objets blob Azure (préversion) offre une stratégie enrichie, basée sur des règles, que vous pouvez utiliser pour faire passer vos données au niveau d’accès le plus adapté et faire expirer les données à la fin de leur cycle de vie. Consultez [Gérer le cycle de vie du stockage Blob Azure](storage-lifecycle-management-concepts.md) pour en savoir plus.  
 
 ### <a name="blob-level-tiering-billing"></a>Facturation de la hiérarchisation au niveau de l’objet blob
 
@@ -157,7 +157,7 @@ Dans cette section, les scénarios suivants sont décrits à l’aide du Portail
 
 3. Dans le panneau Paramètres, cliquez sur **Configuration** pour afficher et/ou modifier la configuration du compte.
 
-4. Sélectionnez le niveau de stockage adapté à vos besoins : définissez le **Niveau d’accès** sur **Froid** ou **Chaud**.
+4. Sélectionnez le niveau de stockage adapté à vos besoins : Affectez la valeur **Froid** ou **Chaud** au **Niveau d’accès**.
 
 5. Cliquez sur Enregistrer dans la partie supérieure du panneau.
 
@@ -175,12 +175,12 @@ Dans cette section, les scénarios suivants sont décrits à l’aide du Portail
 
 Tous les comptes de stockage utilisent un modèle tarifaire pour le stockage Blob basé sur le niveau de chaque objet blob. Gardez à l’esprit les conditions de facturation suivantes :
 
-* **Coûts de stockage**: les coûts de stockage de données varient selon la quantité de données stockées et le niveau de stockage. Le coût par gigaoctet diminue à mesure que le niveau refroidit.
-* **Coûts d’accès aux données** : les frais d’accès aux données augmentent à mesure que le niveau refroidit. Pour les données des niveaux de stockage froid et archive, des frais d’accès aux données en lecture vous sont facturés par gigaoctet.
-* **Coûts de transaction** : des frais par transaction pour tous les niveaux, augmentant à mesure que le niveau refroidit.
-* **Coûts de transfert de données de géoréplication** : ces coûts s’appliquent uniquement aux comptes pour lesquels la géoréplication est configurée, y compris GRS et RA-GRS. Le transfert de données de géoréplication implique des frais par gigaoctet.
-* **Coûts de transfert de données sortantes** : les transferts de données sortantes (données transférées hors d’une région Azure) sont facturés pour l’utilisation de la bande passante par gigaoctet. Cette facturation est cohérente avec les comptes de stockage à usage général.
-* **Modification du niveau de stockage** : passer d’un niveau de stockage de compte froid à un niveau de stockage chaud implique des frais correspondant à la lecture de toutes les données existantes du compte de stockage. Toutefois, la modification du niveau de stockage de compte chaud vers un niveau de stockage froid induit des frais équivalents à l’écriture de toutes les données dans le niveau froid (comptes GPv2 uniquement).
+* **Coûts de stockage** : les coûts de stockage de données varient en fonction de la quantité de données stockées et du niveau de stockage. Le coût par gigaoctet diminue à mesure que le niveau refroidit.
+* **Coûts d’accès aux données** : les frais d’accès aux données augmentent à mesure que le niveau refroidit. Pour les données des niveaux de stockage froid et archive, des frais d’accès aux données en lecture vous sont facturés par gigaoctet.
+* **Coûts de transaction** : il existe des frais par transaction pour tous les niveaux, augmentant à mesure que le niveau refroidit.
+* **Coûts de transfert de données de géoréplication** : ces coûts s’appliquent uniquement aux comptes pour lesquels la géoréplication est configurée, notamment GRS et RA-GRS. Le transfert de données de géoréplication implique des frais par gigaoctet.
+* **Coûts de transfert de données sortantes** : les transferts de données sortantes (données transférées hors d’une région Azure) sont facturés pour l’utilisation de la bande passante par gigaoctet. Cette facturation est cohérente avec les comptes de stockage à usage général.
+* **Modification du niveau de stockage** : passer d’un niveau de stockage de compte froid à un niveau de stockage chaud implique des frais correspondant à la lecture de toutes les données existantes du compte de stockage. Toutefois, la modification du niveau de stockage de compte chaud vers un niveau de stockage froid induit des frais équivalents à l’écriture de toutes les données dans le niveau froid (comptes GPv2 uniquement).
 
 > [!NOTE]
 > Pour plus d’informations sur les tarifs des comptes de stockage Blob, consultez la page [Présentation de la tarification Stockage Azure](https://azure.microsoft.com/pricing/details/storage/). Pour plus d’informations sur les frais de transfert de données sortantes, consultez la page [Détails de la tarification – Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/).
@@ -203,7 +203,7 @@ Oui, vous pouvez modifier le niveau de stockage par défaut en définissant l’
 
 **Puis-je configurer le niveau d’accès par défaut de mon compte sur archive ?**
 
-Non. Seuls les niveaux de stockage chaud et froid peuvent être choisis comme le niveau d’accès par défaut du compte. Le niveau archive ne peut être choisi qu’au niveau d’un objet.
+ Non. Seuls les niveaux de stockage chaud et froid peuvent être choisis comme le niveau d’accès par défaut du compte. Le niveau archive ne peut être choisi qu’au niveau d’un objet.
 
 **Dans quelles régions les niveaux de stockage chaud, froid et archive sont-ils disponibles ?**
 
@@ -245,7 +245,7 @@ Le stockage des données ainsi que d’autres limites sont établis à partir du
 
 [Vérifier la disponibilité des niveaux chaud, froid et archive par région](https://azure.microsoft.com/regions/#services)
 
-[Gérer le cycle de vie du stockage Blob Azure](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)
+[Gérer le cycle de vie du stockage Blob Azure](storage-lifecycle-management-concepts.md)
 
 [Évaluer l’utilisation des comptes de stockage actuels en activant les métriques Azure Storage](../common/storage-enable-and-view-metrics.md)
 

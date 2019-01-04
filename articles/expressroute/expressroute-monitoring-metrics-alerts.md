@@ -1,26 +1,31 @@
 ---
-title: Supervision, métriques et alertes ExpressRoute Azure | Microsoft Docs
+title: Supervision, métriques et alertes - Azure ExpressRoute | Microsoft Docs
 description: Cette page fournit des informations sur la supervision ExpressRoute
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: fcdaf10ad30cee0e7b79304ff21d67560522875c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.custom: seodec18
+ms.openlocfilehash: 115b1185575232800e060f67317e4973eea9ea53
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377795"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091762"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Supervision, métriques et alertes ExpressRoute
 
- Cet article vous aide à comprendre la supervision, les métriques et les alertes ExpressRoute. Azure Monitor est un emplacement centralisé pour toutes les métriques, alertes et journaux de diagnostic dans Azure.
+Cet article vous aide à comprendre la supervision, les métriques et les alertes ExpressRoute à l’aide d’Azure Monitor. Azure Monitor est un emplacement centralisé pour toutes les métriques, alertes et journaux de diagnostic dans Azure.
+ 
+>[!NOTE]
+>L’utilisation des **métriques classiques** n’est pas recommandée.
+>
 
 ## <a name="circuit-metrics"></a>Métriques de circuit
 
-Pour accéder aux **Métriques**, cliquez sur la page ExpressRoute du circuit que vous souhaitez surveiller. Sous **Supervision**, vous pouvez visualiser les **Métriques**. Sélectionnez BitsInPerSecond ou BitsOutPerSecond, et Aggregation. Si vous le souhaitez, vous pouvez appliquer le fractionnement, qui affiche les métriques par type d’appairage.
+Pour accéder aux **Métriques**, cliquez sur la page ExpressRoute du circuit que vous souhaitez surveiller. Sous **Supervision**, vous pouvez voir les **Métriques**. Sélectionnez BitsInPerSecond ou BitsOutPerSecond, et Aggregation. Si vous le souhaitez, vous pouvez appliquer un fractionnement, qui affiche les métriques par type de peering.
 
 ![métriques de circuit](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
@@ -47,7 +52,6 @@ Vous pouvez afficher des mesures pour l’homologation privée, publique et Micr
 
   ![groupe d’actions](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
-
 4. Définissez et ajoutez le groupe d’actions.
 
   ![ajouter un groupe d'actions](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
@@ -61,9 +65,10 @@ Vous pouvez afficher des mesures pour l’homologation privée, publique et Micr
 Dans les **Critères d’alerte**, vous pouvez sélectionner le Type de signal **Journal d’activité** puis sélectionner le Signal.
 
   ![autre](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
-
+  
 ## <a name="next-steps"></a>Étapes suivantes
-* Configurez votre connexion ExpressRoute.
+
+Configurez votre connexion ExpressRoute.
   
   * [Créer et modifier un circuit](expressroute-howto-circuit-arm.md)
   * [Créer et modifier une configuration de l’homologation](expressroute-howto-routing-arm.md)

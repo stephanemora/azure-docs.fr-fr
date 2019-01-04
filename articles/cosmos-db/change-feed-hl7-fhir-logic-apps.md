@@ -1,21 +1,19 @@
 ---
-title: Flux de modification pour les ressources HL7 FHIR - Azure Cosmos DB | Microsoft Docs
+title: Flux de modification pour les ressources HL7 FHIR - Azure Cosmos DB
 description: Découvrez comment définir les notifications de modification pour les dossiers médicaux HL7 FHIR à l’aide d’Azure Logic Apps, Azure Cosmos DB et Service Bus.
 keywords: hl7 fhir
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: aab6e5247830ee444bcab0b15bda34e4464aaad1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 5cc6bdfa9c16a6dfbdd0f6c87873a90b2a203169
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565477"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089222"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Notification aux patients des modifications des dossiers médicaux HL7 FHIR à l’aide de Logic Apps et Azure Cosmos DB
 
@@ -25,7 +23,7 @@ Cet article examine la solution de notification du flux de modification, mise en
 
 ## <a name="project-requirements"></a>Configuration requise du projet
 - Les fournisseurs ont transmis les documents d’architecture documentaires cliniques consolidés (C-CDA) HL7 au format XML. Les documents C-CDA englobent tout type de contenus cliniques, tels que les antécédents familiaux et les dossiers d’immunisation, ainsi que les fichiers administratifs, de workflow et financiers. 
-- Les documents C-CDA sont convertis en [ressources HL7 FHIR](http://hl7.org/fhir/2017Jan/resourcelist.html) au format JSON.
+- Les documents C-CDA sont convertis en [ressources HL7 FHIR](https://hl7.org/fhir/2017Jan/resourcelist.html) au format JSON.
 - Les documents de ressource FHIR modifiés sont transmis par voie électronique au format JSON.
 
 ## <a name="solution-workflow"></a>Workflow de la solution 
@@ -40,9 +38,9 @@ Cet article examine la solution de notification du flux de modification, mise en
 
 ## <a name="solution-architecture"></a>Architecture de solution
 Cette solution nécessite que 3 applications logiques respectent les conditions préalables ci-dessus et exécutent le workflow de la solution. Les 3 applications logiques sont les suivantes :
-1. **Application de mappage HL7 FHIR** : reçoit le document HL7 C-CDA, le transforme en ressource FHIR et l’enregistre sur Azure Cosmos DB.
-2. **Application des dossiers électroniques** : interroge le référentiel Azure Cosmos DB FHIR et enregistre la réponse dans la file d’attente Service Bus. Cette application logique utilise une [application API](#api-app) pour récupérer les documents nouveaux et modifiés.
-3. **Application de notification du processus** : envoie une notification par courrier électronique avec les documents de ressource FHIR dans le corps.
+1. **Application de mappage HL7 FHIR** : reçoit le document HL7 C-CDA, le transforme en ressource FHIR et l’enregistre sur Azure Cosmos DB.
+2. **Application des dossiers médicaux électroniques** : interroge le dépôt Azure Cosmos DB FHIR et enregistre la réponse dans une file d’attente Service Bus. Cette application logique utilise une [application API](#api-app) pour récupérer les documents nouveaux et modifiés.
+3. **Application de notification du processus** : envoie une notification par e-mail avec les documents de ressource FHIR dans le corps.
 
 ![Les 3 applications logiques utilisées dans cette solution de soins de santé HL7 FHIR](./media/change-feed-hl7-fhir-logic-apps/health-care-solution-hl7-fhir.png)
 
@@ -59,16 +57,16 @@ Azure Cosmos DB est le référentiel dédié aux ressources FHIR, tel que repr�
 Logic Apps gère le processus du workflow. Les captures d’écran suivantes représentent les applications logiques créées pour cette solution. 
 
 
-1. **Application de mappage HL7 FHIR** : reçoit le document HL7 C-CDA et le transforme en ressource FHIR à l’aide de l’instance Enterprise Integration Pack (EIP) pour Logic Apps. EIP prend en charge le mappage du document C-CDA vers les ressources FHIR.
+1. **Application de mappage HL7 FHIR** : reçoit le document HL7 C-CDA et le transforme en ressource FHIR avec Enterprise Integration Pack (EIP) pour Logic Apps. EIP prend en charge le mappage du document C-CDA vers les ressources FHIR.
 
     ![L’application logique utilisée pour recevoir les dossiers médicaux HL7 FHIR](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-json-transform.png)
 
 
-2. **Application des dossiers électroniques** : interroge le référentiel Azure Cosmos DB FHIR et enregistre la réponse dans la file d’attente Service Bus. Vous trouverez le code de l’application GetNewOrModifiedFHIRDocuments ci-dessous.
+2. **Application des dossiers médicaux électroniques** : interroge le dépôt Azure Cosmos DB FHIR et enregistre la réponse dans une file d’attente Service Bus. Vous trouverez le code de l’application GetNewOrModifiedFHIRDocuments ci-dessous.
 
     ![Application logique utilisée pour interroger Azure Cosmos DB](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-api-app.png)
 
-3. **Application de notification du processus** : envoie une notification par courrier électronique avec les documents de ressource FHIR dans le corps.
+3. **Application de notification du processus** : envoie une notification par e-mail avec les documents de ressource FHIR dans le corps.
 
     ![L’application logique qui transmet au patient l’e-mail avec la ressource HL7 FHIR dans le corps](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-send-email.png)
 
@@ -90,12 +88,12 @@ Nous utilisons la classe [`CreateDocumentChangeFeedQuery`](https://msdn.microsof
 - DatabaseId
 - CollectionId
 - Nom du type de ressource HL7 FHIR
-- Valeur booléenne : Start from Beginning(démarrer à partir du début)
-- Int : nombre de documents renvoyés
+- Valeur booléenne : Start from Beginning (Démarrer à partir du début)
+- Int : Nombre de documents retournés
 
 **Sorties**
-- Réussite : code d’état 200, Réponse : liste des documents (tableau JSON)
-- Échec : code d’état 404, Réponse : « No Documents found for ’*resource name’* Resource Type » (Aucun document trouvé pour le type de ressource)
+- Réussite : Code d’état : 200, Réponse : List of Documents (JSON Array) (Liste de documents (tableau JSON))
+- Échec : Code d’état : 404, Réponse : « No Documents found for '*resource name'* Resource Type » (Aucun document trouvé pour le type de ressource '*resource name'*)
 
 <a id="api-app-source"></a>
 

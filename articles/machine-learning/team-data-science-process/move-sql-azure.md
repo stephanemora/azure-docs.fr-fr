@@ -1,6 +1,6 @@
 ---
-title: Déplacement de données vers une base de données SQL Azure pour Azure Machine Learning | Microsoft Docs
-description: Création d’une table SQL et chargement de données dans une table SQL
+title: Déplacer des données vers Azure SQL Database - Team Data Science Process
+description: Déplacez des données à partir de fichiers plats (formats CSV ou TSV) ou de données stockées sur un ordinateur SQL Server local vers une base de données SQL Azure.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -8,15 +8,15 @@ editor: cgronlun
 ms.service: machine-learning
 ms.component: team-data-science-process
 ms.topic: article
-ms.date: 5/04/2018
+ms.date: 05/04/2018
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 1c65e2b622d9c70626411f470593730570de813b
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 680a47dae057b68957c58bbaab1ec35407d67952
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445343"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268630"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Déplacement de données vers une base de données SQL Azure pour Azure Machine Learning
 
@@ -26,7 +26,7 @@ Pour une rubrique présentant les options de déplacement de données sur un SQL
 
 Le tableau suivant récapitule les options de déplacement de données vers une base de données SQL Azure.
 
-| <b>SOURCE</b> | <b>DESTINATION : base de données SQL Azure</b> |
+| <b>SOURCE</b> | <b>DESTINATION : Azure SQL Database</b> |
 | --- | --- |
 | <b>Fichier plat (mise en forme CSV ou TSV)</b> |[Requête SQL Bulk Insert](#bulk-insert-sql-query) |
 | <b>Serveur SQL Server local</b> |1.[Exporter dans un fichier plat](#export-flat-file)<br> 2. [Assistant Migration de la base de données SQL](#insert-tables-bcp)<br> 3. [Sauvegarde et restauration de base de données](#db-migration)<br> 4. [Azure Data Factory](#adf) |

@@ -1,5 +1,5 @@
 ---
-title: Mise à l’échelle géolocalisée avec les environnements App Service
+title: Mise à l’échelle géodistribuée avec les environnements App Service - Azure
 description: Découvrez comment mettre à l’échelle des applications horizontalement en utilisant Traffic Manager et les environnements App Service.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
-ms.openlocfilehash: bc85139dfa3589baf6505fac2269f8755dcaddc8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.custom: seodec18
+ms.openlocfilehash: aa9eb0b624df29f6fb86402c06436ed7349fa662
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213246"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273865"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Mise à l’échelle géolocalisée avec les environnements App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -42,18 +43,18 @@ Le reste de cette rubrique décrit les étapes nécessaires à la configuration 
 ## <a name="planning-the-topology"></a>Planification de la topologie
 Avant de créer une empreinte d’application distribuée, il peut s’avérer utile de disposer de quelques éléments d’informations.
 
-* **Domaine personnalisé pour l’application :** quel est le nom de domaine personnalisé que les utilisateurs utiliseront pour accéder à l’application ?  Pour l’exemple d’application, le nom de domaine personnalisé est *www.scalableasedemo.com*
-* **Domaine Traffic Manager :** vous devez choisir un nom de domaine au moment de la création d’un [profil Azure Traffic Manager][AzureTrafficManagerProfile].  Ce nom est associé au suffixe *trafficmanager.net* pour enregistrer une entrée de domaine gérée par Traffic Manager.  Dans l’exemple d’application, le nom choisi est *scalable-ase-demo*.  Par conséquent, le nom de domaine complet géré par Traffic Manager est *scalable-ase-demo.trafficmanager.net*.
-* **Stratégie de mise à l’échelle de l’empreinte de l’application :** l’empreinte de l’application sera-t-elle distribuée sur plusieurs environnements App Service dans une seule région ?  Plusieurs régions ?  Une combinaison des deux approches ?  La décision doit être prise en fonction des attentes depuis l’emplacement d’origine du trafic du client, ainsi que sur la manière dont peut évoluer le reste de l’application prenant en charge l’infrastructure principale.  Par exemple, avec une application à 100 % sans état, une application peut être adaptée à très grande échelle à l’aide d’une combinaison de plusieurs environnements App Service, puis multipliée par les environnements App Service déployés dans plusieurs régions Azure.  Avec plus de 15 régions Azure publiques disponibles, les clients peuvent véritablement créer une empreinte d’application à échelle mondial.  Pour l’exemple d’application utilisé pour cet article, trois environnements App Service ont été créés dans une seule région Azure (Sud-Central des États-Unis).
-* **Convention de dénomination pour les environnements App Service :** chaque environnement App Service exige un nom unique.  Au-delà d’un ou deux environnements App Service, une convention d’affectation de noms identifiant chaque environnement App Service peut s’avérer utile.  Pour l’exemple d’application, une convention d’affectation de noms simple a été utilisée.  Les noms des trois environnements App Service sont respectivement *fe1ase*, *fe2ase* et *fe3ase*.
-* **Convention de dénomination pour les applications :** comme plusieurs instances de l’application vont être déployées, un nom est requis pour chacune d’entre elles.  Les environnements App Service proposent une fonctionnalité peu connue, mais très pratique, qui fait que le même nom d’application peut être utilisé sur plusieurs environnements App Service.  Étant donné que chaque environnement App Service comporte un suffixe de domaine unique, les développeurs peuvent choisir d’utiliser le même nom d’application dans chaque environnement.  Par exemple, un développeur peut avoir des applications nommées comme suit : *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, etc.  Cependant, pour l’exemple d’application, chaque instance de l’application a également un nom unique.  Les noms d’instance application utilisés sont *webfrontend1*, *webfrontend2* et *webfrontend3*.
+* **Domaine personnalisé pour l’application :**  quel est le nom de domaine personnalisé que les clients utiliseront pour accéder à l’application ?  Pour l’exemple d’application, le nom de domaine personnalisé est *www.scalableasedemo.com*
+* **Domaine Traffic Manager :**  vous devez choisir un nom de domaine au moment de la création d’un [profil Azure Traffic Manager][AzureTrafficManagerProfile].  Ce nom est associé au suffixe *trafficmanager.net* pour enregistrer une entrée de domaine gérée par Traffic Manager.  Dans l’exemple d’application, le nom choisi est *scalable-ase-demo*.  Par conséquent, le nom de domaine complet géré par Traffic Manager est *scalable-ase-demo.trafficmanager.net*.
+* **Stratégie de mise à l’échelle de l’empreinte de l’application :**  l’empreinte de l’application sera-t-elle distribuée sur plusieurs environnements App Service dans une seule région ?  Plusieurs régions ?  Une combinaison des deux approches ?  La décision doit être prise en fonction des attentes depuis l’emplacement d’origine du trafic du client, ainsi que sur la manière dont peut évoluer le reste de l’application prenant en charge l’infrastructure principale.  Par exemple, avec une application à 100 % sans état, une application peut être adaptée à très grande échelle à l’aide d’une combinaison de plusieurs environnements App Service, puis multipliée par les environnements App Service déployés dans plusieurs régions Azure.  Avec plus de 15 régions Azure publiques disponibles, les clients peuvent véritablement créer une empreinte d’application à échelle mondial.  Pour l’exemple d’application utilisé pour cet article, trois environnements App Service ont été créés dans une seule région Azure (USA Centre Sud).
+* **Convention de nommage pour les environnements App Service :**  chaque environnement App Service requiert un nom unique.  Au-delà d’un ou deux environnements App Service, une convention d’affectation de noms identifiant chaque environnement App Service peut s’avérer utile.  Pour l’exemple d’application, une convention d’affectation de noms simple a été utilisée.  Les noms des trois environnements App Service sont respectivement *fe1ase*, *fe2ase* et *fe3ase*.
+* **Convention d’affectation de noms pour les applications :**  comme plusieurs instances de l’application vont être déployées, un nom est requis pour chacune d’entre elles.  Les environnements App Service proposent une fonctionnalité peu connue, mais très pratique, qui fait que le même nom d’application peut être utilisé sur plusieurs environnements App Service.  Étant donné que chaque environnement App Service comporte un suffixe de domaine unique, les développeurs peuvent choisir d’utiliser le même nom d’application dans chaque environnement.  Par exemple, un développeur peut avoir des applications nommées comme suit : *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, etc.  Cependant, pour l’exemple d’application, chaque instance de l’application a également un nom unique.  Les noms d’instance application utilisés sont *webfrontend1*, *webfrontend2* et *webfrontend3*.
 
 ## <a name="setting-up-the-traffic-manager-profile"></a>Configuration d’un profil Traffic Manager
 Une fois que plusieurs instances d’une application sont déployées sur plusieurs environnements App Service, les instances d’application individuelles peuvent être enregistrées avec Traffic Manager.  Dans l’exemple d’application, un profil Traffic Manager qui peut acheminer les clients vers les instances d’applications qui suivent est nécessaire pour *scalable-ase-demo.trafficmanager.net* :
 
-* **webfrontend1.fe1ase.p.azurewebsites.net :** instance de l’exemple d’application déployée sur le premier environnement App Service.
-* **webfrontend2.fe2ase.p.azurewebsites.net :** instance de l’exemple d’application déployée sur le deuxième environnement App Service.
-* **webfrontend3.fe3ase.p.azurewebsites.net :** instance de l’exemple d’application déployée sur le troisième environnement App Service.
+* **webfrontend1.fe1ase.p.azurewebsites.net :**  instance de l’exemple d’application déployée sur le premier environnement App Service.
+* **webfrontend2.fe2ase.p.azurewebsites.net :**  instance de l’exemple d’application déployée sur le deuxième environnement App Service.
+* **webfrontend3.fe3ase.p.azurewebsites.net :**  instance de l’exemple d’application déployée sur le troisième environnement App Service.
 
 Le moyen le plus simple d’enregistrer plusieurs points de terminaison Azure App Service s’exécutant tous dans la **même** région Azure, est d’utiliser la [prise en charge Powershell Azure Resource Manager Traffic Manager][ARMTrafficManager].  
 

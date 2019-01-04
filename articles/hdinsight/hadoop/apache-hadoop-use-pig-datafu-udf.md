@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0c7e8b7ab10771c611f80d36fb1c9ed0cf3e6f1b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 982ed4533c34cd4a6613d289ef4712001977538f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632354"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436209"
 ---
 # <a name="use-apache-datafu-pig-with-apache-pig-on-hdinsight"></a>Utiliser Apache DataFu Pig avec Apache Pig sur HDInsight
 
@@ -29,21 +29,21 @@ Pour plus d’informations sur DataFu Pig, consultez [https://datafu.apache.org/
 
 * Un cluster Azure HDInsight (Linux ou Windows)
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* Des connaissances élémentaire de [l'utilisation de Pig dans HDInsight](hdinsight-use-pig.md)
+* Des connaissances élémentaire de l’[utilisation d’Apache Pig sur HDInsight](hdinsight-use-pig.md)
 
 ## <a name="install-datafu-on-linux-based-hdinsight"></a>Installation de DataFu dans HDInsight basé sur Linux
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > DataFu est installé sur les clusters basés sur Linux 3.3 et versions ultérieures, ainsi que sur les clusters Windows. Il n’est pas installé sur les clusters Linux avant la version 3.3.
 >
 > Si vous utilisez un cluster basé sur Windows ou un cluster basé sur une version Linux ultérieure à la version 3.3, ignorez cette section.
 
 DataFu peut être téléchargé et installé à partir du référentiel Maven. Utilisez les étapes suivantes pour rechercher la version dont vous avez besoin et pour l’ajouter à votre cluster HDInsight :
 
-> [!WARNING]
+> [!WARNING]  
 > Les versions de DataFu peuvent avoir des exigences qui ne sont pas satisfaites par HDInsight. Par exemple, si vous utilisez une version antérieure de DataFu, celle-ci peut nécessiter une version différente de Pig que celle qui est incluse dans HDInsight.
 
 ### <a name="find-a-version"></a>Rechercher une version
@@ -62,30 +62,30 @@ DataFu peut être téléchargé et installé à partir du référentiel Maven. U
 
 2. Utilisez la commande suivante pour télécharger le fichier .jar de DataFu avec l’utilitaire wget :
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Remplacez le lien dans la commande par l’URL que vous avez copiée précédemment.
 
     ```
-    wget http://central.maven.org/maven2/org/apache/datafu/datafu-pig/1.4.0/datafu-pig-1.4.0.jar
+    wget https://central.maven.org/maven2/org/apache/datafu/datafu-pig/1.4.0/datafu-pig-1.4.0.jar
     ```
 
 3. Ensuite, chargez le fichier du stockage par défaut pour votre cluster HDInsight. Placer le fichier dans un stockage par défaut le rend accessible à tous les nœuds du cluster.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Remplacez le numéro de version dans le nom de fichier par la version que vous avez téléchargée.
 
     ```
     hdfs dfs -put datafu-pig-1.4.0.jar /example/jars
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > La commande ci-dessus stocke le fichier jar dans `/example/jars`, car ce répertoire existe déjà sur le stockage en cluster. Vous pouvez utiliser n'importe quel emplacement dans le stockage en cluster HDInsight.
 
 ## <a name="use-datafu-with-pig"></a>Utilisation de DataFu avec Pig
 
 Les étapes de cette section supposent que vous êtes familiarisé avec l’utilisation de Pig sur HDInsight. Pour plus d'informations sur l'utilisation de Pig avec HDInsight, consultez la rubrique [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Si vous avez installé DataFu manuellement en suivant les étapes de la section précédente, vous devez l’enregistrer avant de l’utiliser.
 >
 > * Si votre cluster utilise le stockage Azure, utilisez un chemin d’accès `wasb://`. Par exemple : `register wasb:///example/jars/datafu-pig-1.4.0.jar`.
@@ -140,4 +140,4 @@ Voici la sortie qu’il génère :
 Pour plus d'informations sur DataFu ou Pig, consultez les documents suivants :
 
 * [Bien démarrer avec Apache DataFu Pig](https://datafu.apache.org/docs/datafu/getting-started.html).
-* [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
+* [Utilisation d’Apache Pig avec HDInsight](hdinsight-use-pig.md)

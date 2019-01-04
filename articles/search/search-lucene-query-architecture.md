@@ -1,5 +1,5 @@
 ---
-title: Architecture du moteur de recherche en texte intégral (Lucene) dans la recherche Azure | Microsoft Docs
+title: Architecture du moteur de recherche en texte intégral (Lucene) - Recherche Azure
 description: Explication des concepts de traitement des requêtes et d’extraction de documents Lucene pour la recherche en texte intégral, liée à la recherche Azure.
 manager: jlembicz
 author: yahnoosh
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 55d361e90dbc5fe48bc118088a6f859d096048ff
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.custom: seodec2018
+ms.openlocfilehash: 8ca9fe72e4bd5272a5303b3bacd8c0960504789d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036868"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315794"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Fonctionnement de la recherche en texte intégral dans la recherche Azure
 
@@ -95,7 +96,7 @@ L’analyseur de requêtes restructure les sous-requêtes en une *arborescence d
 
  ![Mode de recherche de requête booléenne : quelconque][2]
 
-### <a name="supported-parsers-simple-and-full-lucene"></a>Analyseurs pris en charge : simple et complet (Lucene) 
+### <a name="supported-parsers-simple-and-full-lucene"></a>Analyseurs pris en charge : Lucene simple et complet 
 
  La recherche Azure expose deux langages de requête différents, `simple` (valeur par défaut) et `full`. En définissant le paramètre `queryType` avec votre requête de recherche, vous indiquez à l’analyseur de requêtes le langage de requête choisi afin qu’il sache comment interpréter les opérateurs et la syntaxe. Le [langage de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) est intuitif et robuste, généralement adapté à l’interprétation de l’entrée d’utilisateur telle quelle, sans traitement côté client. Il prend en charge les opérateurs de requête courants des moteurs de recherche web. Le [langage de requête complet Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), que vous pouvez obtenir en définissant `queryType=full`, étend le langage de requête simple par défaut en y ajoutant la prise en charge de plusieurs opérateurs et types de requête, tels que les caractères génériques, et les requêtes partielles, d’expression régulière et portant sur des champs. Par exemple, une expression régulière envoyée en syntaxe de requête simple serait interprétée en tant que chaîne de requête et pas en tant qu’expression. L’exemple de requête de cet article utilise le langage de requête complet Lucene.
 
@@ -262,7 +263,7 @@ Dans notre exemple, pour le champ **titre**, l’index inversé ressemble à cec
 | complexe | 3 |
 | retraite | 4 |
 
-Dans le champ Titre, seul *hôtel* apparaît dans deux documents : 1, 3.
+Dans le champ Titre, seul *hôtel* apparaît dans deux documents : 1, 3.
 
 Pour le champ **Description**, l’index est le suivant :
 

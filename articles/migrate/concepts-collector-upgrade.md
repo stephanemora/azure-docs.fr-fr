@@ -4,15 +4,15 @@ description: Fournit des informations sur les mises à niveau de l’appliance A
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 11/29/2018
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: 6080096194ec5b11f1d5593fcbb6732d1551667f
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 88077ac965b2abb69be145f29cbadca2ff1128d6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431390"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836642"
 ---
 # <a name="collector-update-release-history"></a>Historique des versions de mise à jour de Collector
 
@@ -20,8 +20,26 @@ Cet article résume les informations de mise à niveau pour l’appliance Collec
 
 Azure Migrate Collector est une appliance légère qui permet de découvrir un environnement vCenter local dans le cadre d’une évaluation avant la migration vers Azure. [Plus d’informations](concepts-collector.md)
 
+## <a name="continuous-discovery-upgrade-versions"></a>Découverte continue : versions de mise à niveau
 
-## <a name="one-time-discovery-upgrade-versions"></a>Découverte unique : versions de mise à niveau
+Aucune mise à niveau n’est disponible pour l’appliance de découverte en continu.
+
+## <a name="one-time-discovery-deprecated-now-previous-upgrade-versions"></a>Découverte unique (désormais dépréciée) : versions précédentes de mise à niveau
+
+> [!NOTE]
+> L’appliance de découverte unique est désormais dépréciée, car son utilisation dépend des paramètres de statistiques vCenter Server concernant la disponibilité des points de données de performances, et nécessite la collecte des données de compteurs de performance moyenne, ce qui a comme résultat d’attribuer une taille insuffisante aux machines virtuelles pour la migration vers Azure.
+
+### <a name="version-10916-released-on-10292018"></a>Version 1.0.9.16 (publiée le 29/10/2018)
+
+Contient des correctifs pour les problèmes de PowerCLI rencontrés lors de la configuration de l’appliance.
+
+Valeurs de hachage pour le [package de mise à niveau 1.0.9.16](https://aka.ms/migrate/col/upgrade_9_16)
+
+**Algorithme** | **Valeur de hachage**
+--- | ---
+MD5 | d2c53f683b0ec7aaf5ba3d532a7382e1
+SHA1 | e5f922a725d81026fa113b0c27da185911942a01
+SHA256 | a159063ff508e86b4b3b7b9a42d724262ec0f2315bdba8418bce95d973f80cfc
 
 ### <a name="version-10914"></a>Version 1.0.9.14
 
@@ -43,29 +61,6 @@ MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
 SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
 SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
 
-### <a name="version-10911"></a>Version 1.0.9.11
-
-Valeurs de hachage pour le [package de mise à niveau 1.0.9.11](https://aka.ms/migrate/col/upgrade_9_11)
-
-**Algorithme** | **Valeur de hachage**
---- | ---
-MD5 | 0e36129ac5383b204720df7a56b95a60
-SHA1 | aa422ef6aa6b6f8bc88f27727e80272241de1bdf
-SHA256 | 5f76dbbe40c5ccab3502cc1c5f074e4b4bcbf356d3721fd52fb7ff583ff2b68f
-
-### <a name="version-1097"></a>Version 1.0.9.7
-
-Valeurs de hachage pour le [package de mise à niveau 1.0.9.7](https://aka.ms/migrate/col/upgrade_9_7)
-
-**Algorithme** | **Valeur de hachage**
---- | ---
-MD5 | 01ccd6bc0281f63f2a672952a2a25363
-SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
-SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
-
-## <a name="continuous-discovery-upgrade-versions"></a>Découverte en continu : versions de mise à niveau
-
-Aucune mise à niveau n’est disponible pour l’appliance de découverte en continu.
 
 ## <a name="run-an-upgrade"></a>Exécuter une mise à niveau
 

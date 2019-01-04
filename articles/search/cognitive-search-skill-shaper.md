@@ -1,5 +1,5 @@
 ---
-title: Compétence de recherche cognitive Modélisation (Recherche Azure) | Microsoft Docs
+title: Compétence de recherche cognitive Modélisation - Recherche Azure
 description: Extrayez des métadonnées et des informations structurées à partir de données non structurées pour les modeler en type complexe dans un pipeline d’enrichissement Recherche Azure.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 286e1f9d6f6ae09d98aa87b447df7a7524642a1f
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 627c53f7339dbc35d822a0bf6038ca0f1ea5e653
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45728995"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313827"
 ---
 #   <a name="shaper-cognitive-skill"></a>Compétence cognitive Modélisation
 
@@ -26,9 +27,6 @@ La compétence Modélisation vous permet essentiellement de créer une structure
 Par défaut, cette technique prend en charge les objets profonds d’un niveau. Pour les objets plus complexes, vous pouvez chaîner plusieurs étapes Modélisation.
 
 Dans la réponse, le nom de sortie est toujours « output ». En interne, le pipeline peut mapper un autre nom, tel que « analyzedText » dans les exemples ci-dessous, sur « output », mais la compétence Modélisation elle-même retourne « output » dans la réponse. Cet aspect peut être important si vous effectuez un débogage de documents enrichis et notez la différence de nommage, ou si vous générez une compétence personnalisée et que vous structurez la réponse vous-même.
-
-> [!NOTE]
-> La recherche cognitive est disponible en version préliminaire publique. L’exécution d’ensemble de compétences, ainsi que l’extraction et la normalisation d’images, sont actuellement proposées gratuitement. Le prix de ces fonctionnalités sera annoncé à une date ultérieure. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill

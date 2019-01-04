@@ -1,19 +1,20 @@
 ---
-title: Créer une passerelle transparente avec Azure IoT Edge | Microsoft Docs
-description: Utilisez un appareil Azure IoT Edge en tant que passerelle transparente pouvant traiter des informations de plusieurs appareils.
+title: Créer un appareil de passerelle transparent - Azure IoT Edge | Microsoft Docs
+description: Utiliser un appareil Azure IoT Edge en tant que passerelle transparente pouvant traiter des informations d’appareils en aval
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a867122aef5dd9d2152bca3ac10c11459ffc03f5
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 29c7fc279aec79750df48c70be7792869e89ae78
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568469"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094353"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurer un appareil IoT Edge en tant que passerelle transparente
 
@@ -31,7 +32,7 @@ Un appareil en aval est une application ou une plateforme dont l’identité a �
 
 Vous pouvez créer n’importe quelle infrastructure de certificat permettant l’approbation requise pour votre topologie de l’appareil à la passerelle. Dans cet article, nous nous basons sur la même configuration de certificat que vous utiliseriez pour activer [la sécurité AC X.509](../iot-hub/iot-hub-x509ca-overview.md) dans IoT Hub, ce qui implique un certificat AC X.509 associé à un hub IoT spécifique (l’autorité de certification propriétaire du hub IoT), ainsi qu’une série de certificats, signés par cette autorité de certification, et une autorité de certification pour l’appareil Edge.
 
-![Configuration de la passerelle](./media/how-to-create-transparent-gateway/gateway-setup.png)
+![Configuration du certificat de la passerelle](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
 La passerelle présente son certificat d’autorité de certification d’appareil Edge à l’appareil en aval au cours de l’ouverture de la connexion. L’appareil en aval vérifie que le certificat d’autorité de certification d’appareil Edge est signé par le certificat d’autorité de certification propriétaire. Ce processus permet à l’appareil en aval de vérifier que la passerelle provient d’une source approuvée.
 
@@ -59,9 +60,9 @@ Installez OpenSSL pour Windows sur l’ordinateur que vous utilisez pour génér
    >[!NOTE]
    >Si vous avez déjà installé OpenSSL sur votre appareil Windows, vous pouvez ignorer cette étape. Vérifiez en revanche que openssl.exe est disponible dans votre variable d’environnement PATH.
 
-* **Facile :** Téléchargez et installez des [binaires OpenSSL tiers](https://wiki.openssl.org/index.php/Binaries), par exemple, à partir de [ce projet sur SourceForge](https://sourceforge.net/projects/openssl/). Ajoutez le chemin d’accès complet à openssl.exe à votre variable d’environnement PATH. 
+* **Plus facile :** Téléchargez et installez des [fichiers binaires OpenSSL tiers](https://wiki.openssl.org/index.php/Binaries), par exemple, à partir de [ce projet sur SourceForge](https://sourceforge.net/projects/openssl/). Ajoutez le chemin d’accès complet à openssl.exe à votre variable d’environnement PATH. 
    
-* **Recommandé :** Téléchargez le code source OpenSSL et générez les binaires sur votre machine, soit par vous-même soit avec [vcpkg](https://github.com/Microsoft/vcpkg). Les instructions ci-dessous utilisent vcpkg pour télécharger le code source, compiler et installer OpenSSL sur votre machine Windows en suivant des étapes simples.
+* **Recommandé :** Téléchargez le code source OpenSSL et générez les fichiers binaires sur votre machine vous-même ou en utilisant [vcpkg](https://github.com/Microsoft/vcpkg). Les instructions ci-dessous utilisent vcpkg pour télécharger le code source, compiler et installer OpenSSL sur votre machine Windows en suivant des étapes simples.
 
    1. Accédez au répertoire où vous souhaitez installer vcpkg. Nous appellerons ce répertoire *\<VCPKGDIR>*. Suivez les instructions pour télécharger et installer [vcpkg](https://github.com/Microsoft/vcpkg).
    
@@ -258,7 +259,11 @@ Pour savoir quels modules sont en cours d’exécution sur un appareil, utilisez
 6. Sur la page **Vérifier le modèle**, sélectionnez **Envoyer**.
 
 ## <a name="route-messages-from-downstream-devices"></a>Acheminer les messages à partir des appareils en aval
-Le runtime IoT Edge peut acheminer les messages envoyés à partir des appareils en aval comme les messages envoyés par les modules. Ainsi, vous pouvez effectuer une analytique dans un module s’exécutant sur la passerelle avant d’envoyer des données vers le cloud. L’itinéraire ci-dessous sert à envoyer des messages depuis un appareil en aval nommé `sensor` vers un module nommé `ai_insights`.
+Le runtime IoT Edge peut acheminer les messages envoyés à partir des appareils en aval comme les messages envoyés par les modules. Ainsi, vous pouvez effectuer une analytique dans un module s’exécutant sur la passerelle avant d’envoyer des données vers le cloud. 
+
+Actuellement, la façon d’acheminer les messages envoyés par les appareils en aval consiste à les différencier des messages envoyés par les modules. Les messages envoyés par les modules contiennent tous une propriété système appelée **connectionModuleId** mais pas les messages envoyés par les appareils en aval. Vous pouvez utiliser la clause WHERE de l’itinéraire pour exclure tout message contenant cette propriété système. 
+
+L’itinéraire ci-dessous sert à envoyer des messages depuis un appareil en aval vers un nom de module `ai_insights`.
 
 ```json
 {
@@ -269,7 +274,7 @@ Le runtime IoT Edge peut acheminer les messages envoyés à partir des appareils
 }
 ```
 
-Pour plus d’informations sur le routage des messages, consultez [Composition des modules](./module-composition.md).
+Pour plus d’informations sur le routage des messages, consultez [Déployer des modules et établir des itinéraires](./module-composition.md#declare-routes).
 
 [!INCLUDE [iot-edge-extended-ofline-preview](../../includes/iot-edge-extended-offline-preview.md)]
 

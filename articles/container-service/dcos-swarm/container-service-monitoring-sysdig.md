@@ -1,5 +1,5 @@
 ---
-title: Surveiller un cluster Azure Container Service avec Sysdig
+title: (DÉCONSEILLÉ) Superviser un cluster Azure Container Service avec Sysdig
 description: Surveillez un cluster Azure Container Service avec Sysdig.
 services: container-service
 author: sauryadas
@@ -9,19 +9,20 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 0c0f4fd1f3a8242061e198d7b5447656f9008e96
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3b6781a6b87f9f11b341cf3cf2bcf6668b640c2b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162134"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992193"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-sysdig"></a>Surveiller un cluster Azure Container Service avec Sysdig
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-sysdig"></a>(DÉCONSEILLÉ) Superviser un cluster Azure Container Service avec Sysdig
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Dans cet article, nous allons déployer des agents Sysdig sur tous les nœuds d’agent de votre cluster Azure Container Service. Vous avez besoin d’un compte Sysdig pour cette configuration. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 [Déployez](container-service-deployment.md) et [connectez](../container-service-connect.md) un cluster configuré par Azure Container Service. Explorez [l’interface utilisateur Marathon](container-service-mesos-marathon-ui.md). Accédez à [http://app.sysdigcloud.com](http://app.sysdigcloud.com) pour configurer un compte cloud Sysdig. 
 
 ## <a name="sysdig"></a>Sysdig

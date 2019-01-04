@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 6d752eb5d638171aa510bbbf17a197eddd2b6f60
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9abd567f629cf405a5e7414a23f43ea2fc613b72
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127197"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088072"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Copier des données de PayPal avec Azure Data Factory (préversion)
 
@@ -45,7 +45,7 @@ Les propriétés suivantes sont prises en charge pour le service lié PayPal :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **PayPal**. | Oui |
+| Type | La propriété type doit être définie sur : **PayPal**. | Oui |
 | host | URL de l’instance PayPal (c’est-à-dire api.sandbox.paypal.com).  | Oui |
 | clientId | ID client associé à l’application PayPal.  | Oui |
 | clientSecret | Clé secrète client associée à l’application PayPal. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
@@ -76,7 +76,12 @@ Les propriétés suivantes sont prises en charge pour le service lié PayPal :
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section donne la liste des propriétés prises en charge par le jeu de données PayPal.
 
-Pour copier des données de PayPal, affectez la valeur **PayPalObject** à la propriété type du jeu de données. Il n’y a aucune autre propriété propre au type dans cette sorte de jeu de données.
+Pour copier des données de PayPal, affectez la valeur **PayPalObject** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| Type | La propriété type du jeu de données doit être définie sur : **PayPalObject**. | Oui |
+| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -88,7 +93,8 @@ Pour copier des données de PayPal, affectez la valeur **PayPalObject** à la pr
         "linkedServiceName": {
             "referenceName": "<PayPal linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -97,14 +103,14 @@ Pour copier des données de PayPal, affectez la valeur **PayPalObject** à la pr
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Pipelines](concepts-pipelines-activities.md). Cette section donne la liste des propriétés prises en charge par la source PayPal.
 
-### <a name="paypalsource-as-source"></a>PayPalSource comme source
+### <a name="paypal-as-source"></a>PayPal en tant que source
 
 Pour copier des données de PayPal, affectez la valeur **PayPalSource** au type source de l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur **PayPalSource**. | Oui |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Payment_Experience"`. | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **PayPalSource**. | Oui |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Payment_Experience"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
 

@@ -1,5 +1,5 @@
 ---
-title: 'Résolution des échecs de Sauvegarde Azure : état de l’agent invité non disponible'
+title: 'Résoudre les problèmes d’une Sauvegarde Azure : état de l’agent invité indisponible'
 description: Symptômes, causes et résolution des défaillances de la Sauvegarde Azure liées à l’agent, à l’extension et aux disques.
 services: backup
 author: genlin
@@ -7,16 +7,16 @@ manager: cshepard
 keywords: Sauvegarde Azure ; agent de machine virtuelle ; connectivité réseau ;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 10/30/2018
+ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: d8b78551a762b4388344aaf3b44e7472127737ae
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 9f26a51a8da2c3fec3ff180dbc8c8de08bb0a93a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977112"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833871"
 ---
-# <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes de défaillance de la Sauvegarde Azure : problèmes d’agent ou d’extension
+# <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
 Cet article indique les étapes à suivre pour résoudre les erreurs de la Sauvegarde Azure liées à la communication avec l’agent et l’extension de machine virtuelle.
 
@@ -25,29 +25,29 @@ Cet article indique les étapes à suivre pour résoudre les erreurs de la Sauve
 ## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable : L’agent de machine virtuelle ne peut pas communiquer avec le service Sauvegarde Azure
 
 **Code d’erreur** : UserErrorGuestAgentStatusUnavailable <br>
-**Message d’erreur** : L’agent de machine virtuelle ne peut pas communiquer avec le service Sauvegarde Azure<br>
+**Message d’erreur** : L’agent de machine virtuelle ne peut pas communiquer avec la sauvegarde Microsoft Azure<br>
 
 Dès que vous avez enregistré et planifié une machine virtuelle dans le service de sauvegarde, ce dernier lance la tâche en communiquant avec l’agent de la machine virtuelle pour prendre un instantané à la date et l’heure. Il est possible que l’une des conditions suivantes empêche le déclenchement de l’instantané. Lorsque un instantané n’est pas déclenché, la sauvegarde risque d’échouer. Suivez les étapes de dépannage ci-dessous dans l’ordre indiqué, puis réessayez l’opération :<br>
 **Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
-**Cause 2 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Cause 3 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
-**Cause 4 : [Impossible de mettre à jour ou de charger l’extension de sauvegarde](#the-backup-extension-fails-to-update-or-load)**  
-**Cause 5 : [La machine virtuelle n’a pas accès à Internet](#the-vm-has-no-internet-access)**
+**Cause 2 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Cause 3 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
+**Cause 4 : [L’extension de sauvegarde ne peut être ni mise à jour ni chargée](#the-backup-extension-fails-to-update-or-load)**  
+**Cause 5 : [La machine virtuelle n’a pas accès à Internet](#the-vm-has-no-internet-access)**
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError : Impossible de communiquer avec l’agent de machine virtuelle pour obtenir l’état de l’instantané
 
 **Code d’erreur** : GuestAgentSnapshotTaskStatusError<br>
-**Message d’erreur** : Impossible de communiquer avec l’agent de machine virtuelle pour obtenir l’état de l’instantané <br>
+**Message d’erreur** : Impossible de communiquer avec l’agent en charge de la machine virtuelle pour avoir un aperçu de l’état instantané <br>
 
 Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Il est possible que l’une des conditions suivantes empêche le déclenchement de l’instantané. Si la capture instantanée n’est pas déclenchée, un échec de sauvegarde risque de se produire. Suivez les étapes de dépannage ci-dessous dans l’ordre indiqué, puis réessayez l’opération :  
-**Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Cause 2 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Cause 2 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Cause 3 : [La machine virtuelle n’a pas accès à Internet](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached : Limite maximale de la collection de points de restauration atteinte
 
-**Code d’erreur**: UserErrorRpCollectionLimitReached <br>
-**Message d’erreur** : Limite maximale de la collection de points de restauration atteinte <br>
+**Code d’erreur** : UserErrorRpCollectionLimitReached <br>
+**Message d’erreur** : La limite maximale de la collection de points de restauration est atteinte. <br>
 * Ce problème peut se produire si un verrou dans le groupe de ressources des points de récupération empêche le nettoyage automatique du point de récupération.
 * Ce problème peut également se produire si plusieurs sauvegardes sont déclenchées tous les jours. Actuellement, nous recommandons une seule sauvegarde par jour, car les points de récupération instantanés sont conservés pendant 7 jours, et seuls 18 points de récupération instantanés peuvent être associés à une machine virtuelle à un moment donné. <br>
 
@@ -55,15 +55,15 @@ Action recommandée :<br>
 Pour résoudre ce problème, supprimez le verrou du groupe de ressources et recommencez l’opération pour déclencher le nettoyage.
 
 > [!NOTE]
-    > Le service de sauvegarde crée un groupe de ressources distinct du groupe de ressources de la machine virtuelle afin de stocker la collection de points de restauration. Les clients sont invités à ne pas verrouiller le groupe de ressources créé pour une utilisation par le service de sauvegarde. Le format de nom du groupe de ressources créé par le service Sauvegarde est : AzureBackupRG_`<Geo>`_`<number>` Exemple : AzureBackupRG_northeurope_1
+    > Le service de sauvegarde crée un groupe de ressources distinct du groupe de ressources de la machine virtuelle afin de stocker la collection de points de restauration. Les clients sont invités à ne pas verrouiller le groupe de ressources créé pour une utilisation par le service de sauvegarde. Le format d’affectation des noms du groupe de ressources créé par le service de sauvegarde est : AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
-**Étape 1 : [Supprimer le verrou du groupe de ressources des points de restauration](#remove_lock_from_the_recovery_point_resource_group)** <br>
-**Étape 2 : [Nettoyer la collection de points de restauration](#clean_up_restore_point_collection)**<br>
+**Étape 1 : [Supprimer le verrou du groupe de ressources des points de restauration](#remove_lock_from_the_recovery_point_resource_group)** <br>
+**Étape 2 : [ Nettoyer la collection de points de restauration](#clean_up_restore_point_collection)**<br>
 
 ## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured : Sauvegarde Azure ne dispose pas des autorisations d’accès suffisantes au coffre de clés pour la sauvegarde de machines virtuelles chiffrées.
 
-**Code d’erreur** : UserErrorKeyvaultPermissionsNotConfigured <br>
-**Message d’erreur** : Sauvegarde Azure ne dispose pas des autorisations d’accès suffisantes au coffre de clés pour la sauvegarde de machines virtuelles chiffrées. <br>
+**Code d’erreur** : UserErrorKeyvaultPermissionsNotConfigured <br>
+**Message d’erreur** : Sauvegarde Azure ne dispose pas des autorisations d’accès suffisantes au coffre de clés pour la sauvegarde de machines virtuelles chiffrées. <br>
 
 Pour que l’opération de sauvegarde puisse réussir sur des machines virtuelles chiffrées, elle doit avoir les autorisations d’accès au coffre de clés. Cela est possible par l’intermédiaire du [portail Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup) ou de [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
 
@@ -73,45 +73,45 @@ Pour que l’opération de sauvegarde puisse réussir sur des machines virtuelle
 **Message d’erreur** : L’opération de capture instantanée a échoué, car la machine virtuelle ne présente aucune connectivité réseau<br>
 
 Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Il est possible que l’une des conditions suivantes empêche le déclenchement de l’instantané. Si la capture instantanée n’est pas déclenchée, un échec de sauvegarde risque de se produire. Suivez les étapes de dépannage ci-dessous dans l’ordre indiqué, puis réessayez l’opération :    
-**Cause 1 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Cause 2 : [Impossible de mettre à jour ou de charger l’extension de sauvegarde](#the-backup-extension-fails-to-update-or-load)**  
+**Cause 1 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Cause 2 : [L’extension de sauvegarde ne peut être ni mise à jour ni chargée](#the-backup-extension-fails-to-update-or-load)**  
 **Cause 3 : [La machine virtuelle n’a pas accès à Internet](#the-vm-has-no-internet-access)**
 
 ## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks : l’opération d’extension VMSnapshot a échoué
 
-**Code d’erreur** : ExtentionOperationFailedForManagedDisks <br>
+**Code d’erreur** : ExtentionOperationFailedForManagedDisks <br>
 **Message d’erreur** : Échec de l’opération d’extension VMSnapshot<br>
 
 Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Il est possible que l’une des conditions suivantes empêche le déclenchement de l’instantané. Si la capture instantanée n’est pas déclenchée, un échec de sauvegarde risque de se produire. Suivez les étapes de dépannage ci-dessous dans l’ordre indiqué, puis réessayez l’opération :  
-**Cause 1 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Cause 2 : [Impossible de mettre à jour ou de charger l’extension de sauvegarde](#the-backup-extension-fails-to-update-or-load)**  
+**Cause 1 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Cause 2 : [L’extension de sauvegarde ne peut être ni mise à jour ni chargée](#the-backup-extension-fails-to-update-or-load)**  
 **Cause 3 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **Cause 4 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed / BackUpOperationFailedV2 : La sauvegarde échoue, avec une erreur interne
 
 **Code d’erreur** : BackUpOperationFailed / BackUpOperationFailedV2 <br>
-**Message d’erreur** : La sauvegarde a échoué avec une erreur interne. Veuillez réessayer l’opération dans quelques minutes <br>
+**Message d’erreur** : Échec de l’opération de sauvegarde avec une erreur interne : veuillez retenter l’opération dans quelques minutes <br>
 
 Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Il est possible que l’une des conditions suivantes empêche le déclenchement de l’instantané. Si la capture instantanée n’est pas déclenchée, un échec de sauvegarde risque de se produire. Suivez les étapes de dépannage ci-dessous dans l’ordre indiqué, puis réessayez l’opération :  
-**Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Cause 2 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Cause 3 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Cause 4 : [Impossible de mettre à jour ou de charger l’extension de sauvegarde](#the-backup-extension-fails-to-update-or-load)**  
-**Cause 5 : [Le service de sauvegarde n’est pas autorisé à supprimer les anciens points de restauration en raison du verrouillage d’un groupe de ressources](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)** <br>
-**Cause 6 : [La machine virtuelle n’a pas accès à Internet](#the-vm-has-no-internet-access)**
+**Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Cause 2 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Cause 3 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Cause 4 : [L’extension de sauvegarde ne peut être ni mise à jour ni chargée](#the-backup-extension-fails-to-update-or-load)**  
+**Cause 5 : [Le service de sauvegarde n’est pas autorisé à supprimer les anciens points de restauration en raison du verrouillage d’un groupe de ressources](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)** <br>
+**Cause 6 : [La machine virtuelle n’a pas accès à Internet](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - Actuellement, la sauvegarde Azure ne prend pas en charge les tailles de disque supérieures à 1 023 Go
 
-**Code d’erreur** : UserErrorUnsupportedDiskSize <br>
-**Message d’erreur** : Actuellement, La sauvegarde Azure ne prend pas en charge les tailles de disque supérieures à 1 023 Go <br>
+**Code d’erreur** : UserErrorUnsupportedDiskSize <br>
+**Message d’erreur** : Actuellement, La sauvegarde Azure ne prend pas en charge les tailles de disque supérieures à 1 023 Go <br>
 
 Votre opération de sauvegarde peut échouer lorsque vous sauvegardez des machines virtuelles dont la taille de disque est supérieure à 1 023 Go, car votre espace de stockage n’est pas mis à niveau vers la pile Azure VM Backup V2. La mise à niveau vers la pile de sauvegarde de machine virtuelle Azure V2 permettra de prendre en charge jusqu’à 4 To. Passez en revue ces [avantages](backup-upgrade-to-vm-backup-stack-v2.md) et [considérations](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), puis effectuez la mise à niveau en suivant ces [instructions](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - Actuellement, la sauvegarde Azure ne prend pas en charge les disques SSD Standard
 
-**Code d’erreur** : UserErrorStandardSSDNotSupported <br>
-**Message d’erreur** : Actuellement, Sauvegarde Azure ne prend pas en charge les disques SSD Standard. <br>
+**Code d’erreur** : UserErrorStandardSSDNotSupported <br>
+**Message d’erreur** : Actuellement, Sauvegarde Azure ne prend pas en charge les disques SSD Standard. <br>
 
 Actuellement, Sauvegarde Azure prend en charge les disques SSD Standard uniquement pour les coffres qui ont été mis à niveau vers la pile de sauvegarde de machine virtuelle Azure V2. Passez en revue ces [avantages](backup-upgrade-to-vm-backup-stack-v2.md) et [considérations](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), puis effectuez la mise à niveau en suivant ces [instructions](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).
 
@@ -156,11 +156,11 @@ En outre, si votre sous-réseau n’a pas d’itinéraire pour le trafic Interne
 #### <a name="solution"></a>Solution
 Il se peut que l’agent de machine virtuelle soit endommagé ou que le service ait été arrêté. Réinstallez l’agent de machine virtuelle pour obtenir la dernière version. Cela permet également de redémarrer la communication avec le service.
 
-1. Regardez si le service d’agent invité Windows s’exécute dans les services de machine virtuelle (services.msc). Essayez de le redémarrer et de lancer la sauvegarde.    
-2. Si le service d’agent invité Windows n’apparaît pas dans les services, accédez à **Programmes et fonctionnalités** dans le Panneau de configuration pour déterminer s’il est installé.
-4. Si le service d’agent invité Windows figure sous **Programmes et fonctionnalités**, désinstallez-le.
+1. Regardez si le service d’agent invité Microsoft Azure s’exécute dans les services de machine virtuelle (services.msc). Essayez de le redémarrer et de lancer la sauvegarde.    
+2. Si le service d’agent invité Windows Azure n’apparaît pas dans les services, accédez à **Programmes et fonctionnalités** dans le Panneau de configuration pour déterminer s’il est installé.
+4. Si le service d’agent invité Wondows Azure figure sous **Programmes et fonctionnalités**, désinstallez-le.
 5. Téléchargez et installez la [dernière version du MSI de l’agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Des droits d’administrateur sont nécessaires pour effectuer l’installation.
-6. Vérifiez que le service d’agent invité Windows apparaît dans les services.
+6. Vérifiez que le service d’agent invité Microsoft Azure apparaît dans les services.
 7. Exécutez une sauvegarde à la demande :
     * Dans le portail, sélectionnez **Sauvegarder maintenant**.
 
@@ -192,7 +192,7 @@ La plupart des échecs des machines virtuelles Linux liés aux agents ou aux ext
 
 Si nous exigeons une journalisation détaillée pour waagent, procédez comme suit :
 
-1. Dans le fichier /etc/waagent.conf, recherchez la ligne suivante : **Activer l’enregistrement des informations détaillées (o|n)**
+1. Dans le fichier /etc/waagent.conf, recherchez la ligne suivante : **Activer l’enregistrement des informations détaillées (y|n)**
 2. Passez la valeur **Logs.Verbose** de *N* à *O*.
 3. Enregistrez la modification, puis redémarrez waagent en suivant les étapes détaillées plus haut dans cette section.
 

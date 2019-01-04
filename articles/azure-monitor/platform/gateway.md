@@ -10,17 +10,15 @@ ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 5e19c7c1ed15183fdb796a6fa4e537da946b40b9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5236cff7a4afe508a8e11c6d75484fcdc9d43f91
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637334"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194230"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Connecter des ordinateurs sans accès Internet à l’aide de la passerelle Log Analytics
 Ce document décrit comment configurer la communication avec Azure Automation et Log Analytics à l’aide de la passerelle Log Analytics lorsqu’elle est directement connectée ou lorsque les ordinateurs analysés Operations Manager n’ont pas accès à Internet.  La passerelle Log Analytics, qui est un proxy de transfert HTP prenant en charge le tunneling HTTP à l’aide de la commande HTTP CONNECT, peut collecter des données et les envoyer à Azure Automation et Log Analytics en son nom.  
@@ -82,15 +80,15 @@ La passerelle Log Analytics est disponible dans les langues suivantes :
 - Espagnol (international)
 
 ### <a name="supported-encryption-protocols"></a>Protocoles de chiffrement pris en charge
-La passerelle Log Analytics prend uniquement en charge le protocole TLS version 1.0, 1.1 et 1.2.  Elle ne prend pas en charge le protocole SSL.  Pour garantir la sécurité des données en transit vers Log Analytics, nous vous encourageons vivement à configurer la passerelle de façon à utiliser au moins Transport Layer Security (TLS) 1.2. Les versions antérieures de TLS/SSL (Secure Sockets Layer) se sont avérées vulnérables et bien qu’elles fonctionnent encore pour assurer la compatibilité descendante, elles sont **déconseillées**.  Pour plus d’informations, passez en revue [Envoi sécurisé de données via TLS 1.2](../../log-analytics/log-analytics-data-security.md#sending-data-securely-using-tls-12). 
+La passerelle Log Analytics prend uniquement en charge le protocole TLS version 1.0, 1.1 et 1.2.  Elle ne prend pas en charge le protocole SSL.  Pour garantir la sécurité des données en transit vers Log Analytics, nous vous encourageons vivement à configurer la passerelle de façon à utiliser au moins Transport Layer Security (TLS) 1.2. Les versions antérieures de TLS/SSL (Secure Sockets Layer) se sont avérées vulnérables et bien qu’elles fonctionnent encore pour assurer la compatibilité descendante, elles sont **déconseillées**.  Pour plus d’informations, passez en revue [Envoi sécurisé de données via TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Nombre de connexion d’agent prises en charge
 Le tableau suivant met en lumière le nombre d’agents pris en charge qui communiquent avec un serveur de passerelle.  Cette prise en charge est basée sur des agents qui chargent environ 200 Ko de données toutes les 6 secondes. Le volume de données par agent testé est d’environ 2,7 Go par jour.
 
 |Passerelle |Nombre approximatif d’agents pris en charge|  
 |--------|----------------------------------|  
-|- Processeur : Intel XEON CPU E5-2660 v3 \@ 2,6 GHz 2 cœurs<br> - Mémoire : 4 Go<br> Bande passante réseau : 1 Go/s| 600|  
-|- Processeur : Intel XEON CPU E5-2660 v3 \@ 2,6 GHz 4 cœurs<br> - Mémoire : 8 Go<br> Bande passante réseau : 1 Go/s| 1 000|  
+|- Processeur : Intel XEON CPU E5-2660 v3 \@ 2,6 GHz 2 cœurs<br> - Mémoire : 4 Go<br> - Bande passante réseau : 1 Gbit/s| 600|  
+|- Processeur : Intel XEON CPU E5-2660 v3 \@ 2,6 GHz 4 cœurs<br> - Mémoire : 8 Go<br> - Bande passante réseau : 1 Gbit/s| 1 000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>Téléchargement de la passerelle Log Analytics
 
@@ -136,13 +134,13 @@ Pour apprendre à concevoir et déployer un cluster d’équilibrage de charge r
 1. Connectez-vous au serveur Windows qui est membre du cluster d’équilibrage de charge réseau avec un compte d’administration.  
 1. Ouvrez le Gestionnaire d’équilibrage de charge réseau dans le Gestionnaire de serveur, cliquez sur **Outils**, puis sur **Gestionnaire d’équilibrage de charge réseau**.
 1. Pour vous connecter à un serveur de passerelle Log Analytics sur lequel Microsoft Monitoring Agent est installé, faites un clic droit sur l’adresse IP du cluster, puis cliquez sur **Ajouter l’hôte au cluster**.<br><br> ![Gestionnaire d’équilibrage de charge réseau – Ajouter l’hôte au cluster](./media/gateway/nlb02.png)<br> 
-1. Entrez l’adresse IP du serveur de passerelle que vous voulez connecter.<br><br> ![Gestionnaire d’équilibrage de charge réseau – Ajouter l’hôte au cluster : Connexion](./media/gateway/nlb03.png) 
+1. Entrez l’adresse IP du serveur de passerelle que vous voulez connecter.<br><br> ![Gestionnaire d’équilibrage de charge réseau – Ajouter l’hôte au cluster : Connecter](./media/gateway/nlb03.png) 
     
 ## <a name="configure-log-analytics-agent-and-operations-manager-management-group"></a>Configurer l’agent Log Analytics et le groupe d’administration Operations Manager
 La section suivante contient des étapes expliquant la configuration d’agents Log Analytics connectés directement, d’un groupe d’administration Operations Manager ou Runbook Worker hybride Azure Automation avec la passerelle Log Analytics pour communiquer avec Azure Automation ou Log Analytics.  
 
 ### <a name="configure-standalone-log-analytics-agent"></a>Configuration d’un agent Log Analytics autonome
-Pour comprendre les exigences et la procédure à suivre pour installer l’agent Log Analytics sur des ordinateurs Windows connectés directement à Log Analytics, consultez [Connecter des ordinateurs Windows à Log Analytics](agent-windows.md) ou pour les ordinateurs Linux, consultez [Connecter des ordinateurs Linux à Log Analytics](../../log-analytics/log-analytics-quick-collect-linux-computer.md). Au lieu de spécifier un serveur proxy lors de la configuration de l’agent, vous remplacez cette valeur par l’adresse IP du serveur de passerelle Log Analytics et son numéro de port.  Si vous avez déployé plusieurs serveurs de passerelle derrière un équilibreur de charge réseau, la configuration de proxy de l’agent Log Analytics est l’adresse IP virtuelle de l’équilibreur de charge réseau.  
+Pour comprendre les exigences et la procédure à suivre pour installer l’agent Log Analytics sur des ordinateurs Windows connectés directement à Log Analytics, consultez [Connecter des ordinateurs Windows à Log Analytics](agent-windows.md) ou pour les ordinateurs Linux, consultez [Connecter des ordinateurs Linux à Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md). Au lieu de spécifier un serveur proxy lors de la configuration de l’agent, vous remplacez cette valeur par l’adresse IP du serveur de passerelle Log Analytics et son numéro de port.  Si vous avez déployé plusieurs serveurs de passerelle derrière un équilibreur de charge réseau, la configuration de proxy de l’agent Log Analytics est l’adresse IP virtuelle de l’équilibreur de charge réseau.  
 
 Pour plus d’informations relatives au traitement de Runbook Worker hybride Automation, consultez [Déployer Runbook Worker hybride](../../automation/automation-hybrid-runbook-worker.md).
 
@@ -183,7 +181,7 @@ Pour les environnements complexes ou volumineux, vous pouvez souhaiter que seuls
 1. Ouvrez la console Operations Manager, puis sélectionnez l'espace de travail **Création**.  
 1. Dans l’espace de travail Création, sélectionnez **Règles**, puis cliquez sur **Étendue** dans la barre d’outils Operations Manager. Si ce bouton n’est pas disponible, vérifiez que vous avez bien sélectionné un objet, et non un dossier, dans le volet Analyse. La boîte de dialogue **Objets du pack de gestion de l’étendue** affiche une liste des classes, groupes ou objets couramment ciblés. 
 1. Saisissez **Service d’intégrité** dans le champ **Rechercher** et sélectionnez-le dans la liste.  Cliquez sur **OK**.  
-1. Recherchez la règle **Règle du paramètre proxy Advisor** et, dans la barre d’outils de la console Operations, cliquez sur **Remplace**, puis pointez sur **Remplacer la règle\D’un objet de classe spécifique : Service d’intégrité**, puis sélectionnez un objet spécifique dans la liste.  Si vous le souhaitez, vous pouvez créer un groupe personnalisé qui contient l’objet de service d’intégrité des serveurs auxquels vous souhaitez appliquer ce remplacement, puis appliquer le remplacement à ce groupe.
+1. Recherchez la règle **Règle du paramètre proxy Advisor** et, dans la barre d’outils de la console Operations, cliquez sur **Remplace**, puis pointez sur **Remplacer la règle\D’un objet de classe spécifique : Service d’intégrité** puis sélectionnez un objet spécifique dans la liste.  Si vous le souhaitez, vous pouvez créer un groupe personnalisé qui contient l’objet de service d’intégrité des serveurs auxquels vous souhaitez appliquer ce remplacement, puis appliquer le remplacement à ce groupe.
 1. Dans la boîte de dialogue **Propriétés du remplacement**, cliquez pour placer une coche dans la colonne **Remplacer** en regard du paramètre **WebProxyAddress**.  Dans le champ **Remplacer la valeur**, entrez l’URL du serveur de passerelle Log Analytics pour vérifier que vous démarrez avec le préfixe `http://`.  
 
     >[!NOTE]
@@ -256,7 +254,7 @@ Les applets de commande peuvent vous aider à effectuer des tâches qui sont né
 1. Si aucune erreur ne s’est produite lors des étapes précédentes, cela signifie que le module a été importé, et que les cmdlets peuvent être utilisées. Saisissez `Get-Module OMSGateway`
 1. Une fois que vous avez apporté des modifications à l’aide des applets de commande, assurez-vous de redémarrer le service de passerelle.
 
-Si vous obtenez une erreur à l’étape 3, cela signifie que le module n’a pas été importé. L’erreur peut se produire lorsque PowerShell ne trouve pas le module. Vous pouvez le trouver dans le chemin d’installation de la passerelle : *C:\Program Files\Microsoft OMS Gateway\PowerShell\OmsGateway*.
+Si vous obtenez une erreur à l’étape 3, cela signifie que le module n’a pas été importé. L’erreur peut se produire lorsque PowerShell ne trouve pas le module. Vous pouvez le trouver dans le chemin d’installation de la passerelle : *C:\Program Files\Microsoft OMS Gateway\PowerShell\OmsGateway*.
 
 | **Applet de commande** | **Paramètres** | **Description** | **Exemple** |
 | --- | --- | --- | --- |  
@@ -290,7 +288,7 @@ Le tableau suivant montre les identifiants et descriptions des événements du j
 | 103 |Réception d’une commande HTTP CONNECT de la part du client |
 | 104 |L’élément n’est pas une commande HTTP CONNECT |
 | 105 |Le serveur de destination n’est pas dans la liste autorisée ou le port de destination n’est pas un port sécurisé (443) <br> <br> Vérifiez que l’agent MMA sur votre serveur de passerelle et les agents communiquant avec la passerelle sont connectés au même espace de travail Log Analytics. |
-| 105 |ERREUR TcpConnection – Certificat client non valide : CN=passerelle <br><br> Assurez-vous que : <br>    <br> &#149; Vous utilisez une passerelle ayant le numéro de version 1.0.395.0 ou supérieur. <br> &#149; L’agent MMA sur votre serveur de passerelle et les agents communiquant avec la passerelle sont connectés au même espace de travail Log Analytics. |
+| 105 |ERREUR TcpConnection – Certificat client non valide : CN=passerelle <br><br> Assurez-vous que : <br>    <br> &#149; Vous utilisez une passerelle ayant le numéro de version 1.0.395.0 ou supérieur. <br> &#149; L’agent MMA sur votre serveur de passerelle et les agents communiquant avec la passerelle sont connectés au même espace de travail Log Analytics. |
 | 106 |La passerelle Log Analytics prend uniquement en charge le protocole TLS 1.0, 1.1 et 1.2.  Elle ne prend pas en charge le protocole SSL. Pour toute version de protocole TLS/SSL non prise en charge, la passerelle Log Analytics génère un ID d’événement 106.|
 | 107 |La session TLS a été vérifiée |
 

@@ -12,14 +12,14 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 7ab1c0f918b5e5b9135e8d1b91f0f97a6c95d05e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 9175ed0b4f362a40e1d29a20a8378854b5f4cc81
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685427"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310382"
 ---
-# <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Didacticiel : Configurer SQL Data Sync pour synchroniser les données entre Azure SQL Database et SQL Server en local
+# <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Tutoriel : Configurer SQL Data Sync pour synchroniser les données entre SQL Azure Database et SQL Server local
 
 Dans ce didacticiel, vous allez apprendre à configurer Azure SQL Data Sync en créant un groupe de synchronisation hybride contenant des instances SQL Database et SQL Server. Ce nouveau groupe de synchronisation est entièrement configuré et synchronise sur la planification définie.
 
@@ -199,7 +199,7 @@ Une fois les nouveaux membres du groupe de synchronisation créés et déployés
 
 ### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>À quelle fréquence Data Sync synchronise-t-il mes données ?
 
-Il effectue une synchronisation au minimum toutes les cinq minutes.
+La durée minimale entre les déclenchements de synchronisations est de cinq minutes.
 
 ### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>SQL Data Sync gère-t-il intégralement la création et le provisionnement des tables ?
 

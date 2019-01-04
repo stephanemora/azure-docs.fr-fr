@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 04/05/2018
+ms.date: 12/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 61db5e9eedc57ef6316cb760499362ed856e38c6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 8efa8088bca3eb6221c49ec5f14334342149795d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822753"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438436"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux Batch pour l’évaluation de diagnostic et la surveillance
 
  
-Cet article explique comment surveiller un compte Batch à l’aide de fonctionnalités [d’Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte des [métriques](../azure-monitor/platform/data-collection.md#metrics) et des [journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) pour les ressources de votre compte Batch. Collectez et utilisez ces données de plusieurs façons pour surveiller votre compte Batch et diagnostiquer les problèmes. Vous pouvez également configurer des [alertes de métriques](../monitoring-and-diagnostics/monitoring-overview-alerts.md) afin de recevoir des notifications lorsqu’une métrique atteint une valeur spécifiée. 
+Cet article explique comment surveiller un compte Batch à l’aide de fonctionnalités [d’Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte des [métriques](../azure-monitor/platform/data-collection.md#metrics) et des [journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) pour les ressources de votre compte Batch. Collectez et utilisez ces données de plusieurs façons pour surveiller votre compte Batch et diagnostiquer les problèmes. Vous pouvez également configurer des [alertes de métriques](../azure-monitor/platform/alerts-overview.md) afin de recevoir des notifications lorsqu’une métrique atteint une valeur spécifiée. 
 
 ## <a name="batch-metrics"></a>Métriques Batch
 
-Les métriques sont des données de télémétrie Azure (également appelées compteurs de performance) émises par vos ressources Azure qui sont consommées par le service Azure Monitor. Parmi les métriques d’un compte Batch figurent par exemple : Événements de création de pool, Nombre de nœuds à priorité basse et Événements de fin de tâche. 
+Les métriques sont des données de télémétrie Azure (également appelées compteurs de performance) émises par vos ressources Azure qui sont consommées par le service Azure Monitor. Parmi les métriques d’un compte Batch figurent par exemple : Les événements de création de pool, le nombre de nœuds à priorité basse et les événements de fin de tâche. 
 
-Consultez la [liste des métriques Batch prises en charge](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts).
+Consultez la [liste des métriques Batch prises en charge](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
 Ces métriques :
 
@@ -53,11 +53,17 @@ Pour afficher toutes les métriques de compte Batch :
 
 Pour récupérer les métriques par programmation, utilisez les API d’Azure Monitor. Par exemple, consultez [Récupérer les métriques Azure Monitor avec .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
 
-## <a name="batch-metric-alerts"></a>Alertes de métriques Batch
+## <a name="batch-metric-reliability"></a>Fiabilité des métriques Batch
 
-Éventuellement, vous pouvez configurer des *alertes de métriques* en temps quasi-réel qui se déclenchent quand la valeur d’une métrique spécifiée dépasse le seuil défini. Ces alertes génèrent une [notification](../monitoring-and-diagnostics/insights-alerts-portal.md) que vous choisissez lorsqu’elles sont activées (quand le seuil est atteint et que la condition d’alerte est remplie) et lorsqu’elles sont résolues (quand le seuil est de nouveau atteint et que la condition n’est plus remplie). 
+Les métriques sont conçues pour analyser les tendances et les données. La remise de métriques n’est pas garantie et celles-ci sont sujettes à des remises non ordonnées, à la duplication et/ou à la perte de données. L’utilisation d’événements uniques pour alerter ou déclencher des fonctions n’est pas recommandée. Consultez la section [Alertes des métriques Batch](#batch-metric-alerts) pour obtenir plus d’informations sur la façon de définir des seuils d’alerte.
 
-Par exemple, vous souhaiterez peut-être configurer une alerte de métrique lorsque votre nombre de cœurs en priorité basse descend à un certain niveau, pour vous permettre ainsi d’ajuster la composition de vos pools.
+Les métriques émises au cours des 3 dernières minutes peuvent encore être en cours d’agrégation. Pendant ce délai d’exécution, les valeurs des métriques peuvent être sous-évaluées.
+
+## <a name="batch-metric-alerts"></a>Alertes des métriques Batch
+
+Éventuellement, vous pouvez configurer des *alertes de métriques* en temps quasi-réel qui se déclenchent quand la valeur d’une métrique spécifiée dépasse le seuil défini. Ces alertes génèrent une [notification](../monitoring-and-diagnostics/insights-alerts-portal.md) que vous choisissez lorsqu’elles sont activées (quand le seuil est atteint et que la condition d’alerte est remplie) et lorsqu’elles sont résolues (quand le seuil est de nouveau atteint et que la condition n’est plus remplie). Les alertes basées sur des points de données uniques ne sont pas recommandées, car les métriques sont soumises à des remises non ordonnées, à la duplication et/ou à la pertes de données. Les alertes doivent utiliser des seuils pour tenir compte de ces incohérences.
+
+Par exemple, vous souhaiterez peut-être configurer une alerte de métrique lorsque votre nombre de cœurs en priorité basse descend à un certain niveau, pour vous permettre ainsi d’ajuster la composition de vos pools. Il est recommandé de définir une période de 10 minutes ou plus, pendant laquelle des alertes se déclenchent si le nombre moyen de cœurs en priorité basse se situe sous la valeur du seuil pendant toute cette période. Il est déconseillé d’utiliser des alertes sur une période de 1 à 5 minutes étant donné que des métriques peuvent encore être en cours d’agrégation.
 
 Pour configurer une alerte de métrique dans le portail :
 
@@ -65,7 +71,7 @@ Pour configurer une alerte de métrique dans le portail :
 2. Sous **Surveillance**, cliquez sur **Règles d’alerte** > **Ajouter une alerte Métrique**.
 3. Sélectionnez une métrique, une condition d’alerte (par exemple, quand une métrique dépasse une valeur particulière sur une certaine période) et une ou plusieurs notifications.
 
-Vous pouvez également configurer une alerte en temps quasi-réel à l’aide de [l’API REST](https://docs.microsoft.com/rest/api/monitor/). Pour plus d’informations, consultez [Vue d’ensemble des alertes](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+Vous pouvez également configurer une alerte en temps quasi-réel à l’aide de [l’API REST](https://docs.microsoft.com/rest/api/monitor/). Pour plus d’informations, consultez [Vue d’ensemble des alertes](../azure-monitor/platform/alerts-overview.md).
 
 ## <a name="batch-diagnostics"></a>Diagnostics Batch
 
@@ -103,7 +109,7 @@ Autres destinations facultatives pour les journaux de diagnostic :
 
     ![Diagnostics Batch](media/batch-diagnostics/diagnostics-portal.png)
 
-D’autres options sont disponibles pour activer la collecte de journaux : vous pouvez notamment utiliser Azure Monitor dans le portail pour configurer les paramètres de diagnostic, prendre un [modèle Resource Manager](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md) ou utiliser Azure PowerShell ou CLI. Consultez [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
+D’autres options sont disponibles pour activer la collecte de journaux : vous pouvez notamment utiliser Azure Monitor dans le portail pour configurer les paramètres de diagnostic, prendre un [modèle Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md) ou utiliser Azure PowerShell ou CLI. Consultez [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Accéder aux journaux de diagnostics dans le stockage
@@ -127,7 +133,7 @@ BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 Chaque fichier blob PT1H.json contient des événements au format JSON qui se sont produits pendant l’heure spécifiée dans l’URL de l’objet blob (par exemple, h=12). Pendant l’heure en cours, les événements sont ajoutés au fichier PT1H.json à mesure qu’ils se produisent. La valeur de minute (m = 00) est toujours 00, étant donné que les événements du journal de diagnostic sont répartis en différents objets blob par heure. (Toutes les heures sont exprimées en heure UTC.)
 
 
-Pour plus d’informations sur le schéma des journaux de diagnostic dans le compte de stockage, consultez [Archivage des journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+Pour plus d’informations sur le schéma des journaux de diagnostic dans le compte de stockage, consultez [Archivage des journaux de diagnostic Azure](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
 
 Pour accéder par programme aux journaux de votre compte de stockage, utilisez les API de stockage. 
 

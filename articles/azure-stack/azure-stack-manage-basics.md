@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 37b8eff2d4ed89c90f1fa6f128673ed5bacaaa90
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f22754a16c4765989b5773d099fc3ecda73040db
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339948"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972386"
 ---
 # <a name="azure-stack-administration-basics"></a>Principes de bases de l’administration d’Azure Stack
 Si vous débutez avec l’administration d’Azure Stack, vous devez prendre connaissance de plusieurs choses. Ce guide fournit une vue d’ensemble de votre rôle en tant qu’opérateur Azure Stack, et explique ce que vous devez dire à vos utilisateurs pour qu’ils deviennent rapidement productifs.
@@ -32,9 +32,9 @@ Si vous utilisez un système Azure Stack intégré, les versions mises à jour d
  
 ### <a name="development-kit"></a>Kit de développement
 
-Si vous utilisez le Kit de développement Azure Stack, consultez l’article [Qu’est-ce qu’Azure Stack ?](.\asdk\asdk-what-is.md) pour être sûr de bien comprendre la fonction du kit de développement et ses limitations. Vous devez utiliser le Kit de développement comme « bac à sable », dans lequel vous pouvez évaluer Azure Stack et développer et tester vos applications dans un environnement hors production. (Pour plus d’informations sur le déploiement, consultez l’article [Déploiement du Kit de développement Azure Stack](.\asdk\asdk-install.md).)
+Si vous utilisez le Kit de développement Azure Stack, consultez l’article [Qu’est-ce qu’Azure Stack ?](./asdk/asdk-what-is.md) pour être sûr de bien comprendre la fonction du kit de développement et ses limitations. Vous devez utiliser le Kit de développement comme « bac à sable », dans lequel vous pouvez évaluer Azure Stack et développer et tester vos applications dans un environnement hors production. (Pour plus d’informations sur le déploiement, consultez l’article [Déploiement du Kit de développement Azure Stack](./asdk/asdk-install.md).)
 
-Comme Azure, nous innovons rapidement. Nous publierons régulièrement de nouvelles builds. Si vous exécutez le kit de développement et souhaitez passer à la version la plus récente, vous devez [redéployer Azure Stack](.\asdk\asdk-redeploy.md). Vous ne pouvez pas appliquer les packages de mises à jour. Ce processus prend du temps, mais l’avantage est que vous pouvez essayer les fonctionnalités les plus récentes. La documentation du kit de développement sur notre site web reflète la build la plus récente.
+Comme Azure, nous innovons rapidement. Nous publierons régulièrement de nouvelles builds. Si vous exécutez le kit de développement et souhaitez passer à la version la plus récente, vous devez [redéployer Azure Stack](./asdk/asdk-redeploy.md). Vous ne pouvez pas appliquer les packages de mises à jour. Ce processus prend du temps, mais l’avantage est que vous pouvez essayer les fonctionnalités les plus récentes. La documentation du kit de développement sur notre site web reflète la build la plus récente.
 
 ## <a name="learn-about-available-services"></a>Découvrir les services disponibles
 
@@ -63,7 +63,7 @@ Ces services nécessitent une configuration supplémentaire avant de pouvoir êt
 
 **Feuille de route des services**
 
-Azure Stack continuera à prendre en charge de nouveaux services Azure. Pour la feuille de route prévue, consultez le livre blanc [Azure Stack: une extension d’Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409). Vous pouvez également consulter les nouvelles annonces dans les [billets de blog Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview).
+Azure Stack continuera à prendre en charge de nouveaux services Azure. Pour obtenir la feuille de route prévue, consultez le livre blanc [Azure Stack : An extension of Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409). Vous pouvez également consulter les nouvelles annonces dans les [billets de blog Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview).
 
 ## <a name="what-account-should-i-use"></a>Quel compte dois-je utiliser ?
 Il faut prendre en compte certains points liés aux comptes pour gérer Azure Stack, en particulier en ce qui concerne les déploiements utilisant les services de fédération Active Directory (AD FS) Windows Server plutôt qu’Azure Active Directory (Azure AD) comme fournisseur d’identité. Les considérations suivantes au sujet des comptes s’appliquent à la fois aux systèmes intégrés Azure Stack et aux déploiements ASDK :
@@ -81,7 +81,7 @@ Il faut prendre en compte certains points liés aux comptes pour gérer Azure St
  
 Vous pouvez utiliser le [portail administrateur](azure-stack-manage-portals.md) ou PowerShell pour gérer Azure Stack. Le moyen le plus simple de découvrir les concepts de base est d’utiliser le portail. Si vous souhaitez utiliser PowerShell, des étapes de préparation sont nécessaires. Vous devez [installer](azure-stack-powershell-install.md) PowerShell, [télécharger](azure-stack-powershell-download.md) des modules supplémentaires et [configurer](azure-stack-powershell-configure-admin.md) PowerShell.
 
-Azure Stack utilise Azure Resource Manager comme mécanisme de déploiement, de gestion et d’organisation sous-jacent. Si vous comptez gérer Azure Stack et assister les utilisateurs, vous devez connaître Resource Manager. Consultez le livre blanc [Getting Started with Azure Resource Manager (Bien démarrer avec Azure Resource Manager)](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf).
+Azure Stack utilise Azure Resource Manager comme mécanisme de déploiement, de gestion et d’organisation sous-jacent. Si vous comptez gérer Azure Stack et assister les utilisateurs, vous devez connaître Resource Manager. Consultez le livre blanc [Getting Started with Azure Resource Manager (Bien démarrer avec Azure Resource Manager)](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf).
 
 ## <a name="your-typical-responsibilities"></a>Vos responsabilités classiques
 
@@ -108,7 +108,7 @@ Vous devez dire à vos utilisateurs comment travailler avec les services dans Az
 
 Vos utilisateurs doivent connaître certaines informations avant d’utiliser des services et de créer des applications dans Azure Stack. Par exemple, il existe des exigences propres à PowerShell et aux versions d’API. Il existe également des différences de fonctionnalité entre un service dans Azure et le service équivalent dans Azure Stack. Assurez-vous que vos utilisateurs lisent les articles suivants :
 
-- [Considérations importantes : utilisation de services ou création d’applications pour Azure Stack](user/azure-stack-considerations.md)
+- [Principales considérations relatives à l’utilisation de services ou à la création d’applications pour Azure Stack](user/azure-stack-considerations.md)
 - [Considérations relatives aux machines virtuelles dans Azure Stack](user/azure-stack-vm-considerations.md)
 - [Stockage : Différences et considérations](user/azure-stack-acs-differences.md)
 

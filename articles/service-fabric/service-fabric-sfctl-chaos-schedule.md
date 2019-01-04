@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 176b04b9bb16b5f183298c75f16bceb5e885e293
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 665fbbc8668e465c78d93b134f6a314d58791490
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492238"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276449"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Permet d’obtenir et de définir la planification de chaos.
@@ -29,7 +29,7 @@ Permet d’obtenir et de définir la planification de chaos.
 |Commande|Description|
 | --- | --- |
 | get | Obtenez la planification de chaos définissant quand et comment exécuter Chaos. |
-| set | Définissez la planification de chaos à utiliser par Chaos. |
+| set | Définissez la planification utilisée par Chaos. |
 
 ## <a name="sfctl-chaos-schedule-get"></a>sfctl chaos schedule get
 Obtenez la planification de chaos définissant quand et comment exécuter Chaos.
@@ -49,13 +49,13 @@ Obtient la version de la planification de chaos en cours d’utilisation et la p
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ## <a name="sfctl-chaos-schedule-set"></a>sfctl chaos schedule set
-Définissez la planification de chaos à utiliser par Chaos.
+Définissez la planification utilisée par Chaos.
 
-Définissez la planification de chaos actuellement en cours d’utilisation par Chaos. Chaos va planifier automatiquement les exécutions en fonction de la planification de chaos. La version utilisée dans la planification d’entrée fournie doit correspondre à la version de la planification de chaos sur le serveur. Si la version fournie ne correspond pas à la version sur le serveur, la planification de chaos n’est pas mise à jour. Si la version fournie correspond à la version sur le serveur, alors la planification de chaos est mise à jour et la version de la planification de chaos sur le serveur est incrémentée de un et revient à 0 après 2 147 483 647. Si Chaos est en cours d’exécution lorsque cet appel est effectué, l’appel va échouer.
+Chaos va planifier automatiquement les exécutions en fonction de la planification de chaos. La version utilisée dans la planification d’entrée fournie doit correspondre à la version de la planification de chaos sur le serveur. Si la version fournie ne correspond pas à la version sur le serveur, la planification de chaos n’est pas mise à jour. Si la version fournie correspond à la version sur le serveur, alors la planification de chaos est mise à jour et la version de la planification de chaos sur le serveur est incrémentée de un et revient à 0 après 2 147 483 647. Si Chaos est en cours d’exécution lorsque cet appel est effectué, l’appel va échouer.
 
 ### <a name="arguments"></a>Arguments
 
@@ -75,7 +75,7 @@ Définissez la planification de chaos actuellement en cours d’utilisation par 
 | --debug | Augmente le détail de la journalisation pour afficher tous les journaux de débogage. |
 | --help -h | Affiche ce message d’aide et quitte. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez le site à l’adresse http\://jmespath.org/. |
+| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
 
 ### <a name="examples"></a>Exemples
@@ -143,6 +143,7 @@ La commande suivante définit une planification (en supposant que la planificati
         ]
     }
     ]
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande Service Fabric.

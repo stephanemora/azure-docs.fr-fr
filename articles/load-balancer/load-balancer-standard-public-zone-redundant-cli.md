@@ -1,12 +1,11 @@
 ---
-title: Équilibrer la charge de machines virtuelles redondantes interzone à l’aide d’Azure CLI | Microsoft Docs
+title: Équilibrer la charge de machines virtuelles redondantes interzone à l’aide d’Azure CLI
+titlesuffix: Azure Load Balancer
 description: Apprendre à créer une instance publique d’un équilibreur de charge standard avec un frontend redondant dans une zone à l’aide d’Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: dc8a0228c9b2a0c2ab54bc14dc911698593ba691
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 82bb0387d8f1603b4b436bfe70d75d19b88f28b1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948534"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250805"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Équilibrer la charge de machines virtuelles entre toutes les zones de disponibilité avec Azure CLI
 
@@ -69,7 +68,7 @@ Cette section explique en détail comment créer et configurer les composants su
 - Une règle d’équilibreur de charge qui définit la distribution du trafic vers les machines virtuelles.
 
 ### <a name="create-the-load-balancer"></a>Créer l’équilibreur de charge
-Créez un équilibreur de charge standard avec la commande [az network lb create](/cli/azure/network/lb#az-network-lb-create). L’exemple suivant crée un équilibreur de charge nommé *myLoadBalancer* et affecte l’adresse *myPublicIP* à la configuration IP frontale.
+Créez un équilibrage de charge standard avec la commande [az network lb create](/cli/azure/network/lb#az-network-lb-create). L’exemple suivant crée un équilibreur de charge nommé *myLoadBalancer* et affecte l’adresse *myPublicIP* à la configuration IP frontale.
 
 ```azurecli-interactive
 az network lb create \
@@ -115,7 +114,7 @@ Avant de déployer des machines virtuelles et de pouvoir tester votre équilibre
 
 ### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
-Créez un réseau virtuel nommé *myVnet* avec un sous-réseau nommé *mySubnet* dans le myResourceGroup à l’aide de la commande [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
+Créez un réseau virtuel nommé *myVnet* avec un sous-réseau nommé *mySubnet* dans myResourceGroup à l’aide de la commande [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
 
 
 ```azurecli-interactive

@@ -1,5 +1,5 @@
 ---
-title: Langage de balisage de synthèse vocale
+title: Langage de balisage de synthèse vocale (SSML) - Services Speech
 titleSuffix: Azure Cognitive Services
 description: Utilisation du langage de balisage de synthèse vocale pour contrôler la prononciation et la prosodie dans la synthèse vocale.
 services: cognitive-services
@@ -8,22 +8,26 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/08/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: b32be520adeee2de50c8f49c2884dc9dc92c0ddd
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: f6a2d6a35200bc4dec169aae72415c1c2904c465
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469280"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341131"
 ---
 # <a name="speech-synthesis-markup-language"></a>Langage de balisage de synthèse vocale
 
-Le langage de balisage de synthèse vocale (SSML) est un langage de balisage basé sur XML qui fournit un moyen de contrôler la prononciation et la *prosodie* de la synthèse vocale. La prosodie fait référence au rythme et la tonalité de la voix. C’est en quelque sorte sa musique. Vous pouvez indiquer des mots en phonétique, fournir des indications permettant d’interpréter les nombres, insérer des pauses, contrôler la hauteur de la voix, le volume, le débit, etc.
+Le langage de balisage de synthèse vocale (SSML) est un langage de balisage basé sur XML qui fournit un moyen de contrôler la prononciation et la *prosodie* de la synthèse vocale. La prosodie fait référence au rythme et la tonalité de la voix. C’est en quelque sorte sa musique. Vous pouvez indiquer des mots en phonétique, fournir des indications permettant d’interpréter les nombres, insérer des pauses, contrôler la hauteur de la voix, le volume, le débit, etc. Pour plus d’informations, consultez [Speech Synthesis Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/).
 
-Pour plus d’informations, consultez le document [Speech Synthesis Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) du W3C.
+Pour obtenir la liste complète des langues, paramètres régionaux et voix (neuronales et standard) pris en charge, consultez [prise en charge linguistique](language-support.md#text-to-speech).
 
-Les exemples suivants montrent comment utiliser SSML pour répondre aux besoins de synthèse vocale courants :
+Les sections suivantes fournissent des exemples pour les tâches de synthèse vocale courantes.
+
+>[!IMPORTANT]
+> À l’heure actuelle, le balisage prosodique n’est disponible que pour les voix standard.
 
 ## <a name="add-a-break"></a>Ajouter une pause
 ```xml
@@ -89,5 +93,4 @@ Les exemples suivants montrent comment utiliser SSML pour répondre aux besoins 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
-* [Découvrir comment utiliser la reconnaissance vocale en C#](quickstart-csharp-dotnet-windows.md)
+* [Prise en charge linguistique : voix, paramètres régionaux, langues](language-support.md)

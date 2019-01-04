@@ -1,11 +1,12 @@
 ---
 title: Configurer une identité commune pour la Data Science Virtual Machine - Azure | Microsoft Docs
-description: Configurez une identité commune dans les environnements DSVM en équipe d’entreprise.
+description: Découvrez comment créer des comptes d’utilisateurs courants qui peuvent être utilisés sur plusieurs machines Data Science VM. Vous pouvez utiliser Azure Active Directory ou un annuaire local Active Directory pour authentifier les utilisateurs à Data Science Virtual Machine.
 keywords: formation approfondie, IA, outils de science des données, machine virtuelle de science des données, analyse géospatiale, processus de science des données en équipe
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 25d40b6a72ab6da61feb1458f5930eb48ef1d900
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6be7c63d3879c7ed89cd97eaecd6d59b6b5aadd4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436299"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075469"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Configurer une identité commune sur la Data Science Virtual Machine
 

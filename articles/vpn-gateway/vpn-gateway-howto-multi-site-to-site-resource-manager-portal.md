@@ -1,5 +1,5 @@
 ---
-title: 'Ajouter plusieurs connexions site à site de la passerelle VPN à un réseau virtuel : Portail Azure : Resource Manager | Microsoft Docs'
+title: 'Ajouter plusieurs connexions site à site de passerelle VPN à un réseau virtuel : Portail Azure : Resource Manager| Microsoft Docs'
 description: Ajouter des connexions S2S multisites à une passerelle VPN qui dispose déjà d’une connexion
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a0074cf703c5d30dca3c8353f4821e71684a190c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: a814834be3225764c3b6f237bd515ca087f975a7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164555"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873119"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante
 
@@ -62,8 +62,8 @@ Vérifiez les points suivants :
     ![Bouton Ajouter une connexion](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Bouton Ajouter une connexion")<br>
 5. Dans la page **Ajouter une connexion**, renseignez les champs suivants :
    
-   * **Nom** : nom que vous voulez donner au site pour lequel vous créez la connexion.
-   * **Type de connexion** : sélectionnez **Site à site (IPSec)**.
+   * **Nom :** nom que vous voulez donner au site pour lequel vous créez la connexion.
+   * **Type de connexion :** sélectionnez **Site à site (IPsec)**.
      
      ![Page Ajouter une connexion](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Page Ajouter une connexion")<br>
 
@@ -76,9 +76,9 @@ Vérifiez les points suivants :
     ![Page Créer une passerelle de réseau local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Créer une passerelle de réseau local")<br>
 3. Dans la page **Créer une passerelle de réseau local**, renseignez les champs suivants :
    
-   * **Nom** : nom que vous voulez attribuer à la ressource de passerelle de réseau local.
-   * **Adresse IP** : adresse IP publique du périphérique VPN sur le site auquel vous voulez vous connecter.
-   * **Espace d’adressage** : espace d’adressage qui doit être acheminé vers le nouveau site de réseau local.
+   * **Nom :** nom que vous voulez attribuer à la ressource de passerelle de réseau local.
+   * **Adresse IP :** adresse IP publique du périphérique VPN sur le site auquel vous voulez vous connecter.
+   * **Espace d’adressage :** espace d’adressage qui doit être routé vers le nouveau site de réseau local.
 4. Cliquez sur **OK** dans la page **Créer une passerelle de réseau local** pour enregistrer les modifications.
 
 ## <a name="part3"></a>Partie 3 : ajout de la clé partagée et création de la connexion
@@ -94,4 +94,4 @@ Vérifiez les points suivants :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Voir le [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) sur les machines virtuelles pour plus d’informations.
+Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Pour plus d’informations, consultez le [parcours d’apprentissage sur les machines virtuelles](/learn/paths/deploy-a-website-with-azure-virtual-machines/).

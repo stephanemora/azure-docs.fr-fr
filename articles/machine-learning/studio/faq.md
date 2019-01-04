@@ -1,11 +1,11 @@
 ---
 title: Questions fréquentes (FAQ) sur Machine Learning Studio - Azure | Microsoft Docs
-description: 'Azure Machine Learning Studio : FAQ portant sur la facturation, les fonctionnalités et les limitations d’un service cloud pour la modélisation prédictive rationalisée.'
+description: 'Azure Machine Learning Studio : FAQ relatives à la facturation, aux fonctionnalités et aux limitations d’un service cloud pour la modélisation prédictive rationalisée.'
 keywords: introduction à l’apprentissage automatique, modélisation prédictive, présentation de l’apprentissage automatique
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: c9c80da55737d0093813b84e33d3d90c5d7d4603
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 23de87bb566764540f1a7bf152d72bfdc0e3719f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309138"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091281"
 ---
-# <a name="azure-machine-learning-studio-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Questions fréquentes (FAQ) sur Azure Machine Learning Studio : facturation, fonctionnalités, limitations et support
+# <a name="azure-machine-learning-studio-faq-billing-capabilities-limitations-and-support"></a>FAQ Azure Machine Learning Studio : Facturation, fonctionnalités, limitations et prise en charge
 Voici quelques-unes des questions fréquemment posées et des réponses correspondantes sur Azure Machine Learning, un service cloud pour le développement de modèles prédictifs et la mise en œuvre de solutions via des services web. Ce FAQ aborde l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
 
 **Vous ne parvenez pas à trouver votre question ?**
@@ -32,7 +32,7 @@ Azure Machine Learning dispose également d’un forum sur MSDN, où des membre
 ## <a name="general-questions"></a>Questions générales
 **Qu'est-ce que Machine Learning Studio ?**
 
-Machine Learning Studio est un environnement de banc d’essai accessible par l’intermédiaire d’un navigateur web. Il héberge de nombreux modules dans une interface de composition visuelle et vous aide à concevoir un workflow de science des données de bout en bout qui prend la forme d’une expérience.
+Machine Learning Studio est un environnement de canevas utilisant le glisser-déplacer, accessible par l’intermédiaire d’un navigateur web. Il héberge de nombreux modules dans une interface de composition visuelle et vous aide à concevoir un workflow de science des données de bout en bout qui prend la forme d’une expérience.
 
 Pour plus d’informations sur Machine Learning Studio, consultez [Qu'est-ce que Machine Learning Studio ?](what-is-ml-studio.md)
 
@@ -55,8 +55,8 @@ Les services web Machine Learning fournissent une interface entre une applicat
 
 Azure Machine Learning propose deux types de services web :
 
-* RSS (Request-Response Service) : service hautement évolutif, à faible latence, qui fournit une interface pour les modèles sans état créés et déployés à partir de Machine Learning Studio.
-* BES (Batch Execution Service) : service asynchrone qui effectue la notation d’un batch pour les enregistrements de données.
+* Service de requête-réponse (RRS, Request-Response Service) : Service hautement évolutif, à faible latence, qui fournit une interface pour les modèles sans état créés et déployés à partir de Machine Learning Studio.
+* Service d'exécution de lots (BES, Batch Execution Service) : Service asynchrone qui effectue la notation d’un lot pour les enregistrements de données.
 
 Il existe plusieurs moyens d’utiliser l’API REST et d’accéder au service web. Par exemple, vous pouvez écrire une application en C#, R ou Python en utilisant l’exemple de code généré lors du déploiement du service web.
 
@@ -96,7 +96,7 @@ Les modules suivants sont limités à des jeux de données inférieurs à 10 Go 
 
 * modules de recommandation
 * Module SMOTE (Synthetic Minority Oversampling Technique)
-* modules de script : R, Python, SQL
+* Modules de scripts : R, Python, SQL
 * Modules dont la taille des données de sortie peut être supérieure à la taille des données d’entrée, comme Join ou Feature Hashing
 * Validation croisée, réglage des hyperparamètres de modèle, régression ordinale et plusieurs classes de un contre tous, lorsque le nombre d’itérations est très élevé
 
@@ -218,7 +218,7 @@ Le service de requête-réponse (RRS, Request-Response Service) est un service w
 
 **Comment puis-je mettre à jour le modèle pour le service Web déployé ?**
 
-Si vous voulez mettre à jour un modèle prédictif pour un service déjà déployé, il vous suffit de modifier et de réexécuter l’expérience utilisée pour créer et enregistrer le modèle entraîné. Une fois qu’une nouvelle version du modèle entraîné est disponible, Machine Learning Studio vous demande si vous voulez mettre à jour votre service web. Pour plus d’informations sur la mise à jour d’un service web déployé, voir [Déploiement d’un service web Machine Learning](publish-a-machine-learning-web-service.md).
+Si vous voulez mettre à jour un modèle prédictif pour un service déjà déployé, il vous suffit de modifier et de réexécuter l’expérience utilisée pour créer et enregistrer le modèle formé. Une fois qu’une nouvelle version du modèle formé est disponible, Machine Learning Studio vous demande si vous voulez mettre à jour votre service web. Pour plus d’informations sur la mise à jour d’un service web déployé, voir [Déploiement d’un service web Machine Learning](publish-a-machine-learning-web-service.md).
 
 Vous pouvez également utiliser les API de recyclage.
 Pour plus d'informations, consultez la page [Reformation des modèles Machine Learning par programme](retrain-models-programmatically.md). Un exemple de code est également disponible sur la page [Microsoft Azure Machine Learning Retraining Demo](https://azuremlretrain.codeplex.com/)(Démonstration de reformation Microsoft Azure Machine Learning).
@@ -263,7 +263,7 @@ Les modules suivants sont limités à des jeux de données inférieurs à 10 Go 
 
 * modules de recommandation
 * Module SMOTE (Synthetic Minority Oversampling Technique)
-* modules de script : R, Python, SQL
+* Modules de scripts : R, Python, SQL
 * Modules dont la taille des données de sortie peut être supérieure à la taille des données d’entrée, comme Join ou Feature Hashing
 * Validation croisée, réglage des hyperparamètres de modèle, régression ordinale et plusieurs classes de un contre tous, lorsque le nombre d’itérations est très élevé
 
@@ -271,7 +271,7 @@ Pour les jeux de données supérieurs à quelques gigaoctets, mieux vaut charger
 
 **Existe-t-il des limitations de taille de vecteurs ?**
 
-Les lignes et colonnes sont limitées selon la limitation Max Int de .NET : 2 147 483 647.
+Les lignes et les colonnes sont soumises à la limitation Max Int de .NET : 2,147,483,647.
 
 **Puis-je ajuster la taille de la machine virtuelle qui exécute le service web ?**
 
@@ -312,7 +312,7 @@ Azure Machine Learning dispose également d’un forum communautaire sur MSDN, o
 ## <a name="billing-questions"></a>Questions sur la facturation
 **Comment fonctionne la facturation dans Machine Learning ?**
 
-Azure Machine Learning possède deux composants : Machine Learning Studio et les services web Machine Learning.
+Azure Machine Learning dispose de deux composants : Machine Learning Studio et les services web Machine Learning.
 
 Si vous évaluez Machine Learning Studio, vous pouvez utiliser le niveau de facturation Gratuit. Le niveau Gratuit vous permet également de déployer un service web Classic de capacité limitée.
 
@@ -438,7 +438,7 @@ Les nouveaux profils de facturation sont disponibles dans les trois régions de 
 
 Oui. La tarification des profils varie selon les régions. Si vous déployez un service web dans une autre région, vous devrez lui affecter un plan spécifique. Pour plus d’informations, consultez [Disponibilité des produits par région]( https://azure.microsoft.com/regions/services/).
 
-### <a name="new-web-services-overages"></a>Nouveaux services web : dépassements
+### <a name="new-web-services-overages"></a>Nouveaux services web : Dépassements
 **Comment vérifier si mon utilisation du service web est en dépassement ?**
 
 Vous pouvez consulter l’utilisation de tous vos profils sur la page qui leur est dédiée dans le portail de services web Azure Machine Learning. Connectez-vous au portail, puis cliquez sur l’option de menu **Abonnements**.
@@ -483,20 +483,20 @@ Le service API d’Azure Machine Learning est facturé selon le type de service 
 
 Les frais suivants sont regroupés par espace de travail dans votre abonnement.
 
-* Abonnement à un espace de travail Machine Learning : l’abonnement à un espace de travail Machine Learning est un abonnement mensuel qui donne accès à un espace de travail Machine Learning Studio. Cet abonnement est requis pour exécuter des expériences dans Studio et utiliser les API de production.
-* Heures d’expérience Studio : ce compteur regroupe tous les frais de calcul cumulés suite à l’exécution d’expériences dans Machine Learning Studio et à l’exécution d’appels d’API de production dans l’environnement intermédiaire.
+* Abonnement à un espace de travail Machine Learning : L’abonnement à un espace de travail Machine Learning est mensuel. Il donne accès à un espace de travail Machine Learning Studio. Cet abonnement est requis pour exécuter des expériences dans Studio et utiliser les API de production.
+* Heures d'expérience Studio : Ce compteur regroupe tous les frais de calcul cumulés suite à l’exécution d’expériences dans Machine Learning Studio et l’exécution d’appels d’API de production dans l’environnement intermédiaire.
 * Accédez aux données en vous connectant à un serveur SQL Server local dans vos modèles pour votre formation et votre notation.
 * Pour les services web Classic :
-  * Heures de calcul API de production : ce compteur inclut les frais de calcul cumulés par les services web exécutés en production.
-  * Transactions API de production (par milliers) : ce compteur inclut les frais cumulés par appel à votre service web de production.
+  * Heures de calcul d’API Production : Ce compteur inclut les frais de calcul cumulés par les services web exécutés en production.
+  * Transactions d’API Production (par milliers) : Ce compteur inclut les frais cumulés par appel à votre service web de production.
 
 Mis à part les frais ci-dessus, dans le cas de services web basés sur Azure Resource Manager, les frais sont regroupés dans le plan sélectionné :
 
-* Plan d’API Standard S1/S2/S3 (unités) : ce compteur représente le type d’instance sélectionné pour les services web basés sur Azure Resource Manager.
-* Heures de calcul des API Dépassement Standard S1/S2/S3 : ce compteur inclut les frais de calcul cumulés par les services web basés sur Azure Resource Manager exécutés en production, après épuisement des quantités incluses dans les instances existantes. L’utilisation supplémentaire est facturée au tarif de dépassement associé au niveau du plan S1/S2/S3.
-* Transactions des API Dépassement Standard S1/S2/S3 (par milliers) : ce compteur inclut les frais cumulés par appel à votre service web de production basé sur Azure Resource Manager, après épuisement des quantités incluses dans les instances existantes. L’utilisation supplémentaire est facturée au tarif de dépassement associé au niveau du plan S1/S2/S3.
-* Heures de calcul des API Quantité incluse : avec les services web basés sur Azure Resource Manager, ce compteur représente la quantité incluse d’heures de calcul d’API.
-* Transactions des API Quantité incluse (en milliers) : avec les services web basés sur Azure Resource Manager, ce compteur représente la quantité incluse de transactions d’API.
+* Plan d’API Standard S1/S2/S3 (unités) : Ce compteur représente le type d’instance sélectionné pour les services web basés sur Azure Resource Manager.
+* Heures de calcul d’API Dépassement Standard S1/S2/S3 : Ce compteur inclut les frais de calcul cumulés par les services web basés sur Azure Resource Manager exécutés en production, après épuisement des quantités incluses dans les instances existantes. L’utilisation supplémentaire est facturée au tarif de dépassement associé au niveau du plan S1/S2/S3.
+* Transactions des API Dépassement Standard S1/S2/S3 (par milliers) : Ce compteur inclut les frais cumulés par appel à votre service web de production basé sur Azure Resource Manager, après épuisement des quantités incluses dans les instances existantes. L’utilisation supplémentaire est facturée au tarif de dépassement associé au niveau du plan S1/S2/S3.
+* Heures de calcul des API Quantité incluse : Avec les services web basés sur Azure Resource Manager, ce compteur représente la quantité incluse d’heures de calcul d’API.
+* Transactions des API Quantité incluse (en milliers) : Avec les services web basés sur Azure Resource Manager, ce compteur représente la quantité incluse de transactions d’API.
 
 **Comment s’inscrire au niveau Gratuit d’Azure Machine Learning ?**
 
@@ -528,7 +528,7 @@ Pour copier vos expériences du niveau Gratuit vers le niveau Standard :
 2. Passez à l’espace de travail Gratuit si vous êtes dans l’espace de travail Standard.
 3. Dans la liste des expériences, sélectionnez une expérience à copier, puis cliquez sur le bouton de commande **Copier**.
 4. Sélectionnez l’espace de travail Standard dans la boîte de dialogue qui s’ouvre, puis cliquez sur le bouton **Copier**.
-   Tous les jeux de données associés, le modèle entraîné et les autres éléments sont copiés en même temps que l’expérience dans l’espace de travail Standard.
+   Tous les jeux de données associés, le modèle formé et les autres éléments sont copiés en même temps que l’expérience dans l’espace de travail Standard.
 5. Vous devez réexécuter l’expérience et republier votre site web dans l’espace de travail Standard.
 
 ### <a name="studio-workspace"></a>Espace de travail Studio

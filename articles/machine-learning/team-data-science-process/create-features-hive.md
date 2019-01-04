@@ -1,5 +1,5 @@
 ---
-title: Création de fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive | Microsoft Docs
+title: Créer des fonctionnalités pour les données dans un cluster Hadoop - Team Data Science Process
 description: Exemples de requêtes Hive qui génèrent des fonctionnalités dans les données stockées dans un cluster Azure HDInsight Hadoop.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: f63e1aeaca6e19eacb10ed7dc68d311234a31666
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 0ade4ac054f345084cf0bc0a6dc7885329eb8b9c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444544"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141881"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Création de fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive
 Ce document montre comment créer des fonctionnalités pour des données stockées dans un cluster Hadoop Azure HDInsight à l’aide de requêtes Hive. Ces requêtes Hive utilisent les FDU (fonctions définies par l’utilisateur) Hive, dont les scripts sont intégrés.
@@ -136,26 +136,26 @@ Les équations mathématiques calculant la distance entre deux coordonnées GPS
 
 La liste complète des FDU Hive intégrées est disponible dans la section **Fonctions intégrées** du <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">wiki Apache Hive</a>.  
 
-## <a name="tuning"></a> Rubriques avancées : Ajuster les paramètres Hive pour accélérer le traitement des requêtes
+## <a name="tuning"></a> Rubriques avancées : Ajuster les paramètres Hive pour accélérer le traitement des requêtes
 Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requêtes Hive et aux données qu’elles traitent. Cette section présente certains paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive. Les requêtes d’ajustement des paramètres doivent précéder les requêtes de traitement des données.
 
-1. **Espace de tas Java** : les requêtes impliquant la jointure de jeux de données volumineux ou le traitement d’enregistrements longs peuvent générer une erreur de type **espace du tas insuffisant**. Cette erreur peut être évitée en définissant les paramètres *mapreduce.map.java.opts* et *mapreduce.task.io.sort.mb* sur les valeurs souhaitées. Voici un exemple : 
+1. **Espace de tas Java** : les requêtes impliquant la jointure de jeux de données volumineux ou le traitement d’enregistrements longs peuvent générer une erreur de type **espace du tas insuffisant**. Cette erreur peut être évitée en définissant les paramètres *mapreduce.map.java.opts* et *mapreduce.task.io.sort.mb* sur les valeurs souhaitées. Voici un exemple : 
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
     Ce paramètre alloue 4 Go de mémoire à l’espace de tas Java et accélère le tri en lui attribuant davantage de mémoire. Ajuster ce paramètre est une bonne idée si des erreurs se produisent à cause d’un espace de tas insuffisant.
 
-1. **Taille de bloc DFS** : ce paramètre définit l’unité élémentaire de donnée stockée dans le système de fichiers. Par exemple, si la taille du bloc DFS est de 128 Mo, alors les données dont la taille est inférieure ou égale à 128 Mo sont stockées dans un seul bloc. Des blocs supplémentaires sont affectés aux données dont la taille est supérieure à 128 Mo. 
+1. **Taille de bloc DFS** : ce paramètre définit l’unité élémentaire de donnée stockée dans le système de fichiers. Par exemple, si la taille du bloc DFS est de 128 Mo, alors les données dont la taille est inférieure ou égale à 128 Mo sont stockées dans un seul bloc. Des blocs supplémentaires sont affectés aux données dont la taille est supérieure à 128 Mo. 
 2. Une taille de bloc petite génère des temps de traitement importants dans Hadoop, car le nœud de noms doit traiter beaucoup plus de requêtes pour trouver le bloc approprié au fichier. Quand vos données ont une taille supérieure ou égale à plusieurs gigaoctets, le paramètre suivant est recommandé :
 
         set dfs.block.size=128m;
 
-2. **Optimisation de l’opération de jointure dans Hive** : dans le framework map/reduce, si les opérations de jointure s’exécutent en général pendant la phase de réduction, il est possible de gagner en efficacité en planifiant les jointures pendant la phase de mappage (également appelée « jointures Map »). Pour obtenir ce comportement dans Hive le cas échéant, définissez ce qui suit :
+2. **Optimisation de l’opération de jointure dans Hive** : dans le framework map/reduce, si les opérations de jointure s’exécutent en général pendant la phase de réduction, il est possible de gagner en efficacité en planifiant les jointures pendant la phase de mappage (également appelée « jointures Map »). Pour obtenir ce comportement dans Hive le cas échéant, définissez ce qui suit :
    
        set hive.auto.convert.join=true;
 
-3. **Détermination du nombre de mappeurs dans Hive** : Hadoop permet à l’utilisateur de définir le nombre de réducteurs, mais pas le nombre de mappeurs. Pour contrôler ce nombre dans une certaine mesure, l’astuce consiste à choisir les variables Hadoop *mapred.min.split.size* et *mapred.max.split.size*, car la taille de chaque tâche de mappage est déterminée par :
+3. **Détermination du nombre de mappeurs dans Hive** : Hadoop permet à l’utilisateur de définir le nombre de réducteurs, mais pas le nombre de mappeurs. Pour contrôler ce nombre dans une certaine mesure, l’astuce consiste à choisir les variables Hadoop *mapred.min.split.size* et *mapred.max.split.size*, car la taille de chaque tâche de mappage est déterminée par :
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    

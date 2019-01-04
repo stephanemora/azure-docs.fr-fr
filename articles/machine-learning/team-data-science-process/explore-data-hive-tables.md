@@ -1,6 +1,6 @@
 ---
-title: Explorer les données dans des tables Hive avec des requêtes Hive | Microsoft Docs
-description: Explorer les données dans des tables Hive à l’aide de requêtes Hive.
+title: Explorer les données dans des tables Hive avec des requêtes Hive - Team Data Science Process
+description: Utilisez des exemples de scripts Hive qui permettent d’explorer des données dans des tables Hive au sein d’un cluster Hadoop HDInsight.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: c50c6de28c60bbe6a6c0d510e62f35cd037d6e95
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: c4d731ad2b94ca662e23e7e48442e396900d68ec
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443310"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132286"
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Explorer les données dans des tables Hive avec des requêtes Hive
 

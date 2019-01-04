@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Kontiki | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Kontiki | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Kontiki.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: e5f29a12de5f82fa13c0c61462db00b2906fdca7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e5733547aa9b8b8d0c5aa0ce033d00f8c94b3d21
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444451"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842847"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Didacticiel : Intégration d’Azure Active Directory à Kontiki
+# <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Tutoriel : Intégration d’Azure Active Directory à Kontiki
 
 Dans ce didacticiel, vous allez apprendre à intégrer Kontiki à Azure AD (Azure Active Directory).
 
@@ -115,7 +115,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
      Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.mc.eval.kontiki.com`
 
     > [!NOTE] 
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique de Kontiki](http://customersupport.kontiki.com/enterprise/contactsupport.html). 
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique de Kontiki](https://customersupport.kontiki.com/enterprise/contactsupport.html). 
  
 1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
@@ -125,10 +125,10 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     ![Configurer l'authentification unique](./media/kontiki-tutorial/tutorial_general_400.png) 
 
-1. Pour configurer l’authentification unique du côté **Kontiki**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support technique de Kontiki](http://customersupport.kontiki.com/enterprise/contactsupport.html). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+1. Pour configurer l’authentification unique du côté **Kontiki**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support technique de Kontiki](https://customersupport.kontiki.com/enterprise/contactsupport.html). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD

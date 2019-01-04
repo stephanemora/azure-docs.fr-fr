@@ -3,16 +3,15 @@ title: Configurer l’accès à votre compte Azure Cosmos DB à partir d’un r�
 description: Ce document décrit les étapes nécessaires pour configurer un point de terminaison de service de réseau virtuel pour Azure Cosmos DB.
 author: kanshiG
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 4e8891302346fa2655a4b1280b65fdd969f12909
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 73858cac4176c10ff8ce14347acb9b869471ebc2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620589"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838087"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>Accéder aux ressources Azure Cosmos DB à partir de réseaux virtuels
 
@@ -50,8 +49,8 @@ Les sections suivantes expliquent comment configurer un point de terminaison de 
 
 > [!NOTE]
 > Les autorisations d’abonnement suivantes sont nécessaires pour activer les points de terminaison de service du réseau virtuel :
-  * Abonnement avec un réseau virtuel : contributeur réseau
-  * Abonnement avec un compte Azure Cosmos DB : contributeur de compte DocumentDB
+  * Abonnement avec un réseau virtuel : Contributeur de réseau
+  * Abonnement avec un compte Azure Cosmos DB : Contributeur de compte DocumentDB
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Configurer un point de terminaison de service pour un nouveau réseau virtuel et un nouveau sous-réseau Azure
 

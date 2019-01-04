@@ -1,5 +1,5 @@
 ---
-title: Guides d’application du processus TDSP (Team Data Science Process) sur Azure | Microsoft Docs
+title: Guides d’application du processus TDSP (Team Data Science Process) sur Azure
 description: Comment combiner les outils et services cloud et sur site dans un flux de travail ou un pipeline pour créer une application intelligente.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 28586d960bab75704a0aae6e39517ae83a74d60e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5a5a63bfdc9019afe292dd7623051123c3eb2dbf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495901"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132684"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Guides d’application du processus TDSP (Team Data Science Process)
 
@@ -42,5 +42,5 @@ Pour en savoir plus sur les composants clés qui constituent le processus TDSP (
 
 Pour en savoir plus sur le cycle de vie du processus TDSP (Team Data Science Process), qui permet de structurer les projets de science des données, consultez la page [Cycle de vie du processus TDSP (Team Data Science Process)](lifecycle.md). Le cycle de vie présente les étapes, du début à la fin, que les projets suivent généralement quand ils sont exécutés. 
 
-Pour une vue d’ensemble des rubriques qui vous guident à travers les tâches qui constituent le processus de science des données dans Azure, consultez [Processus de sciences des données](https://aka.ms/datascienceprocess). 
+Pour une vue d’ensemble des rubriques qui vous guident à travers les tâches qui constituent le processus de science des données dans Azure, consultez [Processus de sciences des données](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
 

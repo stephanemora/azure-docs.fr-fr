@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : configurer Samanage pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Didacticiel : Configurer Samanage pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes utilisateur sur Samanage.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 53b78231dba4f525410f53dc1ae60901c67f043d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d3442710e1e1327dcafc1b4ed6617aeb7ff1bf0f
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634504"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322428"
 ---
-# <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Didacticiel : configurer Samanage pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Didacticiel : Configurer Samanage pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de présenter les étapes à effectuer dans Samanage et Azure Active Directory (Azure AD) afin de configurer Azure AD pour l’approvisionnement et le déprovisionnement automatiques d’utilisateurs et/ou de groupes sur Samanage.
 
@@ -76,7 +76,9 @@ Avant de configurer et d’activer l’approvisionnement automatique d’utilisa
 
 ### <a name="important-tips-for-assigning-users-to-samanage"></a>Conseils importants pour l’affectation d’utilisateurs à Samanage
 
-*   Il est recommandé de n’affecter qu’un seul utilisateur Azure AD à Samanage afin de tester la configuration de l’approvisionnement automatique d’utilisateurs. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
+*    Les rôles Samanage sont désormais indiqués de manière dynamique et automatique dans l’interface utilisateur du Portail Azure. Avant d’assigner des rôles Samanage aux utilisateurs, assurez-vous que la synchronisation initiale est effectuée par rapport à Samanage afin de récupérer les rôles les plus récents dans votre tenant Samanage.
+
+*    Il est recommandé d’assigner un seul utilisateur Azure AD à Samanage afin de tester la configuration initiale du provisionnement automatique d’utilisateurs. Les autres utilisateurs et/ou groupes peuvent être assignés ultérieurement, une fois les tests réussis.
 
 *   Quand vous assignez un utilisateur à Samanage, vous devez sélectionner un rôle valide propre à l’application (si disponible) dans la boîte de dialogue d’attribution. Les utilisateurs dont le rôle est **Accès par défaut** sont exclus de l’approvisionnement.
 

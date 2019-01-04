@@ -1,19 +1,19 @@
 ---
 title: Guide pratique sur la gestion de votre compte et de vos clés Azure Maps | Microsoft Docs
 description: Vous pouvez utiliser le portail Azure pour gérer votre compte et vos clés d’accès Azure Maps.
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/11/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 29fd63139d31d146cfc67153f35bd57650b08cfa
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 351bc26d6c5b3dcfa9479138f2bd523f64a2912a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541617"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335810"
 ---
 # <a name="how-to-manage-your-azure-maps-account-and-keys"></a>Guide pratique sur la gestion de votre compte et de vos clés Azure Maps
 
@@ -53,5 +53,10 @@ Une page de confirmation s’affiche. Vous pouvez confirmer la suppression de vo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez comment utiliser des API de recherche Azure Maps dans [comment rechercher une adresse](./how-to-search-for-address.md).
-* Découvrez comment utiliser le [contrôle de carte JavaScript](./how-to-use-map-control.md) de Azure Maps.
+Comment gérer le niveau tarifaire d’un compte Azure Maps :
+> [!div class="nextstepaction"]
+> [Gérer le niveau tarifaire](./how-to-manage-pricing-tier.md)
+
+Découvrez comment afficher les métriques d’utilisation des API pour votre compte Azure Maps :
+> [!div class="nextstepaction"]
+> [Afficher les métriques d’utilisation](./how-to-view-api-usage.md)

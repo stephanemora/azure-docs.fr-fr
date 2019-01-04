@@ -1,23 +1,19 @@
 ---
 title: Configurer une stratégie SSL sur Azure Application Gateway - PowerShell
-description: Cette page fournit des instructions pour configurer la stratégie SSL sur Azure Application Gateway
-documentationcenter: na
+description: Cet article fournit des instructions pour configurer la stratégie SSL sur Azure Application Gateway
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/27/2018
+ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: 4c9ca5cee14603fb39115defc574aa7e956886ba
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7afa628ea455aa28f1717de8da66b631baeee4f1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30232134"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870451"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurer les versions de stratégie SSL et les suites de chiffrement sur Application Gateway
 
@@ -110,7 +106,7 @@ CipherSuites:
 
 ## <a name="configure-a-custom-ssl-policy"></a>Configurer une stratégie SSL personnalisée
 
-Lorsque vous configurez une stratégie SSL personnalisée, vous transmettez les paramètres suivants : PolicyType, MinProtocolVersion, CipherSuite et ApplicationGateway. Si vous essayez de passer d’autres paramètres, vous obtiendrez une erreur lors de la création ou de la mise à jour de la passerelle Application Gateway. 
+Quand vous configurez une stratégie SSL personnalisée, vous transmettez les paramètres suivants : PolicyType, MinProtocolVersion, CipherSuite et ApplicationGateway. Si vous essayez de passer d’autres paramètres, vous obtiendrez une erreur lors de la création ou de la mise à jour de la passerelle Application Gateway. 
 
 L’exemple suivant définit une stratégie SSL personnalisée sur une passerelle d’application. Il définit la version de protocole minimale sur `TLSv1_1` et active les suites de chiffrement suivantes :
 
@@ -119,7 +115,8 @@ L’exemple suivant définit une stratégie SSL personnalisée sur une passerell
 
 > [!IMPORTANT]
 > Au moins une suite de chiffrement de la liste suivante doit être sélectionnée lors de la configuration d’une stratégie SSL personnalisée. Application Gateway utilise les suites de chiffrement RSA SHA256 pour la gestion des serveurs principaux.
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 > * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 > * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 > * TLS_RSA_WITH_AES_128_GCM_SHA256
@@ -142,7 +139,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>Créer une passerelle d’application avec une stratégie SSL prédéfinie
 
-Lorsque vous configurez une stratégie SSL prédéfinie, vous transmettez les paramètres suivants : PolicyType, PolicyName et ApplicationGateway. Si vous essayez de passer d’autres paramètres, vous obtiendrez une erreur lors de la création ou de la mise à jour de la passerelle Application Gateway.
+Quand vous configurez une stratégie SSL prédéfinie, vous transmettez les paramètres suivants : PolicyType, PolicyName et ApplicationGateway. Si vous essayez de passer d’autres paramètres, vous obtiendrez une erreur lors de la création ou de la mise à jour de la passerelle Application Gateway.
 
 L’exemple suivant crée une nouvelle passerelle d’application avec une stratégie SSL prédéfinie.
 

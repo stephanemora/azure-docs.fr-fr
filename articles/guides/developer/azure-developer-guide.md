@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 55d4f53a23c92bb96934e84c0400bc182bc3d87e
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 80f7d93037c0b900608301ebf6463f85be10f2de
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976806"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311318"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guide de prise en main pour les développeurs Azure
 
@@ -74,7 +74,7 @@ En tant que fournisseur d’infrastructure IaaS (Infrastructure as a Service), A
 
 En raison du niveau de contrôle que vous avez avec les machines virtuelles, vous pouvez exécuter un large éventail de charges de travail serveur sur Azure, qui ne sont pas adaptées à un modèle PaaS. Ces charges de travail incluent les serveurs de base de données, Windows Server Active Directory et Microsoft SharePoint. Pour plus d’informations, consultez la documentation relative aux machines virtuelles pour [Linux](/azure/virtual-machines/linux/) ou [Windows](/azure/virtual-machines/windows/).
 
->**Quand les utiliser** : utilisez Machines virtuelles lorsque vous voulez un contrôle total sur votre infrastructure d’applications ou pour migrer des charges de travail d’application locales vers Azure sans avoir à apporter de modifications.
+>**Quand l’utiliser** : utilisez Machines virtuelles lorsque vous voulez un contrôle total sur votre infrastructure d’applications ou pour migrer des charges de travail d’application locales vers Azure sans avoir à apporter de modifications.
 
 >**Démarrer** : créez une [machine virtuelle Linux](../../virtual-machines/virtual-machines-linux-quick-create-portal.md) ou une [machine virtuelle Windows](../../virtual-machines/virtual-machines-windows-hero-tutorial.md) à partir du portail Azure.
 
@@ -92,11 +92,11 @@ Au lieu de vous préoccuper de créer et de gérer une application entière ou l
 
 Azure Service Fabric est une plateforme de systèmes distribués qui facilite la création, la mise en package, le déploiement et la gestion de microservices scalables et fiables. Il fournit également des fonctionnalités complètes de gestion d’application pour la configuration, le déploiement, l’analyse, la mise à niveau/mise à jour corrective et la suppression d’applications déployées. Les applications s’exécutent sur un pool partagé de machines. Vous pouvez commencer à petite échelle puis évoluer pour prendre en charge des centaines ou des milliers de machines, selon les besoins.
 
-Service Fabric prend en charge WebAPI avec Open Web Interface for .NET (OWIN) et ASP.NET Core. Il fournit des kits SDK pour la création de services sur Linux en langage .NET Core ou Java. Pour plus d’informations sur Service Fabric, consultez la [documentation Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/).
+Service Fabric prend en charge WebAPI avec Open Web Interface for .NET (OWIN) et ASP.NET Core. Il fournit des kits SDK pour la création de services sur Linux en langage .NET Core ou Java. Pour plus d’informations sur Service Fabric, consultez la [documentation Service Fabric](https://docs.microsoft.com/azure/service-fabric/).
 
 >**Quand l’utiliser** : Service Fabric est un bon choix quand vous créez une application ou réécrivez une application existante pour utiliser une architecture de microservices. Utilisez Service Fabric quand vous avez besoin d’un meilleur contrôle de l’infrastructure sous-jacente ou d’un accès direct à cette dernière.
 
->**Démarrer** : [créez votre première application Azure Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
+>**Mise en route** [Créez votre première application Azure Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
 
 ### <a name="enhance-your-applications-with-azure-services"></a>Améliorer vos applications avec les services Azure
 
@@ -107,17 +107,17 @@ En plus de l’hébergement d’applications, Azure fournit des offres de servic
 La plupart des applications doivent stocker des données. Par conséquent, quelle que soit la manière dont vous décidez d’héberger votre application dans Azure, prenez en considération un ou plusieurs des services de données et de stockage suivants.
 
 -   **Azure Cosmos DB** : service de base de données multi-modèles et distribuée mondialement qui vous permet de faire évoluer à votre guise le débit et le stockage sur n’importe quel nombre de régions géographiques avec un contrat SLA complet. 
-    >**Quand l’utiliser** : quand votre application a besoin de document, d’une table ou de bases de données de graphique, y compris des bases de données MongoDB, avec plusieurs modèles de cohérence bien définis. 
+    >**Quand l’utiliser** : quand votre application a besoin de document, d’une table ou de bases de données de graphique, y compris des bases de données MongoDB, avec plusieurs modèles de cohérence bien définis. 
 
-    >**Démarrer** : [créez une application web Azure Cosmos DB](../../cosmos-db/create-sql-api-dotnet.md). Si vous êtes développeur MongoDB, consultez la rubrique sur la [création d’une application web MongoDB avec Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
+    >**Démarrer** : [créez une application web Azure Cosmos DB](../../cosmos-db/create-sql-api-dotnet.md). Si vous êtes développeur MongoDB, consultez la rubrique sur la [création d’une application web MongoDB avec Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
 
--   **Stockage Azure** : offre un stockage durable, hautement disponible pour les objets blob, les files d’attente, les fichiers et d’autres types de données non relationnelles. Le service Stockage fournit la base de stockage utilisée pour les machines virtuelles.
+-   **Stockage Azure** : offre un stockage durable, hautement disponible pour les objets blob, les files d’attente, les fichiers et d’autres types de données non relationnelles. Le service Stockage fournit la base de stockage utilisée pour les machines virtuelles.
 
     >**Quand l’utiliser** : lorsque votre application stocke des données non relationnelles, telles que des paires clé-valeur (tables), des objets blob, des partages de fichiers ou des messages (files d’attente).
 
-    >**Démarrer** : choisissez parmi les types de stockage suivants : [objets blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tables](../../cosmos-db/table-storage-how-to-use-dotnet.md), [files d’attente](../../storage/queues/storage-dotnet-how-to-use-queues.md) et [fichiers](../../storage/files/storage-dotnet-how-to-use-files.md).
+    >**Démarrer** : choisissez parmi les types de stockages suivants : [objets blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tables](../../cosmos-db/table-storage-how-to-use-dotnet.md), [files d’attente](../../storage/queues/storage-dotnet-how-to-use-queues.md) et [fichiers](../../storage/files/storage-dotnet-how-to-use-files.md).
 
--   **Azure SQL Database** : version basée sur Azure du moteur Microsoft SQL Server pour le stockage des données tabulaires relationnelles dans le cloud. SQL Database offre des performances prévisibles et une scalabilité sans interruption de service. Il assure aussi la continuité des activités et la protection des données.
+-   **Azure SQL Database** : version basée sur Azure du moteur Microsoft SQL Server pour le stockage des données tabulaires relationnelles dans le cloud. SQL Database offre des performances prévisibles et une scalabilité sans interruption de service. Il assure aussi la continuité des activités et la protection des données.
 
     >**Quand l’utiliser** : lorsque votre application nécessite un stockage de données avec intégrité référentielle, une prise en charge transactionnelle et une prise en charge des requêtes TSQL.
 
@@ -132,19 +132,19 @@ Les conteneurs Docker, forme de virtualisation du système d’exploitation, vou
 
 Azure permet d’utiliser des conteneurs dans vos applications de plusieurs façons différentes.
 
--   **Extension Azure Docker VM** : permet de configurer votre machine virtuelle avec les outils Docker pour agir en tant qu’hôte Docker.
+-   **Extension Azure Docker VM** : permet de configurer votre machine virtuelle avec les outils Docker pour agir en tant qu’hôte Docker.
 
-    >**Quand l’utiliser** : lorsque vous souhaitez générer des déploiements de conteneur cohérents pour vos applications sur une machine virtuelle ou lorsque vous souhaitez utiliser [Docker Compose](https://docs.docker.com/compose/overview/).
+    >**Quand l’utiliser** : lorsque vous souhaitez générer des déploiements de conteneurs cohérents pour vos applications sur une machine virtuelle ou lorsque vous souhaitez utiliser [Docker Compose](https://docs.docker.com/compose/overview/).
 
-    >**Démarrer** : [créez un environnement Docker dans Azure en utilisant l’extension Docker VM](../../virtual-machines/virtual-machines-linux-dockerextension.md).
+    >**Démarrer** : [créez un environnement Docker dans Azure à l’aide de l’extension Docker VM](../../virtual-machines/virtual-machines-linux-dockerextension.md).
 
--   **Azure Container Service** : permet la création, la configuration et la gestion d’un cluster de machines virtuelles préconfigurées pour exécuter des applications en conteneur. Pour en savoir plus sur Container Service, consultez [Présentation d’Azure Container Service](../../container-service/container-service-intro.md).
+-   **Azure Container Service** : permet la création, la configuration et la gestion d’un cluster de machines virtuelles préconfigurées pour exécuter des applications en conteneur. Pour en savoir plus sur Container Service, consultez [Présentation d’Azure Container Service](../../container-service/container-service-intro.md).
 
     >**Quand l’utiliser** : lorsque vous devez créer des environnements scalables prêts pour la production qui exploitent d’autres outils de planification et de gestion, ou lorsque vous déployez un cluster Docker Swarm.
 
     >**Démarrer** : [déployez un cluster Container Service](../../container-service/dcos-swarm/container-service-deployment.md).
 
--   **Docker Machine** : vous permet d’installer et de gérer un moteur Docker sur les ordinateurs hôtes virtuels en utilisant les commandes docker-machine.
+-   **Docker Machine** : vous permet d’installer et de gérer un moteur Docker sur les ordinateurs hôtes virtuels en utilisant les commandes docker-machine.
 
     >**Quand l’utiliser** : lorsque vous avez besoin de créer rapidement un prototype d’une application en créant un hôte Docker individuel.
 
@@ -158,7 +158,7 @@ Azure permet d’utiliser des conteneurs dans vos applications de plusieurs faç
 
 Il est essentiel non seulement de savoir qui utilise vos applications, mais aussi d’empêcher tout accès non autorisé à vos ressources. Azure offre plusieurs moyens d’authentifier vos clients d’application.
 
--   **Azure Active Directory (Azure AD)** : service Microsoft multilocataire basé sur le cloud qui gère les identités et les accès. Vous pouvez ajouter l’authentification unique (SSO) à vos applications en les intégrant à Azure AD. Vous pouvez accéder aux propriétés d’annuaire en utilisant l’API Graph Azure AD directement ou l’API Microsoft Graph. Vous pouvez exploiter la prise en charge d’Azure AD pour l’infrastructure d’autorisation OAuth2.0 et la connexion OpenID en utilisant les points de terminaison HTTP/REST natifs et les bibliothèques d’authentification Azure AD multiplateformes.
+-   **Azure Active Directory (Azure AD)**  : service Microsoft multilocataire basé sur le cloud qui gère les identités et les accès. Vous pouvez ajouter l’authentification unique (SSO) à vos applications en les intégrant à Azure AD. Vous pouvez accéder aux propriétés d’annuaire en utilisant l’API Graph Azure AD directement ou l’API Microsoft Graph. Vous pouvez exploiter la prise en charge d’Azure AD pour l’infrastructure d’autorisation OAuth2.0 et la connexion OpenID en utilisant les points de terminaison HTTP/REST natifs et les bibliothèques d’authentification Azure AD multiplateformes.
 
     >**Quand l’utiliser** : lorsque vous souhaitez fournir une expérience SSO, travailler avec des données basées sur Graph ou authentifier les utilisateurs de domaine.
 
@@ -176,19 +176,19 @@ Pour en savoir plus sur les bonnes pratiques de sécurité dans Azure, consultez
 
 Lorsque votre application est en cours d’exécution dans Azure, vous devez être en mesure de surveiller les performances, de déceler les problèmes éventuels et de voir comment les clients utilisent votre application. Azure fournit plusieurs options de surveillance.
 
--   **Visual Studio Application Insights** : service d’analyse extensible hébergé par Azure qui s’intègre à Visual Studio pour surveiller vos applications web en direct. Il vous fournit les données dont vous avez besoin pour améliorer continuellement les performances et la convivialité de vos applications, qu’elles soient hébergées sur Azure ou non.
+-   **Visual Studio Application Insights** : service d’analyse extensible hébergé par Azure qui s’intègre à Visual Studio pour surveiller vos applications web en direct. Il vous fournit les données dont vous avez besoin pour améliorer continuellement les performances et la convivialité de vos applications, qu’elles soient hébergées sur Azure ou non.
 
     >**Démarrer** : suivez le [didacticiel d’Application Insights](../../application-insights/app-insights-overview.md).
 
--   **Azure Monitor** : service qui vous permet de visualiser, interroger, acheminer, archiver et traiter les métriques et les journaux qui sont générés par votre infrastructure et vos ressources Azure. Monitor fournit les vues de données que vous voyez dans le portail Azure et constitue une source unique pour la surveillance des ressources Azure.
+-   **Azure Monitor** : service qui vous permet de visualiser, interroger, acheminer, archiver et traiter les métriques et les journaux qui sont générés par votre infrastructure et vos ressources Azure. Monitor fournit les vues de données que vous voyez dans le portail Azure et constitue une source unique pour la surveillance des ressources Azure.
  
-    >**Démarrer** : [prenez en main Azure Monitor](../../monitoring-and-diagnostics/monitoring-get-started.md).
+    >**Démarrer** : [Prise en main d’Azure Monitor](../../monitoring-and-diagnostics/monitoring-get-started.md).
 
 ### <a name="devops-integration"></a>Intégration DevOps
 
 Qu’il s’agisse de mettre en service des machines virtuelles ou de publier vos applications web avec une intégration continue, Azure s’intègre à la plupart des outils DevOps répandus. Avec la prise en charge d’outils tels que Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, Azure DevOps, etc., vous pouvez travailler avec les outils dont vous disposez déjà et optimiser votre expérience.
 
->**Essayez-le** : [essayez plusieurs intégrations DevOps](https://azure.microsoft.com/try/devops/).
+>**Essayez-le :** [essayez plusieurs intégrations DevOps](https://azure.microsoft.com/try/devops/).
 
 >**Démarrer** : pour voir les options DevOps d’une application App Service, consultez [Déploiement continu vers Azure App Service](../../app-service/app-service-continuous-deployment.md).
 
@@ -205,7 +205,7 @@ L’un des avantages de l’utilisation d’Azure est de pouvoir déployer des a
 
 Même si cela est peu probable, il est possible qu’un centre de données soit mis intégralement hors connexion en raison d’une catastrophe naturelle ou d’une panne Internet. Pour garantir une disponibilité optimale, il est recommandé d’héberger les applications métier critiques dans plusieurs centres de données. L’utilisation de plusieurs régions peut également réduire la latence pour les utilisateurs internationaux et fournir une flexibilité supplémentaire lors des mises à jour d’applications.
 
-Certains services, tels que Machines virtuelles et App Services, utilisent [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) pour obtenir une prise en charge multirégion avec basculement d’une région à une autre, ce qui permet de prendre en charge les applications d’entreprise à haute disponibilité. Pour en voir un exemple, consultez [Architecture de référence Azure : exécuter une application web dans plusieurs régions](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region).
+Certains services, tels que Machines virtuelles et App Services, utilisent [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) pour obtenir une prise en charge multirégion avec basculement d’une région à une autre, ce qui permet de prendre en charge les applications d’entreprise à haute disponibilité. Pour obtenir un exemple, consultez [Architecture de référence Azure : Exécuter une application web dans plusieurs régions](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
 >**Quand l’utiliser** : lorsque vous avez des applications d’entreprise à haute disponibilité qui bénéficient du basculement et de la réplication.
 
@@ -219,7 +219,7 @@ Azure propose deux moyens de gérer vos applications et services à partir de la
 
 -   [Interface de ligne de commande Azure](../../xplat-cli-install.md) : permet de vous connecter à un abonnement Azure et de programmer diverses tâches concernant les ressources Azure à partir de la ligne de commande.
 
--   [Azure PowerShell](../../powershell-install-configure.md) : fournit un ensemble de modules avec des applets de commande qui vous permettent de gérer les ressources Azure en utilisant Windows PowerShell.
+-   [Azure PowerShell](../../powershell-install-configure.md): fournit un ensemble de modules avec des applets de commande qui vous permettent de gérer les ressources Azure en utilisant Windows PowerShell.
 
 ### <a name="azure-portal"></a>Portail Azure
 
@@ -245,7 +245,7 @@ Des services tels que [Mobile Apps](../../app-service-mobile/app-service-mobile-
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager 
     
-L’exécution de votre application sur Azure implique probablement l’utilisation de plusieurs services Azure, qui ont tous le même cycle de vie et peuvent être vus comme une unité logique. Par exemple, une application web peut utiliser Web Apps, SQL Database, Stockage, Cache Redis Azure et les services Azure Content Delivery Network. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) vous permet d’utiliser les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour et supprimer toutes les ressources dans le cadre d’une opération unique et coordonnée.
+L’exécution de votre application sur Azure implique probablement l’utilisation de plusieurs services Azure, qui ont tous le même cycle de vie et peuvent être vus comme une unité logique. Par exemple, une application web peut utiliser Web Apps, SQL Database, Stockage, le cache Azure pour Redis et les services Azure Content Delivery Network. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) vous permet d’utiliser les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour et supprimer toutes les ressources dans le cadre d’une opération unique et coordonnée.
 
 Outre le regroupement et la gestion logiques des ressources connexes, Azure Resource Manager inclut des fonctionnalités de déploiement qui vous permettent de personnaliser le déploiement et la configuration des ressources connexes. Par exemple, Resource Manager vous permet de déployer et de configurer une application qui se compose de plusieurs machines virtuelles, d’un équilibreur de charge et d’une base de données SQL Azure, comme une unité unique.
 
@@ -283,13 +283,13 @@ Lorsque vous autorisez l’accès à des ressources Azure, il est toujours recom
 
 -   **Contrôle d’accès en fonction du rôle (RBAC)** : dans Azure, vous pouvez accorder l’accès aux comptes d’utilisateur (principaux) dans une étendue spécifiée : abonnement, groupe de ressources ou ressources individuelles. RBAC vous permet de déployer un ensemble de ressources dans un groupe de ressources et d’accorder des autorisations à un utilisateur ou un groupe spécifique. Il permet également de limiter l’accès aux seules ressources qui appartiennent au groupe de ressources cible. Vous pouvez également accorder l’accès à une ressource unique, telle qu’une machine virtuelle ou un réseau virtuel. Pour accorder l’accès, vous assignez un rôle à l’utilisateur, au groupe ou au principal de service. Il existe de nombreux rôles prédéfinis et vous pouvez également définir vos propres rôles personnalisés. Pour en savoir plus, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ?](../../role-based-access-control/overview.md).
 
-    >**Quand l’utiliser** : quand vous avez besoin de gérer avec précision l’accès des utilisateurs et des groupes ou que vous devez faire d’un utilisateur le propriétaire d’un abonnement.
+    >**Quand l’utiliser** : quand vous avez besoin de gérer avec précision l’accès des utilisateurs et des groupes ou que vous devez faire d’un utilisateur le propriétaire d’un abonnement.
 
-    >**Démarrer** : pour plus d’informations, consultez [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+    >**Démarrer** : pour plus d’informations, consultez [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
--   **Objets Principal de service** : en plus de fournir l’accès aux groupes et principaux d’utilisateur, vous pouvez accorder le même accès à un principal de service.
+-   **ID d'objet du principal de service** : en plus de fournir l’accès aux groupes et principaux d’utilisateur, vous pouvez accorder le même accès à un principal de service.
 
-    > **Quand les utiliser** : lorsque vous gérez par programmation les ressources Azure ou accordez l’accès pour des applications. Pour plus d’informations, consultez [Créer une application Active Directory et un principal de service](../../active-directory/develop/howto-create-service-principal-portal.md).
+    > **Quand l’utiliser** : lorsque vous gérez par programmation les ressources Azure ou accordez l’accès pour des applications. Pour plus d’informations, consultez [Créer une application Active Directory et un principal de service](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="tags"></a>Balises
 

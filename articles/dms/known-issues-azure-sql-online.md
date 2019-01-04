@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: d228fbde230f89848d895bd1c004724b88de4431
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a8d91c0410d2a59e4b22866aa48d36c026f3ee8e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883820"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956293"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure SQL DB
 
@@ -28,9 +28,9 @@ Le présent article décrit les problèmes connus et limitations associés aux m
 
 Si votre base de données source se compose d’une ou plusieurs tables temporelles, votre migration de base de données échoue pendant l’opération de « chargement complet des données ». Le message suivant peut alors s’afficher :
 
-{ "resourceId":"/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType":"Database migration error", "errorEvents":"["Capture functionalities could not be set. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 Message: [Microsoft][SQL Server Native Client 11.0][SQL Server]The use of replication is not supported with system-versioned temporal table '[Application. Cities]' Line: 1 Column: -1 "]" }
+{ "resourceId":"/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType":"Database migration error", "errorEvents":"["Capture functionalities could not be set. RetCode : SQL_ERROR SqlState : 42000 NativeError : 13570 Message: [Microsoft][SQL Server Native Client 11.0][SQL Server]The use of replication is not supported with system-versioned temporal table '[Application. Cities]' Line: 1 Column: -1 "]" }
  
- ![Exemple d’erreur avec des tables temporelles](media\known-issues-azure-sql-online\dms-temporal-tables-errors.png)
+ ![Exemple d’erreur avec des tables temporelles](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
 **Solution de contournement**
 
@@ -52,7 +52,7 @@ Pour plus d’informations, consultez l’article [Tables temporelles](https://d
 
 Vous pouvez voir une exception SQL suggérer que ntext est incompatible avec le type hierarchyid pendant l’opération de « chargement complet des données » :
      
-![Exemple d’erreur avec hierarchyid](media\known-issues-azure-sql-online\dms-hierarchyid-errors.png)
+![Exemple d’erreur avec hierarchyid](media/known-issues-azure-sql-online/dms-hierarchyid-errors.png)
 
 **Solution de contournement**
 
@@ -107,7 +107,7 @@ Si vous souhaitez que DMS fasse migrer la valeur timestamp exacte stockée dans 
 
 Lorsque des échecs de migration apparaissent dans l’affichage d’état détaillé des bases de données et que vous sélectionnez le lien **Erreurs de migration des données** dans le ruban supérieur, vous n’obtenez pas de détails supplémentaires spécifiques aux échecs de migration.
 
-![exemple d’absence de détails concernant des erreurs de migration des données](media\known-issues-azure-sql-online\dms-data-migration-errors-no-details.png)
+![exemple d’absence de détails concernant des erreurs de migration des données](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 
 **Solution de contournement**
 
@@ -115,6 +115,6 @@ Pour obtenir des détails spécifiques aux échecs, suivez les étapes ci-dessou
 
 1. Fermez le panneau d’état détaillé des bases de données pour afficher l’écran d’activité de migration.
 
-     ![écran d’activité de migration](media\known-issues-azure-sql-online\dms-migration-activity-screen.png)
+     ![écran d’activité de migration](media/known-issues-azure-sql-online/dms-migration-activity-screen.png)
 
 2. Sélectionnez **See error details** (Consulter le détail des erreurs) pour afficher les messages d’erreur spécifiques et ainsi résoudre plus facilement les erreurs de migration.

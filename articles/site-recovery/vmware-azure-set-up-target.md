@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: a6f983b08415659b9a989ebed824cddd210396e1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cbf9c1a49481de49fb8d9c6599acec7bc3600df3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233427"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837509"
 ---
 # <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Préparer l’environnement cible pour la récupération d’urgence des machines virtuelles VMware ou serveurs physiques vers Azure
 
@@ -27,12 +27,12 @@ L’article suppose que :
 
 ## <a name="prepare-target"></a>Préparer la cible
 
-Après avoir effectué **l’Étape 1 : Sélectionner l’objectif de protection** et **l’Étape 2 : Préparer la source**, vous passez à **l’Étape 3 : Préparer la cible**.
+Après avoir réalisé l’**étape 1 : sélection de l’objectif de la protection** et l’**étape 2 : préparation de la source**, vous passez à l’**étape 3 : cible**.
 
 ![Préparer la cible](./media/vmware-azure-set-up-target/prepare-target-vmware-to-azure.png)
 
-1. **Abonnement :** dans le menu déroulant, sélectionnez l’abonnement vers lequel vous souhaitez répliquer vos machines virtuelles ou serveurs physiques.
-2. **Modèle de déploiement :** sélectionnez le modèle de déploiement (Classique ou Gestionnaire de ressources).
+1. **Abonnement :** dans le menu déroulant, sélectionnez l’abonnement vers lequel vous souhaitez répliquer vos machines virtuelles ou serveurs physiques.
+2. **Modèle de déploiement :** sélectionnez le modèle de déploiement (Classique ou Resource Manager).
 
 Selon le modèle de déploiement choisi, une validation est lancée afin de vérifier que vous disposez au moins d’un compte de stockage et d’un réseau virtuel compatibles dans l’abonnement cible pour y répliquer et basculer les machines virtuelles et serveurs physiques.
 

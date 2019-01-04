@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2017
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 29ac668ddb9d5df88d5f743630eaf2d9288b8727
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 905431c73488ddc6ebf2d13823e4bb705d16304c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123434"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102008"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Copier des données de Presto avec Azure Data Factory (préversion)
 
@@ -45,12 +45,12 @@ Les propriétés suivantes sont prises en charge pour le service lié Presto :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **Presto**. | Oui |
+| Type | La propriété type doit être définie sur : **Presto** | Oui |
 | host | Adresse IP ou nom d’hôte du serveur Presto (c’est-à-dire 192.168.222.160).  | Oui |
 | serverVersion | Version du serveur Presto (c’est-à-dire 0.148-t).  | Oui |
 | catalog | Contexte du catalogue pour toutes les requêtes effectuées sur le serveur.  | Oui |
 | port | Port TCP utilisé par le serveur Presto pour écouter les connexions clientes. La valeur par défaut est 8080.  | Non  |
-| authenticationType | Mécanisme d’authentification utilisé pour se connecter au serveur Presto. <br/>Valeurs autorisées : **Anonymous**, **LDAP**. | Oui |
+| authenticationType | Mécanisme d’authentification utilisé pour se connecter au serveur Presto. <br/>Les valeurs autorisées sont les suivantes : **Anonymous**, **LDAP** | Oui |
 | username | Nom d’utilisateur utilisé pour se connecter au serveur Presto.  | Non  |
 | password | Mot de passe correspondant au nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non  |
 | enableSsl | Indique si les connexions au serveur sont chiffrées suivant le protocole SSL. La valeur par défaut est false.  | Non  |
@@ -88,7 +88,12 @@ Les propriétés suivantes sont prises en charge pour le service lié Presto :
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section donne la liste des propriétés prises en charge par le jeu de données Presto.
 
-Pour copier des données de Presto, affectez la valeur **PrestoObject** à la propriété type du jeu de données. Il n’y a aucune autre propriété propre au type dans cette sorte de jeu de données.
+Pour copier des données de Presto, affectez la valeur **PrestoObject** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| Type | La propriété type du jeu de données doit être définie sur : **PrestoObject** | Oui |
+| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -100,7 +105,8 @@ Pour copier des données de Presto, affectez la valeur **PrestoObject** à la pr
         "linkedServiceName": {
             "referenceName": "<Presto linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -109,14 +115,14 @@ Pour copier des données de Presto, affectez la valeur **PrestoObject** à la pr
 
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Pipelines](concepts-pipelines-activities.md). Cette section donne la liste des propriétés prises en charge par la source Presto.
 
-### <a name="prestosource-as-source"></a>PrestoSource comme source
+### <a name="presto-as-source"></a>Presto en tant que source
 
 Pour copier des données de Presto, affectez la valeur **PrestoSource** au type source de l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur **PrestoSource**. | Oui |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **PrestoSource** | Oui |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
 

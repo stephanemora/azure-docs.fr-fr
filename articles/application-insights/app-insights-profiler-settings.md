@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 81608dd7281ceddce7e0701535ad99e1c9e44315
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d96b4a99b2ea66cdeff43f06c1789dd133c2c31a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142716"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723004"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurer Application Insights Profiler
 
@@ -44,7 +43,7 @@ En fonction de la configuration de votre environnement ASE, l’appel visant à 
 Vous pouvez déclencher Profiler manuellement en un clic de bouton. Supposons que vous exécutez un test de performances web. Vous avez besoin de traces pour vous aider à comprendre comment votre application web fonctionne avec une certaine charge. Pouvoir contrôler le moment où les traces sont capturées est essentiel, car si vous savez quand le test de charge s’exécute, l’intervalle d’échantillonnage peut néanmoins ne pas correspondre à ce moment.
 Les étapes suivantes montrent comment ce scénario fonctionne :
 
-### <a name="optional-step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>(Facultatif) Étape 1 : Générer du trafic vers votre application web en démarrant un test de performances web
+### <a name="optional-step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>(Facultatif) Étape 1 : Générer du trafic vers votre application web en démarrant un test de performances web
 
 Si votre application web a déjà du trafic entrant ou si vous voulez simplement générer du trafic manuellement, ignorez cette section et continuez à l’étape 2.
 
@@ -62,13 +61,13 @@ Vous voyez que le nouveau test est d’abord placé en file d’attente, avec un
 
 ![Le test de charge est en cours d’exécution][load-test-in-progress]
 
-### <a name="step-2-start-profiler-on-demand"></a>Étape 2 : Démarrer Profiler à la demande
+### <a name="step-2-start-profiler-on-demand"></a>Étape 2 : Démarrer Profiler à la demande
 
 Une fois que le test de charge est en cours d’exécution, nous pouvons démarrer Profiler pour capturer des traces sur l’application web pendant qu’elle reçoit la charge.
 Accédez au volet Configurer Profiler :
 
 
-### <a name="step-3-view-traces"></a>Étape 3 : Afficher les traces
+### <a name="step-3-view-traces"></a>Étape 3 : Affichage des traces
 
 Une fois que l’exécution de Profiler est terminée, suivez les instructions de la notification pour accéder à la page Performances et voir les traces.
 
@@ -87,8 +86,8 @@ Vous voyez cette erreur pour deux raisons possibles :
 Suivez ces étapes pour vérifier et installer la version la plus récente de Profiler :
 
 1. Accédez aux paramètres d’application App Services et vérifiez si les paramètres suivants sont définis :
-    * **APPINSIGHTS_INSTRUMENTATIONKEY** : Remplacez ceci par la clé d’instrumentation correcte pour Application Insights.
-    * **APPINSIGHTS_PORTALINFO** : ASP.NET
+    * **APPINSIGHTS_INSTRUMENTATIONKEY** : remplacez ceci par la clé d’instrumentation correcte pour Application Insights.
+    * **APPINSIGHTS_PORTALINFO** : ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION** : 1.0.0. Si ces paramètres ne sont pas définis, accédez au volet d’activation d’Application Insights pour installer la dernière extension de site.
 
 1. Accédez au volet Application Insights dans le portail App Services.
@@ -104,9 +103,9 @@ Suivez ces étapes pour vérifier et installer la version la plus récente de Pr
     ![Modifier et enregistrer Application Insights][change-and-save-appinsights]
 
 1. Revenez à l’onglet **Paramètres de l’application** pour App Service pour vérifier que les éléments des paramètres d’application suivants sont bien définis :
-    * **APPINSIGHTS_INSTRUMENTATIONKEY** : Remplacez ceci par la clé d’instrumentation correcte pour Application Insights.
-    * **APPINSIGHTS_PORTALINFO** : ASP.NET
-    * **APPINSIGHTS_PROFILERFEATURE_VERSION** : 1.0.0
+    * **APPINSIGHTS_INSTRUMENTATIONKEY** : remplacez ceci par la clé d’instrumentation correcte pour Application Insights.
+    * **APPINSIGHTS_PORTALINFO** : ASP.NET
+    * **APPINSIGHTS_PROFILERFEATURE_VERSION** : 1.0.0
 
     ![Paramètres d’application pour Profiler][app-settings-for-profiler]
 

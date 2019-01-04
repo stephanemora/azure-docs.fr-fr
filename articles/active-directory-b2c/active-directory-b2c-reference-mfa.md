@@ -7,19 +7,19 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: eabae0f3575719c6cb93affefe0a393dd13d1439
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6c44bebad6b54ab673fcbf3b2ef5e5d34c8c6882
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014004"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847726"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Activer l'authentification multifacteur dans Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C s’intègre directement à [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) pour vous permettre d’ajouter une deuxième couche de sécurité aux expériences d’inscription et de connexion dans vos applications. Vous activez l’authentification multifacteur sans écrire la moindre ligne de code. Si vous déjà créé des stratégies d’inscription et de connexion, vous pouvez toujours activer l'authentification multifacteur.
+Azure Active Directory (Azure AD) B2C s’intègre directement à [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) pour vous permettre d’ajouter une deuxième couche de sécurité aux expériences d’inscription et de connexion dans vos applications. Vous activez l’authentification multifacteur sans écrire la moindre ligne de code. Si vous déjà créé des flux d’utilisateur d’inscription et de connexion, vous pouvez toujours activer l’authentification multifacteur.
 
 Cette fonctionnalité permettent aux applications de gérer des scénarios tels que le suivant :
 
@@ -28,25 +28,24 @@ Cette fonctionnalité permettent aux applications de gérer des scénarios tels 
 
 ## <a name="set-multi-factor-authentication"></a>Définir l'authentification multifacteur
 
-Lorsque vous créez une stratégie, vous avez la possibilité d’activer l’authentification multifacteur.
+Quand vous créez un flux d’utilisateur, vous avez la possibilité d’activer l’authentification multifacteur.
 
 ![Définir l'authentification multifacteur](./media/active-directory-b2c-reference-mfa/add-policy.png)
 
-Définissez **État** sur **Activer**.
+Définissez **Authentification multifacteur** sur **Activé**.
 
-Vous pouvez utiliser **Exécuter maintenant** sur la stratégie à des fins de vérification. Vérifiez le scénario suivant :
+Vous pouvez utiliser **Exécuter maintenant** sur le flux d’utilisateur à des fins de vérification. Vérifiez le scénario suivant :
 
 Un compte client est créé dans votre locataire avant l’étape d'authentification multifacteur. Lors de cette étape, le client est invité à fournir un numéro de téléphone et à le confirmer. Si la vérification aboutit, le numéro de téléphone est associé au compte en vue d’une utilisation ultérieure. Même si le client annule ou abandonne, il peut être invité à confirmer à nouveau un numéro de téléphone lors de la connexion suivante avec activation de l'authentification multifacteur.
 
 ## <a name="add-multi-factor-authentication"></a>Ajouter une authentification multifacteur
 
-Il est possible d’activer l’authentification multifacteur sur une stratégie que vous avez précédemment créée. 
+Il est possible d’activer l’authentification multifacteur sur un flux d’utilisateur que vous avez précédemment créé. 
 
 Pour activer l’authentification multifacteur :
 
-1. Ouvrez la stratégie, puis sélectionnez **Modifier**. 
-2. Sélectionnez **Authentification multifacteur**.
-3. Définissez **État** sur **Activer**.
-4. Cliquez sur **Enregistrer** dans la partie supérieure de la page.
+1. Ouvrez le flux d’utilisateur, puis sélectionnez **Propriétés**. 
+2. En regard d’**Authentification multifacteur**, sélectionnez **Activé**.
+3. Cliquez sur **Enregistrer** dans la partie supérieure de la page.
 
 

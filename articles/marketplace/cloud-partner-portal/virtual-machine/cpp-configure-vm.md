@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c1db8c99b1bd3f9bbb768572ca1f5f7a4e1e0de4
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 5ccfef8a6ad367e8fac100217713cd323341a535
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639147"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183469"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurer la machine virtuelle hébergée sur Azure
 
@@ -28,14 +28,14 @@ Cet article explique comment dimensionner, mettre à jour et généraliser une m
 
 ## <a name="sizing-the-vhds"></a>Dimensionnement des disques durs virtuels (VHD)
 
-<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Si vous avez sélectionné l’une des machines virtuelles préconfigurées avec un système d’exploitation (et éventuellement d’autres services), vous avez déjà choisi une taille de machine virtuelle Azure standard, comme décrit dans l’article [Virtual machine SKUs tab](./cpp-skus-tab.md) (Onglet Références de machine virtuelle).  Il s’agit de l’approche recommandée.  Toutefois, si vous installez un système d’exploitation manuellement, vous devez dimensionner votre VHD principal dans votre image de machine virtuelle :
+<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Si vous avez sélectionné l’une des machines virtuelles préconfigurées avec un système d’exploitation (et éventuellement d’autres services), vous avez déjà choisi une taille de machine virtuelle Azure standard, comme décrit dans l’article [Virtual machine SKUs tab](./cpp-skus-tab.md) (Onglet Références de machine virtuelle).  Il est recommandé de démarrer votre solution avec un système d’exploitation préconfiguré.  Toutefois, si vous installez un système d’exploitation manuellement, vous devez dimensionner votre VHD principal dans votre image de machine virtuelle :
 
 - Pour Windows, le VHD de système d’exploitation doit être créé en tant que VHD au format fixe de 127-128 Go. 
 - Pour Linux, ce VHD doit être créé en tant que VHD au format fixe de 30-50 Go.
 
 Si la taille physique est inférieure à 127-128 Go, le VHD doit être fragmenté. Les images Windows et SQL Server de base fournies satisfont déjà les exigences requises alors, ne modifiez pas le format ou la taille du disque dur virtuel obtenu. 
 
-Les disques de données peuvent avoir une taille maximale de 1 To. Lorsque vous choisissez la taille du disque, rappelez-vous que les clients ne peuvent pas redimensionner les disques durs virtuels dans une image lors du déploiement. Les VHD de données doivent être créés en tant que VHD au format fixe. Ils doivent également être fragmentés. À l’origine, les disques de données peuvent être vides ou contenir des données.
+Les disques de données peuvent avoir une taille maximale de 1 To. Lorsque vous choisissez leur taille, rappelez-vous que les clients ne peuvent pas redimensionner les disques durs virtuels dans une image lors du déploiement. Les VHD de données doivent être créés en tant que VHD au format fixe. Ils doivent également être fragmentés. À l’origine, les disques de données peuvent être vides ou contenir des données.
 
 
 ## <a name="install-the-most-current-updates"></a>Installer les dernières mises à jour
@@ -65,7 +65,7 @@ Pour plus d’informations sur les personnalisations Linux, consultez l’articl
 
 Toutes les images dans Azure Marketplace doivent être réutilisables de façon générale. Pour autoriser cette réutilisation, le VHD de système d’exploitation doit être *généralisé* : cette opération consiste à supprimer d’une machine virtuelle tous les pilotes logiciels et identificateurs propres à une instance.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 Les disques de système d’exploitation Windows sont généralisés à l’aide de [l’outil sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Si vous mettez à jour ou reconfigurez le système d’exploitation par la suite, vous devrez réexécuter sysprep. 
 

@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a12549a52171afc1c95588f9a2b259829e170fcc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 97352cdc89aabe312bf500901347acaf5238e871
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389953"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436991"
 ---
-# <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect : Configurer les autorisations du compte de connecteur AD DS 
+# <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect : Configurer les autorisations du compte de connecteur AD DS 
 
-Un nouveau module PowerShell dénommé ADSyncConfig.psm1 a été introduit avec la version 1.1.880.0 (sortie en août 2018). Il fournit une collection d’applets de commande pour vous aider à configurer les autorisations Active Directory adéquates pour votre déploiement Azure AD Connect. 
+Un nouveau module PowerShell dénommé [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) a été introduit avec la version 1.1.880.0 (sortie en août 2018). Il fournit une collection de cmdlets pour vous aider à configurer les autorisations Active Directory adéquates pour votre déploiement Azure AD Connect. 
 
 ## <a name="overview"></a>Vue d’ensemble 
 Les applets de commande PowerShell suivantes vous permettent de définir les autorisations du compte de connecteur AD DS, pour chaque fonctionnalité que vous voulez activer dans Azure AD Connect. Pour éviter tout problème, vous devez définir les autorisations Active Directory préalablement à toute installation d’Azure AD Connect à l’aide d’un compte de domaine personnalisé, pour pouvoir ensuite vous connecter à votre forêt. Ce module ADSyncConfig est également utile pour configurer les autorisations après le déploiement d’Azure AD Connect.
@@ -49,7 +49,8 @@ Install-WindowsFeature RSAT-AD-Tools
 ```
 ![Configuration](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
->![REMARQUE] Vous pouvez également copier le fichier **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** sur un contrôleur de domaine où sont déjà installés les outils d’administration de serveur distant pour AD DS et utiliser ensuite ce module PowerShell à partir de ce contrôleur.
+>[!NOTE]
+>Vous pouvez également copier le fichier **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** sur un contrôleur de domaine où sont déjà installés les outils d’administration de serveur distant pour AD DS et utiliser ensuite ce module PowerShell à partir de ce contrôleur.
 
 Pour commencer à utiliser le module ADSyncConfig, vous devez d’abord le charger dans une fenêtre Windows PowerShell : 
 
@@ -128,7 +129,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 Cette applet de commande définit les autorisations suivantes : 
  
 
-|Type |Nom |Access |S'applique à| 
+|type |NOM |Access |S'applique à| 
 |-----|-----|-----|-----|
 |AUTORISER |Compte de connecteur AD DS |Lire toutes les propriétés |Objets appareil descendants| 
 |AUTORISER |Compte de connecteur AD DS|Lire toutes les propriétés |Objets InetOrgPerson descendants| 
@@ -154,7 +155,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 Cette applet de commande définit les autorisations suivantes : 
 
-|Type |Nom |Access |S'applique à|
+|type |NOM |Access |S'applique à|
 |-----|-----|-----|-----| 
 |AUTORISER|Compte de connecteur AD DS|Lecture/Écriture de la propriété|MS-DS-Consistency-Guid|Objets utilisateur descendants|
 
@@ -204,12 +205,12 @@ Cette applet de commande définit les autorisations suivantes :
 Pour définir les autorisations du compte de connecteur AD DS quand la réécriture de groupe est activée, exécutez : 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 Ou : 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
 ```
  
 Cette applet de commande définit les autorisations suivantes : 
@@ -224,14 +225,14 @@ Cette applet de commande définit les autorisations suivantes :
 Pour définir les autorisations du compte de connecteur AD DS quand le déploiement Exchange hybride est activé, exécutez : 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 
 
 Ou : 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
 ```
 
 Cette applet de commande définit les autorisations suivantes :  
@@ -266,13 +267,13 @@ Cette applet de commande définit les autorisations suivantes :
 ### <a name="restrict-permissions-on-the-ad-ds-connector-account"></a>Restreindre les autorisations du compte de connecteur AD DS 
 Ce script PowerShell réduit les autorisations du compte de connecteur AD fourni comme paramètre. La réduction des autorisations implique les étapes suivantes : 
 
-- Désactiver l’héritage sur l’objet spécifié 
+- Désactivez l’héritage sur l’objet spécifié 
 - Supprimer toutes les entrées de contrôle d’accès (ACE) sur l’objet spécifique, à l’exception de celles propres à SELF, car nous souhaitons conserver les autorisations par défaut pour SELF. 
  
- Le paramètre -ObjectDN est le compte AD dont les autorisations doivent être réduites. Il s’agit généralement du compte de domaine MSOL_nnnnnnnnnnnn qui est configuré dans le connecteur AD DS (voir la section « Identifier votre compte de connecteur AD DS »). Le paramètre -Credential est utilisé afin de spécifier le compte d’administrateur qui a les privilèges nécessaires pour restreindre les autorisations Active Directory sur l’objet AD cible. Il s’agit généralement du compte d’administrateur d’entreprise ou de domaine.  
+ Le paramètre -ADConnectorAccountDN est le compte AD dont les autorisations doivent être réduites. Il s’agit généralement du compte de domaine MSOL_nnnnnnnnnnnn qui est configuré dans le connecteur AD DS (voir la section « Identifier votre compte de connecteur AD DS »). Le paramètre -Credential est utilisé afin de spécifier le compte d’administrateur qui a les privilèges nécessaires pour restreindre les autorisations Active Directory sur l’objet AD cible. Il s’agit généralement du compte d’administrateur d’entreprise ou de domaine.  
 
 ``` powershell
-Set-ADSyncRestrictedPermissions [-ObjectDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
+Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```
  
 Par exemple : 
@@ -298,6 +299,8 @@ Cette applet de commande définit les autorisations suivantes :
 |AUTORISER |Utilisateurs authentifiés |Autorisations de lecture |Cet objet 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Autorisations et comptes Azure AD Connect](reference-connect-accounts-permissions.md)
+- [Azure AD Connect : comptes et autorisations](reference-connect-accounts-permissions.md)
 - [Installation Express](how-to-connect-install-express.md)
 - [Installation personnalisée](how-to-connect-install-custom.md)
+- [Référence ADSyncConfig](reference-connect-adsyncconfig.md)
+

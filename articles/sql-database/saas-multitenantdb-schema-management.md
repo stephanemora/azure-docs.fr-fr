@@ -12,15 +12,15 @@ ms.author: genemi
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: e7aeb273d4ae276d3460c3de1f404230276cffb7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 14183475fcca0e12c56f009f105e77aaf11b0c98
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056639"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315201"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gérer un schéma dans une application SaaS qui utilise des bases de données SQL mutualisées partitionnées
- 
+
 Ce didacticiel examine les défis liés du maintien d’un parc de bases de données dans une application SaaS (Software as a Service). Les solutions sont présentées pour la ventilation des modifications de schéma dans le parc de bases de données.
 
 Comme n’importe quelle application, l’application SaaS Wingtip Tickets évolue au fil du temps et nécessite l’apport de modifications à la base de données. Les modifications peuvent avoir un impact sur les données de schéma ou de référence ou appliquer des tâches de maintenance des bases de données. Avec une application SaaS qui utilise une base de données par modèle de client, les modifications doivent être coordonnées dans un parc potentiellement massif de bases de données client. En outre, vous devez intégrer ces modifications dans le processus d’approvisionnement de bases de données pour vous assurer qu’elles sont incluses dans les nouvelles bases de données, telles que créées.
@@ -64,12 +64,12 @@ Le modèle de base de données partitionnée mutualisée utilisé dans cet exemp
 ## <a name="elastic-jobs-limited-preview"></a>Préversion limitée des travaux élastiques
 
 Il existe une nouvelle version des travaux élastiques qui est désormais une fonctionnalité intégrée d’Azure SQL Database. Cette nouvelle version des travaux élastiques est pour le moment en préversion limitée. Cette préversion limitée prend actuellement en charge l’utilisation de PowerShell pour créer un agent de travail et de T-SQL pour créer et gérer des travaux.
-> [!NOTE] 
+> [!NOTE]
 > Ce didacticiel utilise des fonctionnalités du service SQL Database en préversion limitée (travaux de base de données élastiques). Si vous souhaitez réaliser ce didacticiel, envoyez votre ID d’abonnement à SaaSFeedback@microsoft.com avec l’objet Préversion des travaux élastiques. Une fois que vous avez reçu la confirmation que votre abonnement a été activé, téléchargez et installez les dernières cmdlets des travaux en version préliminaire. Cette version préliminaire est limitée. Contactez SaaSFeedback@microsoft.com pour toute question ou demande de prise en charge associées.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obtenir les scripts et le code source de l’application de base de données multi-locataire SaaS Wingtip Tickets
 
-Les scripts de base de données Wingtip Tickets SaaS mutualisée et le code source de l’application sont disponibles dans le référentiel [WingtipTicketsSaaS-MultiTenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) sur GitHub. Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS. 
+Les scripts de base de données Wingtip Tickets SaaS mutualisée et le code source de l’application sont disponibles dans le référentiel [WingtipTicketsSaaS-MultiTenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) sur GitHub. Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
 
 ## <a name="create-a-job-agent-database-and-new-job-agent"></a>Créer une base de données d’agent de travail et un nouvel agent de travail
 
@@ -84,9 +84,9 @@ Le script *Demo-SchemaManagement.ps1* appelle le script *Deploy-SchemaManagement
 
 #### <a name="prepare"></a>Préparation
 
-Chaque base de données de client comprend un ensemble de types de lieux dans la table **VenueTypes**. Chaque type de lieux définit le type d’événements qui peut être hébergé dans un lieu. Ces types de lieux correspondent aux images d’arrière-plan visibles dans l’application des événements client.  Dans cet exercice, vous allez déployer une mise à jour dans toutes les bases de données afin d’ajouter deux types de lieux supplémentaires : *Motorcycle Racing* (Courses de moto) et *Swimming Club* (Club de natation). 
+Chaque base de données de client comprend un ensemble de types de lieux dans la table **VenueTypes**. Chaque type de lieux définit le type d’événements qui peut être hébergé dans un lieu. Ces types de lieux correspondent aux images d’arrière-plan visibles dans l’application des événements client.  Dans cet exercice, vous allez déployer une mise à jour dans toutes les bases de données afin d’ajouter deux types de lieux supplémentaires : *Motorcycle Racing* (Courses de moto) et *Swimming Club* (Club de natation).
 
-Tout d’abord, examinez les types de lieux inclus dans chaque base de données client. Connectez-vous à l’une des bases de données client dans SQL Server Management Studio (SSMS) et vérifiez la table VenueTypes.  Vous pouvez également interroger cette table dans l’éditeur de requêtes du portail Azure, auquel vous avez accès par la page de la base de données. 
+Tout d’abord, examinez les types de lieux inclus dans chaque base de données client. Connectez-vous à l’une des bases de données client dans SQL Server Management Studio (SSMS) et vérifiez la table VenueTypes.  Vous pouvez également interroger cette table dans l’éditeur de requêtes du portail Azure, auquel vous avez accès par la page de la base de données.
 
 1. Ouvrez SSMS et connectez-vous au serveur client : *tenants1-dpt-&lt;utilisateur&gt;.database.windows.net*
 1. Pour confirmer que *Motorcycle Racing* et *Swimming Club* **ne sont pas** déjà inclus, accédez à la base de données *contosoconcerthall* sur le serveur *tenants1-dpt-&lt;utilisateur&gt;* et interrogez la table *VenueTypes*.

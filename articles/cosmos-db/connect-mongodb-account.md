@@ -1,22 +1,20 @@
 ---
-title: Chaîne de connexion MongoDB pour un compte Azure Cosmos DB | Microsoft Docs
+title: Chaîne de connexion MongoDB pour un compte Azure Cosmos DB
 description: Découvrez comment connecter votre application MongoDB à un compte Azure Cosmos DB à l’aide d’une chaîne de connexion MongoDB.
 keywords: chaîne de connexion mongodb
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
+author: slyons
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/19/2017
-ms.author: sngun
-ms.openlocfilehash: 441f6725b96dc7a099304e06db6d46a65e7f9c81
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.author: sclyon
+ms.openlocfilehash: a78a77e16e9a810c0be03656aa48b02cc8e6e5e6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795956"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849256"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Connecter une application MongoDB à Azure Cosmos DB
 Découvrez comment connecter votre application MongoDB à un compte Azure Cosmos DB à l’aide d’une chaîne de connexion MongoDB. Vous pouvez ensuite utiliser une base de données Azure Cosmos DB en tant que magasin de données pour votre application MongoDB. 
@@ -54,17 +52,17 @@ Ce didacticiel fournit deux façons de récupérer les informations de la chaîn
 >
 >
 
-Azure Cosmos DB prend en charge le format d’URI de chaîne de connexion MongoDB standard, sous réserve que quelques exigences spécifiques soient satisfaites : les comptes Azure Cosmos DB requièrent une authentification et une communication sécurisée via SSL. Le format de chaîne de connexion est donc :
+Azure Cosmos DB prend en charge le format d’URI de la chaîne de connexion MongoDB standard sous certaines conditions spécifiques : l’authentification et la communication sécurisée des comptes Azure Cosmos DB doivent s’effectuer via SSL. Le format de chaîne de connexion est donc :
 
     mongodb://username:password@host:port/[database]?ssl=true
 
 Les valeurs de cette chaîne sont disponibles dans le panneau **Chaîne de connexion** illustré précédemment :
 
-* Nom d’utilisateur (obligatoire) : nom du compte Azure Cosmos DB.
-* Mot de passe (obligatoire) : mot de passe du compte Azure Cosmos DB.
-* Hôte (obligatoire) : nom de domaine complet (FQDN) du compte Azure Cosmos DB.
+* Nom d’utilisateur (obligatoire) : Nom d’un compte Azure Cosmos DB.
+* Mot de passe (obligatoire) : Mot de passe du compte Azure Cosmos DB.
+* Hôte (obligatoire) : Nom de domaine complet du compte Azure Cosmos DB.
 * Port (obligatoire) : 10255.
-* Base de données (facultatif) : base de données utilisée par la connexion. Si aucune base de données n’est fournie, la base de données par défaut est « test ».
+* Base de données (facultatif) : Base de données utilisée par la connexion. Si aucune base de données n’est fournie, la base de données par défaut est « test ».
 * ssl = true (obligatoire)
 
 Par exemple, observez le compte figurant dans le panneau **Chaîne de connexion**. Exemple de chaîne de connexion valide :

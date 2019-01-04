@@ -1,5 +1,5 @@
 ---
-title: Allouer des partitions et des réplicas pour les requêtes et l’indexation dans Recherche Azure | Microsoft Docs
+title: Allouer des partitions et des réplicas pour les requêtes et l’indexation - Recherche Azure
 description: Ajustez les ressources informatiques des partitions et des réplicas dans Recherche Azure, où chaque ressource est facturée en unités de recherche facturables.
 author: HeidiSteen
 manager: cgronlun
@@ -8,17 +8,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: b6c2c8283d5a60013c525db296bf84cc50d76617
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.custom: seodec2018
+ms.openlocfilehash: e2eff6c854dae48961700341a6db19dc7113901c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203091"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316112"
 ---
 # <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Allouer des partitions et des réplicas pour les charges de travail de requête et d’indexation dans Recherche Azure
 Une fois que vous avez [choisi un niveau tarifaire](search-sku-tier.md) et [approvisionné un service de recherche](search-create-service-portal.md), l’étape suivante, facultative, consiste à augmenter le nombre de réplicas ou de partitions utilisés par votre service. Chaque niveau propose un nombre fixe d’unités de facturation. Cet article explique comment allouer ces unités pour obtenir une configuration optimale par rapport à vos exigences pour l’exécution des requêtes, l’indexation et le stockage.
 
-La configuration des ressources est disponible lorsque vous configurez un service au [niveau basique](http://aka.ms/azuresearchbasic) ou à l’un des [niveaux standard](search-limits-quotas-capacity.md). Pour les services à ces niveaux, la capacité est achetée par incréments *d’unités de recherche* (SU) où chaque partition et chaque réplica est considéré comme une SU. 
+La configuration des ressources est disponible lorsque vous configurez un service au [niveau basique](https://aka.ms/azuresearchbasic) ou à l’un des [niveaux standard](search-limits-quotas-capacity.md). Pour les services à ces niveaux, la capacité est achetée par incréments *d’unités de recherche* (SU) où chaque partition et chaque réplica est considéré comme une SU. 
 
 La facture est proportionnelle au nombre de SU : moins elles sont nombreuses, plus la facture diminue. La facturation reste en vigueur tant que le service est configuré. Si vous n’utilisez pas temporairement un service, la seule manière d’éviter la facturation consiste à supprimer ce service, puis à le recréer lorsque vous en avez besoin.
 
@@ -92,12 +93,12 @@ Les applications de recherche nécessitant une actualisation des données en tem
 
 Plus les index sont grands, plus ils sont longs à interroger. Par conséquent, peut-être constaterez-vous que chaque augmentation incrémentielle des partitions nécessite une augmentation plus faible mais proportionnelle des réplicas. La complexité et le volume de vos requêtes auront une incidence sur la vitesse d’exécution des requêtes.
 
-## <a name="basic-tier-partition-and-replica-combinations"></a>Niveau de base : combinaisons de partitions et de réplicas
+## <a name="basic-tier-partition-and-replica-combinations"></a>Niveau De base : combinaisons de partitions et de réplicas
 Un service basique peut avoir exactement une partition et jusqu’à trois réplicas, pour une limite maximale de trois unités de recherche. Les seules ressources ajustables sont les réplicas. Vous devez disposer d’au moins 2 réplicas pour la haute disponibilité sur des requêtes.
 
 <a id="chart"></a>
 
-## <a name="standard-tiers-partition-and-replica-combinations"></a>Niveaux Standard : combinaisons de partitions et de réplicas
+## <a name="standard-tiers-partition-and-replica-combinations"></a>Niveaux Standard : combinaisons de partitions et de réplicas
 Ce tableau indique les unités de recherche requises pour prendre en charge les combinaisons de réplicas et de partitions soumises à la limite de 36 unités de recherche (SU), pour tous les niveaux standard.
 
 |   | **1 partition** | **2 partitions** | **3 partitions** | **4 partitions** | **6 partitions** | **12 partitions** |

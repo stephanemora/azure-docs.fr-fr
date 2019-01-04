@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8e1c58f2d60ee95189fb583e032d8748fedb88d4
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 2ba34a6d1ecc33e8a4d355aeacb0da8a764a784d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620215"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679522"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gérer les mises à jour pour plusieurs ordinateurs
 
@@ -82,11 +82,11 @@ Après avoir activé la gestion des mises à jour pour vos machines, vous pouvez
 
 Les ordinateurs pour lesquels la gestion des mises à jour a été récemment activée n’ont peut-être pas encore été évalués. L’état de conformité de ces ordinateurs est **Non évalué**. Voici une liste des valeurs possibles de l’état de conformité :
 
-- **Conforme** : ordinateurs avec aucune mise à jour critique ou de sécurité manquante.
+- **Conforme** : ordinateurs sans aucune mise à jour critique ou de sécurité manquante.
 
-- **Non-conforme** : ordinateurs avec des mises à jour critiques ou de sécurité manquantes.
+- **Non conforme** : ordinateurs avec des mises à jour critiques ou de sécurité manquantes.
 
-- **Non évalué** : l’ordinateur n’a transmis aucune donnée d’évaluation de mise à jour dans le délai prévu. Pour les ordinateurs Linux, le délai prévu est au cours des 3 dernières heures. Pour les ordinateurs Windows, le délai prévu est au cours des 12 dernières heures.
+- **Non évalué** : l’ordinateur n’a transmis aucune donnée d’évaluation de mise à jour dans le délai prévu. Pour les ordinateurs Linux, le délai prévu est au cours des 3 dernières heures. Pour les ordinateurs Windows, le délai prévu est au cours des 12 dernières heures.
 
 Pour afficher l’état de l’agent, cliquez sur le lien dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Cette action ouvre le volet **Worker hybride** qui indique l’état du worker hybride. L’illustration suivante montre un exemple d’agent qui n’a pas été connecté à la gestion des mises à jour pendant une période prolongée :
 
@@ -125,14 +125,14 @@ Pour planifier un nouveau déploiement de mises à jour pour une ou plusieurs ma
 
 Dans le volet **Nouveau déploiement de mises à jour**, spécifiez les informations suivantes :
 
-- **Nom** : entrez un nom unique pour identifier le déploiement de mises à jour.
-- **Système d’exploitation** : sélectionnez **Windows** ou **Linux**.
-- **Groupes à mettre à jour (préversion)** : définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management.md#using-dynamic-groups)
-- **Machines à mettre à jour** : sélectionnez une recherche enregistrée, un groupe importé, ou sélectionnez des machines, pour choisir les machines que vous souhaitez mettre à jour. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Vous pouvez afficher l’état d’intégrité de la machine avant de planifier le déploiement des mises à jour. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans Log Analytics, consultez [Groupes d’ordinateurs dans Log Analytics](../log-analytics/log-analytics-computer-groups.md)
+- **Nom** : entrez un nom unique pour identifier le déploiement de mises à jour.
+- **Système d’exploitation** : sélectionnez **Windows** ou **Linux**.
+- **Groupes à mettre à jour (préversion)**  : Définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management.md#using-dynamic-groups)
+- **Machines à mettre à jour** : sélectionnez Recherche enregistrée, Groupe importé ou Machines pour choisir les machines que vous souhaitez mettre à jour. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Vous pouvez afficher l’état d’intégrité de la machine avant de planifier le déploiement des mises à jour. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans Log Analytics, consultez [Groupes d’ordinateurs dans Log Analytics](../azure-monitor/platform/computer-groups.md)
 
   ![Volet Nouveau déploiement de mises à jour](./media/manage-update-multi/update-select-computers.png)
 
-- **Classification des mises à jour** : sélectionnez les types de logiciels à inclure dans le déploiement de mises à jour. Pour obtenir la description des types de classification, consultez [Classifications des mises à jour](automation-update-management.md#update-classifications). Les types de classification sont les suivants :
+- **Classification des mises à jour** : sélectionnez les types de logiciels à inclure dans le déploiement de mises à jour. Pour obtenir la description des types de classification, consultez [Classifications des mises à jour](automation-update-management.md#update-classifications). Les types de classification sont les suivants :
   - Mises à jour critiques
   - Mises à jour de sécurité
   - Correctifs cumulatifs
@@ -144,14 +144,14 @@ Dans le volet **Nouveau déploiement de mises à jour**, spécifiez les informat
 
 - **Mises à jour à inclure/exclure** : ceci ouvre la page **Inclure/Exclure**. Les mises à jour à inclure ou à exclure sont sous des onglets distincts. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Comportement d’inclusion](automation-update-management.md#inclusion-behavior)
 
-- **Paramètres de planification** : vous pouvez accepter la date et l’heure par défaut, qui est de 30 minutes après l’heure actuelle. Vous pouvez également spécifier une heure différente.
+- **Paramètres de planification** : vous pouvez accepter la date et l’heure par défaut ; cette valeur est de 30 minutes après l’heure actuelle. Vous pouvez également spécifier une heure différente.
 
    Vous pouvez également spécifier si le déploiement se produit une seule fois ou selon une planification périodique. Pour définir une planification périodique, sous **Périodicité**, sélectionnez **Récurrent**.
 
    ![Boîte de dialogue Paramètres de planification](./media/manage-update-multi/update-set-schedule.png)
 
-- **Pré-scripts + post-scripts** : sélectionnez les scripts à exécuter avant et après votre déploiement. Pour plus d’informations, consultez [Gérer les pré-scripts et les post-scripts](pre-post-scripts.md).
-- **Fenêtre de maintenance (en minutes)** : spécifiez la période de temps pendant laquelle le déploiement des mises à jour doit se produire. Ce paramètre permet de garantir que les modifications sont effectuées pendant les fenêtres de maintenance que vous avez définies.
+- **Préscripts + postscripts** : sélectionnez les scripts à exécuter avant et après votre déploiement. Pour plus d’informations, consultez [Gérer les pré-scripts et les post-scripts](pre-post-scripts.md).
+- **Fenêtre de maintenance (minutes)**  : spécifiez la période de temps pendant laquelle le déploiement des mises à jour doit se produire. Ce paramètre permet de garantir que les modifications sont effectuées pendant les fenêtres de maintenance que vous avez définies.
 
 - **Contrôle de redémarrage** : ce paramètre détermine la gestion des redémarrages pour le déploiement des mises à jour.
 
@@ -181,9 +181,9 @@ Pour voir le tableau de bord dédié au déploiement des mises à jour, sélecti
 
 Le volet **Résultats des mises à jour** affiche un récapitulatif du nombre total de mises à jour et les résultats du déploiement de la machine virtuelle. Dans le tableau de droite se trouvent une répartition détaillée de chaque mise à jour et les résultats de l’installation. Les résultats de l’installation peuvent être l’une des valeurs suivantes :
 
-- **Aucune tentative effectuée** : la mise à jour n’a pas été installée, car le temps disponible était insuffisant d’après la durée de fenêtre de maintenance définie.
-- **Réussi** : la mise à jour a réussi.
-- **Échec** : la mise à jour a échoué.
+- **Aucune tentative effectuée** : la mise à jour n’a pas été installée, car le temps disponible était insuffisant d’après la durée de fenêtre de maintenance définie.
+- **Réussi** : la mise à jour a réussi.
+- **Échec** : la mise à jour a échoué.
 
 Pour afficher toutes les entrées de journal créées par le déploiement, sélectionnez **Tous les journaux**.
 

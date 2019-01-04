@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/11/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 023df222ee2e9ca6af1398dd70767938e61c90b7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ea81cb52b8492e429903de15a9ff0156c91abae2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824102"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309584"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utiliser le service Azure Import/Export pour transférer des données dans le Stockage Blob Azure
 
@@ -30,7 +30,7 @@ Avant de créer une tâche d’importation pour transférer des données dans le
 - Avoir un nombre suffisant de disques de [Types pris en charge](storage-import-export-requirements.md#supported-disks). 
 - Avoir un système Windows exécutant une [Version de système d’exploitation prise en charge](storage-import-export-requirements.md#supported-operating-systems). 
 - Activez BitLocker sur le système Windows. Consultez [Comment activer BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-- [Téléchargez la version 1 de WAImportExport](https://www.microsoft.com/en-us/download/details.aspx?id=42659) sur le système Windows. Décompressez le package dans le dossier par défaut : `waimportexportv1`. Par exemple : `C:\WaImportExportV1`.
+- [Téléchargez la version 1 de WAImportExport](https://aka.ms/waiev1) sur le système Windows. Décompressez le package dans le dossier par défaut : `waimportexportv1`. Par exemple : `C:\WaImportExportV1`.
 - Dotez-vous d’un compte FedEx/DHL.  
     - Le compte doit être valide, doit avoir un solde et doit offrir des fonctionnalités de réexpédition.
     - Générez un numéro de suivi pour le travail d’exportation.
@@ -39,7 +39,7 @@ Avant de créer une tâche d’importation pour transférer des données dans le
         - [Créer un compte FedEX](https://www.fedex.com/en-us/create-account.html), ou 
         - [Créer un compte DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
-## <a name="step-1-prepare-the-drives"></a>Étape 1 : Préparer les lecteurs
+## <a name="step-1-prepare-the-drives"></a>Étape 1 : Préparer les lecteurs
 
 Cette étape génère un fichier journal. Le fichier journal stocke les informations de base comme le numéro de série du lecteur, la clé de chiffrement et les détails du compte de stockage. 
 
@@ -79,7 +79,7 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
     > [!IMPORTANT]
     > - En plus du fichier journal, un fichier `<Journal file name>_DriveInfo_<Drive serial ID>.xml` est également créé dans le même dossier où se trouve l’outil. Le fichier .xml est utilisé à la place du fichier journal quand vous créez une tâche si le fichier journal est trop volumineux. 
 
-## <a name="step-2-create-an-import-job"></a>Étape 2 : Créer une tâche d’importation
+## <a name="step-2-create-an-import-job"></a>Étape 2 : Créer une tâche d’importation
 
 Effectuez les étapes suivantes pour créer une tâche d’importation dans le portail Azure.
 
@@ -129,16 +129,16 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 
     ![Créer une tâche d’importation - Étape 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-ship-the-drives"></a>Étape 3 : Expédier les lecteurs 
+## <a name="step-3-ship-the-drives"></a>Étape 3 : Expédier les disques 
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
 
-## <a name="step-4-update-the-job-with-tracking-information"></a>Étape 4 : Mettre à jour la tâche avec les informations de suivi
+## <a name="step-4-update-the-job-with-tracking-information"></a>Étape 4 : Mettre à jour la tâche avec les informations de suivi
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-5-verify-data-upload-to-azure"></a>Étape 5 : vérifier le chargement des données sur Azure
+## <a name="step-5-verify-data-upload-to-azure"></a>Étape 5 : Vérifier le chargement des données dans Azure
 
 Surveillez le travail jusqu’à son achèvement. Une fois le travail terminé, vérifiez que vos données ont été chargées sur Azure. Ne supprimez les données locales qu’après avoir vérifié que le chargement a réussi.
 

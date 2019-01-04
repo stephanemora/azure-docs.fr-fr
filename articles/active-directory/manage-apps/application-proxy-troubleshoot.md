@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 8be0e909ea391ed1b66fc78349cc2283d009e8cb
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2904de3243e37d7ee575a504934d5975789c00ef
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240373"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135064"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Résoudre les problèmes de proxy d’application et les messages d’erreur
 Si des erreurs se produisent dans l’accès à une application publiée ou dans la publication d’applications, vérifiez les options suivantes pour voir si le proxy d’application Microsoft Azure Active Directory fonctionne correctement :
@@ -49,12 +49,12 @@ Une fois l’erreur de connecteur identifiée dans le journal des événements, 
 
 | Error | Étapes recommandées |
 | ----- | ----------------- |
-| Échec de l’inscription du connecteur : assurez-vous que vous avez activé le proxy d’application dans le portail de gestion Azure, et que vous avez entré correctement votre nom d’utilisateur et votre mot de passe Active Directory. Erreur : « Une ou plusieurs erreurs se sont produites. » | Si vous avez fermé la fenêtre d’inscription sans vous connecter à Azure AD, réexécutez l’Assistant Connecteur et inscrivez le connecteur. <br><br> Si la fenêtre d’inscription s’ouvre puis ferme immédiatement sans vous permettre de vous connecter, vous recevrez probablement cette erreur. Cette erreur se produit quand il existe une erreur réseau sur votre système. Assurez-vous qu’il est possible de se connecter à partir d’un navigateur à un site web public et que les ports sont ouverts comme spécifié dans les [conditions préalables du proxy d’application](application-proxy-enable.md). |
+| Échec de l’inscription du connecteur : assurez-vous que vous avez activé le proxy d’application dans le portail de gestion Azure, et que vous avez entré correctement votre nom d’utilisateur et votre mot de passe Active Directory. Error: « Une ou plusieurs erreurs se sont produites. » | Si vous avez fermé la fenêtre d’inscription sans vous connecter à Azure AD, réexécutez l’Assistant Connecteur et inscrivez le connecteur. <br><br> Si la fenêtre d’inscription s’ouvre puis ferme immédiatement sans vous permettre de vous connecter, vous recevrez probablement cette erreur. Cette erreur se produit quand il existe une erreur réseau sur votre système. Assurez-vous qu’il est possible de se connecter à partir d’un navigateur à un site web public et que les ports sont ouverts comme spécifié dans les [conditions préalables du proxy d’application](application-proxy-add-on-premises-application.md). |
 | L’erreur est présentée en clair dans la fenêtre d’inscription. Impossible de poursuivre | Si cette erreur se produit et que la fenêtre se ferme, cela signifie que vous avez saisi un nom d’utilisateur ou un mot de passe incorrect. Réessayez. |
-| Échec de l’inscription du connecteur : assurez-vous que vous avez activé le proxy d’application dans le portail de gestion Azure, et que vous avez entré correctement votre nom d’utilisateur et votre mot de passe Active Directory. Erreur : « AADSTS50059 : pas d’informations d’identification de locataire trouvées dans la demande ou déduites des informations d’identification fournies. Échec de la recherche selon l’URI du principal du service. | Vous essayez de vous connecter en utilisant un compte Microsoft mais pas un domaine qui fait partie de l’ID d’organisation du répertoire auquel vous tentez d’accéder. Assurez-vous que l’administrateur fait partie du même nom de domaine que le domaine du locataire. Par exemple, si le domaine Azure AD est contoso.com, l’administrateur doit être admin@contoso.com. |
+| Échec de l’inscription du connecteur : assurez-vous que vous avez activé le proxy d’application dans le portail de gestion Azure, et que vous avez entré correctement votre nom d’utilisateur et votre mot de passe Active Directory. Error: « AADSTS50059 : pas d’informations d’identification de locataire trouvées dans la demande ou déduites des informations d’identification fournies. Échec de la recherche selon l’URI du principal du service. | Vous essayez de vous connecter en utilisant un compte Microsoft mais pas un domaine qui fait partie de l’ID d’organisation du répertoire auquel vous tentez d’accéder. Assurez-vous que l’administrateur fait partie du même nom de domaine que le domaine du locataire. Par exemple, si le domaine Azure AD est contoso.com, l’administrateur doit être admin@contoso.com. |
 | Impossible de récupérer la stratégie d’exécution actuelle pour l’exécution de scripts PowerShell. | En cas d’échec de l’installation du connecteur, vérifiez que la stratégie d’exécution de PowerShell n’est pas désactivée. <br><br>1. Ouvrez l’Éditeur de stratégie de groupe.<br>2. Accédez à **Configuration ordinateur** > **Modèles d’administration** > **Composants Windows** > **Windows PowerShell** et double-cliquez sur **Activer l’exécution des scripts**.<br>3. Cette stratégie d’exécution peut être définie sur **Non configuré** ou **Activé**. Si elle est définie sur **Activé**, vérifiez que sous Options, la stratégie d’exécution est définie sur **Autoriser les scripts locaux et les scripts signés distants** ou sur **Autoriser tous les scripts**. |
 | Échec du téléchargement de la configuration par le connecteur. | Le certificat client du connecteur, qui est utilisé pour l’authentification, est expiré. Ceci peut également se produire si le connecteur est installé derrière un proxy. Dans ce cas, le connecteur ne peut pas accéder à Internet et ne sera pas en mesure de fournir des applications aux utilisateurs distants. Renouvelez l’approbation manuellement à l’aide de l’applet de commande `Register-AppProxyConnector` dans Windows PowerShell. Si votre connecteur est derrière un proxy, il est nécessaire d’octroyer l’accès à Internet aux comptes du connecteur « services réseau » et « système local ». Ceci peut être effectué en leur accordant l’accès au proxy ou en les configurant pour qu’ils ignorent le proxy. |
-| Échec de l’inscription du connecteur : vous devez être un administrateur global de votre Active Directory pour inscrire le connecteur. Erreur : « La demande d’inscription a été refusée. » | L’alias avec lequel vous essayez de vous connecter n’est pas un administrateur sur ce domaine. Votre connecteur est toujours installé pour l’annuaire qui détient le domaine de l’utilisateur. Assurez-vous que l’administrateur de compte que vous voulez utiliser pour vous connecter dispose des autorisations globales sur le client Azure AD. |
+| Échec de l’inscription du connecteur : vous devez être un administrateur global de votre Active Directory pour inscrire le connecteur. Error: « La demande d’inscription a été refusée. » | L’alias avec lequel vous essayez de vous connecter n’est pas un administrateur sur ce domaine. Votre connecteur est toujours installé pour l’annuaire qui détient le domaine de l’utilisateur. Assurez-vous que l’administrateur de compte que vous voulez utiliser pour vous connecter dispose des autorisations globales sur le client Azure AD. |
 
 ## <a name="kerberos-errors"></a>Erreurs Kerberos
 
@@ -86,8 +86,8 @@ Cette liste comprend des erreurs que vos utilisateurs finaux peuvent rencontrer 
 Si vous rencontrez une erreur ou un problème avec le proxy d’application Azure AD qui ne figure pas dans ce guide de dépannage, veuillez nous contacter. Envoyez un message électronique à notre [équipe de commentaires](mailto:aadapfeedback@microsoft.com) comportant les détails de l’erreur qui s’est produite.
 
 ## <a name="see-also"></a>Voir aussi
-* [Activation du proxy d’application Azure AD](application-proxy-enable.md)
-* [Publiez des applications avec le proxy d’application](application-proxy-publish-azure-portal.md)
+* [Activation du proxy d’application Azure AD](application-proxy-add-on-premises-application.md)
+* [Publiez des applications avec le proxy d’application](application-proxy-add-on-premises-application.md)
 * [Activer l’authentification unique](application-proxy-configure-single-sign-on-with-kcd.md)
 * [Activer l’accès conditionnel](application-proxy-integrate-with-sharepoint-server.md)
 

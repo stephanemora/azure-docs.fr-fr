@@ -2,19 +2,19 @@
 title: Flux de données en temps réel IoT à l’aide d’Azure Stream Analytics
 description: Flux de données et balises de capteur IoT avec analyses de flux et traitement des données en temps réel
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 8a4e5b180438203e345ef6c5323ab010f4757c0e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: b008fe128aa760197c34d8c14c4d3b92cbed2bd2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978074"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103164"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Prendre en main Azure Stream Analytics pour traiter des données à partir d’appareils IoT
 Dans ce didacticiel, vous allez apprendre à créer une logique de traitement de flux pour collecter des données à partir d’appareils IoT (Internet des objets). Nous allons recourir à un cas d’utilisation réel de l’IoT pour vous montrer comment générer votre solution rapidement et à moindre coût.
@@ -56,37 +56,37 @@ Pour plus de convivialité, ce guide de mise en route fournit un exemple de fich
    > 
 4. Cochez la case pour placer votre travail sur votre tableau de bord, puis cliquez sur **CRÉER**.
    
-    ![création de la tâche en cours](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
+    ![Création de la tâche Stream Analytics en cours](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
 5. Vous devriez voir le message « Deployment started » (déploiement démarré) s’afficher en haut à droite de la fenêtre de votre navigateur. Il fera rapidement place à une fenêtre indiquant l’achèvement du déploiement, comme illustré ci-dessous.
    
-    ![création de la tâche en cours](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
+    ![Déploiement Stream Analytics réussi](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
 ## <a name="create-an-azure-stream-analytics-query"></a>Création d’une requête Azure Stream Analytics
 Une fois votre tâche créée, vous pouvez l’ouvrir et créer une requête. Pour accéder à votre tâche, il vous suffit de cliquer sur la mosaïque correspondante.
 
-![Titre de la tâche](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
+![Mosaïque du travail Stream Analytics dans le portail Azure](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
 
 Dans le volet **Job Topology** (Topologie des tâches), cochez la case **REQUÊTE** pour accéder à l’éditeur de requête. L’éditeur de **REQUÊTE** vous permet d’entrer une requête T-SQL qui exécute la transformation sur les données d’événement entrantes.
 
-![Case de requête](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
+![Mosaïque de requête du tableau de bord Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
-### <a name="query-archive-your-raw-data"></a>Requête : Archiver vos données brutes
+### <a name="query-archive-your-raw-data"></a>Requête : Archiver vos données brutes
 La forme de requête la plus simple est une requête directe qui archive toutes les données d’entrée dans sa sortie désignée. Téléchargez l’exemple de fichier de données de [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot) vers un emplacement de votre ordinateur. 
 
 1. Copiez et collez la requête du fichier PassThrough.txt. 
    
-    ![Flux d’entrée du test](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
+    ![Coller la requête dans l’éditeur de requête Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
 2. Cliquez sur les trois points en regard de votre entrée, puis cochez la case **Upload sample data from file** (charger les exemples de données à partir d'un fichier).
    
-    ![Flux d’entrée du test](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06a.png)
+    ![Choisir un exemple de données du fichier](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06a.png)
 3. Un volet s’ouvre alors sur la droite. Dans ce volet, sélectionnez le fichier de données HelloWorldASA-InputStream.json à partir de votre emplacement de téléchargement et cliquez sur **OK** en bas du volet.
    
-    ![Flux d’entrée du test](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06b.png)
+    ![Télécharger un exemple de fichier de données json](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06b.png)
 4. Cliquez ensuite sur l’engrenage de **Test** dans la zone supérieure gauche de la fenêtre et exécutez votre requête sur les exemples de données. Une fois le traitement terminé, une fenêtre de résultats s’ouvre sous votre requête.
    
-    ![Résultats du test](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
+    ![Résultat de test pour une requête Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
-### <a name="query-filter-the-data-based-on-a-condition"></a>Requête : Filtrer les données en fonction d’une condition
+### <a name="query-filter-the-data-based-on-a-condition"></a>Requête : Filtrer les données en fonction d’une condition
 Essayons de filtrer les résultats en fonction d’une condition. Nous souhaitons limiter les résultats aux événements qui proviennent de « SensorA ». La requête se trouve dans le fichier Filtering.txt.
 
 ![Filtrage d’un flux de données](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
@@ -95,14 +95,14 @@ Vous pouvez voir que la requête respecte la casse et compare des valeurs de cha
 
 ![Résultats de la deuxième sortie du test de requête](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-09.png)
 
-### <a name="query-alert-to-trigger-a-business-workflow"></a>Requête : Alerte déclenchant un flux de travail métier
+### <a name="query-alert-to-trigger-a-business-workflow"></a>Requête : Alerte déclenchant un flux de travail métier
 Nous allons maintenant affiner notre requête. Pour chaque type de capteur, nous souhaitons surveiller la température moyenne par fenêtre de 30 secondes et afficher les résultats uniquement si la température moyenne se situe au-dessus de 100 degrés. Nous écrivons la requête suivante et cliquons sur **Test** pour afficher les résultats. La requête se trouve dans le fichier ThresholdAlerting.txt.
 
 ![Requête de filtre de 30 secondes](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
 Les résultats doivent maintenant contenir uniquement 245 lignes et répertorier les noms des capteurs pour lesquels la température moyenne est supérieure à 100 degrés. Dans cette requête, nous avons regroupé le flux d’événements en fonction du champ **dspl**, qui correspond au nom du capteur, et par valeur **Intervalle de temps** de 30 secondes. Les requêtes temporelles doivent indiquer le mode de calcul du temps. À l’aide de la clause **TIMESTAMP BY**, nous avons spécifié la colonne **OUTPUTTIME** pour associer les valeurs de temps avec l’ensemble des calculs temporels. Pour obtenir des informations détaillées, consultez les rubriques MSDN sur la [gestion du temps](https://msdn.microsoft.com/library/azure/mt582045.aspx) et les [fonctions de fenêtrage](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
-### <a name="query-detect-absence-of-events"></a>Requête : Détection de l’absence d’événements
+### <a name="query-detect-absence-of-events"></a>Requête : Détection de l’absence d’événements
 Comment écrire une requête pour rechercher une absence d’événements d’entrée ? Recherchons la dernière fois qu’un capteur a envoyé des données, puis qu’il n’a pas envoyé d’événements au cours des 5 secondes suivantes. La requête se trouve dans le fichier AbsenseOfEvent.txt.
 
 ![Détection de l’absence d’événements](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
@@ -110,5 +110,5 @@ Comment écrire une requête pour rechercher une absence d’événements d’en
 Ici, nous utilisons une jointure **LEFT OUTER** sur le même flux de données (jointure réflexive). Pour une jointure **INNER**, un résultat n’est renvoyé que si une correspondance est trouvée.  Par contre, pour une jointure **LEFT OUTER**, si un événement du côté gauche de la jointure n’a pas de correspondance, une ligne contenant la valeur NULL pour toutes les colonnes de la ligne de droite est renvoyée. Cette technique est très utile pour rechercher une absence d’événements. Pour en savoir plus sur [JOIN](https://msdn.microsoft.com/library/azure/dn835026.aspx), consultez notre documentation MSDN.
 
 ## <a name="conclusion"></a>Conclusion
-L’objectif de ce didacticiel est de montrer comment écrire différentes requêtes en langage de requête Stream Analytics et afficher les résultats dans le navigateur. Toutefois, il ne s’agit que d’une prise en main. Stream Analytics offre de nombreuses autres possibilités. Ce langage prend en charge un large éventail d’entrées et de sorties et peut même tirer parti de fonctions d’Azure Machine Learning, ce qui en fait un outil robuste pour l’analyse des flux de données. Vous pouvez obtenir des informations supplémentaires sur Stream Analytics via notre [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/). Pour en savoir plus sur la méthode à suivre pour écrire des requêtes, voir [Exemples de requête pour les modes d’utilisation courants dans Stream Analytics](stream-analytics-stream-analytics-query-patterns.md).
+L’objectif de ce didacticiel est de montrer comment écrire différentes requêtes en langage de requête Stream Analytics et afficher les résultats dans le navigateur. Toutefois, il ne s’agit que d’une prise en main. Stream Analytics offre de nombreuses autres possibilités. Ce langage prend en charge un large éventail d’entrées et de sorties et peut même tirer parti de fonctions d’Azure Machine Learning, ce qui en fait un outil robuste pour l’analyse des flux de données. Vous pouvez obtenir des informations supplémentaires sur Stream Analytics via notre [parcours d’apprentissage](https://docs.microsoft.com/azure/stream-analytics/). Pour en savoir plus sur la méthode à suivre pour écrire des requêtes, voir [Exemples de requête pour les modes d’utilisation courants dans Stream Analytics](stream-analytics-stream-analytics-query-patterns.md).
 

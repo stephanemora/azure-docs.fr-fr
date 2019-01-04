@@ -1,6 +1,6 @@
 ---
-title: Comment ajouter ou supprimer des propriétaires de groupes Azure Active Directory | Microsoft Docs
-description: Découvrez comment ajouter ou supprimer des propriétaires de groupes à l’aide d’Azure Active Directory.
+title: Ajouter ou supprimer les propriétaires d’un groupe – Azure Active Directory | Microsoft Docs
+description: Ces instructions expliquent comment ajouter ou supprimer les propriétaires de groupes avec Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
-ms.custom: it-pro
-ms.openlocfilehash: fae68bccbeaa54ca1bab9d77510fe6baecd11fcc
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 8c70378993e0155cbe730a5a351848ca1a1daa0a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139718"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087148"
 ---
-# <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>Comment ajouter ou supprimer des propriétaires de groupes dans Azure Active Directory
+# <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Ajouter ou supprimer les propriétaires de groupes dans Azure Active Directory
 Les groupes Azure Active Directory (Azure AD) sont détenus et gérés par des propriétaires de groupes. Les propriétaires de groupes sont affectés par un propriétaire de ressource (administrateur) pour gérer un groupe et ses membres. Ils ne sont pas nécessairement membres du groupe. Lorsqu’un propriétaire de groupe a été affecté, seul un propriétaire de ressource peut ajouter ou supprimer des propriétaires.
 
 Dans certains cas, en tant qu’administrateur, vous pouvez décider de ne pas affecter un propriétaire de groupe. Le cas échéant, vous devenez le propriétaire de groupe. En outre, des propriétaires peuvent affecter d’autres propriétaires à leur groupe à moins que vous n’ayez limité ce paramètre dans les paramètres de groupe.

@@ -5,34 +5,38 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/03/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 10b2b6e67c22efaf1dcab2cfe8abdd42b7576dbc
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 013b63d0eb2cc69893dcb4075c1ca26a31ef2474
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426065"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277979"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Intégrez votre infrastructure de passerelle des services Bureau à distance à l’aide de l’extension du serveur NPS (Network Policy Server) et Azure AD
 
-Cet article décrit l’intégration de votre infrastructure de passerelle des services Bureau à distance avec l’authentification multifacteur (MFA) Azure à l’aide de l’extension de serveur NPS (Network Policy Server) pour Microsoft Azure. 
+Cet article décrit l’intégration de votre infrastructure de passerelle des services Bureau à distance avec l’authentification multifacteur (MFA) Azure à l’aide de l’extension de serveur NPS (Network Policy Server) pour Microsoft Azure.
 
 L’extension de serveur NPS (Network Policy Server) pour Azure permet aux clients de protéger le protocole d’authentification client RADIUS (Remote Authentication Dial-In User Service) à l’aide de l’authentification Azure [Multi-Factor Authentication (MFA)](multi-factor-authentication.md) basée sur le cloud. Cette solution fournit une vérification en deux étapes pour ajouter une deuxième couche de sécurité aux connexions et transactions utilisateur.
 
-Cet article fournit des instructions détaillées étape par étape pour l’intégration de l’infrastructure de serveur NPS avec l’authentification multifacteur Azure à l’aide de l’extension de serveur NPS pour Azure. Cela permet une vérification pour les utilisateurs tentant de se connecter à une passerelle des services Bureau à distance. 
+Cet article fournit des instructions détaillées étape par étape pour l’intégration de l’infrastructure de serveur NPS avec l’authentification multifacteur Azure à l’aide de l’extension de serveur NPS pour Azure. Cela permet une vérification pour les utilisateurs tentant de se connecter à une passerelle des services Bureau à distance.
+
+> [!NOTE]
+> Cet article ne doit pas être utilisé avec des déploiements MFA Server, uniquement avec Azure MFA (service basé sur le cloud).
 
 Les services de stratégie et d’accès réseau (NPS) permettent aux entreprises d’effectuer les opérations suivantes :
+
 * définir des emplacements centraux pour la gestion et le contrôle des demandes du réseau en spécifiant qui peut se connecter, les heures de connexion autorisées pendant la journée, la durée des connexions et le niveau de sécurité que les clients doivent utiliser pour se connecter, et autres. Plutôt que de spécifier ces stratégies sur chaque serveur VPN ou de passerelle des services Bureau à distance (RD), ces stratégies peuvent être spécifiées une seule fois dans un emplacement central. Le protocole RADIUS fournit l’authentification, l’autorisation et la gestion des comptes (AAA) centralisées. 
 * Établissez et appliquez les stratégies de contrôle d’intégrité client de Protection d’accès réseau (NAP) qui déterminent si les périphériques sont accordés avec ou sans restrictions d’accès aux ressources réseau.
-* Fournissez un moyen d’appliquer l’authentification et l’autorisation d’accès aux points d’accès sans fil et commutateurs compatibles à 802.1x.    
+* Fournissez un moyen d’appliquer l’authentification et l’autorisation d’accès aux points d’accès sans fil et commutateurs compatibles à 802.1x.
 
-En règle générale, les organisations utilisent le serveur NPS (RADIUS) pour simplifier et centraliser la gestion des stratégies de serveur VPN. Toutefois, de nombreuses organisations utilisent également NPS pour simplifier et centraliser la gestion des stratégies d’autorisation des connexions aux services Bureau à distance (RD CAP). 
+En règle générale, les organisations utilisent le serveur NPS (RADIUS) pour simplifier et centraliser la gestion des stratégies de serveur VPN. Toutefois, de nombreuses organisations utilisent également NPS pour simplifier et centraliser la gestion des stratégies d’autorisation des connexions aux services Bureau à distance (RD CAP).
 
-Les organisations peuvent également intégrer NPS avec l’authentification multifacteur Azure pour améliorer la sécurité et fournir un niveau élevé de compatibilité. Cela permet de s’assurer que les utilisateurs établissent la vérification en deux étapes pour se connecter à la passerelle des services Bureau à distance. Pour que les utilisateurs puissent obtenir l’accès, ils doivent fournir leur combinaison de nom d’utilisateur et de mot de passe ainsi que des informations sur lesquelles ils ont le contrôle. Ces informations doivent être approuvées et pas facilement dupliquées, comme un numéro de téléphone portable, numéro de téléphone fixe, une application sur un appareil mobile et autres.
+Les organisations peuvent également intégrer NPS avec l’authentification multifacteur Azure pour améliorer la sécurité et fournir un niveau élevé de compatibilité. Cela permet de s’assurer que les utilisateurs établissent la vérification en deux étapes pour se connecter à la passerelle des services Bureau à distance. Pour que les utilisateurs puissent obtenir l’accès, ils doivent fournir leur combinaison de nom d’utilisateur et de mot de passe ainsi que des informations sur lesquelles ils ont le contrôle. Ces informations doivent être approuvées et pas facilement dupliquées, comme un numéro de téléphone portable, numéro de téléphone fixe, une application sur un appareil mobile et autres. Pour plus d’informations sur les méthodes d’authentification prises en charge, consultez la section [Déterminer les méthodes d’authentification que vos utilisateurs peuvent employer](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
 
 Avant la disponibilité de l’extension de serveur NPS pour Azure, les clients qui souhaitaient mettre en œuvre la vérification en deux étapes pour les environnements de serveur NPS et l’authentification multifacteur Azure intégrées devaient configurer et gérer un serveur distinct de l’authentification multifacteur dans l’environnement local, comme décrit dans la rubrique [Passerelle des services Bureau à distance et serveur Azure MFA utilisant RADIUS](howto-mfaserver-nps-rdg.md).
 
@@ -46,15 +50,16 @@ Une passerelle des services Bureau à distance peut être configurée pour utili
 
 Lorsque l’extension de serveur NPS pour Azure est intégrée au serveur NPS et à la passerelle des services Bureau à distance, le flux d’authentification réussie est le suivant :
 
-1. Le serveur de passerelle des services Bureau à distance reçoit une demande d’authentification à partir d’un utilisateur du bureau à distance pour se connecter à une ressource, par exemple une session Bureau à distance. Agissant comme un client RADIUS, le serveur de passerelle des services Bureau à distance convertit la demande en un message de demande d’accès RADIUS et envoie le message sur le serveur RADIUS (NPS) où est installée l’extension du serveur NPS. 
+1. Le serveur de passerelle des services Bureau à distance reçoit une demande d’authentification à partir d’un utilisateur du bureau à distance pour se connecter à une ressource, par exemple une session Bureau à distance. Agissant comme un client RADIUS, le serveur de passerelle des services Bureau à distance convertit la demande en un message de demande d’accès RADIUS et envoie le message sur le serveur RADIUS (NPS) où est installée l’extension du serveur NPS.
 1. La combinaison nom d’utilisateur et mot de passe est vérifiée dans Active Directory et l’utilisateur est authentifié.
-1. Si toutes les conditions, comme spécifié dans la demande de connexion du serveur NPS et les stratégies de réseau, sont remplies (par exemple, les restrictions d’heures de la journée ou de groupe d’appartenance), l’extension NPS déclenche une demande d’authentification secondaire avec l’authentification multifacteur Azure. 
-1. Azure MFA communique avec Azure AD pour récupérer les informations de l’utilisateur et procède à l’authentification secondaire à l’aide d’une méthode configurée par l’utilisateur (message texte, application mobile, etc.). 
+1. Si toutes les conditions, comme spécifié dans la demande de connexion du serveur NPS et les stratégies de réseau, sont remplies (par exemple, les restrictions d’heures de la journée ou de groupe d’appartenance), l’extension NPS déclenche une demande d’authentification secondaire avec l’authentification multifacteur Azure.
+1. Azure MFA communique avec Azure AD pour récupérer les informations de l’utilisateur et procède à l’authentification secondaire à l’aide d’une méthode prise en charge.
 1. En cas de réussite du défi MFA, Azure MFA communique le résultat sur l’extension du serveur NPS.
 1. Le serveur NPS, où est installée l’extension, envoie un message RADIUS d’acceptation d’accès pour la stratégie d’autorisation des connexions aux services Bureau à distance sur le serveur de passerelle Bureau à distance.
 1. L’utilisateur a accès à la ressource réseau demandée via la passerelle des services Bureau à distance.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Cette section détaille les conditions préalables nécessaires avant d’intégrer Azure MFA à la passerelle des services Bureau à distance. Avant de commencer, vous devez disposer des conditions requises en place suivantes.  
 
 * Infrastructure des Services Bureau à distance (RDS)
@@ -65,39 +70,48 @@ Cette section détaille les conditions préalables nécessaires avant d’intég
 * ID du GUID Azure Active Directory
 
 ### <a name="remote-desktop-services-rds-infrastructure"></a>Infrastructure des Services Bureau à distance (RDS)
-Vous devez disposer d’une infrastructure de Services Bureau à distance (RDS) de travail en place. Dans le cas contraire, vous pouvez rapidement créer cette infrastructure dans Azure en utilisant le modèle de démarrage rapide suivant : [Créer un déploiement de collections de sessions de Bureau à distance](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment). 
+
+Vous devez disposer d’une infrastructure de Services Bureau à distance (RDS) de travail en place. Dans le cas contraire, vous pouvez rapidement créer cette infrastructure dans Azure en utilisant le modèle de démarrage rapide suivant : [Créer un déploiement de collections de sessions de Bureau à distance](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment). 
 
 Si vous souhaitez créer manuellement et rapidement une infrastructure RDS locale pour des tests, suivez les étapes pour déployer une. 
-**En savoir plus** : [Déployer des services RDS avec le démarrage rapide Azure](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) et [Déploiement de l’infrastructure RDS de base](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure). 
+**En savoir plus** : [Déployer des services RDS avec le démarrage rapide Azure](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) et [Déploiement de l’infrastructure RDS de base](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure). 
 
 ### <a name="azure-mfa-license"></a>Licence Azure MFA
-Une licence pour Azure MFA est obligatoire, disponible via un abonnement Azure AD Premium, Enterprise Mobility plus Security (EMS) ou MFA. Les licences basées sur la consommation pour Azure MFA, telles que les licences par utilisateur ou par authentification, ne sont pas compatibles avec l’extension de serveur NPS. Pour plus d’informations, consultez [Guide pratique pour obtenir l’authentification multifacteur Azure](concept-mfa-licensing.md). À des fins de test, vous pouvez utiliser un abonnement d’évaluation. 
+
+Une licence Azure MFA est requise. Elle est disponible via Azure AD Premium ou d’autres offres groupées qui l’incluent. Les licences basées sur la consommation pour Azure MFA, telles que les licences par utilisateur ou par authentification, ne sont pas compatibles avec l’extension de serveur NPS. Pour plus d’informations, consultez [Guide pratique pour obtenir l’authentification multifacteur Azure](concept-mfa-licensing.md). À des fins de test, vous pouvez utiliser un abonnement d’évaluation.
 
 ### <a name="windows-server-software"></a>Logiciel Windows Server
+
 L’extension de serveur NPS requiert Windows Server 2008 R2 SP1 ou version ultérieure avec le service de rôle NPS installé. Toutes les étapes de cette section ont été effectuées à l’aide de Windows Server 2016.
 
 ### <a name="network-policy-and-access-services-nps-role"></a>Rôle des services de stratégie et d’accès réseau (NPS)
-Le service de rôle NPS fournit la fonctionnalité serveur et client RADIUS ainsi que le service de contrôle d’intégrité de la Stratégie d’accès réseau. Ce rôle doit être installé sur au moins deux ordinateurs dans votre infrastructure : la passerelle des services Bureau à distance et un autre serveur membre ou contrôleur de domaine. Par défaut, le rôle est déjà présent sur l’ordinateur configuré en tant que passerelle des services Bureau à distance.  Vous devez également installer le rôle NPS sur au moins un autre ordinateur, tel qu’un contrôleur de domaine ou un serveur membre.
+
+Le service de rôle NPS fournit la fonctionnalité serveur et client RADIUS ainsi que le service de contrôle d’intégrité de la Stratégie d’accès réseau. Ce rôle doit être installé sur au moins deux ordinateurs de votre infrastructure : La passerelle des services Bureau à distance et un autre serveur membre ou contrôleur de domaine. Par défaut, le rôle est déjà présent sur l’ordinateur configuré en tant que passerelle des services Bureau à distance.  Vous devez également installer le rôle NPS sur au moins un autre ordinateur, tel qu’un contrôleur de domaine ou un serveur membre.
 
 Pour plus d’informations sur l’installation du service de rôle de serveur NPS Windows Server 2012 ou versions plus ancienne, consultez [Installer un serveur de stratégie de contrôle d’intégrité NAP](https://technet.microsoft.com/library/dd296890.aspx). Pour obtenir une description des meilleures pratiques pour le serveur NPS, y compris la recommandation pour installer le serveur NPS sur un contrôleur de domaine, consultez [Meilleures pratiques pour le serveur NPS](https://technet.microsoft.com/library/cc771746).
 
 ### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>Azure Active Directory synchronisé avec Active Directory local
-Pour utiliser l’extension de serveur NPS, les utilisateurs locaux doivent être synchronisés avec Azure AD et activés pour l’authentification multifacteur. Cette section part du principe que les utilisateurs locaux sont synchronisés avec Azure AD en utilisant AD Connect. Pour obtenir plus d’informations sur Azure AD Connect, consultez [Intégrer vos répertoires locaux avec Azure Active Directory](../hybrid/whatis-hybrid-identity.md). 
+
+Pour utiliser l’extension de serveur NPS, les utilisateurs locaux doivent être synchronisés avec Azure AD et activés pour l’authentification multifacteur. Cette section part du principe que les utilisateurs locaux sont synchronisés avec Azure AD en utilisant AD Connect. Pour obtenir plus d’informations sur Azure AD Connect, consultez [Intégrer vos répertoires locaux avec Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 ### <a name="azure-active-directory-guid-id"></a>ID du GUID Azure Active Directory
+
 Pour installer l’extension de serveur NPS, vous devez connaître le GUID d’Azure AD. Vous trouverez ci-dessous des instructions pour rechercher le GUID d’Azure AD.
 
 ## <a name="configure-multi-factor-authentication"></a>Configurer l’authentification multifacteur 
+
 Cette section fournit des instructions pour l’intégration d’Azure MFA à la passerelle des services Bureau à distance. En tant qu’administrateur, vous devez configurer le service Azure MFA avant que les utilisateurs puissent inscrire automatiquement leurs applications ou périphériques multifacteur.
 
-Suivez les étapes dans [Bien démarrer avec l’authentification multifacteur Azure dans le cloud](howto-mfa-getstarted.md) pour activer MFA pour vos utilisateurs Azure AD. 
+Suivez les étapes dans [Bien démarrer avec l’authentification multifacteur Azure dans le cloud](howto-mfa-getstarted.md) pour activer MFA pour vos utilisateurs Azure AD.
 
 ### <a name="configure-accounts-for-two-step-verification"></a>Configurer des comptes pour la vérification en deux étapes
+
 Lorsqu’un compte a été activé pour MFA, vous ne pouvez pas vous connecter aux ressources régies par la stratégie MFA tant que vous n’avez pas correctement configuré un appareil approuvé afin qu’il serve pour le second facteur d’authentification, et qu’il soit authentifié à l’aide de la vérification en deux étapes.
 
 Suivez les étapes dans [Que fait l’authentification multifacteur Azure pour moi ?](../user-help/multi-factor-authentication-end-user.md) pour comprendre et configurer correctement vos périphériques pour l’authentification multifacteur avec votre compte d’utilisateur.
 
 ## <a name="install-and-configure-nps-extension"></a>Installer et configurer l’extension NPS
+
 Cette section fournit des instructions pour la configuration de l’infrastructure des services Bureau à distance pour utiliser Azure MFA pour l’authentification du client avec la passerelle des services Bureau à distance.
 
 ### <a name="acquire-azure-active-directory-guid-id"></a>Acquérir l’ID du GUID Azure Active Directory
@@ -112,25 +126,27 @@ Dans le cadre de la configuration de l’extension de serveur NPS, vous devez fo
  ![properties](./media/howto-mfa-nps-extension-rdg/image1.png)
 
 ### <a name="install-the-nps-extension"></a>Installer l’extension NPS
-Installez l’extension de serveur NPS sur un serveur ayant le rôle des services de stratégie réseau et d’accès réseau (NPS) est installé. Cela fonctionne comme serveur RADIUS pour votre conception. 
+
+Installez l’extension de serveur NPS sur un serveur ayant le rôle des services de stratégie réseau et d’accès réseau (NPS) est installé. Cela fonctionne comme serveur RADIUS pour votre conception.
 
 >[!Important]
 > Assurez-vous que vous n’installez pas l’extension de serveur NPS sur votre serveur de passerelle des services Bureau à distance.
-> 
+>
 
 1. Téléchargez [l’extension de serveur NPS](https://aka.ms/npsmfa). 
 1. Copiez le fichier exécutable du programme d’installation (NpsExtnForAzureMfaInstaller.exe) sur le serveur NPS.
 1. Sur le serveur NPS, double-cliquez sur **NpsExtnForAzureMfaInstaller.exe**. À l’invite, cliquez sur **Exécuter**.
 1. Dans la boîte de dialogue Installation de l’extension de serveur NPS pour Azure MFA, passez en revue les termes du contrat de licence logiciel, cochez la case **J’accepte les termes et les conditions du contrat de licence** et cliquez sur **Installer**.
- 
+
   ![Programme d’installation d’Azure MFA](./media/howto-mfa-nps-extension-rdg/image2.png)
 
-1. Dans la boîte de dialogue Installation de l’extension de serveur NPS pour Azure MFA, cliquez sur **Fermer**. 
+1. Dans la boîte de dialogue Installation de l’extension de serveur NPS pour Azure MFA, cliquez sur **Fermer**.
 
   ![Extension NPS pour Azure MFA](./media/howto-mfa-nps-extension-rdg/image3.png)
 
 ### <a name="configure-certificates-for-use-with-the-nps-extension-using-a-powershell-script"></a>Configurer des certificats pour une utilisation avec l’extension de serveur NPS à l’aide d’un script PowerShell
-Ensuite, vous devez configurer des certificats pour une utilisation par l’extension de serveur NPS pour garantir des communications et une assurance sécurisées. Les composants de serveur NPS incluent un script Windows PowerShell qui configure un certificat auto-signé à utiliser avec le serveur NPS. 
+
+Ensuite, vous devez configurer des certificats pour une utilisation par l’extension de serveur NPS pour garantir des communications et une assurance sécurisées. Les composants de serveur NPS incluent un script Windows PowerShell qui configure un certificat auto-signé à utiliser avec le serveur NPS.
 
 Le script effectue les actions suivantes :
 
@@ -163,14 +179,16 @@ Pour utiliser le script, spécifiez l’extension avec vos informations d’iden
   ![Certificat auto-signé](./media/howto-mfa-nps-extension-rdg/image7.png)
 
 ## <a name="configure-nps-components-on-remote-desktop-gateway"></a>Configurer les composants de serveur NPS sur la passerelle des services Bureau à distance
+
 Dans cette section, configurez des stratégies d’autorisation des connexions de passerelle des services Bureau à distance et d’autres paramètres de RADIUS.
 
-Le flux d’authentification nécessite que les messages RADIUS soient échangés entre la passerelle des services Bureau à distance et le serveur NPS où est installé le serveur NPS. Cela signifie que vous devez configurer les paramètres des clients RADIUS sur la passerelle des services Bureau à distance et le serveur NPS où est installée l’extension du serveur NPS. 
+Le flux d’authentification nécessite que les messages RADIUS soient échangés entre la passerelle des services Bureau à distance et le serveur NPS où est installé le serveur NPS. Cela signifie que vous devez configurer les paramètres des clients RADIUS sur la passerelle des services Bureau à distance et le serveur NPS où est installée l’extension du serveur NPS.
 
 ### <a name="configure-remote-desktop-gateway-connection-authorization-policies-to-use-central-store"></a>Configurer des stratégies de l’autorisation des connexions de passerelle des services Bureau à distance pour utiliser le Store central
+
 Les stratégies d’autorisation des connexions aux services Bureau à distance (RD CAP) spécifient les exigences techniques de connexion à un serveur de passerelle des services Bureau à distance. Les stratégies RD CAP peuvent être stockées localement (par défaut) ou être stockées dans un Store de stratégies RD CAP central qui exécute un serveur NPS. Pour configurer l’intégration d’Azure MFA avec les services Bureau à distance, vous devez spécifier l’utilisation d’un Store central.
 
-1. Sur le serveur de passerelle des services Bureau à distance, ouvrez **Gestionnaire de serveurs**. 
+1. Sur le serveur de passerelle des services Bureau à distance, ouvrez **Gestionnaire de serveurs**.
 1. Dans le menu, cliquez sur **Outils**, pointez vers **Services bureau à distance** puis cliquez sur **Gestionnaire de passerelle de Bureau à distance**.
 
   ![Services Bureau à distance](./media/howto-mfa-nps-extension-rdg/image8.png)
@@ -197,6 +215,7 @@ Les stratégies d’autorisation des connexions aux services Bureau à distance 
 1. Cliquez sur **OK** pour fermer la boîte de dialogue.
 
 ### <a name="configure-radius-timeout-value-on-remote-desktop-gateway-nps"></a>Configurer la valeur de délai d’expiration RADIUS sur le serveur NPS de passerelle Bureau à distance
+
 Pour vérifier qu’il y a suffisamment de temps pour valider les informations d’identification des utilisateurs, effectuez une vérification en deux étapes, recevez des réponses et répondez aux messages RADIUS, il est nécessaire d’ajuster la valeur de délai d’expiration RADIUS.
 
 1. Sur le serveur de passerelle des services Bureau à distance, ouvrez le Gestionnaire de serveur. Dans le menu, cliquez sur **Outils**, puis sur **Serveur NPS (Network Policy Server)**. 
@@ -220,10 +239,11 @@ Pour vérifier qu’il y a suffisamment de temps pour valider les informations d
 
  ![Modifier le serveur RADIUS](./media/howto-mfa-nps-extension-rdg/image14.png)
 
-1.  Cliquez deux fois sur **OK** pour fermer les boîtes de dialogue.
+1. Cliquez deux fois sur **OK** pour fermer les boîtes de dialogue.
 
-### <a name="verify-connection-request-policies"></a>Vérifiez les stratégies de demande de connexion 
-Par défaut, lorsque vous configurez la passerelle des services Bureau à distance pour utiliser un Store de stratégies central pour les stratégies d’autorisation de connexion, la passerelle des services Bureau à distance est configurée pour transmettre les demandes CAP au serveur NPS. Le serveur NPS avec l’extension Azure MFA installé, traite la demande d’accès RADIUS. Les étapes suivantes vous montrent comment vérifier la stratégie de demande de connexion par défaut. 
+### <a name="verify-connection-request-policies"></a>Vérifiez les stratégies de demande de connexion
+
+Par défaut, lorsque vous configurez la passerelle des services Bureau à distance pour utiliser un Store de stratégies central pour les stratégies d’autorisation de connexion, la passerelle des services Bureau à distance est configurée pour transmettre les demandes CAP au serveur NPS. Le serveur NPS avec l’extension Azure MFA installé, traite la demande d’accès RADIUS. Les étapes suivantes vous montrent comment vérifier la stratégie de demande de connexion par défaut.
 
 1. Sur la passerelle des services Bureau à distance, dans la console NPS (Local), développez **Stratégies**, puis sélectionnez **Stratégies de demande de connexion**.
 1. Double-cliquez sur **STRATÉGIE D’AUTORISATION DE PASSERELLE TS**.
@@ -231,26 +251,29 @@ Par défaut, lorsque vous configurez la passerelle des services Bureau à distan
 1. Sur l’onglet **Paramètres**, sous Transfert de la demande de connexion, cliquez sur **Authentification**. Le client RADIUS est configuré pour transférer les demandes pour l’authentification.
 
  ![Paramètres d’authentification](./media/howto-mfa-nps-extension-rdg/image15.png)
- 
-1. Cliquez sur **Annuler**. 
+
+1. Cliquez sur **Annuler**.
 
 ## <a name="configure-nps-on-the-server-where-the-nps-extension-is-installed"></a>Configurer le serveur NPS sur le serveur où est installée l’extension NPS
-Le serveur NPS où est installée l’extension de serveur NPS doit être en mesure d’échanger des messages RADIUS avec le serveur NPS sur la passerelle des services Bureau à distance. Pour activer l’échange de messages, vous devez configurer les composants de serveur NPS sur le serveur où est installé le service d’extension du serveur NPS. 
+
+Le serveur NPS où est installée l’extension de serveur NPS doit être en mesure d’échanger des messages RADIUS avec le serveur NPS sur la passerelle des services Bureau à distance. Pour activer l’échange de messages, vous devez configurer les composants de serveur NPS sur le serveur où est installé le service d’extension du serveur NPS.
 
 ### <a name="register-server-in-active-directory"></a>Enregistrer le serveur dans Active Directory
+
 Pour fonctionner correctement dans ce scénario, le serveur NPS doit être enregistré dans Active Directory.
 
 1. Sur le serveur NPS, ouvrez le **Gestionnaire de serveur**.
-1. Dans Gestionnaire de serveurs, cliquez sur **Outils** puis cliquez sur **Serveur de stratégie réseau**. 
-1. Dans la console NPS, cliquez avec le bouton droit sur **NPS (Local)**, puis cliquez sur **Enregistrer un serveur dans Active Directory**. 
+1. Dans Gestionnaire de serveurs, cliquez sur **Outils** puis cliquez sur **Serveur de stratégie réseau**.
+1. Dans la console NPS, cliquez avec le bouton droit sur **NPS (Local)**, puis cliquez sur **Enregistrer un serveur dans Active Directory**.
 1. Cliquez deux fois sur **OK**.
 
  ![Enregistrement du serveur dans AD](./media/howto-mfa-nps-extension-rdg/image16.png)
 
 1. Laissez la console ouverte pour la procédure suivante.
 
-### <a name="create-and-configure-radius-client"></a>Créer et configurer un client RADIUS 
-La passerelle des services Bureau à distance doit être configuré comme client RADIUS sur le serveur NPS. 
+### <a name="create-and-configure-radius-client"></a>Créer et configurer un client RADIUS
+
+La passerelle des services Bureau à distance doit être configuré comme client RADIUS sur le serveur NPS.
 
 1. Sur le serveur NPS où l’extension de serveur NPS est installée, dans la console **NPS (Local)** de la console, cliquez avec le bouton droit sur **Clients RADIUS** et cliquez sur **Nouveau**.
 
@@ -264,10 +287,11 @@ La passerelle des services Bureau à distance doit être configuré comme client
 1. Cliquez sur **OK** pour fermer la boîte de dialogue du nouveau client RADIUS.
 
 ### <a name="configure-network-policy"></a>Configurer la stratégie réseau
+
 Rappelez-vous que le serveur NPS avec l’extension Azure MFA est le magasin de stratégies centralisées qui est désigné pour la stratégie d’autorisation des connexions. Par conséquent, vous devez mettre en œuvre une stratégie d’autorisation de connexion sur le serveur NPS pour autoriser les demandes de connexions valides.  
 
 1. Sur le serveur NPS, dans la console NPS (Local), développez **Stratégies**, puis cliquez sur **Stratégies réseau**.
-1. Cliquez avec le bouton droit sur **Connexions aux autres serveurs d’accès** et cliquez sur **Dupliquer la stratégie**. 
+1. Cliquez avec le bouton droit sur **Connexions aux autres serveurs d’accès** et cliquez sur **Dupliquer la stratégie**.
 
  ![Dupliquer la stratégie](./media/howto-mfa-nps-extension-rdg/image19.png)
 
@@ -279,7 +303,7 @@ Rappelez-vous que le serveur NPS avec l’extension Azure MFA est le magasin de 
 
  ![Copie des connexions](./media/howto-mfa-nps-extension-rdg/image21.png)
 
-1.  Cliquez sur l’onglet **Contraintes** et cochez la case **Autoriser les clients à se connecter sans négocier une méthode d’authentification**.
+1. Cliquez sur l’onglet **Contraintes** et cochez la case **Autoriser les clients à se connecter sans négocier une méthode d’authentification**.
 
  ![Autoriser les clients à se connecter](./media/howto-mfa-nps-extension-rdg/image22.png)
 
@@ -293,7 +317,8 @@ Rappelez-vous que le serveur NPS avec l’extension Azure MFA est le magasin de 
  ![Stratégies de réseau](./media/howto-mfa-nps-extension-rdg/image24.png)
 
 ## <a name="verify-configuration"></a>Vérifier la configuration
-Pour vérifier la configuration, vous devez vous connecter à la passerelle des services Bureau à distance avec un client RDP approprié. Veillez à utiliser un compte autorisé par les stratégies d’autorisation de connexion et activé pour Azure MFA. 
+
+Pour vérifier la configuration, vous devez vous connecter à la passerelle des services Bureau à distance avec un client RDP approprié. Veillez à utiliser un compte autorisé par les stratégies d’autorisation de connexion et activé pour Azure MFA.
 
 Comme indiqué dans l’image ci-dessous, vous pouvez utiliser la page **Accès Web au Bureau à distance**.
 
@@ -312,6 +337,7 @@ Dans l’exemple ci-dessous, l’application d’authentification sur un télép
 Une fois que vous vous êtes correctement authentifié à l’aide de la méthode d’authentification secondaire, vous êtes connecté à la passerelle des services Bureau à distance comme d’habitude. Toutefois, étant donné que vous devez utiliser une méthode d’authentification secondaire à l’aide d’une application mobile sur un appareil approuvé, le processus de connexion est plus sûr.
 
 ### <a name="view-event-viewer-logs-for-successful-logon-events"></a>Afficher les journaux de l’Observateur d’événements pour les événements de connexion réussie
+
 Pour afficher les événements de connexion réussie dans les journaux de l’Observateur d’événements Windows, vous pouvez émettre la commande Windows PowerShell suivante pour interroger les journaux des Services Windows Terminal et de sécurité Windows.
 
 Pour interroger les événements de connexion réussie dans les journaux des opérations de la passerelle _(Observateur d’événements\Journaux des applications et des services\Microsoft\Windows\TerminalServices-Gateway\Opérationnel)_, utilisez les commandes PowerShell suivantes :
@@ -365,11 +391,12 @@ L’image ci-dessous montre la sortie d’une de ces [applications de logiciel �
 
 Enfin, pour obtenir des options de résolution des problèmes supplémentaires, vous pouvez utiliser un analyseur de protocoles, tel que [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx). 
 
-L’image ci-dessous depuis Microsoft Message Analyser indique le trafic réseau filtré sur le protocole RADIUS qui contient le nom d’utilisateur **Contoso\AliceC**.
+L’image ci-dessous depuis Microsoft Message Analyser indique le trafic réseau filtré sur le protocole RADIUS qui contient le nom d’utilisateur **CONTOSO\AliceC**.
 
 ![Microsoft Message Analyzer](./media/howto-mfa-nps-extension-rdg/image36.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 [Comment obtenir Azure Multi-Factor Authentication ?](concept-mfa-licensing.md)
 
 [Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS](howto-mfaserver-nps-rdg.md)

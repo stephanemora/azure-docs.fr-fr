@@ -512,7 +512,7 @@ items:
   - name: Mise en réseau
     tocHref: /azure/networking/
     topicHref: /azure/networking/networking-overview
-  - name: Blocs-notes
+  - name: Notebooks
     tocHref: /azure/notebooks/
     topicHref: /azure/notebooks/azure-notebooks-overview
   - name: Notification Hubs

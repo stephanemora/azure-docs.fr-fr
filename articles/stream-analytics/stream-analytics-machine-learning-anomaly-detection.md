@@ -4,17 +4,17 @@ description: Cet article décrit comment utiliser Azure Stream Analytics et Azur
 services: stream-analytics
 author: dubansal
 ms.author: dubansal
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/09/2018
-ms.openlocfilehash: 3f6d6f700ccf232dacb512f22dd1f9fb5d870740
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: df1010be8c9f41684af806885db7587bfcf1c540
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567041"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091218"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Détection d’anomalies dans Azure Stream Analytics
 
@@ -95,7 +95,7 @@ Tandis que le temps défile, les modèles sont formés avec des données différ
 
 Sous forme de diagramme, les étapes ressemblent à ce qui suit : 
 
-![Formation de modèles](media/stream-analytics-machine-learning-anomaly-detection/training_model.png)
+![Modèles de formation Machine Learning](media/stream-analytics-machine-learning-anomaly-detection/machine-learning-training-model.png)
 
 |**Modèle** | **Heure de début de formation** | **Heure pour commencer à utiliser le résultat** |
 |---------|---------|---------|
@@ -115,18 +115,18 @@ Au niveau Machine Learning, l’algorithme de détection d’anomalie calcule un
 
 Examinons le calcul d’étrangeté en détail (en supposant qu’un ensemble de fenêtres historiques avec des événements existe) : 
 
-1. **Changement au niveau bidirectionnel** : Basée sur la fenêtre d’historique, une plage opérationnelle normale est calculée par [ 10e centile, 90e centile]. La limite la plus basse étant la valeur du 10e centile, et la limite la plus haute étant la valeur du 90e centile. Une valeur d’étrangeté pour l’événement actuel est calculée par :  
+1. **Changement au niveau bidirectionnel** : basée sur la fenêtre d’historique, une plage opérationnelle normale est calculée par [ 10e centile, 90e centile]. La limite la plus basse étant la valeur du 10e centile, et la limite la plus haute étant la valeur du 90e centile. Une valeur d’étrangeté pour l’événement actuel est calculée par :  
 
    - 0, si event_value est dans la plage opérationnelle normale  
    - event_value/90th_percentile, si event_value est supérieur à 90th_percentile  
    - 10th_percentile/event_value, si event_value est inférieur à 10th_percentile  
 
-2. **Tendance positive lente** : une ligne de tendance sur les valeurs d’événement dans la fenêtre d’historique est calculée et l’opération recherche une tendance positive dans la ligne. La valeur d’étrangeté est calculée par :  
+2. **Tendance positive lente :** une ligne de tendance sur les valeurs d’événement dans la fenêtre d’historique est calculée et l’opération recherche une tendance positive dans la ligne. La valeur d’étrangeté est calculée par :  
 
    - Slope, si slope est positif  
    - 0, dans le cas contraire 
 
-3. **Tendance négative lente** : une ligne de tendance sur les valeurs d’événement dans la fenêtre d’historique est calculée et l’opération recherche une tendance négative dans la ligne. La valeur d’étrangeté est calculée par : 
+3. **Tendance négative lente :** une ligne de tendance sur les valeurs d’événement dans la fenêtre d’historique est calculée et l’opération recherche une tendance négative dans la ligne. La valeur d’étrangeté est calculée par : 
 
    - Slope, si slope est négatif  
    - 0, dans le cas contraire  
@@ -145,15 +145,15 @@ Les points suivants doivent être pris en compte lors de l’utilisation de ce d
 
    Ceci est montré dans les figure 1 et 2 ci-dessous, en utilisant un changement de limite supérieure (la même logique s’applique à un changement de limite inférieure). Sur les deux figures, les formes d’onde représentent un changement de niveau anormal. Les lignes verticales orange représentent les limites de tronçon et la taille de tronçon est similaire à la fenêtre de détection spécifiée dans l’opérateur AnomalyDetection. Les lignes vertes indiquent la taille de la fenêtre de formation. Dans la Figure 1, la taille du tronçon correspond à la durée de l’anomalie. Dans la Figure 2, la taille du tronçon correspond à la moitié de la durée de l’anomalie. Dans tous les cas, un changement vers le haut est détecté, car le modèle utilisé pour marquer a été formé sur des données normales. Mais en se basant sur le fonctionnement du détecteur de changement au niveau bidirectionnel, il doit exclure les valeurs de la fenêtre de formation utilisées pour le modèle qui marque le retour à la normale. Dans la Figure 1, la formation du modèle de notation inclut des événements normaux. Le retour à la normale ne peut donc être détecté. Mais dans la Figure 2, elle inclut la partie anormale, ce qui assure la détection du retour à la normale. Toute valeur inférieure à la moitié fonctionne aussi pour la même raison, alors que toute valeur supérieure inclura au final une petite part des événements normaux. 
 
-   ![AD plus taille de la fenêtre égal durée de l’anomalie](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_anomaly_length.png)
+   ![AD plus taille de la fenêtre égal durée de l’anomalie](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-anomaly-length.png)
 
-   ![AD plus taille de la fenêtre égal moitié de la durée de l’anomalie](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_half_anomaly_length.png)
+   ![AD plus taille de la fenêtre égal moitié de la durée de l’anomalie](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-half-anomaly-length.png)
 
 2. Dans les cas où la durée de l’anomalie ne peut être prédite, ce détecteur opère à effort maximum. Toutefois, choisir une fenêtre de temps plus courte limite les données formées, ce qui augmente la probabilité de détecter le retour à la normale. 
 
 3. Dans le scénario suivant, l’anomalie la plus longue n’est pas détectée, car la fenêtre de formation inclut déjà une anomalie de la même valeur haute. 
 
-   ![Anomalies avec la même taille](media/stream-analytics-machine-learning-anomaly-detection/anomalies_with_same_length.png)
+   ![Anomalies détectées avec la même taille](media/stream-analytics-machine-learning-anomaly-detection/anomalies-with-same-length.png)
 
 ## <a name="example-query-to-detect-anomalies"></a>Exemple de requête pour détecter les anomalies 
 

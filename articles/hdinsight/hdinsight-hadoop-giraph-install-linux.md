@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 202a68d219bec3a70e50afa68228cbc6bf453518
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6cedc269e279a9154e63bae241f02e766e06ec96
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011661"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383899"
 ---
-# <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Installation de Giraph sur les clusters Hadoop HDInsight et utilisation de Giraph pour traiter des graphiques à grande échelle
+# <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Installation d’Apache Giraph sur les clusters Hadoop HDInsight et utilisation de Giraph pour traiter des graphiques à grande échelle
 
 Découvrez comment installer Apache Giraph sur un cluster HDInsight. La fonctionnalité d’action de script de HDInsight vous permet de personnaliser votre cluster en exécutant un script bash. Les scripts peuvent être utilisés pour personnaliser des clusters pendant et après la création du cluster.
 
@@ -33,10 +33,10 @@ Découvrez comment installer Apache Giraph sur un cluster HDInsight. La fonction
 
 * calculer le classement de pages web.
 
-> [!WARNING]
+> [!WARNING]  
 > Les composants fournis avec le cluster HDInsight bénéficient d’une prise en charge totale, et le support Microsoft vous aide à identifier et à résoudre les problèmes liés à ces composants.
 >
-> Les composants personnalisés, tels que Giraph, bénéficient d'un support commercialement raisonnable pour vous aider à résoudre le problème. Support Microsoft peut vous aider à résoudre le problème. Si ce n’est pas le cas, vous devez consulter les communautés open source. Elles regorgent de connaissances approfondies sur cette technologie. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme le [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org), par exemple [Hadoop](http://hadoop.apache.org/).
+> Les composants personnalisés, tels que Giraph, bénéficient d'un support commercialement raisonnable pour vous aider à résoudre le problème. Support Microsoft peut vous aider à résoudre le problème. Si ce n’est pas le cas, vous devez consulter les communautés open source. Elles regorgent de connaissances approfondies sur cette technologie. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme : [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org), par exemple : [Hadoop](http://hadoop.apache.org/).
 
 
 ## <a name="what-the-script-does"></a>Ce que fait le script
@@ -68,7 +68,7 @@ Cette section explique comment utiliser l’exemple de script dans le cadre de l
 
 2. Dans la section **Configuration facultative**, sélectionnez **Actions de script**, puis fournissez les informations suivantes :
 
-   * **NAME**: saisissez un nom convivial pour l’action de script.
+   * **NAME** : saisissez un nom convivial pour l’action de script.
 
    * **URI DU SCRIPT** : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
@@ -76,9 +76,9 @@ Cette section explique comment utiliser l’exemple de script dans le cadre de l
 
    * **WORKER** : laissez cette entrée désactivée.
 
-   * **ZOOKEEPER** : laissez cette entrée désactivée.
+   * **ZOOKEEPER** : laissez cette entrée désactivée.
 
-   * **PARAMETERS**: laissez ce champ vide.
+   * **PARAMETERS** : laissez ce champ vide.
 
 3. En bas de l’écran **Actions de script**, utilisez le bouton **Sélectionner** pour enregistrer la configuration. Enfin, utilisez le bouton **Sélectionner** au bas de la section **Configuration facultative** pour enregistrer les informations de configuration facultatives.
 
@@ -172,4 +172,4 @@ Une fois le cluster créé, appliquez la procédure ci-après pour exécuter l�
 
 * [Installer et utiliser Hue sur les clusters HDInsight](hdinsight-hadoop-hue-linux.md).
 
-* [Installation de Solr sur des clusters HDInsight](hdinsight-hadoop-solr-install-linux.md).
+* [Installez Apache Solr sur les clusters HDInsight](hdinsight-hadoop-solr-install-linux.md).

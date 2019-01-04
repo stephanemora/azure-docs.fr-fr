@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services : déployer le Proxy d’application Azure Active Directory | Microsoft Docs'
+title: 'Azure Active Directory Domain Services : déployer le proxy d’application Azure Active Directory | Microsoft Docs'
 description: Utiliser le proxy d'application sur les domaines managés par les Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 96ef005f095e5ab774a88ec766080f647414a7ce
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4621122d805f37be1578aa7b7c9ae059f3141c77
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155539"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840297"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Déployer le proxy d'application sur un domaine managé par les Azure Active Directory Domain Services
 Le service Proxy d’application Azure Active Directory (AD) vous aide à prendre en charge les personnes qui travaillent à distance en publiant des applications locales afin de les rendre accessibles sur Internet. Avec les Azure AD Domain Services, vous pouvez désormais transférer des applications héritées vers des services d’infrastructure Azure. Vous pouvez ensuite publier ces applications à l’aide du proxy d’application Azure AD pour fournir un accès à distance sécurisé aux utilisateurs de votre organisation.
 
-Si vous n’êtes pas familiarisé avec le proxy d’application Azure AD, consultez l’article suivant : [Offrir un accès à distance sécurisé aux applications locales](../active-directory/manage-apps/application-proxy.md).
+Si vous n’êtes pas familiarisé avec le proxy d’application Azure AD, consultez l’article suivant : [Offrir un accès à distance sécurisé aux applications locales](../active-directory/manage-apps/application-proxy.md).
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
@@ -42,7 +42,7 @@ Pour exécuter les tâches indiquées dans cet article, vous avez besoin des él
 ## <a name="task-1---enable-azure-ad-application-proxy-for-your-azure-ad-directory"></a>Tâche 1 : activer le proxy d’application Azure AD pour votre annuaire Azure AD
 Procédez comme suit pour activer le proxy d’application Azure AD pour votre annuaire Azure AD.
 
-1. Connectez-vous au [portail Azure](http://portal.azure.com) en tant qu’administrateur.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
 
 2. Cliquez sur **Azure Active Directory** pour afficher la vue d’ensemble de l’annuaire. Cliquez sur **Applications d’entreprise**.
 
@@ -96,9 +96,9 @@ Auparavant, vous approvisionniez une machine virtuelle Windows Server et la joig
 ## <a name="next-steps"></a>Étapes suivantes
 Vous avez configuré le proxy d’application Azure AD et l'avez intégré à votre domaine managé Azure AD Domain Services.
 
-* **Migrer vos applications vers des machines virtuelles Azure :** vous pouvez transférer vos applications depuis des serveurs locaux vers des machines virtuelles jointes à votre domaine managé. Cela vous permet de supprimer les coûts de fonctionnement de l’infrastructure de serveurs en local.
+* **Migrer vos applications vers des machines virtuelles Azure :** vous pouvez transférer vos applications depuis des serveurs locaux vers des machines virtuelles jointes à votre domaine managé. Cela vous permet de supprimer les coûts de fonctionnement de l’infrastructure de serveurs en local.
 
-* **Publier des applications à l’aide du proxy d’application Azure AD :** publiez des applications exécutées sur vos machines virtuelles à l’aide du proxy d’application Azure AD. Pour plus d'informations, consultez [Publier des applications avec le proxy d'application Azure AD](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
+* **Publier des applications à l’aide du proxy d’application Azure AD :** publiez des applications exécutées sur vos machines virtuelles à l’aide du proxy d’application Azure AD. Pour plus d'informations, consultez [Publier des applications avec le proxy d'application Azure AD](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
 
 
 ## <a name="deployment-note---publish-iwa-integrated-windows-authentication-applications-using-azure-ad-application-proxy"></a>Remarque relative au déploiement - Publier des applications IWA (authentification Windows intégrée) à l’aide du proxy d’application Azure AD

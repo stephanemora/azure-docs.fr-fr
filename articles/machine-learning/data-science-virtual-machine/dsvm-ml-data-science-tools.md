@@ -1,11 +1,12 @@
 ---
 title: Outils de science des données et d’apprentissage automatique - Azure | Microsoft Docs
-description: Outils de science des données et d’apprentissage automatique
+description: Découvrez les outils et les frameworks de Machine Learning préinstallés sur Data Science Virtual Machine.
 keywords: outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 9308c51c0ff5fc7278eab632f9d23f23cf016a2a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: d8c607b5f1d338ca3a2bd3844b26ef51d801c720
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901666"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086068"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Outils de science des données et d’apprentissage automatique
 La machine virtuelle DSVM (Data Science Virtual Machine) offre un ensemble complet d’outils et de bibliothèques d’apprentissage automatique (ML) disponibles dans des langages courants tels que Python, R et Julia. 
@@ -31,7 +32,7 @@ Voici quelques exemples d’outils et de bibliothèques de ML sur les machines v
 |    |           |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   |   Azure Machine Learning est un service cloud que vous pouvez utiliser pour développer et déployer des modèles de ML. Vous pouvez suivre vos modèles avec le SDK Python pendant les opérations de création, d’entraînement, de scaling et de gestion que vous effectuez sur ceux-ci. Déployez des modèles en tant que conteneurs et exécutez-les dans le cloud, localement, ou sur Azure IoT Edge.   |
-| Éditions prises en charge     | Windows (environnement Conda : AzureML), Linux (environnement Conda : py36)    |
+| Éditions prises en charge     | Windows (environnement Conda : AzureML), Linux (environnement Conda : py36)    |
 | Utilisations classiques      | Plateforme de machine learning général      |
 | Comment fonctionne la configuration ou l’installation ?      |  Installé avec prise en charge GPU   |
 | Comment l’utiliser ou l’exécuter      | En tant que kit de développement logiciel Python et Azure CLI. Activez pour l’environnement conda `AzureML` sur l’édition Windows *ou* pour `py36` sur l’édition Linux.      |

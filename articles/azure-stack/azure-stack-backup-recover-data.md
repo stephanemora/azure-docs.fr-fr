@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: bd72abd4f8f23414ea1003c74d2f90cde3b51d34
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 326fd38f7cb738540a389c93de2a9b5be015e0d7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034335"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968730"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Récupérer des données suite à une perte catastrophique
 
-*S’applique à : systèmes intégrés Azure Stack.*
+*S’applique à : systèmes intégrés Azure Stack.*
 
 Azure Stack exécute des services Azure dans votre centre de données. Azure Stack peut s’exécuter sur des environnements aussi petits que quatre nœuds installés dans un seul rack. En revanche, Azure s’exécute dans plusieurs centres de données et zones situés dans plus de 40 régions. Les ressources de l’utilisateur peuvent s’étendre sur plusieurs serveurs, racks, centres de données et régions. Actuellement, Azure Stack vous permet uniquement de déployer l’ensemble de votre cloud sur un rack unique. Cela expose votre cloud au risque d’événements catastrophiques pouvant survenir dans votre centre de données ou de défaillances dues à des bogues de produits importants. Lorsqu’un incident survient, l’instance Azure Stack est mise hors connexion. Toutes les données sont potentiellement irrécupérables.
 
@@ -40,11 +40,11 @@ Ce scénario couvre la récupération de toute votre installation en cas de déf
 
 La protection Azure Stack commence par la sauvegarde distincte des données relatives à l’infrastructure et de celles des applications/des locataires. Ce document explique comment protéger l’infrastructure. 
 
-![Déploiement initial d’Azure Stack](media\azure-stack-backup\azure-stack-backup-workflow1.png)
+![Déploiement initial d’Azure Stack](media/azure-stack-backup/azure-stack-backup-workflow1.png)
 
 Dans le pire des cas, lorsque toutes les données sont perdues, la récupération Azure Stack est le processus de restauration des données de l’infrastructure propres à ce déploiement Azure Stack et de toutes les toutes les données utilisateur. 
 
-![Redéployer Azure Stack](media\azure-stack-backup\azure-stack-backup-workflow2.png)
+![Redéployer Azure Stack](media/azure-stack-backup/azure-stack-backup-workflow2.png)
 
 ## <a name="restore"></a>Restore
 

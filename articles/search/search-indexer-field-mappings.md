@@ -1,6 +1,6 @@
 ---
-title: Mappages de champs dans les indexeurs de la Recherche Azure
-description: Configurer les mappages de champs de l'indexeur Azure Search pour tenir compte des différences dans les noms de champs et les représentations des données
+title: Mappages de champs pour une indexation automatisée à l’aide d’indexeurs - Recherche Azure
+description: Configurez les mappages de champs de l’indexeur Recherche Azure pour tenir compte des différences dans les noms de champs et les représentations des données.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 01edc7001ec463cb16d8b6c715794b0028508143
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: 94a7274c0e950661d118ad5421e7c763fe555434
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404716"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312695"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Mappages de champs dans les indexeurs de la Recherche Azure
 Lorsque vous utilisez des indexeurs Azure Search, vous pouvez parfois vous retrouver dans des situations où vos données d'entrée ne correspondent pas tout à fait au schéma de votre index cible. Dans ce cas, vous pouvez utiliser les **mappages de champs** pour transformer vos données au format souhaité.
@@ -134,7 +135,7 @@ Si vous ne spécifiez pas `parameters`, la valeur par défaut de `useHttpServerU
 <a name="base64details"></a>
 
 ### <a name="details-of-base64-encoding-and-decoding"></a>Détails de l’encodage et du décodage base64
-Recherche Azure prend en charge deux encodages base64 : l’encodage de jetons d’URL HttpServerUtility et l’encodage base64 sécurisé pour les URL sans remplissage. Si vous voulez encoder une clé de document pour la recherche, encoder une valeur à faire décoder par l’indexeur ou décoder un champ encodé par l’indexeur, vous devez utiliser le même encodage que les fonctions de mappage.
+Recherche Azure prend en charge deux encodages base64 : l’encodage de jetons d’URL HttpServerUtility et l’encodage base64 sécurisé pour les URL sans remplissage. Si vous voulez encoder une clé de document pour la recherche, encoder une valeur à faire décoder par l’indexeur ou décoder un champ encodé par l’indexeur, vous devez utiliser le même encodage que les fonctions de mappage.
 
 Si les paramètres `useHttpServerUtilityUrlTokenEncode` ou `useHttpServerUtilityUrlTokenDecode` de codage et de décodage, respectivement, sont définis sur `true`, `base64Encode` se comporte comme [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) et `base64Decode` se comporte comme [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 

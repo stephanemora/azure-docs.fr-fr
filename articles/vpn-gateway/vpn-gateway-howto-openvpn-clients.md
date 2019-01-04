@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7d76827a4e4ba4ccb7a146c5f8282000d143eb35
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4de4a5a659f38577c1261b169a43df560bf05495
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624435"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971264"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Configurer des clients OpenVPN sur la passerelle VPN Azure (préversion)
 
@@ -67,11 +67,11 @@ Vérifiez que vous avez terminé les étapes de configuration de OpenVPN pour vo
 2. Téléchargez le profil VPN pour la passerelle. Pour y parvenir, accédez à l’onglet Configurations point à site dans le Portail Azure, ou saisissez « New-AzureRmVpnClientConfiguration » dans PowerShell.
 3. Décompressez le profil. Utilisez le Bloc-notes pour ouvrir le fichier de configuration vpnconfig.ovpn à partir du dossier OpenVPN.
 4. Renseignez la section du certificat client P2S avec la clé publique du certificat client P2S en base64. Dans un certificat au format PEM, vous pouvez simplement ouvrir le fichier .cer et copier la clé base64 entre les en-têtes de certificat. Consultez [Exporter la clé publique](vpn-gateway-certificates-point-to-site.md#cer) pour plus d’informations sur la façon d’exporter un certificat pour obtenir la clé publique codée.
-5. Renseignez la section de la clé privée avec la clé privée du certificat client P2S en base64. Consultez [Exporter votre clé privée](https://www.geotrust.eu/en/support/manuals/microsoft/all+windows+servers/export+private+key+or+certificate/) pour plus d’informations sur l’extraction de la clé privée.
+5. Renseignez la section de la clé privée avec la clé privée du certificat client P2S en base64. Pour plus d’informations sur la façon d’extraire une la clé privée, consultez [Exporter votre clé privée](https://openvpn.net/community-resources/how-to/#pki).
 6. Ne modifiez aucun autre champ. Utilisez la configuration complétée dans l’entrée client pour vous connecter au VPN.
 7. Double-cliquez sur le fichier de profil pour créer le profil dans Tunnelblik.
 8. Lancez Tunnelblik à partir du dossier d’applications.
-9. Cliquez sur l’icône Tunneblik dans la barre d’état du système et choisissez l’option de connexion.
+9. Cliquez sur l’icône Tunnelblik dans la zone de notification et choisissez l’option de connexion.
 
 ## <a name="linux"></a>Clients Linux
 

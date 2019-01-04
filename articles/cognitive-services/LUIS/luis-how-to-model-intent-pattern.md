@@ -1,21 +1,22 @@
 ---
-title: Ajouter des gabarits de modèle au lieu d’énoncés supplémentaires dans les applications LUIS
-titleSuffix: Azure Cognitive Services
+title: Ajout de précision à l’aide de modèles
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Découvrez comment ajouter des gabarits de modèle dans les applications Language Understanding (LUIS) pour améliorer la précision de la prédiction.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6c15fc256a330c7de154c551c1ef4c78913f470a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ae0fdb17680f415a1dacce1738fa53fcda943788
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885884"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134996"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Comment ajouter des modèles pour améliorer la précision de la prédiction
 Lorsqu’une application LUIS reçoit des énoncés de point de terminaison, utilisez le [concept](luis-concept-patterns.md) des modèles pour améliorer la précision de la prédiction des énoncés qui s’appuient sur un modèle d’ordre des mots et de choix de mot. Les modèles utilisent des [entités](luis-concept-entity-types.md) et leurs rôles pour extraire des données à l’aide de la syntaxe spécifique du modèle. 
@@ -95,7 +96,7 @@ Pour réaffecter plusieurs modèles à une autre intention, cochez la case à ga
 
 2. La boîte de dialogue de confirmation **Delete patterns** (Supprimer les modèles) s’affiche. Sélectionnez **OK** pour terminer la suppression.
 
-    ![Capture d’écran de suppression de plusieurs modèles](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
+    ![Capture d’écran de la boîte de confirmation de suppression de plusieurs modèles](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
 
 ## <a name="filter-pattern-list-by-entity"></a>Filtrer la liste des modèles par entité
 
@@ -116,7 +117,7 @@ Une fois que le filtre est appliqué, le nom de l’intention apparaît sous la 
 ## <a name="remove-entity-or-intent-filter"></a>Supprimer un filtre d’entité ou d’intention
 Lorsque la liste des modèles est filtrée, le nom de l’entité ou de l’intention apparaît sous la barre d’outils. Pour supprimer le filtre, sélectionnez le nom.
 
-![Capture d’écran de modèles filtrés par entité](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
+![Capture d’écran de la suppression d’entité dans un filtre](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
 
 Le filtre est supprimé et tous les modèles s’affichent. 
 
@@ -125,7 +126,7 @@ Vous pouvez créer un modèle à partir d’un énoncé existant sur la page **I
 
 1. Sur la ligne sélectionnée de l’énoncé, sélectionnez le bouton Points de suspension (***...***) à droite de l’énoncé et sélectionnez **Add as pattern** (Ajouter en tant que modèle).
 
-    [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Capture d’écran de la table d’énoncés avec l’option d’ajout de modèle mise en surbrillance dans le menu des options")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
+    [![Capture d’écran de la table d’énoncés avec Ajouter un modèle mis en surbrillance dans le menu Options](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Capture d’écran de la table d’énoncés avec Ajouter un modèle mis en surbrillance dans le menu Options")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 
 2. Modifiez le modèle conformément aux [règles de syntaxe](luis-concept-patterns.md#pattern-syntax). Si l’énoncé que vous avez sélectionné est étiqueté avec des entités, ces entités sont déjà dans le modèle avec la syntaxe appropriée.
 

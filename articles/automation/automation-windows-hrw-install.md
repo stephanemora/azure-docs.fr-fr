@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c94fd0bb68a03c64935c20fef1fab7b68c9c2c9b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a0e0000c4baa22ccc1c26c0e40ec62bb277104af
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032986"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993914"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Windows
 
@@ -53,12 +53,12 @@ Effectuez les étapes suivantes pour automatiser l’installation et la configur
 
    Le script New-OnPremiseHybridWorker.ps1 nécessite les paramètres suivants lors de l’exécution :
 
-   * *AutomationAccountName* (obligatoire) : le nom de votre compte Automation.
-   * *AAResourceGroupName* (obligatoire) : le nom du groupe de ressources associé à votre compte Automation.
-   * *OMSResourceGroupName* (facultatif) : le nom du groupe de ressources pour l’espace de travail Log Analytics. Si ce groupe de ressources n’est pas spécifié, *AAResourceGroupName* est utilisé.
-   * *HybridGroupName* (obligatoire) : le nom d’un groupe de Runbooks Workers hybrides que vous spécifiez comme cible pour les Runbooks prenant en charge ce scénario.
-   * *SubscriptionID* (obligatoire) : l’ID de l’abonnement Azure dans lequel se trouve votre compte Automation.
-   * *WorkspaceName* (facultatif) : le nom de l’espace de travail Log Analytics. Si vous n’avez pas d’espace de travail Log Analytics, le script en crée un et le configure.
+   * *AutomationAccountName* (obligatoire) : nom de votre compte Automation.
+   * *AAResourceGroupName* (obligatoire) : nom du groupe de ressources associé à votre compte Automation.
+   * *OMSResourceGroupName* (facultatif) : nom du groupe de ressources pour l’espace de travail Log Analytics. Si ce groupe de ressources n’est pas spécifié, *AAResourceGroupName* est utilisé.
+   * *HybridGroupName* (obligatoire) : nom d’un groupe de Runbooks Workers hybrides que vous spécifiez comme cible pour les Runbooks prenant en charge ce scénario.
+   * *SubscriptionID* (obligatoire) : ID de l’abonnement Azure dans lequel se trouve votre compte Automation.
+   * *WorkspaceName* (facultatif) : Nom de l’espace de travail Log Analytics. Si vous n’avez pas d’espace de travail Log Analytics, le script en crée un et le configure.
 
      > [!NOTE]
      > Les seules régions Automation prises en charge pour l’intégration à Log Analytics sont les suivantes : **Australie Sud-Est**, **USA Est 2**, **Asie Sud-Est** et **Europe Ouest**. Si votre compte Automation ne se trouve pas dans une de ces régions, le script crée un espace de travail Log Analytics, mais vous avertit qu’il ne peut pas lier les deux.
@@ -85,7 +85,7 @@ Effectuez les deux premières étapes pour votre environnement Automation, puis 
 
 #### <a name="1-create-a-log-analytics-workspace"></a>1. Créer un espace de travail Log Analytics
 
-Si vous ne disposez pas déjà d’un espace de travail Log Analytics, créez-en un en suivant les instructions de l’article [Gestion des espaces de travail](../log-analytics/log-analytics-manage-access.md). Vous pouvez utiliser un espace de travail existant si vous en avez déjà un.
+Si vous ne disposez pas déjà d’un espace de travail Log Analytics, créez-en un en suivant les instructions de l’article [Gestion des espaces de travail](../azure-monitor/platform/manage-access.md). Vous pouvez utiliser un espace de travail existant si vous en avez déjà un.
 
 #### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Ajouter une solution Automation à l’espace de travail Log Analytics
 
@@ -132,7 +132,7 @@ Pour recevoir des informations détaillées concernant l’installation, utilise
 
 Les Runbooks peuvent utiliser toutes les activités et applets de commande définies dans les modules qui sont installés dans votre environnement Azure Automation. Toutefois, comme ces modules ne sont pas automatiquement déployés sur les ordinateurs locaux, vous devez les installer manuellement. L’exception est le module Azure, qui est installé par défaut et qui permet d’accéder aux applets de commande de l’ensemble des services et activités Azure pour Azure Automation.
 
-Étant donné que l’objectif principal de la fonctionnalité Runbook Worker hybride est de gérer les ressources locales, vous devrez probablement installer les modules qui prennent en charge ces ressources. Pour plus d’informations sur l’installation des modules Windows PowerShell, consultez [Installation de modules](http://msdn.microsoft.com/library/dd878350.aspx). 
+Étant donné que l’objectif principal de la fonctionnalité Runbook Worker hybride est de gérer les ressources locales, vous devrez probablement installer les modules qui prennent en charge ces ressources. Pour plus d’informations sur l’installation des modules Windows PowerShell, consultez [Installation de modules](https://msdn.microsoft.com/library/dd878350.aspx). 
 
 Les modules installés doivent se trouver dans un emplacement référencé par la variable d’environnement **PSModulePath** afin d’être importés automatiquement par le Worker hybride. Pour plus d’informations, consultez la page [Modifier le chemin d’Installation de PSModulePath](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
 

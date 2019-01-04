@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: b59d503b8aadef9e8f9c2d7db71ff60aee3b6387
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 9d9e97d81e33487a5f23197912eba3802e83a32e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300708"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257374"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Intégration au centre de données Azure Stack - Identité
 Vous pouvez déployer Azure Stack en utilisant Azure Active Directory (Azure AD) ou Active Directory Federation Services (AD FS) en tant que fournisseur d’identité. Vous devez faire le choix avant de déployer Azure Stack. Le déploiement à l’aide d’AD FS est également appelé déploiement d’Azure Stack en mode déconnecté.
@@ -131,7 +131,7 @@ Les informations suivantes sont nécessaires en entrée pour les paramètres Aut
 
 |Paramètre|Description|Exemples|
 |---------|---------|---------|
-|CustomAdfsName|Nom du fournisseur de revendications.<cr>Il apparaît sous cette forme sur la page d’accueil AD FS.|Contoso|
+|CustomAdfsName|Nom du fournisseur de revendications.<br>Il apparaît ainsi dans la page d’accueil AD FS.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Lien Métadonnées de fédération|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 

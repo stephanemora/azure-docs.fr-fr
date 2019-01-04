@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 1d00dbe23fbd724893ba2b964fc54a3ea9066dcb
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 87baef8ddb5b5d8fc979ba5afb9f9b13cb4fc2ef
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250761"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876534"
 ---
 # <a name="get-started-with-using-azure-devtest-labs"></a>Prise en main d’Azure DevTest Labs
 Pour explorer DevTest Labs, il existe deux chemins généraux : déploiement à l’échelle ou déploiement de preuve de concept. 
@@ -51,7 +51,7 @@ La création et la gestion des environnements de test dans une entreprise peuven
 
 - Les testeurs peuvent tester la dernière version de l’application en approvisionnant rapidement des environnements Windows et Linux à l’aide d’artefacts et de modèles réutilisables.
 - Ils peuvent faire monter en puissance (scale up) leur test de charge en approvisionnant plusieurs agents de test.
-- Les administrateurs peuvent connecter le laboratoire à VSTS pour activer des scénarios DevOps.
+- Les administrateurs peuvent connecter le laboratoire à Azure DevOps pour activer des scénarios DevOps
 - Les administrateurs peuvent contrôler les coûts en s’assurant que :
     - Les testeurs ne peuvent pas obtenir plus de machines virtuelles qu’il n’est nécessaire.
     - Les machines virtuelles sont éteintes lorsqu’elles ne sont pas utilisées.
@@ -62,4 +62,4 @@ Un laboratoire dans Azure DevTest Labs constitue un excellent conteneur pour l
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez l’article suivant de cette série : [Monter votre déploiement DevTest Labs](devtest-lab-guidance-scale.md).
+Voir l’article suivant de cette série : [Monter votre déploiement DevTest Labs](devtest-lab-guidance-scale.md)

@@ -1,5 +1,5 @@
 ---
-title: Configurer des appareils en aval avec Azure IoT Edge | Microsoft Docs
+title: Connecter des appareils en aval - Azure IoT Edge | Microsoft Docs
 description: Guide pratique pour configurer des appareils en aval ou de nœud terminal afin de les connecter via des appareils de passerelle Azure IoT Edge.
 author: kgremban
 manager: philmea
@@ -8,12 +8,13 @@ ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bd9d8c4a75df0d9070476fb72d2b60f5cb182a87
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 0797952641efb9fe876d72f2dce0418ff5771d40
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566225"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083332"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connecter un appareil en aval à une passerelle Azure IoT Edge
 
@@ -88,7 +89,7 @@ sudo update-ca-certificates
 
 Vous devez voir un message indiquant « Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done. » (Mise à jour des certificats dans /etc/ssl/certs... 1 ajouté, 0 supprimé ; terminé.)
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 Les étapes suivantes montrent un exemple d’installation d’un certificat d’autorité de certification sur un hôte Windows. Cet exemple suppose que vous utilisez le certificat **azure-iot-test-only.root.ca.cert.pem** à partir des articles de la configuration requise et que vous avez copié le certificat dans un emplacement sur l’appareil en aval.  
 

@@ -1,25 +1,20 @@
 ---
-title: Routage asymétrique | Microsoft Docs
-description: Cet article vous présente des solutions aux problèmes auxquels les clients peuvent être confrontés du fait d’un routage asymétrique dans un réseau lorsqu’il existe plusieurs connexions vers une même destination.
+title: Routage asymétrique – Azure ExpressRoute | Microsoft Docs
+description: Cet article présente des solutions aux problèmes courants en cas de routage asymétrique dans un réseau doté de plusieurs connexions vers une même destination.
 documentationcenter: na
 services: expressroute
 author: osamazia
-manager: carmonm
-editor: ''
-ms.assetid: a754bff9-95c9-44b5-9796-377fc21e8322
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: article
 ms.date: 10/10/2016
 ms.author: osamam
-ms.openlocfilehash: 8568c13d2834a0643e15ab1814a35c92123837d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 6ece48d892f46a4f8bbeb66d3ebda9f532b621b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22710012"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076649"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Routage asymétrique avec chemins d’accès réseau multiples
 Cet article explique comment le trafic réseau entrant et sortant peut emprunter différentes voies lorsque plusieurs chemins d’accès sont disponibles entre la source et la destination réseau.

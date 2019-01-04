@@ -1,5 +1,5 @@
 ---
-title: Sélection de fonctionnalités dans le processus TDSP (Team Data Science Process) | Microsoft Docs
+title: Sélection de fonctionnalités dans le processus TDSP (Team Data Science Process)
 description: Explique la finalité de la sélection de fonctionnalités et fournit des exemples de son rôle dans le processus d’amélioration des données de l’apprentissage automatique.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b439f7245dd09a2f8a7ffe5f3b3c5396786220af
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: de8070906f7b2470378fb631f2e94a96b4a2960d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442370"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138651"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Sélection de fonctionnalités dans le processus TDSP (Team Data Science Process)
 Cet article explique les finalités de la sélection de fonctionnalités et fournit des exemples de son rôle dans le processus d’amélioration des données de l’apprentissage automatique. Ces exemples sont tirés d’Azure Machine Learning Studio. 
@@ -25,8 +25,8 @@ Cet article explique les finalités de la sélection de fonctionnalités et four
 
 La conception et la sélection de fonctionnalités constituent une partie du processus TDSP présenté dans l’article [Qu’est ce que le processus TDSP (Team Data Science Process) ?](overview.md). La conception et la sélection de fonctionnalités sont des parties de l’étape de **développement de fonctionnalités** du processus TDSP.
 
-* La **conception de caractéristiques** : ce processus tente de créer des caractéristiques supplémentaires pertinentes à partir de caractéristiques brutes existantes dans les données et d'augmenter la performance de prédiction de l'algorithme d'apprentissage.
-* La **sélection de caractéristiques** : ce processus sélectionne le sous-ensemble clé des caractéristiques de données d'origine afin de réduire la dimensionnalité du problème d'apprentissage.
+* **Ingénierie de caractéristiques** : ce processus tente de créer des caractéristiques supplémentaires pertinentes à partir de caractéristiques brutes existantes dans les données et d’augmenter la performance de prédiction de l’algorithme d’apprentissage.
+* **Sélection de caractéristiques** : ce processus sélectionne le sous-ensemble clé des caractéristiques de données d’origine afin de réduire la dimensionnalité du problème d’apprentissage.
 
 En général, l’**ingénierie de caractéristiques** s’applique d’abord à la génération de caractéristiques supplémentaires. L’étape de **sélection de caractéristiques** est alors effectuée pour éliminer les caractéristiques inutiles, redondantes ou fortement corrélées.
 
@@ -42,21 +42,21 @@ Notamment, l’une des méthodes de sélection de caractéristiques de catégori
 
 Dans Azure Machine Learning Studio, des modules sont fournis pour la sélection des caractéristiques. Comme indiqué dans la figure suivante, ces modules comprennent une [sélection de caractéristiques par filtrage][filter-based-feature-selection] et une [analyse discriminante linéaire de Fisher][fisher-linear-discriminant-analysis].
 
-![Exemple de sélection de caractéristiques](./media/select-features/feature-Selection.png)
+![Modules de sélection de caractéristiques](./media/select-features/feature-Selection.png)
 
 Prenons l’exemple de l’utilisation du module de [sélection de caractéristiques basée par filtrage][filter-based-feature-selection]. Pour plus de commodité, continuez à utiliser l’exemple d’exploration de texte. Supposons que nous voulons créer un modèle de régression après avoir créé un ensemble de 256 caractéristiques via le module de [hachage de caractéristiques][feature-hashing] et que la variable de réponse est le « Col1 » contenant une critique de livre notée de 1 à 5. La « Méthode de notation des caractéristiques » doit être définie en tant que « corrélation de Pearson », la « Colonne cible » en tant que « Col1 » et le « nombre de caractéristiques souhaitées » à 50. Le module de [sélection de caractéristiques par filtrage][filter-based-feature-selection] produit ensuite un jeu de données contenant 50 caractéristiques avec l’attribut cible « Col1 ». La figure suivante montre le flux de cette expérimentation et les paramètres d’entrée :
 
-![Exemple de sélection de caractéristiques](./media/select-features/feature-Selection1.png)
+![Propriétés du module de sélection de caractéristiques par filtrage](./media/select-features/feature-Selection1.png)
 
 La figure suivante montre les jeux de données qui en résultent :
 
-![Exemple de sélection de caractéristiques](./media/select-features/feature-Selection2.png)
+![Jeu de données obtenu pour le module de sélection de caractéristiques par filtrage](./media/select-features/feature-Selection2.png)
 
 Chaque caractéristique obtient un score basé sur la corrélation de Pearson entre elle et l'attribut cible « Col1 ». Les caractéristiques avec les scores les plus élevés sont conservées.
 
 Les scores correspondants des caractéristiques sélectionnées sont indiqués dans la figure suivante :
 
-![Exemple de sélection de caractéristiques](./media/select-features/feature-Selection3.png)
+![Scores pour le module de sélection de caractéristiques par filtrage](./media/select-features/feature-Selection3.png)
 
 En appliquant ce module de [sélection de caractéristiques par filtrage][filter-based-feature-selection], 50 des 256 caractéristiques sont sélectionnées, car elles présentent la corrélation la plus importante avec la variable cible « Col1 » selon la méthode de notation « corrélation de Pearson ».
 

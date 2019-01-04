@@ -9,16 +9,15 @@ ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: a5ea0879e9b67a27f437b1d59a1b0998c770f5f0
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 0d327ac780f7881662c963013fe3828440294076
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842879"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725248"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Contrôle d’accès, rôles et ressources dans Application Insights
 
@@ -65,7 +64,7 @@ Choisissez **Contrôle d’accès (IAM)** dans le menu de gauche.
 
 ![Capture d’écran du bouton Contrôle d'accès dans le portail Azure](./media/app-insights-resources-roles-access-control/0001-access-control.png)
 
-Sélectionnez **Ajouter**
+Sélectionnez **Ajouter une attribution de rôle**.
 
 ![Capture d’écran du menu Contrôle d’accès avec le bouton Ajouter encadré en rouge](./media/app-insights-resources-roles-access-control/0002-add.png)
 

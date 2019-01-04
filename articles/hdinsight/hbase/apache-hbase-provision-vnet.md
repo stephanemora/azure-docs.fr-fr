@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6c1307fcb472f6c66a95b76ad3c1b1686ce4f998
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cf037000a047b02f3874c3bccc9678f2ea18ecec
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308935"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011196"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Créer des clusters Apache HBase sur HDInsight dans un réseau virtuel Azure
 Découvrez comment créer des clusters Apache HBase Azure HDInsight dans un [réseau virtuel Azure][1].
@@ -37,14 +37,14 @@ Dans cette section, vous allez créer un cluster Apache HBase basé sur Linux av
 > [!NOTE]
 > Certaines propriétés sont codées en dur dans le modèle. Par exemple : 
 >
-> * **Emplacement** : USA Est 2
-> * **Version du cluster** : 3.6
-> * **Nombre de nœuds de travail du cluster** : 2
+> * **Emplacement** : USA Est 2
+> * **Version de cluster** : 3.6
+> * **Nombre de nœuds worker du cluster** : 2
 > * **Compte de stockage par défaut** : une chaîne unique
-> * **Nom du réseau virtuel** : &lt;Nom du cluster&gt;-réseau virtuel
+> * **Nom du réseau virtuel** : &lt;Nom de cluster>-vnet
 > * **Espace d’adressage du réseau virtuel** : 10.0.0.0/16
 > * **Nom du sous-réseau** : subnet1
-> * **Plage d’adresses de sous-réseau** : 10.0.0.0/24
+> * **Plage d’adresses de sous-réseau** : 10.0.0.0/24
 >
 > La valeur &lt;Nom du cluster> est remplacée par le nom de cluster que vous fournissez lors de l’utilisation du modèle.
 >
@@ -55,14 +55,14 @@ Dans cette section, vous allez créer un cluster Apache HBase basé sur Linux av
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Dans le panneau **Déploiement personnalisé**, entrez les propriétés suivantes :
 
-   * **Abonnement** : sélectionnez un abonnement Azure utilisé pour créer le cluster HDInsight, le compte de stockage dépendant et le réseau virtuel Azure.
-   * **Groupe de ressources** : sélectionnez **Créer** et donnez un nouveau nom au groupe de ressources.
-   * **Emplacement** : sélectionnez un emplacement pour le groupe de ressources.
-   * **ClusterName** : entrez un nom pour le cluster Hadoop à créer.
-   * **Nom d’utilisateur et mot de passe de cluster** : le nom de connexion par défaut est **admin**.
-   * **Nom d’utilisateur SSH et mot de passe** : le nom d’utilisateur par défaut est **sshuser**.  Vous pouvez le renommer.
-   * **J’accepte les termes et conditions mentionnés ci-dessus** : (sélectionner)
-3. Cliquez sur **Acheter**. La création d’un cluster prend environ 20 minutes. Une fois le cluster créé, vous pouvez cliquer sur le panneau du cluster dans le portail pour l’ouvrir.
+   * **Abonnement**: Sélectionnez un abonnement Azure utilisé pour créer le cluster HDInsight, le compte de stockage dépendant et le réseau virtuel Azure.
+   * **Groupe de ressources** : Sélectionnez **Créer nouveau** et spécifiez un nouveau nom de groupe de ressources.
+   * **Emplacement** : Sélectionnez l’emplacement du groupe de ressources.
+   * **ClusterName** : Entrez un nom pour le cluster Hadoop à créer.
+   * **ID de connexion et mot de passe du cluster** : Le nom de connexion par défaut est **admin**.
+   * **Nom d’utilisateur et mot de passe SSH** : Le nom d’utilisateur par défaut est **sshuser**.  Vous pouvez le renommer.
+   * **J’accepte les termes et conditions mentionnés ci-dessus** : (Sélectionner)
+3. Cliquez sur **Achat**. La création d’un cluster prend environ 20 minutes. Une fois le cluster créé, vous pouvez cliquer sur le panneau du cluster dans le portail pour l’ouvrir.
 
 Après avoir terminé ce didacticiel, vous souhaiterez peut-être supprimer le cluster. Avec HDInsight, vos données sont stockées Azure Storage, pour que vous puissiez supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés. Pour obtenir des instructions sur la suppression d’un cluster, consultez [Gestion des clusters Apache Hadoop dans HDInsight au moyen du portail Azure](../hdinsight-administer-use-management-portal.md#delete-clusters).
 
@@ -71,7 +71,7 @@ Pour commencer à utiliser votre nouveau cluster HBase, vous pouvez utiliser les
 ## <a name="connect-to-the-apache-hbase-cluster-using-apache-hbase-java-rpc-apis"></a>Se connecter au cluster Apache HBase avec les API RPC Java Apache HBase
 1. Créez une machine virtuelle IaaS dans le même réseau virtuel Azure et le même sous-réseau. Pour plus d’informations sur la création d’une machine virtuelle IaaS, consultez [Création d’une machine virtuelle exécutant Windows Server](../../virtual-machines/windows/quick-create-portal.md). Lors des étapes décrites dans ce document, vous devez utiliser les valeurs suivantes pour la configuration du réseau :
 
-   * **Réseau virtuel** : &lt;Nom du cluster&gt;-réseau virtuel
+   * **Réseau virtuel** : &lt;Nom de cluster>-vnet
    * **Sous-réseau** : subnet1
 
    > [!IMPORTANT]
@@ -247,7 +247,7 @@ Dans ce tutoriel, vous avez appris à créer un cluster Apache HBase. Pour plus 
 * [Bien démarrer avec l’utilisation d’Apache HBase et d’Apache Hadoop dans HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Présentation du réseau virtuel.](../../virtual-network/virtual-networks-overview.md)
 
-[1]: http://azure.microsoft.com/services/virtual-network/
-[2]: http://technet.microsoft.com/library/ee176961.aspx
-[3]: http://technet.microsoft.com/library/hh847889.aspx
+[1]: https://azure.microsoft.com/services/virtual-network/
+[2]: https://technet.microsoft.com/library/ee176961.aspx
+[3]: https://technet.microsoft.com/library/hh847889.aspx
 

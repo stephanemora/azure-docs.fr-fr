@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/30/2018
-ms.openlocfilehash: f24f15134bf189097f20f75ff0b23b72a3e48363
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 12/12/2018
+ms.openlocfilehash: 108d2ac83c0dc317dee2f8c66f95f01d3569a7c4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299604"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311658"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitations des bases de données Azure pour PostgreSQL
 Les sections suivantes décrivent les limites fonctionnelles et les limites de capacités du service de base de données.
@@ -31,10 +31,12 @@ Le nombre maximal de connexions par niveau tarifaire et de vCores est le suivant
 |Usage général| 8| 480|
 |Usage général| 16| 950|
 |Usage général| 32| 1 500|
+|Usage général| 64| 1900|
 |Mémoire optimisée| 2| 300|
 |Mémoire optimisée| 4| 500|
 |Mémoire optimisée| 8| 960|
 |Mémoire optimisée| 16| 1900|
+|Mémoire optimisée| 32| 3000|
 
 Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l’erreur suivante :
 > FATAL:  sorry, too many clients already
@@ -56,6 +58,9 @@ Le système Azure a besoin de cinq connexions pour effectuer le monitoring du se
 - Lorsque vous utilisez la fonctionnalité PITR, le nouveau serveur est créé avec les mêmes configurations de niveau tarifaire que le serveur sur lequel il est basé.
 - Le nouveau serveur créé lors d’une restauration ne dispose pas des règles de pare-feu qui existaient sur le serveur d’origine. Les règles de pare-feu doivent être définies séparément pour ce nouveau serveur.
 - La restauration d’un serveur supprimé n’est pas prise en charge.
+
+### <a name="utf-8-characters-on-windows"></a>Caractères UTF-8 sur Windows
+- Dans certains scénarios, les caractères UTF-8 ne sont pas entièrement pris en charge dans PostgreSQL open source sur Windows, ce qui affecte la base de données Azure pour PostgreSQL. Veuillez consulter la conversation sur [le bogue 15476 # dans l’archive postgresql](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) pour plus d’informations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Comprendre [les éléments disponibles dans chaque niveau tarifaire](concepts-pricing-tiers.md)

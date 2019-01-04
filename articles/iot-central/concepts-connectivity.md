@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: ad77f1f0a99fbdb355163e1bc83461c8c4eb75fa
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7e90fb6bcfa1bfab59177cbc6c717fefc163a67a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157698"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960093"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectivité des appareils dans Azure IoT Central
 
@@ -44,17 +44,17 @@ La connexion d’un appareil unique à IoT Central avec SAP est facile et ne né
 1. Ajoutez un **appareil réel** à partir de Device Explorer, cliquez sur **+ Nouveau > Réel** pour ajouter un appareil réel.
     * Entrez l’ID d’appareil **<span style="color:Red">(doit être en minuscules)</span>** ou utilisez l’ID d’appareil suggéré.
     * Entrez le nom de l’appareil ou utilisez le nom suggéré   
-    ![Ajout d’un appareil](media\concepts-connectivity\add-device.png)
+    ![Ajout d’un appareil](media/concepts-connectivity/add-device.png)
 1. Obtenez des informations de connexion telles que **l’ID d’étendue, l’ID de l’appareil et la clé primaire** pour l’appareil ajouté en cliquant sur **Connecter** sur la page de l’appareil.
     * L’**[ID d’étendue](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope)** est propre à une application IoT Central et générée par le service DPS, et utilisée pour garantir un ID d’appareil unique au sein d’une application.
     * L’**ID de l’appareil** est l’ID d’appareil propre à une application. L’appareil doit envoyer l’ID d’appareil lors de l’appel d’inscription.   
     * La **clé primaire** est un jeton SAP, généré par IoT Central pour cet appareil spécifique. 
-    ![Informations de connexion](media\concepts-connectivity\device-connect.PNG)
+    ![Informations de connexion](media/concepts-connectivity/device-connect.PNG)
 1. Utilisez ces informations de connexion (**Identité d’appareil, Nom de l’appareil et Clé primaire de l’appareil**) dans le code de votre appareil pour l’approvisionner et le connecter, et constater l’afflux instantané des données. Si vous utilisez l’appareil MxChip, suivez [les instructions pas à pas ici](howto-connect-devkit.md#add-a-real-device). Commencez par la section **Préparer l’appareil DevKit**.   
 
     Voici les références pour d’autres langues à utiliser.
 
-    *   **Langage C** : si vous utilisez C, suivez cet [exemple de client d’appareil C](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) pour connecter un exemple d’appareil. Utilisez les réglages suivants dans l’exemple.   
+    *   **Langage C :** si vous utilisez C, suivez cet [exemple de client d’appareil C](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) pour connecter un exemple d’appareil. Utilisez les réglages suivants dans l’exemple.   
 
          ```
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
@@ -64,7 +64,7 @@ La connexion d’un appareil unique à IoT Central avec SAP est facile et ne né
          static const char* const REGISTRATION_NAME = "Enter Device Id here";
         ```
 
-    *   **Node.js** : si vous voulez utiliser Node.js, [suivez les instructions pas à pas ici](tutorial-add-device.md#prepare-the-client-code), commencez par la section **Préparer le code client**.
+    *   **Node.js :**  si vous voulez utiliser Node.js, [suivez les instructions pas à pas ici](tutorial-add-device.md#prepare-the-client-code), commencez par la section **Préparer le code client**.
 
 
 
@@ -81,7 +81,7 @@ Pour connecter des appareils à l’échelle avec IoT Central avec SAP, vous dev
 
 Pour connecter un grand nombre d’appareils à votre application, Azure IoT Central offre une importation en masse des appareils via un fichier CSV. 
 
-Exigences relatives au fichier CSV : il doit disposer des colonnes (et en-têtes) suivantes
+Exigences du fichier CSV : Le fichier CSV doit disposer des colonnes (et en-têtes) suivantes
 1.  IOTC_DeviceID **<span style="color:Red">(doit être en minuscules)</span>**
 1.  IOTC_DeviceName (facultatif)
 
@@ -102,7 +102,7 @@ Pour exporter en bloc des appareils à partir de votre application :
 1.  Sélectionnez les appareils que vous souhaitez exporter, puis cliquez sur l’action **Exporter**.
 1.  Une fois l’exportation terminée, un message de réussite s’affiche avec un lien pour télécharger le fichier généré.
 1.  Cliquez sur le message de réussite pour télécharger le fichier vers un dossier local sur le disque.
-1.  Le fichier CSV exporté contient les informations de colonnes suivantes : **ID de l’appareil, nom de l’appareil, clé primaire/secondaire de l’appareil, et thumbprints de certificat primaire/secondaire**
+1.  Le fichier CSV exporté contient les colonnes suivantes : **ID de l’appareil, nom de l’appareil, clé primaire/secondaire de l’appareil et empreinte numérique de certificat primaire/secondaire**
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY
@@ -118,14 +118,14 @@ Si vous utilisez l’appareil **MxChip** pour vous connecter, suivez les [instru
 
 Voici les références pour d’autres langues à utiliser.
 
-   *   **Langage C** : si vous utilisez C, suivez cet [exemple de client d’appareil C](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) pour connecter un exemple d’appareil. Utilisez les réglages suivants dans l’exemple.   
+   *   **Langage C :** si vous utilisez C, suivez cet [exemple de client d’appareil C](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) pour connecter un exemple d’appareil. Utilisez les réglages suivants dans l’exemple.   
          ```
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
          static const char* const SYMMETRIC_KEY_VALUE = "Enter Primary Symmetric key here";
          static const char* const REGISTRATION_NAME = "Enter Device Id here";
         ```
-    * **Node.js** : si vous voulez utiliser Node.js, [suivez les instructions pas à pas ici](tutorial-add-device.md#prepare-the-client-code), commencez par la section **Préparer le code client**.
+    * **Node.js :**  si vous voulez utiliser Node.js, [suivez les instructions pas à pas ici](tutorial-add-device.md#prepare-the-client-code), commencez par la section **Préparer le code client**.
 
 
 ## <a name="connect-devices-using-x509-certificates"></a>Connecter des appareils avec des certificats X509
@@ -137,20 +137,20 @@ Pour connecter des appareils à IoT Central avec des certificats X509, il y a tr
 
     *   **Ajouter le certificat intermédiaire ou racine X509** que vous utilisez pour générer les certificats d’appareil de nœud terminal. Accédez à Administration > Connexion de l’appareil > Certificats. 
     
-        ![Paramètres de connexion](media\concepts-connectivity\connection-settings.PNG)
-    *   **Vérification du certificat** : la vérification de la propriété du certificat permet de s’assurer que l’utilisateur qui a chargé le certificat est en possession de la clé privée associée. Pour vérifier le certificat
+        ![Paramètres de connexion](media/concepts-connectivity/connection-settings.PNG)
+    *   **Vérification du certificat :** la vérification de la propriété du certificat permet de s’assurer que l’utilisateur qui a chargé le certificat est en possession de la clé privée associée. Pour vérifier le certificat
         *  Générez le code de vérification, cliquez sur le bouton situé à côté du champ Code de vérification pour générer le code. 
         *  Créez un certificat de vérification X.509 avec le code de vérification, enregistrez le certificat au format .cer. 
         *  Chargez le certificat de vérification signé et cliquez sur Vérifier.
 
-        ![Paramètres de connexion](media\concepts-connectivity\verify-cert.png)
-    *   **Certificat secondaire** : pendant le cycle de vie de votre solution IoT, vous devrez renouveler des certificats. Deux des principales raisons pour lesquelles il convient de renouveler les certificats sont les violations de la sécurité et l’expiration des certificats. Les certificats secondaires sont utilisés pour réduire les temps d’arrêt des appareils tentant de s’approvisionner pendant que vous mettez à jour le certificat primaire.
+        ![Paramètres de connexion](media/concepts-connectivity/verify-cert.png)
+    *   **Certificat secondaire :** Pendant le cycle de vie de votre solution IoT, vous devrez renouveler des certificats. Deux des principales raisons pour lesquelles il convient de renouveler les certificats sont les violations de la sécurité et l’expiration des certificats. Les certificats secondaires sont utilisés pour réduire les temps d’arrêt des appareils tentant de s’approvisionner pendant que vous mettez à jour le certificat primaire.
 
     **UNIQUEMENT À DES FINS DE TEST** 
     
     Vous trouverez ci-dessous des outils de ligne de commandes que vous pouvez utiliser pour gérer des certificats CA et d’appareil.
 
-    * Si vous utilisez MxChip, voici un [outil de ligne de commande](http://aka.ms/iotcentral-docs-dicetool) pour générer des certificats CA. Ajoutez-le à votre application IoT Central et vérifiez les certificats. 
+    * Si vous utilisez MxChip, voici un [outil de ligne de commande](https://aka.ms/iotcentral-docs-dicetool) pour générer des certificats CA. Ajoutez-le à votre application IoT Central et vérifiez les certificats. 
 
     *   Utilisez cet [outil de ligne de commande](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) pour
         * Créez la chaîne d’approbation (suivre l’étape 2 dans les documents GitHub). 
@@ -165,7 +165,7 @@ Pour connecter des appareils à IoT Central avec des certificats X509, il y a tr
     Programmez l’appareil avec les informations du service d’approvisionnement pour lui permettre d’obtenir ses informations de connexion et l’attribution de l’application IoT Central lorsqu’il est allumé.    
 
     **Référence supplémentaire** 
-    *   Exemple d’implémentation pour [RaspberryPi.](http://aka.ms/iotcentral-docs-Raspi-releases)  
+    *   Exemple d’implémentation pour [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)  
 
     *   [Exemple de client d’appareil dans C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
 
@@ -180,18 +180,18 @@ IoT Central permet aux fabricants OEM de fabriquer des appareils en masse, de g�
 
 Voici le flux pour connecter des appareils avec cette fonctionnalité
 
-![Paramètres de connexion](media\concepts-connectivity\device-connection-flow.PNG)
+![Paramètres de connexion](media/concepts-connectivity/device-connection-flow.PNG)
 
 
 Suivez les étapes selon votre choix de schéma d’authentification d’appareil (X509/SAP)
 
 1. **Paramètres de connexion** 
-    * **Certificats X509** : [ajoutez et vérifiez le certificat intermédiaire/racine](#connect-devices-using-x509-certificates) et utilisez-le pour générer les certificats d’appareil dans la prochaine étape.
-    * **SAP** : copiez la clé primaire (il s’agit de clé SAP de groupe de cette application IoT Central), et utilisez-la pour générer les clés SAP d’appareil dans la prochaine étape. 
-![Paramètres de connexion SAP](media\concepts-connectivity\connection-settings-sas.png)
+    * **Certificats X509 :** [ajoutez et vérifiez le certificat intermédiaire/racine](#connect-devices-using-x509-certificates) et utilisez-le pour générer les certificats d’appareil dans la prochaine étape.
+    * **SAP :** copiez la clé primaire (il s’agit de clé SAP de groupe de cette application IoT Central), et utilisez-la pour générer les clés SAP d’appareil dans la prochaine étape. 
+![Paramètres de connexion SAP](media/concepts-connectivity/connection-settings-sas.png)
 
 1. **Générer des informations d’identification d’appareil** 
-    *   **Certificats X509** : générez les certificats de nœud terminal pour vos appareils avec le certificat intermédiaire/racine que vous avez ajouté dans l’application. Veillez à utiliser l’**ID de l’appareil** comme cname dans les certificats de nœud terminal. L’ID **<span style="color:Red">doit être en minuscules</span>**. Voici un [outil de ligne de commande](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) pour générer des certificats d’appareil/de nœud terminal pour des tests.
+    *   **Certificats (X.509) :** générez les certificats de nœud terminal pour vos appareils avec le certificat intermédiaire/racine que vous avez ajouté dans l’application. Veillez à utiliser l’**ID de l’appareil** comme cname dans les certificats de nœud terminal. L’ID **<span style="color:Red">doit être en minuscules</span>**. Voici un [outil de ligne de commande](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) pour générer des certificats d’appareil/de nœud terminal pour des tests.
     *   Les clés **SAP** d’appareil peuvent être générées avec cet [outil de ligne de commande](https://www.npmjs.com/package/dps-keygen). Utilisez la clé SAP primaire (clé SAP de groupe) de l’étape précédente. Veillez à ce que l’ID de l’appareil soit **<span style="color:Red">en minuscules</span>**.
 
         Suivez les instructions ci-dessous pour générer une clé SAP d’appareil.           
@@ -212,7 +212,7 @@ Suivez les étapes selon votre choix de schéma d’authentification d’apparei
 
 1. **Connecter un appareil à IoT Central** : une fois allumés, les appareils se connectent aux services DPS/IoT Central pour l’inscription.
 
-1. **Associer un appareil à un modèle** : l’appareil connecté s’affiche sous **UnAssociated Devices** (Appareils non associés) dans **Device Explorer** (Explorateur d’appareil). L’état d’approvisionnement de l’appareil est **Inscrit**. **Associez** l’appareil au modèle d’appareil approprié et autorisez-le à se connecter à l’application IoT Central. L’appareil reçoit ses informations de connexion à l’application IoT Central, se connecte et commence à transmettre des données. L’approvisionnement de l’appareil est maintenant terminé et l’*État de l’approvisionnement* passe à **Approvisionné**.
+1. **Associer un appareil à un modèle** : l’appareil connecté s’affiche sous **UnAssociated Devices** (Appareils non associés) dans **Device Explorer**. L’état d’approvisionnement de l’appareil est **Inscrit**. **Associez** l’appareil au modèle d’appareil approprié et autorisez-le à se connecter à l’application IoT Central. L’appareil reçoit ses informations de connexion à l’application IoT Central, se connecte et commence à transmettre des données. L’approvisionnement de l’appareil est maintenant terminé et l’*État de l’approvisionnement* passe à **Approvisionné**.
 
 ## <a name="device-provisioning-status"></a>État de l’approvisionnement de l’appareil
 Il y a une série d’étapes à suivre lorsqu’un appareil réel est connecté à Azure IoT Central 
@@ -232,7 +232,7 @@ Un appareil est Inscrit quand
 Vous pouvez obtenir la chaîne de connexion de l’appareil IoT Hub à Azure IoT Hub en suivant les étapes suivantes 
 1. Obtenez des informations de connexion telles que **l’ID d’étendue, l’ID de l’appareil et la clé primaire** sur la page de l’appareil (page de l’appareil > cliquez sur Connecter). 
 
-    ![Informations de connexion](media\concepts-connectivity\device-connect.PNG)
+    ![Informations de connexion](media/concepts-connectivity/device-connect.PNG)
 
 1. Obtenez la chaîne de connexion de l’appareil avec l’outil de ligne de commande ci-dessous.
     Suivez les instructions ci-dessous pour obtenir la chaîne de connexion d’appareil.  

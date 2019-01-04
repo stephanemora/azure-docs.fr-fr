@@ -1,5 +1,5 @@
 ---
-title: Exécuter des tâches de science des données - Azure Machine Learning | Microsoft Docs
+title: Exécuter des tâches de science des données - Team Data Science Process
 description: Explique comment un scientifique des données peut réaliser un projet de science des données de manière traçable et collaborative, avec gestion de versions.
 author: marktab
 manager: cgronlun
@@ -9,13 +9,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 7e25e2c95f377b1ad40cba24b29ababd0561e32a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: e8167361f3b541b613d453ade473880ec97a56dc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495681"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134809"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Exécuter des tâches de science des données : exploration, modélisation et déploiement
 
@@ -53,7 +53,7 @@ La section suivante Gestion des modèles montre comment obtenir un système perm
 
 [L’utilitaire AMAR (Automated Modeling And Reporting)](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling) est un outil personnalisable et semi-automatique qui permet de créer des modèles à l’aide d’un balayage hyperparamétrique, et de comparer la précision de ces modèles. 
 
-Cet utilitaire de création de modèles est un fichier R Markdown qui peut être exécuté pour produire une sortie HTML autonome comprenant une table des matières qui facilite la navigation entre ses différentes sections. Trois algorithmes sont exécutés quand le fichier Markdown est exécuté (compilé) : la régression régularisée qui utilise le package glmnet, une forêt aléatoire qui utilise le package randomForest, et des arbres de boosting qui utilisent le package xgboost. Chacun de ces algorithmes génère un modèle entraîné. La précision de ces modèles est ensuite comparée et les tracés d’importance relative des caractéristiques sont créés. Deux utilitaires sont actuellement disponibles : un pour la classification binaire et l’autre pour la régression. Leurs principales différences se situent au niveau de la manière dont sont spécifiés les paramètres de contrôle et les métriques de précision pour ces tâches d’apprentissage automatique. 
+Cet utilitaire de création de modèles est un fichier R Markdown qui peut être exécuté pour produire une sortie HTML autonome comprenant une table des matières qui facilite la navigation entre ses différentes sections. Trois algorithmes sont exécutés quand le fichier Markdown est exécuté (compilé) : la régression régularisée qui utilise le package glmnet, une forêt aléatoire qui utilise le package randomForest, et des arbres de boosting qui utilisent le package xgboost. Chacun de ces algorithmes génère un modèle formé. La précision de ces modèles est ensuite comparée et les tracés d’importance relative des caractéristiques sont créés. Deux utilitaires sont actuellement disponibles : un pour la classification binaire et l’autre pour la régression. Leurs principales différences se situent au niveau de la manière dont sont spécifiés les paramètres de contrôle et les métriques de précision pour ces tâches d’apprentissage automatique. 
 
 Un fichier YAML permet de spécifier :
 

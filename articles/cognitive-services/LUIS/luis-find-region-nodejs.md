@@ -1,27 +1,28 @@
 ---
-title: Rechercher la région de point de terminaison avec Node.js dans LUIS
-titleSuffix: Azure Cognitive Services
-description: Rechercher par programmation une région de publication avec un point de terminaison et un ID d’application pour LUIS.
+title: Région du point de terminaison, Node.js
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Avec Node.js, recherchez une région de publication avec un point de terminaison et un ID d’application pour LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 193872d03dde1d5c620acca1b7aba99b60db238d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6bcea43fb21cae6f000f3522b498dfc6c0f6d9a7
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034074"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166215"
 ---
 # <a name="find-endpoint-region-with-nodejs"></a>Rechercher la région de point de terminaison avec Node.js
 Si vous disposez d’un ID d’application LUIS et d’un ID d’abonnement LUIS, vous pouvez rechercher la région à utiliser pour les requêtes de point de terminaison.
 
 > [!NOTE] 
-> La solution Node.js complète est disponible dans le [**référentiel Github** LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/nodejs/) (Exemples-LUIS).
+> La solution Node.js complète est disponible dans le dépôt GitHub [**LUIS-Samples**](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/nodejs/).
 
 ## <a name="luis-endpoint-query-strategy"></a>Stratégie de requête de point de terminaison LUIS
 Chaque requête de point de terminaison LUIS nécessite :

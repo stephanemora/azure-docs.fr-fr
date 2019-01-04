@@ -1,12 +1,11 @@
 ---
-title: 'Étape 6 : Accéder au service web Machine Learning Studio | Microsoft Docs'
-description: 'Étape 6 du guide pas à pas du développement d’une solution prédictive : accès à un service web actif Azure Machine Learning Studio.'
+title: 'Étape 6 : Accéder à un service web - Azure Machine Learning Studio | Microsoft Docs'
+description: 'Étape 6 de la procédure pas à pas Développer une solution prédictive : Accéder à un service web Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cgronlun
 ms.assetid: 6a65c89a-40ab-4673-8dd8-8eee0a150e3b
 ms.service: machine-learning
@@ -16,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 5402f228a650a1a3d3282180a52f9e9f9cc10a3a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e0628f6ed39652f3168917e26383b5d3c4a4fa4b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52306452"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260920"
 ---
-# <a name="walkthrough-step-6-access-the-azure-machine-learning-studio-web-service"></a>Étape de tutoriel pas à pas 6 : accéder au service web Azure Machine Learning Studio
+# <a name="walkthrough-step-6-access-the-azure-machine-learning-studio-web-service"></a>Étape 6 de la procédure pas à pas : Accéder au service web Azure Machine Learning Studio
 
 Voici la dernière étape de la procédure pas à pas [Développement d'une solution d'analyse prédictive dans Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Créer un espace de travail Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. [Télécharger des données existantes](walkthrough-2-upload-data.md)
 3. [Créer une expérience](walkthrough-3-create-new-experiment.md)
-4. [Entraîner et évaluer les modèles](walkthrough-4-train-and-evaluate-models.md)
+4. [Former et évaluer les modèles](walkthrough-4-train-and-evaluate-models.md)
 5. [Déployer le service web](walkthrough-5-publish-web-service.md)
 6. **Accéder au service web**
 

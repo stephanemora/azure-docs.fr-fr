@@ -2,36 +2,40 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: 19e7c919345c0f56b274737840f8150f7d710501
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 0ab34d6234db9c13ffe82ccd0e8580217085f631
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133066"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742321"
 ---
-Si vous souhaitez uniquement activer la connexion dans votre application, vous utilisez une stratégie de **connexion**. Cette stratégie décrit les expériences clients lors de la connexion, ainsi que le contenu des jetons que l’application reçoit en cas de connexion réussie.
+Si vous souhaitez uniquement activer la connexion dans votre application, vous utilisez un flux d’utilisateur de **connexion**. Ce flux d’utilisateur décrit les expériences clients lors de la connexion, ainsi que le contenu des jetons que l’application reçoit en cas de connexion réussie.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
-Cliquez sur **Stratégies d’authentification**.
+Sous **Gérer**, sélectionnez **Flux d’utilisateurs**.
 
-Cliquez sur **+Ajouter** en haut du volet.
+Cliquez sur +**Nouveau flux utilisateur** en haut du panneau.
 
-Le **Nom** détermine le nom de la stratégie de connexion utilisée par votre application. Par exemple, entrez **SiIn**.
+Sous **Sélectionner un type de flux utilisateur**, sélectionnez **Tous**, puis sélectionnez la version de **connexion** que vous souhaitez utiliser.
 
-Cliquez sur **Fournisseurs d’identité** et sélectionnez **Connexion du compte local**. Si vous le souhaitez, vous pouvez également sélectionner des fournisseurs d'identité sociaux, s'ils sont déjà configurés. Cliquez sur **OK**.
+Le **Nom** détermine le nom du flux utilisateur de connexion utilisé par votre application. Par exemple, entrez **SiIn**.
 
-Cliquez sur **Revendications d’application**. Ici, vous choisissez les revendications à renvoyer à votre application dans les jetons après une expérience de connexion réussie. Par exemple, sélectionnez **Nom d’affichage**, **Fournisseur d’identité**, **Code postal** et **ID d’objet de l’utilisateur**. Cliquez sur **OK**.
+Sous **Fournisseurs d’identité**, sélectionnez une option. Vous pouvez également sélectionner des fournisseurs d'identité sociaux, s'ils sont déjà configurés. Cliquez sur **OK**.
 
-Cliquez sur **Créer**. Notez que la stratégie créée s’affiche sous la forme **B2C_1_SiIn** (le fragment **B2C\_1\_** est automatiquement ajouté) dans le panneau **Stratégies de connexion**.
+Sous **Revendications d'application**, cliquez sur **Afficher plus**.
 
-Ouvrez la stratégie en cliquant sur **B2C_1_SiIn**.
+Dans la colonne **Revendication de retour**, choisissez les revendications à renvoyer à votre application dans les jetons après une expérience de connexion réussie. Par exemple, sélectionnez **Nom d’affichage**, **Fournisseur d’identité**, **Code postal** et **ID d’objet de l’utilisateur**. Cliquez sur **OK**.
 
-Sélectionnez **Contoso B2C app** dans le menu déroulant **Applications** et `https://localhost:44321/` dans le menu déroulant **URL de réponse/URI de redirection**.
+Cliquez sur **Créer**. Notez que le flux utilisateur qui vient d’être créé s’affiche sous la forme **B2C_1_SiIn** (le fragment **B2C\_1\_** est automatiquement ajouté).
 
-Cliquez sur **Exécuter maintenant**. Un nouvel onglet de navigateur s’ouvre et vous pouvez vivre l’expérience du client consistant à vous connecter à votre application.
+Cliquez sur **Exécuter le flux d'utilisateur**.
+
+Sélectionnez **Contoso B2C app** dans le menu déroulant **Application** et `https://localhost:44321/` dans le menu déroulant **URL de réponse**.
+
+Cliquez sur **Exécuter le flux d'utilisateur**. Un nouvel onglet de navigateur s’ouvre et vous pouvez vivre l’expérience du client consistant à vous connecter à votre application.
 
 > [!NOTE]
-> La création de la stratégie et les mises à jour peuvent prendre jusqu’à une minute.
+> La création du flux utilisateur et les mises à jour peuvent prendre jusqu’à une minute.
 >

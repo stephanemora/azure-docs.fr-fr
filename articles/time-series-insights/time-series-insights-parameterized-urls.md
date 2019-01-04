@@ -1,5 +1,5 @@
 ---
-title: Partager des vues Azure Time Series Insights personnalisées avec des URL paramétrables | Microsoft Docs
+title: URL Azure Time Series Insights - Partager des vues Azure Time Series Insights personnalisées avec des URL paramétrables | Microsoft Docs
 description: Cet article explique comment développer des URL paramétrables dans Azure Time Series Insights, afin qu’une vue client puisse être facilement partagée.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: dbd717d79230c5dc2fc823484376267e7b7b8ab1
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 5b43ba4c3f88c678b160e8aec442fa92b4822a3d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628798"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274358"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partager une vue personnalisée à l’aide d’une URL paramétrable
 
@@ -70,7 +71,7 @@ Le paramètre `timeSeriesDefinitions=<collection of term objects>` indique les c
   - nom de colonne de *mesure* ;
 - "predicate":"<string>"
   - clause *where* pour le filtrage côté serveur.
--  "useSum":"true"
+- "useSum":"true"
   - Il s’agit d’un paramètre facultatif qui spécifie l’utilisation de la somme pour la mesure.  Notez que si "Events" est la mesure sélectionnée, le nombre est sélectionné par défaut.  Si "Events" n’est pas sélectionné, la moyenne est sélectionnée par défaut.  
 
 Le paramètre « multiChartStack=<true/false> » permet l’empilement dans le graphique et le paramètre « multiChartSameScale=<true/false> » permet d’appliquer la même échelle d’axe des ordonnées entre les termes au sein d’un paramètre facultatif.  

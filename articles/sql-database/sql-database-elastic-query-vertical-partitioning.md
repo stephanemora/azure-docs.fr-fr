@@ -3,7 +3,7 @@ title: Interroger des bases de données cloud de schémas différents | Document
 description: configuration de requêtes de bases de données croisées sur les partitions verticales
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 5dbf6fb1b59999481348d3b4ad4775a77295b70d
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 75c021f7b2c2584580f2d9dbf30cbcdf11d3fdc5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238894"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875363"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Interroger des bases de données cloud de schémas différents (version préliminaire)
 ![Requête sur plusieurs tables dans des bases de données différentes][1]
@@ -117,8 +117,8 @@ L’exemple suivant illustre comment récupérer la liste des tables externes à
 ### <a name="remarks"></a>Remarques
 La requête élastique étend la syntaxe de la table externe existante pour définir des tables externes qui utilisent des sources de données externes de type SGBDR. Une définition de table externe pour le partitionnement vertical couvre les aspects suivants : 
 
-* **Schéma**: la table externe DDL définit un schéma que vos requêtes peuvent utiliser. Le schéma fourni dans votre définition de la table externe doit correspondre au schéma des tables appartenant à la base de données externe sur lesquelles sont stockées les données réelles. 
-* **Base de données distante**: la table externe DDL fait référence à une source de données externe. La source de données externe spécifie le nom du serveur logique et le nom de la base de données distante dans laquelle sont stockées les données réelles du tableau. 
+* **Schéma** : le DDL de table externe définit un schéma que vos requêtes peuvent utiliser. Le schéma fourni dans votre définition de la table externe doit correspondre au schéma des tables appartenant à la base de données externe sur lesquelles sont stockées les données réelles. 
+* **Référence de base de données distante** : le DDL de table externe fait référence à une source de données externe. La source de données externe spécifie le nom du serveur logique et le nom de la base de données distante dans laquelle sont stockées les données réelles du tableau. 
 
 La syntaxe permettant de créer des tables externes à l’aide de sources de données externes comme indiqué dans la section précédente est la suivante : 
 
@@ -130,7 +130,7 @@ L’instruction DDL suivante supprime une définition de table externe existante
 
     DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 
-**Autorisations CREATE/DROP EXTERNAL TABLE** : les autorisations ALTER ANY EXTERNAL DATA SOURCE sont nécessaires à la table DDL externe et à la source de données sous-jacente.  
+**Autorisations pour CREATE/DROP EXTERNAL TABLE** : les autorisations ALTER ANY EXTERNAL DATA SOURCE sont nécessaires au DDL de table externe, lequel est aussi nécessaire pour faire référence à la source de données sous-jacente.  
 
 ## <a name="security-considerations"></a>Considérations relatives à la sécurité
 Les utilisateurs ayant accès à la table externe acquièrent un accès automatique aux tables distantes sous-jacentes avec les informations d’identification fournies dans la définition de source de données externe. Vous devez gérer l’accès à la table externe avec beaucoup d’attention pour éviter une élévation de privilèges non souhaitée par le biais d’informations d’identification de la source de données externe. Les autorisations SQL standard permettent de GRANT (OCTROYER) ou de REVOKE (RÉVOQUER) l’accès à une table externe comme s’il s’agissait d’une table normale.  
@@ -156,10 +156,10 @@ La requête suivante effectue une jointure tridirectionnelle entre les deux tabl
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Procédure stockée pour l’exécution de T-SQL à distance : sp\_execute_remote
 La requête élastique introduit également une procédure stockée qui offre un accès direct à la base de données distante. La procédure stockée est appelée [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714) et peut être utilisée pour exécuter le code T-SQL ou les procédures stockées distantes sur la base de données distante. Les paramètres suivants sont pris en compte : 
 
-* Nom de la source de données (nvarchar) : nom de la source de données externe de type SGBDR. 
-* Requête (nvarchar) : requête T-SQL à exécuter sur la base de données distante. 
-* Déclaration de paramètre (nvarchar) : facultatif : chaîne contenant des définitions de type de données correspondant aux paramètres utilisés dans le paramètre de requête (par exemple, sp_executesql). 
-* Liste de valeurs de paramètre : facultative : valeurs de paramètre de liste séparées par des virgules (par exemple, sp_executesql).
+* Nom de la source de données (nvarchar) : nom de la source de données externe de type SGBDR. 
+* Requête (nvarchar) : requête T-SQL à exécuter sur la base de données distante. 
+* Déclaration de paramètre (nvarchar) - facultatif : chaîne contenant des définitions de type de données pour les paramètres utilisés dans le paramètre de requête (comme sp_executesql). 
+* Liste de valeurs de paramètre - facultatif : liste de valeurs de paramètre séparées par des virgules (comme sp_executesql).
 
 sp\_execute\_remote utilise la source de données externe fournie dans les paramètres d’appel pour exécuter l’instruction T-SQL donnée sur la base de données distante. Il utilise les informations d’identification de la source de données externe pour se connecter à la base de données distante.  
 

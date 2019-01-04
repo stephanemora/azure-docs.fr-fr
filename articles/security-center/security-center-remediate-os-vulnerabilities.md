@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d77e5265349db2fc433d2bb9a42140a6a4209ba1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5de0c975b21131b50155a6e86f5710f741a3c7f7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317493"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344140"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Corriger les configurations de sécurité dans Azure Security Center
 Azure Security Center analyse quotidiennement le système d’exploitation de vos machines virtuelles et ordinateurs et recherche les configurations qui pourraient les rendre plus vulnérables aux attaques. Security Center vous recommande de résoudre les vulnérabilités lorsque la configuration du système d’exploitation ne correspond pas aux règles de configuration de sécurité recommandées et d’apporter des modifications à la configuration pour supprimer ces vulnérabilités.
@@ -42,23 +42,23 @@ Dans cet exemple, nous allons examiner la recommandation de correction de l’in
 
   La section supérieure du tableau de bord affiche les éléments suivants :
 
-  - **Règles ayant échoué par gravité** : le nombre total de règles par niveau de gravité que la configuration du système d’exploitation de vos machines virtuelles et ordinateurs ne respecte pas.
-  - **Règles ayant échoué par type** : le nombre total de règles par type que la configuration du système d’exploitation de vos machines virtuelles et ordinateurs ne respecte pas.
-  - **Règles Windows ayant échoué** : le nombre total de règles que vos configurations de système d’exploitation Windows ne respectent pas.
-  - **Règles Linux ayant échoué** : le nombre total de règles que vos configurations de système d’exploitation Linux ne respectent pas.
+  - **Règles ayant échoué par gravité** : nombre total de règles par niveau de gravité que la configuration du système d’exploitation de vos machines virtuelles et ordinateurs ne respecte pas.
+  - **Règles ayant échoué par type** : nombre total de règles par type que la configuration du système d’exploitation de vos machines virtuelles et ordinateurs ne respecte pas.
+  - **Règles Windows ayant échoué** : nombre total de règles que vos configurations de système d’exploitation Windows ne respectent pas.
+  - **Règles Linux ayant échoué** : nombre total de règles que vos configurations de système d’exploitation Linux ne respectent pas.
 
   La partie inférieure du tableau de bord répertorie toutes les règles non respectées par vos ordinateurs et machines virtuelles, ainsi que le niveau de gravité de la mise à jour manquante. La liste comporte les éléments suivants :
 
-  - **CCEID** : identificateur unique CCE pour la règle. Security Center utilise CCE (Common Configuration Enumeration) pour affecter des identificateurs uniques aux règles de configuration.
-  - **Nom** : nom de la règle non respectée.
-  - **Type de règle** : *clé de Registre*, *stratégie de sécurité* ou *stratégie d’audit* ou *IIS*.
-  - **Nombre de machines virtuelles et d’ordinateurs** : nombre total de machines virtuelles et d’ordinateurs ne respectant pas cette règle.
-  - **Gravité de la règle** : valeur de gravité CCE *Critique*, *Important* ou *Avertissement*.
-  - **État** : état actuel de la recommandation :
+  - **CCEID** : identificateur unique CCE pour la règle. Security Center utilise CCE (Common Configuration Enumeration) pour affecter des identificateurs uniques aux règles de configuration.
+  - **Nom** : nom de la règle non respectée.
+  - **Type de règle** : *Clé de Registre*, *Stratégie de sécurité*, *Stratégie d’audit* ou *IIS*.
+  - **Nombre de machines virtuelles et d’ordinateurs** : nombre total de machines virtuelles et d’ordinateurs ne respectant pas cette règle.
+  - **Gravité de la règle** : Valeur de gravité CCE *Critique*, *Important* ou *Avertissement*.
+  - **État** : état actuel de la recommandation :
 
-    - **Ouverte** : la recommandation n’a pas encore été prise en compte.
-    - **En cours**: la recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
-    - **Résolu** : la recommandation a été appliquée. Une fois problème résolu, l’entrée est grisée.
+    - **Ouverte** : la suggestion n’a pas encore été prise en compte.
+    - **En cours** : la suggestion est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
+    - **Résolue** : la suggestion a été appliquée. Une fois problème résolu, l’entrée est grisée.
 
 3. Pour afficher les détails d’une règle non respectée, sélectionnez-la dans la liste.
 
@@ -66,17 +66,17 @@ Dans cet exemple, nous allons examiner la recommandation de correction de l’in
 
    La vue détaillée affiche les informations suivantes :
 
-   - **Nom** : nom de la règle.
-   - **CCIED** : identificateur unique CCE pour la règle.
-   - **Version du système d’exploitation** : version du système d’exploitation de la machine virtuelle ou de l’ordinateur.
-   - **Gravité de la règle** : valeur de gravité CCE *Critique*, *Important* ou *Avertissement*.
-   - **Description complète** : description de la règle.
-   - **Vulnérabilité** : explication de la vulnérabilité ou du risque si la règle n’est pas appliquée.
-   - **Impact potentiel** : impact sur l’activité lorsque la règle est appliquée.
-   - **Contre-mesure** : étapes correctives.
-   - **Valeur attendue** :valeur attendue lorsque Security Center analyse la configuration du système d’exploitation de votre machine virtuelle par rapport à la règle.
-   - **Valeur réelle** : valeur retournée après analyse de la configuration du système d’exploitation de votre machine virtuelle par rapport à la règle.
-   - **Opération de la règle** : opération de règle utilisée par Security Center lors de l’analyse de la configuration du système d’exploitation de votre machine virtuelle par rapport à la règle.
+   - **Nom** : nom de la règle.
+   - **CCIED** : identificateur unique CCE pour la règle.
+   - **Version du système d’exploitation** : version du système d’exploitation de la machine virtuelle ou de l’ordinateur.
+   - **Gravité de la règle** : valeur de gravité CCE *Critique*, *Important* ou *Avertissement*.
+   - **Description complète** : description de la règle.
+   - **Vulnérabilité** : explication de la vulnérabilité ou du risque si la règle n’est pas appliquée.
+   - **Impact potentiel** : impact sur l’activité quand la règle est appliquée.
+   - **Contre-mesure** : étapes correctives.
+   - **Valeur attendue** : valeur attendue quand Security Center analyse la configuration du système d’exploitation de votre machine virtuelle par rapport à la règle.
+   - **Valeur réelle** : valeur retournée après analyse de la configuration du système d’exploitation de votre machine virtuelle par rapport à la règle.
+   - **Opération de la règle** : opération de règle utilisée par Security Center durant l’analyse de la configuration du système d’exploitation de votre machine virtuelle par rapport à la règle.
 
 4. Sur la partie supérieure de la fenêtre de vue détaillée, sélectionnez **Recherche**.  
   Recherche ouvre la liste des espaces de travail ayant des machines virtuelles et des ordinateurs avec l’incohérence des configurations de sécurité sélectionnée. Ce panneau de sélection d’espaces de travail s’affiche uniquement si la règle sélectionnée s’applique à plusieurs machines virtuelles connectées à différents espaces de travail.
@@ -101,7 +101,7 @@ Consultez la [liste des règles de configuration recommandées](https://gallery.
 Pour plus d’informations sur Security Center, consultez les ressources suivantes :
 
 * Pour une liste des machines virtuelles Windows et Linux prises en charge, consultez [Plateformes prises en charge dans Azure Security Center](security-center-os-coverage.md).
-* Pour découvrir comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure, consultez [Définition des stratégies de sécurité dans Azure Security Center](security-center-azure-policy.md).
+* Pour découvrir comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure, consultez [Définition des stratégies de sécurité dans Azure Security Center](tutorial-security-policy.md).
 * Pour découvrir la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure, consultez la section [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md).
 * Pour découvrir comment surveiller l’intégrité de vos ressources Azure, consultez la section [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md).
 * Pour découvrir comment gérer et résoudre les alertes de sécurité, consultez la section [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md).

@@ -1,5 +1,6 @@
 ---
-title: Vue d’ensemble du protocole IPv6 pour Azure Load Balancer | Microsoft Docs
+title: Vue d’ensemble du protocole IPv6 pour Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: Présentation de la prise en charge du protocole IPv6 par Azure Load Balancer et les machines virtuelles à charge équilibrée.
 services: load-balancer
 documentationcenter: na
@@ -8,22 +9,23 @@ keywords: IPv6, équilibreur de charge azure, double pile, adresse ip publique, 
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: kumud
-ms.openlocfilehash: 379407c8d9e5c6a5a0476fd88ea2dda6e7994e0f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 894a56c2e51e8fa8a2d72253563d218416ace4cb
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739326"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161931"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Vue d’ensemble du protocole IPv6 pour Azure Load Balancer
 
 
 >[!NOTE] 
->Azure Load Balancer prend en charge deux types différents : Basic et Standard. Cet article décrit Basic Load Balancer. Pour plus d’informations sur Standard Load Balancer, consultez la [présentation de Standard Load Balancer](load-balancer-standard-overview.md).
+>Azure Load Balancer prend en charge deux types différents : De base et Standard. Cet article décrit Basic Load Balancer. Pour plus d’informations sur Standard Load Balancer, consultez la [présentation de Standard Load Balancer](load-balancer-standard-overview.md).
 
 Des équilibrages de charge accessibles sur Internet peuvent être déployés avec une adresse IPv6. En plus d’une connectivité IPv4, les fonctionnalités suivantes sont activées :
 

@@ -4,16 +4,16 @@ description: Découvrez comment résoudre les problèmes rencontrés avec Update
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f52767058ef69d29465f1274109b6d3ffe58296c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: d0d6ed03b6e28df9767e24170ebf5ec92bb9fe9a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092625"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434730"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Résolution des problèmes rencontrés avec Update Management
 
@@ -23,7 +23,7 @@ Il existe un utilitaire de résolution des problèmes qui permet à l’agent Wo
 
 ## <a name="general"></a>Généralités
 
-### <a name="components-enabled-not-working"></a>Scénario : Les composants de la solution « Update Management » ont été activés et cette machine virtuelle est en cours de configuration.
+### <a name="components-enabled-not-working"></a>Scénario : Les composants de la solution « Update Management » ont été activés et cette machine virtuelle est en cours de configuration
 
 #### <a name="issue"></a>Problème
 
@@ -45,7 +45,50 @@ Cette erreur peut être due aux raisons suivantes :
 1. Pour savoir quelles adresses et quels ports doivent être autorisés pour le fonctionnement d’Update Management, consultez [Planification du réseau](../automation-hybrid-runbook-worker.md#network-planning).
 2. Si vous utilisez une image clonée, commencez par exécuter sysprep sur l’image et installez l’agent MMA ensuite.
 
-## <a name="windows"></a>Windows
+### <a name="multi-tenant"></a>Scénario : Vous recevez une erreur d’abonnement lié lors de la création d’un déploiement de mise à jour pour les machines d’un autre client Azure.
+
+#### <a name="issue"></a>Problème
+
+Vous recevez l’erreur suivante lorsque vous tentez de créer un déploiement de mise à jour pour les machines d’un autre client Azure :
+
+```
+The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
+```
+
+#### <a name="cause"></a>Cause :
+
+Cette erreur se produit lorsque vous créez un déploiement de mise à jour dans lequel des machines virtuelles d’un autre client sont incluses.
+
+#### <a name="resolution"></a>Résolution :
+
+Vous devez utiliser la solution de contournement suivante pour planifier la mise à jour. Vous pouvez utiliser la cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) avec le commutateur `-ForUpdate` pour créer une planification et utiliser la cmdlet [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+) et faire passer les machines de l’autre client au paramètre `-NonAzureComputer`. L’exemple suivant vous montre comment procéder :
+
+```azurepowershell-interactive
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+
+New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
+
+### <a name="nologs"></a>Scénario : Les données Update Management ne s’affichent pas dans Log Analytics pour une machine
+
+#### <a name="issue"></a>Problème
+
+Vous avez des machines avec la mention **Non évaluée** sous **Conformité**, par contre vous voyez les données de pulsation dans Log Analytics pour le Runbook Worker hybride, mais pas pour Update Management.
+
+#### <a name="cause"></a>Cause :
+
+Il est possible que le Runbook Worker hybride doive être réinscrit et réinstallé.
+
+#### <a name="resolution"></a>Résolution :
+
+Suivez les étapes de la section [Déployer un Runbook Worker hybride Windows](../automation-windows-hrw-install.md) pour réinstaller le Worker hybride sous Windows ou celles de la section [Déployer un Runbook Worker hybride Linux](../automation-linux-hrw-install.md) pour Linux.
+
+## <a name="windows"></a> Windows
 
 Si vous rencontrez des problèmes quand vous essayez d’intégrer la solution sur une machine virtuelle, recherchez dans le journal des évènements **Operations Manager** sous **Journaux des applications et des services\** sur la machine locale des événements avec l’ID d’événement **4502** et un message d’événement contenant **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
 
@@ -113,21 +156,7 @@ Le Runbook Worker hybride n’a pas pu générer de certificat auto-signé.
 
 Vérifiez que le compte système a accès en lecture au dossier **C:\ProgramData\Microsoft\Crypto\RSA**, puis réessayez.
 
-### <a name="nologs"></a>Scénario : Les données Update Management ne s’affichent pas dans Log Analytics pour une machine
-
-#### <a name="issue"></a>Problème
-
-Vous avez des machines avec la mention **Non évaluée** sous **Conformité**, par contre vous voyez les données de pulsation dans Log Analytics pour le Runbook Worker hybride, mais pas pour Update Management.
-
-#### <a name="cause"></a>Cause :
-
-Il est possible que le Runbook Worker hybride doive être réinscrit et réinstallé.
-
-#### <a name="resolution"></a>Résolution :
-
-Suivez les étapes dans [Déployer un Runbook Worker hybride Windows](../automation-windows-hrw-install.md) pour réinstaller le Worker hybride.
-
-### <a name="hresult"></a>Scénario : le machine montre s’affiche comme non évaluée et présente une exception HResult
+### <a name="hresult"></a>Scénario : La machine s’affiche comme non évaluée et présente une exception HResult
 
 #### <a name="issue"></a>Problème
 
@@ -135,7 +164,7 @@ Certaines de vos machines portent la mention **non évaluée** sous **Conformit�
 
 #### <a name="cause"></a>Cause :
 
-Windows Update n’est pas correctement configuré sur la machine.
+Windows Update ou WSUS n’est pas correctement configuré sur la machine. Update Management s’appuie sur Windows Update ou WSUS pour fournir les mises à jour nécessaires, l’état du correctif et les résultats des correctifs déployés. Sans ces informations, Update Management ne peut pas générer de rapport exact concernant les correctifs nécessaires ou installés.
 
 #### <a name="resolution"></a>Résolution :
 

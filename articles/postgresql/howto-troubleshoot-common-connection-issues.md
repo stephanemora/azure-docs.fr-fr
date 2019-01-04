@@ -3,19 +3,19 @@ title: Résoudre les problèmes de connexion à la base de données Azure Databa
 description: Découvrez comment résoudre les problèmes de connexion à Azure SQL Database pour PostgreSQL.
 keywords: connexion postgresql,chaîne de connexion,problèmes de connectivité,erreur temporaire,erreur de connexion
 services: postgresql
-author: janeng
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: fea4c376f73afe2ef36948c59e95a2b679dbd7e8
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 67383db4bd1d57d194e10de2dc1964532b3619a4
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285481"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53160809"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql"></a>Résoudre les problèmes de connexion à la base de données Azure Database pour PostgreSQL
 
@@ -49,9 +49,9 @@ Des erreurs transitoires se produisent lorsque la maintenance est effectuée, lo
 
 Si l’application échoue de façon permanente à se connecter à la base de données Azure Database pour PostgreSQL, cela indique généralement un problème avec l’un des éléments suivants :
 
-* Configuration du pare-feu : le pare-feu Azure Database pour PostgreSQL côté serveur ou côté client bloque les connexions.
-* Reconfiguration du réseau côté client : une nouvelle adresse IP ou un nouveau serveur proxy a été ajouté.
-* Erreur utilisateur : par exemple, il se peut que vous ayez effectué une erreur de saisie des paramètres de connexion, comme le nom du serveur dans la chaîne de connexion ou un suffixe *@servername* manquant dans le nom de l’utilisateur.
+* Configuration du pare-feu côté serveur : le pare-feu du serveur Azure Database pour PostgreSQL doit être configuré de façon à autoriser les connexions provenant du client, y compris les serveurs proxy et les passerelles.
+* Configuration du pare-feu côté client : le pare-feu du client doit autoriser les connexions au serveur de base de données. Les adresses IP et les ports du serveur auquel vous ne pouvez pas vous connecter doivent être autorisés, ainsi que les noms d’application, comme PostgreSQL, sur certains pare-feu.
+* Erreur utilisateur : il se peut que vous ayez fait une erreur lors de la saisie des paramètres de connexion, comme le nom du serveur dans la chaîne de connexion ou un suffixe *@servername* manquant dans le nom de l’utilisateur.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Étapes permettant résoudre les problèmes de connectivité persistants
 

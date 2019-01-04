@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 892fa32f73cec86e5d10a0d67da3d80bedd539aa
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 67fc3d733062867086cb4c208f2997d3490452bb
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619859"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681923"
 ---
 # <a name="azure-data-factory-service-identity"></a>Identité de service Azure Data Factory
 
@@ -45,7 +45,7 @@ Si vous constatez que votre fabrique de données n’est pas associée à une id
 
 - [Générer l’identité de service à l’aide de PowerShell](#generate-service-identity-using-powershell)
 - [Générer l’identité de service à l’aide de l’API REST](#generate-service-identity-using-rest-api)
-- [Générer l’identité du service avec un modèle Azure Resource Manager](#generate-service-identity-using-resource-management-template)
+- [Générer l’identité du service avec un modèle Azure Resource Manager](#generate-service-identity-using-azure-resource-manager-template)
 - [Générer l’identité de service à l’aide du SDK](#generate-service-identity-using-sdk)
 
 >[!NOTE]
@@ -77,7 +77,7 @@ Appelez ensuite l’API avec la section« identity » dans le corps de la requ
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2017-09-01-preview
 ```
 
-**Corps de la requête** : ajoutez "identity": { "type": "SystemAssigned" }.
+**Corps de la requête** : add "identity": { "type": "SystemAssigned" }.
 
 ```json
 {
@@ -115,7 +115,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 
 ### <a name="generate-service-identity-using-an-azure-resource-manager-template"></a>Générer l’identité du service avec un modèle Azure Resource Manager
 
-**Modèle** : ajouter "identity": { "type": "SystemAssigned" }.
+**Modèle** : add "identity": { "type": "SystemAssigned" }.
 
 ```json
 {

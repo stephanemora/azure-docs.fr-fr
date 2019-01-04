@@ -1,19 +1,20 @@
 ---
-title: Utilisation de filtres de sécurité pour tronquer les résultats de Recherche Azure à l’aide d’identités Active Directory | Microsoft Docs
-description: Contrôle d’accès sur le contenu Recherche Azure à l’aide de filtres de sécurité et d’identités Active Directory.
-author: revitalbarletz
+title: Utilisation de filtres de sécurité pour tronquer les résultats à l’aide d’identités Active Directory - Recherche Azure
+description: Contrôle d’accès sur le contenu Recherche Azure à l’aide de filtres de sécurité et d’identités Azure Active Directory (AAD).
+author: brjohnstmsft
 manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
-ms.author: revitalb
-ms.openlocfilehash: b134bc2529bf11557ddb1778b87f127db8da650c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.author: brjohnst
+ms.custom: seodec2018
+ms.openlocfilehash: 2d1ac36341ef47ac95317c583005b675f31f1265
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684629"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308819"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Utilisation de filtres de sécurité pour tronquer les résultats de Recherche Azure à l’aide d’identités Active Directory
 
@@ -63,7 +64,7 @@ Toutefois, si vous n’avez pas d’utilisateurs existants, vous pouvez utiliser
 
 La gestion des groupes et des utilisateurs peut s’avérer très fluide, en particulier dans les grandes organisations. Le code qui génère les identités d’utilisateur et de groupe doit s’exécuter assez souvent pour tenir compte des modifications apportées aux groupes de l’organisation. De même, votre index Recherche Azure requiert une planification de mise à jour similaire pour refléter l’état actuel des utilisateurs et des ressources autorisés.
 
-### <a name="step-1-create-aad-grouphttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apigrouppostgroups"></a>Étape 1 : Créer un [groupe AAD](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/group_post_groups) 
+### <a name="step-1-create-aad-grouphttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apigrouppostgroups"></a>Étape 1 : Créer un [groupe AAD](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/group_post_groups) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -77,7 +78,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### <a name="step-2-create-aad-userhttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apiuserpostusers"></a>Étape 2 : Créer un [utilisateur AAD](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users) 
+### <a name="step-2-create-aad-userhttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apiuserpostusers"></a>Étape 2 : Créer un [utilisateur AAD](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users) 
 ```csharp
 User user = new User()
 {
@@ -92,12 +93,12 @@ User user = new User()
 User newUser = await graph.Users.Request().AddAsync(user);
 ```
 
-### <a name="step-3-associate-user-and-group"></a>Étape 3 : Associer les utilisateurs et les groupes
+### <a name="step-3-associate-user-and-group"></a>Étape 3 : Associer les utilisateurs et les groupes
 ```csharp
 await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
-### <a name="step-4-cache-the-groups-identifiers"></a>Étape 4 : Mettre en cache les identificateurs de groupe
+### <a name="step-4-cache-the-groups-identifiers"></a>Étape 4 : Mettre en cache les identificateurs de groupe
 Si vous le souhaitez, pour réduire la latence du réseau, vous pouvez mettre en cache les associations utilisateurs-groupes. Ainsi, lorsqu’une demande de recherche est émise, les groupes sont renvoyés à partir du cache, ce qui évite un aller-retour dans AAD. Vous pouvez utiliser l'[API de Batch AAD](https://developer.microsoft.com/graph/docs/concepts/json_batching) pour envoyer une requête Http unique avec plusieurs utilisateurs et générer le cache.
 
 Microsoft Graph est conçu pour gérer un volume élevé de demandes. Si un trop grand nombre de demandes sont émises, Microsoft Graph génère une erreur avec le code d’état HTTP 429. Pour plus d’informations, consultez le document [Limitation dans Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/throttling).
@@ -136,7 +137,7 @@ Pour des raisons de filtrage de sécurité, les valeurs du champ de sécurité d
 
 Pour filtrer les documents renvoyés dans les résultats de la recherche en fonction des groupes de l’utilisateur qui émet la demande, procédez comme suit.
 
-### <a name="step-1-retrieve-users-group-identifiers"></a>Étape 1 : Récupérer les identificateurs de groupe de l’utilisateur
+### <a name="step-1-retrieve-users-group-identifiers"></a>Étape 1 : Récupérer les identificateurs de groupe de l’utilisateur
 
 Si les groupes de l’utilisateur n’ont pas encore été mis en cache, ou si le cache a expiré, exécutez la demande [groupes](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups).
 ```csharp
@@ -164,7 +165,7 @@ private static async Task<List<string>> GetGroupIdsForUser(string userPrincipalN
 }
 ``` 
 
-### <a name="step-2-compose-the-search-request"></a>Étape 2 : Composer la demande de recherche
+### <a name="step-2-compose-the-search-request"></a>Étape 2 : Composer la requête de recherche
 
 En supposant que vous connaissez les groupes de l’utilisateur, vous pouvez émettre la demande de recherche avec les valeurs de filtre appropriées.
 
@@ -178,7 +179,7 @@ SearchParameters parameters = new SearchParameters()
 
 DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<SecuredFiles>("*", parameters);
 ```
-### <a name="step-3-handle-the-results"></a>Étape 3 : Gérer les résultats
+### <a name="step-3-handle-the-results"></a>Étape 3 : Gérer les résultats
 
 La réponse inclut une liste répertoriant uniquement les documents que l’utilisateur est autorisé à afficher. Selon la façon dont vous construisez la page de résultats, vous pouvez inclure des repères visuels pour matérialiser le jeu de résultats obtenu.
 

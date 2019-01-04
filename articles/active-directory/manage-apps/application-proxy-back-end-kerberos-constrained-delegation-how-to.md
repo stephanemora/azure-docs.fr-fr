@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 52157797bb01fc73c551ca9654b2360d161b653d
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2a55e39414cd691c48b015b3aae73f93cbb95aab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354967"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134656"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Résolution des problèmes de configuration de la délégation Kerberos contrainte pour le proxy d’application
 
@@ -32,7 +32,7 @@ Cet article fournit un point de référence unique qui peut vous aider à résou
 
 Cet article repose sur les hypothèses suivantes :
 
--   Le déploiement du proxy d’application Azure AD est conforme aux recommandations du document [Prise en main du proxy d'application](application-proxy-enable.md), et l’accès général aux applications non-KCD fonctionne comme prévu.
+-   Le déploiement du proxy d’application Azure AD est conforme aux recommandations du document [Prise en main du proxy d'application](application-proxy-add-on-premises-application.md), et l’accès général aux applications non-KCD fonctionne comme prévu.
 
 -   L’application cible publiée est basée sur IIS (Internet Information Services) et sur l’implémentation de Kerberos par Microsoft.
 
@@ -64,7 +64,7 @@ Quels sont les signes d'un problème de KCD ? Différents signes peuvent révél
 
    ![Échec dû à des autorisations manquantes](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
-Ces deux illustrations présentent le même symptôme : un échec de l’authentification unique. L'accès à l’application est refusé à l'utilisateur.
+Ces deux illustrations présentent le même symptôme : un échec de l’authentification unique. L'accès à l’application est refusé à l'utilisateur.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 

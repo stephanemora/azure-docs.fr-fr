@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer Zendesk pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Didacticiel : Configurer Zendesk pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour provisionner et retirer automatiquement des comptes d’utilisateur sur Zendesk.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 2dc965547511d27ed43a88c1f45b50593b30a937
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d8d6df221a8c520cea5e6e938447ffd881e7374c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347934"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322770"
 ---
-# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Tutoriel : Configurer Zendesk pour le provisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Didacticiel : Configurer Zendesk pour le provisionnement automatique d’utilisateurs
 
 L’objectif de ce tutoriel est de présenter les étapes à effectuer dans Zendesk et Azure Active Directory (Azure AD) afin de configurer Azure AD pour le provisionnement et le retrait automatiques d’utilisateurs et/ou de groupes sur Zendesk. 
 
@@ -77,6 +77,10 @@ Avant de configurer et d’activer le provisionnement automatique d’utilisateu
 
 ### <a name="important-tips-for-assigning-users-to-zendesk"></a>Conseils importants pour l’affectation d’utilisateurs à Zendesk
 
+*    Les rôles Zendesk sont désormais indiqués de manière dynamique et automatique dans l’interface utilisateur du Portail Azure. Avant d’assigner des rôles Zendesk aux utilisateurs, assurez-vous que la synchronisation initiale est effectuée par rapport à Zendesk afin de récupérer les rôles les plus récents dans votre tenant Zendesk.
+
+*    Il est recommandé d’assigner un seul utilisateur Azure AD à Zendesk afin de tester la configuration initiale du provisionnement automatique d’utilisateurs. Les autres utilisateurs et/ou groupes peuvent être assignés ultérieurement, une fois les tests réussis.
+  
 *   Il est recommandé de n’affecter qu’un seul utilisateur Azure AD à Zendesk afin de tester la configuration du provisionnement automatique d’utilisateurs. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
 
 *   Quand vous assignez un utilisateur à Zendesk, vous devez sélectionner un rôle valide propre à l’application (si disponible) dans la boîte de dialogue d’assignation. Les utilisateurs dont le rôle est **Accès par défaut** sont exclus de l’approvisionnement.
@@ -111,7 +115,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
     *   Dans le champ **Jeton secret**, spécifiez le jeton secret comme décrit à l’étape 6.
 
     *   Dans le champ **Domaine**, spécifiez le sous-domaine de votre locataire Zendesk.
-    Exemple : pour un compte avec une URL de locataire https://my-tenant.zendesk.com, votre sous-domaine serait **my-tenant**.
+    Exemple : pour un compte avec une URL de tenant https://my-tenant.zendesk.com, votre sous-domaine serait **my-tenant**.
 
 6. Le **Jeton secret** pour votre compte se trouve dans **Admin > API > Paramètres**. 
 

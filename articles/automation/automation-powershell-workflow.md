@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/04/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 00f6f84a2065a67e999149e4b0f9e28f18e5e297
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b60e1639a1c32763c4759720fe61b0e571fc9dd1
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239421"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437093"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Découvrir les principaux concepts de workflow Windows PowerShell pour les runbooks Automation
 
@@ -193,10 +193,10 @@ Workflow Copy-Files
 }
 ```
 
-Vous pouvez utiliser la construction **ForEach-Parallel** pour traiter simultanément les commandes de chaque élément d'une collection. Les éléments de la collection sont traités en parallèle, tandis que les commandes du bloc de script sont exécutées séquentiellement. Pour ce faire, utilisez la syntaxe illustrée ci-dessous. Dans ce cas, Activity1 démarre en même temps pour tous les éléments de la collection. Pour chaque élément, Activity2 démarre une fois Activity1 terminée. Activity3 démarre uniquement quand Activity1 et Activity2 sont toutes deux terminées pour tous les éléments.
+Vous pouvez utiliser la construction **ForEach-Parallel** pour traiter simultanément les commandes de chaque élément d'une collection. Les éléments de la collection sont traités en parallèle, tandis que les commandes du bloc de script sont exécutées séquentiellement. Pour ce faire, utilisez la syntaxe illustrée ci-dessous. Dans ce cas, Activity1 démarre en même temps pour tous les éléments de la collection. Pour chaque élément, Activity2 démarre une fois Activity1 terminée. Activity3 démarre uniquement quand Activity1 et Activity2 sont toutes deux terminées pour tous les éléments. Nous utilisons le paramètre `ThrottleLimit` pour limiter le parallélisme. Une valeur `ThrottleLimit` trop élevée peut entraîner des problèmes. La valeur idéale pour le paramètre `ThrottleLimit` dépend de nombreux facteurs dans votre environnement. Vous devez commencer avec une valeur faible, puis essayer différentes valeurs croissantes jusqu’à ce que vous en trouviez une qui fonctionne pour votre situation spécifique.
 
 ```powershell
-ForEach -Parallel ($<item> in $<collection>)
+ForEach -Parallel -ThrottleLimit 10 ($<item> in $<collection>)
 {
     <Activity1>
     <Activity2>
@@ -211,7 +211,7 @@ Workflow Copy-Files
 {
     $files = @("C:\LocalPath\File1.txt","C:\LocalPath\File2.txt","C:\LocalPath\File3.txt")
 
-    ForEach -Parallel ($File in $Files)
+    ForEach -Parallel -ThrottleLimit 10 ($File in $Files)
     {
         Copy-Item -Path $File -Destination \\NetworkPath
         Write-Output "$File copied."
@@ -258,7 +258,7 @@ Workflow Copy-Files
 }
 ```
 
-Étant donné que les informations d’identification de nom d’utilisateur ne sont pas conservées après l’appel de l’activité [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) ou après le dernier point de contrôle, vous devez définir les informations d’identification sur « null », puis les récupérer à nouveau à partir du magasin de ressources après l’activité **Suspend-Workflow** ou après l’appel du point de contrôle.  À défaut, vous risquez de rencontrer le message d’erreur suivant : *Impossible de reprendre la tâche de workflow, soit parce que les données de persistance n’ont pas pu être enregistrées en totalité, soit parce que les données de persistance enregistrées ont été endommagées. Vous devez redémarrer le workflow.*
+Étant donné que les informations d’identification de nom d’utilisateur ne sont pas conservées après l’appel de l’activité [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) ou après le dernier point de contrôle, vous devez définir les informations d’identification sur « null », puis les récupérer à nouveau à partir du magasin de ressources après l’activité **Suspend-Workflow** ou après l’appel du point de contrôle.  Sinon, le message d’erreur suivant peut s’afficher : *Impossible de reprendre la tâche de workflow, soit parce que les données de persistance n’ont pas pu être enregistrées en totalité, soit parce que les données de persistance enregistrées ont été endommagées. Vous devez redémarrer le workflow.*
 
 Le même code ci-dessous montre comment traiter ce problème dans vos Runbooks de workflow PowerShell.
 

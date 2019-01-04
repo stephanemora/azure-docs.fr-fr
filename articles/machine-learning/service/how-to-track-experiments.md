@@ -1,5 +1,6 @@
 ---
-title: Suivre les expérimentations et les métriques d’entraînement - Azure Machine Learning | Microsoft Docs
+title: Suivre les expériences et les métriques de formation
+titleSuffix: Azure Machine Learning service
 description: Avec le service Azure Machine Learning, vous pouvez effectuer le suivi de vos expérimentations et superviser les métriques pour améliorer le processus de création de modèle. Découvrez comment ajouter la journalisation à votre script d’entraînement, envoyer l’expérimentation, vérifier la progression d’une tâche en cours d’exécution et afficher les résultats d’une exécution.
 services: machine-learning
 author: heatherbshapiro
@@ -8,66 +9,56 @@ ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/24/2018
-ms.openlocfilehash: 9af7e57db0e465f59f43c93d0b5f6ec220836ff7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: c45023a462a5c01dfde806d7abbb9714aaf09b85
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308186"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189470"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Suivre les expérimentations et les métriques d’entraînement dans Azure Machine Learning
 
 Dans le service Azure Machine Learning, vous pouvez effectuer le suivi de vos expérimentations et superviser les métriques pour améliorer le processus de création de modèle. Dans cet article, vous allez découvrir les différentes façons d’ajouter la journalisation à votre script d’entraînement, comment envoyer l’expérimentation avec **start_logging** et **ScriptRunConfig**, comment vérifier la progression d’une tâche en cours d’exécution et comment afficher les résultats d’une exécution. 
 
->[!NOTE]
-> Le code présenté dans cet article a été testé avec le kit SDK Azure Machine Learning version 0.1.74 
 
 ## <a name="list-of-training-metrics"></a>Liste des métriques d’entraînement 
 
-Les métriques suivantes peuvent être ajoutées à une exécution pendant l’entraînement d’une expérimentation. Pour afficher une liste plus détaillée des éléments qui peuvent être suivis lors d’une exécution, consultez la [documentation de référence sur le SDK](https://aka.ms/aml-sdk).
+Les métriques suivantes peuvent être ajoutées à une exécution pendant l’entraînement d’une expérimentation. Pour afficher une liste plus détaillée des éléments qui peuvent être suivis lors d’une exécution, consultez la [documentation de référence sur l’exécution de la classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
-|type| Fonction Python | Exemples | Notes|
-|----|:----|:----|:----|
-|Valeurs scalaires | `run.log(name, value, description='')`| `run.log("accuracy", 0.95) ` |Journalisez une valeur numérique ou de chaîne dans l’exécution avec le nom donné. La journalisation d’une métrique dans une exécution entraîne le stockage de cette métrique dans l’enregistrement d’exécution dans l’expérimentation.  Vous pouvez consigner la même métrique plusieurs fois pendant une exécution, le résultat étant considéré comme un vecteur de cette métrique.|
-|Listes| `run.log_list(name, value, description='')`| `run.log_list("accuracies", [0.6, 0.7, 0.87])` | Journalisez une liste de valeurs dans l’exécution avec le nom donné.|
-|Ligne| `run.log_row(name, description=None, **kwargs)`| `run.log_row("Y over X", x=1, y=0.4)` | L’utilisation de *log_row* crée une métrique avec plusieurs colonnes, comme décrit dans kwargs. Chaque paramètre nommé génère une colonne avec la valeur spécifiée.  Vous pouvez appeler *log_row* une seule fois pour consigner un tuple arbitraire ou plusieurs fois dans une boucle pour générer une table complète.|
-|Table| `run.log_table(name, value, description='')`| `run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]})` | Journalisez un objet dictionnaire dans l’exécution avec le nom donné. |
-|Images| `run.log_image(name, path=None, plot=None)`| `run.log_image("ROC", plt)` | Journalisez une image dans l’enregistrement d’exécution. Utilisez log_image pour consigner un fichier image ou un tracé matplotlib dans l’exécution.  Ces images seront visibles et comparables dans l’enregistrement d’exécution.|
-|Étiqueter une exécution| `run.tag(key, value=None)`| `run.tag("selected", "yes")` | Étiquetez l’exécution avec une clé de chaîne et une valeur de chaîne facultative.|
-|Charger un fichier ou un répertoire|`run.upload_file(name, path_or_stream)`| run.upload_file("best_model.pkl", "./model.pkl") | Chargez un fichier sur l’enregistrement d’exécution. Les exécutions capturent automatiquement le fichier dans le répertoire de sortie spécifié, par défaut « ./outputs » pour la plupart des types d’exécutions.  Utilisez upload_file uniquement quand des fichiers supplémentaires doivent être chargés ou qu’aucun répertoire de sortie n’est spécifié. Nous vous suggérons d’ajouter `outputs` au nom afin qu’il soit chargé sur le répertoire outputs. Vous pouvez répertorier tous les fichiers qui sont associés à cet enregistrement d’exécution en appelant `run.get_file_names()`|
+|type| Fonction Python | Notes|
+|----|:----|:----|
+|Valeurs scalaires |Fonction :<br>`run.log(name, value, description='')`<br><br>Exemple :<br>run.log("accuracy", 0.95) |Journalisez une valeur numérique ou de chaîne dans l’exécution avec le nom donné. La journalisation d’une métrique dans une exécution entraîne le stockage de cette métrique dans l’enregistrement d’exécution dans l’expérimentation.  Vous pouvez consigner la même métrique plusieurs fois pendant une exécution, le résultat étant considéré comme un vecteur de cette métrique.|
+|Listes|Fonction :<br>`run.log_list(name, value, description='')`<br><br>Exemple :<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Journalisez une liste de valeurs dans l’exécution avec le nom donné.|
+|Ligne|Fonction :<br>`run.log_row(name, description=None, **kwargs)<br>Exemple :<br>run.log_row("Y over X", x=1, y=0.4) | L’utilisation de *log_row* crée une métrique avec plusieurs colonnes, comme décrit dans kwargs. Chaque paramètre nommé génère une colonne avec la valeur spécifiée.  Vous pouvez appeler *log_row* une seule fois pour consigner un tuple arbitraire ou plusieurs fois dans une boucle pour générer une table complète.|
+|Table|Fonction :<br>`run.log_table(name, value, description='')`<br><br>Exemple :<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | Journalisez un objet dictionnaire dans l’exécution avec le nom donné. |
+|Images|Fonction :<br>`run.log_image(name, path=None, plot=None)`<br><br>Exemple :<br>run.log_image("ROC", plt) | Journalisez une image dans l’enregistrement d’exécution. Utilisez log_image pour consigner un fichier image ou un tracé matplotlib dans l’exécution.  Ces images seront visibles et comparables dans l’enregistrement d’exécution.|
+|Étiqueter une exécution|Fonction :<br>`run.tag(key, value=None)`<br><br>Exemple :<br>run.tag("selected", "yes") | Étiquetez l’exécution avec une clé de chaîne et une valeur de chaîne facultative.|
+|Charger un fichier ou un répertoire|Fonction :<br>`run.upload_file(name, path_or_stream)`<br> <br> Exemple :<br>run.upload_file("best_model.pkl", "./model.pkl") | Chargez un fichier sur l’enregistrement d’exécution. Les exécutions capturent automatiquement le fichier dans le répertoire de sortie spécifié, par défaut « ./outputs » pour la plupart des types d’exécutions.  Utilisez upload_file uniquement quand des fichiers supplémentaires doivent être chargés ou qu’aucun répertoire de sortie n’est spécifié. Nous vous suggérons d’ajouter `outputs` au nom afin qu’il soit chargé sur le répertoire outputs. Vous pouvez répertorier tous les fichiers qui sont associés à cet enregistrement d’exécution en appelant `run.get_file_names()`|
 
 > [!NOTE]
 > Les métriques pour les valeurs scalaires, listes, lignes et tables peuvent être de type float, integer ou string.
 
-## <a name="log-metrics-for-experiments"></a>Consigner des métriques pour les expérimentations
+## <a name="start-logging-metrics"></a>Démarrer les métriques de journalisation
 
 Si vous souhaitez suivre ou superviser votre expérimentation, vous devez ajouter du code pour démarrer la journalisation quand vous envoyez l’exécution. Voici comment déclencher l’envoi d’exécution :
 * __Run.start_logging__ : ajoutez des fonctions de journalisation à votre script d’entraînement et démarrez une session de journalisation interactive dans l’expérimentation spécifiée. **start_logging** crée une exécution interactive pour une utilisation dans des scénarios tels que des notebooks. Toutes les métriques qui sont consignées pendant la session sont ajoutées à l’enregistrement d’exécution dans l’expérimentation.
 * __ScriptRunConfig__ : ajoutez des fonctions de journalisation à votre script d’entraînement et chargez l’intégralité du dossier de script avec l’exécution.  **ScriptRunConfig** est une classe pour la définition des configurations pour les exécutions de script. Avec cette option, vous pouvez ajouter le code de supervision pour être informé de la fin de l’opération ou pour obtenir un widget visuel à superviser.
 
-## <a name="set-up-the-workspace-and-experiment"></a>Configurer l’espace de travail et l’expérimentation
-Avant d’ajouter la journalisation et d’envoyer une expérimentation, vous devez configurer l’espace de travail et l’expérimentation.
+## <a name="set-up-the-workspace"></a>Configurer l’espace de travail
+Avant d’ajouter la journalisation et d’envoyer une expérience, vous devez configurer l’espace de travail.
 
 1. Chargez l’espace de travail. Pour en savoir plus sur la définition de la configuration de l’espace de travail, suivez le [démarrage rapide](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started).
 
   ```python
-  from azureml.core import Workspace, Run
+  from azureml.core import Experiment, Run, Workspace
   import azureml.core
   
   ws = Workspace(workspace_name = <<workspace_name>>,
                subscription_id = <<subscription_id>>,
                resource_group = <<resource_group>>)
    ```
-
-2. Créez l’expérimentation.
-
-  ```python
-  from azureml.core import Experiment
-
-  # make up an arbitrary name
-  experiment_name = 'train-in-notebook'
-  ```
   
 ## <a name="option-1-use-startlogging"></a>Option 1 : Utiliser start_logging
 
@@ -102,22 +93,34 @@ L’exemple suivant entraîne un simple modèle Ridge sklearn localement dans un
 2. Ajoutez le suivi d’expérimentation à l’aide du kit SDK du service Azure Machine Learning et chargez un modèle persistant sur l’enregistrement d’exécution de l’expérimentation. Le code suivant ajoute des balises, des journaux, puis charge un fichier de modèle sur l’exécution de l’expérimentation.
 
   ```python
-  experiment = Experiment(workspace = ws, name = experiment_name)
-  run = experiment.start_logging()
-  run.tag("Description","My first run!")
+  # Get an experiment object from Azure Machine Learning
+  experiment = Experiment(workspace = ws, name = "train-within-notebook")
+  
+  # Create a run object in the experiment
+  run = experiment.start_logging()# Log the algorithm parameter alpha to the run
   run.log('alpha', 0.03)
-  reg = Ridge(alpha = 0.03)
-  reg.fit(data['train']['X'], data['train']['y'])
-  preds = reg.predict(data['test']['X'])
-  run.log('mse', mean_squared_error(preds, data['test']['y']))
-  joblib.dump(value = reg, filename = 'model.pkl')
-  # Upload file directly to the outputs folder
-  run.upload_file(name = 'outputs/model.pkl', path_or_stream = './model.pkl')
 
+  # Create, fit, and test the scikit-learn Ridge regression model
+  regression_model = Ridge(alpha=0.03)
+  regression_model.fit(data['train']['X'], data['train']['y'])
+  preds = regression_model.predict(data['test']['X'])
+
+  # Output the Mean Squared Error to the notebook and to the run
+  print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
+  run.log('mse', mean_squared_error(data['test']['y'], preds))
+
+  # Save the model to the outputs directory for capture
+  joblib.dump(value=regression_model, filename='outputs/model.pkl')
+
+  # Take a snapshot of the directory containing this notebook
+  run.take_snapshot('./')
+
+  # Complete the run
   run.complete()
+  
   ```
 
-Le script se termine par ```run.complete()```, ce qui marque l’exécution comme terminée.  Cette procédure est généralement utilisée dans les scénarios de notebooks interactifs.
+Le script se termine par ```run.complete()```, ce qui marque l’exécution comme terminée.  Cette fonction est généralement utilisée dans les scénarios de notebooks interactifs.
 
 ## <a name="option-2-use-scriptrunconfig"></a>Option 2 : Utiliser ScriptRunConfig
 
@@ -125,7 +128,7 @@ Le script se termine par ```run.complete()```, ce qui marque l’exécution comm
 
 Cet exemple s’appuie sur le modèle Ridge sklearn de base ci-dessus. Il effectue un simple balayage des paramètres sur les valeurs alpha du modèle pour capturer les métriques et les modèles entraînés dans les exécutions sous l’expérimentation. L’exemple est exécuté localement dans un environnement géré par l’utilisateur. 
 
-1. Créez un script d’entraînement. Cette opération utilise ```%%writefile%%``` pour écrire le code d’entraînement dans le dossier de script en tant que ```train.py```.
+1. Créez un script d’entraînement. Ce code utilise ```%%writefile%%``` pour écrire le code de formation dans le dossier de script en tant que ```train.py```.
 
   ```python
   %%writefile $project_folder/train.py
@@ -208,7 +211,8 @@ Cet exemple s’appuie sur le modèle Ridge sklearn de base ci-dessus. Il effect
 
   ```python
   from azureml.core import ScriptRunConfig
-
+  
+  experiment = Experiment(workspace=ws, name="train-on-local")
   src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
   run = experiment.submit(src)
   ```
@@ -221,11 +225,28 @@ Quand vous utilisez la méthode **ScriptRunConfig** pour envoyer des exécutions
 1. Affichez le widget Jupyter en attendant la fin de l’exécution.
 
   ```python
-  from azureml.train.widgets import RunDetails
+  from azureml.widgets import RunDetails
   RunDetails(run).show()
   ```
 
   ![Capture d’écran du widget de notebook Jupyter](./media/how-to-track-experiments/widgets.PNG)
+
+2. **[Pour l’exécution de Machine Learning automatisé]**  Pour accéder aux graphiques à partir d’une exécution précédente. Remplacez `<<experiment_name>>` par le nom d’une expérience appropriée :
+
+   ``` 
+   from azureml.train.widgets import RunDetails
+   from azureml.core.run import Run
+
+   experiment = Experiment (workspace, <<experiment_name>>)
+   run_id = 'autoML_my_runID' #replace with run_ID
+   run = Run(experiment, run_id)
+   RunDetails(run).show()
+   ```
+
+  ![Widget de notebook Jupyter pour le Machine Learning automatisé](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
+
+
+Pour afficher d’autres détails sur un pipeline, cliquez sur le pipeline que vous souhaitez explorer dans la table. Les graphiques apparaissent dans une fenêtre contextuelle du Portail Azure.
 
 ### <a name="get-log-results-upon-completion"></a>Obtenir des résultats du journal lors de l’achèvement
 
@@ -235,19 +256,20 @@ L’entraînement et la supervision du modèle se produisent en arrière-plan af
 
 Vous pouvez afficher les métriques d’un modèle entraîné à l’aide de ```run.get_metrics()```. Vous pouvez désormais obtenir toutes les métriques qui ont été consignées dans l’exemple ci-dessus pour déterminer le meilleur modèle.
 
-<a name='view-the-experiment-in-the-web-portal'/>
+<a name="view-the-experiment-in-the-web-portal"></a>
 ## <a name="view-the-experiment-in-the-azure-portal"></a>Afficher l’expérimentation dans le portail Azure
 
-Une fois l’exécution d’une expérimentation terminée, vous pouvez accéder à l’enregistrement d’exécution de l’expérimentation. Il existe deux méthodes pour le faire :
+Une fois l’exécution d’une expérimentation terminée, vous pouvez accéder à l’enregistrement d’exécution de l’expérimentation. Vous pouvez faire accéder à l’historique de deux manières :
 
 * Obtenez l’URL vers l’exécution directement ```print(run.get_portal_url())```
-* Affichez les détails de l’exécution en envoyant son nom (dans ce cas, ```run```). Cela vous oriente vers le nom de l’expérimentation, l’ID, le type, l’état, la page de détails, un lien vers le portail Azure et un lien vers la documentation.
+* Affichez les détails de l’exécution en envoyant son nom (dans ce cas, ```run```). Cette méthode vous oriente vers le nom de l’expérience, l’ID, le type, l’état, la page de détails, un lien vers le Portail Azure et un lien vers la documentation.
 
 Le lien pour l’exécution vous amène directement à la page de détails de l’exécution dans le portail Azure. Ici, vous pouvez voir les propriétés, les métriques suivies, les images et les graphiques consignés dans l’expérimentation. Dans ce cas, nous avons consigné MSE et les valeurs alpha.
 
-  ![Capture d’écran des détails de l’exécution dans le portail Azure](./media/how-to-track-experiments/run-details-page-web.PNG)
+  ![Détails de l’exécution dans le Portail Azure](./media/how-to-track-experiments/run-details-page-web.PNG)
 
 Vous pouvez également afficher les sorties ou les journaux de l’exécution, ou télécharger la capture instantanée de l’expérimentation que vous avez envoyée afin de pouvoir partager le dossier de l’expérimentation avec d’autres utilisateurs.
+
 ### <a name="viewing-charts-in-run-details"></a>Affichage de graphiques dans des détails d’exécution
 
 Il existe différentes manières d’utiliser les API de journalisation pour enregistrer différents types de métriques en cours d’exécution, et les afficher sous forme de graphiques dans le portail Azure. 
@@ -259,13 +281,146 @@ Il existe différentes manières d’utiliser les API de journalisation pour enr
 |Journaliser une ligne avec 2 colonnes numériques à plusieurs reprises|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Graphique en courbes à deux variables|
 |Journaliser un table avec 2 colonnes numériques|`run.log_table(name='Sine Wave', value=sines)`|Graphique en courbes à deux variables|
 
+<a name="auto"></a>
+## <a name="understanding-automated-ml-charts"></a>Présentation des graphiques de ML automatisé
+
+Après avoir soumis un travail de ML automatisé dans un notebook, vous pouvez trouver un historique de ces exécutions dans votre espace de travail de service de Machine Learning. 
+
+Pour en savoir plus :
++ [Graphiques et courbes pour les modèles de classification](#classification)
++ [Graphiques pour les modèles de régression](#regression)
++ [Explication du modèle](#model-explain-ability-and-feature-importance)
+
+
+### <a name="view-the-run-charts"></a>Afficher les graphiques d’exécution
+
+1. Accédez à votre espace de travail. 
+
+1. Sélectionnez **Expériences** dans le volet le plus à gauche de votre espace de travail.
+
+  ![Capture d’écran du menu Expérience](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_menu.PNG)
+
+1. Sélectionnez l’expérience qui vous intéresse.
+
+  ![Liste d’expériences](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
+
+1. Dans la table, sélectionnez le numéro d’exécution.
+
+   ![Exécution de l’expérience](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
+
+1.  Dans la table, sélectionnez le numéro d’itération pour le modèle que vous souhaitez explorer.
+
+   ![Modèle d’expérience](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
+
+
+
+### <a name="classification"></a>classification ;
+
+Pour chaque modèle de classification que vous créez à l’aide des fonctionnalités de Machine Learning automatisé d’Azure Machine Learning, vous pouvez voir les graphiques suivants : 
++ [Matrice de confusion](#confusion-matrix)
++ [Graphique de rappel de précision](#precision-recall-chart)
++ [ROC (Receiver operating characteristic)](#ROC)
++ [Courbe d’élévation](#lift-curve)
++ [Courbe de gains](#gains-curve)
++ [Tracé d’étalonnage](#calibration-plot)
+
+#### <a name="confusion-matrix"></a>Matrice de confusion
+
+Une matrice de confusion décrit les performances d’un modèle de classification. Chaque ligne affiche les instances de la classe true, et chaque colonne représente les instances de la classe prévue. La matrice de confusion montre les étiquettes bien et mal classées pour un modèle donné.
+
+Pour les problèmes de classification, Azure Machine Learning fournit automatiquement une matrice de confusion associée à chaque modèle généré. Pour chaque matrice de confusion, le ML automatisé affiche les étiquettes bien classées en vert, et les étiquettes mal classées en rouge. La taille du cercle représente le nombre d’échantillons dans cet emplacement. En outre, la fréquence de chaque étiquette prévue et chaque étiquette true est fournie dans les graphiques à barres adjacents. 
+
+Exemple 1 : Modèle de classification avec précision médiocre ![Modèle de classification avec précision médiocre](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
+
+Exemple 2 : Modèle de classification avec précision élevée (idéal) ![Modèle de classification avec précision élevée](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
+
+
+#### <a name="precision-recall-chart"></a>Graphique de rappel de précision
+
+Avec ce graphique, vous pouvez comparer les courbes de rappel de précision pour chaque modèle afin de déterminer quel modèle présente une relation acceptable entre précision et rappel pour votre problème d’entreprise spécifique. Ce graphique montre le rappel de précision de macro-moyenne, le rappel de précision de micro-moyenne et le rappel de précision associé à toutes les classes d’un modèle.
+
+Le terme Précision représente la capacité d’un classifieur à étiqueter correctement toutes les instances. Le rappel représente la capacité d’un classifieur à rechercher toutes les instances d’une étiquette spécifique. La courbe de rappel de précision montre la relation entre ces deux concepts. Dans l’idéal, le modèle aurait une précision de 100 % et une exactitude de 100 %.
+
+Exemple 1 : Modèle de classification avec une précision faible et un rappel faible ![Modèle de classification avec une précision faible et un rappel faible](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
+
+Exemple 2 : Modèle de classification avec une précision d’environ 100 % et un rappel d’environ 100 % (idéal)![Modèle de classification avec une précision élevée et un rappel élevé](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
+
+#### <a name="roc"></a>ROC
+
+Le ROC (Receiver Operating Characteristic) est un tracé d’étiquettes bien classées et mal classées pour un modèle spécifique. La courbe ROC peut être moins informative lors de la formation de modèles sur des jeux de données présentant un biais élevé, car elle n’affiche pas les étiquettes de type faux positif.
+
+Exemple 1 : Modèle de classification avec des étiquettes true faibles et des étiquettes false élevées![Modèle de classification avec des étiquettes true faibles et des étiquettes false élevées](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
+
+Exemple 2 : Modèle de classification avec des étiquettes true élevées et des étiquettes false faibles![Modèle de classification avec des étiquettes true élevées et des étiquettes false faibles](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
+
+#### <a name="lift-curve"></a>Courbe d’élévation
+
+Vous pouvez comparer l’élévation du modèle généré automatiquement avec Azure Machine Learning par rapport à la ligne de base afin d’afficher le gain de valeur de ce modèle spécifique.
+
+Les graphiques de courbes d’élévation permettent d’évaluer les performances d’un modèle de classification. Ils montrent tous les atouts d’un modèle par rapport à une utilisation sans ce modèle. 
+
+Exemple 1 : Les performances du modèle sont inférieures à celles d’un modèle de sélection aléatoire ![Modèle de classification dont les performances sont inférieures à celles d’un modèle de sélection aléatoire](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
+
+Exemple 2 : Les performances du modèle sont supérieures à celles d’un modèle de sélection aléatoire ![Modèle de classification qui offre de meilleures performances](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
+
+#### <a name="gains-curve"></a>Courbe de gains
+
+Un graphique de gains évalue les performances d’un modèle de classification pour chaque partie des données. Il montre, pour chaque centile du jeu de données, les résultats que vous pouvez attendre par rapport à un modèle de sélection aléatoire.
+
+Utilisez le graphique de gains cumulés pour choisir la limite de classification au moyen d’un pourcentage qui correspond à un gain souhaité à partir du modèle. Ces informations offrent une autre façon d’observer les résultats dans le graphique de courbes d’élévation associé.
+
+Exemple 1 : Modèle de classification avec gain minimal ![Modèle de classification avec gain minimal](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
+
+Exemple 2 : Modèle de classification avec gain significatif ![Modèle de classification avec gain significatif](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
+
+#### <a name="calibration-plot"></a>Tracé d’étalonnage
+
+Pour tous les problèmes de classification, vous pouvez consulter la ligne d’étalonnage concernant la micro-moyenne, la macro-moyenne et chaque classe dans un modèle prédictif donné. 
+
+Un tracé d’étalonnage permet d’afficher le niveau de confiance d’un modèle prédictif. Pour ce faire, il affiche la relation entre la probabilité prévue et la probabilité réelle, où le terme « probabilité » représente la vraisemblance pour une instance spécifique d’appartenir à une étiquette. Un modèle bien étalonné s’aligne avec la ligne y=x, où il est raisonnablement confiant dans ses prédictions. Un modèle trop confiant s’aligne sur la ligne y=0, où la probabilité prévue est présente alors qu’il n’existe aucune probabilité réelle.
+
+Exemple 1 : Modèle mieux étalonné ![ Modèle mieux étalonné](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
+
+Exemple 2 : Modèle trop confiant ![Modèle trop confiant](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
+
+### <a name="regression"></a>régression ;
+Pour chaque modèle de régression que vous créez à l’aide des fonctionnalités de Machine Learning automatisé d’Azure Machine Learning, vous pouvez voir les graphiques suivants : 
++ [Prédiction et True](#pvt)
++ [Histogramme des résidus](#histo)
+
+<a name="pvt"></a>
+
+#### <a name="predicted-vs-true"></a>Prédiction et True
+
+Prédiction et True indique la relation entre une valeur prévue et sa valeur true en corrélation pour un problème de régression. Ce graphique peut servir à mesurer les performances d’un modèle, car plus les valeurs prévues sont proches de la ligne y=x, plus le modèle prédictif est précis.
+
+Après chaque exécution, vous pouvez afficher un graphique de type Prédiction et True pour chaque modèle de régression. Pour protéger la confidentialité des données, les valeurs sont réunies dans un conteneur et la taille de chaque emplacement est affichée sous la forme d’un graphique à barres au bas de la zone de graphique. Vous pouvez comparer le modèle prédictif, dont la zone la plus claire indique les marges d’erreur, par rapport à la valeur idéale du modèle.
+
+Exemple 1 : Modèle de régression avec faible précision dans les prédictions ![Modèle de régression avec faible précision dans les prédictions](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.PNG)
+
+Exemple 2 : Modèle de régression avec précision élevée dans les prédictions ![Modèle de régression avec précision élevée dans les prédictions](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.PNG)
+
+<a name="histo"></a>
+
+#### <a name="histogram-of-residuals"></a>Histogramme des résidus
+
+Un résidu représente une valeur y observée : la valeur y prévue. Pour afficher une marge d’erreur avec un biais faible, l’histogramme des résidus doit avoir la forme d’une cloche centrée sur 0. 
+
+Exemple 1 : Modèle de régression avec biais dans ses erreurs ![Modèle de régression avec biais dans ses erreurs](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.PNG)
+
+Exemple 2 : Modèle de régression avec distribution plus équilibrée des erreurs ![Modèle de régression avec distribution plus équilibrée des erreurs](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.PNG)
+
+### <a name="model-explain-ability-and-feature-importance"></a>Explication du modèle et importance des fonctionnalités
+
+L’importance des fonctionnalités fournit un score indiquant l’importance de chaque fonctionnalité dans la construction d’un modèle. Vous pouvez consulter le score d’importance des fonctionnalités pour le modèle global, mais aussi pour chaque classe dans un modèle prédictif. Vous pouvez comparer l’importance d’une fonctionnalité dans chaque classe et de manière globale.
+
+![Explication des fonctionnalités](./media/how-to-track-experiments/azure-machine-learning-auto-ml-feature_explain1.PNG)
+
 ## <a name="example-notebooks"></a>Exemples de notebooks
 Les notebooks suivants illustrent les concepts de cet article :
-* [01.getting-started/01.train-within-notebook/01.train-within-notebook.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/01.train-within-notebook)
-* [01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
-* [01.getting-started/06.logging-api/06.logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/06.logging-api/06.logging-api.ipynb)
-
-Consultez ces notebooks :
+* [how-to-use-azureml/training/train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training\train-within-notebook)
+* [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
+* [how-to-use-azureml/training/logging-api/logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

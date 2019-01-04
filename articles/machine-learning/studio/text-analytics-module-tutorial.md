@@ -4,9 +4,8 @@ description: Création de modèles d’analyse de texte dans Azure Machine Learn
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=roastala, author=rastala)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: cgronlun
 editor: ''
 ms.assetid: 08cd6723-3ae6-4e99-a924-e650942e461b
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.openlocfilehash: 10b4f8a494a9effc04db731f05eeb010f4fb0b6a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 11f4ad4ff1e8e2eab688596d393e63009f7e5624
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262480"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255480"
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Créer des modèles d’analyse de texte dans Azure Machine Learning Studio
 Vous pouvez utiliser Azure Machine Learning pour créer des modèles d’analyse de texte et les rendre opérationnels. Ces modèles peuvent, par exemple, vous aider à résoudre des problèmes d’analyse de sentiments ou de classification de document.
@@ -34,7 +33,7 @@ Dans une expérience d’analyse de texte, vous devez généralement :
 4. noter et valider le modèle ;
 5. déployer le modèle en production.
 
-Dans ce didacticiel, vous allez vous familiariser avec ces étapes au cours de l’exploration d’un modèle d’analyse de sentiments à l’aide d’un jeu de données Amazon Book Reviews (consultez l’article scientifique « Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification » de John Blitzer, Mark Dredze et Fernando Pereira ; Association of Computational Linguistics (ACL), 2007). Ce jeu de données se compose de notes de critiques de livres (1-2 ou 4-5) et d’un texte de forme libre. L’objectif est de prédire la note de la critique : faible (1-2) ou élevée (4-5).
+Dans ce tutoriel, vous allez vous familiariser avec ces étapes au cours de l’exploration d’un modèle d’analyse de sentiments à l’aide d’un jeu de données Amazon Book Reviews (consultez l’article scientifique « Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification » de John Blitzer, Mark Dredze et Fernando Pereira ; Association of Computational Linguistics (ACL), 2007). Ce jeu de données se compose de notes de critiques de livres (1-2 ou 4-5) et d’un texte de forme libre. L’objectif est de prédire la note de la critique : faible (1-2) ou élevée (4-5).
 
 Vous trouverez les expériences traitées dans ce didacticiel dans la galerie Azure AI :
 
@@ -42,7 +41,7 @@ Vous trouverez les expériences traitées dans ce didacticiel dans la galerie Az
 
 [Predict Book Reviews - Predictive Experiment](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
 
-## <a name="step-1-clean-and-preprocess-text-dataset"></a>Étape 1 : Nettoyer et pré-traiter un jeu de données de texte
+## <a name="step-1-clean-and-preprocess-text-dataset"></a>Étape 1 : nettoyer et pré-traiter un jeu de données de texte ;
 Nous commençons l’expérience en divisant les notes de critiques de livres en compartiments faible et élevé pour formuler le problème sous forme de classification à deux classes. Nous utilisons les modules [Modifier les métadonnées](https://msdn.microsoft.com/library/azure/dn905986.aspx) et [Regrouper les valeurs catégoriques](https://msdn.microsoft.com/library/azure/dn906014.aspx).
 
 ![Créer une étiquette](./media/text-analytics-module-tutorial/create-label.png)
@@ -55,7 +54,7 @@ Que se passe-t-il si vous souhaitez utiliser une liste de mots vides personnalis
 
 Une fois le pré-traitement terminé, nous fractionnons les données en jeux d’apprentissage et de test.
 
-## <a name="step-2-extract-numeric-feature-vectors-from-pre-processed-text"></a>Étape 2 : Extraire des vecteurs de fonctions numériques du texte pré-traité
+## <a name="step-2-extract-numeric-feature-vectors-from-pre-processed-text"></a>Étape 2 : extraire des vecteurs de fonctions numériques du texte pré-traité ;
 Pour générer un modèle de données de texte, vous devez généralement convertir du texte de forme libre en vecteurs de fonctions numériques. Dans cet exemple, nous utilisons le module [Extract N-Gram Features from Text](https://msdn.microsoft.com/library/azure/mt762916.aspx) (Extraire des fonctionnalités N-grammes du texte) pour transformer les données texte dans ce format. Ce module prend une colonne de mots séparés par des espaces blancs et compile un dictionnaire de mots, ou N-grammes de mots, qui apparaissent dans votre jeu de données. Ensuite, il compte le nombre de fois où chaque mot, ou N-gramme, apparaît dans chaque enregistrement et crée des vecteurs de fonction à partir de ce décompte. Dans ce didacticiel, nous définissons la taille N-gramme sur 2, donc nos vecteurs de fonctions incluent des mots uniques ou des combinaisons de deux mots qui se suivent.
 
 ![Extraire les N-grammes](./media/text-analytics-module-tutorial/extract-ngrams.png)
@@ -68,19 +67,19 @@ En outre, vous pouvez utiliser la sélection de fonctionnalités pour sélection
 
 En guise d’alternative à l’utilisation du module d’extraction des fonctionnalités N-grammes, vous pouvez utiliser le module de hachage de fonctionnalité. Notez cependant que le module [Hachage de fonctionnalité](https://msdn.microsoft.com/library/azure/dn906018.aspx) ne possède pas de capacité de sélection de fonctionnalité intégrée, ou pondération TF*IDF.
 
-## <a name="step-3-train-classification-or-regression-model"></a>Étape 3 : Former le modèle de classification ou de régression
+## <a name="step-3-train-classification-or-regression-model"></a>Étape 3 : former le modèle de classification ou de régression ;
 À présent, le texte a été transformé en colonnes de fonctions numériques. Le jeu de données contient toujours des colonnes de type chaîne issues des étapes précédentes, donc nous utilisons Sélectionner des colonnes dans le jeu de données pour les exclure.
 
 Nous utilisons ensuite [Régression logistique à deux classes](https://msdn.microsoft.com/library/azure/dn905994.aspx) pour prédire notre cible : note de critique élevée ou faible. À ce stade, le problème d’analyse de texte a été transformé en un problème de classification standard. Vous pouvez utiliser les outils disponibles dans Azure Machine Learning pour améliorer le modèle. Par exemple, vous pouvez faire des essais avec des classifieurs différents pour déterminer la précision des résultats qu’ils donnent, ou vous pouvez utiliser le réglage d’hyperparamètre pour améliorer la précision.
 
 ![Apprentissage et Notation](./media/text-analytics-module-tutorial/scoring-text.png)
 
-## <a name="step-4-score-and-validate-the-model"></a>Étape 4 : Noter et valider le modèle
+## <a name="step-4-score-and-validate-the-model"></a>Étape 4 : noter et valider le modèle ;
 Comment valider le modèle formé ? Nous le notons en fonction du jeu de données de test et nous en évaluons la précision. Toutefois, le modèle a appris le vocabulaire des N-grammes et leur pondération à partir du jeu de données d’apprentissage. Par conséquent, nous devons utiliser ce vocabulaire et ces pondérations lors de l’extraction de fonctionnalités à partir des données de test, plutôt que de créer de nouveau le vocabulaire. Par conséquent, nous ajoutons le module d’extraction de fonctionnalités N-grammes à la branche de notation de l’expérience, nous connectons le vocabulaire de sortie à partir de la branche d’apprentissage et nous définissons le mode du vocabulaire en lecture seule. Nous désactivons également le filtrage de N-grammes en fonction de la fréquence en définissant le minimum sur 1 instance et le maximum sur 100 %, et en désactivant la sélection de fonctionnalités.
 
 Une fois que la colonne de texte dans les données de test a été transformée en colonnes de fonctions numériques, nous excluons les colonnes de type chaîne des étapes précédentes, comme dans la branche d’apprentissage. Nous utilisons ensuite le module Noter le modèle pour effectuer des prévisions et le module Évaluer un modèle pour évaluer la précision.
 
-## <a name="step-5-deploy-the-model-to-production"></a>Étape 5 : Déployer le modèle en production
+## <a name="step-5-deploy-the-model-to-production"></a>Étape 5 : déployer le modèle en production.
 Le modèle est presque prêt à être déployé en production. S’il est déployé en tant que service web, il accepte la chaîne de texte de forme libre comme entrée et retourne une prévision « élevée » ou « faible ». Il utilise le vocabulaire N-gramme appris pour transformer le texte en fonctionnalités et le modèle de régression logistique formé pour établir une prévision à partir de ces fonctionnalités. 
 
 Pour configurer l’expérience de prévision, nous enregistrons tout d’abord le vocabulaire N-gramme en tant que jeu de données et le modèle de régression logistique formé à partir de la branche d’apprentissage de l’expérience. Ensuite, nous enregistrons l’expérience à l’aide de l’option « Enregistrer sous » pour créer un graphique expérimental pour l’expérience prédictive. Nous supprimons le module Fractionner les données et la branche d’apprentissage de l’expérience. Nous connectons ensuite le vocabulaire N-gramme et le modèle précédemment enregistrés aux modules Extraire des fonctionnalités N-grammes et Noter le modèle, respectivement. Nous supprimons également le module Évaluer un modèle.

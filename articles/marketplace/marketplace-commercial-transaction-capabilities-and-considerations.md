@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 32198387be680fd01558e900e4c438cde2cdc5b1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b2f106edf69b57410fd1990d0888cf9d3a71be56
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266289"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880180"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Considérations et fonctionnalités relatives aux transactions commerciales ‎dans la Place de marché Azure
 
@@ -46,7 +46,7 @@ En plus des options de publication Liste et Essai, les éditeurs disposent de l�
 
 Quand vous choisissez l’option de publication Transaction, Microsoft permet la vente et le déploiement de logiciels tiers dans l’abonnement Azure du client. Pour choisir le modèle de facturation et le type d’offre appropriés dans la Place de marché Azure, l’éditeur doit prendre en compte la facturation des frais d’infrastructure Azure et de ses propres frais de licence logicielle. 
 
-L’option de publication Transaction dans la Place de marché Azure est actuellement disponible pour ces types d’offres : Machines virtuelles, Applications Azure et Applications SaaS.
+L’option de publication Transaction sur la Place de marché Azure est actuellement disponible pour ces types d’offres : Machines virtuelles, Applications Azure ou Applications SaaS.
 
 ![[Transactions commerciales dans la Place de marché Azure]](./media/marketplace-publishers-guide/Transact-enterprise-deals.png)
 
@@ -68,7 +68,7 @@ Selon l’option Transaction choisie, les frais de licence logicielle de l’éd
 
 * BYOL (apportez votre propre licence) : les frais facturables pour les licences logicielles sont gérés directement entre l’éditeur et le client. Microsoft transmet uniquement les frais d’utilisation de l’infrastructure Azure. (Pour les offres Machines virtuelles et Applications Azure uniquement.)
 
-* Paiement à l’utilisation : des frais de licence logicielle sont facturés à un taux tarifaire par heure et par cœur (processeur virtuel) basé sur l’utilisation de l’infrastructure Azure. Cela s’applique aux offres Machines virtuelles et Applications Azure uniquement.
+* Paiement à l’utilisation : les frais de licence logicielle sont facturés à un taux tarifaire par heure et par cœur (processeur virtuel) basé sur l’utilisation de l’infrastructure Azure. Cela s’applique aux offres Machines virtuelles et Applications Azure uniquement.
 
 * Abonnement (en fonction du site) : les frais de licence logicielle sont facturés selon un tarif mensuel fixe.  Cela s’applique uniquement aux offres Applications SaaS et Applications Azure – Applications managées.
 
@@ -98,7 +98,7 @@ Cette option tarifaire peut être supérieure ou inférieure au tarif affiché p
 
 ### <a name="examples"></a>Exemples
 
-**Paiement à l’utilisation** 
+**Pay-As-You-Go** 
 
 * Si vous activez l’option Paiement à l’utilisation, vous obtenez la structure de coûts suivante.
 
@@ -177,8 +177,9 @@ Exemple d’un client qui fait un achat avec une carte de crédit :
 |Date de calcul du paiement (tous les mois le 15) | 1er octobre 2018 |
 |Date de paiement | 15 octobre 2018 |
 
-Exemple d’un client qui fait un achat avec un Contrat Entreprise :  
-|Description    |    Date  |
+Exemple d’un client qui fait un achat avec un Contrat Entreprise :
+
+| Description |    Date  |
 |----------|----------|
 |Période de commande | 15 août 2018 au 30 août 2018 |
 |Échéance (trimestre) | 30 septembre 2018 |
@@ -237,7 +238,7 @@ L’option de publication Transaction est uniquement disponible pour les types d
 
 Choisissez entre le modèle tarifaire Gratuit, BYOL (apportez votre propre licence) et Paiement à l’utilisation, et présentez les frais comme des références SKU définies au niveau de l’offre. Sur la facture Azure du client, Microsoft présente les frais de licence logicielle de l’éditeur séparément des frais attribuables à l’utilisation de l’infrastructure Azure. Les frais d’utilisation de l’infrastructure Azure sont occasionnés par l’utilisation du logiciel de l’éditeur.
 
-**Applications Azure : modèle de solution ou application managée** 
+**Applications Azure : modèle de solution ou application gérée** 
 
 Vous devez provisionner une ou plusieurs machines virtuelles et transmettre le total à payer pour chaque machine virtuelle. Pour les applications managées dans un plan unique, il est possible de sélectionner un abonnement mensuel fixe comme modèle tarifaire à la place de la tarification par machine virtuelle. Dans les deux cas, les frais d’utilisation de l’infrastructure Azure sont dissociés des frais de licence logicielle, mais ils sont présentés au client sur la même facture.
 

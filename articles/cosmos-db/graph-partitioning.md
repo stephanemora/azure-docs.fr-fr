@@ -1,29 +1,23 @@
 ---
-title: 'Partitionnement dans Azure Cosmos DB : API Gremlin | Microsoft Docs'
-description: Découvrez comment vous pouvez utiliser un graphique partitionné dans Azure Cosmos DB.
-services: cosmos-db
+title: 'Partitionnement des données dans Azure Cosmos DB : API Gremlin'
+description: Découvrez comment vous pouvez utiliser un graphique partitionné dans Azure Cosmos DB. Cet article décrit également la configuration requise et les meilleures pratiques relatives aux graphiques partitionnés.
 author: luisbosquez
-manager: kfile
+ms.author: lbosq
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.author: lbosq
-ms.openlocfilehash: 7e9de68866b5e5849d0e48ad5073fc7b89fbb1ca
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7fc6068ccdc0c089b222fc8282063d526e862a38
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239302"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139433"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Utilisation d’un graphique partitionné dans Azure Cosmos DB
 
-Une des fonctionnalités clés de l’API Gremlin dans Azure Cosmos DB est la capacité de gérer des graphes à grande échelle avec la scalabilité horizontale. Ce processus est possible grâce aux [fonctionnalités de partitionnement d’Azure Cosmos DB](partition-data.md), qui utilisent des conteneurs, capables d’évoluer de manière indépendante en termes de débit et de stockage. Azure Cosmos DB prend en charge les types de conteneurs suivants sur toutes les API :
-
-- **Conteneur fixe** : ces conteneurs peuvent stocker une base de données de graphiques dont la taille peut atteindre 10 Go et lui allouer jusqu’à 10 000 unités de requête par seconde. Pour créer un conteneur fixe, il est inutile de spécifier une propriété de clé de partition dans les données.
-
-- **Conteneur illimité** : ces conteneurs sont dimensionnés automatiquement pour stocker un graphique au-delà de la limite de 10 Go grâce au partitionnement horizontal. Chaque partition stocke 10 Go, et les données sont automatiquement réparties en fonction de la **clé de partition spécifiée**, qui est un paramètre obligatoire lors de l’utilisation d’un conteneur illimité. Ce type de conteneur peut stocker un volume de données quasi illimité et traiter 100 000 unités de requête par seconde ou plus [en contactant le support](https://aka.ms/cosmosdbfeedback?subject=Cosmos%20DB%20More%20Throughput%20Request).
+Une des fonctionnalités clés de l’API Gremlin dans Azure Cosmos DB est la capacité de gérer des graphes à grande échelle avec la mise à l’échelle horizontale. La mise à l’échelle horizontale est exécutée via les [fonctionnalités de partitionnement d’Azure Cosmos DB](partition-data.md). Les conteneurs peuvent évoluer indépendamment en termes de débit et de stockage. Vous pouvez créer des conteneurs dans Azure Cosmos DB qui peuvent être automatiquement mis à l’échelle pour stocker des données graphiques. Les données sont automatiquement réparties en fonction de la **clé de partition** spécifiée.
 
 Les modalités de partitionnement des bases de données de graphiques seront décrites dans ce document, ainsi que ses implications pour les sommets (ou nœuds) et les arêtes.
 
@@ -31,13 +25,13 @@ Les modalités de partitionnement des bases de données de graphiques seront dé
 
 Vous devez comprendre les détails suivants pour créer un conteneur graphique partitionné :
 
-- **La configuration du partitionnement est nécessaire** si le conteneur est censé dépasser les 10 Go ou si l’allocation de plus de 10 000 unités de requête par seconde (RU/s) est nécessaire.
+- **Le partitionnement est requis** si le conteneur doit stocker plus de 10 Go ou si vous souhaitez allouer plus de 10 000 unités de requête par seconde (RU).
 
-- **Les sommets et arêtes sont stockés sous la forme de documents JSON** dans le backend d’un conteneur de l’API Gremlin d’Azure Cosmos DB.
+- **Les sommets et arêtes sont stockés sous forme de documents JSON**.
 
-- **Les sommets nécessitent une clé de partition**. Cette clé détermine dans quelle partition le sommet est stocké par un algorithme de hachage. Le nom de cette clé de partition est un mot unique sans espace ni caractère spécial, et il est défini lors de la création d’un conteneur au format `/partitioning-key-name` sur le portail.
+- **Les sommets nécessitent une clé de partition**. Cette clé détermine dans quelle partition le sommet est stocké par un algorithme de hachage. Le nom de cette clé de partition est un mot unique ne contenant ni espace ni caractère spécial. La clé de partition est définie lors de la création d’un nouveau conteneur. Elle se présente au format : `/partitioning-key-name`.
 
-- **Les arêtes seront stockées avec leur sommet source**. En d’autres termes, la clé de partition de chaque sommet définira là où elles seront stockées avec ses arêtes sortantes. Cela permet d’éviter les requêtes entre partitions lors de l’utilisation de la cardinalité `out()` dans les requêtes de graphique.
+- **Les arêtes seront stockées avec leur sommet source**. En d’autres termes, la clé de partition de chaque sommet définit là où elles sont stockées avec ses arêtes sortantes. Cela permet d’éviter les requêtes entre partitions lors de l’utilisation de la cardinalité `out()` dans les requêtes de graphique.
 
 - **Les requêtes de graphique doivent spécifier une clé de partition**. Pour tirer pleinement parti du partitionnement horizontal dans Azure Cosmos DB, la clé de partition doit être spécifiée lorsqu’un sommet unique est sélectionné, dans la mesure du possible. Les requêtes suivantes permettent de sélectionner un ou plusieurs sommets dans un graphique partitionné :
 
@@ -70,18 +64,19 @@ Vous devez comprendre les détails suivants pour créer un conteneur graphique p
 
 ## <a name="best-practices-when-using-a-partitioned-graph"></a>Meilleures pratiques lors de l’utilisation d’un graphique partitionné
 
-Suivez les consignes ci-dessous pour garantir une extensibilité et des performances optimales lors de l’utilisation de graphiques partitionnés dans des conteneurs illimités :
+Pour garantir de hautes performances et une bonne évolutivité lors de l’utilisation de graphiques partitionnés avec des conteneurs illimités, utilisez les instructions suivantes :
 
-- **Spécifiez toujours la valeur de la clé de partition lors de l’interrogation d’un sommet**. L’obtention d’un sommet à partir d’une partition connue est le moyen le plus efficace en termes de performances.
+- **Spécifiez toujours la valeur de la clé de partition lors de l’interrogation d’un sommet**. L’obtention des sommets à partir d’une partition connue permet d’optimiser les performances.
 
-- **Utilisez la direction sortante lorsque vous interrogez des arêtes dans la mesure du possible**. Comme nous l’avons déjà vu, les arêtes sont stockées avec leurs sommets sources dans la direction sortante. En d’autres termes, le risque de recourir à des requêtes entre partitions est minimisé lorsque les données et les requêtes sont conçues dans cet esprit.
+- **Utilisez la direction sortante lorsque vous interrogez des arêtes dans la mesure du possible**. Comme nous l’avons déjà vu, les arêtes sont stockées avec leurs sommets sources dans la direction sortante. En d’autres termes, le risque de recourir à des requêtes entre partitions est réduit lorsque les données et les requêtes sont conçues dans cet esprit.
 
 - **Choisissez une clé de partition qui répartira les données de manière uniforme entre les partitions**. Cette décision dépend fortement du modèle de données de la solution. Pour en savoir plus sur la création d’une clé de partition appropriée, consultez [Partitionner et mettre à l’échelle dans Azure Cosmos DB](partition-data.md).
 
-- **Optimisez les requêtes pour obtenir des données dans les limites d’une partition, lorsque cela est possible**. Une stratégie de partitionnement optimale doit être en phase avec les modèles de requête. Les requêtes qui obtiennent des données à partir d’une seule partition offrent les meilleures performances.
+- **Optimisez les requêtes pour obtenir des données dans les limites d’une partition**. Une stratégie de partitionnement optimale doit être en phase avec les modèles de requête. Les requêtes qui obtiennent des données à partir d’une seule partition offrent les meilleures performances.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Cet article fournit une vue d’ensemble des concepts et des bonnes pratiques du partitionnement avec l’API Gremlin d’Azure Cosmos DB. 
+
+Vous pouvez ensuite passer aux articles suivants :
 
 * Pour en savoir plus, consultez [Partitionner et mettre à l’échelle dans Azure Cosmos DB](partition-data.md).
 * Pour en savoir plus, consultez [Prise en charge de Gremlin dans l’API Gremlin](gremlin-support.md).

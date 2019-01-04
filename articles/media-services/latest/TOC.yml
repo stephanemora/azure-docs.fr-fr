@@ -5,12 +5,12 @@ items:
   items:
   - name: À propos de Media Services
     href: media-services-overview.md
-- name: Guides de démarrage rapide
+- name: Démarrages rapides
   items:
   - name: Diffuser des fichiers vidéo en continu avec .NET
     href: stream-files-dotnet-quickstart.md
   expanded: true
-- name: Tutoriels
+- name: Didacticiels
   items:
   - name: Encoder le fichier distant et diffuser la vidéo – REST
     href: stream-files-tutorial-with-rest.md
@@ -30,16 +30,8 @@ items:
   items:
   - name: Migrer de v2 vers v3
     href: migrate-from-v2-to-v3.md
-  - name: Analyse du contenu
-    href: analyzing-video-audio-files-concept.md
-  - name: Encodage du contenu
-    href: encoding-concept.md
-    items:
-    - name: Formats Media Encoder Standard
-      href: media-encoder-standard-formats.md
-    - name: Autogen échelle de débit adaptatif
-      href: autogen-bitrate-ladder.md
-  - name: Examen des entités
+  - name: Entités
+    href: entities-overview.md
     items:
     - name: Filtres de ressources et de comptes
       href: filters-dynamic-manifest-overview.md
@@ -47,6 +39,8 @@ items:
       href: assets-concept.md
     - name: Stratégies de clé de contenu
       href: content-key-policy-concept.md
+    - name: LiveEvents et LiveOutputs
+      href: live-events-outputs-concept.md
     - name: Points de terminaison de streaming
       href: streaming-endpoint-concept.md
     - name: Localisateurs de diffusion en continu
@@ -55,8 +49,13 @@ items:
       href: streaming-policy-concept.md
     - name: Transformations et travaux
       href: transforms-jobs-concept.md
-  - name: Examen des comptes de stockage en cours
-    href: storage-account-concept.md
+  - name: Encodage du contenu
+    href: encoding-concept.md
+    items:
+    - name: Formats Media Encoder Standard
+      href: media-encoder-standard-formats.md
+    - name: Autogen échelle de débit adaptatif
+      href: autogen-bitrate-ladder.md
   - name: Traitement des événements Event Grid
     href: reacting-to-media-services-events.md
   - name: Protection du contenu
@@ -65,6 +64,8 @@ items:
       href: content-protection-overview.md
     - name: Système multi-DRM avec contrôle d’accès
       href: design-multi-drm-system-with-access-control.md
+  - name: Analyse du contenu
+    href: analyzing-video-audio-files-concept.md
   - name: Diffusion d’événements en direct
     href: live-streaming-overview.md
     items:
@@ -78,6 +79,8 @@ items:
       href: live-event-states-billing.md
     - name: Latence
       href: live-event-latency.md
+  - name: Comptes de stockage
+    href: storage-account-concept.md
 - name: Procédures
   items:
   - name: Créer un compte - CLI
@@ -182,9 +185,9 @@ items:
     href: limits-quotas-constraints.md
   - name: Forum Aux Questions
     href: frequently-asked-questions.md
-ms.openlocfilehash: aafc49b10a012bab6c3dc3d455480deca44fde32
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 660052b4e82f6e005c096b5ac1edd7a80c2d5339
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631989"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744970"

@@ -1,22 +1,22 @@
 ---
-title: Surveiller le stockage et les demandes Azure Cosmos DB | Microsoft Docs
+title: Superviser les métriques de performances et de stockage dans Azure Cosmos DB
 description: Découvrez comment surveiller, dans votre compte Azure Cosmos DB, les mesures de performances (notamment les demandes et les erreurs de serveur) et les mesures d’utilisation (par exemple, l’espace de stockage utilisé).
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2017
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 1f4bf4ba660e83be9879c56d04b27c932d563e17
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.custom: seodec18
+ms.openlocfilehash: fe527e6e9933d25d7f1a16561ce4822d7b9a33ab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354057"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135880"
 ---
-# <a name="monitor-azure-cosmos-db"></a>Surveiller Azure Cosmos DB
+# <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Superviser les métriques de performances et de stockage dans Azure Cosmos DB
+
 Vous pouvez surveiller vos comptes Azure Cosmos DB dans le [portail Azure](https://portal.azure.com/). Pour chaque compte Azure Cosmos DB, une suite complète de mesures est disponible pour surveiller le débit, le stockage, la disponibilité, la latence et la cohérence.
 
 Vous pouvez consulter les mesures sur la page Compte, sur la nouvelle page Mesures ou dans Azure Monitor.

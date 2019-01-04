@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 03dd056363cd99f5354dc10ed5ae328eb39c3ec2
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: b817723120f07de9159e47c1259a68eb95b9c2e3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291060"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140776"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Authentifier avec Azure Active Directory à partir d’une application pour accéder aux objets blob et aux files d’attente (préversion)
 
@@ -79,11 +79,11 @@ L’exemple de code montre comment obtenir un jeton d’accès d’Azure AD. Le 
 
 Pour authentifier un principal de sécurité avec Azure AD, vous devez inclure des valeurs connues dans votre code.
 
-#### <a name="azure-ad-oauth-endpoint"></a>Point de terminaison OAuth Azure AD
+#### <a name="azure-ad-authority"></a>Autorité Azure AD
 
-Le point de terminaison de base de l’autorité Azure AD pour OAuth 2.0 est comme suit, où *tenant-id* est votre ID de locataire Active Directory (ou ID d’annuaire) :
+Pour le cloud public Microsoft, l’autorité Azure AD de base est comme suit, où *tenant-id* est votre ID de locataire Active Directory (ou ID de répertoire) :
 
-`https://login.microsoftonline.com/<tenant-id>/oauth2/token`
+`https://login.microsoftonline.com/<tenant-id>/`
 
 L’ID client identifie le client Azure AD pour l’authentification. Pour récupérer l’ID de locataire, suivez les étapes décrites dans **Obtenir l’ID de locataire pour Azure Active Directory**.
 
@@ -138,11 +138,11 @@ Ensuite, ajoutez une méthode qui demande un jeton à Azure AD. Pour demander le
 static string GetUserOAuthToken()
 {
     const string ResourceId = "https://storage.azure.com/";
-    const string AuthEndpoint = "https://login.microsoftonline.com/{0}/oauth2/token";
+    const string AuthInstance = "https://login.microsoftonline.com/{0}/";
     const string TenantId = "<tenant-id>"; // Tenant or directory ID
 
     // Construct the authority string from the Azure AD OAuth endpoint and the tenant ID. 
-    string authority = string.Format(CultureInfo.InvariantCulture, AuthEndpoint, TenantId);
+    string authority = string.Format(CultureInfo.InvariantCulture, AuthInstance, TenantId);
     AuthenticationContext authContext = new AuthenticationContext(authority);
 
     // Acquire an access token from Azure AD. 

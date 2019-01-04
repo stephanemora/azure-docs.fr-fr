@@ -1,0 +1,122 @@
+---
+title: Utiliser le site web Video Indexer pour personnaliser un modèle de langage - Azure
+titlesuffix: Azure Media Services
+description: Cet article explique comment personnaliser un modèle de langage avec le site web Video Indexer.
+services: media-services
+author: anikaz
+manager: johndeu
+ms.service: media-services
+ms.topic: article
+ms.date: 12/03/2018
+ms.author: anzaman
+ms.openlocfilehash: 9bf48a994c3efeb433bcb99342f7a477d87858eb
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53283585"
+---
+# <a name="customize-a-language-model-with-the-video-indexer-website"></a>Personnaliser un modèle de langage avec le site web Video Indexer
+
+Video Indexer vous permet de créer des modèles de langage personnalisés pour la reconnaissance vocale en chargeant un texte d’adaptation, à savoir un texte extrait du domaine de vocabulaire auquel vous souhaitez que le moteur s’adapte. Une fois votre modèle entraîné, les nouveaux mots qui apparaissent dans le texte d’adaptation seront reconnus. 
+
+Pour obtenir une présentation détaillée et les meilleures pratiques pour les modèles de langage personnalisés, consultez [Personnaliser un modèle de langage avec Video Indexer](customize-language-model-overview.md).
+
+Vous pouvez utiliser le site web Video Indexer pour créer et modifier des modèles de langage personnalisés dans votre compte, comme décrit dans cette rubrique. Vous pouvez également utiliser l'API, comme décrit dans [Personnaliser le modèle de langage à l'aide des API](customize-language-model-with-api.md).
+
+## <a name="create-a-language-model"></a>Créer un modèle de langage
+
+1. Accédez au site web [Video Indexer](https://www.videoindexer.ai/) et connectez-vous.
+2. Pour personnaliser un modèle à partir de votre compte, cliquez sur le bouton **Personnalisation du modèle de contenu** en haut à droite de la page.
+
+   ![Personnaliser un modèle de contenu](./media/content-model-customization/content-model-customization.png)
+
+3. Sélectionnez l'onglet **Langage**.
+
+    La liste des langues prises en charge s'affiche. 
+
+    ![Personnaliser un modèle de langage](./media/customize-language-model/customize-language-model.png)
+
+4. Sous le langage de votre choix, cliquez sur **Ajouter un modèle**.
+5. Entrez le nom du modèle de langage, puis appuyez sur Entrée.
+
+    Une fois le modèle créé, vous pouvez y charger des fichiers texte.
+6. Pour ajouter un fichier texte, cliquez sur **Ajouter un fichier**. Votre Explorateur de fichiers s’ouvre.
+
+7. Accédez et sélectionnez le fichier texte de votre choix. Vous pouvez ajouter plusieurs fichiers texte à un modèle de langage.
+
+    Vous pouvez également ajouter un fichier texte en cliquant sur le bouton **...** situé à droite du modèle de langage et en sélectionnant **Ajouter un fichier**.
+8. Une fois les fichiers texte chargés, cliquez sur l'option verte **Entraîner**.
+
+    ![Entraîner un modèle de langage](./media/customize-language-model/train-model.png)
+
+Le processus d'apprentissage peut prendre plusieurs minutes. Une fois l'apprentissage terminé, le texte **Entraîné** apparaît en regard du modèle. Vous pouvez afficher un aperçu, télécharger et supprimer le fichier à partir du modèle.
+
+![Modèle de langage entraîné](./media/customize-language-model/preview-model.png)
+
+### <a name="using-a-language-model-on-a-new-video"></a>Utiliser un modèle de langage sur une nouvelle vidéo
+
+Pour utiliser votre modèle de langage sur une nouvelle vidéo, effectuez l’une des opérations suivantes :
+
+* Cliquez sur le bouton **Charger** en haut de la page. 
+
+    ![Télécharger](./media/customize-language-model/upload.png)
+* Déposez votre fichier audio ou vidéo dans le cercle ou accédez à votre fichier.
+
+    ![Télécharger](./media/customize-language-model/upload2.png)
+
+Vous pourrez ainsi sélectionner le **langage source de la vidéo**. Cliquez sur la liste déroulante et sélectionnez un modèle de langage que vous avez créé. Le langage de votre modèle de langage ainsi que le nom que vous lui avez donné y sont indiqués entre parenthèses.
+
+Cliquez sur l'option **Charger** située en bas de la page, et votre nouvelle vidéo sera indexée à l’aide de votre modèle de langage.
+
+### <a name="using-a-language-model-to-reindex"></a>Utiliser un modèle de langage pour réindexer
+
+Pour utiliser votre modèle de langage pour réindexer une vidéo de votre collection, accédez aux **Vidéo du compte** sur la page d'accueil de [Video Indexer](https://www.videoindexer.ai/) et pointez sur le nom de la vidéo que vous souhaitez réindexer.
+
+Les options vous permettant de modifier, de supprimer ou de réindexer votre vidéo s'affichent. Cliquez sur l’option vous permettant de réindexer votre vidéo.
+
+![Réindexer](./media/customize-language-model/reindex1.png)
+
+Sélectionnez le **langage source de la vidéo**  afin de réindexer votre vidéo. Cliquez sur la liste déroulante et sélectionnez un modèle de langage que vous avez créé. Le langage de votre modèle de langage ainsi que le nom que vous lui avez donné y sont indiqués entre parenthèses.
+
+![Réindexer](./media/customize-language-model/reindex.png)
+
+Cliquez sur le bouton **Réindexer** et votre vidéo sera réindexée à l'aide de votre modèle de langage.
+
+## <a name="edit-a-language-model"></a>Modifier un modèle de langage
+
+Vous pouvez modifier un modèle de langage en modifiant son nom, en ajoutant ou en supprimant des fichiers.
+
+Si vous ajoutez ou supprimez des fichiers du modèle de langage, vous devez l'entraîner à nouveau en cliquant sur l'option verte **Entraîner**.
+
+### <a name="rename-the-language-model"></a>Renommer le modèle de langage
+
+Pour modifier le nom du modèle de langage, cliquez sur **...**, à droite du modèle, puis sélectionnez **Renommer**. 
+
+Entrez le nouveau nom, puis appuyez sur Entrée.
+
+### <a name="add-files"></a>Ajouter des fichiers
+
+Pour ajouter un fichier texte, cliquez sur **Ajouter un fichier**. Votre Explorateur de fichiers s’ouvre.
+
+Accédez et sélectionnez le fichier texte de votre choix. Vous pouvez ajouter plusieurs fichiers texte à un modèle de langage.
+
+Vous pouvez également ajouter un fichier texte en cliquant sur le bouton **...** situé à droite du modèle de langage et en sélectionnant **Ajouter un fichier**.
+
+### <a name="delete-files"></a>Supprimer des fichiers
+
+Pour supprimer un fichier du modèle de langage, cliquez sur le bouton **...** , à droite du fichier texte, et sélectionnez **Supprimer**. Une nouvelle fenêtre apparaît pour vous indiquer que cette suppression est définitive. Cliquez sur l'option **Supprimer** dans la nouvelle fenêtre.
+
+Le fichier est complètement supprimé du modèle de langage.
+
+## <a name="delete-a-language-model"></a>Supprimer un modèle de langage
+
+Pour supprimer un modèle de langage de votre compte, cliquez sur le bouton **...** , à droite du modèle de langage, et sélectionnez **Supprimer**.
+
+Une nouvelle fenêtre apparaît pour vous indiquer que cette suppression est définitive. Cliquez sur l'option **Supprimer** dans la nouvelle fenêtre.
+
+Le modèle de langage est complètement supprimé de votre compte. Toute vidéo qui utilisait le modèle de langage supprimé conservera le même index jusqu'à la réindexation de la vidéo. Si vous réindexez la vidéo, vous pouvez lui assigner un nouveau modèle de langage. Sinon, Video Indexer utilisera son modèle par défaut pour réindexer la vidéo. 
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[Personnaliser le modèle de langue à l’aide des API](customize-language-model-with-api.md)

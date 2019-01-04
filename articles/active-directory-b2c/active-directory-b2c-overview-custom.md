@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5634c14ee2b25600d66ff0f2c7385b2aaa9f1810
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a1457b2aa571b58502b7d819eb3bcf142c10dac1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699496"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725061"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Stratégies personnalisées dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Les stratégies personnalisées sont des fichiers de configuration qui définissent le comportement de votre client Azure Active Directory (Azure AD) B2C. Les stratégies intégrées sont prédéfinies dans le portail Azure AD B2C pour les tâches d’identité les plus courantes. Les stratégies personnalisées peuvent être entièrement modifiées par un développeur d’identité pour effectuer de nombreuses tâches différentes.
+Les stratégies personnalisées sont des fichiers de configuration qui définissent le comportement de votre client Azure Active Directory (Azure AD) B2C. Les flux d’utilisateur sont prédéfinis dans le portail Azure AD B2C pour les tâches d’identité les plus courantes. Les stratégies personnalisées peuvent être entièrement modifiées par un développeur d’identité pour effectuer de nombreuses tâches différentes.
 
-## <a name="comparing-built-in-policies-and-custom-policies"></a>Comparaison des stratégies prédéfinies et des stratégies personnalisées
+## <a name="comparing-user-flows-and-custom-policies"></a>Comparaison des flux d’utilisateur et des stratégies personnalisées
 
-| | Stratégies prédéfinies | Stratégies personnalisées |
+| | Flux d’utilisateurs | Stratégies personnalisées |
 |-|-------------------|-----------------|
 | Utilisateurs cibles | Tous les développeurs d’applications avec ou sans expertise de l’identité | Professionnels de l’identité, intégrateurs système, consultants et équipes d’identité internes. Ils sont à l’aise avec les flux OpenIDConnect et comprennent les fournisseurs d’identité et l’authentification basée sur les revendications. |
 | Mode de configuration | Portail Azure avec interface utilisateur (UI) conviviale | Modification directe des fichiers XML, puis chargement sur le portail Azure |
@@ -33,7 +33,7 @@ Les stratégies personnalisées sont des fichiers de configuration qui définiss
 | Personnalisation des attributs | Attributs standard et personnalisés | Identique |
 | Gestion des jetons et des sessions | Options de jetons personnalisés et de sessions multiples | Identique |
 | Identity Providers | Fournisseur social ou local prédéfini | OIDC basé sur les normes, OAUTH et SAML |
-| Tâches d’identité | Inscription ou connexion avec des comptes locaux et de nombreux comptes sociaux<br><br>Réinitialisation de mot de passe en libre service<br><br>Modification de profil<br><br>Authentification multifacteur<br><br>Personnalisation des jetons et des sessions<br><br>Flux de jetons d’accès | Réalisation des mêmes tâches que les stratégies prédéfinies à l’aide de fournisseurs d’identité personnalisés ou utilisation des étendues personnalisées<br><br>Provisionnement d’un compte d’utilisateur dans un autre système au moment de l’inscription<br><br>Envoi d’un e-mail de bienvenue avec votre propre fournisseur de service de messagerie<br><br>Utilisation d’un magasin d’utilisateurs en dehors d’Azure AD B2C<br><br>Validation des informations fournies par l’utilisateur avec un système approuvé à l’aide d’une API |
+| Tâches d’identité | Inscription ou connexion avec des comptes locaux et de nombreux comptes sociaux<br><br>Réinitialisation de mot de passe en libre service<br><br>Modification de profil<br><br>Authentification multifacteur<br><br>Personnalisation des jetons et des sessions<br><br>Flux de jetons d’accès | Réalisation des mêmes tâches que les flux d’utilisateur à l’aide de fournisseurs d’identité personnalisés ou utilisation des étendues personnalisées<br><br>Provisionnement d’un compte d’utilisateur dans un autre système au moment de l’inscription<br><br>Envoi d’un e-mail de bienvenue avec votre propre fournisseur de service de messagerie<br><br>Utilisation d’un magasin d’utilisateurs en dehors d’Azure AD B2C<br><br>Validation des informations fournies par l’utilisateur avec un système approuvé à l’aide d’une API |
 
 ## <a name="policy-files"></a>Fichiers de stratégie
 
@@ -43,7 +43,7 @@ Les trois types suivants de fichiers de stratégie sont utilisés :
 - **Fichier d’extensions** - contient les modifications de configuration propres à votre client.
 - **Fichier de la partie de confiance (RP)** - le seul fichier centré sur les tâches appelé directement par l’application ou le service (la partie de confiance). Chaque tâche unique nécessite sa propre partie de confiance et, en fonction des exigences de personnalisation, le nombre peut être « le nombre total d’applications multiplié par le nombre total de cas d’utilisation ».
 
-Les stratégies intégrées dans Azure AD B2C suivent le modèle à trois fichiers décrit ci-dessus, mais le développeur ne voit que le fichier RP, tandis que le portail Azure modifie en arrière-plan le fichier d’extensions.
+Les flux d’utilisateur dans Azure AD B2C suivent le modèle à trois fichiers décrit ci-dessus, mais le développeur ne voit que le fichier RP, tandis que le portail Azure modifie en arrière-plan le fichier d’extensions.
 
 ## <a name="custom-policy-core-concepts"></a>Concepts fondamentaux des stratégies personnalisées
 

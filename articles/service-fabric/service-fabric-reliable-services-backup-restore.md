@@ -12,22 +12,26 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/6/2017
+ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: 46f9c6129ccf99fb72a285fa4089b7b3f01f7d7b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42aaafd346c6db9d4a8780628319720aa3f28134
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643030"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727713"
 ---
-# <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Sauvegarder et restaurer Reliable Services et Reliable Actors
+# <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Sauvegarder et restaurer Reliable Services et Reliable Actors
 Azure Service Fabric est une plateforme haute disponibilité qui réplique l’état sur plusieurs nœuds afin de conserver cette haute disponibilité.  Ainsi, même si un nœud du cluster échoue, les services continuent à être disponibles. Bien que cette redondance intégrée fournie par la plateforme suffise pour certains, dans d’autres cas, il est souhaitable que le service sauvegarde les données (dans un magasin externe).
 
 > [!NOTE]
 > Il est essentiel de sauvegarder et restaurer vos données (et de tester qu’elles fonctionnent comme prévu) afin de pouvoir les récupérer en cas de perte.
 > 
+
+> [!NOTE]
+> Microsoft vous recommande d’utiliser [Sauvegarde et restauration périodiques](service-fabric-backuprestoreservice-quickstart-azurecluster.md) pour la configuration de la sauvegarde des données des services fiables avec état et de Reliable Actors. 
 > 
+
 
 Par exemple, un service peut souhaiter sauvegarder des données afin de les protéger contre les scénarios suivants :
 
@@ -40,7 +44,7 @@ Par exemple, un service peut souhaiter sauvegarder des données afin de les prot
 La fonctionnalité Sauvegarder/Restaurer permet aux services reposant sur l’API Reliable Services de créer et de restaurer des sauvegardes. Les API de sauvegarde fournies par la plateforme permettent d’effectuer une ou plusieurs sauvegardes de l’état d’une partition de service, sans bloquer les opérations de lecture et d’écriture. Les API de restauration permettent la restauration de l’état d’une partition d’être à partir d’une sauvegarde choisie.
 
 ## <a name="types-of-backup"></a>Types de sauvegarde
-Il existe deux options de sauvegarde : complète et incrémentielle.
+Il existe deux options de sauvegarde : Complète et incrémentielle.
 Une sauvegarde complète est une sauvegarde qui contient toutes les données nécessaires pour recréer l’état du réplica, à savoir des points de contrôle et l’ensemble des enregistrements de journal.
 Dans la mesure où une sauvegarde complète regroupe les points de contrôle et les journaux, elle ne peut être restaurée d’elle-même.
 
@@ -82,7 +86,7 @@ Une demande de sauvegarde incrémentielle peut échouer en déclenchant `FabricM
 - le réplica a dépassé la limite `MaxAccumulatedBackupLogSizeInMB`.
 
 Configurer `MinLogSizeInMB` ou `TruncationThresholdFactor` augmente les chances de parvenir à effectuer des sauvegardes incrémentielles.
-Il est à noter qu’augmenter ces valeurs accroît l’utilisation du disque par réplica.
+L’augmentation de ces valeurs augmente l’utilisation du disque par réplica.
 Pour plus d’informations, consultez [Configuration de Reliable Services](service-fabric-reliable-services-configuration.md).
 
 `BackupInfo` fournit des informations sur la sauvegarde, notamment l’emplacement du dossier où le runtime l’a enregistrée (`BackupInfo.Directory`). La fonction de rappel peut déplacer `BackupInfo.Directory` vers un magasin externe ou un autre emplacement.  Cette fonction renvoie également une valeur booléenne qui indique si elle a été en mesure de déplacer correctement le dossier de sauvegarde vers son emplacement cible.
@@ -176,7 +180,7 @@ Notez les points suivants :
   - Lorsque vous effectuez une restauration, il existe un risque que la sauvegarde restaurée soit antérieure à l’état de la partition avant la perte des données. Pour cette raison, vous ne devez effectuer une restauration qu’en dernier recours pour récupérer autant de données que possible.
   - La chaîne qui représente le chemin d’accès du dossier de sauvegarde et les chemins d’accès des fichiers dans le dossier de sauvegarde peut être supérieure à 255 caractères, selon le chemin d’accès FabricDataRoot et la longueur du nom du type d’application. Certaines méthodes .NET, par exemple `Directory.Move`, risquent de lever l’exception `PathTooLongException`. Il existe une solution de contournement, qui consiste à appeler directement les API kernel32, notamment `CopyFile`.
 
-## <a name="backup-and-restore-reliable-actors"></a>Sauvegarder et restaurer Reliable Actors
+## <a name="back-up-and-restore-reliable-actors"></a>Sauvegarder et restaurer Reliable Actors
 
 
 L’infrastructure Reliable Actors est basée sur Reliable Services. Le service ActorService, qui héberge le ou les acteur(s), est un service fiable avec état. Par conséquent, toutes les fonctionnalités de sauvegarde et de restauration disponibles dans Reliable Services sont également disponibles pour Reliable Actors (à l’exception des comportements spécifiques au fournisseur d’état). Étant donné que les sauvegardes sont effectuées par partition, les états de tous les acteurs de cette partition sont sauvegardés (et la restauration se fait de façon similaire, par partition). Afin d’effectuer la sauvegarde ou la restauration, le propriétaire du service doit créer une classe de service d’acteur personnalisée, qui dérive de la classe ActorService, puis effectuer une sauvegarde/restauration similaire à celle de Reliable Services, comme décrit dans les sections précédentes.
@@ -231,7 +235,7 @@ Lors de la restauration à partir d’une chaîne de sauvegarde, comme pour Reli
 > `KvsActorStateProvider` ignore actuellement l’option RestorePolicy.Safe. La prise en charge de cette fonctionnalité est prévue dans une prochaine version.
 > 
 
-## <a name="testing-backup-and-restore"></a>Test de la sauvegarde et de la restauration
+## <a name="testing-back-up-and-restore"></a>Test de la sauvegarde et de la restauration
 Il est important de s’assurer que les données critiques soient sauvegardées et puissent être restaurées. Vous pouvez pour cela appeler la cmdlet `Start-ServiceFabricPartitionDataLoss` dans PowerShell, qui peut provoquer une perte de données dans une partition en particulier pour déterminer si les fonctionnalités de sauvegarde et de restauration de données de votre service fonctionnent comme prévu.  Il est également possible d’appeler par programme une perte de données et de la restaurer à partir de cet événement.
 
 > [!NOTE]

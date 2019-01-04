@@ -1,21 +1,22 @@
 ---
-title: Listes d’expressions pour améliorer la détection d’entité
-titleSuffix: Azure Cognitive Services
+title: Listes d’expressions
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Utiliser Language Understanding (LUIS) pour ajouter des fonctionnalités d’application pouvant améliorer la détection ou la prédiction d’intentions et d’entités dans des catégories et des modèles
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: feb51cd55801addaf5ce2486e5527542f794bbc5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 39a6ead041b1783a3effcb9659c59ea788cd2bf6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580948"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139501"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Utiliser des listes d’expressions pour améliorer le signal de liste de mots
 
@@ -37,11 +38,11 @@ Une liste d’expressions complète le vocabulaire du domaine d’application so
 
 4. LUIS peut suggérer des valeurs associées à ajouter à votre liste d’expressions. Cliquez sur **Recommander** pour obtenir un groupe de valeurs proposées liées sémantiquement à la ou aux valeurs ajoutées. Vous pouvez cliquer sur une des valeurs proposées, ou sur **Ajouter tout** pour les ajouter toutes.
 
-    ![Liste d’expressions valeurs proposées](./media/luis-add-features/related-values.png)
+    ![Liste d’expressions, valeurs proposées - ajouter tout](./media/luis-add-features/related-values.png)
 
 5. Cliquez sur **Ces valeurs sont interchangeables** si les valeurs ajoutées à la liste d’expressions sont des alternatives pouvant être utilisées indifféremment.
 
-    ![Liste d’expressions valeurs proposées](./media/luis-add-features/interchangeable.png)
+    ![Liste d’expressions, valeurs proposées - sélectionner la case interchangeable ](./media/luis-add-features/interchangeable.png)
 
 6. Cliquez sur **Enregistrer**. La liste d’expressions « Villes » est ajoutée à la page **Listes d’expressions**.
 

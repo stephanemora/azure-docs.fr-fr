@@ -2,30 +2,30 @@
 title: Le serveur de sauvegarde Azure protège l’état du système et effectue une récupération complète de celui-ci
 description: Utilisez le Serveur de sauvegarde Azure pour sauvegarder l’état de votre système et fournir une protection de récupération complète.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: ''
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: markgal
-ms.openlocfilehash: 7cb87847d6a1e191fb20dfa9cdf263066704eb6d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: raynew
+ms.openlocfilehash: 35ab150670cdc27efcedca233928e0c2184aeca6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238809"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880095"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Sauvegarder l’état du système et effectuer une récupération complète avec le Serveur de sauvegarde Azure
 
 Le Serveur de sauvegarde Azure sauvegarde l’état de votre système et effectue une récupération complète de celui-ci.
 
-*   **Sauvegarde de l’état du système** : sauvegarde les fichiers du système d’exploitation afin que vous puissiez récupérer celui-ci au démarrage de l’ordinateur, mais les fichiers système et le Registre sont perdus. Une sauvegarde de l’état du système inclut ces élément suivants :
+*   **Sauvegarde de l’état du système** : sauvegarde les fichiers du système d’exploitation, afin que vous puissiez récupérer celui-ci au démarrage de l’ordinateur, mais les fichiers système et le Registre sont perdus. Une sauvegarde de l’état du système inclut ces élément suivants :
     * Membre de domaine : fichiers de démarrage, base de données d’inscription de classe COM+, Registre
     * Contrôleur de domaine : Windows Server Active Directory (NTDS), fichiers de démarrage, base de données d’inscription de classe COM+, Registre, volume système (SYSVOL)
-    * Ordinateur exécutant les services de cluster : métadonnées du serveur de cluster
-    * Ordinateur exécutant les services de certificats : données du certificat
-* **Sauvegarde de complète** : sauvegarde les fichiers du système d’exploitation et toutes les données sur les volumes critiques (sauf les données utilisateur). Par définition, une sauvegarde complète inclut une sauvegarde de l’état du système. Elle offre une protection quand un ordinateur ne démarre pas et que vous devez récupérer tous les éléments nécessaires.
+    * Ordinateur qui exécute les services de cluster : Métadonnées du serveur de cluster
+    * Ordinateur exécutant les services de certificats : données de certificat
+* **Sauvegarde complète** : sauvegarde les fichiers du système d’exploitation et toutes les données sur les volumes critiques (sauf les données utilisateur). Par définition, une sauvegarde complète inclut une sauvegarde de l’état du système. Elle offre une protection quand un ordinateur ne démarre pas et que vous devez récupérer tous les éléments nécessaires.
 
 Le tableau suivant résume ce que vous pouvez sauvegarder et récupérer. Pour plus d’informations sur les versions d’application qui peuvent être protégées avec l’état du système et une récupération complète, voir [Qu’est-ce que le Serveur de sauvegarde Azure ?](backup-mabs-protection-matrix.md).
 

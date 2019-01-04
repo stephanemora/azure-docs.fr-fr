@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 24f834c907fee6f2ddae766ae7494f73a31447c5
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: d6180156e1a8f3fa053c7fbb247e38831f86e76a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33202804"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998403"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Création d’une passerelle d’application à l’aide du modèle Azure Resource Manager
 
@@ -77,7 +77,7 @@ Vous pouvez télécharger le modèle Azure Resource Manager existant pour créer
 
     ```json
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "addressPrefix": {
@@ -114,11 +114,11 @@ Vous pouvez télécharger le modèle Azure Resource Manager existant pour créer
     }
     ```
 
-1. Enregistrez le fichier . Vous pouvez tester le modèle JSON et le modèle de paramètres à l’aide des outils de validation JSON en ligne comme [JSlint.com](http://www.jslint.com/).
+1. Enregistrez le fichier . Vous pouvez tester le modèle JSON et le modèle de paramètres à l’aide des outils de validation JSON en ligne comme [JSlint.com](https://www.jslint.com/).
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>Déploiement du modèle Azure Resource Manager à l’aide de PowerShell
 
-Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) et suivez les instructions pour vous connecter à Azure et sélectionner votre abonnement.
+Si vous n’avez jamais utilisé Azure PowerShell, consultez : [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) et suivez les instructions pour vous connecter à Azure et sélectionner votre abonnement.
 
 1. Connexion à PowerShell
 
@@ -140,7 +140,7 @@ Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et co
     Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
     ```
 
-1. Au besoin, créez un groupe de ressources à l’aide de l’applet de commande **New-AzureResourceGroup** . Dans l’exemple suivant, vous allez créer un groupe de ressources appelé AppgatewayRG dans les États-Unis de l’Est.
+1. Au besoin, créez un groupe de ressources à l’aide de l’applet de commande **New-AzureResourceGroup** . Dans l’exemple suivant, vous allez créer un groupe de ressources appelé AppgatewayRG dans l’emplacement USA Est.
 
     ```powershell
     New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
@@ -203,7 +203,7 @@ cert=$( base64 <certificate path and name>.pfx )
 echo $cert
 ```
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```
@@ -226,12 +226,12 @@ az group delete --name appgatewayRG
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous souhaitez configurer le déchargement SSL, consultez la page [Configuration d’une passerelle Application Gateway pour le déchargement SSL](tutorial-ssl-cli.md).
+Si vous souhaitez configurer le déchargement SSL, consultez : [Configurer une passerelle d’application pour le déchargement SSL](tutorial-ssl-cli.md).
 
-Si vous voulez configurer une passerelle Application Gateway à utiliser avec l’équilibreur de charge interne, consultez la page [Création d’une passerelle Application Gateway avec un équilibrage de charge interne (ILB)](redirect-internal-site-cli.md).
+Si vous voulez configurer une passerelle d’application à utiliser avec l’équilibreur de charge interne, consultez : [Créer une passerelle d’application avec un équilibreur de charge interne (ILB)](redirect-internal-site-cli.md).
 
 Si vous souhaitez plus d’informations sur les options d’équilibrage de charge en général, visitez :
 
-* [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
+* [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 

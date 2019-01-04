@@ -8,14 +8,14 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1c2294004245e0ef64b9b708a5b57ec0d34cc45f
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1cef5f8f77a11dad605d9758296c9632f5d30ab8
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321986"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409018"
 ---
-# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Blueprint sur la sécurité et la conformité d’Azure : Hébergement d’applications web PaaS pour les charges de travail « UK OFFICIAL »
+# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Blueprint de sécurité et de conformité Azure : Hébergement d’applications web PaaS pour les charges de travail « UK OFFICIAL »
 
 ## <a name="azure-security-and-compliance-blueprints"></a>Schémas de sécurité et de conformité Azure
 
@@ -39,7 +39,7 @@ En utilisant des modèles [Azure Resource Manager](https://docs.microsoft.com/az
 
 Ce blueprint est une architecture de base. Nos clients peuvent utiliser ce blueprint comme base pour leurs charges de travail web de classification « OFFICIAL » et développer les modèles et les ressources avec leurs propres spécifications. Ce blueprint s’appuie sur les principes du [blueprint sur les applications web IaaS à trois niveaux « UK-OFFICIAL »](https://aka.ms/ukofficial-iaaswa) pour offrir à nos clients les deux choix d’implémentation [IaaS](https://azure.microsoft.com/overview/what-is-iaas/) et PaaS pour l’hébergement de charges de travail web.
 
-Pour déployer ce blueprint, vous avez besoin d’un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez vous inscrire rapidement, facilement et gratuitement : Bien démarrer avec Azure. Cliquez [ici](https://aka.ms/ukofficial-paaswa-repo/) pour obtenir des instructions de déploiement.
+Pour déployer ce blueprint, vous avez besoin d’un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez vous inscrire rapidement, facilement et gratuitement : Bien démarrer avec Azure. Cliquez [ici](https://aka.ms/ukofficial-paaswa-repo/) pour obtenir des instructions de déploiement.
 
 ## <a name="architecture-and-components"></a>Architecture et composants
 
@@ -55,7 +55,7 @@ Cette solution utilise les services Azure suivants. Les détails de l’architec
 - App Service
 - Application web
 - Application API
-- DNS Azure
+- Azure DNS
 - Key Vault
 - Azure Monitor
 - Application Insights
@@ -79,7 +79,7 @@ Les technologies suivantes fournissent des fonctionnalités de gestion des ident
 
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) est le service Microsoft de gestion des annuaires et des identités, basé sur le cloud, multilocataire. Tous les utilisateurs de la solution ont été créés dans Azure Active Directory, y compris ceux qui accèdent à la base de données SQL.
 - L’authentification auprès de l’application web pour les opérateurs et de l’accès pour l’administration des ressources Azure est effectuée avec Azure AD. Pour plus d’informations, consultez [Intégration d’applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Le chiffrement des colonnes de base de données utilise Azure AD pour authentifier l’application auprès d’Azure SQL Database. Pour plus d’informations, consultez [Always Encrypted : Protéger les données sensibles dans SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+- Le chiffrement des colonnes de base de données utilise Azure AD pour authentifier l’application auprès d’Azure SQL Database. Pour plus d’informations, consultez [Always Encrypted : Protéger les données sensibles dans SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
 - L’application web pour les citoyens est configurée pour un accès public. Pour permettre la création et l’authentification des comptes via Active Directory ou des fournisseurs d’identité de réseau social, [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) peut être intégré si nécessaire.
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) détecte les vulnérabilités potentielles et les comptes à risques, fournit des recommandations pour améliorer le comportement des identités de votre organisation quant à la sécurité, et configure les réponses automatiques aux actions suspectes détectées qui sont liées aux identités de votre organisation. Il examine aussi les incidents suspects et prend les mesures nécessaires pour les résoudre.
 - Le [contrôle d’accès en fonction du rôle (RBAC) Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) permet une gestion précise de l’accès pour Azure. L’accès aux abonnements est limité à l’administrateur des abonnements, et l’accès à Azure Key Vault est limité aux seuls utilisateurs pour lesquels un accès à la gestion des clés est nécessaire.
@@ -104,14 +104,14 @@ Les données en transit provenant de l’extérieur et entre les composants Azur
 
 Azure Web Apps fournit un environnement d’hébergement web entièrement managé pour les applications web développées en Java, PHP, Node.js, Python, HTML et C#, sans la nécessité de gérer l’infrastructure. Il offre une mise à l’échelle automatique et une haute disponibilité, prend en charge à la fois Windows et Linux, et permet des déploiements automatisés à partir d’[Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) ou de tout référentiel Git.
 
-App Service est [conforme à ISO, SOC et PCI](https://www.microsoft.com/TrustCenter/), et peut authentifier les utilisateurs avec [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) ou avec une connexion de réseau social (authentification [Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication) et [Microsoft](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication).
+App Service est [conforme à ISO, SOC et PCI](https://www.microsoft.com/TrustCenter/), et peut authentifier les utilisateurs avec [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) ou avec une connexion de réseau social (authentification [Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google), [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook), [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter) et [Microsoft](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft).
 
 Les plans De base, Standard et Premium sont destinés aux charges de travail de production. Ils s’exécutent sur des instances dédiées de machine virtuelle. Chaque instance peut prendre en charge plusieurs applications et domaines. Les services d’application prennent également en charge les [limitations d’adresses IP](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) pour sécuriser le trafic vers des adresses IP approuvées si nécessaire, ainsi que les [identités managées pour les ressources Azure](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) pour sécuriser la connexion vers d’autres services PaaS, comme [Key Vault](https://azure.microsoft.com/services/key-vault/) et [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Là où une sécurité supplémentaire est nécessaire, notre plan isolé héberge vos applications dans un environnement Azure privé dédié. Il est idéal pour les applications nécessitant des connexions sécurisées avec votre réseau local, ou des performances et une évolutivité supplémentaires.
 
 Ce modèle déploie les fonctionnalités App Service suivantes :
 
 - Niveau de plan App Service [Standard](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)
-- Plusieurs [emplacements de déploiement](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing) d’applications web : développement, préversion assurance qualité, UAT et bien sûr Production (emplacement par défaut).
+- Plusieurs [emplacements de déploiement](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing) d’applications web : Développement, Préversion, AQ, UAT et bien sûr Production (emplacement par défaut).
 - Des [identités managées pour les ressources Azure](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) pour se connecter à [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (ceci peut être utilisé aussi pour fournir un accès à [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
 - Intégration à [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) pour surveiller les performances
 - [Journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
@@ -230,13 +230,13 @@ Cette solution Azure Security and Compliance Blueprint Automation se compose de 
 Trois approches ont été fournies pour le déploiement : une approche [Azure CLI 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) « express » simple pour créer rapidement un environnement de test ; une approche [Azure CLI 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) paramétrable qui fournit une configuration plus avancée pour les environnements de charge de travail ; un déploiement basé sur le portail Azure, où l’opérateur peut spécifier les paramètres de déploiement via le portail Azure. 
 
 1.  Clonez ou téléchargez [ce dépôt GitHub](https://aka.ms/ukofficial-paaswa-repo) sur votre station de travail locale.
-2.  Examinez [Méthode 1 : Azure CLI 2 (version express)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) et exécutez les commandes fournies.
-3.  Examinez [Méthode 1a : Azure CLI 2 (configuration du déploiement via des arguments de script)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) et exécutez les commandes fournies
-4.  Examinez [Méthode 2 : Processus de déploiement via le portail Azure](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) et exécutez les commandes listées
+2.  Passez en revue [Méthode 1 : Azure CLI 2 (version Express)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) et exécutez les commandes fournies.
+3.  Passez en revue [Méthode 1a : Azure CLI 2 (configuration du déploiement à l’aide d’arguments de script)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) et exécutez les commandes fournies
+4.  Passez en revue [Méthode 2 : Processus de déploiement via le portail Azure](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) et exécutez les commandes listées
 
 ## <a name="guidance-and-recommendations"></a>Instructions et recommandations
 
-### <a name="api-management"></a>API Management
+### <a name="api-management"></a>Gestion des API
 
 [Gestion des API Azure](https://azure.microsoft.com/services/api-management/) peut être utilisé devant l’API App Service pour fournir des couches supplémentaires de sécurité, de limitation et de contrôles pour exposer, mettre en cache et protéger des API.
 

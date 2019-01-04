@@ -1,23 +1,24 @@
 ---
-title: Tester par lot votre application LUIS - Language Understanding
-titleSuffix: Azure Cognitive Services
+title: Test par lot
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Utilisez des tests par lot pour travailler en continu sur votre application afin d’affiner et d’améliorer sa compréhension de la langue.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 44abadc653c4679f37152e6592c882475b139bdd
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c050c8ed338a019b34302e87a53d4a40306f9a22
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333902"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133144"
 ---
-# <a name="batch-testing-in-luis"></a>Tests par lot dans LUIS
+# <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Tests par lot avec 1000 énoncés dans le portail de LUIS
 
 Les tests par lot valident votre modèle entraîné [actif](luis-concept-version.md#active-version) afin de mesurer la précision des prédictions. Un test par lot vous permet de visualiser la précision de chaque intention et entité dans votre modèle entraîné actif dans un graphique. Passez en revue les résultats des tests par lot pour prendre les mesures appropriées afin d’améliorer la précision, par exemple ajouter d’autres exemples d’énoncés à une intention si votre application échoue fréquemment dans sa tentative d’identification de l’intention.
 

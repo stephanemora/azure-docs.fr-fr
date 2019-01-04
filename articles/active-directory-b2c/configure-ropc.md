@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2ea9356f1292669f115d2bb482419435320f644c
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 1b07825bd3ff46267764467bba815c1097278084
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978823"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726285"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurer le flux des informations d’identification par mot de passe du propriétaire de ressource dans Azure AD B2C
 
@@ -26,23 +26,26 @@ Le flux des informations d’identification par mot de passe du propriétaire de
 
 Les options suivantes sont prises en charge dans Azure Active Directory (Azure AD) B2C :
 
-- **Client natif** : une interaction de l’utilisateur lors de l’authentification se produit lorsque le code s’exécute sur un appareil côté utilisateur. L’appareil peut être une application mobile qui s’exécute dans un système d’exploitation natif, comme Android, ou dans un navigateur, tel que JavaScript.
-- **Flux client public** : seules les informations d’identification de l’utilisateur, collectées par une application, sont envoyées dans l’appel d’API. Les informations d’identification de l’application ne sont pas envoyées.
-- **Ajouter de nouvelles revendications** : il est possible de modifier le contenu du jeton de l’ID pour ajouter de nouvelles revendications. 
+- **Client natif** : une interaction de l’utilisateur lors de l’authentification se produit quand le code s’exécute sur un appareil côté utilisateur. L’appareil peut être une application mobile qui s’exécute dans un système d’exploitation natif, comme Android, ou dans un navigateur, tel que JavaScript.
+- **Flux client public** : seules les informations d’identification de l’utilisateur, collectées par une application, sont envoyées dans l’appel d’API. Les informations d’identification de l’application ne sont pas envoyées.
+- **Ajouter de nouvelles revendications** : il est possible de changer le contenu du jeton de l’ID pour ajouter de nouvelles revendications. 
 
 Les flux suivants ne sont pas pris en charge :
 
-- **Serveur à serveur** : le système de protection des identités a besoin d’une adresse IP fiable collectée auprès de l’appelant (le client natif) dans le cadre de l’interaction. Dans un appel d’API côté serveur, seule l’adresse IP du serveur est utilisée. Si un seuil dynamique d’échecs d’authentification est dépassé, le système de protection d’identité peut identifier une adresse IP répétée en tant qu’attaquant.
-- **Flux client confidentiel** : l’ID du client d’application est validé, mais le secret d’application ne l’est pas.
+- **Serveur à serveur** : le système de protection des identités a besoin d’une adresse IP fiable collectée auprès de l’appelant (le client natif) dans le cadre de l’interaction. Dans un appel d’API côté serveur, seule l’adresse IP du serveur est utilisée. Si un seuil dynamique d’échecs d’authentification est dépassé, le système de protection d’identité peut identifier une adresse IP répétée en tant qu’attaquant.
+- **Flux client confidentiel** : l’ID du client d’application est validé, mais le secret d’application ne l’est pas.
 
-##  <a name="create-a-resource-owner-policy"></a>Créer une stratégie de propriétaire de ressource
+##  <a name="create-a-resource-owner-user-flow"></a>Créer un flux d’utilisateur de propriétaire de ressource
 
-1. Connectez-vous au portail Azure en tant qu’administrateur général de votre locataire Azure AD B2C.
-2. Pour basculer vers votre locataire Azure AD B2C, sélectionnez le répertoire B2C dans le coin supérieur droit du portail.
-3. Sous **stratégies**, sélectionnez **Stratégies du propriétaire des ressources**.
-4. Indiquez un nom pour la stratégie, comme *ROPC_Auth*, puis sélectionnez **Revendications de l’application**.
-5. Sélectionnez les revendications de l’application dont vous avez besoin pour votre application, comme *Nom d’affichage*, *Adresse e-mail* et *Fournisseur d’identité*.
-6. Sélectionnez **OK**, puis **Créer**.
+1.  Connectez-vous au portail Azure en tant qu’administrateur général de votre locataire Azure AD B2C.
+2.  Pour basculer vers votre locataire Azure AD B2C, sélectionnez le répertoire B2C dans le coin supérieur droit du portail.
+3.  Cliquez sur **Flux d’utilisateur**, puis sélectionnez **Nouveau flux d’utilisateur**.
+4.  Cliquez sur l’onglet **Tous** et sélectionnez **Propriétaire de la ressource**.
+5.  Indiquez un nom pour le flux d’utilisateur, par exemple *ROPC_Auth*.
+6.  Sous **Revendications d’application**, cliquez sur **Afficher plus**.
+7.  Sélectionnez les revendications de l’application dont vous avez besoin pour votre application, comme Nom d’affichage, Adresse e-mail et Fournisseur d’identité.
+8.  Sélectionnez **OK**, puis **Créer**.
+9.  Cliquez sur **Exécuter le flux d’utilisateur**.
 
    Vous voyez ensuite un point de terminaison comme cet exemple :
 
@@ -57,9 +60,9 @@ Les flux suivants ne sont pas pris en charge :
 4. Laissez toutes les autres valeurs telles quelles, puis sélectionnez **Créer**.
 5. Sélectionnez la nouvelle application et notez l’ID de l’application pour plus tard.
 
-## <a name="test-the-policy"></a>Tester la stratégie
+## <a name="test-the-user-flow"></a>Tester le flux utilisateur
 
-Utilisez votre application de développement d’API favorite pour générer un appel d’API et examinez la réponse pour déboguer votre stratégie. Construisez un appel comme celui-ci, avec les informations contenues dans le tableau suivant en tant que corps de la requête POST :
+Utilisez votre application de développement d’API favorite pour générer un appel d’API et examinez la réponse pour déboguer votre flux d’utilisateur. Construisez un appel comme celui-ci, avec les informations contenues dans le tableau suivant en tant que corps de la requête POST :
 - Remplacez *\<yourtenant.onmicrosoft.com>* par le nom de votre locataire B2C.
 - Remplacez *\<B2C_1A_ROPC_Auth>* par le nom complet de votre stratégie d’informations d’identification de mot de passe du propriétaire de ressource.
 - Remplacez *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* par l’ID d’application issu de votre inscription.

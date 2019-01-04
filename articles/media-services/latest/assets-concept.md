@@ -1,5 +1,5 @@
 ---
-title: Éléments multimédias dans Azure Media Services | Microsoft Docs
+title: Éléments multimédias dans Media Services - Azure | Microsoft Docs
 description: Cet article explique ce que sont les éléments multimédias et comment ils sont utilisés par Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,14 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: e7abdb568b11870fb467ee6d3759881ca337d3cc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: f9a6f0963ce8f45da567bb4f6326e9fcc8f435ef
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085786"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140130"
 ---
 # <a name="assets"></a>Éléments multimédias
 
@@ -75,11 +76,11 @@ Le tableau suivant montre comment ces options peuvent être appliquées aux prop
 |NOM|Filtrer|Ordre|
 |---|---|---|
 |id|||
-|Nom|Pris en charge : Eq, Gt, Lt|Pris en charge : croissant et décroissant|
-|properties.alternateId |Pris en charge : Eq||
-|properties.assetId |Pris en charge : Eq||
+|Nom|Prend en charge : Eq, Gt, Lt|Pris en charge : croissant et décroissant|
+|properties.alternateId |Prend en charge : Eq||
+|properties.assetId |Prend en charge : Eq||
 |properties.container |||
-|properties.created|Pris en charge : Eq, Gt, Lt| Pris en charge : croissant et décroissant|
+|properties.created|Prend en charge : Eq, Gt, Lt| Prend en charge : croissant et décroissant|
 |properties.description |||
 |properties.lastModified |||
 |properties.storageAccountName |||

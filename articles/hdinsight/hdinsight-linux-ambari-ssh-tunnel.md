@@ -2,23 +2,23 @@
 title: Utiliser le tunneling SSH pour accéder à Azure HDInsight
 description: Apprenez à utiliser un tunnel SSH pour accéder de façon sécurisée à des ressources Web hébergées sur vos nœuds HDInsight sous Linux.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: jasonh
-ms.openlocfilehash: 0722a366c374bd69fd9cf97279416a60d7133428
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: ace025f096b756259d25ca2adb347dd23a12a910
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107667"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409520"
 ---
-# <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Utilisation d’un tunnel SSH pour accéder à l’interface Web Ambari, JobHistory, NameNode, Oozie et d’autres interfaces Web
+# <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Utiliser le tunneling SSH pour accéder à l’interface utilisateur web d’Apache Ambari, JobHistory, NameNode, Apache Oozie et d’autres interfaces utilisateur web
 
-Les clusters HDInsight donnent accès à l’IU web d’Ambari via Internet, mais certaines fonctionnalités nécessitent un tunnel SSH. Par exemple, l’IU web pour le service Oozie n’est pas accessible via Internet sans tunnel SSH.
+Les clusters HDInsight donnent accès à l’IU web d’Apache Ambari via Internet, mais certaines fonctionnalités nécessitent un tunnel SSH. Par exemple, l’IU web pour le service Apache Oozie n’est pas accessible via Internet sans tunnel SSH.
 
 ## <a name="why-use-an-ssh-tunnel"></a>Raisons pour lesquelles utiliser un tunnel SSH
 
@@ -34,7 +34,7 @@ Les interfaces utilisateur web suivantes nécessitent un tunnel SSH :
 
 Si vous utilisez des actions de script pour personnaliser votre cluster, tous les services ou utilitaires que vous installez et qui exposent un service web nécessitent un tunnel SSH. Par exemple, si vous installez Hue à l'aide d'une action de script, vous devez utiliser un tunnel SSH pour accéder à l'interface utilisateur Web Hue.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Si vous bénéficiez d’un accès direct à HDInsight via un réseau virtuel, il est inutile d’utiliser des tunnels SSH. Pour avoir un exemple d’accès direct à HDInsight via un réseau virtuel, consultez le document [Connecter HDInsight à votre réseau local](connect-on-premises-network.md).
 
 ## <a name="what-is-an-ssh-tunnel"></a>Définition d’un tunnel SSH
@@ -78,9 +78,19 @@ Une fois la commande terminée, le trafic envoyé au port 9876 sur l’ordinate
 
 ## <a name="useputty"></a>Création d’un tunnel à l'aide de PuTTY
 
-[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) est un client SSH graphique pour Windows. Pour créer un tunnel SSH à l’aide de PuTTY, procédez comme suit :
+[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) est un client SSH graphique pour Windows. Si vous n’êtes pas familiarisé avec PuTTY, consultez la [documentation de PuTTY ](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Pour créer un tunnel SSH à l’aide de PuTTY, procédez comme suit :
 
-1. Ouvrez PuTTY et saisissez vos informations de connexion. Si vous n’êtes pas familiarisé avec PuTTY, consultez la [documentation sur PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html).
+### <a name="create-or-load-a-session"></a>Créer ou charger une session
+
+1. Ouvrez PuTTY et vérifiez que **Session** est sélectionné dans le menu de gauche. Si vous avez déjà enregistré une session, sélectionnez le nom de la session dans la liste **Sessions enregistrées**, puis cliquez sur **Charger**.
+
+1. Si vous ne disposez pas d’une session enregistrée, entrez vos informations de connexion :
+    * **Nom d’hôte (ou adresse IP)**  : adresse SSH pour le cluster HDInsight. Par exemple : **moncluster-ssh.azurehdinsight.net**
+    * **Port** : 22
+    * **Type de connexion** : SSH
+1. Cliquez sur **Enregistrer**.
+
+    ![Créer une session SSH](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
 
 2. Dans la rubrique **Catégorie** située à gauche dans la boîte de dialogue, développez **Connexion** et **SSH**, puis sélectionnez **Tunnels**.
 
@@ -88,7 +98,7 @@ Une fois la commande terminée, le trafic envoyé au port 9876 sur l’ordinate
    
    * **Port source** : le port sur le client que vous souhaitez transférer. Par exemple : **9876**.
 
-   * **Destination** : l’adresse SSH pour le cluster HDInsight sous Linux. Par exemple : **moncluster-ssh.azurehdinsight.net**.
+   * **Destination** : adresse SSH pour le cluster HDInsight. Par exemple : **moncluster-ssh.azurehdinsight.net**.
 
    * **Dynamique** : active le routage dynamique du proxy SOCKS.
      
@@ -100,14 +110,14 @@ Une fois la commande terminée, le trafic envoyé au port 9876 sur l’ordinate
 
 ## <a name="use-the-tunnel-from-your-browser"></a>Utilisation du tunnel à partir de votre navigateur
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Les étapes décrites dans cette section utilisent le navigateur Mozilla FireFox, car il fournit les mêmes paramètres de proxy sur toutes les plateformes. D’autres navigateurs modernes, tels que Google Chrome, peuvent nécessiter une extension du type FoxyProxy pour fonctionner avec le tunnel.
 
 1. Configurez le navigateur pour qu’il utilise **localhost** et le port que vous avez utilisé lors de la création du tunnel en tant que proxy **SOCKS v5**. Voici comment se présentent les paramètres Firefox : si vous avez utilisé un port autre que 9876, modifiez le port par celui que vous avez utilisé :
    
     ![image des paramètres de Firefox](./media/hdinsight-linux-ambari-ssh-tunnel/firefoxproxy.png)
    
-   > [!NOTE]
+   > [!NOTE]  
    > La sélection de **DNS Distant** résout les requêtes DNS à l’aide du cluster HDInsight. Ce paramètre résout les éléments DNS en utilisant le nœud principal du cluster.
 
 2. Vérifiez que le tunnel fonctionne en vous rendant sur un site tel que [http://www.whatismyip.com/](http://www.whatismyip.com/). L’adresse IP renvoyée doit être celle utilisée par le centre de données Microsoft Azure.
@@ -118,7 +128,7 @@ Une fois le cluster établi, suivez ces étapes pour vérifier que vous pouvez a
 
 1. Dans votre navigateur, accédez à http://headnodehost:8080. L’adresse `headnodehost` est envoyée via le tunnel au cluster et renvoie le nœud principal sur lequel Ambari s’exécute. Lorsque vous y êtes invité, saisissez le nom de l’utilisateur admin (admin) et le mot de passe correspondant à votre cluster. Vous pouvez y être invité une seconde fois par l'interface utilisateur Web Ambari. Dans ce cas, saisissez de nouveau ces informations.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Lorsque vous utilisez l’adresse http://headnodehost:8080 pour vous connecter au cluster, vous vous connectez via le tunnel. La communication est sécurisée grâce au tunnel SSH plutôt que via HTTPS. Pour vous connecter via Internet à l’aide de HTTPS, utilisez https://clustername.azurehdinsight.net, où **clustername** correspond au nom du cluster.
 
 2. Dans l'interface utilisateur Web Ambari, sélectionnez HDFS dans la liste située sur la gauche de la page.
@@ -129,7 +139,7 @@ Une fois le cluster établi, suivez ces étapes pour vérifier que vous pouvez a
 
     ![Image avec le menu Liens rapides développé](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Lorsque vous sélectionnez __Liens rapides__, un indicateur d’attente peut apparaître. Cela peut se produire si votre connexion internet est lente. Patientez une minute ou deux pour recevoir les données du serveur, puis réessayez.
    >
    > Certaines entrées du menu **Liens rapides** peuvent être tronquées par le côté droit de l’écran. Dans ce cas, développez le menu à l’aide de la souris et utilisez la touche fléchée droite pour faire défiler l’écran vers la droite afin d’afficher le reste du menu.
@@ -138,14 +148,14 @@ Une fois le cluster établi, suivez ces étapes pour vérifier que vous pouvez a
 
     ![Image de l’interface utilisateur NameNode](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Notez l’URL de cette page ; elle doit être similaire à **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Cette URI utilise le nom de domaine complet (FQDN) interne du nœud et est uniquement accessible en cas d’utilisation d’un tunnel SSH.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez appris à créer et utiliser un tunnel SSH, consultez le document suivant pour découvrir d’autres façons d’utiliser Ambari :
 
-* [Gestion des clusters HDInsight à l'aide d’Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Gérer des clusters HDInsight avec Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
 Pour en savoir plus sur l’utilisation de SSH avec HDInsight, voir [Utilisation de SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 

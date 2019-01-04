@@ -7,34 +7,33 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/10/2018
 ms.author: juliako
-ms.openlocfilehash: 2261b8fa496beaf2a14c9b949047b6a5cbc6ea32
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: f29adb500401c9f5d6e177a0740ce54719c36a34
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291828"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253202"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
-Cet article montre comment charger une vidéo avec Azure Video Indexer. L’API Video Indexer fournit deux options de chargement : 
+Lorsque vous chargez des vidéos avec l’API Video Indexer, vous avez deux options de chargement : 
 
 * charger votre vidéo à partir d’une URL (par défaut),
 * Envoyer le fichier vidéo sous forme de tableau d’octets dans le corps de la demande,
 * Utiliser l’actif Azure Media Services existant en fournissant l’[ID de l’actif](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (pris en charge dans les comptes payants uniquement).
 
-L’article montre comment utiliser l’API [Charger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) pour charger et indexer vos vidéos selon une URL. L’exemple de code dans l’article inclut le code commenté qui montre comment charger le tableau d’octets.  
+L’article montre comment utiliser l’API [Charger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) pour charger et indexer vos vidéos selon une URL. L’exemple de code dans l’article inclut le code commenté qui montre comment charger le tableau d’octets. <br/>L’article aborde également certains des paramètres que vous pouvez définir sur l’API pour en modifier le processus et la sortie.
 
-L’article aborde également certains des paramètres que vous pouvez définir sur l’API pour en modifier le processus et la sortie.
-
-> [!Note]
-> Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limités par le quota). <br/>Avec l’essai gratuit, Video Indexer fournit jusqu’à 600 heures d’indexation gratuite aux utilisateurs du site web et jusqu’à 2 400 heures d’indexation gratuite aux utilisateurs de l’API. Avec l’option payante, vous créez un compte Video Indexer [connecté à votre abonnement Azure et un compte Azure Media Services](connect-to-azure.md). Vous payez pour les minutes indexées, ainsi que pour les frais liés au compte média. 
+Une fois votre vidéo chargée, Video Indexer peut éventuellement l’encoder (opération décrite dans cet article). Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limités par le quota). Avec l’essai gratuit, Video Indexer fournit jusqu’à 600 heures d’indexation gratuite aux utilisateurs du site web et jusqu’à 2 400 heures d’indexation gratuite aux utilisateurs de l’API. Avec l’option payante, vous créez un compte Video Indexer [connecté à votre abonnement Azure et un compte Azure Media Services](connect-to-azure.md). Vous payez pour les minutes indexées, ainsi que pour les frais liés au compte média. 
 
 ## <a name="uploading-considerations"></a>Éléments à prendre en compte pour le chargement
     
 - Lors du chargement de votre vidéo à partir de l’URL (par défaut), le point de terminaison doit être sécurisé avec TLS 1.2 (ou version ultérieure)
-- L’option de tableau d’octets est limitée à 2 Go et expire après 30 minutes
+- La taille du chargement avec l’option URL est limitée à 10 Go
+- La taille du chargement avec l’option Tableau d'octets est limitée à 2 Go 
+- L’option Tableau d’octets expire après 30 minutes
 - L’URL fournie dans le paramètre `videoURL` doit être encodée
 
 > [!Tip]
@@ -91,7 +90,7 @@ Le prix dépend de l’option d’indexation sélectionnée.
 
 ### <a name="priority"></a>priority
 
-Les vidéos sont indexées par Video Indexer selon leur priorité. Utilisez le paramètre **priority** pour spécifier la priorité d’index. Les valeurs suivantes sont valides : **Basse**, **Normale** (valeur par défaut) et **Haute**.
+Les vidéos sont indexées par Video Indexer selon leur priorité. Utilisez le paramètre **priority** pour spécifier la priorité d’index. Les valeurs suivantes sont valides : **Low**, **Normal** (par défaut) et **High**.
 
 Le paramètre **priority** est uniquement pris en charge dans les comptes payants.
 

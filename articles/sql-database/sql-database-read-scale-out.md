@@ -11,19 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: deadbc8186d80b050fdb40879ecf29fd229c8709
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 12/05/2018
+ms.openlocfilehash: 16737ed525147968c97ca20a9f4e674a0dee34fc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465441"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955052"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Utiliser des réplicas en lecture seule pour équilibrer des charges de travail de requêtes en lecture seule (version préliminaire)
 
 L’**échelle horizontale en lecture** offre la possibilité d’équilibrer les charges de travail en lecture seule d’Azure SQL Database en utilisant la capacité d’un seul réplica en lecture seule.
-
-## <a name="overview-of-read-scale-out"></a>Vue d’ensemble de la lecture du Scale-out
 
 Chaque base de données du niveau Premium ([modèle d’achat basé sur des unités DTU](sql-database-service-tiers-dtu.md)) ou du niveau Critique pour l’entreprise ([modèle d’achat basé sur vCore](sql-database-service-tiers-vcore.md)) est automatiquement configurée avec plusieurs réplicas AlwaysOn pour prendre en charge le contrat SLA de disponibilité.
 
@@ -47,7 +45,7 @@ Un des avantages des réplicas est qu’ils sont toujours dans un état cohéren
 > [!NOTE]
 > Les latences de réplication dans la région sont réduites, et cette situation est rare.
 
-## <a name="connecting-to-a-read-only-replica"></a>Connexion à un réplica en lecture seule
+## <a name="connect-to-a-read-only-replica"></a>Se connecter à un réplica en lecture seule
 
 Lorsque vous activez la lecture du Scale-out pour une base de données, l’option `ApplicationIntent` dans la chaîne de connexion fournie par le client détermine si la connexion est routée vers le réplica en écriture ou un réplica en lecture seule. Plus précisément, si la valeur `ApplicationIntent` est `ReadWrite` (valeur par défaut), la connexion sera dirigée vers le réplica en lecture-écriture de la base de données. Le comportement existant est identique. Si la valeur `ApplicationIntent` est `ReadOnly`, la connexion est acheminée vers un réplica en lecture seule.
 
@@ -65,6 +63,8 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
+## <a name="verify-that-a-connection-is-to-a-read-only-replica"></a>Vérifier que la connexion à un réplica en lecture seule est établie
+
 Vous pouvez vérifier si vous êtes connecté à un réplica en lecture seule en exécutant la requête suivante. Elle retourne READ_ONLY en cas de connexion à un réplica en lecture seule.
 
 ```SQL
@@ -76,9 +76,9 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 ## <a name="enable-and-disable-read-scale-out"></a>Activer et désactiver l’échelle horizontale en lecture
 
-L’échelle horizontale en lecture est activée par défaut dans le niveau Critique pour l’entreprise de [Managed Instance](sql-database-managed-instance.md) (préversion). Elle doit être activée explicitement dans les niveaux Premium et Critique pour l’entreprise d’une [base de données placée sur un serveur logique](sql-database-logical-servers.md). Les méthodes d’activation et de désactivation de l’échelle horizontale en lecture sont décrites ici.
+L’échelle horizontale en lecture est activée par défaut dans le niveau Critique pour l’entreprise de [Managed Instance](sql-database-managed-instance.md). Elle doit être activée explicitement dans les niveaux Premium et Critique pour l’entreprise d’une [base de données placée sur un serveur logique](sql-database-logical-servers.md). Les méthodes d’activation et de désactivation de l’échelle horizontale en lecture sont décrites ici.
 
-### <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Activer et désactiver la lecture du Scale-out à l’aide d’Azure PowerShell
+### <a name="powershell-enable-and-disable-read-scale-out"></a>PowerShell : Activer et désactiver l’échelle horizontale en lecture
 
 La gestion de la lecture du Scale-out dans Azure PowerShell nécessite la version d’Azure PowerShell de décembre 2016 ou plus récente. Pour obtenir la version de PowerShell la plus récente, consultez [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
@@ -102,7 +102,7 @@ Pour créer une nouvelle base de données avec la lecture du Scale-out activée 
 New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
-### <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Activation et désactivation de la lecture du Scale-out à l’aide de l’API REST de Azure SQL Database
+### <a name="rest-api-enable-and-disable-read-scale-out"></a>API REST : Activer et désactiver l’échelle horizontale en lecture
 
 Pour créer une base de données avec la lecture du Scale-out activée, ou pour activer ou désactiver la lecture du Scale-out dans une base de données existante, créez ou mettez à jour l’entité correspondante de la base de données avec la propriété `readScale` configurée sur `Enabled` ou `Disabled` comme dans l’exemple de requête ci-dessous.
 

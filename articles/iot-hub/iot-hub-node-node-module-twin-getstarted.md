@@ -9,12 +9,12 @@ ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: fa77e117b8045be4ef0566e388c4e8df08c95fe2
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 4016471be05c1062eb389ab4851330f3a80dbcb2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42140659"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969024"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>Bien démarrer avec le jumeau de module et l’identité de module IoT Hub en utilisant un backend Node.js et un appareil Node.js
 
@@ -35,19 +35,18 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 * Un hub IoT.
 * Installez la dernière version du [SDK Node.js](https://github.com/Azure/azure-iot-sdk-node).
 
-
 Votre IoT Hub est maintenant créé et vous connaissez le nom d’hôte et la chaîne de connexion à IoT Hub dont vous avez besoin pour terminer ce qu’il reste du didacticiel.
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Créer une identité d’appareil et une identité de module dans IoT Hub
 
 Dans cette section, vous allez créer une application Node.js qui crée une identité d’appareil et une identité de module dans le registre d’identités de votre hub IoT. Un appareil ou un module ne peut pas se connecter à IoT Hub, à moins de posséder une entrée dans le registre des identités. Reportez-vous à la section Registre d’identité du [Guide du développeur IoT Hub][lnk-devguide-identity] pour plus d’informations. En exécutant cette application console, une clé et un ID uniques sont générés pour chaque appareil et module. Votre appareil et le module utilisent ces valeurs pour s’identifier lorsqu’ils envoient des messages d’appareil-à-cloud à IoT Hub. Les ID sont sensibles à la casse.
 
-1.  Créez un répertoire pour stocker votre code.
-2. À l’intérieur de ce répertoire, exécutez d’abord **npm init -y** pour créer un fichier package.json vide comportant les valeurs par défaut. Il s’agit du fichier projet pour votre code.
-3. Exécutez **npm install -S azure-iothub@modules-preview** pour installer le SDK de service à l’intérieur du sous-répertoire **node_modules**. 
+1. Créez un répertoire pour stocker votre code.
+2. À l’intérieur de ce répertoire, exécutez d’abord  **npm init -y**  pour créer un fichier package.json vide comportant les valeurs par défaut. Il s’agit du fichier projet pour votre code.
+3. Exécutez  **npm install -S azure-iothub@modules-preview** pour installer le SDK du service à l’intérieur du sous-répertoire  **node_modules** .
 
-    > [!NOTE] 
-    > Dans le nom de sous-répertoire node_modules, le mot « module » désigne « une bibliothèque de nœuds ». En l’occurrence, le terme n’a rien à voir avec les modules IoT Hub.
+    > [!NOTE]
+    > Dans le nom du sous-répertoire « node_modules », le mot « module » désigne « une bibliothèque de nœuds ». En l’occurrence, le terme n’a rien à voir avec les modules IoT Hub.
 
 4. Créez le fichier .js suivant dans votre répertoire. Appelez-le **add.js**. Copiez et collez la chaîne de connexion de hub et le nom du hub.
 
@@ -108,7 +107,7 @@ Dans cette section, vous allez créer une application Node.js qui crée une iden
 
 Cette application crée une identité d’appareil avec l’ID **myFirstDevice** et une identité de module avec l’ID **myFirstModule** sous l’appareil **myFirstDevice**. (si cet ID de module existe déjà dans le registre d’identité, le code récupère simplement les informations existantes du module.) L’application affiche ensuite la clé primaire pour cette identité. Vous utilisez cette clé dans l’application de module simulé pour vous connecter à votre IoT Hub.
 
-5. Exécutez-la à l’aide de la commande node add.js. Vous obtiendrez alors une chaîne de connexion pour votre identité d’appareil et une autre pour votre identité de module.
+5. Exécutez-la à l’aide de node add.js. Vous obtiendrez alors une chaîne de connexion pour votre identité d’appareil et une autre pour votre identité de module.
 
     > [!NOTE]
     > Le registre des identités IoT Hub stocke uniquement les identités des appareils et des modules pour permettre un accès sécurisé à IoT Hub. Le registre des identités stocke les ID et les clés d’appareil à utiliser en tant qu’informations d’identification de sécurité. Il stocke également un indicateur activé/désactivé pour chaque appareil pouvant être utilisé pour désactiver l’accès de cet appareil. Si votre application a besoin de stocker d’autres métadonnées spécifiques aux appareils, elle doit utiliser un magasin spécifique aux applications. Il n’y a aucun indicateur d’activation/désactivation pour les identités de module. Pour plus d’informations, reportez-vous au [Guide du développeur IoT Hub][lnk-devguide-identity].
@@ -126,7 +125,7 @@ Dans cette section, vous allez créer sur votre appareil simulé une application
     > [!NOTE]
     > La commande npm install peut vous sembler lente. Soyez patient ; elle récupère beaucoup de code du référentiel de packages.
 
-    > [!NOTE] 
+    > [!NOTE]
     > Si vous voyez l’erreur « npm ERR! registry error parsing json » (Erreur npm : erreur de registre liée à une analyse json), vous pouvez l’ignorer sans risque. Si vous voyez l’erreur « npm ERR! registry error parsing json » (Erreur npm : erreur de registre liée à une analyse json), vous pouvez l’ignorer sans risque.
 
 3. Créez un fichier appelé twin.js. Copiez et collez la chaîne d’identité de module.
@@ -180,7 +179,7 @@ Dans cette section, vous allez créer sur votre appareil simulé une application
     });
     ```
 
-2. Maintenant, exécutez ceci à l’aide de la commande **node twin.js**.
+2. Maintenant, exécutez cet élément à l’aide de la commande  **node twin.js**.
 
     ```
     F:\temp\module_twin>node twin.js
@@ -200,9 +199,8 @@ Pour continuer la prise en main de IoT Hub et explorer les autres scénarios IoT
 * [Prise en main de la gestion d’appareils][lnk-device-management]
 * [Bien démarrer avec IoT Edge][lnk-iot-edge]
 
-
 <!-- Images. -->
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
+[15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

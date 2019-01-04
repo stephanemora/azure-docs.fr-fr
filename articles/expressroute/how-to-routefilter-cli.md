@@ -1,33 +1,25 @@
 ---
-title: 'Configurer des filtres de routage pour l’homologation d’Azure ExpressRoute Microsoft : interface CLI | Microsoft Docs'
+title: 'Configurer des filtres de routage pour l’homologation Microsoft - ExpressRoute : Azure CLI | Microsoft Docs'
 description: Cet article décrit comment configurer des filtres de routage pour l’homologation Microsoft à l’aide de l’interface Azure CLI
-documentationcenter: na
 services: expressroute
 author: anzaman
-manager: ganesr
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: anzaman
-ms.openlocfilehash: 29cbe1686888a87fca6ddde957a1cbd35ba3df26
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 94bdd4819d750f4c26c93a88cc6982a60583171c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968683"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079294"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurer des filtres de routage pour l’homologation Microsoft : interface Azure CLI
+# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configurer des filtres de routage pour l’homologation Microsoft : Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
-> * [interface de ligne de commande Azure](how-to-routefilter-cli.md)
+> * [Interface de ligne de commande Azure](how-to-routefilter-cli.md)
 > 
 
 Les filtres de routage permettent d’utiliser un sous-ensemble de services pris en charge via l’homologation Microsoft. Les étapes décrites dans cet article vous aident à configurer et à gérer des filtres de routage pour les circuits ExpressRoute.
@@ -80,7 +72,7 @@ Avant de commencer, installez la dernière version des commandes CLI (version 2
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Vous connecter à votre compte Azure et sélectionner votre abonnement
 
-Pour commencer votre configuration, connectez-vous à votre compte Azure. Utilisez les exemples suivants pour faciliter votre connexion :
+Pour commencer votre configuration, connectez-vous à votre compte Azure. Si vous l’utilisez l’option « Essayer », vous êtes automatiquement connecté et vous pouvez alors ignorer l’étape de connexion. Utilisez les exemples suivants pour faciliter votre connexion :
 
 ```azurecli
 az login
@@ -88,30 +80,30 @@ az login
 
 Vérifiez les abonnements associés au compte.
 
-```azurecli
+```azurecli-interactive
 az account list
 ```
 
 Sélectionnez l’abonnement pour lequel vous souhaitez créer un circuit ExpressRoute.
 
-```azurecli
+```azurecli-interactive
 az account set --subscription "<subscription ID>"
 ```
 
-## <a name="prefixes"></a>Étape 1 : Obtenir la liste des préfixes et des valeurs de communauté BGP
+## <a name="prefixes"></a>Étape 1 : Obtenir la liste des préfixes et des valeurs de communauté BGP
 
 ### <a name="1-get-a-list-of-bgp-community-values"></a>1. Obtenir la liste des valeurs de communauté BGP
 
 Pour obtenir la liste des valeurs de communauté BGP liées aux services accessibles par le biais de l’homologation Microsoft et la liste des préfixes associés, utilisez la cmdlet suivante :
 
-```azurecli
+```azurecli-interactive
 az network route-filter rule list-service-communities
 ```
 ### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Dresser la liste des valeurs que vous souhaitez utiliser
 
 Dressez la liste des valeurs de communauté BGP que vous souhaitez utiliser dans le filtre de routage. Par exemple, la valeur de communauté BGP pour les services Dynamics 365 est 12076:5040.
 
-## <a name="filter"></a>Étape 2 : Créer un filtre de routage et une règle de filtre
+## <a name="filter"></a>Étape 2 : Créer un filtre de routage et une règle de filtre
 
 Un filtre de routage ne peut avoir qu’une seule règle, et cette règle doit être de type « Autoriser ». Cette règle peut être associée à une liste des valeurs de communauté BGP.
 
@@ -119,7 +111,7 @@ Un filtre de routage ne peut avoir qu’une seule règle, et cette règle doit �
 
 Commencez par créer le filtre de routage. La commande 'az network route-filter create' crée uniquement une ressource de filtre de routage. Après avoir créé la ressource, vous devez créer une règle et la joindre à l’objet de filtre de routage. Utilisez la commande suivante pour créer une ressource de filtre de routage :
 
-```azurecli
+```azurecli-interactive
 az network route-filter create -n MyRouteFilter -g MyResourceGroup
 ```
 
@@ -127,15 +119,15 @@ az network route-filter create -n MyRouteFilter -g MyResourceGroup
 
 Exécutez la commande suivante pour créer une règle :
  
-```azurecli
+```azurecli-interactive
 az network route-filter rule create --filter-name MyRouteFilter -n CRM --communities 12076:5040 --access Allow -g MyResourceGroup
 ```
 
-## <a name="attach"></a>Étape 3 : Joindre le filtre de routage à un circuit ExpressRoute
+## <a name="attach"></a>Étape 3 : Joindre le filtre de routage à un circuit ExpressRoute
 
 Exécutez la commande suivante pour joindre le filtre de routage au circuit ExpressRoute :
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --route-filter MyRouteFilter
 ```
 
@@ -145,7 +137,7 @@ az network express-route peering update --circuit-name MyCircuit -g ExpressRoute
 
 Pour obtenir les propriétés d’un filtre de routage, utilisez la commande suivante :
 
-```azurecli
+```azurecli-interactive
 az network route-filter show -g ExpressRouteResourceGroupName --name MyRouteFilter 
 ```
 
@@ -153,7 +145,7 @@ az network route-filter show -g ExpressRouteResourceGroupName --name MyRouteFilt
 
 Si le filtre de routage est déjà joint à un circuit, les mises à jour de la liste de communautés BGP propagent automatiquement les modifications de publication de préfixe appropriées via les sessions BGP établies. Vous pouvez mettre à jour la liste de communautés BGP de votre filtre de routage à l’aide de la commande suivante :
 
-```azurecli
+```azurecli-interactive
 az network route-filter rule update --filter-name MyRouteFilter -n CRM -g ExpressRouteResourceGroupName --add communities '12076:5040' --add communities '12076:5010'
 ```
 
@@ -161,7 +153,7 @@ az network route-filter rule update --filter-name MyRouteFilter -n CRM -g Expres
 
 Une fois qu’un filtre de routage est détaché du circuit ExpressRoute, aucun préfixe n’est publié via la session BGP. Vous pouvez détacher un filtre de routage d’un circuit ExpressRoute à l’aide de la commande suivante :
 
-```azurecli
+```azurecli-interactive
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --remove routeFilter
 ```
 
@@ -169,7 +161,7 @@ az network express-route peering update --circuit-name MyCircuit -g ExpressRoute
 
 Vous ne pouvez supprimer un filtre de routage que s’il n’est attaché à aucun circuit. Assurez-vous que le filtre de routage n’est pas attaché à un circuit avant de tenter de le supprimer. Vous pouvez supprimer un filtre de routage à l’aide de la commande suivante :
 
-```azurecli
+```azurecli-interactive
 az network route-filter delete -n MyRouteFilter -g MyResourceGroup
 ```
 

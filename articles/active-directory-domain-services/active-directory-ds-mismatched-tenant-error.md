@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: ergreenl
-ms.openlocfilehash: 12611c9a4016b634cb865bbf609b1c7a6961abb7
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b73739ca6d392af191d1a51eca2d646a8a5cd4c4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155063"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955070"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Résoudre des erreurs d’annuaire incompatible pour des domaines managés Azure AD Domain Services existants
 Vous possédez un domaine existant géré par les domaines managés Azure AD Domain Services. Lorsque vous accédez au portail Azure et affichez le domaine managé, vous voyez le message d’erreur suivant :
 
-![Erreur d’annuaire incompatible](.\media\getting-started\mismatched-tenant-error.png)
+![Erreur d’annuaire incompatible](./media/getting-started/mismatched-tenant-error.png)
 
 Vous ne pouvez pas administrer ce domaine managé tant que l’erreur n’est pas résolue.
 
@@ -41,7 +41,7 @@ En résumé, vous ne pouvez pas activer un domaine managé pour un locataire Azu
 
 ![Configuration de locataire valide](./media/getting-started/valid-tenant-config.png)
 
-**Configuration de locataire incompatible** : dans ce scénario de déploiement, le domaine managé Contoso est activé pour le locataire Azure AD Contoso. Toutefois, le domaine managé est exposé dans un réseau virtuel appartenant à un abonnement Azure détenu par le locataire Azure AD Fabrikam. Par conséquent, le domaine managé et le réseau virtuel appartiennent à deux locataires Azure AD différents. Cette configuration de locataire est incompatible et n’est pas prise en charge. Le réseau virtuel doit être déplacé vers le même locataire Azure AD (autrement dit, Contoso) en tant que domaine managé. Pour plus de détails, voir la section [Résolution](#resolution).
+**Configuration de locataire incompatible** : dans ce scénario de déploiement, le domaine managé Contoso est activé pour le locataire Contoso Azure AD. Toutefois, le domaine managé est exposé dans un réseau virtuel appartenant à un abonnement Azure détenu par le locataire Azure AD Fabrikam. Par conséquent, le domaine managé et le réseau virtuel appartiennent à deux locataires Azure AD différents. Cette configuration de locataire est incompatible et n’est pas prise en charge. Le réseau virtuel doit être déplacé vers le même locataire Azure AD (autrement dit, Contoso) en tant que domaine managé. Pour plus de détails, voir la section [Résolution](#resolution).
 
 ![Configuration de locataire incompatible](./media/getting-started/mismatched-tenant-config.png)
 

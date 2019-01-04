@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory à Small Improvements | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Small Improvements | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Small Improvements.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 48b1e47befa647a9d221e5cdf5bf0485c3b66028
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 588e56c9ae22578c08dbca07c7c576fe8b577b58
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423825"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012332"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Didacticiel : intégration d’Azure Active Directory avec Small Improvements
+# <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Tutoriel : Intégration d’Azure Active Directory à Small Improvements
 
 Dans ce didacticiel, vous allez apprendre à intégrer Small Improvements à Azure Active Directory (Azure AD).
 
@@ -156,7 +156,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     e. Cliquez sur **Enregistrer**.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
@@ -216,7 +216,7 @@ Pour se connecter à Small Improvements, les utilisateurs d’Azure AD doivent �
 
     b. Entrez le **nom de famille** de l’utilisateur, à savoir **Simon**.
 
-    c. Entrez l’**adresse e-mail** de l’utilisateur, à savoir **brittasimon@contoso.com**. 
+    c. Entrez l’**adresse e-mail** de l’utilisateur, à savoir <strong>brittasimon@contoso.com</strong>. 
 
     d. Vous pouvez également choisir d’entrer le message personnel dans la zone **Envoyer un e-mail de notification** . Décochez cette case si vous ne souhaitez envoyer de notification.
 

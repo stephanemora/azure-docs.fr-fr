@@ -1,23 +1,24 @@
 ---
-title: Référence de domaine prédéfini - Azure | Microsoft Docs
+title: Référence de domaine prédéfini
 titleSuffix: Azure
 description: Référence pour les domaines prédéfinis, qui sont des collections prédéfinies d’intentions et d’entités de LUIS (Language Understanding Intelligent Service).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 3cb85a48a881545e9b2a0df29c35218b999fdbf0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335621"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140963"
 ---
-# <a name="prebuilt-domain-reference"></a>Référence de domaine prédéfini
+# <a name="prebuilt-domain-reference-for-your-luis-app"></a>Référence de domaine prédéfinie pour votre application LUIS
 Cette référence fournit des informations sur les [domaines prédéfinis](luis-how-to-use-prebuilt-domains.md), qui sont des collections prédéfinies d’intentions et d’entités proposées par LUIS.
 
 Les [domaines personnalisés](luis-how-to-start-new-app.md), en revanche, commencent sans intentions ni modèles. Vous pouvez ajouter des intentions et entités de domaine prédéfini à un modèle personnalisé.
@@ -115,7 +116,7 @@ Le domaine Communication fournit des intentions et entités liées à la message
 | TurnForwardingOff| Effectuez un appel téléphonique.|<br/><br/>|
 | Recomposer| Recomposez ou rappelez un numéro.|Recomposez.<br/>Recomposez mon dernier appel.|
 | Rejeter| Rejetez un appel entrant.|Rejeter l’appel<br/>Ne pas répondre maintenant<br/>Non disponible pour le moment et rappellera plus tard.|
-| SendEmail| Envoyez un courrier électronique. Cette intention s’applique aux courriers électroniques mais pas aux SMS.|Courrier électronique à Mike Waters : Mike, le dîner de la semaine dernière était exceptionnel.<br/>Envoyer un courrier électronique à Bob<br/>|
+| SendEmail| Envoyez un courrier électronique. Cette intention s’applique aux courriers électroniques mais pas aux SMS.|E-mail pour Mike Waters : Mike, le dîner de la semaine dernière était exceptionnel.<br/>Envoyer un courrier électronique à Bob<br/>|
 | SendMessage| Envoyez un SMS ou un message instantané.|Envoyer du texte à Chris et Carol|
 | SetSpeedDial| Définissez un raccourci de numérotation rapide pour le numéro de téléphone d’un contact.|Définissez la numérotation rapide un pour Carol.<br/>Configurez la numérotation rapide pour maman.|
 | ShowNext| Affichez l’élément suivant, par exemple, dans une liste de SMS ou de courriers électroniques.|Affichez le suivant.<br/>Allez à la page suivante.|
@@ -154,11 +155,11 @@ Le domaine Divertissement fournit les intentions et entités liées à la recher
 | ContentRating | Évaluation de contenu multimédia telle que G ou R pour les films.|Vidéo pour enfants.<br/>Évalué PG.|
 | Genre | Genre d’un film, d’un jeu, d’une application ou d’une chanson.|Comédies<br/>Dramas<br/>Amusant|
 | Mot clé| Mot-clé de recherche générique spécifiant un attribut qui n’existe pas dans les emplacements multimédias plus spécifiques.|Bandes son<br/>Moon River<br/>Amelia Earhart|
-| Langage | Langage utilisé dans les médias, tels que la langue parlée dans un film ou une chanson.|Français<br/>Français<br/>Coréen|
+| Langage | Langage utilisé dans les médias, tels que la langue parlée dans un film ou une chanson.|Anglais<br/>Anglais<br/>Coréen|
 | MediaFormat | Type technique spécial supplémentaire dans lequel le média est formaté.|Films HD<br/>Films 3D<br/>Téléchargeable|
 | MediaSource | Boutique ou Place de marché pour acquérir le média.|Netflix<br/>Prime|
 | MediaSubTypes| Types de médias plus petits que les films et jeux.|Démonstrations<br/>Dlc<br/>Bandes-annonce|
-| Nationalité| Pays dans lequel un film, un programme ou une chanson a été créé.|Français<br/>Allemand<br/>Coréen|
+| Nationalité| Pays dans lequel un film, un programme ou une chanson a été créé.|Anglais<br/>Allemand<br/>Coréen|
 | Personne| Acteur, directeur, producteur, musicien ou artiste associé à un film, une application, un jeu ou un programme télévisé.|Madonna<br/>Stanley Kubrick|
 | Rôle| Rôle joué par une personne dans la création d’un média.|Chante<br/>Dirigé par<br/>par|
 | Intitulé| Nom d’un film, d’une application, d’un jeu, d’un programme télévisé ou d’une chanson.|Friends<br/>Minecraft|
@@ -241,11 +242,12 @@ Le domaine HomeAutomation fournit les intentions et entités liées au contrôle
 Le domaine MovieTickets fournit les intentions et entités liées à la réservation de tickets de films au cinéma.
 
 ### <a name="examples"></a>Exemples
-```
-Book me two tickets for Captain Omar and the two Musketeers
-Cancel tickets
-When is Captain Omar showing?
-```
+
+|Exemples|
+|--|
+|M’acheter deux tickets pour Captain Omar and the two Musketeers|
+|Annuler les tickets|
+|De quoi parle Captain Omar ?|
 
 ### <a name="intents"></a>Intentions
 | Nom de l’intention | Description | Exemples |
@@ -266,11 +268,12 @@ When is Captain Omar showing?
 Le domaine Musique fournit les intentions et entités liées à la lecture de musique sur un lecteur de musique.
 
 ### <a name="examples"></a>Exemples
-```
-play Beethoven
-Increase track volume
-Skip to the next song
-```
+
+|Exemples|
+|--|
+|lire Beethoven|
+|Augmenter le volume de la piste|
+|Passer à la chanson suivante|
 
 ### <a name="intents"></a>Intentions
 | Nom de l’intention | Description | Exemples |
@@ -297,11 +300,12 @@ Skip to the next song
 Le domaine Note fournit des intentions et entités liées à la création, la modification et la recherche de notes.
 
 ### <a name="examples"></a>Exemples
-```
-Add to my groceries note lettuce tomato bread coffee
-Check off bananas from my grocery list
-Remove all items from my vacation list
-```
+
+|Exemples|
+|--|
+|Ajouter à ma liste de course laitue tomate pain café|
+|Retirer les bananes de ma liste de courses|
+|Supprimer tous les éléments de ma liste de congés|
 
 ### <a name="intents"></a>Intentions
 | Nom de l’intention | Description | Exemples |
@@ -330,11 +334,13 @@ Remove all items from my vacation list
 Le domaine OnDevice fournit des intentions et entités liées au contrôle de l’appareil.
 
 ### <a name="examples"></a>Exemples
-```
-Close video player
-Cancel playback
-Can you make the screen brighter?
-```
+
+|Exemples|
+|--|
+|Fermer lecteur de vidéo|
+|Annuler la lecture|
+|Pouvez-vous éclaircir l’écran ?|
+
 
 ### <a name="intents"></a>Intentions
 | Nom de l’intention | Description | Exemples |
@@ -381,11 +387,13 @@ Can you make the screen brighter?
 Le domaine Lieux fournit les intentions pour la gestion des requêtes liées aux lieux tels que les entreprises, établissements, restaurants, espaces publics et adresses.
 
 ### <a name="examples"></a>Exemples
-```
-Save this location to my favorites
-How far away is Holiday Inn?
-At what time does Safeway close?
-```
+
+|Exemples|
+|--|
+|Enregistrer cet emplacement dans mes favoris|
+|À quelle distance se trouve l’Holiday Inn ?|
+|À quelle heure ferme Safeway ?|
+
 
 ### <a name="intents"></a>Intentions
 | Nom de l’intention | Description | Exemples |
@@ -450,11 +458,13 @@ restart|
 Le domaine Rappel fournit les intentions et entités pour créer, modifier et rechercher des rappels.
 
 ### <a name="examples"></a>Exemples
-```
-Change my interview to 9 am tomorrow
-Remind me to buy milk on my way back home
-Can you check if I have a reminder about Christine's birthday?
-```
+
+|Exemples|
+|--|
+|Changer mon rendez-vous à 9 h 00 demain|
+|Me rappeler d’acheter du lait à mon retour|
+|Pouvez-vous vérifier si j’ai un rappel sur l’anniversaire de Christine ?|
+
 
 ### <a name="intents"></a>Intentions
 | Nom de l’intention | Description | Exemples |
@@ -473,11 +483,12 @@ Can you check if I have a reminder about Christine's birthday?
 Le domaine RestaurantReservation fournit les intentions et entités liées à la gestion des réservations de restaurant.
 
 ### <a name="examples"></a>Exemples
-```
-Reserve at Zucca for two for tonight
-Book a table at BJ's for tomorrow
-Table for 3 in Palo Alto at 7
-```
+
+|Exemples|
+|--|
+|Réserver au Zucca pour deux pour ce soir|
+|Réserver une table chez BJ pour demain|
+|Table pour 3 à Palo Alto à 7|
 
 ### <a name="intents"></a>Intentions
 | Nom de l’intention | Description | Exemples |
@@ -502,11 +513,12 @@ Table for 3 in Palo Alto at 7
 Le domaine Taxi fournit les intentions et entités pour créer et gérer les réservations de taxi.
 
 ### <a name="examples"></a>Exemples
-```
-Get me a cab at 3 pm
-How much longer do I have to wait for my taxi?
-Cancel my Uber
-```
+
+|Exemples|
+|--|
+|M’obtenir un taxi à 15 heures|
+|Combien de temps dois-je attendre mon taxi ?|
+|Annuler mon Uber|
 
 ### <a name="intents"></a>Intentions
 | Nom de l’intention | Description | Exemples |
@@ -531,11 +543,13 @@ Cancel my Uber
 Le domaine Traduire fournit les intentions et entités liées à la traduction de texte dans une langue cible.
 
 ### <a name="examples"></a>Exemples
-```
-Translate to French
-Translate hello to German
-Translate this sentence to English
-```
+
+|Exemples|
+|--|
+|Traduire en français|
+|Traduire hello en allemand|
+|Traduire cette phrase en anglais|
+
 
 ### <a name="intents"></a>Intentions
 | Nom de l’intention | Description | Exemples |
@@ -546,7 +560,7 @@ Translate this sentence to English
 ### <a name="entities"></a>Entités
 | Nom de l’entité | Description | Exemples |
 | ---------------- |-----------------------|----|
-| TargetLanguage | Langue cible d’une traduction.|Français<br/>Allemand<br/>Coréen|
+| TargetLanguage | Langue cible d’une traduction.|Anglais<br/>Allemand<br/>Coréen|
 | Texte | Texte à traduire.|Hello World<br/>Good morning<br/>Good evening|
 
 ## <a name="tv"></a>TV 
@@ -554,11 +568,12 @@ Translate this sentence to English
 Le domaine TV fournit les intentions et entités pour contrôler les téléviseurs.
 
 ### <a name="examples"></a>Exemples
-```
-Switch channel to BBC
-Show TV guide
-Watch National Geographic
-```
+
+|Exemples|
+|--|
+|Basculer la chaîne sur BBC|
+|Afficher le guide télé|
+|Voir National Geographic|
 
 ### <a name="intents"></a>Intentions
 | Nom de l’intention | Description | Exemples |
@@ -576,11 +591,13 @@ Watch National Geographic
 Le domaine Services fournit les intentions pour des tâches qui sont communes à de nombreuses tâches, comme les mots de bienvenue, l’annulation, la confirmation, l’aide, la répétition, la navigation, le démarrage et l’arrêt.
 
 ### <a name="examples"></a>Exemples
-```
-Go back to Twitter
-Please help
-Repeat last question please
-```
+
+|Exemples|
+|--|
+|Revenir à Twitter|
+|De l’aide s’il vous plaît|
+|Répéter la dernière question s’il vous plaît|
+
 
 ### <a name="intents"></a>Intentions
 | Nom de l’intention | Description | Exemples |
@@ -600,11 +617,13 @@ Repeat last question please
 Le domaine Météo fournit les intentions et entités pour l’obtention de rapports et de prévisions météo.
 
 ### <a name="examples"></a>Exemples
-```
-weather in London in september
-What?s the 10 day forecast?
-What's the average temperature in India in september?
-```
+
+|Exemples|
+|--|
+|météo à Londres en septembre|
+|Quelle est la prévision à 10 jours ?|
+|Quelle est la température moyenne en Inde en septembre ?|
+
 
 ### <a name="intents"></a>Intentions
 | Nom de l’intention | Description | Exemples |
@@ -621,11 +640,12 @@ What's the average temperature in India in september?
 Le domaine Web fournit une intention pour la navigation vers un site web.
 
 ### <a name="examples"></a>Exemples
-```
-Navigate to facebook.com
-Go to www.twitter.com
-Navigate to www.bing.com
-```
+
+|Exemples|
+|--|
+|Accéder à facebook.com|
+|Aller à www.twitter.com|
+|Accéder à www.bing.com|
 
 ### <a name="intents"></a>Intentions
 | Nom de l’intention | Description | Exemples |

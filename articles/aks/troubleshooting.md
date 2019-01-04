@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 1fd8f7c8499b7f9223939b8d426f274e79fd190e
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: c20f2cc03565ce861dfc6317be8459fdafeef0bf
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025333"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384103"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 Quand vous créez ou gérez des clusters AKS, vous pouvez parfois rencontrer des problèmes. Cet article décrit en détail certains problèmes courants et indique la façon de les résoudre.
@@ -59,8 +59,31 @@ Si vous ne voyez pas le tableau de bord kubernetes, vérifiez si le pod kube-pro
 
 Vérifiez que le groupe de sécurité réseau par défaut n’est pas modifié et que le port 22 est ouvert pour la connexion au serveur d’API. Vérifiez si le pod tunnelfront s’exécute dans l’espace de noms kube-system. Si ce n’est pas le cas, forcez sa suppression afin qu’il redémarre.
 
-### <a name="i-am-trying-to-upgrade-or-scale-and-am-getting-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-issue"></a>J’essaie d’effectuer une mise à niveau ou une mise à l’échelle et obtiens l’erreur « Changing property 'imageReference' is not allowed » (La modification de la propriété 'imageReference' n’est pas autorisée) .  Comment résoudre ce problème ?
+### <a name="i-am-trying-to-upgrade-or-scale-and-am-getting-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-issue"></a>J’essaie d’effectuer une mise à niveau ou une mise à l’échelle et j’obtiens l’erreur suivante : « Changing property 'imageReference' is not allowed » (La modification de la propriété 'imageReference' n’est pas autorisée). .  Comment résoudre ce problème ?
 
 Cette erreur est peut-être due au fait que vous avez modifié les balises dans les nœuds d’agent à l’intérieur du cluster AKS. La modification et la suppression de balises et d’autres propriétés de ressources dans le groupe de ressources MC_ peuvent entraîner des résultats inattendus. La modification des ressources sous MC_* dans le cluster AKS interrompt le SLO.
 
+### <a name="how-do-i-renew-the-service-principal-secret-on-my-aks-cluster"></a>Comment renouveler la clé secrète du principal du service sur mon cluster AKS ?
 
+Par défaut, les clusters AKS sont créés avec un principal du service qui a un délai d’expiration d’un an. À mesure que vous approchez de la date d’expiration de l’année en question, vous pouvez réinitialiser les informations d’identification afin d’étendre le principal du service pour une durée supplémentaire.
+
+L’exemple suivant effectue les étapes suivantes :
+
+1. Obtient l’ID du principal de service de votre cluster à l’aide de la commande [az aks show](/cli/azure/aks#az-aks-show).
+1. Répertorie la clé secrète client du principal du service à l’aide de la commande [az ad sp credential list](/cli/azure/ad/sp/credential#az-ad-sp-credential-list)
+1. Étend le principal du service pour une année supplémentaire en utilisant la commande [az ad sp credential-reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset). La clé secrète du client du principal du service doit rester la même pour que le cluster AKS puisse s’exécuter correctement.
+
+```azurecli
+# Get the service principal ID of your AKS cluster
+sp_id=$(az aks show -g myResourceGroup -n myAKSCluster \
+    --query servicePrincipalProfile.clientId -o tsv)
+
+# Get the existing service principal client secret
+key_secret=$(az ad sp credential list --id $sp_id --query [].keyId -o tsv)
+
+# Reset the credentials for your AKS service principal and extend for 1 year
+az ad sp credential reset \
+    --name $sp_id \
+    --password $key_secret \
+    --years 1
+```

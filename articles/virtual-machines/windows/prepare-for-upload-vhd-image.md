@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/10/2018
+ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: f9b950b1d85f50331d556a54b4237d78ec5c07ac
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 74132c436670247f3eb84859216274d3e1363d07
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388153"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338700"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Préparer un disque dur virtuel Windows à charger sur Azure
 Avant de charger une machine virtuelle Windows locale sur Microsoft Azure, vous devez préparer le disque dur virtuel (VHD ou VHDX). Azure prend seulement en charge les **machines virtuelles de génération 1** au format de fichier VHD avec un disque de taille fixe. La taille maximale autorisée pour le disque dur virtuel s’élève à 1 023 Go. Vous pouvez convertir une machine virtuelle génération 1, du système de fichiers VHDX vers un disque VHD, et d’un disque à expansion dynamique à un disque de taille fixe. En revanche, vous ne pouvez pas modifier la génération d’une machine virtuelle. Pour plus d’informations, consultez la page [Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
@@ -48,7 +48,7 @@ Après avoir converti le disque, créez une machine virtuelle qui utilise le dis
 >Les commandes de cet article doivent être exécutées dans une session PowerShell avec élévation de privilèges.
 
 ### <a name="convert-disk-by-using-powershell"></a>Convertir un disque à l’aide de PowerShell
-Vous pouvez convertir un disque virtuel à l’aide de la commande [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) dans Windows PowerShell. Sélectionnez **Exécuter en tant qu’administrateur** lorsque vous démarrez PowerShell. 
+Vous pouvez convertir un disque virtuel à l’aide de la commande [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) dans Windows PowerShell. Sélectionnez **Exécuter en tant qu’administrateur** lorsque vous démarrez PowerShell. 
 
 L’exemple de commande suivant convertit un disque VHDX en disque VHD et un disque à expansion dynamique en disque à taille fixe :
 
@@ -58,7 +58,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 Dans cette commande, remplacez la valeur de « -Path » par le chemin d’accès au disque dur virtuel que vous souhaitez convertir, et la valeur de « -DestinationPath » par le nouveau chemin d’accès et le nom du disque converti.
 
 ### <a name="convert-from-vmware-vmdk-disk-format"></a>Convertir à partir du format de disque VMDK VMware
-Si vous disposez d’une image de machine virtuelle Windows au [format de fichier VMDK](https://en.wikipedia.org/wiki/VMDK), convertissez-la au format VHD à l’aide de [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497). Pour plus d’informations, consultez l’article de blog [How to Convert a VMWare VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) (en anglais).
+Si vous disposez d’une image de machine virtuelle Windows au [format de fichier VMDK](https://en.wikipedia.org/wiki/VMDK), convertissez-la au format VHD à l’aide de [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497). Pour plus d’informations, consultez l’article de blog [How to Convert a VMWare VMDK to Hyper-V VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) (en anglais).
 
 ## <a name="set-windows-configurations-for-azure"></a>Définir les configurations Windows pour Azure
 
@@ -73,6 +73,16 @@ Sur la machine virtuelle que vous souhaitez charger dans Azure, exécutez toutes
     ```PowerShell
     netsh winhttp reset proxy
     ```
+
+    Si la machine virtuelle doit fonctionner avec n’importe quel proxy spécifique, vous devez ajouter une exception de proxy à l’adresse IP Azure ([168.63.129.16](https://blogs.msdn.microsoft.com/mast/2015/05/18/what-is-the-ip-address-168-63-129-16/
+)), afin que la machine virtuelle dispose d’une connectivité à Azure :
+    ```
+    $proxyAddress="<your proxy server>"
+    $proxyBypassList="<your list of bypasses>;168.63.129.16"
+
+    netsh winhttp set proxy $proxyAddress $proxyBypassList
+    ```
+
 3. Définissez la stratégie SAN des disques sur [Onlineall](https://technet.microsoft.com/library/gg252636.aspx) :
    
     ```PowerShell
@@ -283,7 +293,7 @@ Assurez-vous que les paramètres suivants sont configurés correctement pour la 
     ```PowerShell
     winmgmt /verifyrepository
     ```
-    Si le référentiel est endommagé, consultez l’article [WMI: Repository Corruption, or Not?](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not) (en anglais).
+    Si le référentiel est endommagé, consultez [WMI: Repository Corruption, or Not](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
 
 5. Vérifiez qu’aucune autre application n’utilise le port 3389. Ce port est utilisé pour le service RDP dans Azure. Vous pouvez exécuter la commande **netstat -anob** pour savoir quels ports sont utilisés sur la machine virtuelle :
 
@@ -377,7 +387,7 @@ Pour plus d’informations sur la création d’une machine virtuelle à partir 
 - [Créer une machine virtuelle à partir d’un disque spécialisé](create-vm-specialized.md)
 - [Créer une machine virtuelle à partir d’un disque dur virtuel spécialisé](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-Si vous souhaitez créer une image généralisée, vous devez exécuter sysprep. Pour plus d’informations sur Sysprep, consultez la page [Introduction à l’utilisation de Sysprep](http://technet.microsoft.com/library/bb457073.aspx). 
+Si vous souhaitez créer une image généralisée, vous devez exécuter sysprep. Pour plus d’informations sur Sysprep, consultez [Introduction à l’utilisation de Sysprep](https://technet.microsoft.com/library/bb457073.aspx). 
 
 Tous les rôles ou toutes les applications installés sur un ordinateur Windows ne prennent pas forcément en charge cette généralisation. Avant d’exécuter cette procédure, consultez donc l’article suivant pour vous assurer que le rôle de l’ordinateur est pris en charge par sysprep. Pour plus d’informations, consultez la page [Prise en charge de Sysprep pour les rôles serveur](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -401,7 +411,7 @@ Tous les rôles ou toutes les applications installés sur un ordinateur Windows 
 ## <a name="complete-recommended-configurations"></a>Remplir les configurations recommandées
 Les paramètres suivants n’affectent pas le chargement du disque dur virtuel. Toutefois, nous vous recommandons vivement de les configurer.
 
-* Installez [l’agent de machine virtuelle Azure](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous pouvez ensuite activer les extensions de machine virtuelle. Les extensions de machine virtuelle mettent en œuvre la plupart des fonctionnalités stratégiques que vous pourriez vouloir utiliser avec vos machines virtuelles, telles que la réinitialisation des mots de passe, la configuration de RDP, etc. Pour plus d'informations, consultez les pages suivantes :
+* Installez [l’agent de machine virtuelle Azure](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous pouvez ensuite activer les extensions de machine virtuelle. Les extensions de machine virtuelle mettent en œuvre la plupart des fonctionnalités stratégiques que vous pourriez vouloir utiliser avec vos machines virtuelles, telles que la réinitialisation des mots de passe, la configuration de RDP, etc. Pour plus d'informations, consultez les pages suivantes :
 
     - Billet de blog en anglais [VM Agent and Extensions – Part 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
     - Billet de blog en anglais [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)
@@ -409,7 +419,7 @@ Les paramètres suivants n’affectent pas le chargement du disque dur virtuel. 
 *  Une fois la machine virtuelle créée dans Azure, nous vous recommandons de placer le fichier d’échange sur le volume de « disque temporaire » pour améliorer les performances. Pour ce faire :
 
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile" -Type MultiString -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
     ```
 S’il existe un disque de données attaché à la machine virtuelle, la lettre de lecteur du volume de disque temporaire est généralement « D ». Cette désignation peut être différente, en fonction du nombre de disques disponibles et des paramètres que vous définissez.
 

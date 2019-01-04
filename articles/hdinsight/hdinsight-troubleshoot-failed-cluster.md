@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 6c9e980e4f448f705743b2e6dce268c671ffe9b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f85d01b20466fd72b802b4daaf001a7928717c4
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950709"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410276"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Résoudre les problèmes d’un cluster HDInsight défaillant ou lent
 
@@ -22,15 +22,15 @@ En cas de ralentissement d’un cluster HDInsight ou d’échec du cluster avec 
 
 Pour diagnostiquer un cluster lent ou défaillant, essayez de recueillir des informations sur tous les aspects de l’environnement, notamment les services Azure associés, la configuration du cluster ou encore les informations relatives à l’exécution du travail. Pour diagnostiquer les problèmes, le mieux est d’essayer de reproduire l’état d’erreur sur un autre cluster.
 
-* Étape 1 : recueillir des données sur le problème
-* Étape 2 : valider l’environnement du cluster HDInsight 
-* Étape 3 : contrôler l’état d’intégrité de votre cluster
-* Étape 4 : examiner la pile et les versions de l’environnement
-* Étape 5 : examiner les fichiers journaux du cluster
-* Étape 6 : vérifier les paramètres de configuration
-* Étape 7 : reproduire la défaillance sur un autre cluster 
+* Étape 1 : Recueillir des données sur le problème
+* Étape 2 : Valider l’environnement du cluster HDInsight 
+* Étape 3 : Contrôler l’état d’intégrité de votre cluster
+* Étape 4 : Examiner la pile et les versions de l’environnement
+* Étape 5 : Examiner les fichiers journaux du cluster
+* Étape 6 : Vérifier les paramètres de configuration
+* Étape 7 : Reproduire la défaillance sur un autre cluster 
 
-## <a name="step-1-gather-data-about-the-issue"></a>Étape 1 : recueillir des données sur le problème
+## <a name="step-1-gather-data-about-the-issue"></a>Étape 1 : Recueillir des données sur le problème
 
 HDInsight fournit de nombreux outils que vous pouvez utiliser pour identifier et résoudre les problèmes liés aux clusters. Les étapes suivantes vous guident tout au long de l’utilisation de ces outils et vous fournissent des suggestions pour localiser le problème.
 
@@ -65,9 +65,9 @@ Vous pouvez aussi utiliser Azure Classic CLI :
 ```
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-Une autre option consiste à utiliser PowerShell. Pour en savoir plus, consultez [Gestion des clusters Hadoop dans HDInsight au moyen d’Azure PowerShell](hdinsight-administer-use-powershell.md).
+Une autre option consiste à utiliser PowerShell. Pour en savoir plus, consultez la page [Gestion des clusters Apache Hadoop dans HDInsight au moyen d’Azure PowerShell](hdinsight-administer-use-powershell.md).
 
-## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>Étape 2 : valider l’environnement du cluster HDInsight
+## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>Étape 2 : Valider l’environnement du cluster HDInsight
 
 Chaque cluster HDInsight s’appuie sur divers services Azure ainsi que sur des logiciels open source tels que Apache HBase et Apache Spark. Les clusters HDInsight peuvent également appeler d’autres services Azure, comme les réseaux virtuels Azure.  Une défaillance de cluster peut être liée soit à l’un des services en cours d’exécution sur votre cluster, soit à un service externe.  Un changement de configuration d’un service de cluster peut également provoquer une défaillance du cluster.
 
@@ -88,7 +88,7 @@ Pour ouvrir une liste de vues du service, sélectionnez **Vues Ambari** sur la p
 
 #### <a name="check-for-azure-service-outages"></a>Rechercher les interruptions de service Azure
 
-HDInsight s’appuie sur plusieurs services Azure. Il exécute des serveurs virtuels dans Azure HDInsight, stocke des données et des scripts sur le stockage Blob Azure ou sur Azure DataLake Store, et indexe des fichiers journaux dans le stockage Azure Table. Bien que rares, les perturbation de ces services peuvent entraîner des problèmes dans HDInsight. Si votre cluster subit des ralentissements ou défaillances inattendus, consultez le [Tableau de bord d’état Azure](https://azure.microsoft.com/status/). L’état de chaque service est indiqué par région. Vérifiez la région de votre cluster, mais également les régions de tous les services associés.
+HDInsight s’appuie sur plusieurs services Azure. Il exécute des serveurs virtuels dans Azure HDInsight, stocke des données et des scripts sur le stockage Blob Azure ou sur Azure DataLake Store, et indexe des fichiers journaux dans le stockage Azure Table. Bien que rares, les perturbations de ces services peuvent entraîner des problèmes dans HDInsight. Si votre cluster subit des ralentissements ou défaillances inattendus, consultez le [Tableau de bord d’état Azure](https://azure.microsoft.com/status/). L’état de chaque service est indiqué par région. Vérifiez la région de votre cluster, mais également les régions de tous les services associés.
 
 #### <a name="check-azure-service-usage-limits"></a>Rechercher les limites d’utilisation des services Azure
 
@@ -103,11 +103,11 @@ Comparez la version de votre cluster à la dernière version de HDInsight. Chaqu
 
 Si votre cluster subit des ralentissements, pensez à redémarrer vos services par le biais de l’interface utilisateur Ambari ou d’Azure Classic CLI. Le cluster peut rencontrer des erreurs transitoires, auquel cas un redémarrage offre le moyen le plus rapide pour stabiliser votre environnement et éventuellement en améliorer les performances.
 
-## <a name="step-3-view-your-clusters-health"></a>Étape 3 : contrôler l’état d’intégrité de votre cluster
+## <a name="step-3-view-your-clusters-health"></a>Étape 3 : Contrôler l’état d’intégrité de votre cluster
 
-Les clusters HDInsight sont composées de différents types de nœuds en cours d’exécution sur des instances de machine virtuelle. Chaque nœud peut être analysé pour identifier des problèmes de ressources insuffisantes, des problèmes de connectivité réseau et d’autres problèmes susceptibles de ralentir le cluster. Chaque cluster contient deux nœuds principaux et la plupart des types de cluster comportent à la fois des nœuds de travail et des nœuds de périphérie. 
+Les clusters HDInsight sont composés de différents types de nœuds en cours d’exécution sur des instances de machine virtuelle. Chaque nœud peut être analysé pour identifier des problèmes de ressources insuffisantes, des problèmes de connectivité réseau et d’autres problèmes susceptibles de ralentir le cluster. Chaque cluster contient deux nœuds principaux et la plupart des types de cluster comportent à la fois des nœuds de travail et des nœuds de périphérie. 
 
-Vous trouverez une description des différents nœuds utilisés par chaque type de cluster dans la section [Configurer des clusters dans HDInsight avec Hadoop, Spark, Kafka, etc](hdinsight-hadoop-provision-linux-clusters.md).
+Vous trouverez une description des différents nœuds utilisés par chaque type de cluster dans la section [Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc](hdinsight-hadoop-provision-linux-clusters.md).
 
 Les sections suivantes vous expliquent comment vérifier l’intégrité de chaque nœud et du cluster global.
 
@@ -117,7 +117,7 @@ Le [tableau de bord de l’interface utilisateur Ambari](#view-cluster-configura
 
 ### <a name="check-your-webhcat-service"></a>Vérifier votre service WebHCat
 
-Il arrive souvent que les travaux Hive, Pig ou Sqoop échouent en raison d’une défaillance du service [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (ou *Templeton*). WebHCat est une interface REST qui permet d’exécuter un travail à distance, tel que Hive, Pig, Scoop et MapReduce. WebHCat convertit les demandes de soumission de travail en applications YARN et retourne un état dérivé de l’état de l’application YARN.  Les sections suivantes décrivent les codes d’état HTTP WebHCat courants.
+Il arrive souvent que les travaux Apache Hive, Apache Pig ou Apache Sqoop échouent en raison d’une défaillance du service [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (ou *Templeton*). WebHCat est une interface REST qui permet d’exécuter un travail à distance, tel que Hive, Pig, Scoop et MapReduce. WebHCat convertit les demandes de soumission de travail en applications YARN Apache Hadoop et retourne un état dérivé de l’état de l’application YARN.  Les sections suivantes décrivent les codes d’état HTTP WebHCat courants.
 
 #### <a name="badgateway-502-status-code"></a>BadGateway (code d’état 502)
 
@@ -143,7 +143,7 @@ Dans ce cas, consultez les journaux suivants dans le répertoire `/var/log/webhc
 * **webhcat-console.log** est le stdout du serveur au démarrage
 * **webhcat-console-error.log** est le stderr du processus serveur
 
-> [!NOTE]
+> [!NOTE]  
 > Chaque `webhcat.log` est renouvelé tous les jours, ce qui génère des fichiers nommés `webhcat.log.YYYY-MM-DD`. Sélectionnez le fichier correspondant à l’intervalle de temps que vous examinez.
 
 Les sections suivantes décrivent les causes possibles de l’expiration des délais d’attente WebHCat.
@@ -184,7 +184,7 @@ Au niveau de YARN, il existe deux types de délais d’expiration :
 
 2. Le traitement YARN peut prendre beaucoup de temps, ce qui peut entraîner des délais d’attente.
 
-    * Répertorier tous les travaux : ce type d’appel prend beaucoup de temps. Cet appel énumère les applications à partir de YARN ResourceManager et, pour chaque application exécutée, récupère l’état auprès de YARN JobHistoryServer. Cet appel peut expirer si le nombre de travaux atteint une valeur importante.
+    * Répertorier tous les travaux : Ce type d’appel prend beaucoup de temps. Cet appel énumère les applications à partir de YARN ResourceManager et, pour chaque application exécutée, récupère l’état auprès de YARN JobHistoryServer. Cet appel peut expirer si le nombre de travaux atteint une valeur importante.
 
     * Répertorier les travaux de plus de sept jours : HDInsight YARN JobHistoryServer est configuré pour conserver les informations relatives aux travaux exécutés pendant une durée de sept jours (valeur `mapreduce.jobhistory.max-age-ms`). Une tentative d’énumération des travaux supprimés conduit à l’expiration du délai d’attente.
 
@@ -206,19 +206,19 @@ Pour diagnostiquer ces problèmes :
 
     Templeton récupère la sortie de la console de travail en tant que `stderr` dans `statusdir`, ce qui est souvent utile pour le dépannage. `stderr` contient l’identifiant d’application YARN de la requête réelle.
 
-## <a name="step-4-review-the-environment-stack-and-versions"></a>Étape 4 : examiner la pile et les versions de l’environnement
+## <a name="step-4-review-the-environment-stack-and-versions"></a>Étape 4 : Examiner la pile et les versions de l’environnement
 
 La page **Pile et version** de l’interface utilisateur Ambari fournit des informations sur la configuration des services du cluster et sur l’historique de version des services.  Des versions incorrectes de la bibliothèque de services Hadoop peuvent être une cause de défaillance du cluster.  Dans l’interface utilisateur Ambari, sélectionnez le menu **Admin**, puis **Piles et versions**.  Sélectionnez l’onglet **Versions** sur la page pour afficher des informations sur la version du service :
 
 ![Pile et versions](./media/hdinsight-troubleshoot-failed-cluster/stack-versions.png)
 
-## <a name="step-5-examine-the-log-files"></a>Étape 5 : examiner les fichiers journaux
+## <a name="step-5-examine-the-log-files"></a>Étape 5 : Examiner les fichiers journaux
 
 De nombreux types de fichiers journaux sont générés à partir des nombreux services et composants qui composent un cluster HDInsight. Les [fichiers journaux WebHCat](#check-your-webhcat-service) ont été décrits précédemment. Il existe d’autres fichiers journaux utiles que vous pouvez examiner pour réduire les problèmes liés à votre cluster, comme décrit ci-dessous.
 
 ![Exemple de fichier journal HDInsight](./media/hdinsight-troubleshoot-failed-cluster/logs.png)
 
-* Les clusters HDInsight sont constitués de plusieurs nœuds, dont la plupart sont chargés d’exécuter les travaux soumis. Les travaux s’exécutent simultanément, mais les fichiers journaux peuvent uniquement afficher des résultats de façon linéaire. HDInsight exécute de nouvelles tâches, en mettant d’abord fin à celles qui ne parviennent pas à s’exécuter. Tous ces activités sont consignées dans les fichiers `stderr` et `syslog`.
+* Les clusters HDInsight sont constitués de plusieurs nœuds, dont la plupart sont chargés d’exécuter les travaux soumis. Les travaux s’exécutent simultanément, mais les fichiers journaux peuvent uniquement afficher des résultats de façon linéaire. HDInsight exécute de nouvelles tâches, en mettant d’abord fin à celles qui ne parviennent pas à s’exécuter. Toutes ces activités sont consignées dans les fichiers `stderr` et `syslog`.
 
 * Les fichiers journaux d’actions de script indiquent les erreurs ou les changements de configuration inattendus pendant le processus de création de votre cluster.
 
@@ -244,15 +244,15 @@ Un cluster HDInsight génère des fichiers journaux qui sont écrits dans les ta
 
 ### <a name="review-heap-dumps"></a>Examiner les dumps de tas
 
-Les dumps de tas contiennent un instantané de la mémoire de l’application, y compris les valeurs des variables à ce moment précis, ce qui peut être utile pour diagnostiquer des problèmes qui se produisent lors de l’exécution. Pour plus d’informations, consultez l’article [Activer les dumps de tas pour les services Hadoop sur HDInsight sur Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
+Les dumps de tas contiennent un instantané de la mémoire de l’application, y compris les valeurs des variables à ce moment précis, ce qui peut être utile pour diagnostiquer des problèmes qui se produisent lors de l’exécution. Pour plus d’informations, consultez la page [Activer les dumps de tas pour les services Apache Hadoop sur HDInsight sur Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
 
-## <a name="step-6-check-configuration-settings"></a>Étape 6 : vérifier les paramètres de configuration
+## <a name="step-6-check-configuration-settings"></a>Étape 6 : Vérifier les paramètres de configuration
 
 Les clusters HDInsight sont préconfigurés avec les paramètres par défaut pour les services connexes, tels que Hadoop, Hive, HBase, etc. Selon le type de cluster, sa configuration matérielle, son nombre de nœuds, les types de travaux que vous exécutez et les données sur lesquelles vous travaillez (ainsi que la manière dont ces données sont traitées), vous devrez peut-être optimiser votre configuration.
 
-Pour savoir en détail comment optimiser les configurations des performances dans la plupart des scénarios, consultez la section [Optimiser les configurations de cluster avec Ambari](hdinsight-changing-configs-via-ambari.md). Si vous utilisez Spark, consultez la section [Optimiser les performances des tâches Spark](spark/apache-spark-perf.md). 
+Pour savoir en détail comment optimiser les configurations des performances dans la plupart des scénarios, consultez la section [Optimiser les configurations de cluster avec Apache Ambari](hdinsight-changing-configs-via-ambari.md). Si vous utilisez Spark, consultez la section [Optimiser les performances des tâches Apache Spark](spark/apache-spark-perf.md). 
 
-## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>Étape 7 : reproduire la défaillance sur un autre cluster
+## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>Étape 7 : Reproduire la défaillance sur un autre cluster
 
 Pour aider à diagnostiquer l’origine d’une erreur de cluster, démarrez un nouveau cluster avec la même configuration, puis soumettez de nouveau une à une les étapes du travail qui a échoué. Vérifiez les résultats de chaque étape avant de traiter l’étape suivante. Cette méthode vous donne la possibilité de corriger et de réexécuter une seule étape ayant échoué. Cette méthode présente également l’avantage de charger vos données d’entrée une seule fois.
 
@@ -265,8 +265,8 @@ Pour aider à diagnostiquer l’origine d’une erreur de cluster, démarrez un 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Analyse des journaux HDInsight](hdinsight-debug-jobs.md)
-* [Accéder aux journaux des applications YARN dans HDInsight sous Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Activer les dumps de tas pour les services Hadoop sur HDInsight sur Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Accéder au journal des applications Apache Hadoop YARN dans la version Linux de HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Activer les dumps de tas pour les services Apache Hadoop sur HDInsight sur Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Problèmes connus du cluster Apache Spark sur Azure HDInsight](hdinsight-apache-spark-known-issues.md)

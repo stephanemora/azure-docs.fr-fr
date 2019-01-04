@@ -1,6 +1,6 @@
 ---
-title: Importation de données dans Recherche Azure | Microsoft Docs
-description: Découvrez comment charger des données dans un index dans Azure Search.
+title: Importation de données pour ingestion dans un index de recherche - Recherche Azure
+description: Remplissez et chargez des données dans un index dans Recherche Azure à partir de sources de données externes.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: ab26adb330e69f71d94aa296ede558b44e47a187
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 731519b4e099bd696002af3aa08ada145e490260
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249776"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314854"
 ---
-# <a name="indexing-in-azure-search"></a>Indexation dans Recherche Azure
+# <a name="indexing-external-data-for-queries-in-azure-search"></a>Indexation de données externes pour les requêtes dans Recherche Azure
 > [!div class="op_single_selector"]
 > * [Vue d'ensemble](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -23,7 +24,7 @@ ms.locfileid: "51249776"
 > 
 > 
 
-Dans Recherche Azure, les requêtes s’exécutent sur votre contenu chargé dans un [index de recherche](search-what-is-an-index.md). Cet article examine les deux méthodes de base pour le chargement de contenu dans un index : *envoyer* les données dans l’index par programme ou pointer un [indexeur Recherche Azure](search-indexer-overview.md) à une source de données prise en charge pour *extraire* les données.
+Dans Recherche Azure, les requêtes s’exécutent sur le contenu chargé et enregistré dans un [index de recherche](search-what-is-an-index.md). Cet article examine les deux méthodes de base pour remplir un index : *envoyer* les données dans l’index par programme ou pointer un [indexeur Recherche Azure](search-indexer-overview.md) à une source de données prise en charge pour *extraire* les données.
 
 ## <a name="pushing-data-to-an-index"></a>Envoyer des données à un index
 Le modèle d’émission, utilisé pour envoyer vos données Recherche Azure par programme, est l’approche la plus flexible. Tout d’abord, il n’y a pas de restrictions sur le type de source de données. Tout jeu de données composé de documents JSON peut être appliqué à un index Recherche Azure, en supposant que chaque document dans le jeu de données possède des champs mappant des champs définis dans votre schéma d’index. En second lieu, il n’y a aucune restriction sur la fréquence d’exécution. Vous pouvez transmettre des modifications à un index aussi souvent que vous le souhaitez. Pour les applications ayant des exigences à très faible latence (par exemple, si vous devez synchroniser les opérations de recherche avec les bases de données d’inventaire dynamiques), le modèle d’émission est la seule option.

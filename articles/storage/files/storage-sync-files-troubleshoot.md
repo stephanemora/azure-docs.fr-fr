@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 507bbc9013d8b02084b639f8d9fac0c7d97503f4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0f6075bcbaae14fc60df6f33f4e65cd4abcec731
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014276"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409460"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -38,9 +38,9 @@ StorageSyncAgent.msi /l*v AFSInstaller.log
 Examinez le fichier installer.log pour déterminer la cause de l’échec de l’installation.
 
 <a id="agent-installation-on-DC"></a>**L’installation de l’agent échoue sur le contrôleur de domaine Active Directory**  
-Si vous essayez d’installer l’agent de synchronisation sur un contrôleur de domaine Active Directory où le propriétaire du rôle de contrôleur de domaine principal est sur Windows Server 2008 R2 ou un système d’exploitation antérieur, l’agent de synchronisation peut échouer.
+Si vous essayez d’installer l’agent de synchronisation sur un contrôleur de domaine Active Directory où le propriétaire du rôle de contrôleur de domaine principal est sur Windows Server 2008 R2 ou un système d’exploitation antérieur, l’agent de synchronisation peut échouer.
 
-Pour résoudre cela, transférez le rôle de contrôleur de domaine principal à un autre contrôleur de domaine avec Windows Server 2012 R2 ou une version plus récente, puis synchronisez.
+Pour résoudre cela, transférez le rôle de contrôleur de domaine principal à un autre contrôleur de domaine avec Windows Server 2012 R2 ou une version plus récente, puis synchronisez.
 
 <a id="server-registration-missing"></a>**Le serveur n’est pas listé sous Serveurs inscrits sur le Portail Azure**  
 Si un serveur n’est pas listé sous **Serveurs inscrits** pour un service de synchronisation de stockage :
@@ -48,7 +48,7 @@ Si un serveur n’est pas listé sous **Serveurs inscrits** pour un service de s
 2. Ouvrez l’Explorateur de fichiers, puis accédez au répertoire d’installation de l’agent de synchronisation de stockage (l’emplacement par défaut est C:\Program Files\Azure\StorageSyncAgent). 
 3. Exécutez ServerRegistration.exe, puis effectuez l’Assistant pour inscrire le serveur auprès d’un service de synchronisation de stockage.
 
-<a id="server-already-registered"></a>**L’inscription du serveur affiche le message suivant pendant l’installation de l’agent Azure File Sync : « Ce serveur est déjà inscrit ».** 
+<a id="server-already-registered"></a>**L’inscription du serveur affiche le message suivant pendant l’installation de l’agent Azure File Sync : « Ce serveur est déjà inscrit »** 
 
 ![Capture d’écran de la boîte de dialogue d’inscription du serveur avec le message d’erreur « Ce serveur est déjà inscrit »](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
@@ -68,7 +68,7 @@ Reset-StorageSyncServer
 Ce problème se produit quand la stratégie **Sécurité renforcée d’Internet Explorer** est activée pendant l’inscription du serveur. Pour plus d’informations sur la façon de désactiver correctement la stratégie de **Sécurité renforcée d’Internet Explorer**, consultez [Préparer Windows Server pour une utilisation avec Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) et [Déployer Azure File Sync](storage-sync-files-deployment-guide.md).
 
 ## <a name="sync-group-management"></a>Gestion du groupe de synchronisation
-<a id="cloud-endpoint-using-share"></a>**La création du point de terminaison cloud échoue, avec cette erreur : « Le partage de fichiers Azure spécifié est déjà en cours d’utilisation par un autre point de terminaison cloud »**  
+<a id="cloud-endpoint-using-share"></a>**La création du point de terminaison cloud échoue, avec cette erreur : « Le partage de fichiers Azure spécifié est déjà en cours d’utilisation par un autre point de terminaison cloud »**  
 Ce problème se produit si le partage de fichiers Azure est déjà en cours d’utilisation par un autre point de terminaison cloud. 
 
 Si vous voyez ce message et que le partage de fichiers Azure n’est pas en cours d’utilisation par un point de terminaison cloud, effectuez les étapes suivantes pour supprimer les métadonnées Azure File Sync sur le partage de fichiers Azure :
@@ -80,14 +80,14 @@ Si vous voyez ce message et que le partage de fichiers Azure n’est pas en cour
 2. Cliquez avec le bouton droit sur le partage de fichiers Azure, puis sélectionnez **Modifier les métadonnées**.
 3. Cliquez avec le bouton droit sur **SyncService**, puis sélectionnez **Supprimer**.
 
-<a id="cloud-endpoint-authfailed"></a>**La création du point de terminaison cloud échoue, avec cette erreur : « AuthorizationFailed »**  
+<a id="cloud-endpoint-authfailed"></a>**La création du point de terminaison cloud échoue, avec cette erreur : « AuthorizationFailed »**  
 Ce problème se produit si votre compte d’utilisateur ne dispose pas des droits suffisants pour créer un point de terminaison cloud. 
 
 Pour créer un point de terminaison cloud, votre compte d’utilisateur doit disposer des autorisations Microsoft suivantes :  
-* Lecture : Obtenir la définition de rôle
-* Écriture : Créer ou mettre à jour la définition de rôle personnalisée
-* Lecture : Obtenir l’attribution de rôle
-* Écriture : Créer l’attribution de rôle
+* Lecture : Obtenir la définition de rôle
+* Écriture : Créer ou mettre à jour une définition de rôle personnalisée
+* Lecture : Obtenir l’affectation de rôle
+* Écriture : Créer une attribution de rôle
 
 Les rôles intégrés suivants ont les autorisations Microsoft nécessaires :  
 * Propriétaire
@@ -96,15 +96,16 @@ Les rôles intégrés suivants ont les autorisations Microsoft nécessaires :
 Pour déterminer si votre rôle de compte d’utilisateur a les autorisations nécessaires :  
 1. Dans le portail Azure, sélectionnez **Groupes de ressources**.
 2. Sélectionnez le groupe de ressources dans lequel se trouve le compte de stockage, puis sélectionnez **Contrôle d’accès (IAM)**.
-3. Sélectionnez le **rôle** (par exemple, Propriétaire ou Contributeur) pour votre compte d’utilisateur.
-4. Dans la liste **Fournisseur de ressources**, sélectionnez **Autorisation Microsoft**. 
+3. Sélectionnez l’onglet **Attributions de rôles**.
+4. Sélectionnez le **Rôle** (par exemple, Propriétaire ou Contributeur) pour votre compte d’utilisateur.
+5. Dans la liste **Fournisseur de ressources**, sélectionnez **Autorisation Microsoft**. 
     * **Attribution de rôle** doit avoir les autorisations **Lecture** et **Écriture**.
     * **Définition de rôle** doit avoir les autorisations **Lecture** et **Écriture**.
 
-<a id="server-endpoint-createjobfailed"></a>**La création du point de terminaison de serveur a échoué avec l’erreur : « MgmtServerJobFailed » (Code d’erreur :-2134375898)**  
+<a id="server-endpoint-createjobfailed"></a>**La création du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobFailed » (Code d'erreur : -2134375898)**  
 Ce problème se produit si le chemin du point de terminaison de serveur se trouve sur le volume système et que la hiérarchisation cloud est activée. La hiérarchisation cloud n’est pas prise en charge sur le volume système. Pour créer un point de terminaison de serveur sur le volume système, désactivez la hiérarchisation cloud quand vous créez le point de terminaison de serveur.
 
-<a id="server-endpoint-deletejobexpired"></a>**La suppression du point de terminaison de serveur échoue avec cette erreur : « MgmtServerJobExpired »**                
+<a id="server-endpoint-deletejobexpired"></a>**La suppression du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobExpired »**                
 Ce problème se produit si le serveur est hors connexion ou n’a pas de connectivité réseau. Si le serveur n’est plus disponible, désinscrivez le serveur dans le portail pour supprimer les points de terminaison de serveur. Pour supprimer les points de terminaison de serveur, suivez les étapes décrites dans [Désinscrire un serveur dans Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 <a id="server-endpoint-provisioningfailed"></a>**Impossible d’ouvrir la page de propriétés du point de terminaison serveur ou de mettre à jour de la stratégie de hiérarchisation du cloud**  
@@ -131,7 +132,7 @@ Ce problème peut se produire si le processus de surveillance de la synchronisat
 
 Pour résoudre ce problème, procédez comme suit :
 
-1. Ouvrez le gestionnaire des tâches sur le serveur et vérifiez que le processus de surveillance de la synchronisation du stockage (AzureStorageSyncMonitor.exe) est en cours d’exécution. Si le processus ne s’exécute pas, essayez d’abord de redémarrer le serveur. Si le redémarrage du serveur ne résout pas le problème, mettez à niveau l’agent Azure File Sync avec la version [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018) si celle-ci n’est pas déjà installée.
+1. Ouvrez le gestionnaire des tâches sur le serveur et vérifiez que le processus de surveillance de la synchronisation du stockage (AzureStorageSyncMonitor.exe) est en cours d’exécution. Si le processus ne s’exécute pas, essayez d’abord de redémarrer le serveur. Si le redémarrage du serveur ne résout pas le problème, procédez à une mise à niveau vers la dernière [version de l'agent](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes) Azure File Sync.
 2. Vérifiez que les paramètres de pare-feu et de proxy sont correctement configurés :
     - Si le serveur se trouve derrière un pare-feu, vérifiez que le port 443 sortant est autorisé. Si le pare-feu restreint le trafic à des domaines spécifiques, vérifiez que les domaines répertoriés dans la [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) du pare-feu sont accessibles.
     - Si le serveur se trouve derrière un proxy, configurez les paramètres de proxy au niveau de l’ordinateur ou de l’application en suivant la procédure de la [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy) du proxy.
@@ -467,20 +468,17 @@ En définissant cette valeur de Registre, l’agent Azure File Sync accepte n’
 | **Chaîne d’erreur** | ECS_E_SERVER_CREDENTIAL_NEEDED |
 | **Correction requise** | Oui |
 
-Cette erreur se produit généralement parce que l’heure du serveur est incorrecte ou que le certificat utilisé pour l’authentification a expiré. Si l’heure du serveur est correcte, procédez comme suit pour supprimer le certificat arrivé à expiration (s’il est arrivé à expiration) et réinitialiser l’état de l’inscription du serveur :
+Cette erreur se produit généralement parce que l’heure du serveur est incorrecte ou que le certificat utilisé pour l’authentification a expiré. Si l’heure du serveur est correcte, procédez comme suit pour renouveler le certificat arrivé à expiration :
 
 1. Ouvrez le composant logiciel enfichable MMC de certificats, sélectionnez Compte d’ordinateur et accédez à Certificates (Ordinateur Local)\Personal\Certificates.
-2. Supprimer le certificat d’authentification client s’il a expiré et fermez le composant logiciel enfichable MMC de certificats.
-3. Ouvrez Regedit et supprimez la clé ServerSetting dans le registre : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync\ServerSetting
-4. Dans le portail Azure, accédez à la section Serveurs inscrits du service de synchronisation de stockage. Cliquez avec le bouton droit sur le serveur dont le certificat a expiré, puis cliquez sur « Désinscrire le serveur ».
-5. Exécutez les commandes PowerShell suivantes :
+2. Vérifiez si le certificat d’authentification client est arrivé à expiration. Si le certificat est arrivé à expiration, fermez le composant logiciel enfichable MMC Certificats et suivez les étapes restantes. 
+3. Vérifiez que la version 4.0.1.0 (ou ultérieure) de l'agent Azure File Sync est installée.
+4. Exécutez les commandes PowerShell suivantes :
 
     ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Reset-StorageSyncServer
+    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+    Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-
-6. Réinscrivez le serveur en exécutant ServerRegistration.exe (l’emplacement par défaut est C:\Program Files\Azure\StorageSyncAgent).
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**Le volume où se trouve le point de terminaison de serveur est faible sur l’espace disque.**  
 | | |
@@ -705,8 +703,9 @@ if ($fileShare -eq $null) {
 
 <a id="troubleshoot-rbac"></a>**Vérifiez qu’Azure File Sync a accès au compte de stockage.**  
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
-1. Cliquez sur **contrôle d’accès (IAM)** sur la table des matières de gauche pour accéder à la liste des utilisateurs et des applications (*principaux de service*) qui ont accès à votre compte de stockage.
-2. Vérifiez que **Hybrid File Sync Service** apparaît dans la liste avec le rôle **Lecteur et Accès aux données**. 
+1. Cliquez sur **Contrôle d’accès (IAM)** sur la table des matières de gauche.
+1. Cliquez sur l'onglet **Affectations de rôles** pour accéder à la liste des utilisations et applications (*principaux de service*) ayant accès à votre compte de stockage.
+1. Vérifiez que **Hybrid File Sync Service** apparaît dans la liste avec le rôle **Lecteur et Accès aux données**. 
 
     ![Une capture d’écran du principal de service Hybrid File Sync Service dans l’onglet contrôle d’accès du compte de stockage](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 

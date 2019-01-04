@@ -1,32 +1,25 @@
 ---
-title: 'Configurer des filtres de routage pour l’homologation d’Azure ExpressRoute Microsoft : Portail | Microsoft Docs'
-description: Cet article décrit comment configurer des filtres de routage pour l’homologation Microsoft à l’aide du portail Azure.
-documentationcenter: na
+title: 'Configurer des filtres de routage pour le peering Microsoft : Azure ExpressRoute - Portail | Microsoft Docs'
+description: Cet article décrit comment configurer des filtres de routage pour le peering Microsoft à l’aide du portail Azure.
 services: expressroute
 author: ganesr
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 09/26/2018
 ms.author: ganesr
-ms.openlocfilehash: ab0cd45334581f6f5c6dd6e86939e018df5de074
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: seodec18
+ms.openlocfilehash: 0515b5e85c3bcf56f1f238620d6036d1be0bec7e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29387725"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104201"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurer des filtres de routage pour l’homologation Microsoft : portail Azure
+# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configurer des filtres de routage pour le peering Microsoft : Portail Azure
 > [!div class="op_single_selector"]
-> * [portail Azure](how-to-routefilter-portal.md)
+> * [Portail Azure](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
-> * [interface de ligne de commande Azure](how-to-routefilter-cli.md)
+> * [Interface de ligne de commande Azure](how-to-routefilter-cli.md)
 > 
 
 Les filtres de routage permettent d’utiliser un sous-ensemble de services pris en charge via l’homologation Microsoft. Les étapes décrites dans cet article vous aident à configurer et à gérer des filtres de routage pour les circuits ExpressRoute.
@@ -43,7 +36,7 @@ Si vous avez besoin de connectivité à tous les services, de nombreux préfixes
 
 Lorsque l’homologation Microsoft est configurée sur votre circuit ExpressRoute, les routeurs de périphérie Microsoft établissent une paire de sessions BGP avec les routeurs de périphérie (les vôtres ou ceux de votre fournisseur de connectivité). Aucun routage n’est publié sur votre réseau. Pour activer les annonces de routage sur votre réseau, vous devez associer un filtre de routage.
 
-Un filtre de routage vous permet d’identifier les services que vous souhaitez utiliser via l’homologation Microsoft de votre circuit ExpressRoute. Il s’agit essentiellement d’une liste verte de toutes les valeurs de communauté BGP. Une fois qu’une ressource de filtre de routage est définie et jointe à un circuit ExpressRoute, tous les préfixes qui mappent aux valeurs de communauté BGP sont publiés sur votre réseau.
+Un filtre de routage vous permet d’identifier les services que vous souhaitez utiliser via l’homologation Microsoft de votre circuit ExpressRoute. Il s’agit essentiellement d’une liste blanche de toutes les valeurs de communauté BGP. Une fois qu’une ressource de filtre de routage est définie et jointe à un circuit ExpressRoute, tous les préfixes qui mappent aux valeurs de communauté BGP sont publiés sur votre réseau.
 
 Pour être en mesure de joindre des filtres de routage à des services Office 365, vous devez être autorisé à utiliser les services Office 365 via ExpressRoute. Si vous n’êtes pas autorisé à utiliser les services Office 365 via ExpressRoute, la jointure des filtres de routage échoue. Pour plus d’informations sur le processus d’autorisation, consultez [Azure ExpressRoute pour Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd). La connectivité aux services Dynamics 365 ne nécessite pas d’autorisation préalable.
 
@@ -78,7 +71,7 @@ Avant de commencer la configuration, assurez-vous que les critères suivants son
  - Vous devez disposer d’une homologation Microsoft active. Suivez les instructions de [création et modification de la configuration d’homologation](expressroute-howto-routing-portal-resource-manager.md).
 
 
-## <a name="prefixes"></a>Étape 1 : Obtenir la liste des préfixes et des valeurs de communauté BGP
+## <a name="prefixes"></a>Étape 1 : Obtenir la liste des préfixes et des valeurs de communauté BGP
 
 ### <a name="1-get-a-list-of-bgp-community-values"></a>1. Obtenir la liste des valeurs de communauté BGP
 
@@ -88,40 +81,40 @@ Les valeurs de communauté BGP associées aux services accessibles via l’homol
 
 Dressez la liste des valeurs de communauté BGP que vous souhaitez utiliser dans le filtre de routage. Par exemple, la valeur de communauté BGP pour les services Dynamics 365 est 12076:5040.
 
-## <a name="filter"></a>Étape 2 : Créer un filtre de routage et une règle de filtre
+## <a name="filter"></a>Étape 2 : Créer un filtre de routage et une règle de filtre
 
 Un filtre de routage ne peut avoir qu’une seule règle, et cette règle doit être de type « Autoriser ». Cette règle peut être associée à une liste des valeurs de communauté BGP.
 
 ### <a name="1-create-a-route-filter"></a>1. Créer un filtre de routage
 Vous pouvez créer un filtre de routage en sélectionnant l'option permettant de créer une ressource. Cliquez sur **Créer une ressource** > **Mise en réseau** > **RouteFilter**, comme illustré dans l’image suivante :
 
-![Créer un filtre de routage](.\media\how-to-routefilter-portal\CreateRouteFilter1.png)
+![Créer un filtre de routage](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
 
 Vous devez placer le filtre de routage dans un groupe de ressources. 
 
-![Créer un filtre de routage](.\media\how-to-routefilter-portal\CreateRouteFilter.png)
+![Créer un filtre de routage](./media/how-to-routefilter-portal/CreateRouteFilter.png)
 
 ### <a name="2-create-a-filter-rule"></a>2. Créer une règle de filtre
 
 Vous pouvez ajouter et mettre à jour des règles en sélectionnant l’onglet de gestion des règles pour votre filtre de routage.
 
-![Créer un filtre de routage](.\media\how-to-routefilter-portal\ManageRouteFilter.png)
+![Créer un filtre de routage](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
 
 Vous pouvez sélectionner dans la liste déroulante les services auxquels vous souhaitez vous connecter et enregistrer la règle lorsque vous avez terminé.
 
-![Créer un filtre de routage](.\media\how-to-routefilter-portal\AddRouteFilterRule.png)
+![Créer un filtre de routage](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
 
 
-## <a name="attach"></a>Étape 3 : Joindre le filtre de routage à un circuit ExpressRoute
+## <a name="attach"></a> Étape 3 : Joindre le filtre de routage à un circuit ExpressRoute
 
 Vous pouvez joindre le filtre de routage à un circuit en cliquant sur le bouton « Ajouter un circuit » et en sélectionnant le circuit ExpressRoute dans la liste déroulante.
 
-![Créer un filtre de routage](.\media\how-to-routefilter-portal\AddCktToRouteFilter.png)
+![Créer un filtre de routage](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
 
 Si le fournisseur de connectivité configure l’homologation pour votre circuit ExpressRoute, actualisez le circuit dans le panneau Circuit ExpressRoute avant de sélectionner le bouton Ajouter un circuit.
 
-![Créer un filtre de routage](.\media\how-to-routefilter-portal\RefreshExpressRouteCircuit.png)
+![Créer un filtre de routage](./media/how-to-routefilter-portal/RefreshExpressRouteCircuit.png)
 
 ## <a name="tasks"></a>Tâches courantes
 
@@ -129,7 +122,7 @@ Si le fournisseur de connectivité configure l’homologation pour votre circuit
 
 Vous pouvez afficher les propriétés d’un filtre de routage lorsque vous ouvrez la ressource dans le portail.
 
-![Créer un filtre de routage](.\media\how-to-routefilter-portal\ViewRouteFilter.png)
+![Créer un filtre de routage](./media/how-to-routefilter-portal/ViewRouteFilter.png)
 
 
 ### <a name="updateproperties"></a>Mettre à jour les propriétés d’un filtre de routage
@@ -137,23 +130,23 @@ Vous pouvez afficher les propriétés d’un filtre de routage lorsque vous ouvr
 Vous pouvez mettre à jour la liste des valeurs de communauté BGP jointe à un circuit en sélectionnant le bouton « Gérer la règle ».
 
 
-![Créer un filtre de routage](.\media\how-to-routefilter-portal\ManageRouteFilter.png)
+![Créer un filtre de routage](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
-![Créer un filtre de routage](.\media\how-to-routefilter-portal\AddRouteFilterRule.png) 
+![Créer un filtre de routage](./media/how-to-routefilter-portal/AddRouteFilterRule.png) 
 
 
 ### <a name="detach"></a>Détacher un filtre de routage d’un circuit ExpressRoute
 
 Pour détacher un circuit du filtre de routage, cliquez avec le bouton droit sur le circuit, puis cliquez sur « dissocier ».
 
-![Créer un filtre de routage](.\media\how-to-routefilter-portal\DetachRouteFilter.png) 
+![Créer un filtre de routage](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
 
 
 ### <a name="delete"></a>Supprimer un filtre de routage
 
 Vous pouvez supprimer un filtre de routage en sélectionnant le bouton Supprimer. 
 
-![Créer un filtre de routage](.\media\how-to-routefilter-portal\DeleteRouteFilter.png) 
+![Créer un filtre de routage](./media/how-to-routefilter-portal/DeleteRouteFilter.png) 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

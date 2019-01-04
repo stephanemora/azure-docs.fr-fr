@@ -1,23 +1,25 @@
 ---
-title: Structure de définition Azure Policy
+title: Détails de la structure des définitions de stratégies
 description: Explique comment Azure Policy utilise une définition de stratégie de ressource afin d’établir des conventions pour les ressources de votre organisation en décrivant quand la stratégie est appliquée et la mesure à prendre.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/30/2018
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: b5c7d0c6d54272518b19ffec0d8f02ebbcfe55d9
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.custom: seodec18
+ms.openlocfilehash: f1332e1622c34a33dd264a1115a0fd7f37ee8ba7
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283288"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383967"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
-Une définition de stratégie de ressource utilisée par Azure Policy vous permet d’établir des conventions pour les ressources de votre organisation en décrivant quand la stratégie est appliquée et la mesure à prendre. En définissant des conventions, vous pouvez contrôler les coûts et gérer plus facilement vos ressources. Par exemple, vous pouvez spécifier que seuls certains types de machines virtuelles sont autorisés. Vous pouvez aussi exiger que toutes les ressources soient marquées. Toutes les ressources enfants héritent des stratégies. Ainsi, si une stratégie est appliquée à un groupe de ressources, elle est applicable à toutes les ressources appartenant à ce groupe de ressources.
+Les définitions de stratégies de ressources sont utilisées par Azure Policy pour établir des conventions pour les ressources. Chaque définition décrit la conformité des ressources et les mesures à prendre en cas de non-conformité.
+En définissant des conventions, vous pouvez contrôler les coûts et gérer plus facilement vos ressources. Par exemple, vous pouvez spécifier que seuls certains types de machines virtuelles sont autorisés. Vous pouvez aussi exiger que toutes les ressources soient marquées. Toutes les ressources enfants héritent des stratégies. Une stratégie appliquée à un groupe de ressources s’applique à toutes les ressources appartenant à ce groupe de ressources.
 
 Le schéma utilisé par Azure Policy se trouve ici : [https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
 
@@ -73,9 +75,9 @@ Le **mode** détermine les types de ressources à évaluer pour une stratégie. 
 - `all` : évaluer les groupes de ressources et tous les types de ressources
 - `indexed` : évaluer uniquement les types de ressources qui prennent en charge les balises et l’emplacement
 
-Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes les définitions de stratégie créées via le portail utilisent le mode `all`. Si vous utilisez PowerShell ou Azure CLI, vous pouvez spécifier le paramètre **mode** manuellement. Si la définition de stratégie ne contient pas de valeur **mode**, sa valeur par défaut est `all` dans Azure PowerShell et `null` dans Azure CLI, ce qui équivaut à `indexed`, à des fins de compatibilité descendante.
+Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes les définitions de stratégie créées via le portail utilisent le mode `all`. Si vous utilisez PowerShell ou Azure CLI, vous pouvez spécifier le paramètre **mode** manuellement. Si la définition de stratégie ne comporte pas de valeur **mode**, elle prend la valeur par défaut `all` dans Azure PowerShell et `null` dans Azure CLI. Le mode `null` a le même effet que `indexed`, à savoir assurer une compatibilité descendante.
 
-`indexed` doit être utilisé lors de la création de stratégies qui appliqueront des balises ou des emplacements. Cela n’est pas nécessaire, mais empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme des résultats non conformes dans les résultats de conformité. La seule exception est les **groupes de ressources**. Les stratégies qui tentent d’appliquer des emplacements ou des balises à un groupe de ressources doivent définir **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroup`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](../samples/enforce-tag-rg.md).
+Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** font figure d’exception. Les stratégies qui appliquent des emplacements ou des balises à un groupe de ressources doivent définir **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroup`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](../samples/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>parameters
 
@@ -86,7 +88,8 @@ Les paramètres fonctionnent de manière identique durant la création de strat�
 > La définition de paramètres pour une définition de stratégie ou d’initiative ne peut être configurée que pendant la création initiale de la stratégie ou de l’initiative. La définition de paramètres ne peut être modifiée ultérieurement.
 > Cela empêche les affectations de stratégie ou d’initiative déjà existantes d’être indirectement invalidées.
 
-Par exemple, vous pouvez définir une stratégie pour une propriété de ressource afin de limiter les emplacements sur lesquels les ressources peuvent être déployées. Dans ce cas, vous déclarez les paramètres suivants quand vous créez votre stratégie :
+Par exemple, vous pouvez définir une stratégie qui limite les emplacements sur lesquels les ressources peuvent être déployées.
+Vous déclarez les paramètres suivants quand vous créez votre stratégie :
 
 ```json
 "parameters": {
@@ -123,16 +126,16 @@ Dans la règle de stratégie, vous référencez des paramètres avec la syntaxe 
 
 ## <a name="definition-location"></a>Emplacement de la définition
 
-Lors de la création d’une initiative ou d’une stratégie, il est important de spécifier l’emplacement de la définition. L’emplacement de la définition doit être un groupe d’administration et détermine l’étendue à laquelle l’initiative ou la stratégie peut être affectée. Les ressources doivent être des membres directs ou des enfants dans la hiérarchie de l’emplacement de la définition à cibler pour l’affectation.
+Lors de la création d’une initiative ou d’une stratégie, il est important de spécifier l’emplacement de la définition, qui doit être un groupe d’administration ou un abonnement. L’emplacement détermine l’étendue à laquelle l’initiative ou la stratégie peut être affectée. Les ressources doivent être des membres directs ou des enfants dans la hiérarchie de l’emplacement de la définition à cibler pour l’affectation.
 
 Si l’emplacement de la définition est l’un ou l’autre élément suivant :
 
 - **Abonnement** : seules les ressources au sein de cet abonnement peuvent être assignées à la stratégie.
-- **Groupe d’administration** : seules les ressources au sein des groupes d’administration enfants et des abonnements enfants peuvent être assignées à la stratégie. Si vous envisagez d’appliquer la définition de stratégie à plusieurs abonnements, l’emplacement doit correspondre à un groupe d’administration qui contient ces abonnements.
+- **Groupe d’administration** : seules les ressources au sein des groupes d’administration enfants et des abonnements enfants peuvent être assignées à la stratégie. Si vous voulez appliquer la définition de stratégie à plusieurs abonnements, l’emplacement doit correspondre à un groupe d’administration comportant ces abonnements.
 
 ## <a name="display-name-and-description"></a>Nom d’affichage et description
 
-Vous pouvez utiliser **displayName** et **description** pour distinguer la définition de stratégie et préciser le contexte d’utilisation.
+**displayName** et **description** permettent de distinguer la définition de stratégie et de préciser son contexte d’utilisation.
 
 ## <a name="policy-rule"></a>Règle de stratégie
 
@@ -197,14 +200,14 @@ Une condition évalue si un champ (**field**) répond à certains critères. Les
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-Avec les conditions **like** et **notLike**, vous pouvez utiliser un caractère générique (`*`) dans la valeur.
+Avec les conditions **like** et **notLike**, un caractère générique `*` est indiqué dans la valeur.
 Celle-ci ne doit pas en comporter plus d’un (`*`).
 
-Lorsque vous utilisez les conditions **correspondance** et **non-correspondance**, entrez `#` pour représenter un chiffre, `?` pour une lettre, `.`pour tous les caractères, et tout autre caractère pour représenter ce caractère réel. Pour obtenir des exemples, consultez [Autoriser plusieurs modèles de nom](../samples/allow-multiple-name-patterns.md).
+Si vous utilisez les conditions **match** et **notMatch**, entrez `#` pour trouver un chiffre, `?` pour une lettre, `.` pour tous les caractères et tout autre caractère pour représenter ce caractère réel. Pour obtenir des exemples, voir [Autoriser plusieurs modèles de noms](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Champs
 
-Les conditions sont formées à partir de champs. Un champ représente des propriétés dans la charge utile de la requête de ressource qui est utilisée pour décrire l'état de la ressource.
+Les conditions sont formées à partir de champs. Un champ correspond à des propriétés de la charge utile de la demande de ressource et décrit l’état de la ressource.
 
 Les champs suivants sont pris en charge :
 
@@ -214,12 +217,15 @@ Les champs suivants sont pris en charge :
 - `kind`
 - `type`
 - `location`
+  - Utilisez **global** pour les ressources indépendantes de l’emplacement. Pour obtenir un exemple, voir [Exemples – Emplacements autorisés](../samples/allowed-locations.md).
+- `identity.type`
+  - Retourne le type [d’Identité managée](../../../active-directory/managed-identities-azure-resources/overview.md) activée sur la ressource.
 - `tags`
 - `tags.<tagName>`
   - Où **\<tagName\>** est le nom de l’étiquette pour laquelle vérifier la condition.
   - Exemple : `tags.CostCenter` où **CostCenter** est le nom de l’étiquette.
 - `tags[<tagName>]`
-  - Cette syntaxe avec des crochets prend en charge les noms d’étiquette qui contiennent des points.
+  - Cette syntaxe entre crochets accepte les noms d’étiquette comportant des points.
   - Où **\<tagName\>** est le nom de l’étiquette pour laquelle vérifier la condition.
   - Exemple : `tags[Acct.CostCenter]` où **Acct.CostCenter** est le nom de l’étiquette.
 - alias de propriété : pour en obtenir la liste, consultez [Alias](#aliases).
@@ -231,9 +237,9 @@ La stratégie prend en charge les types d’effet suivants :
 - **deny** : génère un événement dans le journal d’activité et fait échouer la requête.
 - **audit** : génère un événement d’avertissement dans le journal d’activité, mais ne fait pas échouer la requête.
 - **append** : ajoute l’ensemble de champs défini à la requête.
-- **AuditIfNotExists** : active l’audit si une ressource n’existe pas.
+- **AuditIfNotExists** : active l’audit si une certaine ressource n’existe pas.
 - **DeployIfNotExists** : déploie une ressource si elle n’existe pas déjà.
-- **Désactivé** : n’évalue pas les ressources pour la conformité à la règle de stratégie
+- **disabled** : n’évalue pas la conformité des ressources à la règle de stratégie.
 
 Pour **append**, vous devez fournir les détails suivants :
 
@@ -247,7 +253,7 @@ Pour **append**, vous devez fournir les détails suivants :
 
 La valeur peut être une chaîne ou un objet au format JSON.
 
-Avec **AuditIfNotExists** et **DeployIfNotExists**, vous pouvez évaluer l’existence d’une ressource connexe et appliquer une règle et un effet correspondant quand cette ressource n’existe pas. Par exemple, vous pouvez exiger qu’un observateur réseau soit déployé pour tous les réseaux virtuels. Pour obtenir un exemple d’audit quand une extension de machine virtuelle n’est pas déployée, consultez [Auditer si une extension n’existe pas](../samples/audit-ext-not-exist.md).
+**AuditIfNotExists** et **DeployIfNotExists** évaluent l’existence d’une ressource liée et appliquent une règle. Si la ressource ne correspond pas à la règle, l’effet est implémenté. Par exemple, vous pouvez exiger qu’un observateur réseau soit déployé pour tous les réseaux virtuels. Pour plus d’informations, voir l’exemple [AuditIfNotExists si une extension n’existe pas](../samples/audit-ext-not-exist.md).
 
 L’effet **DeployIfNotExists** requiert la présence de la propriété **roleDefinitionId** dans la partie **détails** de la règle de stratégie. Pour plus d’informations, consultez [Correction - Configurer une définition de stratégie](../how-to/remediate-resources.md#configure-policy-definition).
 
@@ -265,14 +271,14 @@ Pour plus d’informations sur chaque effet, l’ordre d’évaluation, les prop
 
 ### <a name="policy-functions"></a>Fonctions de stratégie
 
-Une partie des [fonctions de modèle Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) peut être utilisée dans une règle de stratégie. Les fonctions prises en charge sont les suivantes :
+Plusieurs [fonctions du modèle Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) peuvent être utilisées dans une règle de stratégie. Les fonctions prises en charge sont les suivantes :
 
 - [parameters](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
 - [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
 - [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
 - [abonnement](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
 
-De plus, la fonction `field` est disponible pour les règles de stratégie. Cette fonction est principalement utilisée avec **AuditIfNotExists** et **DeployIfNotExists** pour référencer les champs d’une ressource actuellement évaluée. Vous pouvez en voir une illustration dans [l’exemple DeployIfNotExists](effects.md#deployifnotexists-example).
+De plus, la fonction `field` est disponible pour les règles de stratégie. `field` est principalement utilisé avec **AuditIfNotExists** et **DeployIfNotExists** pour faire référence aux champs actuellement évalués de la ressource. Vous pouvez en voir une illustration dans [l’exemple DeployIfNotExists](effects.md#deployifnotexists-example).
 
 #### <a name="policy-function-examples"></a>Exemples de fonctions de stratégie
 
@@ -314,7 +320,7 @@ Cet exemple de règle de stratégie utilise la fonction de ressource `resourceGr
 
 Les alias de propriété permettent d’accéder aux propriétés spécifiques d’un type de ressource. Les alias permettent de restreindre les valeurs ou les conditions autorisées pour la propriété d’une ressource. Chaque alias correspond aux chemins des différentes versions d’API d’un type de ressource donné. Lors de l’évaluation de la stratégie, le moteur de stratégie obtient le chemin de la propriété de cette version de l’API.
 
-La liste des alias augmente toujours. Pour découvrir les alias actuellement pris en charge par Azure Policy, utilisez une des méthodes suivantes :
+La liste des alias augmente toujours. Pour trouver les alias actuellement pris en charge par Azure Policy, utilisez l’une des méthodes suivantes :
 
 - Azure PowerShell
 
@@ -355,7 +361,7 @@ Plusieurs alias disponibles possèdent une version qui apparaîtra avec un nom �
 
 Le premier exemple est utilisé pour évaluer l’intégralité du tableau, dans lequel l’alias **[\*]** évalue chaque élément du tableau.
 
-Examinons une règle de stratégie comme exemple. Cette stratégie **refusera** un compte de stockage qui possède un ipRules configuré et si **aucun** des ipRules n’a une valeur « 127.0.0.1 ».
+Examinons une règle de stratégie comme exemple. Cette stratégie **refuse** tout compte de stockage pour lequel ipRules est configuré et **aucune** des valeurs ipRules n’est « 127.0.0.1 ».
 
 ```json
 "policyRule": {
@@ -416,11 +422,11 @@ Voici comment est traité cet exemple :
     - « 127.0.0.1 » != « 192.168.1.1 » est évalué comme true.
     - Au moins une _valeur_ de propriété dans le tableau des **ipRules** est évaluée comme false, l’évaluation sera donc arrêtée.
 
-Puisque la condition est évaluée comme false, l’effet **Refuser** n’est pas déclenché.
+Puisqu’une condition est évaluée comme false, l’effet **deny** n’est pas déclenché.
 
 ## <a name="initiatives"></a>Initiatives
 
-Les initiatives vous permettent de regrouper en un seul élément plusieurs définitions de stratégies associées pour simplifier les affectations et la gestion. Par exemple, vous pouvez regrouper toutes les définitions de stratégies de balisage associées en une même initiative. Au lieu d’attribuer chaque stratégie individuellement, vous appliquez l’initiative.
+Les initiatives vous permettent de regrouper en un seul élément plusieurs définitions de stratégies associées pour simplifier les affectations et la gestion. Par exemple, vous pouvez regrouper des définitions de stratégies de balisage associées en une même initiative. Au lieu d’attribuer chaque stratégie individuellement, vous appliquez l’initiative.
 
 L’exemple suivant montre comment créer une initiative pour gérer deux balises : `costCenter` et `productName`. Il utilise deux stratégies intégrées pour appliquer la valeur de balise par défaut.
 
@@ -502,5 +508,5 @@ L’exemple suivant montre comment créer une initiative pour gérer deux balise
 - Consulter la page [Compréhension des effets d’Azure Policy](effects.md)
 - Savoir comment [créer des stratégies par programmation](../how-to/programmatically-create.md)
 - Découvrir comment [obtenir des données de conformité](../how-to/getting-compliance-data.md)
-- Découvrir comment [remédier à la non conformité des ressources](../how-to/remediate-resources.md)
+- Découvrir comment [corriger la non-conformité des ressources](../how-to/remediate-resources.md)
 - Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

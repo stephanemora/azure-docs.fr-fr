@@ -3,7 +3,7 @@ title: Guide de dépannage Sauvegarde Azure pour les machines virtuelles SQL Ser
 description: Informations de dépannage pour la sauvegarde des machines virtuelles SQL Server sur Azure.
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 keywords: ''
@@ -11,17 +11,16 @@ ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
-ms.author: markgal;anuragm
+ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 1c87382c2aae70b022fb391f80f7c75b0a4e5fe6
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 89344b6e06dbc62fe56c0aebc30a049aebf5c097
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296956"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339516"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Résoudre les problèmes de sauvegarde SQL Server sur Azure
 
@@ -79,13 +78,13 @@ Les tableaux suivants sont organisés par code d’erreur.
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
 | Cannot take backup as transaction log for the data source is full. (Impossible de prendre la sauvegarde car le journal des transactions de la source de données est plein.) | L’espace dédié au journal des transactions de la base de données est plein. | Pour résoudre ce problème, reportez-vous à la [documentation SQL](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| This SQL database does not support the requested backup type. (Cette base de données SQL ne prend pas en charge le type de sauvegarde demandé.) | Les réplicas secondaires de groupes de disponibilité AlwaysOn ne prennent pas en charge les sauvegardes différentielles et complètes. | <ul><li>Si vous avez déclenché une sauvegarde ad hoc, déclenchez les sauvegardes sur le nœud principal.</li><li>Si la sauvegarde a été planifiée par une stratégie, vérifiez que le nœud principal est inscrit. Pour inscrire le nœud, [suivez les étapes pour détecter une base de données SQL Server](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> | 
+| This SQL database does not support the requested backup type. (Cette base de données SQL ne prend pas en charge le type de sauvegarde demandé.) | Les réplicas secondaires de groupes de disponibilité AlwaysOn ne prennent pas en charge les sauvegardes différentielles et complètes. | <ul><li>Si vous avez déclenché une sauvegarde ad hoc, déclenchez les sauvegardes sur le nœud principal.</li><li>Si la sauvegarde a été planifiée par une stratégie, vérifiez que le nœud principal est inscrit. Pour inscrire le nœud, [suivez les étapes pour détecter une base de données SQL Server](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
 
 ## <a name="restore-failures"></a>Échecs de restauration
 
 Les codes d’erreur suivants sont affichés en cas d’échec des travaux de restauration.
 
-### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite 
+### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
@@ -108,7 +107,7 @@ Les codes d’erreur suivants sont affichés en cas d’échec des travaux de re
 
 Les codes d’erreur suivants correspondent aux échecs d’inscription.
 
-### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError 
+### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
@@ -125,6 +124,16 @@ Les codes d’erreur suivants correspondent aux échecs d’inscription.
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
 | Azure Backup service uses Azure VM guest agent for doing backup but guest agent is not available on the target server. (Le service Sauvegarde Azure utilise l’agent invité de machine virtuelle Azure pour effectuer la sauvegarde, mais l’agent invité n’est pas disponible sur le serveur cible.) | L’agent invité n’est pas activé ou n’est pas intègre | [Installez l’agent invité de machine virtuelle](../virtual-machines/extensions/agent-windows.md) manuellement. |
+
+## <a name="configure-backup-failures"></a>Échecs de la configuration de sauvegarde
+
+Les codes d’erreur suivants correspondent aux échecs de la configuration de sauvegarde.
+
+### <a name="autoprotectioncancelledornotvalid"></a>AutoProtectionCancelledOrNotValid
+
+| Message d’erreur | Causes possibles | Action recommandée |
+|---|---|---|
+| L’intention de protection automatique a été supprimée ou n’est pas plus valide. | Lorsque vous activez la protection automatique sur une instance SQL, les tâches **Configurer la sauvegarde** s’exécutent pour toutes les bases de données de cette instance. Si vous désactivez la protection automatique pendant l’exécution des tâches, les tâches **En cours** sont annulées avec ce code d’erreur. | Activez la protection automatique de nouveau pour protéger toutes les bases de données restantes. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

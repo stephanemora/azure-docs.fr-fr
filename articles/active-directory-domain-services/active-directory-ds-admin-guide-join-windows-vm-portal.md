@@ -1,5 +1,5 @@
 ---
-title: 'Version préliminaire des services de domaine Azure Active Directory : associer une machine virtuelle Windows Server à un domaine géré | Microsoft Docs'
+title: 'Azure Active Directory Domain Services : Joindre une machine virtuelle Windows Server à un domaine managé | Microsoft Docs'
 description: Joindre une machine virtuelle Windows Server à Azure AD DS
 services: active-directory-ds
 documentationcenter: ''
@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 753818526ad637db0baa13c92e92d2725b19dbf8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 748345bf89e7f746b8ef388ad5cabc987a07d1f8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158318"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957665"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Joindre une machine virtuelle Windows Server à un domaine géré
 Cet article explique comment déployer une machine virtuelle Windows Server à l’aide du portail Azure. Il indique également comment joindre une machine à un domaine managé Azure Active Directory Domain Services.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## <a name="step-1-create-a-windows-server-virtual-machine"></a>Étape 1 : créer une machine virtuelle Windows Server
+## <a name="step-1-create-a-windows-server-virtual-machine"></a>Étape 1 : Créer une machine virtuelle Windows Server
 Pour créer une machine virtuelle Windows jointe au réseau virtuel au sein duquel vous avez activé Azure AD DS, procédez comme suit :
 
-1. Connectez-vous au [Portail Azure](http://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. En haut du volet gauche, sélectionnez **Nouveau**.
 3. Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter**.
 
@@ -67,7 +67,7 @@ Pour créer une machine virtuelle Windows jointe au réseau virtuel au sein duqu
 10. Une fois le déploiement terminé, vous pouvez afficher des informations sur la machine virtuelle sur la page **Vue d’ensemble**.
 
 
-## <a name="step-2-connect-to-the-windows-server-virtual-machine-by-using-the-local-administrator-account"></a>Étape 2 : connexion à la machine virtuelle Windows Server à l’aide du compte d’administrateur local
+## <a name="step-2-connect-to-the-windows-server-virtual-machine-by-using-the-local-administrator-account"></a>Étape 2 : Se connecter à la machine virtuelle Windows Server à l’aide du compte d’administrateur local
 Ensuite, connectez-vous à la nouvelle machine virtuelle Windows Server pour la joindre au domaine. Utilisez les informations d’identification de l’administrateur local que vous avez spécifiées lorsque vous avez créé la machine virtuelle.
 
 Pour vous connecter à la machine virtuelle, procédez comme suit :
@@ -84,7 +84,7 @@ Pour vous connecter à la machine virtuelle, procédez comme suit :
 À ce stade, vous devez être connecté à la nouvelle machine virtuelle Windows avec les informations d’identification de l’administrateur local. L’étape suivante consiste à joindre la machine virtuelle au domaine.
 
 
-## <a name="step-3-join-the-windows-server-virtual-machine-to-the-azure-ad-ds-managed-domain"></a>Étape 3 : joindre la machine virtuelle Windows Server au domaine Azure AD DS managé
+## <a name="step-3-join-the-windows-server-virtual-machine-to-the-azure-ad-ds-managed-domain"></a>Étape 3 : Joindre la machine virtuelle Windows Server au domaine Azure AD DS managé
 Pour joindre la machine virtuelle Windows Server au domaine managé par Azure AD DS, procédez comme suit :
 
 1. Connectez-vous à la machine virtuelle Windows Server, comme indiqué à l’étape 2. Dans l’écran **Démarrer**, ouvrez **Gestionnaire de serveur**.
@@ -107,9 +107,9 @@ Pour joindre la machine virtuelle Windows Server au domaine managé par Azure AD
 
 7. Vous pouvez spécifier les informations d’identification de l’une des manières suivantes :
 
-   * **Format UPN** : (recommandé) spécifiez le suffixe du nom de l’utilisateur principal (UPN) pour le compte d’utilisateur, tel qu’il est configuré dans Azure AD. Dans cet exemple, le suffixe UPN de l’utilisateur *bob* est *bob@domainservicespreview.onmicrosoft.com*.
+   * **Format UPN** : (recommandé) spécifiez le suffixe du nom de l’utilisateur principal (UPN) pour le compte d’utilisateur, tel qu’il est configuré dans Azure AD. Dans cet exemple, le suffixe UPN de l’utilisateur *bob* est *bob@domainservicespreview.onmicrosoft.com*.
 
-   * **Format SAMAccountName** : vous pouvez spécifier le nom du compte au format SAMAccountName. Dans cet exemple, l’utilisateur *bob* doit saisir *CONTOSO100\bob*.
+   * **Format SAMAccountName** : vous pouvez spécifier le nom du compte au format SAMAccountName. Dans cet exemple, l’utilisateur *bob* doit saisir *CONTOSO100\bob*.
 
      > [!TIP]
      > **Nous conseillons d’utiliser le format UPN pour spécifier les informations d’identification.**

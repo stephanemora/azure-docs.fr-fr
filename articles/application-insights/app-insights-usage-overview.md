@@ -8,18 +8,17 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 968c5fb093f3ebdb6ce7eb239f79573f19b89e0f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 2ccb4d2ff7beeeac53bafe726122c3b47682db03
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278631"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955427"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Analyse de l'utilisation avec Application Insights
 
@@ -33,11 +32,11 @@ La meilleure expérience est obtenue en installant Application Insights à la fo
 
     * *Vous ne voulez pas installer de code serveur ? Vous pouvez simplement [créer une ressource Azure Application Insights](app-insights-create-new-resource.md).*
 
-2. **Code de page Web :** ouvrez le [portail Azure](https://portal.azure.com), ouvrez la ressource Application Insights pour votre application, puis ouvrez **Mise en route &gt; Monitor and Diagnose Client-Side (Surveiller et diagnostiquer côté client)**. 
+2. **Code de page web :** ouvrez le [portail Azure](https://portal.azure.com), ouvrez la ressource Application Insights pour votre application, puis ouvrez **Mise en route > Monitor and Diagnose Client-Side (Superviser et diagnostiquer côté client)**. 
 
     ![Copiez le script dans l’en-tête de votre page web maître.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
-3. **Code de l’application mobile :** utilisez le SDK App Center pour collecter les événements à partir de votre application, puis envoyer des copies de ces événements à Application Insights pour analyse en [suivant ce guide](app-insights-mobile-center-quickstart.md).
+3. **Code de l’application mobile :** utilisez le SDK App Center pour collecter les événements à partir de votre application, puis envoyer des copies de ces événements à Application Insights pour analyse en [suivant ce guide](app-insights-mobile-center-quickstart.md).
 
 4. **Obtenir la télémétrie :** exécutez votre projet en mode débogage pendant quelques minutes, puis examinez les résultats dans le panneau Vue d’ensemble dans Application Insights.
 
@@ -61,26 +60,6 @@ Aperçu des modèles intéressants appropriés dans le jeu de données.
 * Le rapport **Sessions** compte le nombre de sessions utilisateur qui accèdent à votre site. Une session est une période d’activité d’un utilisateur, qui se termine par une période d’inactivité de plus d’une demi-heure.
 
 [En savoir plus sur les outils Utilisateurs, Sessions et Événements](app-insights-usage-segmentation.md)  
-
-## <a name="page-views"></a>Affichages de page
-
-Dans le panneau Utilisation, cliquez sur la mosaïque Pages consultées pour découvrir une répartition de vos pages les plus populaires :
-
-![Dans le panneau Vue d'ensemble, cliquez sur le graphique des pages vues.](./media/app-insights-usage-overview/05-games.png)
-
-L'exemple ci-dessus vient d’un site web de jeux. Dans les graphiques, nous pouvons voir instantanément :
-
-* L'utilisation ne s'est pas améliorée au cours de la semaine écoulée. Peut-être que nous devrions envisager une optimisation pour les moteurs de recherche ?
-* Tennis est la page de jeu la plus populaire. Concentrons-nous sur d’autres améliorations de cette page.
-* En moyenne, les utilisateurs visitent la page Tennis environ trois fois par semaine. (Il y a près de trois fois plus de sessions que d’utilisateurs.)
-* La plupart des utilisateurs visitent le site au cours de la semaine de travail aux États-Unis, et pendant les heures de travail. Il serait peut-être envisageable de fournir un bouton de masquage rapide sur la page web.
-* Les [annotations](app-insights-annotations.md) sur le graphique montrent à quel moment les nouvelles versions du site web ont été déployées. Aucun des déploiements récents n’a eu d’effet notable sur l’utilisation.
-
-Qu’en est-il si vous souhaitez examiner plus en détails le trafic vers votre site, comme le fractionnement par une propriété personnalisée que votre site envoie dans sa télémétrie d’affichage de page ?
-
-1. Ouvrez l’outil **Événements** dans le menu de la ressource Application Insights. Cet outil vous permet d’analyser combien de pages consultées et d’événements personnalisés ont été envoyés à partir de votre application, sur la base des différentes options de filtrage, cohorte et segmentation.
-2. Dans la liste déroulante « Qui a utilisé », sélectionnez « N’importe quelle page consultée ».
-3. Dans la liste déroulante « Fractionner par », sélectionnez une propriété selon laquelle fractionner votre télémétrie d’affichage de page.
 
 ## <a name="retention---how-many-users-come-back"></a>Rétention - Combien d’utilisateurs reviennent ?
 

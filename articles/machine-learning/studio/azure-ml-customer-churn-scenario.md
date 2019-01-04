@@ -1,12 +1,11 @@
 ---
-title: Analyse de l’attrition des clients avec Azure Machine Learning Studio | Microsoft Docs
+title: Analyse de l’attrition des clients - Azure Machine Learning Studio | Microsoft Docs
 description: Étude de cas de développement d’un modèle intégré pour l’analyse et la notation de l’attrition des clients à l’aide d’Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 0ab398cc87472e3ede361f48f8e755ef294746da
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 48e3ca0b9910b673491e20e834b38170308aa132
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314982"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272165"
 ---
 # <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Analyse de l’attrition des clients à l’aide d’Azure Machine Learning Studio
 ## <a name="overview"></a>Vue d’ensemble
@@ -31,11 +30,11 @@ Cet article présente une implémentation de référence d’un projet d’analy
 Cette expérience a été développée et testée par Serge Berger, spécialiste des données chez Microsoft, et Roger Barga, anciennement chef de produits pour Microsoft Azure Machine Learning. L’équipe de documentation Azure leur sait gré de leur expertise et les remercie pour ce livre blanc.
 
 > [!NOTE]
-> Les données utilisées pour cette expérience ne sont pas disponibles publiquement. Pour obtenir un exemple montrant comment créer un modèle Machine Learning pour l’analyse de l’attrition, consultez [Modèle d’attrition Retail](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) dans la [galerie Azure AI](http://gallery.cortanaintelligence.com/).
+> Les données utilisées pour cette expérience ne sont pas disponibles publiquement. Pour obtenir un exemple montrant comment créer un modèle Machine Learning pour l’analyse de l’attrition, consultez : [Modèle d’attrition Retail](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) dans [Azure AI Gallery](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="the-problem-of-customer-churn"></a>Le problème de l’attrition des clients
 Les entreprises du secteur de la consommation et de tous les secteurs en général sont confrontées au problème de l'attrition. Parfois, ce dernier est excessif et influence les décisions relatives aux politiques de l'entreprise. La solution classique consiste à prédire quels clients présenteront une forte probabilité d’attrition et à répondre à leurs besoins par le biais d’un service de conciergerie ou de campagnes marketing, ou encore en appliquant des dérogations. Ces approches peuvent varier d’un secteur à l’autre. Elles peuvent même varier d’un groupe de clients à l’autre, au sein d’un même secteur (par exemple, les télécommunications).
@@ -66,7 +65,7 @@ Cette approche innovante est la meilleure façon de traiter l’attrition, mais 
 
 ![][2]
 
-*Figure 4 : archétype multi-modèles unifié*  
+*Figure 4 : Archétype multi-modèles unifié*  
 
 Les interactions entre les différents modèles sont primordiales si nous voulons proposer une méthode holistique permettant de fidéliser la clientèle. Chaque modèle se dégrade forcément au fil du temps. De ce fait, l’architecture est une boucle implicite (similaire à l’archétype défini par le standard d’exploration de données CRISP-DM, [***3***]).  
 
@@ -85,7 +84,7 @@ Le schéma suivant illustre le fonctionnement du prototype que nous avons créé
 
 ![][3]
 
-*Figure 5 : prototype d’une méthode de modélisation de l’attrition*  
+*Figure 5 : Prototype d’une méthode de modélisation de l’attrition*  
 
 Les sections suivantes fournissent plus d’informations sur le modèle de notation du prototype que nous avons implémenté à l’aide de ML Studio.  
 
@@ -104,11 +103,11 @@ Les schémas suivants illustrent les données utilisées :
 
 ![][4]
 
-*Figure 6 : extrait d’une source de données (masquée)*  
+*Figure 6 : Extrait d’une source de données (masquée)*  
 
 ![][5]
 
-*Figure 7 : caractéristiques extraites de la source de données*
+*Figure 7 : Caractéristiques extraites de la source de données*
  
 
 > Notez que ces données sont privées et que, par conséquent, le modèle et les données ne peuvent pas être partagés.
@@ -130,7 +129,7 @@ Le schéma suivant illustre une partie de la surface de conception de l’expér
 
 ![][6]  
 
-*Figure 8 : création de modèles dans Microsoft Azure ML Studio*  
+*Figure 8 : Création de modèles dans Microsoft Azure ML Studio*  
 
 ### <a name="scoring-methods"></a>Méthodes de notation
 Nous avons effectué la notation des quatre modèles à l’aide d’un jeu de données d’apprentissage étiqueté.  
@@ -147,7 +146,7 @@ Toutefois, la mesure la plus importante en termes d’attrition est le taux de c
 
 ![][7]
 
-*Figure 9 : aire sous la courbe du prototype Passau*
+*Figure 9 : Aire sous la courbe du prototype Passau*
 
 ### <a name="using-auc-to-compare-results"></a>Utilisation de l’aire sous la courbe (ASC) pour comparer des résultats
 L’aire sous la courbe (ASC) est une mesure qui représente la mesure globale de *séparabilité* entre les distributions d’évaluations pour des populations positives et négatives. Elle est similaire à la courbe ROC (Receiver Operating Characteristic, caractéristique de fonctionnement du récepteur). Cependant, contrairement à cette dernière, elle ne vous demande pas de choisir une valeur seuil. Au lieu de cela, elle résume les résultats pour **tous** les choix possibles. En comparaison, la courbe ROC traditionnelle indique le taux de positifs sur l’axe vertical et le taux de faux positifs sur l’axe horizontal. De plus, son seuil de classification varie.   
@@ -168,14 +167,14 @@ Le schéma suivant, provenant de Wikipedia, décrit cette relation sous forme de
 
 ![][8]
 
-*Figure 10 : équilibre entre exactitude et précision*
+*Figure 10 : Équilibre entre exactitude et précision*
 
 ### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Résultats liés à l’exactitude et à la précision du modèle d’arbre de décision optimisé
 Le graphique suivant présente les résultats bruts d’une notation réalisée à l’aide du prototype Machine Learning pour le modèle d’arbre de décision optimisé. Il s’agit du modèle présentant la plus grande exactitude parmi les quatre proposés :  
 
 ![][9]
 
-*Figure 11 : caractéristiques du modèle d’arbre de décision optimisé*
+*Figure 11 : Caractéristiques du modèle d’arbre de décision optimisé*
 
 ## <a name="performance-comparison"></a>Comparaison entre les performances
 Nous avons comparé la vitesse à laquelle les données étaient notées à l’aide de modèles ML Studio et d’un modèle comparable créé à l’aide de l’édition Desktop de SAS Enterprise Miner 12.1.  
@@ -219,9 +218,9 @@ Ce document détaille une approche rationnelle pour la gestion d’un problème 
 ## <a name="references"></a>Références
 [1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, juillet/août 2011, p.18-20.  
 
-[2] Article Wikipédia : [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Article Wikipedia : [Exactitude et précision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
-[3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)   
+[3] [CRISP-DM 1.0 : Step-by-Step Data Mining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)   
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
@@ -231,7 +230,7 @@ Ce document détaille une approche rationnelle pour la gestion d’un problème 
 ## <a name="appendix"></a>Annexe
 ![][10]
 
-*Figure 12 : capture d’écran d’une présentation d’un prototype pour l’attrition*
+*Figure 12 : Capture d’écran d’une présentation d’un prototype pour l’attrition*
 
 [1]: ./media/azure-ml-customer-churn-scenario/churn-1.png
 [2]: ./media/azure-ml-customer-churn-scenario/churn-2.png

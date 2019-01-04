@@ -1,29 +1,30 @@
 ---
-title: Résoudre les problèmes rencontrés avec le kit de développement logiciel du service Speech
+title: Résoudre les problèmes liés au kit SDK Speech - Services Speech
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment résoudre les problèmes rencontrés avec le kit de développement logiciel du service Speech.
+description: Cet article fournit des informations pour vous aider à résoudre des problèmes que vous pourriez rencontrer lors de l’utilisation du kit de développement logiciel (SDK) du service Speech.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 9f0cea263262d83d9a95012f6cd09fa9acdc0141
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 04a1f3222b17d91889eb580d9d4e8206d8156d37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464569"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095481"
 ---
 # <a name="troubleshoot-the-speech-service-sdk"></a>Résoudre les problèmes rencontrés avec le kit de développement logiciel du service Speech
 
 Cet article fournit des informations pour vous aider à résoudre des problèmes que vous pourriez rencontrer lors de l’utilisation du kit de développement logiciel (SDK) du service Speech.
 
-## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Erreur : La mise à niveau de WebSocket a échoué avec une erreur d’authentification (403)
+## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Erreur : Échec de la mise à niveau de WebSocket avec une erreur d’authentification (403)
 
-Le point de terminaison pour votre service ou région est peut-être incorrect. Vérifiez l’URI pour vous assurer qu’il est correct. 
+Le point de terminaison pour votre service ou région est peut-être incorrect. Vérifiez l’URI pour vous assurer qu’il est correct.
 
 Il y a peut-être également un problème avec votre clé d’abonnement ou jeton d’autorisation. Pour en savoir plus, consultez la section suivante.
 
@@ -78,19 +79,19 @@ Si vous utilisez un jeton d’autorisation pour l’authentification, exécutez 
     ```Powershell
     $SpeechServiceURI =
     'https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US'
-    
+
     # $OAuthToken is the authorization token returned by the token service.
     $RecoRequestHeader = @{
       'Authorization' = 'Bearer '+ $OAuthToken
       'Transfer-Encoding' = 'chunked'
       'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
     }
-    
+
     # Read audio into byte array.
     $audioBytes = [System.IO.File]::ReadAllBytes("YOUR_AUDIO_FILE")
-    
+
     $RecoResponse = Invoke-RestMethod -Method POST -Uri $SpeechServiceURI -Headers $RecoRequestHeader -Body $audioBytes
-    
+
     # Show the result.
     $RecoResponse
     ```
@@ -103,11 +104,11 @@ Si vous utilisez un jeton d’autorisation pour l’authentification, exécutez 
 
 ---
 
-## <a name="error-http-400-bad-request"></a>Erreur : HTTP 400 Requête incorrecte
+## <a name="error-http-400-bad-request"></a>Error: HTTP 400 Requête incorrecte
 
 Cette erreur est généralement due au fait que le corps de la requête contient des données audio non valides. Seul le format WAV est pris en charge. De même, vérifiez les en-têtes de la requête pour vous assurer que vous spécifiez des valeurs appropriées pour `Content-Type` et `Content-Length`.
 
-## <a name="error-http-408-request-timeout"></a>Erreur : HTTP 408 Dépassement de délai de demande
+## <a name="error-http-408-request-timeout"></a>Erreur : HTTP 408 Délai d’expiration de la demande
 
 L’erreur est très probablement due au fait qu’aucune donnée audio n’est envoyée au service. Cette erreur peut également résulter de problèmes de réseau.
 
@@ -122,4 +123,3 @@ Ce problème est généralement dû à des données audio. Ce message d’erreur
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Examiner les notes de publication](releasenotes.md)
-

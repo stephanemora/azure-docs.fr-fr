@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory à Halosys | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Halosys | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Halosys.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 6e0b9d205bf16c92443aadc69a1186b99c6d8cc5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 838e839aeb0b6d227d9350c4b5cd1f3f1a8cad8e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446491"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837189"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Didacticiel : intégration d’Azure Active Directory à Halosys
+# <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Tutoriel : Intégration d’Azure Active Directory à Halosys
 
 Dans ce didacticiel, vous allez apprendre à intégrer Halosys à Azure Active Directory (Azure AD).
 
@@ -115,7 +115,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<company-name>.halosys.com/<instance name>`
 
     > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique Halosys](http://halosys.com/halosys#contact).
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique Halosys](https://halosys.com/halosys#contact).
  
 1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
@@ -129,10 +129,10 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configuration de Halosys](./media/halosys-tutorial/tutorial_halosys_configure.png) 
 
-1. Pour configurer l’authentification unique du côté de **Halosys**, vous devez envoyer le fichier **XML de métadonnées** et **l’URL du service d’authentification unique SAML** téléchargés à [l’équipe du support technique de Halosys](http://halosys.com/halosys#contact). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+1. Pour configurer l’authentification unique du côté de **Halosys**, vous devez envoyer le fichier **XML de métadonnées** et **l’URL du service d’authentification unique SAML** téléchargés à [l’équipe du support technique de Halosys](https://halosys.com/halosys#contact). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -168,7 +168,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
   
 ### <a name="create-a-halosys-test-user"></a>Créer un utilisateur de test Halosys
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Halosys. Collaborez avec l’[équipe du support technique Halosys](http://halosys.com/halosys#contact) pour ajouter des utilisateurs dans la plateforme Halosys. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Halosys. Collaborez avec [l’équipe du support technique Halosys](https://halosys.com/halosys#contact) pour ajouter les utilisateurs à la plateforme Halosys. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

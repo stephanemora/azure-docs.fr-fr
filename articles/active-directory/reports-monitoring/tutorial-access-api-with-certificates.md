@@ -15,14 +15,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0ee756828a50cdf62471923614afbe88e238b9ef
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 7535aad95f7410d25ada232b4946fe52ebc4ba67
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624555"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961958"
 ---
-# <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Didacticiel : obtenir des données à l’aide de l’API de création de rapports Azure Active Directory avec des certificats
+# <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutoriel : Obtenir des données à l’aide de l’API de création de rapports Azure Active Directory avec des certificats
 
 Les [API de création de rapports Azure Active Directory (Azure AD)](concept-reporting-api.md) vous fournissent un accès par programmation aux données par le biais d’un ensemble d’API REST. Vous pouvez appeler ces API à partir de divers outils et langages de programmation. Pour accéder à l’API de création de rapports Azure AD sans intervention de l’utilisateur, vous devez configurer votre accès afin d’utiliser des certificats.
 
@@ -39,9 +39,7 @@ Dans ce didacticiel, vous allez apprendre à utiliser un certificat de test pour
     - Les jetons d’accès d’utilisateur, de clés d’application et de certificats à l’aide d’ADAL
     - L’API Graph gérant les résultats paginés
 
-4. S’il s’agit de la première utilisation du module, exécutez **Install-MSCloudIdUtilsModule**. Dans le cas contraire, importez-le à l’aide de la commande Powershell **Import-Module**. Votre session doit ressembler à ce qui suit :
-
-        ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+4. S’il s’agit de la première utilisation du module, exécutez **Install-MSCloudIdUtilsModule**. Dans le cas contraire, importez-le à l’aide de la commande Powershell **Import-Module**. Votre session doit ressembler à ce qui suit : ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
   
 5. Utilisez la cmdlet PowerShell **New-SelfSignedCertificate** pour créer un certificat de test.
 

@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 6f679536d69f700fd6678eb3bbbb869e42439cde
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 5c952370908919deb6531e0b175063dc2657ae98
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853351"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870400"
 ---
 # <a name="translator-text-api-v30"></a>API de traduction de texte Translator Text v3.0
 
@@ -31,20 +31,41 @@ La version 3 de l’API de traduction de texte Translator Text fournit une API w
 
 ## <a name="base-urls"></a>URL de base
 
-L’API Texte v3.0 est disponible dans le cloud suivant :
+Microsoft Translator est desservi par des centres de données situés dans plusieurs emplacements. Ils sont actuellement présents dans 6 [régions Azure](https://azure.microsoft.com/global-infrastructure/regions) :
 
-| Description | Région | URL de base                                        |
-|-------------|--------|-------------------------------------------------|
-| Azure       | Globale | api.cognitive.microsofttranslator.com           |
+* **Amérique :** USA Ouest 2 et USA Centre-Ouest 
+* **Asie-Pacifique :** Asie Sud-Est et Corée Sud
+* **Europe :** Europe Nord et Europe Ouest
+
+Les requêtes adressées à l’API de traduction de texte Translator Text de Microsoft sont dans la plupart des cas gérées par le centre de données le plus proche de l’emplacement d’origine de la requête. En cas de défaillance d’un centre de données, la requête peut être routée à l’extérieur de la région.
+
+Pour forcer la gestion de la requête par un centre de données spécifique, remplacez le point de terminaison Global dans la requête d’API par le point de terminaison régional souhaité :
+
+|Description|Région|URL de base|
+|:--|:--|:--|
+|Azure|Globale|  api.cognitive.microsofttranslator.com|
+|Azure|Amérique du Nord|   api-nam.cognitive.microsofttranslator.com|
+|Azure|Europe|  api-eur.cognitive.microsofttranslator.com|
+|Azure|Asie-Pacifique|    api-apc.cognitive.microsofttranslator.com|
 
 
 ## <a name="authentication"></a>Authentification
 
-Abonnez-vous à l’API de traduction de texte Translator Text dans Microsoft Cognitive Services et utilisez votre clé d’abonnement (disponible sur le portail Azure) pour vous authentifier. 
+Abonnez-vous à l’API de traduction de texte Translator Text ou à [Cognitive Services tout-en-un](https://azure.microsoft.com/pricing/details/cognitive-services/) dans Microsoft Cognitive Services, et utilisez votre clé d’abonnement (disponible dans le portail Azure) pour vous authentifier. 
 
-La façon la plus simple consiste à transmettre votre clé secrète Azure au service de traduction en utilisant l’en-tête de demande `Ocp-Apim-Subscription-Key`.
+Trois en-têtes sont à votre disposition pour authentifier votre abonnement. Ce tableau décrit la façon dont chaque en-tête est utilisé :
 
-Une alternative consiste à utiliser votre clé secrète pour obtenir un jeton d’autorisation auprès du service de jetons. Ensuite, vous transmettez ce jeton d’autorisation au service de traduction en utilisant l’en-tête de demande `Authorization`. Pour obtenir un jeton d’autorisation, exécutez une demande `POST` pour l’URL suivante :
+|headers|Description|
+|:----|:----|
+|Ocp-Apim-Subscription-Key|*À utiliser avec un abonnement à Cognitive Services si vous transmettez votre clé secrète*.<br/>La valeur est la clé secrète Azure pour votre abonnement à l’API de traduction de texte Translator Text.|
+|Authorization|*À utiliser avec un abonnement à Cognitive Services si vous transmettez un jeton d'authentification.*<br/>La valeur est le jeton du porteur : `Bearer <token>`.|
+|Ocp-Apim-Subscription-Region|*À utiliser avec un abonnement tout-en-un à Cognitive Services si vous passez une clé secrète tout-en-un.*<br/>La valeur est la région de l’abonnement tout-en-un. Cette valeur est facultative si vous n’utilisez pas un abonnement tout-en-un.|
+
+###  <a name="secret-key"></a>Clé secrète
+La première option consiste à procéder à l’authentification à l’aide de l’en-tête `Ocp-Apim-Subscription-Key`. Ajoutez simplement l’en-tête `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` à votre requête.
+
+### <a name="authorization-token"></a>Jeton d’autorisation
+Vous pouvez également échanger votre clé secrète contre un jeton d’accès. Ce jeton est inclus avec chaque requête sous la forme de l’en-tête `Authorization`. Pour obtenir un jeton d’autorisation, exécutez une demande `POST` pour l’URL suivante :
 
 | Environnement     | URL du service d’authentification                                |
 |-----------------|-----------------------------------------------------------|
@@ -55,6 +76,7 @@ Voici des exemples de demandes pour obtenir un jeton avec une clé secrète :
 ```
 // Pass secret key using header
 curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
+
 // Pass secret key using query string parameter
 curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscription-Key=<your-key>'
 ```
@@ -67,28 +89,29 @@ Authorization: Bearer <Base64-access_token>
 
 Un jeton d’authentification est valide pour une durée de 10 minutes. Le jeton doit être réutilisé lorsque vous effectuez plusieurs appels aux API Translator. Toutefois, si votre programme effectue des demandes à l’API Translator sur une période prolongée, votre programme doit demander un nouveau jeton d’accès à intervalles réguliers (par exemple, toutes les 8 minutes).
 
-Pour résumer, une demande client à l’API Translator inclut un en-tête d’autorisation extrait du tableau suivant :
+### <a name="all-in-one-subscription"></a>Abonnement tout-en-un
 
-<table width="100%">
-  <th width="30%">headers</th>
-  <th>Description</th>
-  <tr>
-    <td>Ocp-Apim-Subscription-Key</td>
-    <td>*À utiliser avec un abonnement à Cognitive Services si vous transmettez votre clé secrète*.<br/>La valeur est la clé secrète Azure pour votre abonnement à l’API de traduction de texte Translator Text.</td>
-  </tr>
-  <tr>
-    <td>Authorization</td>
-    <td>*À utiliser avec un abonnement à Cognitive Services si vous transmettez un jeton d'authentification.*<br/>La valeur est le jeton du porteur : `Bearer <token>`.</td>
-  </tr>
-</table> 
+La dernière option d’authentification consiste à utiliser un abonnement tout-en-un à Cognitive Service. Vous pouvez ainsi utiliser une clé secrète unique pour authentifier les requêtes de plusieurs services. 
+
+Quand vous utilisez une clé secrète tout-en-un, vous devez inclure deux en-têtes d’authentification avec votre requête. Le premier passe la clé secrète, et le second spécifie la région associée à votre abonnement. 
+* `Ocp-Api-Subscription-Key`
+* `Ocp-Apim-Subscription-Region`
+
+Si vous passez la clé secrète dans la chaîne de requête avec le paramètre `Subscription-Key`, vous devez spécifier la région avec le paramètre de requête `Subscription-Region`.
+
+Si vous utilisez un jeton du porteur, vous devez obtenir le jeton du point de terminaison de la région : `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+
+Les régions disponibles sont les suivantes : `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus` et `westus2`.
+
+Une région est obligatoire pour l’abonnement à l’API Texte tout-en-un.
 
 ## <a name="errors"></a>Errors
 
 Une réponse d’erreur standard est un objet JSON avec une paire nom/valeur nommée `error`. La valeur est également un objet JSON avec les propriétés :
 
-  * `code` : Code d’erreur défini par le serveur.
+  * `code`: code d’erreur défini par le serveur.
 
-  * `message` : Chaîne fournissant une représentation lisible de l’erreur.
+  * `message`: chaîne fournissant une représentation lisible de l’erreur.
 
 Par exemple, un client avec un abonnement d’essai gratuit recevrait l’erreur suivante une fois le quota gratuit épuisé :
 

@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : convertir la synthèse vocale, .NET Core - Speech Service'
+title: 'Démarrage rapide : Convertir du texte par synthèse vocale, .NET Core - Services Speech'
 titleSuffix: Azure Cognitive Services
-description: Dans ce démarrage rapide, vous allez apprendre à convertir la synthèse vocale avec l’API REST Synthèse vocale. L’exemple de texte inclus dans ce guide est structuré en tant que Langage de balisage de synthèse vocale (SSML). Cela vous permet de choisir la voix et la langue de la réponse vocale.
+description: Dans ce démarrage rapide, vous allez apprendre à convertir la synthèse vocale avec l’API REST Synthèse vocale. L’exemple de texte inclus dans ce guide est structuré en tant que Langage de balisage de synthèse vocale (SSML). Cela vous permet de choisir la voix et la langue de la réponse de la reconnaissance vocale.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,18 +10,18 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: erhopf
-ms.openlocfilehash: 4f424e73fbe1f05155e7f051d90dd72d57405adf
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 3a0304a69cdff15cddf325be8abe336a42ea4fc1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52641569"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089868"
 ---
-# <a name="quickstart-convert-text-to-speech-using-net-core"></a>Démarrage rapide : convertir la synthèse vocale à l’aide de .NET Core
+# <a name="quickstart-convert-text-to-speech-using-net-core"></a>Démarrage rapide : Convertir du texte par synthèse vocale à l’aide de .NET Core
 
 Dans ce démarrage rapide, vous allez apprendre à convertir la synthèse vocale à l’aide de .NET Core et de l’API REST Synthèse vocale. L’exemple de texte inclus dans ce guide est structuré en tant que [Langage de balisage de synthèse vocale (SSML)](speech-synthesis-markup.md), ce qui vous permet de choisir la voix et la langue de la réponse.
 
-Ce démarrage rapide requiert un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource Speech Service. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
+Ce guide de démarrage rapide exige un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource du service Speech. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -29,7 +29,7 @@ Ce démarrage rapide nécessite :
 
 * [Kit de développement logiciel (SDK) .NET](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou l’éditeur de texte de votre choix
-* Clé d’abonnement Azure pour le Speech Service
+* Clé d’abonnement Azure pour le service Speech
 
 ## <a name="create-a-net-core-project"></a>Créer un projet .NET Core
 
@@ -70,9 +70,9 @@ using System.Threading.Tasks;
 
 ## <a name="create-a-class-for-token-exchange"></a>Créer une classe pour l’échange de jeton
 
-L’API REST Synthèse vocale requiert un jeton d’accès pour l’authentification. Pour obtenir un jeton d’accès, un échange est requis. Cet exemple échange votre clé d’abonnement Speech Service avec un jeton accès à l’aide du point de terminaison `issueToken`.
+L’API REST Synthèse vocale requiert un jeton d’accès pour l’authentification. Pour obtenir un jeton d’accès, un échange est nécessaire. Cet exemple échange votre clé d’abonnement du service Speech avec un jeton accès à l’aide du point de terminaison `issueToken`.
 
-Cet exemple suppose que votre abonnement Speech Service se situe dans la région USA Ouest. Si vous utilisez une autre région, mettez à jour la valeur de `FetchTokenUri`. Pour obtenir la liste complète, consultez [Régions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Cet exemple suppose que votre abonnement du service Speech se situe dans la région USA Ouest. Si vous utilisez une autre région, mettez à jour la valeur de `FetchTokenUri`. Pour obtenir la liste complète, consultez [Régions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 ```csharp
 public class Authentication
@@ -162,7 +162,7 @@ string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis'
 ```
 
 > [!NOTE]
-> Cet exemple utilise la police de la voix `ZiraRUS`. Pour obtenir la liste complète des voix/langues fournies par Microsoft, consultez [Prise en charge linguistique](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/language-support). Si vous êtes intéressé par la création d’une voix unique, reconnaissable pour votre marque, consultez [Création de polices de la voix personnalisées](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font).
+> Cet exemple utilise la police de la voix `ZiraRUS`. Pour obtenir la liste complète des voix/langues fournies par Microsoft, consultez [Prise en charge de la langue](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/language-support). Si vous êtes intéressé par la création d’une voix unique, reconnaissable pour votre marque, consultez [Création de polices de la voix personnalisées](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font).
 
 ## <a name="instantiate-the-client-make-a-request-and-save-synthesized-audio-to-a-file"></a>Instanciez le client, effectuez une demande et enregistrez l’audio synthétisé dans un fichier
 
@@ -193,7 +193,6 @@ using (var client = new HttpClient())
         // Update your resource name
         request.Headers.Add("User-Agent", "YOUR_RESOURCE_NAME");
         request.Headers.Add("X-Microsoft-OutputFormat", "riff-24khz-16bit-mono-pcm");
-        request.Headers.Add("Connection", "Keep-Alive");
         // Create a request
         Console.WriteLine("Calling the TTS service. Please wait... \n");
         using (var response = await client.SendAsync(request).ConfigureAwait(false))
@@ -237,4 +236,5 @@ Si vous avez codé en dur votre clé d’abonnement dans votre programme, veille
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Tutoriel : Intentions de la reconnaissance vocale](how-to-recognize-intents-from-speech-csharp.md)
+* [Création de polices de voix personnalisée](how-to-customize-voice-font.md)
+* [Enregistrer des échantillons vocaux pour créer une voix personnalisée](record-custom-voice-samples.md)

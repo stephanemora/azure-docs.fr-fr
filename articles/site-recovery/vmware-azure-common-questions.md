@@ -4,15 +4,15 @@ description: Cet article récapitule les questions courantes sur la configuratio
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 11/19/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 248b2a748088330f91b3cc76564d5d8743f04411
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.author: mayg
+ms.openlocfilehash: d7b3919d0f970190238dbc5899a20f2d9e7d8cd4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162481"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256506"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -74,7 +74,7 @@ Vous pouvez répliquer toute application ou charge de travail en cours d’exéc
 Site Recovery réplique les données en local vers le stockage Azure via un point de terminaison public, ou à l’aide de l’homologation publique ExpressRoute. La réplication sur un réseau VPN de site à site n’est pas prise en charge.
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>Puis-je répliquer vers Azure avec ExpressRoute ?
-Oui, vous pouvez utiliser ExpressRoute pour répliquer des machines virtuelles vers Azure. Site Recovery réplique les données vers un compte de stockage Azure via un point de terminaison public, et vous devez configurer [l’homologation publique](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) pour cette réplication. Une fois que les machines virtuelles basculent vers un réseau virtuel Azure, vous pouvez y accéder à l’aide de [l’homologation privée](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Oui, vous pouvez utiliser ExpressRoute pour répliquer des machines virtuelles vers Azure. Site Recovery réplique les données vers un compte de stockage Azure via un point de terminaison public, et vous devez configurer [l’homologation publique](../expressroute/expressroute-circuit-peerings.md#publicpeering) pour cette réplication. Une fois que les machines virtuelles basculent vers un réseau virtuel Azure, vous pouvez y accéder à l’aide de [l’homologation privée](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Pourquoi ne puis-je pas répliquer via VPN ?
@@ -146,11 +146,14 @@ Oui. Téléchargez MySQL et placez-le dans le dossier **C:\Temp\ASRSetup**. Puis
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Puis-je ne pas télécharger MySQL et laisser Site Recovery l’installer ?
 Oui. Téléchargez le programme d'installation MySQL et placez-le dans le dossier **C:\Temp\ASRSetup**.  Lorsque vous configurez la machine virtuelle du serveur de configuration, acceptez les conditions, puis cliquez sur **Télécharger et installer** ; le portail utilisera le programme d’installation que vous avez ajouté pour installer MySQL.
  
-### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>Puis-je utiliser la machine virtuelle du serveur de configuration à d'autres fins ?
+### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>Puis-je utiliser la machine virtuelle du serveur de configuration à d’autres fins ?
 Non, la machine virtuelle doit être réservée au serveur de configuration. 
 
+### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>Puis-je cloner un serveur de configuration et l’utiliser pour l’orchestration ?
+Non, vous devez configurer un nouveau serveur de configuration pour éviter les problèmes d’inscription.
+
 ### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>Puis-je modifier le coffre inscrit sur le serveur de configuration ?
- Non. Une fois le coffre inscrit auprès du serveur de configuration, il n’est plus modifiable.
+ Non. Une fois le coffre inscrit auprès du serveur de configuration, il n’est plus modifiable. Consultez [cet article](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) pour connaître les étapes de réinscription.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Puis-je utiliser le même serveur de configuration à des fins de récupération d'urgence pour les machines virtuelles VMware et les serveurs physiques ?
 Oui, mais notez qu'une machine physique peut uniquement être restaurée vers une machine virtuelle VMware.

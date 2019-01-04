@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 396dbfcfd13f508c33d8a1bb7370d9170b8f8a56
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 22af5b4b757fed83e5c9b23426283d2fb4c4867f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499693"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410531"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Opérations du fournisseur de ressources Azure Resource Manager
 
@@ -80,7 +80,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.ADHybridHealthService/addsservices/features/userpreference/read | Obtient le paramètre de préférence utilisateur pour la forêt.<br>Exemple : MetricCounterName, comme ldapsuccessfulbinds, ntlmauthentications, kerberosauthentications, addsinsightsagentprivatebytes ou ldapsearches.<br>Paramètres des graphiques de l’interface utilisateur, etc. |
 > | Action | Microsoft.ADHybridHealthService/addsservices/forestsummary/read | Obtient le résumé de la forêt donnée : nom de la forêt, nombre de domaines dans cette forêt, nombre de sites, détails des sites, etc. |
 > | Action | Microsoft.ADHybridHealthService/addsservices/metricmetadata/read | Obtient la liste des métriques prises en charge pour un service donné.<br>Exemple : verrouillages de comptes extranet, nombre total de requêtes ayant échoué, demandes de jeton en attente (proxy), demandes de jetons par seconde, etc. pour le service ADFS.<br>Authentifications NTLM par seconde, liaisons LDAP réussies par seconde, durée de liaison LDAP, nombre de threads LDAP actifs, authentifications Kerberos par seconde, nombre total de threads ATQ, etc. pour ADDomainService.<br>Latence du profil d’exécution, connexions TCP établies, octets privés de l’agent Insights, statistiques d’exportation vers Azure AD pour le service ADSync. |
-> | Action | Microsoft.ADHybridHealthService/addsservices/metrics/groups/read | Pour un service donné, cette API obtient les informations relatives aux métriques.<br>Par exemple, cette API permet d’obtenir des informations concernant les verrouillages de comptes extranet, le nombre total de requêtes ayant échoué, les demandes de jeton en attente (proxy), les demandes de jetons par seconde, etc. pour le service ADFederation.<br>Authentifications NTLM par seconde, liaisons LDAP réussies par seconde, durée de liaison LDAP, nombre de threads LDAP actifs, authentifications Kerberos par seconde, nombre total de threads ATQ, etc. pour le service ADDomain.<br>Latence du profil d’exécution, connexions TCP établies, octets privés de l’agent Insights, statistiques d’exportation vers Azure AD pour le service de synchronisation. |
+> | Action | Microsoft.ADHybridHealthService/addsservices/metrics/groups/read | Pour un service donné, cette API obtient les informations relatives aux métriques.<br>Par exemple, cette API permet d’obtenir des informations concernant : les verrouillages de comptes extranet, le nombre total de requêtes ayant échoué, les demandes de jeton en attente (proxy), les demandes de jetons par seconde, etc. pour le service ADFederation.<br>Authentifications NTLM par seconde, liaisons LDAP réussies par seconde, durée de liaison LDAP, nombre de threads LDAP actifs, authentifications Kerberos par seconde, nombre total de threads ATQ, etc. pour le service ADDomain.<br>Latence du profil d’exécution, connexions TCP établies, octets privés de l’agent Insights, statistiques d’exportation vers Azure AD pour le service de synchronisation. |
 > | Action | Microsoft.ADHybridHealthService/addsservices/premiumcheck/read | Cette API permet d’obtenir la liste de tous les ADDomainServices embarqués pour un locataire premium. |
 > | Action | Microsoft.ADHybridHealthService/addsservices/read | Obtient les détails de service relatifs au nom de service spécifié. |
 > | Action | Microsoft.ADHybridHealthService/addsservices/replicationdetails/read | Obtient les détails de réplication de tous les serveurs pour le nom de service spécifié. |
@@ -115,9 +115,9 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.ADHybridHealthService/services/exportstatus/read | Obtient l’état d’exportation pour un service donné. |
 > | Action | Microsoft.ADHybridHealthService/services/feedbacktype/feedback/read | Obtient les commentaires d’alerte pour un service et un serveur donnés. |
 > | Action | Microsoft.ADHybridHealthService/services/metricmetadata/read | Obtient la liste des métriques prises en charge pour un service donné.<br>Exemple : verrouillages de comptes extranet, nombre total de requêtes ayant échoué, demandes de jeton en attente (proxy), demandes de jetons par seconde, etc. pour le service ADFS.<br>Authentifications NTLM par seconde, liaisons LDAP réussies par seconde, durée de liaison LDAP, nombre de threads LDAP actifs, authentifications Kerberos par seconde, nombre total de threads ATQ, etc. pour ADDomainService.<br>Latence du profil d’exécution, connexions TCP établies, octets privés de l’agent Insights, statistiques d’exportation vers Azure AD pour le service ADSync. |
-> | Action | Microsoft.ADHybridHealthService/services/metrics/groups/average/read | Pour un service donné, cette API obtient la moyenne des métriques.<br>Par exemple, cette API permet d’obtenir des informations concernant les verrouillages de comptes extranet, le nombre total de requêtes ayant échoué, les demandes de jeton en attente (proxy), les demandes de jetons par seconde, etc. pour le service ADFederation.<br>Authentifications NTLM par seconde, liaisons LDAP réussies par seconde, durée de liaison LDAP, nombre de threads LDAP actifs, authentifications Kerberos par seconde, nombre total de threads ATQ, etc. pour le service ADDomain.<br>Latence du profil d’exécution, connexions TCP établies, octets privés de l’agent Insights, statistiques d’exportation vers Azure AD pour le service de synchronisation. |
-> | Action | Microsoft.ADHybridHealthService/services/metrics/groups/read | Pour un service donné, cette API obtient les informations relatives aux métriques.<br>Par exemple, cette API permet d’obtenir des informations concernant les verrouillages de comptes extranet, le nombre total de requêtes ayant échoué, les demandes de jeton en attente (proxy), les demandes de jetons par seconde, etc. pour le service ADFederation.<br>Authentifications NTLM par seconde, liaisons LDAP réussies par seconde, durée de liaison LDAP, nombre de threads LDAP actifs, authentifications Kerberos par seconde, nombre total de threads ATQ, etc. pour le service ADDomain.<br>Latence du profil d’exécution, connexions TCP établies, octets privés de l’agent Insights, statistiques d’exportation vers Azure AD pour le service de synchronisation. |
-> | Action | Microsoft.ADHybridHealthService/services/metrics/groups/sum/read | Pour un service donné, cette API obtient la vue agrégée des métriques.<br>Par exemple, cette API permet d’obtenir des informations concernant les verrouillages de comptes extranet, le nombre total de requêtes ayant échoué, les demandes de jeton en attente (proxy), les demandes de jetons par seconde, etc. pour le service ADFederation.<br>Authentifications NTLM par seconde, liaisons LDAP réussies par seconde, durée de liaison LDAP, nombre de threads LDAP actifs, authentifications Kerberos par seconde, nombre total de threads ATQ, etc. pour le service ADDomain.<br>Latence du profil d’exécution, connexions TCP établies, octets privés de l’agent Insights, statistiques d’exportation vers Azure AD pour le service de synchronisation. |
+> | Action | Microsoft.ADHybridHealthService/services/metrics/groups/average/read | Pour un service donné, cette API obtient la moyenne des métriques.<br>Par exemple, cette API permet d’obtenir des informations concernant : les verrouillages de comptes extranet, le nombre total de requêtes ayant échoué, les demandes de jeton en attente (proxy), les demandes de jetons par seconde, etc. pour le service ADFederation.<br>Authentifications NTLM par seconde, liaisons LDAP réussies par seconde, durée de liaison LDAP, nombre de threads LDAP actifs, authentifications Kerberos par seconde, nombre total de threads ATQ, etc. pour le service ADDomain.<br>Latence du profil d’exécution, connexions TCP établies, octets privés de l’agent Insights, statistiques d’exportation vers Azure AD pour le service de synchronisation. |
+> | Action | Microsoft.ADHybridHealthService/services/metrics/groups/read | Pour un service donné, cette API obtient les informations relatives aux métriques.<br>Par exemple, cette API permet d’obtenir des informations concernant : les verrouillages de comptes extranet, le nombre total de requêtes ayant échoué, les demandes de jeton en attente (proxy), les demandes de jetons par seconde, etc. pour le service ADFederation.<br>Authentifications NTLM par seconde, liaisons LDAP réussies par seconde, durée de liaison LDAP, nombre de threads LDAP actifs, authentifications Kerberos par seconde, nombre total de threads ATQ, etc. pour le service ADDomain.<br>Latence du profil d’exécution, connexions TCP établies, octets privés de l’agent Insights, statistiques d’exportation vers Azure AD pour le service de synchronisation. |
+> | Action | Microsoft.ADHybridHealthService/services/metrics/groups/sum/read | Pour un service donné, cette API obtient la vue agrégée des métriques.<br>Par exemple, cette API permet d’obtenir des informations concernant : les verrouillages de comptes extranet, le nombre total de requêtes ayant échoué, les demandes de jeton en attente (proxy), les demandes de jetons par seconde, etc. pour le service ADFederation.<br>Authentifications NTLM par seconde, liaisons LDAP réussies par seconde, durée de liaison LDAP, nombre de threads LDAP actifs, authentifications Kerberos par seconde, nombre total de threads ATQ, etc. pour le service ADDomain.<br>Latence du profil d’exécution, connexions TCP établies, octets privés de l’agent Insights, statistiques d’exportation vers Azure AD pour le service de synchronisation. |
 > | Action | Microsoft.ADHybridHealthService/services/monitoringconfiguration/write | Ajoute ou met à jour la configuration de surveillance d’un service. |
 > | Action | Microsoft.ADHybridHealthService/services/monitoringconfigurations/read | Obtient les configurations de surveillance d’un service donné. |
 > | Action | Microsoft.ADHybridHealthService/services/monitoringconfigurations/write | Ajoute ou met à jour les configurations de surveillance d’un service. |
@@ -130,7 +130,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.ADHybridHealthService/services/servicemembers/datafreshness/read | Pour un serveur donné, cette API obtient la liste des types de données que les serveurs sont en train de charger, ainsi que l’heure de chaque chargement le plus récent. |
 > | Action | Microsoft.ADHybridHealthService/services/servicemembers/delete | Supprime une instance de serveur dans le service. |
 > | Action | Microsoft.ADHybridHealthService/services/servicemembers/exportstatus/read | Obtient les informations détaillées relatives à l’erreur d’exportation de synchronisation pour un service de synchronisation donné. |
-> | Action | Microsoft.ADHybridHealthService/services/servicemembers/metrics/groups/read | Pour un service donné, cette API obtient les informations relatives aux métriques.<br>Par exemple, cette API permet d’obtenir des informations concernant les verrouillages de comptes extranet, le nombre total de requêtes ayant échoué, les demandes de jeton en attente (proxy), les demandes de jetons par seconde, etc. pour le service ADFederation.<br>Authentifications NTLM par seconde, liaisons LDAP réussies par seconde, durée de liaison LDAP, nombre de threads LDAP actifs, authentifications Kerberos par seconde, nombre total de threads ATQ, etc. pour le service ADDomain.<br>Latence du profil d’exécution, connexions TCP établies, octets privés de l’agent Insights, statistiques d’exportation vers Azure AD pour le service de synchronisation. |
+> | Action | Microsoft.ADHybridHealthService/services/servicemembers/metrics/groups/read | Pour un service donné, cette API obtient les informations relatives aux métriques.<br>Par exemple, cette API permet d’obtenir des informations concernant : les verrouillages de comptes extranet, le nombre total de requêtes ayant échoué, les demandes de jeton en attente (proxy), les demandes de jetons par seconde, etc. pour le service ADFederation.<br>Authentifications NTLM par seconde, liaisons LDAP réussies par seconde, durée de liaison LDAP, nombre de threads LDAP actifs, authentifications Kerberos par seconde, nombre total de threads ATQ, etc. pour le service ADDomain.<br>Latence du profil d’exécution, connexions TCP établies, octets privés de l’agent Insights, statistiques d’exportation vers Azure AD pour le service de synchronisation. |
 > | Action | Microsoft.ADHybridHealthService/services/servicemembers/read | Affiche l’instance de serveur du service. |
 > | Action | Microsoft.ADHybridHealthService/services/servicemembers/serviceconfiguration/read | Obtient la configuration de service pour un locataire donné. |
 > | Action | Microsoft.ADHybridHealthService/services/tenantwhitelisting/read | Obtient l’état de la liste verte des fonctionnalités pour un locataire donné. |
@@ -600,38 +600,6 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Batch/register/action | Inscrit l’abonnement pour le fournisseur de ressources Batch et permet la création de comptes Batch |
 > | Action | Microsoft.Batch/unregister/action | Désinscrit l’abonnement pour le fournisseur de ressources Batch en empêchant la création de comptes Batch |
 
-## <a name="microsoftbatchai"></a>Microsoft.BatchAI
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Type d’action | Opération | Description |
-> | --- | --- | --- |
-> | Action | Microsoft.BatchAI/clusters/read | Répertorie les clusters Batch AI ou obtient les propriétés d’un cluster Batch AI |
-> | Action | Microsoft.BatchAI/fileservers/read | Répertorie les serveurs de fichiers Batch AI ou obtient les propriétés d’un serveur de fichiers Batch AI |
-> | Action | Microsoft.BatchAI/locations/operationresults/read | Obtenir le résultat de l’opération asynchrone Batch AI dans la région Azure spécifiée |
-> | Action | Microsoft.BatchAI/locations/operationstatuses/read | Obtenir l’état de l’opération asynchrone Batch AI dans la région Azure spécifiée |
-> | Action | Microsoft.BatchAI/locations/usages/read | Obtenir les utilisations de Batch AI par l’abonnement spécifié dans la région Azure spécifiée |
-> | Action | Microsoft.BatchAI/register/action | Inscrit l’abonnement pour le fournisseur de ressources Batch AI et permet la création de ressources Batch AI |
-> | Action | Microsoft.BatchAI/unregister/action | Désinscrire l’abonnement au fournisseur de ressources Batch AI et empêcher la création de ressources Batch AI |
-> | Action | Microsoft.BatchAI/workspaces/clusters/delete | Supprime un cluster Batch AI |
-> | Action | Microsoft.BatchAI/workspaces/clusters/read | Répertorie les clusters Batch AI ou obtient les propriétés d’un cluster Batch AI |
-> | Action | Microsoft.BatchAI/workspaces/clusters/remoteLoginInformation/action | Répertorie les informations de connexion à distance pour un cluster Batch AI |
-> | Action | Microsoft.BatchAI/workspaces/clusters/write | Crée un cluster Batch AI ou met à jour un cluster Batch AI existant |
-> | Action | Microsoft.BatchAI/workspaces/delete | Supprimer un espace de travail Batch AI |
-> | Action | Microsoft.BatchAI/workspaces/experiments/delete | Supprimer un essai Batch AI |
-> | Action | Microsoft.BatchAI/workspaces/experiments/jobs/delete | Supprime une tâche Batch AI |
-> | Action | Microsoft.BatchAI/workspaces/experiments/jobs/listoutputfiles/action | Répertorier les fichiers en sortie d’un travail Batch AI |
-> | Action | Microsoft.BatchAI/workspaces/experiments/jobs/read | Répertorie les tâches Batch AI ou obtient les propriétés d’une tâche Batch AI |
-> | Action | Microsoft.BatchAI/workspaces/experiments/jobs/remoteLoginInformation/action | Affiche les informations de connexion à distance pour une tâche Batch AI |
-> | Action | Microsoft.BatchAI/workspaces/experiments/jobs/terminate/action | Met fin à une tâche Batch AI |
-> | Action | Microsoft.BatchAI/workspaces/experiments/jobs/write | Crée ou met à jour une tâche Batch AI |
-> | Action | Microsoft.BatchAI/workspaces/experiments/read | Répertorier les essais Batch AI ou obtenir les propriétés d’un essai Batch AI |
-> | Action | Microsoft.BatchAI/workspaces/experiments/write | Créer ou mettre à jour un essai Batch AI |
-> | Action | Microsoft.BatchAI/workspaces/fileservers/delete | Supprime un serveur de fichiers Batch AI |
-> | Action | Microsoft.BatchAI/workspaces/fileservers/read | Répertorie les serveurs de fichiers Batch AI ou obtient les propriétés d’un serveur de fichiers Batch AI |
-> | Action | Microsoft.BatchAI/workspaces/fileservers/write | Crée ou met à jour un serveur de fichiers Batch AI |
-> | Action | Microsoft.BatchAI/workspaces/read | Répertorier les espaces de travail Batch AI ou obtenir les propriétés d’un espace de travail Batch AI |
-> | Action | Microsoft.BatchAI/workspaces/write | Créer ou mettre à jour un espace de travail Batch AI |
-
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -695,31 +663,31 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > [!div class="mx-tdCol2BreakAll"]
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
-> | Action | Microsoft.Cache/checknameavailability/action | Vérifie si un nom peut être utilisé avec un nouveau cache Redis |
+> | Action | Microsoft.Cache/checknameavailability/action | Vérifie si un nom peut être utilisé avec un nouveau cache Azure pour Redis |
 > | Action | Microsoft.Cache/locations/operationresults/read | Obtient le résultat d’une opération de longue durée pour laquelle l’en-tête Location a été précédemment retourné au client |
 > | Action | Microsoft.Cache/operations/read | Répertorie les opérations que le fournisseur Microsoft.Cache prend en charge. |
-> | Action | Microsoft.Cache/redis/delete | Supprimer l’intégralité du cache Redis |
+> | Action | Microsoft.Cache/redis/delete | Supprimer la totalité du cache Azure pour Redis |
 > | Action | Microsoft.Cache/redis/export/action | Exporter des données Redis vers des objets blob préfixés dans un format spécifié |
-> | Action | Microsoft.Cache/redis/firewallRules/delete | Supprimer des règles de pare-feu IP d’un cache Redis |
-> | Action | Microsoft.Cache/redis/firewallRules/read | Obtenir les règles de pare-feu IP d’un cache Redis |
-> | Action | Microsoft.Cache/redis/firewallRules/write | Modifier les règles de pare-feu IP d’un cache Redis |
+> | Action | Microsoft.Cache/redis/firewallRules/delete | Supprimer des règles de pare-feu IP d’un cache Azure pour Redis |
+> | Action | Microsoft.Cache/redis/firewallRules/read | Obtenir les règles de pare-feu IP d’un cache Azure pour Redis |
+> | Action | Microsoft.Cache/redis/firewallRules/write | Modifier les règles de pare-feu IP d’un cache Azure pour Redis |
 > | Action | Microsoft.Cache/redis/forceReboot/action | Forcez le redémarrage d’instance de cache, potentiellement avec une perte de données. |
 > | Action | Microsoft.Cache/redis/import/action | Importer des données d’un format spécifié à partir de plusieurs objets blob dans Redis |
-> | Action | Microsoft.Cache/redis/linkedservers/delete | Supprimer un serveur lié d’un cache Redis |
-> | Action | Microsoft.Cache/redis/linkedservers/read | Obtenez les serveurs liés associés à un cache Redis. |
-> | Action | Microsoft.Cache/redis/linkedservers/write | Ajouter un serveur lié à un cache Redis |
-> | Action | Microsoft.Cache/redis/listKeys/action | Afficher la valeur des clés d’accès du cache Redis dans le portail de gestion |
+> | Action | Microsoft.Cache/redis/linkedservers/delete | Supprimer un serveur lié d’un cache Azure pour Redis |
+> | Action | Microsoft.Cache/redis/linkedservers/read | Obtenir les serveurs liés associés à un cache Azure pour Redis |
+> | Action | Microsoft.Cache/redis/linkedservers/write | Ajouter un serveur lié à un cache Azure pour Redis |
+> | Action | Microsoft.Cache/redis/listKeys/action | Afficher la valeur des clés d’accès du cache Azure pour Redis dans le portail de gestion |
 > | Action | Microsoft.Cache/redis/listUpgradeNotifications/read | Répertoriez les dernières notifications de mise à niveau du client de cache. |
-> | Action | Microsoft.Cache/redis/metricDefinitions/read | Obtient les mesures disponibles pour un cache Redis |
-> | Action | Microsoft.Cache/redis/patchSchedules/delete | Supprimer la planification de correctif d’un cache Redis |
-> | Action | Microsoft.Cache/redis/patchSchedules/read | Obtient la planification de mise à jour corrective d’un cache Redis |
-> | Action | Microsoft.Cache/redis/patchSchedules/write | Modifier la planification de mise à jour corrective d’un cache Redis |
-> | Action | Microsoft.Cache/redis/read | Afficher les paramètres et la configuration du cache Redis dans le portail de gestion |
-> | Action | Microsoft.Cache/redis/recommendations/read | Lire les recommandations de Cache Redis Azure |
-> | Action | Microsoft.Cache/redis/regenerateKey/action | Modifier la valeur des clés d’accès du cache Redis dans le portail de gestion |
+> | Action | Microsoft.Cache/redis/metricDefinitions/read | Obtient les métriques disponibles pour un cache Azure pour Redis |
+> | Action | Microsoft.Cache/redis/patchSchedules/delete | Supprimer la planification de mise à jour corrective d’un cache Azure pour Redis |
+> | Action | Microsoft.Cache/redis/patchSchedules/read | Obtient la planification de mise à jour corrective d’un cache Azure pour Redis |
+> | Action | Microsoft.Cache/redis/patchSchedules/write | Modifier la planification de mise à jour corrective d’un cache Azure pour Redis |
+> | Action | Microsoft.Cache/redis/read | Afficher les paramètres et la configuration du cache Azure pour Redis dans le portail de gestion |
+> | Action | Microsoft.Cache/redis/recommendations/read | Lire les recommandations relatives au cache Azure pour Redis |
+> | Action | Microsoft.Cache/redis/regenerateKey/action | Changer la valeur des clés d’accès du cache Azure pour Redis dans le portail de gestion |
 > | Action | Microsoft.Cache/redis/start/action | Démarrez une instance de cache. |
 > | Action | Microsoft.Cache/redis/stop/action | Arrêtez une instance de cache. |
-> | Action | Microsoft.Cache/redis/write | Modifier les paramètres et la configuration du cache Redis dans le portail de gestion |
+> | Action | Microsoft.Cache/redis/write | Modifier les paramètres et la configuration du cache Azure pour Redis dans le portail de gestion |
 > | Action | Microsoft.Cache/register/action | Inscrit le fournisseur de ressources « Microsoft.Cache » à un abonnement |
 > | Action | Microsoft.Cache/unregister/action | Annule l’inscription du fournisseur de ressources « Microsoft.Cache » à un abonnement |
 
@@ -2680,24 +2648,24 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > [!div class="mx-tdCol2BreakAll"]
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
-> | Action | Microsoft.LocationBasedServices/accounts/delete | (Déconseillé : utilisez /providers/Microsoft.Maps) Supprime un compte Location Based Services. |
-> | Action | Microsoft.LocationBasedServices/accounts/listKeys/action | (Déconseillé : utilisez /providers/Microsoft.Maps) Répertorie les clés de compte Location Based Services |
-> | Action | Microsoft.LocationBasedServices/accounts/read | (Déconseillé : utilisez /providers/Microsoft.Maps) Obtient un compte Location Based Services. |
-> | Action | Microsoft.LocationBasedServices/accounts/regenerateKey/action | (Déconseillé : utilisez /providers/Microsoft.Maps) Génère une clé primaire ou secondaire pour un compte Location Based Services |
-> | Action | Microsoft.LocationBasedServices/accounts/write | (Déconseillé : utilisez /providers/Microsoft.Maps) Crée ou met à jour un compte Location Based Services. |
-> | Action | Microsoft.LocationBasedServices/register/action | (Déconseillé : utilisez /providers/Microsoft.Maps) Enregistre le fournisseur |
+> | Action | Microsoft.LocationBasedServices/accounts/delete | (Dépréciée : utilisez /providers/Microsoft.Maps) Supprime un compte Location Based Services. |
+> | Action | Microsoft.LocationBasedServices/accounts/listKeys/action | (Dépréciée : utilisez /providers/Microsoft.Maps) Répertorie les clés de compte Location Based Services |
+> | Action | Microsoft.LocationBasedServices/accounts/read | (Dépréciée : utilisez /providers/Microsoft.Maps) Obtient un compte Location Based Services. |
+> | Action | Microsoft.LocationBasedServices/accounts/regenerateKey/action | (Dépréciée : utilisez /providers/Microsoft.Maps) Génère une clé primaire ou secondaire pour un compte Location Based Services |
+> | Action | Microsoft.LocationBasedServices/accounts/write | (Dépréciée : utilisez /providers/Microsoft.Maps) Crée ou met à jour un compte Location Based Services. |
+> | Action | Microsoft.LocationBasedServices/register/action | (Dépréciée : utilisez /providers/Microsoft.Maps) Inscrit le fournisseur |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
-> | Action | Microsoft.LocationServices/accounts/delete | (Déconseillé : utiliser /providers/Microsoft.Maps) Supprimer un compte de services de localisation |
-> | Action | Microsoft.LocationServices/accounts/listKeys/action | (Déconseillé : utilisez /providers/Microsoft.Maps) Répertorie les clés de compte Location Based Services |
-> | Action | Microsoft.LocationServices/accounts/read | (Déconseillé : utiliser /providers/Microsoft.Maps) Obtenir un compte de services de localisation |
-> | Action | Microsoft.LocationServices/accounts/regenerateKey/action | (Déconseillé : utilisez /providers/Microsoft.Maps) Génère une clé primaire ou secondaire pour un compte Location Based Services |
-> | Action | Microsoft.LocationServices/accounts/write | (Déconseillé : utiliser /providers/Microsoft.Maps) Créer ou mettre à jour un compte de services de localisation |
-> | Action | Microsoft.LocationServices/register/action | (Déconseillé : utilisez /providers/Microsoft.Maps) Enregistre le fournisseur |
+> | Action | Microsoft.LocationServices/accounts/delete | (Dépréciée : utilisez /providers/Microsoft.Maps) Supprime un compte de services de localisation. |
+> | Action | Microsoft.LocationServices/accounts/listKeys/action | (Dépréciée : utilisez /providers/Microsoft.Maps) Répertorie les clés de compte Location Based Services |
+> | Action | Microsoft.LocationServices/accounts/read | (Dépréciée : utilisez /providers/Microsoft.Maps) Obtient un compte de services de localisation. |
+> | Action | Microsoft.LocationServices/accounts/regenerateKey/action | (Dépréciée : utilisez /providers/Microsoft.Maps) Génère une clé primaire ou secondaire pour un compte Location Based Services |
+> | Action | Microsoft.LocationServices/accounts/write | (Dépréciée : utilisez /providers/Microsoft.Maps) Crée ou met à jour un compte de services de localisation. |
+> | Action | Microsoft.LocationServices/register/action | (Dépréciée : utilisez /providers/Microsoft.Maps) Inscrit le fournisseur |
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 

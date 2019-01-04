@@ -7,17 +7,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4b027f6cd57dfa48ba2e230371ffcad97b1f8ec4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 88609f4daac176f082e7f4962d557267946ab98c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445107"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724432"
 ---
-# <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C : configurer les exigences de complexité des mots de passe
+# <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C : configurer les exigences de complexité des mots de passe
 
 > [!NOTE]
 > **Cette fonctionnalité est en préversion publique.**
@@ -26,23 +26,21 @@ Azure Active Directory B2C (Azure AD B2C) prend en charge la modification des ex
 
 ## <a name="when-password-rules-are-enforced"></a>Quand les règles de mots de passe s’appliquent
 
-Lors de l’inscription ou de la réinitialisation de mot de passe, un utilisateur final doit fournir un mot de passe qui respecte les règles de complexité.  Les règles de complexité du mot de passe s’appliquent stratégie par stratégie.  Il est possible qu’une stratégie demande un code confidentiel à quatre chiffres et une autre une chaîne de huit caractères à l’inscription.  Par exemple, vous pouvez utiliser une stratégie avec différents niveaux de complexité du mot de passe pour les adultes et pour les enfants.
+Lors de l’inscription ou de la réinitialisation de mot de passe, un utilisateur final doit fournir un mot de passe qui respecte les règles de complexité.  Les règles de complexité du mot de passe s’appliquent flux d’utilisateur par flux d’utilisateur.  Il est possible qu’un flux d’utilisateur demande un code confidentiel à quatre chiffres et un autre une chaîne de huit caractères à l’inscription.  Par exemple, vous pouvez utiliser un flux d’utilisateur avec différents niveaux de complexité du mot de passe pour les adultes et pour les enfants.
 
 La complexité du mot de passe ne s’applique jamais lors de la connexion.  Les utilisateurs ne sont jamais invités à modifier leur mot de passe parce qu’il ne répond pas à l’exigence de complexité actuelle.
 
-Voici les types de stratégies pour lesquels il est possible de configurer la complexité du mot de passe :
+Voici les types de flux d’utilisateur pour lesquels il est possible de configurer la complexité du mot de passe :
 
-* stratégie d’inscription ou de connexion ;
-* stratégie de réinitialisation de mot de passe ;
+* Flux d’utilisateur d’inscription ou de connexion
+* Flux d’utilisateur de réinitialisation du mot de passe
 * stratégie personnalisée ([Configurer la complexité du mot de passe dans une stratégie personnalisée](active-directory-b2c-reference-password-complexity-custom.md)).
 
 ## <a name="how-to-configure-password-complexity"></a>Configurer la complexité du mot de passe
 
-1. Suivez ces étapes pour [accéder aux paramètres d’Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-1. Ouvrez **Stratégies d’inscription ou de connexion**.
-1. Sélectionnez une stratégie, puis cliquez sur **Modifier**.
-1. Ouvrez **Complexité du mot de passe**.
-1. Modifiez la complexité du mot de passe de cette stratégie : **Simple**, **Fort** ou **Personnalisé**.
+1. Ouvrez **Flux d’utilisateur**.
+2. Sélectionnez un flux d’utilisateur, puis cliquez sur **Propriétés**.
+3. Sous **Complexité du mot de passe**, changez la complexité du mot de passe de ce flux d’utilisateur : **Simple**, **Fort** ou **Personnalisé**.
 
 ### <a name="comparison-chart"></a>Tableau comparatif
 
@@ -73,7 +71,7 @@ Permet de contrôler les critères de longueur du mot de passe.
 Permet de contrôler les différents types de caractères utilisés dans le mot de passe.
 
 * **2 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (2 sur 4 : minuscule, majuscule, chiffre (0-9), symbole) garantit que le mot de passe contient au moins deux types de caractères, par exemple, un nombre et une minuscule.
-* **3 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (3 sur 4 : minuscule, majuscule, chiffre (0-9), symbole) garantit que le mot de passe contient au moins trois types de caractères, par exemple, un chiffre, une minuscule et une majuscule.
+* **3 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (2 sur 4 : minuscule, majuscule, chiffre (0-9), symbole) garantit que le mot de passe contient au moins trois types de caractères, par exemple, un chiffre, une minuscule et une majuscule.
 * **4 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (4 sur 4 : minuscule, majuscule, chiffre (0-9), symbole) garantit que le mot de passe contient les quatre types de caractères.
 
     > [!NOTE]

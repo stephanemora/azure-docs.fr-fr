@@ -1,6 +1,6 @@
 ---
-title: Tâches du coordinateur de projet Team Data Science Process - Azure | Microsoft Docs
-description: Vue d’ensemble des tâches d’un coordinateur de projet dans une équipe de science des données.
+title: Tâches pour le coordinateur de projet dans Team Data Science Process
+description: Vue d’ensemble des tâches qui incombent au coordinateur de projet dans une équipe de science des données.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 0b5129c4642a0c4381591f751bc4d5a51990b256
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 39e8c5b8dab33ba95b34c4edb9d0a994bc8ec6dc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442895"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135162"
 ---
-# <a name="project-lead-tasks"></a>Tâches du coordinateur de projet
+# <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Tâches pour le coordinateur de projet dans Team Data Science Process
 
 Ce didacticiel décrit de façon succincte les tâches qu’un coordinateur de projet est censé effectuer pour son équipe de projet. L’objectif est d’établir un environnement d’équipe collaborative standard conforme à [TDSP](overview.md) (Team Data Science Process). TDSP est un cadre élaboré par Microsoft qui propose une succession structurée d’activités visant à exécuter des solutions d’analytique prédictive basées sur le cloud avec efficacité. Pour obtenir une description sommaire des différents rôles au sein de l’équipe de science des données et des tâches qui incombent à ses membres dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
 
@@ -27,17 +27,18 @@ Un **coordinateur de projet** gère les activités quotidiennes des différents 
 
 Cette rubrique couvre actuellement les tâches 1, 2 et 6 de ce flux de travail pour coordinateurs de projet.
 
->[AZURE.NOTE] Dans les instructions suivantes, nous décrivons brièvement les étapes à suivre pour configurer un environnement d’équipe TDSP pour un projet utilisant Azure DevOps. Nous indiquons comment accomplir ces tâches avec Azure DevOps, car c’est de cette façon que nous implémentons le processus TDSP chez Microsoft. Si une autre plateforme d’hébergement de code est utilisée pour votre groupe, les tâches que doit effectuer le responsable d’équipe ne changent généralement pas. En revanche, c’est la façon dont vont s’effectuer ces tâches qui sera différente.
+> [!NOTE]
+> Dans les instructions suivantes, nous décrivons brièvement les étapes à suivre pour configurer un environnement d’équipe TDSP pour un projet utilisant Azure DevOps. Nous indiquons comment accomplir ces tâches avec Azure DevOps, car c’est de cette façon que nous implémentons le processus TDSP chez Microsoft. Si une autre plateforme d’hébergement de code est utilisée pour votre groupe, les tâches que doit effectuer le responsable d’équipe ne changent généralement pas. En revanche, c’est la façon dont vont s’effectuer ces tâches qui sera différente.
 
 
 ## <a name="repositories-and-directories"></a>Dépôts et répertoires
 
 Dans ce didacticiel, les noms des dépôts et des répertoires sont abrégés. Cela facilite le suivi des opérations entre les dépôts et les répertoires. Cette notation (R pour les dépôts Git et D pour les répertoires locaux sur votre DSVM) est employée dans les sections suivantes :
 
-- **R3** : dépôt Git **ProjectTemplate** de l’équipe que votre responsable d’équipe a configuré.
+- **R3** : dépôt Git **ProjectTemplate** de l’équipe que votre responsable d’équipe a configuré.
 - **R5** : dépôt Git du projet que vous avez configuré pour votre projet.
-- **D3** : répertoire local cloné à partir de R3.
-- **D5** : le répertoire local cloné à partir de R5.
+- **D3** : répertoire local cloné à partir de R3.
+- **D5** : répertoire local cloné à partir de R5.
 
 
 ## <a name="0-prerequisites"></a>0. Prérequis
@@ -83,15 +84,15 @@ Pour résumer, avant de commencer les tâches du responsable d’équipe, voici 
 
 ## <a name="2-seed-the-dsproject1-project-repository"></a>2. Amorcer le dépôt de projet DSProject1
 
-Cette tâche consiste à amorcer le dépôt de projet **DSProject1** (R5) à partir de votre dépôt de modèles de projet (R3). La procédure d’amorçage utilise les répertoires D3 et D5 sur votre instance DSVM locale comme sites intermédiaires. En résumé, le chemin d’amorçage est : R3 -> D3 -> D5 -> R5.
+Cette tâche consiste à amorcer le dépôt de projet **DSProject1** (R5) à partir de votre dépôt de modèles de projet (R3). La procédure d’amorçage utilise les répertoires D3 et D5 sur votre instance DSVM locale comme sites intermédiaires. En résumé, le chemin d’amorçage est : R3 -> D3 -> D5 -> R5.
 
 Si vous devez personnaliser votre dépôt de projet **DSProject1** pour répondre à certaines besoins spécifiques du projet, vous pouvez le faire à l’avant-dernière étape de la procédure. Voici un résumé des étapes à suivre pour amorcer le contenu du dépôt de projet **DSProject1**. Chaque étape correspond à une sous-section de la procédure d’amorçage :
 
 - Clonez le dépôt de modèles de projet dans le répertoire local : R3 équipe - cloné dans -> D3 local.
 - Clonez le dépôt DSProject1 dans un répertoire local : R5 équipe - cloné dans -> D5 local.
-- Copiez le contenu de modèles de projet cloné dans le clone local du dépôt DSProject1 : D3 - contenu copié dans -> D5.
+- Copiez le contenu de modèles de projet cloné dans le clone local du dépôt DSProject1 :  D3 - contenu copié dans -> D5.
 - (Facultatif) Personnalisez le répertoire D5 local.
-- Envoyez (push) le contenu local de DSProject1 vers les dépôts de l’équipe : D5 - contenu ajouté à -> R5 équipe.
+- Envoyer (push) le contenu de DSProject1 vers les dépôts de l’équipe : D5 - contenu ajouté dans -> R5 équipe.
 
 
 ### <a name="clone-your-project-template-repository-r3-to-a-directory-d3-on-your-local-machine"></a>Clonez votre dépôt de modèles de projet (R3) dans un répertoire (D3) sur votre ordinateur local.
@@ -195,7 +196,8 @@ Vous devez maintenant envoyer (push) le contenu de  **_DSProject1_** vers le dé
     
 - Validez la modification et l’envoi (push). 
 
->[AZURE.NOTE] S’il s’agit de votre première validation dans un dépôt Git, vous devez configurer les paramètres globaux *user.nom* et *user.email* avant d’exécuter la commande `git commit`. Exécutez les deux commandes suivantes :
+> [!NOTE]
+> S’il s’agit de votre première validation dans un dépôt Git, vous devez configurer les paramètres globaux *user.nom* et *user.email* avant d’exécuter la commande `git commit`. Exécutez les deux commandes suivantes :
         
     git config --global user.name <your name>
     git config --global user.email <your email address>

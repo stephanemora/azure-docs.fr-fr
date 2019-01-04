@@ -1,5 +1,6 @@
 ---
-title: Écrire des données avec le SDK de préparation des données Azure Machine Learning - Python
+title: 'Écriture : Kit de développement logiciel (SDK) Python de préparation des données'
+titleSuffix: Azure Machine Learning service
 description: Découvrez comment écrire des données avec le SDK de préparation des données Azure Machine Learning. Vous pouvez écrire des données à tout moment dans un flux de données, ainsi que dans les fichiers situés aux emplacements pris en charge (système de fichiers local, Stockage Blob Azure et Azure Data Lake Storage).
 services: machine-learning
 ms.service: machine-learning
@@ -9,13 +10,14 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 09/24/2018
-ms.openlocfilehash: 4a2af832fda8a85ee8a4aba395a8f436172153ed
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: a6abdaff986df3c457a0118f6e143fe4ff0daf49
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308560"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384341"
 ---
 # <a name="write-data-using-the-azure-machine-learning-data-prep-sdk"></a>Écrire des données avec le SDK de préparation des données d’Azure Machine Learning
 
@@ -50,7 +52,7 @@ Pour cet exemple, commencez par charger des données dans un flux de données. V
 
 ```python
 import azureml.dataprep as dprep
-t = dprep.smart_read_file('./data/fixed_width_file.txt')
+t = dprep.auto_read_file('./data/fixed_width_file.txt')
 t = t.to_number('Column3')
 t.head(10)
 ```

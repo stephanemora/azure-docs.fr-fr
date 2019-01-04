@@ -1,5 +1,5 @@
 ---
-title: Utilisation d’un environnement Azure App Service
+title: Utiliser l’environnement App Service - Azure
 description: Comment créer, publier et mettre à l’échelle des applications dans un environnement Azure App Service
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 80abe29c80898b691aa6e5e47bf068a9e69e50e4
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.custom: seodec18
+ms.openlocfilehash: eca6f7996b05e58614c8f15067dacabb13730396
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303368"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274715"
 ---
 # <a name="use-an-app-service-environment"></a>Utilisation d’un environnement App Service #
 
@@ -26,13 +27,13 @@ ms.locfileid: "44303368"
 
 Azure App Service Environment est un déploiement d’Azure App Service dans un sous-réseau dans le réseau virtuel Azure d’un client. Elle comprend :
 
-- **Serveurs frontaux** : c’est sur les serveurs frontaux que HTTP/HTTPS se termine dans un environnement App Service (ASE).
-- **Workers** : il s’agit des ressources qui hébergent vos applications.
-- **Base de données** : celle-ci contient des informations qui définissent l’environnement.
+- **Serveurs frontaux :** c’est sur les serveurs frontaux que HTTP/HTTPS se termine dans un environnement App Service (ASE).
+- **Workers** : il s’agit des ressources qui hébergent vos applications.
+- **Base de données** : celle-ci contient des informations qui définissent l’environnement.
 - **Stockage** : le stockage est utilisé pour héberger les applications publiées client.
 
 > [!NOTE]
-> Il existe deux versions de l’environnement App Service : ASEv1 et ASEv2. Dans un environnement ASEv1, vous devez gérer les ressources avant de pouvoir les utiliser. Pour savoir comment configurer et gérer un environnement ASEv1, consultez [Configuration d’un environnement App Service v1][ConfigureASEv1]. Le reste de cet article se concentre sur ASEv2.
+> Il existe deux versions d’App Service Environment : ASEv1 et ASEv2. Dans un environnement ASEv1, vous devez gérer les ressources avant de pouvoir les utiliser. Pour savoir comment configurer et gérer un environnement ASEv1, consultez [Configuration d’un environnement App Service v1][ConfigureASEv1]. Le reste de cet article se concentre sur ASEv2.
 >
 >
 
@@ -51,7 +52,7 @@ Pour créer une application web dans un environnement ASE :
 
 1. Sélectionnez **Créer une ressource** > **Web + Mobile** > **Application web**.
 
-1. Entrez le nom de l’application web. Si vous avez déjà sélectionné un plan App Service dans un environnement ASE, le nom de domaine pour l’application reflète le nom de domaine de l’environnement ASE.
+2. Entrez le nom de l’application web. Si vous avez déjà sélectionné un plan App Service dans un environnement ASE, le nom de domaine pour l’application reflète le nom de domaine de l’environnement ASE.
 
     ![Sélection du nom de l’application web][1]
 
@@ -70,7 +71,7 @@ Pour créer une application web dans un environnement ASE :
 
     b. Entrez le nom de votre plan App Service.
 
-    c. Sélectionnez votre environnement ASE dans la liste déroulante **Emplacement**. L’hébergement d’applications Linux dans un environnement ASE est activé uniquement dans 6 régions, à savoir pour le moment : **USA Ouest, USA Est, Europe Ouest, Europe Nord, Australie Est, Asie Sud-Est.** 
+    c. Sélectionnez votre environnement ASE dans la liste déroulante **Emplacement**. L’hébergement d’une application Linux dans un environnement ASE est uniquement activé dans 6 régions, pour le moment : **USA Ouest, USA Est, Europe Ouest, Europe Nord, Australie Est, Asie Sud-Est.** 
 
     d. Sélectionnez un niveau tarifaire **Isolé**. Sélectionnez **Sélectionner**.
 
@@ -182,10 +183,10 @@ Pour supprimer un environnement ASE :
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../app-service-deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

@@ -1,29 +1,22 @@
 ---
-title: Répliquer un déploiement Dynamics AX multiniveau à l’aide d’Azure Site Recovery | Microsoft Docs
-description: Cet article explique comment répliquer et protéger Dynamics AX à l’aide d’Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Configurer la reprise d’activité pour un déploiement Dynamics AX multiniveau à l’aide d’Azure Site Recovery | Microsoft Docs
+description: Cet article décrit comment configurer la reprise d’activité pour Dynamics AX avec Azure Site Recovery
 author: asgang
 manager: rochakm
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: eb6f7d9b34e00ce1efd8c871439c2504e5f550d5
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c1714fd6ada45f2b4498a3f5972424200afa9aa3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669440"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838138"
 ---
-# <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Répliquer une application Dynamics AX multiniveau à l’aide d’Azure Site Recovery
+# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurer la reprise d’activité pour une application Dynamics AX multiniveau 
 
-## <a name="overview"></a>Vue d’ensemble
+
 
 
  Dynamics AX figure parmi les solutions ERP les plus populaires au sein des entreprises pour standardiser les processus, gérer les ressources et simplifier la conformité sur l’ensemble des sites. En cas de défaillance, étant donné le rôle critique qu’elle joue au sein de l’entreprise, l’application doit pouvoir être restaurée le plus rapidement possible.
@@ -125,15 +118,15 @@ Vous pouvez créer un plan de récupération dans Site Recovery pour automatiser
 Vous pouvez personnaliser le plan de récupération pour l’application Dynamics AX en ajoutant les étapes ci-dessous. La capture instantanée ci-dessus montre l’intégralité du plan de récupération après l’ajout de toutes ces étapes.
 
 
-* **Étapes de basculement SQL Server** : Pour plus d’informations sur les étapes de récupération spécifiques à SQL Server, consultez [Répliquer des applications avec SQL Server et Azure Site Recovery](site-recovery-sql.md).
+* **Étapes de basculement SQL Server** : pour plus d’informations sur les étapes de récupération spécifiques à SQL Server, consultez [Répliquer des applications avec SQL Server et Azure Site Recovery](site-recovery-sql.md).
 
-* **Groupe de basculement 1** : Faites basculer les machines virtuelles du serveur d’objets d’application.
+* **Groupe de basculement 1** : faites basculer les machines virtuelles du serveur d’objets d’application.
 Vérifiez que le point de récupération sélectionné est aussi proche que possible du PIT de la base de données, mais pas antérieur à lui.
 
-* **Script** : Ajoutez l’équilibreur de charge (E-A uniquement).
+* **Script** : ajoutez l’équilibreur de charge (E-A uniquement).
 Ajoutez un script (via Azure Automation) après l’affichage du groupe de machines virtuelles du serveur d’objets d’application pour lui ajouter un équilibreur de charge. Vous pouvez utiliser un script pour effectuer cette tâche. Pour plus d’informations, consultez [Comment ajouter un équilibreur de charge pour la récupération d’urgence des applications multicouches](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/).
 
-* **Groupe de basculement 2** : Faites basculer les machines virtuelles du client Dynamics AX. Basculez les machines virtuelles de niveau web dans le cadre du plan de récupération.
+* **Groupe de basculement 2** : faites basculer les machines virtuelles du client Dynamics AX. Basculez les machines virtuelles de niveau web dans le cadre du plan de récupération.
 
 
 ### <a name="perform-a-test-failover"></a>Exécution d’un test de basculement

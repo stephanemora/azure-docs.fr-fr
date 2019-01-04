@@ -1,5 +1,5 @@
 ---
-title: Régions de service Speech
+title: Régions - Services Speech
 titlesuffix: Azure Cognitive Services
 description: Informations de référence pour les régions du service Speech.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.author: mahilleb
-ms.openlocfilehash: 8d36036332e939075ffac8763bec9c23d8e4a3f7
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec18
+ms.openlocfilehash: d41213d72d40555d8dc5aeab76040fc556dae774
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712889"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091643"
 ---
 # <a name="speech-service-supported-regions"></a>Régions prises en charge pour le service Speech
 
@@ -45,7 +46,7 @@ Le SDK Speech est disponible dans les régions suivantes pour la **reconnaissanc
 
 ### <a name="intent-recognition"></a>Reconnaissance de l’intention
 
-La **reconnaissance de l’intention** pour le SDK Speech partage la prise en charge des régions avec LUIS. Pour obtenir la liste complète des régions disponibles, consultez [Points de terminaison et régions de publication - LUIS](https://docs.microsoft.comazure/cognitive-services/luis/luis-reference-regions).
+La **reconnaissance de l’intention** pour le SDK Speech partage la prise en charge des régions avec LUIS. Pour obtenir la liste complète des régions disponibles, consultez [Points de terminaison et régions de publication - LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions).
 
 Les régions disponibles pour la **reconnaissance de l’intention** via le SDK Speech sont listées dans la [page des régions LUIS](/azure/cognitive-services/luis/luis-reference-regions).
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d834b7f43d961400e2d5080a46cf921d719f3393
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 39de7453c9d3b0335748cd37e4b1eef91b64b207
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684850"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409539"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Utilisation des bases de données, des conteneurs et des éléments Azure Cosmos
 
@@ -26,10 +26,10 @@ Vous pouvez créer une ou plusieurs bases de données Azure Cosmos dans votre co
 
 | **Entité Azure Cosmos** | **API SQL** | **API Cassandra** | **API MongoDB** | **API Gremlin** | **API de table** |
 | --- | --- | --- | --- | --- | --- |
-|Base de données Azure Cosmos | Base de données | Espace de clés | Base de données | N/D | N/D |
+|Base de données Azure Cosmos | Base de données | Espace de clés | Base de données | Base de données | N/D |
 
 > [!NOTE]
-> Avec les comptes d’API Gremlin et Table, lorsque vous créez votre premier graphe ou votre première table, une base de données par défaut est automatiquement créée dans votre compte Azure Cosmos.
+> Avec les comptes d’API Table, lorsque vous créez votre première table, une base de données par défaut est automatiquement créée dans votre compte Azure Cosmos.
 
 ### <a name="operations-on-an-azure-cosmos-database"></a>Actions effectuées sur une base de données Azure Cosmos
 
@@ -49,11 +49,11 @@ Un conteneur Azure Cosmos correspond à l’unité de scalabilité des élément
 
 Lorsque vous créez un conteneur Azure Cosmos, vous configurez le débit avec l’un des modes suivants :
 
-* Mode **Dedicated provisioned throughput** (Débit provisionné dédié) : le débit provisionné pour un conteneur lui est exclusivement réservé, et ce débit est défini par les contrats SLA. Pour plus d’informations, consultez [Provisionnement du débit sur un conteneur Azure Cosmos](how-to-provision-container-throughput.md).
+* Mode **Débit provisionné dédié** : le débit provisionné pour un conteneur lui est exclusivement réservé ; ce débit est défini par les contrats SLA. Pour plus d’informations, consultez [Provisionnement du débit sur un conteneur Azure Cosmos](how-to-provision-container-throughput.md).
 
-* Mode **Shared provisioned throughput** (Débit provisionné partagé) : ces conteneurs partagent le débit provisionné avec d’autres conteneurs de la même base de données (à l’exclusion des conteneurs qui ont été configurés pour le débit provisionné dédié). En d’autres termes, le débit provisionné pour la base de données est partagé entre tous les conteneurs « partagés ». Pour plus d’informations, consultez [Comment configurer le débit provisionné pour une base de données Azure Cosmos](how-to-provision-database-throughput.md).
+* Mode **Débit provisionné partagé** : ces conteneurs partagent le débit provisionné avec d’autres conteneurs de la même base de données (à l’exclusion des conteneurs qui ont été configurés pour le débit provisionné dédié). En d’autres termes, le débit provisionné pour la base de données est partagé entre tous les conteneurs « partagés ». Pour plus d’informations, consultez [Comment configurer le débit provisionné pour une base de données Azure Cosmos](how-to-provision-database-throughput.md).
 
-Les conteneurs Azure Cosmos sont élastiques, qu’ils aient un débit « partagé » ou « dédié ». Autrement dit, leur capacité de stockage et leur débit provisionné sont illimités.  
+Les conteneurs Azure Cosmos sont élastiques, qu’ils aient un débit « partagé » ou « dédié ».
 
 Un conteneur Azure Cosmos est un conteneur d’éléments indépendant de tout schéma. Les éléments d’un conteneur peuvent avoir des schémas différents. Par exemple, un élément représentant une personne et un élément représentant une voiture peuvent être placés dans le même conteneur. Par défaut, tous les éléments que vous ajoutez à un conteneur sont automatiquement indexés, sans que vous ayez à effectuer une gestion explicite d’index ou de schéma. Vous pouvez personnaliser le comportement d’indexation en configurant la stratégie d’indexation du conteneur. 
 
@@ -69,7 +69,7 @@ Un conteneur Azure Cosmos est spécialisé dans les entités d’API :
 
 | **Entité Azure Cosmos** | **API SQL** | **API Cassandra** | **API MongoDB** | **API Gremlin** | **API de table** |
 | --- | --- | --- | --- | --- | --- |
-|Conteneur Azure Cosmos | Conteneur | Table | Collection | Graph | Table |
+|Conteneur Azure Cosmos | Collection | Table | Collection | Graph | Table |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Propriétés d’un conteneur Azure Cosmos
 
@@ -105,7 +105,7 @@ En fonction de l’API, un élément Azure Cosmos peut représenter un document 
 
 | **Entité Cosmos** | **API SQL** | **API Cassandra** | **API MongoDB** | **API Gremlin** | **API de table** |
 | --- | --- | --- | --- | --- | --- |
-|Élément Azure Cosmos | Item | Ligne | Document | Nœud ou arête | Item |
+|Élément Azure Cosmos | Document | Ligne | Document | Nœud ou arête | Item |
 
 ### <a name="properties-of-an-item"></a>Propriétés d’un élément
 

@@ -3,7 +3,7 @@ title: Déployer une machine virtuelle à partir des disques durs virtuels pour 
 description: Explique comment inscrire une machine virtuelle à partir d’un disque dur virtuel déployé dans Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
-author: pbutlerm
+author: v-miclar
 manager: Patrick.Butler
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 2771549af29b3e717d117afb42de6db03fbee226
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 9157ce7f8f16bc60a6d5c16fa992a5402cf2d7ad
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639128"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190728"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Déployer une machine virtuelle à partir de vos disques durs virtuels
 
-Cet article explique comment inscrire une machine virtuelle à partir d’un disque dur virtuel (VHD) déployé dans Azure.  Il répertorie les outils nécessaires et indique comment les utiliser pour créer une image de machine virtuelle d’utilisateur, puis la déployer vers Azure à l’aide du [portail Microsoft Azure](https://ms.portal.azure.com/) ou de scripts PowerShell. 
+Cette section explique comment déployer une machine virtuelle à partir d’un disque dur virtuel (VHD) déployé dans Azure.  Elle répertorie les outils nécessaires et explique comment les utiliser pour créer une image de machine virtuelle d’utilisateur, puis la déployer vers Azure à l’aide de scripts PowerShell.
 
 Une fois que vous avez chargé les disques durs virtuels (disque dur virtuel de système d’exploitation généralisé, et aucun ou plusieurs disques VHD de données) sur votre compte de stockage Azure, vous pouvez les inscrire en tant qu’image de machine virtuelle d’utilisateur. Vous pouvez tester cette image. Comme votre disque dur virtuel de système d’exploitation est généralisé, vous ne pouvez pas déployer directement la machine virtuelle en indiquant l’URL du disque dur virtuel.
 
@@ -33,48 +33,23 @@ Pour en savoir plus sur les images de machine virtuelle, consultez les billets d
 - [VM Image PowerShell ’How To’](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/) (Procédure liée aux images de machine virtuelle à l’aide de PowerShell)
 
 
-## <a name="set-up-the-necessary-tools"></a>Configurer les outils nécessaires
+## <a name="prerequisite-install-the-necessary-tools"></a>Condition préalable : installer les outils requis
 
 Si ce n’est déjà fait, installez Azure PowerShell et l’interface de ligne de commande Azure en appliquant les instructions suivantes :
-
-<!-- TD: Change the following URLs (in this entire topic) to relative paths.-->
 
 - [Installer Azure PowerShell sur Windows avec PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 - [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
-## <a name="create-a-user-vm-image"></a>Créer une image de machine virtuelle d’utilisateur
+## <a name="deployment-steps"></a>Étapes du déploiement
 
-Vous allez créer une image non managée à partir de votre disque dur virtuel généralisé.
+Vous utiliserez les étapes suivantes pour créer et déployer une image de machine virtuelle d’utilisateur :
 
-#### <a name="capture-the-vm-image"></a>Capturer l’image de machine virtuelle
+1. Créer l’image de machine virtuelle d’utilisateur, ce qui consiste à capturer et généraliser l’image. 
+2. Créer des certificats et les stocker dans un nouvel Azure Key Vault. Un certificat est requis pour établir une connexion sécurisée entre WinRM et la machine virtuelle.  Un modèle Azure Resource Manager et un script Azure PowerShell sont fournis. 
+3. Déployez la machine virtuelle à partir d’une image de machine virtuelle d’utilisateur, grâce au modèle et au script fournis.
 
-Suivez les instructions de l’article suivant sur la capture de la machine virtuelle qui correspond à votre méthode d’accès :
-
--  PowerShell : [Comment créer une image de machine virtuelle non managée à partir d’une machine virtuelle Azure](../../../virtual-machines/windows/capture-image-resource.md)
--  Azure CLI : [Créer une image d’une machine virtuelle ou d’un disque dur virtuel](../../../virtual-machines/linux/capture-image.md)
--  API : [Virtual Machines - Capture](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture) (Machines virtuelles : capturer)
-
-### <a name="generalize-the-vm-image"></a>Généraliser l’image de machine virtuelle
-
-Étant donné que vous avez généré l’image utilisateur à partir d’un disque dur virtuel généralisé précédemment, elle doit également être généralisée.  Là encore, sélectionnez l’article suivant qui correspond à votre méthode d’accès.  (Il se peut que vous ayez déjà généralisé votre disque lorsque vous l’avez capturé.)
-
--  PowerShell : [Généraliser la machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/windows/sa-copy-generalized#generalize-the-vm)
--  Azure CLI : [Étape 2 : Créer une image de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image#step-2-create-vm-image)
--  API : [Virtual Machines - Generalize](https://docs.microsoft.com/rest/api/compute/virtualmachines/generalize) (Machines virtuelles : généraliser)
-
-
-## <a name="deploy-a-vm-from-a-user-vm-image"></a>Déployer une machine virtuelle à partir d’une image de machine virtuelle d’utilisateur
-
-Vous allez déployer une machine virtuelle à partir d’une image de machine virtuelle d’utilisateur à l’aide de PowerShell ou du portail Azure.
-
-<!-- TD: Recapture following hilited images and replace with red-box. -->
-
-### <a name="deploy-a-vm-from-azure-portal"></a>Déployer une machine virtuelle à partir du portail Azure
-
-Pour déployer votre machine virtuelle d’utilisateur à partir du portail Azure, procédez comme suit :
-
-1.  Connectez-vous au [portail Azure](https://portal.azure.com).
+Une fois votre machine virtuelle déployée, vous pouvez [certifier votre image de machine virtuelle](./cpp-certify-vm.md).
 
 2.  Cliquez sur **Nouveau**, recherchez **Déploiement de modèle**, puis sélectionnez **Build your own template in Editor** (Générez votre propre modèle dans l’éditeur).  <br/>
   ![Générer un modèle de déploiement de disque dur virtuel dans le portail Azure](./media/publishvm_021.png)
@@ -121,10 +96,8 @@ Pour déployer une machine virtuelle de taille importante à partir de l’image
     New-AzureVM -ServiceName "VMImageCloudService" -VMs $myVM -Location "West US" -WaitForBoot
 ```
 
-<!-- TD: The following is a marketplace-publishing article and may be out-of-date.  TD: update and move topic.
-For help with issues, see [Troubleshooting common issues encountered during VHD creation](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting) for additional assistance.
--->
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez déployé la machine virtuelle, vous pouvez [la configurer](./cpp-configure-vm.md).
+Ensuite, vous allez [créer une image de machine virtuelle d’utilisateur](cpp-create-user-image.md) pour votre solution.
+

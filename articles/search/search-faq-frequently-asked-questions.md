@@ -1,6 +1,6 @@
 ---
-title: Questions fréquentes (FAQ) sur la Recherche Azure | Microsoft Docs
-description: Obtenez la réponse aux questions les plus fréquentes concernant le service Recherche Microsoft Azure.
+title: Questions fréquentes (FAQ) - Recherche Azure
+description: Obtenez des réponses aux questions fréquentes sur le service Recherche Azure de Microsoft, un service de recherche hébergé sur le cloud.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
-ms.openlocfilehash: 1491fdb0f208100619e569f9a74d5e697a0065a6
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.custom: seodec2018
+ms.openlocfilehash: 9ea4e4ec78e5613758bd9e5ff7a4fbd3273208c6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841675"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312814"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Recherche Azure - Questions fréquentes (FAQ)
 
@@ -95,6 +96,6 @@ Votre question concerne-t-elle une fonctionnalité manquante ? Demandez cette fo
 
 ## <a name="see-also"></a>Voir aussi
 
- [Stack Overflow : Recherche Azure](https://stackoverflow.com/questions/tagged/azure-search)   
+ [StackOverflow : Recherche Azure](https://stackoverflow.com/questions/tagged/azure-search)   
  [Fonctionnement de la recherche en texte intégral dans la Recherche Azure](search-lucene-query-architecture.md)  
  [Présentation de Recherche Azure](search-what-is-azure-search.md)

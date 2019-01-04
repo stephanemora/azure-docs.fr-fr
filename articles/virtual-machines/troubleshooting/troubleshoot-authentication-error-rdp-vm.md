@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 5f9d933f0f294855719c8d187e759708ef8c9931
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 47d3b827099d3a4a7520ac66765d2928795b6e49
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669606"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967978"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Résoudre les erreurs d’authentification quand vous utilisez le protocole RDP pour vous connecter à une machine virtuelle Azure
 
@@ -75,7 +75,7 @@ La machine virtuelle a été configurée pour accepter uniquement les connexions
 
 ### <a name="create-a-backup-snapshot"></a>Créer un instantané de sauvegarde
 
-Pour créer un instantané de sauvegarde, procédez de la manière décrite dans [Effectuer la capture instantanée d’un disque](..\windows\snapshot-copy-managed-disk.md).
+Pour créer un instantané de sauvegarde, procédez de la manière décrite dans [Effectuer la capture instantanée d’un disque](../windows/snapshot-copy-managed-disk.md).
 
 ### <a name="connect-to-the-vm-remotely"></a>Se connecter à la machine virtuelle à distance
 

@@ -12,12 +12,12 @@ ms.author: MirekS
 ms.reviewer: GeneMi
 ms.date: 04/06/2018
 manager: craigg
-ms.openlocfilehash: 80944e73f21d75943d4fa71c7ac9500e47bab250
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 0b8b83651fb5466f5d9a2f703667d7645b498e89
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055524"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958815"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>Utiliser le mode ActiveDirectoryInteractive pour se connecter à Azure SQL Database
 
@@ -66,23 +66,23 @@ Pour utiliser l’authentification Azure AD, votre programme client C# doit four
 
 1. Portail Azure &gt; **Azure Active Directory** &gt; **Inscription d’application**
 
-    ![Inscription d'application](media\active-directory-interactive-connect-azure-sql-db\sshot-create-app-registration-b20.png)
+    ![Inscription d'application](media/active-directory-interactive-connect-azure-sql-db/sshot-create-app-registration-b20.png)
 
 2. La valeur **ID d’application** est générée et affichée.
 
-    ![ID d’application affiché](media\active-directory-interactive-connect-azure-sql-db\sshot-application-id-app-regis-mk49.png)
+    ![ID d’application affiché](media/active-directory-interactive-connect-azure-sql-db/sshot-application-id-app-regis-mk49.png)
 
 3. **Application inscrite** &gt; **Paramètres** &gt; **Autorisations requises** &gt; **Ajouter**
 
-    ![Paramètres des autorisations de l’application inscrite](media\active-directory-interactive-connect-azure-sql-db\sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
+    ![Paramètres des autorisations de l’application inscrite](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
 4. **Autorisations requises** &gt; **Ajouter un accès d’API** &gt; **Sélectionner une API** &gt; **Azure SQL Database**
 
-    ![Ajouter un accès à l’API d’Azure SQL Database](media\active-directory-interactive-connect-azure-sql-db\sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
+    ![Ajouter un accès à l’API d’Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
 5. **Accès à l’API** &gt; **Sélectionner des autorisations** &gt; **Autorisations déléguées**
 
-    ![Déléguer des autorisations pour l’API d’Azure SQL Database](media\active-directory-interactive-connect-azure-sql-db\sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
+    ![Déléguer des autorisations pour l’API d’Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
 
 ### <a name="b-set-azure-ad-admin-on-your-sql-database-server"></a>B. Définir un administrateur Azure AD sur votre serveur Azure SQL Database
@@ -124,13 +124,13 @@ Le programme C# utilise l’espace de noms **Microsoft.IdentityModel.Clients.Act
 
 **System.Data.SqlClient** est l’un des espaces de noms utilisés par l’exemple en C#. L’enum **SqlAuthenticationMethod** est particulièrement intéressante. Cette enum a les valeurs suivantes :
 
-- **SqlAuthenticationMethod.ActiveDirectory *Interactive*** :&nbsp; utilisez cette valeur avec un nom d’utilisateur Azure AD pour obtenir l’authentification multifacteur MFA.
+- **SqlAuthenticationMethod.ActiveDirectory *Interactive*** :&nbsp;  utilisez cette valeur avec un nom d’utilisateur Azure AD pour bénéficier de l’authentification multifacteur MFA.
     - Cet article traite essentiellement de cette valeur. Cette valeur génère une expérience interactive en affichant des boîtes de dialogue pour le mot de passe de l’utilisateur, puis pour la validation de l’authentification multifacteur si celle-ci est appliquée pour cet utilisateur.
     - Cette valeur est disponible depuis .NET Framework version 4.7.2.
 
-- **SqlAuthenticationMethod.ActiveDirectory *Integrated*** :&nbsp; utilisez cette valeur pour un compte *fédéré*. Pour un compte fédéré, le nom d’utilisateur est connu du domaine Windows. Cette méthode ne prend pas en charge MFA.
+- **SqlAuthenticationMethod.ActiveDirectory *Integrated*** :&nbsp;  utilisez cette valeur pour un compte *fédéré*. Pour un compte fédéré, le nom d’utilisateur est connu du domaine Windows. Cette méthode ne prend pas en charge MFA.
 
-- **SqlAuthenticationMethod.ActiveDirectory *Password*** :&nbsp; utilisez cette valeur pour l’authentification qui nécessite un utilisateur Azure AD et le mot de passe de l’utilisateur. Azure SQL Database effectue l’authentification. Cette méthode ne prend pas en charge MFA.
+- **SqlAuthenticationMethod.ActiveDirectory *Password*** :&nbsp;  utilisez cette valeur pour une authentification qui exige un utilisateur Azure AD et le mot de passe de cet utilisateur. Azure SQL Database effectue l’authentification. Cette méthode ne prend pas en charge MFA.
 
 
 
@@ -183,11 +183,11 @@ Pour compiler cet exemple en C#, vous devez ajouter une référence à l’assem
 
 - Espace de noms **System.Data.SqlClient** :
     - Rechercher : &nbsp; [https://docs.microsoft.com/dotnet/api/?term=System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/?term=System.Data.SqlClient)
-    - Direct : &nbsp; [System.Data.Client](https://docs.microsoft.com/dotnet/api/system.data.sqlclient)
+    - Direct :&nbsp; [System.Data.Client](https://docs.microsoft.com/dotnet/api/system.data.sqlclient)
 
 - Espace de noms **Microsoft.IdentityModel.Clients.ActiveDirectory** :
     - Rechercher : &nbsp; [https://docs.microsoft.com/dotnet/api/?term=Microsoft.IdentityModel.Clients.ActiveDirectory](https://docs.microsoft.com/dotnet/api/?term=Microsoft.IdentityModel.Clients.ActiveDirectory)
-    - Direct : &nbsp; [Microsoft.IdentityModel.Clients.ActiveDirectory](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory)
+    - Direct :&nbsp; [Microsoft.IdentityModel.Clients.ActiveDirectory](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory)
 
 
 #### <a name="c-source-code-in-two-parts"></a>Code source C#, en deux parties

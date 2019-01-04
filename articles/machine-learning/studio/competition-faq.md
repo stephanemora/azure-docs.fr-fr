@@ -1,12 +1,11 @@
 ---
-title: FAQ sur les concours Cortana Intelligence | Microsoft Docs
+title: FAQ des concours Cortana Intelligence – Azure Machine Learning Studio | Microsoft Docs
 description: Forum Aux Questions sur les concours Microsoft Cortana Intelligence.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 8782af26056f8341ee68ed87f003bc585e0c4e69
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: fe4da412aa779e9861446f8dcbb8a807c282c7c6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265101"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268901"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>FAQ sur les concours Microsoft Cortana Intelligence
 **Que sont les concours Cortana Intelligence ?**
@@ -70,7 +69,7 @@ La plateforme de concours ne prend actuellement pas en charge la participation e
 
 La participation aux concours est gratuite. Toutefois, vous devez avoir accès à un espace de travail Microsoft Azure Machine Learning pour pouvoir participer. Vous pouvez créer un espace de travail gratuit sans carte de crédit en vous connectant simplement avec un compte Microsoft valide ou un compte Office 365. Si vous êtes déjà client d’Azure ou de Cortana Intelligence Suite, vous pouvez créer et utiliser un espace de travail standard dans le même abonnement Azure. Si vous souhaitez acheter un abonnement Azure, accédez à la page de [tarification Azure](https://azure.microsoft.com/pricing). Notez que les tarifs standards s’appliquent lors de l’utilisation d’un espace de travail standard pour créer des expériences. Pour plus d’informations, consultez les [informations sur les tarifs Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 **Qu’est-ce que les scores publics et privés ?**
 

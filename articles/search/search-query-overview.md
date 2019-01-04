@@ -1,5 +1,5 @@
 ---
-title: Types et composition de requête dans Recherche Azure | Microsoft Docs
+title: Types et composition de requête - Recherche Azure
 description: Principes de base pour la création d’une requête de recherche dans Recherche Azure, avec utilisation de paramètres pour filtrer, sélectionner et trier les résultats.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.openlocfilehash: a1dad30148da9f6b322c75fd40dc01098c4d6b63
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.custom: seodec2018
+ms.openlocfilehash: 03ec588b1627b82a01021a9b71958e9d66aab0ce
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42140244"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315585"
 ---
 # <a name="query-types-and-composition-in-azure-search"></a>Types et composition de requête dans Recherche Azure
 

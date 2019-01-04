@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: raynew
-ms.openlocfilehash: 0b02ae4b75426b379ad7c124f5ddeb053c142ce6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 068b55e40afc96dbcfae26c8bf7da8a1b9ea349a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730292"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249769"
 ---
 # <a name="migrate-machines-after-assessment"></a>Migrer des machines après évaluation
 
@@ -19,6 +19,9 @@ ms.locfileid: "45730292"
 [Azure Migrate](migrate-overview.md) évalue les machines locales pour vérifier si elles sont adaptées à la migration vers Azure, puis fournit des estimations de dimensionnement et de coût d’exécution de chaque machine dans Azure. Dans le cadre d’une migration, Azure Migrate se contente d’évaluer les machines. La migration proprement dite est effectuée à l’aide d’autres services Azure.
 
 Cet article décrit comment obtenir des suggestions d’outil de migration, une fois que vous avez exécuté une évaluation de la migration.
+
+> [!NOTE]
+> La suggestion d’outil de migration n’est pas disponible dans Azure Government.
 
 ## <a name="migration-tool-suggestion"></a>Suggestion d’outil de migration
 

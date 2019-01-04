@@ -6,37 +6,37 @@ manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-ms.assetid: d72848e2-4b65-4c84-94bc-e2a90a6e7f47
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: 1f37dcd14c1b3e85c3fae3bbf7aa67c16b8a898d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3eea59eba9fc1fc79a6f72a61860ee7e66a7df5b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249006"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994278"
 ---
 # <a name="input-metadata"></a>Métadonnées d'entrée
+
 Un travail d’encodage est associé à un élément multimédia d’entrée (ou plusieurs) sur lequel vous souhaitez effectuer des tâches d’encodage.  À l’achèvement d’une tâche, une ressource de sortie est générée.  L’élément multimédia de sortie contient la vidéo, l’audio, les miniatures, le manifeste, et ainsi de suite. Il contient également un fichier avec des métadonnées relatives à l’élément multimédia d’entrée. Le nom du fichier XML de métadonnées a le format suivant : &lt;asset_id&gt;_metadata.xml (par exemple, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), où &lt;asset_id&gt; est la valeur AssetId de l’élément multimédia d’entrée.  
+
+Media Services n’analyse pas préemptivement les éléments multimédia d’entrée pour générer des métadonnées. Les métadonnées d’entrée sont générées uniquement sous forme d’artefact lorsqu’un élément multimédia d’entrée est traité au sein d’un travail. Par conséquent, cet artefact est écrit dans l’élément multimédia de sortie. Différents outils sont utilisés pour générer les métadonnées pour les éléments multimédias d’entrée et de sortie. Ainsi, les métadonnées d’entrée présentent un schéma légèrement différent de celui des métadonnées de sortie.
 
 Si vous souhaitez examiner le fichier de métadonnées, vous pouvez créer un localisateur **SAS** et télécharger le fichier sur votre ordinateur local. Vous trouverez un exemple illustrant comment créer un localisateur SAS et télécharger un fichier dans la rubrique [Utilisation des extensions du SDK Media Services .NET](media-services-dotnet-get-started.md).  
 
 Cet article décrit les éléments et types du schéma XML sur lesquels les métadonnées d’entrée (&lt;asset_id&gt;_metadata.xml) sont basées.  Pour plus d’informations sur le fichier qui contient des métadonnées sur la ressource de sortie, consultez [Métadonnées de sortie](media-services-output-metadata-schema.md).  
 
-> [!NOTE]
-> Vous trouverez le [Code du schéma](media-services-input-metadata-schema.md#code) et un [exemple de XML](media-services-input-metadata-schema.md#xml) à la fin de cet article.  
-> 
-> 
+Vous trouverez le [Code du schéma](media-services-input-metadata-schema.md#code) et un [exemple de XML](media-services-input-metadata-schema.md#xml) à la fin de cet article.  
+ 
 
 ## <a name="AssetFiles"></a> Élément AssetFiles (élément racine)
 Contient une collection [d’éléments AssetFile](media-services-input-metadata-schema.md#AssetFile) pour le travail d’encodage.  
 
-Consultez l’exemple de XML à la fin de cet article : [Exemple de XML](media-services-input-metadata-schema.md#xml).  
+Consultez l’exemple XML à la fin de cet article : [Exemple XML](media-services-input-metadata-schema.md#xml).  
 
 | NOM | Description |
 | --- | --- |
@@ -45,18 +45,18 @@ Consultez l’exemple de XML à la fin de cet article : [Exemple de XML](media-s
 ## <a name="AssetFile"></a> Élément AssetFile
  Contient des attributs et des éléments qui décrivent une ressource.  
 
- Consultez l’exemple de XML à la fin de cet article : [Exemple de XML](media-services-input-metadata-schema.md#xml).  
+ Consultez l’exemple XML à la fin de cet article : [Exemple XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Attributs
 | NOM | type | Description |
 | --- | --- | --- |
 | **Nom**<br /><br /> Obligatoire |**xs:string** |Nom du fichier de ressource. |
 | **Taille**<br /><br /> Obligatoire |**xs:long** |Taille du fichier de ressource en octets. |
-| **Durée**<br /><br /> Obligatoire |**xs:duration** |Durée de lecture du contenu. Exemple : Duration="PT25M37.757S". |
+| **Durée**<br /><br /> Obligatoire |**xs:duration** |Durée de lecture du contenu. Exemple : Duration="PT25M37.757S". |
 | **NumberOfStreams**<br /><br /> Obligatoire |**xs:int** |Nombre de flux dans le fichier de ressource. |
 | **FormatNames**<br /><br /> Obligatoire |**xs: string** |Noms de format. |
 | **FormatVerboseNames**<br /><br /> Obligatoire |**xs: string** |Noms détaillés des formats. |
-| **StartTime** |**xs:duration** |Heure de début du contenu. Exemple : StartTime="PT2.669S". |
+| **StartTime** |**xs:duration** |Heure de début du contenu. Exemple : StartTime="PT2.669S". |
 | **OverallBitRate** |**xs: int** |Vitesse de transmission moyenne du fichier de ressource en kbit/s. |
 
 > [!NOTE]
@@ -73,7 +73,7 @@ Consultez l’exemple de XML à la fin de cet article : [Exemple de XML](media-s
 | **Métadonnées**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Les métadonnées du fichier de ressource représentées sous la forme de chaînes clé/valeur. Par exemple : <br /><br /> **&lt;Metadata key="language" value="eng" /&gt;** |
 
 ## <a name="TrackType"></a> TrackType
-Consultez l’exemple de XML à la fin de cet article : [Exemple de XML](media-services-input-metadata-schema.md#xml).  
+Consultez l’exemple XML à la fin de cet article : [Exemple XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Attributs
 | NOM | type | Description |
@@ -81,10 +81,10 @@ Consultez l’exemple de XML à la fin de cet article : [Exemple de XML](media-s
 | **Id**<br /><br /> Obligatoire |**xs:int** |Index de base zéro de cette piste audio ou vidéo.<br /><br /> Il ne s’agit pas nécessairement du trackid tel qu’utilisé dans un fichier MP4. |
 | **Codec** |**xs:string** |Chaîne de codec de la piste vidéo. |
 | **CodecLongName** |**xs: string** |Nom long du codec de piste audio ou vidéo. |
-| **TimeBase**<br /><br /> Obligatoire |**xs:string** |Période. Exemple : TimeBase="1/48000" |
+| **TimeBase**<br /><br /> Obligatoire |**xs:string** |Période. Exemple : TimeBase="1/48000" |
 | **NumberOfFrames** |**xs:int** |Nombre de trames (présent pour les pistes vidéo). |
 | **StartTime** |**xs: duration** |Suivre l’heure de début. Exemple : StartTime="PT2.669S" |
-| **Durée** |**xs:duration** |Durée de la piste. Exemple : Duration="PTSampleFormat M37.757S". |
+| **Durée** |**xs:duration** |Durée de la piste. Exemple : Duration="PTSampleFormat M37.757S". |
 
 > [!NOTE]
 > Les deux éléments enfants suivants doivent apparaître dans une séquence.  
@@ -102,7 +102,7 @@ Consultez l’exemple de XML à la fin de cet article : [Exemple de XML](media-s
 
  Le type représente une piste audio spécifique dans le fichier de ressource.  
 
- Consultez l’exemple de XML à la fin de cet article : [Exemple de XML](media-services-input-metadata-schema.md#xml).  
+ Consultez l’exemple XML à la fin de cet article : [Exemple XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Attributs
 | NOM | type | Description |
@@ -119,7 +119,7 @@ Consultez l’exemple de XML à la fin de cet article : [Exemple de XML](media-s
 
 Le type représente une piste vidéo spécifique dans le fichier de ressource.  
 
-Consultez l’exemple de XML à la fin de cet article : [Exemple de XML](media-services-input-metadata-schema.md#xml).  
+Consultez l’exemple XML à la fin de cet article : [Exemple XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Attributs
 | NOM | type | Description |
@@ -143,7 +143,7 @@ Consultez l’exemple de XML à la fin de cet article : [Exemple de XML](media-s
 ## <a name="MetadataType"></a> MetadataType
 **MetadataType** est un type complexe global qui décrit les métadonnées d’un fichier de ressource en tant que chaînes clé/valeur. Par exemple, key=”language”, et value=”eng”.  
 
-Consultez l’exemple de XML à la fin de cet article : [Exemple de XML](media-services-input-metadata-schema.md#xml).  
+Consultez l’exemple XML à la fin de cet article : [Exemple XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Attributs
 | NOM | type | Description |
@@ -167,7 +167,7 @@ Consultez l’exemple de XML à la fin de cet article : [Exemple de XML](media-s
 ## <a name="StreamDispositionType"></a> StreamDispositionType
 **StreamDispositionType** est un type complexe global qui décrit le flux de données.  
 
-Consultez l’exemple de XML à la fin de cet article : [Exemple de XML](media-services-input-metadata-schema.md#xml).  
+Consultez l’exemple XML à la fin de cet article : [Exemple XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Attributs
 | NOM | type | Description |
@@ -195,7 +195,7 @@ Consultez l’exemple de XML à la fin de cet article : [Exemple de XML](media-s
 ## <a name="VideoTracks"></a> Élément VideoTracks
  Élément wrapper contenant plusieurs éléments **VideoTrack**.  
 
- Consultez l’exemple de XML à la fin de cet article : [Exemple de XML](media-services-input-metadata-schema.md#xml).  
+ Consultez l’exemple XML à la fin de cet article : [Exemple XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Éléments enfants
 | NOM | type | Description |
@@ -205,7 +205,7 @@ Consultez l’exemple de XML à la fin de cet article : [Exemple de XML](media-s
 ## <a name="AudioTracks"></a> Élément AudioTracks
  Élément wrapper contenant plusieurs éléments **AudioTrack**.  
 
- Consultez l’exemple de XML à la fin de cet article : [Exemple de XML](media-services-input-metadata-schema.md#xml).  
+ Consultez l’exemple XML à la fin de cet article : [Exemple XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="elements"></a>elements
 | NOM | type | Description |

@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: ebbb12a6454a093ad0ac3b3cc30eb489eeef21ec
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 57e23c55342ee397ecb8590dd6da639ba766f351
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687212"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385429"
 ---
-# <a name="optimize-hive-queries-in-azure-hdinsight"></a>Optimisation des requêtes Hive dans Azure HDInsight
+# <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimiser les requêtes Apache Hive dans Azure HDInsight
 
 Dans Azure HDInsight, il existe plusieurs types de cluster et technologie qui peuvent exécuter des requêtes Apache Hive. Lorsque vous créez votre cluster HDInsight, choisissez le type de cluster approprié pour optimiser les performances en fonction de vos besoins de charge de travail. 
 
@@ -38,9 +38,9 @@ L’augmentation du nombre de nœuds de travail d’un cluster HDInsight permet 
 
 Pour plus d’informations sur la mise à l’échelle de HDInsight, consultez la rubrique [Mettre à l’échelle les clusters HDInsight](hdinsight-scaling-best-practices.md)
 
-## <a name="use-tez-instead-of-map-reduce"></a>Utilisez Tez à la place de MapReduce
+## <a name="use-apache-tez-instead-of-map-reduce"></a>Utilisez Apache Tez au lieu de MapReduce
 
-[Apache Tez](http://hortonworks.com/hadoop/tez/) est un moteur d’exécution représentant une alternative au moteur MapReduce. Tez est activé par défaut pour les clusters HDInsight basés sur Linux.
+[Apache Tez](https://hortonworks.com/hadoop/tez/) est un moteur d’exécution représentant une alternative au moteur MapReduce. Tez est activé par défaut pour les clusters HDInsight basés sur Linux.
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
@@ -52,7 +52,7 @@ Tez est plus rapide pour les raisons suivantes :
 * **Il réutilise les conteneurs**. Dès que possible, Tez peut réutiliser les conteneurs pour réduire la latence provoquée par le nombre de conteneurs au démarrage.
 * **Il utilise des techniques d’optimisation continue**. Généralement, l’optimisation est effectuée lors de la compilation. Cependant, des informations supplémentaires sur les entrées sont disponibles pour améliorer l’optimisation durant le démarrage. Tez utilise des techniques d’optimisation continue qui permettent d’améliorer le plan lors de la phase de runtime.
 
-Pour plus d’informations sur ces concepts, consultez [Apache TEZ](http://hortonworks.com/hadoop/tez/).
+Pour plus d’informations sur ces concepts, consultez [Apache TEZ](https://hortonworks.com/hadoop/tez/).
 
 Vous pouvez activer n’importe quelle requête Hive pour Tez en faisant précéder la requête de la commande définie suivante :
 
@@ -124,16 +124,16 @@ Pour plus d’informations, consultez [Tables partitionnées](https://cwiki.apac
 ## <a name="use-the-orcfile-format"></a>Utilisation du format ORCFile
 Hive prend en charge différents formats de fichier. Par exemple : 
 
-* **Texte**: format de fichier par défaut, qui fonctionne avec la plupart des scénarios
-* **Avro**: fonctionne correctement avec les scénarios d’interopérabilité
-* **ORC/Parquet**: adapté pour les performances
+* **Texte** : format de fichier par défaut, qui fonctionne avec la plupart des scénarios.
+* **Avro** : fonctionne bien avec les scénarios d’interopérabilité.
+* **ORC/Parquet** : adapté pour les performances.
 
 Le format ORC (Optimized Row Columnar) est un moyen très efficace pour stocker des données Hive. Par rapport aux autres formats, ORC présente les avantages suivants :
 
-* prise en charge des types complexes, notamment les types DateTime, ainsi que les types semi-structurés ;
-* jusqu’à 70 % de compression ;
-* création d’index toutes les 10 000 lignes, ce qui permet d’ignorer des lignes ;
-* baisse significative de l’exécution du démarrage.
+* prise en charge des types complexes, notamment les types DateTime, ainsi que les types complexes et semi-structurés.
+* jusqu’à 70 % de compression.
+* création d’index toutes les 10 000 lignes, ce qui permet d’ignorer des lignes.
+* baisse significative de l’exécution du runtime.
 
 Pour activer le format ORC, vous devez commencer par créer une table avec la clause *Stored as ORC*:
 
@@ -171,7 +171,7 @@ Ensuite, vous devez insérer des données dans la table ORC à partir de la tabl
     FROM lineitem;
    ```
    
-Vous pouvez en savoir plus sur le format ORC dans le [manuel du langage Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
+Vous trouverez plus d’informations sur le format ORC dans le [manuel du langage Apache Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
 
 ## <a name="vectorization"></a>Vectorisation
 
@@ -196,10 +196,10 @@ Vous pouvez envisager plusieurs autres méthodes d’optimisation, par exemple 
 Dans cet article, vous avez appris plusieurs méthodes d’optimisation courantes des requêtes. Pour en savoir plus, consultez les articles suivants :
 
 * [Utilisation d’Apache Hive dans HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analyse des données sur les retards de vol avec Hive dans HDInsight](hdinsight-analyze-flight-delay-data.md)
-* [Analyse des données Twitter avec Hive dans HDInsight](hdinsight-analyze-twitter-data.md)
-* [Analyse des données de capteur à l’aide de la console de requête Hive sur Hadoop dans HDInsight](hadoop/apache-hive-analyze-sensor-data.md)
-* [Utilisation de Hive avec HDInsight pour analyser les journaux de site web](hadoop/apache-hive-analyze-website-log.md)
+* [Analyser des données sur les retards des vols avec Apache Hive dans HDInsight](hdinsight-analyze-flight-delay-data.md)
+* [Analyser des données Twitter avec Apache Hive dans HDInsight](hdinsight-analyze-twitter-data.md)
+* [Analyser des données de capteur avec la console de requête Apache Hive sur Apache Hadoop dans HDInsight](hadoop/apache-hive-analyze-sensor-data.md)
+* [Utiliser Apache Hive avec HDInsight pour analyser les journaux provenant de sites web](hadoop/apache-hive-analyze-website-log.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

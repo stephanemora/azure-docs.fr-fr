@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 1e2492d978073f63c1c9494d652ec35a7d6565b7
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a0dad228f23b055d68009eb737e0347ade49e94b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274177"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968046"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Lier un ID partenaire à vos comptes Azure
 
@@ -28,11 +28,11 @@ Cette fonctionnalité est disponible dans une préversion publique.
 
 Avant de lier votre ID partenaire, votre client doit vous donner accès à ses ressources Azure en utilisant l’une des options suivantes :
 
-- **Utilisateur invité :** votre client peut vous ajouter en tant qu’utilisateur invité et attribuer des rôles RBAC. Pour plus d’informations, consultez [Ajouter des utilisateurs invités à partir d’un autre répertoire](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Utilisateur invité :** votre client peut vous ajouter en tant qu’utilisateur invité et attribuer des rôles RBAC. Pour plus d’informations, consultez [Ajouter des utilisateurs invités à partir d’un autre répertoire](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Compte de répertoire :** votre client peut créer un utilisateur à partir de votre entreprise dans son répertoire et affecter un rôle RBAC.
+- **Compte Active Directory :**  votre client peut créer un compte d’utilisateur pour vous dans son propre répertoire et affecter un rôle RBAC.
 
-- **Principal de service :** votre client peut ajouter une application ou un script de votre entreprise dans son répertoire et affecter un rôle RBAC. L’identité de l’application ou du script est celle de « principal de service ».
+- **Principal du service :**  votre client peut ajouter une application ou un script provenant de votre organisation dans son répertoire et affecter un rôle RBAC. L’identité de l’application ou du script est celle de « principal de service ».
 
 ## <a name="link-partner-id"></a>Lier un ID partenaire
 

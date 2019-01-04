@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 847794d46addc7f3cba09437c2d2c6e8a3a04e89
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: bf13ca603927c85784e446157a79cd96fb70ca05
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165422"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956976"
 ---
-# <a name="translator-text-api-30-translate"></a>API de traduction de texte Translator Text 3.0 : Translate
+# <a name="translator-text-api-30-translate"></a>API de traduction de texte Translator Text 3.0 : Translate
 
 Traduit du texte.
 
@@ -42,11 +42,11 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
   </tr>
   <tr>
     <td>from</td>
-    <td>*Paramètre facultatif*.<br/>Spécifie la langue du texte d’entrée. Trouvez les langues disponibles pour la traduction en recherchant [langues prises en charge](.\v3-0-languages.md) à l’aide de l’étendue `translation`. Si le paramètre `from` n’est pas spécifié, une détection automatique de la langue est appliquée pour déterminer la langue source.</td>
+    <td>*Paramètre facultatif*.<br/>Spécifie la langue du texte d’entrée. Trouvez les langues disponibles pour la traduction en recherchant [langues prises en charge](./v3-0-languages.md) à l’aide de l’étendue `translation`. Si le paramètre `from` n’est pas spécifié, une détection automatique de la langue est appliquée pour déterminer la langue source.</td>
   </tr>
   <tr>
     <td>to</td>
-    <td>*Paramètre obligatoire*.<br/>Spécifie la langue du texte de sortie. La langue cible doit être l’une des [langues prises en charge](.\v3-0-languages.md) incluses dans l’étendue `translation`. Par exemple, utilisez `to=de` pour traduire en allemand.<br/>Il est possible de traduire en plusieurs langues simultanément en répétant le paramètre dans la chaîne de requête. Par exemple, utilisez `to=de&to=it` pour traduire en allemand et italien.</td>
+    <td>*Paramètre obligatoire*.<br/>Spécifie la langue du texte de sortie. La langue cible doit être l’une des [langues prises en charge](./v3-0-languages.md) incluses dans l’étendue `translation`. Par exemple, utilisez `to=de` pour traduire en allemand.<br/>Il est possible de traduire en plusieurs langues simultanément en répétant le paramètre dans la chaîne de requête. Par exemple, utilisez `to=de&to=it` pour traduire en allemand et italien.</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -133,39 +133,39 @@ Les limites suivantes s'appliquent :
 
 Une réponse correcte est un tableau JSON avec un résultat pour chaque chaîne dans le tableau d’entrée. Un objet de résultat inclut les propriétés suivantes :
 
-  * `detectedLanguage` : objet décrivant la langue détectée via les propriétés suivantes :
+  * `detectedLanguage`: objet décrivant la langue détectée au moyen des propriétés suivantes :
 
-      * `language` : chaîne représentant le code de la langue détectée.
+      * `language`: chaîne représentant le code de la langue détectée.
 
-      * `score` : valeur flottante indiquant le niveau de confiance dans le résultat. Le score est compris entre zéro et un, un score faible indiquant un niveau de confiance bas.
+      * `score`: valeur flottante indiquant le niveau de confiance dans le résultat. Le score est compris entre zéro et un, un score faible indiquant un niveau de confiance bas.
 
     La propriété `detectedLanguage` n’est présente dans l’objet de résultat que quand la détection automatique de la langue est demandée.
 
-  * `translations` : tableau des résultats de la traduction. La taille du tableau correspond au nombre de langues cibles spécifié par le paramètre de requête `to`. Chaque élément dans le tableau inclut ce qui suit :
+  * `translations`: tableau des résultats de la traduction. La taille du tableau correspond au nombre de langues cibles spécifié par le paramètre de requête `to`. Chaque élément dans le tableau inclut ce qui suit :
 
-    * `to` : chaîne représentant le code de langue de la langue cible.
+    * `to`: chaîne représentant le code de langue de la langue cible.
 
-    * `text` : chaîne fournissant le texte traduit.
+    * `text`: chaîne fournissant le texte traduit.
 
-    * `transliteration` : objet fournissant le texte traduit dans le script spécifié par le paramètre `toScript`.
+    * `transliteration`: objet fournissant le texte traduit dans le script spécifié par le paramètre `toScript`.
 
-      * `script` : chaîne spécifiant le script cible.   
+      * `script`: chaîne spécifiant le script cible.   
 
-      * `text` : chaîne fournissant le texte traduit dans le script cible.
+      * `text`: chaîne fournissant le texte traduit dans le script cible.
 
     L’objet `transliteration` n’est pas inclus si une translittération n’a pas lieu.
 
-    * `alignment` : objet avec une propriété de chaîne unique nommée `proj`, qui mappe le texte d’entrée au texte traduit. Les informations d’alignement ne sont fournies que quand le paramètre de requête `includeAlignment` est `true`. L’alignement est renvoyé en tant que valeur de chaîne au format suivant : `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  Le signe deux-points sépare les index de début et de fin, le signe tiret sépare les langues, et une espace sépare les mots. Un mot peut s’aligner avec zéro, un ou plusieurs mots dans l’autre langue, et les mots alignés peuvent ne pas être contigus. Quand aucune information d’alignement n’est disponible, l’élément d’alignement est vide. Pour obtenir un exemple et les restrictions, voir [Obtenir les informations d’alignement](#obtain-alignment-information).
+    * `alignment`: objet avec une propriété de chaîne unique nommée `proj`, qui mappe le texte d’entrée au texte traduit. Les informations d’alignement ne sont fournies que quand le paramètre de requête `includeAlignment` est `true`. L’alignement est renvoyé en tant que valeur de chaîne au format suivant : `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  Le signe deux-points sépare les index de début et de fin, le signe tiret sépare les langues, et une espace sépare les mots. Un mot peut s’aligner avec zéro, un ou plusieurs mots dans l’autre langue, et les mots alignés peuvent ne pas être contigus. Quand aucune information d’alignement n’est disponible, l’élément d’alignement est vide. Pour obtenir un exemple et les restrictions, voir [Obtenir les informations d’alignement](#obtain-alignment-information).
 
-    * `sentLen` : objet renvoyant les limites de longueur de phrase dans les textes d’entrée et de sortie.
+    * `sentLen`: objet retournant les limites de longueur de phrase dans les textes d’entrée et de sortie.
 
-      * `srcSentLen` : tableau d’entiers représentant les longueurs des phrases dans le texte d’entrée. La longueur du tableau correspond au nombre de phrases, et les valeurs sont les longueurs des phrases.
+      * `srcSentLen`: tableau d’entiers représentant les longueurs des phrases dans le texte d’entrée. La longueur du tableau correspond au nombre de phrases, et les valeurs sont les longueurs des phrases.
 
-      * `transSentLen` : tableau d’entiers représentant les longueurs des phrases dans le texte traduit. La longueur du tableau correspond au nombre de phrases, et les valeurs sont les longueurs des phrases.
+      * `transSentLen`:  tableau d’entiers représentant les longueurs des phrases dans le texte traduit. La longueur du tableau correspond au nombre de phrases, et les valeurs sont les longueurs des phrases.
 
     Les limites de longueur de phrase ne sont incluses que si le paramètre de requête `includeSentenceLength` est `true`.
 
-  * `sourceText` : objet avec une propriété de chaîne unique nommée `text`, qui fournit le texte d’entrée dans le script par défaut de la langue source. La propriété `sourceText` est présente uniquement quand l’entrée est exprimée dans un script qui n’est pas le script habituel pour la langue. Par exemple, si l’entrée est de l’arabe écrit dans un script latin, `sourceText.text` est le même texte en arabe converti en script arabe.
+  * `sourceText`: objet avec une propriété de chaîne unique nommée `text`, qui fournit le texte d’entrée dans le script par défaut de la langue source. La propriété `sourceText` est présente uniquement quand l’entrée est exprimée dans un script qui n’est pas le script habituel pour la langue. Par exemple, si l’entrée est de l’arabe écrit dans un script latin, `sourceText.text` est le même texte en arabe converti en script arabe.
 
 Des exemples de réponses JSON sont fournis dans la section [exemples](#examples).
 
@@ -377,14 +377,14 @@ Si vous souhaitez éviter toute vulgarité dans la traduction, indépendamment d
     <td>`NoAction`</td>
     <td>Il s’agit du comportement par défaut. La vulgarité de la source est reflétée dans la cible.<br/><br/>
     **Exemple de source (japonais)**  : 彼はジャッカスです。<br/>
-    **Exemple de traduction (anglais)**  : Il est un imbécile.
+    **Exemple de traduction (français)**  : Il est un imbécile.
     </td>
   </tr>
   <tr>
     <td>`Deleted`</td>
     <td>Les mots vulgaires sont retirés de la cible sans remplacement.<br/><br/>
     **Exemple de source (japonais)**  : 彼はジャッカスです。<br/>
-    **Exemple de traduction (anglais)**  : Il est un.
+    **Exemple de traduction (français)**  : C’est un.
     </td>
   </tr>
   <tr>
@@ -392,10 +392,10 @@ Si vous souhaitez éviter toute vulgarité dans la traduction, indépendamment d
     <td>Les mots vulgaires sont remplacés par un marqueur dans la sortie. Le marqueur varie selon le paramètre `ProfanityMarker`.<br/><br/>
 Pour `ProfanityMarker=Asterisk`, les mots vulgaires sont remplacés par `***` :<br/>
     **Exemple de source (japonais)**  : 彼はジャッカスです。<br/>
-    **Exemple de traduction (anglais)**  : il est un \*\*\*.<br/><br/>
+    **Exemple de traduction (français)**  : C’est un \*\*\*.<br/><br/>
 Pour `ProfanityMarker=Tag`, les mots vulgaires sont entourés de balises XML &lt;profanity&gt; et &lt;/profanity&gt; :<br/>
     **Exemple de source (japonais)**  : 彼はジャッカスです。<br/>
-    **Exemple de traduction (anglais)**  : il est un &lt;profanity&gt;imbécile&lt;/profanity&gt;.
+    **Exemple de traduction (français)**  : C’est un &lt;profanity&gt;con&lt;/profanity&gt;.
   </tr>
 </table> 
 

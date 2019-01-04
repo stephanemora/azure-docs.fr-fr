@@ -1,21 +1,22 @@
 ---
 title: Traduire une entrée vocale à l’aide du kit de développement logiciel (SDK) Speech pour C#
 titleSuffix: Azure Cognitive Services
-description: Montre comment traduire une entrée vocale à l’aide du kit de développement logiciel (SDK) Speech pour C#.
+description: Cet article comprend des exemples de code permettant de traduire une entrée vocale à l’aide du kit SDK Speech dans un environnement C#.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: b99b120056350977df0bc671abd29c2d76c7222d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 4846145f6a87ebf9255494fe18eaa11b1317653a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466696"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092262"
 ---
 # <a name="translate-speech-with-the-cognitive-services-speech-sdk-for-c"></a>Traduire une entrée vocale avec le kit de développement logiciel Cognitive Services Speech pour C#
 

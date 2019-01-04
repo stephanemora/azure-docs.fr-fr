@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 1d49403ec04b2ec35291869385c316cb5ab3b0da
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8b2f16f45be1d095e9be8042611de328af36f064
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044906"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724058"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gérer Azure Data Lake Analytics à l’aide du portail Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -33,7 +33,7 @@ Cet article décrit comment gérer des comptes, des sources de données, des uti
 2. Cliquez sur **Créer une ressource** > **Intelligence + analyse**  > **Data Lake Analytics**.
 3. Sélectionnez des valeurs pour les éléments suivants : 
    1. **Nom** : nom du compte Data Lake Analytics.
-   2. **Abonnement** : abonnement Azure utilisé pour le compte.
+   2. **Abonnement**: abonnement Azure utilisé pour le compte.
    3. **Groupe de ressources** : groupe de ressources Azure dans lequel créer le compte. 
    4. **Emplacement** : centre de données Azure pour le compte Data Lake Analytics. 
    5. **Data Lake Store** : Store par défaut à utiliser pour le compte Data Lake Analytics. Le compte Azure Data Lake Store et le compte Data Lake Analytics doivent se trouver dans le même emplacement.
@@ -99,8 +99,8 @@ Comme d’autres services Azure, vous pouvez utiliser le contrôle d’accès en
 
 Les rôles RBAC standard ont les fonctionnalités suivantes :
 * **Propriétaire** : peut envoyer des travaux, surveiller des travaux, annuler des travaux de n’importe quel utilisateur et configurer le compte.
-* **Contributeur** : peut envoyer des travaux, surveiller des travaux, annuler des travaux de n’importe quel utilisateur et configurer le compte.
-* **Lecteur** : peut surveiller des travaux.
+* **Collaborateur** : peut envoyer des travaux, surveiller des travaux, annuler des travaux de n’importe quel utilisateur et configurer le compte.
+* **Lecteur** : peut surveiller les travaux.
 
 Utilisez le rôle Développeur Data Lake Analytics pour permettre aux développeurs U-SQL d’utiliser le service Data Lake Analytics. Vous pouvez utiliser le rôle Développeur Data Lake Analytics pour les tâches suivantes :
 * Envoyer des travaux.
@@ -111,7 +111,7 @@ Utilisez le rôle Développeur Data Lake Analytics pour permettre aux développe
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Ajouter des utilisateurs ou des groupes de sécurité à un compte Data Lake Analytics
 
 1. Dans le portail Azure, accédez à votre compte Data Lake Analytics.
-2. Cliquez sur **Contrôle d’accès (IAM)** > **Ajouter**.
+2. Cliquez sur **Contrôle d’accès (IAM)** > **Ajouter une attribution de rôle**.
 3. Sélectionnez un rôle
 4. Ajoutez un utilisateur.
 5. Cliquez sur **OK**.
@@ -131,7 +131,7 @@ Utilisez le rôle Développeur Data Lake Analytics pour permettre aux développe
 
 2. Cliquez sur **Nouveau travail**. Pour chaque travail, configurez les éléments suivants :
 
-    1. **Nom du travail** : nom du travail.
+    1. **Nom du travail** : Nom du travail.
     2. **Priorité** : les nombres inférieurs ont une priorité supérieure. Si deux travaux sont en file d’attente, celui dont la valeur de la priorité est la plus faible s’exécute en premier.
     3. **Parallélisme** : nombre maximal de processus de calcul à réserver pour ce travail.
 

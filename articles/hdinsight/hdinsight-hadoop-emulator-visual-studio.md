@@ -2,23 +2,23 @@
 title: Data Lake Tools pour Visual Studio avec Hortonworks Sandbox - Azure HDInsight
 description: Apprenez à utiliser Data Lake Tools pour Visual Studio avec le bac à sable Hortonworks s’exécutant sur une machine virtuelle locale. Ces outils vous permettent de créer et d’exécuter des travaux Hive et Pig sur le bac à sable, ainsi que d’en afficher le résultat et l’historique.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: jasonh
-ms.openlocfilehash: c657048d22ca3bee6b41b7351d8fdc5bacdb44be
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: c2fd32ad15366c76c061ba42fa0a59d43a317b43
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106292"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012757"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Utiliser Azure Data Lake Tools pour Visual Studio avec le Bac à sable (sandbox) Hortonworks
 
-Azure Data Lake inclut des outils permettant de travailler avec des clusters Hadoop génériques. Ce document décrit les étapes nécessaires pour utiliser Data Lake Tools avec le Bac à sable (sandbox) Hortonworks s’exécutant sur une machine virtuelle locale.
+Azure Data Lake inclut des outils permettant de travailler avec des clusters Apache Hadoop génériques. Ce document décrit les étapes nécessaires pour utiliser Data Lake Tools avec le Bac à sable (sandbox) Hortonworks s’exécutant sur une machine virtuelle locale.
 
 Hortonworks Sandbox permet de travailler avec Hadoop localement sur votre environnement de développement. Après avoir développé une solution, lorsque vous souhaitez la déployer à grande échelle, vous pouvez passer à un cluster HDInsight.
 
@@ -34,7 +34,7 @@ Hortonworks Sandbox permet de travailler avec Hadoop localement sur votre enviro
 
 ## <a name="configure-passwords-for-the-sandbox"></a>Configuration des mots de passe pour le bac à sable
 
-Assurez-vous que le Bac à sable (sandbox) Hortonworks est en cours d’exécution. Puis suivez les instructions décrites dans le document [Get started with the Hortonworks sandbox](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords) (Prise en main du bac à sable Hortonworks). Ces étapes permettent de configurer le mot de passe pour le compte SSH `root` et le compte Ambari `admin`. Ces mots de passe vous permettent de vous connecter au bac à sable à partir de Visual Studio.
+Assurez-vous que le Bac à sable (sandbox) Hortonworks est en cours d’exécution. Puis suivez les instructions décrites dans le document [Get started with the Hortonworks sandbox](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords) (Prise en main du bac à sable Hortonworks). Ces étapes permettent de configurer le mot de passe pour le compte SSH `root` et le compte Apache Ambari `admin`. Ces mots de passe vous permettent de vous connecter au bac à sable à partir de Visual Studio.
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>Connexion des outils au bac à sable
 
@@ -71,7 +71,7 @@ Assurez-vous que le Bac à sable (sandbox) Hortonworks est en cours d’exécuti
 
 Une fois ces étapes accomplies, une entrée **HDInsight local cluster** apparaît dans la section **HDInsight** de l’Explorateur de serveurs.
 
-## <a name="write-a-hive-query"></a>Écriture d’une requête Hive
+## <a name="write-an-apache-hive-query"></a>Écrire une requête Apache Hive
 
 Hive fournit un langage de requête de type SQL (HiveQL) pour le traitement des données structurées. Suivez les instructions suivantes pour apprendre à exécuter des requêtes à la demande sur le cluster local.
 
@@ -100,7 +100,7 @@ Hive fournit un langage de requête de type SQL (HiveQL) pour le traitement des 
     Quand **État du travail** passe à **Terminé**, un graphe orienté acyclique (DAG) s’affiche. Ce diagramme décrit le chemin d’exécution déterminé par Tez lors du traitement de la requête Hive. Tez est le moteur d’exécution par défaut pour Hive sur le cluster local.
 
     > [!NOTE]
-    > Tez est également le moteur par défaut lorsque vous utilisez des clusters HDInsight basés sur Linux. Il n’est pas le moteur par défaut pour HDInsight basé sur Windows. Pour l’utiliser dans cette configuration, vous devez ajouter la ligne `set hive.execution.engine = tez;` au début de votre requête Hive.
+    > Apache Tez est également le moteur par défaut lorsque vous utilisez des clusters HDInsight basés sur Linux. Il n’est pas le moteur par défaut pour HDInsight basé sur Windows. Pour l’utiliser dans cette configuration, vous devez ajouter la ligne `set hive.execution.engine = tez;` au début de votre requête Hive.
 
     Utilisez le lien **Sortie de la tâche** pour afficher la sortie. En l’occurrence, il s’agit de 823, soit le nombre de lignes contenues dans la table sample_08. Vous pouvez afficher des informations de diagnostic sur la tâche à l’aide des liens **Journal de la tâche** et **Download YARN Log (Télécharger le journal YARN)**.
 
@@ -127,7 +127,7 @@ Vous pouvez également créer un projet qui contient plusieurs scripts Hive. Uti
 
 Le projet **Hive Sample (Exemple Hive)** contient deux scripts, **WebLogAnalysis.hql** et **SensorDataAnalysis.hql**. Vous pouvez les envoyer à l’aide du même bouton **Envoyer** en haut de la fenêtre.
 
-## <a name="create-a-pig-project"></a>Création d’un projet Pig
+## <a name="create-an-apache-pig-project"></a>Créer un projet Apache Pig
 
 Contrairement à Hive qui offre un langage de type SQL pour travailler avec des données structurées, Pig effectue des transformations sur les données. Pig fournit un langage (Pig Latin) permettant de développer un pipeline des transformations. Pour utiliser Pig avec le cluster local, procédez comme suit :
 
@@ -200,5 +200,5 @@ Vous pouvez ensuite créer la table à l’aide d’un formulaire. Au bas de la 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Se familiariser avec Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Didacticiel Hadoop - Prise en main de HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [Se familiariser avec Hortonworks Sandbox](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Didacticiel Apache Hadoop - Prise en main de HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

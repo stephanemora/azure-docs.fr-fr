@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: d86600dd000d3e9c71a38b632aa75e82239401dd
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 86b10d65ecaa52055244f3530f91c1cabbe219e0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104577"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435546"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix dans HDInsight
 
-[Apache Phoenix](http://phoenix.apache.org/) est une couche de base de données relationnelle massivement parallèle open source créée sur [HBase](hbase/apache-hbase-overview.md). Phoenix vous donne les moyens d’utiliser des requêtes de type SQL sur HBase. Phoenix utilise en dessous des pilotes JDBC pour permettre aux utilisateurs de créer, supprimer et modifier des tables SQL, index, vues et séquences, ainsi que des lignes d’upsert individuellement et en bloc. Phoenix utilise une compilation native noSQL au lieu de MapReduce pour compiler les requêtes, ce qui permet de créer des applications à faible latence sur HBase. Phoenix ajoute des co-processeurs pour prendre en charge le code fourni par le client en cours d’exécution dans l’espace d’adressage du serveur, en exécutant le code colocalisé avec les données. Cette approche réduit le transfert de données client/serveur.
+[Apache Phoenix](http://phoenix.apache.org/) est une couche de base de données relationnelle massivement parallèle open source basée sur [Apache HBase](hbase/apache-hbase-overview.md). Phoenix vous donne les moyens d’utiliser des requêtes de type SQL sur HBase. Phoenix utilise en dessous des pilotes JDBC pour permettre aux utilisateurs de créer, supprimer et modifier des tables SQL, index, vues et séquences, ainsi que des lignes d’upsert individuellement et en bloc. Phoenix utilise une compilation native noSQL au lieu de MapReduce pour compiler les requêtes, ce qui permet de créer des applications à faible latence sur HBase. Phoenix ajoute des co-processeurs pour prendre en charge le code fourni par le client en cours d’exécution dans l’espace d’adressage du serveur, en exécutant le code colocalisé avec les données. Cette approche réduit le transfert de données client/serveur.
 
-Apache Phoenix affiche des requêtes Big Data aux utilisateurs non-développeurs, qui peuvent recourir à une syntaxe de type SQL en lieu et place de la programmation. Phoenix est hautement optimisé pour HBase, contrairement à d’autres outils comme [Hive](hadoop/hdinsight-use-hive.md) et Spark SQL. Cela permet aux développeurs d’écrire des requêtes hautement performantes avec un volume de code bien moindre.
+Apache Phoenix affiche des requêtes Big Data aux utilisateurs non-développeurs, qui peuvent recourir à une syntaxe de type SQL en lieu et place de la programmation. Phoenix est hautement optimisé pour HBase, contrairement à d’autres outils comme [Hive](hadoop/hdinsight-use-hive.md) et Apache Spark SQL. Cela permet aux développeurs d’écrire des requêtes hautement performantes avec un volume de code bien moindre.
 <!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 Quand vous envoyez une requête SQL, Phoenix la compile en appels natifs HBase et exécute l’analyse (ou le plan) en parallèle à des fins d’optimisation. Grâce à cette couche d’abstraction, les développeurs n’ont pas à écrire de tâches MapReduce, et peuvent ainsi se concentrer sur la logique métier et le workflow de leur application vis-à-vis du stockage des Big Data de Phoenix.
@@ -122,7 +122,7 @@ CREATE TABLE Saltedweblogs (
     shippingamount DOUBLE NULL) SALT_BUCKETS=4;
 ```
 
-## <a name="enable-and-tune-phoenix-with-ambari"></a>Activer et paramétrer Phoenix avec Ambari
+## <a name="enable-and-tune-phoenix-with-apache-ambari"></a>Activer et paramétrer Phoenix avec Apache Ambari
 
 Un cluster HDInsight HBase comprend l’[interface utilisateur Ambari](hdinsight-hadoop-manage-ambari.md) permettant d’effectuer des modifications de configuration.
 

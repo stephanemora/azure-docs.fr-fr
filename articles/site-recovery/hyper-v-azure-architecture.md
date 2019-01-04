@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 23b12f5b0423f717e96ec1f59480f0175648c75f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: eb177852be273f1c9af06b1f9d85fbba4cc98567
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210650"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845475"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Architecture pour la récupération d’urgence de Hyper-V vers Azure
 
@@ -131,9 +131,9 @@ Si une erreur de réplication se produit, une nouvelle tentative intégrée est 
 Une fois votre infrastructure locale à nouveau opérationnelle, vous pouvez effectuer la restauration automatique. La restauration automatique s’effectue en trois étapes :
 
 1. Effectuez un basculement planifié depuis Azure vers le site local :
-    - **Minimiser le temps d’arrêt** : si vous utilisez cette option, Site Recovery synchronise les données avant le basculement. Il recherche les blocs de données changés et les télécharge sur le site local, sans que la machine virtuelle Azure soit arrêtée, ce qui réduit les interruptions de service. Quand vous spécifiez manuellement que le basculement doit avoir lieu, la machine virtuelle Azure est arrêtée, toutes les données différentielles finales sont copiées et le basculement démarre.
-    - **Téléchargement complet** : avec cette option, les données sont synchronisées pendant le basculement. Cette option télécharge la totalité du disque. L’opération est plus rapide, car aucune somme de contrôle n’est calculée, mais un temps d’arrêt a lieu. Utilisez cette option si vous avez exécuté les machines virtuelles Azure de réplication pendant un certain temps ou que la machine virtuelle locale a été supprimée.
-    - **Créer une machine virtuelle** : vous pouvez choisir d’effectuer une restauration automatique sur la même machine virtuelle ou sur une autre. Vous pouvez spécifier que Site Recovery doit créer la machine virtuelle si elle n’existe pas déjà.
+    - **Minimiser le temps d’arrêt** : si vous utilisez cette option, Site Recovery synchronise les données avant le basculement. Il recherche les blocs de données changés et les télécharge sur le site local, sans que la machine virtuelle Azure soit arrêtée, ce qui réduit les interruptions de service. Quand vous spécifiez manuellement que le basculement doit avoir lieu, la machine virtuelle Azure est arrêtée, toutes les données différentielles finales sont copiées et le basculement démarre.
+    - **Téléchargement complet** : avec cette option, les données sont synchronisées pendant le basculement. Cette option télécharge la totalité du disque. L’opération est plus rapide, car aucune somme de contrôle n’est calculée, mais un temps d’arrêt a lieu. Utilisez cette option si vous avez exécuté les machines virtuelles Azure de réplication pendant un certain temps ou que la machine virtuelle locale a été supprimée.
+    - **Créer une machine virtuelle** : Vous pouvez choisir d’effectuer une restauration automatique sur la même machine virtuelle ou sur une autre. Vous pouvez spécifier que Site Recovery doit créer la machine virtuelle si elle n’existe pas déjà.
 
 2. Une fois la synchronisation initiale terminée, vous procédez au basculement. Une fois celui-ci terminé, vous pouvez vous connecter à la machine virtuelle locale pour vérifier que tout fonctionne comme prévu. Dans le portail Azure, vous pouvez voir que les machines virtuelles Azure ont été arrêtées.
 3.  Ensuite, vous validez le basculement pour terminer, puis accédez à la charge de travail à partir de la machine virtuelle locale.

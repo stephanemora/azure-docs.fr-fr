@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 1069b7f9bdc0301f840e796f49fdb4031d297cf2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6040300b4cb569d0e78503d7e5a36507e79de67c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436238"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017438"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Didacticiel : Intégration d’Azure Active Directory à Predictix Assortment Planning
 
@@ -111,19 +111,21 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ![Informations d’authentification unique dans Domaine et URL Predictix Assortment Planning](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
+
     | |
     |--|--|
     | `https://<sub-domain>.ap.predictix.com/sso/request`|
     | `https://<sub-domain>.dev.ap.predictix.com/`|
 
     b. Dans la zone de texte **Identificateur**, entrez une URL au format suivant :
+    
     | |
     |--|--|
     | `https://<sub-domain>.ap.predictix.com`|
     | `https://<sub-domain>.dev.ap.predictix.com`|
     
     > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support Predictix Assortment Planning](http://www.infor.com/support). 
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support Predictix Assortment Planning](https://www.infor.com/support). 
  
 
 
@@ -139,10 +141,10 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configuration de Predictix Assortment Planning](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_configure.png) 
 
-1. Pour configurer l’authentification unique côté **Predictix Assortment Planning**, vous devez envoyer le **Certificat (Base64)** téléchargé, **l’ID d’entité SAML**, **l’URL du service d’authentification unique SAML** et **l’URL de déconnexion** à [l’équipe du support Predictix Assortment Planning](http://www.infor.com/support). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+1. Pour configurer l’authentification unique côté **Predictix Assortment Planning**, vous devez envoyer le **Certificat (Base64)** téléchargé, **l’ID d’entité SAML**, **l’URL du service d’authentification unique SAML** et **l’URL de déconnexion** à [l’équipe du support Predictix Assortment Planning](https://www.infor.com/support). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
@@ -179,7 +181,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-predictix-assortment-planning-test-user"></a>Créer un utilisateur de test Predictix Assortment Planning
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Predictix Assortment Planning. Pour ajouter des utilisateurs dans la plateforme Predictix Assortment Planning, contactez [l’équipe du support Predictix Assortment Planning](http://www.infor.com/contact/).
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Predictix Assortment Planning. Pour ajouter des utilisateurs dans la plateforme Predictix Assortment Planning, contactez [l’équipe du support Predictix Assortment Planning](https://www.infor.com/contact/).
  > [!NOTE]
  > Le titulaire du compte Azure Active Directory reçoit un e-mail contenant un lien à suivre pour confirmer son compte et l’activer.
 

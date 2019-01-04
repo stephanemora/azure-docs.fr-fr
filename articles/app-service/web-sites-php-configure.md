@@ -1,5 +1,5 @@
 ---
-title: Configurer PHP dans Azure App Service Web Apps
+title: Configurer le runtime PHP - Azure App Service
 description: Découvrez comment configurer l’installation PHP par défaut ou ajouter une installation PHP personnalisée pour Web Apps dans Azure App Service.
 services: app-service
 documentationcenter: php
@@ -13,22 +13,23 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 39c40482017ae0c0dedcfb1b65ff3767c4e45169
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.custom: seodec18
+ms.openlocfilehash: d5ad7b392029ae33ee7666b80edfe5b4b7555b41
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999186"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273190"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Configurer PHP dans Azure App Service Web Apps
 
 ## <a name="introduction"></a>Introduction
 
-Ce guide vous explique comment configurer le runtime PHP intégré pour Web Apps dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), fournir un runtime PHP personnalisé et activer des extensions. Pour utiliser App Service, souscrivez à la [version d’évaluation gratuite]. Pour tirer le meilleur parti de ce guide, commencez par créer une application web PHP dans App Service.
+Ce guide vous explique comment configurer le runtime PHP intégré pour Web Apps dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714), fournir un runtime PHP personnalisé et activer des extensions. Pour utiliser App Service, souscrivez à la [version d’évaluation gratuite]. Pour tirer le meilleur parti de ce guide, commencez par créer une application web PHP dans App Service.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="how-to-change-the-built-in-php-version"></a>Modification de la version intégrée de PHP
+## <a name="how-to-change-the-built-in-php-version"></a>Activation Modifier la version intégrée de PHP
 
 Par défaut, PHP 5.6 est installé et immédiatement utilisable lorsque vous créez une application web App Service. Pour afficher la révision de version disponible, sa configuration par défaut et les extensions activées, la méthode idéale consiste à déployer un script qui appelle la fonction [phpinfo()] .
 
@@ -39,10 +40,10 @@ Les versions PHP 7.0 et PHP 7.2 sont également disponibles, mais ne sont pas ac
 1. Accédez à votre application web dans le [portail Azure](https://portal.azure.com), puis cliquez sur le bouton **Paramètres**.
 
     ![Paramètres d’application web][settings-button]
-1. Dans le panneau **Paramètres**, sélectionnez **Paramètres de l’application**, puis choisissez la nouvelle version de PHP.
+2. Dans le panneau **Paramètres**, sélectionnez **Paramètres de l’application**, puis choisissez la nouvelle version de PHP.
 
     ![Paramètres de l’application][application-settings]
-1. Cliquez sur le bouton **Enregistrer** en haut du panneau **Paramètres de l’application web**.
+3. Cliquez sur le bouton **Enregistrer** en haut du panneau **Paramètres de l’application web**.
 
     ![Enregistrer les paramètres de configuration][save-button]
 
@@ -78,7 +79,7 @@ Pour utiliser l’interface de ligne de commande Azure, vous devez [installer l�
 
         az webapp show --name {app-name} --resource-group {resource-group-name}
 
-## <a name="how-to-change-the-built-in-php-configurations"></a>Modification des configurations PHP intégrées
+## <a name="how-to-change-the-built-in-php-configurations"></a>Activation Modifier les configurations PHP intégrées
 
 Quel que soit le runtime PHP intégré, vous pouvez changer toute option de configuration en procédant comme indiqué dans ces étapes. (Pour plus d’informations sur les directives de php.ini, consultez la page [Liste des directives de php.ini].)
 
@@ -109,7 +110,7 @@ Au lieu d’un fichier `.user.ini`, vous pouvez utiliser la fonction [ini_set()]
         wincache.maxfilesize=512
 1. Pour recharger les modifications, redémarrez votre application web.
 
-## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Activation d’extensions dans le runtime PHP par défaut
+## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Activation Activer les extensions dans le runtime PHP par défaut
 
 Comme indiqué dans la section précédente, la méthode idéale pour afficher la version PHP par défaut, sa configuration par défaut et les extensions activées consiste à déployer un script qui appelle [phpinfo()]. Pour activer des extensions supplémentaires, effectuez les étapes suivantes :
 
@@ -144,11 +145,11 @@ Comme indiqué dans la section précédente, la méthode idéale pour afficher l
 
 Les extensions Zend sont également prises en charge à l’aide d’une clé **PHP_ZENDEXTENSIONS**. Pour activer plusieurs extensions, insérez une liste de fichiers `.dll` séparés par des virgules pour la valeur de paramètre d’application.
 
-## <a name="how-to-use-a-custom-php-runtime"></a>Utilisation d’un runtime PHP personnalisé
+## <a name="how-to-use-a-custom-php-runtime"></a>Activation Utiliser un runtime PHP personnalisé
 
 Au lieu du runtime PHP par défaut, App Service Web Apps peut utiliser un runtime PHP que vous fournissez pour exécuter des scripts PHP. Le runtime en question peut être configuré par un fichier `php.ini` que vous avez également déclaré. Pour utiliser un runtime PHP personnalisé avec Web Apps, effectuez les étapes suivantes.
 
-1. Obtenez une version de PHP pour Windows, compatible avec NTS (Non-Thread-Safe), VC9 ou VC11. Les versions récentes de PHP pour Windows sont disponibles à l’adresse suivante : [http://windows.php.net/download/]. Vous trouverez les versions plus anciennes dans l’archive ici : [http://windows.php.net/downloads/releases/archives/].
+1. Obtenez une version de PHP pour Windows, compatible avec NTS (Non-Thread-Safe), VC9 ou VC11. Les versions récentes de PHP pour Windows sont disponibles à l’adresse suivante : [https://windows.php.net/download/]. Vous trouverez les versions plus anciennes dans l’archive ici : [https://windows.php.net/downloads/releases/archives/].
 1. Modifiez le fichier `php.ini` de votre runtime. Tout paramètre de configuration correspondant à une directive de niveau système uniquement est ignoré par Web Apps. Pour plus d'informations sur les directives de niveau système uniquement, consultez la page [Liste des directives de php.ini].
 1. Vous pouvez éventuellement ajouter des extensions à votre runtime PHP et les activer dans le fichier `php.ini` .
 1. Ajoutez un répertoire `bin` à votre répertoire racine, puis placez-y le répertoire contenant votre runtime PHP (par exemple, `bin\php`).
@@ -165,7 +166,7 @@ Au lieu du runtime PHP par défaut, App Service Web Apps peut utiliser un runti
 
 <a name="composer" />
 
-## <a name="how-to-enable-composer-automation-in-azure"></a>Activation de l’automatisation du Compositeur dans Azure
+## <a name="how-to-enable-composer-automation-in-azure"></a>Activation Activer l’automatisation du Compositeur dans Azure
 
 Par défaut, App Service ne fait rien avec composer.json, si vous en avez un dans votre projet PHP. Si vous utilisez le [déploiement Git](app-service-deploy-local-git.md), vous pouvez activer le traitement de composer.json pendant `git push` en activant l’extension du Compositeur.
 
@@ -196,7 +197,7 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](https:/
 >
 
 [version d’évaluation gratuite]: https://www.windowsazure.com/pricing/free-trial/
-[phpinfo()]: http://php.net/manual/en/function.phpinfo.php
+[phpinfo()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [Liste des directives de php.ini]: http://www.php.net/manual/en/ini.list.php
 [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
@@ -206,8 +207,8 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](https:/
 [save-button]: ./media/web-sites-php-configure/save-button.png
 [php-extensions]: ./media/web-sites-php-configure/php-extensions.png
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
-[http://windows.php.net/download/]: http://windows.php.net/download/
-[http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
+[https://windows.php.net/download/]: https://windows.php.net/download/
+[https://windows.php.net/downloads/releases/archives/]: https://windows.php.net/downloads/releases/archives/
 [SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
 [GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png

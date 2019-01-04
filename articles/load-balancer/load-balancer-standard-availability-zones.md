@@ -1,12 +1,11 @@
 ---
-title: Référence Standard d’Azure Load Balancer et zones de disponibilité | Microsoft Docs
+title: Standard Load Balancer et zones de disponibilité Azure
+titlesuffix: Azure Load Balancer
 description: Référence Standard de Load Balancer et zones de disponibilité
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/08/2018
 ms.author: kumud
-ms.openlocfilehash: 1f34a9319b8bbfba3f4a6f7446f949fc576aa4fa
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: d157c331b633617bacfb5cc7254d188516f10ad7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869055"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187056"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Référence Standard de Load Balancer et zones de disponibilité
 
@@ -164,7 +163,7 @@ Pour traiter des machines virtuelles réparties dans plusieurs zones, placez-les
 
 ### <a name="outbound-connections"></a>Connexions sortantes
 
-Les [connexions sortantes](load-balancer-outbound-connections.md) sont servies par toutes les zones et sont automatiquement redondantes dans une zone dans une région qui a des zones de disponibilité quand une machine virtuelle est associée à un Load Balancer public et à un frontend redondant dans une zone.  Les allocations de port SNAT de connexion sortante survivent aux échecs de zone.  
+Les [connexions sortantes](load-balancer-outbound-connections.md) sont servies par toutes les zones et sont automatiquement redondantes interzone dans une région qui a des zones de disponibilité quand une machine virtuelle est associée à un Load Balancer public et à un frontend redondant interzone.  Les allocations de port SNAT de connexion sortante survivent aux échecs de zone.  
 
 À leur tour, si la machine virtuelle est associée à un Load Balancer public et à un frontend zonal, le service des connexions sortantes par une seule zone est garanti.  Les connexions sortantes partagent leur sort avec l’intégrité de la zone concernée.
 
@@ -205,7 +204,7 @@ Il est important de comprendre que dès lors qu’un service de bout en bout tra
   - Lorsqu’une zone est en échec, votre service de bout en bout le comprend-il et en cas de perte de l’état, comment allez-vous récupérer ?
   - Quand une zone est rétablie, votre application comprend-elle comment converger en toute sécurité ?
 
-### <a name="zonalityguidance"></a> Redondant dans une zone et zonal
+### <a name="zonalityguidance"></a> Redondant interzone et zonal
 
 La redondance interzone offre une option non spécifique d’une zone et en même temps résiliente avec une adresse IP unique pour le service.  À son tour, la complexité s’en retrouve réduite.  La redondance interzone permet également une mobilité entre les zones et peut s’utiliser sans risque sur les ressources de toute zone.  De plus, elle sera testée dans les régions sans zones de disponibilité, ce qui permettra de limiter les modifications nécessaires une fois qu’une région obtiendra réellement des zones de disponibilité.  La syntaxe de configuration d’une adresse IP ou d’un frontend redondants interzone réussit dans n’importe quelle région, y compris celles dépourvues de zones de disponibilité.
 

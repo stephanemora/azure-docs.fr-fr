@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec SanSan | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à SanSan | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SanSan.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: cc070f7c4cb201e68c93b0b1337982325df74663
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9e14f923b1e25f5fbc522cd39763ac53ddf37617
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051259"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872252"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Didacticiel : Intégration d’Azure Active Directory avec SanSan
+# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Tutoriel : Intégration d’Azure Active Directory à SanSan
 
 Dans ce didacticiel, vous allez apprendre à intégrer SanSan avec Azure Active Directory (Azure AD).
 
@@ -125,7 +125,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
      
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Configurer l'authentification unique](./media/sansan-tutorial/tutorial_sansan_certificate.png) 
+    ![Configure Single Sign-On](./media/sansan-tutorial/tutorial_sansan_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 

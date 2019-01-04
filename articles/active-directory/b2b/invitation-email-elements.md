@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: cbb81f62bcea43c3c30abff6b5f76e3a89347813
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8b6edcb70bca480ebe0d53c061c6461745f189e8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985394"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321287"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Éléments de l’e-mail d’invitation de collaboration B2B - Azure Active Directory
 
@@ -27,10 +27,10 @@ Les e-mails d’invitation sont un composant essentiel pour intégrer des parten
 Examinons quelques-uns des éléments de l’e-mail pour savoir comment utiliser au mieux ces fonctionnalités.
 
 ### <a name="subject"></a>Objet
-L’objet de l’email suit le modèle suivant : vous êtes invité à rejoindre l’organisation &lt;nom_locataire&gt;
+L’objet de l’e-mail suit le modèle suivant : vous êtes invité à l’organisation &lt;nom_tenant&gt;.
 
 ### <a name="from-address"></a>Adresse de l’expéditeur
-Nous utilisons un modèle similaire à LinkedIn pour l’adresse De.  Vous devez faire apparaître clairement qui est l’inviteur et à quelle entreprise il appartient, mais aussi indiquer que l’e-mail provient d’une adresse e-mail Microsoft. Le format est : &lt;nom d’affichage de l’inviteur&gt; de &lt;nom_locataire&gt; (par le biais de Microsoft)<invites@microsoft.com>
+Nous utilisons un modèle similaire à LinkedIn pour l’adresse De.  Vous devez faire apparaître clairement qui est l’inviteur et à quelle entreprise il appartient, mais aussi indiquer que l’e-mail provient d’une adresse e-mail Microsoft. Le format est le suivant : &lt;nom complet de l’inviteur&gt; de &lt;nom_tenant&gt; (par le biais de Microsoft)<invites@microsoft.com>.
 
 ### <a name="reply-to"></a>Adresse de réponse
 L’adresse e-mail de réponse est définie sur l’adresse e-mail de l’inviteur quand elle est disponible : ainsi, répondre à l’e-mail envoie un e-mail en retour à l’inviteur.
@@ -40,7 +40,7 @@ Les e-mails d’invitation de votre locataire utilisent la personnalisation d’
 
 ### <a name="call-to-action"></a>Invite à l’action
 L’invite à l’action se compose de deux parties : explication de la raison pour laquelle le destinataire a reçu l’e-mail et ce qu’il est demandé comme action au destinataire.
-- La section « Pourquoi » peut être formulée selon le modèle suivant : Vous avez été invité à accéder à des applications dans l’organisation &lt;nom_locataire&gt;
+- La section « Pourquoi » peut être gérée au format suivant : vous êtes invité à accéder aux applications de l’organisation &lt;nom_tenant&gt;.
 
 - Et la section « Ce qu’il vous est demandé de faire » est indiquée par la présence du bouton **Bien démarrer**. Quand le destinataire a été ajouté sans que des invitations soient nécessaires, ce bouton ne s’affiche pas.
 
@@ -52,7 +52,7 @@ Si vous n’avez pas encore configuré votre image de profil, une icône comport
   ![affichage des initiales de l’inviteur](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>body
-Le corps contient le message que l’inviteur a composé ou transmis par le biais de l’API d’invitation. Il s’agit d’une simple zone de texte qui ne traite pas les balises HTML pour des raisons de sécurité.
+Le corps contient le message composé par l’inviteur pour [inviter un utilisateur invité dans un répertoire, un groupe ou une application](add-users-administrator.md) ou [avec l’API d’invitation](customize-invitation-api.md). Il s’agit d’une simple zone de texte qui ne traite pas les balises HTML pour des raisons de sécurité.
 
 ### <a name="footer-section"></a>Section Pied de page
 Le pied de page contient la marque de la société Microsoft et permet au destinataire de savoir si l’e-mail a été envoyé à partir d’un alias non surveillé. Cas particuliers :

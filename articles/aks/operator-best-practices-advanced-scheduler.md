@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3fa2183a5bb3239059c349e8417aeb52553829cf
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 395b0cadf3ba3313a9a1304d9244f1fe72a8209c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430584"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016876"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives aux fonctionnalités avancées du planificateur dans Azure Kubernetes Service (AKS)
 
@@ -151,14 +151,14 @@ Pour plus d’informations, consultez [Affinité et anti-affinité][k8s-affinity
 
 Une dernière approche, employée par le planificateur Kubernetes pour isoler logiquement des charges de travail, consiste à utiliser l’affinité ou l’anti-affinité entre pods. Les paramètres définissent si *oui* ou *non* des pods peuvent être planifiés sur un nœud ayant un pod correspondant. Par défaut, le planificateur Kubernetes essaie de planifier plusieurs pods dans un jeu de réplicas sur les nœuds. Vous pouvez définir des règles plus spécifiques autour de ce comportement.
 
-Un bon exemple est une application web qui utilise également un cache Redis. Vous pouvez utiliser des règles d’anti-affinité de pod pour demander au planificateur Kubernetes de distribuer les réplicas sur les nœuds. Vous pouvez ensuite utiliser des règles d’affinité pour que chaque composant de l’application web soit planifié sur le même hôte qu’un cache correspondant. La distribution des pods sur les nœuds est similaire à celle de l’exemple suivant :
+Un bon exemple est une application web qui utilise également un Cache Azure pour Redis. Vous pouvez utiliser des règles d’anti-affinité de pod pour demander au planificateur Kubernetes de distribuer les réplicas sur les nœuds. Vous pouvez ensuite utiliser des règles d’affinité pour que chaque composant de l’application web soit planifié sur le même hôte qu’un cache correspondant. La distribution des pods sur les nœuds est similaire à celle de l’exemple suivant :
 
 | **Nœud 1** | **Nœud 2** | **Nœud 3** |
 |------------|------------|------------|
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-Cet exemple de déploiement plus complexe dépasse le cadre de l’utilisation des sélecteurs ou de l’affinité de nœud. Le déploiement vous permet de contrôler la façon dont Kubernetes planifie les pods sur les nœuds et dont il isole logiquement les ressources. Pour obtenir un exemple complet de cette application web avec un cache Redis, consultez [Colocaliser des pods sur le même nœud][k8s-pod-affinity].
+Cet exemple de déploiement plus complexe dépasse le cadre de l’utilisation des sélecteurs ou de l’affinité de nœud. Le déploiement vous permet de contrôler la façon dont Kubernetes planifie les pods sur les nœuds et dont il isole logiquement les ressources. Pour obtenir un exemple complet de cette application web avec un Cache Azure pour Redis, consultez [Colocaliser des pods sur le même nœud][k8s-pod-affinity].
 
 ## <a name="next-steps"></a>Étapes suivantes
 

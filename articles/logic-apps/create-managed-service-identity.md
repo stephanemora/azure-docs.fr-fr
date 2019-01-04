@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 10/05/2018
-ms.openlocfilehash: 84529e1097678ba7a039ffaeec57a9293c93dafd
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 19e6693de673eae6fe0b885580975c4cefc35d60
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229637"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725146"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>S’authentifier et accéder aux ressources avec des identités managées dans Azure Logic Apps
 
@@ -128,13 +128,13 @@ Pour que l’accès à une autre ressource Azure soit accordé à l’identité 
 
 1. Dans le Portail Azure, accédez à la ressource Azure pour laquelle vous souhaitez attribuer l’accès à votre identité managée. 
 
-1. Dans le menu des ressources, sélectionnez **Contrôle d’accès (IAM)** et choisissez **Ajouter**. 
+1. Dans le menu de la ressource, sélectionnez **Contrôle d’accès (IAM)**, puis choisissez **Ajouter une attribution de rôle**. 
 
-   ![Ajout d’autorisations](./media/create-managed-service-identity/add-permissions-logic-app.png)
+   ![Ajouter une attribution de rôle](./media/create-managed-service-identity/add-permissions-logic-app.png)
 
-1. Sous **Ajouter des autorisations**, sélectionnez le **Rôle** que vous souhaitez assigner à l’identité. 
+1. Sous **Ajouter une attribution de rôle**, sélectionnez le **Rôle** que vous voulez pour l’identité. 
 
-1. Dans la propriété **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou application AD Azure**, si tel n’est pas déjà le cas.
+1. Dans la propriété **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou application AD Azure**, s’il n’est pas déjà sélectionné.
 
 1. Dans la zone **Sélectionner**, entrez le nom de votre application logique en commençant par le premier caractère. Sélectionnez l’application logique lorsqu’elle s’affiche.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: eeaa0e9a940f16c2416418959c98cd17e4816afc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1a9034d7cbc276f35c5f01b06f6973553222d1c4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387631"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722375"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Compréhension de la configuration de la sauvegarde périodique dans Azure Service Fabric
 
@@ -45,7 +45,7 @@ Une stratégie de sauvegarde se compose des configurations suivantes :
 
 * **Planification de la sauvegarde** : heure ou fréquence auxquelles effectuer les sauvegardes périodiques. Il est possible de planifier des sauvegardes périodiques à intervalles définis ou à heure fixe chaque jour ou semaine.
 
-    1. **Planification de sauvegarde basée sur la fréquence** : ce type de planification doit être utilisé en cas de nécessité d’effectuer la sauvegarde à intervalles fixes. L’intervalle de temps souhaité entre deux sauvegardes consécutives est défini à l’aide du format ISO8601. La planification de sauvegarde basée sur la fréquence prend en charge une résolution d’intervalle jusqu’à une minute.
+    1. **Planification de sauvegarde basée sur la fréquence** : ce type de planification doit être utilisé si les sauvegardes doivent être effectuées à intervalles fixes. L’intervalle de temps souhaité entre deux sauvegardes consécutives est défini à l’aide du format ISO8601. La planification de sauvegarde basée sur la fréquence prend en charge une résolution d’intervalle jusqu’à une minute.
         ```json
         {
             "ScheduleKind": "FrequencyBased",
@@ -53,8 +53,8 @@ Une stratégie de sauvegarde se compose des configurations suivantes :
         }
         ```
 
-    2. **Planification de sauvegarde basée sur l’heure** : ce type de planification doit être utilisé en cas de nécessité d’effectuer la sauvegarde à des heures spécifiques dans la journée ou la semaine. La fréquence de planification peut être quotidienne ou hebdomadaire.
-        1. **_Quotidienne_ Planification de sauvegarde basée sur l’heure** : ce type de planification doit être utilisé en cas de nécessité d’effectuer la sauvegarde à des heures spécifiques dans la journée. Pour spécifier cela, définissez `ScheduleFrequencyType` sur _Quotidienne_, et `RunTimes` sur la liste des heures souhaitées pendant la journée au format ISO8601. La date spécifiée avec les heures sera ignorée. Par exemple, `0001-01-01T18:00:00` indique _06:00_ chaque jour, en ignorant la partie date _01-01-0001_. L’exemple ci-dessous illustre la configuration pour déclencher une sauvegarde quotidienne à _09:00_ et à _18:00_.
+    2. **Planification de sauvegarde basée sur l’heure** : ce type de planification doit être utilisé si les sauvegardes doivent être effectuées à des heures spécifiques dans la journée ou la semaine. La fréquence de planification peut être quotidienne ou hebdomadaire.
+        1. **_Quotidienne_ Planification de sauvegarde basée sur l’heure** : ce type de planification doit être utilisé si les sauvegardes doivent être effectuées à des heures spécifiques de la journée. Pour spécifier cela, définissez `ScheduleFrequencyType` sur _Quotidienne_, et `RunTimes` sur la liste des heures souhaitées pendant la journée au format ISO8601. La date spécifiée avec les heures sera ignorée. Par exemple, `0001-01-01T18:00:00` indique _06:00_ chaque jour, en ignorant la partie date _01-01-0001_. L’exemple ci-dessous illustre la configuration pour déclencher une sauvegarde quotidienne à _09:00_ et à _18:00_.
 
             ```json
             {
@@ -67,7 +67,7 @@ Une stratégie de sauvegarde se compose des configurations suivantes :
             }
             ```
 
-        2. **_Hebdomadaire_ Planification de sauvegarde basée sur l’heure** : ce type de planification doit être utilisé en cas de nécessité d’effectuer la sauvegarde à des heures spécifiques dans la journée. Pour spécifier cela, définissez `ScheduleFrequencyType` sur _Hebdomadaire_, et `RunDays` sur la liste des jours de la semaine durant lesquels une sauvegarde doit être déclenchée, et `RunTimes` sur la liste des heures souhaitées pendant la journée au format ISO8601. La date spécifiée avec les heures sera ignorée. Liste des jours de la semaine durant lesquels déclencher la sauvegarde périodique. L’exemple ci-dessous illustre la configuration pour déclencher une sauvegarde quotidienne à _09:00_ et à _18:00_, du lundi au vendredi.
+        2. **_Hebdomadaire_ Planification de sauvegarde basée sur l’heure** : ce type de planification doit être utilisé si les sauvegardes doivent être effectuées à des heures spécifiques dans la semaine. Pour spécifier cela, définissez `ScheduleFrequencyType` sur _Hebdomadaire_, et `RunDays` sur la liste des jours de la semaine durant lesquels une sauvegarde doit être déclenchée, et `RunTimes` sur la liste des heures souhaitées pendant la journée au format ISO8601. La date spécifiée avec les heures sera ignorée. Liste des jours de la semaine durant lesquels déclencher la sauvegarde périodique. L’exemple ci-dessous illustre la configuration pour déclencher une sauvegarde quotidienne à _09:00_ et à _18:00_, du lundi au vendredi.
 
             ```json
             {
@@ -88,7 +88,7 @@ Une stratégie de sauvegarde se compose des configurations suivantes :
             ```
 
 * **Stockage de sauvegarde** : spécifie l’emplacement où charger les sauvegardes. Le stockage peut être un stockage d’objets blob Azure ou un partage de fichiers.
-    1. **Stockage d’objets blob Azure** : ce type de stockage doit être sélectionné en cas de nécessité de stocker les sauvegardes générées dans Azure. Des clusters _autonomes_ et _basés sur Azure_ peuvent utiliser ce type de stockage. La description de ce type de stockage nécessite une chaîne de connexion et le nom du conteneur dans lequel les sauvegardes doivent être chargées. Si le conteneur du nom spécifié n’est pas disponible, il est créé lors du chargement de la sauvegarde.
+    1. **Stockage Blob Azure** : ce type de stockage doit être sélectionné si les sauvegardes générées dans Azure doivent être stockées. Des clusters _autonomes_ et _basés sur Azure_ peuvent utiliser ce type de stockage. La description de ce type de stockage nécessite une chaîne de connexion et le nom du conteneur dans lequel les sauvegardes doivent être chargées. Si le conteneur du nom spécifié n’est pas disponible, il est créé lors du chargement de la sauvegarde.
         ```json
         {
             "StorageKind": "AzureBlobStore",
@@ -98,7 +98,7 @@ Une stratégie de sauvegarde se compose des configurations suivantes :
         }
         ```
 
-    2. **Partage de fichiers** : ce type de stockage doit être sélectionné pour les clusters _autonome_ en cas de nécessité de stocker la sauvegarde de données localement. La description de ce type de stockage requiert la spécification du chemin du partage de fichiers dans lequel les sauvegardes doivent être chargées. L’accès au partage de fichiers peut être configuré à l’aide d’une des options suivantes
+    2. **Partage de fichiers** : ce type de stockage doit être sélectionné pour les clusters _autonomes_ si la sauvegarde de données doit être stockée localement. La description de ce type de stockage requiert la spécification du chemin du partage de fichiers dans lequel les sauvegardes doivent être chargées. L’accès au partage de fichiers peut être configuré à l’aide d’une des options suivantes
         1. _Authentification Windows intégrée_ : le partage de fichiers est accessible à tous les ordinateurs appartenant au cluster Service Fabric. Dans ce cas, définissez les champs suivants pour configurer un stockage de sauvegarde basé sur un _partage de fichiers_.
 
             ```json
@@ -110,6 +110,7 @@ Une stratégie de sauvegarde se compose des configurations suivantes :
             ```
 
         2. _Protection du partage de fichiers à l’aide d’un nom d’utilisateur et d’un mot de passe_ : le partage de fichiers est accessible à des utilisateurs spécifiques. La spécification du stockage du partage de fichiers offre également la possibilité de spécifier un nom d’utilisateur et un mot de passe secondaires pour fournir des informations d’identification de secours en cas d’échec de l’authentification avec le nom d’utilisateur et le mot de passe principaux. Dans ce cas, définissez les champs suivants pour configurer un stockage de sauvegarde basé sur un _partage de fichiers_.
+
             ```json
             {
                 "StorageKind": "FileShare",
@@ -125,6 +126,17 @@ Une stratégie de sauvegarde se compose des configurations suivantes :
 > [!NOTE]
 > Assurez-vous que la fiabilité du stockage correspond au minimum aux exigences de fiabilité des données de sauvegarde.
 >
+
+* **Stratégie de conservation** : spécifie la stratégie permettant de conserver les sauvegardes dans le stockage configuré. Seule la stratégie de conservation de base est prise en charge.
+    1. **Stratégie de conservation de base** : cette stratégie de conservation permet de garantir une utilisation optimale du stockage en supprimant les fichiers de sauvegarde qui ne sont plus obligatoires. `RetentionDuration` peut être spécifié pour définir l’intervalle de temps pendant lequel les sauvegardes doivent être conservées dans le stockage. `MinimumNumberOfBackups` est un paramètre facultatif qui peut être spécifié pour vous assurer que le nombre spécifié de sauvegardes sont toujours conservées, indépendamment de `RetentionDuration`. L’exemple ci-dessous illustre la configuration de la conservation des sauvegardes pendant _10_ jours et n’autorise pas le nombre de sauvegardes à descendre en dessous de _20_.
+
+        ```json
+        {
+            "RetentionPolicyType": "Basic",
+            "RetentionDuration" : "P10D",
+            "MinimumNumberOfBackups": 20
+        }
+        ```
 
 ## <a name="enable-periodic-backup"></a>Activer la sauvegarde périodique
 Après définition d’une stratégie de sauvegarde répondant aux exigences de sauvegarde de données, cette stratégie doit être correctement associée à une _application_, à un _service_ ou à une _partition_.
@@ -179,6 +191,13 @@ Les stratégies de sauvegarde peuvent être désactivées quand il n’est pas n
 
 * La désactivation d’une stratégie de sauvegarde pour une _partition_ arrête toute sauvegarde périodique des données se produisant en raison de la stratégie de sauvegarde définie au niveau de la partition.
 
+* Lors de la désactivation de la sauvegarde d’une entité (application/service/partition), `CleanBackup` peut être défini sur _true_ pour supprimer toutes les sauvegardes dans le stockage configuré.
+    ```json
+    {
+        "CleanBackup": true 
+    }
+    ```
+
 ## <a name="suspend--resume-backup"></a>Suspendre et reprendre une sauvegarde
 Certaines situations peuvent exiger une suspension temporaire de la sauvegarde périodique des données. Dans ce cas, selon l’exigence, l’API Suspendre la sauvegarde peut être utilisée au niveau d’une _application_, d’un _service_ ou d’une _partition_. La suspension d’une sauvegarde périodique est transitive vers la sous-arborescence de la hiérarchie de l’application à partir du point où elle est appliquée. 
 
@@ -218,11 +237,11 @@ Ces API prennent également en charge la pagination des résultats. Quand le par
 
 Voici de brèves informations sur les variantes prises en charge.
 
-- [Obtenir la liste des sauvegardes de l’application](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist) : retourne la liste des sauvegardes disponibles pour chaque partition appartenant à une application Service Fabric donnée.
+- [Obtenir la liste des sauvegardes d’application](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist) : retourne la liste des sauvegardes disponibles pour chaque partition appartenant à une application Service Fabric donnée.
 
-- [Obtenir la liste des sauvegardes du service](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist) : retourne la liste des sauvegardes disponibles pour chaque partition appartenant à un service Service Fabric donné.
+- [Obtenir la liste des sauvegardes de service](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist) : retourne la liste des sauvegardes disponibles pour chaque partition appartenant à un service Service Fabric donné.
  
-- [Obtenir la liste des sauvegardes de la partition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist) : retourne la liste des sauvegardes disponibles pour la partition spécifiée.
+- [Obtenir la liste des sauvegardes de partition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist) : retourne la liste des sauvegardes disponibles pour la partition spécifiée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Informations de référence sur l’API REST de sauvegarde et restauration](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)

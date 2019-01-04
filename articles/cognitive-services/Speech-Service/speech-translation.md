@@ -1,21 +1,22 @@
 ---
-title: À propos de la traduction vocale
+title: À propos de la traduction vocale - Services Speech
 titlesuffix: Azure Cognitive Services
-description: Vue d’ensemble des fonctionnalités de traduction vocale
+description: L’API du service Speech vous permet d’ajouter une traduction de bout en bout, en temps réel et multilingue de la parole à vos applications, outils et appareils. La même API peut être utilisée pour la traduction de parole en parole et de parole en texte.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: af363a45ab113d89c7aad7a38c6e10d335bc6035
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 9d94105377597ca8e79cc43ed0903371e185d510
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469133"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086706"
 ---
 # <a name="about-the-speech-translation-api"></a>À propos de l’API Traduction vocale
 

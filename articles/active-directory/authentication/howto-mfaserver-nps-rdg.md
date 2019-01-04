@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 99ed74a9664fbeeb65d90e51d0afcd97dd0b0ca0
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 67c9cc5b46b7567674b3d0bf99bd85ab321c6bd3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346490"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277164"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS
 
@@ -30,6 +30,9 @@ Installez le serveur Multi-Factor Authentication sur un serveur distinct, qui en
 - Un serveur Azure MFA joint à un domaine. Si vous n’en avez pas déjà installé un, suivez les étapes décrites dans [Prise en main du serveur Azure Multi-Factor Authentication](howto-mfaserver-deploy.md).
 - Un serveur NPS configuré.
 - Une passerelle Bureau à distance qui s’authentifie avec les services de stratégie réseau.
+
+> [!NOTE]
+> Cet article doit être utilisé avec des déploiements MFA Server uniquement, et non Azure MFA (service basé sur le cloud).
 
 ## <a name="configure-the-remote-desktop-gateway"></a>Configurer la passerelle Bureau à distance
 Configurez la passerelle RD pour envoyer l’authentification RADIUS à un serveur Azure Multi-Factor Authentication. 

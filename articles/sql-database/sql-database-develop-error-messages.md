@@ -13,14 +13,14 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/31/2018
-ms.openlocfilehash: 71a23e982f1e4ae5609d4f9a160cd1861e043ea1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 00fe4e109df2ac8954e657a1a567842ec5eb7d37
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251813"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317455"
 ---
-# <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codes d’erreur SQL pour les applications clientes SQL Database : erreurs de connexion de base de données et autres problèmes
+# <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codes d’erreur SQL pour les applications clientes SQL Database : erreurs de connexion de base de données et autres problèmes
 
 Cet article répertorie les codes d’erreur SQL pour les applications clientes SQL Database, y compris les erreurs de connexion de base de données, les erreurs temporaires, les erreurs de gouvernance des ressources, les problèmes de copie de base de données, le pool élastique et d’autres erreurs. La plupart des catégories sont spécifiques à Azure SQL Database et ne s'appliquent pas à Microsoft SQL Server. Voir aussi [Messages d’erreur système](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx).
 
@@ -35,9 +35,9 @@ Il est fortement recommandé que votre programme client possède une logique de 
 Les erreurs temporaires se manifestent généralement comme l'un des messages d'erreur suivants à partir de vos programmes clients :
 
 * La base de données &lt;db_name&gt; sur le serveur &lt;Azure_instance&gt; n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l’ID de suivi de session &lt;session_id&gt;.
-* La base de données &lt;db_name&gt; sur le serveur &lt;Azure_instance&gt; n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l’ID de suivi de session &lt;session_id&gt;. (Microsoft SQL Server, erreur : 40613)
+* La base de données &lt;db_name&gt; sur le serveur &lt;Azure_instance&gt; n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l’ID de suivi de session &lt;session_id&gt;. (Microsoft SQL Server, erreur : 40613)
 * Une connexion existante a été fermée de force par l'hôte distant.
-* System.Data.Entity.Core.EntityCommandExecutionException: Une erreur s'est produite lors de l'exécution de la définition de la commande. Consultez l'exception interne pour plus d'informations. ---> System.Data.SqlClient.SqlException: Une erreur de niveau transport s'est produite lors de la réception des résultats à partir du serveur. (fournisseur : fournisseur de session, erreur : 19 - connexion physique non utilisable)
+* System.Data.Entity.Core.EntityCommandExecutionException : Une erreur s’est produite lors de la définition de la commande. Consultez l'exception interne pour plus d'informations. ---> System.Data.SqlClient.SqlException : Une erreur de niveau transport s’est produite lors de la réception des résultats à partir du serveur. (fournisseur : Fournisseur de session, erreur : 19 - connexion physique inutilisable)
 * Une tentative de connexion à une base de données secondaire a échoué car la base de données est en cours de reconfiguration et qu’elle est occupée à appliquer de nouvelles pages tout en gérant une transaction active sur la base de données primaire. 
 
 Pour obtenir des exemples de code de logique de nouvelle tentative, voir :
@@ -90,12 +90,12 @@ Les erreurs suivantes sont causées par une utilisation excessive des ressources
 
 Rubriques connexes :
 
-* Des informations plus détaillées sont disponibles ici : [Limites de ressources d’Azure SQL Database](sql-database-service-tiers-dtu.md).
+* Des informations plus détaillées sont disponibles ici : [Limites de ressources d’Azure SQL Database](sql-database-service-tiers-dtu.md).
 
 | Code d'erreur | Severity | Description |
 | ---:| ---:|:--- |
-| 10928 |20 |ID de la ressource : %d. %d, la limite %s de la base de données a été atteinte. Pour plus d’informations, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>Pour en savoir plus sur cette erreur et sa résolution, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |ID de la ressource : %d. La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour plus d’informations, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637). Sinon, réessayez plus tard.<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>Pour en savoir plus sur cette erreur et sa résolution, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |ID de la ressource : %d. %d, la limite %s de la base de données a été atteinte. Pour en savoir plus, consultez [Limites de ressources de SQL Database pour les bases de données uniques et regroupées](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>Pour en savoir plus sur cette erreur et sa résolution, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |ID de la ressource : %d. La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour en savoir plus, consultez [Limites de ressources de SQL Database pour les bases de données uniques et regroupées](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server). Sinon, réessayez plus tard.<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>Pour en savoir plus sur cette erreur et sa résolution, consultez :<br/>• [Limites de ressources de base de données SQL Azure](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |La base de données a atteint son quota de taille. Partitionnez ou supprimez des données, supprimez des index ou consultez la documentation pour connaître les résolutions possibles. |
 | 40549 |16 |La session est arrêtée, car l’une des transactions est de longue durée. Essayez de la raccourcir. |
 | 40550 |16 |La session a été arrêtée, car elle a acquis trop de verrous. Essayez de lire ou de modifier moins de lignes dans une transaction unique. |
@@ -109,7 +109,7 @@ Les erreurs suivantes sont liées à la création et à l’utilisation de pools
 | Code d'erreur | Severity | Description | Action corrective |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |Le pool élastique a atteint sa limite de stockage. Le taux d’utilisation du stockage pour le pool élastique ne doit pas dépasser (%d) Mo. Tentative d’écriture de données dans une base de données alors que la limite de stockage du pool élastique a été atteinte. |Envisagez si possible d’augmenter le nombre de DTU du pool élastique ou d’ajouter de la capacité de stockage à ce dernier afin d’accroître sa limite de stockage. Vous pouvez aussi réduire l’espace de stockage utilisé par les bases de données individuelles qu’il contient ou supprimer certaines de ses bases de données. |
-| 10929 | 16 |La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour obtenir de l’aide, consultez [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637). Sinon, réessayez plus tard. Nombre minimal de DTU/vCore par base de données ; nombre maximal de DTU/vCore par base de données. Le nombre total d’ouvriers simultanés (demandes) dans toutes les bases de données du pool élastique a failli dépasser la limite du pool. |Envisagez si possible d’augmenter le nombre de DTU ou de vCore du pool élastique afin d’accroître sa limite de rôles de travail, ou supprimez des bases de données du pool élastique. |
+| 10929 | 16 |La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Voir [Limites de ressources de SQL Database pour les bases de données uniques et regroupées](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server) pour obtenir de l’aide. Sinon, réessayez plus tard. Nombre minimal de DTU/vCore par base de données ; nombre maximal de DTU/vCore par base de données. Le nombre total d’ouvriers simultanés (demandes) dans toutes les bases de données du pool élastique a failli dépasser la limite du pool. |Envisagez si possible d’augmenter le nombre de DTU ou de vCore du pool élastique afin d’accroître sa limite de rôles de travail, ou supprimez des bases de données du pool élastique. |
 | 40844 | 16 |La base de données '%ls' sur le serveur '%ls' est une base de données présentant l’édition '%ls' dans un pool élastique. Elle ne peut pas présenter de relation de copie continue.  |N/A |
 | 40857 | 16 |Pool élastique introuvable pour le serveur : '%ls'. Nom du pool élastique: '%ls'. Le pool élastique spécifié n’existe pas sur le serveur spécifié. | Indiquez un nom de pool élastique valide. |
 | 40858 | 16 |Le pool élastique '%ls' existe déjà sur le serveur : '%ls'. Le pool élastique spécifié existe déjà sur le serveur logique spécifié. | Saisissez un nouveau nom pour le pool élastique. |

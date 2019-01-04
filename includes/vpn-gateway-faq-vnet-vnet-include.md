@@ -5,29 +5,29 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 04/05/2018
+ms.date: 12/03/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 66ff1e2e02728e05cb0aeedce90de1882a8804ce
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: 72ddd0b6cd6c3e12417d3698c403f89312b531f4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "30921306"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111818"
 ---
-Le FAQ relatif aux connexions de réseau virtuel à réseau virtuel s’applique aux connexions de passerelle VPN. Si vous recherchez des informations sur l’homologation de réseaux virtuels, voir [Homologation de réseaux virtuels](../articles/virtual-network/virtual-network-peering-overview.md).
+Le FAQ relatif aux connexions de réseau virtuel à réseau virtuel s’applique aux connexions de passerelle VPN. Pour plus d’informations sur l’homologation de réseaux virtuels, voir [Homologation de réseaux virtuels](../articles/virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="does-azure-charge-for-traffic-between-vnets"></a>Le trafic entre réseaux virtuels est-il facturé par Azure ?
 
-Lorsque vous utilisez une connexion de passerelle VPN, le trafic de réseau virtuel à réseau virtuel au sein d’une même région est gratuit dans les deux sens. Le trafic de réseau virtuel à réseau virtuel de sortie entre différentes régions est facturé au tarif du transfert de données sortantes entre réseaux virtuels en fonction des régions sources. Pour plus d’informations, consultez la [page sur la tarification de passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/). Si vous vous connectez à vos réseaux virtuels à l’aide de l’homologation de réseaux virtuels, plutôt qu’à l’aide de passerelles VPN, consultez la [page sur la tarification de réseau virtuel](https://azure.microsoft.com/pricing/details/virtual-network/).
+Lorsque vous utilisez une connexion de passerelle VPN, le trafic de réseau virtuel à réseau virtuel au sein d’une même région est gratuit dans les deux sens. Le trafic de réseau virtuel à réseau virtuel de sortie entre différentes régions est facturé au tarif du transfert de données sortantes entre réseaux virtuels en fonction des régions sources. Pour plus d’informations, consultez [la page Tarification Passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/). Si vous vous connectez vos réseaux virtuels à l’aide de l’homologation de réseaux virtuels, plutôt qu’à l’aide d’une passerelle VPN, consultez la [tarification de réseau virtuel](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### <a name="does-vnet-to-vnet-traffic-travel-across-the-internet"></a>Le trafic de réseau virtuel à réseau virtuel transite-t-il sur Internet ?
 
-Non. Le trafic de réseau virtuel à réseau virtuel transite sur la dorsale principale de Microsoft Azure, et non sur Internet.
+ Non. Le trafic de réseau virtuel à réseau virtuel transite sur la dorsale principale de Microsoft Azure, et non sur Internet.
 
-### <a name="can-i-establish-a-vnet-to-vnet-connection-across-aad-tenants"></a>Puis-je établir une connexion de réseau virtuel à réseau virtuel sur des abonnés Azure Active Directory ?
+### <a name="can-i-establish-a-vnet-to-vnet-connection-across-azure-active-directory-aad-tenants"></a>Puis-je établir une connexion de réseau virtuel à réseau virtuel sur des locataires Azure Active Directory (AAD) ?
 
-Oui, les connexions de réseau virtuel à réseau virtuel avec des passerelles VPN Azure fonctionnent sur des abonnées Azure Active Directory.
+Oui, les connexions de réseau virtuel à réseau virtuel avec des passerelles VPN Azure fonctionnent sur des locataires Azure Active Directory (AAD).
 
 ### <a name="is-vnet-to-vnet-traffic-secure"></a>Le trafic de réseau virtuel à réseau virtuel est-il sécurisé ?
 
@@ -35,19 +35,19 @@ Oui, il est protégé par le chiffrement IPsec/IKE.
 
 ### <a name="do-i-need-a-vpn-device-to-connect-vnets-together"></a>Ai-je besoin d’un périphérique VPN pour interconnecter des réseaux virtuels ?
 
-Non. L’interconnexion de plusieurs réseaux virtuels Azure ne requiert pas de périphérique VPN, sauf si une connectivité intersite est nécessaire.
+ Non. L’interconnexion de plusieurs réseaux virtuels Azure ne requiert pas de périphérique VPN, sauf si une connectivité intersite est nécessaire.
 
 ### <a name="do-my-vnets-need-to-be-in-the-same-region"></a>Mes réseaux virtuels doivent-ils se trouver dans la même région ?
 
-Non. Les réseaux virtuels peuvent être situés dans des régions (emplacements) identiques ou différentes.
+ Non. Les réseaux virtuels peuvent être situés dans des régions (emplacements) identiques ou différentes.
 
-### <a name="if-the-vnets-are-not-in-the-same-subscription-do-the-subscriptions-need-to-be-associated-with-the-same-ad-tenant"></a>Si les réseaux virtuels ne figurent pas dans le même abonnement, les abonnements doivent-ils être associés au même locataire Active Directory ?
+### <a name="if-the-vnets-arent-in-the-same-subscription-do-the-subscriptions-need-to-be-associated-with-the-same-active-directory-tenant"></a>Si les réseaux virtuels ne figurent pas dans le même abonnement, les abonnements doivent-ils être associés au même locataire Active Directory ?
 
-Non.
+ Non.
 
 ### <a name="can-i-use-vnet-to-vnet-to-connect-virtual-networks-in-separate-azure-instances"></a>Puis-je utiliser la connexion de réseau virtuel à réseau virtuel pour connecter des réseaux virtuels dans des instances Azure séparées ? 
 
-Non. La connexion de réseau virtuel à réseau virtuel prend en charge la connexion de réseaux virtuels au sein de la même instance Azure. Par exemple, vous ne pouvez pas créer une connexion entre une instance Azure publique et les instances Azure du gouvernement chinois, allemand ou américain. Pour ces scénarios, envisagez l’utilisation d’une connexion VPN de site à site.
+ Non. La connexion de réseau virtuel à réseau virtuel prend en charge la connexion de réseaux virtuels au sein de la même instance Azure. Par exemple, vous ne pouvez pas créer une connexion entre une instance Azure générale et les instances Azure du gouvernement chinois, allemand ou américain. Pour ces scénarios, envisagez l’utilisation d’une connexion VPN de site à site.
 
 ### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>Puis-je utiliser une connexion de réseau virtuel à réseau virtuel en plus de connexions multisites ?
 
@@ -59,15 +59,15 @@ Consultez le tableau [Conditions requises de la passerelle](../articles/vpn-gate
 
 ### <a name="can-i-use-vnet-to-vnet-to-connect-vms-or-cloud-services-outside-of-a-vnet"></a>Puis-je utiliser une connexion de réseau virtuel à réseau virtuel pour connecter des machines virtuelles ou des services cloud en dehors d’un réseau virtuel ?
 
-Non. La connexion de réseau virtuel à réseau virtuel prend en charge la connexion de réseaux virtuels. Elle ne prend pas en charge la connexion de machines virtuelles ou de services cloud qui ne se trouvent pas dans un réseau virtuel.
+ Non. La connexion de réseau virtuel à réseau virtuel prend en charge la connexion de réseaux virtuels. Elle ne prend pas en charge la connexion de machines virtuelles ou de services cloud qui ne se trouvent pas dans un réseau virtuel.
 
 ### <a name="can-a-cloud-service-or-a-load-balancing-endpoint-span-vnets"></a>Un service cloud ou un point de terminaison d’équilibrage de charge peut-il s’étendre sur différents réseaux virtuels ?
 
-Non. Un service cloud ou un point de terminaison d’équilibrage de charge ne peut pas s’étendre sur différents réseaux virtuels, même si ces derniers sont interconnectés.
+ Non. Un service cloud ou un point de terminaison d’équilibrage de charge ne peut pas s’étendre sur différents réseaux virtuels, même si ces derniers sont interconnectés.
 
-### <a name="can-i-used-a-policybased-vpn-type-for-vnet-to-vnet-or-multi-site-connections"></a>Puis-je utiliser un type de réseau VPN basé sur des stratégies pour les connexions de réseau virtuel à réseau virtuel ou multisites ?
+### <a name="can-i-use-a-policybased-vpn-type-for-vnet-to-vnet-or-multi-site-connections"></a>Puis-je utiliser un type de réseau VPN basé sur des stratégies pour les connexions de réseau virtuel à réseau virtuel ou multisites ?
 
-Non. Les connexions de réseau virtuel à réseau virtuel et multisites nécessitent des passerelles VPN Azure avec des types de VPN basés sur des itinéraires (dits auparavant de routage dynamique).
+ Non. Les connexions de réseau virtuel à réseau virtuel et multisites nécessitent des passerelles VPN Azure avec des types de VPN basés sur des itinéraires (dits auparavant de routage dynamique).
 
 ### <a name="can-i-connect-a-vnet-with-a-routebased-vpn-type-to-another-vnet-with-a-policybased-vpn-type"></a>Puis-je connecter un réseau virtuel avec un type de réseau VPN basé sur des itinéraires à un autre réseau virtuel avec un type de réseau VPN basé sur des stratégies ?
 
@@ -83,11 +83,11 @@ Les tunnels redondants entre deux réseaux virtuels sont pris en charge lorsqu�
 
 ### <a name="can-i-have-overlapping-address-spaces-for-vnet-to-vnet-configurations"></a>Des espaces d’adressage peuvent-ils se chevaucher pour les configurations de réseau virtuel à réseau virtuel ?
 
-Non. Il ne peut pas y avoir de chevauchement entre des plages d’adresses IP.
+ Non. Il ne peut pas y avoir de chevauchement entre des plages d’adresses IP.
 
 ### <a name="can-there-be-overlapping-address-spaces-among-connected-virtual-networks-and-on-premises-local-sites"></a>Des espaces d’adressage peuvent-ils se chevaucher entre les réseaux virtuels connectés et les sites locaux ?
 
-Non. Il ne peut pas y avoir de chevauchement entre des plages d’adresses IP.
+ Non. Il ne peut pas y avoir de chevauchement entre des plages d’adresses IP.
 
 
 

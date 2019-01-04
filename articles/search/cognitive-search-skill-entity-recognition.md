@@ -1,5 +1,5 @@
 ---
-title: Compétence Reconnaissance d’entités de la recherche cognitive (Recherche Azure) | Microsoft Docs
+title: Compétence Reconnaissance d’entités de la recherche cognitive - Recherche Azure
 description: Extrayez les différents types d’entités du texte dans un pipeline de recherche cognitive dans Recherche Azure.
 services: search
 manager: pablocas
@@ -10,19 +10,23 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: 7599ab7eb7a6ff247548d988c57bdc6c501a5a6b
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: 9745934891cd7ba99fa821377318e38134b7d2a5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447587"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311862"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Compétence cognitive Reconnaissance d’entités
 
 La compétence **Reconnaissance d’entités** extrait les entités de différents types du texte. 
 
 > [!NOTE]
-> La recherche cognitive est disponible en version préliminaire publique. L’exécution d’ensemble de compétences, ainsi que l’extraction et la normalisation d’images, sont actuellement proposées gratuitement. Le prix de ces fonctionnalités sera annoncé à une date ultérieure. 
+> À compter du 21 décembre 2018, vous pouvez associer une ressource Cognitive Services à un ensemble de qualifications Recherche Azure. Cela nous permet de commencer la facturation pour l’exécution des ensembles de qualifications. Ce jour-là, nous commencerons également à facturer l’extraction d’images dans le cadre de notre étape de décodage de documents. L’extraction de texte à partir de documents continuera d’être offerte sans frais supplémentaires.
+>
+> L’exécution des compétences intégrées sera facturée au prix actuel du [paiement à l’utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les tarifs de l’extraction d’images sont ceux de la préversion. Ils sont décrits dans la page [Tarification de Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400). En savoir [plus](cognitive-search-attach-cognitive-services.md).
+
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.EntityRecognitionSkill
@@ -51,7 +55,7 @@ Les paramètres respectent la casse et sont tous facultatifs.
 
 ## <a name="skill-outputs"></a>Sorties de la compétence
 
-**Remarque** : toutes les catégories d’entités ne sont pas prises en charge pour toutes les langues.
+**REMARQUE** : toutes les catégories d’entités ne sont pas prises en charge pour toutes les langues.
 Uniquement _en_, _es_ prennent en charge l’extraction des types `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`.
 
 | Nom de sortie     | Description                   |

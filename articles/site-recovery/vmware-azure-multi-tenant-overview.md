@@ -1,22 +1,20 @@
 ---
-title: Vue d’ensemble de la prise en charge de l’architecture multilocataire pour la réplication de machines virtuelles VMware sur Azure (CSP) à l’aide d’Azure Site Recovery | Microsoft Docs
-description: Fournit une vue d’ensemble de la prise en charge d’Azure Site Recovery pour les abonnements de locataire dans un environnement multilocataires, via le programme CSP.
-services: site-recovery
+title: Vue d’ensemble de la prise en charge de l’architecture multilocataire pour la reprise d’activité de machines virtuelles VMware sur Azure (CSP) à l’aide d’Azure Site Recovery | Microsoft Docs
+description: Offre une vue d’ensemble de la prise en charge d’Azure Site Recovery pour la reprise d’activité de VMware sur Azure dans un programme d’environnement multilocataire (CSP).
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 4cd0c3baf385a864e2173de9bbce897bb5066dae
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 07274269e9902a336181c89ee5c02edd52b6ab01
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352869"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849494"
 ---
-# <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>Prise en charge de l’architecture multilocataire pour la réplication de VMware vers Azure avec CSP
+# <a name="overview-of-multi-tenant-support-for-vmware-fisaster-recovery-to-azure-with-csp"></a>Vue d’ensemble de la prise en charge de l’architecture multilocataire pour la reprise d’activité de VMware sur Azure avec CSP
 
 [Azure Site Recovery](site-recovery-overview.md) prend en charge les environnements multilocataires pour les abonnements de locataire. Il prend également en charge une architecture multilocataire pour les abonnements de locataire qui sont créés et gérés via le programme Fournisseur de solutions cloud (CSP) Microsoft.
 
@@ -26,11 +24,11 @@ Cet article offre une vue d’ensemble de l’implémentation et de la gestion d
 
 Il existe trois modèles multilocataires principaux :
 
-* **Fournisseur de services d’hébergement partagé (HSP)** : le partenaire possède l’infrastructure physique et utilise des ressources partagées (vCenter, centres de données, stockage physique, etc.) pour héberger les machines virtuelles de plusieurs locataires sur la même infrastructure. Le partenaire peut fournir la gestion de la récupération d’urgence en tant que service géré, ou le locataire peut disposer de la récupération d’urgence en tant que solution en libre-service.
+* **Fournisseur de services d’hébergement partagé (HSP)**  : le partenaire possède l’infrastructure physique et utilise des ressources partagées (vCenter, centres de données, stockage physique, etc.) pour héberger les machines virtuelles de plusieurs locataires sur la même infrastructure. Le partenaire peut fournir la gestion de la récupération d’urgence en tant que service géré, ou le locataire peut disposer de la récupération d’urgence en tant que solution en libre-service.
 
 * **Fournisseur de services d’hébergement dédié** : le partenaire possède l’infrastructure physique mais utilise des ressources dédiées (plusieurs vCenter, magasins de données physiques, etc.) pour héberger les machines virtuelles de chaque locataire sur une infrastructure distincte. Le partenaire peut fournir la gestion de la récupération d’urgence en tant que service géré, ou le locataire peut en disposer en tant que solution en libre-service.
 
-* **Fournisseur de services gérés (MSP)** : le client possède l’infrastructure physique qui héberge les machines virtuelles, et le partenaire réalise l’activation et la gestion de la récupération d’urgence.
+* **Fournisseur de services gérés (MSP)**  : le client possède l’infrastructure physique qui héberge les machines virtuelles, et le partenaire réalise l’activation et la gestion de la reprise d’activité.
 
 ## <a name="shared-hosting-services-provider-hsp"></a>Fournisseur de services d’hébergement partagé (HSP)
 
@@ -58,9 +56,9 @@ Un serveur de traitement non à l’échelle distinct est également contrôlé 
 
 Dans le scénario multilocataire, chaque serveur de configuration utilise deux comptes :
 
-- **Compte d’accès vCenter** : ce compte est utilisé pour découvrir les machines virtuelles du locataire. Des autorisations d’accès vCenter lui sont associées. Afin d’éviter les fuites d’accès, nous recommandons aux partenaires d’entrer eux-mêmes ces informations d’identification dans l’outil de configuration.
+- **Compte d’accès vCenter** : ce compte est utilisé pour découvrir les machines virtuelles du locataire. Des autorisations d’accès vCenter lui sont associées. Afin d’éviter les fuites d’accès, nous recommandons aux partenaires d’entrer eux-mêmes ces informations d’identification dans l’outil de configuration.
 
-- **Compte d’accès de machine virtuelle** : ce compte est utilisé pour installer l’agent du service Mobilité sur les machines virtuelles du locataire, à l’aide d’une transmission automatique. Il s’agit généralement d’un compte de domaine qu’un locataire peut fournir à un partenaire ou un compte que le partenaire peut gérer directement. Si un locataire ne souhaite pas partager directement ses informations avec le partenaire, il peut entrer ses informations d’identification grâce à un accès limité au serveur de configuration. Avec l’aide du partenaire, il peut également l’agent du service Mobilité manuellement.
+- **Compte d’accès de machine virtuelle** : ce compte est utilisé pour installer l’agent du service Mobilité sur les machines virtuelles du locataire, à l’aide d’une transmission automatique. Il s’agit généralement d’un compte de domaine qu’un locataire peut fournir à un partenaire ou un compte que le partenaire peut gérer directement. Si un locataire ne souhaite pas partager directement ses informations avec le partenaire, il peut entrer ses informations d’identification grâce à un accès limité au serveur de configuration. Avec l’aide du partenaire, il peut également l’agent du service Mobilité manuellement.
 
 ## <a name="vcenter-account-requirements"></a>Conditions requises pour le compte vCenter
 
@@ -77,11 +75,11 @@ Configurez le serveur de configuration avec un compte auquel un rôle spécial a
 1. Créez un nouveau rôle en clonant le rôle prédéfini *Lecture seule*, puis donnez-lui un nom pratique (tel que Azure_Site_Recovery comme indiqué dans cet exemple).
 2. Attribuez les autorisations suivantes à ce rôle :
 
-    * **Banque de données** : Allouer de l’espace, Parcourir la banque de données, Opérations de fichier de bas niveau, Supprimer le fichier, Mettre à jour les fichiers de machine virtuelle
-    * **Réseau** : Attribution de réseau
-    * **Ressource** : Affecter les machines virtuelles au pool de ressources, Migrer des machines virtuelles hors tension, Migrer des machines virtuelles sous tension
-    * **Tâches** : Créer une tâche, Mettre à jour une tâche
-    * **Machine virtuelle - Configuration** : Tout
+    * **Banque de données** : Allouer de l’espace, Parcourir la banque de données, Opérations de fichier de bas niveau, Supprimer le fichier, Mettre à jour les fichiers de machine virtuelle
+    * **Réseau** : Attribution de réseau
+    * **Ressource** : Affecter les machines virtuelles au pool de ressources, Migrer des machines virtuelles hors tension, Migrer des machines virtuelles sous tension
+    * **Tâches** : Créer une tâche, Mettre à jour une tâche
+    * **Machine virtuelle - Configuration** : Tous
     - **Machine virtuelle - Interagir** > Répondre à la question, Connexion d’appareil, Configurer un support de CD, Configurer une disquette, Mettre hors tension, Mettre sous tension, Installation des outils VMware
     - **Machine virtuelle - Inventaire** > Créer à partir d’un existant, Créer, S’inscrire, Annuler l’inscription
     - **Machine virtuelle - Approvisionnement** > Autoriser le téléchargement de machines virtuelles, Autoriser le chargement de fichiers de machine virtuelle

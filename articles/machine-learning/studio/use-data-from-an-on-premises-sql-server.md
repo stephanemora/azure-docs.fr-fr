@@ -1,12 +1,11 @@
 ---
-title: Serveur SQL Server local avec Azure Machine Learning Studio | Microsoft Docs
+title: Serveur SQL Server local – Azure Machine Learning Studio | Microsoft Docs
 description: Utilisez les données d’une base de données SQL Server locale pour effectuer des analyses avancées avec Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 08e4610d-02b6-4071-aad7-a2340ad8e2ea
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: d28c39ef909cffdc1ed907e05b60e61f02353710
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dccea7c5d7967af2e81ab4728704a5a104a007b5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310954"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269276"
 ---
-# <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Effectuer des analyses avancées avec Azure Machine Learning en utilisant les données d’une base de données SQL Server locale
+# <a name="perform-analytics-with-azure-machine-learning-studio-using-an-on-premises-sql-server-database"></a>Effectuer des analyses avec Azure Machine Learning Studio à l’aide d’une base de données SQL Server locale
 
 Souvent, les entreprises qui travaillent avec des données locales souhaitent tirer parti de l’échelle et de l’agilité du cloud pour leurs charges de travail d’apprentissage automatique. Mais elles ne souhaitent pas perturber leurs processus métier et leurs flux de travail actuels en déplaçant leurs données locales vers le cloud. Azure Machine Learning prend désormais en charge la lecture de vos données à partir d’une base de données SQL Server locale, puis l’apprentissage et l’évaluation d’un modèle avec ces données. Vous n’avez plus à copier et à synchroniser manuellement les données entre le cloud et votre serveur local. Au lieu de cela, le module **Importer des données** dans Azure Machine Learning Studio peut maintenant lire directement dans votre base de données SQL Server locale pour vos travaux d’apprentissage et d’évaluation.
 
@@ -36,7 +35,7 @@ Cet article fournit une vue d’ensemble de l’intégration de données SQL Ser
 
 <!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>Installer le runtime d’intégration auto-hébergé Data Factory
 Pour accéder à une base de données SQL Server locale dans Azure Machine Learning, vous devez télécharger et installer le runtime d'intégration auto-hébergé Data Factory, anciennement connu sous le nom de passerelle de gestion des données. Quand vous configurez la connexion dans Machine Learning Studio, vous avez la possibilité de télécharger et d’installer le runtime d'intégration à l’aide de la boîte de dialogue **Télécharger et inscrire la passerelle de données** décrite ci-dessous.

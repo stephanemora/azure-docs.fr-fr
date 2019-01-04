@@ -7,13 +7,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: 2b2dc3ba78cfa682c4a326754bdddfa9bc81f836
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 6694865909a165842f994501befa404e1bc0a447
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346255"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164379"
 ---
 # <a name="troubleshoot-input-connections"></a>Résoudre les problèmes liés aux connexions d’entrée
 
@@ -35,7 +36,7 @@ Les problèmes de désérialisation proviennent de la présence de messages inco
  
 Quand un travail Stream Analytics reçoit un message incorrectement formé d’une entrée, il dépose le message et vous envoie un avertissement. Un symbole d’avertissement s’affiche dans la vignette **Entrées** de votre travail Stream Analytics. Ce signe d’avertissement s’affiche tant que le travail est en cours d’exécution :
 
-![Vignette d’entrées Azure Stream Analytics](media/stream-analytics-malformed-events/inputs_tile.png)
+![Vignette d’entrées Azure Stream Analytics](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
 Activez les journaux de diagnostic pour afficher les détails de l’avertissement. Pour les événements d’entrée incorrectement formés, les journaux d’exécution contiennent une entrée avec un message semblable à celui-ci : 
 <code>Could not deserialize the input event(s) from resource <blob URI> as json.</code>
@@ -47,8 +48,8 @@ Vous pouvez effectuer les étapes suivantes pour analyser les événements d’e
 
 2. La vignette Détails de l’entrée affiche la liste des avertissements avec des informations détaillées sur chaque problème. L’exemple de message d’avertissement ci-dessous indique la partition, le décalage et les numéros de séquence où se trouvent des données JSON incorrectement formées. 
 
-   ![Message d’avertissement avec décalage](media/stream-analytics-malformed-events/warning_message_with_offset.png)
-
+   ![Message d’avertissement Stream Analytics avec décalage](media/stream-analytics-malformed-events/warning-message-with-offset.png)
+   
 3. Pour trouver les données JSON dont le format est incorrect, exécutez le code CheckMalformedEvents.cs disponible dans le [dépôt d’exemples GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Ce code lit l’ID de la partition et le décalage, puis imprime les données situées dans ce décalage. 
 
 4. Une fois que vous avez lu les données, vous pouvez analyser et corriger le format de sérialisation.
@@ -89,9 +90,9 @@ Si la syntaxe de votre requête de diffusion en continu référence plusieurs fo
 
 Voici les scénarios dans lesquels le nombre de lecteurs par partition dépasse la limite de 5 dans Event Hubs :
 
-* Plusieurs instructions SELECT : si vous utilisez plusieurs instructions SELECT qui font référence au **même** Event Hub d’entrée, chaque instruction SELECT entraîne la création d’un destinataire.
-* UNION : lorsque vous utilisez une opération UNION, il est possible d’avoir plusieurs entrées qui font référence aux **mêmes** Event Hub et groupe de consommateurs.
-* SELF JOIN : lorsque vous utilisez cette opération, il est possible de faire référence plusieurs fois au **même** Event Hub.
+* Plusieurs instructions SELECT : si vous utilisez plusieurs instructions SELECT qui font référence à la **même** entrée de hub d’événements, chaque instruction SELECT entraîne la création d’un destinataire.
+* UNION : quand vous utilisez une opération UNION, il est possible d’avoir plusieurs entrées qui font référence aux **mêmes** hub d’événements et groupe de consommateurs.
+* SELF JOIN : quand vous utilisez une opération SELF JOIN, il est possible de faire référence plusieurs fois au **même** hub d’événements.
 
 Les meilleures pratiques suivantes peuvent aider à atténuer les scénarios dans lesquels le nombre de lecteurs par partition dépasse la limite de 5 dans Event Hubs.
 
@@ -101,7 +102,7 @@ Cette clause spécifie un jeu de résultats nommé de façon temporaire qui peut
 
 Par exemple, au lieu de cette requête :
 
-```
+```SQL
 SELECT foo 
 INTO output1
 FROM inputEventHub
@@ -114,7 +115,7 @@ FROM inputEventHub
 
 Utilisez cette requête :
 
-```
+```SQL
 WITH data AS (
    SELECT * FROM inputEventHub
 )

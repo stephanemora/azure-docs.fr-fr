@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aa543ad119716b25b7f3ab00d49efb9fe6fb6c3f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 88805f26869ad75830cef1aa074cd90cb947e76f
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244234"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681736"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-log-analytics"></a>Transférer des données de rapport Azure Automation State Configuration à Log Analytics
 
@@ -127,7 +127,7 @@ La fonction de diagnostic d’Azure Automation crée deux catégories d’enregi
 | NodeName_s |Le nom du nœud géré. |
 | NodeComplianceStatus_s |Indique si le nœud est conforme. |
 | DscReportStatus |Indique si la vérification de conformité a été correctement exécutée. |
-| ConfigurationMode | La façon dont la configuration est appliquée au nœud. Les valeurs possibles sont __« ApplyOnly »__,__« ApplyandMonitor »__ et __« ApplyandAutoCorrect »__. <ul><li>__ApplyOnly__ : DSC applique la configuration et ne fait rien de plus, sauf si une nouvelle configuration est envoyée au nœud cible ou lorsqu’une nouvelle configuration est extraite d’un serveur. Après l’application initiale d’une nouvelle configuration, DSC ne vérifie pas l’écart par rapport à un état configuré précédemment. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur __ApplyOnly__ prenne effet. </li><li> __ApplyAndMonitor__ : il s’agit de la valeur par défaut. Le gestionnaire de configuration locale applique toutes les nouvelles configurations. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur __ApplyAndMonitor__ prenne effet.</li><li>__ApplyAndAutoCorrect__ : DSC applique toutes les nouvelles configurations. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux puis applique à nouveau la configuration actuelle.</li></ul> |
+| ConfigurationMode | La façon dont la configuration est appliquée au nœud. Les valeurs possibles sont __« ApplyOnly »__,__« ApplyandMonitor »__ et __« ApplyandAutoCorrect »__. <ul><li>__ApplyOnly__ : DSC applique la configuration et ne fait rien de plus, sauf si une nouvelle configuration est envoyée au nœud cible ou quand une nouvelle configuration est extraite d’un serveur. Après l’application initiale d’une nouvelle configuration, DSC ne vérifie pas l’écart par rapport à un état configuré précédemment. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur __ApplyOnly__ prenne effet. </li><li> __ApplyAndMonitor__ : Il s’agit de la valeur par défaut. Le gestionnaire de configuration locale applique toutes les nouvelles configurations. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur __ApplyAndMonitor__ prenne effet.</li><li>__ApplyAndAutoCorrect__ : DSC applique toutes les nouvelles configurations. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux puis applique à nouveau la configuration actuelle.</li></ul> |
 | HostName_s | Le nom du nœud géré. |
 | IPAddress | L’adresse IPv4 du nœud géré. |
 | Catégorie | DscNodeStatus |
@@ -197,4 +197,4 @@ Log Analytics offre une plus grande visibilité opérationnelle sur vos données
 - Pour obtenir des informations sur les prix, consultez [Tarification d’Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/)
 - Pour voir un exemple d’utilisation d’Azure Automation State Configuration dans un pipeline de déploiement continu, consultez [Déploiement continu à l’aide d’Azure Automation State Configuration et de Chocolatey](automation-dsc-cd-chocolatey.md).
 - Pour plus d’informations sur la façon de construire différentes requêtes de recherche et sur la manière de consulter les journaux Automation State Configuration avec Log Analytics, consultez [Recherches dans les journaux dans Log Analytics](../log-analytics/log-analytics-log-searches.md).
-- Pour en savoir plus sur Log Analytics et sur les sources de collecte de données, consultez [Vue d’ensemble de la collecte des données de stockage Azure dans Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+- Pour en savoir plus sur Log Analytics et sur les sources de collecte de données, consultez [Vue d’ensemble de la collecte des données de stockage Azure dans Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md)

@@ -1,11 +1,13 @@
 ---
-title: Science des données avec une image Data Science Virtual Machine Linux sur Azure | Microsoft Docs
+title: Apprendre à utiliser la machine virtuelle de science des données Linux
+titleSuffix: Azure
 description: Comment effectuer plusieurs tâches courantes de science des données avec la machine virtuelle de science des données Linux.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
 editor: cgronlun
+ms.custom: seodec18
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,17 +17,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 7576c479b9e3e443b048a9295c0ff0f30d4b9423
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: fafa680f877060f1e7d96c60f52e3033eeb38553
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240322"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190633"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Science des données avec une image Data Science Virtual Machine Linux sur Azure
 Cette procédure pas à pas vous montre comment effectuer plusieurs tâches courantes de science des données avec la machine virtuelle de science des données Linux. La machine virtuelle de science des données Linux est une image de machine virtuelle disponible sur Azure qui est préinstallée avec plusieurs outils couramment utilisés dans le cadre de l’analyse de données et du Machine Learning. Les composants logiciels clés sont détaillés dans la rubrique [Approvisionnement d’une machine virtuelle de science des données Linux](linux-dsvm-intro.md) . L’image de la machine virtuelle facilite la prise en main de la science des données en quelques minutes, sans avoir à installer et à configurer individuellement chacun des outils individuellement. Le cas échéant, vous pouvez facilement faire monter en puissance la machine virtuelle, et l’arrêter lorsqu’elle est inutilisée. Cette ressource est donc flexible et économique.
 
-Les tâches de science des données décrites dans cette procédure pas à pas suivent les étapes décrites dans le [processus de science des données pour les équipes](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview). Ce processus fournit une approche systématique de la science des données qui permet aux équipes de scientifiques des données de collaborer efficacement tout au long du cycle de vie du développement d’applications intelligentes. Le processus de science des données fournit également une infrastructure itérative pour la science des données, qui peut être suivie par une personne.
+Les tâches de science des données décrites dans cette procédure pas à pas suivent les étapes décrites dans le [processus de science des données pour les équipes](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview). Ce processus fournit une approche systématique de la science des données qui permet aux équipes de scientifiques des données de collaborer efficacement tout au long du cycle de vie du développement d’applications intelligentes. Le processus de science des données fournit également une infrastructure itérative pour la science des données, qui peut être suivie par une personne.
 
 Au cours de cette procédure pas à pas, nous analysons le jeu de données [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) . Il s’agit d’un ensemble d’e-mails marqués comme courrier indésirable ou courrier légitime (non indésirable), qui contient également des statistiques sur le contenu des e-mails. Les statistiques incluses sont évoquées dans la section suivante.
 
@@ -316,19 +318,19 @@ La distribution Anaconda dans la machine virtuelle de science des données est f
 
 > [!NOTE]
 > Pour utiliser le gestionnaire de package Python (via la commande `pip`) à partir d’un bloc-notes Jupyter dans le noyau actif, la commande suivante peut être utilisée dans la cellule de code, par exemple :
-```python
+  ```python
    import sys
    ! {sys.executable} -m pip install numpy -y
-```
+  ```
 >
 >
 
 > [!NOTE]
 > Pour utiliser le programme d’installation de Conda (via la commande `conda`) à partir d’un bloc-notes Jupyter dans le noyau actif, la commande suivante peut être utilisée dans la cellule de code, par exemple :
-```python
+  ```python
    import sys
    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-```
+  ```
 >
 >
 
@@ -344,7 +346,7 @@ Plusieurs exemples de notebooks sont déjà installés sur la machine virtuelle 
 >
 
 ## <a name="rattle"></a>Rattle
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (l’outil d’analyse R pour apprendre plus facilement) est un outil R graphique pour l’exploration de données. Il possède une interface intuitive qui facilite la charge, l’exploration et la transformation des données, ainsi que la création et l’évaluation des modèles.  L’article [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) (Rattle : une interface utilisateur graphique pour l’exploration de données pour R) fournit une procédure pas à pas présentant ses fonctionnalités.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (l’outil d’analyse R pour apprendre plus facilement) est un outil R graphique pour l’exploration de données. Il possède une interface intuitive qui facilite la charge, l’exploration et la transformation des données, ainsi que la création et l’évaluation des modèles.  L’article [Rattle : une interface utilisateur graphique pour l’exploration de données pour R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) fournit une procédure pas à pas présentant ses fonctionnalités.
 
 Installez et démarrez Rattle avec les commandes suivantes :
 
@@ -357,7 +359,7 @@ Installez et démarrez Rattle avec les commandes suivantes :
 >
 >
 
-Rattle utilise une interface basée sur des onglets. La plupart des onglets correspondent aux étapes du [Processus de science des données](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), telles que le chargement de données ou l’exploration. Le processus de science des données se déroule de gauche à droite à travers les onglets. Cependant, le dernier onglet contient un journal des commandes R exécutées par Rattle.
+Rattle utilise une interface basée sur des onglets. La plupart des onglets correspondent aux étapes du [Processus de science des données](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), telles que le chargement de données ou l’exploration. Le processus de science des données se déroule de gauche à droite à travers les onglets. Cependant, le dernier onglet contient un journal des commandes R exécutées par Rattle.
 
 Pour charger et configurer le jeu de données :
 

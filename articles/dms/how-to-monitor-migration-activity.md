@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: 8c30af5023cb83ee1f9ca0f41db5b7f977cc4bc7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 12/14/2018
+ms.openlocfilehash: a315e8b42ab8e0df659a3388a50fedf5dd3a54d2
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883905"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413062"
 ---
 # <a name="monitor-migration-activity"></a>Surveiller l’activité de migration
 Dans cet article, vous allez apprendre à surveiller la progression d’une migration aux niveaux de la base de données et de la table.
@@ -24,7 +24,7 @@ Dans cet article, vous allez apprendre à surveiller la progression d’une migr
 ## <a name="monitor-at-the-database-level"></a>Surveiller au niveau de la base de données
 Pour surveiller l’activité au niveau de la base de données, affichez le panneau au niveau de cette dernière :
 
-![Panneau au niveau de la base de données](media\how-to-monitor-migration-activity\dms-database-level-blade.png)
+![Panneau au niveau de la base de données](media/how-to-monitor-migration-activity/dms-database-level-blade.png)
 
 > [!NOTE]
 > Lorsque vous sélectionnez le lien hypertexte de la base de données, une liste des tables et de la progression de leur migration s’affiche.
@@ -104,7 +104,7 @@ Pour surveiller l’activité au niveau du tableau, affichez le panneau au nivea
 
 La partie inférieure du panneau répertorie les tables et affiche un résumé rapide de la progression de la migration.
 
-![Panneau de niveau table : résumé rapide](media\how-to-monitor-migration-activity\dms-table-level-blade-summary.png)
+![Panneau de niveau table : résumé rapide](media/how-to-monitor-migration-activity/dms-table-level-blade-summary.png)
 
 Le tableau suivant décrit les champs affichés dans les détails au niveau de la table.
 
@@ -123,9 +123,9 @@ Le tableau suivant décrit les champs affichés dans les détails au niveau de l
 ## <a name="monitor-at-table-level--detailed-summary"></a>Surveiller au niveau de la table : résumé détaillé
 Il existe deux onglets qui indiquent la progression de la migration : Chargement complet et Synchronisation des données incrémentielles.
     
-![Onglet Chargement complet](media\how-to-monitor-migration-activity\dms-full-load-tab.png)
+![Onglet Chargement complet](media/how-to-monitor-migration-activity/dms-full-load-tab.png)
 
-![Onglet Synchronisation des données incrémentielles](media\how-to-monitor-migration-activity\dms-incremental-data-sync-tab.png)
+![Onglet Synchronisation des données incrémentielles](media/how-to-monitor-migration-activity/dms-incremental-data-sync-tab.png)
 
 Le tableau suivant décrit les champs affichés dans la progression de la migration au niveau de la table.
 
@@ -136,7 +136,7 @@ Le tableau suivant décrit les champs affichés dans la progression de la migrat
 | **Mettre à jour** | Nombre de mises à jour CDC dans les lignes appliquées à la cible.      |
 | **Supprimer**      | Nombre de suppressions CDC dans les lignes appliquées à la cible. |
 | **Total appliqué**      | Total des mises à jour CDC, des insertions et des suppressions dans les lignes appliquées à la cible. |
-| **Erreurs de données** | Nombre d’erreurs de données survenues dans cette table. *511 (impossible de créer une ligne de dimension %d supérieure à la taille de ligne maximale autorisée de %d) et 8114 (erreur de conversion de type de données %ls en %ls) sont des exemples d’erreurs.*  Le client doit interroger à partir de la table attms_apply_exceptions dans la cible Azure pour afficher les détails de l’erreur.    |
+| **Erreurs de données** | Nombre d’erreurs de données survenues dans cette table. Voici quelques exemples d’erreur : *511 : impossible de créer une ligne de dimension %d supérieure à la taille de ligne maximale autorisée de %d, et 8114 : erreur de conversion de type de données %ls en %ls).*  Le client doit interroger à partir de la table dms_apply_exceptions dans la cible Azure pour afficher les détails de l’erreur.    |
 
 > [!NOTE]
 > Les valeurs CDC de l’insertion, de la mise à jour et de la suppression ainsi que le total appliqué peuvent diminuer lorsque la base de données a basculé ou que la migration a redémarré.

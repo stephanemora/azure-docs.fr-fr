@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: casoper
-ms.openlocfilehash: 82c5fb0f3f3e8edad948b82f77c9c336636f3077
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: f8de7f7a263a087abb16ed48d05b2cae9834b4ad
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442739"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961108"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Prendre en main Stockage Blob Azure et les services connectés de Visual Studio (ASP.NET Core)
 
@@ -27,7 +27,7 @@ ms.locfileid: "42442739"
 > - [ASP.NET](./vs-storage-aspnet-getting-started-blobs.md)
 > - [ASP.NET Core](./vs-storage-aspnet-core-getting-started-blobs.md)
 
-Le Stockage Blob Azure est un service qui stocke des données non structurées dans le cloud sous forme d’objets ou d’objets blob. Ce service peut stocker tout type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d’installation d’application. Le stockage d’objets blob est également appelé Stockage Blob.
+Le Stockage Blob Azure est un service qui stocke des données non structurées dans le cloud sous forme d’objets ou d’objets blob. Ce service peut stocker tout type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d’installation d’application. Le stockage d’objets blob est également appelé Stockage Blob. Pour en savoir plus sur le Stockage Blob, consultez [Présentation du Stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md).
 
 Ce didacticiel montre comment écrire du code ASP.NET Core pour des scénarios courants qui utilisent le Stockage Blob. Ces scénarios incluent la création d’un conteneur d’objets blob, ainsi que le chargement, la création d’une liste, le téléchargement et la suppression d’objets blob.
 
@@ -36,8 +36,6 @@ Ce didacticiel montre comment écrire du code ASP.NET Core pour des scénarios c
 ## <a name="prerequisites"></a>Prérequis
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-
-[!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
 ## <a name="set-up-the-development-environment"></a>Configuration de l’environnement de développement
 

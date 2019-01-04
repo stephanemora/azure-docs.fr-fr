@@ -5,14 +5,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: d709b13aaf6b6ee9a913484ed503da1e76982d17
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 995c4bbbde87315e92c182fbc91b58ee34cda04e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213914"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839549"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analyser le rapport du Planificateur de déploiement Azure Site Recovery pour la récupération d’urgence VMware sur Azure
 
@@ -22,23 +22,23 @@ La feuille de calcul du résumé local fournit une vue d’ensemble de l’envir
 
 ![Résumé local de l’environnement VMware](media/site-recovery-vmware-deployment-planner-analyze-report/on-premises-summary-v2a.png)
 
-**Start Date** et **End Date** : les dates de début et de fin du profilage des données prises en compte pour la génération de rapport. Par défaut, la date de début est la date à laquelle le profilage démarre, et la date de fin est la date à laquelle le profilage s’arrête. Il peut s’agir des valeurs StartDate et EndDate si le rapport est généré avec ces paramètres.
+**Date de début** et **Date de fin** : dates de début et de fin du profilage des données prises en compte pour la génération de rapport. Par défaut, la date de début est la date à laquelle le profilage démarre, et la date de fin est la date à laquelle le profilage s’arrête. Il peut s’agir des valeurs StartDate et EndDate si le rapport est généré avec ces paramètres.
 
-**Total number of profiling days** : le nombre total de jours de profilage compris entre les dates de début et de fin pendant lesquelles le rapport est généré.
+**Nombre total de jours de profilage** : nombre total de jours de profilage compris entre les dates de début et de fin pendant lesquelles le rapport est généré.
 
-**Number of compatible virtual machines** : le nombre total de machines virtuelles compatibles pour lesquelles la bande passante réseau requise, ainsi que le nombre requis de comptes de stockage, de cœurs Microsoft Azure et de serveurs de processus supplémentaires et de serveurs de configuration sont calculés.
+**Nombre total de machines virtuelles compatibles** : nombre total de machines virtuelles compatibles pour lesquelles la bande passante réseau requise, ainsi que le nombre requis de comptes de stockage, de cœurs Microsoft Azure et de serveurs de traitement supplémentaires et de serveurs de configuration sont calculés.
 
-**Total number of disks across all compatible virtual machines** : ce nombre est utilisé comme nombre d’entrées pour déterminer le nombre de serveurs de processus supplémentaires et de serveurs de configuration à utiliser dans le déploiement.
+**Nombre total de disques sur toutes les machines virtuelles compatibles** : nombre utilisé comme nombre d’entrées pour déterminer le nombre de serveurs de traitement supplémentaires et de serveurs de configuration à utiliser dans le déploiement.
 
-**Average number of disks per compatible virtual machine** : le nombre moyen de disques calculé sur toutes les machines virtuelles compatibles.
+**Nombre moyen de disques par machine virtuelle compatible** : nombre moyen de disques calculé sur toutes les machines virtuelles compatibles.
 
-**Average disk size (GB)**  : la taille de disque moyenne calculée sur toutes les machines virtuelles compatibles.
+**Taille de disque moyenne (Go)**  : taille de disque moyenne calculée sur toutes les machines virtuelles compatibles.
 
-**Desired RPO (minutes)**  : l’objectif de point de récupération par défaut ou la valeur transmise pour le paramètre DesiredRPO au moment de la génération de rapport pour estimer la bande passante requise.
+**Objectif de point de récupération désiré (minutes)**  : objectif de point de récupération par défaut ou valeur passée pour le paramètre « DesiredRPO » au moment de la génération de rapport afin d’estimer la bande passante requise.
 
-**Desired bandwidth (Mbps)**  : la valeur que vous avez transmise pour le paramètre Bandwidth au moment de la génération de rapport pour estimer le RPO réalisable.
+**Bande passante désirée (Mbits/s)**  : valeur que vous avez transmise pour le paramètre « Bandwidth » au moment de la génération de rapport pour estimer le RPO réalisable.
 
-**Observed typical data churn per day (GB)**  : l’activité moyenne des données observée tous les jours de profilage. Ce nombre est utilisé comme nombre d’entrées pour déterminer le nombre de serveurs de processus supplémentaires et de serveurs de configuration à utiliser dans le déploiement.
+**Activité type des donnée observée par jour (Go)**  : activité moyenne des données observée tous les jours de profilage. Ce nombre est utilisé comme nombre d’entrées pour déterminer le nombre de serveurs de processus supplémentaires et de serveurs de configuration à utiliser dans le déploiement.
 
 ## <a name="recommendations"></a>Recommandations
 
@@ -49,33 +49,33 @@ La feuille de recommandations de VMware pour le rapport Azure présente les dét
 ### <a name="profiled-data"></a>Données profilées
 ![La vue des données profilées dans le Deployment planner](media/site-recovery-vmware-deployment-planner-analyze-report/profiled-data-v2a.png)
 
-**Profiled data period**: la période pendant laquelle le profilage a été exécuté. Par défaut, l’outil inclut toutes les données profilées pour le calcul, sauf s’il génère le rapport pour une période spécifique à l’aide des options StartDate et EndDate pendant la génération du rapport.
+**Période de données profilées** : période pendant laquelle le profilage a été exécuté. Par défaut, l’outil inclut toutes les données profilées pour le calcul, sauf s’il génère le rapport pour une période spécifique à l’aide des options StartDate et EndDate pendant la génération du rapport.
 
-**Server Name** : le nom ou l’adresse IP de VMware vCenter ou de l’hôte ESXi dont le rapport des machines virtuelles est généré.
+**Nom du serveur** : nom ou adresse IP de VMware vCenter ou de l’hôte ESXi dont le rapport des machines virtuelles est généré.
 
-**Desired RPO** :l’objectif de point de récupération (RPO) de votre déploiement. Par défaut, la bande passante réseau requise est calculée pour les valeurs RPO de 15, 30 et 60 minutes. En fonction de la sélection, les valeurs concernées sont mises à jour sur la feuille. Si vous avez utilisé le paramètre *DesiredRPOinMin* lors de la génération du rapport, cette valeur est affichée dans le résultat Desired RPO.
+**Objectif de point de récupération désiré** : objectif de point de récupération de votre déploiement. Par défaut, la bande passante réseau requise est calculée pour les valeurs RPO de 15, 30 et 60 minutes. En fonction de la sélection, les valeurs concernées sont mises à jour sur la feuille. Si vous avez utilisé le paramètre *DesiredRPOinMin* lors de la génération du rapport, cette valeur est affichée dans le résultat Desired RPO.
 
 ### <a name="profiling-overview"></a>Vue d’ensemble du profilage
 
 ![Résultats de profilage dans le Deployment planner](media/site-recovery-vmware-deployment-planner-analyze-report/profiling-overview-v2a.png)
 
-**Total Profiled Virtual Machines** : le nombre total de machines virtuelles dont les données profilées sont disponibles. Si le fichier VMListFile contient des noms de machines virtuelles qui n’ont pas été profilées, celles-ci ne sont pas prises en compte dans la génération de rapport et sont exclues du nombre total de machines virtuelles profilées.
+**Nombre total de machines virtuelles profilées** : nombre total de machines virtuelles dont les données profilées sont disponibles. Si le fichier VMListFile contient des noms de machines virtuelles qui n’ont pas été profilées, celles-ci ne sont pas prises en compte dans la génération de rapport et sont exclues du nombre total de machines virtuelles profilées.
 
-**Compatible Virtual Machines** : le nombre de machines virtuelles pouvant être protégées dans Azure à l’aide de Site Recovery. Il s’agit du nombre total de machines virtuelles compatibles pour lesquelles la bande passante réseau requise, le nombre de comptes de stockage, le nombre de cœurs Azure et le nombre de serveurs de configuration et de serveurs de processus supplémentaires sont calculés. Les détails de chaque machine virtuelle compatible sont disponibles dans la section « Machines virtuelles compatibles ».
+**Machines virtuelles compatibles** : nombre de machines virtuelles pouvant être protégées dans Azure à l’aide de Site Recovery. Il s’agit du nombre total de machines virtuelles compatibles pour lesquelles la bande passante réseau requise, le nombre de comptes de stockage, le nombre de cœurs Azure et le nombre de serveurs de configuration et de serveurs de processus supplémentaires sont calculés. Les détails de chaque machine virtuelle compatible sont disponibles dans la section « Machines virtuelles compatibles ».
 
-**Incompatible Virtual Machines** : le nombre de machines virtuelles qui sont incompatibles pour la protection assurée avec Site Recovery. Les raisons de l’incompatibilité sont indiquées dans la section Machines virtuelles incompatibles. Si VMListFile contient des noms de machines virtuelles qui n’ont pas été profilées, ces machines virtuelles sont exclues du nombre de machines virtuelles incompatibles. Ces machines virtuelles sont répertoriées comme « Data not found » à la fin de la section Machines virtuelles incompatibles.
+**Machines virtuelles incompatibles** : nombre de machines virtuelles profilées qui sont incompatibles pour la protection avec Site Recovery. Les raisons de l’incompatibilité sont indiquées dans la section Machines virtuelles incompatibles. Si VMListFile contient des noms de machines virtuelles qui n’ont pas été profilées, ces machines virtuelles sont exclues du nombre de machines virtuelles incompatibles. Ces machines virtuelles sont répertoriées comme « Data not found » à la fin de la section Machines virtuelles incompatibles.
 
-**Desired RPO** : votre objectif de point de récupération souhaité, en minutes. Le rapport est généré pour les trois valeurs RPO : 15 (valeur par défaut), 30 et 60 minutes. La recommandation de la bande passante dans le rapport est modifiée en fonction de votre sélection dans la liste déroulante « Desired RPO » dans l’angle supérieur droit de la feuille. Si vous avez généré le rapport à l’aide du paramètre *-DesiredRPO* avec une valeur personnalisée, cette valeur personnalisée s’affiche par défaut dans la liste déroulante « Desired RPO ».
+**Objectif de point de récupération désiré** : votre objectif de point de récupération (RPO) souhaité, en minutes. Le rapport est généré pour les trois valeurs RPO : 15 (valeur par défaut), 30 et 60 minutes. La recommandation de la bande passante dans le rapport est modifiée en fonction de votre sélection dans la liste déroulante « Desired RPO » dans l’angle supérieur droit de la feuille. Si vous avez généré le rapport à l’aide du paramètre *-DesiredRPO* avec une valeur personnalisée, cette valeur personnalisée s’affiche par défaut dans la liste déroulante « Desired RPO ».
 
 ### <a name="required-network-bandwidth-mbps"></a>Bande passante réseau requise (Mbits/s)
 
 ![Bande passante réseau requise dans le Deployment planner](media/site-recovery-vmware-deployment-planner-analyze-report/required-network-bandwidth-v2a.png)
 
-**To meet RPO 100 percent of the time :** la bande passante recommandée en Mbits/s à allouer pour atteindre votre RPO souhaité 100 pour cent du temps. Cette quantité de bande passante doit être dédiée à la réplication différentielle à l’état stable de toutes vos machines virtuelles compatibles afin d’éviter toute violation de RPO.
+**Pour atteindre le RPO 100 % du temps :** bande passante recommandée en Mbits/s à allouer pour atteindre votre RPO souhaité 100 % du temps. Cette quantité de bande passante doit être dédiée à la réplication différentielle à l’état stable de toutes vos machines virtuelles compatibles afin d’éviter toute violation de RPO.
 
-**To meet RPO 90 percent of the time :** en raison de la tarification haut débit ou pour toute autre raison, si vous ne pouvez pas configurer la bande passante nécessaire pour atteindre votre RPO souhaité 100 pour cent du temps, vous pouvez choisir un paramètre de bande passante inférieure pouvant satisfaire votre RPO souhaité 90 pour cent du temps. Pour comprendre les implications de la configuration de cette bande passante réduite, le rapport fournit une analyse par simulation du nombre et de la durée de violations de RPO à attendre.
+**Pour atteindre le RPO 90 % du temps :** en raison des tarifs du haut débit ou pour toute autre raison, si vous ne pouvez pas configurer la bande passante nécessaire pour atteindre votre RPO souhaité 100 % du temps, vous pouvez choisir un paramètre de bande passante inférieure pouvant satisfaire votre RPO souhaité 90 % du temps. Pour comprendre les implications de la configuration de cette bande passante réduite, le rapport fournit une analyse par simulation du nombre et de la durée de violations de RPO à attendre.
 
-**Achieved Throughput :** le débit du serveur sur lequel vous avez exécuté la commande GetThroughput pour la région Microsoft Azure où se trouve le compte de stockage. Cette valeur de débit indique le niveau estimé que vous pouvez obtenir lorsque vous protégez les machines virtuelles compatibles à l’aide de Site Recovery, sous réserve que les caractéristiques de réseau et de stockage du serveur de configuration/serveur de processus demeurent identiques à celles du serveur à partir duquel vous avez exécuté l’outil.
+**Débit atteint :** débit du serveur sur lequel vous avez exécuté la commande GetThroughput pour la région Microsoft Azure où se trouve le compte de stockage. Cette valeur de débit indique le niveau estimé que vous pouvez obtenir lorsque vous protégez les machines virtuelles compatibles à l’aide de Site Recovery, sous réserve que les caractéristiques de réseau et de stockage du serveur de configuration/serveur de processus demeurent identiques à celles du serveur à partir duquel vous avez exécuté l’outil.
 
 Pour la réplication, vous devez définir la bande passante recommandée pour atteindre le RPO souhaité en permanence. Après avoir défini la bande passante, si vous ne constatez pas d’augmentation du débit atteint signalé par l’outil, vérifiez les points suivants :
 
@@ -130,13 +130,13 @@ Le résumé vous aide à comprendre le coût que vous devez payer pour le stocka
 
 Vous pouvez afficher le coût mensuel ou annuel. En savoir plus sur les [régions cibles prises en charge](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) et les [devises prises en charge](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
-**Coût par composant** Le coût total de la récupération d’urgence est divisé en quatre composants : coût de la licence d’Azure Site Recovery, du stockage, du réseau et du calcul. Le coût est calculé en fonction de la consommation facturée pendant la réplication et au moment de la récupération d’urgence pour le calcul, le stockage (premium et standard), le ExpressRoute/VPN configuré entre le site local et Azure, et la licence de Azure Site Recovery.
+**Coût par composant** : le coût total de la reprise d’activité est divisé en quatre composants, à savoir le coût de la licence Azure Site Recovery, du stockage, du réseau et de la capacité de calcul. Le coût est calculé en fonction de la consommation facturée pendant la réplication et au moment de la récupération d’urgence pour le calcul, le stockage (premium et standard), le ExpressRoute/VPN configuré entre le site local et Azure, et la licence de Azure Site Recovery.
 
 **Coût par état** Le coût total de la récupération d’urgence (DR) est catégorisé selon deux états différents, la réplication et l’extraction de la récupération d’urgence.
 
-**Coût de la réplication** : le coût qui sera engendré par la réplication. Il couvre le coût du stockage, du réseau et de la licence d’Azure Site Recovery.
+**Coût de la réplication** :  coût engendré par la réplication. Il couvre le coût du stockage, du réseau et de la licence d’Azure Site Recovery.
 
-**Coût d’extraction de la récupération d’urgence** : le coût engendré par les basculements de test. Azure Site Recovery prépare des machines virtuelles pendant le basculement de test. Le coût d’extraction de la récupération d’urgence couvre les coûts de calcul et de stockage des machines virtuelles en cours d’exécution.
+**Coût de simulation de reprise d’activité** : coût engendré par les basculements de test. Azure Site Recovery prépare des machines virtuelles pendant le basculement de test. Le coût d’extraction de la récupération d’urgence couvre les coûts de calcul et de stockage des machines virtuelles en cours d’exécution.
 
 **Coût de stockage Azure par mois/année** Il montre le coût de stockage total qui sera engagé pour le stockage standard et premium pour la réplication et l’extraction de récupération d’urgence.
 Vous pouvez afficher une analyse détaillée des coûts par machine virtuelle dans la feuille [Estimation des coûts](site-recovery-vmware-deployment-planner-cost-estimation.md).
@@ -158,26 +158,26 @@ Vous pouvez vous trouver dans une situation dans laquelle vous ne pouvez pas con
 
 ![VM-storage placement](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
-**Disk Storage Type** : le compte de stockage standard ou premium utilisé pour répliquer toutes les machines virtuelles correspondantes, mentionnées dans la colonne **VMs to Place**.
+**Type de stockage sur disque** : compte de stockage standard ou premium utilisé pour répliquer toutes les machines virtuelles correspondantes, mentionnées dans la colonne **Machines virtuelles à placer**.
 
-**Suggested Prefix** : le préfixe suggéré à trois caractères qui permet de nommer le compte de stockage. Vous pouvez utiliser votre propre préfixe, mais la suggestion de l’outil suit la [convention d’affectation de noms aux partitions pour les comptes de stockage](https://aka.ms/storage-performance-checklist).
+**Préfixe suggéré** : préfixe suggéré à trois caractères qui permet de nommer le compte de stockage. Vous pouvez utiliser votre propre préfixe, mais la suggestion de l’outil suit la [convention d’affectation de noms aux partitions pour les comptes de stockage](https://aka.ms/storage-performance-checklist).
 
-**Suggested Account Name** : le nom du compte de stockage après lequel vous incluez le préfixe suggéré. Remplacez le nom entre crochets pointus(< and >) avec votre entrée personnalisée.
+**Nom de compte suggéré** : nom du compte de stockage après l’ajout du préfixe suggéré. Remplacez le nom entre crochets pointus(< and >) avec votre entrée personnalisée.
 
-**Log Storage Account :** tous les journaux de réplication sont stockés dans un compte de stockage standard. Pour les machines virtuelles qui répliquent vers un compte de stockage premium, configurez un compte de stockage standard supplémentaire pour le stockage des journaux. Un seul et même compte de stockage standard des journaux peut être utilisé par plusieurs comptes de stockage de réplication premium. Les machines virtuelles qui sont répliquées vers les comptes de stockage standard utilisent le même compte de stockage pour les journaux.
+**Compte de stockage de journal** : tous les journaux de réplication sont stockés dans un compte de stockage standard. Pour les machines virtuelles qui répliquent vers un compte de stockage premium, configurez un compte de stockage standard supplémentaire pour le stockage des journaux. Un seul et même compte de stockage standard des journaux peut être utilisé par plusieurs comptes de stockage de réplication premium. Les machines virtuelles qui sont répliquées vers les comptes de stockage standard utilisent le même compte de stockage pour les journaux.
 
-**Suggested Log Account Name** : le nom de votre compte de stockage des journaux après lequel vous incluez le préfixe suggéré. Remplacez le nom entre crochets pointus(< and >) avec votre entrée personnalisée.
+**Nom de compte de journal suggéré** : nom de votre compte de stockage des journaux après l’ajout du préfixe suggéré. Remplacez le nom entre crochets pointus(< and >) avec votre entrée personnalisée.
 
-**Placement Summary** : un résumé de la charge totale des machines virtuelles sur le compte de stockage au moment de la réplication et du test de basculement/basculement. Il inclut le nombre total de machines virtuelles mappées au compte de stockage, le total des E/S par seconde de lecture/écriture sur toutes les machines virtuelles placées dans ce compte de stockage, le total des E/S par seconde d’écriture (réplication), la taille totale configurée sur tous les disques ainsi que le nombre total de disques.
+**Récapitulatif du placement** : récapitulatif de la charge totale des machines virtuelles sur le compte de stockage au moment de la réplication et du test de basculement/basculement. Il inclut le nombre total de machines virtuelles mappées au compte de stockage, le total des E/S par seconde de lecture/écriture sur toutes les machines virtuelles placées dans ce compte de stockage, le total des E/S par seconde d’écriture (réplication), la taille totale configurée sur tous les disques ainsi que le nombre total de disques.
 
-**Virtual Machines to Place** : une liste de toutes les machines virtuelles qui doivent être placées dans le compte de stockage donné pour optimiser les performances et l’utilisation.
+**Machines virtuelles à placer** : liste de toutes les machines virtuelles qui doivent être placées dans le compte de stockage donné pour optimiser les performances et l’utilisation.
 
 ## <a name="compatible-vms"></a>Machines virtuelles compatibles
 ![Feuille de calcul Excel des machines virtuelles compatibles](media/site-recovery-vmware-deployment-planner-analyze-report/compatible-vms-v2a.png)
 
-**VM Name** : nom de la machine virtuelle ou adresse IP utilisés dans VMListFile lorsqu’un rapport est généré. Cette colonne répertorie également les disques (VMDK) qui sont attachés aux machines virtuelles. Pour distinguer les machines virtuelles vCenter avec des noms ou des adresses IP en double, les noms incluent le nom de l’hôte ESXi. L’hôte ESXi répertorié est celui dans lequel la machine virtuelle a été placée lors de la détection de l’outil pendant le profilage.
+**Nom de la machine virtuelle** : nom de la machine virtuelle ou adresse IP utilisés dans VMListFile quand un rapport est généré. Cette colonne répertorie également les disques (VMDK) qui sont attachés aux machines virtuelles. Pour distinguer les machines virtuelles vCenter avec des noms ou des adresses IP en double, les noms incluent le nom de l’hôte ESXi. L’hôte ESXi répertorié est celui dans lequel la machine virtuelle a été placée lors de la détection de l’outil pendant le profilage.
 
-**VM Compatibility** : les valeurs sont **Oui** et **Oui**\*. **Oui**\* : pour les instances dans lesquelles la machine virtuelle est adaptée pour [le stockage Premium Azure](https://aka.ms/premium-storage-workload). Ici l’activité élevée profilée ou le disque d’E/S par seconde se classe dans la catégorie P20 ou P30, mais la taille du disque entraîne classification inférieure à P10 ou P20. Le compte de stockage décide du type de disque de stockage Premium sur lequel mapper un disque, en fonction de sa taille. Par exemple : 
+**Compatibilité de la machine virtuelle** : les valeurs sont **Oui** et **Oui**\*. **Oui**\* : pour les instances dans lesquelles la machine virtuelle est adaptée pour [le stockage Premium Azure](https://aka.ms/premium-storage-workload). Ici l’activité élevée profilée ou le disque d’E/S par seconde se classe dans la catégorie P20 ou P30, mais la taille du disque entraîne classification inférieure à P10 ou P20. Le compte de stockage décide du type de disque de stockage Premium sur lequel mapper un disque, en fonction de sa taille. Par exemple : 
 * < 128 Go : disque P10.
 * 128 Go à 256 Go : disque P15
 * 256 Go à 512 Go : disque P20.
@@ -187,40 +187,40 @@ Vous pouvez vous trouver dans une situation dans laquelle vous ne pouvez pas con
 
 Par exemple, si les caractéristiques de charge de travail d’un disque le placent dans la catégorie P20 ou P30, mais que la taille le mappe à un niveau ou à un type de disque de stockage premium inférieur, l’outil marque cette machine virtuelle comme **Oui**\*. L’outil recommande également que vous modifiiez la taille du disque source pour que celui s’adapte au type de disque de stockage premium recommandé, ou que vous modifiiez le type de disque cible après le basculement.
 
-**Storage Type** : standard ou premium.
+**Type de stockage** : Standard ou Premium.
 
-**Suggested Prefix** : le préfixe de compte de stockage à trois caractères.
+**Préfixe suggéré** : préfixe de compte de stockage à trois caractères.
 
-**Storage Account** : le nom utilisé par le préfixe du compte de stockage suggéré.
+**Compte de stockage** : nom utilisant le préfixe du compte de stockage suggéré.
 
-**Peak R/W IOPS (with Growth Factor)** : opérations d’E/S par seconde de lecture/écriture de la charge de travail de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (30 % par défaut). Notez que les E/S par seconde en lecture/écriture d’une machine virtuelle ne sont pas toujours la somme des E/S par seconde en lecture/écriture des disques individuels de la machine virtuelle, car les E/S par seconde en lecture/écriture de pointe de la machine virtuelle représentent le pic de la somme des E/S par seconde de ses disques individuels pendant chaque minute de la période de profilage.
+**Pic d’IOPS en lecture/écriture (avec facteur de croissance)**  : pic d’IOPS en lecture/écriture de la charge de travail sur le disque (95e centile par défaut), ainsi que le facteur de croissance futur (30 % par défaut). Notez que les E/S par seconde en lecture/écriture d’une machine virtuelle ne sont pas toujours la somme des E/S par seconde en lecture/écriture des disques individuels de la machine virtuelle, car les E/S par seconde en lecture/écriture de pointe de la machine virtuelle représentent le pic de la somme des E/S par seconde de ses disques individuels pendant chaque minute de la période de profilage.
 
-**Peak Data Churn in Mbps (with Growth Factor)** : taux d’activité de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (30 % par défaut). Notez que le taux total d’activité des données de la machine virtuelle n’est pas toujours la somme des taux d’activité des données des disques individuels de la machine virtuelle, car le taux d’activité de pointe de la machine virtuelle représente le pic de la somme du taux d’activité de ses disques individuels pendant chaque minute de la période de profilage.
+**Pic d’activité des données en Mbits/s (avec facteur de croissance)**  : pic du taux d’activité sur le disque (95e centile par défaut), ainsi que le facteur de croissance futur (30 % par défaut). Notez que le taux total d’activité des données de la machine virtuelle n’est pas toujours la somme des taux d’activité des données des disques individuels de la machine virtuelle, car le taux d’activité de pointe de la machine virtuelle représente le pic de la somme du taux d’activité de ses disques individuels pendant chaque minute de la période de profilage.
 
-**Azure VM Size** : la taille de machine virtuelle d’Azure Cloud Services mappée idéale pour cette machine virtuelle locale. Le mappage est basé sur la mémoire, le nombre de disques/cœurs/cartes réseau de la machine virtuelle locale, et les E/S par seconde en lecture/écriture. La recommandation est toujours la plus petite taille de machine virtuelle Azure qui correspond à toutes les caractéristiques des machines virtuelles locales.
+**Taille de machine virtuelle Azure** : taille idéale de machine virtuelle Azure Cloud Services mappée pour cette machine virtuelle locale. Le mappage est basé sur la mémoire, le nombre de disques/cœurs/cartes réseau de la machine virtuelle locale, et les E/S par seconde en lecture/écriture. La recommandation est toujours la plus petite taille de machine virtuelle Azure qui correspond à toutes les caractéristiques des machines virtuelles locales.
 
-**Number of Disks** : le nombre total de disques de machines virtuelles (VMDK) sur la machine virtuelle.
+**Nombre de disques** : nombre total de disques de machine virtuelle (VMDK) sur la machine virtuelle.
 
-**Disk size (GB)**  : la taille totale d’installation de tous les disques de la machine virtuelle. L’outil affiche également la taille des disques individuels de la machine virtuelle.
+**Taille des disques (Go)**  : taille totale d’installation de tous les disques de la machine virtuelle. L’outil affiche également la taille des disques individuels de la machine virtuelle.
 
-**Cores** : le nombre de cœurs de processeur de la machine virtuelle.
+**Cœurs** : nombre de cœurs de processeur de la machine virtuelle.
 
-**Memory (MB)**  : la mémoire RAM de la machine virtuelle.
+**Mémoire (Mo)**  : mémoire RAM de la machine virtuelle.
 
-**NICs** : le nombre de cartes réseau de la machine virtuelle.
+**Cartes réseau** : nombre de cartes réseau de la machine virtuelle.
 
-**Boot Type** : type de démarrage de la machine virtuelle. Le type de démarrage peut prendre la valeur BIOS ou EFI.  Azure Site Recovery prend en charge les machines virtuelles EFI Windows Server (Windows Server 2012, 2012 R2 et 2016) si le nombre de partitions dans le disque de démarrage est inférieure à 4 et la taille du secteur de démarrage est de 512 octets. Pour protéger les machines virtuelles EFI, le service mobilité de Azure Site Recovery doit être la version 9.13 ou ultérieure. Seul le basculement est pris en charge pour les machines virtuelles EFI. La restauration automatique n’est pas prise en charge.  
+**Type de démarrage** : type de démarrage de la machine virtuelle. Le type de démarrage peut prendre la valeur BIOS ou EFI.  Azure Site Recovery prend en charge les machines virtuelles EFI Windows Server (Windows Server 2012, 2012 R2 et 2016) si le nombre de partitions dans le disque de démarrage est inférieure à 4 et la taille du secteur de démarrage est de 512 octets. Pour protéger les machines virtuelles EFI, le service mobilité de Azure Site Recovery doit être la version 9.13 ou ultérieure. Seul le basculement est pris en charge pour les machines virtuelles EFI. La restauration automatique n’est pas prise en charge.  
 
-**OS Type** : le type de système d’exploitation de la machine virtuelle. Cela peut être Windows, Linux ou un autre basé sur le modèle choisi à partir de VMware vSphere lors de la création de la machine virtuelle.  
+**Type de système d’exploitation** : type de système d’exploitation de la machine virtuelle. Cela peut être Windows, Linux ou un autre basé sur le modèle choisi à partir de VMware vSphere lors de la création de la machine virtuelle.  
 
 ## <a name="incompatible-vms"></a>Machines virtuelles incompatibles
 
 ![Feuille de calcul Excel des machines virtuelles incompatibles
 ](media/site-recovery-vmware-deployment-planner-analyze-report/incompatible-vms-v2a.png)
 
-**VM Name** : nom de la machine virtuelle ou adresse IP utilisés dans VMListFile lorsqu’un rapport est généré. Cette colonne répertorie également les disques de machines virtuelles qui sont attachés aux machines virtuelles. Pour distinguer les machines virtuelles vCenter avec des noms ou des adresses IP en double, les noms incluent le nom de l’hôte ESXi. L’hôte ESXi répertorié est celui dans lequel la machine virtuelle a été placée lors de la détection de l’outil pendant le profilage.
+**Nom de la machine virtuelle** : nom de la machine virtuelle ou adresse IP utilisés dans VMListFile quand un rapport est généré. Cette colonne répertorie également les disques de machines virtuelles qui sont attachés aux machines virtuelles. Pour distinguer les machines virtuelles vCenter avec des noms ou des adresses IP en double, les noms incluent le nom de l’hôte ESXi. L’hôte ESXi répertorié est celui dans lequel la machine virtuelle a été placée lors de la détection de l’outil pendant le profilage.
 
-**VM Compatibility** : indique pourquoi la machine virtuelle spécifiée est incompatible avec une utilisation avec Site Recovery. Les raisons sont décrites pour chaque disque incompatible de la machine virtuelle et, en fonction des [limites de stockage](https://aka.ms/azure-storage-scalbility-performance), peuvent figurer parmi les suivantes :
+**Compatibilité de la machine virtuelle** : indique pourquoi la machine virtuelle spécifiée est incompatible pour une utilisation avec Site Recovery. Les raisons sont décrites pour chaque disque incompatible de la machine virtuelle et, en fonction des [limites de stockage](https://aka.ms/azure-storage-scalbility-performance), peuvent figurer parmi les suivantes :
 
 * La taille du disque est > 4095 Go. Actuellement, le stockage Azure ne prend pas en charge les tailles de disques de données supérieures à 4095 Go.
 
@@ -245,23 +245,23 @@ Par exemple, si les caractéristiques de charge de travail d’un disque le plac
 * L’activité totale des données par jour dépasse la limite d’activité des données prise en charge de 2 To par serveur de processus.
 
 
-**Peak R/W IOPS (with Growth Factor)**  : les opérations d’E/S par seconde de la charge de travail de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (30 pour cent par défaut). Notez que les E/S par seconde en lecture/écriture de la machine virtuelle ne sont pas toujours la somme des E/S par seconde en lecture/écriture des disques individuels de la machine virtuelle, car les E/S par seconde en lecture/écriture de pointe de la machine virtuelle représentent le pic de la somme des E/S par seconde de ses disques individuels pendant chaque minute de la période de profilage.
+**Pic d’IOPS en lecture/écriture (avec facteur de croissance)**  : pic d’IOPS de la charge de travail sur le disque (95e centile par défaut), ainsi que le facteur de croissance futur (30 % par défaut). Notez que les E/S par seconde en lecture/écriture de la machine virtuelle ne sont pas toujours la somme des E/S par seconde en lecture/écriture des disques individuels de la machine virtuelle, car les E/S par seconde en lecture/écriture de pointe de la machine virtuelle représentent le pic de la somme des E/S par seconde de ses disques individuels pendant chaque minute de la période de profilage.
 
-**Peak Data Churn in Mbps (with Growth Factor)**  : le taux d’activité de pointe sur le disque (95e centile par défaut), y compris le facteur de croissance futur (par défaut : 30 pour cent). Notez que le taux total d’activité des données de la machine virtuelle n’est pas toujours la somme des taux d’activité des données des disques individuels de la machine virtuelle, car le taux d’activité de pointe de la machine virtuelle représente le pic de la somme du taux d’activité de ses disques individuels pendant chaque minute de la période de profilage.
+**Pic d’activité des données en Mbits/s (avec facteur de croissance)**  : pic du taux d’activité sur le disque (95e centile par défaut), ainsi que le facteur de croissance futur (30 % par défaut). Notez que le taux total d’activité des données de la machine virtuelle n’est pas toujours la somme des taux d’activité des données des disques individuels de la machine virtuelle, car le taux d’activité de pointe de la machine virtuelle représente le pic de la somme du taux d’activité de ses disques individuels pendant chaque minute de la période de profilage.
 
-**Number of Disks** : le nombre total de disques de machines virtuelles (VMDK) sur la machine virtuelle.
+**Nombre de disques** : nombre total de disques de machines virtuelles (VMDK) sur la machine virtuelle.
 
-**Disk size (GB)**  : la taille totale d’installation de tous les disques de la machine virtuelle. L’outil affiche également la taille des disques individuels de la machine virtuelle.
+**Taille des disques (Go)**  : taille totale d’installation de tous les disques de la machine virtuelle. L’outil affiche également la taille des disques individuels de la machine virtuelle.
 
-**Cores** : le nombre de cœurs de processeur de la machine virtuelle.
+**Cœurs** : nombre de cœurs de processeur de la machine virtuelle.
 
-**Memory (MB)**  : la quantité de RAM sur la machine virtuelle.
+**Mémoire (Mo)**  : quantité de RAM de la machine virtuelle.
 
-**NICs** : le nombre de cartes réseau de la machine virtuelle.
+**Cartes réseau** : nombre de cartes réseau de la machine virtuelle.
 
-**Boot Type** : type de démarrage de la machine virtuelle. Le type de démarrage peut prendre la valeur BIOS ou EFI.  Azure Site Recovery prend en charge les machines virtuelles EFI Windows Server (Windows Server 2012, 2012 R2 et 2016) si le nombre de partitions dans le disque de démarrage est inférieure à 4 et la taille du secteur de démarrage est de 512 octets. Pour protéger les machines virtuelles EFI, le service mobilité de Azure Site Recovery doit être la version 9.13 ou ultérieure. Seul le basculement est pris en charge pour les machines virtuelles EFI. La restauration automatique n’est pas prise en charge.
+**Type de démarrage** : type de démarrage de la machine virtuelle. Le type de démarrage peut prendre la valeur BIOS ou EFI.  Azure Site Recovery prend en charge les machines virtuelles EFI Windows Server (Windows Server 2012, 2012 R2 et 2016) si le nombre de partitions dans le disque de démarrage est inférieure à 4 et la taille du secteur de démarrage est de 512 octets. Pour protéger les machines virtuelles EFI, le service mobilité de Azure Site Recovery doit être la version 9.13 ou ultérieure. Seul le basculement est pris en charge pour les machines virtuelles EFI. La restauration automatique n’est pas prise en charge.
 
-**OS Type** : le type de système d’exploitation de la machine virtuelle. Cela peut être Windows, Linux ou un autre basé sur le modèle choisi à partir de VMware vSphere lors de la création de la machine virtuelle.
+**Type de système d’exploitation** :  type de système d’exploitation de la machine virtuelle. Cela peut être Windows, Linux ou un autre basé sur le modèle choisi à partir de VMware vSphere lors de la création de la machine virtuelle.
 
 ## <a name="azure-site-recovery-limits"></a>Limites Azure Site Recovery
 Le tableau suivant présente les limites d’Azure Site Recovery. Les limites sont basées sur nos tests, mais ne peuvent pas couvrir toutes les combinaisons d’E/S d’application possibles. Les résultats réels varient en fonction de la combinaison d’E/S de votre application. Pour de meilleurs résultats, même après la planification du déploiement, nous vous recommandons toujours d’effectuer des tests d’application approfondis à l’aide d’un test de basculement pour obtenir une image réelle des performances de l’application.

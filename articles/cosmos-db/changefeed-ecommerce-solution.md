@@ -1,20 +1,19 @@
 ---
-title: Utiliser le flux de modification Azure Cosmos DB pour visualiser l’Analytique données en temps réel | Microsoft Docs
+title: Utiliser le flux de modification Azure Cosmos DB pour visualiser l’Analytique données en temps réel
 description: Cet article explique comment une société de vente au détail peut utiliser le flux de modification pour comprendre les modèles utilisateur, pour effectuer l’Analytique données en temps réel et pour visualiser ces données.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 03fb56125bcc4133dd87a1dc76d4d6811ebb8f40
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e663a7b8f68c43ebf4c562dd67630db5d113e979
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685495"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090752"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Utiliser le flux de modification Azure Cosmos DB pour visualiser l’Analytique données en temps réel
 
@@ -32,7 +31,7 @@ Le diagramme ci-après illustre le flux de données et les composants impliqués
 
 ![Éléments visuels du projet](./media/changefeed-ecommerce-solution/project-visual.png)
  
-1. **Génération de données :** le simulateur de données est utilisé pour générer des données de vente au détail qui représentent les événements tels que la consultation d’un article par un utilisateur, l’ajout d’un article à un panier et l’achat d’un article. Vous pouvez générer un vaste ensemble d’échantillons de données à l’aide du générateur de données. Les échantillons de données générés contiennent des documents au format suivant :
+1. **Génération de données :** le simulateur de données est utilisé pour générer des données de vente au détail qui représentent des événements, tels que la consultation d’un article par un utilisateur, l’ajout d’un article à un panier et l’achat d’un article. Vous pouvez générer un vaste ensemble d’échantillons de données à l’aide du générateur de données. Les échantillons de données générés contiennent des documents au format suivant :
    
    ```json
    {      
@@ -43,17 +42,17 @@ Le diagramme ci-après illustre le flux de données et les composants impliqués
    }
    ```
 
-2. **Cosmos DB :** les données générées sont stockées dans une collection Azure Cosmos DB.  
+2. **Cosmos DB :** les données générées sont stockées dans une collection Azure Cosmos DB.  
 
-3. **Flux de modification :** le flux de modification identifie les modifications apportées à la collection Azure Cosmos DB. Chaque fois qu’un nouveau document est ajouté à la collection (autrement dit, lors de chaque événement tel que la consultation d’un article par un utilisateur, l’ajout d’un article à un panier ou l’achat d’un article), le flux de modification déclenche une [fonction Azure](../azure-functions/functions-overview.md).  
+3. **Flux de modification :** le flux de modification identifie les modifications apportées à la collection Azure Cosmos DB. Chaque fois qu’un nouveau document est ajouté à la collection (autrement dit, lors de chaque événement tel que la consultation d’un article par un utilisateur, l’ajout d’un article à un panier ou l’achat d’un article), le flux de modification déclenche une [fonction Azure](../azure-functions/functions-overview.md).  
 
-4. **Fonction Azure :** la fonction Azure traite les nouvelles données et les envoie à un [Azure Event Hub](../event-hubs/event-hubs-about.md).  
+4. **Fonction Azure :** la fonction Azure traite les nouvelles données et les envoie à un [hub d’événements Azure](../event-hubs/event-hubs-about.md).  
 
-5. **Event Hub :** l’Event Hub Azure stocke ces événements et les envoie à [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) pour les soumettre à une analyse approfondie.  
+5. **Event Hub :** le hub d’événements Azure stocke ces événements et les envoie à [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) pour les soumettre à une analyse approfondie.  
 
-6. **Azure Stream Analytics :** Azure Stream Analytics définit les requêtes permettant de traiter les événements et de procéder à l’Analytique données en temps réel. Ces données sont ensuite envoyées à [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
+6. **Azure Stream Analytics :** Azure Stream Analytics définit les requêtes permettant de traiter les événements et de procéder à l’analytique de données en temps réel. Ces données sont ensuite envoyées à [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
 
-7. **Power BI :** Power BI permet de visualiser les données envoyées par Azure Stream Analytics. Vous pouvez générer un tableau de bord afin de visualiser l’évolution des métriques en temps réel.  
+7. **Power BI :** Power BI permet de visualiser les données envoyées par Azure Stream Analytics. Vous pouvez générer un tableau de bord afin de visualiser l’évolution des métriques en temps réel.  
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -95,13 +94,12 @@ Vous devez créer les ressources Azure requises par la solution : Azure Cosmos D
 
 Vous allez à présent créer une collection destinée à stocker les événements du site d’e-commerce. Chaque fois qu’un utilisateur consultera un article, ajoutera un article à son panier ou achètera un article, la collection recevra un enregistrement incluant l’action (« Affiché », « Ajouté » ou « Acheté »), le nom et le prix de l’article concerné, ainsi que le numéro d’identification du panier utilisateur impliqué.
 
-1. Accédez au [Portail Azure](http://portal.azure.com/) et recherchez le **Compte Azure Cosmos DB** créé par le déploiement du modèle.  
+1. Accédez au [Portail Azure](https://portal.azure.com/) et recherchez le **Compte Azure Cosmos DB** créé par le déploiement du modèle.  
 
 2. Dans le volet **Explorateur de données**, sélectionnez **Nouvelle collection**, puis renseignez le formulaire avec les informations suivantes :  
 
    * Pour le champ **ID de base de données**, sélectionnez **Créer**, puis entrez **changefeedlabdatabase**. Laissez la case **Provision database throughput** (Provisionner le débit de base de données) décochée.  
    * Pour le champ **ID de la collection**, entrez **changefeedlabcollection**.  
-   * Pour le champ **Capacité de stockage**, sélectionnez **Illimitée**.  
    * Pour le champ **Clé de partition**, entrez **/Item**. Ce champ respecte la casse ; par conséquent, veillez à entrer cette valeur correctement.  
    * Pour le champ **Débit**, entrez la valeur **10000**.  
    * Cliquez sur le bouton **OK**.  
@@ -120,7 +118,7 @@ Vous allez à présent créer une collection destinée à stocker les événemen
 
 ### <a name="get-the-azure-cosmos-db-connection-string"></a>Obtenir la chaîne de connexion Azure Cosmos DB
 
-1. Accédez au [Portail Azure](http://portal.azure.com/) et recherchez le **Compte Azure Cosmos DB** créé par le déploiement du modèle.  
+1. Accédez au [Portail Azure](https://portal.azure.com/) et recherchez le **Compte Azure Cosmos DB** créé par le déploiement du modèle.  
 
 2. Accédez au volet **Clés**, puis copiez la CHAÎNE DE CONNEXION PRINCIPALE dans un Bloc-notes ou dans un autre document auquel vous aurez accès tout au long du labo. Vous devez lui attribuer l’étiquette **Chaîne de connexion Cosmos DB**. Vous devrez copier cette chaîne dans votre code par la suite ; par conséquent, notez-la dans un endroit facile à mémoriser.
 
@@ -180,7 +178,7 @@ Pour voir la manière dont le flux de modification traite les nouvelles actions 
  
 6. Attendez que le programme s’exécute. L’apparition d’étoiles signifie que les données affluent. Laissez le programme s’exécuter, car il est important que vous collectiez un maximum de données.  
 
-7. Si vous accédez au [Portail Azure](http://portal.azure.com/), puis au compte Cosmos DB dans votre groupe de ressources, et enfin à **l’Explorateur de données**, vous verrez les données aléatoires importées dans votre collection **changefeedlabcollection** .
+7. Si vous accédez au [Portail Azure](https://portal.azure.com/), puis au compte Cosmos DB dans votre groupe de ressources, et enfin à **l’Explorateur de données**, vous verrez les données aléatoires importées dans votre collection **changefeedlabcollection** .
  
    ![Données générées dans le portail](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -188,7 +186,7 @@ Pour voir la manière dont le flux de modification traite les nouvelles actions 
 
 Azure Stream Analytics est un service cloud entièrement géré pour le traitement en temps réel des données de streaming. Dans le cadre de ce labo, vous allez utiliser Stream Analytics pour traiter les nouveaux événements à partir de l’Event Hub (par exemple, article consulté, ajouté à un panier ou acheté), pour incorporer ces événements dans l’Analytique données en temps réel, puis pour les envoyer dans Power BI à des fins de visualisation.
 
-1. À partir du [Portail Azure](http://portal.azure.com/), accédez à votre groupe de ressources, puis à **streamjob1** (travail Stream Analytics que vous avez créé dans le cadre du labo préalable).  
+1. À partir du [Portail Azure](https://portal.azure.com/), accédez à votre groupe de ressources, puis à **streamjob1** (travail Stream Analytics que vous avez créé dans le cadre du labo préalable).  
 
 2. Sélectionnez **Entrées** comme illustré ci-dessous.  
 
@@ -319,15 +317,15 @@ Power BI est une suite d’outils d’analyse métier permettant d’analyser de
 
    ![Visualisations](./media/changefeed-ecommerce-solution/visualizations.png)
 
-## <a name="optional-visualize-with-an-e-commerce-site"></a>Facultatif : visualiser les données à l’aide d’un site d’e-commerce
+## <a name="optional-visualize-with-an-e-commerce-site"></a>Facultatif : Visualiser les données à l’aide d’un site d’e-commerce
 
 Vous allez à présent découvrir comment utiliser votre nouvel outil d’Analytique données pour vous connecter à un véritable site d’e-commerce. Pour générer le site d’e-commerce, utilisez une base de données Azure Cosmos DB afin de stocker la liste des catégories de produits (Pour femmes, Pour hommes, Unisexe), le catalogue de produits et la liste des articles les plus populaires.
 
-1. Réaccédez au [Portail Azure](http://portal.azure.com/), à votre **Compte Cosmos DB**, puis à **l’Explorateur de données**.  
+1. Réaccédez au [Portail Azure](https://portal.azure.com/), à votre **Compte Cosmos DB**, puis à **l’Explorateur de données**.  
 
    Sous **changefeedlabdatabase**, ajoutez deux collections - **products** et **categories** avec une capacité de stockage Fixe.
 
-   Sous **changefeedlabdatabase**, ajoutez une autre collection nommée **topItems** avec une capacité de stockage **Illimitée**. Pour la clé de partition, entrez **/Item**.
+   Sous **changefeedlabdatabase**, ajoutez une autre collection nommée **topItems**, et **/Item** comme clé de partition.
 
 2. Cliquez sur la collection **topItems**, puis sous **Mise à l’échelle et paramètres**, définissez le paramètre **Durée de vie** sur **30 secondes** pour que la collection topItems soit mise à jour toutes les 30 secondes.
 
@@ -393,7 +391,7 @@ Vous allez à présent découvrir comment utiliser votre nouvel outil d’Analyt
 
 ## <a name="delete-the-resources"></a>Supprimer les ressources
 
-Pour supprimer les ressources que vous avez créées dans le cadre de ce labo, accédez au groupe de ressources dans le [Portail Azure](http://portal.azure.com/), puis sélectionnez **Supprimer le groupe de ressources** dans le menu situé en haut de la page et suivez les instructions fournies.
+Pour supprimer les ressources que vous avez créées dans le cadre de ce labo, accédez au groupe de ressources dans le [Portail Azure](https://portal.azure.com/), puis sélectionnez **Supprimer le groupe de ressources** dans le menu situé en haut de la page et suivez les instructions fournies.
 
 ## <a name="next-steps"></a>Étapes suivantes 
   

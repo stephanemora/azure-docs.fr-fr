@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: ccc30d336542622048cc28b991d5ecf616133c5a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: c9cbea913a86a681620eea4adc0a5c99cc84f920
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633816"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433863"
 ---
 # <a name="run-custom-mapreduce-programs"></a>Exécuter des programmes MapReduce personnalisés
 
@@ -25,7 +25,7 @@ Les systèmes de données volumineux basés sur Apache Hadoop tels que HDInsight
 | **Apache Hive avec HiveQL** | <ul><li>Une excellente solution pour le traitement par lots et l’analyse de grandes quantités de données immuables, pour le résumé des données et pour l’interrogation à la demande. Il utilise une syntaxe de type SQL classique.</li><li>Il peut être utilisé pour générer des tables de données persistantes qui peuvent être facilement partitionnées et indexées.</li><li>Différentes tables et vues externes peuvent être créées sur les mêmes données.</li><li>Il prend en charge une implémentation d’entrepôt de données simple qui fournit des fonctionnalités considérables de montée en charge et de tolérance de panne pour le traitement et le stockage des données.</li></ul> | <ul><li>Il requiert que les données sources possèdent au moins une structure identifiable.</li><li>Il n’est pas approprié pour les requêtes en temps réel et les mises à jour au niveau des lignes. Il est idéal pour les traitements par lots sur des jeux de données volumineux.</li><li>Il est possible qu’il ne puisse pas effectuer certains types de tâches de traitement complexes.</li></ul> |
 | **Apache Pig avec Pig Latin** | <ul><li>Une excellente solution pour la manipulation de données sous forme de jeux, la fusion et le filtrage de jeux de données, l’application de fonctions à des enregistrements ou des groupes d’enregistrements, et la restructuration de données par définition de colonnes, regroupement de valeurs ou conversion de colonnes en lignes.</li><li>Il peut utiliser une approche basée sur les flux de travail comme séquence d’opérations sur les données.</li></ul> | <ul><li>Pig Latin peut sembler moins familier et plus difficile à utiliser que HiveQL pour les utilisateurs de SQL.</li><li>La sortie par défaut est généralement un fichier texte et peut donc être plus difficile à utiliser avec des outils de visualisation comme Excel. En général, vous placez une table Hive sur la sortie.</li></ul> |
 | **Custom map/reduce** | <ul><li>Il offre un contrôle total sur les phases de mappage et réduction ainsi que sur l’exécution.</li><li>Les requêtes peuvent être optimisées de manière à atteindre les performances maximales du cluster, ou pour réduire au minimum la charge sur les serveurs et le réseau.</li><li>Les composants peuvent être écrits dans divers langages courants.</li></ul> | <ul><li>Il est plus difficile à utiliser que Pig ou Hive, car vous devez créer vos propres composants map et reduce.</li><li>Les processus qui nécessitent de joindre des jeux de données sont plus difficiles à implémenter.</li><li>Bien que des infrastructures de test soient disponibles, le débogage du code est plus complexe que pour une application normale, car le code s’exécute comme un traitement par lots sous le contrôle du planificateur de travaux Hadoop.</li></ul> |
-| **Apache HCatalog** | <ul><li>Il abstrait les informations de chemin d’accès du stockage, ce qui simplifie l’administration et n’oblige pas les utilisateurs à savoir où sont stockées les données.</li><li>Il fournit la notification d’événements tels que la disponibilité des données, ce qui permet à d’autres outils comme Oozie de détecter l’heure d’exécution des opérations.</li><li>Il présente une vue relationnelle des données, notamment le partitionnement par clé, et facilite l’accès aux données.</li></ul> | <ul><li>Il prend en charge les formats de fichier RCFile, texte CSV, texte JSON, SequenceFile et ORC par défaut, mais vous devrez probablement écrire une méthode SerDe personnalisée pour les autres formats.</li><li>HCatalog n’est pas thread-safe.</li><li>Il existe des restrictions sur les types de données des colonnes lors de l’utilisation du chargeur HCatalog dans des scripts Pig. Pour plus d’informations, consultez [Types de données HCatLoader](http://cwiki.apache.org/confluence/display/Hive/HCatalog%20LoadStore#HCatalogLoadStore-HCatLoaderDataTypes) dans la documentation HCatalog Apache.</li></ul> |
+| **Apache HCatalog** | <ul><li>Il abstrait les informations de chemin d’accès du stockage, ce qui simplifie l’administration et n’oblige pas les utilisateurs à savoir où sont stockées les données.</li><li>Il fournit la notification d’événements tels que la disponibilité des données, ce qui permet à d’autres outils comme Oozie de détecter l’heure d’exécution des opérations.</li><li>Il présente une vue relationnelle des données, notamment le partitionnement par clé, et facilite l’accès aux données.</li></ul> | <ul><li>Il prend en charge les formats de fichier RCFile, texte CSV, texte JSON, SequenceFile et ORC par défaut, mais vous devrez probablement écrire une méthode SerDe personnalisée pour les autres formats.</li><li>HCatalog n’est pas thread-safe.</li><li>Il existe des restrictions sur les types de données des colonnes lors de l’utilisation du chargeur HCatalog dans des scripts Pig. Pour plus d’informations, consultez [Types de données HCatLoader](https://cwiki.apache.org/confluence/display/Hive/HCatalog%20LoadStore#HCatalogLoadStore-HCatLoaderDataTypes) dans la documentation HCatalog Apache.</li></ul> |
 
 En général, vous utilisez l’approche la plus simple permettant de fournir les résultats recherchés. Par exemple, vous pouvez obtenir ces résultats en utilisant simplement Hive, mais pour les scénarios plus complexes, vous devrez peut-être utiliser Pig, ou encore écrire vos propres composants map et reduce. Vous pouvez également décider, après avoir essayé Hive ou Pig, que des composants map et reduce personnalisés pourraient offrir de meilleures performances en vous permettant d’affiner et d’optimiser le traitement.
 
@@ -74,8 +74,8 @@ Les programmes MapReduce les plus courants sont écrits en Java et compilés dan
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Utilisation de C# avec streaming MapReduce sur Hadoop dans HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
-* [Développer des programmes MapReduce Java pour Hadoop sur HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [Utiliser C# avec le streaming MapReduce sur Apache Hadoop dans HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [Développer des programmes MapReduce Java pour Apache Hadoop sur HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 * [Développement de programmes MapReduce de diffusion en continu Python pour HDInsight](apache-hadoop-streaming-python.md)
-* [Utiliser le kit de ressources Azure pour Eclipse afin de créer des applications Spark pour un cluster HDInsight](../spark/apache-spark-eclipse-tool-plugin.md)
-* [Utiliser des fonctions définies par l’utilisateur (UDF) Python avec Hive et Pig dans HDInsight](python-udf-hdinsight.md)
+* [Utiliser Azure Toolkit for Eclipse afin de créer des applications Apache Spark pour un cluster HDInsight](../spark/apache-spark-eclipse-tool-plugin.md)
+* [Utiliser des fonctions définies par l’utilisateur (UDF) Python avec Apache Hive et Apache Pig dans HDInsight](python-udf-hdinsight.md)

@@ -1,23 +1,24 @@
 ---
-title: Score de prédiction - Intentions, entités - LUIS
-titleSuffix: Azure Cognitive Services
+title: Scores de prédiction
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Un score de prédiction indique le degré de confiance que LUIS a dans les résultats de prédiction.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: e1582da9a8fea4137d40b3a3855ead467dbbb548
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: d082f8ee4d516e3c9571ec63653f39723cad8c77
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264384"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141983"
 ---
-# <a name="prediction-score"></a>Scores de prédictions
+# <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Les scores de prédiction indiquent la précision des prédictions pour les entités et l’intention
 Un score de prédiction indique le degré de confiance que LUIS a dans les résultats de prédiction. 
 
 Un score de prédiction est compris entre zéro (0) et un (1). Un exemple de score LUIS de grande confiance est égal à 0,99. Un exemple de score faible confiance est égal à 0,01. 
@@ -38,7 +39,7 @@ Chaque prédiction d’énoncé retourne une intention de score principale. Il s
 
 Si vous êtes inquiet de la proximité des scores principaux, vous devez retourner le score pour toutes les intentions. Vous pouvez soit ajouter aux deux intentions des énoncés qui indiquent leurs différences par le biais du choix et de l’ordre des mots, ou bien l’application appelant LUIS peut, telle un chatbot, faire des choix de programmation quant à la manière de gérer les deux intentions principales. 
 
-Deux intentions, qui ont des notations trop proches, peuvent s’inverser en raison d’un entraînement non déterministe. Le score le plus élevé peut devenir le second score le plus élevé, et le second score le plus élevé peut devenir le score le plus élevé. Pour éviter ce problème, ajoutez des énoncés de l’exemple à chacune des deux principales intentions de cet énoncé, avec un choix de mots et de contexte permettant de différencier les deux intentions. Les deux intentions doivent avoir le même nombre d’énoncés d’exemple. Une règle empirique de séparation visant à empêcher l’inversion en raison de l’entraînement, constitue une différence de score de 15 %.
+Deux intentions, qui ont des notations trop proches, peuvent s’inverser en raison d’une formation non déterministe. Le score le plus élevé peut devenir le second score le plus élevé, et le second score le plus élevé peut devenir le score le plus élevé. Pour éviter ce problème, ajoutez des énoncés de l’exemple à chacune des deux principales intentions de cet énoncé, avec un choix de mots et de contexte permettant de différencier les deux intentions. Les deux intentions doivent avoir le même nombre d’énoncés d’exemple. Une règle empirique de séparation visant à empêcher l’inversion en raison de la formation, constitue une différence de score de 15 %.
 
 ## <a name="return-prediction-score-for-all-intents"></a>Retourner le score de prédiction pour toutes les intentions
 Un résultat de test ou de point de terminaison peut inclure toutes les intentions. Cette configuration est définie sur le [point de terminaison](https://aka.ms/v1-endpoint-api-docs) avec la `verbose=true` paire nom/valeur de chaîne de requête. 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: ryanwi
-ms.openlocfilehash: 945cdf63a178a09f121f355aaa7635537e46e5ff
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 4941d893c6c871541772569e42bf5169270def88
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703433"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413555"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Créer des tests unitaires pour les services avec état
 Les tests unitaires sur les services avec état Service Fabric permettent d’identifier des erreurs courantes qui ne seraient pas forcément interceptées par les tests unitaires conventionnels propres à une application ou à un domaine. Lors du développement des tests unitaires pour les services avec état, vous devez tenir compte de certains points.
@@ -34,7 +34,7 @@ Cet article part du principe que vous avez lu [Tests unitaires des services avec
 À compter de la version 3.3.0, [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) fournit une API pour la simulation à la fois de l’orchestration des réplicas et de la gestion de l’état. Elle sera utilisée dans les exemples.
 
 [Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/)
-[Github](https://github.com/loekd/ServiceFabric.Mocks)
+[GitHub](https://github.com/loekd/ServiceFabric.Mocks)
 
 *ServiceFabric.Mocks n’est pas la propriété de Microsoft et n’est pas gérée par Microsoft. Toutefois, il s’agit actuellement de la bibliothèque recommandée par Microsoft pour les tests unitaires des services avec état.*
 
@@ -91,7 +91,7 @@ replicaSet.PromoteNewReplicaToPrimaryAsync(4);
 
 //promote the first idle secondary to an active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync();
-//promote idle secodary with replica id 4 to active secondary 
+//promote idle secodary with replica id 4 to active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync(4);
 
 //add a new replica with randomly assigned replica id and promote it to primary

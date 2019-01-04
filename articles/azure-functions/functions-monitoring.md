@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: 9fb25f21e9ff54baf0e297fad1601018af45e476
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: aba3d9f33d179c09708464975fa2a929a8bb68d0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497241"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876517"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -158,7 +158,7 @@ Les tables disponibles sont affichées sous l’onglet **Schéma** du volet gauc
 * **requests** : une demande par appel de fonction.
 * **exceptions** : toutes les exceptions levées par le runtime.
 * **customMetrics** : nombre d’appels ayant réussi ou échoué, taux de réussite, durée.
-* **customEvents** : événements suivis par le runtime, par exemple : requêtes HTTP qui déclenchent une fonction.
+* **customEvents** : événements suivis par le runtime, par exemple :  requêtes HTTP qui déclenchent une fonction.
 * **performanceCounters** : informations sur le niveau de performance des serveurs sur lesquels les fonctions sont en cours d’exécution.
 
 Les autres tables concernent les tests de disponibilité et les données de télémétrie client/navigateur. Vous pouvez implémenter une télémétrie personnalisée en vue d’y ajouter des données.
@@ -330,6 +330,21 @@ Comme indiqué dans la section précédente, le runtime agrège les données sur
 ## <a name="configure-sampling"></a>Configurer l’échantillonnage
 
 Application Insights a une fonctionnalité [d’échantillonnage](../application-insights/app-insights-sampling.md) qui peut vous éviter de produire une quantité excessive de données de télémétrie aux heures de forte activité. Quand le taux de données de télémétrie entrantes dépasse un seuil spécifié, Application Insights commence à ignorer aléatoirement certains des éléments entrants. Par défaut, le nombre maximal d’éléments par seconde est fixé à 5. Vous pouvez configurer l’échantillonnage dans [host.json](functions-host-json.md).  Voici un exemple :
+
+### <a name="version-2x"></a>Version 2.x 
+
+```json
+{
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "maxTelemetryItemsPerSecond" : 5
+      }
+    }
+  }
+}
+```
 
 ### <a name="version-1x"></a>Version 1.x 
 

@@ -1,6 +1,6 @@
 ---
-title: Comment ajouter ou mettre à jour les informations de profil pour un utilisateur dans Azure Active Directory | Microsoft Docs
-description: Découvrez comment ajouter des informations à un profil utilisateur, dont une image de profil, des informations sur l’emploi, et quelques réglages dans Azure Active Directory.
+title: Ajouter ou mettre à jour les informations du profil utilisateur dans Azure Active Directory | Microsoft Docs
+description: Ces instructions vous expliquent comment ajouter des informations à un profil utilisateur dans Azure Active Directory, y compris une image et des informations sur son poste.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: d4e2ebd88430cab1fe0734e342b1c9ba4a29af1b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 0e03d882df61755faf283aa67427beeec17c8c05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45728944"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094727"
 ---
-# <a name="how-to-add-or-update-a-users-profile-information-using-azure-active-directory"></a>Guide pour ajouter ou mettre à jour les informations de profil pour un utilisateur avec Azure Active Directory
+# <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Ajouter ou mettre à jour les informations du profil utilisateur avec Azure Active Directory
 Ajoutez des informations à un profil utilisateur, dont une image de profil, des informations sur l’emploi, et quelques réglages avec Azure Active Directory (Azure AD). Pour en savoir plus sur l’ajout de nouveaux utilisateurs, consultez [Comment ajouter ou supprimer des utilisateurs dans Azure Active Directory](add-users-azure-active-directory.md).
 
 ## <a name="add-or-change-profile-information"></a>Ajouter ou modifier les informations de profil

@@ -1,6 +1,6 @@
 ---
-title: Superviser les exécutions des applications logiques avec Log Analytics - Azure Logic Apps | Microsoft Docs
-description: Obtenir des insights et des données de débogage sur les exécutions de votre application logique avec Log Analytics à des fins de diagnostic et de résolution de problèmes
+title: Effectuer le monitoring des applications logiques avec Log Analytics – Azure Logic Apps | Microsoft Docs
+description: Obtenez des insights et des données de débogage vous permettant de diagnostiquer et de résoudre les problèmes des exécutions de votre application logique avec Azure Log Analytics.
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,26 +8,26 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 10/11/2018
-ms.openlocfilehash: 177c361734a88acab5fc10d6b460645be82bf437
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.date: 10/19/2018
+ms.openlocfilehash: 70242de62e976b05e2708dfd4991915c854d4bb4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457135"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995643"
 ---
-# <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Surveiller et comprendre les exécutions de votre application logique à l’aide de Log Analytics
+# <a name="monitor-logic-apps-with-azure-log-analytics"></a>Effectuer le monitoring des applications logiques avec Log Analytics
 
-Pour la surveillance et l’obtention d’informations de débogage plus détaillées, vous pouvez activer Log Analytics lorsque vous créez une application logique. Log Analytics fournit des options de journalisation des diagnostics et de surveillance des exécutions de votre application logique dans le portail Azure. Lorsque vous ajoutez la solution Logic Apps Management, vous obtenez l’état agrégé des exécutions de votre application logique, ainsi que des informations détaillées telles que l’état, la durée d’exécution, l’état de la nouvelle soumission et les ID de corrélation.
+Pour effectuer le monitoring de votre application logique et obtenir des informations de débogage plus détaillées à son sujet, activez [Azure Log Analytics](../log-analytics/log-analytics-overview.md) lorsque vous créez votre application logique. Log Analytics assure la journalisation des diagnostics et le monitoring des applications logiques lorsque la solution Logic Apps Management est installée sur le Portail Azure. Cette solution fournit également des informations agrégées sur les exécutions de l’application logique avec certains détails spécifiques comme l’état, la durée d’exécution, l’état de la nouvelle soumission et les ID de corrélation. Cet article montre comment activer Log Analytics pour voir les données et les événements d’exécution associés aux exécutions de l’application logique.
 
-Cet article montre comment activer Log Analytics afin de voir les données et les événements d’exécution associés aux exécutions de votre application logique.
+Si vous souhaitez activer Azure Log Analytics sur une application logique existante, suivez ces étapes pour [activer la journalisation des diagnostics et envoyer à Log Analytics les données d’exécution de l’application logique](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
- > [!TIP]
- > Pour surveiller vos applications logiques existantes, effectuez les étapes nécessaires pour [activer la journalisation des diagnostics et envoyer à Log Analytics les données d’exécution de l’application logique](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+> [!NOTE]
+> Cette page expliquait auparavant comment effectuer ces tâches avec Microsoft Operations Management Suite (OMS) ; dans la mesure où celui-ci sera [mis hors service en janvier 2019](../azure-monitor/platform/oms-portal-transition.md), ces étapes sont remplacées par Azure Log Analytics. 
 
-## <a name="requirements"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, vous devez disposer d’un espace de travail Log Analytics. Découvrez [comment créer un espace de travail Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). 
+Avant de commencer, il vous faut un espace de travail Log Analytics. Découvrez [comment créer un espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md). 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Activer la journalisation des diagnostics lors de la création d’applications logiques
 
@@ -54,11 +54,11 @@ Avant de commencer, vous devez disposer d’un espace de travail Log Analytics. 
 
 1. Pour voir les exécutions de votre application logique, [effectuez ces étapes](#view-logic-app-runs-oms).
 
-## <a name="install-the-logic-apps-management-solution"></a>Installer la solution Logic Apps Management
+## <a name="install-logic-apps-management-solution"></a>Installer la solution Logic Apps Management
 
 Si vous avez déjà activé Log Analytics lors de la création de votre application logique, ignorez cette étape. En effet, vous disposez déjà de la solution Logic Apps Management.
 
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**. Dans la zone de recherche, entrez « log analytics » comme filtre, puis sélectionnez **Log Analytics**.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**. Dans la zone de recherche, entrez « log analytics », puis sélectionnez **Log Analytics**.
 
    ![Sélectionner « Log Analytics »](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
@@ -66,7 +66,7 @@ Si vous avez déjà activé Log Analytics lors de la création de votre applicat
 
    ![Sélectionnez votre espace de travail Log Analytics.](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
 
-1. Sous **Configurer des solutions de supervision**, choisissez **Afficher les solutions**.
+1. Sous **Bien démarrer avec Log Analytics** > **Configurer des solutions de monitoring**, choisissez **Afficher les solutions**.
 
    ![Choisir « Afficher les solutions »](media/logic-apps-monitor-your-logic-apps-oms/log-analytics-workspace.png)
 
@@ -76,19 +76,23 @@ Si vous avez déjà activé Log Analytics lors de la création de votre applicat
 
    Si vous ne trouvez pas la solution, choisissez **Charger plus** en bas de la liste jusqu’à ce que la solution s’affiche.
 
-1. Choisissez **Créer**, ce qui permet d’installer la solution.
+1. Choisissez **Créer**, confirmez l’espace de travail Log Analytics dans lequel vous souhaitez installer la solution, puis sélectionnez à nouveau **Créer**.   
 
-   ![Sélection de l’option « Ajouter » pour « Logic Apps Management »](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+   ![Choisir « Créer » pour « Logic Apps Management »](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+
+   Si vous ne souhaitez pas utiliser un espace de travail existant, vous pouvez également en créer un maintenant.
+
+   Lorsque vous avez terminé, la solution Logic Apps Management s’affiche sur la page de présentation. 
 
 <a name="view-logic-app-runs-oms"></a>
 
-## <a name="view-logic-app-runs-in-log-analytics-workspace"></a>Afficher les exécutions de l’application logique dans l’espace de travail Log Analytics
+## <a name="view-logic-app-run-information"></a>Afficher des informations d’exécution sur l’application logique
 
-1. Pour voir le nombre et l’état des exécutions de votre application logique, accédez à votre espace de travail Log Analytics et ouvrez la page Vue d’ensemble. 
+Après l’exécution de votre application logique, vous pouvez afficher l’état et le nombre de ces exécutions sur la vignette **Logic Apps Management**. 
 
-   Les détails des exécutions de votre application logique sont affichés dans la vignette **Logic Apps Management**. Pour afficher un récapitulatif plus détaillé des exécutions de votre application logique, choisissez la vignette **Logic Apps Management**. 
+1. Accédez à votre espace de travail Log Analytics, puis ouvrez la page de présentation. Choisissez **Logic Apps Management**. 
 
-   ![Vignette de présentation affichant l’état et le nombre d’exécutions de l’application logique](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
+   ![État et nombre d’exécutions de l’application logique](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 
    Les exécutions de votre application logique y sont regroupées par nom ou par état d’exécution. 
    Cette page affiche également des détails sur les échecs dans les actions ou déclencheurs pour les exécutions d’une application logique.
@@ -112,17 +116,17 @@ Si vous avez déjà activé Log Analytics lors de la création de votre applicat
 
      Quand vous ajoutez de nouvelles propriétés suivies, 10 à 15 minutes peuvent s’écouler avant leur apparition. Découvrez [comment ajouter des propriétés suivies à votre application logique](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
 
-   * **Soumettre à nouveau :** vous pouvez soumettre à nouveau une ou plusieurs exécutions d’application logique ayant échoué, réussies ou en cours d’exécution. Cochez les cases correspondant aux exécutions que vous souhaitez soumettre à nouveau, puis choisissez **Soumettre à nouveau**. 
+   * **Soumettre à nouveau :** vous pouvez soumettre à nouveau une ou plusieurs exécutions d’application logique ayant échoué ou réussi, ou en cours d’exécution. Cochez les cases correspondant aux exécutions que vous souhaitez soumettre à nouveau, puis choisissez **Soumettre à nouveau**. 
 
      ![Soumettre à nouveau des exécutions d’application logique](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
 1. Pour filtrer ces résultats, vous pouvez effectuer un filtrage côté client et côté serveur.
 
-   * **Filtre côté client** : pour chaque colonne, choisissez les filtres que vous souhaitez, par exemple :
+   * **Filtre côté client** : pour chaque colonne, choisissez les filtres que vous souhaitez, par exemple :
 
      ![Exemples de filtres de colonne](media/logic-apps-monitor-your-logic-apps-oms/filters.png)
 
-   * **Filtre côté serveur** : pour choisir une fenêtre de temps ou pour limiter le nombre d’exécutions affichées, utilisez la commande d’étendue située en haut de la page. Par défaut, vous ne pouvez afficher que 1 000 enregistrements à la fois.
+   * **Filtre côté serveur** : pour choisir une fenêtre de temps spécifique ou pour limiter le nombre d’exécutions affichées, utilisez la commande d’étendue située en haut de la page. Par défaut, vous ne pouvez afficher que 1 000 enregistrements à la fois.
    
      ![Modifier la fenêtre de temps](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
  

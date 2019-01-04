@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
-ms.openlocfilehash: b0cf2d7856a78bbe2aa531c6e872168e8e33b06a
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 45c06afd0d298c467d8f0a3a42b68bf1948c6ed3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021809"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726744"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Azure Monitor sur Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack*
 
 Cet article fournit une vue d’ensemble du service Azure Monitor sur Azure Stack. Il vous permet de découvrir le fonctionnement d’Azure Monitor et vous fournit des informations supplémentaires à propos de l’utilisation d’Azure Monitor sur Azure Stack. 
 

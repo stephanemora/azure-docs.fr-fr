@@ -1,25 +1,23 @@
 ---
-title: 'Azure Cosmos DB : API Java SQL, Kit SDK et ressources | Microsoft Docs'
+title: 'Azure Cosmos DB : API, SDK et ressources SQL Java'
 description: Découvrez l’API et le Kit de développement logiciel (SDK) Java SQL, notamment les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du Kit de développement logiciel (SDK) Java SQL d’Azure Cosmos DB.
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/21/2018
+ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c58c1972fee782a93f9641d00376db916021f95
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e5c733ecd65482e4b02a5d4e28784e84e63f2231
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634487"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340519"
 ---
-# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK Java Azure Cosmos DB pour API SQL : notes de publication et ressources
+# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB pour API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Flux de modification .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -30,7 +28,7 @@ ms.locfileid: "52634487"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -38,7 +36,7 @@ Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les 
 
 <table>
 
-<tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
+<tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
 
 <tr><td>**Documentation de l’API**</td><td>[Documentation de référence sur l’API Java](/java/api/com.microsoft.azure.documentdb)</td></tr>
 
@@ -52,6 +50,23 @@ Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les 
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Ajout de la prise en charge de l’écriture multirégion pour le mode direct.
+* Ajout de la prise en charge du traitement des IOExceptions levées en tant qu’exceptions ServiceUnavailable à partir d’un proxy.
+* Correction d’un bogue dans la stratégie de nouvelle tentative de découverte de point de terminaison.
+* Correction d’un bogue pour éviter que des exceptions soient levées dans BaseDatabaseAccountConfigurationProvider de pointeur null.
+* Correction d’un bogue pour éviter que l’itérateur de requête ne retourne des valeurs NULL.
+* Correction d’un bogue pour autoriser une clé de partition volumineuse
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+* Ajout de la prise en charge de l’écriture multirégion pour le mode passerelle.
+
+### <a name="a-name11641164"></a><a name="1.16.4"/>1.16.4
+* Correction d’un bogue dans les plages de clés de partition en lecture pour une requête.
+
+### <a name="a-name11631163"></a><a name="1.16.3"/>1.16.3
+* Correction d’un bogue au niveau de la définition de la taille de l’en-tête du jeton de continuation en mode DirectHttps.
 
 ### <a name="a-name11621162"></a><a name="1.16.2"/>1.16.2
 * Ajout de la prise en charge du basculement de la diffusion en continu.
@@ -205,6 +220,10 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.1.1](#2.1.1) |21 novembre 2018 |--- |
+| [2.0.0](#2.0.0) |21 septembre 2018 |--- |
+| [1.16.4](#1.16.4) |10 septembre 2018 |--- |
+| [1.16.3](#1.16.3) |09 septembre 2018 |--- |
 | [1.16.2](#1.16.2) |29 juin 2018 |--- |
 | [1.16.1](#1.16.1) |16 mai 2018 |--- |
 | [1.16.0](#1.16.0) |15 mars 2018 |--- |

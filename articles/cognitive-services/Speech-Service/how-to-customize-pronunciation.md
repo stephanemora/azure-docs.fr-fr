@@ -1,24 +1,26 @@
 ---
-title: Personnaliser la prononciation avec le service Speech
+title: Personnaliser la prononciation - Services Speech
 titlesuffix: Azure Cognitive Services
-description: Découvrez comment personnaliser la prononciation avec le service Speech.
+description: Découvrez comment personnaliser la prononciation avec le service Speech. La prononciation personnalisée vous permet de définir l’écriture et la forme phonétiques d’un mot ou d’un terme. Cela peut être utile pour traiter les termes personnalisés que sont notamment les noms et les acronymes. Pour commencer, vous n’avez besoin que d’un fichier de prononciation (un simple fichier .txt).
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 12/06/2018
 ms.author: panosper
-ms.openlocfilehash: 93c8d3302444c7d764849fe41d529bc06696243f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 6d57bdd8444f5bd6d763400c4df4395bb33a7bdd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466169"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100002"
 ---
 # <a name="enable-custom-pronunciation"></a>Activer la prononciation personnalisée
-La prononciation personnalisée vous permet de définir l’écriture et la forme phonétiques d’un mot ou d’un terme. Cela peut être utile pour traiter les termes personnalisés tels que les noms ou les acronymes. Vous avez uniquement besoin d’un fichier de prononciation (un simple fichier .txt).
+
+La prononciation personnalisée vous permet de définir l’écriture et la forme phonétiques d’un mot ou d’un terme. Cela peut être utile pour traiter les termes personnalisés que sont notamment les noms et les acronymes. Pour commencer, vous n’avez besoin que d’un fichier de prononciation (un simple fichier .txt).
 
 Voici comment cela fonctionne. Dans un simple fichier .txt, vous pouvez saisir plusieurs entrées de prononciation personnalisées. La structure est comme suit :
 
@@ -41,12 +43,12 @@ Chaque fichier .txt peut avoir plusieurs entrées, comme le montre l’image sui
 
 ![Exemples de prononciation d’acronyme](media/stt/custom-speech-pronunciation-file.png)
 
-La forme orale est la séquence phonétique de la forme écrite. Elle est composée de lettres, de mots ou de syllabes. Actuellement, il n’existe aucun guide ou ensemble de normes pour vous aider à formuler la forme orale. 
+La forme orale est la séquence phonétique de la forme écrite. Elle est composée de lettres, de mots ou de syllabes. Actuellement, il n’existe aucun guide ou ensemble de normes pour vous aider à formuler la forme orale.
 
 ## <a name="supported-pronunciation-characters"></a>Caractères de prononciation pris en charge
-Pour l’heure, la prononciation personnalisée prend uniquement en charge l’anglais (en-US) et l’allemand (de-DE). Les jeux de caractères dont vous pouvez vous servir pour exprimer la forme orale d’un terme (dans le fichier de prononciation personnalisée) sont présentés dans le tableau suivant : 
+Pour l’heure, la prononciation personnalisée prend uniquement en charge l’anglais (en-US) et l’allemand (de-DE). Les jeux de caractères dont vous pouvez vous servir pour exprimer la forme orale d’un terme (dans le fichier de prononciation personnalisée) sont présentés dans le tableau suivant :
 
-| Langage | Caractères |
+| Langue | Caractères |
 |---------- |----------|
 | Anglais (en-US) | a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
 | Allemand (de-de) | ä, ö, ü, ?, a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
@@ -55,15 +57,14 @@ Pour l’heure, la prononciation personnalisée prend uniquement en charge l’a
 > La forme écrite d’un terme (dans un fichier de prononciation) doit être identique à celle utilisée dans un jeu de données d’adaptation de langue.
 
 ## <a name="requirements-for-the-display-form"></a>Exigences pour la forme écrite
-Une forme écrite peut être constituée d’un mot, d’un terme, d’un acronyme personnalisé unique ou de mots composés combinant des mots existants. Vous pouvez également entrer des prononciations différentes pour les mots courants. 
+Une forme écrite peut être constituée d’un mot, d’un terme, d’un acronyme personnalisé unique ou de mots composés combinant des mots existants. Vous pouvez également entrer des prononciations différentes pour les mots courants.
 
 >[!NOTE]
->Nous vous déconseillons d’utiliser cette fonctionnalité pour reformuler des mots courants ou modifier la forme orale. Il est préférable d’exécuter le décodeur pour voir si certains mots inhabituels (tels que des abréviations, des mots techniques ou des mots étrangers) ne sont pas décodés de manière incorrecte. S’ils ne sont pas décodés correctement, ajoutez-les dans le fichier de prononciation personnalisée. Dans le modèle de langage, vous devez toujours utiliser uniquement la forme écrite d’un mot. 
+>Nous vous déconseillons d’utiliser cette fonctionnalité pour reformuler des mots courants ou modifier la forme orale. Il est préférable d’exécuter le décodeur pour voir si certains mots inhabituels (tels que des abréviations, des mots techniques ou des mots étrangers) ne sont pas décodés de manière incorrecte. S’ils ne sont pas décodés correctement, ajoutez-les dans le fichier de prononciation personnalisée. Dans le modèle de langage, vous devez toujours utiliser uniquement la forme écrite d’un mot.
 
 ## <a name="requirements-for-the-file-size"></a>Exigences pour la taille de fichier
-La taille du fichier .txt qui contient les entrées de prononciation est limitée à 1 mégaoctet (Mo). En principe, vous n’avez pas besoin de charger de grandes quantités de données via ce fichier. La taille de la plupart des fichiers de prononciation personnalisée est normalement de quelques kilo-octets (Ko). L’encodage du fichier .txt pour tous les paramètres régionaux doit être la marque d'ordre d'octet UTF-8. Pour les paramètres régionaux anglais, ANSI est également acceptable.
+La taille du fichier .txt qui contient les entrées de prononciation est limitée à 1 mégaoctet (1 Ko pour les clés de niveau gratuit). En principe, vous n’avez pas besoin de charger de grandes quantités de données via ce fichier. La taille de la plupart des fichiers de prononciation personnalisée est normalement de quelques kilo-octets (Ko). L’encodage du fichier .txt pour tous les paramètres régionaux doit être la marque d'ordre d'octet UTF-8. Pour les paramètres régionaux anglais, ANSI est également acceptable.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Améliorez la précision de la reconnaissance en créant un [modèle acoustique personnalisé](how-to-customize-acoustic-models.md).
 * Améliorez la précision de la reconnaissance en créant un [modèle de langage personnalisé](how-to-customize-language-model.md).
- 

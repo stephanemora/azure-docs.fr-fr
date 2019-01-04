@@ -1,20 +1,21 @@
 ---
-title: FAQ Azure Disk Encryption | Microsoft Docs
+title: FAQ - Azure Disk Encryption pour les machines virtuelles IaaS | Microsoft Docs
 description: Cet article offre des réponses au forum aux questions sur Microsoft Azure Disk Encryption pour les machines virtuelles IaaS Windows et Linux.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 10/16/2018
-ms.openlocfilehash: 8da966154f1da8cb1be090f70d80e4484e9bce0d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: ba955e9e71926a513f6c083acb6508b3ec330d17
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377289"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094557"
 ---
-# <a name="azure-disk-encryption-faq"></a>Forum aux questions (FAQ) Azure Disk Encryption
+# <a name="azure-disk-encryption-for-iaas-vms-faq"></a>FAQ Azure Disk Encryption pour machines virtuelles Iaas
 
 Cet article offre des réponses au forum aux questions (FAQ) sur Azure Disk Encryption pour les machines virtuelles IaaS Windows et Linux. Pour plus d’informations sur ce service, consultez [Azure Disk Encryption pour machines virtuelles IaaS Windows et Linux](azure-security-disk-encryption-overview.md).
 
@@ -60,9 +61,9 @@ Azure Disk Encryption est pris en charge sur les versions et distributions de se
 | CentOS | 6.5 | Disque de données |
 | openSUSE | 13.2 | Disque de données |
 | SLES | 12 SP1 | Disque de données |
-| SLES | Priority: 12-SP1 | Disque de données |
+| SLES | Priorité : 12-SP1 | Disque de données |
 | SLES | HPC 12 | Disque de données |
-| SLES | Priority: 11-SP4 | Disque de données |
+| SLES | Priorité : 11-SP4 | Disque de données |
 | SLES | 11 SP4 | Disque de données |
 
 

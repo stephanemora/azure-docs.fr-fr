@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7f1bb400650a223a9f0b4249c33f7c480a1bc009
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7f90fccd062826493b7add1a90406fa9244e00b2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262367"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002048"
 ---
-# <a name="security-frame-sensitive-data--mitigations"></a>Infrastructure de sécurité : Données sensibles | Mesures de correction 
+# <a name="security-frame-sensitive-data--mitigations"></a>Infrastructure de sécurité : Données sensibles | Atténuation des risques 
 | Produit/Service | Article |
 | --------------- | ------- |
 | **Délimitation d’approbation machine** | <ul><li>[S’assurer que les fichiers binaires sont masqués s’ils contiennent des informations sensibles](#binaries-info)</li><li>[Utiliser le système de fichiers EFS pour protéger les données confidentielles spécifiques de l’utilisateur](#efs-user)</li><li>[S’assurer que les données sensibles stockées par l’application sur le système de fichiers sont chiffrées](#filesystem)</li></ul> | 
@@ -130,7 +130,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [How To: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI (Chiffrement des sections de configuration dans ASP.NET 2.0 à l’aide de DPAPI)](https://msdn.microsoft.com/library/ff647398.aspx), [Spécification d’un fournisseur de configuration protégée](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Using Azure Key Vault to protect application secrets (Utilisation d’Azure Key Vault pour protéger la confidentialité de l’application)](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
+| **Informations de référence**              | [Guide pratique pour chiffrer des sections de configuration dans ASP.NET 2.0 à l’aide de DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [Spécification d’un fournisseur de configuration protégée](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Utilisation d’Azure Key Vault pour protéger la confidentialité des secrets d’application](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
 | **Étapes** | Les fichiers de configuration tels que web.config et appsettings.json sont souvent utilisés pour stocker des informations sensibles, comme les noms d’utilisateur, les mots de passe, les chaînes de connexion de base de données et les clés de chiffrement. Si vous ne protégez pas ces informations, votre application est vulnérable aux attaquants ou aux personnes malveillantes qui veulent obtenir des informations sensibles, comme les noms d’utilisateur et les mots de passe de comptes, les noms de bases de données et les noms de serveurs. Selon le type de déploiement (azure/local), chiffrez les sections sensibles des fichiers de configuration à l’aide de DPAPI ou de services tels qu’Azure Key Vault. |
 
 ## <a id="autocomplete-input"></a>Désactiver explicitement l’attribut HTML de saisie semi-automatique dans les formulaires et les entrées sensibles
@@ -193,7 +193,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | Version SQL - Toutes |
-| **Informations de référence**              | [Liste de vérification : chiffrement des données sensibles](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx), [Chiffrer une colonne de données](https://msdn.microsoft.com/library/ms179331), [ENCRYPTBYCERT (Transact-SQL)](https://msdn.microsoft.com/library/ms188061) |
+| **Informations de référence**              | [Chiffrement des données sensibles dans SQL Server](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx), [Guide pratique pour chiffrer une colonne de données dans SQL Server](https://msdn.microsoft.com/library/ms179331), [Chiffrer par certificat](https://msdn.microsoft.com/library/ms188061) |
 | **Étapes** | Les données sensibles, comme les numéros de carte de crédit, doivent être chiffrées dans la base de données. Les données peuvent être chiffrées par le biais du chiffrement au niveau colonne ou par une fonction de l’application utilisant les fonctions de chiffrement. |
 
 ## <a id="tde-enabled"></a>S’assurer que le chiffrement au niveau de la base de données est activé
@@ -338,7 +338,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [Didacticiel : Chiffrement et déchiffrement d’objets blob dans Microsoft Azure Storage à l’aide d’Azure Key Vault](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [Storing Data Securely in Azure Blob Storage with Azure Encryption Extensions (Stockage sécurisé des données dans le stockage Blob Azure avec les extensions de chiffrement Azure)](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) |
+| **Informations de référence**              | [Chiffrement côté client et Azure Key Vault pour Stockage Microsoft Azure](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [Tutoriel : Chiffrer et déchiffrer des objets blob dans Stockage Microsoft Azure à l’aide d’Azure Key Vault](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [Stockage sécurisé des données dans Stockage Blob Azure avec les extensions de chiffrement Azure](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) |
 | **Étapes** | <p>La bibliothèque cliente de stockage Azure pour le package NuGet .NET prend en charge le chiffrement des données au sein des applications clientes avant le chargement vers le stockage Azure, et le déchiffrement des données pendant leur téléchargement vers le client. La bibliothèque prend également en charge l’intégration à Azure Key Vault pour la gestion des clés de compte de stockage. Voici une brève description du fonctionnement du chiffrement côté client :</p><ul><li>Le Kit de développement logiciel (SDK) client de stockage Azure génère une clé de chiffrement de contenu (CEK) qui est une clé symétrique à usage unique</li><li>Les données du client sont chiffrées à l’aide de cette clé de chiffrement de contenu</li><li>La clé de chiffrement de contenu est ensuite encapsulée (chiffrée) à l’aide de la clé de chiffrement de clés (KEK). La clé de chiffrement de clés est identifiée par un identificateur de clé et peut être une paire de clés asymétriques ou une clé symétrique pouvant être gérée localement ou stockée dans Azure Key Vault. Le client Storage n’a jamais accès à la clé de chiffrement de clés. Il appelle simplement l'algorithme d’encapsulage de clés fourni par Key Vault. Si besoin est, les clients peuvent choisir d’utiliser des fournisseurs personnalisés pour l’encapsulage/le désencapsulage de clés</li><li>Les données chiffrées sont ensuite téléchargées sur le service Azure Storage. Vérifiez les liens dans la section Références pour en savoir plus sur l’implémentation de bas niveau.</li></ul>|
 
 ## <a id="pii-phones"></a>Chiffrer les données sensibles ou personnelles écrites dans le stockage local des téléphones
@@ -429,7 +429,7 @@ Définissez la valeur clientCredentialType sur Certificat ou Windows.
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique, .NET Framework 3 |
 | **Attributs**              | Mode de sécurité - Transport, Mode de sécurité - Messages |
-| **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_security_not_enabled), [Fundamentals of WCF Security CoDe Magazine (Notions de base de sécurité WCF dans CoDe Magazine)](http://www.codemag.com/article/0611051) |
+| **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [Fundamentals of WCF Security CoDe Magazine (Notions de base de sécurité WCF dans CoDe Magazine)](http://www.codemag.com/article/0611051) |
 | **Étapes** | Aucune sécurité liée au transport ou aux messages n’a été définie. Les applications qui transmettent des messages sans sécurité liée au transport ou aux messages ne peuvent pas garantir l’intégrité ou la confidentialité des messages. Lorsqu’une liaison de sécurité WCF est définie sur Aucune, la sécurité liée au transport et aux messages est désactivée. |
 
 ### <a name="example"></a>Exemples

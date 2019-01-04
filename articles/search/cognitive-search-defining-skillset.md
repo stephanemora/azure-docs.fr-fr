@@ -1,5 +1,5 @@
 ---
-title: Créer un jeu de compétences dans un pipeline de recherche cognitive (Recherche Azure) | Microsoft Docs
+title: Créer un jeu de compétences dans un pipeline de recherche cognitive - Recherche Azure
 description: Définissez des étapes d’extraction des données, de traitement du langage naturel ou d’analyse de l’image pour enrichir et extraire des informations structurées à partir de vos données pour les utiliser dans Recherche Azure.
 manager: pablocas
 author: luiscabrer
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
-ms.openlocfilehash: 997b106f748a2f18e8141f77f3b9ff8bb6b9d971
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.custom: seodec2018
+ms.openlocfilehash: 091a165dacbf0e98532f343745e56c4acf765b84
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268021"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320793"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Création d’un jeu de compétences dans un pipeline d’enrichissement
 
@@ -29,7 +30,7 @@ Points importants à retenir :
 
 + Vous ne pouvez avoir qu’un jeu de compétences par indexeur.
 + Un ensemble de compétences doit avoir au moins une compétence.
-+ Vous pouvez créer plusieurs compétences du même type (par exemple, les variantes d’une compétence d’analyse d’image), mais chaque compétence ne peut être utilisée qu’une seule fois dans un même jeu de compétences.
++ Vous pouvez créer plusieurs compétences du même type (par exemple, les variantes d’une compétence d’analyse d’image).
 
 ## <a name="begin-with-the-end-in-mind"></a>Commencer en ayant la fin à l’esprit
 

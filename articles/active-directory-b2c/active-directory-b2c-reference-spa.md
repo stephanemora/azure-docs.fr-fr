@@ -7,17 +7,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/06/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b00eb1b2d25187dc50be53425ebae347edde33b4
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 9e72eafc49167848996328774f7d18198667aa3d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344809"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845244"
 ---
-# <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C : Connexion à une application à page unique en utilisant un flux implicite OAuth 2.0
+# <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C : Connexion à une application monopage en utilisant un flux implicite OAuth 2.0
 
 De nombreuses applications modernes disposent d’un frontend d’application à page unique écrit principalement en JavaScript. Souvent, l’application est écrite en utilisant une infrastructure comme AngularJS, Ember.js ou Durandal.js. Les applications à page unique et d’autres applications JavaScript qui s’exécutent principalement dans un navigateur présentent certaines problématiques supplémentaires pour l’authentification :
 
@@ -25,12 +25,12 @@ De nombreuses applications modernes disposent d’un frontend d’application à
 * Beaucoup de serveurs d’autorisation et de fournisseurs d’identité ne prennent pas en charge les demandes de partage des ressources cross-origin (CORS).
 * Chacune des redirections à partir de l’application du navigateur plein écran peut perturber de façon assez importante l’expérience utilisateur.
 
-Pour prendre en charge ces applications, Azure Active Directory B2C (Azure AD B2C) utilise le flux implicite OAuth 2.0. Le flux d’autorisation implicite OAuth 2.0 est décrit dans la [section 4.2 de la spécification OAuth 2.0](http://tools.ietf.org/html/rfc6749) . Dans un flux implicite, l’application reçoit des jetons directement du point de terminaison d’autorisation Azure AD, sans aucun échange de serveur à serveur. Tout le traitement de la logique d’authentification et de la gestion des sessions est entièrement exécuté dans le client JavaScript, sans redirections de pages supplémentaires.
+Pour prendre en charge ces applications, Azure Active Directory B2C (Azure AD B2C) utilise le flux implicite OAuth 2.0. Le flux d’autorisation implicite OAuth 2.0 est décrit dans la [section 4.2 de la spécification OAuth 2.0](https://tools.ietf.org/html/rfc6749) . Dans un flux implicite, l’application reçoit des jetons directement du point de terminaison d’autorisation Azure AD, sans aucun échange de serveur à serveur. Tout le traitement de la logique d’authentification et de la gestion des sessions est entièrement exécuté dans le client JavaScript, sans redirections de pages supplémentaires.
 
-Azure AD B2C étend le flux implicite OAuth 2.0 standard au-delà de la simple authentification et de la simple autorisation. Azure AD B2C introduit le [paramètre de stratégie](active-directory-b2c-reference-policies.md). Avec le paramètre de stratégie, vous pouvez utiliser OAuth 2.0 pour ajouter des expériences utilisateur à votre application, comme l’inscription, la connexion et la gestion des profils. Dans cet article, nous vous montrons comment utiliser le flux implicite et Azure AD pour implémenter chacune de ces expériences dans vos applications à page unique. Vous pouvez consulter nos exemples [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) ou [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) pour commencer.
+Azure AD B2C étend le flux implicite OAuth 2.0 standard au-delà de la simple authentification et de la simple autorisation. Azure AD B2C introduit le [paramètre de stratégie](active-directory-b2c-reference-policies.md). Avec le paramètre de stratégie, vous pouvez utiliser OAuth 2.0 pour ajouter des stratégies à votre application, telles que des flux d’utilisateur d’inscription, de connexion et de gestion des profils. Dans cet article, nous vous montrons comment utiliser le flux implicite et Azure AD pour implémenter chacune de ces expériences dans vos applications à page unique. Vous pouvez consulter nos exemples [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) ou [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) pour commencer.
 
-Dans les exemples de demandes HTTP de cet article, nous utilisons notre exemple d’annuaire Azure AD B2C, **fabrikamb2c.onmicrosoft.com**. Nous utilisons également nos propres exemples d’application et de stratégies. Vous pouvez essayer les demandes par vous-même en utilisant ces valeurs ou bien en les remplaçant par les vôtres.
-Découvrez comment [obtenir votre propre annuaire Azure AD B2C, votre application et vos stratégies](#use-your-own-b2c-tenant).
+Dans les exemples de demandes HTTP de cet article, nous utilisons notre exemple d’annuaire Azure AD B2C, **fabrikamb2c.onmicrosoft.com**. Nous utilisons également nos propres exemples d’application et de flux d’utilisateur. Vous pouvez essayer les demandes par vous-même en utilisant ces valeurs ou bien en les remplaçant par les vôtres.
+Découvrez comment [obtenir vos propres flux d’utilisateur, application et annuaire Azure AD B2C](#use-your-own-b2c-tenant).
 
 
 ## <a name="protocol-diagram"></a>Schéma de protocole
@@ -40,11 +40,11 @@ Le flux de connexion implicite peut être décrit comme dans la figure suivante.
 ![Couloirs OpenId Connect](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## <a name="send-authentication-requests"></a>Envoi de demandes d’authentification
-Lorsque votre application web a besoin d’authentifier l’utilisateur et d’exécuter une stratégie, elle le dirige vers le point de terminaison `/authorize`. Il s’agit de la partie interactive du flux, dans laquelle l’utilisateur agit en fonction de la stratégie. L’utilisateur obtient un ID de jeton du point de terminaison Azure AD.
+Quand votre application web a besoin d’authentifier l’utilisateur et d’exécuter un flux d’utilisateur, elle le dirige vers le point de terminaison `/authorize`. Il s’agit de la partie interactive du flux, dans laquelle l’utilisateur agit en fonction du flux d’utilisateur. L’utilisateur obtient un ID de jeton du point de terminaison Azure AD.
 
-Dans cette demande, le client indique dans le paramètre `scope` les autorisations qu’il doit obtenir auprès de l’utilisateur. Dans le paramètre `p`, il indique la stratégie à exécuter. Les trois exemples suivants utilisent chacun une stratégie différente. Pour avoir une idée du fonctionnement de chaque demande, essayez de coller la demande dans un navigateur et exécutez-la.
+Dans cette demande, le client indique dans le paramètre `scope` les autorisations qu’il doit obtenir auprès de l’utilisateur. Dans le paramètre `p`, il indique le flux d’utilisateur à exécuter. Les trois exemples suivants (avec sauts de ligne pour faciliter la lecture) utilisent chacun un flux d’utilisateur différent. Pour avoir une idée du fonctionnement de chaque demande, essayez de coller la demande dans un navigateur et exécutez-la.
 
-### <a name="use-a-sign-in-policy"></a>Utilisation d’une stratégie de connexion
+### <a name="use-a-sign-in-user-flow"></a>Utilisation d’un flux d’utilisateur de connexion
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -57,7 +57,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_in
 ```
 
-### <a name="use-a-sign-up-policy"></a>Utilisation d’une stratégie d’inscription
+### <a name="use-a-sign-up-user-flow"></a>Utilisation d’un flux d’utilisateur d’inscription
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -70,7 +70,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_up
 ```
 
-### <a name="use-an-edit-profile-policy"></a>Utilisation d’une stratégie de modification de profil
+### <a name="use-an-edit-profile-user-flow"></a>Utilisation d’un flux d’utilisateur de modification de profil
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -92,12 +92,12 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | scope |Obligatoire |Une liste d’étendues séparées par des espaces. Une valeur d’étendue unique indique à Azure AD les deux autorisations qui sont demandées. L’étendue `openid` indique une autorisation de connecter l’utilisateur et d’obtenir des données relatives à l’utilisateur sous la forme de jetons d’ID. (Nous parlons de cela plus en détail ultérieurement dans cet article.) L’étendue `offline_access` est facultative pour les applications Web. Elle indique que votre application a besoin d’un jeton d’actualisation pour un accès durable aux ressources. |
 | state |Recommandé |Valeur incluse dans la demande qui est également retournée dans la réponse de jeton. Il peut s’agir d’une chaîne de n’importe quel contenu que vous voulez utiliser. Généralement, une valeur unique générée de manière aléatoire est utilisée, de façon à empêcher les attaques par falsification de requête intersites. L’état est également utilisé pour coder les informations sur l’état de l’utilisateur dans l’application avant la demande d’authentification, comme la page sur laquelle il était positionné. |
 | nonce |Obligatoire |Une valeur incluse dans la demande (générée par l’application) qui est incluse dans le jeton d’ID résultant en tant que revendication. L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. En général, la valeur est une chaîne unique aléatoire qui peut être utilisée pour identifier l’origine de la demande. |
-| p |Obligatoire |Stratégie à exécuter. Il s’agit du nom d’une stratégie qui est créée dans votre locataire Azure AD B2C. La valeur du nom de la stratégie doit commencer par **b2c\_1\_**. Pour plus d’informations, consultez [Stratégies prédéfinies d’Azure AD B2C](active-directory-b2c-reference-policies.md). |
+| p |Obligatoire |Stratégie à exécuter. Il s’agit du nom d’une stratégie (flux d’utilisateur) qui est créée dans votre locataire Azure AD B2C. La valeur du nom de la stratégie doit commencer par **b2c\_1\_**. Pour plus d’informations, consultez [Flux d’utilisateur Azure AD B2C](active-directory-b2c-reference-policies.md). |
 | prompt |Facultatif |Type d’interaction utilisateur demandée. Actuellement, la seule valeur possible est `login`. Ceci force l’utilisateur à entrer ses informations d’identification pour cette demande. L’authentification unique ne prendra pas effet. |
 
-À ce stade, il est demandé à l’utilisateur d’effectuer le flux de travail de la stratégie. Il est possible que l’utilisateur doive entrer son nom d’utilisateur et son mot de passe, se connecter avec une identité sociale, s’inscrire à l’annuaire, etc. Les actions de l’utilisateur dépendent de la façon dont la stratégie est définie.
+À ce stade, il est demandé à l’utilisateur d’effectuer le flux de travail de la stratégie. Il est possible que l’utilisateur doive entrer son nom d’utilisateur et son mot de passe, se connecter avec une identité sociale, s’inscrire à l’annuaire, etc. Les actions de l’utilisateur dépendent de la façon dont le flux d’utilisateur est défini.
 
-Une fois que l’utilisateur a terminé la stratégie, Azure AD retourne une réponse à votre application avec la valeur que vous avez utilisée pour `redirect_uri`. Il utilise la méthode spécifiée dans le paramètre `response_mode`. La réponse est exactement la même pour chacun des scénarios d’actions utilisateur, indépendamment de la stratégie qui a été effectuée.
+Une fois que l’utilisateur a terminé le flux d’utilisateur, Azure AD retourne une réponse à votre application avec la valeur que vous avez utilisée pour `redirect_uri`. Il utilise la méthode spécifiée dans le paramètre `response_mode`. La réponse est exactement la même pour chacun des scénarios d’actions utilisateur, indépendamment du flux d’utilisateur exécuté.
 
 ### <a name="successful-response"></a>Réponse correcte
 Une réponse correcte qui utilise `response_mode=fragment` et `response_type=id_token+token` est semblable à ceci (des sauts de ligne ont été insérés pour une meilleure lisibilité) :
@@ -138,19 +138,19 @@ error=access_denied
 | state |Consultez la description complète dans le tableau précédent. Si un paramètre `state` est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que les valeurs `state` de la demande et de la réponse sont identiques.|
 
 ## <a name="validate-the-id-token"></a>Validation du jeton d’ID
-La réception d’un jeton d’ID n’est pas suffisante pour authentifier l’utilisateur. Vous devez valider la signature du jeton d’ID et vérifier les revendications du jeton selon les exigences de votre application. Azure AD B2C utilise les [jetons Web JSON (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) et le chiffrement de clés publiques pour signer les jetons et vérifier leur validité.
+La réception d’un jeton d’ID n’est pas suffisante pour authentifier l’utilisateur. Vous devez valider la signature du jeton d’ID et vérifier les revendications du jeton selon les exigences de votre application. Azure AD B2C utilise les [jetons Web JSON (JWT)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) et le chiffrement de clés publiques pour signer les jetons et vérifier leur validité.
 
 Il existe de nombreuses bibliothèques open source pour valider les jetons JWT en fonction du langage que vous préférez utiliser. Nous vous recommandons d’explorer ces bibliothèques open source plutôt que d’implémenter votre propre logique de validation. Vous pouvez utiliser les informations de cet article pour découvrir comment utiliser correctement ces bibliothèques.
 
-Azure AD B2C a un point de terminaison des métadonnées OpenID Connect. Une application peut utiliser le point de terminaison pour extraire des informations sur Azure AD B2C lors de l’exécution. Ces informations incluent les points de terminaison, le contenu des jetons et les clés de signature de jetons. Il existe un document de métadonnées JSON pour chaque stratégie dans votre locataire Azure AD B2C. Par exemple, le document de métadonnées pour la stratégie b2c_1_sign_in dans le locataire fabrikamb2c.onmicrosoft.com se trouve ici :
+Azure AD B2C a un point de terminaison des métadonnées OpenID Connect. Une application peut utiliser le point de terminaison pour extraire des informations sur Azure AD B2C lors de l’exécution. Ces informations incluent les points de terminaison, le contenu des jetons et les clés de signature de jetons. Il existe un document de métadonnées JSON pour chaque flux d’utilisateur dans votre locataire Azure AD B2C. Par exemple, le document de métadonnées pour le flux d’utilisateur b2c_1_sign_in dans le locataire fabrikamb2c.onmicrosoft.com se trouve ici :
 
 `https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
-Une des propriétés de ce document de configuration est `jwks_uri`. La valeur de la même stratégie serait :
+Une des propriétés de ce document de configuration est `jwks_uri`. La valeur du même flux d’utilisateur serait :
 
 `https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
 
-Pour déterminer la stratégie utilisée pour signer un jeton d’ID (et l’emplacement d’où extraire les métadonnées), deux options sont possibles. D’abord, le nom de la stratégie est inclus dans la revendication `acr` de `id_token`. Pour plus d’informations sur la façon d’analyser les revendications à partir d’un jeton d’ID, consultez [Informations de référence sur les jetons Azure AD B2C](active-directory-b2c-reference-tokens.md). L’autre option consiste à coder la stratégie dans la valeur du paramètre `state` lors de l’émission de la demande. puis de décoder le paramètre `state` pour déterminer quelle stratégie a été utilisée. Les 2 méthodes sont valides.
+Pour déterminer le flux d’utilisateur utilisé pour signer un jeton d’ID (et l’emplacement d’où extraire les métadonnées), deux options sont possibles. D’abord, le nom du flux d’utilisateur est inclus dans la revendication `acr` de `id_token`. Pour plus d’informations sur la façon d’analyser les revendications à partir d’un jeton d’ID, consultez [Informations de référence sur les jetons Azure AD B2C](active-directory-b2c-reference-tokens.md). L’autre option consiste à coder le flux d’utilisateur dans la valeur du paramètre `state` lors de l’émission de la demande, puis de décoder le paramètre `state` pour déterminer quel flux d’utilisateur a été utilisé. Les 2 méthodes sont valides.
 
 Après avoir acquis le document de métadonnées auprès du point de terminaison de métadonnées OpenID Connect, vous pouvez utiliser les clés publiques RSA 256 (qui se trouvent sur ce point de terminaison) pour valider la signature du jeton d’ID. Il peut y avoir plusieurs clés répertoriées sur ce point de terminaison, chacune étant identifiée par un `kid`. L’en-tête de `id_token` contient également une revendication de `kid`. Il indique laquelle de ces clés a été utilisée pour signer le jeton d’ID. Pour plus d’informations, notamment sur la [validation des jetons](active-directory-b2c-reference-tokens.md#token-validation), consultez les [informations de référence sur les jetons d’Azure AD B2C](active-directory-b2c-reference-tokens.md).
 <!--TODO: Improve the information on this-->
@@ -161,7 +161,7 @@ Après la validation de la signature du jeton d’ID, plusieurs revendications n
 * Validez la revendication `aud` pour vérifier que le jeton d’ID a été émis pour votre application. Sa valeur doit correspondre à l’ID d’application de votre application.
 * Validez les revendications `iat` et `exp` pour vérifier que le jeton d’ID n’est pas expiré.
 
-Plusieurs autres validations à effectuer sont décrites en détail dans les [spécifications principales d’OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html). En fonction de votre scénario, vous pouvez également valider des revendications supplémentaires. Voici quelques validations courantes :
+Plusieurs autres validations à effectuer sont décrites en détail dans les [spécifications principales d’OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). En fonction de votre scénario, vous pouvez également valider des revendications supplémentaires. Voici quelques validations courantes :
 
 * Vérifier que l’utilisateur ou l’organisation s’est inscrit pour l’application.
 * Vérifier que l’utilisateur dispose de l’autorisation et des privilèges appropriés.
@@ -172,7 +172,7 @@ Pour plus d’informations sur les revendications dans un jeton d’ID, consulte
 Une fois que vous avez entièrement validé le jeton d’ID, vous pouvez commencer une session avec l’utilisateur. Dans votre application, utilisez les revendications du jeton d’ID pour obtenir des informations sur l’utilisateur. Ces informations peuvent être utilisées pour l’affichage, les enregistrements, les autorisations, etc.
 
 ## <a name="get-access-tokens"></a>Obtenir des jetons d’accès
-Si la seule chose que doit faire votre application web est exécuter des stratégies, vous pouvez ignorer les quelques sections suivantes. Les informations des sections suivantes s’appliquent uniquement aux applications web qui doivent effectuer des appels authentifiés à une API web et qui sont protégées par Azure AD B2C.
+Si la seule chose que doit faire votre application web est exécuter des flux d’utilisateur, vous pouvez ignorer les quelques sections suivantes. Les informations des sections suivantes s’appliquent uniquement aux applications web qui doivent effectuer des appels authentifiés à une API web et qui sont protégées par Azure AD B2C.
 
 Maintenant que vous avez connecté l’utilisateur à votre application à page unique, vous pouvez obtenir des jetons d’accès pour appeler des API web sécurisées par Azure AD. Même si vous avez déjà reçu un jeton en utilisant le type de réponse `token`, vous pouvez utiliser cette méthode pour acquérir des jetons pour des ressources supplémentaires sans avoir à demander à l’utilisateur de se reconnecter.
 
@@ -274,7 +274,7 @@ Pour essayer vous-même ces demandes, procédez selon les trois étapes suivante
 
 1. [Créez un locataire Azure AD B2C](active-directory-b2c-get-started.md). Utilisez le nom de votre locataire dans les demandes.
 2. [Créez une application](active-directory-b2c-app-registration.md) pour obtenir un ID d’application et une valeur pour `redirect_uri`. Incluez une application web ou une API web dans votre application. Si vous le souhaitez, vous pouvez créer un secret d’application.
-3. [Créez vos stratégies](active-directory-b2c-reference-policies.md) pour obtenir les noms de vos stratégies.
+3. [Créez vos flux d’utilisateur](active-directory-b2c-reference-policies.md) pour obtenir vos noms de flux d’utilisateur.
 
 ## <a name="samples"></a>Exemples
 

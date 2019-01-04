@@ -12,16 +12,21 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2018
+ms.date: 10/29/2018
 ms.author: vturecek
-ms.openlocfilehash: c72aea9d104264243ef0654aea01e0a41f33ed6f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d5922e21dd464b8cbd0075e7bd2515ffa73607e6
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206864"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726931"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Mettre en œuvre la sauvegarde et la restauration de Reliable Actors
+
+> [!NOTE]
+> Microsoft vous recommande d’utiliser [Sauvegarde et restauration périodiques](service-fabric-backuprestoreservice-quickstart-azurecluster.md) pour la configuration de la sauvegarde des données des services fiables avec état et de Reliable Actors. 
+> 
+
 Dans l’exemple suivant, un service d’acteur personnalisé expose une méthode pour sauvegarder des données d’acteur en tirant parti de l’écouteur de communication à distance déjà présent dans `ActorService` :
 
 ```csharp
@@ -113,7 +118,7 @@ MyActorService myActorServiceProxy = ActorServiceProxy.create(MyActorService.cla
 myActorServiceProxy.backupActorsAsync();
 ```
 
-Pour plus d’informations sur Reliable Actors, consultez les rubriques suivantes :
+Pour plus d’informations sur Reliable Actors, consultez les articles suivants :
 * [Gestion des états d’acteur](service-fabric-reliable-actors-state-management.md)
 * [Cycle de vie des acteurs et Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
 * [Documentation de référence de l’API Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)

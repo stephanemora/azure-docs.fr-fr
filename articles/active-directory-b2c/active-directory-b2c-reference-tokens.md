@@ -7,17 +7,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5ff4ddee3d8af15caf082be56a51b1aa0d36f02a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d1c9101f10342f98803a4ace420abbed5d49ba23
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339975"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880112"
 ---
-# <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: références sur les jetons
+# <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C : Référence sur le jeton
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -30,9 +30,9 @@ Un jeton du porteur est un jeton de sécurité léger qui octroie l’accès à 
 
 Si un jeton du porteur est transmis en dehors d’un canal sécurisé, une partie malveillante peut utiliser une attaque d’intercepteur afin de s’approprier le jeton et de l’utiliser pour accéder sans autorisation à une ressource protégée. Les mêmes principes de sécurité s’appliquent au stockage ou à la mise en cache des jetons du porteur pour une utilisation ultérieure. Veillez systématiquement à ce que votre application transmette et stocke les jetons porteurs de manière sécurisée.
 
-Pour en savoir plus sur les aspects de sécurité des jetons du porteur, consultez [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
+Pour en savoir plus sur les aspects de sécurité des jetons du porteur, consultez [RFC 6750 Section 5](https://tools.ietf.org/html/rfc6750).
 
-La plupart des jetons émis par Azure AD B2C sont implémentés en tant que jetons web JSON (JWT). Un jeton JWT constitue un moyen compact et sécurisé pour les URL de transférer des informations entre deux parties. Les jetons JWT contiennent des informations appelées revendications. Il s’agit des assertions d’informations concernant le porteur et le sujet du jeton. Les revendications dans les jetons JWT sont des objets JSON codés et sérialisés pour la transmission. Étant donné que les jetons JWT émis par Azure AD B2C sont signés, mais pas chiffrés, vous pouvez facilement inspecter le contenu d’un jeton JWT à des fins de débogage. Pour ce faire, plusieurs outils sont à votre disposition, notamment [jwt.ms](https://jwt.ms). Pour plus d’informations sur les jetons JWT, consultez les [spécifications des jetons JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+La plupart des jetons émis par Azure AD B2C sont implémentés en tant que jetons web JSON (JWT). Un jeton JWT constitue un moyen compact et sécurisé pour les URL de transférer des informations entre deux parties. Les jetons JWT contiennent des informations appelées revendications. Il s’agit des assertions d’informations concernant le porteur et le sujet du jeton. Les revendications dans les jetons JWT sont des objets JSON codés et sérialisés pour la transmission. Étant donné que les jetons JWT émis par Azure AD B2C sont signés, mais pas chiffrés, vous pouvez facilement inspecter le contenu d’un jeton JWT à des fins de débogage. Pour ce faire, plusieurs outils sont à votre disposition, notamment [jwt.ms](https://jwt.ms). Pour plus d’informations sur les jetons JWT, consultez les [spécifications des jetons JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ### <a name="id-tokens"></a>Jetons d’ID
 
@@ -66,9 +66,9 @@ Lorsque votre API reçoit un jeton d’accès, elle doit [valider la signature](
 
 ### <a name="claims-in-id-and-access-tokens"></a>Revendications dans les jetons d’ID et d’accès
 
-Lorsque vous utilisez Azure AD B2C, vous disposez d’un contrôle affiné du contenu de vos jetons. Vous pouvez configurer des [stratégies](active-directory-b2c-reference-policies.md) pour envoyer certains ensembles de données utilisateur dans les revendications dont votre application a besoin pour ses opérations. Ces revendications peuvent inclure des propriétés standard telles que `displayName` et `emailAddress` de l’utilisateur. Elles peuvent également inclure des [attributs d’utilisateur personnalisés](active-directory-b2c-reference-custom-attr.md) que vous pouvez définir dans votre répertoire B2C. Chaque jeton d’ID et d’accès que vous recevez contient un certain ensemble de revendications relatives à la sécurité. Vos applications peuvent utiliser ces revendications pour authentifier de manière sécurisée les utilisateurs et les demandes.
+Lorsque vous utilisez Azure AD B2C, vous disposez d’un contrôle affiné du contenu de vos jetons. Vous pouvez configurer des [flux d’utilisateur](active-directory-b2c-reference-policies.md) et des stratégies personnalisées pour envoyer certains ensembles de données utilisateur dans les revendications dont votre application a besoin pour ses opérations. Ces revendications peuvent inclure des propriétés standard telles que `displayName` et `emailAddress` de l’utilisateur. Elles peuvent également inclure des [attributs d’utilisateur personnalisés](active-directory-b2c-reference-custom-attr.md) que vous pouvez définir dans votre répertoire B2C. Chaque jeton d’ID et d’accès que vous recevez contient un certain ensemble de revendications relatives à la sécurité. Vos applications peuvent utiliser ces revendications pour authentifier de manière sécurisée les utilisateurs et les demandes.
 
-Les revendications dans les jetons d’ID ne sont pas retournées dans un ordre particulier. En outre, de nouvelles revendications peuvent être introduites dans les jetons d’ID à tout moment. Votre application ne doit pas s’arrêter lors de l’ajout de nouvelles revendications. Voici les revendications qui doivent exister dans les jetons d’ID et d’accès émis par Azure AD B2C. Les éventuelles revendications supplémentaires sont déterminées par des stratégies. Pour vous entraîner, essayez d’inspecter les revendications de l’exemple de jeton d’ID en le collant dans [jwt.ms](https://jwt.ms). Vous trouverez des informations supplémentaires dans les [spécifications OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).
+Les revendications dans les jetons d’ID ne sont pas retournées dans un ordre particulier. En outre, de nouvelles revendications peuvent être introduites dans les jetons d’ID à tout moment. Votre application ne doit pas s’arrêter lors de l’ajout de nouvelles revendications. Voici les revendications qui doivent exister dans les jetons d’ID et d’accès émis par Azure AD B2C. Les éventuelles revendications supplémentaires sont déterminées par des stratégies. Pour vous entraîner, essayez d’inspecter les revendications de l’exemple de jeton d’ID en le collant dans [jwt.ms](https://jwt.ms). Vous trouverez des informations supplémentaires dans les [spécifications OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).
 
 | NOM | Revendication | Exemple de valeur | Description |
 | --- | --- | --- | --- |
@@ -78,18 +78,18 @@ Les revendications dans les jetons d’ID ne sont pas retournées dans un ordre 
 | Heure d’expiration |`exp` |`1438539443` |Cette revendication d’heure d’expiration est l’heure à laquelle le jeton n’est plus valide, représentée en heure epoch. Votre application doit utiliser cette revendication pour vérifier la validité de la durée de vie du jeton. |
 | Pas avant |`nbf` |`1438535543` |Cette revendication est l’heure à laquelle le jeton devient valide, représentée en heure epoch. Cela correspond généralement à l’heure à laquelle le jeton a été émis. Votre application doit utiliser cette revendication pour vérifier la validité de la durée de vie du jeton. |
 | Version |`ver` |`1.0` |Version du jeton d’ID, telle que définie par Azure AD. |
-| Hachage de code |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Le hachage de code n’est inclus dans un jeton d’ID que si ce dernier est émis en même temps qu’un code d’autorisation OAuth 2.0. Il peut servir à valider l’authenticité d’un code d’autorisation. Pour plus d’informations sur la façon d’effectuer cette validation, consultez la [spécification OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).  |
-| Hachage de jeton d’accès |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Le hachage de jeton d’accès n’est inclus dans un jeton d’ID que si ce dernier est émis en même temps qu’un jeton d’accès OAuth 2.0. Un hachage de jeton d’accès peut servir à valider l’authenticité d’un jeton d’accès. Pour plus d’informations sur la façon d’effectuer cette validation, consultez la [spécification OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).  |
+| Hachage de code |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Le hachage de code n’est inclus dans un jeton d’ID que si ce dernier est émis en même temps qu’un code d’autorisation OAuth 2.0. Il peut servir à valider l’authenticité d’un code d’autorisation. Pour plus d’informations sur la façon d’effectuer cette validation, consultez la [spécification OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).  |
+| Hachage de jeton d’accès |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Le hachage de jeton d’accès n’est inclus dans un jeton d’ID que si ce dernier est émis en même temps qu’un jeton d’accès OAuth 2.0. Un hachage de jeton d’accès peut servir à valider l’authenticité d’un jeton d’accès. Pour plus d’informations sur la façon d’effectuer cette validation, consultez la [spécification OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Valeur à usage unique |`nonce` |`12345` |La valeur à usage unique est une stratégie d’atténuation des attaques par relecture de jetons. Votre application peut spécifier une valeur à usage unique dans une demande d’autorisation à l’aide du paramètre de requête `nonce` . La valeur que vous fournissez dans la demande est émise sans aucune modification dans la revendication `nonce` du jeton d’ID. Cela permet à votre application de comparer la valeur à celle spécifiée dans la demande et d’associer la session de l’application à un jeton d’ID donné. Votre application doit effectuer cette validation au cours du processus de validation du jeton d’ID. |
-| Objet |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Principal sur lequel portent les informations d’assertion du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, comme lorsque le jeton est utilisé pour accéder à une ressource. Par défaut, la revendication de l’objet est remplie avec l’ID d’objet de l’utilisateur dans le répertoire. Pour plus d’informations, consultez [Azure Active Directory B2C : configuration du jeton, de la session et de l’authentification unique](active-directory-b2c-token-session-sso.md). |
-| Référence de classe du contexte d’authentification |`acr` |Non applicable |Non utilisé actuellement, sauf dans le cas de stratégies plus anciennes. Pour plus d’informations, consultez [Azure Active Directory B2C : configuration du jeton, de la session et de l’authentification unique](active-directory-b2c-token-session-sso.md). |
+| Objet |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Principal sur lequel portent les informations d’assertion du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, comme lorsque le jeton est utilisé pour accéder à une ressource. Par défaut, la revendication de l’objet est remplie avec l’ID d’objet de l’utilisateur dans le répertoire. Pour plus d’informations, consultez [Azure Active Directory B2C : Configuration du jeton, de la session et de l’authentification unique](active-directory-b2c-token-session-sso.md). |
+| Référence de classe du contexte d’authentification |`acr` |Non applicable |Non utilisé actuellement, sauf dans le cas de stratégies plus anciennes. Pour plus d’informations, consultez [Azure Active Directory B2C : Configuration du jeton, de la session et de l’authentification unique](active-directory-b2c-token-session-sso.md). |
 | Stratégie d’infrastructure de confiance |`tfp` |`b2c_1_sign_in` |Nom de la stratégie utilisée pour acquérir le jeton d’ID. |
 | Moment de l’authentification |`auth_time` |`1438535543` |Cette revendication est l’heure à laquelle l’utilisateur a entré ses informations d’identification pour la dernière fois, représentée en heure epoch. |
 
 ### <a name="refresh-tokens"></a>Jetons d’actualisation
 Les jetons d’actualisation sont des jetons de sécurité que votre application peut utiliser pour acquérir de nouveaux jetons d’ID et d’accès dans un flux OAuth 2.0. Ils permettent à votre application d’obtenir un accès à long terme à des ressources au nom d’un utilisateur, et ce sans nécessiter l’intervention de l’utilisateur.
 
-Pour recevoir un jeton d’actualisation dans une réponse de jeton, votre application doit demander l’étendue `offline_acesss` . Pour en savoir plus sur les étendues `offline_access` , reportez-vous à la [référence du protocole Azure AD B2C](active-directory-b2c-reference-protocols.md).
+Pour recevoir un jeton d’actualisation dans une réponse de jeton, votre application doit demander l’étendue `offline_access` . Pour en savoir plus sur les étendues `offline_access` , reportez-vous à la [référence du protocole Azure AD B2C](active-directory-b2c-reference-protocols.md).
 
 Les jetons d’actualisation sont, et seront toujours, entièrement opaques pour votre application. Ils sont émis par Azure AD et ne peuvent être inspectés et interprétés que par Azure AD. Les jetons d’actualisation sont de longue durée. Toutefois, quand vous écrivez votre application, faites en sorte qu’elle n’attende pas un jeton d’actualisation d’une durée particulière. Les jetons d’actualisation peuvent être rendus non valides à tout moment, et ce pour diverses raisons. Pour savoir si un jeton d'actualisation est valide, votre application doit tenter de l'échanger en faisant une demande de jeton auprès d'Azure AD. C'est la seule façon de faire.
 
@@ -138,10 +138,10 @@ Ce document ne contient pas la description de la procédure de validation de la 
 ### <a name="validate-the-claims"></a>Valider les revendications
 Quand votre application ou API reçoit un jeton d’ID, elle doit également procéder à plusieurs vérifications sur les revendications dans le jeton d’ID. Ces vérifications portent notamment sur les revendications suivantes :
 
-* Revendication **Audience** : vérifie que le jeton d’ID était bien destiné à votre application.
-* Revendications **Pas avant** et **Heure d’expiration** : vérifient que le jeton d’ID n’est pas arrivé à expiration.
-* Revendication **Émetteur** : vérifie que le jeton a effectivement été émis à votre application par Azure AD.
-* **Valeur à usage unique**: stratégie d’atténuation des attaques par relecture de jetons.
+* Revendication **Audience** : vérifie que le jeton d’ID était bien destiné à votre application.
+* Revendications **Pas avant** et **Heure d’expiration** : vérifient que le jeton d’ID n’est pas arrivé à expiration.
+* Revendication **Émetteur** : vérifie que le jeton a effectivement été émis à votre application par Azure AD.
+* **Valeur à usage unique** : stratégie d’atténuation des attaques par relecture de jetons.
 
 Pour obtenir une liste complète des validations que votre application doit effectuer, reportez-vous à la [spécification OpenID Connect](https://openid.net). Les valeurs attendues pour ces revendications sont détaillées dans la [section Jetons](#types-of-tokens)ci-dessus.  
 

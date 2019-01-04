@@ -2,22 +2,22 @@
 title: Utiliser un stockage de sauvegarde moderne avec un Serveur de sauvegarde Azure
 description: Découvrez les nouvelles fonctionnalités du Serveur de sauvegarde Azure. Cet article décrit comment mettre à niveau votre installation de serveur de sauvegarde.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: markgal; adigan; kasinh
-ms.openlocfilehash: da9b3d22dce3f92ff6d1a588d283d47f22fca736
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.author: adigan
+ms.openlocfilehash: cc76b15c3cb108b5181e22330954dfee789b01ba
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612965"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251111"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Ajouter du stockage à un serveur de sauvegarde Azure
 
-Le Serveur de sauvegarde Azure V2 et versions ultérieures est fourni avec le stockage de sauvegarde moderne du Data Protection Manager de System Center 2016. Le stockage de sauvegarde moderne offre des économies de stockage de 50 %, des sauvegardes trois fois plus rapides et un stockage plus efficace. Il s’agit également d’un stockage prenant en compte la charge de travail.
+Azure Backup Server V2 et les versions ultérieures prennent en charge le stockage de sauvegarde moderne, qui offre des économies de stockage de 50 %, des sauvegardes trois fois plus rapides et un stockage plus efficace. Il s’agit également d’un stockage prenant en compte la charge de travail.
 
 > [!NOTE]
 > Pour utiliser le stockage de sauvegarde moderne, vous devez exécuter le Serveur de sauvegarde V2 ou V3 sur Windows Server 2016 ou V3 sur Windows Server 2019.
@@ -75,7 +75,7 @@ Avec un stockage prenant en compte les charges de travail, vous pouvez sélectio
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-Vous pouvez configurer un stockage prenant en compte les charges de travail à l’aide de l’applet de commande PowerShell Update-DPMDiskStorage, ce qui a pour effet de mettre à jour les propriétés d’un volume dans le pool de stockage sur un serveur Data Protection Manager.
+Vous pouvez configurer un stockage prenant en compte les charges de travail à l’aide de l’applet de commande PowerShell Update-DPMDiskStorage, ce qui a pour effet de mettre à jour les propriétés d’un volume dans le pool de stockage sur un serveur de stockage Azure. 
 
 Syntaxe :
 

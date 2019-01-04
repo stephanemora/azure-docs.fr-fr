@@ -1,6 +1,6 @@
 ---
-title: Indexation d’objets blob JSON avec l’indexeur d’objets blob Azure Search
-description: Indexation d’objets blob JSON avec l’indexeur d’objets blob Azure Search
+title: Indexer les objets blob JSON à partir de l’indexeur Azure Blob pour une recherche en texte intégral - Recherche Azure
+description: Analyser les objets blob Azure JSON pour le contenu de texte à l’aide de l’indexeur d’objets blob Recherche Azure. Les indexeurs automatisent l’ingestion des données pour certaines sources de données, comme le Stockage Blob Azure.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 0dbf8a44007fbba39f6ac4c20e375a6d13ac9021
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec2018
+ms.openlocfilehash: 7eb215271a8d5d21403cc7c5a49028bb366e61fd
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711070"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312525"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexation d’objets blob JSON avec l’indexeur d’objets blob Azure Search
 Cet article explique comment configurer un indexeur d’objets blob Recherche Azure pour extraire le contenu structuré d’objets blob JSON dans Stockage Blob Azure.
@@ -30,7 +31,7 @@ Les objets blob JSON dans Stockage Blob Azure se composent généralement d’un
 ## <a name="setting-up-json-indexing"></a>Configuration de l’indexation JSON
 L’indexation d’objets blob JSON s’apparente à l’extraction de documents standard dans un flux de travail en trois parties commun à tous les indexeurs dans Recherche Azure.
 
-### <a name="step-1-create-a-data-source"></a>Étape 1 : Création d’une source de données
+### <a name="step-1-create-a-data-source"></a>Étape 1 : Création d'une source de données
 
 La première étape consiste à fournir les informations de connexion à la source de données utilisées par l’indexeur. Le type de source de données, spécifié ici sous la forme `azureblob`, détermine les comportements d’extraction de données appelés par l’indexeur. Pour l’indexation d’objets blob JSON, la définition de la source de données est identique pour les documents et les tableaux JSON. 
 
@@ -186,7 +187,7 @@ Vous pouvez également faire référence à des éléments de tableau en utilisa
 >
 >
 
-## <a name="example-indexer-request-with-field-mappings"></a>Exemple : Requête d’indexeur avec mappages de champs
+## <a name="example-indexer-request-with-field-mappings"></a>Exemple : Requête d’indexeur avec mappages de champs
 
 L’exemple suivant est une charge utile d’indexeur complète, avec notamment des mappages de champs :
 

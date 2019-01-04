@@ -2,19 +2,19 @@
 title: Créer une solution IoT à l’aide d’Azure Stream Analytics
 description: Prise en main du didacticiel pour la solution IoT Stream Analytics d’un scénario de station de péage
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
-ms.reviewer: jasonh, sngun
+ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/21/2018
-ms.openlocfilehash: e70a1210d44e5bfec914006afaf18eff772cac47
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 4817efcb5cfa5f8692f2b7e5c65d411bc0d21942
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978789"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317387"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Créer une solution IoT à l’aide de Stream Analytics
 
@@ -33,10 +33,10 @@ Dans cette solution, vous allez apprendre à utiliser Azure Stream Analytics pou
 Pour effectuer cette solution, vous avez besoin des prérequis suivants :
 * Un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/)
 
-## <a name="scenario-introduction-hello-toll"></a>Présentation du scénario - « Hello, Péage ! »
+## <a name="scenario-introduction-hello-toll"></a>Présentation du scénario : « Gare de péage »
 Une gare de péage est un dispositif très répandu. Il s’en trouve sur de nombreux autoroutes, ponts et tunnels dans le monde entier. Chaque station de péage compte plusieurs guichets. Aux guichets manuels, vous vous arrêtez pour régler le montant du péage à un guichetier. Aux guichets automatisés, un capteur scanne une carte RFID apposée sur le pare-brise de votre véhicule lorsque vous franchissez le péage. Il est facile de visualiser le franchissement de ces stations de péage par les véhicules sous la forme d’un flux d’événements sur lequel des opérations intéressantes peuvent être effectuées.
 
-![Image de voitures à des postes de péage](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
+![Image de voitures aux guichets de péage](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth .jpg)
 
 ## <a name="incoming-data"></a>Données entrantes
 Cette solution fonctionne avec deux flux de données. Des capteurs installés à l’entrée et à la sortie des stations de péage produisent le premier flux. Le deuxième flux de données est un jeu de données de recherche statique contenant les données d’inscription des véhicules.
@@ -106,15 +106,15 @@ Voici une brève description des colonnes :
 | --- | --- |
 | LicensePlate |Numéro de plaque d’immatriculation du véhicule |
 | ID d’inscription |ID d’inscription du véhicule |
-| Expiré |État d’inscription du véhicule : 0 si l’inscription est active, 1 si elle a expiré |
+| Expiré |État d’inscription du véhicule : 0 si l’inscription est active, 1 si elle a expiré |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Configurer l’environnement pour Azure Stream Analytics
 Pour effectuer cette solution, vous avez besoin d’un abonnement Microsoft Azure. Si vous n’avez pas de compte Azure, vous pouvez [demander un essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 Pour tirer pleinement parti de votre crédit Azure, suivez les instructions de la section « Nettoyer votre compte Azure » à la fin de cet article.
 
-## <a name="deploy-the-sample"></a>Déployer l'exemple 
-Il existe plusieurs ressources qui peuvent facilement être déployées ensemble dans un groupe de ressources en quelques clics. La définition de la solution est hébergée dans le référentiel github sous [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
+## <a name="deploy-the-sample"></a>Déployer l'exemple
+Il existe plusieurs ressources qui peuvent facilement être déployées ensemble dans un groupe de ressources en quelques clics. La définition de la solution est hébergée dans le référentiel GitHub sous [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
 
 ### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>Déployer le modèle TollApp dans le portail Azure
 1. Pour déployer l’environnement TollApp sur Azure, utilisez ce lien pour [déployer un modèle TollApp Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json).
@@ -123,11 +123,11 @@ Il existe plusieurs ressources qui peuvent facilement être déployées ensemble
 
 3. Sélectionnez l’abonnement dans lequel les différentes ressources sont facturées.
 
-4. Spécifiez un nouveau groupe de ressources en lui attribuant un nom unique (par exemple, `MyTollBooth`). 
+4. Spécifiez un nouveau groupe de ressources en lui attribuant un nom unique (par exemple, `MyTollBooth`).
 
 5. Sélectionnez un emplacement Azure.
 
-6. Spécifiez un **intervalle** (en secondes). Cette valeur est utilisée dans l’exemple d’application web et désigne la fréquence à laquelle envoyer les données à Event Hub. 
+6. Spécifiez un **intervalle** (en secondes). Cette valeur est utilisée dans l’exemple d’application web et désigne la fréquence à laquelle envoyer les données à Event Hub.
 
 7. **Cochez la case** pour accepter les conditions générales.
 
@@ -149,7 +149,7 @@ Il existe plusieurs ressources qui peuvent facilement être déployées ensemble
    - Un Azure Event Hub
    - Deux applications Web
 
-## <a name="examine-the-sample-tollapp-job"></a>Examinez l’exemple de tâche TollApp. 
+## <a name="examine-the-sample-tollapp-job"></a>Examinez l’exemple de tâche TollApp.
 1. À partir du groupe de ressources dans la section précédente, sélectionnez la tâche de diffusion en continu Stream Analytics commençant par le nom **tollapp** (le nom contient des caractères aléatoires à des fins d’unicité).
 
 2. Sur la page **Vue d’ensemble** de la tâche, regardez la case **Requête** pour voir la syntaxe de la requête.
@@ -195,7 +195,7 @@ Suivez ces étapes pour démarrer la tâche de diffusion en continu :
 
 6. Sélectionnez chacun des identifiants pour passer en revue le document JSON. Notez chaque TollID, l’heure Windowend et le nombre de voitures depuis cette fenêtre.
 
-7. Au bout de trois minutes supplémentaires, un autre jeu de quatre documents est disponible, soit un document par TollID. 
+7. Au bout de trois minutes supplémentaires, un autre jeu de quatre documents est disponible, soit un document par TollID.
 
 
 ## <a name="report-total-time-for-each-car"></a>Signaler la durée totale pour chaque véhicule
@@ -229,9 +229,9 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 7. Sur le volet **Démarrer la tâche**, sélectionnez **Maintenant**.
 
 ### <a name="review-the-total-time-in-the-output"></a>Passer en revue la durée totale de la sortie
-Répétez les étapes décrites dans la section précédente pour passer en revue les données de sortie CosmosDB à partir de la tâche de diffusion en continu. Passez en revue les derniers documents JSON. 
+Répétez les étapes décrites dans la section précédente pour passer en revue les données de sortie CosmosDB à partir de la tâche de diffusion en continu. Passez en revue les derniers documents JSON.
 
-Par exemple, ce document montre un exemple de voiture avec une certaine plaque d’immatriculation, l’heure d’entrée et de sortie ainsi que le champ de la durée en minutes calculée DATEDIFF qui affiche une durée au péage de deux minutes : 
+Par exemple, ce document montre un exemple de voiture avec une certaine plaque d’immatriculation, l’heure d’entrée et de sortie ainsi que le champ de la durée en minutes calculée DATEDIFF qui affiche une durée au péage de deux minutes :
 ```JSON
 {
     "tollid": 4,
@@ -249,7 +249,7 @@ Par exemple, ce document montre un exemple de voiture avec une certaine plaque d
 ```
 
 ## <a name="report-vehicles-with-expired-registration"></a>Signaler les véhicules dont l’inscription a expiré
-Azure Stream Analytics peut utiliser des instantanés statiques des données de référence pour joindre des flux de données temporelles. Pour illustrer cette fonctionnalité, nous allons utiliser l’exemple de question suivant. L’entrée Inscription est un fichier json blob statique qui répertorie les dates d’expiration des plaques d’immatriculation. En s’aidant de la plaque d’immatriculation, les données de référence sont comparées à chaque véhicule passant par le poste de péage. 
+Azure Stream Analytics peut utiliser des instantanés statiques des données de référence pour joindre des flux de données temporelles. Pour illustrer cette fonctionnalité, nous allons utiliser l’exemple de question suivant. L’entrée Inscription est un fichier json blob statique qui répertorie les dates d’expiration des plaques d’immatriculation. En s’aidant de la plaque d’immatriculation, les données de référence sont comparées à chaque véhicule passant par le poste de péage.
 
 Si un véhicule commercial est inscrit auprès de l’entreprise de péage, il peut franchir directement le poste de péage sans être arrêté pour inspection. Utilisez la table de recherche contenant les inscriptions de véhicules commerciaux pour identifier tous ceux dont l’inscription a expiré.
 
@@ -264,7 +264,7 @@ WHERE Registration.Expired = '1'
 
 1. Répétez les étapes décrites dans la section précédente pour mettre à jour la syntaxe de requête de la tâche de diffusion en continu TollApp.
 
-2. Répétez les étapes décrites dans la section précédente pour passer en revue les données de sortie CosmosDB à partir de la tâche de diffusion en continu. 
+2. Répétez les étapes décrites dans la section précédente pour passer en revue les données de sortie CosmosDB à partir de la tâche de diffusion en continu.
 
 Exemple de sortie :
 ```json
@@ -289,28 +289,28 @@ Pour monter en charge la requête aux partitions, modifiez la syntaxe de requêt
 ```sql
 SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
 INTO CosmosDB
-FROM EntryStream 
-TIMESTAMP BY EntryTime 
+FROM EntryStream
+TIMESTAMP BY EntryTime
 PARTITION BY PartitionId
 GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 ```
 
 Pour monter en puissance la tâche de diffusion en continu à davantage d’unités de diffusion en continu :
 
-1. **Arrêtez** la tâche en cours. 
+1. **Arrêtez** la tâche en cours.
 
 2. Mettez à jour la syntaxe de la requête dans la page **< > Requête** et enregistrez les modifications.
 
 3. Sous l’en-tête CONFIGURER de la tâche de diffusion en continu, sélectionnez **Mettre à l'échelle**.
-   
+
 4. Faites glisser le curseur **Unités de diffusion en continu** de 1 à 6. Les unités de streaming définissent la quantité de puissance de calcul allouable à la tâche. Sélectionnez **Enregistrer**.
 
-5. **Démarrez** la tâche de diffusion en continu afin d’illustrer la mise à l'échelle supplémentaire. Azure Stream Analytics distribue le travail entre un plus grand nombre de ressources de calcul et obtient un meilleur débit, en partitionnant le travail entre les ressources à l’aide de la colonne désignée dans la clause PARTITION BY. 
+5. **Démarrez** la tâche de diffusion en continu afin d’illustrer la mise à l'échelle supplémentaire. Azure Stream Analytics distribue le travail entre un plus grand nombre de ressources de calcul et obtient un meilleur débit, en partitionnant le travail entre les ressources à l’aide de la colonne désignée dans la clause PARTITION BY.
 
 ## <a name="monitor-the-job"></a>Surveiller la tâche
-La zone **Surveiller** contient des statistiques sur le travail en cours d’exécution. Une configuration initiale est nécessaire pour utiliser le compte de stockage dans la même région (nommer le numéro comme le reste de ce document).   
+La zone **Surveiller** contient des statistiques sur le travail en cours d’exécution. Une configuration initiale est nécessaire pour utiliser le compte de stockage dans la même région (nommer le numéro comme le reste de ce document).
 
-![Capture d’écran de la surveillance](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
+![Surveillance des tâches Azure Stream Analytics](media/stream-analytics-build-an-iot-solution-using-stream-analytics/stream-analytics-job-monitoring.png)
 
 Vous pouvez également accéder aux **Journaux d’activité** à partir de la zone **Paramètres** du tableau de bord du travail.
 

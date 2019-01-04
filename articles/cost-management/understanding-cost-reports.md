@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: b4e1ffa0b7bd524fc9029b21e77b09ea07e1f202
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 10a8d434df376749b76e2cf90212d872f705b209
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276650"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103419"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Compréhension des rapports de gestion des coûts Cloudyn
 
@@ -25,7 +25,7 @@ Cet article vous permet de comprendre la structure et les fonctions de base des 
 
 Vous trouverez ci-dessous un exemple de rapport des coûts dans le temps. La plupart des rapports Cloudyn ont une mise en page similaire.
 
-![exemple de rapport](./media/understanding-cost-reports/sample-report.png)
+![Exemple de rapport des coûts dans le temps avec des zones numérotées correspondant aux descriptions](./media/understanding-cost-reports/sample-report.png)
 
 Chaque zone numérotée dans l’image précédente est décrite en détail dans les informations suivantes :
 
@@ -47,11 +47,11 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
 
     Utilisez la zone Balises pour grouper par catégorie de balises. Les balises répertoriées dans le menu sont des balises du département Azure ou du centre de coûts ou encore des balises d’entité de coûts ou d’abonnement Cloudyn. Sélectionnez les balises pour filtrer les résultats. Vous pouvez également saisir un nom de balise (mot clé) pour filtrer les résultats.
 
-    ![options de sélection](./media/understanding-cost-reports/select-options.png)
+    ![Exemple de liste de balises selon lesquelles filtrer les résultats](./media/understanding-cost-reports/select-options.png)
 
     Cliquez sur **Ajouter** pour ajouter un nouveau filtre.
 
-    ![ajouter un filtre](./media/understanding-cost-reports/add-filter.png)
+    ![Ajouter une zone de filtre montrant les options et les conditions selon lesquelles effectuer le filtrage](./media/understanding-cost-reports/add-filter.png)
 
     Le regroupement ou le filtrage des balises ne s’applique pas aux ressources Azure ni aux balises de groupes de ressources.
 
@@ -61,9 +61,9 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
 
     Utilisez les Groupes dans les rapports d’analyse des coûts pour afficher les catégories standard et détaillées à partir des données de facturation dans votre rapport.  Toutefois, les groupes dans les rapports d’allocation des coûts affichent des catégories de vue avec indicateur. Les catégories avec indicateur sont définies dans le modèle d’allocation des coûts et les catégories détaillées standard dans les données de facturation.
 
-    ![Balises des groupes](./media/understanding-cost-reports/groups-tags01.png)
+    ![Premier exemple de liste de balises selon lesquelles effectuer les regroupements](./media/understanding-cost-reports/groups-tags01.png)
 
-    ![Balises des groupes](./media/understanding-cost-reports/groups-tags02.png)
+    ![Second exemple de liste de balises selon lesquelles effectuer les regroupements](./media/understanding-cost-reports/groups-tags02.png)
 
     Dans les rapports d’allocation des coûts, les groupes des catégories de groupes avec indicateur doivent inclure :
       - Balises
@@ -166,7 +166,7 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
 
     Utilisez Formats d’affichage pour sélectionner différentes vues de tableau ou de graphique.
 
-    ![formats d’affichage](./media/understanding-cost-reports/display-formats.png)
+    ![Symboles de formats d’affichage que vous pouvez sélectionner](./media/understanding-cost-reports/display-formats.png)
 
 13. **Multicolore**
 

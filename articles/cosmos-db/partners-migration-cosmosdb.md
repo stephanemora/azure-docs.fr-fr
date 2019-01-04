@@ -1,19 +1,18 @@
 ---
-title: Partenaires pour le développement d’applications et la migration NoSQL pour solutions Azure Cosmos DB | Microsoft Docs
+title: Partenaires pour le développement d’applications et la migration NoSQL pour solutions Azure Cosmos DB
 description: Répertorie les partenaires Microsoft qui proposent des solutions de migration prenant en charge Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
-manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
-ms.openlocfilehash: 1e52c6eb96b98db76628a3a77ce1ef95bd58f837
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: c241232de33d4371456a374f8bc511211b3e9449
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48872115"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082401"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Partenaires pour le développement d’applications et la migration NoSQL pour solutions Azure Cosmos DB
 
@@ -30,18 +29,34 @@ De la migration NoSQL au développement d’applications, vous pouvez choisir pa
 
 |**Partenaire**  |**Expérience et capacités**  |**Pays pris en charge**  |**Contact**  |
 |---------|---------|---------|---------|
-|![Altoros][3]    |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications |     ÉTATS-UNIS, UE    |  [Site web](http://www.altoros.com/)       |
-|![Attunix][4]     |   Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications      |    États-Unis     |  [Site web](http://www.attunix.com/)       |
-|![Bluemetal][5]     |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications       |    Amérique du Nord, Asie-Pacifique     |  [Site web](http://www.bluemetal.com/)       |
-|![Capax Global][6]     |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications       |    États-Unis     |  [Site web](http://www.capaxglobal.com/)       |
+| ![10th Magnitude][13] | Migration NoSQL ; développement de nouvelles applications | États-Unis | [Site web](https://www.10thmagnitude.com/)|
+|![Altoros Development LLC][3]    |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications |   États-Unis, Norvège, Finlande, Bélarus, Argentine |  [Site web](http://www.altoros.com/)     |
+|![Attunix Redapt][4]     |   Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications      |    États-Unis     |  [Site web](http://www.attunix.com/)       |
+| ![Avanade][26] | Développement de nouvelles applications, <br/> innovation en matière d’applications (applications existantes) | Autriche, Allemagne, Suisse, Italie, Norvège, Espagne, Royaume-Uni | [Site web](https://www.avanade.com/)
+|![BlueMetal Architects][5]     |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications       |    Amérique du Nord, Asie-Pacifique     |  [Site web](http://www.bluemetal.com/)       |
+|![Capax Global LLC][6]     |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications       |    États-Unis     |  [Site web](http://www.capaxglobal.com/)       |
+| ![Capgemini][14] | Migration NoSQL ; innovation en matière d’applications (applications existantes) ; développement de nouvelles applications | États-Unis, France, Royaume-Uni, Pays-bas, Finlande  | [Site web](https://www.capgemini.com/) | 
 |![Coeo][7]     |   Innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications |    Royaume-Uni     |  [Site web](http://www.coeo.com/)       |
+| ![Cognizant][15] | Migration NoSQL |États-Unis, Canada, Royaume-Uni, Danemark, Pays-bas, Suisse, Australie, Japon | [Site web](https://www.cognizant.com/)|
 |![Infosys][8]     |  Migration NoSQL       |    Globale     |  [Site web](http://www.infosys.com/)       |
+| ![Lagash][16] | Migration NoSQL, <br/> développement de nouvelles applications | Argentine, Chili, Colombie, Mexique| [Site web](https://lagash.com/)|
+| ![Lambda3 Informatics][17] | Migration NoSQL, <br/> développement de nouvelles applications | Brésil| [Site web](https://www.lambda3.com.br/)|
 |![Neal Analytics][9]     |     Développement d’applications (nouvelles applications)    |    États-Unis     |  [Site web](http://www.nealanalytics.com/)       |
-|![Pragmatic Works][10]    |   Migration NoSQL      |   États-Unis      |  [Site web](http://www.pragmaticworks.com/)       |
+|![Pragmatic Works Software Inc.][10]    |   Migration NoSQL      |   États-Unis      |  [Site web](http://www.pragmaticworks.com/)       |
+| ![Ricoh Global][18] | Migration NoSQL, <br/> innovation en matière d’applications (applications existantes)| Royaume-Uni  | [Site web](https://www.ricoh.com/)|
+| ![SNP Technologies][19] | Migration NoSQL| FR | [Site web](https://www.snp.com/)|
+| ![Solidsoft Reply][20] | Migration NoSQL | Croatie, Suède, Danemark, Irlande, Bulgarie, Slovénie, Chypre, Malte, Lituanie, la République tchèque, Islande, Suisse et Liechtenstein| [Site web](https://www.reply.com/solidsoft-reply/)|
+| ![Spanish Point Technologies][21] | Migration NoSQL| Irlande| [Site web](https://www.spanishpoint.ie/)|
+| ![Syone][22] | Migration NoSQL| Portugal| [Site web](https://www.syone.com/)|
 |![Tallan][11]    |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications       |    États-Unis     |  [Site web](http://www.tallan.com/)       |
+| ![TCS][23] | innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications | États-Unis, Royaume-Uni, France, Malaisie, Danemark, Norvège, Suède| [Site web](https://www.tcs.com/)|
 |![VTeamLabs][12]    | Migration NoSQL       |  États-Unis      | [Site web](http://www.vteamlabs.com/)       |
+| ![White Duck][24] |Migration NoSQL, <br/> développement de nouvelles applications | Allemagne | [Site web](https://whiteducksoftware.com/)|
+| ![Xpand IT][25] | développement de nouvelles applications | Portugal, Royaume-Uni| [Site web](https://www.xpand-it.com/)|
+
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour plus d’informations sur les autres partenaires Microsoft, voir le [site Microsoft Partner](https://partner.microsoft.com/en-US/).
 
 <!--Image references-->
@@ -57,3 +72,17 @@ Pour plus d’informations sur les autres partenaires Microsoft, voir le [site M
 [10]: ./media/partners-migration-cosmosdb/pragmaticworks_logo.png
 [11]: ./media/partners-migration-cosmosdb/tallan_logo.png
 [12]: ./media/partners-migration-cosmosdb/vteamlabs_logo.png
+[13]: ./media/partners-migration-cosmosdb/10thmagnitude_logo.png
+[14]: ./media/partners-migration-cosmosdb/capgemini_logo.png
+[15]: ./media/partners-migration-cosmosdb/cognizant_logo.png
+[16]: ./media/partners-migration-cosmosdb/laglash_logo.png
+[17]: ./media/partners-migration-cosmosdb/lambda3_logo.png
+[18]: ./media/partners-migration-cosmosdb/ricoh_logo.png
+[19]: ./media/partners-migration-cosmosdb/snp_technologies_logo.png
+[20]: ./media/partners-migration-cosmosdb/solidsoft_reply_logo.png
+[21]: ./media/partners-migration-cosmosdb/spanish_point_logo.png
+[22]: ./media/partners-migration-cosmosdb/syone_logo.png
+[23]: ./media/partners-migration-cosmosdb/tcs_logo.png
+[24]: ./media/partners-migration-cosmosdb/whiteduck_logo.png
+[25]: ./media/partners-migration-cosmosdb/xpandit_logo.png
+[26]: ./media/partners-migration-cosmosdb/avanade_logo.png

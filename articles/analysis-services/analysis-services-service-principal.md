@@ -1,18 +1,19 @@
 ---
 title: Automatiser les tâches Azure Analysis Services à l’aide de principaux de service | Microsoft Docs
+description: Découvrez comment créer des principaux de service pour automatiser les tâches Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b9a91b478ea9012a1d041fc102765890954c2fbb
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2acf39a7537d25b05999b7b2813fa66d7f778724
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956185"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995792"
 ---
 # <a name="automation-with-service-principals"></a>Automatisation à l’aide de principaux de service
 

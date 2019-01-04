@@ -1,25 +1,26 @@
 ---
 title: Installer et exécuter des conteneurs
-titleSuffix: Text Analytics - Cognitive Services - Azure
+titleSuffix: Text Analytics -  Azure Cognitive Services
 description: Ce tutoriel pas à pas décrit comment télécharger, installer et exécuter des conteneurs pour Analyse de texte.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 99bdb42d9a0d86d0d2acc4a6272e0c802042e6b5
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 11798c3bfd4032ad10c738032a816a2a0488ce67
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634906"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090531"
 ---
 # <a name="install-and-run-containers"></a>Installer et exécuter des conteneurs
 
-La mise en conteneur est une méthode de distribution de logiciels dans laquelle une application ou un service est packagé en tant qu’image conteneur. La configuration et les dépendances pour l’application ou le service sont inclus dans l’image conteneur. L’image conteneur peut ensuite être déployée sur un hôte conteneur avec peu ou pas de modifications. Les conteneurs sont isolés les uns des autres et l’encombrement du système d’exploitation sous-jacent est inférieur à celui d’une machine virtuelle. Vous pouvez instancier les conteneurs à partir d’images conteneur pour les tâches à court terme et les supprimer quand vous n’avez plus besoin.
+La mise en conteneur est une méthode de distribution de logiciels dans laquelle une application ou un service est packagé en tant qu’image conteneur. La configuration et les dépendances pour l’application ou le service sont inclus dans l’image conteneur. L’image conteneur peut ensuite être déployée sur un hôte conteneur avec peu ou pas de modifications. Les conteneurs sont isolés les uns des autres et du système d’exploitation sous-jacent, avec une empreinte inférieure à celle d’une machine virtuelle. Vous pouvez instancier les conteneurs à partir d’images conteneur pour les tâches à court terme et les supprimer quand vous n’avez plus besoin.
 
 Le conteneur Analyse de texte fournit l’ensemble suivant de conteneurs Docker, chacun contenant un sous-ensemble de fonctionnalités :
 
@@ -27,7 +28,7 @@ Le conteneur Analyse de texte fournit l’ensemble suivant de conteneurs Docker,
 |----------|-------------|
 |Extraction d’expressions clés | Extraire des expressions clés pour identifier les points principaux. Par exemple, pour le texte d’entrée « Le repas était délicieux et le personnel adorable », l’API renvoie les principaux points de discussion : « repas » et « personnel adorable ». |
 |Détection de la langue | Pour jusqu’à 120 langues maximum, détecte et signale la langue dans laquelle le texte d’entrée est rédigé. Le conteneur signale un code de langue unique pour chaque document qui est inclus dans la requête. Le code de langue est associé à un score indiquant la puissance de l’analyse. |
-|Analyse des sentiments | Analyser le texte brut pour obtenir des indices sur un sentiment positif ou négatif. Cette API renvoie un score de sentiment de 0 à 1 pour chaque document, où 1 correspond au sentiment le plus positif. Les modèles d’analyse sont préformés à l’aide d’un corps complet de technologies de texte et de Langage naturel de Microsoft. Pour les [langues sélectionnées](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages.md), l’API peut analyser tout texte brut que vous fournissez, lui attribuer un score, et renvoyer directement les résultats à l’application appelante. |
+|Analyse des sentiments | Analyser le texte brut pour obtenir des indices sur un sentiment positif ou négatif. Cette API renvoie un score de sentiment de 0 à 1 pour chaque document, où 1 correspond au sentiment le plus positif. Les modèles d’analyse sont préformés à l’aide d’un corps complet de technologies de texte et de Langage naturel de Microsoft. Pour les [langues sélectionnées](../language-support.md), l’API peut analyser tout texte brut que vous fournissez, lui attribuer un score, et renvoyer directement les résultats à l’application appelante. |
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -35,15 +36,15 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs Analyse de texte :
 
-**Moteur Docker** : le moteur Docker doit être installé localement. Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) et [Windows](https://docs.docker.com/docker-for-windows/). Sur Windows, Docker doit être configuré pour prendre en charge les conteneurs Linux. Les conteneurs Docker peuvent également être déployés directement sur [Azure Kubernetes Service](/azure/aks/), sur [Azure Container Instances](/azure/container-instances/) ou sur un cluster [Kubernetes](https://kubernetes.io/) déployé sur [Azure Stack](/azure/azure-stack/). Pour plus d’informations sur le déploiement de Kubernetes sur Azure Stack, consultez [Déployer Kubernetes sur Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+**Moteur Docker** : le moteur Docker doit être installé localement. Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) et [Windows](https://docs.docker.com/docker-for-windows/). Sur Windows, vous devez configurer Docker pour prendre en charge les conteneurs Linux. Les conteneurs Docker peuvent également être déployés directement sur [Azure Kubernetes Service](/azure/aks/), sur [Azure Container Instances](/azure/container-instances/) ou sur un cluster [Kubernetes](https://kubernetes.io/) déployé sur [Azure Stack](/azure/azure-stack/). Pour plus d’informations sur le déploiement de Kubernetes sur Azure Stack, consultez [Déployer Kubernetes sur Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
-Docker doit être configuré pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation.
+Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation.
 
-**Connaissance de Microsoft Container Registry et de Docker** : vous devez avoir une compréhension élémentaire des concepts de Microsoft Container Registry et de Docker, tels que les registres, les référentiels, les conteneurs et les images de conteneur, ainsi qu’une maîtrise des commandes `docker` de base.  
+**Connaissance de Microsoft Container Registry et de Docker** : vous devez avoir une compréhension élémentaire des concepts de Microsoft Container Registry et de Docker, notamment les registres, dépôts, conteneurs et images conteneur, ainsi qu’une maîtrise des commandes `docker` de base.  
 
 Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).
 
-### <a name="server-requirements-and-recommendations"></a>Configuration serveur requise et recommandations
+### <a name="container-requirements-and-recommendations"></a>Exigences et suggestions relatives au conteneur
 
 Le tableau suivant décrit les cœurs de processeur minimum et recommandés, d’au moins 2,6 gigahertz (GHz) ou plus rapides, et la mémoire, en gigaoctets (Go), à allouer pour chaque conteneur Analyse de texte.
 
@@ -51,7 +52,7 @@ Le tableau suivant décrit les cœurs de processeur minimum et recommandés, d�
 |-----------|---------|-------------|
 |Extraction d’expressions clés | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |
 |Détection de la langue | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |
-|Analyse des sentiments | 1 cœur, 8 Go de mémoire | 1 cœur, 8 Go de mémoire |
+|Analyse des sentiments | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |
 
 ## <a name="download-container-images-from-microsoft-container-registry"></a>Télécharger des images conteneur à partir de Microsoft Container Registry
 
@@ -76,7 +77,7 @@ Pour obtenir une description complète des balises disponibles pour les conteneu
 * [Analyse des sentiments](https://go.microsoft.com/fwlink/?linkid=2018654)
 
 > [!TIP]
-> Vous pouvez utiliser la commande [docker images](https://docs.docker.com/engine/reference/commandline/images/) pour répertorier vos images conteneur téléchargées. Par exemple, la commande suivante répertorie l’ID, le référentiel et la balise de chaque image conteneur téléchargée sous la forme d’un tableau :
+> Vous pouvez utiliser la commande [docker images](https://docs.docker.com/engine/reference/commandline/images/) pour répertorier vos images conteneur téléchargées. Par exemple, la commande suivante liste l’ID, le référentiel et la balise de chaque image conteneur téléchargée dans un tableau :
 >
 >  ```Docker
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
@@ -137,10 +138,10 @@ Les conteneurs Analyse de texte envoient des informations de facturation à Azur
 |--------|-------------|
 | `ApiKey` | La clé d’API de la ressource Analyse de texte utilisée pour effectuer le suivi des informations de facturation.<br/>La valeur de cette option doit être définie sur une clé API pour la ressource Analyse de texte Azure provisionnée, spécifiée dans `Billing`. |
 | `Billing` | Le point de terminaison de la ressource Analyse de texte utilisée pour effectuer le suivi des informations de facturation.<br/>La valeur de cette option doit être définie sur l’URI de point de terminaison d’une ressource Analyse de texte Azure provisionnée.|
-| `Eula` | Indique que vous avez accepté la licence pour le conteneur.<br/>La valeur de cette option doit être définie sur `accept`. |
+| `Eula` | Indique que vous avez accepté la licence pour le conteneur.<br/>La valeur de cette option doit être `accept`. |
 
 > [!IMPORTANT]
-> Les trois options doivent être spécifiées avec des valeurs valides, sinon le conteneur ne démarre pas.
+> Les trois options doivent être spécifiées avec des valeurs valides ; sinon, le conteneur ne démarre pas.
 
 Pour plus d’informations sur ces options, consultez [Configurer des conteneurs](../text-analytics-resource-container-config.md).
 
@@ -149,15 +150,17 @@ Pour plus d’informations sur ces options, consultez [Configurer des conteneurs
 Dans cet article, vous avez découvert des concepts et le flux de travail pour le téléchargement, l’installation et l’exécution des conteneurs Analyse de texte. En résumé :
 
 * Analyse de texte fournit trois conteneurs Linux pour Docker, intégrant l’extraction de phrases clés, la détection de la langue et l’analyse des sentiments.
-* Les images conteneur sont téléchargées à partir d’un registre de conteneurs privé dans Azure.
-* Les images conteneur s’exécutent dans Docker.
+* Les images conteneur sont téléchargées à partir de Microsoft Container Registry (MCR) dans Azure.
+* Les images conteneurs s’exécutent dans Docker.
 * Vous pouvez utiliser l’API REST ou le kit SDK pour appeler des opérations dans des conteneurs Analyse de texte en spécifiant l’URI hôte du conteneur.
 * Vous devez spécifier les informations de facturation lors de l’instanciation d’un conteneur.
-* ** Les conteneurs Cognitives Services ne sont pas concédés sous licence pour s’exécuter sans être connectés à Azure pour le contrôle. Les clients doivent activer les conteneurs pour communiquer les informations de facturation au service de contrôle à tout moment. Les conteneurs Cognitive Services n’envoient pas de données clients (p. ex., l’image ou le texte analysés) à Microsoft.  
+
+> [!IMPORTANT]
+> Les conteneurs Cognitives Services ne sont pas concédés sous licence pour s’exécuter sans être connectés à Azure pour le contrôle. Les clients doivent configurer les conteneurs de manière à ce qu’ils communiquent les informations de facturation au service de contrôle à tout moment. Les conteneurs Cognitive Services n’envoient pas les données des clients (p. ex., l’image ou le texte analysés) à Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consulter [Configurer des conteneurs](../text-analytics-resource-container-config.md) pour les paramètres de configuration
+* Pour obtenir les paramètres de configuration, passez en revue [Configurer des conteneurs](../text-analytics-resource-container-config.md).
 * Consulter [Vue d’ensemble de l’Analyse de texte](../overview.md) pour en savoir plus sur la détection de phrases clés, la détection de la langue et l’analyse des sentiments  
 * Reportez-vous à [l’API Analyse de texte](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) pour plus d’informations sur les méthodes prises en charge par le conteneur.
 * Reportez-vous au [Forum aux questions (FAQ)](../text-analytics-resource-faq.md) pour résoudre les problèmes liés à la fonctionnalité Vision par ordinateur.

@@ -1,6 +1,6 @@
 ---
-title: Présentation des modules Azure IoT Edge | Microsoft Docs
-description: Découvrir les modules Azure IoT Edge et les modes de configuration
+title: Découvrez l’exécution de logique par les modules sur vos appareils - Azure IoT Edge | Microsoft Docs
+description: Les modules Azure IoT Edge sont des unités de logique en conteneur qui peuvent être déployées et gérées à distance afin de vous permettre d’exécuter une logique métier sur les appareils IoT Edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3d76f5931e3636f19c2030c4090116a0791db819
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 90fb6eadb2edb92d4516d8565d8c2c2bd5120c05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567330"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094183"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Présentation des modules Azure IoT Edge
 
@@ -31,7 +32,7 @@ Les images existent dans le cloud et peuvent être mises à jour, modifiées et 
 
 Chaque fois qu’une image de module est déployée sur un appareil et démarrée par le runtime IoT Edge, une nouvelle instance de ce module est créée. Deux appareils dans différentes parties du monde peuvent utiliser la même image de module. Toutefois, chacun aurait sa propre instance du module lors du démarrage du module sur l’appareil. 
 
-![Images de modules dans le cloud - instances de modules sur les appareils](./media/iot-edge-modules/image_instance.png)
+![Diagramme - Images de modules dans le cloud, instances de modules sur les appareils](./media/iot-edge-modules/image_instance.png)
 
 Dans l’implémentation, les images de modules existent en tant qu’images de conteneurs dans un référentiel tandis que les instances de modules sont des conteneurs sur des appareils. 
 
@@ -46,7 +47,7 @@ L’identité associée à une instance de module dépend de l’identité de l�
 
 Il est clair que dans les scénarios où vous avez besoin de déployer une image de module plusieurs fois sur le même appareil, vous pouvez déployer la même image plusieurs fois avec des noms différents.
 
-![Les identités de modules sont uniques](./media/iot-edge-modules/identity.png)
+![Diagramme - Les identités de modules sont uniques sur les appareils et entre les appareils](./media/iot-edge-modules/identity.png)
 
 ## <a name="module-twins"></a>Jumeaux de module
 

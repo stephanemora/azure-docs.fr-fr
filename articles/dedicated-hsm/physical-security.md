@@ -1,22 +1,23 @@
 ---
-title: Sécurité physique du service HSM dédié Azure | Microsoft Docs
-description: Le service HSM dédié Azure fournit des fonctionnalités de stockage de clés dans Azure qui répondent à la certification FIPS 140-2 de niveau 3.
+title: Sécurité physique des HSM - HSM dédié Azure | Microsoft Docs
+description: Informations sur la sécurité physique des appareils du service HSM dédié Azure dans les centres de données
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: a0f85c755b269d95720137368a4ff438031a9fae
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 662800d2b9db7d7a19861431354e55b3897e020a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318918"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080042"
 ---
 # <a name="azure-dedicated-hsm-physical-security"></a>Sécurité physique du service HSM dédié Azure
 
@@ -57,5 +58,5 @@ Il est recommandé de bien comprendre tous les concepts clés du service, comme 
 * [Haute disponibilité](high-availability.md)
 * [Mise en réseau](networking.md)
 * [Prise en charge](supportability.md)
-* [Supervision](monitoring.md)
+* [Surveillance](monitoring.md)
 * [Architecture de déploiement](deployment-architecture.md)

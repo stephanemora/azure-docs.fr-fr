@@ -2,19 +2,19 @@
 title: Rotation des informations d’identification dans les travaux Azure Stream Analytics
 description: Cet article décrit comment mettre à jour les informations d’identification des récepteurs d’entrée et de sortie dans les travaux Azure Stream Analytics.
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.openlocfilehash: 362fdca3b9a54ea0a8785ae37b32b88cbe0f67ba
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 14e24c1e9a61eb7ea73a949e17ffbf8c5b768f05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978764"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099067"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Rotation des informations d'identification pour les entrées et les sorties dans un travail Stream Analytics
 
@@ -27,20 +27,20 @@ Dans cette section, nous vous guiderons tout au long du processus de régénéra
 ### <a name="blob-storagetable-storage"></a>Stockage d’objets blob/de tables
 1. Connectez-vous au portail Azure > accédez au compte de stockage que vous avez utilisé comme entrée/sortie pour le travail Stream Analytics.    
 2. Dans la section des paramètres, ouvrez **Clés d’accès**. Entre les clés par défaut (key1, key2), sélectionnez celle qui n’est pas utilisée par votre travail puis régénérez-la :  
-   ![Régénérer les clés pour le compte de stockage](media/stream-analytics-login-credentials-inputs-outputs/image1.png)
+   ![Régénérer les clés pour le compte de stockage](media/stream-analytics-login-credentials-inputs-outputs/regenerate-storage-keys.png)
 3. Copiez la clé qui vient d’être générée.    
 4. Dans le portail Azure, accédez à votre travail Stream Analytics > sélectionnez **Arrêter** et attendez que le travail s’arrête.    
 5. Recherchez l’entrée/la sortie du stockage d’objets blob/de tables dont souhaitez mettre à jour les informations d’identification.    
 6. Recherchez le champ **Clé du compte de stockage** et collez-y la clé qui vient d’être générée > cliquez sur **Enregistrer**.    
 7. Un test de connexion démarre automatiquement lorsque vous enregistrez vos modifications, et vous pouvez le visualiser dans l’onglet des notifications. Il existe deux notifications : une correspond à l’enregistrement de la mise à jour et l’autre au test de la connexion :  
-   ![Notifications après modification de la clé](media/stream-analytics-login-credentials-inputs-outputs/image4.png)
+   ![Notifications après modification de la clé](media/stream-analytics-login-credentials-inputs-outputs/edited-key-notifications.png)
 8. Passez à la section [démarrer votre travail à partir de l’heure du dernier arrêt](#start-your-job-from-the-last-stopped-time).
 
 ### <a name="event-hubs"></a>Hubs d'événements
 
 1. Connectez-vous au portail Azure > accédez au hub d’événements que vous avez utilisé comme entrée/sortie pour le travail Stream Analytics.    
 2. Dans la section des paramètres, ouvrez **Stratégies d'accès partagé** et sélectionnez la stratégie d’accès requise. Entre la **clé primaire** et la **clé secondaire**, choisissez celle qui n’est pas utilisée par votre travail et régénérez-la :  
-   ![Régénérer les clés pour le hub d’événements](media/stream-analytics-login-credentials-inputs-outputs/image2.png)
+   ![Régénérer les clés pour le hub d’événements](media/stream-analytics-login-credentials-inputs-outputs/regenerate-event-hub-keys.png)
 3. Copiez la clé qui vient d’être générée.    
 4. Dans le portail Azure, accédez à votre travail Stream Analytics > sélectionnez **Arrêter** et attendez que le travail s’arrête.    
 5. Recherchez l’entrée/la sortie des hubs d’événements dont souhaitez mettre à jour les informations d’identification.    
@@ -54,7 +54,7 @@ Vous devez vous connecter à la base de données SQL pour mettre à jour les inf
 
 1. Connectez-vous au portail Azure > accédez à la base de données SQL que vous avez utilisée comme sortie pour le travail Stream Analytics.    
 2. À partir de l’**Explorateur de données**, connectez-vous à votre base de données > sélectionnez le type d’autorisation **Authentification SQL Server** > entrez votre **identifiant** et votre **mot de passe** > sélectionnez **Ok**.  
-   ![Régénérer les informations d’identification pour la base de données SQL](media/stream-analytics-login-credentials-inputs-outputs/image3.png)
+   ![Régénérer les informations d’identification pour la base de données SQL](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
 
 3. Sous l’onglet de la requête, modifiez le mot de passe d’un de vos utilisateurs en exécutant la requête suivante (veillez à remplacer `<user_name>` par votre nom d’utilisateur et `<new_password>` par votre nouveau mot de passe) :  
 
@@ -79,7 +79,7 @@ Vous devez vous connecter à la base de données SQL pour mettre à jour les inf
 
 1. Accédez au volet **Vue d’ensemble** du travail > sélectionnez **Démarrer** pour démarrer le travail.    
 2. Sélectionnez **Lors du dernier arrêt** > cliquez sur **Démarrer**. Notez que l’option « Lors du dernier arrêt » s’affiche uniquement si vous avez précédemment exécuté le travail et généré une sortie. Le travail redémarre en fonction de l’heure de la dernière valeur de sortie.
-   ![Démarrer le travail](media/stream-analytics-login-credentials-inputs-outputs/image5.png)
+   ![Démarrer le travail Stream Analytics](media/stream-analytics-login-credentials-inputs-outputs/start-stream-analytics-job.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)

@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 10/25/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b878d54f0f52768459dbfc810e47d294b9c8d996
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 6a0ea318f2e9b8f392ac7c0a1f1091c062c59d41
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50097764"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52852354"
 ---
-Cet article utilise des applets de commande PowerShell. Pour exécuter les applets de commande, vous pouvez utiliser Azure Cloud Shell, un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Cliquez simplement sur **Copier** pour copier le code, collez-le dans Cloud Shell, et appuyez sur Entrée pour l’exécuter. Cloud Shell peut être lancé de plusieurs façons :
+Cet article utilise des cmdlets PowerShell. Pour exécuter les cmdlets, vous pouvez utiliser Azure Cloud Shell, un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Cliquez simplement sur **Copier** pour copier le code, collez-le dans Cloud Shell, et appuyez sur Entrée pour l’exécuter. Cloud Shell peut être lancé de plusieurs façons :
 
 |  |   |
 |-----------------------------------------------|---|
@@ -24,4 +24,6 @@ Cet article utilise des applets de commande PowerShell. Pour exécuter les apple
 | Cliquez sur le bouton **Cloud Shell** du menu situé dans l’angle supérieur droit de la fenêtre du portail Azure. | [![Cloud Shell dans le portail](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-menu.png)](https://portal.azure.com) |
 |  |  |
 
-Si vous ne souhaitez pas utiliser Azure Cloud Shell, vous pouvez installer PowerShell localement. Si vous choisissez d’installer et d’utiliser PowerShell localement, veillez à installer la dernière version des applets de commande PowerShell Azure Resource Manager. Les applets de commande PowerShell sont fréquemment mises à jour, et vous devez généralement mettre à jour les vôtres pour obtenir les toutes dernières fonctionnalités. Si vous ne mettez pas à jour vos cmdlets PowerShell, les valeurs spécifiées peuvent échouer. Pour déterminer la version de PowerShell que vous exécutez localement, utilisez l’applet de commande « Get-Module - ListAvailable AzureRM ». Si vous devez effectuer une mise à niveau, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/install-azurerm-ps). Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/overview).
+Si vous ne souhaitez pas utiliser Azure Cloud Shell, vous pouvez installer PowerShell localement. Si vous choisissez d’installer et d’utiliser PowerShell localement, veillez à installer la dernière version des cmdlets PowerShell Azure Resource Manager pour obtenir les fonctionnalités les plus récentes.
+
+Pour déterminer la version de PowerShell que vous exécutez localement, utilisez la cmdlet « Get-Module - ListAvailable AzureRM ». Pour mettre à jour, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/overview).

@@ -1,6 +1,6 @@
 ---
-title: Comment attribuer à une identité du service administré un accès à une ressource Azure, à l’aide de PowerShell
-description: Instructions détaillées pour attribuer une identité du service administré à une ressource, et un accès à une autre ressource, à l’aide de PowerShell.
+title: Comment affecter à une identité managée l’accès à une ressource Azure à l’aide de PowerShell
+description: Instructions détaillées pour affecter à une identité managée sur une ressource l’accès à une autre ressource à l’aide de PowerShell.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -12,56 +12,44 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 12/06/2018
 ms.author: daveba
-ms.openlocfilehash: 058578093a91d38f4eed8827888f79b5cc33ce87
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 7ed61ead475acb81da4434c880954e801492351b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "47106440"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081555"
 ---
-# <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>Attribuer à une identité de service administré (MSI) un accès à une ressource à l’aide de PowerShell
+# <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>Affecter à une identité managée l’accès à une ressource à l’aide de PowerShell
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Une fois que vous avez configuré une ressource Azure avec une identité du service administré, vous pouvez accorder à cette dernière un accès à une autre ressource, tout comme n’importe quel principal de sécurité. Cet exemple montre comment accorder à l’identité du service administré d’une machine virtuelle Azure l’accès à un compte de stockage Azure, à l’aide de PowerShell.
+Après avoir configuré une ressource Azure avec une identité managée, vous pouvez accorder à cette dernière un accès à une autre ressource, tout comme n’importe quel principal de sécurité. Cet exemple montre comment accorder à l’identité managée d’une machine virtuelle Azure l’accès à un compte de stockage Azure, à l’aide de PowerShell.
 
 ## <a name="prerequisites"></a>Prérequis
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)**.
+- Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
+- Installez [la dernière version d’Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) si ce n’est déjà fait.
 
-En outre, si ce n’est pas déjà fait, installez [Azure PowerShell version 4.3.1](https://www.powershellgallery.com/packages/AzureRM/4.3.1).
+## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Utiliser RBAC pour affecter à une identité managée l’accès à une autre ressource
 
-## <a name="use-rbac-to-assign-the-msi-access-to-another-resource"></a>Utiliser le contrôle d’accès en fonction du rôle (RBAC) pour attribuer à l’identité du service administré un accès à une autre ressource
+Après avoir activé l’identité managée sur une ressource Azure, telle qu’une [machine virtuelle Azure](qs-configure-powershell-windows-vm.md) :
 
-Après avoir activé l’identité du service administré sur une ressource Azure, [telle qu’une machine virtuelle Azure](qs-configure-powershell-windows-vm.md) :
-
-1. Connectez-vous à Azure à l’aide du cmdlet `Connect-AzureRmAccount`. Utilisez un compte associé à l’abonnement Azure sous lequel vous avez configuré l’identité du service administré :
+1. Connectez-vous à Azure à l’aide du cmdlet `Connect-AzureRmAccount`. Utilisez un compte associé à l’abonnement Azure sous lequel vous avez configuré l’identité managée :
 
    ```powershell
    Connect-AzureRmAccount
    ```
-2. Dans cet exemple, nous accordons à une machine virtuelle Azure l’accès à un compte de stockage. Tout d’abord, nous utilisons [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm) pour obtenir le principal de service pour la machine virtuelle nommée « myVM », qui a été créé lorsque nous avons activé l’identité du service administré. Ensuite, nous utilisons [New-AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment) pour accorder à la machine virtuelle un accès de type « Lecteur » vers un compte de stockage appelé « myStorageAcct »  :
+2. Dans cet exemple, nous accordons à une machine virtuelle Azure l’accès à un compte de stockage. Tout d’abord, nous utilisons [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm) pour obtenir le principal de service pour la machine virtuelle nommée `myVM`, qui a été créé lorsque nous avons activé l’identité managée. Ensuite, utilisez [New-AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment) pour accorder à la machine virtuelle un accès de type **Lecteur** vers un compte de stockage appelé `myStorageAcct` :
 
     ```powershell
     $spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
     New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
     ```
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="next-steps"></a>Étapes suivantes
 
-Si l’identité du service administré pour la ressource n’apparaît pas dans la liste des identités disponibles, vérifiez si elle a été activée correctement. Dans notre cas, nous pouvons revenir à la machine virtuelle Azure dans le [portail Azure](https://portal.azure.com) et :
-
-- Examinez la page « Configuration » et s’assurer que le paramètre d’identité du service administré est activé.
-- Examinez la page « Extensions » et assurez-vous que l’extension de l’identité du service administré est déployée avec succès.
-
-En cas d’inexactitude, vous devez redéployer l’identité du service administré sur votre ressource, ou résoudre le problème de déploiement.
-
-## <a name="related-content"></a>Contenu connexe
-
-- Pour une vue d’ensemble de l’identité du service administré, consultez [Vue d’ensemble de l’identité du service administré](overview.md).
-- Pour activer l’identité du service administré sur une machine virtuelle Azure, consultez [Configurer l’Identité du service administré (MSI) d’une machine virtuelle Azure à l’aide de PowerShell](qs-configure-powershell-windows-vm.md).
-
-Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
-
+- [Vue d’ensemble de l’identité managée pour les ressources Azure](overview.md)
+- Pour activer l’identité managée sur une machine virtuelle Azure, consultez [Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure à l’aide de PowerShell](qs-configure-powershell-windows-vm.md).

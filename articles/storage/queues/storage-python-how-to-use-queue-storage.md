@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 1e52f199847b9e03eb31da71f1f0577df92d2b51
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 827d3ceac267c78be9740adba6c890460ca3f2e9
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230408"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162985"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Utilisation du stockage de files d'attente à partir de Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -47,9 +47,9 @@ pip install azure-storage-queue
 > 
 > 
 
-Pour connaître les autres méthodes d’installation, visitez la page consacrée au [SDK Stockage Azure pour Python sur Github](https://github.com/Azure/azure-storage-python/).
+Pour connaître les autres méthodes d’installation, rendez-vous sur la page consacrée au [SDK Stockage Azure pour Python sur GitHub](https://github.com/Azure/azure-storage-python/).
 
-## <a name="how-to-create-a-queue"></a>Création d'une file d'attente
+## <a name="how-to-create-a-queue"></a>Procédure : Création d’une file d’attente
 L'objet **QueueService** permet d'utiliser des files d'attente. Le code suivant permet de créer un objet **QueueService** . Ajoutez ce qui suit vers le début de chaque fichier Python dans lequel vous souhaitez accéder à Azure Storage par programme :
 
 ```python
@@ -64,14 +64,14 @@ queue_service = QueueService(account_name='myaccount', account_key='mykey')
 queue_service.create_queue('taskqueue')
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Insertion d'un message dans une file d'attente
+## <a name="how-to-insert-a-message-into-a-queue"></a>Procédure : Insertion d’un message dans une file d’attente
 Pour insérer un message dans une file d’attente, utilisez la méthode **put\_message** pour créer un nouveau message et l’ajouter à la file d’attente.
 
 ```python
 queue_service.put_message('taskqueue', u'Hello World')
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Lecture furtive du message suivant
+## <a name="how-to-peek-at-the-next-message"></a>Procédure : Lecture furtive du message suivant
 Vous pouvez lire furtivement le message au début de la file d’attente sans l’enlever de la file d’attente en appelant la méthode **peek\_messages**. Par défaut, **peek\_messages** lit furtivement un seul message.
 
 ```python
@@ -80,7 +80,7 @@ for message in messages:
     print(message.content)
 ```
 
-## <a name="how-to-dequeue-messages"></a>Retrait des messages de la file d’attente
+## <a name="how-to-dequeue-messages"></a>Procédure : Retrait des messages de la file d’attente
 Votre code supprime un message d'une file d'attente en deux étapes. Lorsque vous appelez **get\_messages**, vous obtenez le message suivant dans une file d’attente par défaut. Un message renvoyé par **get\_messages** devient invisible par les autres codes lisant les messages de cette file d’attente. Par défaut, ce message reste invisible pendant 30 secondes. Pour finaliser la suppression du message de la file d’attente, vous devez aussi appeler **delete\_message**. Ce processus de suppression d’un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d’une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle **delete\_message** juste après le traitement du message.
 
 ```python
@@ -100,7 +100,7 @@ for message in messages:
     queue_service.delete_message('taskqueue', message.id, message.pop_receipt)        
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Modification du contenu d'un message en file d'attente
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procédure : Modification du contenu d’un message en file d’attente
 Vous pouvez modifier le contenu d'un message placé dans la file d'attente. Si le message représente une tâche, vous pouvez utiliser cette fonctionnalité pour mettre à jour l'état de la tâche. Le code ci-dessous utilise la méthode **update\_message** pour mettre à jour un message. Ce délai de visibilité est défini sur 0, ce qui signifie que le message s’affiche immédiatement et que le contenu est mis à jour.
 
 ```python
@@ -109,7 +109,7 @@ for message in messages:
     queue_service.update_message('taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Obtention de la longueur de la file d'attente
+## <a name="how-to-get-the-queue-length"></a>Procédure : Obtention de la longueur de la file d’attente
 Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode **get\_queue\_metadata** demande au service de File d’attente de renvoyer les métadonnées relatives à la file d’attente, et la valeur **approximate_message_count**. Le résultat est seulement approximatif, car des messages peuvent être ajoutés ou supprimés après que le service de file d'attente a répondu à votre demande.
 
 ```python
@@ -117,7 +117,7 @@ metadata = queue_service.get_queue_metadata('taskqueue')
 count = metadata.approximate_message_count
 ```
 
-## <a name="how-to-delete-a-queue"></a>Suppression d'une file d'attente
+## <a name="how-to-delete-a-queue"></a>Procédure : Suppression d’une file d’attente
 Pour supprimer une file d’attente et tous les messages qu’elle contient, appelez la méthode **delete\_queue**.
 
 ```python

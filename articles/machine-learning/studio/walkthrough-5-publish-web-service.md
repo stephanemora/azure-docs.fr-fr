@@ -1,12 +1,11 @@
 ---
-title: 'Étape 5 : Déploiement du service web Machine Learning Studio | Microsoft Docs'
-description: 'Étape 5 de la procédure pas à pas de développement d’une solution prédictive : Déploiement d’une expérience prédictive en tant que service web dans Machine Learning Studio.'
+title: 'Étape 5 : Déployer un service web - Azure Machine Learning Studio | Microsoft Docs'
+description: 'Étape 5 de la procédure pas à pas : développer une solution prédictive Déployez une expérience prédictive dans Machine Learning Studio en tant que service web.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cgronlun
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning
@@ -16,44 +15,44 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 33965270c2be6f70614def79a49f1c4aa1a8fbbc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ab23636aa0480532606268efedcc76ea1ddd339a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309927"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253729"
 ---
-# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-studio-web-service"></a>Étape 5 du tutoriel pas à pas : Déploiement du service web Azure Machine Learning Studio
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-studio-web-service"></a>Étape 5 du tutoriel pas à pas : Déployer le service web Azure Machine Learning Studio
 Voici la cinquième étape de la procédure pas à pas [Développement d’une solution d’analyse prédictive avec Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Créer un espace de travail Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. [Télécharger des données existantes](walkthrough-2-upload-data.md)
 3. [Créer une expérience](walkthrough-3-create-new-experiment.md)
-4. [Entraîner et évaluer les modèles](walkthrough-4-train-and-evaluate-models.md)
+4. [Former et évaluer les modèles](walkthrough-4-train-and-evaluate-models.md)
 5. **Déployer le service web**
 6. [Accéder au service web](walkthrough-6-access-web-service.md)
 
 - - -
 Pour que d’autres personnes puissent utiliser le modèle de prévision que nous avons développé dans cette procédure pas à pas, nous pouvons le déployer en tant que service web sur Azure.
 
-Jusqu’à présent, nous avons réalisé l’expérience avec l’entraînement de notre modèle. Mais le service déployé n’effectue plus l’apprentissage ; il va produire de nouvelles prédictions en évaluant l’entrée de l’utilisateur en fonction de notre modèle. Nous allons donc effectuer quelques préparatifs pour convertir cette expérience de ***i*** en expérience ***prédictive***. 
+Jusqu’à présent, nous avons réalisé l’expérience avec la formation de notre modèle. Mais le service déployé n’effectue plus l’apprentissage ; il va produire de nouvelles prédictions en évaluant l’entrée de l’utilisateur en fonction de notre modèle. Nous allons donc effectuer quelques préparatifs pour convertir cette expérience de ***i*** en expérience ***prédictive***. 
 
 Ce processus comprend trois étapes :  
 
 1. Supprimer l’un des modèles
-2. Convertir l’*expérience d’entraînement* que nous avons créée en *expérience prédictive*.
+2. Convertir l’*expérience de formation* que nous avons créée en *expérience prédictive*.
 3. Déploiement de l’expérience prédictive sous la forme d’un service web
 
 ## <a name="remove-one-of-the-models"></a>Supprimer l’un des modèles
 
 Tout d’abord, nous devons réduire un peu cette expérience. Nous disposons actuellement de deux modèles différents dans l’expérience, mais nous ne souhaitons utiliser qu’un seul modèle au moment de déployer cette expérience en tant que service web.  
 
-Supposons que nous ayons décidé que le modèle Arbre de décision optimisé est plus adapté que le modèle SVM. La première chose à faire est de supprimer le module [Machine à vecteurs de support à deux classes][two-class-support-vector-machine], ainsi que les modules qui ont été utilisés pour son entraînement. Vous pouvez d'abord copier l'expérience en cliquant sur **Enregistrer sous** dans la partie inférieure de la zone de dessin.
+Supposons que nous ayons décidé que le modèle Arbre de décision optimisé est plus adapté que le modèle SVM. La première chose à faire est de supprimer le module [Machine à vecteurs de support à deux classes][two-class-support-vector-machine], ainsi que les modules qui ont été utilisés pour sa formation. Vous pouvez d'abord copier l'expérience en cliquant sur **Enregistrer sous** dans la partie inférieure de la zone de dessin.
 
 Nous devons supprimer les modules suivants :  
 
 * [Machine à vecteurs de support à deux classes][two-class-support-vector-machine]
-* Modules [Entraîner le modèle][train-model] et [Noter le modèle][score-model] qui lui étaient connectés
+* Modules [Former le modèle][train-model] et [Noter le modèle][score-model] qui lui étaient connectés
 * [Normaliser les données][normalize-data] (les deux)
 * [Évaluer le modèle][evaluate-model] (puisque nous avons terminé d’évaluer les modèles)
 
@@ -71,8 +70,8 @@ Notre modèle doit alors ressembler à ceci :
 
 Pour préparer ce modèle pour le déploiement, nous devons convertir cette expérience de formation d’une expérience prédictive. Cela implique trois étapes :
 
-1. Enregistrer le modèle que nous avons entraîné, puis remplacer nos modules d’entraînement
-2. Réduire l’expérience en supprimant les modules uniquement nécessaires à l’entraînement
+1. Enregistrer le modèle que nous avons formé, puis remplacer nos modules de formation
+2. Réduire l’expérience en supprimant les modules uniquement nécessaires à l’apprentissage
 3. Définir où le service web doit accepter l’entrée et où il génère la sortie
 
 Nous pourrions effectuer cette opération manuellement, mais heureusement il est possible d’accomplir ces trois étapes en cliquant sur **Configurer le service web** dans la partie inférieure de la zone de dessin de l’expérience (sélectionnez l’option **Service web prédictif**).
@@ -82,13 +81,13 @@ Nous pourrions effectuer cette opération manuellement, mais heureusement il est
 
 Lorsque vous cliquez sur **Configurer le service web**, plusieurs choses se produisent :
 
-* Le modèle entraîné est converti en un module **Modèle entraîné** et stocké dans la palette de modules située à gauche de la zone de dessin de l’expérience (sous **Modèles entraînés**).
-* Les modules qui ont été utilisés pour l’entraînement sont supprimés :
+* Le modèle formé est converti en un module **Modèle formé** et stocké dans la palette de modules située à gauche de la zone de dessin de l’expérience (sous **Modèles formés**).
+* Les modules qui ont été utilisés pour l’apprentissage sont supprimés :
   * [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree]
-  * [Entraîner le modèle][train-model]
+  * [Former le modèle][train-model]
   * [Fractionner les données][split]
   * Deuxième module [Exécuter le script R][execute-r-script] utilisé pour les données de test
-* Le modèle entraîné enregistré est rajouté à l’expérience.
+* Le modèle formé enregistré est rajouté à l’expérience.
 * Les modules **Entrée du service web** et **Sortie du service web** sont ajoutés (ils identifient où les données de l’utilisateur entrent dans le modèle, ainsi que les données renvoyées lors de l’accès au service web)
 
 > [!NOTE]

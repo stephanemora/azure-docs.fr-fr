@@ -1,22 +1,19 @@
 ---
-title: Utiliser le contrôle d’accès en fonction du rôle pour gérer Azure Site Recovery | Microsoft Docs
-description: Cet article décrit comment appliquer et utiliser le contrôle d’accès basé sur les rôles (RBAC) pour gérer vos déploiements Azure Site Recovery
+title: Gérer l’accès à Azure Site Recovery avec le contrôle d’accès en fonction du rôle (RBAC) | Microsoft Docs
+description: Cet article décrit comment appliquer le contrôle d’accès en fonction du rôle (RBAC) pour gérer l’accès à Azure Site Recovery.
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 9ec9acab4ad83af22504058c21b102df94b8692d
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 815eb1f94d80c36824dc34f3f9410458b9837003
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353235"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849528"
 ---
-# <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès à Site Recovery
+# <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gérer l’accès à Site Recovery avec le contrôle d’accès en fonction du rôle (RBAC)
 
 Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure. Avec RBAC, vous pouvez séparer les responsabilités au sein de votre équipe et accorder uniquement des autorisations d’accès spécifiques aux utilisateurs en fonction des besoins pour effectuer des tâches spécifiques.
 
@@ -72,9 +69,9 @@ Un utilisateur a besoin des autorisations suivantes pour effectuer la réplicati
 Envisagez d’utiliser les [rôles intégrés](../role-based-access-control/built-in-roles.md) « Collaborateur de machine virtuelle » et « Collaborateur de machine virtuelle classique » pour les modèles de déploiement Resource Manager et classiques, respectivement.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Contrôle d’accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md): découvrez le contrôle d’accès en fonction du rôle dans le portail Azure.
+* [Contrôle d’accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md) : Découvrez comment bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure.
 * Découvrez comment gérer l’accès avec :
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [interface de ligne de commande Azure](../role-based-access-control/role-assignments-cli.md)
   * [API REST](../role-based-access-control/role-assignments-rest.md)
-* [Résolution des problèmes de contrôle d’accès en fonction du rôle](../role-based-access-control/troubleshooting.md): obtenez des suggestions pour résoudre les problèmes courants.
+* [Résolution des problèmes de contrôle d’accès en fonction du rôle](../role-based-access-control/troubleshooting.md) : obtenez des suggestions pour résoudre les problèmes courants.

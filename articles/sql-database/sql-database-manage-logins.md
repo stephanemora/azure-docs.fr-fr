@@ -4,7 +4,7 @@ description: Apprenez-en davantage sur la gestion de la sécurité SQL Database 
 keywords: sécurité sql database, gestion de la sécurité de base de données, sécurité de connexion,sécurité de base de données, accès aux bases de données
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: f2627aab2598a706e717e8e1d18fd2f8c944835c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/29/2018
+ms.openlocfilehash: c234ac95d0e02857fe87afe3a734d77f00954477
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161461"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864942"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Contrôle et autorisation d’accès aux bases de données SQL Database et SQL Data Warehouse
 
@@ -28,7 +28,7 @@ Une fois que les règles de pare-feu ont été configurées, vous pouvez vous co
 >  Cette rubrique s’applique au serveur SQL Azure, ainsi qu’aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse. 
 
 > [!TIP]
-> Pour obtenir un didacticiel, consultez [Sécuriser votre base de données Azure SQL Database](sql-database-security-tutorial.md).
+> Pour obtenir un didacticiel, consultez [Sécuriser votre base de données Azure SQL Database](sql-database-security-tutorial.md). Ce tutoriel ne s’applique pas à **Azure SQL Database Managed Instance**.
 
 ## <a name="unrestricted-administrative-accounts"></a>Comptes d’administration non restreints
 Il existe deux comptes d’administration (**Administrateur de serveur** et **Administrateur Active Directory**) qui agissent en tant qu’administrateurs. Pour identifier ces comptes d’administrateur de votre serveur SQL, ouvrez le portail Azure et accédez aux propriétés de votre serveur SQL.
@@ -68,13 +68,17 @@ Pour une procédure détaillée sur la création d’un serveur, d’une base de
 
 
 ## <a name="additional-server-level-administrative-roles"></a>Rôles d’administration au niveau du serveur supplémentaires
+
+>[!IMPORTANT]
+>Cette section ne s’applique pas à **Azure SQL Database Managed Instance**, car ces rôles sont propres à **Azure SQL Database**.
+
 Outre les rôles d’administration au niveau du serveur abordés précédemment, SQL Database fournit deux rôles d’administration restreints dans la base de données MASTER. Vous pouvez y ajouter des comptes utilisateurs qui accordent des autorisations de création de bases de données ou de gestion des connexions.
 
 ### <a name="database-creators"></a>Créateurs de base de données
 L’un de ces rôles d’administration est le rôle **dbmanager**. Les membres de ce rôle peuvent créer des bases de données. Pour l’utiliser, vous créez un utilisateur dans la base de données `master`, puis vous ajoutez l’utilisateur au rôle de base de données **dbmanager**. Pour créer une base de données, l’utilisateur doit être un utilisateur basé sur une connexion SQL Server dans la base de données master, ou un utilisateur de base de données autonome basé sur un utilisateur Azure Active Directory.
 
 1. À l’aide d’un compte d’administrateur, connectez-vous à la base de données MASTER.
-2. Étape facultative : Créer une connexion d’authentification SQL Server à l’aide de l’instruction [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) . Exemple d’instruction :
+2. Étape facultative : créer une connexion d’authentification SQL Server à l’aide de l’instruction [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Exemple d’instruction :
    
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
@@ -180,7 +184,7 @@ Prenez en compte les aspects suivants lors de la gestion des connexions et des u
 * Lors de l’exécution de l’instruction `CREATE USER` avec l’option `FOR/FROM LOGIN`, elle doit être la seule instruction du batch Transact-SQL.
 * Lors de l’exécution de l’instruction `ALTER USER` avec l’option `WITH LOGIN`, elle doit être la seule instruction du batch Transact-SQL.
 * Pour exécuter les instructions `CREATE/ALTER/DROP`, un utilisateur a besoin de l’autorisation `ALTER ANY USER` sur la base de données.
-* Lorsque le propriétaire d’un rôle de base de données tente d’ajouter un autre utilisateur de base de données dans ce rôle de base de données (ou de le supprimer de ce dernier), l’erreur suivante peut se produire : **L’utilisateur ou le rôle « Nom » n’existe pas dans cette base de données**. Cette erreur survient, car l’utilisateur n’est pas visible par le propriétaire. Pour résoudre ce problème, accordez au propriétaire du rôle l’autorisation `VIEW DEFINITION` sur l’utilisateur. 
+* Quand le propriétaire d’un rôle de base de données tente d’ajouter un autre utilisateur de base de données à ce rôle de base de données (ou de le supprimer de ce dernier), l’erreur suivante peut se produire : **L’utilisateur ou le rôle « Nom » n’existe pas dans cette base de données.** Cette erreur survient, car l’utilisateur n’est pas visible par le propriétaire. Pour résoudre ce problème, accordez au propriétaire du rôle l’autorisation `VIEW DEFINITION` sur l’utilisateur. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

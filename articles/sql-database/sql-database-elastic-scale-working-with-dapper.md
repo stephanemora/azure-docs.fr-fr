@@ -3,7 +3,7 @@ title: Utilisation de la bibliothèque cliente de la base de données élastique
 description: Utilisation de la bibliothèque cliente de la base de données élastique avec Dapper.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 3a25d68b0f0bdd97b204906af87fac8013ad3cff
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14eb92141a9d27d9f8978abb6d5c9a738c821ead
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253021"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866302"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Utilisation de la bibliothèque cliente de la base de données élastique avec Dapper
 Ce document est destiné aux développeurs qui utilisent Dapper pour générer des applications, mais veulent également adopter les [outils de base de données élastique](sql-database-elastic-scale-introduction.md) pour créer des applications implémentant le partitionnement pour la montée en puissance parallèle de la couche Données.  Ce document présente les modifications devant être appliquées aux applications basées sur Dapper pour intégrer des outils de base de données élastique. Nous nous concentrerons sur la composition de la gestion de partition de base de données élastique et du routage dépendant des données avec Dapper. 
 
-**Exemple de code**: [outils de base de données élastique pour l’intégration de la base de données SQL Azure avec Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
+**Exemple de code** : [outils de base de données élastique pour l’intégration Azure SQL Database - Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
 L’intégration de **Dapper** et de **DapperExtensions** avec la bibliothèque cliente de la base de données élastique pour la base de données SQL Azure est simple. Les applications peuvent utiliser le routage dépendant des données en modifiant la création et l’ouverture de nouveaux objets [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) pour utiliser l’appel [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) à partir de la [bibliothèque cliente](https://msdn.microsoft.com/library/azure/dn765902.aspx). Cela limite les modifications au sein de votre application à la création et l’ouverture de nouvelles connexions uniquement. 
 
@@ -49,9 +49,9 @@ Plutôt que d’utiliser la méthode traditionnelle de création des connexions 
 ### <a name="requirements-for-dapper-integration"></a>Configuration requise pour l’intégration Dapper
 Durant l’utilisation des API de la bibliothèque cliente de la base de données élastique et de Dapper, vous souhaitez conserver les propriétés suivantes :
 
-* **Montée en puissance parallèle** : vous souhaitez ajouter ou supprimer des bases de données de la couche Données de l’application partitionnée si nécessaire pour les demandes de capacité de l’application. 
-* **Cohérence** : étant donné que l’application est redimensionnée à l’aide du partitionnement, vous devez utiliser le routage dépendant des données. Pour ce faire, vous souhaitez utiliser les fonctionnalités de routage dépendant des données de la bibliothèque. En particulier, vous souhaitez conserver les garanties de validation et de cohérence fournies par les connexions réparties via le Gestionnaire de carte de partition afin d’éviter une corruption ou des résultats de requête incorrects. Cela garantit que les connexions à un shardlet donné sont rejetées ou arrêtées si (par exemple) le shardlet est en cours de déplacement vers une partition différente à l’aide des API de fractionnement et de fusion.
-* **Mappage d’objets**: nous souhaitons conserver la commodité des mappages fournis par Dapper pour la traduction entre les classes dans l’application et les structures de base de données sous-jacentes. 
+* **Scale-out** : nous voulons ajouter ou supprimer des bases de données de la couche Données de l’application partitionnée en fonction des demandes de capacité de l’application. 
+* **Cohérence** : sachant que l’application a fait l’objet d’un scale-out en utilisant le partitionnement, vous devez effectuer un routage dépendant des données. Pour ce faire, vous souhaitez utiliser les fonctionnalités de routage dépendant des données de la bibliothèque. En particulier, vous souhaitez conserver les garanties de validation et de cohérence fournies par les connexions réparties via le Gestionnaire de carte de partition afin d’éviter une corruption ou des résultats de requête incorrects. Cela garantit que les connexions à un shardlet donné sont rejetées ou arrêtées si (par exemple) le shardlet est en cours de déplacement vers une partition différente à l’aide des API de fractionnement et de fusion.
+* **Mappage d’objets** : nous voulons préserver le caractère pratique des mappages fournis par Dapper pour la traduction entre les classes dans l’application et les structures de base de données sous-jacentes. 
 
 La section suivante fournit des instructions relatives aux exigences pour les applications basées sur **Dapper** et **DapperExtensions**.
 
@@ -137,7 +137,7 @@ Voici l’exemple de code pour la requête :
     }
 
 ### <a name="handling-transient-faults"></a>Gestion des erreurs temporaires
-L’équipe Microsoft Patterns & Practices a publié le [bloc d’applications de gestion des erreurs temporaires](https://msdn.microsoft.com/library/hh680934.aspx) afin d’aider les développeurs d’applications à atténuer les erreurs transitoires courantes rencontrées lors de l’exécution dans le cloud. Pour plus d’informations, consultez [La persévérance, le secret de la réussite : utilisation du bloc applicatif de gestion des erreurs temporaires](https://msdn.microsoft.com/library/dn440719.aspx).
+L’équipe Microsoft Patterns & Practices a publié le [bloc d’applications de gestion des erreurs temporaires](https://msdn.microsoft.com/library/hh680934.aspx) afin d’aider les développeurs d’applications à atténuer les erreurs transitoires courantes rencontrées lors de l’exécution dans le cloud. Pour plus d’informations, consultez [Perseverance, Secret of All Triumphs: Using the Transient Fault Handling Application Block](https://msdn.microsoft.com/library/dn440719.aspx).
 
 L’exemple de code s’appuie sur la bibliothèque d’erreurs transitoires pour vous protéger contre les défaillances temporaires. 
 

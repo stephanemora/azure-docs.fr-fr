@@ -1,5 +1,5 @@
 ---
-title: Gérer les applications Web App pour conteneurs à l’aide de l’interface de ligne de commande Azure | Microsoft Docs
+title: Gérer les applications Web App pour conteneurs à l’aide d’Azure CLI - Azure App Service | Microsoft Docs
 description: Gérer les applications Web App for Containers à l’aide d’Azure CLI.
 keywords: azure app service, application web, cli, linux, oss
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.openlocfilehash: 024ca5bcf9c1f82f07656691d6ef5358ca3d5111
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.custom: seodec18
+ms.openlocfilehash: 0b125903493712dca3b8c8c3a9ce663f9e1b408c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998489"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257639"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Gérer les applications Web App for Containers à l’aide d’Azure CLI
 

@@ -11,17 +11,17 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 86e60f339af3d6d467b68d5d3b27d77a9861add1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/03/2018
+ms.openlocfilehash: ff9011dda4a94f323b430a3860eadc8d970a23f7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244070"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838614"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Utiliser l’authentification Azure Active Directory pour l’authentification avec SQL
 
-L’authentification Azure Active Directory est un mécanisme servant à se connecter aux services Azure [SQL Database](sql-database-technical-overview.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) à l’aide d’identités dans Azure Active Directory (Azure AD). 
+L’authentification Azure Active Directory est un mécanisme qui sert à se connecter à Azure [SQL Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) à l’aide d’identités se trouvant dans Azure Active Directory (Azure AD). 
 
 > [!NOTE]
 > Cette rubrique s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse.
@@ -43,12 +43,12 @@ Avec l’authentification Azure AD, vous pouvez gérer de manière centralisée 
 
 Les étapes de configuration incluent les procédures suivantes pour configurer et utiliser l’authentification Azure Active Directory.
 
-1. Créer et renseigner Azure AD.
-2. Facultatif : associer ou modifier le répertoire actif actuellement associé à votre abonnement Azure.
+1. Créez et remplissez Azure AD.
+2. Facultatif : associez ou modifiez l’annuaire Active Directory actuellement associé à votre abonnement Azure.
 3. Créez un administrateur Azure Active Directory pour le serveur Azure SQL Database, Managed Instance ou [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
-4. Configurer vos ordinateurs clients.
-5. Créer des utilisateurs de base de données autonome dans votre base de données mappés sur les identités Azure AD.
-6. Se connecter à la base de données à l’aide des identités Azure AD.
+4. Configurez vos ordinateurs clients.
+5. Créez des utilisateurs de base de données autonome dans votre base de données mappés sur les identités Azure AD.
+6. Connectez-vous à la base de données à l’aide des identités Azure AD.
 
 > [!NOTE]
 > Pour apprendre à créer et à remplir Azure AD, puis à configurer Azure AD avec Azure SQL Database, Managed Instance et SQL Data Warehouse, consultez [Configurer Azure AD avec Azure SQL Database](sql-database-aad-authentication-configure.md).
@@ -79,20 +79,12 @@ Pour créer un utilisateur de base de données autonome dans le service Azure SQ
 
 Les membres suivants d’Azure AD peuvent être configurés dans le serveur Azure SQL Server ou dans SQL Data Warehouse :
 
-- Membre natif : un membre créé dans le domaine géré ou le domaine client de Microsoft Azure AD. Pour plus d’informations, consultez [Ajout de votre nom de domaine personnalisé à Azure AD](../active-directory/active-directory-domains-add-azure-portal.md).
-- Membre de domaine fédéré : un membre créé dans Azure AD avec un domaine fédéré. Pour plus d’informations, consultez [Microsoft Azure prend désormais en charge la fédération avec Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
+- Membre natif : membre créé dans Azure AD dans le domaine géré ou le domaine client. Pour plus d’informations, consultez [Ajout de votre nom de domaine personnalisé à Azure AD](../active-directory/active-directory-domains-add-azure-portal.md).
+- Membre de domaine fédéré : membre créé dans Azure AD avec un domaine fédéré. Pour plus d’informations, consultez [Microsoft Azure prend désormais en charge la fédération avec Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
 - Membres importés à partir d’autres répertoires Azure AD qui sont des membres natifs ou de domaine fédéré.
 - Groupes Active Directory créés en tant que groupes de sécurité.
 
-Limitations d’Azure AD pour Managed Instance :
-
-- Seul l’administrateur Azure AD peut créer des bases de données, les utilisateurs Azure AD sont limités à une base de données unique et n’ont pas cette autorisation
-- Propriété de base de données :
-  - Le principal Azure AD ne peut pas modifier la propriété de la base de données (ALTER AUTHORIZATION ON DATABASE) et ne peut pas être défini comme propriétaire.
-  - Pour les bases de données créées par l’administrateur Azure AD, aucune propriété n’est définie (le champ owner_sid dans sys.sysdatabases est 0x1).
-- L’Agent SQL ne peut pas être géré lors de la connexion à l’aide des principaux Azure AD.
-- L’administrateur Azure AD ne peut pas être représenté à l’aide de EXECUTE AS
-- La connexion DAC n’est pas prise en charge avec les principaux Azure AD.
+Les connexions et les utilisateurs Azure AD sont pris en charge comme fonctionnalité d’évaluation pour les [instances gérées](sql-database-managed-instance.md)
 
 Ces fonctions système retournent des valeurs NULL lors de leur exécution sous des entités Azure AD :
 

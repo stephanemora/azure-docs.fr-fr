@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 890ef4baf27e193fecc17d8435998604ce25e282
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 58fffafe9658919a96d1aef2881424c0d324e688
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162685"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876475"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez:"]
 > * [Version 1](v1/data-factory-scheduling-and-execution.md)
 > * [Version actuelle](concepts-pipeline-execution-triggers.md)
 
@@ -92,7 +92,7 @@ POST
 https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory/pipelines/copyPipeline/createRun?api-version=2017-03-01-preview
 ```
 
-Pour obtenir un exemple complet, consultez [Démarrage rapide : création d’une fabrique de données à l’aide de l’API REST](quickstart-create-data-factory-rest-api.md).
+Pour obtenir un exemple complet, consultez [Démarrage rapide : Créer une fabrique de données à l’aide de l’API REST](quickstart-create-data-factory-rest-api.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 L’exemple de commande suivant vous montre comment exécuter manuellement votre pipeline à l’aide d’Azure PowerShell :
@@ -118,7 +118,7 @@ La charge utile de réponse est un identificateur unique de l’exécution du pi
 }
 ```
 
-Pour obtenir un exemple complet, consultez [Démarrage rapide : création d’une fabrique de données à l’aide d’Azure PowerShell](quickstart-create-data-factory-powershell.md).
+Pour obtenir un exemple complet, consultez [Démarrage rapide : Créer une fabrique de données à l’aide d’Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="net-sdk"></a>Kit de développement logiciel (SDK) .NET
 L’exemple d’appel suivant vous montre comment exécuter manuellement votre pipeline à l’aide du kit de développement logiciel (SDK) .NET :
@@ -127,7 +127,7 @@ L’exemple d’appel suivant vous montre comment exécuter manuellement votre p
 client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
 ```
 
-Pour obtenir un exemple complet, consultez [Démarrage rapide : création d’une fabrique de données à l’aide du kit de développement logiciel (SDK) .NET](quickstart-create-data-factory-dot-net.md).
+Pour obtenir un exemple complet, consultez [Démarrage rapide : Créer une fabrique de données à l’aide du SDK .NET](quickstart-create-data-factory-dot-net.md).
 
 > [!NOTE]
 > Vous pouvez utiliser le SDK .NET pour appeler des pipelines Data Factory à partir d’Azure Functions, de vos services web, etc.
@@ -135,11 +135,11 @@ Pour obtenir un exemple complet, consultez [Démarrage rapide : création d’un
 <h2 id="triggers">Exécution de déclencheur</h2>
 Les déclencheurs sont une autre façon d’exécuter une exécution de pipeline. Ils correspondent à une unité de traitement qui détermine le moment où une exécution de pipeline doit être lancée. Actuellement, Data Factory prend en charge trois types de déclencheurs :
 
-- Déclencheur de planification : un déclencheur qui appelle un pipeline selon un planning horaire.
+- Déclencheur de planification : déclencheur qui appelle un pipeline selon un planning horaire.
 
-- Déclencheur de fenêtre bascule : un déclencheur qui fonctionne sur un intervalle périodique, tout en conservant son état.
+- Déclencheur de fenêtre bascule : déclencheur qui fonctionne sur un intervalle périodique, tout en conservant son état.
 
-- Déclencheur basé sur des événements : un déclencheur qui répond à un événement.
+- Déclencheur basé sur des événements : déclencheur qui répond à un événement.
 
 Les pipelines et les déclencheurs ont une relation plusieurs-à-plusieurs. Plusieurs déclencheurs peuvent lancer un même pipeline et un seul déclencheur peut lancer plusieurs pipelines. Dans la définition de déclencheur suivante, la propriété **pipelines** fait référence à la liste des pipelines qui sont déclenchés par un déclencheur particulier. La définition de propriété inclut des valeurs pour les paramètres de pipeline.
 
@@ -196,7 +196,7 @@ Pour que votre déclencheur de planification lance une exécution de pipeline, 
           "weekDays": [<<Monday-Sunday>>],
           "minutes": [<<0-60>>],
           "monthDays": [<<1-31>>],
-          "monthlyOccurences": [
+          "monthlyOccurrences": [
             {
               "day": <<Monday-Sunday>>,
               "occurrence": <<1-5>>
@@ -313,7 +313,7 @@ Le tableau suivant décrit les éléments **schedule** en détail :
 | **minutes** | Minutes d’exécution du déclencheur dans l’heure. |- Entier<br />- Tableau d’entiers|
 | **hours** | Heures d’exécution du déclencheur dans la journée. |- Entier<br />- Tableau d’entiers|
 | **weekDays** | Jours d’exécution du déclencheur dans la semaine. La valeur ne peut être spécifiée qu’avec une fréquence hebdomadaire.|<br />- Lundi<br />- Mardi<br />- Mercredi<br />- Jeudi<br />- Vendredi<br />- Samedi<br />- Dimanche<br />- Tableau des valeurs de jour (la taille maximale du tableau est de 7)<br /><br />Les valeurs de jour ne respectent pas la casse|
-| **monthlyOccurrences** | Jours d’exécution du déclencheur dans le mois. La valeur ne peut être spécifiée qu’avec une fréquence mensuelle uniquement. |- Tableau d’objets **monthlyOccurence** : `{ "day": day,  "occurrence": occurence }`<br />- L’attribut **day** est le jour de la semaine durant lequel le déclencheur s’exécute. Par exemple, une propriété **monthlyOccurrences** avec une valeur **day** de `{Sunday}` signifie tous les dimanches du mois. L’attribut **day** est requis.<br />- L’attribut **occurrence** est l’occurrence du **jour** spécifié au cours du mois. Par exemple, une propriété **monthlyOccurrences** avec les valeurs **day** et **occurrence** de `{Sunday, -1}` signifie le dernier dimanche du mois. L’attribut **occurrence** est facultatif.|
+| **monthlyOccurrences** | Jours d’exécution du déclencheur dans le mois. La valeur ne peut être spécifiée qu’avec une fréquence mensuelle uniquement. |- Tableau d’objets **monthlyOccurrence** : `{ "day": day,  "occurrence": occurrence }`<br />- L’attribut **day** est le jour de la semaine durant lequel le déclencheur s’exécute. Par exemple, une propriété **monthlyOccurrences** avec une valeur **day** de `{Sunday}` signifie tous les dimanches du mois. L’attribut **day** est requis.<br />- L’attribut **occurrence** est l’occurrence du **jour** spécifié au cours du mois. Par exemple, une propriété **monthlyOccurrences** avec les valeurs **day** et **occurrence** de `{Sunday, -1}` signifie le dernier dimanche du mois. L’attribut **occurrence** est facultatif.|
 | **monthDays** | Jours d’exécution du déclencheur dans le mois. La valeur ne peut être spécifiée qu’avec une fréquence mensuelle uniquement. |- Toute valeur <= -1 et >= -31<br />- Toute valeur >= 1 et <= 31<br />- Tableau de valeurs|
 
 ## <a name="tumbling-window-trigger"></a>Déclencheur de fenêtre bascule
@@ -370,7 +370,7 @@ Le tableau suivant présente une comparaison du déclencheur de fenêtre bascule
 |:--- |:--- |:--- |
 | **Scénarios de renvoi** |  Pris en charge. Les exécutions de pipeline peuvent être planifiées pour des fenêtres dans le passé. | Non pris en charge. Les exécutions de pipeline peuvent être exécutées uniquement sur des périodes de temps à partir de l’heure actuelle et dans le futur. |
 | **Fiabilité** | Fiabilité de 100 %. Les exécutions de pipeline peuvent être planifiées pour toutes les fenêtres à partir d’une date de début spécifiée sans espaces. | Moins fiable. |
-| **Fonctionnalité de nouvelle tentative** |  Pris en charge. Les exécutions de pipeline ayant échoué ont une stratégie de nouvelle tentative par défaut d’une valeur de 0, ou une stratégie spécifiée par l’utilisateur dans le cadre de la définition du déclencheur. Réessaie automatiquement en cas d’échec des exécutions de pipeline en raison de limites de concurrence/serveur/limitation (autrement dit, les codes d’état 400 : Erreur de l’utilisateur, 429 : Trop de demandes et 500 : Erreur de serveur internet). | Non pris en charge. |
+| **Fonctionnalité de nouvelle tentative** |  Pris en charge. Les exécutions de pipeline ayant échoué ont une stratégie de nouvelle tentative par défaut d’une valeur de 0, ou une stratégie spécifiée par l’utilisateur dans le cadre de la définition du déclencheur. Effectue automatiquement une nouvelle tentative quand les exécutions du pipeline échouent en raison de limites de concurrence/de serveur/de limitation (autrement dit, en cas de codes d’état 400 : Erreur de l’utilisateur, 429 : Trop de demandes et 500 : Erreur interne du serveur). | Non pris en charge. |
 | **Concurrency** |  Pris en charge. Les utilisateurs peuvent définir explicitement les limites de concurrence pour le déclencheur. Permet entre 1 et 50 exécutions du pipeline déclenchées en simultané. | Non pris en charge. |
 | **Variables système** | Prend en charge l’utilisation des variables système **WindowStart** et **WindowEnd**. Les utilisateurs peuvent accéder à `triggerOutputs().windowStartTime` et `triggerOutputs().windowEndTime` comme variables système de déclencheur dans la définition du déclencheur. Les valeurs sont utilisées en tant qu’heure de début de fenêtre et heure de fin de fenêtre, respectivement. Par exemple, pour un déclencheur de fenêtre bascule qui s’exécute toutes les heures, pour la fenêtre de 1h00 à 2h00, la définition est `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` et `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Non pris en charge. |
 | **Relation du pipeline et du déclencheur** | Prend en charge une relation un à un. Un seul pipeline peut être déclenché. | Prend en charge les relations plusieurs à plusieurs. Plusieurs déclencheurs peuvent exécuter le même pipeline. Un seul déclencheur peut déclencher plusieurs pipelines. | 
@@ -378,6 +378,6 @@ Le tableau suivant présente une comparaison du déclencheur de fenêtre bascule
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les didacticiels suivants :
 
-- [Démarrage rapide : Créer une fabrique de données à l’aide du SDK .NET](quickstart-create-data-factory-dot-net.md)
+- [Démarrage rapide : Créer une fabrique de données à l’aide du SDK .NET](quickstart-create-data-factory-dot-net.md)
 - [Créer un déclencheur de planification](how-to-create-schedule-trigger.md)
 - [Créer un déclencheur de fenêtre bascule](how-to-create-tumbling-window-trigger.md)

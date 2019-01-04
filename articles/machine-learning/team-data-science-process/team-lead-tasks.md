@@ -1,6 +1,6 @@
 ---
-title: Tâches du responsable de l’équipe Team Data Science Process - Azure | Microsoft Docs
-description: Liste des tâches du responsable de l’équipe chargée d’un projet de science des données.
+title: Tâches pour responsable d’équipe dans Team Data Science Process
+description: Cette rubrique dresse la liste des tâches qui incombent au responsable d’une équipe chargée d’un projet de science des données.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 2004396266d4bde9f3be540408524b668bbb863d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: faf0e06a0649c31cec840a5043a11af601ba5c47
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443847"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139637"
 ---
-# <a name="team-lead-tasks"></a>Tâches du responsable d’équipe
+# <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Tâches pour responsable d’équipe dans Team Data Science Process
 
 Cette rubrique dresse la liste des tâches qui incombent au responsable d’une équipe chargée d’un projet de science des données. L’objectif est d’établir un environnement de collaboration en équipe standard conforme au processus [TDSP](overview.md) (Team Data Science Process). Le processus TDSP est une méthodologie de science des données agile et itérative permettant de fournir des solutions d’analytique prédictive et des applications intelligentes de manière efficace. Il est conçu pour aider à améliorer la collaboration et l’apprentissage au sein de l’équipe. Ce processus rassemble les bonnes pratiques et les structures issues de Microsoft et de l’ensemble du secteur, qui sont nécessaires pour implémenter les initiatives en science des données destinées à aider les entreprises à tirer pleinement parti de leurs programmes d’analytique. Pour obtenir une description des rôles des membres de l’équipe de science des données et des tâches qui leur incombent dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
 
@@ -45,12 +45,12 @@ Une fois que le responsable de groupe a répondu aux prérequis de la section su
 
 Dans cette rubrique, les noms des dépôts et des répertoires sont abrégés. Ces noms facilitent le suivi des opérations entre les dépôts et les répertoires. Cette notation (**R** pour les dépôts Git et **D** pour les répertoires locaux sur votre instance DSVM) est employée dans les sections suivantes :
 
-- **R1** : dépôt **GroupProjectTemplate** dans Git qui est configuré par le responsable de groupe sur votre serveur de groupe Azure DevOps.
-- **R3** : dépôt **ProjectTemplate** dans Git que vous configurez.
-- **R4** : dépôt **TeamUtilities** dans Git que vous configurez.
-- **D1** : répertoire local cloné à partir de R1 et copié sur D3.
-- **D3** : répertoire local cloné à partir de R3, personnalisé, puis copié de nouveau sur R3.
-- **D4** : répertoire local cloné à partir de R4, personnalisé, puis copié de nouveau sur R4.
+- **R1** : Référentiel **GroupProjectTemplate** dans Git qui est configuré par le responsable de groupe sur votre serveur de groupe Azure DevOps.
+- **R3** : Référentiel **ProjectTemplate** dans Git que vous configurez.
+- **R4** : Référentiel **TeamUtilities** dans Git que vous configurez.
+- **D1** : Répertoire local cloné à partir de R1 et copié sur D3.
+- **D3** : Répertoire local cloné à partir de R3, personnalisé, puis copié de nouveau sur R3.
+- **D4** : Répertoire local cloné à partir de R4, personnalisé, puis copié de nouveau sur R4.
 
 Dans ce didacticiel, les noms spécifiés pour les dépôts et les répertoires ont été fournis en supposant que votre objectif est de créer un projet distinct pour votre équipe qui appartient à un plus grand groupe chargé de la science des données. Toutefois, d’autres options s’offrent à vous en tant que responsable d’équipe :
 
@@ -140,9 +140,9 @@ La procédure d’amorçage utilise les répertoires sur votre instance DSVM loc
 
 - Cloner le dépôt de groupe dans le répertoire local : le R1 d’équipe cloné dans le D1 local
 - Cloner les dépôts de votre équipe dans les répertoires locaux : les R3 et R4 d’équipe clonés dans les D3 et D4 locaux
-- Copier le contenu du modèle de projet du groupe dans le dossier d’équipe local : contenu de D1 copié dans D3
+- Copier le contenu du modèle de projet du groupe dans le dossier d’équipe local :  D1 - contenu copié dans -> D3
 - (Facultatif) Personnalisation de D3 et D4
-- Envoyer (push) le contenu du répertoire local vers les dépôts d’équipe : le contenu de D3 et D4 D3 ajouté aux R3 et R4 d’équipe.
+- Envoyer (push) le contenu d’un répertoire local vers les référentiels de l’équipe : D3 & D4 - contenu ajouté dans -> R3 & R4 équipe
 
 
 ### <a name="initialize-the-team-repositories"></a>Initialiser les dépôts d’équipe
@@ -285,7 +285,7 @@ Sélectionnez l’abonnement Azure à utiliser :
 
 ![23](./media/team-lead-tasks/team-leads-23-file-create-s2.png)
 
-Sélectionnez le compte de stockage à utiliser ou créez en un sous l’abonnement sélectionné :
+Sélectionnez le compte de stockage à utiliser ou créez-en un sous l’abonnement sélectionné :
 
 ![24](./media/team-lead-tasks/team-leads-24-file-create-s3.png)
 
@@ -315,7 +315,7 @@ Sélectionnez l’abonnement Azure à utiliser :
 
 ![28](./media/team-lead-tasks/team-leads-28-file-create-linux-s2.png)
 
-Sélectionnez le compte de stockage à utiliser ou créez en un sous l’abonnement sélectionné :
+Sélectionnez le compte de stockage à utiliser ou créez-en un sous l’abonnement sélectionné :
 
 ![29](./media/team-lead-tasks/team-leads-29-file-create-linux-s3.png)
 
@@ -355,7 +355,7 @@ Vérifiez que le nouveau lecteur F a été monté correctement sur votre machine
 
 ![34](./media/team-lead-tasks/team-leads-34-attach-s3.png)
 
-**Comment entrer manuellement les informations relatives au stockage de fichiers Azure :** si les informations concernant le stockage de fichiers Azure ne se trouvent pas dans un fichier texte, suivez les instructions de l’écran ci-dessous pour entrer l’abonnement, le compte de stockage et les informations relatives au stockage de fichiers Azure :
+**Comment entrer manuellement les informations relatives au stockage de fichiers Azure :** Si les informations concernant le stockage de fichiers Azure ne se trouvent pas dans un fichier texte, suivez les instructions de l’écran ci-dessous pour entrer l’abonnement, le compte de stockage et les informations relatives au stockage de fichiers Azure :
 
 ![35](./media/team-lead-tasks/team-leads-35-attach-s4.png)
 
@@ -384,7 +384,7 @@ Vérifiez que le nouveau lecteur F a été monté correctement sur votre machine
 
 ![40](./media/team-lead-tasks/team-leads-40-attach-s4-linux.png)
 
-**Comment entrer manuellement les informations relatives au stockage de fichiers Azure :** si les informations concernant le stockage de fichiers Azure ne se trouvent pas dans un fichier texte, suivez les instructions de l’écran ci-dessous pour entrer l’abonnement, le compte de stockage et les informations relatives au stockage de fichiers Azure :
+**Comment entrer manuellement les informations relatives au stockage de fichiers Azure :** Si les informations concernant le stockage de fichiers Azure ne se trouvent pas dans un fichier texte, suivez les instructions de l’écran ci-dessous pour entrer l’abonnement, le compte de stockage et les informations relatives au stockage de fichiers Azure :
 
 - Tapez **n**.
 - Sélectionnez l’index du nom de l’abonnement dans lequel le stockage de fichiers Azure a été créé à l’étape précédente :

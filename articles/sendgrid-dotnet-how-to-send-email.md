@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
-ms.openlocfilehash: a5f07d02bfe4032d77a17e5972b88f6530125f28
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 91d28802b4af23da5b8060fa7c8f9a7e843a7dab
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634966"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840263"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Envoi de courriers électroniques à l'aide de SendGrid avec Azure
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce guide présente l'exécution de tâches de programmation courantes avec le service de messagerie SendGrid dans Azure. Les exemples sont écrits en C\# et prennent en charge .NET Standard 1.3. Les scénarios traités incluent le développement d’une messagerie électronique, l’envoi de courriers électroniques, l’ajout de pièces jointes et l’activation de différents paramètres de messagerie et de suivi. Pour plus d’informations sur SendGrid et sur l’envoi de courriers électroniques, consultez la section [Étapes suivantes][Next steps].
 
 ## <a name="what-is-the-sendgrid-email-service"></a>Définition du service de messagerie SendGrid
@@ -43,7 +43,7 @@ Pour plus d’informations, consultez le site [https://sendgrid.com](https://sen
 Le [package NuGet SendGrid](https://www.nuget.org/packages/Sendgrid) permet facilement d'obtenir l'API SendGrid et de configurer votre application avec toutes les dépendances associées. NuGet est une extension Visual Studio incluse dans Microsoft Visual Studio 2015 et ses versions ultérieures qui facilite l’installation et la mise à jour des bibliothèques et des outils.
 
 > [!NOTE]
-> Pour installer NuGet si vous exécutez une version de Visual Studio antérieure à Visual Studio 2015, consultez la page [http://www.nuget.org](http://www.nuget.org), puis cliquez sur le bouton **Install NuGet**.
+> Pour installer NuGet si vous exécutez une version de Visual Studio antérieure à Visual Studio 2015, consultez la page [https://www.nuget.org](https://www.nuget.org), puis cliquez sur le bouton **Install NuGet**.
 >
 >
 
@@ -71,7 +71,7 @@ Ajoutez les déclarations d'espace de noms de code suivantes en haut de chaque f
     using SendGrid;
     using SendGrid.Helpers.Mail;
 
-## <a name="how-to-create-an-email"></a>Création d'un message électronique
+## <a name="how-to-create-an-email"></a>Guide pratique pour créer un e-mail
 Pour créer un message électronique, utilisez l'objet **SendGridMessage** . Une fois que l'objet du message est créé, vous pouvez définir les propriétés et les méthodes, notamment l'expéditeur, le destinataire, l'objet et le corps du message électronique.
 
 L'exemple suivant montre comment créer un objet de message entièrement renseigné :
@@ -95,7 +95,7 @@ L'exemple suivant montre comment créer un objet de message entièrement renseig
 
 Pour plus d’informations sur toutes les propriétés et méthodes prises en charge par le type **SendGrid**, consultez la page [sendgrid-csharp][sendgrid-csharp] sur GitHub.
 
-## <a name="how-to-send-an-email"></a>Envoi d'un message électronique
+## <a name="how-to-send-an-email"></a>Guide pratique pour envoyer un e-mail
 Après avoir créé un e-mail, vous pouvez l’envoyer à l’aide de l’API de SendGrid. Une autre possibilité consiste à utiliser la [bibliothèque intégrée de .NET][NET-library].
 
 Pour envoyer des e-mails, vous devez fournir votre clé API SendGrid. Pour plus d’informations sur la configuration des clés API, consultez la [documentation][documentation] des clés API de SendGrid.
@@ -218,7 +218,7 @@ Au niveau du contrôleur, après l’injection de l’interface `IConfiguration`
        }
     }
     
-## <a name="how-to-add-an-attachment"></a>Ajout d'une pièce jointe
+## <a name="how-to-add-an-attachment"></a>Guide pratique pour ajouter une pièce jointe
 Vous pouvez ajouter des pièces jointes à un message en appelant la méthode **AddAttachment** et en spécifiant au minimum le nom du fichier et le contenu encodé en Base64 que vous souhaitez joindre au message. Si vous souhaitez inclure plusieurs pièces jointes, appelez cette méthode pour chacun des fichiers que vous voulez joindre ou utilisez la méthode **AddAttachments**. L'exemple suivant montre comment ajouter une pièce jointe à un message :
 
     var banner2 = new Attachment()
@@ -231,7 +231,7 @@ Vous pouvez ajouter des pièces jointes à un message en appelant la méthode **
     };
     msg.AddAttachment(banner2);
 
-## <a name="how-to-use-mail-settings-to-enable-footers-tracking-and-analytics"></a>Utilisation de paramètres de messagerie pour activer les pieds de page, le suivi et l’analyse
+## <a name="how-to-use-mail-settings-to-enable-footers-tracking-and-analytics"></a>Guide pratique pour utiliser des paramètres de messagerie pour activer les pieds de page, le suivi et l’analytique
 SendGrid offre d’autres fonctionnalités de messagerie grâce à l’utilisation de paramètres de messagerie et de suivi. Vous pouvez ajouter ces paramètres à un message électronique pour activer des fonctionnalités spécifiques, telles que le suivi des clics, Google Analytics, le suivi des abonnements, etc. Pour obtenir la liste complète des applications, consultez la [documentation relative aux paramètres][settings-documentation].
 
 Les applications peuvent être appliquées aux messages électroniques **SendGrid** à l’aide des méthodes implémentées dans le cadre de la classe **SendGridMessage**. Les exemples suivants montrent les filtres de pied de page et de suivi des clics :
@@ -247,7 +247,7 @@ Les exemples suivants montrent les filtres de pied de page et de suivi des clics
 ### <a name="click-tracking"></a>Suivi des clics
     msg.SetClickTracking(true);
 
-## <a name="how-to-use-additional-sendgrid-services"></a>Utilisation de services SendGrid supplémentaires
+## <a name="how-to-use-additional-sendgrid-services"></a>Guide pratique pour utiliser des services SendGrid supplémentaires
 SendGrid offre plusieurs API et webhooks que vous pouvez utiliser pour tirer profit de fonctionnalités supplémentaires dans votre application Azure. Pour plus d’informations, consultez la [documentation de référence sur l’API SendGrid][SendGrid API documentation].
 
 ## <a name="next-steps"></a>Étapes suivantes

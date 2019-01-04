@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 8d84801aacfc60bb11aac4c9046a433378a59b79
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2b1dc0ad28a6608e3a46087d31a3d077e9291a3d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314471"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841674"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Faire pivoter les clés secrètes dans Azure Stack
 
@@ -44,7 +44,7 @@ Certificats de service d’infrastructure pour les services accessibles de l’e
 
    <sup>*</sup> Applicable uniquement si le fournisseur d’identité de l’environnement est AD FS (services de fédération Active Directory).
 
-> [!NOTE]
+> [!NOTE]  
 > Toutes les autres clés et chaînes sécurisées, y compris les mots de passe BMC et switch ainsi que les mots de passe de compte utilisateur et administrateur sont toujours mis à jour manuellement par l’administrateur. 
 
 Afin de maintenir l’intégrité de l’infrastructure Azure Stack, les opérateurs doivent pouvoir effectuer régulièrement la rotation des secrets de leur infrastructure à une fréquence conforme aux exigences de sécurité de leur organisation.
@@ -65,7 +65,7 @@ Azure Stack prend en charge la rotation des secrets avec des certificats externe
 |De : Autorité de certification publique<sup>*</sup>|Vers : Autorité de certification de certificats autosignés|Non pris en charge||
 |De : Autorité de certification publique<sup>*</sup>|Vers : Autorité de certification publique<sup>*</sup>|Pris en charge|1803 et ultérieure|
 
-<sup>*</sup> Les autorités de certification publiques mentionnées ici sont celles qui font partie du programme de certification racine approuvé Windows. La liste complète est disponible dans la rubrique [Programme de certification racine approuvé Microsoft : Participants (depuis le 27 juin 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+<sup>*</sup> Les autorités de certification publiques mentionnées ici sont celles qui font partie du programme de certification racine approuvé Windows. La liste complète est disponible dans la rubrique [Programme de certification racine approuvé Microsoft : Participants (à compter du 27 juin 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 
 ## <a name="alert-remediation"></a>Correction des alertes
 
@@ -113,7 +113,7 @@ Pour effectuer la rotation d’un secret interne et externe :
     - **CertificatePassword**  
     Une chaîne sécurisée du mot de passe utilisée pour tous les fichiers de certificat pfx créés.
 4. Patientez pendant la rotation de vos secrets.  
-Lorsque la rotation des secrets a réussi, la console affiche **Overall action status: Success** (état global de l’action : réussite). 
+Quand la rotation des secrets a réussi, la console affiche **Overall action status: Success** (état global de l’action : réussite). 
     > [!note]  
     > En cas d’échec de la rotation des secrets, suivez les instructions dans le message d’erreur et réexécutez start-secretrotation avec le paramètre **-Rerun**. Contactez le support si vous rencontrez des échecs répétés de rotation des secrets. 
 5. Une fois la rotation des secrets réussie, supprimez vos certificats du partage créé lors de l’étape préliminaire et stockez-les dans leur emplacement de sauvegarde sécurisé. 
@@ -143,7 +143,7 @@ Pour effectuer uniquement la rotation des secrets internes Azure Stack :
 1. Créez une session PowerShell avec le [point de terminaison privilégié](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 2. Dans la session de point de terminaison privilégié, exécutez **Start-SecretRotation** sans arguments.
 3. Patientez pendant la rotation de vos secrets.  
-Lorsque la rotation des secrets a réussi, la console affiche **Overall action status: Success** (état global de l’action : réussite). 
+Quand la rotation des secrets a réussi, la console affiche **Overall action status: Success** (état global de l’action : réussite). 
     > [!note]  
     > En cas d’échec de la rotation des secrets, suivez les instructions dans le message d’erreur et réexécutez start-secretrotation avec le paramètre **-Rerun**. Contactez le support si vous rencontrez des échecs répétés de rotation des secrets. 
 
@@ -199,7 +199,7 @@ Le contrôleur BMC (Baseboard Management Controller) analyse l’état physique 
 
 1. Mettez à jour le contrôleur BMC sur les serveurs physiques de Azure Stack en suivant les instructions de votre fabricant OEM. Tous les contrôleurs BMC de votre environnement doivent avoir le même mot de passe.
 2. Ouvrez un point de terminaison privilégié dans des sessions Azure Stack. Pour obtenir des instructions, voir [Utilisation du point de terminaison privilégié dans Azure Stack](azure-stack-privileged-endpoint.md).
-3. Lorsque votre invite PowerShell devient **[adresse IP ou nom de machine virtuelle ERCS]: PS>** ou **[azs-ercs01]: PS>**, en fonction de l’environnement, exécutez `Set-BmcPassword` en exploitant `invoke-command`. Passez la variable de session de votre point de terminaison privilégié en tant que paramètre. Par exemple : 
+3. Une fois que votre invite PowerShell est passé à **[adresse IP ou nom de machine virtuelle ERCS]: PS>** ou à **[azs-ercs01]: PS>**, en fonction de l’environnement, exécutez `Set-BmcPassword` en exécutant `invoke-command`. Passez la variable de session de votre point de terminaison privilégié en tant que paramètre. Par exemple : 
 
     ```powershell
     # Interactive Version

@@ -1,5 +1,5 @@
 ---
-title: Disponibilité et cohérence dans Azure Event Hubs | Microsoft Docs
+title: Disponibilité et cohérence - Azure Event Hubs | Microsoft Docs
 description: Découvrez comment obtenir la quantité maximale de disponibilité et de cohérence avec Azure Event Hubs à l’aide de partitions.
 services: event-hubs
 documentationcenter: na
@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 9b4d992d690bb3237f8c92e44020c0ac83978d7e
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e5cad797b633d43bcc9ead657a60fca8aa6679bb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140265"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090718"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilité et cohérence dans Event Hubs
 

@@ -1,22 +1,24 @@
 ---
-title: Connexions sortantes dans Azure (Classic) | Microsoft Docs
+title: Connexions sortantes dans Azure (Classic)
+titlesuffix: Azure Load Balancer
 description: Cet article explique comment Azure permet aux services cloud de communiquer avec les services Internet publics.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 5cb0647148d2cd90ad4cce6e16de30b72fff8429
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 006d8e28413e0893cafe351577f8a018d13fd268
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219662"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189997"
 ---
 # <a name="outbound-connections-classic"></a>Connexions sortantes (Classic)
 
@@ -54,7 +56,7 @@ Les [stratégies de prévention](#snatexhaust) présentent également les mêmes
 
 L’[algorithme utilisé pour la préaffectation de ports éphémères](#ephemeralports) en lien avec la traduction d’adresse de port pour les déploiements Azure Classic est le même que pour les déploiements de ressources Azure Resource Manager.
 
-### <a name="ilpip"></a>Scénario 1 : machine virtuelle avec adresse IP publique de niveau d’instance
+### <a name="ilpip"></a>Scénario 1 : machine virtuelle avec adresse IP publique de niveau d’instance
 
 Dans ce scénario, une adresse IP publique de niveau d’instance (ILPIP) est affectée à la machine virtuelle. En ce qui concerne les connexions sortantes, il importe peu que la machine virtuelle ait un point de terminaison à charge équilibrée ou non. Ce scénario prend le pas sur les autres. En cas d’utilisation d’une adresse IP publique de niveau d’instance, la machine virtuelle utilise celle-ci pour tous les flux sortants.  
 
@@ -62,7 +64,7 @@ Une adresse IP publique affectée à une machine virtuelle constitue une relatio
 
 Si votre application lance de nombreux flux sortants et que vous subissez un épuisement des ports de traduction d’adresses réseau sources, envisagez d’affecter une [adresse IP publique de niveau d’instance pour atténuer les contraintes de traduction d’adresses réseau sources](#assignilpip). Lisez [Gestion de l’épuisement de la traduction d’adresses réseau sources](#snatexhaust) dans son intégralité.
 
-### <a name="publiclbendpoint"></a>Scénario 2 : point de terminaison à charge équilibrée public
+### <a name="publiclbendpoint"></a>Scénario 2 : point de terminaison public à charge équilibrée
 
 Dans ce scénario, la machine virtuelle ou le rôle de travail web est associé à une adresse IP publique via le point de terminaison à charge équilibrée. La machine virtuelle n’a pas d’adresse IP publique affectée. 
 
@@ -74,7 +76,7 @@ Les ports SNAT sont préaffectés comme décrit dans la section [Présentation d
 
 Quand il existe [plusieurs points de terminaison à charge équilibrée publics](load-balancer-multivip.md), l’une de ces adresses IP publiques est [candidate aux flux sortants](#multivipsnat) et sélectionnée au hasard.  
 
-### <a name="defaultsnat"></a>Scénario 3 : aucune adresse IP publique associée
+### <a name="defaultsnat"></a>Scénario 3 : aucune adresse IP publique associée
 
 Dans ce scénario, la machine virtuelle ou le rôle de travail web ne fait pas partie d’un point de terminaison à charge équilibrée public.  Et, dans le cas d’une machine virtuelle, aucune adresse ILPIP ne lui est affectée. Lorsque la machine virtuelle crée un flux sortant, Azure convertit l’adresse IP source privée du flux sortant en une adresse IP source publique. L’adresse IP publique utilisée pour ce flux sortant n’est pas configurable et n’entre pas en compte dans la limite de ressource IP publique de l’abonnement.  Azure alloue automatiquement cette adresse.
 
@@ -160,7 +162,7 @@ Quand les [ports éphémères préaffectés](#preallocatedports) utilisés pour 
 Les ports éphémères ont un délai d’inactivité de 4 minutes (non ajustable). Si les nouvelles tentatives sont trop agressives, le problème d’épuisement ne peut pas se résoudre de lui-même. Par conséquent, il est essentiel de pouvoir évaluer comment et selon quelle fréquence votre application relance les transactions.
 
 #### <a name="assignilpip"></a>Assigner une adresse IP publique de niveau d’instance à chaque machine virtuelle
-En assignant une adresse IP publique de niveau d’instance, vous passez à un scénario de type [Adresse IP publique au niveau de l’instance affectée à une machine virtuelle](#ilpip). Les ports éphémères de l’adresse IP publique qui sont utilisés pour chaque machine virtuelle sont tous accessibles à la machine virtuelle. (Contrairement aux scénarios où les ports éphémères d’une adresse IP publique sont partagés avec toutes les machines virtuelles associés au déploiement correspondant.) Des compromis sont à prendre en compte, notamment l’impact potentiel de la mise en liste verte d’un grand nombre d’adresses IP individuelles.
+En assignant une adresse IP publique de niveau d’instance, vous passez à un scénario de type [Adresse IP publique au niveau de l’instance affectée à une machine virtuelle](#ilpip). Les ports éphémères de l’adresse IP publique qui sont utilisés pour chaque machine virtuelle sont tous accessibles à la machine virtuelle. (Contrairement aux scénarios où les ports éphémères d’une adresse IP publique sont partagés avec toutes les machines virtuelles associés au déploiement correspondant.) Des compromis sont à prendre en compte, notamment l’impact potentiel de la mise en liste blanche d’un grand nombre d’adresses IP individuelles.
 
 >[!NOTE] 
 >Cette option n’est pas disponible pour les rôles de travail web.

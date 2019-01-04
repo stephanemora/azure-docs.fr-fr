@@ -1,21 +1,19 @@
 ---
-title: Aide-mémoires pour les requêtes PDF Azure Cosmos DB | Microsoft Docs
+title: Aide-mémoires pour les requêtes PDF Azure Cosmos DB
 description: Aide-mémoires en version PDF imprimable qui vous permettent d’utiliser les API SQL, MongoDB, Graph et de Table Azure Cosmos DB pour interroger vos données
 keywords: aide-mémoire sql, aide-mémoire pdf sql, aide-mémoire de requête sql
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: c79a1c0e6449e1ae87c2ed09acdc1ecd380cfaaf
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 21b2ee99fa8f9b22b4dfccadfaadf1d4a10980cf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160968"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138141"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Aide-mémoires pour les requêtes Azure Cosmos DB
 
@@ -36,7 +34,7 @@ Téléchargez les [aide-mémoires pour les requêtes au format A3 Azure Cosmos D
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’écriture de requêtes, consultez les articles suivants :
-* Pour les requêtes de l’API SQL, consultez [Requête à l’aide de l’API SQL](tutorial-query-sql-api.md), [Requêtes SQL pour Azure Cosmos DB](how-to-sql-query.md) et [Référence de la syntaxe SQL](sql-api-sql-query-reference.md)
+* Pour les requêtes de l’API SQL, consultez [Requête à l’aide de l’API SQL](tutorial-query-sql-api.md), [Requêtes SQL pour Azure Cosmos DB](how-to-sql-query.md) et [Référence de la syntaxe SQL](sql-api-query-reference.md)
 * Pour les requêtes MongoDB, consultez [Requête à l’aide de l’API MongoDB](tutorial-query-mongodb.md) et [Prise en charge de l’API MongoDB pour la syntaxe et les fonctionnalités MongoDB](mongodb-feature-support.md)
 * Pour les requêtes de l’API Gremlin, voir [Requête à l’aide de l’API Gremlin](tutorial-query-graph.md) et [Prise en charge du graphique Gremlin Azure Cosmos DB](gremlin-support.md)
 * Pour les requêtes de l’API de Table, consultez [Requête à l’aide de l’API de Table](tutorial-query-table.md)

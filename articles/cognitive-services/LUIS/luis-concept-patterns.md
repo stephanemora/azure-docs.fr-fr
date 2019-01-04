@@ -1,27 +1,28 @@
 ---
-title: Découvrir comment les modèles augmentent la précision des prédictions
-titleSuffix: Azure Cognitive Services
-description: Les modèles sont conçus pour améliorer la précision lorsque plusieurs énoncés sont très similaires. Un modèle vous permet d’obtenir plus de précision pour une intention sans fournir de nombreux énoncés en plus.
+title: Aide à la prédiction grâce aux modèles
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Un modèle vous permet d’obtenir plus de précision pour une intention sans fournir de nombreux énoncés en plus.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 09c869bf28b804d8fabe331c4a9c2d222accc1e5
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 46c9eb99d808874e0f49dee5fa4865a4867873f1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300368"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271519"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Les modèles améliorent la précision de la prédiction
 Les modèles sont conçus pour améliorer la précision lorsque plusieurs énoncés sont très similaires.  Un modèle vous permet d’obtenir plus de précision pour une intention sans fournir de nombreux énoncés en plus. 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>Les modèles résolvent les problèmes de faible confiance envers les intentions
-Imaginez une application Ressources humaines qui génère des rapports sur l’organigramme en lien avec un employé. Selon le nom et les relations d’un employé, LUIS peut retourner les employés impliqués. Imaginez un employé, Tom, avec une manager nommée Alice, et une équipe de subordonnés appelés Michael, Rebecca et Carl.
+Imaginez une application Ressources humaines qui génère des rapports sur l’organigramme en lien avec un employé. Selon le nom et les relations d’un employé, LUIS peut retourner les employés impliqués. Imaginez un employé, Tom, avec une manager nommée Alice et une équipe de subordonnés qui s’appellent Michael, Rebecca et Carl.
 
 ![Image de l’organigramme](./media/luis-concept-patterns/org-chart.png)
 
@@ -43,6 +44,8 @@ Les modèles utilisent un mélange de technologies de prédiction. La définitio
 ## <a name="patterns-do-not-improve-entity-detection"></a>Les modèles n’améliorent pas la détection d’entités
 Même si les modèles nécessitent des entités, un modèle n’aide pas à détecter les entités. Un modèle aide uniquement la prédiction avec les intentions et les rôles.  
 
+Ne vous attendez pas à constater une amélioration de la prédiction d’entité si vous réduisez plusieurs énoncés dans un modèle unique. Pour que les entités Simple se déclenchent, vous devez ajouter des énoncés ou utiliser des entités de liste, sinon votre modèle ne se déclenchera pas.
+
 ## <a name="patterns-use-entity-roles"></a>Les modèles utilisent des rôles d’entités
 Si deux ou plusieurs entités dans un modèle sont associées de manière contextuelle, les modèles utilisent des [rôles](luis-concept-roles.md) d’entités pour extraire des informations contextuelles sur les entités. Cela équivaut aux enfants d’entité hiérarchique, mais n’est disponible que dans les modèles **uniquement**. 
 
@@ -50,7 +53,7 @@ Si deux ou plusieurs entités dans un modèle sont associées de manière contex
 Avec suffisamment d’exemples d’énoncés, LUIS doit pouvoir accroître la confiance des prévisions sans modèles. Les modèles augmentent le score de confiance sans avoir à fournir autant énoncés.  
 
 ## <a name="pattern-matching"></a>Critères spéciaux
-Un modèle est d’abord mis en correspondance selon la détection des entités dans le modèle, puis selon la validation du reste des mots et de l’ordre des mots du modèle. Des entités sont requises dans le modèle pour qu’un modèle corresponde. 
+Un modèle est d’abord mis en correspondance selon la détection des entités dans le modèle, puis selon la validation du reste des mots et de l’ordre des mots du modèle. Des entités sont requises dans le modèle pour qu’un modèle corresponde. Le modèle est appliqué au niveau du jeton, pas au niveau du caractère. 
 
 ## <a name="pattern-syntax"></a>Syntaxe du modèle
 La syntaxe du modèle est un modèle d’énoncé. Le modèle doit contenir les mots et entités que vous souhaitez faire correspondre, ainsi que les mots et la ponctuation que vous souhaitez ignorer. Ce n’est **pas** une expression régulière. 
@@ -116,7 +119,7 @@ Les signes de ponctuation tels que `.`, `!`, et `?` peuvent être ignorés à l�
 ## <a name="patterns-only"></a>Modèles seulement
 LUIS autorise une application sans exemple d’énoncé dans l’intention. Cette utilisation n’est autorisée que si les modèles sont utilisés. Les modèles requièrent au moins une entité dans chaque modèle. Dans les applications de modèle, le modèle ne doit pas contenir d’entités issues de l’apprentissage automatique car elles nécessitent des exemples d’énoncés. 
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 Découvrir les [meilleures pratiques](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Étapes suivantes

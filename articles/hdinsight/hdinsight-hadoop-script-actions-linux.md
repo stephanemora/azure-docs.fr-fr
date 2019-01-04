@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 90bba26bf1fd941085568cacd4d005f10eaed1b8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 768dc4f555ade9483e11c3aec0f4622fe6b441c1
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005391"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384193"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Développement d’actions de script avec HDInsight
 
 Découvrez comment personnaliser votre cluster HDInsight à l’aide de scripts bash. Les actions de script sont un moyen de personnaliser HDInsight pendant ou après la création du cluster.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-are-script-actions"></a>Définition des actions de script
@@ -43,7 +43,7 @@ Pour plus d’informations sur l’utilisation de ces méthodes pour appliquer d
 
 Quand vous développez un script personnalisé pour un cluster HDInsight, tenez compte des meilleures pratiques suivantes :
 
-* [Rechercher la version Hadoop](#bPS1)
+* [Cibler la version Apache Hadoop](#bPS1)
 * [Cibler la version du système d’exploitation](#bps10)
 * [Fournir des liens stables vers les ressources de script](#bPS2)
 * [Utiliser des ressources précompilées](#bPS4)
@@ -54,10 +54,10 @@ Quand vous développez un script personnalisé pour un cluster HDInsight, tenez 
 * [Enregistrer des fichiers au format ASCII avec les fins de ligne LF](#bps8)
 * [Utilisation de la logique de nouvelle tentative pour récupérer après une erreur temporaire](#bps9)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Les actions de script doivent se terminer dans les 60 minutes, ou le processus échoue. Lors de l’approvisionnement du nœud, le script s’exécute en même temps que les autres processus d'installation et de configuration. En raison de cette concurrence pour les ressources, par exemple au niveau du temps processeur ou de la bande passante, l’exécution du script risque de prendre plus de temps que dans votre environnement de développement.
 
-### <a name="bPS1"></a>Rechercher la version Hadoop
+### <a name="bPS1"></a>Cibler la version Apache Hadoop
 
 Différentes versions de HDInsight sont équipées de différentes versions de services Hadoop et des composants installés. Si votre script attend une version de service ou de composant spécifique, vous devez utiliser uniquement le script avec la version de HDInsight qui inclut les composants requis. Vous trouverez des informations sur les versions de composant incluses dans HDInsight à l’aide du document [Contrôle des versions du composant HDInsight](hdinsight-component-versioning.md) .
 
@@ -110,7 +110,7 @@ Le script et les ressources associées doivent rester disponibles pendant toute 
 
 La meilleure pratique consiste à tout télécharger et à tout archiver dans un compte de stockage Azure de votre abonnement.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Le compte de stockage utilisé doit être le compte de stockage par défaut du cluster ou un conteneur public en lecture seule d’un autre compte de stockage.
 
 Par exemple, les exemples fournis par Microsoft sont stockés dans le compte de stockage [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/). Cet emplacement est un conteneur public en lecture seule géré par l’équipe de HDInsight.
@@ -129,12 +129,12 @@ Par exemple, un script qui modifie les fichiers de configuration ne doit pas ajo
 
 Les clusters HDInsight basés sur Linux proposent deux nœuds principaux actifs au sein du cluster, et les actions de script sont exécutées sur les deux nœuds. Si les composants que vous installez n'attendent qu’un seul nœud principal, n’installez pas les composants sur les deux nœuds principaux.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Les services fournis dans le cadre de HDInsight sont conçus pour basculer entre les deux nœuds principaux si nécessaire. Cette fonctionnalité n’est pas étendue aux composants personnalisés installés à l’aide d’actions de script. Si vous avez besoin que les composants personnalisés soient très disponibles, vous devez implémenter votre propre mécanisme de basculement.
 
 ### <a name="bPS6"></a>Configurer les composants personnalisés pour utiliser le stockage d’objets blob Azure
 
-Les composants que vous installez sur le cluster peuvent être configurés par défaut pour utiliser le stockage HDFS (Hadoop Distributed File System). HDInsight utilise Stockage Azure ou Data Lake Store comme magasin par défaut. Chacun d’eux fournit un système de fichiers compatible HDFS qui rend persistantes les données même en cas de suppression du cluster. Vous devrez peut-être configurer les composants que vous installez pour utiliser WASB ou ADL au lieu de HDFS.
+Les composants que vous installez sur le cluster peuvent être configurés par défaut pour utiliser le stockage HDFS (Apache Hadoop Distributed File System). HDInsight utilise Stockage Azure ou Data Lake Store comme magasin par défaut. Chacun d’eux fournit un système de fichiers compatible HDFS qui rend persistantes les données même en cas de suppression du cluster. Vous devrez peut-être configurer les composants que vous installez pour utiliser WASB ou ADL au lieu de HDFS.
 
 Pour la plupart des opérations, il est inutile de spécifier le système de fichiers. Par exemple, le texte suivant copie le fichier giraph-examples.jar du système de fichiers local vers l’emplacement de stockage du cluster :
 
@@ -148,8 +148,8 @@ Dans cet exemple, la commande `hdfs` utilise en toute transparence l’emplaceme
 
 HDInsight journalise la sortie de script qui est écrite dans STDOUT et STDERR. Vous pouvez afficher ces informations à l’aide de l’interface utilisateur web d’Ambari.
 
-> [!NOTE]
-> Ambari n’est disponible que si le cluster a été créé avec succès. Si vous utilisez une action de script lors de la création du cluster et que la création échoue, consultez la section de dépannage de [Personnalisation de clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) pour découvrir d’autres façons d’accéder aux informations de journalisation.
+> [!NOTE]  
+> Apache Ambari n’est disponible que si le cluster a été créé avec succès. Si vous utilisez une action de script lors de la création du cluster et que la création échoue, consultez la section de dépannage de [Personnalisation de clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) pour découvrir d’autres façons d’accéder aux informations de journalisation.
 
 La plupart des utilitaires et des packages d’installation ont déjà écrit des informations dans STDOUT et STDERR. Toutefois, vous pouvez ajouter un enregistrement supplémentaire. Pour envoyer du texte à STDOUT, utilisez `echo`. Par exemple : 
 
@@ -278,16 +278,16 @@ Les scripts utilisés pour personnaliser un cluster doivent être stockés dans 
 
 * Une __URI lisible publiquement__. Par exemple, une URL menant aux données stockées sur OneDrive, Dropbox ou un autre service d’hébergement de fichiers.
 
-* Un compte __Azure Data Lake Store__ est associé à un groupe de ressources Azure. Pour plus d’informations sur l’utilisation d’Azure Data Lake Store avec HDInsight, consultez [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Un compte __Azure Data Lake Store__ est associé à un groupe de ressources Azure. Pour plus d’informations sur l’utilisation d’Azure Data Lake Store avec HDInsight, consultez [Démarrage rapide : Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) (Démarrage rapide : Configurer des clusters dans HDInsight).
 
-    > [!NOTE]
+    > [!NOTE]  
     > Le principal du service que HDInsight utilise pour accéder à Data Lake Store doit avoir accès en lecture au script.
 
 Les ressources utilisées par le script doivent également être disponibles publiquement.
 
 Le stockage des fichiers dans un compte de stockage Azure ou Azure Data Lake Store fournit un accès rapide, car tous deux se trouvent dans le réseau Azure.
 
-> [!NOTE]
+> [!NOTE]  
 > Le format d’URI utilisé pour référencer le script diffère selon le service utilisé. Pour les comptes de stockage associés au cluster HDInsight, utilisez `wasb://` ou `wasbs://`. Pour des URI lisibles publiquement, utilisez `http://` ou `https://`. Pour Data Lake Store, utilisez `adl://`.
 
 ### <a name="checking-the-operating-system-version"></a>Vérification de la version du système d’exploitation
@@ -332,8 +332,8 @@ Pour plus d’informations sur l’utilisation de chaque méthode, consultez [Co
 Microsoft fournit des exemples de scripts pour installer des composants sur un cluster HDInsight. Consultez les liens suivants pour voir d’autres exemples d’action de script.
 
 * [Installer et utiliser Hue sur les clusters HDInsight](hdinsight-hadoop-hue-linux.md)
-* [Installer et utiliser Solr sur les clusters HDInsight](hdinsight-hadoop-solr-install-linux.md)
-* [Installer et utiliser Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md)
+* [Installer et utiliser Apache Solr sur les clusters HDInsight](hdinsight-hadoop-solr-install-linux.md)
+* [Installer et utiliser Apache Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 * [Installer ou mettre à niveau Mono sur les clusters HDInsight](hdinsight-hadoop-install-mono.md)
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
@@ -342,13 +342,13 @@ Voici les erreurs que vous pouvez rencontrer lorsque vous utilisez les scripts q
 
 **Erreur** : `$'\r': command not found`. Parfois suivi par `syntax error: unexpected end of file`.
 
-*Cause*: cette erreur se produit lorsque les lignes d’un script se terminent par CRLF. Les systèmes UNIX attendent seulement LF comme fin de ligne.
+*Cause* : Cette erreur se produit lorsque les lignes d’un script se terminent par CRLF. Les systèmes UNIX attendent seulement LF comme fin de ligne.
 
 Ce problème se produit souvent lorsque le script est créé dans un environnement Windows, car CRLF est une fin de ligne commune à de nombreux éditeurs de texte sous Windows.
 
-*Résolution*: si c’est une option dans votre éditeur de texte, sélectionnez le format Unix ou LF comme fin de ligne. Vous pouvez également utiliser les commandes suivantes sur un système Unix pour changer la séquence CRLF en LF :
+*Résolution* : Si c’est une option dans votre éditeur de texte, sélectionnez le format Unix ou LF comme fin de ligne. Vous pouvez également utiliser les commandes suivantes sur un système Unix pour changer la séquence CRLF en LF :
 
-> [!NOTE]
+> [!NOTE]  
 > Les commandes suivantes sont à peu près équivalentes dans la mesure où elles doivent changer les fins de ligne CRLF en LF. Sélectionnez-en une basée sur les utilitaires disponibles sur votre système.
 
 | Commande | Notes |
@@ -360,9 +360,9 @@ Ce problème se produit souvent lorsque le script est créé dans un environneme
 
 **Erreur** : `line 1: #!/usr/bin/env: No such file or directory`.
 
-*Cause*: cette erreur se produit lorsque le script a été enregistré en tant qu’UTF-8 avec une marque d’ordre d’octet (BOM).
+*Cause* : Cette erreur se produit lorsque le script a été enregistré au format UTF-8 avec une marque d’ordre d’octet (BOM).
 
-*Résolution*: enregistrer le fichier au format ASCII ou UTF-8 sans marque d’ordre d’octet. Vous pouvez également utiliser la commande suivante sur un système Linux ou Unix pour créer un fichier sans marque d’ordre d’octet :
+*Résolution* : Enregistrez le fichier au format ASCII ou UTF-8 sans marque d’ordre d’octet. Vous pouvez également utiliser la commande suivante sur un système Linux ou Unix pour créer un fichier sans marque d’ordre d’octet :
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 

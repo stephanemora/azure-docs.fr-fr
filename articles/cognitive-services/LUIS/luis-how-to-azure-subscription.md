@@ -1,21 +1,22 @@
 ---
-title: Gestion des abonnements aux points de terminaison dans LUIS
-titleSuffix: Azure Cognitive Services
+title: Gestion des ressources Azure
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Dans cet article, vous créez une clé de point de terminaison facturée à l’usage pour votre compte LUIS afin de fournir un trafic illimité vers votre point de terminaison selon un forfait.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c7c6009d9fec14e8633a37e5384dd203f2f5fa60
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5d3e837cf644e0cb9b35a0cfc715a9dcace592e3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040378"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082983"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Gérer les clés d’abonnement de point de terminaison Azure
 
@@ -56,7 +57,7 @@ Pour des tests et des prototypes uniquement, utilisez le niveau gratuit (F0). Po
 5. N’oubliez pas d’[affecter cette clé de point de terminaison](luis-how-to-manage-keys.md#assign-endpoint-key) sur la page **Publier** et de l’utiliser dans toutes les requêtes de point de terminaison. 
 
 ## <a name="exceed-pricing-tier-usage"></a>Dépassement de l’utilisation du niveau tarifaire
-Chaque niveau autorise des requêtes de point de terminaison pour votre compte LUIS à un débit spécifique. Si le débit de requêtes est supérieur à celui autorisé pour votre compte facturé à l’usage par minute ou par mois, les requêtes reçoivent une erreur HTTP « 429 : trop de requêtes ».
+Chaque niveau autorise des requêtes de point de terminaison pour votre compte LUIS à un débit spécifique. Si le débit de requêtes est supérieur à celui autorisé pour votre compte facturé à l’usage par minute ou par mois, les requêtes reçoivent une erreur HTTP « 429 : 429 Trop de requêtes. »
 
 Chaque niveau permet un nombre de requêtes cumulées par mois. Si le nombre total de requêtes dépasse le débit autorisé, les requêtes reçoivent une erreur HTTP « 403 : interdit ».  
 

@@ -2,19 +2,19 @@
 title: Présentation et résolution des erreurs WebHCat sur HDInsight - Azure
 description: Découvrez quelles sont les erreurs courantes renvoyées par WebHCat sur HDInsight et comment les résoudre.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: 3c4ce93a12d0ecb86552e9f73d83f623e71385a0
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 0d27b16690516becc586678f8cf3edea234feeea
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103403"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383393"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Compréhension et résolution des erreurs reçues à partir de WebHCat sur HDInsight
 
@@ -22,18 +22,18 @@ Découvrez les erreurs reçues lors de l’utilisation de WebHCat avec HDInsight
 
 ## <a name="what-is-webhcat"></a>Présentation de WebHCat
 
-[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) est une API REST pour [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), une couche de gestion du stockage et des tables pour Hadoop. WebHCat est activé par défaut sur les clusters HDInsight et est utilisé par différents outils pour envoyer des tâches, obtenir le statut d’une tâche, etc. sans se connecter au cluster.
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) est une API REST pour [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), une couche de gestion du stockage et des tables pour Apache Hadoop. WebHCat est activé par défaut sur les clusters HDInsight et est utilisé par différents outils pour envoyer des tâches, obtenir le statut d’une tâche, etc. sans se connecter au cluster.
 
 ## <a name="modifying-configuration"></a>Modification de la configuration
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Plusieurs des erreurs répertoriées dans ce document se produisent car une limite maximale configurée a été dépassée. Lorsque l’étape de résolution mentionne que vous pouvez modifier une valeur, vous devez utiliser l’une des méthodes suivantes pour effectuer cette modification :
 
-* Pour les clusters **Windows** : utilisez une action de script pour configurer la valeur lors de la création du cluster. Pour en savoir plus, consultez la rubrique [Développement d’actions de script avec HDInsight](hdinsight-hadoop-script-actions.md).
+* Pour les clusters **Windows** : Utilisez une action de script pour configurer la valeur lors de la création du cluster. Pour en savoir plus, consultez la rubrique [Développement d’actions de script avec HDInsight](hdinsight-hadoop-script-actions.md).
 
-* Pour les clusters **Linux** : utilisez Ambari (API REST ou web) pour modifier la valeur. Pour en savoir plus, consultez la rubrique [Gestion des clusters HDInsight à l’aide d’Ambari](hdinsight-hadoop-manage-ambari.md)
+* Pour les clusters **Linux** : utilisez Apache Ambari (API REST ou web) pour modifier la valeur. Pour plus d’informations, consultez [Gestion des clusters HDInsight à l’aide d’Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ### <a name="default-configuration"></a>Configuration par défaut
@@ -48,7 +48,7 @@ Le dépassement des valeurs par défaut suivantes peut entraîner une baisse des
 
 ## <a name="too-many-requests"></a>Trop de demandes
 
-**Code d’état HTTP**: 429
+**Code d’état HTTP** : 429
 
 | Cause : | Résolution : |
 | --- | --- |
@@ -56,15 +56,15 @@ Le dépassement des valeurs par défaut suivantes peut entraîner une baisse des
 
 ## <a name="server-unavailable"></a>Serveur non disponible
 
-**Code d’état HTTP**: 503
+**Code d’état HTTP** : 503
 
 | Cause : | Résolution : |
 | --- | --- |
 | Ce code d’état se produit généralement lors du basculement entre le HeadNode principal et secondaire du cluster. |Veuillez patienter deux minutes, puis recommencez l’opération. |
 
-## <a name="bad-request-content-could-not-find-job"></a>Contenu de demande erroné : impossible de trouver la tâche
+## <a name="bad-request-content-could-not-find-job"></a>Contenu de requête erroné : travail introuvable
 
-**Code d’état HTTP**: 400
+**Code d’état HTTP** : 400
 
 | Cause : | Résolution : |
 | --- | --- |
@@ -74,7 +74,7 @@ Le dépassement des valeurs par défaut suivantes peut entraîner une baisse des
 
 ## <a name="bad-gateway"></a>Passerelle incorrecte
 
-**Code d’état HTTP**: 502
+**Code d’état HTTP** : 502
 
 | Cause : | Résolution : |
 | --- | --- |

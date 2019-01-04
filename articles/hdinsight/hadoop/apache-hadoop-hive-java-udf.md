@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 562320b49f92d9ebb0c74c06e27fab63681955be
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 6e31062e3965c9ed5a0b24e822f0ec14234cec1c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634071"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435070"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Utiliser une fonction UDF Java avec Apache Hive dans HDInsight
 
@@ -29,9 +29,9 @@ Découvrez comment créer une fonction définie par l’utilisateur basée sur J
 
     La plupart des étapes de ce document fonctionnent sur les deux clusters basés sur Windows et Linux. Toutefois, les étapes utilisées pour télécharger la fonction définie par l’utilisateur compilée dans le cluster et l’exécuter sont propres aux clusters basés sur Linux. Vous trouverez des liens vers des informations qui peuvent être utilisées avec les clusters Windows.
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 ou ultérieur (ou un équivalent, par exemple, OpenJDK)
+* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 ou ultérieur (ou un équivalent, par exemple, OpenJDK)
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * Un éditeur de texte ou un IDE Java
 
@@ -213,7 +213,7 @@ Découvrez comment créer une fonction définie par l’utilisateur basée sur J
     ```
 
     > [!NOTE]
-    > Cet exemple suppose que le stockage Azure est le stockage par défaut pour le cluster. Si votre cluster utilise Data Lake Store, remplacez la valeur `wasb:///` par `adl:///`.
+    > Cet exemple suppose que le stockage Azure est le stockage par défaut pour le cluster. Si votre cluster utilise Data Lake Storage, remplacez la valeur `wasb:///` par `adl:///`.
 
 3. Utilisez la fonction UDF pour convertir les valeurs extraites d’une table en chaînes de caractères minuscules.
 
@@ -240,6 +240,6 @@ Découvrez comment créer une fonction définie par l’utilisateur basée sur J
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour découvrir les autres façons de travailler avec Hive, consultez [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md).
+Pour découvrir d’autres utilisations de Hive, consultez [Utiliser Apache Hive avec HDInsight](hdinsight-use-hive.md).
 
-Pour plus d’informations sur les fonctions définies par l’utilisateur de Hive, consultez la section [Hive Operators and User-Defined Functions (Opérateurs et fonctions définies par l’utilisateur de Hive)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) du wiki Hive sur le site apache.org.
+Pour plus d’informations sur les fonctions définies par l’utilisateur Hive, consultez [Apache Hive Operators and User-Defined Functions ](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) (Opérateurs et fonctions définies par l’utilisateur Apache Hive) du wiki Hive sur le site apache.org.

@@ -1,13 +1,12 @@
 ---
-title: 'Infographie : Principes de base du machine learning - exemples d’algorithmes - Azure Machine Learning Studio | Microsoft Docs'
+title: Exemples d’algorithmes - Azure Machine Learning Studio | Microsoft Docs
 description: Vue d’ensemble des principes fondamentaux de l’apprentissage automatique avec des exemples d’algorithmes. L’infographie téléchargeable couvre la plupart des questions relatives à l’apprentissage automatique.
 keywords: principes de base de l’apprentissage automatique, exemples d’algorithmes, apprentissage automatique pour les débutants, questions sur l’apprentissage automatique, algorithmes populaires, infographie sur les algorithmes
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodc18
+ms.author: garye
 editor: cgronlun
 ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: ccbe152901ff7f59548239a1d59e585b8e356c23
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: df628447a441d1580fa1a3862275f2b461f8d18a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308000"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275735"
 ---
-# <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infographie téléchargeable : Principes de base de l’apprentissage automatique avec exemples d’algorithmes
+# <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infographie téléchargeable : principes de base de l’apprentissage automatique avec exemples d’algorithmes
 Téléchargez cette vue d’ensemble infographique présentant de manière simple les concepts de base de l’apprentissage automatique pour en savoir plus sur les algorithmes populaires utilisés pour répondre aux questions les plus courantes concernant l’apprentissage automatique. Des exemples d’algorithmes aident les débutants à mieux comprendre quels algorithmes utiliser et à quoi ils servent.
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Algorithmes populaires disponibles dans Machine Learning Studio
@@ -33,7 +32,7 @@ Téléchargez cette vue d’ensemble infographique présentant de manière simpl
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Téléchargez la vue infographique avec des exemples d’algorithmes
 **[Téléchargement : Infographie sur les principes de base de Machine Learning avec des liens vers des exemples d’algorithmes (PDF)](https://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
-![Infographie : Principes de base de l’apprentissage automatique avec exemples d’algorithmes. Algorithmes populaires. Apprentissage automatique pour les débutants.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
+![Infographie : principes de base de l’apprentissage automatique avec exemples d’algorithmes. Algorithmes populaires. Apprentissage automatique pour les débutants.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
 
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Aide supplémentaire sur les algorithmes pour les débutants et les utilisateurs expérimentés
 * Pour plus d’informations sur les différents types d’algorithmes d’apprentissage automatique, sur leur utilisation et sur la manière de choisir l’algorithme qui convient à votre solution, consultez [Comment choisir des algorithmes Microsoft Azure Machine Learning](algorithm-choice.md).
@@ -42,7 +41,7 @@ Téléchargez cette vue d’ensemble infographique présentant de manière simpl
 * Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](studio-overview-diagram.md).
 * Pour obtenir une vue d’ensemble d’Azure AI Gallery et des nombreuses ressources proposées par la communauté, consultez la page [Partager et découvrir des ressources dans Azure AI Gallery](gallery-how-to-use-contribute-publish.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <!-- Module References -->
 [a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx

@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 61496d91c9ec2cd1dcf498df04d2dab6629e009c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7a55e28f34f36cd02b67e56c6262b9e1f06dde8f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637514"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338190"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Gestion des erreurs dans Fonctions durables (Azure Functions)
 
@@ -27,7 +27,7 @@ Toute exception levée dans une fonction d’activité est marshalée vers la fo
 
 Par exemple, considérez la fonction d’orchestrateur suivante, qui transfère des fonds d’un compte à un autre :
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -38,16 +38,16 @@ public static async Task Run(DurableOrchestrationContext context)
 
     await context.CallActivityAsync("DebitAccount",
         new
-        { 
+        {
             Account = transferDetails.SourceAccount,
             Amount = transferDetails.Amount
         });
 
     try
     {
-        await context.CallActivityAsync("CreditAccount",         
+        await context.CallActivityAsync("CreditAccount",
             new
-            { 
+            {
                 Account = transferDetails.DestinationAccount,
                 Amount = transferDetails.Amount
             });
@@ -56,9 +56,9 @@ public static async Task Run(DurableOrchestrationContext context)
     {
         // Refund the source account.
         // Another try/catch could be used here based on the needs of the application.
-        await context.CallActivityAsync("CreditAccount",         
+        await context.CallActivityAsync("CreditAccount",
             new
-            { 
+            {
                 Account = transferDetails.SourceAccount,
                 Amount = transferDetails.Amount
             });
@@ -66,7 +66,7 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
 ```javascript
 const df = require("durable-functions");
@@ -108,7 +108,7 @@ Si l’appel à la fonction **CreditAccount** échoue pour le compte de destinat
 
 Lorsque vous appelez les fonctions d’activité ou les fonctions de sous-orchestration, vous pouvez spécifier une stratégie de nouvelle tentative automatique. L’exemple suivant tente d’appeler une fonction jusqu’à trois fois, et attend 5 secondes avant chaque nouvelle tentative :
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -118,41 +118,41 @@ public static async Task Run(DurableOrchestrationContext context)
         maxNumberOfAttempts: 3);
 
     await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
-    
+
     // ...
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
 ```javascript
 const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const retryOptions = new df.RetryOptions(5000, 3);
-    
+
     yield context.df.callActivityWithRetry("FlakyFunction", retryOptions);
 
     // ...
 });
 ```
 
-L’API `CallActivityWithRetryAsync` (C#) `callActivityWithRetry` (JS) ou prend un paramètre `RetryOptions`. Les appels de sous-orchestration utilisant l’API `CallSubOrchestratorWithRetryAsync` (C#) ou `callSubOrchestratorWithRetry` (JS) peuvent utiliser les mêmes stratégies de nouvelle tentative.
+L’API `CallActivityWithRetryAsync` (.NET) ou `callActivityWithRetry` (JavaScript) prend un paramètre `RetryOptions`. Les appels de sous-orchestration utilisant l’API `CallSubOrchestratorWithRetryAsync` (.NET) ou `callSubOrchestratorWithRetry` (JavaScript) peuvent utiliser les mêmes stratégies de nouvelle tentative.
 
 Il existe plusieurs options de personnalisation de la stratégie de nouvelle tentative automatique. Les voici :
 
-* **Nombre maximal de tentatives** : le nombre maximal de nouvelles tentatives.
-* **Intervalle avant première nouvelle tentative** : temps d’attente avant la première nouvelle tentative.
-* **Coefficient d’interruption** : coefficient permettant de déterminer le taux d’augmentation de l’interruption. La valeur par défaut est de 1.
-* **Intervalle maximal entre deux nouvelles tentatives** : durée maximale de l’attente entre deux nouvelles tentatives.
-* **Délai de nouvelle tentative** : temps que passe le système à effectuer de nouvelles tentatives. Par défaut, le système effectue ces nouvelles tentatives indéfiniment.
-* **Descripteur** : un rappel défini par l’utilisateur peut être spécifié, qui détermine si un appel de fonction doit être effectué à nouveau.
+* **Nombre maximal de tentatives** : Nombre maximal de nouvelles tentatives.
+* **Intervalle avant première nouvelle tentative** : Temps d’attente avant la première nouvelle tentative.
+* **Coefficient d’interruption** : Coefficient permettant de déterminer le taux d’augmentation de l’interruption. La valeur par défaut est de 1.
+* **Intervalle maximal entre deux nouvelles tentatives** : Durée maximale de l’attente entre deux nouvelles tentatives.
+* **Délai de nouvelle tentative** : Temps que passe le système à effectuer de nouvelles tentatives. Par défaut, le système effectue ces nouvelles tentatives indéfiniment.
+* **Descripteur** : Un rappel défini par l’utilisateur peut être spécifié, qui détermine si un appel de fonction doit être effectué à nouveau.
 
 ## <a name="function-timeouts"></a>Délais d’expiration des fonctions
 
-Vous souhaiterez peut-être abandonner un appel de fonction dans une fonction d’orchestration si elle prend trop de temps. Actuellement, la méthode adéquate pour cela consiste à créer un [minuteur durable](durable-functions-timers.md) à l’aide de l’élément `context.CreateTimer`, conjointement avec l’élément `Task.WhenAny`, comme dans l’exemple suivant :
+Vous souhaiterez peut-être abandonner un appel de fonction dans une fonction d’orchestration si elle prend trop de temps. Actuellement, la méthode adéquate pour cela consiste à créer un [minuteur durable](durable-functions-timers.md) à l’aide de `context.CreateTimer` (.NET) ou `context.df.createTimer` (JavaScript) conjointement avec `Task.WhenAny` (.NET) ou `context.df.Task.any` (JavaScript), comme dans l’exemple suivant :
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -181,7 +181,7 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
 ```javascript
 const df = require("durable-functions");

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 38839379f584b40cdbefad3e4cbb3bc47881c9a7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 1afd98026a2aad552258b636ba078ca4f9bd2d58
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094593"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723140"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel
 Joignez le runtime d’intégration (IR) Azure-SSIS à un réseau virtuel Azure dans les scénarios suivants : 
@@ -198,19 +198,21 @@ Vous devez configurer un réseau virtuel avant d’y joindre un runtime d’int�
 
 1. Joignez **MicrosoftAzureBatch** au rôle **Contributeur de machines virtuelles classiques** pour le réseau virtuel. 
 
-    a. Sélectionnez **Contrôle d’accès (IAM)** dans le menu de gauche, sur **Ajouter** dans la barre d’outils. 
+    a. Sélectionnez **Contrôle d’accès (IAM)** dans le menu de gauche, puis sélectionnez l’onglet **Attributions de rôles**. 
 
     ![Boutons « Contrôle d’accès » et « Ajouter »](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
-    b. Dans la page **Ajouter des autorisations**, sélectionnez **Contributeur de machines virtuelles classiques** pour **Rôle**. Collez **ddbf3205-c6bd-46ae-8127-60eb93363864** dans la zone **Sélectionner**, puis sélectionnez **Microsoft Azure Batch** dans la liste des résultats de recherche. 
+    b. Sélectionnez **Ajouter une attribution de rôle**.
 
-    ![Résultats de recherche dans la page « Ajouter des autorisations »](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+    c. Dans la page **Ajouter une attribution de rôle**, sélectionnez **	Contributeur de machines virtuelles classiques** pour **Rôle**. Collez **ddbf3205-c6bd-46ae-8127-60eb93363864** dans la zone **Sélectionner**, puis sélectionnez **Microsoft Azure Batch** dans la liste des résultats de recherche. 
 
-    c. Sélectionnez **Enregistrer** pour enregistrer les paramètres et fermer la page. 
+    ![Résultats de la recherche dans la page « Ajouter une attribution de rôle »](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+
+    d. Sélectionnez **Enregistrer** pour enregistrer les paramètres et fermer la page. 
 
     ![Enregistrer les paramètres d’accès](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
 
-    d. Confirmez que **Microsoft Azure Batch** apparaît bien dans la liste des contributeurs. 
+    e. Confirmez que **Microsoft Azure Batch** apparaît bien dans la liste des contributeurs. 
 
     ![Confirmer l’accès à Azure Batch](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
 

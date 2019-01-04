@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Mobile Xpense | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Mobile Xpense | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Mobile Xpense.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jeedes
-ms.openlocfilehash: fd35cb67d0555919a1340c428bac042b67239469
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d51ced3f264a486288c951def7c23a0d95609ac0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427337"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850673"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Didacticiel : Intégration d’Azure Active Directory à Mobile Xpense
+# <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Tutoriel : Intégration d’Azure Active Directory à Mobile Xpense
 
 Dans ce didacticiel, vous découvrez comment intégrer Mobile Xpense à Azure Active Directory (Azure AD).
 
@@ -121,7 +121,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<sub-domain>.mobilexpense.com/<customername>`
      
     > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez [l’équipe de support client Mobile Xpense](http://www.mobilexpense.net/contact). 
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez [l’équipe de support client Mobile Xpense](https://www.mobilexpense.net/contact). 
 
 1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
@@ -131,10 +131,10 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/mobilexpense-tutorial/tutorial_general_400.png)
 
-1. Pour configurer l’authentification unique côté **Mobile Xpense**, vous devez envoyer le fichier **XML de métadonnées** téléchargé à [l’équipe de support technique Mobile Xpense](http://www.mobilexpense.net/contact). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+1. Pour configurer l’authentification unique côté **Mobile Xpense**, vous devez envoyer le fichier **XML de métadonnées** téléchargé à [l’équipe de support technique Mobile Xpense](https://www.mobilexpense.net/contact). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -170,7 +170,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### <a name="create-a-mobile-xpense-test-user"></a>Création d’un utilisateur de test Mobile Xpense
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans MobileXpense. Collaborez avec l’[équipe du support technique MobileXpense](http://www.mobilexpense.net/contact) pour ajouter des utilisateurs dans la plateforme MobileXpense. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans MobileXpense. Collaborez avec [l’équipe du support technique MobileXpense](https://www.mobilexpense.net/contact) pour ajouter les utilisateurs à la plateforme MobileXpense. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

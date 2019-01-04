@@ -1,12 +1,11 @@
 ---
-title: Réentraîner un service web prédictif - Azure Machine Learning Studio | Microsoft Docs
+title: Réentraîner un service web Studio prédictif - Azure Machine Learning Studio | Microsoft Docs
 description: Apprenez à réentraîner un modèle et à mettre à jour le service web pour utiliser le modèle réentraîné dans Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
 ms.service: machine-learning
@@ -16,14 +15,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 8da3c5d5c79ce52f1f5176a8b3317ce2a0e0bc5f
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d24cfd8dce42ee920c87fa2c3593a860468a6160
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311294"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250550"
 ---
-# <a name="retrain-an-existing-predictive-web-service"></a>Reformer un service web prédictif existant
+# <a name="retrain-an-existing-predictive-azure-machine-learning-studio-web-service"></a>Réentraîner un service web prédictif - Azure Machine Learning Studio
+
 Ce document décrit le processus de reformation pour le scénario suivant :
 
 * Vous avez une expérience de formation et une expérience de prévision que vous avez déployées en tant que service web mis en œuvre.
@@ -37,7 +37,7 @@ En partant de vos expériences et de votre service web existants, vous devez pro
 1. Mettez le modèle à niveau.
    1. Modifiez votre expérience de formation de façon à autoriser les entrées et sorties du service web.
    2. Déployez l’expérience de formation en tant que service web de reformation.
-   3. Utilisez le Service d’exécution de lots (BES, Batch Execution Service) de l’expérience de formation pour réentraîner le modèle.
+   3. Utilisez le Service d’exécution de lots (BES, Batch Execution Service) de l’expérience de formation pour reformer le modèle.
 2. Utilisez les applets de commande PowerShell d’Azure Machine Learning pour mettre à jour l’expérience prédictive.
    1. Connectez-vous à votre compte Azure Resource Manager.
    2. Obtenez la définition du service web.
@@ -47,26 +47,26 @@ En partant de vos expériences et de votre service web existants, vous devez pro
    6. Mettez à jour le service web avec la nouvelle définition de service web.
 
 ## <a name="deploy-the-training-experiment"></a>Déployer l’expérience de formation
-Pour déployer l’expérience de formation en tant que service web de reformation, vous devez ajouter les entrées et sorties du service web au modèle. En connectant un module de *Sortie du service web* au module *[Entraîner le modèle][train-model]* de l’expérience, vous permettez à l’expérience d’entraînement de générer un nouveau modèle entraîné que vous pouvez utiliser dans votre expérience prédictive. Si vous avez un module *Évaluer le modèle*, vous pouvez également attacher la sortie du service web pour obtenir les résultats d’évaluation en tant que sortie.
+Pour déployer l’expérience de formation en tant que service web de reformation, vous devez ajouter les entrées et sorties du service web au modèle. En connectant un module de *Sortie du service web* au module *[Former le modèle][train-model]* de l’expérience, vous permettez à l’expérience de formation de générer un nouveau modèle formé que vous pouvez utiliser dans votre expérience prédictive. Si vous avez un module *Évaluer le modèle*, vous pouvez également attacher la sortie du service web pour obtenir les résultats d’évaluation en tant que sortie.
 
 Pour mettre à jour votre expérience de formation :
 
 1. Connectez un module d’*Entrée du service web* à votre entrée de données (par exemple, un module *Nettoyer les données manquantes*). En règle générale, vous souhaitez vous assurer que vos données d’entrée sont traitées de la même manière que vos données de formation d’origine.
-2. Connectez un module de *Sortie du service web* à la sortie de votre module *Entraîner le modèle*.
+2. Connectez un module de *Sortie du service web* à la sortie de votre module *Former le modèle*.
 3. Si vous avez un module *Évaluer le modèle* et souhaitez sortir les résultats d’évaluation, connectez un module de *Sortie du service web* à la sortie de votre module *Évaluer le modèle*.
 
 Exécutez votre expérience.
 
-Ensuite, vous devez déployer l’expérience d’entraînement en tant que service web qui produit un modèle entraîné et les résultats d’évaluation du modèle.
+Ensuite, vous devez déployer l’expérience de formation en tant que service web qui produit un modèle formé et les résultats d’évaluation du modèle.
 
-En bas du canevas de l’expérience, cliquez sur **Configurer le service web**, puis sélectionnez **Déployer le service web [nouveau]**. Le portail des services web Azure Machine Learning s’ouvre sur la page **Déployer le service web**. Tapez un nom pour votre service web, choisissez un plan de paiement, puis cliquez sur **Déployer**. Vous pouvez utiliser la méthode Exécution par lot uniquement pour créer des modèles entraînés.
+En bas du canevas de l’expérience, cliquez sur **Configurer le service web**, puis sélectionnez **Déployer le service web [nouveau]**. Le portail des services web Azure Machine Learning s’ouvre sur la page **Déployer le service web**. Tapez un nom pour votre service web, choisissez un plan de paiement, puis cliquez sur **Déployer**. Vous pouvez utiliser la méthode Exécution par lot uniquement pour créer des modèles formés.
 
-## <a name="retrain-the-model-with-new-data-by-using-bes"></a>Réentraîner le modèle avec les nouvelles données en utilisant le BES
-Pour cet exemple, nous utilisons le langage C# pour créer l’application de réentraînement. Pour accomplir cette tâche, vous pouvez également utiliser un code Python ou R.
+## <a name="retrain-the-model-with-new-data-by-using-bes"></a>Reformer le modèle avec les nouvelles données en utilisant le BES
+Pour cet exemple, nous utilisons le langage C# pour créer l’application de reformation. Pour accomplir cette tâche, vous pouvez également utiliser un code Python ou R.
 
-Pour appeler les API de réentraînement :
+Pour appeler les API de reformation :
 
-1. Créez une application console en C# dans Visual Studio : **Nouveau** > **Projet** > **Visual C#** > **Bureau classique Windows** > **Application console (.NET Framework)**.
+1. Créez une application console C# dans Visual Studio : **Nouveau** > **Projet** > **Visual C#** > **Bureau classique Windows** > **Console App (.NET Framework)**.
 2. Connectez-vous au portail des services web Azure Machine Learning.
 3. Cliquez sur le service web que vous utilisez.
 4. Cliquez sur **Consommer**.
@@ -95,7 +95,7 @@ Après que vous avez exécuté cette procédure, le flux de travail obtenu doit 
 
 1. Connectez-vous au portail Azure.
 2. Dans la colonne de navigation de gauche, cliquez sur **Autres services**, recherchez **Comptes de stockage** et sélectionnez-le.
-3. Dans la liste des comptes de stockage, sélectionnez-en un pour stocker le modèle réentraîné.
+3. Dans la liste des comptes de stockage, sélectionnez-en un pour stocker le modèle reformé.
 4. Dans la colonne de navigation de gauche, cliquez sur **Clés d’accès**.
 5. Copiez et enregistrez la **Clé d’accès primaire**.
 6. Dans la colonne de navigation de gauche, cliquez sur **Conteneurs**.
@@ -122,21 +122,21 @@ Lorsque vous spécifiez l’emplacement de sortie dans la Charge utile des deman
             }
         },
 
-Voici un exemple de sortie de réentraînement :
+Voici un exemple de sortie de reformation :
 
-![Sortie du réentraînement.][6]
+![Sortie du nouvel apprentissage.][6]
 
-## <a name="evaluate-the-retraining-results"></a>Évaluer les résultats de réentraînement
+## <a name="evaluate-the-retraining-results"></a>Évaluer les résultats de la reformation
 Lorsque vous exécutez l’application, la sortie inclut l’URL et le jeton de signature d’accès partagé (SAP) nécessaires pour accéder aux résultats de l’évaluation.
 
-Vous pouvez consulter les résultats des performances du modèle réentraîné en combinant les éléments *BaseLocation*, *RelativeLocation* et *SasBlobToken* dans les résultats de sortie de *output2* (comme le montre l’image de sortie de réentraînement précédente), puis en collant l’URL complète dans la barre d’adresses du navigateur.
+Vous pouvez consulter les résultats des performances du modèle reformé en combinant les éléments *BaseLocation*, *RelativeLocation* et *SasBlobToken* dans les résultats de sortie de *output2* (comme le montre l’image de sortie de reformation précédente), puis en collant l’URL complète dans la barre d’adresses du navigateur.
 
 Examinez les résultats pour déterminer si le modèle de nouveau entraîné est suffisamment performant pour remplacer le modèle existant.
 
 Copiez les éléments *BaseLocation*, *RelativeLocation* et *SasBlobToken* des résultats de sortie.
 
-## <a name="retrain-the-web-service"></a>Réentraîner le service web
-Lorsque vous réentraînez un nouveau service web, vous mettez à jour la définition de service web prédictif pour référencer le nouveau modèle entraîné. La définition du service web est une représentation interne du modèle entraîné du service web, qui n’est pas directement modifiable. Vérifiez que vous récupérez la définition du service web pour votre expérience prédictive et non pour votre expérience d’entraînement.
+## <a name="retrain-the-web-service"></a>Reformer le service web
+Lorsque vous reformez un nouveau service web, vous mettez à jour la définition de service web prédictif pour référencer le nouveau modèle formé. La définition du service web est une représentation interne du modèle formé du service web, qui n’est pas directement modifiable. Vérifiez que vous récupérez la définition du service web pour votre expérience prédictive et non pour votre expérience de formation.
 
 ## <a name="sign-in-to-azure-resource-manager"></a>Se connecter à Azure Resource Manager
 Vous devez d’abord vous connecter à votre compte Azure dans l’environnement PowerShell à l’aide de l’applet de commande [Add-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
@@ -161,12 +161,12 @@ Pour déterminer le nom du groupe de ressources d’un service web existant, vou
 
 
 ## <a name="export-the-web-service-definition-object-as-json"></a>Exporter l’objet Définition du service web en tant que JSON
-Pour modifier la définition du modèle entraîné de manière à utiliser le modèle nouvellement entraîné, vous devez d’abord utiliser l’applet de commande [Export-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice) pour l’exporter vers un fichier au format JSON.
+Pour modifier la définition du modèle formé de manière à utiliser le modèle nouvellement formé, vous devez d’abord utiliser l’applet de commande [Export-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice) pour l’exporter vers un fichier au format JSON.
 
     Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
 ## <a name="update-the-reference-to-the-ilearner-blob"></a>Mettre à jour la référence à l’objet blob ilearner
-Dans les ressources, recherchez le [modèle entraîné], mettez à jour la valeur *uri* dans le nœud *locationInfo* avec l’URI de l’objet blob ilearner. L’URI est générée en combinant les valeurs *BaseLocation* et *RelativeLocation* de la sortie de l’appel de reformation BES.
+Dans les ressources, recherchez le [modèle formé], mettez à jour la valeur *uri* dans le nœud *locationInfo* avec l’URI de l’objet blob ilearner. L’URI est générée en combinant les valeurs *BaseLocation* et *RelativeLocation* de la sortie de l’appel de reformation BES.
 
      "asset3": {
         "name": "Retrain Sample [trained model]",

@@ -1,20 +1,19 @@
 ---
-title: Utilisation de la bibliothèque Java de l’exécuteur en bloc pour effectuer des importations et mises à jour en bloc dans Azure Cosmos DB | Microsoft Docs
+title: Utilisation de la bibliothèque Java de l’exécuteur en bloc pour effectuer des importations et mises à jour en bloc dans Azure Cosmos DB
 description: Découvrez comment importer et mettre à jour en bloc des documents dans Azure Cosmos DB à l’aide de la bibliothèque Java de l’exécuteur en bloc.
 services: cosmos-db
 author: tknandu
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 44477f77547c9373bd4a3394c80e217d419bc8e0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e91984281350e9ea0a5f3411c39d29dfd6420529
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420045"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080909"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utiliser la bibliothèque Java de l’exécuteur en bloc pour effectuer des opérations en bloc sur les données Azure Cosmos DB
 
@@ -33,7 +32,7 @@ Actuellement, la bibliothèque de l’exécuteur en bloc est prise en charge uni
 
   - Veillez à définir la variable d’environnement JAVA_HOME pour qu’elle pointe vers le dossier dans lequel le JDK est installé.
 
-* [Téléchargement](http://maven.apache.org/download.cgi) et [installation](http://maven.apache.org/install.html) d’une archive binaire [Maven](http://maven.apache.org/)  
+* [Téléchargement](https://maven.apache.org/download.cgi) et [installation](https://maven.apache.org/install.html) d’une archive binaire [Maven](https://maven.apache.org/)  
   
   - Sur Ubuntu, vous pouvez exécuter `apt-get install maven` pour installer Maven.
 

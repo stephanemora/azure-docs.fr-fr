@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b63f2566220d556f9695687dc743a7d47e27acf1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ebb1e3614309f92fc21442100a13c53291b3acbb
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984311"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407285"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Synchroniser des utilisateurs Azure Active Directory vers un cluster HDInsight
 
@@ -40,11 +40,11 @@ Pour afficher vos hôtes, ouvrez l’interface utilisateur web d’Ambari. Chaqu
 
 4. Sélectionnez **Créer**.
 
-## <a name="use-the-ambari-rest-api-to-synchronize-users"></a>Utiliser l’API REST Ambari pour synchroniser les utilisateurs
+## <a name="use-the-apache-ambari-rest-api-to-synchronize-users"></a>Utiliser l’API REST Apache Ambari pour synchroniser les utilisateurs
 
 Les groupes d’utilisateurs spécifiés pendant le processus de création de cluster sont synchronisés à ce moment-là. La synchronisation des utilisateurs a lieu automatiquement toutes les heures. Pour synchroniser immédiatement les utilisateurs, ou pour synchroniser un groupe n’ayant pas été spécifié lors de la création du cluster, utilisez l’API REST Ambari.
 
-La méthode suivante utilise POST avec l’API REST Ambari. Pour plus d’informations, consultez [Gérer des clusters HDInsight à l’aide de l’API REST d’Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
+La méthode suivante utilise POST avec l’API REST Ambari. Pour plus d’informations, consultez [Gérer des clusters HDInsight à l’aide de l’API REST d’Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 1. [Connectez-vous à votre cluster avec SSH](hdinsight-hadoop-linux-use-ssh-unix.md). Dans le volet de vue d’ensemble de votre cluster dans le portail Azure, sélectionnez le bouton **Secure Shell (SSH)**.
 
@@ -123,12 +123,12 @@ La méthode suivante utilise POST avec l’API REST Ambari. Pour plus d’inform
 
 5. Ce résultat montre que l’état est **COMPLETE**, qu’un nouvel utilisateur a été créé et qu’une appartenance lui a été attribuée. Dans cet exemple, l’utilisateur est affecté au groupe LDAP synchronisé « HiveUsers », car il a été ajouté à ce même groupe dans Azure AD.
 
-> [!NOTE]
+> [!NOTE]  
 > La méthode précédente synchronise uniquement les groupes Azure AD spécifiés dans la propriété **Accéder au groupe d’utilisateurs** des paramètres de domaine durant la création du cluster. Pour plus d’informations, consultez [Créer un cluster HDInsight](domain-joined/apache-domain-joined-configure.md).
 
 ## <a name="verify-the-newly-added-azure-ad-user"></a>Vérifier l’utilisateur Azure AD récemment ajouté
 
-Ouvrez [l’interface utilisateur web d’Ambari](hdinsight-hadoop-manage-ambari.md) pour vérifier que le nouvel utilisateur Azure AD a été ajouté. Accédez à l’interface utilisateur web d’Ambari en naviguant jusqu’à **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Entrez le nom d’utilisateur et le mot de passe de l’administrateur de cluster.
+Ouvrez [l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md) pour vérifier que le nouvel utilisateur Azure AD a été ajouté. Accédez à l’interface utilisateur web d’Ambari en naviguant jusqu’à **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Entrez le nom d’utilisateur et le mot de passe de l’administrateur de cluster.
 
 1. Dans le tableau de bord Ambari, sélectionnez **Manage Ambari** (Gérer Ambari) sous le menu **admin**.
 
@@ -148,6 +148,6 @@ Quand le nouvel utilisateur (ou tout autre utilisateur du domaine) se connecte �
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Configurer des stratégies Hive dans HDInsight avec le Pack Sécurité Entreprise activé](hdinsight-domain-joined-run-hive.md)
-* [Gérer des clusters HDInsight avec le Pack Sécurité Entreprise activé](hdinsight-domain-joined-manage.md)
-* [Autoriser les utilisateurs à accéder à Ambari](hdinsight-authorize-users-to-ambari.md)
+* [Configurer des stratégies Apache Hive dans HDInsight avec le Pack Sécurité Entreprise](hdinsight-domain-joined-run-hive.md)
+* [Gérer des clusters HDInsight avec ESP](hdinsight-domain-joined-manage.md)
+* [Autoriser les utilisateurs à accéder à Apache Ambari](hdinsight-authorize-users-to-ambari.md)

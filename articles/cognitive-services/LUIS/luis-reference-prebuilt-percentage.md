@@ -1,23 +1,24 @@
 ---
-title: Documentation de référence pour l’entité prédéfinie percentage de LUIS - Azure | Microsoft Docs
+title: Entité prédéfinie percentage
 titleSuffix: Azure
 description: Cet article contient des informations sur l’entité prédéfinie percentage dans Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 876ee710491213f17c12d3b6ddd0339bb2043657
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 9b9faaae78cd1e3590291aef68db47f57f050f3d
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334905"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165688"
 ---
-# <a name="percentage-entity"></a>Entité percentage
+# <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie percentage pour une application LUIS
 Les valeurs de pourcentage peuvent apparaître sous la forme de fractions (`3 1/2`) ou de pour cent (`2%`). Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant un pourcentage aux intentions de l’application. L’entité percentage est prise en charge dans de [nombreuses cultures](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-percentage"></a>Types d’entités percentage
@@ -26,7 +27,7 @@ L’entité percentage est gérée à partir du dépôt GitHub [Recognizers-text
 ## <a name="resolution-for-prebuilt-percentage-entity"></a>Résolution pour une entité prédéfinie percentage
 L’exemple suivant montre la résolution de l’entité **builtin.percentage**.
 
-```JSON
+```json
 {
   "query": "set a trigger when my stock goes up 2%",
   "topScoringIntent": {

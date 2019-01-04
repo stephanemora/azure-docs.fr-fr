@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: barclayn
-ms.openlocfilehash: d0be0cbd9ff16acc1ecb209997a0c87cd4e43b36
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: bb4ef826ed29187209b28c349445ca0eb5ffe9bb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955088"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864895"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Prise en main du coffre de clés Azure
 Cet article vous aide à prendre en main Azure Key Vault avec PowerShell et vous explique en détail :
@@ -36,7 +36,7 @@ Avant de continuer, vérifiez que vous avez :
 
 - **Un abonnement Azure**. Si vous n’en possédez pas, vous pouvez vous inscrire pour créer dès aujourd’hui un [compte gratuit](https://azure.microsoft.com/free/).
 - **Azure PowerShell** **version 1.1.0 ou ultérieure**. Pour installer Azure PowerShell et l’associer à votre abonnement Azure, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). Si vous avez déjà installé Azure PowerShell et que vous ne connaissez pas la version que vous utilisez, à partir de la console Azure PowerShell, entrez `(Get-Module azure -ListAvailable).Version`. Si vous utilisez Azure PowerShell version 0.9.1 à 0.9.8, vous pouvez toujours utiliser ce didacticiel en y apportant quelques changements mineurs. Par exemple, vous devez utiliser la commande `Switch-AzureMode AzureResourceManager` ; certaines commandes Azure Key Vault ont également changé. Pour obtenir la liste des applets de commande Azure Key Vault pour les versions 0.9.1 à 0.9.8, consultez la page [Applets de commande Azure Key Vault](/powershell/module/azurerm.keyvault/#key_vault).
-- **Une application qui peut être configurée pour utiliser Key Vault**. Un exemple d’application est disponible dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Pour obtenir des instructions, consultez le fichier **Lisez-moi** fourni.
+- **Une application qui peut être configurée pour utiliser Key Vault**. Un exemple d’application est disponible dans le [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=45343). Pour obtenir des instructions, consultez le fichier **Lisez-moi** fourni.
 
 >[!NOTE]
 Cet article suppose une connaissance élémentaire de PowerShell et d’Azure. Pour plus d’informations sur PowerShell, consultez [Prise en main de Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
@@ -193,7 +193,7 @@ Pour afficher l’URI de ce secret, tapez :
 ```powershell
 $secret.Id
 ```
-Pour afficher votre secret, tapez : `Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'`. Vous pouvez également le secret dans le portail.
+Pour afficher votre secret, tapez : `Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'`. Vous pouvez également afficher le secret dans le portail.
 
 ![secret](./media/key-vault-get-started/secret-value.png)
 
@@ -222,14 +222,14 @@ Pour inscrire votre application auprès d’Azure Active Directory :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. À gauche de l’écran, cliquez sur **Inscriptions d’applications**. Si vous ne trouvez pas l’option Inscriptions d’applications, cliquez sur **Autres services**.  
->[!NOTE]
-Vous devez sélectionner le répertoire qui contient l’abonnement Azure avec lequel vous avez créé votre coffre de clés. 
+    > [!NOTE]
+    > Vous devez sélectionner le répertoire qui contient l’abonnement Azure avec lequel vous avez créé votre coffre de clés. 
 3. Cliquez sur **Nouvelle inscription d’application**.
 4. Dans le panneau **Créez**, renseignez un nom pour votre application, sélectionnez **APPLICATION WEB ET/OU API WEB** (option par défaut), puis spécifiez **l’URL DE CONNEXION** de votre application web. Si vous ne disposez pas de cette information, vous pouvez utiliser une URL factice pour cette étape (par exemple, vous pouvez spécifier http://test1.contoso.com). Peu importe si ces sites existent. 
 
     ![Nouvelle inscription d’application](./media/key-vault-get-started/new-application-registration.png)
-    >[!WARNING]
-    Assurez-vous que vous avez sélectionné **APPLICATION WEB ET/OU API WEB**. Si ce n’est pas le cas, l’option **Clés** n’apparaîtra pas dans les paramètres.
+    > [!WARNING]
+    > Assurez-vous que vous avez sélectionné **APPLICATION WEB ET/OU API WEB**. Si ce n’est pas le cas, l’option **Clés** n’apparaîtra pas dans les paramètres.
 
 5. Cliquez sur le bouton **Créer**.
 6. Une fois l’inscription de l’application terminée, la liste des applications inscrites s’affiche. Recherchez l’application que vous avez inscrite et cliquez dessus.
@@ -312,11 +312,11 @@ Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 ## <a id="other"></a>Autres applets de commande Azure PowerShell
 Autres commandes pouvant être utiles pour la gestion du coffre de clés Azure.
 
-- `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: cette commande permet d’obtenir un affichage sous forme de tableau de l’ensemble des clés et propriétés sélectionnées.
+- `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: cette commande permet d’obtenir un affichage sous forme de tableau de l’ensemble des clés et des propriétés sélectionnées.
 - `$Keys[0]`: cette commande affiche la liste complète des propriétés pour la clé spécifiée
-- `Get-AzureKeyVaultSecret`: cette commande permet d’obtenir un affichage sous forme de tableau de l’ensemble des secrets et des propriétés sélectionnés.
-- `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'` : exemple montrant comment supprimer une clé spécifique.
-- `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'` : exemple montrant comment supprimer un secret spécifique.
+- `Get-AzureKeyVaultSecret`: cette commande permet d’obtenir un affichage sous forme de tableau de l’ensemble des noms des secrets et des propriétés sélectionnées.
+- `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: exemple montrant comment supprimer une clé spécifique.
+- `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`: exemple montrant comment supprimer un secret spécifique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

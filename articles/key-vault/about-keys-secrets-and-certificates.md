@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 00a2c0d50a2476995dfb0d16d0cdbc5bd0ec313b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 6d158f14afa305dd547392722abb5f81380de31f
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138986"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384783"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Présentation des clés, des secrets et des certificats
 
 Azure Key Vault permet aux utilisateurs et aux applications Microsoft Azure de stocker et d’utiliser plusieurs types de données de secret/clé :
 
-- Clés de chiffrement : prennent en charge plusieurs types de clés et algorithmes, et permettent d’utiliser des modules de sécurité matériels (HSM) pour les clés de valeur supérieure. 
-- Secrets : offrent un stockage sécurisé des secrets, tels que les mots de passe et les chaînes de connexion de base de données.
-- Certificats : prennent en charge les certificats, qui sont basés sur des clés et des secrets, et offrent une fonctionnalité de renouvellement automatique.
-- Stockage Azure : peut gérer les clés d’un compte Stockage Azure pour vous. En interne, Key Vault peut lister (synchroniser) les clés avec un compte Stockage Azure et regénérer (faire tourner) régulièrement les clés. 
+- Clés de chiffrement : Prend en charge plusieurs types de clés et algorithmes, et permet d’utiliser des modules de sécurité matériels (HSM) pour les clés ayant une valeur importante. 
+- Secrets : Fournit un stockage sécurisé des secrets, comme les mots de passe et les chaînes de connexion de base de données.
+- Certificats : Prend en charge les certificats, qui sont basés sur des clés et des secrets, et ajoute une fonctionnalité de renouvellement automatique.
+- Stockage Azure : Peut gérer pour vous les clés d’un compte Stockage Azure. En interne, Key Vault peut lister (synchroniser) les clés avec un compte Stockage Azure et regénérer (faire tourner) régulièrement les clés. 
 
 Pour plus d’informations générales sur Key Vault, consultez [Présentation d’Azure Key Vault](/azure/key-vault/key-vault-whatis).
 
@@ -89,23 +89,23 @@ Où :
 
 Les clés de chiffrement dans Key Vault sont représentées en tant qu’objets de clé web JSON [JWK]. Les spécifications JWK/JWA de base sont également étendues pour rendre les types de clés uniques lors de l’implémentation du coffre de clés. Par exemple, l’importation de clés avec l’empaquetage spécifique au fournisseur HSM permet de sécuriser le transport des clés susceptibles d’être utilisées uniquement dans les modules HSM Key Vault.  
 
-- **Clés « logicielles »** :clé traitée dans le logiciel par Key Vault, mais qui est chiffrée au repos à l’aide d’une clé système qui se trouve dans un HSM. Les clients peuvent importer une clé RSA ou EC (Elliptic Curve) existante ou demander à Key Vault d’en générer une.
-- **clés « matérielles »** : clé traitée dans un module HSM (Hardware Security Module). Ces clés sont protégées dans un des mondes de sécurité HSM Key Vault (il existe un monde de sécurité par emplacement géographique afin de garantir l’isolation). Les clients peuvent importer une clé RSA ou EC, sous forme logicielle ou en exportant depuis un appareil HSM compatible. Les clients peuvent également demander à Key Vault de générer une clé. Ce type de clé ajoute l’attribut T à la JWK pour le transport du matériel de clé HSM.
+- **Clés « logicielles »**  : clé traitée dans le logiciel par Key Vault, mais qui est chiffrée au repos avec une clé système qui se trouve dans un HSM. Les clients peuvent importer une clé RSA ou EC (Elliptic Curve) existante ou demander à Key Vault d’en générer une.
+- **Clés « matérielles »**  : clé traitée dans un module de sécurité matériel (HSM). Ces clés sont protégées dans un des mondes de sécurité HSM Key Vault (il existe un monde de sécurité par emplacement géographique afin de garantir l’isolation). Les clients peuvent importer une clé RSA ou EC, sous forme logicielle ou en exportant depuis un appareil HSM compatible. Les clients peuvent également demander à Key Vault de générer une clé. Ce type de clé ajoute l’attribut T à la JWK pour le transport du matériel de clé HSM.
 
      Pour plus d’informations sur les frontières géographiques, consultez [Centre de gestion de la confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)  
 
 Key Vault prend en charge les clés RSA et Elliptic Curve uniquement. 
 
--   **EC** : clé « logicielle »à courbe elliptique.
--   **EC** : clé « matérielle » à courbe elliptique.
--   **RSA** : clé « logicielle » RSA.
--   **RSA-HSM** : clé « matérielle » RSA.
+-   **EC** : clé « logicielle » à courbe elliptique.
+-   **EC-HSM** : clé « matérielle » à courbe elliptique.
+-   **RSA** : clé « logicielle » RSA.
+-   **RSA-HSM** : clé « matérielle » RSA.
 
 Key Vault prend en charge les clés RSA de taille 2 048, 3 072 et 4 096. Key Vault prend en charge les clés Elliptic Curve de type P-256, P-384, P-521 et P-256K (SECP256K1).
 
 ### <a name="cryptographic-protection"></a>Protection par chiffrement
 
-Les modules de chiffrement qu’utilise Key Vault, HSM ou logiciel, sont conformes aux standards FIPS (Federal Information Processing Standards). Aucune action spéciale ne doit être effectuée pour l’exécution en mode FIPS. Les clés **créées** ou **importées** comme clés protégées par HSM sont traitées dans un module HSM et sont conformes à FIPS 140-2 niveau 2 ou supérieur. Les clés **créées** ou **importées** comme clés protégées par logiciel sont traitées dans des module de chiffrement et sont conformes à FIPS 140-2 niveau 1 ou supérieur. Pour plus d’informations, consultez [Clés et types de clés](#keys-and-key-types).
+Les modules de chiffrement qu’utilise Key Vault, HSM ou logiciel, sont conformes aux standards FIPS (Federal Information Processing Standards). Aucune action spéciale ne doit être effectuée pour l’exécution en mode FIPS. Les clés **créées** ou **importées** comme clés protégées par HSM sont traitées dans un module HSM, et sont conformes à FIPS 140-2 niveau 2. Les clés **créées** ou **importées** comme clés protégées par logiciel sont traitées dans des module de chiffrement conformes à FIPS 140-2 niveau 1. Pour plus d’informations, consultez [Clés et types de clés](#keys-and-key-types).
 
 ###  <a name="ec-algorithms"></a>Algorithmes EC
  Les identificateurs d’algorithme suivants sont pris en charge avec les clés EC et EC-HSM dans Key Vault. 
@@ -113,7 +113,7 @@ Les modules de chiffrement qu’utilise Key Vault, HSM ou logiciel, sont conform
 #### <a name="curve-types"></a>Types de courbe
 
 -   **P-256** - La courbe NIST P-256, définie sur [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
--   **P-256K** - La courbe SEC SECP256K1, définie sur [SEC 2: Recommended Elliptic Curve Domain Parameters](http://www.secg.org/sec2-v2.pdf) (SEC 2 : paramètres de domaine Elliptic Curve recommandés).
+-   **P-256_K** : courbe SEC SECP256K1, définie dans [SEC 2: Recommended Elliptic Curve Domain Parameters](http://www.secg.org/sec2-v2.pdf).
 -   **P-384** - La courbe NIST P-384, définie sur [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 -   **P-521** - La courbe NIST P-521, définie sur [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 
@@ -143,23 +143,23 @@ Les modules de chiffrement qu’utilise Key Vault, HSM ou logiciel, sont conform
 
 Key Vault prend en charge les opérations sur les objets de clés suivantes :  
 
--   **Create** : permet à un client de créer une clé dans un coffre de clés. La valeur de la clé est générée par le coffre de clés et stockée, mais n’est pas communiquée au client. Les clés asymétriques peuvent être créées dans un coffre de clés.  
--   **Import** : permet à un client d’importer une clé existante dans un coffre de clés. Des clés asymétriques peuvent être importées dans un coffre de clés selon diverses méthodes d’empaquetage dans un construct JWK. 
--   **Update** : permet à un client disposant d’autorisations suffisantes de modifier les métadonnées (attributs de clé) associées à une clé précédemment stockée dans un coffre de clés.  
--   **Delete** : permet à un client disposant d’autorisations suffisantes de supprimer une clé du coffre de clés.  
--   **List** : permet à un client de lister toutes les clés d’un coffre de clés donné.  
--   **List versions** : permet à un client de lister toutes les versions d’une clé donnée dans un coffre de clés donné.  
--   **Get** : permet à un client de récupérer les parties publiques d’une clé donnée dans un coffre de clés.  
--   **Backup** : permet d’exporter une clé sous une forme protégée.  
--   **Restore** : permet d’importer une clé précédemment sauvegardée.  
+-   **Créer** : permet à un client de créer une clé dans Key Vault. La valeur de la clé est générée par le coffre de clés et stockée, mais n’est pas communiquée au client. Les clés asymétriques peuvent être créées dans un coffre de clés.  
+-   **Importer** : permet à un client d’importer une clé existante dans Key Vault. Des clés asymétriques peuvent être importées dans un coffre de clés selon diverses méthodes d’empaquetage dans un construct JWK. 
+-   **Mettre à jour** : permet à un client disposant des autorisations suffisantes de modifier les métadonnées (attributs de clé) associées à une clé précédemment stockée dans Key Vault.  
+-   **Supprimer** : permet à un client disposant des autorisations suffisantes de supprimer une clé dans Key Vault.  
+-   **Lister** : permet à un client de lister toutes les clés d’un coffre de clés donné.  
+-   **Lister les versions** : permet à un client de lister toutes les versions d’une clé donnée dans un coffre de clés donné.  
+-   **Obtenir** : permet à un client de récupérer les parties publiques d’une clé donnée dans un coffre de clés.  
+-   **Sauvegarder** : permet d’exporter une clé sous une forme protégée.  
+-   **Restaurer** : permet d’importer une clé précédemment sauvegardée.  
 
 Pour plus d’informations, voir [Informations de référence sur les opérations liées aux clés dans l’API REST Key Vault](/rest/api/keyvault).  
 
 Lorsqu’une clé a été créée dans un coffre de clés, les opérations de chiffrement suivantes peuvent être exécutées à l’aide de la clé :  
 
--   **Sign and Verify** : cette opération vise à « signer le hachage » ou à « vérifier le hachage », car Key Vault ne prend pas en charge le hachage du contenu lors la création de la signature. Les applications doivent hacher les données à signer localement puis demander à Key Vault de signer le hachage. La vérification des hachages signés est prise en charge par souci pratique pour les applications qui n’ont peut-être pas accès au matériel de clé [publique]. Pour de meilleures performances des applications, vérifiez que les opérations sont effectuées localement.  
--   **Key Encryption / Wrapping**: une clé stockée dans Key Vault peut être utilisée pour protéger une autre clé, généralement une clé de chiffrement symétrique de contenu (CEK). Lorsque la clé dans Key Vault est asymétrique, le chiffrement de clé est utilisé. Par exemple, les opérations WRAPKEY/UNWRAPKEY et RSA-OAEP sont équivalentes à ENCRYPT/DECRYPT. Lorsque la clé dans Key Vault est symétrique, le wrapping de clé est utilisé. Par exemple, AES-KW. L’opération WRAPKEY est prise en charge par souci pratique pour les applications qui n’ont peut-être pas accès au matériel de clé [publique]. Pour de meilleures performances des applications, les opérations WRAPKEY doivent être effectuées localement.  
--   **Encrypt and Decrypt** : une clé stockée dans Key Vault peut être utilisée pour chiffrer ou déchiffrer un bloc de données. La taille du bloc est déterminée par le type de clé et l’algorithme de chiffrement sélectionné. L’opération Encrypt est fournie par souci pratique pour les applications qui n’ont peut-être pas accès au matériel de clé [publique]. Pour de meilleures performances des applications, les opérations de chiffrement doivent être effectuées localement.  
+-   **Signer et vérifier** : cette opération vise à « signer le hachage » ou à « vérifier le hachage », car Key Vault ne prend pas en charge le hachage du contenu lors la création de la signature. Les applications doivent hacher les données à signer localement puis demander à Key Vault de signer le hachage. La vérification des hachages signés est prise en charge par souci pratique pour les applications qui n’ont peut-être pas accès au matériel de clé [publique]. Pour de meilleures performances des applications, vérifiez que les opérations sont effectuées localement.  
+-   **Chiffrement / encapsulation de clé** : une clé stockée dans Key Vault peut être utilisée pour protéger une autre clé, généralement une clé de chiffrement symétrique de contenu (CEK). Lorsque la clé dans Key Vault est asymétrique, le chiffrement de clé est utilisé. Par exemple, les opérations WRAPKEY/UNWRAPKEY et RSA-OAEP sont équivalentes à ENCRYPT/DECRYPT. Lorsque la clé dans Key Vault est symétrique, le wrapping de clé est utilisé. Par exemple, AES-KW. L’opération WRAPKEY est prise en charge par souci pratique pour les applications qui n’ont peut-être pas accès au matériel de clé [publique]. Pour de meilleures performances des applications, les opérations WRAPKEY doivent être effectuées localement.  
+-   **Chiffrer et déchiffrer** : une clé stockée dans Key Vault peut être utilisée pour chiffrer ou déchiffrer un bloc de données. La taille du bloc est déterminée par le type de clé et l’algorithme de chiffrement sélectionné. L’opération Encrypt est fournie par souci pratique pour les applications qui n’ont peut-être pas accès au matériel de clé [publique]. Pour de meilleures performances des applications, les opérations de chiffrement doivent être effectuées localement.  
 
 Alors que les opérations WRAPKEY/UNWRAPKEY utilisant des clés asymétriques peuvent sembler superflues (car elles sont équivalentes à ENCRYPT/DECRYPT), l’utilisation d’opérations distinctes est importante. La distinction fournit une séparation de la sémantique et des autorisations de ces opérations, ainsi qu’une cohérence quand d’autres types de clés sont pris en charge par le service.  
 
@@ -174,13 +174,13 @@ Pour plus d’informations sur les objets JWK, consultez [Clé web JSON (JWK)](h
 Les attributs suivants peuvent être spécifiés en plus du matériel de clé. Dans une requête JSON, le mot clé attributes et les accolades, {}, sont requis même si aucun attribut n’est spécifié.  
 
 - *enabled* : booléen, facultatif, **true** par défaut. Spécifie si la clé est activée et peut être utilisée pour des opérations de chiffrement. L’attribut *enabled* est utilisé avec *nbf* et *exp*. Lorsqu’une opération se produit entre *nbf* et *exp*, elle n’est autorisée que si *enabled* est défini sur **true**. Les opérations en dehors de la fenêtre *nbf* / *exp* sont automatiquement interdites, à l’exception de certains types d’opérations dans des [conditions particulières](#date-time-controlled-operations).
-- *nbf* : IntDate, facultatif, « now » par défaut. L’attribut *nbf* (not before ou pas avant) identifie l’heure avant laquelle la clé NE DOIT PAS être utilisée pour des opérations de chiffrement, à l’exception de certains types d’opérations dans des [conditions particulières](#date-time-controlled-operations). Le traitement de l’attribut *nbf* requiert que la date/heure actuelle SOIT postérieure ou égale à la date/heure « not-before » (pas avant) indiquée dans l’attribut *nbf*. Key Vault PEUT prévoir une légère marge, normalement pas plus de quelques minutes, pour prendre en compte la variation d’horloge. Sa valeur DOIT être un nombre contenant une valeur IntDate.  
-- *exp* : IntDate, facultatif, « forever » par défaut. L’attribut *exp* (heure d’expiration) identifie l’heure à ou après laquelle la clé NE DOIT PAS être utilisée pour une opération de chiffrement, à l’exception de certains types d’opérations dans des [conditions particulières](#date-time-controlled-operations). Le traitement de l’attribut *exp* requiert que la date/heure actuelle SOIT antérieure à la date/heure d’expiration indiquée dans l’attribut *exp*. Key Vault PEUT prévoir une légère marge, normalement pas plus de quelques minutes, pour prendre en compte la variation d’horloge. Sa valeur DOIT être un nombre contenant une valeur IntDate.  
+- *nbf* : IntDate, facultatif, « now » par défaut. L’attribut *nbf* (not before ou pas avant) identifie l’heure avant laquelle la clé NE DOIT PAS être utilisée pour des opérations de chiffrement, à l’exception de certains types d’opérations dans des [conditions particulières](#date-time-controlled-operations). Le traitement de l’attribut *nbf* requiert que la date/heure actuelle SOIT postérieure ou égale à la date/heure « not-before » (pas avant) indiquée dans l’attribut *nbf*. Key Vault PEUT prévoir une légère marge, normalement pas plus de quelques minutes, pour prendre en compte la variation d’horloge. Sa valeur DOIT être un nombre contenant une valeur IntDate.  
+- *exp* : IntDate, facultatif, « forever » par défaut. L’attribut *exp* (heure d’expiration) identifie l’heure à ou après laquelle la clé NE DOIT PAS être utilisée pour une opération de chiffrement, à l’exception de certains types d’opérations dans des [conditions particulières](#date-time-controlled-operations). Le traitement de l’attribut *exp* requiert que la date/heure actuelle SOIT antérieure à la date/heure d’expiration indiquée dans l’attribut *exp*. Key Vault PEUT prévoir une légère marge, normalement pas plus de quelques minutes, pour prendre en compte la variation d’horloge. Sa valeur DOIT être un nombre contenant une valeur IntDate.  
 
 Des attributs supplémentaires en lecture seule sont inclus dans toute réponse contenant des attributs de clé :  
 
-- *created* : IntDate, facultatif. L’attribut *created* indique quand cette version de la clé a été créée. La valeur est null pour les clés créées avant l’ajout de cet attribut. Sa valeur DOIT être un nombre contenant une valeur IntDate.  
-- *updated* : IntDate, facultatif. L’attribut *updated* indique quand cette version de la clé a été mise à jour. La valeur est null pour les clés qui ont été mises à jour pour la dernière fois avant l’ajout de cet attribut. Sa valeur DOIT être un nombre contenant une valeur IntDate.  
+- *created* : IntDate, facultatif. L’attribut *created* indique quand cette version de la clé a été créée. La valeur est null pour les clés créées avant l’ajout de cet attribut. Sa valeur DOIT être un nombre contenant une valeur IntDate.  
+- *updated* : IntDate, facultatif. L’attribut *updated* indique quand cette version de la clé a été mise à jour. La valeur est null pour les clés qui ont été mises à jour pour la dernière fois avant l’ajout de cet attribut. Sa valeur DOIT être un nombre contenant une valeur IntDate.  
 
 Pour plus d’informations sur IntDate et d’autres types de données, consultez [Types de données](#data-types)  
 
@@ -206,26 +206,26 @@ Le contrôle d’accès pour les clés géré par Key Vault est fourni au niveau
 Les autorisations suivantes peuvent être accordées, par utilisateur/principal du service, dans l’entrée du contrôle d’accès aux clés sur un coffre. Ces autorisations reflètent précisément les opérations autorisées sur un objet clé :  
 
 - Autorisations pour les opérations de gestion de clés
-  - *get* : lire la partie publique d’une clé, ainsi que ses attributs
-  - *list* : répertorier les clés ou les versions d’une clé stockée dans un coffre de clés
-  - *update* : mettre à jour les attributs d’une clé
-  - *create* : créer de nouvelles clés
-  - *import* : importer une clé dans un coffre de clés
-  - *delete* : supprimer l’objet clé
+  - *get* : lire la partie publique d’une clé, ainsi que ses attributs
+  - *list* : lister les clés ou les versions d’une clé stockée dans un coffre de clés
+  - *update* : mettre à jour les attributs d’une clé
+  - *create* : créer des clés
+  - *import* : importer une clé dans un coffre de clés
+  - *delete* : supprimer l’objet clé
   - *recover* : récupérer une clé supprimée
-  - *backup* : sauvegarder une clé dans un coffre de clés
-  - *restore* : restaurer une clé sauvegardée sur un coffre de clés
+  - *backup* : sauvegarder une clé dans un coffre de clés
+  - *restore* : restaurer une clé sauvegardée dans un coffre de clés
 
 - Autorisations pour les opérations de chiffrement
-  - *decrypt* : utiliser la clé pour annuler la protection d’une séquence d’octets
-  - *encrypt* : utiliser la clé pour protéger une séquence arbitraire d’octets
-  - *unwrapKey* : utiliser la clé pour supprimer la protection d’une clé symétrique
-  - *wrapKey* : utiliser la clé pour protéger une clé symétrique
-  - *verify* : utiliser la clé pour vérifier des synthèses  
-  - *sign* : utiliser la clé pour signer des synthèses
+  - *decrypt* : utiliser la clé pour déprotéger une séquence d’octets
+  - *encrypt* : utiliser la clé pour protéger une séquence arbitraire d’octets
+  - *unwrapKey* : utiliser la clé pour déprotéger des clés symétriques wrappées
+  - *wrapKey* : utiliser la clé pour protéger une clé symétrique
+  - *verify* : utiliser la clé pour vérifier des synthèses  
+  - *sign* : utiliser la clé pour signer des synthèses
     
 - Autorisations pour les opérations privilégiées
-  - *purge* : vider (supprimer définitivement) une clé supprimée
+  - *purge* : effacer (supprimer définitivement) une clé supprimée
 
 Pour plus d’informations sur l’utilisation des clés, consultez [Informations de référence sur les opérations de clé dans l’API REST Key Vault](/rest/api/keyvault). Pour plus d’informations sur l’établissement d’autorisations, consultez [Coffres : créer ou mettre à jour](/rest/api/keyvault/vaults/createorupdate) et [Coffres : mettre à jour la stratégie d’accès](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
@@ -243,14 +243,14 @@ Key Vault prend également en charge un champ contentType pour les secrets. Les 
 
 Les attributs suivants peuvent être spécifiés en plus des données du secret :  
 
-- *exp* : IntDate, facultatif, **forever** par défaut. L’attribut *exp* (heure d’expiration) identifie l’heure d’expiration à ou après laquelle les données du secret NE DOIVENT PAS être récupérées, sauf dans des [conditions particulières](#date-time-controlled-operations). Ce champ n’est fourni qu’à titre d’**information**, il informe uniquement les utilisateurs du service de coffre de clés qu’un secret particulier ne peut pas être utilisé. Sa valeur DOIT être un nombre contenant une valeur IntDate.   
-- *nbf* : IntDate, facultatif, **now** par défaut. L’attribut *nbf* (pas avant) identifie l’heure avant laquelle les données du secret NE DOIVENT PAS être récupérées, sauf dans des [conditions particulières](#date-time-controlled-operations). Ce champ est fourni à titre d’**information** uniquement. Sa valeur DOIT être un nombre contenant une valeur IntDate. 
+- *exp* : IntDate, facultatif, la valeur par défaut est **forever**. L’attribut *exp* (heure d’expiration) identifie l’heure d’expiration à ou après laquelle les données du secret NE DOIVENT PAS être récupérées, sauf dans des [conditions particulières](#date-time-controlled-operations). Ce champ n’est fourni qu’à titre d’**information**, il informe uniquement les utilisateurs du service de coffre de clés qu’un secret particulier ne peut pas être utilisé. Sa valeur DOIT être un nombre contenant une valeur IntDate.   
+- *nbf* : IntDate, facultatif, la valeur par défaut est **now**. L’attribut *nbf* (pas avant) identifie l’heure avant laquelle les données du secret NE DOIVENT PAS être récupérées, sauf dans des [conditions particulières](#date-time-controlled-operations). Ce champ est fourni à titre d’**information** uniquement. Sa valeur DOIT être un nombre contenant une valeur IntDate. 
 - *enabled* : booléen, facultatif, **true** par défaut. Cet attribut spécifie si les données du secret peuvent être récupérées. L’attribut enabled est utilisé avec *nbf* et *nbf* lorsqu’une opération se produit entre *nbf* et *exp*, elle ne sera autorisée que si enabled est défini sur **true**. Les opérations en dehors de la fenêtre *nbf* et *exp* sont automatiquement interdites, sauf dans des [conditions particulières](#date-time-controlled-operations).  
 
 Des attributs supplémentaires en lecture seule sont inclus dans toute réponse contenant des attributs de secret :  
 
-- *created* : IntDate, facultatif. L’attribut created indique quand cette version du secret a été créée. Cette valeur est null pour les secrets créés avant l’ajout de cet attribut. Sa valeur doit être un nombre contenant une valeur IntDate.  
-- *updated* : IntDate, facultatif. L’attribut updated indique quand cette version du secret a été mise à jour. Cette valeur est null pour les secrets qui ont été mis à jour pour la dernière fois avant l’ajout de cet attribut. Sa valeur doit être un nombre contenant une valeur IntDate.
+- *created* : IntDate, facultatif. L’attribut created indique quand cette version du secret a été créée. Cette valeur est null pour les secrets créés avant l’ajout de cet attribut. Sa valeur doit être un nombre contenant une valeur IntDate.  
+- *updated* : IntDate, facultatif. L’attribut updated indique quand cette version du secret a été mise à jour. Cette valeur est null pour les secrets qui ont été mis à jour pour la dernière fois avant l’ajout de cet attribut. Sa valeur doit être un nombre contenant une valeur IntDate.
 
 #### <a name="date-time-controlled-operations"></a>Opérations contrôlées par date/heure
 
@@ -265,16 +265,16 @@ Le contrôle d’accès pour les secrets géré dans Key Vault est fourni au niv
 Les autorisations suivantes peuvent être utilisées, par principal, dans l’entrée de contrôle d’accès aux secrets sur un coffre, et reflètent précisément les opérations autorisées sur un objet secret :  
 
 - Autorisations pour les opérations de gestion de secrets
-  - *get* : lire un secret  
-  - *list* : répertorier les secrets ou les versions d’un secret stocké dans un Key Vault  
-  - *set* : créer un secret  
+  - *get* : lire un secret  
+  - *list* : lister les secrets ou les versions d’un secret stockés dans un coffre de clés  
+  - *set* : Créer un secret  
   - *delete* : supprimer un secret  
   - *recover* : récupérer un secret supprimé
   - *backup* : sauvegarder un secret dans un coffre de clés
   - *restore* : restaurer un secret sauvegardé sur un coffre de clés
 
 - Autorisations pour les opérations privilégiées
-  - *purge* : vider (supprimer définitivement) un secret supprimé
+  - *purge* : effacer (supprimer définitivement) un secret supprimé
 
 Pour plus d’informations sur l’utilisation des secrets, voir [Informations de référence sur les opérations liées aux secrets dans l’API REST Key Vault](/rest/api/keyvault). Pour plus d’informations sur l’établissement d’autorisations, consultez [Coffres : créer ou mettre à jour](/rest/api/keyvault/vaults/createorupdate) et [Coffres : mettre à jour la stratégie d’accès](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
@@ -327,10 +327,10 @@ Un certificat Key Vault comprend les attributs suivants :
 
 Des attributs supplémentaires en lecture seule sont inclus dans la réponse :
 
--   *created* : InDate, indique quand cette version du certificat a été créée.  
--   *updated* : InDate, indique quand cette version du certificat a été mise à jour.  
--   *exp* : IntDate, contient la valeur de la date d’expiration du certificat x509.  
--   *nbf* : IntDate, contient la valeur de la date du certificat x509.  
+-   *created* : IntDate, indique quand cette version du certificat a été créée.  
+-   *updated* : IntDate, indique quand cette version du certificat a été mise à jour.  
+-   *exp* : IntDate, contient la valeur de la date d’expiration du certificat X.509.  
+-   *nbf* : IntDate, contient la valeur de la date du certificat X.509.  
 
 > [!Note] 
 > Si un certificat Key Vault expire, sa clé et son secret adressables ne sont plus utilisables.  
@@ -350,7 +350,7 @@ Quand un certificat Key Vault est créé de zéro, une stratégie doit être fou
 
 Globalement, une stratégie de certificat contient les informations suivantes :  
 
--   Propriétés des certificats X509 : contient le nom du sujet, les autres noms du sujet et d’autres propriétés utilisées pour créer une demande de certificat x509.  
+-   Propriétés du certificat X.509 : contient le nom du sujet, les autres noms du sujet et d’autres propriétés utilisées pour créer une demande de certificat X.509.  
 -   Propriétés des clés : contient les champs type de clé, longueur de clé, exportable et réutiliser la clé. Ces champs indiquent au coffre de clés comment générer une clé.  
 -   Propriétés du secret : propriétés du secret comme le type de contenu de secret adressable pour générer la valeur du secret, pour récupérer le certificat en tant que secret.  
 -   Actions de la durée de vie : actions de la durée de vie du certificat KV. Chaque action de la durée de vie contient :  
@@ -359,7 +359,7 @@ Globalement, une stratégie de certificat contient les informations suivantes :
 
      - Action : spécifie le type d’action, *emailContacts* ou *autoRenew*  
 
--   Émetteur : paramètres relatifs à l’émetteur de certificat à utiliser pour émettre des certificats x509.  
+-   Émetteur : paramètres relatifs à l’émetteur de certificat à utiliser pour émettre des certificats X.509.  
 -   Attributs de stratégie : attributs liés à la stratégie  
 
 #### <a name="x509-to-key-vault-usage-mapping"></a>Mappage d’utilisation de clé X509 avec Key Vault
@@ -398,7 +398,7 @@ Avant de pouvoir créer un émetteur de certificat dans un Key Vault, les étape
 
     -   Fournit la configuration à utiliser pour créer un objet émetteur du fournisseur dans le coffre de clés  
 
-Pour plus d’informations sur la création d’objets Émetteur à partir du portail Certificats, consultez le [blog de certificats Key Vault](http://aka.ms/kvcertsblog)  
+Pour plus d’informations sur la création d’objets Émetteur à partir du portail Certificats, consultez le [blog de certificats Key Vault](https://aka.ms/kvcertsblog)  
 
 Key Vault permet de créer plusieurs objets émetteurs avec une configuration de fournisseur de l’émetteur différente. Lorsqu’un objet émetteur est créé, son nom peut être référencé dans une ou plusieurs stratégies de certificat. Le référencement de l’objet émetteur indique à Key Vault d’utiliser la configuration telle que spécifiée dans l’objet émetteur lors de la demande du certificat x509 à partir du fournisseur d’autorité de certification lors de la création ou du renouvellement du certificat.  
 
@@ -422,16 +422,16 @@ Si la stratégie d’un certificat est définie sur le renouvellement automatiqu
  Les autorisations suivantes peuvent être utilisées, par principal, dans l’entrée de contrôle d’accès aux secrets sur un coffre de clés, et reflètent précisément les opérations autorisées sur un objet secret :  
 
 - Autorisations pour les opérations de gestion des certificats
-  - *get* : obtenir la version actuelle d’un certificat ou n’importe quelle version 
+  - *get* : obtenir la version actuelle ou n’importe quelle version d’un certificat 
   - *list* : lister les certificats actuels ou les versions d’un certificat  
   - *update* : mettre à jour un certificat
   - *create* : créer un certificat Key Vault
-  - *import* : importer du matériel de certificat dans un certificat Key Vault
+  - *import* : importer les éléments d’un certificat dans un certificat Key Vault
   - *delete* : supprimer un certificat, sa stratégie et toutes ses versions  
   - *recover* : récupérer un certificat supprimé
   - *backup* : sauvegarder un certificat dans un coffre de clés
   - *restore* : restaurer un certificat sauvegardé sur un coffre de clés
-  - *managecontacts* : gérer les contacts du certificat Key Vault  
+  - *managecontacts* : gérer les contacts du certificat Key Vault  
   - *manageissuers* : gérer les autorités/émetteurs du certificat Key Vault
   - *getissuers* : obtenir les autorités/émetteurs d’un certificat
   - *listissuers* : lister les autorités/émetteurs d’un certificat  
@@ -439,7 +439,7 @@ Si la stratégie d’un certificat est définie sur le renouvellement automatiqu
   - *deleteissuers* : supprimer les autorités/émetteurs d’un certificat Key Vault  
  
 - Autorisations pour les opérations privilégiées
-  - *purge* : vider (supprimer définitivement) un certificat supprimé
+  - *purge* : effacer (supprimer définitivement) un certificat supprimé
 
 Pour plus d’informations, voir [Informations de référence sur les opérations liées aux certificats dans l’API REST Key Vault](/rest/api/keyvault). Pour plus d’informations sur l’établissement d’autorisations, consultez [Coffres : créer ou mettre à jour](/rest/api/keyvault/vaults/createorupdate) et [Coffres : mettre à jour la stratégie d’accès](/rest/api/keyvault/vaults/updateaccesspolicy).
 
@@ -462,19 +462,19 @@ Vous pouvez utiliser les autorisations suivantes quand vous autorisez un utilisa
   - *get* : obtenir des informations sur un compte de stockage 
   - *list* : lister les comptes de stockage gérés par un coffre de clés
   - *update* : mettre à jour un compte de stockage
-  - *delete* : supprimer un compte de stockage  
+  - *delete* : Suppression d'un compte de stockage  
   - *recover* : récupérer un compte de stockage supprimé
   - *backup* : sauvegarder un compte de stockage
-  - *restore* : restaurer un compte de stockage sur un coffre de clés
+  - *restore* : restaurer un compte de stockage sauvegardé sur un coffre de clés
   - *set* : créer ou mettre à jour un compte de stockage
   - *regeneratekey* : regénérer une valeur de clé spécifiée pour un compte de stockage
-  - *getsas* : obtenir des informations sur une définition SAP pour un compte de stockage
-  - *listsas* : lister les définitions SAP de stockage d’un compte de stockage
-  - *deletesas* : supprimer une définition SAP d’un compte de stockage
-  - *setsas* : créer ou mettre à jour une nouvelle définition SAP/des attributs pour un compte de stockage
+  - *getsas* : obtenir des informations sur une définition SAS pour un compte de stockage
+  - *listsas* : lister les définitions SAS de stockage d’un compte de stockage
+  - *deletesas* : supprimer une définition SAS d’un compte de stockage
+  - *setsas* : créer ou mettre à jour une définition/des attributs SAS pour un compte de stockage
 
 - Autorisations pour les opérations privilégiées
-  - *purge* : vider (supprimer définitivement) un compte de stockage géré
+  - *purge* : effacer (supprimer définitivement) un compte de stockage géré
 
 Pour plus d’informations, consultez [Informations de référence sur les opérations de compte de stockage dans l’API REST Key Vault](/rest/api/keyvault). Pour plus d’informations sur l’établissement d’autorisations, consultez [Coffres : créer ou mettre à jour](/rest/api/keyvault/vaults/createorupdate) et [Coffres : mettre à jour la stratégie d’accès](/rest/api/keyvault/vaults/updateaccesspolicy).
 

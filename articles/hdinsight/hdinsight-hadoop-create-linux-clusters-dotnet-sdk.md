@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: 943d5aeccf949c1dd494dc8ec8fda0d782527749
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 06135ff77cb9c2a5b8fa2ae674206406469ed293
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035678"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870603"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Créer des clusters basés sur Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 
-Découvrez comment créer un cluster Apache Hadoop dans le cluster Azure HDInsight à l’aide du SDK .NET.
+Découvrez comment créer un cluster [Apache Hadoop](https://hadoop.apache.org/) dans le cluster Azure HDInsight avec le SDK .NET.
 
 > [!IMPORTANT]
 > Les étapes décrites dans ce document créent un cluster avec un nœud de travail. Si vous envisagez d’utiliser plus de 32 nœuds de travail au moment de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
@@ -192,7 +192,7 @@ Découvrez comment créer un cluster Apache Hadoop dans le cluster Azure HDInsig
 
 Bootstrap vous permet de configurer d'autres paramètres lors de la création d'un cluster.  Pour plus d’informations, consultez [Personnalisation de clusters HDInsight à l’aide de Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-Modifiez l’exemple de la rubrique [Créer des clusters](#create-clusters) pour configurer un paramètre Hive :
+Modifiez l’exemple de [Créer des clusters](#create-clusters) pour configurer un paramètre Apache Hive :
 
 ```csharp
 static void Main(string[] args)
@@ -372,29 +372,29 @@ Si vous rencontrez des problèmes lors de la création de clusters HDInsight, re
 ## <a name="next-steps"></a>Étapes suivantes
 Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez les rubriques ci-dessous. 
 
-### <a name="hadoop-clusters"></a>Clusters Hadoop
-* [Utilisation de Hive avec HDInsight](hadoop/hdinsight-use-hive.md)
-* [Utilisation de Pig avec HDInsight](hadoop/hdinsight-use-pig.md)
-* [Utilisation de MapReduce avec HDInsight](hadoop/hdinsight-use-mapreduce.md)
+### <a name="apache-hadoop-clusters"></a>Clusters Apache Hadoop
+* [Utilisation d’Apache Hive avec HDInsight](hadoop/hdinsight-use-hive.md)
+* [Utilisation d’Apache Pig avec HDInsight](hadoop/hdinsight-use-pig.md)
+* [Utiliser Apache Hadoop MapReduce avec HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
-### <a name="hbase-clusters"></a>Clusters HBase
-* [Prise en main de HBase sur HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Développement d’applications Java pour HBase sur HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
+### <a name="apache-hbase-clusters"></a>Clusters Apache HBase
+* [Bien démarrer avec Apache HBase sur HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Développer des applications Java pour Apache HBase sur HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
-### <a name="storm-clusters"></a>Clusters Storm
-* [Développement de topologies Java pour Storm sur HDInsight](storm/apache-storm-develop-java-topology.md)
-* [Utilisation de composants Python dans Storm sur HDInsight](storm/apache-storm-develop-python-topology.md)
-* [Déploiement et analyse des topologies avec Storm sur HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
+### <a name="apache-storm-clusters"></a>Clusters Apache Storm
+* [Développer des topologies Java pour Apache Storm sur HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Utiliser des composants Python dans Apache Storm sur HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Déploiement et analyse des topologies avec Apache Storm sur HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 
-### <a name="spark-clusters"></a>Clusters Spark
+### <a name="apache-spark-clusters"></a>Clusters Apache Spark
 * [Créer une application autonome avec Scala](spark/apache-spark-create-standalone-application.md)
-* [Exécution de travaux à distance avec Livy sur un cluster Spark](spark/apache-spark-livy-rest-interface.md)
-* [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](spark/apache-spark-use-bi-tools.md)
-* [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Exécuter des tâches à distance avec Apache Livy sur un cluster Apache Spark](spark/apache-spark-livy-rest-interface.md)
+* [Apache Spark avec BI : effectuer une analyse interactive des données avec Spark sur HDInsight avec des outils décisionnels](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour prédire les résultats de l’inspection d’aliments](spark/apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="run-jobs"></a>Exécuter des tâches
-* [Exécuter des tâches Hive dans HDInsight avec le Kit de développement logiciel (SDK) .NET](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [Exécuter des tâches Pig dans HDInsight avec le Kit de développement logiciel (SDK) .NET](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
-* [Exécuter des tâches Sqoop dans HDInsight avec le Kit de développement logiciel (SDK) .NET](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
-* [Exécuter des tâches Oozie dans HDInsight](hdinsight-use-oozie.md)
+* [Exécuter des tâches Apache Hive dans HDInsight avec le SDK .NET](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
+* [Exécuter des tâches Apache Pig dans HDInsight avec le SDK .NET](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
+* [Exécuter des tâches Apache Sqoop dans HDInsight avec le SDK .NET](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
+* [Exécuter des tâches Apache Oozie dans HDInsight](hdinsight-use-oozie.md)
 

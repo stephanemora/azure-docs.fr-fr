@@ -2,39 +2,45 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: 511b05e6cae769a5b39ae81a3e67efd05d374511
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 17c0213d63879687e9c6d5f8dca06b9113c44af8
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50132809"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742567"
 ---
-Si vous souhaitez uniquement activer l’inscription dans votre application, vous utilisez une stratégie **d’inscription**. Cette stratégie décrit les expériences clients lors de l’inscription, ainsi que le contenu des jetons que l’application reçoit en cas de réussite de l’opération.
+Si vous souhaitez uniquement activer l’inscription dans votre application, vous utilisez un flux utilisateur **d’inscription**. Ce flux utilisateur décrit les expériences clients lors de l’inscription, ainsi que le contenu des jetons que l’application reçoit en cas de réussite de l’opération.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Cliquez sur **Stratégies d'inscription**.
+Sous **Gérer**, sélectionnez **Flux utilisateurs**.
 
-Cliquez sur **+Ajouter** en haut du volet.
+Cliquez sur +**Nouveau flux utilisateur** en haut du panneau.
 
-Le **Nom** détermine le nom de la stratégie d'inscription utilisé par votre application. Par exemple, entrez **SiUp**.
+Sous **Sélectionner un type de flux utilisateur**, sélectionnez **Tous**, puis sélectionnez la version de **l’inscription** que vous souhaitez utiliser.
 
-Cliquez sur **Fournisseurs d’identité** et sélectionnez **Inscription par e-mail**. Si vous le souhaitez, vous pouvez également sélectionner des fournisseurs d'identité sociaux, s'ils sont déjà configurés. Cliquez sur **OK**.
+Le **Nom** détermine le nom du flux utilisateur d'inscription utilisé par votre application. Par exemple, entrez **SiUp**.
 
-Cliquez sur **Attributs d’inscription**. Ici, vous choisissez les attributs que vous souhaitez collecter auprès du client au cours de l’inscription. Par exemple, sélectionnez **Pays/région**, **Nom d’affichage** et **Code postal**. Cliquez sur **OK**.
+Sous **Fournisseurs d’identité**, sélectionnez **Inscription par e-mail**. Si vous le souhaitez, vous pouvez également sélectionner des fournisseurs d'identité sociaux, s'ils sont déjà configurés.
 
-Cliquez sur **Revendications d’application**. Ici, vous choisissez les revendications à renvoyer à votre application dans les jetons après une expérience d’inscription réussie. Par exemple, sélectionnez **Nom d’affichage**, **Fournisseur d’identité**, **Code postal**, **Nouvel utilisateur** et **ID d’objet de l’utilisateur**.
+Sous **Attributs utilisateur et revendications**, cliquez sur **Afficher plus**.
 
-Cliquez sur **Créer**. La stratégie créée s’affiche sous la forme **B2C_1_SiUp** (le fragment **B2C\_1\_** est automatiquement ajouté) dans le panneau **Stratégies d’inscription**.
+Dans la colonne **Collecter l'attribut**, choisissez les attributs que vous souhaitez collecter auprès du consommateur lors de l’inscription. Par exemple, sélectionnez **Pays/région**, **Nom d’affichage** et **Code postal**.
 
-Ouvrez la stratégie en cliquant sur **B2C_1_SiUp**.
+Dans la colonne **Revendication de retour**, choisissez les revendications à renvoyer à votre application dans les jetons après une expérience d’inscription réussie. Par exemple, sélectionnez **Nom d’affichage**, **Fournisseur d’identité**, **Code postal**, **Nouvel utilisateur** et **ID d’objet de l’utilisateur**.
 
-Sélectionnez **Contoso B2C app** dans le menu déroulant **Applications** et `https://localhost:44321/` dans le menu déroulant **URL de réponse/URI de redirection**.
+Cliquez sur **OK**.
 
-Cliquez sur **Exécuter maintenant**. Un nouvel onglet de navigateur s’ouvre et vous pouvez vivre l’expérience du client consistant à vous inscrire à votre application.
+Cliquez sur **Créer**. Le flux utilisateur créé s’affiche sous la forme **B2C_1_SiUp** (le fragment **B2C\_1\_** est automatiquement ajouté).
+
+Cliquez sur **Exécuter le flux utilisateur**.
+
+Sélectionnez **Contoso B2C app** dans le menu déroulant **Application** et `https://localhost:44321/` dans le menu déroulant **URL de réponse**.
+
+Cliquez sur **Exécuter le flux utilisateur**. Un nouvel onglet de navigateur s’ouvre et vous pouvez vivre l’expérience du client consistant à vous inscrire à votre application.
 
 > [!NOTE]
-> La création de la stratégie et les mises à jour peuvent prendre jusqu’à une minute.
+> La création du flux utilisateur et les mises à jour peuvent prendre jusqu’à une minute.
 >

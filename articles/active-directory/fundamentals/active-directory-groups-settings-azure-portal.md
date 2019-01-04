@@ -1,6 +1,6 @@
 ---
-title: Modifier les informations de votre groupe avec Azure Active Directory | Microsoft Docs
-description: Découvrez comment modifier les informations d’un groupe avec Azure Active Directory.
+title: Modifier les informations de votre groupe - Azure Active Directory | Microsoft Docs
+description: Instructions pour modifier les informations de votre groupe avec Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: a02987fdce3a15cd5d416234e3717df6d33622ec
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: b857b0bd56b479d4301535a4e1f734d8002dcc8e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731340"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099050"
 ---
-# <a name="how-to-edit-your-group-information-using-azure-active-directory"></a>Guide pour modifier les informations d’un groupe avec Azure Active Directory
+# <a name="edit-your-group-information-using-azure-active-directory"></a>Modifier les informations de votre groupe avec Azure Active Directory
 
-Avec Azure Active Directory, vous pouvez modifier les paramètres d’un groupe, y compris son nom, sa description ou son type d’appartenance.
+Avec Azure Active Directory (Azure AD), vous pouvez modifier les paramètres d’un groupe, y compris son nom, sa description ou son type d’appartenance.
 
 ## <a name="to-edit-your-group-settings"></a>Modifier vos paramètres de groupe
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) à l’aide d’un compte d’administrateur général pour l’annuaire.
@@ -50,7 +50,7 @@ Avec Azure Active Directory, vous pouvez modifier les paramètres d’un groupe,
 
     - **Type du groupe**. Vous ne pouvez pas changer le type du groupe après sa création. Pour changer le **Type du groupe**, vous devez le supprimer et en recréer un.
     
-    - **Type d’appartenance.** Changez le type d’appartenance. Pour en savoir plus sur les différents types d’appartenance disponibles, consulter [Guide pour créer un groupe de base et ajouter des membres avec le portail Azure Active Directory](active-directory-groups-create-azure-portal.md)
+    - **Type d’appartenance.** Changez le type d’appartenance. Pour plus d’informations sur les différents types d’appartenance disponibles, consultez le [Guide pratique pour créer un groupe de base et ajouter des membres avec Azure Active Directory](active-directory-groups-create-azure-portal.md).
     
     - **ID d’objet**. Vous ne pouvez pas changer l’ID d’objet, mais vous pouvez le copier pour vous en servir dans vos commandes PowerShell pour le groupe. Pour plus d’informations sur l’utilisation des cmdlets PowerShell, consultez [Configuration des paramètres de groupe avec les cmdlets Azure Active Directory](../users-groups-roles/groups-settings-v2-cmdlets.md).
 
@@ -67,6 +67,6 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 
 - [Gérer l’appartenance à un groupe](active-directory-groups-membership-azure-portal.md)
 
-- [Gérer l’accès aux ressources en utilisant des groupes](active-directory-manage-groups.md)
+- [Gérer l’accès aux ressources à l’aide des groupes](active-directory-manage-groups.md)
 
 - [Associer ou ajouter un abonnement Azure à Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

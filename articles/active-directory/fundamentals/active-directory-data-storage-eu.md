@@ -1,6 +1,6 @@
 ---
-title: Où Azure AD stocke les données d’identité pour les clients européens | Microsoft Docs
-description: Découvrez où Microsoft Azure Active Directory stocke les données relatives à l’identité de ses clients européens.
+title: Stockage de données d’identité pour les clients européens - Azure Active Directory | Microsoft Docs
+description: Découvrez où Azure Active Directory stocke les données relatives à l’identité de ses clients européens.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,16 +10,16 @@ ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.custom: it-pro
-ms.openlocfilehash: 6aa2307123d62983f7afde3d871e8aa96e0abb5d
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 371c7b2eb2f2e0e34dc80cf8fe6771620fa76765
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976891"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099934"
 ---
-# <a name="where-does-microsoft-azure-active-directory-azure-ad-store-identity-data-for-european-customers"></a>Où Microsoft Azure Active Directory (Azure AD) stocke les données d’identité pour les clients européens
-Azure AD vous aide à gérer les identités des utilisateurs et à créer des stratégies d’accès basées sur des fonctionnalités d’Intelligence pour sécuriser les ressources de votre organisation. Les données d’identité sont stockées dans un emplacement basé sur l’adresse fournie par votre organisation lors de la souscription à l’abonnement au service. Par exemple, lorsque vous vous êtes inscrit à Office 365 ou à Azure. Pour obtenir des informations précises sur le lieu de stockage des données d’identité, vous pouvez utiliser la section [Où se trouvent vos données ?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) de Microsoft Trust Center.
+# <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Stockage de données d’identité pour les clients européens dans Azure Active Directory
+Azure Active Directory (Azure AD) vous aide à gérer les identités des utilisateurs et à créer des stratégies d’accès basées sur des fonctionnalités d’Intelligence pour sécuriser les ressources de votre organisation. Les données d’identité sont stockées dans un emplacement basé sur l’adresse fournie par votre organisation lors de la souscription à l’abonnement au service. Par exemple, lorsque vous vous êtes inscrit à Office 365 ou à Azure. Pour obtenir des informations précises sur le lieu de stockage des données d’identité, vous pouvez utiliser la section [Où se trouvent vos données ?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) de Microsoft Trust Center.
 
 Tandis que la plupart des données d’identité européennes liées à Azure AD restent dans des centres de données européens, il existe cinq attributs relatifs à l’utilisateur qui sont généralement stockés dans des centres de données aux États-Unis. Ces attributs sont GivenName, Surname, userPrincipalName, Domain et PasswordHash. L’attribut PasswordHash peut être une exception et il est possible qu’il ne soit pas stocké aux États-Unis, si une personne utilise une méthode d’authentification fédérée et locale qui empêche la synchronisation de la valeur PasswordHash avec Azure AD. En outre, certaines données opérationnelles et relatives au service, nécessaires au fonctionnement normal d’Azure AD, sont stockées aux États-Unis et n’incluent aucune donnée personnelle.
 
@@ -55,7 +55,7 @@ Une grande partie des données d’identité européennes concernant Azure AD, p
 
 - **Microsoft Azure Active Directory B2C (Azure AD B2C)**
 
-    Azure AD B2C stocke toutes les données utilisateur au repos dans des centres de données européens. Toutefois, les journaux des opérations (avec les données personnelles supprimées) restent à l’emplacement d’où la personne accède aux services. Par exemple, si un utilisateur B2C accède au service depuis les États-Unis, les journaux des opérations restent aux États-Unis. En outre, toutes les données de configuration de stratégie ne contenant aucune donnée personnelle sont uniquement stockées aux États-Unis. Pour plus d’informations sur les configurations de stratégie, consultez l’article [Azure Active Directory B2C : stratégies intégrées](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies).
+    Azure AD B2C stocke toutes les données utilisateur au repos dans des centres de données européens. Toutefois, les journaux des opérations (avec les données personnelles supprimées) restent à l’emplacement d’où la personne accède aux services. Par exemple, si un utilisateur B2C accède au service depuis les États-Unis, les journaux des opérations restent aux États-Unis. En outre, toutes les données de configuration de stratégie ne contenant aucune donnée personnelle sont uniquement stockées aux États-Unis. Pour plus d’informations sur les configurations de stratégie, consultez l’article [Azure Active Directory B2C : stratégies intégrées](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies).
 
 - **Microsoft Azure Active Directory B2B (Azure AD B2B)** 
     

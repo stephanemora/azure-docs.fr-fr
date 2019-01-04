@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cec9e5bfea16e5ba11f8cd7324acf15188fb907a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 94f7239bdcdc5ddc91f3ed8b49b59378309711e8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669356"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844955"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>À propos de la personnalisation de l’interface utilisateur dans Azure Active Directory B2C
 
@@ -23,13 +23,13 @@ La possibilité de personnaliser l’interface utilisateur présentée par Azure
 
 Vous personnalisez l’interface utilisateur de votre application de différentes manières en fonction de vos besoins relatifs à ces expériences. Par exemple : 
 
-- Si vous utilisez des [stratégies intégrées](active-directory-b2c-reference-policies.md) pour fournir des expériences de modification de profil, de réinitialisation du mot de passe, d’inscription ou de connexion dans votre application, vous utilisez le [portail Azure pour personnaliser l’interface utilisateur](tutorial-customize-ui.md).
+- Si vous utilisez des [flux d’utilisateur](active-directory-b2c-reference-policies.md) pour fournir des expériences de modification de profil, de réinitialisation du mot de passe, d’inscription ou de connexion dans votre application, vous utilisez le [portail Azure pour personnaliser l’interface utilisateur](tutorial-customize-ui.md).
 - Si vous fournissez uniquement une expérience de connexion, la page de réinitialisation du mot de passe associée et des e-mails de vérification, vous utilisez les mêmes étapes de personnalisation que celles utilisées pour une [page de connexion Azure AD](../active-directory/fundamentals/customize-branding.md).
 - Si les clients tentent de modifier leur profil avant de se connecter, ils sont redirigés vers une page que vous personnalisez à l’aide de la même procédure que celle utilisée pour la personnalisation de la page de connexion Azure AD.
 - Si vous utilisez des [stratégies personnalisées](active-directory-b2c-overview-custom.md) pour fournir des expériences de modification de profil, de réinitialisation du mot de passe, d’inscription ou de connexion dans votre application, vous utilisez des [fichiers de stratégie pour personnaliser l’interface utilisateur](active-directory-b2c-ui-customization-custom.md).
 - Si vous avez besoin de fournir du contenu dynamique basé sur la décision d’un client, vous utilisez des [stratégies personnalisées qui peuvent changer le contenu de la page](active-directory-b2c-ui-customization-custom-dynamic.md) en fonction d’un paramètre qui est envoyé dans une chaîne de requête. Par exemple, l’image d’arrière-plan dans la page de connexion ou d’inscription Azure AD B2C change en fonction d’un paramètre que vous transmettez à partir de votre application web ou mobile.
 
-Azure AD B2C exécute le code dans le navigateur de votre client et adopte une approche moderne appelée [Partage des ressources cross-origin (CORS)](http://www.w3.org/TR/cors/). Au moment de l’exécution, le contenu est chargé depuis une URL que vous spécifiez dans une stratégie. Vous spécifiez différentes URL pour différentes pages. Une fois le contenu chargé à partir de votre URL, il est fusionné avec un fragment HTML inséré à partir d’Azure AD B2C, puis présenté à votre client.
+Azure AD B2C exécute le code dans le navigateur de votre client et adopte une approche moderne appelée [Partage des ressources cross-origin (CORS)](https://www.w3.org/TR/cors/). Au moment de l’exécution, le contenu est chargé depuis une URL que vous spécifiez dans un flux d’utilisateur. Vous spécifiez différentes URL pour différentes pages. Une fois le contenu chargé à partir de votre URL, il est fusionné avec un fragment HTML inséré à partir d’Azure AD B2C, puis présenté à votre client.
 
 Avant de commencer, passez en revue les instructions suivantes :
 
@@ -66,7 +66,7 @@ Pour personnaliser l’interface utilisateur, vous procédez comme suit :
     </html>
     ```
 
-- Hébergez votre contenu sur un point de terminaison HTTPS (avec CORS activé). Vous devez activer à la fois les méthodes de requête GET et OPTIONS lors de la configuration de CORS.
+- Héberger votre contenu sur un point de terminaison HTTPS (avec CORS activé). Vous devez activer à la fois les méthodes de requête GET et OPTIONS lors de la configuration de CORS.
 - Utilisez les feuilles de style en cascade pour donner du style aux éléments d’interface utilisateur insérés par Azure AD B2C dans votre page. L’exemple suivant montre un fichier CSS simple qui inclut également des paramètres pour les éléments HTML d’inscription injectés :
 
     ```css 
@@ -103,7 +103,7 @@ Le tableau suivant répertorie les fragments HTML qu’Azure AD B2C fusionne dan
 | Inscription avec un compte social | Peut s’afficher lors de l’inscription à l’aide d’un compte existant d’un fournisseur d’identité sociale tel que Facebook ou Google. Cette page est utilisée quand des informations supplémentaires doivent être recueillies à partir du client à l’aide d’un formulaire d’inscription. |
 | Connexion ou inscription unifiée | Gère l’inscription et la connexion des clients qui peuvent utiliser des fournisseurs d’identité sociale tels que Facebook ou Google ou des comptes locaux. |
 | Authentification multifacteur | Les clients peuvent vérifier leur numéro de téléphone (par voie textuelle ou vocale) au cours de l’inscription ou de la connexion. |
-| Erreur | Fournit des informations d’erreur au client. |
+| Error | Fournit des informations d’erreur au client. |
 
 
 ## <a name="how-do-i-localize-content"></a>Comment localiser le contenu ?
@@ -118,6 +118,6 @@ Pour obtenir des exemples de personnalisation, téléchargez et lisez ces [exemp
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si vous utilisez des stratégies intégrées, vous pouvez commencer à personnaliser votre interface utilisateur à l’aide de ce tutoriel : [Personnaliser l’interface utilisateur de vos applications dans Azure Active Directory B2C](tutorial-customize-ui.md).
-- Si vous utilisez des stratégies personnalisées, vous pouvez commencer à personnaliser l’interface utilisateur en suivant les instructions fournies dans cet article : [Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+- Si vous utilisez des flux d’utilisateur, vous pouvez commencer à personnaliser votre interface utilisateur avec le tutoriel : [Personnaliser l’interface utilisateur de vos applications dans Azure Active Directory B2C](tutorial-customize-ui.md).
+- Si vous utilisez des stratégies personnalisées, vous pouvez commencer à personnaliser l’interface utilisateur avec l’article : [Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
 

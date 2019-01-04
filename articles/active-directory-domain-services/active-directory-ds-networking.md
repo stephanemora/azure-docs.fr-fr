@@ -1,5 +1,5 @@
 ---
-title: 'Services de domaine Azure AD : instructions de mise en réseau | Microsoft Docs'
+title: 'Azure AD Domain Services : instructions relatives à la mise en réseau | Microsoft Docs'
 description: Considérations relatives à la mise en réseau pour les services de domaine Azure Active Directory
 services: active-directory-ds
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/01/2017
 ms.author: ergreenl
-ms.openlocfilehash: eb97e709e18daba3722dc43a869ef034dbe573cf
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: c13a4606219ebdb1d23a83a0bd3bdf14f1a3882e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157426"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970907"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considérations relatives à la mise en réseau pour les services de domaine Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Comment sélectionner un réseau virtuel Azure
 Les instructions suivantes vous aident à sélectionner un réseau virtuel en vue de l’utiliser avec les services de domaine Azure AD.
 
 ### <a name="type-of-azure-virtual-network"></a>Type de réseau virtuel Azure
-* **Réseaux virtuels basés sur Resource Manager** : Il est possible d’activer les services de domaine Azure AD dans les réseaux virtuels créés à l’aide de Azure Resource Manager.
+* **Réseaux virtuels Resource Manager** : Il est possible d’activer Azure AD Domain Services dans les réseaux virtuels créés à l’aide d’Azure Resource Manager.
 * Vous ne pouvez pas activer Azure AD Domain Services dans un réseau virtuel Azure Classic.
 * Vous pouvez connecter d’autres réseaux virtuels à celui dans lequel Azure AD Domain Services est activé. Pour plus d’informations, consultez la section [Connectivité réseau](active-directory-ds-networking.md#network-connectivity).
 
@@ -37,9 +37,9 @@ Les instructions suivantes vous aident à sélectionner un réseau virtuel en vu
 * Pour connaître les régions Azure dans lesquelles les services de domaine Azure AD sont disponibles, consultez la page [Services Azure par région](https://azure.microsoft.com/regions/#services/) .
 
 ### <a name="requirements-for-the-virtual-network"></a>Conditions préalables pour le réseau virtuel
-* **Proximité avec les charges de travail Azure**: sélectionnez le réseau virtuel qui héberge actuellement ou qui hébergera des machines virtuelles ayant besoin d’accéder aux services de domaine Azure AD. Si vos charges de travail sont déployées dans un autre réseau virtuel que le domaine managé, vous pouvez également choisir de connecter les réseaux virtuels.
-* **Serveurs DNS personnalisés/propres**: assurez-vous qu’aucun serveur DNS personnalisé n’est configuré pour le réseau virtuel. Citons comme exemple de serveur DNS personnalisé une instance de DNS Windows Server en cours d’exécution sur une machine virtuelle Windows Server déployée sur le réseau virtuel. Azure AD Domain Services ne fait l’objet d’aucune intégration avec les serveurs DNS personnalisés déployés au sein du réseau virtuel.
-* **Domaines existants portant le même nom de domaine** : vérifiez qu’aucun domaine existant portant le même nom de domaine n’est disponible sur ce réseau virtuel. Supposons par exemple qu’un domaine appelé « contoso.com » soit déjà disponible sur le réseau virtuel sélectionné. Par la suite, vous essayez d’activer un domaine géré par les services de domaine Azure AD portant le même nom de domaine (soit « contoso.com ») sur ce réseau virtuel. Vous rencontrez un échec lorsque vous essayez d’activer les services de domaine Azure AD en raison des conflits de noms de domaine sur ce réseau virtuel. Dans ce cas, vous devez utiliser un autre nom pour configurer votre domaine géré par les services de domaine Azure AD. Vous pouvez également annuler l’approvisionnement du domaine existant, puis passer à l’activation des services de domaine Azure AD.
+* **Proximité avec les charges de travail Azure** : sélectionnez le réseau virtuel qui héberge actuellement ou qui hébergera des machines virtuelles ayant besoin d’accéder à Azure AD Domain Services. Si vos charges de travail sont déployées dans un autre réseau virtuel que le domaine managé, vous pouvez également choisir de connecter les réseaux virtuels.
+* **Serveurs DNS personnalisés/propres** : assurez-vous qu’aucun serveur DNS personnalisé n’est configuré pour le réseau virtuel. Citons comme exemple de serveur DNS personnalisé une instance de DNS Windows Server en cours d’exécution sur une machine virtuelle Windows Server déployée sur le réseau virtuel. Azure AD Domain Services ne fait l’objet d’aucune intégration avec les serveurs DNS personnalisés déployés au sein du réseau virtuel.
+* **Domaines existants avec le même nom de domaine** : Vérifiez qu’aucun domaine existant avec le même nom de domaine n’est disponible sur ce réseau virtuel. Supposons par exemple qu’un domaine appelé « contoso.com » soit déjà disponible sur le réseau virtuel sélectionné. Par la suite, vous essayez d’activer un domaine géré par les services de domaine Azure AD portant le même nom de domaine (soit « contoso.com ») sur ce réseau virtuel. Vous rencontrez un échec lorsque vous essayez d’activer les services de domaine Azure AD en raison des conflits de noms de domaine sur ce réseau virtuel. Dans ce cas, vous devez utiliser un autre nom pour configurer votre domaine géré par les services de domaine Azure AD. Vous pouvez également annuler l’approvisionnement du domaine existant, puis passer à l’activation des services de domaine Azure AD.
 
 > [!WARNING]
 > Vous ne pouvez pas déplacer les services de domaine vers un autre réseau virtuel une fois le service activé.
@@ -79,13 +79,13 @@ Les ports suivants sont requis pour les services de domaine Azure AD pour l’en
 **Port 5986 (communication à distance PowerShell)**
 * Il est utilisé pour effectuer des tâches de gestion à l’aide de la communication à distance PowerShell sur votre domaine managé.
 * Il est obligatoire pour autoriser l’accès via ce port dans votre groupe de sécurité réseau. Sans accès à ce port, votre domaine managé ne peut pas être mis à jour, configuré, sauvegardé ou surveillé.
-* Pour les nouveaux domaines ou les domaines avec un réseau virtuel Azure Resource Manager, vous pouvez restreindre l’accès entrant à ce port aux adresses IP sources suivantes : 52.180.179.108, 52.180.177.87, 13.75.105.168, 52.175.18.134, 52.138.68.41, 52.138.65.157, 104.41.159.212, 104.45.138.161, 52.169.125.119, 52.169.218.0, 52.187.19.1, 52.187.120.237, 13.78.172.246, 52.161.110.169, 52.174.189.149, 40.68.160.142, 40.83.144.56, 13.64.151.161, 52.180.183.67, 52.180.181.39, 52.175.28.111, 52.175.16.141, 52.138.70.93, 52.138.64.115, 40.80.146.22, 40.121.211.60, 52.138.143.173, 52.169.87.10, 13.76.171.84, 52.187.169.156, 13.78.174.255, 13.78.191.178, 40.68.163.143, 23.100.14.28, 13.64.188.43, 23.99.93.197
-* Pour les domaines avec un réseau virtuel classique, vous pouvez restreindre l’accès entrant à ce port aux adresses IP sources suivantes : 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209
+* Pour les nouveaux domaines ou les domaines avec un réseau virtuel Azure Resource Manager, vous pouvez restreindre l’accès entrant à ce port aux adresses IP sources suivantes : 52.180.179.108, 52.180.177.87, 13.75.105.168, 52.175.18.134, 52.138.68.41, 52.138.65.157, 104.41.159.212, 104.45.138.161, 52.169.125.119, 52.169.218.0, 52.187.19.1, 52.187.120.237, 13.78.172.246, 52.161.110.169, 52.174.189.149, 40.68.160.142, 40.83.144.56, 13.64.151.161, 52.180.183.67, 52.180.181.39, 52.175.28.111, 52.175.16.141, 52.138.70.93, 52.138.64.115, 40.80.146.22, 40.121.211.60, 52.138.143.173, 52.169.87.10, 13.76.171.84, 52.187.169.156, 13.78.174.255, 13.78.191.178, 40.68.163.143, 23.100.14.28, 13.64.188.43, 23.99.93.197.
+* Pour les domaines avec un réseau virtuel classique, vous pouvez restreindre l’accès entrant à ce port aux adresses IP sources suivantes : 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209.
 * Généralement, les contrôleurs de domaine pour votre domaine géré n’écoutent pas sur ce port. Le service ouvre ce port sur les contrôleurs de domaine gérés uniquement lorsqu’une opération de gestion ou de maintenance doit être effectuée pour le domaine géré. Une fois l’opération terminée, le service ferme ce port sur les contrôleurs de domaine gérés.
 
 **Port 3389 (Bureau à distance)**
 * Il est utilisé pour les connexions Bureau à distance aux contrôleurs de domaine de votre domaine managé.
-* Vous pouvez restreindre l’accès entrant aux adresses IP sources suivantes : 207.68.190.32/27, 13.106.78.32/27, 13.106.174.32/27, 13.106.4.96/27
+* Vous pouvez restreindre l’accès entrant aux adresses IP sources suivantes : 207.68.190.32/27, 13.106.78.32/27, 13.106.174.32/27, 13.106.4.96/27.
 * Ce port reste également désactivé en grande partie sur votre domaine géré. Ce mécanisme n’est pas utilisé de manière continue, car les tâches de gestion et de surveillance sont effectuées à l’aide de la communication à distance PowerShell. Ce port est utilisé uniquement dans les rares cas où Microsoft a besoin de se connecter à distance à votre domaine managé pour un dépannage avancé. Le port est fermé dès que l’opération de résolution des problèmes est terminée.
 
 **Port 636 (LDAP sécurisé)**
@@ -102,7 +102,7 @@ Le tableau suivant illustre un exemple de groupe de sécurité réseau que vous 
 
 En outre, le groupe de sécurité réseau illustre comment verrouiller l’accès LDAP sécurisé sur Internet. Ignorez cette règle si vous n’avez pas activé l’accès LDAP sécurisé à votre domaine managé sur Internet. Le groupe de sécurité réseau contient un ensemble de règles qui autorisent l’accès LDAPS entrant sur le port TCP 636 uniquement à partir d’un ensemble spécifique d’adresses IP. La règle de groupe de sécurité réseau pour autoriser l’accès LDAPS via Internet à partir d’adresses IP spécifiées prend le pas sur la règle DenyAll NSG.
 
-![Exemple de groupe de sécurité réseau pour l’accès LDAP sécurisé via internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
+![Exemple de groupe de sécurité réseau pour l’accès LDAP sécurisé via internet](./media/active-directory-domain-services-alerts/default-nsg.png)
 
 **Informations supplémentaires** - [Créer un groupe de sécurité réseau](../virtual-network/manage-network-security-group.md).
 
@@ -124,13 +124,13 @@ Vous pouvez connecter un réseau virtuel basé sur Resource Manager au réseau v
 ![Connexion entre un réseau virtuel Resource Manager et un réseau virtuel Classic](./media/active-directory-domain-services-design-guide/classic-arm-vnet-connectivity.png)
 
 ### <a name="network-connection-options"></a>Options de connexion réseau
-* **Connexion entre deux réseaux virtuels à l’aide d’une homologation de réseaux virtuels**: l’homologation de réseaux virtuels est un mécanisme permettant de connecter deux réseaux virtuels situés dans la même région via le réseau principal Azure. Une fois homologués, les deux réseaux virtuels apparaissent comme un seul réseau pour tous les besoins de connectivité. Ils sont toujours gérés comme des ressources distinctes, mais les machines virtuelles se trouvant dans ces réseaux virtuels peuvent communiquer directement entre elles à l’aide d’adresses IP privées.
+* **Connexions de réseau virtuel à réseau virtuel à l’aide de VNET Peering** : VNET Peering est un mécanisme permettant de connecter deux réseaux virtuels situés dans la même région via le réseau principal Azure. Une fois homologués, les deux réseaux virtuels apparaissent comme un seul réseau pour tous les besoins de connectivité. Ils sont toujours gérés comme des ressources distinctes, mais les machines virtuelles se trouvant dans ces réseaux virtuels peuvent communiquer directement entre elles à l’aide d’adresses IP privées.
 
     ![Connexion entre des réseaux virtuels à l’aide d’une homologation](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
     [Plus d’informations : homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md)
 
-* **Connexion entre deux réseaux virtuels à l’aide d’une connexion VPN de site à site**: la connexion entre deux réseaux virtuels est similaire à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE.
+* **Connexions de réseau virtuel à réseau virtuel à l’aide de connexions VPN site à site** : La connexion entre deux réseaux virtuels est similaire à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE.
 
     ![Connexion entre des réseaux virtuels à l’aide d’une passerelle VPN](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 

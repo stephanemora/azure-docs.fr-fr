@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: a97032344b904442ed3606c6297251578c3b4ff7
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e866b205fb5cdd65dc690101503613714271e36c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263891"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075350"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Provisionner le débit sur les conteneurs et les bases de données Azure Cosmos
 
@@ -19,7 +19,7 @@ Une base de données Azure Cosmos est une unité de gestion pour un ensemble de 
 
 Azure Cosmos DB vous permet de configurer le débit selon deux granularités : **conteneurs Azure Cosmos** et **bases de données Azure Cosmos**.
 
-# <a name="setting-throughput-on-a-azure-cosmos-container"></a>Définition du débit sur un conteneur Azure Cosmos  
+## <a name="setting-throughput-on-a-container"></a>Définir le débit sur un conteneur  
 
 Le débit provisionné sur un conteneur Azure Cosmos est exclusivement réservé au conteneur. Le conteneur reçoit en permanence le débit provisionné. Le débit provisionné sur un conteneur est directement associé à des contrats SLA. Pour configurer le débit sur un conteneur, consultez [Provisionnement du débit sur un conteneur Azure Cosmos](how-to-provision-container-throughput.md).
 
@@ -31,7 +31,7 @@ Le débit provisionné sur un conteneur Azure Cosmos est uniformément réparti 
 
 ![Partition de ressources](./media/set-throughput/resource-partition.png)
 
-# <a name="setting-throughput-on-a-azure-cosmos-database"></a>Définition du débit sur une base de données Azure Cosmos
+## <a name="setting-throughput-on-a-database"></a>Définir le débit sur une base de données
 
 Quand vous provisionnez le débit sur une base de données Azure Cosmos, il est partagé entre tous les conteneurs de la base de données, sauf si vous avez spécifié un débit provisionné sur des conteneurs spécifiques. Le partage de débit de la base de données entre ses conteneurs est analogue à l’hébergement d’une base de données sur un cluster de machines. Tous les conteneurs d’une base de données partageant les ressources disponibles sur une machine, vous ne pouvez pas prévoir les performances d'un conteneur spécifique. Pour configurer le débit sur une base de données, consultez [Configurer le débit provisionné sur une base de données Azure Cosmos](how-to-provision-database-throughput.md).
 
@@ -53,9 +53,9 @@ Plusieurs partitions logiques partageant le débit provisionné sur une base de 
 
 ![Partition de ressources](./media/set-throughput/resource-partition2.png)
 
-## <a name="setting-throughput-on-a-azure-cosmos-database-and-a-container"></a>Définition du débit sur une base de données et un conteneur Azure Cosmos
+## <a name="setting-throughput-on-a-database-and-a-container"></a>Définir le débit sur une base de données et un conteneur
 
-Vous pouvez combiner les deux modèles, à savoir, provisionner le débit sur la base de données et le conteneur. L’exemple suivant montre comment provisionner le débit sur une base de données et un conteneur Azure Cosmos :
+Vous pouvez combiner les deux modèles, à savoir, provisionner le débit sur la base de données et le conteneur. L’exemple suivant montre comment provisionner le débit sur une base de données et un conteneur Azure Cosmos :
 
 * Vous pouvez créer une base de données Azure Cosmos nommée « Z » avec le débit provisionné des unités de requête « K ». 
 * Créez ensuite cinq conteneurs nommés A, B, C, D et E dans la base de données.
@@ -67,7 +67,7 @@ Vous pouvez combiner les deux modèles, à savoir, provisionner le débit sur la
 
 |**Quota**  |**Débit provisionné sur une base de données**  |**Débit provisionné sur un conteneur**|
 |---------|---------|---------|
-|Unités de requête minimales |400 |400|
+|Unités de requête minimales |400 (Après les quatre premiers conteneurs, chaque conteneur supplémentaire requiert un minimum de 100 RU/s.) |400|
 |Unités de requête minimales par conteneur|100|400|
 |Unités de requête minimales requises pour consommer 1 Go de stockage|40|40|
 |Unités de requête maximales|Illimitées, sur la base de données|Illimitées, sur le conteneur|

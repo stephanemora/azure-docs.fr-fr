@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: ded3c89774c39b5edee02b9e3c6807ce75ff16a4
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 2f4bc578b567462c2591c28b270f863ba5756815
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566191"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193907"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Sécurité et protection des données StorSimple
 
@@ -55,7 +55,7 @@ Seuls les appareils autorisés par StorSimple peuvent rejoindre le service StorS
 
 ![Clé d'inscription du service](./media/storsimple-security/ServiceRegistrationKey.png)
 
-Pour savoir comment obtenir une clé d'inscription, passez à l' [Étape 2 : Obtention de la clé d'inscription](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
+Pour savoir comment obtenir une clé d’inscription, passez à l’ [Étape 2 : Obtenir la clé d’inscription du service](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 
 La clé d’inscription est une clé longue, contenant plus de 100 caractères. Vous pouvez copier la clé et l’enregistrer dans un fichier texte dans un emplacement sécurisé, afin de l’utiliser pour autoriser des appareils supplémentaires si nécessaire. Si vous égarez la clé d’inscription après avoir enregistré votre premier appareil, vous pouvez générer une nouvelle clé à partir du service StorSimple Device Manager. Cela n’a pas d’incidence sur le fonctionnement des appareils existants.
 
@@ -210,10 +210,10 @@ StorSimple utilise les algorithmes de chiffrement suivants pour protéger les do
 StorSimple Device Manager pour les séries physiques et virtuelles collecte des informations personnelles principalement dans les cas suivants :
 
 - Paramètres utilisateur d’alerte où l’adresse e-mail des utilisateurs est configurée. L’administrateur a la possibilité d’afficher et d’effacer ces données. Cela s’applique aux appareils StorSimple série 8000 et à StorSimple Virtual Array.
- * Pour afficher et effacer les paramètres de StorSimple série 8000, suivez les étapes de la page [Afficher et gérer les alertes StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings).
- * Pour afficher et effacer les paramètres de StorSimple Virtual Array, suivez les étapes de la page [Afficher et gérer les alertes StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings).
+  * Pour afficher et effacer les paramètres de StorSimple série 8000, suivez les étapes de la page [Afficher et gérer les alertes StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings).
+  * Pour afficher et effacer les paramètres de StorSimple Virtual Array, suivez les étapes de la page [Afficher et gérer les alertes StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings).
 - Utilisateurs qui ont accès aux données qui se trouvent sur les partages. La liste de ces utilisateurs s’affiche et peut être consultée. Elle est par ailleurs supprimée à la suppression des partages. Cela s’applique uniquement à StorSimple Virtual Arrays.
- * Pour afficher la liste des utilisateurs qui y ont accès ou supprimer un partage, suivez les étapes de la page [Gérer les partages sur StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md).
+  * Pour afficher la liste des utilisateurs qui y ont accès ou supprimer un partage, suivez les étapes de la page [Gérer les partages sur StorSimple Virtual Array](storsimple-virtual-array-manage-shares.md).
 
 Pour plus d’informations, consultez la [Politique de confidentialité Microsoft sur le Centre de gestion de la confidentialité](https://www.microsoft.com/trustcenter).
 
@@ -223,63 +223,63 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 
 **Q :** Mon service est compromis. Quelles doivent être mes étapes suivantes ?
 
-**R :** Vous devez immédiatement modifier la clé de chiffrement des données du service et les clés du compte de stockage utilisé pour hiérarchiser les données. Pour obtenir des instructions, consultez :
+**R :** Vous devez immédiatement modifier la clé de chiffrement des données du service et les clés du compte de stockage utilisé pour hiérarchiser les données. Pour obtenir des instructions, consultez :
 
 * [Modification de la clé de chiffrement des données du service](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Rotation des clés de comptes de stockage](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
-**Q :** J’ai un nouvel appareil StorSimple qui demande la clé d’inscription. Comment la récupérer ?
+**Q :** J’ai un nouvel appareil StorSimple qui demande la clé d’inscription du service. Comment la récupérer ?
 
-**R :** Cette clé a été créée lorsque vous avez créé le service StorSimple Device Manager. Si vous utilisez le service StorSimple Device Manager pour vous connecter à l’appareil, vous pouvez utiliser la page de démarrage rapide du service pour afficher ou régénérer la clé d’inscription. La génération d’une nouvelle clé d’inscription n’affecte pas les appareils déjà inscrits. Pour obtenir des instructions, consultez :
+**R :** Cette clé a été créée quand vous avez créé le service StorSimple Device Manager. Si vous utilisez le service StorSimple Device Manager pour vous connecter à l’appareil, vous pouvez utiliser la page de démarrage rapide du service pour afficher ou régénérer la clé d’inscription. La génération d’une nouvelle clé d’inscription n’affecte pas les appareils déjà inscrits. Pour obtenir des instructions, consultez :
 
 * [Affichage ou régénération de la clé d’inscription au service](storsimple-8000-manage-service.md##regenerate-the-service-registration-key)
 
 **Q :** J’ai perdu ma clé de chiffrement des données du service. Que faire ?
 
-**R :** Contactez le support technique Microsoft. Il peut ouvrir une session de support sur votre appareil et vous aider à récupérer la clé (à condition qu’au moins un appareil soit connecté) Dès que vous avez obtenu la clé de chiffrement des données du service, vous devez la modifier pour vous assurer que vous seul la connaissez. Pour obtenir des instructions, consultez :
+**R :** Contactez le Support Microsoft. Il peut ouvrir une session de support sur votre appareil et vous aider à récupérer la clé (à condition qu’au moins un appareil soit connecté) Dès que vous avez obtenu la clé de chiffrement des données du service, vous devez la modifier pour vous assurer que vous seul la connaissez. Pour obtenir des instructions, consultez :
 
 * [Modification de la clé de chiffrement des données du service](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
-**Q :** J’ai autorisé un appareil pour la modification de la clé de chiffrement des données du service, mais n’ai pas démarré le processus de modification de la clé. Que dois-je faire ?
+**Q :**  J’ai autorisé un appareil pour un changement de clé de chiffrement des données du service, mais n’ai pas démarré le processus de changement de clé. Que dois-je faire ?
 
-**R :** Si le délai d’expiration est dépassé, vous devez autoriser l’appareil à nouveau pour la modification de la clé de chiffrement des données du service et redémarrer le processus.
+**R :** Si le délai d’expiration est dépassé, vous devez ré-autoriser l’appareil pour le changement de clé de chiffrement des données du service et redémarrer le processus.
 
-**Q :** J’ai modifié la clé de chiffrement des données du service, mais je n’ai pas pu mettre à jour les autres appareils dans un délai de 4 heures. Dois-je recommencer ?
+**Q :**  J’ai changé la clé de chiffrement des données du service, mais je n’ai pas pu mettre à jour les autres appareils dans un délai de quatre heures. Dois-je recommencer ?
 
-**R :** Le délai de 4 heures s’applique uniquement au démarrage de la modification. Une fois que vous avez démarré la mise à jour sur l’appareil StorSimple autorisé, l’autorisation est valide jusqu’à ce que tous les appareils soient mis à jour.
+**R :** Le délai de quatre heures s’applique uniquement au lancement du changement. Une fois que vous avez démarré la mise à jour sur l’appareil StorSimple autorisé, l’autorisation est valide jusqu’à ce que tous les appareils soient mis à jour.
 
 **Q :** Notre administrateur StorSimple a quitté l’entreprise. Que dois-je faire ?
 
-**R :** Modifiez et réinitialisez les mots de passe qui permettent l’accès à l’appareil StorSimple, puis changez la clé de chiffrement des données du service pour vous assurer que les nouvelles informations ne seront pas accessibles au personnel non autorisé. Pour obtenir des instructions, consultez :
+**R :** Changez et réinitialisez les mots de passe qui permettent l’accès à l’appareil StorSimple, puis changez la clé de chiffrement des données du service pour vous assurer que les nouvelles informations ne seront pas accessibles au personnel non autorisé. Pour obtenir des instructions, consultez :
 
 * [Utilisation du service StorSimple Device Manager pour modifier vos mots de passe StorSimple](storsimple-8000-change-passwords.md)
 * [Modification de la clé de chiffrement des données du service](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Configuration de CHAP pour votre appareil StorSimple](storsimple-8000-configure-chap.md)
 
-**Q :** Je souhaite fournir le mot de passe du gestionnaire d’instantanés StorSimple à un hôte qui se connecte à l’appareil StorSimple, mais le mot de passe n’est pas disponible. Que puis-je faire ?
+**Q :** Je souhaite fournir le mot de passe StorSimple Snapshot Manager à un hôte qui se connecte à l’appareil StorSimple, mais le mot de passe n’est pas disponible. Que puis-je faire ?
 
-**R :** Si vous avez oublié le mot de passe, vous devez en créer un. Veillez ensuite à informer tous les utilisateurs existants que le mot de passe a été modifié et qu’ils doivent mettre à jour leur client pour utiliser le nouveau mot de passe. Pour obtenir des instructions, consultez :
+**R :** Si vous avez oublié le mot de passe, vous devez en créer un nouveau. Veillez ensuite à informer tous les utilisateurs existants que le mot de passe a été modifié et qu’ils doivent mettre à jour leur client pour utiliser le nouveau mot de passe. Pour obtenir des instructions, consultez :
 
 * [Modification du mot de passe du Gestionnaire d’instantanés StorSimple](storsimple-8000-change-passwords.md#set-the-storsimple-snapshot-manager-password)
 * [Authentification d’un appareil](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
 
-**Q :** Le certificat pour l’accès à distance à Windows PowerShell pour StorSimple a été modifié sur l’appareil. Comment mettre à jour mes clients d’accès à distance ?
+**Q :** Le certificat pour l’accès à distance à Windows PowerShell pour StorSimple a été changé sur l’appareil. Comment mettre à jour mes clients d’accès à distance ?
 
 **R :** Vous pouvez télécharger le nouveau certificat à partir du service StorSimple Device Manager, puis l’installer dans le magasin de certificats de vos clients d’accès à distance. Pour obtenir des instructions, consultez :
 
 * [Applet de commande Import-Certificate](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
 
-**Q :** Mes données sont-elles protégées si le service StorSimple Device Manager est compromis ?
+**Q :** Mes données sont-elles protégées si le service StorSimple Device Manager est compromis ?
 
-**R :** Les données de configuration du service sont toujours chiffrées avec votre clé publique lorsque vous les affichez dans un navigateur Web. Comme le service n’a pas accès à la clé privée, il n’est pas en mesure d’accéder aux données. Si le service StorSimple Device Manager est compromis, il n’y a aucun impact, car aucune clé n’est stockée dans ce service.
+**R :** Les données de configuration du service sont toujours chiffrées avec votre clé publique quand vous les affichez dans un navigateur web. Comme le service n’a pas accès à la clé privée, il n’est pas en mesure d’accéder aux données. Si le service StorSimple Device Manager est compromis, il n’y a aucun impact, car aucune clé n’est stockée dans ce service.
 
-**Q :** Si quelqu’un a accès au certificat de chiffrement de données, mes données seront-elles compromises ?
+**Q :** Si quelqu’un a accès au certificat de chiffrement des données, mes données seront-elles compromises ?
 
-**R :** Microsoft Azure stocke la clé de chiffrement des données du client (fichier .pfx) dans un format chiffré. Comme le fichier .pfx est chiffré et que le service StorSimple ne dispose pas de la clé de chiffrement des données du service nécessaire pour déchiffrer le fichier .pfx, l’accès au fichier .pfx ne met pas vos données en danger.
+**R :** Microsoft Azure stocke la clé de chiffrement des données du client (fichier .pfx) dans un format chiffré. Comme le fichier .pfx est chiffré et que le service StorSimple ne dispose pas de la clé de chiffrement des données du service nécessaire pour déchiffrer le fichier .pfx, l’accès au fichier .pfx ne met pas vos données en danger.
 
 **Q :** Que se passe-t-il si une entité gouvernementale demande mes données à Microsoft ?
 
-**R :** Comme toutes les données sont chiffrées dans le service et que la clé privée est conservée dans l’appareil, l’entité gouvernementale doit demander les données au client.
+**R :** Comme toutes les données sont chiffrées dans le service et que la clé privée est conservée sur l’appareil, l’entité gouvernementale doit demander les données au client.
 
 
 

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: rayne
-ms.openlocfilehash: 1a9a89138dc71f7a0255b8ab4084182848d6e994
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 50ef6ff452713ec8a8023c5d5e3d58a4b91ea323
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211738"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849800"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurer l’adressage IP pour se connecter à un site local secondaire après un basculement
 
@@ -23,7 +23,7 @@ Après avoir basculé les machines virtuelles Hyper-V de clouds VMM (System Cent
 
 Après un basculement, il existe deux façons de gérer l’adressage IP des machines virtuelles de réplication : 
 
-- **Conserver la même adresse IP après un basculement** : dans ce scénario, la machine virtuelle répliquée a la même adresse IP que la machine virtuelle principale. Les problèmes liés au réseau s’en trouvent simplifiés après le basculement, mais un travail sur l’infrastructure est nécessaire.
+- **Conserver la même adresse IP après un basculement** : dans ce scénario, la machine virtuelle répliquée a la même adresse IP que la machine virtuelle principale. Les problèmes liés au réseau s’en trouvent simplifiés après le basculement, mais un travail sur l’infrastructure est nécessaire.
 - **Utiliser une adresse IP différente après un basculement** : dans ce scénario, la machine virtuelle reçoit une nouvelle adresse IP après le basculement. 
  
 

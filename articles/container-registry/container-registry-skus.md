@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: danlep
-ms.openlocfilehash: 80ee1033ef7a5fee849126ab2b614de18b71e051
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 3f058a68057d6b84cbbb2dfdb08ea8c2cb12b0b9
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855848"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322088"
 ---
 # <a name="azure-container-registry-skus"></a>Références (SKU) Azure Container Registry
 
@@ -81,6 +81,8 @@ Pour plus d’informations sur la mise à niveau d’un registre Classique vers 
 ## <a name="pricing"></a>Tarifs
 
 Pour plus d’informations sur la tarification de chacune des références SKU Azure Container Registry, voir [Tarification Container Registry][container-registry-pricing].
+
+Pour plus d’informations sur la tarification des transferts de données, consultez [Détails sur la tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

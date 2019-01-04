@@ -1,5 +1,5 @@
 ---
-title: API REST du service Recherche Azure version 2017-11-11-Preview | Microsoft Docs
+title: Afficher un aperçu de l’API REST pour Azure Search 2017-11-11-Preview – Recherche Azure
 description: L’API REST du service Recherche Azure, version 2017-11-11-Preview, comprend des fonctionnalités expérimentales, par exemple, les recherches de synonymes et de contenus similaires.
 services: search
 author: HeidiSteen
@@ -11,12 +11,13 @@ ms.tgt_pltfrm: na
 ms.workload: search
 ms.date: 06/28/2018
 ms.author: HeidiSteen
-ms.openlocfilehash: b5cb60bf16a4c904c9a6060113eba8b4d3a671ef
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.custom: seodec2018
+ms.openlocfilehash: e496e4e2e7e2f66033d090a0534911bff4c53baa
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112600"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310229"
 ---
 # <a name="azure-search-service-rest-api-version-2017-11-11-preview"></a>API REST du service Recherche Azure, version 2017-11-11-Preview
 Cet article décrit la version `api-version=2017-11-11-Preview` de l’API REST du service Recherche Azure, qui offre des fonctionnalités expérimentales pas encore mises à la disposition générale.

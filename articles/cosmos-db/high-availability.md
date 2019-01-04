@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: dd018dca2de018733783605bfdb2802f91ebd76b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 112b41aa41706a807a82e708fe1fb4173fd084ca
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621171"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837526"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Haute disponibilité avec Azure Cosmos DB
 
@@ -51,7 +51,7 @@ Les pannes régionales ne sont pas rares et Azure Cosmos DB permet de s’assure
 
 - Comptes multirégion avec une seule région d’écriture : pendant une panne de région d’écriture, ces comptes restent hautement disponibles pour les lectures. Toutefois, pour les écritures vous devez « activer le basculement automatique » sur votre compte Cosmos pour le basculement de la région impactée vers une autre région associée. Le basculement se produit dans l’ordre de priorité des régions que vous avez spécifié. Au final, lorsque la région impactée est de nouveau en ligne, les données non répliquées présentes dans la région d’écriture impactée pendant la panne sont accessibles via le flux de conflits. Les applications peuvent lire le flux de conflits, résoudre les conflits en fonction de la logique propre à l’application, et réécrire les données mises à jour dans le conteneur Cosmos comme il convient. Une fois que la région d’écriture précédemment impactée a récupéré, elle devient automatiquement disponible en tant que région de lecture. Vous pouvez appeler un basculement manuel et configurer la région impactée en tant que région d’écriture. Vous pouvez effectuer un basculement manuel à l’aide d’[Azure CLI ou du portail Azure](how-to-manage-database-account.md#manual-failover).  
 
-- Les comptes multirégion avec une seule région d’écriture : pendant une panne de région de lecture, ces comptes restent hautement disponibles pour les lectures et les écritures. La région impactée est automatiquement déconnectée de la région d’écriture et marquée comme étant hors connexion. Les SDK Cosmos DB redirigent les appels de lecture vers la prochaine région disponible dans la liste des régions préférées. Si aucune des régions dans la liste des régions préférées n'est disponible, les appels sont automatiquement acheminés vers la zone d’écriture en cours. Aucune modification n’est nécessaire dans le code de votre application pour gérer la panne de la région de lecture. Au final, lorsque la région impactée est de nouveau en ligne, la région de lecture précédemment concernée se synchronise automatiquement avec la région d’écriture active et est à nouveau disponible pour le traitement des requêtes de lecture. Les lectures suivantes sont redirigées vers la région récupérée sans modification nécessaire de votre code d’application. Pendant le basculement et la réintégration d’une région ayant précédemment échoué, les garanties de cohérence de lecture continuent à être respectées par Cosmos DB.
+- Comptes multirégion avec une seule région d’écriture : pendant une panne de région de lecture, ces comptes restent hautement disponibles pour les lectures et les écritures. La région impactée est automatiquement déconnectée de la région d’écriture et marquée comme étant hors connexion. Les SDK Cosmos DB redirigent les appels de lecture vers la prochaine région disponible dans la liste des régions préférées. Si aucune des régions dans la liste des régions préférées n'est disponible, les appels sont automatiquement acheminés vers la zone d’écriture en cours. Aucune modification n’est nécessaire dans le code de votre application pour gérer la panne de la région de lecture. Au final, lorsque la région impactée est de nouveau en ligne, la région de lecture précédemment concernée se synchronise automatiquement avec la région d’écriture active et est à nouveau disponible pour le traitement des requêtes de lecture. Les lectures suivantes sont redirigées vers la région récupérée sans modification nécessaire de votre code d’application. Pendant le basculement et la réintégration d’une région ayant précédemment échoué, les garanties de cohérence de lecture continuent à être respectées par Cosmos DB.
 
 - Les comptes dans une seule région peuvent perdre leur disponibilité en raison d’une panne régionale. Il est recommandé de configurer au moins deux régions (de préférence, au moins deux régions d’écriture) avec votre compte Cosmos pour garantir une haute disponibilité en permanence.
 

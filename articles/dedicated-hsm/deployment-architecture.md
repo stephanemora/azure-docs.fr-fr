@@ -1,24 +1,25 @@
 ---
-title: Architecture de déploiement d’un HSM dédié Azure | Microsoft Docs
-description: Azure Dedicated HSM offre dans Azure des fonctionnalités de stockage de clés qui répondent à la certification FIPS 140-2 de niveau 3
+title: Architecture de déploiement - Module HSM dédié Azure | Microsoft Docs
+description: Considérations de base relatives à la conception lors de l’utilisation d’un module HSM dédié Azure en tant que partie d’une architecture d’application
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 8481f444464135a24d42612f334ac6096cba7b21
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 913be9d1ee6ce92d71f5f0c7eda46a618483ce8d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318988"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078291"
 ---
-# <a name="deployment-architecture"></a>Architecture de déploiement
+# <a name="azure-dedicated-hsm-deployment-architecture"></a>Architecture de déploiement d’un module HSM dédié Azure | Microsoft Docs
 
 Un HSM dédié Azure permet le stockage de clés de chiffrement dans Azure. Il satisfait à des exigences de sécurité strictes. Les clients tireront un bénéfice de l’utilisation du HSM dédié Azure s’ils :
 

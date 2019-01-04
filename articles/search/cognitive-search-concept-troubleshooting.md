@@ -1,5 +1,5 @@
 ---
-title: Conseils de dépannage pour la recherche cognitive dans Recherche Azure | Microsoft Docs
+title: Conseils de dépannage pour la recherche cognitive - Recherche Azure
 description: Conseils et résolution des problèmes pour la configuration de pipelines de recherche cognitive dans Recherche Azure.
 services: search
 manager: pablocas
@@ -10,18 +10,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 3d0d468674a2284e9925c1410f2bb8bcbde8f73f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec2018
+ms.openlocfilehash: 5f21fe3c65e37d3fee4043526762a7fafdea5cc4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575295"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316292"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Conseils de dépannage pour la recherche cognitive
 
 Cet article contient une liste de conseils et astuces destinés à vous permettre d’aller de l’avant lorsque vous commencez à utiliser les fonctionnalités de recherche cognitive dans Recherche Azure. 
 
-Si ce n’est déjà fait, parcourez le [didacticiel concernant l’appel des API de recherche cognitive](cognitive-search-quickstart-blob.md) pour pratiquer l’application d’enrichissements de recherche cognitive à une source de données d’objet blob.
+Si ce n’est déjà fait, suivez le [Tutoriel : Appeler des API de recherche cognitive](cognitive-search-quickstart-blob.md) pour apprendre à appliquer des enrichissements de recherche cognitive à une source de données Blob.
 
 ## <a name="tip-1-start-with-a-small-dataset"></a>Conseil 1 : commencez avec un petit jeu de données
 La meilleure façon de détecter rapidement des problèmes consiste à augmenter la vitesse à laquelle vous pouvez résoudre ceux-ci. La meilleure façon de réduire le temps d’indexation consiste à diminuer le nombre de documents à indexer. 
@@ -30,13 +31,13 @@ Commencez par créer une source de données ne contenant que quelques documents/
 
 Exécutez votre exemple de document via le pipeline de bout en bout et vérifiez que les résultats correspondent à vos besoins. Lorsque vous êtes satisfait des résultats, vous pouvez ajouter des fichiers à votre source de données.
 
-## <a name="tip-2-make-sure-your-data-source-credentials-are-correct"></a>Conseil 2 : assurez-vous que les informations d’identification de votre source de données sont correctes
+## <a name="tip-2-make-sure-your-data-source-credentials-are-correct"></a>Conseil 2 : assurez-vous que les informations d’identification de la source de données sont correctes
 La connexion de source de données n’est pas validée tant que vous ne définissez pas un indexeur qui l’utilise. Si vous rencontrez des erreurs signalant que l’indexeur ne peut pas accéder aux données, vérifiez les points suivants :
 - Votre chaîne de connexion est correcte. En particulier lorsque vous créez des jetons SAP, veillez à utiliser le format attendu par Recherche Azure. Pour découvrir les différents formats pris en charge, voir la section [Comment spécifier des informations d’identification](
 https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials).
 - Le nom de votre conteneur dans l’indexeur est correct.
 
-## <a name="tip-3-see-what-works-even-if-there-are-some-failures"></a>Conseil 3 : regardez ce qui fonctionne même en présence de défaillances
+## <a name="tip-3-see-what-works-even-if-there-are-some-failures"></a>Conseil 3 : regardez ce qui fonctionne même en présence d’erreurs
 Parfois, une petite défaillance arrête un indexeur. C’est bien si vous prévoyez de résoudre les problèmes un par un. Cependant, vous pourriez vouloir ignorer un type particulier d’erreur et permettre à l’indexeur de continuer à opérer afin que vous puissiez voir quels flux fonctionnent réellement.
 
 Dans ce cas, il se peut que vous vouliez demander à l’indexeur d’ignorer certaines erreurs. Pour ce faire, définissez les valeurs de *maxFailedItems* et *maxFailedItemsPerBatch* sur -1 dans le cadre de la définition de l’indexeur.
@@ -51,7 +52,7 @@ Dans ce cas, il se peut que vous vouliez demander à l’indexeur d’ignorer ce
    }
 }
 ```
-## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>Conseil 4 : examinez les documents enrichis sous le capot 
+## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>Conseil 4 : examinez les documents enrichis temporaires 
 Les documents enrichis sont des structures temporaires créées pendant l’enrichissement, puis supprimées une fois le traitement terminé.
 
 Pour capturer un instantané du document enrichi créé lors de l’indexation, ajoutez à votre index un champ nommé ```enriched```. L’indexeur vide automatiquement dans ce champ une représentation de chaîne de tous les enrichissements de ce document.
@@ -83,17 +84,17 @@ Ajoutez un champ ```enriched``` dans votre définition d’index à des fins de 
 
 Un contenu manquant peut résulter d’une suppression de documents lors de l’indexation. Les limites de taille de document pour les niveaux Gratuit et De base sont basses. Tout fichier dépassant la limite est écarté lors de l’indexation. Vous pouvez vérifier la présence de documents écartés dans le portail Azure. Dans le tableau de bord du service de recherche, double-cliquez sur la vignette Indexeurs. Examinez le taux de documents correctement indexés. S’il n’est pas de 100 %, vous pouvez cliquer dessus pour obtenir plus de détails. 
 
-Si le problème est lié à la taille du fichier, vous pouvez voir un message d’erreur tel que celui-ci : « L’objet blob <nom-fichier> a une taille de <taille-fichier> octets, ce qui supérieur à la taille maximale d’extraction de document correspondant à votre niveau de service actuel. » Pour plus d’informations sur les limites de l’indexeur, voir [Limites du service](search-limits-quotas-capacity.md).
+Si le problème est lié à la taille du fichier, vous pouvez voir une erreur similaire à celle-ci : « L’objet blob <nom-fichier> a une taille de <taille-fichier> octets, ce qui est supérieur à la taille maximale d’extraction de document correspondant à votre niveau de service actuel. » Pour plus d’informations sur les limites de l’indexeur, voir [Limites du service](search-limits-quotas-capacity.md).
 
 Un échec d’affichage du contenu peut également résulter d’erreurs de mappage d’entrée/sortie. Par exemple, un nom de cible de sortie est « Contacts », mais le nom du champ d’index est « contacts » en minuscules. Le système peut retourner 201 messages de réussite pour le pipeline entier, de sorte que vous pensez que l’indexation a réussi alors qu’en fait un champ est vide. 
 
-## <a name="tip-6-extend-processing-beyond-maximum-run-time-24-hour-window"></a>Conseil 6 : étendez le traitement au-delà du temps d’exécution maximal (fenêtre de 24 heures)
+## <a name="tip-6-extend-processing-beyond-maximum-run-time-24-hour-window"></a>Conseil 6 : prolongez le traitement au-delà du temps d’exécution maximal (fenêtre de 24 heures)
 
 L’analyse d’image nécessite une grande capacité de calcul, même pour des cas simples. Ainsi, quand des images sont particulièrement volumineuses ou complexes, les temps de traitement peuvent dépasser le temps maximal imparti. 
 
 Le temps d’exécution maximal varie selon le niveau : de quelques minutes pour le niveau Gratuit, à une durée d’indexation de 24 heures pour les niveaux facturables. Si le traitement n’aboutit pas dans un délai de 24 heures pour un traitement à la demande, passez à une planification telle que l’indexeur reprenne le traitement là où il l’a laissé. 
 
-Pour les indexeurs planifiés, l’indexation reprend dans le délai prévu au dernier bon document connu. Avec une planification récurrente, l’indexeur peut opérer à sa manière dans le backlog d’images sur une série d’heures ou de jours, jusqu’à ce que toutes les images non traitées le soient. Pour plus d’informations sur la syntaxe de planification, voir l’[Étape 3 : créer un indexeur](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
+Pour les indexeurs planifiés, l’indexation reprend dans le délai prévu au dernier bon document connu. Avec une planification récurrente, l’indexeur peut opérer à sa manière dans le backlog d’images sur une série d’heures ou de jours, jusqu’à ce que toutes les images non traitées le soient. Pour plus d’informations sur la syntaxe de la planification, consultez [Étape 3 : Créer un indexeur](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
 
 Pour une indexation basée sur le portail (telle que décrite dans le démarrage rapide), le choix de l’option d’indexeur « Exécuter une fois » limite le traitement à 1 heure (`"maxRunTime": "PT1H"`). Vous pouvez étendre la fenêtre de traitement.
 
@@ -103,8 +104,8 @@ Pour une [indexation parallèle](search-howto-large-index.md), placez vos donné
 Pour plus d’informations, voir [Indexation de jeux de données volumineux](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## <a name="see-also"></a>Voir aussi
-+ [Démarrage rapide : création d’un pipeline de recherche cognitive dans le portail](cognitive-search-quickstart-blob.md)
-+ [Didacticiel : découverte des API REST de recherche cognitive](cognitive-search-tutorial-blob.md)
++ [Démarrage rapide : Créer un pipeline de recherche cognitive dans le portail](cognitive-search-quickstart-blob.md)
++ [Tutoriel : Découvrir les API REST de la recherche cognitive](cognitive-search-tutorial-blob.md)
 + [Spécification des informations d’identification de la source de données](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
 + [Indexation de jeux de données volumineux](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [Guide pratique pour définir un jeu de compétences](cognitive-search-defining-skillset.md)

@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: c2e487f421d2dfc875efde82c078f557f7bd03d2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 3779260d2dd6036e65be39b4a59ceb1459d01b9e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405733"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434254"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Surveiller l’état, configurer la journalisation des diagnostics et activer les alertes pour Azure Logic Apps
 
@@ -62,7 +62,7 @@ Pour obtenir des notifications concernant des échecs ou d’autres problèmes �
    ![Détails de l’étape](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
    > [!NOTE]
-   > Tous les détails et événements d’exécution sont chiffrés dans le service Logic Apps. Il sont déchiffrés uniquement quand un utilisateur demande à consulter ces données. Vous pouvez également contrôler l’accès à ces événements avec le [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/overview.md).
+   > Tous les détails et événements d’exécution sont chiffrés dans le service Logic Apps. Ils sont déchiffrés uniquement quand un utilisateur demande à consulter ces données. Vous pouvez également contrôler l’accès à ces événements avec le [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/overview.md).
 
 6. Pour obtenir des détails sur un événement déclencheur spécifique, revenez au volet **Vue d’ensemble**. Sous **Historique du déclencheur**, sélectionnez l’événement déclencheur. Vous pouvez maintenant examiner des détails tels que les entrées et sorties, par exemple :
 
@@ -74,7 +74,7 @@ Pour obtenir des notifications concernant des échecs ou d’autres problèmes �
 
 Pour un débogage enrichi avec des détails et événements d’exécution, vous pouvez configurer la journalisation des diagnostics avec [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics est un service d’Azure qui surveille vos environnements cloud et locaux pour vous aider à assurer leur disponibilité et leurs performances. 
 
-Avant de commencer, vous devez disposer d’un espace de travail Log Analytics. Découvrez [comment créer un espace de travail Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+Avant de commencer, vous devez disposer d’un espace de travail Log Analytics. Découvrez [comment créer un espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez votre application logique. 
 
@@ -92,7 +92,7 @@ Avant de commencer, vous devez disposer d’un espace de travail Log Analytics. 
    2. Sous **Log Analytics**, choisissez **Configurer**. 
    3. Sous **Espaces de travail OMS**, sélectionnez l’espace de travail à utiliser pour la journalisation.
    > [!NOTE]
-   > Les espaces de travail OMS sont désormais appelés espaces de travail Log Analytics.
+   > Les espaces de travail OMS sont désormais appelés « espaces de travail Log Analytics ».
    4. Sous **Journal**, sélectionnez la catégorie **WorkflowRuntime**.
    5. Choisissez l’intervalle de mesure.
    6. Une fois ces opérations effectuées, sélectionnez **Enregistrer**.
@@ -130,7 +130,7 @@ Pour rechercher et afficher dans votre application logique des événements tels
 5. Dans la page de résultats, dans la barre de gauche, choisissez la plage de temps que vous souhaitez afficher.
 Pour affiner votre requête en ajoutant un filtre, choisissez **+Ajouter**.
 
-   ![Choisir un plage de temps pour les résultats de la requête](media/logic-apps-monitor-your-logic-apps/query-results.png)
+   ![Choisir une plage de temps pour les résultats de la requête](media/logic-apps-monitor-your-logic-apps/query-results.png)
 
 6. Sous **Ajouter des filtres**, entrez le nom du filtre afin de trouver le filtre souhaité. Sélectionnez le filtre, puis choisissez **+Ajouter**.
 
@@ -143,7 +143,7 @@ Pour affiner votre requête en ajoutant un filtre, choisissez **+Ajouter**.
 
    ![Sélectionner la valeur de filtre, choisir « Appliquer »](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
 
-8. Revenez à présent à la requête que vous créez. Votre requête est mis à jour avec le filtre et la valeur sélectionnés. Vos résultats précédents sont à présent également filtrés.
+8. Revenez à présent à la requête que vous créez. Votre requête est mise à jour avec le filtre et la valeur sélectionnés. Vos résultats précédents sont à présent également filtrés.
 
    ![Revenir à votre requête avec les résultats filtrés](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
 
@@ -155,10 +155,10 @@ Pour affiner votre requête en ajoutant un filtre, choisissez **+Ajouter**.
 
 Avec Azure Log Analytics, vous pouvez étendre le mode d’utilisation des données de diagnostic de votre application logique avec d’autres services Azure, par exemple : 
 
-* [Archivage des journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
+* [Archivage des journaux de diagnostic Azure](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Diffuser en continu les journaux de diagnostic vers Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
-Vous pouvez ensuite obtenir une surveillance en temps réel en utilisant les ressources de télémétrie et d’analyse d’autres services, tels que [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) et [Power BI](../log-analytics/log-analytics-powerbi.md). Par exemple : 
+Vous pouvez ensuite obtenir une surveillance en temps réel en utilisant les ressources de télémétrie et d’analyse d’autres services, tels que [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) et [Power BI](../azure-monitor/platform/powerbi.md). Par exemple : 
 
 * [Diffuser les données d’Event Hubs vers Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analyser les données de diffusion avec Stream Analytics et créer un tableau de bord analytique en temps réel dans Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
@@ -174,7 +174,7 @@ Selon les options que vous souhaitez configurer, veillez au préalable à [crée
 
 ## <a name="set-up-alerts-for-your-logic-app"></a>Configurer des alertes pour votre application logique
 
-Pour surveiller des métriques spécifiques ou des dépassements de seuils de votre application logique, configurez des [alertes dans Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md). En savoir plus sur les [métriques dans Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
+Pour surveiller des métriques spécifiques ou des dépassements de seuils de votre application logique, configurez des [alertes dans Azure](../azure-monitor/platform/alerts-overview.md). En savoir plus sur les [métriques dans Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
 Pour configurer des alertes sans [Azure Log Analytics](../log-analytics/log-analytics-overview.md), procédez comme suit. Pour des critères et actions d’alertes plus avancés, [configurez également Log Analytics](#azure-diagnostics).
 
@@ -207,7 +207,7 @@ Pour configurer des alertes sans [Azure Log Analytics](../log-analytics/log-anal
 
 ## <a name="azure-diagnostics-event-settings-and-details"></a>Paramètres et détails d’événements Azure Diagnostics
 
-Chaque événement de diagnostic comprend des détails sur votre application logique et l’événement, par exemple, l’état, l’heure de début, l’heure de fin, etc. Pour configurer par programmation la surveillance, le suivi et la journalisation, vous pouvez utiliser ces informations avec l’[API REST pour Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) et l’[API REST pour Azure Diagnostics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
+Chaque événement de diagnostic comprend des détails sur votre application logique et l’événement, par exemple, l’état, l’heure de début, l’heure de fin, etc. Pour configurer par programmation la surveillance, le suivi et la journalisation, vous pouvez utiliser ces informations avec l’[API REST pour Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) et l’[API REST pour Azure Diagnostics](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows).
 
 Par exemple, l’événement `ActionCompleted` a les propriétés `clientTrackingId` et `trackedProperties` que vous pouvez utiliser pour le suivi et la surveillance :
 
@@ -245,9 +245,9 @@ Par exemple, l’événement `ActionCompleted` a les propriétés `clientTrackin
 }
 ```
 
-* `clientTrackingId` : si cet ID n’est pas fourni, Azure le génère automatiquement et met en corrélation les événements de l’exécution d’une application logique, y compris les flux de travail imbriqués appelés par l’application logique. Vous pouvez spécifier manuellement cet ID à partir d’un déclencheur en passant un en-tête `x-ms-client-tracking-id` avec votre valeur d’ID personnalisé dans la demande de déclencheur. Vous pouvez utiliser un déclencheur de demande, un déclencheur HTTP ou un déclencheur de webhook.
+* `clientTrackingId`: si cet ID n’est pas fourni, Azure le génère automatiquement et met en corrélation les événements de l’exécution d’une application logique, y compris les flux de travail imbriqués appelés par l’application logique. Vous pouvez spécifier manuellement cet ID à partir d’un déclencheur en passant un en-tête `x-ms-client-tracking-id` avec votre valeur d’ID personnalisé dans la demande de déclencheur. Vous pouvez utiliser un déclencheur de demande, un déclencheur HTTP ou un déclencheur de webhook.
 
-* `trackedProperties` : pour effectuer le suivi des entrées ou sorties dans les données de diagnostic, vous pouvez ajouter des propriétés suivies à des actions dans la définition JSON de votre application logique. Les propriétés suivies ne peuvent suivre les entrées ou sorties que d’une action unique, mais vous pouvez utiliser les propriétés `correlation` d’événements pour mettre en corrélation les actions d’une exécution.
+* `trackedProperties`: pour effectuer le suivi des entrées ou sorties dans les données de diagnostic, vous pouvez ajouter des propriétés suivies à des actions dans la définition JSON de votre application logique. Les propriétés suivies ne peuvent suivre les entrées ou sorties que d’une action unique, mais vous pouvez utiliser les propriétés `correlation` d’événements pour mettre en corrélation les actions d’une exécution.
 
   Pour effectuer le suivi d’une ou plusieurs propriétés, ajoutez la section `trackedProperties` et les propriétés souhaitées à la définition de l’action. Par exemple, supposons que vous souhaitez effectuer le suivi de données telles qu’un « ID de commande » dans votre télémétrie :
 

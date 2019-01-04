@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: b84992f5deea1135692c368900f63773b51453bb
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669366"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959680"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Résoudre les problèmes de connexion RDP des machines virtuelles Azure par ID d’événement 
 
@@ -37,7 +37,7 @@ Pour résoudre ce problème, passez en revue les journaux d’événements sur l
 
 ### <a name="create-a-backup-snapshot"></a>Créer un instantané de sauvegarde
 
-Pour créer un instantané de sauvegarde, procédez de la manière décrite dans [Effectuer la capture instantanée d’un disque](..\windows\snapshot-copy-managed-disk.md).
+Pour créer un instantané de sauvegarde, procédez de la manière décrite dans [Effectuer la capture instantanée d’un disque](../windows/snapshot-copy-managed-disk.md).
 
 ### <a name="connect-to-the-vm-remotely"></a>Se connecter à la machine virtuelle à distance
 
@@ -58,34 +58,34 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 **Source :**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **Date :**          *heure* <br />
 **ID d’événement :**      1058 <br />
-**Catégorie de tâche :** Aucune <br />
-**Niveau :**         Erreur <br />
-**Mots clés :**     Classique <br />
+**Catégorie de tâche :** Aucun <br />
+**Niveau :**         Error <br />
+**Mots clés :**      Classique <br />
 **Utilisateur :**          N/A <br />
 **Ordinateur :**      *ordinateur* <br />
-**Description :** Le serveur hôte de session Bureau à distance n’a pas pu remplacer le certificat auto-signé ayant expiré et qui était utilisé pour l’authentification du serveur hôte de session Bureau à distance sur les connexions SSL. Le code d’état approprié est Access is denied (L’accès est refusé).
+**Description :** le serveur hôte de session Bureau à distance n’a pas pu remplacer le certificat auto-signé ayant expiré et qui était utilisé pour l’authentification du serveur hôte de session Bureau à distance sur les connexions SSL. Le code d’état approprié est Access is denied (L’accès est refusé).
 
 **Nom du journal :**      System <br />
 **Source :**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **Date :**          *heure* <br />
 **ID d’événement :**      1058 <br />
-**Catégorie de tâche :** Aucune <br />
-**Niveau :**         Erreur <br />
-**Mots clés :**     Classique <br />
+**Catégorie de tâche :** Aucun <br />
+**Niveau :**         Error <br />
+**Mots clés :**      Classique <br />
 **Utilisateur :**          N/A <br />
 **Ordinateur :**      *ordinateur* <br />
-**Description :** Le serveur hôte de session Bureau à distance n’a pas pu créer un certificat auto-signé à utiliser pour l’authentification du serveur hôte de session Bureau à distance sur les connexions SSL. Le code d’état approprié est Object already exists (L’objet existe déjà).
+**Description :** le serveur hôte de session Bureau à distance n’a pas pu créer un certificat auto-signé à utiliser pour l’authentification du serveur hôte de session Bureau à distance sur les connexions SSL. Le code d’état approprié est Object already exists (L’objet existe déjà).
 
 **Nom du journal :**      System <br />
 **Source :**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **Date :**          *heure* <br />
 **ID d’événement :**      1057 <br />
-**Catégorie de tâche :** Aucune <br />
-**Niveau :**         Erreur <br />
-**Mots clés :**     Classique <br />
+**Catégorie de tâche :** Aucun <br />
+**Niveau :**         Error <br />
+**Mots clés :**      Classique <br />
 **Utilisateur :**          N/A <br />
 **Ordinateur :**      *ordinateur* <br />
-**Description :** Le serveur hôte de session Bureau à distance n’a pas pu créer un certificat auto-signé à utiliser pour l’authentification du serveur hôte de session Bureau à distance sur les connexions SSL. Le code d’état approprié est Keyset does not exist (Le jeu de clés n’existe pas).
+**Description :** le serveur hôte de session Bureau à distance n’a pas pu créer un certificat auto-signé à utiliser pour l’authentification du serveur hôte de session Bureau à distance sur les connexions SSL. Le code d’état approprié est Keyset does not exist (Le jeu de clés n’existe pas).
 
 Vous pouvez également vérifier les événements d’erreur SCHANNEL 36872 et 36870 en exécutant les commandes suivantes :
 
@@ -98,12 +98,12 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Source :**        Schannel <br />
 **Date :**          — <br />
 **ID d’événement :**      36870 <br />
-**Catégorie de tâche :** Aucune <br />
-**Niveau :**         Erreur <br />
+**Catégorie de tâche :** Aucun <br />
+**Niveau :**         Error <br />
 **Mots clés :**       <br />
-**Utilisateur :**           SYSTEM <br />
+**Utilisateur :**          SYSTEM <br />
 **Ordinateur :**      *ordinateur* <br />
-**Description :** Une erreur irrécupérable s’est produite lors de la tentative d’accès à la clé privée des informations d’identification du serveur SSL. Le code d’erreur retourné par le module de chiffrement est 0x8009030D.  <br />
+**Description :** une erreur irrécupérable s’est produite lors de la tentative d’accès à la clé privée des informations d’identification du serveur SSL. Le code d’erreur retourné par le module de chiffrement est 0x8009030D.  <br />
 L’état d’erreur interne est 10001.
 
 ### <a name="cause"></a>Cause :
@@ -220,12 +220,12 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Source :**        Schannel <br />
 **Date :**          — <br />
 **ID d’événement :**      36871 <br />
-**Catégorie de tâche :** Aucune <br />
-**Niveau :**         Erreur <br />
+**Catégorie de tâche :** Aucun <br />
+**Niveau :**         Error <br />
 **Mots clés :**       <br />
-**Utilisateur :**           SYSTEM <br />
+**Utilisateur :**          SYSTEM <br />
 **Ordinateur :**      *ordinateur* <br />
-**Description :** Une erreur irrécupérable s’est produite lors de la création des informations d’identification du serveur TLS. L’état d’erreur interne est 10013.
+**Description :** une erreur irrécupérable s’est produite lors de la création des informations d’identification du serveur TLS. L’état d’erreur interne est 10013.
  
 ### <a name="cause"></a>Cause :
 
@@ -251,11 +251,11 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 **Date :**          *heure* <br />
 **ID d’événement :**      2056 <br />
 **Catégorie de tâche :** (109) <br />
-**Niveau :**         Erreur <br />
+**Niveau :**         Error <br />
 **Mots clés :**       <br />
-**Utilisateur :**          NETWORK SERVICE <br />
+**Utilisateur :**          SERVICE RÉSEAU <br />
 **Ordinateur :**      *computer fqdn* <br />
-**Description :** La description de l’ID d’événement 2056 provenant de la source Microsoft-Windows-TerminalServices-SessionBroker est introuvable. Le composant qui déclenche cet événement n’est pas installé sur votre ordinateur local, ou l’installation est endommagée. Vous pouvez installer ou réparer le composant sur l’ordinateur local. <br />
+**Description :** la description de l’ID d’événement 2056 provenant de la source Microsoft-Windows-TerminalServices-SessionBroker est introuvable. Le composant qui déclenche cet événement n’est pas installé sur votre ordinateur local, ou l’installation est endommagée. Vous pouvez installer ou réparer le composant sur l’ordinateur local. <br />
 Si l’événement provient d’un autre ordinateur, les informations d’affichage ont dû être enregistrées avec l’événement. <br />
 Les informations suivantes ont été incluses avec l’événement : <br />
 NULL <br />
@@ -267,11 +267,11 @@ L’ouverture de session sur la base de données a échoué.
 **Date :**          *heure* <br />
 **ID d’événement :**      1296 <br />
 **Catégorie de tâche :** (104) <br />
-**Niveau :**         Erreur <br />
+**Niveau :**         Error <br />
 **Mots clés :**       <br />
-**Utilisateur :**          NETWORK SERVICE <br />
+**Utilisateur :**          SERVICE RÉSEAU <br />
 **Ordinateur :**      *computer fqdn* <br />
-**Description :** La description de l’ID d’événement 1296 provenant de la source Microsoft-Windows-TerminalServices-SessionBroker-Client est introuvable. Le composant qui déclenche cet événement n’est pas installé sur votre ordinateur local, ou l’installation est endommagée. Vous pouvez installer ou réparer le composant sur l’ordinateur local.
+**Description :** la description de l’ID d’événement 1296 provenant de la source Microsoft-Windows-TerminalServices-SessionBroker-Client est introuvable. Le composant qui déclenche cet événement n’est pas installé sur votre ordinateur local, ou l’installation est endommagée. Vous pouvez installer ou réparer le composant sur l’ordinateur local.
 Si l’événement provient d’un autre ordinateur, les informations d’affichage ont dû être enregistrées avec l’événement.
 Les informations suivantes ont été incluses avec l’événement :  <br />
 *text* <br />

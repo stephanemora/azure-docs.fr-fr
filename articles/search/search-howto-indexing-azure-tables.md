@@ -1,6 +1,6 @@
 ---
-title: Indexation du stockage de tables Azure avec Azure Search | Microsoft Docs
-description: Découvrez comment indexer les données stockées dans le stockage de tables Azure avec Azure Search
+title: Contenu de l’index du stockage de tables Azure pour la recherche en texte intégral - Recherche Azure
+description: Découvrez comment indexer les données stockées dans le stockage de tables Azure avec la Recherche Azure.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 738518f94869a55cf80db1c87b8c74b167f5cce1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: 39455669dd739309ac0201de49b390c2390e0067
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406923"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317268"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indexer le stockage de tables Azure avec Azure Search
 Cet article montre comment utiliser Azure Search pour indexer les données stockées dans le stockage de tables Azure.
@@ -29,7 +30,7 @@ Vous pouvez configurer un indexeur de stockage de tables Azure à l’aide des r
 
 Ici, nous vous présentons le flux à l’aide de l’API REST. 
 
-### <a name="step-1-create-a-datasource"></a>Étape 1 : Création d’une source de données
+### <a name="step-1-create-a-datasource"></a>Étape 1 : Créer une source de données
 
 Une source de données spécifie les données à indexer, les informations d’identification nécessaires pour accéder aux données et les stratégies qui permettent à Azure Search d’identifier efficacement les changements dans les données.
 
@@ -66,16 +67,16 @@ Pour plus d’informations sur l’API Créer une source de données, consultez 
 
 Vous pouvez fournir les informations d’identification de la table de l’une des manières suivantes : 
 
-- **Chaîne de connexion de compte de stockage avec accès complet** : `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Vous pouvez obtenir la chaîne de connexion sur le portail Azure en accédant au **panneau du compte de stockage** > **Paramètres** > **Clés** (pour les comptes de stockage Classic) ou **Paramètres** > **Clés d’accès** (pour les comptes de stockage ARM).
-- **Chaîne de connexion de signature d’accès partagé au compte de stockage** : `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` La signature d’accès partagé doit disposer d’autorisations de liste et de lecture sur les conteneurs (tables dans le cas présent) et les objets (lignes de table).
--  **Signature d’accès partagé de table** : `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` la signature d’accès partagé doit disposer d’autorisations de requête (lecture) sur la table.
+- **Chaîne de connexion au compte de stockage avec accès complet** : `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Vous pouvez obtenir la chaîne de connexion sur le portail Azure en sélectionnant le **panneau du compte de stockage** > **Paramètres** > **Clés** (pour les comptes de stockage Classic) ou en sélectionnant **Paramètres** > **Clés d’accès** (pour les comptes de stockage ARM).
+- **Chaîne de connexion de la signature d’accès partagé (SAP) au compte de stockage** : `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` La SAP doit avoir les autorisations de liste et de lecture sur les conteneurs (des tables en l’occurrence) et les objets (des lignes de table).
+-  **Signature d’accès partagé à une table** : `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` La signature d’accès partagé doit disposer d’autorisations de requête (lecture) sur la table.
 
 Pour plus d’informations sur les signatures d’accès partagé au stockage, consultez [Utilisation des signatures d’accès partagé](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
 > Si vous utilisez des informations d’identification d’une signature d’accès partagé, vous devez mettre à jour les informations d’identification de la source de données régulièrement avec des signatures renouvelées afin d’éviter leur expiration. Si les informations d’identification d’une signature d’accès partagé expirent, l’indexeur échoue avec un message d’erreur tel que « Les informations d’identification fournies dans la chaîne de connexion sont invalides ou ont expiré. »  
 
-### <a name="step-2-create-an-index"></a>Étape 2 : Création d’un index
+### <a name="step-2-create-an-index"></a>Étape 2 : Création d'un index
 L’index spécifie les champs d’un document, les attributs et d’autres constructions qui façonnent l’expérience de recherche.
 
 Pour créer un index :
@@ -94,7 +95,7 @@ Pour créer un index :
 
 Pour plus d’informations sur la création d’index, consultez [Création d’un index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-### <a name="step-3-create-an-indexer"></a>Étape 3 : Création d’un indexeur
+### <a name="step-3-create-an-indexer"></a>Étape 3 : Créer un indexeur
 Un indexeur connecte une source de données à un index de recherche cible et fournit une planification afin d’automatiser l’actualisation des données. 
 
 Une fois l’index et la source de données créés, vous êtes prêt à créer l’indexeur :
@@ -110,7 +111,7 @@ Une fois l’index et la source de données créés, vous êtes prêt à créer 
       "schedule" : { "interval" : "PT2H" }
     }
 
-Cet indexeur s’exécute toutes les deux heures. (L’intervalle de planification est définie sur « PT2H ».) Pour exécuter un indexeur toutes les 30 minutes, définissez l’intervalle sur « PT30M ». Le plus court intervalle pris en charge est de 5 minutes. La planification est facultative : en cas d’omission, un indexeur ne s’exécute qu’une seule fois lorsqu’il est créé. Toutefois, vous pouvez à tout moment exécuter un indexeur à la demande.   
+Cet indexeur s’exécute toutes les deux heures. (L’intervalle de planification est défini sur « PT2H ».) Pour exécuter un indexeur toutes les 30 minutes, définissez l’intervalle sur « PT30M ». Le plus court intervalle pris en charge est de 5 minutes. La planification est facultative : en cas d’omission, un indexeur ne s’exécute qu’une seule fois lorsqu’il est créé. Toutefois, vous pouvez à tout moment exécuter un indexeur à la demande.   
 
 Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
@@ -164,4 +165,4 @@ Voici deux approches possibles pour améliorer les performances d’indexation d
 
 
 ## <a name="help-us-make-azure-search-better"></a>Aidez-nous à améliorer Azure Search
-Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas les proposer sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
+Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à les proposer sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

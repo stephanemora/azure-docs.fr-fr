@@ -1,23 +1,23 @@
 ---
 title: Utiliser des rapports Cloudyn dans Azure | Microsoft Docs
-description: Cet article décrit comment utiliser différents rapports dans le portail Cloudyn.
+description: Cet article décrit la finalité des rapports Cloudyn inclus dans le portail Cloudyn, afin de vous aider à les utiliser efficacement.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: efb199a9e97a6e80cc24dfe32f6477b4c7abf89a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: fa322a0521b3b2c408bfe6d50411c62068b77229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276021"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075869"
 ---
-# <a name="use-cloudyn-reports"></a>Utiliser des rapports Cloudyn
+# <a name="reports-available-in-the-cloudyn-portal"></a>Rapports disponibles dans le portail Cloudyn
 
 Cet article décrit l’objectif des rapports Cloudyn inclus dans le portail Cloudyn. Il explique également comment utiliser efficacement les rapports. La plupart des rapports sont intuitifs et ont une apparence similaire. L’essentiel des actions possibles dans un rapport est également réalisable dans d’autres rapports. Pour une vue d’ensemble de l’utilisation des rapports Cloudyn, y compris la personnalisation et l’enregistrement ou la planification, consultez [Comprendre les rapports de coûts](understanding-cost-reports.md).
 
@@ -59,7 +59,7 @@ Les tableaux de bord de Cloudyn offrent une vue d’ensemble des rapports. Les t
 
 ## <a name="budget-information-in-reports"></a>Informations budgétaires dans les rapports
 
-De nombreux rapports Cloudyn ne présentent des informations budgétaires qu’après création manuelle d’un budget, et pas avant. Pour plus d’informations, voir [Paramètres budgétaires](#budget-settings).
+De nombreux rapports Cloudyn ne présentent des informations budgétaires qu’après création manuelle d’un budget, et pas avant. Pour plus d’informations, voir [Paramètres de gestion budgétaire](#budget-management-settings).
 
 ## <a name="reports-and-reporting-features"></a>Rapports et fonctionnalités de génération de rapports
 
@@ -448,7 +448,7 @@ La section **Utilisation du processeur** présente l’utilisation du processeur
 
 Cliquez sur le graphique pour descendre dans la hiérarchie et ouvrez le rapport du processeur dans le temps pour voir la répartition des instances.
 
-- Utilisez la fonction **Afficher/masquer les champs** pour ajouter ou supprimer des champs : Timestamp, Utilisation moyenne du processeur, Utilisation minimale du processeur, Utilisation maximale du processeur.
+- Utilisez **Afficher/masquer des champs** pour ajouter ou supprimer des champs : Timestamp, Utilisation moyenne du processeur, Utilisation minimale du processeur, Utilisation maximale du processeur.
 - Utilisez la fonction **Plage de dates** pour entrer une date ou une plage de dates et explorer un ID d’instance en particulier.
 - Utilisez la fonction **Filtres étendus** pour afficher tous les ID d’instances ou un en particulier.
 - Cliquez sur **Zoom avant** pour ouvrir le rapport de l’utilisation du processeur.

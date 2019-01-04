@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : intégration d’Azure Active Directory à Promapp | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Promapp | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Promapp.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 6bcd1add3985112fe60aab22f1799e40ad8889b2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6ed07ea3cc625c518d6733f7a86f4542f91f425c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421860"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017114"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Didacticiel : Intégration d’Azure Active Directory à Promapp
+# <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Tutoriel : Intégration d’Azure Active Directory à Promapp
 
 Dans ce didacticiel, vous allez apprendre à intégrer Promapp avec Azure Active Directory (Azure AD).
 
@@ -113,6 +113,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     ![Configurer l'authentification unique](./media/promapp-tutorial/tutorial_promapp_url.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
+    
     | |
     |--|
     | `https://go.promapp.com/TENANTNAME/`|
@@ -171,7 +172,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
     c. Ouvrez le certificat téléchargé dans le Bloc-notes, copiez le contenu du certificat sans la première ligne (-----**BEGIN CERTIFICATE**-----) ni la dernière ligne (-----**END CERTIFICATE**-----), collez-le dans la zone de texte **Certificat x.509 d’authentification unique**, puis cliquez sur **Enregistrer**.
         
 > [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD

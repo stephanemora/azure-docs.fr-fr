@@ -1,6 +1,6 @@
 ---
-title: Inscrire un nouvel appareil Azure IoT Edge (VS Code) | Microsoft Docs
-description: Utiliser Visual Studio Code pour créer un appareil IoT Edge dans votre hub Azure IoT
+title: Inscrire un nouvel appareil à partir de Visual Studio Code - Azure IoT Edge | Microsoft Docs
+description: Utiliser Visual Studio Code pour créer un appareil IoT Edge dans votre hub Azure IoT et récupérer la chaîne de connexion
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 06/14/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cf9603c65454f076a494789e784c9352fb7bef33
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.custom: seodec18
+ms.openlocfilehash: cc812cc7f628f533cbf342edee66e01ce703678f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578703"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099766"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-visual-studio-code"></a>Inscrire un nouvel appareil Azure IoT Edge à partir de Visual Studio Code
 
@@ -35,7 +36,7 @@ Vous pouvez utiliser les extensions Azure IoT pour Visual Studio Code afin d’e
 
 2. En bas de l’Explorateur, développez la section **Appareils Azure IoT Hub**. 
 
-   ![Développer Appareils Azure IoT Hub](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
+   ![Développer la section Appareils Azure IoT Hub](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
 
 3. Cliquez sur **...** dans l’en-tête de section **Appareils Azure IoT Hub**. Si vous ne voyez pas les points de suspension, cliquez ou pointez sur l’en-tête. 
 
@@ -63,7 +64,7 @@ Dans l’écran de sortie, vous voyez le résultat de la commande. Les informati
 
 Tous les appareils qui se connectent à votre hub IoT sont répertoriés dans la section **Appareils Azure IoT Hub** de l’Explorateur de Visual Studio Code. Les appareils IoT Edge se distinguent des appareils non-Edge par leur icône spécifique et par le fait que vous pouvez les développer pour afficher les modules déployés sur chacun d’eux. 
 
-   ![Voir les appareils dans VS Code](./media/how-to-register-device-vscode/view-devices.png)
+   ![Afficher tous les appareils IoT Edge de votre hub IoT](./media/how-to-register-device-vscode/view-devices.png)
 
 ## <a name="retrieve-the-connection-string"></a>Récupérer la chaîne de connexion
 

@@ -1,13 +1,11 @@
 ---
-title: Créer une instance publique de Load Balancer Standard avec un front-end d’adresse IP publique zonal à l’aide d’Azure CLI | Microsoft Docs
+title: Créer une instance Standard Load Balancer avec un front-end interzone à l’aide d’Azure CLI
+titlesuffix: Azure Load Balancer
 description: Découvrez comment créer une instance publique de Load Balancer Standard avec un front-end d’adresse IP publique zonal à l’aide d’Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 52834e1ac9768f5207b64ba841a3761f153a9f87
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f1a6777a99c2237fc4d201fa5c87eaea88117866
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984447"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185628"
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-cli"></a>Créer une instance publique de Load Balancer Standard avec un front-end zonal à l’aide d’Azure CLI
 
@@ -71,7 +69,7 @@ Cette section explique en détail comment créer et configurer les composants su
 - Une règle d’équilibreur de charge qui définit la distribution du trafic vers les machines virtuelles.
 
 ### <a name="create-the-load-balancer"></a>Créer l’équilibreur de charge
-Créez un équilibreur de charge standard avec la commande [az network lb create](/cli/azure/network/lb#az-network-lb-create). L’exemple suivant crée un équilibreur de charge nommé *myLoadBalancer* et affecte l’adresse *myPublicIP* à la configuration IP frontale.
+Créez un équilibrage de charge standard avec la commande [az network lb create](/cli/azure/network/lb#az-network-lb-create). L’exemple suivant crée un équilibreur de charge nommé *myLoadBalancer* et affecte l’adresse *myPublicIP* à la configuration IP frontale.
 
 ```azurecli-interactive
 az network lb create \
@@ -117,7 +115,7 @@ Avant de déployer des machines virtuelles et de pouvoir tester votre équilibre
 
 ### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
-Créez un réseau virtuel nommé *myVnet* avec un sous-réseau nommé *mySubnet* dans le myResourceGroup à l’aide de la commande [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
+Créez un réseau virtuel nommé *myVnet* avec un sous-réseau nommé *mySubnet* dans myResourceGroup à l’aide de la commande [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
 
 
 ```azurecli-interactive

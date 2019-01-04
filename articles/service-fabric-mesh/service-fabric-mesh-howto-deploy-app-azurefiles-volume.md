@@ -1,6 +1,6 @@
 ---
-title: Stocker un état dans une application Service Fabric Mesh en montant un volume basé sur Azure Files à l’intérieur du conteneur | Microsoft Docs
-description: Découvrez comment stocker un état dans une application Service Fabric Mesh en montant un volume basé sur Azure Files dans le conteneur avec Azure CLI.
+title: Utiliser un volume basé sur Azure Files dans une application Service Fabric Mesh | Microsoft Docs
+description: Découvrez comment stocker un état dans une application Service Fabric Mesh en montant un volume basé sur Azure Files dans un service avec Azure CLI.
 services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
@@ -12,86 +12,236 @@ ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2018
+ms.date: 11/21/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cb5b421c1bcfe888d65335f3ab7f67bed80eec34
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 9bce2d0e6d01813fd376b2505838defc9c772d70
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614257"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891093"
 ---
-# <a name="store-state-in-an-azure-service-fabric-mesh-application-by-mounting-an-azure-files-based-volume-inside-the-container"></a>Stocker un état dans une application Service Fabric Mesh en montant un volume basé sur Azure Files à l’intérieur du conteneur
+# <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Monter un volume basé sur Azure Files dans une application Service Fabric Mesh 
 
-Cet article montre comment stocker un état dans Azure Files en montant un volume à l’intérieur du conteneur d’une application Service Fabric mesh. Dans cet exemple, l’application de compteur dispose d’un service ASP.NET Core, avec une page web qui affiche la valeur du compteur dans un navigateur. 
+Cet article décrit comment monter un volume basé sur Azure Files dans un service d’une application Service Fabric Mesh.  Le pilote de volume Azure Files est un pilote de volume Docker utilisé pour monter un partage Azure Files sur un conteneur, auquel vous faites appel pour conserver l’état du service. Les volumes vous offrent un stockage de fichiers universel et vous permettent de lire/écrire des fichiers à l’aide d’API de fichier d’E/S de disque normal.  Pour en savoir plus sur les volumes et les options de stockage des données d’application, consultez [Stockage d’état](service-fabric-mesh-storing-state.md).
 
-`counterService` lit périodiquement une valeur de compteur dans un fichier, l’incrémente, puis la réécrit dans le fichier. Le fichier est stocké dans un dossier monté sur le volume soutenu par un partage Azure Files.
+Pour monter un volume dans un service, créez une ressource de volume dans votre application Service Fabric Mesh et référencez ce volume dans votre service.  Vous pouvez déclarer la ressource de volume et la référencer dans la ressource de service dans les [fichiers de ressources YAML](#declare-a-volume-resource-and-update-the-service-resource-yaml) ou le [modèle de déploiement basé sur JSON](#declare-a-volume-resource-and-update-the-service-resource-json). Avant de monter le volume, commencez par créer un compte de stockage Azure et un [partage de fichiers dans Azure Files](/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour accomplir cette tâche, vous pouvez utiliser le service Azure Cloud Shell ou une installation locale d’Azure CLI. Pour utiliser Azure CLI avec cet article, vérifiez que `az --version` retourne au moins `azure-cli (2.0.43)`.  Installez (ou mettez à jour) le module d’extension Service Fabric Mesh CLI en suivant les [instructions](service-fabric-mesh-howto-setup-cli.md) ci-après.
+Pour suivre cet article, vous pouvez utiliser Azure Cloud Shell ou une installation locale d’Azure CLI. 
 
-## <a name="sign-in-to-azure"></a>Connexion à Azure
+Si vous voulez utiliser Azure CLI localement pour cet article, vérifiez que `az --version` retourne au moins `azure-cli (2.0.43)`.  Installez (ou mettez à jour) le module d’extension Service Fabric Mesh CLI en suivant les [instructions](service-fabric-mesh-howto-setup-cli.md) ci-après.
 
-Connectez-vous à Azure et définissez votre abonnement.
+Pour vous connecter à Azure et définir votre abonnement :
 
-```azurecli-interactive
+```azurecli
 az login
 az account set --subscription "<subscriptionID>"
 ```
 
-## <a name="create-a-file-share"></a>Créer un partage de fichiers
-
-Créez un partage de fichiers Azure en suivant ces [instructions](/azure/storage/files/storage-how-to-create-file-share). Le nom du compte de stockage, la clé du compte de stockage et le nom du partage de fichiers sont référencés respectivement en tant que `<storageAccountName>`, `<storageAccountKey>` et `<fileShareName>` dans les instructions suivantes. Ces valeurs sont disponibles dans votre portail Azure :
-* <storageAccountName> - Sous **Comptes de stockage**, il s’agit du nom du compte de stockage que vous avez utilisé lorsque vous avez créé le partage de fichiers.
-* <storageAccountKey> - Sélectionnez votre compte de stockage sous **Comptes de stockage**, puis sélectionnez **Clés d’accès** et utilisez la valeur sous **key1**.
-* <fileShareName> - Sélectionnez votre compte de stockage sous **Comptes de stockage**, puis sélectionnez **Fichiers**. Le nom à utiliser est le nom du partage de fichiers que vous venez de créer.
-
-## <a name="create-a-resource-group"></a>Créer un groupe de ressources
-
-Créez un groupe de ressources dans lequel déployer l’application. La commande suivante crée un groupe de ressources nommé `myResourceGroup` dans un emplacement situé dans l’Est des États-Unis.
+## <a name="create-a-storage-account-and-file-share-optional"></a>Créer un compte de stockage et un partage de fichiers (facultatif)
+Le montage d’un volume Azure Files nécessite un compte de stockage et un partage de fichiers.  Vous pouvez utiliser un compte de stockage Azure et un partage de fichiers existants, ou créer les ressources :
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus 
+az group create --name myResourceGroup --location eastus
+
+az storage account create --name myStorageAccount --resource-group myResourceGroup --location eastus --sku Standard_LRS --kind StorageV2
+
+$current_env_conn_string=$(az storage account show-connection-string -n myStorageAccount -g myResourceGroup --query 'connectionString' -o tsv)
+
+az storage share create --name myshare --quota 2048 --connection-string $current_env_conn_string
 ```
 
-## <a name="deploy-the-template"></a>Déployer le modèle
+## <a name="get-the-storage-account-name-and-key-and-the-file-share-name"></a>Obtenir le nom et la clé du compte de stockage et le nom du partage de fichiers
+Le nom du compte de stockage, la clé du compte de stockage et le nom du partage de fichiers sont référencés respectivement en tant que `<storageAccountName>`, `<storageAccountKey>` et `<fileShareName>` dans les sections suivantes. 
 
-Créez l’application et les ressources associées au moyen de la commande suivante, et fournissez les valeurs pour `storageAccountName`, `storageAccountKey` et `fileShareName` de l’étape précédente [Créer un partage de fichiers](#create-a-file-share).
-
-Le paramètre `storageAccountKey` dans le modèle est une chaîne sécurisée. Il n’apparaîtra pas dans l’état du déploiement et les commandes `az mesh service show`. Assurez-vous qu’il est correctement spécifié dans la commande suivante.
-
-La commande suivante déploie une application Linux à l’aide du [modèle counter.azurefilesvolume.linux.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json). Pour déployer une application Windows, utilisez le [modèle counter.azurefilesvolume.windows.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.windows.json). N’oubliez pas que le déploiement d’images de conteneur plus grandes peut prendre plus de temps.
-
+Listez vos comptes de stockage et prenez le nom du compte de stockage avec le partage de fichiers que vous voulez utiliser :
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
+az storage account list
 ```
 
-Dans quelques minutes, votre commande devrait retourner le message suivant `counterApp has been deployed successfully on counterAppNetwork with public ip address <IP Address>`
-
-## <a name="open-the-application"></a>Ouvrir l’application
-
-La commande de déploiement doit retourner l’adresse IP publique du point de terminaison de service. À l’issue du déploiement de l’application, récupérez l’adresse IP publique du point de terminaison de service et ouvrez-la dans un navigateur. Une page web doit s’afficher avec la valeur du compteur mise à jour toutes les secondes.
-
-Le nom de la ressource réseau pour cette application est `counterAppNetwork`. Vous pouvez afficher des informations sur l’application, telles que sa description, son emplacement, son groupe de ressources, etc. à l’aide de la commande suivante :
-
+Prenez le nom du partage de fichiers :
 ```azurecli-interactive
-az mesh network show --resource-group myResourceGroup --name counterAppNetwork
+az storage share list --account-name <storageAccountName>
 ```
 
-## <a name="verify-that-the-application-is-able-to-use-the-volume"></a>Vérifier que l’application est capable d’utiliser le volume
-
-L’application crée un fichier nommé `counter.txt` dans le partage de fichiers à l’intérieur du dossier `counter/counterService`. Le contenu de ce fichier est la valeur du compteur affiché sur la page web.
-
-Le fichier peut être téléchargé à l’aide de n’importe quel outil permettant de parcourir un partage de fichiers Azure Files, tel que l’[Explorateur Stockage Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/).
-
-## <a name="delete-the-resources"></a>Supprimer les ressources
-
-Supprimez régulièrement les ressources que vous n’utilisez plus dans Azure. Pour supprimer les ressources liées à cet exemple, supprimez le groupe de ressources dans lequel elles ont été déployées (ce qui supprime tous les éléments associés au groupe de ressources) avec la commande suivante :
-
+Prenez la clé du compte de stockage ("key1") :
 ```azurecli-interactive
-az group delete --resource-group myResourceGroup
+az storage account keys list --account-name <storageAccountName> --query "[?keyName=='key1'].value"
+```
+
+Vous pouvez également trouver ces valeurs dans le [portail Azure](https://portal.azure.com) :
+* `<storageAccountName>` - Sous **Comptes de stockage**, nom du compte de stockage utilisé pour créer le partage de fichiers.
+* `<storageAccountKey>` - Sélectionnez votre compte de stockage sous **Comptes de stockage**, puis sélectionnez **Clés d’accès** et utilisez la valeur sous **key1**.
+* `<fileShareName>` - Sélectionnez votre compte de stockage sous **Comptes de stockage**, puis sélectionnez **Fichiers**. Le nom à utiliser est le nom du partage de fichiers que vous avez créé.
+
+## <a name="declare-a-volume-resource-and-update-the-service-resource-json"></a>Déclarer une ressource de volume et mettre à jour la ressource de service (JSON)
+
+Ajoutez des paramètres pour les valeurs `<fileShareName>`, `<storageAccountName>` et `<storageAccountKey>` que vous avez trouvées à une étape précédente. 
+
+Créez une ressource Volume en tant que pair de la ressource Application. Spécifiez un nom et le fournisseur (« SFAzureFile » pour utiliser le volume basé sur Azure Files). Dans `azureFileParameters`, spécifiez les paramètres pour les valeurs `<fileShareName>`, `<storageAccountName>` et `<storageAccountKey>` que vous avez trouvées à une étape précédente.
+
+Pour monter le volume dans votre service, ajoutez un `volumeRefs` dans l’élément `codePackages` du service.  `name` est l’ID de ressource pour le volume (ou un paramètre de modèle de déploiement pour la ressource de volume) et le nom du volume déclaré dans le fichier de ressources volume.yaml.  `destinationPath` est le répertoire local sur lequel le volume sera monté.
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "defaultValue": "EastUS",
+      "type": "String",
+      "metadata": {
+        "description": "Location of the resources."
+      }
+    },
+    "fileShareName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Azure Files file share that provides the volume for the container."
+      }
+    },
+    "storageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Azure storage account that contains the file share."
+      }
+    },
+    "storageAccountKey": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Access key for the Azure storage account that contains the file share."
+      }
+    },
+    "stateFolderName": {
+      "type": "string",
+      "defaultValue": "TestVolumeData",
+      "metadata": {
+        "description": "Folder in which to store the state. Provide a empty value to create a unique folder for each container to store the state. A non-empty value will retain the state across deployments, however if more than one applications are using the same folder, the counter may update more frequently."
+      }
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2018-09-01-preview",
+      "name": "VolumeTest",
+      "type": "Microsoft.ServiceFabricMesh/applications",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "Microsoft.ServiceFabricMesh/networks/VolumeTestNetwork",
+        "Microsoft.ServiceFabricMesh/volumes/testVolume"
+      ],
+      "properties": {
+        "services": [
+          {
+            "name": "VolumeTestService",
+            "properties": {
+              "description": "VolumeTestService description.",
+              "osType": "Windows",
+              "codePackages": [
+                {
+                  "name": "VolumeTestService",
+                  "image": "volumetestservice:dev",
+                  "volumeRefs": [
+                    {
+                      "name": "[resourceId('Microsoft.ServiceFabricMesh/volumes', 'testVolume')]",
+                      "destinationPath": "C:\\app\\data"
+                    }
+                  ],
+                  "environmentVariables": [
+                    {
+                      "name": "ASPNETCORE_URLS",
+                      "value": "http://+:20003"
+                    },
+                    {
+                      "name": "STATE_FOLDER_NAME",
+                      "value": "[parameters('stateFolderName')]"
+                    }
+                  ],
+                  ...
+                }
+              ],
+              ...
+            }
+          }
+        ],
+        "description": "VolumeTest description."
+      }
+    },
+    {
+      "apiVersion": "2018-09-01-preview",
+      "name": "testVolume",
+      "type": "Microsoft.ServiceFabricMesh/volumes",
+      "location": "[parameters('location')]",
+      "dependsOn": [],
+      "properties": {
+        "description": "Azure Files storage volume for the test application.",
+        "provider": "SFAzureFile",
+        "azureFileParameters": {
+          "shareName": "[parameters('fileShareName')]",
+          "accountName": "[parameters('storageAccountName')]",
+          "accountKey": "[parameters('storageAccountKey')]"
+        }
+      }
+    }
+    ...
+  ]
+}
+```
+
+## <a name="declare-a-volume-resource-and-update-the-service-resource-yaml"></a>Déclarer une ressource de volume et mettre à jour la ressource de service (YAML)
+
+Ajoutez un nouveau fichier *volume.yaml* dans le répertoire *Ressources de l’application* de votre application.  Spécifiez un nom et le fournisseur (« SFAzureFile » pour utiliser le volume basé sur Azure Files). `<fileShareName>`, `<storageAccountName>` et `<storageAccountKey>` sont les valeurs que vous avez trouvées à une étape précédente.
+
+```yaml
+volume:
+  schemaVersion: 1.0.0-preview2
+  name: testVolume
+  properties:
+    description: Azure Files storage volume for counter App.
+    provider: SFAzureFile
+    azureFileParameters: 
+        shareName: <fileShareName>
+        accountName: <storageAccountName>
+        accountKey: <storageAccountKey>
+```
+
+Mettez à jour le fichier *service.yaml* dans le répertoire *Resources du service* pour monter le volume dans votre service.  Ajoutez l’élément `volumeRefs` dans l’élément `codePackages`.  `name` est l’ID de ressource pour le volume (ou un paramètre de modèle de déploiement pour la ressource de volume) et le nom du volume déclaré dans le fichier de ressources volume.yaml.  `destinationPath` est le répertoire local sur lequel le volume sera monté.
+
+```yaml
+## Service definition ##
+application:
+  schemaVersion: 1.0.0-preview2
+  name: VolumeTest
+  properties:
+    services:
+      - name: VolumeTestService
+        properties:
+          description: VolumeTestService description.
+          osType: Windows
+          codePackages:
+            - name: VolumeTestService
+              image: volumetestservice:dev
+              volumeRefs:
+                - name: "[resourceId('Microsoft.ServiceFabricMesh/volumes', 'testVolume')]"
+                  destinationPath: C:\app\data
+              endpoints:
+                - name: VolumeTestServiceListener
+                  port: 20003
+              environmentVariables:
+                - name: ASPNETCORE_URLS
+                  value: http://+:20003
+                - name: STATE_FOLDER_NAME
+                  value: TestVolumeData
+              resources:
+                requests:
+                  cpu: 0.5
+                  memoryInGB: 1
+          replicaCount: 1
+          networkRefs:
+            - name: VolumeTestNetwork
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

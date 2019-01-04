@@ -1,5 +1,5 @@
 ---
-title: Connexion sécurisée à des ressources de backend à partir d'un environnement App Service
+title: Se connecter en toute sécurité aux ressources principales à partir d'un environnement App Service - Azure
 description: Découvrez comment connecter de façon sécurisée des ressources de backend à partir d'un environnement App Service.
 services: app-service
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
-ms.openlocfilehash: 1732e6778febac60a25da74c330cb3d3da94154d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec18
+ms.openlocfilehash: aea51234d26e5dbaef836419c2a13a12f8083e6f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580040"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315857"
 ---
-# <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Connexion sécurisée à des ressources de backend à partir d'un environnement App Service
+# <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Se connecter en toute sécurité aux ressources principales à partir d'un environnement App Service
 ## <a name="overview"></a>Vue d’ensemble
 Étant donné qu’un environnement App Service est toujours créé **soit** dans un réseau virtuel Azure Resource Manager **ou** un [réseau virtuel][virtualnetwork] de modèle de déploiement classique, les connexions sortantes d’un environnement App Service à destination d’autres ressources de back-end peuvent passer exclusivement sur le réseau virtuel.  Suite à une modification récente effectuée en juin 2016, les environnements ASE peuvent également être déployés dans les réseaux virtuels qui utilisent soit des plages d’adresses publiques soit des espaces d’adressage RFC1918 (par exemple, des adresses privées).  
 
@@ -95,7 +96,7 @@ Pour plus d'informations sur le contrôle du trafic entrant vers votre environne
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [ControlInboundTraffic]:  app-service-app-service-environment-control-inbound-traffic.md
 [SiteToSite]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site
-[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
+[ExpressRoute]: https://azure.microsoft.com/services/expressroute/
 [NetworkAccessControlLists]: https://azure.microsoft.com/documentation/articles/virtual-networks-acl/
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md

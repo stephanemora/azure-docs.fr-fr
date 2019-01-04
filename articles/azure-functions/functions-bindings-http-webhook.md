@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: a20dec67201cb7d8b7ccd3a7662438f2afabfe63
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: acd2d5a3448d805b8b3c741139fc5f9a79c40ed2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446787"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317438"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Déclencheurs et liaisons HTTP d’Azure Functions
 
@@ -30,19 +30,19 @@ Vous pouvez personnaliser un déclencheur HTTP pour répondre aux [webhooks](htt
 
 ## <a name="packages---functions-1x"></a>Packages - Functions 1.x
 
-Les liaisons HTTP sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http), version 1.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.Http).
+Les liaisons HTTP sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http), version 1.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.Http).
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="packages---functions-2x"></a>Packages - Functions 2.x
 
-Les liaisons HTTP sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http), version 3.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/).
+Les liaisons HTTP sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http), version 3.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/).
 
 [!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>Déclencheur
 
-Le déclencheur HTTP vous permet d’appeler une fonction avec une requête HTTP. Vous pouvez utiliser un déclencheur HTTP pour générer des API serverless et répondre aux webhooks. 
+Le déclencheur HTTP vous permet d’appeler une fonction avec une requête HTTP. Vous pouvez utiliser un déclencheur HTTP pour générer des API serverless et répondre aux webhooks.
 
 Par défaut, un déclencheur HTTP renvoie le message HTTP 200 OK avec un corps vide dans Functions 1.x, ou le message HTTP 204 Aucun contenu avec un corps vide dans Functions 2.x. Pour modifier la réponse, configurez une [liaison de sortie HTTP](#output).
 
@@ -53,8 +53,9 @@ Consultez l’exemple propre à un langage particulier :
 * [C#](#trigger---c-example)
 * [Script C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
-* [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>Déclencheur - exemple C#
 
@@ -276,6 +277,61 @@ module.exports = function(context, req) {
 };
 ```
 
+### <a name="trigger---python-example"></a>Déclencheur – Exemple Python
+
+L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction Python](functions-reference-python.md) qui utilise la liaison. Cette fonction recherche un paramètre `name` dans la chaîne de requête ou dans le corps de la requête HTTP.
+
+Voici le fichier *function.json* :
+
+```json
+{
+    "scriptFile": "__init__.py",
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
+```
+
+La section [configuration](#trigger---configuration) décrit ces propriétés.
+
+Voici le code Python :
+
+```python
+import logging
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        return func.HttpResponse(f"Hello {name}!")
+    else:
+        return func.HttpResponse(
+            "Please pass a name on the query string or in the request body",
+            status_code=400
+        )
+```
+
 ### <a name="trigger---java-example"></a>Déclencheur - exemple Java
 
 L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction Java ](functions-reference-java.md) qui utilise la liaison. La fonction retourne une réponse 200 comme code d’état HTTP, avec un corps de requête qui fait précéder le corps de requête déclencheur d’un message d’accueil « Hello ».
@@ -307,7 +363,7 @@ Voici le code Java :
 ```java
 @FunctionName("hello")
 public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
-                        final ExecutionContext context) 
+                        final ExecutionContext context)
     {
         // default HTTP 200 response code
         return String.format("Hello, %s!", request);
@@ -352,12 +408,11 @@ Pour les fonctions C# et F #, vous pouvez déclarer le type de votre entrée de 
 
 Dans le cas des fonctions JavaScript, le runtime Functions fournit le corps de requête plutôt que l’objet de requête. Pour plus d’informations, consultez l’[exemple de déclencheur JavaScript](#trigger---javascript-example).
 
-
 ### <a name="customize-the-http-endpoint"></a>Personnaliser le point de terminaison HTTP
 
 Par défaut, quand vous créez une fonction pour un déclencheur HTTP, la fonction est adressable avec une route de la forme :
 
-    http://<yourapp>.azurewebsites.net/api/<funcname> 
+    http://<yourapp>.azurewebsites.net/api/<funcname>
 
 Vous pouvez personnaliser cet itinéraire en utilisant la propriété facultative `route` sur la liaison d’entrée du déclencheur HTTP. Par exemple, le fichier *function.json* suivant définit une propriété `route` pour un déclencheur HTTP :
 
@@ -389,7 +444,7 @@ http://<yourapp>.azurewebsites.net/api/products/electronics/357
 Cela permet au code de la fonction de prendre en charge deux paramètres dans l’adresse, _category_ et _id_. Vous pouvez utiliser les [contraintes d’itinéraire des API Web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) de votre choix avec vos paramètres. Le code de la fonction C# suivant utilise les deux paramètres.
 
 ```csharp
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id,
                                                 ILogger log)
 {
     if (id == null)
@@ -421,7 +476,7 @@ module.exports = function (context, req) {
     }
 
     context.done();
-} 
+}
 ```
 
 Par défaut, tous les itinéraires de fonction sont préfixés par *api*. Vous pouvez également personnaliser ou supprimer le préfixe avec la propriété `http.routePrefix` dans votre fichier [host.json](functions-host-json.md). L’exemple suivant supprime le préfixe d’itinéraire *api* en sélectionnant une chaîne vide pour le préfixe dans le fichier *host.json*.
@@ -440,7 +495,7 @@ S votre application de fonction utilise [Authentification d’App Service/Autori
 
 Vous pouvez également lire ces informations à partir de la liaison de données. Cette fonctionnalité est uniquement disponible pour le runtime de Functions 2.x. Elle n’est actuellement également disponible que pour les langages .NET.
 
-Dans les langages .NET, ces informations sont disponibles en tant que [ClaimsPrincipal](https://docs.microsoft.com/en-us/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). Le ClaimsPrincipal est disponible dans le cadre du contexte de requête, comme le montre l’exemple suivant :
+Dans les langages .NET, ces informations sont disponibles en tant que [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). Le ClaimsPrincipal est disponible dans le cadre du contexte de requête, comme le montre l’exemple suivant :
 
 ```csharp
 using System.Net;
@@ -485,8 +540,8 @@ Functions vous permet d’utiliser des clés pour rendre plus difficile l’acc�
 
 Il existe deux types de clés :
 
-* **Clés d’hôte** : ces clés sont partagées par toutes les fonctions au sein de la Function App. Utilisées en tant que clés API, elles permettent d’accéder à toute fonction au sein de la Function App.
-* **Clés de fonction** : ces clés s’appliquent uniquement aux fonctions spécifiques sous lesquelles elles sont définies. Utilisées en tant que clés API, elles permettent d’accéder uniquement à ces fonctions.
+* **Clés d’hôte** : Ces clés sont partagées par toutes les fonctions au sein de l’application de fonction. Utilisées en tant que clés API, elles permettent d’accéder à toute fonction au sein de la Function App.
+* **Clés de fonction** : Ces clés s’appliquent uniquement aux fonctions spécifiques sous lesquelles elles sont définies. Utilisées en tant que clés API, elles permettent d’accéder uniquement à ces fonctions.
 
 Chaque clé est nommée pour référence et il existe une clé par défaut (nommée « default ») au niveau fonction et hôte. Les clés de fonction prennent le pas sur les clés d’hôte. Quand deux clés portent le même nom, la clé de fonction est toujours utilisée.
 
@@ -533,17 +588,15 @@ Quand vous utilisez une de ces méthodes de sécurité au niveau de l’applicat
 ### <a name="webhooks"></a>Webhooks
 
 > [!NOTE]
-> Le mode Webhook est disponible seulement pour la version 1.x du runtime Functions.
+> Le mode Webhook est disponible seulement pour la version 1.x du runtime Functions. Cette modification a été apportée afin d’améliorer les performances des déclencheurs HTTP dans la version 2.x.
 
-Le mode Webhook fournit une validation supplémentaire pour les charges utiles de webhook. Dans la version 2.x, le déclencheur HTTP de base fonctionne néanmoins toujours et constitue l’approche recommandée pour les webhooks.
+Dans la version 1.x, les modèles de webhook offrent une validation supplémentaire pour les charges utiles de webhook. Dans la version 2.x, le déclencheur HTTP de base fonctionne néanmoins toujours et constitue l’approche recommandée pour les webhooks. 
 
 #### <a name="github-webhooks"></a>Webhooks GitHub
 
 Pour répondre aux webhooks GitHub, commencez par créer votre fonction avec un déclencheur HTTP, puis définissez la propriété **webHookType** sur `github`. Ensuite, copiez son URL et sa clé API dans la page **Ajouter un Webhook** de votre dépôt GitHub. 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
-
-Pour voir un exemple, consultez [Créer une fonction déclenchée par un webhook GitHub](functions-create-github-webhook-triggered-function.md).
 
 #### <a name="slack-webhooks"></a>Webhooks Slack
 
@@ -553,14 +606,14 @@ La webhook de Slack génère un jeton à votre place au lieu de vous laisser le 
 
 Une autorisation de webhook est gérée par le composant récepteur de webhook, qui fait partie du déclencheur HTTP, et le mécanisme varie en fonction du type de webhook. Chaque mécanisme s’appuie sur une clé. Par défaut, la clé de fonction nommée « default » est utilisée. Pour utiliser une autre clé, configurez le fournisseur de webhook pour envoyer le nom de clé avec la requête de l’une des manières suivantes :
 
-* **Chaîne de requête** : le fournisseur passe le nom de clé dans le paramètre de chaîne de requête `clientid` (par exemple, `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`).
-* **En-tête de demande** : le fournisseur transmet le nom de clé dans l’en-tête `x-functions-clientid`.
+* **Chaîne de requête** : Le fournisseur transmet le nom de la clé au paramètre de chaîne de requête `clientid` (par exemple, `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`).
+* **En-tête de requête** : Le fournisseur transmet le nom de la clé à l’en-tête `x-functions-clientid`.
 
 ## <a name="trigger---limits"></a>Déclencheur : limites
 
 La longueur de la requête HTTP est limitée à 100 Mo (104 857 600 octets) et la longueur de l’URL à 4 Ko (4 096 octets). Ces limites sont spécifiées par l’élément `httpRuntime` du [fichier Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) du runtime.
 
-Si une fonction utilisant le déclencheur HTTP ne se termine pas au bout d’environ 2,5 minutes, la passerelle arrive à expiration et retourne une erreur HTTP 502. La fonction continuera à s’exécuter, mais ne pourra pas renvoyer de réponse HTTP. Pour les fonctions à exécution longues, nous vous recommandons de suivre des modèles asynchrones et de retourner un emplacement où vous pouvez effectuer un test ping de l’état de la requête. Pour plus d’informations sur la durée d’exécution d’une fonction, consultez [Scale and hosting - Consumption plan](functions-scale.md#consumption-plan) (Mise à l’échelle et hébergement – Plan de consommation). 
+Si une fonction utilisant le déclencheur HTTP ne se termine pas au bout d’environ 2,5 minutes, la passerelle arrive à expiration et retourne une erreur HTTP 502. La fonction continuera à s’exécuter, mais ne pourra pas renvoyer de réponse HTTP. Pour les fonctions à exécution longues, nous vous recommandons de suivre des modèles asynchrones et de retourner un emplacement où vous pouvez effectuer un test ping de l’état de la requête. Pour plus d’informations sur la durée d’exécution d’une fonction, consultez [Scale and hosting - Consumption plan](functions-scale.md#consumption-plan) (Mise à l’échelle et hébergement – Plan de consommation).
 
 ## <a name="trigger---hostjson-properties"></a>Déclencheur - propriétés de host.json
 
@@ -574,7 +627,7 @@ Utilisez la liaison de sortie HTTP pour répondre à l’expéditeur de la deman
 
 ## <a name="output---configuration"></a>Sortie - configuration
 
-Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json*. Pour les bibliothèques de classes C#, aucune propriété d’attribut ne correspond à ces propriétés de *function.json*. 
+Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json*. Pour les bibliothèques de classes C#, aucune propriété d’attribut ne correspond à ces propriétés de *function.json*.
 
 |Propriété  |Description  |
 |---------|---------|

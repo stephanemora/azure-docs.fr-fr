@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 393543bbb1891e14ed67487aff26a7bda1eebcd5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ffa619351ca4a4bfd3a812775ee7ff6cd71ddea4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304235"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089699"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Créer des modèles Azure Resource Manager pour déployer des applications logiques
 
@@ -27,11 +27,11 @@ Pour en savoir plus sur les modèles Resource Manager, consultez les articles su
 
 Une application logique possède trois composants de base :
 
-* **Ressource d’application logique** : regroupe des informations sur certains éléments tels que le plan de tarification, l’emplacement et la définition de workflow.
-* **Définition de workflow** : décrit les étapes de workflow de votre application logique et comment le moteur Logic Apps doit exécuter workflow.
+* **Ressource d’application logique** : Regroupe des informations à propos de certains éléments tels que le plan de tarification, l’emplacement et la définition de workflow.
+* **Définition de workflow** : Décrit les étapes du workflow de votre application logique et la façon dont le moteur Logic Apps exécute le workflow.
 Vous pouvez afficher cette définition dans la fenêtre **Mode Code** de votre application logique.
 Dans la ressource d’application logique, vous pouvez trouver cette définition dans la propriété `definition`.
-* **Connexions** : il s’agit des ressources distinctes qui permettent de stocker les métadonnées en toute sécurité autour de n’importe quelle connexion de connecteur (par exemple, une chaîne de connexion et un jeton d’accès).
+* **Connexions** : Ressources distinctes qui permettent de stocker les métadonnées en toute sécurité autour de n’importe quelle connexion de connecteur (par exemple, une chaîne de connexion et un jeton d’accès).
 Dans la ressource d’application logique, votre application logique fait référence à ces ressources dans la section `parameters`.
 
 Vous pouvez afficher tous ces éléments pour les applications logiques existantes en utilisant un outil tel que [l’Explorateur de ressources Azure](http://resources.azure.com).
@@ -73,7 +73,7 @@ Une fois PowerShell installé, vous pouvez générer un modèle à l’aide de l
 `$SubscriptionId` est l’ID d’abonnement Azure. Cette ligne obtient d’abord un jeton d’accès via ARMClient, puis le dirige vers le script PowerShell et enfin crée le modèle dans un fichier JSON.
 
 ## <a name="add-parameters-to-a-logic-app-template"></a>Ajouter des paramètres à un modèle d’application logique
-Après avoir créé votre modèle d’application logique, vous pouvez continuer à ajouter ou modifier les paramètres dont vous avez besoin. Par exemple, si votre définition inclut un ID de ressource à une fonction Azure ou à un workflow imbriqué que vous envisagez de déployer dans un déploiement unique, vous pouvez ajouter des ressources supplémentaires à votre modèle et  paramétrer les ID en fonction de vos besoins. Cela s’applique également à toutes les références aux API personnalisées ou aux points de terminaison Swagger que vous pensez déployer avec chaque groupe de ressources.
+Après avoir créé votre modèle d’application logique, vous pouvez continuer à ajouter ou modifier les paramètres dont vous avez besoin. Par exemple, si votre définition inclut un ID de ressource à une fonction Azure ou à un workflow imbriqué que vous envisagez de déployer dans un déploiement unique, vous pouvez ajouter des ressources supplémentaires à votre modèle et paramétrer les ID en fonction de vos besoins. Cela s’applique également à toutes les références aux API personnalisées ou aux points de terminaison Swagger que vous pensez déployer avec chaque groupe de ressources.
 
 ### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>Ajouter les références des ressources dépendantes aux modèles de déploiement Visual Studio
 
@@ -173,7 +173,7 @@ Si vous disposez d’un projet de groupe de ressources existant, vous pouvez ajo
 
 ## <a name="deploy-a-logic-app-template"></a>Déployer un modèle d’application logique
 
-Vous pouvez procéder au déploiement à l’aide d’outils tels que PowerShell, API REST, [Azure DevOps Release Management](#team-services) et le déploiement de modèles par le biais du portail Azure.
+Vous pouvez déployer votre modèle à l’aide d’outils tels que PowerShell, l’API REST, [Azure DevOps Azure Pipelines](#team-services) et le déploiement de modèles par le biais du portail Azure.
 Nous vous recommandons également de créer un [fichier de paramètres](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) pour stocker les valeurs du paramètre.
 Découvrez comment [déployer des ressources à l’aide de modèles Resource Manager](../azure-resource-manager/resource-group-template-deploy.md) ou [déployer des ressources à l’aide de modèles Resource Manager et du portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
@@ -185,11 +185,11 @@ Pour autoriser les connexions OAuth, ouvrez l’application logique dans le Conc
 Vous trouverez un exemple de script sur GitHub sous le projet [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) .
 
 <a name="team-services"></a>
-## <a name="azure-devops-release-management"></a>Release Management dans Azure DevOps
+## <a name="azure-devops-azure-pipelines"></a>Azure DevOps Azure Pipelines
 
-Le déploiement et la gestion d’un environnement passent souvent par l’utilisation d’un outil tel que Release Management dans Azure DevOps, avec un modèle de déploiement d’application logique. Azure DevOps inclut une tâche de [déploiement de groupe de ressources Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) que vous pouvez ajouter à tout pipeline de build ou de mise en production. Vous devez disposer d’un [principal de service](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) pour obtenir l’autorisation de déployer, après quoi vous pouvez générer le pipeline de mise en production.
+Le déploiement et la gestion d’un environnement passent souvent par l’utilisation d’un outil tel que Azure Pipelines dans Azure DevOps, avec un modèle de déploiement d’application logique. Azure DevOps inclut une tâche de [déploiement de groupe de ressources Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) que vous pouvez ajouter à tout pipeline de build ou de mise en production. Vous devez disposer d’un [principal de service](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) pour obtenir l’autorisation de déployer, après quoi vous pouvez générer le pipeline de mise en production.
 
-1. Dans Release Management, sélectionnez **Vide** pour créer un pipeline vide.
+1. Dans Azure Pipelines, sélectionnez **Vide** pour créer un pipeline vide.
 
     ![Créer une pipeline vide][1]
 

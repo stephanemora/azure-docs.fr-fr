@@ -1,24 +1,22 @@
 ---
-title: Importer et mettre à jour en bloc des données dans Azure Cosmos DB avec la bibliothèque d’exécuteur en bloc | Microsoft Docs
+title: Importer et mettre à jour en bloc des données dans Azure Cosmos DB avec la bibliothèque d’exécuteur en bloc
 description: Effectuez des opérations en bloc dans Azure Cosmos DB par l’intermédiaire des API d’importation en bloc et de mise à jour en bloc proposées par la bibliothèque d’exécuteur en bloc.
 services: cosmos-db
 author: tknandu
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: a760de998c78ce2afdd24a15d9dd6e5d0cf44dc1
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: e3b77ce28e5c3a236abcd9a22e643428b53ed0a6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363538"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834806"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Vue d’ensemble de la bibliothèque d’exécuteur en bloc Azure Cosmos DB
  
-Azure Cosmos DB est un service de base de données rapide, flexible et distribué à l’échelle mondiale, conçu pour un scale-out élastique permettant de prendre en charge : 
+Azure Cosmos DB est un service de base de données rapide, flexible et distribué à l’échelle mondiale, conçu pour une montée en puissance élastique afin de prendre en charge : 
 
 * Un important débit de lecture et d’écriture (plusieurs millions d’opérations par seconde).  
 * Le stockage de volumes élevés (plusieurs centaines de téraoctets ou plus) de données transactionnelles et opérationnelles avec une latence prévisible de l’ordre de la milliseconde  
@@ -34,7 +32,7 @@ La bibliothèque d’exécuteur en bloc vous permet de tirer parti de ces stocka
 
 * Elle élimine les tâches fastidieuses liées à l’écriture de la logique d’application qui gère la limitation du taux des requêtes, les délais d’attente des requêtes et autres exceptions temporaires en les traitant efficacement dans la bibliothèque.  
 
-* Elle fournit un mécanisme simplifié pour le scale-out des applications effectuant des opérations en bloc. Une seule instance d’exécuteur en bloc sur une machine virtuelle Azure peut consommer plus de 500 000 RU/s. Vous pouvez atteindre un débit plus élevé en ajoutant des instances supplémentaires à chacune des machines virtuelles clientes.  
+* Elle fournit un mécanisme simplifié pour la montée en puissance des applications effectuant des opérations en bloc. Une seule instance d’exécuteur en bloc sur une machine virtuelle Azure peut consommer plus de 500 000 RU/s. Vous pouvez atteindre un débit plus élevé en ajoutant des instances supplémentaires à chacune des machines virtuelles clientes.  
  
 * Elle peut importer en bloc plus d’un téraoctet de données par heure en faisant appel à une architecture de montée en puissance.  
 

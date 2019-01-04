@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 93eb6fb0da86909dfc880db2a9bb2331abe4418a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3e664fc83fde937b26a4726f997da4c0cb4d8f8a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948116"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407879"
 ---
 # <a name="scale-hdinsight-clusters"></a>Mettre à l’échelle les clusters HDInsight
 
 HDInsight fournit l’élasticité en vous offrant la possibilité de monter ou de descendre en puissance le nombre de nœuds de travail dans vos clusters. Cela vous permet de réduire un cluster après certaines heures ou les week-ends, et de le développer pendant les pics d’activité.
 
-Par exemple, si vous effectuez un traitement par lots une fois par jour ou une fois par mois, le cluster HDInsight peut être monté en puissance quelques minutes avant cet événement planifié, et il y aura donc suffisamment de mémoire et de puissance de calcul. Vous pouvez automatiser la mise à l’échelle avec l’applet de commande PowerShell [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters).  Plus tard, une fois que le traitement a été effectué et que l’utilisation baisse à nouveau, vous pouvez descendre en puissance le cluster HDInsight afin de réduire le nombre de nœuds de travail.
+Par exemple, si vous effectuez un traitement par lots une fois par jour ou une fois par mois, le cluster HDInsight peut être monté en puissance quelques minutes avant cet événement planifié, et il y aura donc suffisamment de mémoire et de puissance de calcul. Vous pouvez automatiser la mise à l’échelle avec l’applet de commande PowerShell [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters).  Plus tard, une fois que le traitement a été effectué et que l’utilisation baisse à nouveau, vous pouvez descendre en puissance le cluster HDInsight afin de réduire le nombre de nœuds de travail.
 
 * Pour mettre à l’échelle votre cluster via [PowerShell](hdinsight-administer-use-powershell.md) :
 
@@ -77,7 +77,7 @@ Par exemple :
 yarn application -kill "application_1499348398273_0003"
 ```
 
-## <a name="rebalancing-an-hbase-cluster"></a>Rééquilibrer un cluster HBase
+## <a name="rebalancing-an-apache-hbase-cluster"></a>Rééquilibrer un cluster Apache HBase
 
 Les serveurs de région sont équilibrés automatiquement quelques minutes après la fin de l’opération de mise à l’échelle. Pour équilibrer manuellement les serveurs de région, procédez comme suit :
 
@@ -99,11 +99,11 @@ Comme mentionné précédemment, tous les travaux en attente ou en cours d’ex�
 
 ![Mettre à l’échelle le cluster](./media/hdinsight-scaling-best-practices/scale-cluster.png)
 
-Si vous réduisez votre cluster jusqu'à la valeur minimale d’un nœud de travail, comme indiqué dans l’image précédente, HDFS peut se bloquer en mode sans échec si les nœuds de travail sont redémarrés en raison d’une mise à jour corrective ou immédiatement après l’opération de mise à l’échelle.
+Si vous réduisez votre cluster jusqu'à la valeur minimale d’un nœud de travail, comme indiqué dans l’image précédente, Apache HDFS peut se bloquer en mode sans échec si les nœuds de travail sont redémarrés en raison d’une mise à jour corrective ou immédiatement après l’opération de mise à l’échelle.
 
 La principale cause de cette situation vient du fait que Hive utilise quelques fichiers `scratchdir` et que, par défaut, il attend trois réplicas de chaque bloc, mais qu’un seul réplica est possible si vous descendez en puissance jusqu’à au moins un nœud de travail. Par conséquent, les fichiers dans `scratchdir` deviennent *sous-répliqués*. HDFS peut alors rester en mode sans échec lorsque les services sont redémarrés après la mise à l’échelle.
 
-En cas de tentative de descente en puissance, HDInsight s’appuie sur les interfaces de gestion Ambari pour désactiver les nœuds de travail supplémentaires inutiles, ce qui réplique les blocs HDFS vers d’autres nœuds de travail en ligne, puis descend en puissance le cluster en toute sécurité. HDFS bascule en mode sans échec lors de la fenêtre de maintenance et il est censé en sortir une fois la mise à l’échelle terminée. C’est à ce stade que HDFS peut se retrouver bloqué en mode sans échec.
+En cas de tentative de descente en puissance, HDInsight s’appuie sur les interfaces de gestion Apache Ambari pour désactiver les nœuds de travail supplémentaires inutiles, ce qui réplique les blocs HDFS vers d’autres nœuds de travail en ligne, puis descend en puissance le cluster en toute sécurité. HDFS bascule en mode sans échec lors de la fenêtre de maintenance et il est censé en sortir une fois la mise à l’échelle terminée. C’est à ce stade que HDFS peut se retrouver bloqué en mode sans échec.
 
 HDFS est configuré avec un paramètre `dfs.replication` défini sur 3. Par conséquent, les blocs des fichiers de travail sont sous-répliqués chaque fois qu’il y a moins de trois nœuds de travail en ligne, car ils ne représentent pas les trois copies de chaque bloc de fichier disponible.
 
@@ -119,11 +119,11 @@ Après avoir quitté le mode sans échec, vous pouvez manuellement supprimer les
 
 * H070 Unable to open Hive session. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Cannot create directory** /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. **Name node is in safe mode**. The reported blocks 75 needs additional 12 blocks to reach the threshold 0.9900 of total blocks 87. The number of live datanodes 10 has reached the minimum number 0. Safe mode will be turned off automatically once the thresholds have been reached.
 
-* H100 Unable to submit statement show databases: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] failed: **Connection refused**
+* H100 Unable to submit statement show databases: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] failed: **Connexion refusée**
 
-* H020 Could not establish connection to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001: org.apache.thrift.transport.TTransportException: Could not create http connection to http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: Connection refused: org.apache.thrift.transport.TTransportException: Could not create http connection to http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: **Connection refused**
+* H020 Could not establish connection to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001: org.apache.thrift.transport.TTransportException: Could not create http connection to http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: Connection refused: org.apache.thrift.transport.TTransportException: Could not create http connection to http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: **Connexion refusée**
 
-* From the Hive logs: WARN [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – Error starting HiveServer2 on attempt 21, will retry in 60 seconds java.lang.RuntimeException: Error applying authorization policy on hive configuration: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Cannot create directory** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **Name node is in safe mode**.
+* Dans les journaux Hive : WARN [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – Error starting HiveServer2 on attempt 21, will retry in 60 seconds java.lang.RuntimeException: Error applying authorization policy on hive configuration: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Cannot create directory** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **Name node is in safe mode**.
     The reported blocks 0 needs additional 9 blocks to reach the threshold 0.9900 of total blocks 9.
     The number of live datanodes 10 has reached the minimum number 0. **Safe mode will be turned off automatically once the thresholds have been reached**.
     at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
@@ -151,7 +151,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 
 ![Safe mode off](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Le commutateur `-D` est nécessaire car le système de fichiers par défaut dans HDInsight est Stockage Azure ou Azure Data Lake Store. `-D` spécifie que les commandes s’exécutent sur le système de fichiers HDFS local.
 
 Ensuite, vous pouvez afficher un rapport précisant les détails de l’état HDFS :
@@ -251,7 +251,7 @@ Pour nettoyer les fichiers de travail, ce qui supprime les erreurs de réplicati
 hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Cette commande peut interrompre Hive si certaines tâches sont en cours d’exécution.
 
 ### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode-due-to-under-replicated-blocks"></a>Guide pratique pour empêcher le blocage de HDInsight en mode sans échec en raison de blocs sous-répliqués
@@ -327,4 +327,4 @@ La dernière option consiste à rechercher les rares cas où HDFS passe en mode 
 
 * [Présentation d'Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Mise à l’échelle des clusters](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md)

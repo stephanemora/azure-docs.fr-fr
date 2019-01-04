@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : tâches post-configuration de jonction Azure AD Hybride| Microsoft Docs'
+title: 'Azure AD Connect : Tâches post-configuration de jonction Azure AD Hybride| Microsoft Docs'
 description: Ce document décrit en détail les tâches post-configuration requises pour effectuer la jonction Azure AD Hybride
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2306c03480956a63859355428cbffe0706f43cbc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 16fc7f1bb69efe94ce87f213627b78a4afa0fcc2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306638"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999228"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Tâches post-configuration concernant la jonction Azure AD Hybride
 
@@ -30,12 +30,12 @@ Après avoir exécuté Azure AD Connect afin de configurer votre organisation po
 Tous les appareils joints à un domaine qui exécutent Windows 10 et Windows Server 2016 s’inscrivent automatiquement auprès d’Azure AD à l’issue de la procédure de configuration. Si vous souhaitez opter pour un lancement contrôlé plutôt que pour cette inscription automatique, vous pouvez utiliser une stratégie de groupe pour activer ou désactiver de manière sélective le lancement automatique.  Vous devez définir cette stratégie de groupe avant d’exécuter l’autre procédure de configuration d’Azure AD :
 * Créez un objet de stratégie de groupe dans Active Directory.
 * Attribuez-lui un nom (par exemple, Jonction Azure AD Hybride).
-* Accédez à : Configuration ordinateur > Stratégies > Modèles d’administration > Composants Windows > Inscription d’appareil.
+* Accédez à :  Configuration ordinateur > Stratégies > Modèles d’administration > Composants Windows > Inscription de l’appareil.
 
 >[!NOTE]
 >Dans le cas de la version 2012R2, les paramètres de stratégie sont accessibles à l’emplacement **Configuration ordinateur > Stratégies > Modèles d’administration > Composants Windows > Rattacher à l’espace de travail > Joindre automatiquement les ordinateurs clients à l’espace de travail**.
 
-* Désactivez le paramètre : Enregistrer les ordinateurs appartenant à un domaine en tant qu’appareils.
+* Désactiver ce paramètre :  Enregistrer les ordinateurs appartenant au domaine en tant qu’appareils.
 * Appliquez vos modifications, puis cliquez sur OK.
 * Liez l’objet de stratégie de groupe à l’emplacement de votre choix (unité d’organisation, groupe de sécurité ou domaine pour tous les appareils).
 
@@ -69,7 +69,7 @@ Si votre organisation utilise la synchronisation de hachage du mot de passe ou l
 Pour inscrire des appareils Windows de bas niveau, vous devez vous assurer que la stratégie Azure AD autorise les utilisateurs à inscrire des appareils. 
 
 * Connectez-vous à votre compte dans le Portail Microsoft Azure.
-* Accédez à : Azure Active Directory > Appareils > Paramètres de l’appareil
+* Accédez à :  Azure Active Directory > Appareils > Paramètres de l’appareil
 * Définissez le paramètre « Les utilisateurs peuvent inscrire leurs appareils sur Azure AD » sur TOUS.
 * Cliquez sur Enregistrer.
 
@@ -77,7 +77,7 @@ Pour inscrire des appareils Windows de bas niveau, vous devez vous assurer que l
 
 Ajoutez le point de terminaison d’authentification d’appareil Azure AD aux zones Intranet local sur vos appareils Windows de bas niveau afin d’éviter les invites de certificat lors de l’authentification des appareils : https://device.login.microsoftonline.com 
 
-Si vous utilisez [l’authentification unique transparente](https://aka.ms/hybrid/sso), activez également le paramètre « Autoriser les mises à jour à la barre d’état via le script » sur cette zone et ajoutez le point de terminaison suivant : https://autologon.microsoftazuread-sso.com 
+Si vous utilisez [l’authentification unique transparente](how-to-connect-sso.md), activez également le paramètre « Autoriser les mises à jour à la barre d’état via le script » sur cette zone et ajoutez le point de terminaison suivant : https://autologon.microsoftazuread-sso.com 
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Installer Microsoft Workplace Join sur les appareils Windows de bas niveau
 
@@ -87,8 +87,8 @@ Ce programme d’installation crée une tâche planifiée sur le système de l�
 
 * Créez un objet de stratégie de groupe dans Active Directory si ce dernier n’existe pas encore.
 * Attribuez-lui un nom (par exemple, Jonction Azure AD Hybride).
-* Accédez à : Configuration ordinateur > Stratégies > Modèles d’administration > Composants Windows > Inscription d’appareil
-* Activez le paramètre : Enregistrer les ordinateurs appartenant à un domaine en tant qu’appareils
+* Accédez à :  Configuration ordinateur > Stratégies > Modèles d’administration > Composants Windows > Inscription de l’appareil
+* Activez :  Enregistrer les ordinateurs appartenant au domaine en tant qu’appareils
 * Appliquez vos modifications, puis cliquez sur OK.
 * Liez l’objet de stratégie de groupe à l’emplacement de votre choix (unité d’organisation, groupe de sécurité ou domaine pour tous les appareils).
 

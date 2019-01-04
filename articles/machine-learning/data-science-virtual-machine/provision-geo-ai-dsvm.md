@@ -1,11 +1,12 @@
 ---
 title: Configuration d’une machine virtuelle Geo Artificial Intelligence sur Azure | Microsoft Docs
-description: Comment configurer une machine virtuelle Geo AI sur Azure.
+description: Découvrez comment créer et configurer la machine virtuelle de science des données AI. La machine virtuelle de science des données AI vous offre les outils pour créer des solutions d’intelligence artificielle et Machine Learning à l’aide des données géographiques.
 keywords: apprentissage profond, IA, outils de science des données, machine virtuelle de science des données, analyse géospatiale
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: bdcf2662f2a81b145868cff92ecb7a2cb4d53046
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 395604da3465e66214f89b4f74ddf9d6bcdc48f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239795"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103946"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Configuration d’une machine virtuelle Geo Artificial Intelligence sur Azure 
 
@@ -48,24 +49,24 @@ Voici la procédure permettant de créer une instance de la machine virtuelle de
 
    - **Concepts de base**
 
-      1. **Nom** : nom du serveur de science des données que vous créez.
+      1. **Nom** : nom du serveur de science des données que vous créez.
 
-      2. **Nom d’utilisateur**: identifiant de connexion du compte administrateur.
+      2. **Nom d’utilisateur** : ID de connexion du compte Administrateur.
 
-      3. **Mot de passe**: mot de passe du compte administrateur.
+      3. **Mot de passe** : Mot de passe du compte administrateur.
 
-      4. **Subscription**(Abonnement) : si vous disposez de plusieurs abonnements, sélectionnez celui qui sera associé à la création et à la facturation de la machine.
+      4. **Abonnement**: Si vous disposez de plusieurs abonnements, sélectionnez celui qui sera associé à la création et à la facturation de la machine.
 
-      5. **Groupe de ressources** : vous pouvez en créer un nouveau ou utiliser un groupe de ressources Azure **vide** existant dans votre abonnement.
+      5. **Groupe de ressources** : vous pouvez en créer un nouveau ou utiliser un groupe de ressources Azure **vide** de votre abonnement.
 
-      6. **Location**(Emplacement) : sélectionnez le centre de données qui convient le mieux. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau Si vous souhaitez effectuer un Deep Learning sur un GPU, vous devez choisir un emplacement dans Azure qui contient des instances de machines virtuelles GPU de la série NC. Les régions qui comprennent des machines virtuelles GPU sont les suivantes : **USA Est, USA Centre Nord, USA Centre Sud, USA Ouest 2, Europe Nord, Europe Ouest**. Pour obtenir la dernière liste en date, accédez à la [page Disponibilité des produits par région](https://azure.microsoft.com/regions/services/), puis recherchez **NC-Series** sous **Compute**. 
+      6. **Emplacement** : sélectionnez le centre de données le plus adapté. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau Si vous souhaitez effectuer un Deep Learning sur un GPU, vous devez choisir un emplacement dans Azure qui contient des instances de machines virtuelles GPU de la série NC. Actuellement, les emplacements qui ont des machines virtuelles GPU sont : **USA Est, USA Centre Nord, USA Centre Sud, USA Ouest 2, Europe Nord, Europe Ouest**. Pour obtenir la dernière liste en date, accédez à la [page Disponibilité des produits par région](https://azure.microsoft.com/regions/services/), puis recherchez **NC-Series** sous **Compute**. 
 
 
-   - **Paramètres** : sélectionnez l’une des tailles de machine virtuelle GPU série NC si vous projetez d’exécuter un Deep Learning sur un GPU de votre Geo-DSVM. Sinon, vous pouvez choisir une instance basée sur une UC.  Créez un compte de stockage pour votre machine virtuelle. 
+   - **Paramètres**: sélectionnez l’une des tailles de machine virtuelle GPU série NC si vous projetez d’exécuter un Deep Learning sur un GPU de votre Geo-DSVM. Sinon, vous pouvez choisir une instance basée sur une UC.  Créez un compte de stockage pour votre machine virtuelle. 
    
-   - **Résumé**: vérifiez que toutes les informations que vous avez saisies sont correctes.
+   - **Résumé**: Vérifiez que toutes les informations que vous avez saisies sont correctes.
 
-   - **Acheter** : cliquez sur **Acheter** pour démarrer l’approvisionnement. Les conditions de service vous sont communiquées via un lien. La machine virtuelle n'est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l'étape **Taille** . 
+   - **Acheter**: cliquez sur **Acheter** pour commencer l’approvisionnement. Les conditions de service vous sont communiquées via un lien. La machine virtuelle n'est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l'étape **Taille** . 
 
 >[!NOTE]
 > L’approvisionnement prend environ 20 à 30 minutes. L’état de l’approvisionnement est affiché sur le portail Azure.

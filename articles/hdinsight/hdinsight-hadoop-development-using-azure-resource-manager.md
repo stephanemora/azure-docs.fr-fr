@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: f4a1ba29e569d4605c3aa6f2fb6c238c8ba22434
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 7722076c3b0031da8580dd88efdc0b575fd5a3be
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006275"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875567"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migration vers les outils de développement Azure Resource Manager pour les clusters HDInsight
 
@@ -51,11 +51,11 @@ Les nouvelles commandes disponibles avec Azure Resource Manager sont :
 ### <a name="deprecated-commands"></a>Commandes déconseillées
 Si vous utilisez les commandes `azure hdinsight job` pour envoyer des travaux vers votre cluster HDInsight, notez que celles-ci ne sont pas disponibles avec les commandes Resource Manager. Si vous devez envoyer des travaux par programme vers HDInsight à partir de scripts, vous devez à la place utiliser les API REST fournies par HDInsight. Pour plus d’informations sur l’envoi de travaux à l’aide des API REST, consultez les documents suivants.
 
-* [Exécution à distance des tâches MapReduce avec Hadoop sur HDInsight à l’aide de Curl](hadoop/apache-hadoop-use-mapreduce-curl.md)
-* [Exécution de requêtes Hive avec Hadoop dans HDInsight via Curl](hadoop/apache-hadoop-use-hive-curl.md)
-* [Exécution à distance des tâches Pig avec Hadoop sur HDInsight à l’aide de Curl](hadoop/apache-hadoop-use-pig-curl.md)
+* [Exécuter des tâches MapReduce avec Apache Hadoop sur HDInsight à l’aide de cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
+* [Exécuter des requêtes Apache Hive avec Apache Hadoop dans HDInsight à l’aide de cURL](hadoop/apache-hadoop-use-hive-curl.md)
+* [Exécuter des tâches Apache Pig avec Apache Hadoop dans HDInsight à l’aide de cURL](hadoop/apache-hadoop-use-pig-curl.md)
 
-Pour plus d’informations sur d’autres méthodes d’exécution interactive de MapReduce, Hive et Pig, consultez [Utilisation de MapReduce avec Hadoop sur HDInsight](hadoop/hdinsight-use-mapreduce.md), [Utilisation de Hive avec Hadoop dans HDInsight](hadoop/hdinsight-use-hive.md) et [Utilisation de Pig avec Hadoop sur HDInsight](hadoop/hdinsight-use-pig.md).
+Pour plus d’informations sur d’autres méthodes d’exécution interactive d’Apache Hadoop MapReduce, Apache Hive et Apache Pig, consultez [Utiliser Apache Hadoop MapReduce avec Hadoop sur HDInsight](hadoop/hdinsight-use-mapreduce.md), [Utiliser Apache Hive avec Apache Hadoop sur HDInsight](hadoop/hdinsight-use-hive.md) et [Utiliser Apache Pig avec Apache Hadoop sur HDInsight](hadoop/hdinsight-use-pig.md).
 
 ### <a name="examples"></a>Exemples
 **Création d’un cluster**
@@ -135,17 +135,17 @@ Les nouvelles applets de commande suivantes sont uniquement disponibles en mode 
 
 **Applets de commande associées à une action de script :**
 
-* **Get-AzureRmHDInsightPersistedScriptAction**: obtient les actions de script persistantes pour un cluster et les répertorie par ordre chronologique ou obtient des informations pour une action de script persistante spécifiée. 
-* **Get-AzureRmHDInsightScriptActionHistory**: obtient l’historique d’actions de script pour un cluster et les répertorie par ordre chronologique inversé, ou obtient des informations d’une action de script exécutée précédemment. 
-* **Remove-AzureRmHDInsightPersistedScriptAction**: retire une action de script persistante d’un cluster HDInsight.
-* **Set-AzureRmHDInsightPersistedScriptAction**: définit une action de script exécutée précédemment comme action de script persistante.
-* **Submit-AzureRmHDInsightScriptAction**: envoie une nouvelle action de script vers un cluster Azure HDInsight. 
+* **Get-AzureRmHDInsightPersistedScriptAction** : obtient les actions de script persistantes pour un cluster et les liste par ordre chronologique, ou obtient des informations pour une action de script persistante spécifiée. 
+* **Get-AzureRmHDInsightScriptActionHistory** : obtient l’historique d’actions de script pour un cluster et les liste par ordre chronologique inversé, ou obtient des informations sur une action de script exécutée précédemment. 
+* **Remove-AzureRmHDInsightPersistedScriptAction** : supprime une action de script persistante d’un cluster HDInsight.
+* **Set-AzureRmHDInsightPersistedScriptAction** : définit une action de script exécutée précédemment comme action de script persistante.
+* **Submit-AzureRmHDInsightScriptAction** : envoie une nouvelle action de script à un cluster Azure HDInsight. 
 
 Pour plus d’informations sur l’utilisation, consultez la page [Personnaliser des clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 **Applets de commande associées à l’identité du cluster :**
 
-* **Add-AzureRmHDInsightClusterIdentity**: ajoute une identité de cluster à un objet configuration de cluster pour que le cluster HDInsight puisse accéder à Azure Data Lake Store. Consultez la page [Créer un cluster HDInsight avec Data Lake Store à l’aide d’Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
+* **Add-AzureRmHDInsightClusterIdentity** : ajoute une identité de cluster à un objet configuration de cluster pour que le cluster HDInsight puisse accéder à Azure Data Lake Store. Consultez la page [Créer un cluster HDInsight avec Data Lake Store à l’aide d’Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 
 ### <a name="examples"></a>Exemples
 **Créer un cluster**
@@ -215,9 +215,9 @@ Nouvelle commande :
 
 #### <a name="other-samples"></a>Autres exemples
 * [Création de clusters HDInsight](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [Envoi de tâches Hive](hadoop/apache-hadoop-use-hive-powershell.md)
-* [Envoi de tâches Pig](hadoop/apache-hadoop-use-pig-powershell.md)
-* [Envoi de tâches Sqoop](hadoop/apache-hadoop-use-sqoop-powershell.md)
+* [Envoyer des tâches Apache Hive](hadoop/apache-hadoop-use-hive-powershell.md)
+* [Envoyer des tâches Apache Pig](hadoop/apache-hadoop-use-pig-powershell.md)
+* [Envoyer des tâches Apache Sqoop](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## <a name="migrating-to-the-new-hdinsight-net-sdk"></a>Migration vers le nouveau SDK .NET HDInsight
 Le [Kit de développement logiciel (SDK) .NET HDInsight (ASM)](https://msdn.microsoft.com/library/azure/mt416619.aspx) Azure Service Management est maintenant déconseillé. Nous vous invitons désormais à utiliser le [SDK .NET HDInsight Resource Manager](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) qui est basé sur la gestion des ressources Azure. Les packages HDInsight ASM suivants sont désormais déconseillés.
@@ -231,11 +231,11 @@ Cette section fournit des liens vers des rubriques qui expliquent comment effect
 | --- | --- |
 | Créer des clusters basés sur Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET |Consultez [Créer des clusters basés sur Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |
 | Personnaliser un cluster à l’aide d’une action de script avec le Kit de développement logiciel (SDK) .NET |Consultez [Personnaliser des clusters HDInsight sous Linux à l’aide d’une action de script](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action) |
-| Authentifier des applications de manière interactive à l’aide d’Azure Active Directory avec le Kit de développement logiciel (SDK) .NET |Consultez [Exécution de requêtes Hive avec le Kit de développement logiciel (SDK) .NET](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). Dans cet article, l’extrait de code utilise l’approche de l’authentification interactive. |
+| Authentifier des applications de manière interactive à l’aide d’Azure Active Directory avec le Kit de développement logiciel (SDK) .NET |Consultez [Exécuter des requêtes Apache Hive avec le Kit de développement logiciel (SDK) .NET HDInsight](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). Dans cet article, l’extrait de code utilise l’approche de l’authentification interactive. |
 | Authentifier des applications de manière non interactive à l’aide d’Azure Active Directory avec le Kit de développement logiciel (SDK) .NET |Consultez [Créer des applications HDInsight d’authentification non interactives](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
-| Envoyer une tâche Hive à l’aide du Kit de développement logiciel (SDK) .NET |Consulter [Envoi de tâches Hive](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |
-| Envoyer une tâche Pig à l’aide du Kit de développement logiciel (SDK) .NET |Consulter [Envoi de tâches Pig](hadoop/apache-hadoop-use-pig-dotnet-sdk.md) |
-| Envoyer une tâche Sqoop à l’aide du Kit de développement logiciel (SDK) .NET |Consulter [Envoi de tâches Sqoop](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md) |
+| Envoyer une tâche Apache Hive avec le SDK .NET |Consultez [Envoyer des tâches Apache Hive](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). |
+| Envoyer une tâche Apache Pig avec le SDK .NET |Consultez [Envoyer des tâches Apache Pig](hadoop/apache-hadoop-use-pig-dotnet-sdk.md). |
+| Envoyer une tâche Apache Sqoop avec le SDK .NET |Consultez [Envoyer des tâches Apache Sqoop](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md). |
 | Répertorier les clusters HDInsight à l’aide du Kit de développement logiciel (SDK) .NET |Consulter [Répertorier les clusters HDInsight](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
 | Mettre à l’échelle les clusters HDInsight à l’aide du Kit de développement logiciel (SDK) .NET |Consulter [Mettre à l’échelle les clusters HDInsight](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |
 | Autoriser/révoquer l’accès aux clusters HDInsight à l’aide du Kit de développement logiciel (SDK) .NET |Consulter [Autoriser/révoquer l’accès aux clusters HDInsight](hdinsight-administer-use-dotnet-sdk.md#grantrevoke-access) |

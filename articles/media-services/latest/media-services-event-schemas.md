@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 10/16/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: 44e195055c74babd903cf4fb830167ab92951d4a
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 9de0d8bc389218d3102633b09073b3af323d2ceb
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376786"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011992"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schémas Azure Event Grid pour les événements Media Services
 
@@ -34,7 +34,7 @@ Vous pouvez vous inscrire à tous les événements en vous abonnant à l’évé
 
 #### <a name="monitoring-job-state-changes"></a>Supervision des changements d’état du travail
 
-| Type d’événement | Description |
+| Type d'événement | Description |
 | ---------- | ----------- |
 | Microsoft.Media.JobStateChange| Obtient un événement pour tous les changements d’état du travail. |
 | Microsoft.Media.JobScheduled| Obtient un événement quand un travail passe à l’état Planifié. |
@@ -46,7 +46,7 @@ Vous pouvez vous inscrire à tous les événements en vous abonnant à l’évé
 
 #### <a name="monitoring-job-output-state-changes"></a>Supervision des changements d’état de sortie du travail
 
-| Type d’événement | Description |
+| Type d'événement | Description |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputStateChange| Obtient un événement pour tous les changements d’état de sortie du travail. |
 | Microsoft.Media.JobOutputScheduled| Obtient un événement quand la sortie du travail passe à l’état Planifié. |
@@ -112,13 +112,14 @@ L’objet de données comporte les propriétés suivantes :
 | Propriété | type | Description |
 | -------- | ---- | ----------- |
 | previousState | chaîne | L’état du travail avant l’événement. |
-| state | chaîne | Le nouvel état de la tâche notifié dans cet événement. Par exemple, « en file d’attente : la tâche est en attente de ressources » ou « planifiée : le travail est prêt à démarrer ».|
+| state | chaîne | Le nouvel état de la tâche notifié dans cet événement. Par exemple, « Planifié : le travail est prêt à démarrer » ou « Terminé : le travail est terminé ».|
 
-Où l’état du travail peut prendre l’une des valeurs suivantes : *En file d’attente*, *Planifié*, *Traitement*, *Terminé*, *Erreur*, *Annulé*, *Annulation en cours*
+Où l’état du travail peut prendre l’une des valeurs suivantes : *En file d’attente*, *Planifié*, *Traitement*, *Terminé*, *Erreur*, *Annulé*, *Annulation en cours*
 
-### <a name="jobscheduled"></a>JobScheduled
-### <a name="jobprocessing"></a>JobProcessing
-### <a name="jobcanceling"></a>JobCanceling
+> [!NOTE]
+> *En file d’attente* est présent uniquement dans la propriété **previousState**, mais pas dans la propriété **state**.
+
+### <a name="jobscheduled-jobprocessing-jobcanceling"></a>JobScheduled, JobProcessing, JobCanceling
 
 Pour chaque changement d’état de travail non final (par exemple, JobScheduled, JobProcessing, JobCanceling), l’exemple de schéma se présente comme suit :
 
@@ -142,9 +143,7 @@ Pour chaque changement d’état de travail non final (par exemple, JobScheduled
 }]
 ```
 
-### <a name="jobfinished"></a>JobFinished
-### <a name="jobcanceled"></a>JobCanceled
-### <a name="joberrored"></a>JobErrored
+### <a name="jobfinished-jobcanceled-joberrored"></a>JobFinished, JobCanceled, JobErrored
 
 Pour chaque changement d’état de travail final (par exemple, JobFinished, JobCanceled, JobErrored), l’exemple de schéma se présente comme suit :
 
@@ -215,12 +214,7 @@ L’exemple suivant montre le schéma de l’événement **JobOutputStateChange*
 }]
 ```
 
-### <a name="joboutputscheduled"></a>JobOutputScheduled
-### <a name="joboutputprocessing"></a>JobOutputProcessing
-### <a name="joboutputfinished"></a>JobOutputFinished
-### <a name="joboutputcanceling"></a>JobOutputCanceling
-### <a name="joboutputcanceled"></a>JobOutputCanceled
-### <a name="joboutputerrored"></a>JobOutputErrored
+### <a name="joboutputscheduled-joboutputprocessing-joboutputfinished-joboutputcanceling-joboutputcanceled-joboutputerrored"></a>JobOutputScheduled, JobOutputProcessing, JobOutputFinished, JobOutputCanceling, JobOutputCanceled, JobOutputErrored
 
 Pour chaque changement d’état de sortie du travail (JobOutput), l’exemple de schéma se présente comme suit :
 
@@ -277,7 +271,7 @@ L’exemple suivant montre le schéma d’un événement **LiveEventConnectionRe
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | Type | Description |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | StreamId | chaîne | Identificateur du flux de données ou de la connexion. L’encodeur ou le client est chargé d’ajouter cet ID dans l’URL d’ingestion. |  
 | IngestUrl | chaîne | URL d’ingestion fournie par l’événement en direct. |  
@@ -324,7 +318,7 @@ L’exemple suivant montre le schéma d’un événement **LiveEventEncoderConne
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | Type | Description |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | StreamId | chaîne | Identificateur du flux de données ou de la connexion. L’encodeur ou le client est chargé d’ajouter cet ID dans l’URL d’ingestion. |
 | IngestUrl | chaîne | URL d’ingestion fournie par l’événement en direct. |
@@ -358,7 +352,7 @@ L’exemple suivant montre le schéma d’un événement **LiveEventEncoderDisco
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | Type | Description |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | StreamId | chaîne | Identificateur du flux de données ou de la connexion. L’encodeur ou le client est chargé d’ajouter cet ID dans l’URL d’ingestion. |  
 | IngestUrl | chaîne | URL d’ingestion fournie par l’événement en direct. |  
@@ -414,7 +408,7 @@ L’exemple suivant montre le schéma d’un événement **LiveEventIncomingData
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | Type | Description |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | TrackType | chaîne | Type de la piste (Audio/Vidéo). |
 | TrackName | chaîne | Nom de la piste. |
@@ -454,7 +448,7 @@ L’exemple suivant montre le schéma d’un événement **LiveEventIncomingStre
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | Type | Description |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | TrackType | chaîne | Type de la piste (Audio/Vidéo). |
 | TrackName | chaîne | Nom de la piste (fourni par l’encodeur ou, dans le cas du RTMP, généré par le serveur selon le format *TypePiste_DébitBinaire*). |
@@ -493,7 +487,7 @@ L’exemple suivant montre le schéma d’un événement **LiveEventIncomingStre
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | Type | Description |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | MinLastTimestamp | chaîne | Minimum des derniers timestamps parmi toutes les pistes (audio ou vidéo). |
 | TypeOfTrackWithMinLastTimestamp | chaîne | Type de la piste (audio ou vidéo) avec dernier timestamp minimum. |
@@ -528,7 +522,7 @@ L’exemple suivant montre le schéma d’un événement **LiveEventIncomingVide
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | Type | Description |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | FirstTimestamp | chaîne | Timestamp reçu pour l’une des pistes/l’un des niveaux de qualité de type vidéo. |
 | FirstDuration | chaîne | Durée du bloc de données avec le premier timestamp. |
@@ -570,7 +564,7 @@ L’exemple suivant montre le schéma d’un événement **LiveEventIngestHeartb
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | Type | Description |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | TrackType | chaîne | Type de la piste (Audio/Vidéo). |
 | TrackName | chaîne | Nom de la piste (fourni par l’encodeur ou, dans le cas du RTMP, généré par le serveur selon le format *TypePiste_DébitBinaire*). |
@@ -614,7 +608,7 @@ L’exemple suivant montre le schéma d’un événement **LiveEventTrackDiscont
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | Type | Description |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | TrackType | chaîne | Type de la piste (Audio/Vidéo). |
 | TrackName | chaîne | Nom de la piste (fourni par l’encodeur ou, dans le cas du RTMP, généré par le serveur selon le format *TypePiste_DébitBinaire*). |
@@ -628,7 +622,7 @@ L’objet de données comporte les propriétés suivantes :
 
 Un événement contient les données générales suivantes :
 
-| Propriété | Type | Description |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | rubrique | chaîne | Rubrique EventGrid. Cette propriété comporte l’ID de ressource pour le compte Media Services. |
 | subject | chaîne | Chemin d’accès à la ressource pour le canal Media Services sous le compte Media Services. La concaténation de la rubrique et de l’objet indique l’ID de ressource pour le travail. |
@@ -642,3 +636,8 @@ Un événement contient les données générales suivantes :
 ## <a name="next-steps"></a>Étapes suivantes
 
 [S’inscrire à des événements de changement d’état d’un travail](job-state-events-cli-how-to.md)
+
+## <a name="see-also"></a>Voir aussi
+
+- [Kit de développement logiciel (SDK) .NET EventGrid qui inclut les événements Media Services](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
+- [Définitions d’événements Media Services](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)

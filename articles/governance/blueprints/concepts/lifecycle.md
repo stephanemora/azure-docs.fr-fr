@@ -1,6 +1,6 @@
 ---
-title: Présentation du cycle de vie d’un blueprint Azure Blueprint
-description: Découvrez le cycle de vie que traverse un blueprint, ainsi que les détails de chaque phase.
+title: Présentation du cycle de vie d’un blueprint
+description: Découvrez le cycle de vie d’un blueprint et les détails de chaque phase.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,19 +8,20 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 882279019a5f321c6af9beab1f4d0f220781bc5c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 84dc86f993b0c1b4c4803525a07bdd34dddd229d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094157"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309804"
 ---
-# <a name="understand-the-life-cycle-of-an-azure-blueprint"></a>Présentation du cycle de vie d’un blueprint Azure Blueprint
+# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Présentation du cycle de vie d’un blueprint Azure
 
-Comme de nombreuses ressources dans Azure, les blueprints dans Azure Blueprint ont un cycle de vie normal et naturel. Ils sont créés, déployés puis supprimés quand ils ne sont plus nécessaires ou pertinents.
-Les blueprints prennent en charge les opérations de cycle de vie standard. Ils s’appuient ensuite sur celles-ci pour fournir des niveaux supplémentaires d’état prenant en charge les pipelines d’intégration et de déploiement continus communs pour les organisations qui gèrent leur infrastructure en tant que code (élément clé dans DevOps).
+Comme de nombreuses ressources dans Azure, les blueprints dans Azure Blueprints ont un cycle de vie normal et naturel. Ils sont créés, déployés puis supprimés quand ils ne sont plus nécessaires ou pertinents.
+Blueprints prend en charge les opérations de cycle de vie standard. Ils s’appuient ensuite sur celles-ci pour fournir des niveaux supplémentaires d’état prenant en charge les pipelines d’intégration et de déploiement continus communs pour les organisations qui gèrent leur infrastructure en tant que code (élément clé dans DevOps).
 
-Pour bien comprendre ce qu’est un blueprint et quelles sont les étapes de son cycle de vie, nous allons décrire un cycle de vie standard :
+Pour bien comprendre ce qu’est un blueprint et quelles sont les phases de son cycle de vie, étudions d’abord un cycle de vie standard :
 
 > [!div class="checklist"]
 > - Création et modification d’un blueprint
@@ -87,7 +88,7 @@ Vous supprimez un blueprint avec le [portail Azure](../create-blueprint-portal.m
 
 ## <a name="assignments"></a>Affectations
 
-Il existe plusieurs points pendant le cycle de vie au cours desquels un blueprint peut être affecté à un abonnement. Quand le mode d’une version du blueprint est **Publié**, cette version peut être affectée à un abonnement. Ce cycle de vie permet d’utiliser et d’affecter activement des versions d’un blueprint pendant qu’une version plus récente est en cours de développement.
+Le blueprint peut être attribué à un abonnement à plusieurs endroits du cycle de vie. Quand le mode d’une version du blueprint est **Publié**, cette version peut être affectée à un abonnement. Ce cycle de vie permet d’utiliser et d’attribuer activement des versions d’un blueprint pendant le développement d’une nouvelle version.
 
 Lors de l’affectation des versions de blueprints, il est important de comprendre où elles sont affectées et avec quels paramètres elles ont été affectées. Les paramètres peuvent être statiques ou dynamiques. Pour plus d’informations, consultez [Paramètres statiques et dynamiques](parameters.md).
 

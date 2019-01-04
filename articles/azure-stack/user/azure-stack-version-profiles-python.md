@@ -14,16 +14,16 @@ ms.date: 08/15/2018
 ms.author: sethm
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: 657eefcd5b7793f2f181d074084a272e65943681
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 17fb8a82709e7c0c7353b70f7731895889167a79
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246444"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873952"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Utiliser des profils de version des API avec Python dans Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 ## <a name="python-and-api-version-profiles"></a>Python et les profils de version d’API
 
@@ -153,5 +153,5 @@ os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
 
 - [Centre de développement Python pour Azure](https://azure.microsoft.com/develop/python/)
 - [Documentation sur les machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/)
-- [Parcours d’apprentissage des machines virtuelles](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
+- [Parcours d’apprentissage des machines virtuelles](/learn/paths/deploy-a-website-with-azure-virtual-machines/)
 - Si vous n’avez pas d’abonnement Microsoft Azure, vous pouvez obtenir un compte d’essai GRATUIT [ici](https://go.microsoft.com/fwlink/?LinkId=330212).

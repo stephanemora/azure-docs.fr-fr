@@ -1,5 +1,5 @@
 ---
-title: Stockage Blob Azure sur les appareils Azure IoT Edge | Microsoft Docs
+title: Stocker des objets blob de blocs sur des appareils - Azure IoT Edge | Microsoft Docs
 description: Déployez un module de stockage Blob Azure sur votre appareil IoT Edge pour stocker des données en périphérie.
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fa88ff46b4fb93d55aa0087cca0e6184f3e087a0
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: e56d49208740686b51cdaef1bab778e2c08a9b58
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567279"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077918"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Stocker des données à la périphérie avec le Stockage Blob Azure sur IoT Edge (préversion)
 
@@ -74,9 +75,9 @@ Recherchez le module de stockage d’objets blob à l’aide de l’une des mét
 
 1. Dans la section « Ajouter des modules », sous « Modules de déploiement », vous verrez que ce module est déjà répertorié avec un nom commençant par « AzureBlobStorageonIoTEdge ». 
 2. **Sélectionnez** le module de stockage d’objets blob dans la liste des « Modules de déploiement ». Le panneau latéral « Modules personnalisés IoT Edge » s’ouvre.
-3. **Nom** : vous pouvez modifier le nom du module ici
-4. **URI de l’image** : remplacez l’URI par **mcr.microsoft.com/azure-blob-storage:latest**
-5. **Options de création de conteneur** : modifiez le code JSON ci-dessous avec vos valeurs et remplacez-le par le code JSON de la page du portail :
+3. **Nom** : vous pouvez changer le nom du module ici
+4. **URI d’image** : remplacez l’URI par **mcr.microsoft.com/azure-blob-storage:latest**
+5. **Options de création de conteneur** : modifiez le code JSON ci-dessous avec vos valeurs et remplacez-le par le code JSON de la page du portail :
    
    ```json
    {
@@ -105,7 +106,7 @@ Recherchez le module de stockage d’objets blob à l’aide de l’une des mét
    > [!CAUTION]
    > Ne changez pas le "/blobroot" pour Linux ni le "C:/BlobRoot" pour Windows, pour les valeurs **\<liaison du répertoire de stockage>**.
 
-    ![Mettre à jour les valeurs des modules](./media/how-to-store-data-blob/edit-module.png)
+    ![Options de création de conteneur de module de mise à jour - portail](./media/how-to-store-data-blob/edit-module.png)
 
 6. **Enregistrez** les valeurs de la section « Modules personnalisés IoT Edge ».
 7. Cliquez sur **Suivant** dans la section « Définir des modules ».
@@ -121,7 +122,7 @@ Effectuez les étapes suivantes pour créer une solution IoT Edge avec un module
 
 1. Sélectionnez **Affichage** > **Palette de commandes**. 
 
-2. Dans la palette de commandes, entrez et exécutez la commande **Azure IoT Edge : Nouvelle solution IoT Edge**. 
+2. Dans la palette de commandes, entrez et exécutez la commande **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge : Nouvelle solution IoT Edge). 
 
 3. Suivez les invites pour créer une solution : 
 
@@ -149,7 +150,7 @@ Le modèle de solution crée un modèle de manifeste de déploiement qui inclut 
    {\"Env\": [\"LOCAL_STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME\",\" LOCAL_STORAGE_ACCOUNT_KEY=$STORAGE_ACCOUNT_KEY\"],\"HostConfig\": {\"Binds\": [\"<storage directory bind>\"],\"PortBindings\": {\"11002/tcp\": [{\"HostPort\":\"11002\"}]}}}
    ```
 
-   ![Mise à jour des options de création du module](./media/how-to-store-data-blob/create-options.png)
+   ![Options de création de module de mise à jour - VS Code](./media/how-to-store-data-blob/create-options.png)
 
 4. Dans le fichier JSON des options de création, mettez à jour `<storage directory bind>` en fonction de votre système d’exploitation conteneur. Indiquez le nom d’un [volume](https://docs.docker.com/storage/volumes/) ou le chemin absolu à un répertoire sur votre appareil IoT Edge où vous souhaitez que le module d’objets blob stocke ses données.  
 

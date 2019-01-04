@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 81e41ce6818a6f56ba5e6e888480f8b25979fb81
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: ce171aa32e4f17e974a6d8a9752189ac78bf73fe
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979197"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386993"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de configuration et de gestion pour Azure Cloud Services : questions fréquentes (FAQ)
+# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de configuration et de gestion pour Azure Cloud Services : Forum Aux Questions (FAQ)
 
 Cet article comprend des questions fréquentes sur les problèmes de configuration et de gestion pour [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Vous pouvez également consulter la page [Taille de services cloud](cloud-services-sizes-specs.md) pour obtenir des informations sur la taille.
 
@@ -53,7 +53,7 @@ Cet article comprend des questions fréquentes sur les problèmes de configurati
 **autorisations**
 
 - [Les ingénieurs internes Microsoft peuvent-ils se connecter en utilisant le Bureau à distance à des instances de service cloud sans autorisation ?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
-- [Je ne peux pas me connecter en utilisant le Bureau à distance à la machine virtuelle de service cloud à l’aide du fichier RDP. J’obtiens l’erreur suivante : Une erreur d’authentification s’est produite (Code : 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
+- [Je ne peux pas me connecter en utilisant le Bureau à distance à la machine virtuelle de service cloud à l’aide du fichier RDP. J’obtiens l’erreur suivante : Une erreur d’authentification s’est produite (Code : 0x80004005)](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
 
 **Mise à l'échelle**
 
@@ -170,7 +170,7 @@ Vous pouvez spécifier le délai d’expiration dans votre fichier de définitio
     </Endpoints>
   </WorkerRole>
 ```
-Pour plus d’informations, consultez [Nouveau : délai d’inactivité configurable pour Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/).
+Pour plus d’informations, consultez [Nouveau : délai d’inactivité configurable pour Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/).
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Comment associer une adresse IP statique à mon service cloud ?
 Pour configurer une adresse IP statique, vous devez créer une adresse IP réservée. Cette adresse IP réservée peut être associée à un nouveau service cloud ou à un déploiement existant. Pour plus d’informations, consultez les documents suivants :
@@ -190,7 +190,7 @@ Microsoft surveille en continu les serveurs, les réseaux et les applications po
 Windows 10 et Windows Server 2016 prennent en charge HTTP/2 à la fois côté client et côté serveur. Si votre client (navigateur) se connecte au serveur IIS sur TLS qui négocie HTTP/2 via les extensions TLS, vous n’avez pas besoin d’effectuer de modifications côté serveur. En effet, sur TLS, l’en-tête h2-14 spécifiant l’utilisation de HTTP/2 est envoyé par défaut. En revanche, si votre client envoie un en-tête de mise à niveau pour mettre à niveau vers HTTP/2, vous devez effectuer la modification ci-dessous côté serveur pour garantir la correcte mise à niveau et l’établissement d’une connexion HTTP/2. 
 
 1. Exécutez regedit.exe.
-2. Accédez à la clé de Registre : HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
+2. Accédez à la clé de registre : HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
 3. Créez une valeur DWORD nommée **DuoEnabled**.
 4. Définissez-la sur 1.
 5. Redémarrez votre serveur.
@@ -199,7 +199,7 @@ Windows 10 et Windows Server 2016 prennent en charge HTTP/2 à la fois côté cl
 Pour plus d'informations, consultez les pages suivantes :
 
 - [HTTP/2 sur IIS](https://blogs.iis.net/davidso/http2)
-- [Vidéo : HTTP/2 dans Windows 10 : navigateur, applications et serveur web](https://channel9.msdn.com/Events/Build/2015/3-88)
+- [Vidéo : HTTP/2 dans Windows 10 : Navigateur, applications et serveur Web](https://channel9.msdn.com/Events/Build/2015/3-88)
          
 
 Ces étapes peuvent être automatisées via une tâche de démarrage de manière à pouvoir effectuer les modifications ci-dessus dans le Registre système chaque fois qu’une instance PaaS est créée. Pour plus d’informations, consultez [Comment configurer et exécuter des tâches de démarrage pour un service cloud](cloud-services-startup-tasks.md).
@@ -224,7 +224,7 @@ Voir [Comprendre les différents rôles dans Azure](../role-based-access-control
 ### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>Les ingénieurs internes Microsoft peuvent-ils se connecter en utilisant le Bureau à distance à des instances de service cloud sans autorisation ?
 Microsoft suit un processus strict qui ne permet pas à ses ingénieurs internes de se connecter en utilisant le Bureau à distance à votre service cloud sans une autorisation écrite (par e-mail ou toute autre communication écrite) de la part du propriétaire ou de son représentant.
 
-### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Je ne peux pas me connecter en utilisant le Bureau à distance à la machine virtuelle de service cloud à l’aide du fichier RDP. J’obtiens l’erreur suivante : Une erreur d’authentification s’est produite (Code : 0x80004005)
+### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Je ne peux pas me connecter en utilisant le Bureau à distance à la machine virtuelle de service cloud à l’aide du fichier RDP. J’obtiens l’erreur suivante : Une erreur d’authentification s’est produite (Code : 0x80004005)
 
 Cette erreur peut se produire si vous utilisez le fichier RDP à partir d’une machine jointe à Azure Active Directory. Pour résoudre ce problème, effectuez les étapes suivantes :
 
@@ -242,9 +242,9 @@ La mise à l’échelle automatique en fonction des métriques de la mémoire po
 
 Pour contourner ce problème, vous pouvez utiliser Application Insights. La mise à l’échelle automatique prend en charge Application Insights en tant que source de métriques et peut mettre à l’échelle le nombre d’instances de rôle en fonction d’une métrique invitée telle que « Mémoire ».  Vous devez configurer Application Insights dans votre fichier de package de projet de service cloud (*.cspkg) et activer l’extension Azure Diagnostics sur le service pour implémenter cette fonction.
 
-Pour plus d’informations sur la façon d’utiliser une métrique personnalisée par le biais d’Application Insights afin de configurer la mise à l’échelle automatique sur les services cloud, consultez [Prise en main de la mise à l’échelle automatique par métrique personnalisée dans Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md).
+Pour plus d’informations sur la façon d’utiliser une métrique personnalisée par le biais d’Application Insights afin de configurer la mise à l’échelle automatique sur les services cloud, consultez [Prise en main de la mise à l’échelle automatique par métrique personnalisée dans Azure](../azure-monitor/platform/autoscale-custom-metric.md).
 
-Pour plus d’informations sur la façon d’intégrer Azure Diagnostics à Application Insights pour les services cloud, consultez [Envoyer des données de diagnostic de service cloud, de machine virtuelle ou de Service Fabric à Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Pour plus d’informations sur la façon d’intégrer Azure Diagnostics à Application Insights pour les services cloud, consultez [Envoyer des données de diagnostic de service cloud, de machine virtuelle ou de Service Fabric à Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 Pour plus d’informations sur la façon d’activer Application Insights pour les services cloud, consultez [Application Insights pour Services cloud Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices).
 
@@ -303,7 +303,7 @@ Pour plus d’informations sur les scénarios de déploiement Antimalware et la 
 
 Vous pouvez activer SNI dans les services cloud en utilisant l’une des méthodes suivantes :
 
-**Méthode 1 : Via PowerShell**
+**Méthode 1 : Utiliser PowerShell**
 
 La liaison SNI peut être configurée à l’aide de l’applet de commande PowerShell **New-WebBinding** dans une tâche de démarrage pour une instance de rôle de service cloud comme indiqué ci-dessous :
     
@@ -318,7 +318,7 @@ Comme décrit [ici](https://technet.microsoft.com/library/ee790567.aspx), $sslFl
 |2 |Liaison non SNI qui utilise le magasin de certificats central|
 |3|Liaison SNI qui utilise le magasin de certificats central |
  
-**Méthode 2 : Via code**
+**Méthode 2 : Utiliser le code**
 
 La liaison SNI peut également être configurée via code au cours du démarrage de rôle comme décrit dans ce [billet de blog](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/) :
 

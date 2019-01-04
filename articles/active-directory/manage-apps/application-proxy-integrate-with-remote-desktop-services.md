@@ -15,12 +15,12 @@ ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 388fd812185bc8bd2ef68a1dbcea6303d30dcdf3
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2afe75045444fbc0ca36ee1cfca3d96f5b218ab0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230788"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135489"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publier le Bureau à distance avec le proxy d’application Azure AD
 
@@ -49,7 +49,7 @@ Dans un déploiement RDS, le rôle Site Web Bureau à distance et le rôle Passe
 
 - Les points de terminaison du rôle Site Web Bureau à distance et du rôle Passerelle Bureau à distance doivent se trouver sur le même ordinateur et avoir une racine commune. Le rôle Site web Bureau à distance et le rôle Passerelle Bureau à distance sont publiés sous la forme d’une seule application avec le proxy d’application afin de vous proposer une expérience d’authentification unique pour les deux applications.
 
-- Vous devez déjà avoir [déployé RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) et [activé le proxy d’application](application-proxy-enable.md).
+- Vous devez déjà avoir [déployé RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) et [activé le proxy d’application](application-proxy-add-on-premises-application.md).
 
 - Ce scénario suppose que vos utilisateurs finaux passent par Internet Explorer sur les ordinateurs de bureau Windows 7 ou Windows 10 qui se connectent via la page web du Bureau à distance. Si vous avez besoin de prendre en charge d’autres systèmes d’exploitation, consultez [Prise en charge pour d’autres configurations client](#support-for-other-client-configurations).
 
@@ -63,11 +63,11 @@ Après avoir configuré RDS et le proxy d’application Azure AD pour votre env
 
 ### <a name="publish-the-rd-host-endpoint"></a>Publication du point de terminaison hôte Bureau à distance
 
-1. [Publiez une nouvelle application de proxy d’application](application-proxy-publish-azure-portal.md) avec les valeurs suivantes :
+1. [Publiez une nouvelle application de proxy d’application](application-proxy-add-on-premises-application.md) avec les valeurs suivantes :
    - URL interne : `https://\<rdhost\>.com/`, où `\<rdhost\>` est la racine commune partagée par Site Web Bureau à distance et Passerelle Bureau à distance.
-   - URL externe : ce champ est automatiquement renseigné en fonction du nom de l’application, mais vous pouvez le modifier. Vos utilisateurs accéderont à cet URL en accédant à RDS.
-   - Méthode de pré-authentification : Azure Active Directory
-   - Traduire des URL dans les en-têtes : Non
+   - URL externe : Ce champ est automatiquement renseigné en fonction du nom de l’application, mais vous pouvez le modifier. Vos utilisateurs accéderont à cet URL en accédant à RDS.
+   - Méthode de préauthentification : Azure Active Directory
+   - Traduire l’URL dans les en-têtes : Non 
 2. Affectez des utilisateurs à l’application Bureau à distance publiée. Assurez-vous également qu’ils ont tous accès à RDS.
 3. Conservez la méthode d’authentification unique de l’application **Authentification unique Azure AD désactivée**. Les utilisateurs sont invités à s’authentifier une fois sur Azure AD et une fois sur Site Web Bureau à distance, mais profitent de l’authentification unique pour Passerelle Bureau à distance.
 4. Accédez à **Azure Active Directory** > **Inscriptions des applications** > *Votre application* > **Paramètres**.

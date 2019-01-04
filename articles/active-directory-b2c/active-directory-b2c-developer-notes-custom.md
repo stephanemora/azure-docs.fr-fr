@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 31ca79976ec2ecf2755b975749e9c9150c4a49e8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ea884f6fecc1e8a0de1f6a0f8a4daafcdf612e9f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441071"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272698"
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Notes de version pour la version préliminaire publique de la stratégie personnalisée Azure Active Directory B2C
 L’ensemble de fonctionnalités de stratégie personnalisée est désormais disponible à des fins d’évaluation en préversion publique pour tous les clients Azure Active Directory B2C (Azure AD B2C). Cet ensemble de fonctionnalités est destiné aux développeurs d’identité avancés créant les solutions d’identité les plus complexes.  
@@ -25,24 +25,23 @@ L’ensemble de fonctionnalités de stratégie personnalisée est désormais dis
 ## <a name="features-included-in-this-public-preview"></a>Fonctionnalités incluses dans cette version préliminaire publique
 Les nouvelles fonctionnalités introduites dans la préversion permettent aux développeurs d’effectuer les tâches suivantes :<br>
 
-* Créer et charger des parcours utilisateur d’authentification personnalisés à l’aide de stratégies personnalisées. 
+*Créer et charger des parcours utilisateur d’authentification personnalisés à l’aide de stratégies personnalisées. 
    * Décrire des parcours utilisateur étape par étape comme des échanges entre des fournisseurs de revendications. 
-   * Définir le branchement conditionnel dans des parcours utilisateur. 
-* Intégrer des services compatibles avec l’API REST dans vos parcours utilisateur d’authentification personnalisés.  
+   * Définir le branchement conditionnel dans des parcours utilisateur. *Intégrer des services compatibles avec l’API REST dans vos parcours utilisateur d’authentification personnalisés.  
 * Ajouter la fédération avec les fournisseurs d’identité conformes à la norme OpenIDConnect. <br>
 * Ajouter la fédération avec les fournisseurs d’identité qui adhèrent au protocole SAML 2.0. 
 
 ## <a name="terms-of-the-public-preview"></a>Conditions de la version préliminaire publique
 
-* Nous vous encourageons à utiliser les nouvelles fonctionnalités à des fins d’évaluation uniquement.<br>
-* Les nouvelles fonctionnalités ne sont pas destinées à une utilisation dans un environnement de production.<br>
-* Les contrats de niveau de service (SLA) ne s’appliquent pas aux nouvelles fonctionnalités. <br>
-* Les demandes de support peuvent être déposées via les canaux de support habituels. <br>
-* Il n’existe aucune date prévue pour une mise à disposition générale.<br>
-* À notre discrétion et pour quelque raison que ce soit, Microsoft peut signaler et rejeter ou limiter des scénarios et des parcours utilisateur qui dépassent la portée de la charte du produit Azure AD B2C comme plateforme de gestion des accès et des identités des clients.
+*Nous vous encourageons à utiliser les nouvelles fonctionnalités à des fins d’évaluation uniquement.<br>
+*Les nouvelles fonctionnalités ne sont pas destinées à une utilisation dans un environnement de production.<br>
+*Les contrats de niveau de service (SLA) ne s’appliquent pas aux nouvelles fonctionnalités. <br>
+*Les demandes de support peuvent être déposées par le biais des canaux de support habituels. <br>
+*Il n’existe aucune date prévue pour une mise à disposition générale.<br>
+*À notre discrétion et pour quelque raison que ce soit, Microsoft peut signaler et rejeter ou limiter des scénarios et des parcours utilisateur qui dépassent la portée de la charte du produit Azure AD B2C comme plateforme de gestion des accès et des identités des clients.
 
 ## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>Responsabilités des développeurs de l’ensemble de fonctionnalités de stratégie personnalisée
-La configuration de stratégie manuelle accorde le niveau d’accès minimal à la plateforme sous-jacente d’Azure AD B2C et entraîne la création d’une infrastructure approuvée unique et entièrement personnalisable. Les permutations possibles des fournisseurs d’identité personnalisés, les relations d’approbation, les intégrations aux services externes et les flux de travail étape par étape exigeront beaucoup de la part des développeurs avancés qui les utilisent.
+La configuration de stratégie manuelle accorde le niveau d’accès minimal à la plateforme sous-jacente d’Azure AD B2C et entraîne la création d’une infrastructure approuvée unique et entièrement personnalisable. Les permutations possibles des fournisseurs d’identité personnalisés, les relations d’approbation, les intégrations aux services externes et les flux de travail étape par étape exigeront beaucoup de la part des développeurs avancés qui les utilisent.
 
 Afin de tirer pleinement parti de la préversion publique, nous suggérons aux développeurs qui utilisent l’ensemble de fonctionnalités de stratégie personnalisée de respecter les consignes suivantes :
 * Se familiariser au langage de configuration de l’infrastructure d’expérience d’identité (IEF) et à la gestion clé/secrets.
@@ -52,7 +51,7 @@ Afin de tirer pleinement parti de la préversion publique, nous suggérons aux d
 * Suivre les nouveaux développements des services et fournisseurs d’identité que vous intégrez. Par exemple, suivre les modifications apportées aux secrets, ainsi que les modifications planifiées et non planifiées du service.
 * Configurer la surveillance active et surveiller la réactivité des environnements de production.
 * Garder les adresses e-mail de contact à jour dans l’abonnement Azure et rester attentif aux e-mails de l’équipe de site en ligne Microsoft.
-* Prendre les mesures adéquates lorsque cela est recommandé par l’équipe de site en ligne Microsoft. 
+* Prendre les mesures adéquates lorsque cela est recommandé par l’équipe de site en ligne Microsoft. 
 
 ## <a name="features-by-stage-and-known-issues"></a>Fonctionnalités par étape et problèmes connus
 Les fonctionnalités IEF et de stratégies personnalisées font l’objet d’un développement rapide et constant.  Le tableau ci-après indique la disponibilité des fonctionnalités/composants.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: 9032a0b68c4c8789010b0304b64a63d4924521fb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a8744afe3ec3e83e4a543942441118356730347c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140470"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957239"
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Exécuter OpenFoam avec Microsoft HPC Pack sur un cluster Linux RDMA dans Azure
 Cet article vous montre une méthode d’exécution d’OpenFoam dans des machines virtuelles Azure. Ici, vous déployez un cluster Microsoft HPC Pack avec des nœuds de calcul Linux sur Azure, et exécutez une tâche [OpenFoam](http://openfoam.com/) avec Intel MPI. Vous pouvez utiliser des machines virtuelles Azure prenant en charge RDMA pour les nœuds de calcul, de sorte que ceux-ci communiquent sur le réseau RDMA Azure. Les autres options d’exécution d’OpenFoam dans Azure incluent des images commerciales entièrement configurées disponibles sur le Marketplace, notamment [OpenFoam 2.3 sur CentOS 6](https://azuremarketplace.microsoft.com/marketplace/apps/cfd-direct.cfd-direct-from-the-cloud) d’UberCloud, et l’exécution sur [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
@@ -37,7 +37,7 @@ Microsoft HPC Pack fournit des fonctionnalités permettant d’exécuter un éve
 > 
 
 ## <a name="prerequisites"></a>Prérequis
-* **Cluster HPC Pack avec nœuds de calcul Linux prenant en charge RDMA** : déployez un cluster HPC Pack avec des nœuds de calcul Linux de taille A8, A9, H16r ou H16rm à l’aide d’un [modèle Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou d’un [script Azure PowerShell](hpcpack-cluster-powershell-script.md). Consultez la configuration requise et la procédure pour chaque option sur la page [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](hpcpack-cluster.md) . Si vous choisissez l’option de déploiement de script PowerShell, voir l’exemple de fichier de configuration dans les fichiers d’exemple à la fin de cet article. Utilisez cette configuration pour déployer un cluster HPC Pack basé sur Azure, composé d’un nœud principal Windows Server 2012 R2 de taille A8, et de 2 nœuds de calcul SUSE Linux Enterprise Server 12 de taille A8. Remplacez les valeurs appropriées pour les noms de vos abonnement et service. 
+* **Cluster HPC Pack avec nœuds de calcul Linux prenant en charge RDMA** : déployez un cluster HPC Pack avec des nœuds de calcul Linux de taille A8, A9, H16r ou H16rm à l’aide d’un [modèle Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) ou d’un [script Azure PowerShell](hpcpack-cluster-powershell-script.md). Consultez la configuration requise et la procédure pour chaque option sur la page [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](hpcpack-cluster.md) . Si vous choisissez l’option de déploiement de script PowerShell, voir l’exemple de fichier de configuration dans les fichiers d’exemple à la fin de cet article. Utilisez cette configuration pour déployer un cluster HPC Pack basé sur Azure, composé d’un nœud principal Windows Server 2012 R2 de taille A8, et de 2 nœuds de calcul SUSE Linux Enterprise Server 12 de taille A8. Remplacez les valeurs appropriées pour les noms de vos abonnements et services. 
   
   **Autres informations à connaître**
   
@@ -46,7 +46,7 @@ Microsoft HPC Pack fournit des fonctionnalités permettant d’exécuter un éve
   * Après avoir déployé les nœuds Linux, connectez-vous à SSH pour effectuer toutes tâches administratives supplémentaires. Recherchez les détails de connexion SSH pour chaque machine virtuelle Linux dans le portail Azure.  
 * **Intel MPI** : pour exécuter OpenFOAM sur des nœuds de calcul SLES 12 HPC dans Azure, vous devez installer le runtime Intel MPI Library 5 que vous trouverez sur le [site Intel.com](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 est préinstallé sur des images HPC basées sur CentOS.)  Si nécessaire, vous devez ensuite installer Intel MPI sur vos nœuds de calcul Linux. Pour préparer cette étape, après votre inscription auprès d’Intel, suivez le lien vers la page web associée, figurant dans le message de confirmation. Ensuite, copiez le lien de téléchargement du fichier .tgz pour la version appropriée d’Intel MPI. Cet article est basé sur Intel MPI version 5.0.3.048.
 * **OpenFOAM Source Pack** : téléchargez le logiciel OpenFOAM Source Pack pour Linux à partir du [site d’OpenFOAM Foundation](http://openfoam.org/download/2-3-1-source/). Cet article est basé sur la version du Pack Source 2.3.1, disponible en téléchargement en tant que OpenFOAM 2.3.1.tgz. Suivez les instructions présentes plus loin dans cet article pour décompresser et compiler OpenFOAM sur les nœuds de calcul Linux.
-* **EnSight** (facultatif) : pour afficher les résultats de votre simulation OpenFOAM, téléchargez et installez le programme de visualisation et d’analyse [EnSight](https://ensighttransfe.wpengine.com/direct-access-downloads/) . Les informations de licence et de téléchargement se trouvent sur le site EnSight.
+* **EnSight** (facultatif) : pour afficher les résultats de votre simulation OpenFOAM, téléchargez et installez le programme de visualisation et d’analyse [EnSight](https://www.ansys.com/products/platform/ansys-ensight/data-interfaces) . Les informations de licence et de téléchargement se trouvent sur le site EnSight.
 
 ## <a name="set-up-mutual-trust-between-compute-nodes"></a>Configuration de l’approbation mutuelle entre les nœuds de calcul
 L’exécution d’une tâche de nœuds croisés sur plusieurs nœuds Linux requiert une approbation mutuelle entre les nœuds (par **rsh** ou **ssh**). Lorsque vous créez le cluster HPC Pack avec le script de déploiement IaaS Microsoft HPC Pack, le script définit automatiquement l’approbation mutuelle permanente pour le compte administrateur que vous spécifiez. Pour les utilisateurs non administrateurs que vous créez dans le domaine du cluster, vous devez configurer l’approbation mutuelle temporaire entre les nœuds lorsqu’une tâche leur est allouée, puis détruire la relation une fois la tâche terminée. Pour établir l’approbation, pour chaque utilisateur, fournissez une paire de clés RSA au cluster que HPC Pack utilise pour la relation d’approbation.
@@ -226,7 +226,7 @@ Utilisez le partage de nœud principal configuré précédemment pour partager l
 4. Lorsque vous utilisez les paramètres par défaut de cet exemple, l’exécution de l’opération peut prendre des dizaines de minutes. Il se peut donc que vous vouliez modifier certains paramètres pour accélérer le processus. Un choix simple consiste à modifier les variables d’étape de temps deltaT et writeInterval dans le fichier system/controlDict. Ce fichier stocke toutes les données d’entrée relatives au contrôle du temps, ainsi qu’à la lecture et à l’écriture des données de la solution. Par exemple, vous pouvez faire passer la valeur deltaT de 0,05 à 0,5 et la valeur writeInterval de 0,05 à 0,5.
    
    ![Modifier les variables d’étape][step_variables]
-5. Spécifiez les valeurs souhaitées pour les variables dans le fichier system/decomposeParDict. Dans cet exemple, deux nœuds Linux de 8 cœurs chacun sont utilisés. Définissez donc la valeur numberOfSubdomains sur 16, et le n de hierarchicalCoeffs sur (1 1 16), ce qui signifie qu’OpenFOAM doit s’exécuter en parallèle avec 16 processus. Pour plus d’informations, consultez [Guide de l’utilisateur OpenFOAM : 3.4 Exécution d’applications en parallèle](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4).
+5. Spécifiez les valeurs souhaitées pour les variables dans le fichier system/decomposeParDict. Dans cet exemple, deux nœuds Linux de 8 cœurs chacun sont utilisés. Définissez donc la valeur numberOfSubdomains sur 16, et le n de hierarchicalCoeffs sur (1 1 16), ce qui signifie qu’OpenFOAM doit s’exécuter en parallèle avec 16 processus. Pour plus d’informations, consultez la page [OpenFOAM User Guide: 3.4 Running applications in parallel](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4) (Guide de l’utilisateur OpenFOAM : 3.4 exécution d’applications en parallèle).
    
    ![Décomposer les processus][decompose]
 6. Exécutez les commandes suivantes à partir du répertoire sloshingTank3D pour préparer les exemples de données.
@@ -362,7 +362,7 @@ Maintenant, vous pouvez envoyer un travail dans HPC Cluster Manager. Vous devez 
 10. Lorsque le travail se termine, recherchez les résultats du travail dans les dossiers sous C:\OpenFoam\sloshingTank3D et les fichiers journaux dans C:\OpenFoam.
 
 ## <a name="view-results-in-ensight"></a>Afficher les résultats dans EnSight
-Vous pouvez également utiliser [EnSight](http://www.ensight.com/) pour visualiser et analyser les résultats du travail OpenFOAM. Pour plus d’informations sur la visualisation et l’animation dans EnSight, consultez le [guide vidéo](http://www.ensight.com/ensight.com/envideo/).
+Vous pouvez également utiliser [EnSight](http://www.ensight.com/) pour visualiser et analyser les résultats du travail OpenFOAM. 
 
 1. Après avoir installé EnSight sur le nœud principal, démarrez le service.
 2. Ouvrez C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.

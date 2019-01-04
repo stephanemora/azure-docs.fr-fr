@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 17/07/2018
 ms.author: sedusch
-ms.openlocfilehash: 2f3b8371357403071e70dd2e351cd75dbd34f746
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 2a0934fa3bb46eebba02029a8292b9bee6b12c62
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007299"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728223"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Connecteur SAP LaMa pour Azure
 
@@ -38,7 +38,7 @@ ms.locfileid: "40007299"
 [hana-ops-guide]:hana-vm-operations.md
 
 > [!NOTE]
-> Instruction de support générale : si vous avez besoin d’aide concernant SAP LaMa ou le connecteur Azure, ouvrez toujours un incident avec SAP sur le composant BC-VCM-LVM-HYPERV.
+> Instruction générale de support : si vous avez besoin d’aide concernant SAP LaMa ou le connecteur Azure, ouvrez toujours un incident avec SAP sur le composant BC-VCM-LVM-HYPERV.
 
 De nombreux clients utilisent SAP LaMa pour exploiter et surveiller leur environnement SAP. Depuis la version 3.0 SP05, SAP LaMa est livré par défaut avec un connecteur pour Azure. Vous pouvez utiliser ce connecteur pour libérer et démarrer des machines virtuelles, ainsi que pour copier, déplacer et supprimer des disques managés. Ces opérations de base vous permettent de déplacer, copier, cloner et actualiser des systèmes SAP à l’aide de SAP LaMa.
 
@@ -89,28 +89,28 @@ Par défaut, le principal de service ne possède pas les autorisations d’accé
 1. Accédez à https://portal.azure.com
 1. Ouvrez le panneau Groupes de ressources.
 1. Sélectionnez le groupe de ressources à utiliser.
-1. Cliquez sur Contrôle d’accès (IAM).
-1. Cliquez sur Ajouter.
+1. Cliquez sur Contrôle d’accès (IAM)
+1. Cliquez sur Ajouter une attribution de rôle.
 1. Sélectionnez le rôle Contributeur.
 1. Entrez le nom de l’application que vous avez créée ci-dessus
-1. Cliquez sur OK.
+1. Cliquez sur Enregistrer.
 1. Répétez les étapes 3 à 8 pour tous les groupes de ressources que vous souhaitez utiliser dans SAP LaMa.
 
 Ouvrez le site web SAP LaMa et accédez à Infrastructure (Infrastructure). Accédez à l’onglet Cloud Managers (Gestionnaires de cloud) et cliquez sur Add (Ajouter). Sélectionnez l’adaptateur cloud Microsoft Azure, puis cliquez sur Next (Suivant). Entrez les informations suivantes :
 
-* Label (Étiquette) : choisissez un nom pour l’instance de connecteur.
-* User Name (Nom d’utilisateur) : ID d’application du principal de service.
-* Password (Mot de passe) : clé/mot de passe du principal de service.
-* URL (URL) : conservez l’URL par défaut https://management.azure.com/.
-* Monitoring Interval (Seconds) (Intervalle de surveillance [secondes]) : doit être au moins égal à 300.
-* Subscription ID (ID d’abonnement) : ID d’abonnement Azure.
-* Azure Active Directory Tenant ID (ID de locataire Azure Active Directory) : ID du locataire Active Directory.
-* Proxy host (hôte du proxy) : nom d’hôte du proxy si SAP LaMa a besoin d’un proxy pour se connecter à Internet.
-* Proxy port (Port du proxy) : port TCP du proxy.
+* Étiquette : choisissez un nom pour l’instance de connecteur.
+* Nom d’utilisateur : ID d'application du principal de service
+* Mot de passe : clé/mot de passe du principal de service.
+* URL : conservez l’URL par défaut https://management.azure.com/.
+* Intervalle de supervision (secondes) : doit être au moins égal à 300.
+* ID d’abonnement : ID d’abonnement Azure
+* ID de locataire Azure Active Directory : ID du locataire Azure Active Directory.
+* Hôte proxy : nom d’hôte du proxy si SAP LaMa a besoin d’un proxy pour se connecter à Internet.
+* Port du proxy : port TCP du proxy.
 
 Cliquez sur Test Configuration (Tester la configuration) pour valider vos entrées. Vous devriez voir s’afficher le message suivant :
 
-Connection successful: Connection to Microsoft cloud was successful (Connexion réussie : la connexion à Microsoft Cloud a été établie). 7 resource groups found (only 10 groups requested) (7 groupes de ressources ont été trouvés [seuls 10 groupes ont été demandés]).
+Connexion établie : la connexion à Microsoft Cloud a réussi. 7 resource groups found (only 10 groups requested) (7 groupes de ressources ont été trouvés [seuls 10 groupes ont été demandés]).
 
 Ce message doit apparaître au bas du site web.
 
@@ -182,45 +182,45 @@ Ces composants sont requis pour le déploiement du modèle. Le moyen le plus sim
 
 Les modèles présentent les paramètres suivants :
 
-* sapSystemId : ID du système SAP. Cet ID est utilisé pour la création de la disposition du disque (par exemple, /usr/sap/\<sapsid>).
+* sapSystemId : ID du système SAP. Cet ID est utilisé pour la création de la disposition du disque (par exemple, /usr/sap/\<sapsid>).
 
-* computerName : nom d’ordinateur de la nouvelle machine virtuelle. Ce paramètre est également utilisé par SAP LaMa. Lorsque vous utilisez ce modèle pour approvisionner une nouvelle machine virtuelle dans le cadre de la copie d’un système, SAP LaMa attend que l’hôte portant ce nom d’ordinateur soit accessible.
+* computerName : nom d’ordinateur de la nouvelle machine virtuelle. Ce paramètre est également utilisé par SAP LaMa. Lorsque vous utilisez ce modèle pour approvisionner une nouvelle machine virtuelle dans le cadre de la copie d’un système, SAP LaMa attend que l’hôte portant ce nom d’ordinateur soit accessible.
 
-* osType : type du système d’exploitation que vous souhaitez déployer.
+* osType : type du système d’exploitation que vous souhaitez déployer.
 
-* dbtype : type de la base de données. Ce paramètre permet de déterminer le nombre de configurations IP supplémentaires à ajouter, ainsi que la disposition du disque souhaitée.
+* dbtype : type de la base de données. Ce paramètre permet de déterminer le nombre de configurations IP supplémentaires à ajouter, ainsi que la disposition du disque souhaitée.
 
-* sapSystemSize : taille du système SAP que vous souhaitez déployer. Ce paramètre est utilisé pour déterminer le type et la taille d’instance de machine virtuelle.
+* sapSystemSize : taille du système SAP que vous souhaitez déployer. Ce paramètre est utilisé pour déterminer le type et la taille d’instance de machine virtuelle.
 
-* adminUsername : nom d’utilisateur de la machine virtuelle.
+* adminUsername : nom d’utilisateur pour la machine virtuelle.
 
-* adminPassword : mot de passe de la machine virtuelle. Vous pouvez également fournir une clé publique pour le protocole SSH.
+* adminPassword : mot de passe pour la machine virtuelle. Vous pouvez également fournir une clé publique pour le protocole SSH.
 
-* sshKeyData : clé SSH publique pour les machines virtuelles. Ce paramètre est uniquement pris en charge pour les systèmes d’exploitation Linux.
+* sshKeyData : clé SSH publique pour les machines virtuelles. Ce paramètre est uniquement pris en charge pour les systèmes d’exploitation Linux.
 
-* subnetId : ID du sous-réseau que vous souhaitez utiliser.
+* subnetId : ID du sous-réseau que vous souhaitez utiliser.
 
-* deployEmptyTarget : vous pouvez déployer une cible vide si vous souhaitez utiliser la machine virtuelle en tant que cible pour un déplacement d’instance ou pour une opération similaire. Dans ce cas, aucun disque ni configuration IP supplémentaires ne sont attachés.
+* deployEmptyTarget : vous pouvez déployer une cible vide si vous souhaitez utiliser la machine virtuelle en tant que cible pour un déplacement d’instance ou une opération similaire. Dans ce cas, aucun disque ni configuration IP supplémentaires ne sont attachés.
 
-* sapcarLocation : emplacement de l’application sapcar qui correspond au système d’exploitation que vous déployez. L’application sapcar permet d’extraire les archives que vous fournissez dans d’autres paramètres.
+* sapcarLocation : emplacement de l’application sapcar qui correspond au système d’exploitation que vous déployez. L’application sapcar permet d’extraire les archives que vous fournissez dans d’autres paramètres.
 
-* sapHostAgentArchiveLocation : emplacement de l’archive de l’agent hôte SAP. L’agent hôte SAP est déployé dans le cadre du déploiement de ce modèle.
+* sapHostAgentArchiveLocation : emplacement de l’archive de l’agent hôte SAP. L’agent hôte SAP est déployé dans le cadre du déploiement de ce modèle.
 
-* sapacExtLocation : emplacement de SAP Adaptive Extensions. La note SAP [2343511] répertorie le niveau de correctif minimal requis pour Azure.
+* sapacExtLocation : emplacement de SAP Adaptive Extensions. La note SAP [2343511] répertorie le niveau de correctif minimal requis pour Azure.
 
-* vcRedistLocation : emplacement du runtime VC requis pour l’installation de SAP Adaptive Extensions. Ce paramètre est uniquement requis pour Windows.
+* vcRedistLocation : emplacement du runtime VC requis pour l’installation de SAP Adaptive Extensions. Ce paramètre est uniquement requis pour Windows.
 
-* odbcDriverLocation : emplacement du pilote ODBC que vous souhaitez installer. Microsoft ODBC Driver for SQL Server est le seul pilote pris en charge.
+* odbcDriverLocation : emplacement du pilote ODBC que vous souhaitez installer. Microsoft ODBC Driver for SQL Server est le seul pilote pris en charge.
 
-* sapadmPassword : mot de passe de l’utilisateur sapadm.
+* sapadmPassword : mot de passe de l’utilisateur sapadm.
 
-* sapadmId : identificateur Linux de l’utilisateur sapadm. Ce paramètre n’est pas requis pour Windows.
+* sapadmId : identificateur Linux de l’utilisateur sapadm. Ce paramètre n’est pas requis pour Windows.
 
-* sapsysGid : identificateur Linux du groupe sapsys. Ce paramètre n’est pas requis pour Windows.
+* sapsysGid : identificateur de groupe Linux du groupe sapsys. Ce paramètre n’est pas requis pour Windows.
 
-* _artifactsLocation : URI de base où se situent les artefacts requis par ce modèle. Lorsque le modèle est déployé à l’aide des scripts fournis, un emplacement privé de l’abonnement est utilisé, et cette valeur est générée automatiquement. Ce paramètre n’est nécessaire que si vous ne déployez pas le modèle à partir de GitHub.
+* _artifactsLocation : URI de base où se situent les artefacts requis par ce modèle. Lorsque le modèle est déployé à l’aide des scripts fournis, un emplacement privé de l’abonnement est utilisé, et cette valeur est générée automatiquement. Ce paramètre n’est nécessaire que si vous ne déployez pas le modèle à partir de GitHub.
 
-* _artifactsLocationSasToken : jeton sasToken requis pour accéder à l’emplacement _artifactsLocation. Lorsque le modèle est déployé à l’aide des scripts fournis, un jeton sasToken est généré automatiquement. Ce paramètre n’est nécessaire que si vous ne déployez pas le modèle à partir de GitHub.
+* _artifactsLocationSasToken : jeton sasToken nécessaire pour accéder à l’emplacement _artifactsLocation. Lorsque le modèle est déployé à l’aide des scripts fournis, un jeton sasToken est généré automatiquement. Ce paramètre n’est nécessaire que si vous ne déployez pas le modèle à partir de GitHub.
 
 ### <a name="sap-hana"></a>SAP HANA
 
@@ -237,7 +237,7 @@ Avant de démarrer SAP Software Provisioning Manager (SWPM), vous devez monter l
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-ascs -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![ Windows][Logo_Windows]  Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -277,7 +277,7 @@ Avant de démarrer SAP Software Provisioning Manager (SWPM), vous devez monter l
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-di-0 -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![ Windows][Logo_Windows]  Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -360,7 +360,7 @@ Dans la boîte de dialogue *Primary Application Server Instance* (Instance du se
 
 * Une exception a été levée lors de la validation du magasin d’utilisateurs HDB  
   * « see Log Viewer  
-    com.sap.nw.lm.aci.monitor.api.validation.RuntimeValidationException: Exception in validator with ID 'RuntimeHDBConnectionValidator' (Validation: 'VALIDATION_HDB_USERSTORE'): Could not retrieve the hdbuserstore  
+    com.sap.nw.lm.aci.monitor.api.validation.RuntimeValidationException : Exception in validator with ID 'RuntimeHDBConnectionValidator' (Validation: 'VALIDATION_HDB_USERSTORE'): Could not retrieve the hdbuserstore  
     HANA userstore is not in the correct location »
   * Solution  
     Assurez-vous que /usr/sap/AH1/hdbclient/install/installation.ini est correct.
@@ -380,12 +380,12 @@ Dans la boîte de dialogue *Primary Application Server Instance* (Instance du se
 ### <a name="errors-and-warnings-during-a-system-clone"></a>Erreurs et avertissements lors d’un clonage de système
 
 * Une erreur s’est produite lors de la tentative d’inscription de l’agent d’instance à l’étape *Forced Register and Start Instance Agent* (Forcer l’inscription et démarrer l’agent d’instance) du serveur d’applications ou de l’instance ASCS
-  * « Error occurred when trying to register instance agent. (RemoteException: 'Failed to load instance data from profile '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0':  Cannot access profile '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0': No such file or directory.') »
+  * « Error occurred when trying to register instance agent. (RemoteException: 'Failed to load instance data from profile '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0':  Cannot access profile '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0': No such file or directory.')
   * Solution  
    Assurez-vous que le partage sapmnt sur ASCS/SCS dispose d’un accès total à SAP_AS1_GlobalAdmin.
 
 * Une erreur s’est produite à l’étape *Enable Startup Protection for Clone* (Activer la protection du clone au démarrage)
-  * « Failed to open file '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' Cause: No such file or directory »
+  * Failed to open file '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' Cause: No such file or directory
   * Solution  
     Le compte d’ordinateur du serveur d’applications doit disposer d’un accès en écriture au profil.
 
@@ -409,36 +409,36 @@ Dans la boîte de dialogue *Primary Application Server Instance* (Instance du se
     Ajoutez des exportations ASCS au profil d’agent hôte ASCS. Consultez la note SAP [2628497].
 
 * Fonction non implémentée lors du déplacement d’ASCS
-  * « Command Output: exportfs: host:/usr/sap/AX1: Function not implemented »
+  * Sortie de la commande : exportfs: host:/usr/sap/AX1: Function not implemented
   * Solution  
     Assurez-vous que le service de serveur NFS est activé sur la machine virtuelle cible du déplacement.
 
 ### <a name="errors-and-warnings-during-application-server-installation"></a>Erreurs et avertissements lors de l’installation du serveur d’applications
 
 * Erreur lors de l’exécution de l’étape SAPinst : getProfileDir
-  * « ERROR: (Last error reported by the step: Caught ESAPinstException in module call: Validator of step '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_readProfileDir|ind|ind|ind|ind|readProfile|0|getProfileDir' reported an error: Node \\\as1-ascs\sapmnt\AS1\SYS\profile does not exist. Start SAPinst in interactive mode to solve this problem) »
+  * ERROR: (Last error reported by the step: Caught ESAPinstException in module call: Validator of step '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_readProfileDir|ind|ind|ind|ind|readProfile|0|getProfileDir' reported an error: Node \\\as1-ascs\sapmnt\AS1\SYS\profile does not exist. Start SAPinst in interactive mode to solve this problem) »
   * Solution  
     Assurez-vous que SWPM s’exécute avec un utilisateur ayant accès au profil. Cet utilisateur peut être configuré dans l’Assistant d’installation du serveur d’applications.
 
 * Erreur lors de l’exécution de l’étape SAPinst : askUnicode
-  * « ERROR: (Last error reported by the step: Caught ESAPinstException in module call: Validator of step '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_getUnicode|ind|ind|ind|ind|unicode|0|askUnicode' reported an error: Start SAPinst in interactive mode to solve this problem) »
+  * ERROR: (Last error reported by the step: Caught ESAPinstException in module call: Validator of step '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_getUnicode|ind|ind|ind|ind|unicode|0|askUnicode' reported an error: Start SAPinst in interactive mode to solve this problem) »
   * Solution  
     Si vous utilisez un noyau SAP récent, SWPM ne peut pas déterminer si le système est un système unicode à l’aide du serveur de messages d’ASCS. Pour plus d’informations, consultez la note SAP [2445033].  
     Ce problème sera résolu dans un nouveau package de support/correctif de SAP LaMa.  
     Pour contourner ce problème, définissez le paramètre de profil OS_UNICODE=uc dans le profil par défaut de votre système SAP.
 
 * Erreur lors de l’exécution de l’étape SAPinst : dCheckGivenServer
-  * « Error executing SAPinst step: dCheckGivenServer" version="1.0" ERROR: (Last error reported by the step: \<p> Installation was canceled by user. \</p> »
+  * Error executing SAPinst step: dCheckGivenServer" version="1.0" ERROR: (Last error reported by the step: \<p> Installation was canceled by user. \</p> »
   * Solution  
     Assurez-vous que SWPM s’exécute avec un utilisateur ayant accès au profil. Cet utilisateur peut être configuré dans l’Assistant d’installation du serveur d’applications.
 
 * Erreur lors de l’exécution de l’étape SAPinst : checkClient
-  * « Error executing SAPinst step: checkClient" version="1.0" ERROR: (Last error reported by the step: \<p> Installation was canceled by user. \</p>) »
+  * Error executing SAPinst step: checkClient" version="1.0" ERROR: (Last error reported by the step: \<p> Installation was canceled by user. \</p>) »
   * Solution  
     Assurez que Microsoft ODBC Driver for SQL Server est installé sur la machine virtuelle sur laquelle vous souhaitez installer le serveur d’applications.
 
 * Erreur lors de l’exécution de l’étape SAPinst : copyScripts
-  * « Last error reported by the step: System call failed. DETAILS: Error 13 (0x0000000d) (Permission denied) in execution of system call 'fopenU' with parameter (\\\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w), line (494) in file (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcfstrm2.cpp), stack trace:  
+  * Last error reported by the step: System call failed. DETAILS: Error 13 (0x0000000d) (Permission denied) in execution of system call 'fopenU' with parameter (\\\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w), line (494) in file (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcfstrm2.cpp), stack trace:  
   CThrThread.cpp: 85: CThrThread::threadFunction()  
   CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
   CSiStepExecute.cpp: 913: CSiStepExecute::execute()  
@@ -451,12 +451,12 @@ Dans la boîte de dialogue *Primary Application Server Instance* (Instance du se
   syxxcfstrm.cpp: 29: CSyFileStreamImpl::CSyFileStreamImpl(CSyFileStream*,iastring,ISyFile::eFileOpenMode)  
   syxxcfstrm.cpp: 265: CSyFileStreamImpl::open()  
   syxxcfstrm2.cpp: 58: CSyFileStream2Impl::CSyFileStream2Impl(const CSyPath & \\\aw1-ascs/sapmnt/AW1/SYS/exe/uc/NTAMD64/strdbs.cmd, 0x4)  
-  syxxcfstrm2.cpp: 456: CSyFileStream2Impl::open() »
+  syxxcfstrm2.cpp: 456: CSyFileStream2Impl::open()
   * Solution  
     Assurez-vous que SWPM s’exécute avec un utilisateur ayant accès au profil. Cet utilisateur peut être configuré dans l’Assistant d’installation du serveur d’applications.
 
 * Erreur lors de l’exécution de l’étape SAPinst : askPasswords
-  * « Last error reported by the step: System call failed. DETAILS: Error 5 (0x00000005) (Access is denied.) in execution of system call 'NetValidatePasswordPolicy' with parameter (...), line (359) in file (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp), stack trace:  
+  * Last error reported by the step: System call failed. DETAILS: Error 5 (0x00000005) (Access is denied.) in execution of system call 'NetValidatePasswordPolicy' with parameter (...), line (359) in file (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp), stack trace:  
   CThrThread.cpp: 85: CThrThread::threadFunction()  
   CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
   CSiStepExecute.cpp: 913: CSiStepExecute::execute()  
@@ -470,7 +470,7 @@ Dans la boîte de dialogue *Primary Application Server Instance* (Instance du se
   iaxxcaccount.cpp: 107: iastring CIaOsAccountConnect::callMemberFunction(iastring const& name, args_t const& args)  
   iaxxcaccount.cpp: 1186: iastring CIaOsAccountConnect::validatePasswordPolicy(args_t const& _args)  
   iaxxbaccount.cpp: 430: CIaOsAccount::validatePasswordPolicy_impl()  
-  synxcaccmg.cpp: 297: ISyAccountMgt::PasswordValidationMessage CSyAccountMgtImpl::validatePasswordPolicy(saponazure,*****) const ) »
+  synxcaccmg.cpp: 297: ISyAccountMgt::PasswordValidationMessage CSyAccountMgtImpl::validatePasswordPolicy(saponazure,*****) const )
   * Solution  
     Veillez à ajouter une règle d’hôte à l’étape *Isolation* (Isolation) pour autoriser la communication entre la machine virtuelle et le contrôleur de domaine.
 

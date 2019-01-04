@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 1e77dfdec902b64f2524c790bda6742eaa1105fc
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 697815aeca9b8a07e3cece877d610436b2b8ac83
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669172"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278285"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Permet de démarrer, d’arrêter et de créer des rapports sur le service de test chaos.
@@ -47,9 +47,9 @@ Pour obtenir le segment suivant des événements Chaos, vous pouvez spécifier l
 |Argument|Description|
 | --- | --- |
 | --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de continuation avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de continuation ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
-| --end-time-utc | Heure de fichier Windows représentant l’heure de fin de l’intervalle de temps pour lequel un rapport Chaos doit être généré. Pour plus d’informations, consultez [DateTime.ToFileTimeUtc, méthode](https://docs.microsoft.com/dotnet/api/system.datetime.tofiletimeutc?redirectedfrom=MSDN&view=netframework-4.7.2#System_DateTime_ToFileTimeUtc). |
+| --end-time-utc | Heure de fichier Windows représentant l’heure de fin de l’intervalle de temps pour lequel un rapport Chaos doit être généré. Pour plus d’informations, consultez [DateTime.ToFileTimeUtc, méthode](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx). |
 | --max-results | Nombre maximal de résultats à renvoyer dans le cadre des requêtes paginées. Ce paramètre définit la limite supérieure du nombre de résultats renvoyés. Le nombre de résultats renvoyés peut être inférieur au nombre maximal de résultats spécifié s’ils ne tiennent pas dans le message conformément aux restrictions de taille maximale définies dans la configuration. Si ce paramètre est défini sur zéro ou n’est pas spécifié, la requête paginée comprend le nombre maximal de résultats pouvant tenir dans le message renvoyé. |
-| --start-time-utc | Heure de fichier Windows représentant l’heure de début de l’intervalle de temps pour lequel un rapport Chaos doit être généré. Pour plus d’informations, consultez [DateTime.ToFileTimeUtc, méthode](https://docs.microsoft.com/dotnet/api/system.datetime.tofiletimeutc?redirectedfrom=MSDN&view=netframework-4.7.2#System_DateTime_ToFileTimeUtc). |
+| --start-time-utc | Heure de fichier Windows représentant l’heure de début de l’intervalle de temps pour lequel un rapport Chaos doit être généré. Pour plus d’informations, consultez [DateTime.ToFileTimeUtc, méthode](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx). |
 | --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
@@ -104,7 +104,7 @@ Si Chaos n’est pas encore exécuté dans le cluster, Chaos est démarré avec 
 | --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
 | --wait-time-between-faults | Temps d’attente (en secondes) entre les erreurs consécutives au sein d’une seule itération.  Valeur par défaut \: 20. <br><br> Plus la valeur est grande, plus le chevauchement entre les erreurs est faible et plus la séquence de transitions d’état dont fait l’objet le cluster est simple. Il est recommandé de démarrer avec une valeur comprise entre 1 et 5 et de faire preuve de prudence lors de l’augmentation de cette valeur. |
 | --wait-time-between-iterations | Temps d’attente (en secondes) entre deux itérations consécutives de Chaos. Plus la valeur est grande, plus le taux d’injection d’erreurs est faible.  Valeur par défaut \: 30. |
-| --warning-as-error | Définit la stratégie d’intégrité pour considérer les avertissements comme des erreurs. |
+| --warning-as-error | Indique si les avertissements sont traités avec le même niveau de gravité que les erreurs. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -136,6 +136,7 @@ Arrête Chaos pour l’empêcher d’exécuter de nouvelles erreurs. Les erreurs
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
 | --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux de débogage complets. |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Configurez](service-fabric-cli.md) l’interface de ligne de commande (CLI) Service Fabric.

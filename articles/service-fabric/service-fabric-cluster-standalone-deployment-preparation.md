@@ -13,17 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 7357577ea7aff467288578673110b1a6dda7ccef
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 0b6fae59fbe0fa86cb16b176eb1df47e031d04f1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391045"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317184"
 ---
-<a id="preparemachines"></a>
-
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planifier et préparer votre déploiement de cluster Service Fabric autonome
-Exécutez les étapes suivantes avant de créer votre cluster.
+
+<a id="preparemachines"></a>Exécutez les étapes suivantes avant de créer votre cluster.
 
 ## <a name="plan-your-cluster-infrastructure"></a>Planifier votre infrastructure de cluster
 Vous allez créer un cluster Service Fabric sur les ordinateurs que vous avez pour décider des types de défaillances auxquels le cluster doit survivre. Par exemple, devez-vous séparer les lignes d’alimentation des connexions internet reliées à ces ordinateurs ? Prenez en outre en compte la sécurité physique de ces ordinateurs. Où sont situés les ordinateurs et qui a besoin d’y accéder ? Une fois ces décisions prises, vous pouvez mapper logiquement les ordinateurs aux différents domaines d’erreur (voir l’étape suivante). La planification de l’infrastructure pour les clusters de production est plus complexe que pour les clusters de test.
@@ -43,10 +42,10 @@ L’approche la plus simple de ces concepts consiste à considérer les domaines
 
 Quand vous spécifiez des domaines de mise à niveau dans ClusterConfig.json, vous pouvez choisir le nom de chaque domaine de mise à niveau. Par exemple, les noms suivants sont valides :
 
-* "upgradeDomain": "UD0"
-* "upgradeDomain": "UD1A"
-* "upgradeDomain": "DomainRed"
-* "upgradeDomain": "Blue"
+* « upgradeDomain » : « UD0 »
+* « upgradeDomain » : « UD1A »
+* « upgradeDomain » : « DomainRed »
+* « upgradeDomain » : « Blue »
 
 Pour plus d’informations sur les domaines d’erreur et les domaines de mise à niveau, consultez [Description d’un cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 
@@ -66,7 +65,7 @@ Voici quelques spécifications recommandées pour chaque ordinateur que vous sou
 * Un minimum de 40 Go d’espace disque disponible
 * Un processeur 4 cœurs ou plus
 * Connectivité à un ou plusieurs réseaux sécurisés pour tous les ordinateurs
-* Système d’exploitation Windows Server installé (versions valides : 2012 R2, 2016, 1709 ou 1803)
+* Système d’exploitation Windows Server installé (versions valides 2012 R2, 2016, 1709 ou 1803)
 * [.NET Framework 4.5.1 ou version ultérieure](https://www.microsoft.com/download/details.aspx?id=40773), installation complète
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
 * Le [service RemoteRegistry](https://technet.microsoft.com/library/cc754820) doit être exécuté sur tous les ordinateurs
@@ -74,7 +73,7 @@ Voici quelques spécifications recommandées pour chaque ordinateur que vous sou
 L’administrateur de cluster déployant et configurant le cluster doit disposer de [privilèges d’administrateur](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) sur chaque ordinateur. Vous ne pouvez pas installer Service Fabric sur un contrôleur de domaine.
 
 ## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>Télécharger le package autonome Service Fabric pour Windows Server
-[Lien de téléchargement - Package autonome Service Fabric - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) et décompressez le package sur un ordinateur de déploiement qui ne fait pas partie du cluster ou sur l’un des ordinateurs qui fera partie de votre cluster.
+[Lien de téléchargement - Package autonome Service Fabric - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) et décompressez le package sur un ordinateur de déploiement qui ne fait pas partie du cluster ou sur l’un des ordinateurs qui fera partie de votre cluster.
 
 ## <a name="modify-cluster-configuration"></a>Modifier la configuration du cluster
 Pour créer un cluster autonome, vous devez créer un fichier ClusterConfig.json de configuration de cluster autonome qui décrit les spécifications du cluster. Vous pouvez baser le fichier de configuration sur les modèles accessibles avec le lien ci-dessous. <br>
@@ -83,6 +82,7 @@ Pour créer un cluster autonome, vous devez créer un fichier ClusterConfig.json
 Pour plus d’informations sur les sections de ce fichier, consultez [Paramètres de configuration pour un cluster Windows autonome](service-fabric-cluster-manifest.md).
 
 Ouvrez l’un des fichiers ClusterConfig.json à partir du package que vous avez téléchargé et modifiez les paramètres suivants :
+
 | **Paramètres de configuration** | **Description** |
 | --- | --- |
 | **NodeTypes** |Les types de nœuds permettent de séparer vos nœuds de cluster en différents groupes. Un cluster doit comprendre au moins un NodeType. Tous les nœuds d’un groupe ont les caractéristiques communes suivantes :  <br> **Name** : il s’agit du nom de type de nœud. <br>**Endpoints Ports** : il s’agit de différents points de terminaison (ports) nommés qui sont associés à ce type de nœud. Vous pouvez utiliser n’importe quel numéro de port, tant qu’il n’entre pas en conflit avec un autre élément de ce manifeste et qu’il n’est pas déjà utilisé par une autre application en cours d’exécution sur l’ordinateur/la machine virtuelle. <br> **Placement Properties** : il s’agit des propriétés pour ce type de nœud que vous avez utilisées comme contraintes de positionnement pour les services système ou pour vos services. Ces propriétés sont des paires clé/valeur définies par l’utilisateur qui fournissent des métadonnées supplémentaires pour un nœud donné. La présence d’un disque dur ou d’une carte graphique sur le nœud, le nombre de rotations du disque dur, les noyaux et d’autres propriétés physiques sont des exemples de propriétés du nœud. <br> **Capacities** : les capacités du nœud définissent le nom et la quantité d’une ressource spécifique disponible sur un nœud particulier pour consommation. Par exemple, un nœud peut définir qu’il possède la capacité pour une mesure appelée « MemoryInMb » et qu’il dispose de 2 048 Mo de mémoire disponible par défaut. Ces capacités sont utilisées au moment de l’exécution pour garantir que les services qui nécessitent une quantité spécifique de ressources sont placés sur des nœuds où ces ressources sont disponibles dans la quantité requise.<br>**IsPrimary** : si plusieurs NodeType sont définis, vérifiez qu’un seul est défini comme primaire avec la valeur *true*; c’est là que les services système s’exécutent. Tous les autres types de nœuds doivent avoir la valeur *false* |
@@ -97,20 +97,20 @@ Une fois tous les paramètres de la configuration du cluster configurés dans l�
 Lorsqu’un administrateur de cluster configure un cluster autonome Service Fabric, l’environnement doit être configuré avec les critères suivants : <br>
 1. L’utilisateur qui crée le cluster doit disposer de privilèges de sécurité de niveau administrateur sur tous les ordinateurs qui sont répertoriés en tant que nœuds dans le fichier de configuration du cluster.
 2. L’ordinateur à partir duquel le cluster est créé, ainsi que chaque ordinateur nœud du cluster doit respecter les conditions suivantes :
-* le Kit de développement logiciel (SDK) Service Fabric doit être désinstallé ;
-* le runtime Service Fabric doit être désinstallé ; 
-* le service pare-feu Windows (mpssvc) doit être activé ;
-* le service Registre distant (remoteregistry) doit être activé ;
-* le partage de fichiers (SMB) doit être activé ;
-* les ports requis doivent être ouverts, selon les ports de configuration du cluster ;
-* les ports requis doivent êtres ouverts pour le service Registre distant et SMB Windows : 135, 137, 138, 139 et 445 ;
-* la connectivité réseau entre les ordinateurs doit être activée.
+   * le Kit de développement logiciel (SDK) Service Fabric doit être désinstallé ;
+   * le runtime Service Fabric doit être désinstallé ; 
+   * le service pare-feu Windows (mpssvc) doit être activé ;
+   * le service Registre distant (remoteregistry) doit être activé ;
+   * le partage de fichiers (SMB) doit être activé ;
+   * les ports requis doivent être ouverts, selon les ports de configuration du cluster ;
+   * les ports requis doivent êtres ouverts pour le service Registre distant et SMB Windows : 135, 137, 138, 139 et 445 ;
+   * la connectivité réseau entre les ordinateurs doit être activée.
 3. Aucun des ordinateurs nœuds de cluster ne doit être un contrôleur de domaine.
 4. Si le cluster à déployer est un cluster sécurisé, vérifiez que les conditions préalables de sécurité requises sont en place et correctement configurées en fonction de la configuration.
 5. Si les ordinateurs du cluster ne sont pas accessibles via Internet, définissez les éléments suivants dans la configuration du cluster :
-* Désactiver la télémétrie : sous *Propriétés*, définissez *« enableTelemetry » : false*
-* Désactiver le téléchargement de version Fabric automatique et les notifications indiquant que la prise en charge de la version actuelle touche à sa fin : sous *Propriétés*, définissez *« fabricClusterAutoupgradeEnabled » : false*
-* De même, si l’accès réseau à Internet est limité à des domaines sur liste verte, les domaines ci-dessous sont nécessaires pour la mise à niveau automatique : go.microsoft.com   download.microsoft.com
+   * Désactiver la télémétrie : sous *Propriétés*, définissez *« enableTelemetry » : false*
+   * Désactiver le téléchargement de version Fabric automatique et les notifications indiquant que la prise en charge de la version actuelle touche à sa fin : sous *Propriétés*, définissez *« fabricClusterAutoupgradeEnabled » : false*
+   * De même, si l’accès réseau à Internet est limité à des domaines sur liste verte, les domaines ci-dessous sont nécessaires pour la mise à niveau automatique : go.microsoft.com download.microsoft.com
 
 6. Définissez les exclusions antivirus Service Fabric appropriées :
 

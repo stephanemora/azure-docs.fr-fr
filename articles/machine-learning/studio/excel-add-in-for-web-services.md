@@ -1,10 +1,10 @@
 ---
-title: Complément Excel pour les services web Machine Learning | Microsoft Docs
+title: Complément Excel pour les services web - Azure Machine Learning Studio | Microsoft Docs
 description: Comment utiliser les services web Azure Machine Learning directement dans Excel sans écrire de code.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=marthalc, author=marthalc)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 ms.assetid: 9618079d-502f-4974-a3e2-8f924042a23f
 ms.service: machine-learning
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 2/1/2018
-ms.openlocfilehash: debe3165a60cd0da866842a425c1ca8c52eab644
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 02/01/2018
+ms.openlocfilehash: e836323ad452b86d89eee62936b574b2cc9d0337
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262021"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269486"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Complément Excel de services web Azure Machine Learning Studio
 Excel permet d'appeler facilement des services web directement sans qu'il soit nécessaire d'écrire du code.
@@ -41,7 +41,7 @@ Excel permet d'appeler facilement des services web directement sans qu'il soit 
    
     ![Section Prédire][02]
 
-Déployez un service web ou utilisez un service web existant. Pour plus d’informations sur le déploiement d’un service web, consultez la rubrique [Étape 5 du didacticiel pas à pas : Déploiement du service web Azure Machine Learning](walkthrough-5-publish-web-service.md).
+Déployez un service web ou utilisez un service web existant. Pour plus d’informations sur le déploiement d’un service web, consultez [l’étape 5 du didacticiel pas à pas : Déploiement du service web Azure Machine Learning](walkthrough-5-publish-web-service.md).
 
 Obtenez la clé API de votre service web. L’emplacement à partir duquel exécutez cette action diffère selon que vous avez publié un service web Machine Learning classique ou un nouveau service web Machine Learning.
 
@@ -69,7 +69,7 @@ Obtenez la clé API de votre service web. L’emplacement à partir duquel exéc
 
 ## <a name="steps-to-add-a-new-web-service"></a>Procédure d’ajout d’un nouveau service web
 
-1. Déployez un service web ou utilisez un service web existant. Pour plus d’informations sur le déploiement d’un service web, consultez la rubrique [Étape 5 du didacticiel pas à pas : Déploiement du service web Azure Machine Learning](walkthrough-5-publish-web-service.md).
+1. Déployez un service web ou utilisez un service web existant. Pour plus d’informations sur le déploiement d’un service web, consultez [l’étape 5 du didacticiel pas à pas : Déploiement du service web Azure Machine Learning](walkthrough-5-publish-web-service.md).
 2. Cliquez sur **Consommer**.
 3. Recherchez la section **des informations de base sur la consommation** . Copiez et enregistrez la **Clé primaire** et l’URL de **Demande-réponse**.
 4. Dans Excel, accédez à la section **Services web** (si vous vous trouvez dans la section **Prédire**, cliquez sur la flèche de retour pour accéder à la liste des services web).

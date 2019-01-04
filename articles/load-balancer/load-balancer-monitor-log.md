@@ -1,5 +1,6 @@
 ---
-title: Surveiller les opérations, les événements et les compteurs pour une instance publique de Basic Load Balancer| Microsoft Docs
+title: Surveiller les opérations, les événements et les compteurs pour une instance publique de Basic Load Balancer
+titlesuffix: Azure Load Balancer
 description: Découvrez comment activer les événements d’alerte, et sonder la journalisation de l’état d’intégrité pour une instance publique de Basic Load Balancer.
 services: load-balancer
 documentationcenter: na
@@ -7,27 +8,28 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: e8d38aaff2e7f20a3935608bcf4d610828d2b84f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 00a5e888961a9712db0cd509a39fb0367895ac3f
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261500"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164124"
 ---
 # <a name="log-analytics-for-public-basic-load-balancer"></a>Log Analytics pour une instance publique de Basic Load Balancer
 
 >[!IMPORTANT] 
->Azure Load Balancer prend en charge deux types différents : Basic et Standard. Cet article décrit Basic Load Balancer. Pour plus d’informations sur Standard Load Balancer, consultez [Présentation de Standard Load Balancer](load-balancer-standard-overview.md), qui expose les données de télémétrie par le biais de plusieurs métriques multidimensionnelles dans Azure Monitor.
+>Azure Load Balancer prend en charge deux types différents : De base et Standard. Cet article décrit Basic Load Balancer. Pour plus d’informations sur Standard Load Balancer, consultez [Présentation de Standard Load Balancer](load-balancer-standard-overview.md), qui expose les données de télémétrie par le biais de plusieurs métriques multidimensionnelles dans Azure Monitor.
 
 Vous pouvez utiliser différents types de journaux dans Azure pour gérer les instances de Basic Load Balancer et résoudre les problèmes associés. Certains de ces journaux sont accessibles via le portail. Tous les journaux peuvent être extraits à partir d’un stockage Blob Azure et affichés dans différents outils, comme Excel et PowerBI. Pour en savoir plus sur les différents types de journaux, consultez la liste ci-dessous.
 
-* **Journaux d’audit :** vous pouvez utiliser les [journaux d’audit Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anciennement journaux des opérations) pour afficher toutes les opérations soumises à votre ou vos abonnements Azure, ainsi que leur état. Les journaux d’audit sont activés par défaut et peuvent être affichés dans le portail Azure.
-* **Journaux des événements d’alerte :** vous pouvez utiliser ce journal pour afficher les alertes générées par l’équilibreur de charge. L'état de l'équilibreur de charge est collecté toutes les cinq minutes. Ce journal est écrit uniquement si un événement d'alerte d’équilibreur de charge est généré.
-* **Journaux de sondes d’intégrité :** vous pouvez utiliser ce journal pour afficher les problèmes détectés par votre sonde d’intégrité, tels que le nombre d’instances dans votre pool principal qui ne reçoivent pas les demandes de l’équilibreur de charge en raison d’échecs de sonde d’intégrité. Toute modification de l’état de la sonde d’intégrité est indiquée dans ce journal.
+* **Journaux d’audit** : Vous pouvez utiliser les [journaux d’audit Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anciennement journaux des opérations) pour afficher toutes les opérations soumises à votre/vos abonnement(s) Azure, ainsi que leur état. Les journaux d’audit sont activés par défaut et peuvent être affichés dans le portail Azure.
+* **Journaux d’événements d'alerte** : Vous pouvez utiliser ces journaux pour afficher les alertes générées par l’équilibreur de charge. L'état de l'équilibreur de charge est collecté toutes les cinq minutes. Ce journal est écrit uniquement si un événement d'alerte d’équilibreur de charge est généré.
+* **Journaux de sonde d’intégrité** : Vous pouvez utiliser ces journaux pour connaître les problèmes détectés par votre sonde d’intégrité, tels que le nombre d’instances du pool principal qui ne reçoivent pas les demandes de l’équilibreur de charge en raison d’échecs de sonde d’intégrité. Toute modification de l’état de la sonde d’intégrité est indiquée dans ce journal.
 
 > [!IMPORTANT]
 > Log Analytics fonctionne uniquement avec les instances publiques de Basic Load Balancer. Les journaux ne sont disponibles que pour les ressources déployées avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour plus d’informations sur les modèles de déploiement, consultez [Présentation du déploiement Resource Manager et du déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md).
@@ -131,8 +133,8 @@ La sortie JSON apparaît dans le champ des propriétés des informations de base
 
 Vous pouvez afficher et analyser les données du journal d’audit en utilisant l’une des méthodes suivantes :
 
-* **Outils Azure :** récupérez les informations à partir des journaux via Azure PowerShell, l’interface de ligne de commande Azure, l’API REST Azure ou le portail Azure en version préliminaire. Des instructions détaillées pour chaque méthode sont détaillées dans l’article [Opérations d’audit avec Resource Manager](../azure-resource-manager/resource-group-audit.md) .
-* **Power BI :** si vous n’avez pas encore de compte [Power BI](https://powerbi.microsoft.com/pricing) , vous pouvez l’essayer gratuitement. À l’aide du [pack de contenus des journaux d’audit Azure pour Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), vous pouvez analyser vos données avec des tableaux de bord préconfigurés ou personnaliser les vues selon vos besoins.
+* **Outils Azure** : Récupérez les informations des journaux via Azure PowerShell, l’interface de ligne de commande (CLI) Azure, l’API REST Azure ou le portail Azure en préversion. Des instructions détaillées pour chaque méthode sont détaillées dans l’article [Opérations d’audit avec Resource Manager](../azure-resource-manager/resource-group-audit.md) .
+* **Power BI** : Si vous ne disposez pas encore de compte [Power BI](https://powerbi.microsoft.com/pricing), vous pouvez l’essayer gratuitement. À l’aide du [pack de contenus des journaux d’audit Azure pour Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), vous pouvez analyser vos données avec des tableaux de bord préconfigurés ou personnaliser les vues selon vos besoins.
 
 ## <a name="view-and-analyze-the-health-probe-and-event-log"></a>Afficher et analyser les journaux des sondes d’intégrité et des événements
 

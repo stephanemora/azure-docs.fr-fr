@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: cbedb17bb7563620d0d9db81333d9a79301b4ee0
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: e435baf4a5e3382e3e77195e5315299e3963ff5c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42817506"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409256"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Utiliser le Kit de développement logiciel (SDK) Node.js pour Mobile Apps
 
@@ -152,7 +152,7 @@ Lorsque vous créez un serveur principal Node.js pour Mobile Apps à l’aide du
 
 La procédure suivante utilise un référentiel Git pour télécharger le code de projet de démarrage rapide :
 
-1. Si vous ne l’avez pas déjà fait, installez Git. La procédure requise pour installer Git diffère selon les systèmes d'exploitation. Consultez la rubrique [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) (Installation de Git) pour accéder aux distributions et consignes d’installation propres aux différents systèmes d’exploitation.
+1. Si vous ne l’avez pas déjà fait, installez Git. La procédure requise pour installer Git diffère selon les systèmes d'exploitation. Consultez la rubrique [Installing Git](https://git-scm.com/book/en/Getting-Started-Installing-Git) (Installation de Git) pour accéder aux distributions et consignes d’installation propres aux différents systèmes d’exploitation.
 1. Pour activer le dépôt Git pour votre site principal, voir [Préparer votre dépôt](../app-service/app-service-deploy-local-git.md#prepare-your-repository). Notez le nom d’utilisateur et le mot de passe associés au déploiement.
 1. Dans le volet de votre serveur principal Mobile Apps, prenez note du paramètre **URL de clone Git**.
 1. Exécutez la commande `git clone` à l’aide de l’URL de clone Git. Entrez votre mot de passe lorsque vous y êtes invité, comme dans l’exemple suivant :
@@ -794,7 +794,7 @@ var api = {
 module.exports = api;
 ```
 
-Chaque paramètre correspond à l’un des verbes RESTful standard : GET, POST, PATCH ou DELETE. La méthode est une fonction [ExpressJS middleware] standard qui envoie la sortie requise.
+Chaque paramètre correspond à l’un des verbes RESTful standard : GET, POST, PATCH ou DELETE. La méthode est une fonction [ExpressJS middleware] standard qui envoie la sortie requise.
 
 ### <a name="howto-customapi-auth"></a>Exiger une authentification pour l’accès à une API personnalisée
 
@@ -918,13 +918,13 @@ Vous pouvez même modifier les opérations de table à l’aide de l’éditeur 
 
 Les commandes suivantes sont disponibles dans la barre de commandes d’une table :
 
-* **Modifier les autorisations** : modifiez l’autorisation pour les opérations de lecture, d’insertion, de mise à jour et de suppression sur la table.
+* **Modifier les autorisations** : Modifiez l’autorisation pour les opérations de lecture, d’insertion, de mise à jour et de suppression sur la table.
  Vous avez la possibilité d’autoriser l’accès anonyme, d’exiger une authentification ou de désactiver tous les accès à l’opération.
-* **Modifier le script** : le fichier de script de la table est ouvert dans l’éditeur App Service.
-* **Gérer un schéma** : ajoutez ou supprimez des colonnes ou modifiez l’index de la table.
-* **Effacer la table** : tronquez une table existante en supprimant toutes les lignes de données tout en conservant le schéma à l’identique.
-* **Supprimer des lignes** : supprimez des lignes de données spécifiques.
-* **Afficher les journaux de diffusion en continu** : connectez-vous au service de journaux de diffusion en continu de votre site.
+* **Modifier le script** : Le fichier de script de la table est ouvert dans l’éditeur App Service.
+* **Gérer le schéma** : Ajoutez ou supprimez des colonnes ou modifiez l’index de la table.
+* **Effacer la table** : Tronquez une table existante en supprimant toutes les lignes de données tout en conservant le schéma à l’identique.
+* **Supprimer les lignes** : Supprimez des lignes de données spécifiques.
+* **Afficher les journaux de diffusion en continu** : Connectez-vous au service de journaux de diffusion en continu de votre site.
 
 ### <a name="work-easy-apis"></a>Utiliser l’outil API faciles dans le portail Azure
 
@@ -963,11 +963,11 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 [Démarrage rapide de client Xamarin.Forms]: app-service-mobile-xamarin-forms-get-started.md
 [Démarrage rapide de client Windows Store]: app-service-mobile-windows-store-dotnet-get-started.md
 [la synchronisation des données hors connexion]: app-service-mobile-offline-data-sync.md
-[Configurer votre application App Service pour utiliser une connexion Azure Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Comment configurer votre application App Service de manière à utiliser la connexion via Facebook]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
-[Comment configurer votre application App Service de manière à utiliser la connexion via Google]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
-[Comment configurer votre application App Service pour utiliser une connexion par compte Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Comment configurer votre application App Service de manière à utiliser la connexion via Twitter]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
+[Configurer votre application App Service pour utiliser une connexion Azure Active Directory]: ../app-service/configure-authentication-provider-aad.md
+[Comment configurer votre application App Service de manière à utiliser la connexion via Facebook]: ../app-service/configure-authentication-provider-facebook.md
+[Comment configurer votre application App Service de manière à utiliser la connexion via Google]: ../app-service/configure-authentication-provider-google.md
+[Comment configurer votre application App Service pour utiliser une connexion par compte Microsoft]: ../app-service/configure-authentication-provider-microsoft.md
+[Comment configurer votre application App Service de manière à utiliser la connexion via Twitter]: ../app-service/configure-authentication-provider-twitter.md
 [Déploiement Git local vers Azure App Service]: ../app-service/app-service-deploy-local-git.md
 [Surveillance des applications dans Azure App Service]: ../app-service/web-sites-monitor.md
 [Activer la journalisation des diagnostics pour les applications web dans Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
@@ -976,11 +976,11 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 [utiliser les modules Node]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
-[Express]: http://expressjs.com/
-[Swagger]: http://swagger.io/
+[Express]: https://expressjs.com/
+[Swagger]: https://swagger.io/
 
 [Portail Azure]: https://portal.azure.com/
-[OData]: http://www.odata.org
+[OData]: https://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [exemple basicapp sur GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [exemple todo sur GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
@@ -989,6 +989,6 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 [QueryJS]: https://github.com/Azure/queryjs
 [Node.js Tools 1.1 pour Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [package mssql Node]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS middleware]: http://expressjs.com/guide/using-middleware.html
+[Microsoft SQL Server 2014 Express]: https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[ExpressJS middleware]: https://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

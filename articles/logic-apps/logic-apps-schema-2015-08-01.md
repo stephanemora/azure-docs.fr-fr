@@ -4,18 +4,18 @@ description: Mise à jour de schéma version 2015-08-01-preview pour les défini
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: stepsic-microsoft-com
-ms.author: stepsic
-ms.reviewer: klam, estfan, LADocs
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
 ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
 ms.date: 05/31/2016
-ms.openlocfilehash: dd05543c2a727f010432ecb54c2dc3e77a245de4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ec6f98ca0f0260a0d7bed16538f557931cd2e33e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122775"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080008"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Mises à jour de schéma pour Azure Logic Apps - Version préliminaire du 1er août 2015
 
@@ -72,12 +72,16 @@ Dans la définition, ces actions sont appelées `APIConnection`. Voici un exempl
 }
 ```
 
-L’objet `host` est une partie des entrées spécifique aux connexions d’API et contient deux parties : `api` et `connection`. L’objet `api` indique l’URL du runtime pour l’emplacement d’hébergement de cette API gérée. Vous pouvez voir l’ensemble des API gérées disponibles en appelant `GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
+L’objet `host` est une partie des entrées spécifique aux connexions d’API et contient deux parties : `api` et `connection`. L’objet `api` indique l’URL du runtime pour l’emplacement d’hébergement de cette API gérée. Vous pouvez voir l’ensemble des API managées disponibles en appelant cette méthode :
+
+```text
+GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<location>/managedApis?api-version=2015-08-01-preview
+```
 
 Quand vous utilisez une API, elle peut présenter ou non des *paramètres de connexion* définis. Par conséquent, si l’API ne définit pas ces paramètres, aucune connexion n’est requise. Si l’API définit ces paramètres, vous devez créer une connexion avec un nom spécifié.  
 Vous référencez ensuite ce nom dans l’objet `connection` à l’intérieur de l’objet `host`. Pour créer une connexion dans un groupe de ressources, appelez la méthode suivante :
 
-```
+```text
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/connections/<name>?api-version=2015-08-01-preview
 ```
 
@@ -99,8 +103,8 @@ Avec le corps suivant :
 
 ### <a name="deploy-managed-apis-in-an-azure-resource-manager-template"></a>Déploiement d’API gérées dans un modèle Azure Resource Manager
 
-Vous pouvez créer une application complète dans un modèle Azure Resource Manager, tant qu’elle ne nécessite aucune connexion interactive.
-Si une connexion est requise, vous pouvez procéder à la configuration avec le modèle Azure Resource Manager, mais devrez néanmoins accéder au portail Azure afin d’autoriser les connexions. 
+Quand une connexion interactive n’est pas nécessaire, vous pouvez créer une application complète avec un modèle Azure Resource Manager.
+Si une connexion est nécessaire, vous pouvez néanmoins utiliser un modèle Azure Resource Manager, mais vous devez autoriser les connexions via le portail Azure. 
 
 ``` json
 "resources": [ {
@@ -194,7 +198,7 @@ Vous pouvez constater dans cet exemple que les connexions sont des ressources h�
 
 ### <a name="your-custom-web-apis"></a>Vos API web personnalisées
 
-Si vous utilisez vos propres API (non gérées par Microsoft), utilisez l’action **HTTP** intégrée pour les appeler. Pour une expérience optimale, vous avez tout intérêt à exposer un point de terminaison swagger pour votre API. Ce point de terminaison permet au concepteur d’application logique de réaliser le rendu des entrées et des sorties pour votre API. Sans point de terminaison swagger, le concepteur peut simplement représenter les entrées et les sorties en tant qu’objets JSON opaques.
+Si vous utilisez vos propres API au lieu des API managées par Microsoft, utilisez l’action **HTTP** intégrée pour les appeler. Dans l’idéal, vous devez fournir un point de terminaison Swagger pour votre API. Ce point de terminaison permet au concepteur d’application logique de montrer les entrées et les sorties de vos API. Sans point de terminaison Swagger, le concepteur peut seulement montrer les entrées et les sorties en tant qu’objets JSON opaques.
 
 Voici un exemple illustrant la nouvelle propriété `metadata.apiDefinitionUrl` :
 
@@ -259,7 +263,7 @@ Par exemple, si vous utilisez Dropbox pour répertorier les fichiers, vous pouve
 }
 ```
 
-Vous pouvez à présent générer l’action HTTP équivalente comme dans l’exemple suivant tout en laissant la section des paramètres de la définition d’application logique inchangée :
+Vous pouvez maintenant créer une action HTTP similaire et laisser inchangée la section `parameters` de la définition d’application logique, par exemple :
 
 ``` json
 "actions": {
@@ -407,15 +411,15 @@ Maintenant, vous pouvez utiliser plutôt cette version :
 
 ## <a name="native-http-listener"></a>Écouteur HTTP natif
 
-Les fonctionnalités de l’écouteur HTTP sont désormais intégrées. Par conséquent, vous n’avez plus besoin de déployer une application API d’écouteur HTTP. Consultez [ici une explication détaillée de la configuration d’un point de terminaison d’application logique pouvant être appelé](../logic-apps/logic-apps-http-endpoint.md). 
+Les fonctionnalités de l’écouteur HTTP étant désormais intégrées, vous n’avez plus à déployer une application API d’écouteur HTTP. Pour plus d’informations, découvrez comment [rendre appelable le point de terminaison de votre application logique](../logic-apps/logic-apps-http-endpoint.md). 
 
-Avec ces modifications, nous avons supprimé la fonction `@accessKeys()` et l’avons remplacée par la fonction `@listCallbackURL()` dédiée à la récupération du point de terminaison, si nécessaire. De plus, vous devez maintenant définir au moins un déclencheur dans votre application logique. Si vous souhaitez appliquer l’action `/run` au flux de travail, vous devez disposer d’un de ces déclencheurs : `manual`, `apiConnectionWebhook` ou `httpWebhook`.
+Avec ces modifications, Logic Apps remplace la fonction `@accessKeys()` par la fonction `@listCallbackURL()`, qui obtient le point de terminaison quand c’est nécessaire. Vous devez aussi définir maintenant au moins un déclencheur dans votre application logique. Si vous voulez appliquer l’action `/run` au workflow, vous devez utiliser un de ces déclencheurs : `Manual`, `ApiConnectionWebhook` ou `HttpWebhook`.
 
 <a name="child-workflows"></a>
 
 ## <a name="call-child-workflows"></a>Appel de flux de travail enfants
 
-Auparavant, quiconque souhaitait appeler des flux de travail enfants devait y accéder, récupérer le jeton d’accès, puis coller ce dernier dans la définition de l’application logique destinée à effectuer l’appel. Avec le nouveau schéma, le moteur Logic Apps génère automatiquement une SAP lors de l’exécution pour le flux de travail enfant, ce qui évite d’avoir à coller une clé secrète dans la définition. Voici un exemple : 
+Auparavant, quiconque souhaitait appeler des flux de travail enfants devait y accéder, récupérer le jeton d’accès, puis coller ce dernier dans la définition de l’application logique destinée à effectuer l’appel. Avec ce schéma, le moteur Logic Apps génère automatiquement une signature d’accès partagé lors de l’exécution pour le workflow enfant, ce qui évite de devoir coller des secrets dans la définition. Voici un exemple : 
 
 ``` json
 "myNestedWorkflow": {
@@ -441,9 +445,9 @@ Auparavant, quiconque souhaitait appeler des flux de travail enfants devait y ac
 }
 ```
 
-Autre amélioration, nous octroyons aux flux de travail enfants un accès complet à la requête entrante. Cela signifie que vous pouvez transmettre les paramètres dans la section *queries* et dans l’objet *headers*, et que vous pouvez définir intégralement le corps.
+De plus, les workflows enfants obtiennent un accès complet à la demande entrante. Vous pouvez donc passer des paramètres dans la section `queries` et dans l’objet `headers`. Vous pouvez aussi définir entièrement la section `body`.
 
-Enfin, des modifications doivent être apportées au flux de travail enfant. Auparavant, vous pouviez appeler directement un flux de travail enfant. Désormais, il vous faut définir un point de terminaison déclencheur dans le flux de travail pour prendre en charge l’appel du parent. Généralement, vous devrez ajouter un déclencheur de type `manual`, que vous utiliserez dans la définition du parent. Notez que la propriété `host` dispose d’un élément `triggerName`, dans la mesure où vous devez toujours spécifier le déclencheur invoqué.
+Enfin, les workflows enfants ont ces modifications nécessaires. Avant, vous pouviez appeler directement un workflow enfant. Maintenant, il vous faut définir un point de terminaison déclencheur dans le workflow pour le parent à appeler. Généralement, vous devrez ajouter un déclencheur de type `Manual`, que vous utiliserez dans la définition du parent. La propriété `host` a un élément `triggerName`, car vous devez toujours spécifier le déclencheur que vous appelez.
 
 ## <a name="other-changes"></a>Autres modifications
 
@@ -453,8 +457,8 @@ Tous les types d’action prennent désormais en charge une nouvelle entrée app
 
 ### <a name="renamed-parse-function-to-json"></a>Fonction 'parse()' renommée 'json()'
 
-Nous procédons actuellement à l’ajout d’autres types de contenu, c’est pourquoi nous avons renommé la fonction `parse()` en `json()`.
+La fonction `parse()` a été renommée `json()` pour les types de contenu futurs.
 
-## <a name="coming-soon-enterprise-integration-apis"></a>Bientôt disponibles : API d’intégration d’entreprise
+## <a name="enterprise-integration-apis"></a>API Intégration Entreprise
 
-Nous ne disposons pas actuellement de versions gérées des API d’intégration d’entreprise, du type AS2. En attendant, vous pouvez utiliser vos API BizTalk existantes via l’action HTTP. Pour plus d’informations, consultez la rubrique dédiée à l’utilisation de vos applications API déjà déployées dans le [calendrier d’intégration](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 
+Ce schéma ne prend pas encore en charge les versions managées pour les API Intégration Entreprise, comme AS2. Vous pouvez cependant utiliser vos API BizTalk déployées existantes via l’action HTTP. Pour plus d’informations, consultez « Utilisation de vos applications API déjà déployées » dans le [calendrier d’intégration](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 

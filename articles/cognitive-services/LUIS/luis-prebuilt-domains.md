@@ -4,18 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: LUIS inclut un ensemble de domaines prédéfinis pour ajouter rapidement des scénarios courants d’utilisateur conversationnel.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: b1c7ced4a934ea5d094e0c54a295870986f09933
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 05c6981c4962827154764df0e874824e5398d96d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651805"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074398"
 ---
 # <a name="add-prebuilt-domains-for-common-usage-scenarios"></a>Ajouter des domaines prédéfinis pour les scénarios d’usage courants 
 
@@ -49,7 +50,7 @@ Testez la nouvelle intention au niveau du point de terminaison en ajoutant une v
 
 LUIS retourne l’intention correcte et le sujet de réunion :
 
-```JSON
+```json
 {
   "query": "Schedule a meeting with John Smith in Seattle next week",
   "topScoringIntent": {

@@ -1,6 +1,6 @@
 ---
-title: Identités managées de ressources Azure avec la préversion d’Azure Event Hubs | Microsoft Docs
-description: Utiliser les identités managées de ressources Azure avec Azure Event Hubs
+title: Identités managées pour les ressources Azure - Azure Event Hubs | Microsoft Docs
+description: Cet article fournit des informations sur l’utilisation des identités managées pour les ressources Azure avec Azure Event Hubs
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -8,18 +8,19 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 815a6ff528e024ed1685b09b66f8fabce4d360c1
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784551"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087726"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Identités managées de ressources Azure avec Azure Event Hubs
 
-La fonctionnalité [Identités managées de ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) vous permet de créer une identité sécurisée associée au déploiement sous lequel s’exécute le code de votre application. Vous pouvez ensuite associer cette identité à des rôles de contrôle d’accès qui accordent des autorisations personnalisées pour l’accès aux ressources Azure nécessaires à votre application. 
+La fonctionnalité [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) vous permet de créer une identité sécurisée associée au déploiement sous lequel s’exécute le code de votre application. Vous pouvez ensuite associer cette identité à des rôles de contrôle d’accès qui accordent des autorisations personnalisées pour l’accès aux ressources Azure nécessaires à votre application. 
 
 Avec les identités managées, la plateforme Azure gère cette identité d’exécution. Vous n’avez pas besoin de stocker et de protéger des clés d’accès dans le code ou la configuration de votre application, que ce soit pour l’identité elle-même ou pour les ressources auxquelles vous devez accéder. Une application cliente Event Hubs exécutée dans une application Azure App Service ou dans une machine virtuelle prenant en charge les identités managées des ressources Azure n’a pas besoin de gérer des clés et des règles SAS ou d’autres jetons d’accès. L’application cliente a uniquement besoin de l’adresse de point de terminaison de l’espace de noms Event Hubs. Lorsque l’application se connecte, Event Hubs associe le contexte de l’identité managée au client dans une opération illustrée plus loin dans cet article.
 
@@ -47,7 +48,7 @@ La première étape consiste à créer une application ASP.NET App Service. Si v
 
 Une fois l’application web créée, accédez-y dans le portail Azure (procédure également indiquée dans le guide pratique), puis accédez à la page **Managed Service Identity** et activez la fonctionnalité : 
 
-![](./media/event-hubs-managed-service-identity/msi1.png)
+![Page Managed Service Identity](./media/event-hubs-managed-service-identity/msi1.png)
  
 Une fois la fonctionnalité activée, une identité de service est créée dans votre annuaire Azure Active Directory et configurée dans l’hôte App Service.
 
@@ -55,11 +56,7 @@ Une fois la fonctionnalité activée, une identité de service est créée dans 
 
 Ensuite, [créez un espace de noms Event Hubs](event-hubs-create.md) dans l’une des régions Azure qui prend en charge la préversion des identités managées des ressources Azure : **USA Est**, **USA Est 2** ou **Europe Ouest**. 
 
-Accédez à la page **Contrôle d’accès (IAM)** de l’espace de nom sur le portail, puis cliquez sur **Ajouter** pour ajouter l’identité managée au rôle **Propriétaire**. Pour ce faire, recherchez le nom de l’application web dans le champ **Sélectionner** du panneau **Ajouter des autorisations**, puis cliquez sur l’entrée. Cliquez ensuite sur **Enregistrer**.
-
-![](./media/event-hubs-managed-service-identity/msi2.png)
- 
-L’identité managée de l’application web a désormais accès à l’espace de noms Event Hubs et au hub d’événements que vous avez créé. 
+Accédez à la page **Contrôle d’accès (IAM)** de l’espace de noms sur le portail, puis cliquez sur **Ajouter une attribution de rôle** pour ajouter l’identité managée au rôle **Propriétaire**. Pour ce faire, recherchez le nom de l’application web dans le champ **Sélectionner** du panneau **Ajouter des autorisations**, puis cliquez sur l’entrée. Cliquez ensuite sur **Enregistrer**. L’identité managée de l’application web a désormais accès à l’espace de noms Event Hubs et au hub d’événements que vous avez créé. 
 
 ### <a name="run-the-app"></a>Exécution de l'application
 
@@ -71,7 +68,7 @@ Notez la façon dont l’objet [MessagingFactory](/dotnet/api/microsoft.serviceb
 
 Après avoir apporté ces modifications, publiez et exécutez l’application. Pour obtenir les données de publication correctes, téléchargez un profil de publication, puis importez-le dans Visual Studio :
 
-![](./media/event-hubs-managed-service-identity/msi3.png)
+![Importer un profil de publication](./media/event-hubs-managed-service-identity/msi3.png)
  
 Pour envoyer ou recevoir des messages, saisissez le nom de l’espace de noms et le nom de l’entité que vous avez créée, puis cliquez sur **send** (envoyer) ou **receive** (recevoir). 
  

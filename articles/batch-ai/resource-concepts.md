@@ -15,14 +15,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4a9e3529f9d68ecdc614ea69cffc6897891f4548
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4454448809411c6390bc1f65c33b4abe76094ded
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056817"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407743"
 ---
 # <a name="overview-of-resources-in-batch-ai"></a>Vue d’ensemble des ressources de Batch AI
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Lorsque vous commencez à utiliser le service Batch AI, vous devez connaître les ressources Batch AI disponibles. Comme pour d’autres services Azure, vous créez des ressources Batch AI dans un ou plusieurs *groupes de ressources* Azure. Créez un ou plusieurs *espaces de travail* Batch AI dans un groupe de ressources. Chaque espace de travail contient un mélange de *clusters*, *serveurs de fichiers* et *expériences* Batch AI. Une expérience Batch AI encapsule un groupe de *travaux*.
 
@@ -50,7 +53,7 @@ Une expérience regroupe une collection de tâches connexes que vous pouvez inte
 
 ## <a name="job"></a>Travail
 
-Un travail est une tâche ou un script à exécuter, par exemple, pour former un modèle d’apprentissage profond. Chaque travail exécute un script spécifique sur un cluster dans l’espace de travail (le script peut être stocké sur un serveur de fichiers Batch AI ou une autre solution de stockage). Chaque travail Batch AI est associé à un type d’infrastructure : TensorFlow, Horovod, CNTK, Caffe, Caffe2, pyTorch, Chainer, MPI personnalisé ou personnalisé. Pour chaque infrastructure, le service Batch AI configure l’infrastructure requise et gère les processus de travail. Chaque expérience peut comporter plusieurs travaux similaires, à l’exception de modifications de quelques paramètres.
+Un travail est une tâche ou un script à exécuter, par exemple, pour former un modèle d’apprentissage profond. Chaque travail exécute un script spécifique sur un cluster dans l’espace de travail (le script peut être stocké sur un serveur de fichiers Batch AI ou une autre solution de stockage). Chaque tâche Batch AI est associée à un type de framework : TensorFlow, Horovod, CNTK, Caffe, Caffe2, pyTorch, Chainer, MPI personnalisé ou personnalisé. Pour chaque infrastructure, le service Batch AI configure l’infrastructure requise et gère les processus de travail. Chaque expérience peut comporter plusieurs travaux similaires, à l’exception de modifications de quelques paramètres.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

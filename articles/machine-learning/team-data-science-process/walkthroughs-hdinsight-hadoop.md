@@ -1,5 +1,5 @@
 ---
-title: Guides de la science des données HDInsight Hadoop avec Hive sur Azure | Microsoft Docs
+title: Analytique sur Azure HDInsight Hadoop avec Hive – Team Data Science Process
 description: Exemples du processus TDSP (Team Data Science Process) qui montrent comment utiliser Hive sur Azure HDInsight Hadoop pour effectuer des analyses prédictives.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: eae56eda72d775205a231e2c6482a1c0686d9251
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 91604e0ed18e8c78e5678eb9c8b85da3f8cbb500
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445922"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135047"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Guides de la science des données HDInsight Hadoop avec Hive sur Azure 
 
@@ -29,7 +29,7 @@ D’autres guides de la science des données qui appliquent le processus TDSP so
 
 Le guide [Utiliser les clusters HDInsight Hadoop](hive-walkthrough.md) utilise des données sur les taxis de New York pour prédire : 
 
-- si un pourboire sera laissé ; 
+- si un pourboire est laissé ; 
 - la distribution du montant des pourboires.
 
 Le scénario est implémenté avec Hive et un [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/). Vous découvrirez comment stocker et explorer des données, et effectuer du feature engineering à partir d’un jeu de données public de courses et de tarifs des taxis new-yorkais. Vous utiliserez également Azure Machine Learning pour générer et déployer les modèles.

@@ -1,5 +1,5 @@
 ---
-title: Afficher les réservations Azure | Microsoft Docs
+title: Afficher les réservations pour les ressources Azure| Microsoft Docs
 description: Découvrez comment afficher les réservations Azure dans le portail Azure.
 services: billing
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2018
 ms.author: cwatson
-ms.openlocfilehash: 4506d65d173ea483558a772d89fe7cbc8cd84944
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: c7522076987aacacc6fde6a0c9d2fa867a3f14aa
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584585"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314038"
 ---
-# <a name="view-azure-reservations-in-the-azure-portal"></a>Afficher les réservations Azure dans le portail Azure
+# <a name="view-reservations-for-azure-in-the-azure-portal"></a>Afficher les réservations pour Azure dans le portail Azure
 
-Selon votre type d’abonnement et vos autorisations, il existe deux manières d’afficher les réservations Azure.
+Selon votre type d’abonnement et vos autorisations, il existe deux manières d’afficher les réservations pour les ressources Azure.
 
 ## <a name="view-reservations-as-owner-or-reader"></a>Afficher les réservations en tant que propriétaire ou lecteur
 
@@ -30,7 +30,7 @@ Par défaut, lorsque vous achetez une réservation, l’administrateur de compte
  
 Pour afficher une réservation en tant que propriétaire ou lecteur, procédez comme suit :
 
-1. Connectez-vous au [Portail Azure]( http://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Effectuez une recherche sur **réservations**.
 
     ![Capture d’écran montrant la recherche dans le portail Azure](./media/billing-view-reservation/portal-reservation-search.png)
@@ -45,7 +45,7 @@ Si vous avez besoin de modifier la portée d’une réservation, de la fractionn
 
 Pour afficher les transactions de réservation dans le portail Azure, procédez comme suit :
 
-1. Connectez-vous au [Portail Azure]( http://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Effectuez une recherche sur **Gestion des coûts + facturation**.
 
     ![Capture d’écran montrant la recherche dans le portail Azure](./media/billing-view-reservation/portal-cm-billing-search.png)
@@ -73,4 +73,4 @@ Pour plus d’informations sur les réservations Azure, consultez les articles s
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) (Support request).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

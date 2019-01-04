@@ -1,26 +1,21 @@
 ---
-title: Gérer Azure Cosmos DB dans l’Explorateur Stockage Azure
-description: Découvrez comment gérer Azure Cosmos DB dans l’Explorateur Stockage Azure.
-Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
-services: cosmos-db
+title: Gérer les ressources Azure Cosmos DB à l’aide de l’Explorateur Stockage Azure
+description: Apprenez à vous connecter à Azure Cosmos DB et à gérer ses ressources à l’aide de l’Explorateur Stockage Azure.
 author: Jejiang
-manager: kfile
-editor: ''
 tags: Azure Cosmos DB
 ms.service: cosmos-db
-ms.custom: Azure Cosmos DB active
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 12/07/2018
 ms.author: jejiang
-ms.openlocfilehash: 4a50809c48ba03b7a12689d905e704d3f820ca8a
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 1ce483a88c1f57912dfe30efa98f46335e97c01c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162395"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138124"
 ---
-# <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Gérer Azure Cosmos DB dans l’Explorateur Stockage Azure
+# <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Gérer les ressources Azure Cosmos DB à l’aide de l’Explorateur Stockage Azure
 
 L’utilisation d’Azure Cosmos DB dans l’Explorateur Stockage Azure permet aux utilisateurs de gérer des entités Azure Cosmos DB, de manipuler des données, de mettre à jour des procédures stockées et des déclencheurs, ainsi que d’autres entités Azure comme les files d’attente et les objets blob de stockage. À présent, vous pouvez utiliser le même outil pour gérer vos différentes entités Azure au même endroit. Pour le moment, l’Explorateur Stockage Azure prend en charge les comptes SQL, MongoDB, Graph et Table.
 
@@ -31,7 +26,7 @@ Un compte Azure Cosmos DB pour l’API SQL<!--or MongoDB API-->. Si vous n’ave
 
 ## <a name="installation"></a>Installation
 
-Installez les derniers composants de l’Explorateur Stockage Microsoft Azure ici : [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), avec maintenant la prise en charge de la version Windows, Linux et Mac.
+Installez ici la version la plus récente de l’Explorateur Stockage Azure : [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/). Nous prenons désormais en charge les versions Windows, Linux et MAC.
 
 ## <a name="connect-to-an-azure-subscription"></a>Connexion à un abonnement Azure
 
@@ -229,7 +224,7 @@ Lorsque l’Explorateur de stockage rencontre l’un de ces « certificats auto-
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (n’importe quelle version légère convient)
      - Mac et Linux : doit être inclus dans votre système d’exploitation
 2. Exécutez Open SSL.
-    - Windows : accédez au répertoire d’installation, puis **/bin/**, puis double-cliquez sur **openssl.exe**.
+    - Windows : accédez au répertoire d’installation, puis **/bin/**, puis double-cliquez sur **openssl.exe**.
     - Mac et Linux : exécutez **openssl** à partir d’un terminal
 3. Exécutez `s_client -showcerts -connect microsoft.com:443`
 4. Recherchez les certificats auto-signés. Si vous ne savez pas lesquels sont auto-signés, recherchez ceux dont le sujet (« s: ») et l’émetteur (« i: ») sont identiques.
@@ -242,11 +237,11 @@ Si vous ne trouvez aucun certificat auto-signé à l’aide de la procédure ci-
 
 Si vous ne parvenez pas à récupérer vos abonnements une fois connecté :
 
-- Vérifiez que votre compte a accès aux abonnements en vous connectant au [portail Azure](http://portal.azure.com/).
-- Assurez-vous que vous vous êtes connecté à l’aide de l’environnement approprié ([Azure](http://portal.azure.com/), [Azure - Chine](https://portal.azure.cn/), [Azure - Allemagne](https://portal.microsoftazure.de/), [Azure - Gouvernement des États-Unis](http://portal.azure.us/) ou Environnement personnalisé/Azure Stack).
+- Vérifiez que votre compte a accès aux abonnements en vous connectant au [portail Azure](https://portal.azure.com/).
+- Assurez-vous que vous vous êtes connecté à l’aide de l’environnement approprié ([Azure](https://portal.azure.com/), [Azure - Chine](https://portal.azure.cn/), [Azure - Allemagne](https://portal.microsoftazure.de/), [Azure - Gouvernement des États-Unis](https://portal.azure.us/) ou Environnement personnalisé/Azure Stack).
 - Si vous vous trouvez derrière un proxy, vérifiez que vous avez correctement configuré le proxy de l’Explorateur de stockage.
 - Essayez de supprimer et de rajouter le compte
-- Essayez de supprimer les fichiers suivants de votre répertoire de base (par exemple, C:\Users\ContosoUser), puis de rajouter le compte :
+- Essayez de supprimer les fichiers suivants de votre répertoire de base (par exemple : C:\Users\ContosoUser), , puis de rajouter le compte :
   - .adalcache
   - .devaccounts
   - .extaccounts
@@ -310,6 +305,6 @@ Si aucune de ces solutions ne vous convient, envoyez un courrier électronique �
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Regardez la vidéo suivante pour savoir comment utiliser Azure Cosmos DB dans l’Explorateur Stockage Azure : [Utiliser Azure Cosmos DB dans l’Explorateur Stockage Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
+* Visionnez la vidéo suivante pour voir comment utiliser Azure Cosmos DB dans l’Explorateur Stockage Azure : [Utiliser Azure Cosmos DB dans l’Explorateur Stockage Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * Pour en savoir plus sur l’Explorateur Stockage et sur comment connecter plus de services, consultez [Prise en main de l’Explorateur Stockage (préversion)](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

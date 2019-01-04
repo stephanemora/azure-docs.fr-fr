@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 209152b157ef2cfae872490bcff4f2a7100c3a4d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: e65f85d8349c4c8c69a50e93b093c04250e73a4e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339336"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961428"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Gérer l’utilisation et la facturation pour Azure Stack comme fournisseur de services cloud 
 
@@ -33,7 +33,7 @@ Le diagramme suivant illustre les étapes nécessaires pour choisir votre compte
 
 **Procédure d’ajout de suivi de l’utilisation en tant que fournisseur de services cloud (CSP)**
 
-[ ![Processus d’activation de l’utilisation et de la gestion en tant que fournisseur de services cloud](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png "Processus d’activation de l’utilisation et de la gestion en tant que fournisseur de services cloud") ](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png#lightbox)
+[ ![Processus d’activation de l’utilisation et de la gestion en tant que fournisseur de services cloud](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "Processus d’activation de l’utilisation et de la gestion en tant que fournisseur de services cloud") ](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
 
 ## <a name="create-a-csp-or-apss-subscription"></a>Créer un abonnement CSP ou APSS
 

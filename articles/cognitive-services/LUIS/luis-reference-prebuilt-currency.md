@@ -1,23 +1,24 @@
 ---
-title: Documentation de référence pour l’entité prédéfinie currency de LUIS - Azure | Microsoft Docs
+title: Entité prédéfinie currency
 titleSuffix: Azure
 description: Cet article contient des informations sur l’entité prédéfinie currency dans Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 6346ce4e3c9e51852a9a98904b797b6eb64970e4
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c87bfddb611e3e232d4a43f45ae60412566b98fc
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334004"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161761"
 ---
-# <a name="currency-entity"></a>Entité currency
+# <a name="currency-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie currency pour une application LUIS
 L’entité prédéfinie currency détecte une devise dans un grand nombre de  dénominations et de pays, quelle que soit la culture de l’application LUIS. Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant des devises aux intentions de l’application. L’entité currency est prise en charge dans de [nombreuses cultures](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-currency"></a>Types d’entités currency
@@ -26,7 +27,7 @@ L’entité currency est gérée à partir du dépôt GitHub [Recognizers-text](
 ## <a name="resolution-for-currency-entity"></a>Résolution pour l’entité currency
 L’exemple suivant montre la résolution de l’entité **builtin.currency**.
 
-```JSON
+```json
 {
   "query": "search for items under $10.99",
   "topScoringIntent": {

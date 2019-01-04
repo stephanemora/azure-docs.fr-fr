@@ -1,5 +1,5 @@
 ---
-title: Guides de la science des données SQL Server avec R, Python et T-SQL | Microsoft Docs
+title: Analytique sur SQL Server avec R, Python et T-SQL – Team Data Science Process
 description: Exemples qui montrent comment utiliser R, Python et T-SQL dans SQL Server pour effectuer des analyses prédictives.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 9c97d38bc278ff3632031138e2ac0326200f741f
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5efcf1221fe4bc0e02dd7a35e02ca8b274d5328f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442061"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136475"
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Guides de la science des données SQL Server avec R, Python et T-SQL
 
@@ -27,7 +27,7 @@ D’autres guides de la science des données qui appliquent le processus TDSP so
 
 ## <a name="predict-taxi-tips-using-python-and-sql-queries-with-sql-server"></a>Prédire les pourboires laissés aux taxis avec Python, des requêtes SQL et SQL Server 
 
-Le guide [Utiliser SQL Server](sql-walkthrough.md) explique comment générer et déployer des modèles Machine Learning de classification et de régression avec SQL Server et un jeu de données public de courses et de tarifs des taxi new-yorkais.
+Le guide [Utiliser SQL Server](sql-walkthrough.md) explique comment générer et déployer des modèles Machine Learning de classification et de régression avec SQL Server et un jeu de données public de courses et de tarifs des taxis new-yorkais.
 
 
 ## <a name="predict-taxi-tips-using-microsoft-r-with-sql-server"></a>Prédire les pourboires laissés aux taxis avec Microsoft R et SQL Server 

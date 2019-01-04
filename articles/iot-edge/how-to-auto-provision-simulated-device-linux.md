@@ -1,6 +1,6 @@
 ---
-title: Provisionner automatiquement un appareil Azure IoT Edge avec le service Device Provisioning - Linux| Microsoft Docs
-description: Utiliser un module de plateforme sécurisée (TPM) simulé sur une machine virtuelle Linux afin de tester le provisionnement d’appareils pour Azure IoT Edge
+title: Provisionner automatiquement des appareils Linux avec DPS - Azure IoT Edge | Microsoft Docs
+description: Utiliser un module de plateforme sécurisée (TPM) simulé sur une machine virtuelle Linux afin de tester le service de provisionnement d’appareils Azure pour Azure IoT Edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 61da3b8e139cf5091aec4c1ab835c23fe319ea46
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 0550b1765e36d591a1baf34d3c255a252ca5278b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446240"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101753"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Créer et provisionner un appareil Edge à l’aide d’un TPM virtuel sur une machine virtuelle Linux
 
@@ -61,9 +62,9 @@ Si vous constatez des erreurs lors de la création du commutateur virtuel, assur
 
 3. Exécutez l’**Assistant Nouvel ordinateur virtuel** avec les configurations spécifiques suivantes :
 
-   1. **Spécifier la génération** : sélectionnez **Génération 2**.
-   2. **Configurer le réseau** : définissez la valeur de **Connexion** sur le commutateur virtuel que vous avez créé à la section précédente. 
-   3. **Options d’installation** : sélectionnez **Installer un système d’exploitation à partir d’un fichier image de démarrage** et accédez au fichier image de disque que vous avez enregistré localement.
+   1. **Spécifier la génération** : sélectionnez **Génération 2**.
+   2. **Configurer la mise en réseau** : définissez la valeur de **Connexion** sur le commutateur virtuel que vous avez créé à la section précédente. 
+   3. **Options d’installation** : sélectionnez **Installer un système d’exploitation à partir d’un fichier image de démarrage** et accédez au fichier image de disque que vous avez enregistré localement.
 
 La création de la nouvelle machine virtuelle peut prendre plusieurs minutes. 
 

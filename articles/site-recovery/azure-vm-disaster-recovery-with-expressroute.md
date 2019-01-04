@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: af57dc50dd156a3398c2c685e436d22ba3daea95
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 5a16b81abb9cc95f46bd61f6c0232a28f3cda0ff
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567763"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875397"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Intégrer Azure ExpressRoute à la reprise d’activité pour des machines virtuelles Azure
 
@@ -28,8 +28,8 @@ Site Recovery permet la reprise d’activité de machines virtuelles Azure en r�
 
 ExpressRoute vous permet d’étendre vos réseaux locaux dans le cloud Microsoft Azure via une connexion privée assurée par un fournisseur de connectivité. Si vous avez configuré ExpressRoute, il s’intègre à Site Recovery comme suit :
 
-- **Lors de la réplication entre des régions Azure** : le trafic de réplication pour la reprise d’activité de machines virtuelles Azure se fait uniquement au sein d’Azure, et ExpressRoute n’est pas nécessaire ni utilisé pour la réplication. Cependant, si vous vous connectez à partir d’un site local à des machines virtuelles Azure dans le site Azure principal, plusieurs problèmes sont à prendre en compte quand vous configurez la reprise d’activité pour ces machines virtuelles Azure.
-- **Basculement entre des régions Azure** : quand des pannes se produisent, vous basculez les machines virtuelles Azure de la région primaire vers une région Azure secondaire. Après avoir basculé vers une région secondaire, vous devez effectuer un certain nombre d’étapes pour accéder avec ExpressRoute aux machines virtuelles Azure dans la région secondaire.
+- **Durant la réplication entre des régions Azure** : le trafic de réplication pour la reprise d’activité de machines virtuelles Azure se fait uniquement au sein d’Azure, et ExpressRoute n’est pas nécessaire ni utilisé pour la réplication. Cependant, si vous vous connectez à partir d’un site local à des machines virtuelles Azure dans le site Azure principal, plusieurs problèmes sont à prendre en compte quand vous configurez la reprise d’activité pour ces machines virtuelles Azure.
+- **Basculement entre des régions Azure** : quand des pannes se produisent, vous basculez les machines virtuelles Azure de la région primaire vers une région Azure secondaire. Après avoir basculé vers une région secondaire, vous devez effectuer un certain nombre d’étapes pour accéder avec ExpressRoute aux machines virtuelles Azure dans la région secondaire.
 
 
 ## <a name="before-you-begin"></a>Avant de commencer
@@ -37,7 +37,7 @@ ExpressRoute vous permet d’étendre vos réseaux locaux dans le cloud Microsof
 Avant de commencer, vérifiez que vous comprenez bien les concepts suivants :
 
 - [Circuits](../expressroute/expressroute-circuit-peerings.md) ExpressRoute
-- [Domaines de routage](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains) ExpressRoute
+- [Domaines de routage](../expressroute/expressroute-circuit-peerings.md#routingdomains) ExpressRoute
 - Emplacements [ExpressRoute](../expressroute/expressroute-locations.md)
 - [Architecture de réplication](azure-to-azure-architecture.md) des machines virtuelles Azure
 - Comment [configurer la réplication](azure-to-azure-tutorial-enable-replication.md) pour les machines virtuelles Azure.
@@ -87,16 +87,16 @@ Les déploiements d’entreprise classiques ont des charges de travail répartie
 
 - **Région**. Les applications sont déployées dans la région Azure Asie Est.
 - **Réseaux virtuels spoke**. Les applications sont déployées dans deux réseaux virtuels spoke :
-    - **Réseau virtuel source 1** : 10.1.0.0/24.
-    - **Réseau virtuel source 2** : 10.2.0.0/24.
+    - **Réseau virtuel source 1** : 10.1.0.0/24.
+    - **Réseau virtuel source 2** : 10.2.0.0/24.
     - Chaque réseau virtuel spoke est connecté au **réseau virtuel hub**.
-- **Réseau virtuel hub**. Il existe un réseau virtuel hub **Réseau virtuel hub source** : 10.10.10.0/24.
+- **Réseau virtuel hub**. Il existe un réseau virtuel hub **Réseau virtuel hub source** : 10.10.10.0/24.
     - Ce réseau virtuel hub agit comme opérateur de contrôle.
     - Toutes les communications entre les sous-réseaux passent par ce hub.
  - ****Sous-réseaux du réseau virtuel hub**. Le réseau virtuel hub a deux sous-réseaux :
-     - **Sous-réseau de l’appliance virtuelle réseau** : 10.10.10.0/25. Ce sous-réseau contient une appliance virtuelle réseau (10.10.10.10).
-     - **Sous-réseau de passerelle** : 10.10.10.128/25. Ce sous-réseau contient une passerelle ExpressRoute connectée à une connexion ExpressRoute qui route le trafic vers le site local via un domaine de routage d’appairage privé.
-- Le centre de données local a une connexion de circuit ExpressRoute via un réseau de périphérie partenaire à Hong Kong (R.A.S.).
+     - **Sous-réseau de l’appliance virtuelle réseau** : 10.10.10.0/25. Ce sous-réseau contient une appliance virtuelle réseau (10.10.10.10).
+     - **Sous-réseau de passerelle** : 10.10.10.128/25. Ce sous-réseau contient une passerelle ExpressRoute connectée à une connexion ExpressRoute qui route le trafic vers le site local via un domaine de routage d’appairage privé.
+- Le centre de données local a une connexion de circuit ExpressRoute via un réseau de périphérie partenaire à Hong Kong.
 - Tout le routage est contrôlé via des tables de routage Azure.
 - Tout le trafic sortant entre les réseaux virtuels ou en direction du centre de données local est routé via l’appliance virtuelle réseau.
 
@@ -136,7 +136,7 @@ Dans notre exemple, voici ce qui doit se produire lors de l’activation de la r
 
 ## <a name="fail-over-azure-vms-when-using-expressroute"></a>Basculer des machines virtuelles Azure lors de l’utilisation d’ExpressRoute
 
-Après avoir basculé des machines virtuelles Azure vers la région Azure cible avec Site Recovery, vous pouvez y accéder en utilisant [l’appairage privé](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) ExpressRoute.
+Après avoir basculé des machines virtuelles Azure vers la région Azure cible avec Site Recovery, vous pouvez y accéder en utilisant [l’appairage privé](../expressroute/expressroute-circuit-peerings.md#privatepeering) ExpressRoute.
 
 - Vous devez connecter ExpressRoute au réseau virtuel cible avec une nouvelle connexion. La connexion ExpressRoute existante n’est pas transférée automatiquement.
 - La façon dont vous configurez votre connexion ExpressRoute au réseau virtuel cible dépend de votre topologie ExpressRoute.

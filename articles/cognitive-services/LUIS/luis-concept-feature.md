@@ -1,25 +1,26 @@
 ---
-title: Caractéristiques dans les applications LUIS Azure Cognitive Services
-titleSuffix: Azure Cognitive Services
-description: Ajoutez des fonctionnalités à un modèle de langage afin de fournir des conseils sur la façon de reconnaître les entrées que vous souhaitez étiqueter ou classer. Les caractéristiques aident LUIS à reconnaître les intentions et les entités.
+title: Caractéristiques
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Ajoutez des caractéristiques à un modèle de langage afin de fournir des conseils sur la façon de reconnaître les entrées que vous souhaitez étiqueter ou classer.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 43b2b1485e6a33162f7fc08631094f3e975f8cdb
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 62827054a14930cd49f7d80d6c305e60060c0fe6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638255"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271383"
 ---
-# <a name="phrase-list-features-in-luis"></a>Fonctionnalités de liste d’expressions dans LUIS
+# <a name="phrase-list-features-in-your-luis-app"></a>Caractéristiques de liste d’expressions dans votre application LUIS
 
-Dans Machine Learning, une *fonctionnalité* est une caractéristique ou un attribut distinctif de données que votre système observe. 
+En Machine Learning, une *caractéristique* (« feature ») est un trait ou un attribut distinctif des données observées par le système. 
 
 Ajoutez des fonctionnalités à un modèle de langage afin de fournir des conseils sur la façon de reconnaître les entrées que vous souhaitez étiqueter ou classer. Les fonctionnalités aident LUIS à reconnaître les intentions et les entités, mais les fonctionnalités ne sont pas elles-mêmes des intentions ou des entités. Les fonctionnalités peuvent toutefois fournir des exemples de termes connexes.  
 
@@ -31,9 +32,17 @@ Une liste d’expressions complète le vocabulaire du domaine d’application so
 ## <a name="how-to-use-phrase-lists"></a>Comment utiliser des listes d’expressions
 Dans le [tutoriel d’entité simple](luis-quickstart-primary-and-secondary-data.md) de l’application de ressources humaines, l’application utilise une liste d’expressions **travail** de types d’emplois tels que programmeur, couvreur et secrétaire. Si vous étiquetez une des valeurs suivantes en tant qu’entité ayant bénéficié du machine-learning, LUIS apprend à reconnaître les autres. 
 
-Une liste d’expressions peut être interchangeable ou non. Une liste d’expressions *interchangeables* concerne les valeurs qui sont des synonymes, et une liste d’expressions *non interchangeable* est destinée aux valeurs qui ne sont pas synonymes, mais ont toujours besoin d’un signal supplémentaire dans l’application. 
+Une liste d’expressions peut être interchangeable ou non. Une liste d’expressions *interchangeable* concerne les valeurs qui sont des synonymes, et une liste d’expressions *non interchangeable* est conçue comme une liste de vocabulaire propre à une application. À mesure que la liste d’expressions de vocabulaire croît, vous constaterez peut-être que certains termes ont de nombreuses formes (synonymes). Répartissez-les dans une autre liste d’expressions interchangeable. 
+
+|Type de liste|Objectif|
+|--|--|
+|Interchangeable|Synonymes ou mots qui, quand ils sont remplacés par un autre mot dans la liste, ont la même intention et extraction d’entité.|
+|Non-interchangeable|Vocabulaire d’application propre à votre application (généralement plus que d’autres mots dans cette langue).|
+
+Les listes d’expressions facilitent non seulement la détection d’entité, mais également la classification d’intention où le caractère non interchangeable est plus logique, comme par exemple pour l’ajout de mots de vocabulaire qui ne sont pas connus en langue française.
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
+
 ## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Les listes d’expressions permettent d’identifier les entités interchangeables simples
 Les listes d’expressions interchangeables sont une bonne méthode pour optimiser la performance de votre application LUIS. Si votre application rencontre des difficultés à prédire des énoncés sur l’intention appropriée, ou à reconnaître des entités, vérifiez si les énoncés contiennent des mots inhabituels, ou des mots dont le sens peut être ambigu. Ces mots sont de bons candidats à inclure dans une liste d’expressions.
 
@@ -43,7 +52,7 @@ Une liste d’expressions n’est pas une instruction pour que LUIS effectue une
 L’ajouter d’une liste d’expressions est une alternative à l’ajout de plusieurs exemples d’énoncés à une intention. 
 
 ## <a name="an-interchangeable-phrase-list"></a>Une liste d’expressions interchangeables
-Utilisez une liste d’expressions interchangeables lorsque la liste de mots ou d’expressions crée une classe ou un groupe. Un exemple est une liste de mois comme « Janvier », « Février », « Mars » ; ou des noms comme « John », « Mary », « Frank ».  Ces listes sont interchangeables en ce que l’énoncé serait étiqueté avec la même intention ou entité même si un autre mot de la liste d’expressions était utilisé. Par exemple, si « Afficher le calendrier de janvier » a les mêmes intentions qu’« afficher le calendrier de février », les mots doivent être sur une liste interchangeable. 
+Utilisez une liste d’expressions interchangeable quand la liste de mots ou d’expressions crée une classe ou un groupe. Un exemple est une liste de mois comme « Janvier », « Février », « Mars » ; ou des noms comme « John », « Mary », « Frank ».  Ces listes sont interchangeables en ce que l’énoncé serait étiqueté avec la même intention ou entité même si un autre mot de la liste d’expressions était utilisé. Par exemple, si « Afficher le calendrier de janvier » a les mêmes intentions qu’« afficher le calendrier de février », les mots doivent être sur une liste interchangeable. 
 
 ## <a name="a-non-interchangeable-phrase-list"></a>Une liste d’expressions non interchangeables
 Utilisez une liste d’expressions non interchangeable pour des mots non synonymes ou des expressions qui peuvent être regroupés dans votre domaine. 
@@ -63,7 +72,7 @@ Les listes d’expression sont comme du vocabulaire spécifique à un domaine qu
 ### <a name="dont-use-a-phrase-list"></a>Ne pas utiliser une liste d’expressions 
 Une entité de liste définit explicitement chaque valeur qu’une entité peut prendre et n’identifie que les valeurs qui correspondent exactement. Une entité de liste peut être appropriée pour une application dans laquelle toutes les instances d’une entité sont connues et ne changent pas souvent. Les aliments dans un menu de restaurant qui change rarement en sont des exemples. Si vous avez besoin d’une correspondance texte exacte d’une entité, n’utilisez pas une liste d’expressions. 
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 Découvrir les [meilleures pratiques](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Étapes suivantes

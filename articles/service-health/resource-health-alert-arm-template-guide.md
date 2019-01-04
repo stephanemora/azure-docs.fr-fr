@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/4/2018
 ms.author: shtabriz
-ms.openlocfilehash: ac1b9dbbb5739dd015c0bda5f1ea82fe26bb0c70
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dcc978c8e169cca2e2cd91a63ef1814a8c3bd87c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625944"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184096"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurer les alertes Resource Health à l’aide de modèles Resource Manager
 
@@ -32,7 +32,7 @@ Azure Resource Health vous tient informé de l’état d’intégrité actuel et
 Pour suivre les instructions de cette page, vous devez effectuer ces étapes préalables :
 
 1. Installer le [module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (`AzureRm`)
-2. [Créer ou réutiliser un groupe d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md) configuré pour la notification
+2. [Créer ou réutiliser un groupe d’actions](../azure-monitor/platform/action-groups.md) configuré pour la notification
 
 ## <a name="instructions"></a>Instructions
 1. À l’aide de PowerShell, connectez-vous à Azure avec votre compte et sélectionnez l’abonnement à utiliser
@@ -233,7 +233,7 @@ Pour recevoir des notifications aux quatre phases des événements d’intégrit
 
 ### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>Paramétrage des alertes Resource Health pour éviter les événements « Unknown »
 
-Azure Resource Health peut vous informer de l’intégrité actuelle de vos ressources en les supervisant en continu à l’aide d’exécuteurs de série de tests. Les états d’intégrité signalés peuvent être « Available », « Unavailable » et « Degraded ». Toutefois, dans les cas où l’exécuteur de série de tests et la ressource Azure ne peuvent pas communiquer, un état d’intégrité « Unknown » est signalé pour la ressource, ce qui est considéré comme un événement d’intégrité « Active ».
+Azure Resource Health peut vous informer de l’intégrité actuelle de vos ressources en les supervisant en continu à l’aide d’exécuteurs de série de tests. Les états d’intégrité pertinents qui sont signalés sont les suivants : « Disponible », « Non disponible » et « Dégradé ». Toutefois, dans les cas où l’exécuteur de série de tests et la ressource Azure ne peuvent pas communiquer, un état d’intégrité « Unknown » est signalé pour la ressource, ce qui est considéré comme un événement d’intégrité « Active ».
 
 Quand une ressource signale l’état « Unknown », la raison probable est que son état d’intégrité n’a pas changé depuis le dernier rapport généré. Si vous souhaitez supprimer les alertes sur des événements « Unknown », spécifiez cette logique dans le modèle :
 
@@ -435,4 +435,4 @@ En savoir plus sur Resource Health :
 -  [Types de ressource et contrôles d’intégrité disponibles par le biais d’Azure Resource Health](resource-health-checks-resource-types.md)
 
 Créer des alertes Service Health :
--  [Configurer des alertes pour Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) 
+-  [Configurer des alertes pour Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

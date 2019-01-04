@@ -1,5 +1,5 @@
 ---
-title: Exploration et modélisation avancées de données avec Spark | Microsoft Docs
+title: Exploration et modélisation avancées des données avec Spark - Team Data Science Process
 description: Utilisez HDInsight Spark pour effectuer l’exploration des données et former des modèles de régression et de classification binaire à l’aide de la validation croisée et de l’optimisation hyperparamétrique.
 services: machine-learning
 author: marktab
@@ -10,17 +10,17 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: e0fa3d481e18cdb15095968e791bd9eee630f8af
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 4aa7e8b45f3791212280226b396ed9eb0f86538c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446328"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135472"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Modélisation et exploration avancées des données avec Spark
 
-Cette procédure utilise HDInsight Spark pour effectuer l’exploration des données et former des modèles de régression et de classification binaire à l’aide de la validation croisée et de l’optimisation hyperparamétrique sur un échantillon du jeu de données NYC Taxi Trip and Fare 2013. Elle vous guide tout au long des étapes du [processus de science des données](https://aka.ms/datascienceprocess), à l’aide d’un cluster HDInsight Spark pour le traitement et d’objets blob Azure pour stocker les données et les modèles. Le processus explore et visualise les données importées à partir d’un objet blob Azure Storage, puis prépare les données pour créer des modèles prédictifs. Python a été utilisé pour coder la solution et montrer les tracés correspondants. Ces modèles sont créés à l’aide de la boîte à outils Spark MLlib pour effectuer des tâches de classification binaire et de modélisation de régression. 
+Cette procédure utilise HDInsight Spark pour effectuer l’exploration des données et former des modèles de régression et de classification binaire à l’aide de la validation croisée et de l’optimisation hyperparamétrique sur un échantillon du jeu de données NYC Taxi Trip and Fare 2013. Elle vous guide tout au long des étapes du [processus de science des données](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), à l’aide d’un cluster HDInsight Spark pour le traitement et d’objets blob Azure pour stocker les données et les modèles. Le processus explore et visualise les données importées à partir d’un objet blob Azure Storage, puis prépare les données pour créer des modèles prédictifs. Python a été utilisé pour coder la solution et montrer les tracés correspondants. Ces modèles sont créés à l’aide de la boîte à outils Spark MLlib pour effectuer des tâches de classification binaire et de modélisation de régression. 
 
 * La **classification binaire** consiste à prédire si le trajet va faire l’objet d’un pourboire. 
 * La tâche de **régression** consiste à prédire le montant du pourboire en fonction d’autres critères. 
@@ -47,16 +47,16 @@ Le problème de classification binaire comporte des exemples de modélisation à
 > 
 > 
 
-## <a name="setup-spark-clusters-and-notebooks"></a>Configuration : clusters et notebooks Spark
+## <a name="setup-spark-clusters-and-notebooks"></a>Configuration : Clusters et notebooks Spark
 Les étapes de configuration et le code fournis dans cette procédure pas à pas concernent HDInsight Spark 1.6. Mais des notebooks Jupyter sont fournis pour les clusters HDInsight Spark 1.6 et Spark 2.0. Une description des notebooks et des liens vers ceux-ci sont fournis dans le fichier [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) correspondant au dépôt GitHub qui les contient. En outre, le code présenté ici et dans les notebooks liés est générique et doit fonctionner sur n’importe quel cluster Spark. Si vous n’utilisez pas HDInsight Spark, les étapes de configuration et de gestion de cluster peuvent être légèrement différentes de celles indiquées ici. Pour plus de commodité, voici les liens vers les notebooks Jupyter pour Spark 1.6 et 2.0 à exécuter dans le noyau pyspark du serveur du notebook Jupyter :
 
 ### <a name="spark-16-notebooks"></a>Notebooks Spark 1.6
 
-[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) : inclut les thèmes du notebook 1 et traite également du développement de modèles à l’aide de l’ajustement des hyperparamètres et de la validation croisée.
+[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) : Inclut des rubriques dans notebook #1, et le développement de modèles avec optimisation des hyperparamètres et validation croisée.
 
 ### <a name="spark-20-notebooks"></a>Notebooks Spark 2.0
 
-[Spark2.0-pySpark3-machine-Learning-Data-science-Spark-Advanced-Data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) : ce fichier fournit des informations sur l’exploration des données, la modélisation et la notation dans les clusters Spark 2.0.
+[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) : ce fichier donne des informations sur l’exploration, la modélisation et le scoring de données dans des clusters Spark 2.0.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -187,7 +187,7 @@ Voici le code pour l’ingestion de données.
 
 **SORTIE**
 
-Durée d’exécution de la cellule ci-dessus : 276,62 secondes
+Durée d’exécution de la cellule ci-dessus : 276,62 secondes
 
 ## <a name="data-exploration--visualization"></a>Exploration et visualisation de données
 Une fois les données intégrées dans Spark, l’étape suivante du processus de science des données consiste à mieux comprendre les données par l’exploration et la visualisation. Dans cette section, nous examinons les données des taxis à l’aide de requêtes SQL, et traçons les variables cibles et les caractéristiques prospectives à vérifier visuellement. Plus précisément, nous traçons la fréquence des nombres de passagers dans les trajets en taxi, la fréquence des montants des pourboires et la variation des pourboires par type et par montant.
@@ -383,7 +383,7 @@ Voici le code permettant d’indexer et d’encoder des caractéristiques catég
 
 **SORTIE**
 
-Durée d’exécution de la cellule ci-dessus : 3,14 secondes
+Durée d’exécution de la cellule ci-dessus : 3,14 secondes
 
 ### <a name="create-labeled-point-objects-for-input-into-ml-functions"></a>Créer des objets point étiquetés à intégrer dans les fonctions ML
 Cette section contient le code qui montre comment indexer les données catégoriques de texte comme type de données de point étiquetées et comment les encoder. Elles sont ainsi préparer pour l’apprentissage et le test de la régression logistique MLlib et d’autres modèles de classification. Les objets point étiquetés sont des jeux de données distribués résilients (RDD) mis en forme en tant que données d’entrée utilisables par la plupart des algorithmes ML dans MLlib. Un [point étiqueté](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) est un vecteur local, dense ou fragmenté, associé à un libellé/une réponse.
@@ -476,7 +476,7 @@ Ce code crée un échantillonnage aléatoire des données (25 % utilisé ici). B
 
 **SORTIE**
 
-Durée d’exécution de la cellule ci-dessus : 0,31 seconde
+Durée d’exécution de la cellule ci-dessus : 0,31 secondes
 
 ### <a name="feature-scaling"></a>Mise à l’échelle des caractéristiques
 La mise à l’échelle des caractéristiques, également appelée normalisation des données, garantit que les caractéristiques aux valeurs très dispersées sont pondérées dans la fonction cible. Le code de mise à l’échelle des caractéristiques utilise [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) pour mettre à l’échelle les caractéristiques à la variance d’unité. MLlib le fournit en vue d’une utilisation dans une régression linéaire avec SGD (Stochastic Gradient Descent). SGD est un algorithme populaire permettant de former une large gamme d’autres modèles Machine Learning, tels que les régressions régularisées ou les machines à vecteurs de support (SVM).   
@@ -517,7 +517,7 @@ Voici le code pour mettre à l’échelle des variables pour l’algorithme pour
 
 **SORTIE**
 
-Durée d’exécution de la cellule ci-dessus : 11,67 secondes
+Durée d’exécution de la cellule ci-dessus : 11,67 secondes
 
 ### <a name="cache-objects-in-memory"></a>Mettre en cache des objets en mémoire
 La durée d’apprentissage et de test des algorithmes ML peut être réduite par la mise en cache d’objets de trame de données utilisés pour la classification, la régression et les caractéristiques mises à l’échelle.
@@ -548,7 +548,7 @@ La durée d’apprentissage et de test des algorithmes ML peut être réduite pa
 
 **SORTIE** 
 
-Durée d’exécution de la cellule ci-dessus : 0,13 seconde
+Durée d’exécution de la cellule ci-dessus : 0,13 secondes
 
 ## <a name="predict-whether-or-not-a-tip-is-paid-with-binary-classification-models"></a>Prédire si un pourboire a été payé avec des modèles de classification binaires
 Cette section montre comment utiliser trois modèles de tâche de classification binaire pour prédire si un pourboire est payé pour une course en taxi. Les modèles présentés sont les suivants :
@@ -667,7 +667,7 @@ Coefficients : [0,0082065285375, -0,0223675576104, -0,0183812028036, -3.48124578
 
 Interception : -0,0111216486893
 
-Durée d’exécution de la cellule ci-dessus : 14,43 secondes
+Durée d’exécution de la cellule ci-dessus : 14,43 secondes
 
 **Évaluer le modèle de classification binaire avec des mesures standard**
 
@@ -728,7 +728,7 @@ Rappel = 0,984174341679
 
 Score F1 = 0,984174341679
 
-Durée d’exécution de la cellule ci-dessus : 2,67 secondes
+Durée d’exécution de la cellule ci-dessus : 2,67 secondes
 
 **Tracer la courbe ROC.**
 
@@ -796,7 +796,7 @@ Le code de cette section montre comment enregistrer le modèle de régression lo
 
 **SORTIE**
 
-Durée d’exécution de la cellule ci-dessus : 34,57 secondes
+Durée d’exécution de la cellule ci-dessus : 34,57 secondes
 
 ### <a name="use-mllibs-crossvalidator-pipeline-function-with-logistic-regression-elastic-regression-model"></a>Utiliser la fonction pipeline CrossValidator de MLlib avec le modèle LogisticRegression (régression élastique)
 Le code de cette section montre comment former, évaluer et enregistrer un modèle de régression logistique avec [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) , qui prédit si un pourboire est payé pour un trajet dans le jeu de données des courses et tarifs de taxi à New York. Le modèle est formé à l’aide de la validation croisée et du balayage hyperparamétrique, implémentés par la fonction pipeline MLlib CrossValidator pour la validation croisée avec le balayage paramétrique.   
@@ -852,7 +852,7 @@ Le code de cette section montre comment former, évaluer et enregistrer un modè
 
 **SORTIE**
 
-Durée d’exécution de la cellule ci-dessus : 107,98 secondes
+Durée d’exécution de la cellule ci-dessus : 107,98 secondes
 
 **Tracer la courbe ROC.**
 
@@ -939,7 +939,7 @@ Le code de cette section montre comment former, évaluer et enregistrer une rég
 
 Zone sous ROC = 0,985336538462
 
-Durée d’exécution de la cellule ci-dessus : 26,72 secondes
+Durée d’exécution de la cellule ci-dessus : 26,72 secondes
 
 ### <a name="gradient-boosting-trees-classification"></a>Classification par arbres GBT (Gradient Boosting Tree)
 Le code de cette section montre comment former, évaluer et enregistrer un modèle d’arbres GBT qui prédit si un pourboire est payé pour un trajet dans le jeu de données des courses et tarifs de taxi à New York.
@@ -983,7 +983,7 @@ Le code de cette section montre comment former, évaluer et enregistrer un modè
 
 Zone sous ROC = 0,985336538462
 
-Durée d’exécution de la cellule ci-dessus : 28,13 secondes
+Durée d’exécution de la cellule ci-dessus : 28,13 secondes
 
 ## <a name="predict-tip-amount-with-regression-models-not-using-cv"></a>Prédire le montant des pourboires avec les modèles de régression (sans la validation croisée)
 Cette section montre comment utiliser trois modèles pour la tâche de régression qui consiste à prédire le montant du pourboire versé pour une course de taxi en fonction d’autres caractéristiques de pourboire. Les modèles présentés sont les suivants :
@@ -998,9 +998,9 @@ Ces modèles sont décrits dans l’introduction. Chaque section de code génér
 2. **Évaluation de modèle** sur un jeu de données de test avec mesures
 3. **Enregistrement du modèle** dans l’objet blob en vue d’une utilisation ultérieure   
 
-> REMARQUE AZURE : La validation croisée n’est pas utilisée avec les trois modèles de régression dans cette section, car cela a été décrit en détail pour les modèles de régression logistique. L’annexe de cette rubrique présente un exemple d’utilisation de la validation croisée avec un filet élastique pour la régression linéaire.
+> REMARQUE AZURE : La validation croisée n’est pas utilisée avec les trois modèles de régression dans cette section, car ceci a été décrit en détail pour les modèles de régression logistique. L’annexe de cette rubrique présente un exemple d’utilisation de la validation croisée avec un filet élastique pour la régression linéaire.
 > 
-> REMARQUE AZURE : Selon notre expérience, il peut y avoir des problèmes avec la convergence des modèles LinearRegressionWithSGD, et les paramètres doivent être modifiés/optimisés avec soin pour obtenir un modèle valide. La mise à l’échelle des variables est très utile avec la convergence. Vous pouvez aussi utiliser la régression élastique nette, présentée dans l’annexe de cette rubrique, au lieu de LinearRegressionWithSGD.
+> REMARQUE AZURE : D’après notre expérience, il peut y avoir des problèmes avec la convergence des modèles LinearRegressionWithSGD, et les paramètres doivent être modifiés/optimisés avec soin pour obtenir un modèle valide. La mise à l’échelle des variables est très utile avec la convergence. Vous pouvez aussi utiliser la régression élastique nette, présentée dans l’annexe de cette rubrique, au lieu de LinearRegressionWithSGD.
 > 
 > 
 
@@ -1054,13 +1054,13 @@ Le code de cette section montre comment utiliser des caractéristiques mises à 
 
 Coefficients : [0,0141707753435, -0,0252930927087, -0,0231442517137, 0,247070902996, 0,312544147152, 0,360296120645, 0,0122079566092, -0,00456498588241, -0,0898228505177, 0,0714046248793, 0,102171263868, 0,100022455632, -0,00289545676449, -0,00791124681938, 0,54396316518, -0,536293513569, 0,0119076553369, -0,0173039244582, 0,0119632796147, 0,00146764882502]
 
-Interception : -0,854507624459
+Interception : 0,854507624459
 
 RMSE = 1,23485131376
 
 Racine carrée = 0,597963951127
 
-Durée d’exécution de la cellule ci-dessus : 38,62 secondes
+Durée d’exécution de la cellule ci-dessus : 38,62 secondes
 
 ### <a name="random-forest-regression"></a>Régression par forêts aléatoires
 Le code de cette section montre comment former, évaluer et enregistrer un modèle de forêts aléatoires qui prédit le montant d’un pourboire pour les données sur les courses de taxi à New York.   
@@ -1116,7 +1116,7 @@ RMSE = 0,931981967875
 
 Racine carrée = 0,733445485802
 
-Durée d’exécution de la cellule ci-dessus : 25,98 secondes
+Durée d’exécution de la cellule ci-dessus : 25,98 secondes
 
 ### <a name="gradient-boosting-trees-regression"></a>Régression par arbres GBT (Gradient Boosting Tree)
 Le code de cette section montre comment former, évaluer et enregistrer un modèle d’arbres GBT, qui prédit le montant d’un pourboire pour les données sur les courses de taxi à New York.
@@ -1167,7 +1167,7 @@ RMSE = 0,928172197114
 
 Racine carrée = 0,732680354389
 
-Durée d’exécution de la cellule ci-dessus : 20,9 secondes
+Durée d’exécution de la cellule ci-dessus : 20,9 secondes
 
 **Tracer**
 
@@ -1198,7 +1198,7 @@ Voici le code pour tracer les données à l’aide du serveur Jupyter.
 
 ![Actual-vs-predicted-tip-amounts](./media/spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
 
-## <a name="appendix-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>Annexe : Tâches de régression supplémentaires utilisant la validation croisée avec balayage paramétrique
+## <a name="appendix-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>Annexe : Tâches de régression supplémentaires utilisant la validation croisée avec balayage paramétrique
 Cette annexe contient un code présentant la validation croisée utilisant un filet élastique pour la régression linéaire. Elle montre également comment effectuer une validation croisée avec balayage paramétrique à l’aide d’un code personnalisé pour la régression par forêts aléatoires.
 
 ### <a name="cross-validation-using-elastic-net-for-linear-regression"></a>Validation croisée à l’aide d’un filet élastique pour la régression linéaire
@@ -1260,7 +1260,7 @@ Le code dans cette section montre comment effectuer une validation croisée à l
 
 **SORTIE**
 
-Durée d’exécution de la cellule ci-dessus : 161,21 secondes
+Durée d’exécution de la cellule ci-dessus : 161,21  secondes
 
 **Évaluer avec la mesure R-SQR**
 
@@ -1376,7 +1376,7 @@ RMSE = 0,906972198262
 
 Racine carrée = 0,740751197012
 
-Durée d’exécution de la cellule ci-dessus : 69,17 secondes
+Durée d’exécution de la cellule ci-dessus : 69,17 secondes
 
 ### <a name="clean-up-objects-from-memory-and-print-model-locations"></a>Nettoyer des objets de la mémoire et imprimer les emplacements des modèles
 Utilisez `unpersist()` pour supprimer les objets mis en cache en mémoire.
@@ -1438,5 +1438,5 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 ## <a name="whats-next"></a>Et ensuite ?
 Maintenant que vous avez créé des modèles de régression et de classification avec la bibliothèque MlLib Spark, vous êtes prêt à apprendre à noter et évaluer ces modèles.
 
-**Consommation de modèles :** pour apprendre à noter et évaluer les modèles de classification et de régression créés dans cette rubrique, consultez [Noter et évaluer des modèles Machine Learning intégrés Spark](spark-model-consumption.md).
+**Utilisation des modèles :** pour savoir comment noter et évaluer les modèles de classification et de régression créés dans cette rubrique, consultez [Noter et évaluer des modèles Machine Learning créés avec Spark](spark-model-consumption.md).
 

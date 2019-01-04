@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 222558a6596c676034e52812d3b2dd0c77e1466b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3c4bd08d2ba3aa4aeceb38a0ae498786f681d800
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046899"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960683"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considérations de sécurité relatives au déplacement des données
 
@@ -30,7 +30,7 @@ Cet article décrit l’infrastructure de sécurité de base qu’utilisent les 
 
 Dans une solution Data Factory, vous créez un ou plusieurs [pipelines](data-factory-create-pipelines.md) de données. Un pipeline constitue un regroupement logique d’activités qui exécutent ensemble une tâche. Ces pipelines se trouvent dans la région où la fabrique de données a été créée. 
 
-Même si Data Factory est disponible uniquement dans les **États-Unis de l’Ouest**, dans les **États-Unis de l’Est** et en **Europe du Nord**, le service de déplacement des données est [mondialement disponible dans plusieurs régions](data-factory-data-movement-activities.md#global). Le service Data Factory s’assure que les données ne quittent pas une zone/région géographique donnée, sauf si vous demandez explicitement au service d’utiliser une autre région dans le cas où le service de déplacement des données n’est pas encore déployé dans cette région. 
+Même si Data Factory est disponible uniquement dans **USA Ouest**, **USA Est** et **Europe Nord**, le service de déplacement des données est [mondialement disponible dans plusieurs régions](data-factory-data-movement-activities.md#global). Le service Data Factory s’assure que les données ne quittent pas une zone/région géographique donnée, sauf si vous demandez explicitement au service d’utiliser une autre région dans le cas où le service de déplacement des données n’est pas encore déployé dans cette région. 
 
 Azure Data Factory ne stocke aucune donnée à l’exception des informations d’identification du service lié pour les banques de données cloud, qui sont chiffrées à l’aide de certificats. Il vous permet de créer des workflows pilotés par les données afin d’orchestrer le déplacement de données entre les [banques de données prises en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats), ainsi que le traitement des données à l’aide des [services de calcul](data-factory-compute-linked-services.md) situés dans d’autres régions ou dans un environnement local. Il vous permet également de [surveiller et gérer des workflows](data-factory-monitor-manage-pipelines.md) au moyen de programmes et à l’aide des mécanismes de l’interface utilisateur.
 
@@ -99,7 +99,7 @@ Les informations d’identification associées à vos banques de données locale
 #### <a name="javascript-cryptography-library-based-encryption"></a>Chiffrement à partir de la bibliothèque de chiffrement JavaScript
 Vous pouvez chiffrer les informations d’identification des banques de données à l’aide de la [bibliothèque de chiffrement JavaScript](https://www.microsoft.com/download/details.aspx?id=52439) depuis [l’Assistant de copie](data-factory-copy-wizard.md). Lorsque vous sélectionnez cette option, l’Assistant de copie récupère la clé publique de la passerelle et l’utilise pour chiffrer les informations d’identification des banques de données. Les informations d’identification sont déchiffrées par l’ordinateur de la passerelle et protégées par l’API de protection des données Windows [(DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx).
 
-**Navigateurs pris en charge :** IE8, IE9, IE10, IE11, Microsoft Edge, ainsi que les dernières versions des navigateurs Firefox, Chrome, Opera et Safari. 
+**Navigateurs pris en charge :** IE8, IE9, IE10, IE11, Microsoft Edge, ainsi que les derniers navigateurs Firefox, Chrome, Opera et Safari. 
 
 #### <a name="click-once-credentials-manager-app"></a>Application Gestionnaire des informations d’identification ClickOnce
 Vous pouvez lancer l’application Gestionnaire des informations d’identification ClickOnce depuis le portail Azure ou l’Assistant de copie lors de la création de pipelines. Cette application s’assure que les informations d’identification ne sont pas transférées en texte brut sur le réseau. Elle utilise par défaut le port **8050** de l’ordinateur hébergeant la passerelle pour établir une communication sécurisée. Ce port peut être modifié en cas de besoin.  
@@ -166,14 +166,14 @@ Le tableau suivant indique les paramètres de **port entrant** requis pour le **
 | ------------- | ----------- | 
 | 8050 (TCP) | Requis par l’application Gestionnaire des informations d’identification pour définir en toute sécurité les informations d’identification des banques de données locales sur la passerelle. | 
 
-![Configuration requise des ports de la passerelle](media\data-factory-data-movement-security-considerations/gateway-port-requirements.png) 
+![Configuration requise des ports de la passerelle](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
 
 #### <a name="ip-configurations-whitelisting-in-data-store"></a>Configuration/autorisation des adresses IP dans la banque de données
 Pour certaines banques de données hébergées dans le cloud, vous devez autoriser l’adresse IP de l’ordinateur à partir duquel vous vous y connectez. Vérifiez que l’adresse IP de l’ordinateur de passerelle est autorisée/correctement configurée dans le pare-feu.
 
 Les banques de données cloud suivantes requièrent l’autorisation de l’adresse IP de l’ordinateur de passerelle. Il est possible que certaines de ces banques de données ne requièrent pas par défaut l’autorisation des adresses IP. 
 
-- [Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) 
+- [Base de données SQL Azure](../../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
@@ -181,14 +181,14 @@ Les banques de données cloud suivantes requièrent l’autorisation de l’adre
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-**Question :** La passerelle peut-elle être partagée entre plusieurs fabriques de données ?
-**Réponse :** Nous ne prenons pas encore en charge cette fonctionnalité, mais y travaillons activement.
+**Question :** La passerelle peut-elle être partagée entre plusieurs fabriques de données ?
+**Réponse :** Nous ne prenons pas encore en charge cette fonctionnalité. mais y travaillons activement.
 
-**Question :** Quels sont les paramètres de port requis pour garantir le bon fonctionnement de la passerelle ?
-**Réponse :** La passerelle établit des connexions HTTP pour l’accès à Internet. Les **ports sortants 443 et 80** doivent être ouverts pour que la passerelle puisse établir cette connexion. Ouvrez le **port entrant 8050** uniquement au niveau de l’ordinateur (et non au niveau du pare-feu d’entreprise) pour l’application Gestionnaire des informations d’identification. Si vous utilisez Azure SQL Database ou Azure SQL Data Warehouse comme source/destination, vous devez également ouvrir le port **1433**. Pour en savoir plus, consultez la section [Configurations de pare-feu et autorisation d’adresses IP](#firewall-configurations-and-whitelisting-ip-address-of gateway). 
+**Question :** Quels sont les paramètres de port permettant de garantir le bon fonctionnement de la passerelle ?
+**Réponse :** La passerelle établit des connexions HTTP pour l’accès à Internet. Les **ports sortants 443 et 80** doivent être ouverts pour que la passerelle puisse établir cette connexion. Ouvrez le **port entrant 8050** uniquement au niveau de l’ordinateur (et non au niveau du pare-feu d’entreprise) pour l’application Gestionnaire des informations d’identification. Si vous utilisez Azure SQL Database ou Azure SQL Data Warehouse comme source/destination, vous devez également ouvrir le port **1433**. Pour en savoir plus, consultez la section [Configurations de pare-feu et autorisation d’adresses IP](#firewall-configurations-and-whitelisting-ip-address-of gateway). 
 
-**Question :** Quels sont les certificats requis pour la passerelle ?
-**Réponse :** La passerelle actuelle requiert un certificat qui est utilisé par l’application Gestionnaire des informations d’identification pour configurer en toute sécurité les informations d’identification des banques de données. Ce certificat est un certificat auto-signé créé et configuré lors de l’installation de la passerelle. Vous pouvez également utiliser votre propre certificat TLS/SSL. Pour en savoir plus, consultez la section [Application Gestionnaire des informations d’identification ClickOnce](#click-once-credentials-manager-app). 
+**Question :** De quels certificats la passerelle a-t-elle besoin ?
+**Réponse :** La passerelle actuelle requiert un certificat utilisé par l’application Gestionnaire des informations d’identification pour configurer en toute sécurité les informations d’identification des banques de données. Ce certificat est un certificat auto-signé créé et configuré lors de l’installation de la passerelle. Vous pouvez également utiliser votre propre certificat TLS/SSL. Pour en savoir plus, consultez la section [Application Gestionnaire des informations d’identification ClickOnce](#click-once-credentials-manager-app). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les performances de l’activité de copie, consultez le [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md).

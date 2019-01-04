@@ -10,12 +10,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 79f2aa9c3e73037aa25848b7d11c34a73bf35f64
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f212e2555b6097912628791635a539bc488d4979
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342396"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413161"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Bien démarrer avec l’API Reconnaissance vocale en JavaScript
 
@@ -34,10 +34,10 @@ L’API Microsoft Speech fait partie de Cognitive Services. Vous pouvez obtenir 
 
 ## <a name="get-started"></a>Prise en main
 
-Cette section vous indique comment charger un exemple de page HTML. L’exemple se trouve dans notre [dépôt github](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). Vous pouvez **ouvrir l’exemple directement** à partir du dépôt ou **ouvrir l’exemple à partir d’une copie locale** du dépôt. 
+Cette section vous indique comment charger un exemple de page HTML. L’exemple se trouve dans notre [dépôt GitHub](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). Vous pouvez **ouvrir l’exemple directement** à partir du dépôt ou **ouvrir l’exemple à partir d’une copie locale** du dépôt.
 
 > [!NOTE]
-> Certains navigateurs bloquent l’accès au microphone si l’origine n’est pas sécurisée. Ainsi, nous vous recommandons d’héberger l’exemple ou votre application sur https afin qu’il fonctionne sur tous les navigateurs pris en charge. 
+> Certains navigateurs bloquent l’accès au microphone si l’origine n’est pas sécurisée. Ainsi, nous vous recommandons d’héberger l’exemple ou votre application sur https afin qu’il fonctionne sur tous les navigateurs pris en charge.
 
 ### <a name="open-the-sample-directly"></a>Ouvrir l’exemple directement
 

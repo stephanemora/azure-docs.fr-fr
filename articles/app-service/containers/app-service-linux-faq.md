@@ -1,5 +1,5 @@
 ---
-title: FAQ d’Azure App Service sur Linux | Microsoft Docs
+title: FAQ d’App Service sur Linux - Azure | Microsoft Docs
 description: FAQ d’Azure App Service sur Linux.
 keywords: azure app service, application web, faq, linux, oss, web app pour conteneurs, multi-conteneur, multiconteneur
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
-ms.openlocfilehash: 94e61cf5bf4f629dfd776cf9ea2ae54233e91dc6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: 7fe9fd68e03fc36f5aac5d6c27c07896715af906
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417580"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261158"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ d’Azure App Service sur Linux
 
@@ -74,9 +75,9 @@ Oui, vous devez définir le paramètre d’application `WEBSITE_WEBDEPLOY_USE_SC
 
 Si le déploiement Git sur votre application web Linux échoue, choisissez l’une des options suivantes pour déployer le code de votre application :
 
-- Utilisez la fonctionnalité de livraison continue (préversion) : vous pouvez stocker le code source de votre application dans un dépôt Git Azure DevOps ou un dépôt GitHub pour utiliser la livraison continue Azure. Pour plus d’informations, consultez [Configurer la livraison continue pour une application web Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Utilisez la fonctionnalité Livraison continue (préversion) : Vous pouvez stocker le code source de votre application dans un dépôt Git Azure DevOps ou un dépôt GitHub pour utiliser la livraison continue Azure. Pour plus d’informations, consultez [Configurer la livraison continue pour une application web Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Utilisez l’[API de déploiement ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) : pour utiliser cette API, [connectez-vous via SSH à votre application web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) et accédez au dossier où vous souhaitez déployer votre code. Exécutez le code suivant :
+- Utilisez [l’API de déploiement ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) : Pour utiliser cette API, [connectez-vous via SSH à votre application web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) et accédez au dossier où vous souhaitez déployer votre code. Exécutez le code suivant :
 
    ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy

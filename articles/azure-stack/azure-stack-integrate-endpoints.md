@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 12/06/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: e6f7d255fbfbcd740d9f3a7c2743f57cecea1abf
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 1800ab19e2d99eb639ef4064e64d7bc475aa0c36
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298742"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014859"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Intégration au centre de données Azure Stack : publier des points de terminaison
 
@@ -79,10 +79,14 @@ Azure Stack prend en charge uniquement les serveurs proxy transparents. Dans un 
 |NTP|(IP du serveur NTP fourni pour le déploiement)|UDP|123|
 |DNS|(IP du serveur DNS fourni pour le déploiement)|TCP<br>UDP|53|
 |CRL|URL (sous Points de distribution CRL sur votre certificat)|HTTP|80|
+|Infrastructure Backup|(Adresse IP ou nom de domaine complet du serveur de fichiers cible externe)|SMB|445|
 |     |     |     |     |
 
 > [!Note]  
 > Les URL sortantes sont équilibrées en charge à l’aide d’Azure Traffic Manager pour offrir la meilleure connectivité possible en fonction de l’emplacement géographique. Avec des URL équilibrées en charge, Microsoft peut mettre à jour et modifier des points de terminaison de backend sans impact sur les clients. Microsoft ne partage pas la liste des adresses IP pour les URL équilibrées en charge. Vous devez utiliser un appareil qui prend en charge le filtrage par URL plutôt que par adresse IP.
+
+> [!Note]  
+> Dans la version 1809, le service Infrastructure Backup communique avec le serveur de fichiers externe à partir du réseau d’adresses IP virtuelles publiques. Avant la version 1809, le service communiquait sur le réseau d’infrastructure publique. Si votre environnement n’autorise pas l’accès aux ressources d’infrastructure à partir du réseau d’adresses IP virtuelles publiques, appliquez le dernier [correctif 1809](azure-stack-update-1809.md#post-update-steps) pour Azure Stack. Ce correctif logiciel redéplacera le service Infrastructure Backup vers le réseau d’infrastructure publique. Dans la version 1811, si vous appliquez le correctif logiciel 1809, le service Infrastructure Backup reste sur le réseau d’infrastructure publique. Si vous n’appliquez pas le correctif logiciel, la mise à jour redéplace le service vers le réseau d’infrastructure publique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

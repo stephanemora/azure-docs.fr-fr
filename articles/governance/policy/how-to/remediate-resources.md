@@ -1,28 +1,29 @@
 ---
-title: Corriger les ressources non conformes avec Azure Policy
+title: Remédier aux ressources non conformes
 description: Cette procédure vous guide tout au long de la correction des ressources qui ne sont pas conformes aux stratégies dans Azure Policy.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/25/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: adba2322bce5f0884cba51078e65feeaeaf193d9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.custom: seodec18
+ms.openlocfilehash: 093b49bea167efb12b941f8f0baff6fbdae5be25
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392689"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312644"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corriger les ressources non conformes avec Azure Policy
 
-Les ressources qui ne sont pas conformes à une stratégie **deployIfNotExists** peuvent être placées dans un état conforme par le biais d’une **correction**. Pour effectuer la correction, vous indiquez à Policy d’exécuter l’effet **deployIfNotExists** de la stratégie assignée sur vos ressources existantes. Cette procédure décrit les étapes nécessaires à cette fin.
+Les ressources qui ne sont pas conformes à une stratégie **deployIfNotExists** peuvent être placées dans un état conforme par le biais d’une **correction**. Pour effectuer la correction, vous indiquez à Policy d’exécuter l’effet **deployIfNotExists** de la stratégie assignée sur vos ressources existantes. Cet article explique les étapes nécessaires pour comprendre et exécuter des corrections avec Azure Policy.
 
 ## <a name="how-remediation-security-works"></a>Fonctionnement de la sécurité de la correction
 
 Quand Policy exécute le modèle dans la définition de stratégie **deployIfNotExists**, il utilise une [identité managée](../../../active-directory/managed-identities-azure-resources/overview.md).
-Policy crée automatiquement une identité managée pour chaque affectation, mais doit obtenir des informations sur les rôles à accorder à l’identité managée. S’il manque des rôles à l’identité managée, cette information est affichée durant l’affectation de la stratégie ou d’une initiative contenant la stratégie. Quand vous utilisez le portail, une fois l’affectation lancée, Policy accorde automatiquement à l’identité managée les rôles répertoriés.
+Policy crée automatiquement une identité managée pour chaque affectation, mais doit obtenir des informations sur les rôles à accorder à l’identité managée. S’il manque des rôles à l’identité managée, cette erreur est affichée durant l’affectation de la stratégie ou d’une initiative. Quand vous utilisez le portail, une fois l’affectation lancée, Policy accorde automatiquement à l’identité managée les rôles répertoriés.
 
 ![Identité managée : rôle manquant](../media/remediate-resources/missing-role.png)
 
@@ -31,8 +32,7 @@ Policy crée automatiquement une identité managée pour chaque affectation, mai
 
 ## <a name="configure-policy-definition"></a>Configurer une définition de stratégie
 
-La première étape consiste à définir les rôles dont **deployIfNotExists** a besoin dans la définition de stratégie pour déployer le contenu de votre modèle inclus. Sous la propriété **details**, ajoutez une propriété **roleDefinitionIds**. Il s’agit d’un tableau de chaînes qui correspondent à des rôles dans votre environnement.
-Pour obtenir un exemple complet, consultez [l’exemple deployIfNotExists](../concepts/effects.md#deployifnotexists-example).
+La première étape consiste à définir les rôles dont **deployIfNotExists** a besoin dans la définition de stratégie pour déployer le contenu de votre modèle inclus. Sous la propriété **details**, ajoutez une propriété **roleDefinitionIds**. Il s’agit d’un tableau de chaînes qui correspondent à des rôles dans votre environnement. Pour obtenir un exemple complet, consultez [l’exemple deployIfNotExists](../concepts/effects.md#deployifnotexists-example).
 
 ```json
 "details": {
@@ -56,7 +56,7 @@ Get-AzureRmRoleDefinition -Name 'Contributor'
 
 ## <a name="manually-configure-the-managed-identity"></a>Configurer manuellement l’identité managée
 
-Quand vous créez une affectation à l’aide du portail, Policy génère l’identité managée et lui accorde les rôles définis dans **roleDefinitionIds**. Dans les conditions suivantes, les étapes permettant de créer l’identité managée et de lui accorder des autorisations doivent être effectuées manuellement :
+Quand vous créez une affectation à l’aide du portail, Policy génère l’identité managée et lui accorde les rôles définis dans **roleDefinitionIds**. Dans les conditions suivantes, les étapes permettant de créer l’identité managée et de lui accorder des autorisations doivent être effectuées manuellement :
 
 - Durant l’utilisation du SDK (par exemple, Azure PowerShell)
 - Quand une ressource en dehors de l’étendue de l’affectation est modifiée par le modèle
@@ -123,13 +123,13 @@ Pour ajouter un rôle à l’identité managée de l’affectation, effectuez le
 
 1. Accédez à la ressource ou au conteneur de ressources parent (groupe de ressources, abonnement, groupe d’administration) auquel la définition de rôle doit être ajoutée manuellement.
 
-1. Cliquez sur le lien **Contrôle d’accès (IAM)** dans la page des ressources, puis cliquez sur **+ Ajouter** en haut de la page du contrôle d’accès.
+1. Cliquez sur le lien **Contrôle d’accès (IAM)** dans la page des ressources, puis cliquez sur **+ Ajouter une attribution de rôle** en haut de la page du contrôle d’accès.
 
 1. Sélectionnez le rôle approprié qui correspond à un **roleDefinitionIds** dans la définition de stratégie. Laissez **Attribuer l’accès à** sur la valeur par défaut « Utilisateur, groupe ou application Azure AD ». Dans la zone **Sélectionner**, collez ou tapez la partie de l’ID de ressource d’affectation trouvée plus haut. Une fois la recherche terminée, cliquez sur l’objet portant le même nom pour sélectionner l’ID, puis cliquez sur **Enregistrer**.
 
 ## <a name="create-a-remediation-task"></a>Créer une tâche de correction
 
-Durant l’évaluation, l’affectation de stratégie avec l’effet **deployIfNotExists** détermine s’il existe des ressources non conformes. Quand des ressources non conformes sont trouvées, les détails sont fournis dans la page **Correction**. Outre la liste des stratégies qui ont des ressources non conformes se trouve l’option permettant de déclencher une **tâche de correction**. C’est ce qui crée un déploiement à partir du modèle **deployIfNotExists**.
+Durant l’évaluation, l’affectation de stratégie avec l’effet **deployIfNotExists** détermine s’il existe des ressources non conformes. Quand des ressources non conformes sont trouvées, les détails sont fournis dans la page **Correction**. Outre la liste des stratégies qui ont des ressources non conformes se trouve l’option permettant de déclencher une **tâche de correction**. Cette option crée un déploiement à partir du modèle **deployIfNotExists**.
 
 Pour créer une **tâche de correction**, effectuez les étapes suivantes :
 
@@ -146,7 +146,7 @@ Pour créer une **tâche de correction**, effectuez les étapes suivantes :
    > [!NOTE]
    > Pour ouvrir la page **Tâche de correction**, vous pouvez également rechercher la stratégie à partir de la page **Conformité**, cliquer dessus, puis cliquer sur le bouton **Créer une tâche de correction**.
 
-1. Dans la page **Nouvelle tâche de correction**, filtrez les ressources à corriger à l’aide des points de suspension de la section **Étendue** pour sélectionner les ressources enfants à partir de l’endroit où la stratégie a été affectée (y compris jusqu’aux objets de ressource individuels). En outre, utilisez la liste déroulante **Emplacements** pour filtrer davantage les ressources. Seules les ressources répertoriées dans la table sont corrigées.
+1. Dans la page **Nouvelle tâche de correction**, filtrez les ressources à corriger à l’aide des points de suspension de la section **Étendue** pour sélectionner les ressources enfants à partir de l’endroit où la stratégie est affectée (y compris jusqu’aux objets de ressource individuels). En outre, utilisez la liste déroulante **Emplacements** pour filtrer davantage les ressources. Seules les ressources répertoriées dans la table sont corrigées.
 
    ![Corriger : sélectionner les ressources](../media/remediate-resources/select-resources.png)
 
@@ -160,7 +160,7 @@ Pour créer une **tâche de correction**, effectuez les étapes suivantes :
 
    ![Corriger : menu contextuel lié aux tâches réalisables pour une ressource](../media/remediate-resources/resource-task-context-menu.png)
 
-Les ressources déployées par le biais d’une **tâche de correction** sont ajoutées à l’onglet **Ressources déployées** sur la page de conformité à la stratégie après un court délai.
+Les ressources déployées par le biais d’une **tâche de correction** sont ajoutées à l’onglet **Ressources déployées** sur la page de conformité à la stratégie.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

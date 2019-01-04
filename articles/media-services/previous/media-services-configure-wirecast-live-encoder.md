@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 6cc4c0b01511309766e48c3d671ee897e5d6f326
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e0e41714f6979a9cd699df70498b9c89a44d5ee1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669111"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138921"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Utiliser l’encodeur Wirecast pour envoyer un flux en direct à débit binaire unique
 > [!div class="op_single_selector"]
@@ -69,21 +69,21 @@ Pendant le démarrage du canal, vous pouvez [configurer l’encodeur](media-serv
 >
 >
 
-## <a name="a-idconfigurewirecastrtmp-aconfigure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" /a>Configurer l’encodeur Telestream Wirecast
+## <a name="a-idconfigurewirecastrtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Configurer l’encodeur Telestream Wirecast
 Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le reste de cette section décrit la procédure de configuration plus en détail.
 
 **Vidéo**:
 
 * Codec : H.264
 * Profil : Élevé (niveau 4.0)
-* Débit binaire : 5 000 kbit/s
+* Vitesse de transmission : 5 000 Kbits/s
 * Image clé : 2 secondes (60 secondes)
 * Fréquence d’images : 30
 
 **Audio**:
 
 * Codec : AAC (LC)
-* Débit binaire : 192 kbit/s
+* Vitesse de transmission : 192 Kbits/s
 * Taux d’échantillonnage : 44,1 kHz
 
 ### <a name="configuration-steps"></a>Configuration
@@ -104,15 +104,15 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
     **Vidéo**
 
    * Encodeur : MainConcept H.264
-   * Images par seconde : 30
-   * Débit binaire moyen : 5 000 Kbit/s (cette valeur peut être ajustée en fonction des limitations du réseau)
+   * Images par seconde : 30
+   * Vitesse de transmission moyenne : 5 000 Kbits/s (cette valeur peut être ajustée en fonction des limitations du réseau)
    * Profil : Principal
-   * Trame-clé toutes les : 60 images
+   * Image clé toutes les : 60 images
 
     **Audio**
 
-   * Vitesse de transmission cible : 192 kbit/s
-   * Taux d’échantillonnage : 44 100 kHz
+   * Vitesse de transmission cible : 192 Kbits/s
+   * Taux d’échantillonnage : 44,100 kHz
 
      ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
 6. Appuyez sur **Enregistrer**.

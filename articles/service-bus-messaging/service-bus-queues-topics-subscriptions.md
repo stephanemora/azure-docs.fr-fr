@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: spelluru
-ms.openlocfilehash: 047c4c37090db77f7a7a692604dd63c5effff9fa
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c4899db41f9c60bf6efb40c4d53aaa35f22ad275
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409759"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312878"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Files d’attente, rubriques et abonnements Service Bus
 
@@ -32,15 +32,15 @@ L’utilisation de files d’attente comme intermédiaire entre les producteurs 
 
 ### <a name="create-queues"></a>Créer des files d’attente
 
-Pour créer des files d’attente, il est possible d’utiliser le [Portail Azure](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [l’interface de ligne de commande (CLI)](service-bus-quickstart-cli.md) ou les [modèles Resource Manager](service-bus-resource-manager-namespace-queue.md). Les messages sont alors envoyés et reçus à l’aide d’un objet [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient). 
+Pour créer des files d’attente, il est possible d’utiliser le [Portail Azure](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [l’interface de ligne de commande (CLI)](service-bus-quickstart-cli.md) ou les [modèles Resource Manager](service-bus-resource-manager-namespace-queue.md). Les messages sont alors envoyés et reçus à l’aide d’un objet [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient).
 
-Pour apprendre rapidement à créer une file d’attente, puis à envoyer et recevoir des messages en provenance et à destination de la file d’attente, consultez les [Démarrages rapides](service-bus-quickstart-portal.md) de chacune des méthodes. Vous trouverez un tutoriel plus approfondi sur l’utilisation des files d’attente dans [Bien démarrer avec les files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md). 
+Pour apprendre rapidement à créer une file d’attente, puis à envoyer et recevoir des messages en provenance et à destination de la file d’attente, consultez les [Démarrages rapides](service-bus-quickstart-portal.md) de chacune des méthodes. Vous trouverez un tutoriel plus approfondi sur l’utilisation des files d’attente dans [Bien démarrer avec les files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md).
 
 Pour un exemple concret, voir [BasicSendReceiveUsingQueueClient](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) sur GitHub.
 
 ### <a name="receive-modes"></a>Modes de réception
 
-Service Bus offre deux modes différents de réception des messages : *ReceiveAndDelete* et *PeekLock*. En mode [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode), l’opération est exécutée une seule fois, en d’autres termes, lorsque Service Bus reçoit la demande, il marque ce message comme étant consommé et le renvoie à l’application. Le mode **ReceiveAndDelete** est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels l’application peut tolérer l’absence de traitement d’un message en cas d’échec. Pour comprendre ce comportement, imaginez un scénario selon lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Service Bus ayant marqué le message comme étant consommé, lorsque l’application redémarre et recommence à traiter des messages, elle ignore le message consommé avant l’incident.
+Service Bus propose deux modes différents de réception des messages : *ReceiveAndDelete* et *PeekLock*. En mode [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode), l’opération est exécutée une seule fois, en d’autres termes, lorsque Service Bus reçoit la demande, il marque ce message comme étant consommé et le renvoie à l’application. Le mode **ReceiveAndDelete** est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels l’application peut tolérer l’absence de traitement d’un message en cas d’échec. Pour comprendre ce comportement, imaginez un scénario selon lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Service Bus ayant marqué le message comme étant consommé, lorsque l’application redémarre et recommence à traiter des messages, elle ignore le message consommé avant l’incident.
 
 En mode [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode), la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas se permettre de manquer des messages. Lorsque Service Bus reçoit la demande, il recherche le message suivant à consommer, le verrouille pour empêcher d’autres consommateurs de le recevoir, puis le renvoie à l’application. Dès lors que l’application a terminé le traitement du message (ou qu’elle l’a stocké de manière fiable en vue d’un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) sur le message reçu. Lorsque Service Bus voit l’appel **CompleteAsync**, il marque le message comme étant consommé.
 
@@ -56,9 +56,9 @@ Par comparaison, la fonctionnalité d’envoi de messages d’une file d’atten
 
 ### <a name="create-topics-and-subscriptions"></a>Créer des rubriques et des abonnements
 
-La création d’une rubrique est similaire à la création d’une file d’attente, comme le montre la section précédente. Les messages sont envoyés à l’aide de la classe [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient). Pour recevoir des messages, vous créerez un ou plusieurs abonnements à la rubrique. À l’instar des files d’attente, les messages sont reçus d’un abonnement à l’aide d’un objet [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) et non d’un objet [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient). Créez le client d’abonnement, en transférant le nom du sujet, le nom de l’abonnement et (éventuellement) le mode de réception en tant que paramètres. 
+La création d’une rubrique est similaire à la création d’une file d’attente, comme le montre la section précédente. Les messages sont envoyés à l’aide de la classe [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient). Pour recevoir des messages, vous créerez un ou plusieurs abonnements à la rubrique. À l’instar des files d’attente, les messages sont reçus d’un abonnement à l’aide d’un objet [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) et non d’un objet [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient). Créez le client d’abonnement, en transférant le nom du sujet, le nom de l’abonnement et (éventuellement) le mode de réception en tant que paramètres.
 
-Pour un exemple complet et concret, voir [BasicSendReceiveUsingTopicSubscriptionClient](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) sur GitHub.
+Pour obtenir un exemple complet et concret, consultez [BasicSendReceiveUsingTopicSubscriptionClient](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) sur GitHub.
 
 ### <a name="rules-and-actions"></a>Règles et actions
 
@@ -66,14 +66,14 @@ Dans de nombreux scénarios, les messages ayant des caractéristiques spécifiqu
 
 Pour un exemple complet et concret, voir [TopicSubscriptionWithRuleOperationsSample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) sur GitHub.
 
-Pour plus d’informations sur les valeurs de filtre possibles, consultez la documentation des classes [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) et [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction). 
+Pour plus d’informations sur les valeurs de filtre possibles, consultez la documentation des classes [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) et [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations et des exemples d’utilisation de la messagerie Service Bus, consultez les rubriques avancées suivantes :
 
 * [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
-* [Démarrage rapide : Envoyer et recevoir des messages avec le Portail Azure et .NET](service-bus-quickstart-portal.md)
-* [Tutoriel : Mettre à jour l’inventaire avec le Portail Azure et des rubriques/abonnements](service-bus-tutorial-topics-subscriptions-portal.md)
+* [Démarrage rapide : Envoyer et recevoir des messages à l’aide du portail Azure et de .NET](service-bus-quickstart-portal.md)
+* [Tutoriel : Mettre à jour l’inventaire à l’aide du portail Azure et des rubriques/abonnements](service-bus-tutorial-topics-subscriptions-portal.md)
 
 

@@ -1,12 +1,11 @@
 ---
-title: Créer des points de terminaison de service web dans Machine Learning – Azure Machine Learning Studio | Microsoft Docs
-description: Création de points de terminaison de service web dans Azure Machine Learning
+title: Créer des points de terminaison de service web – Azure Machine Learning Studio | Microsoft Docs
+description: Création de points de terminaison de service web dans Azure Machine Learning. Chaque point de terminaison du service web est adressé, limité et géré de façon indépendante.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: 266970bec1e61dca808bb6358f2b4580359ee70d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 58418357d6e96204485887cca5d7724c42183db7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314011"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275888"
 ---
-# <a name="creating-endpoints"></a>Création de points de terminaison 
+# <a name="creating-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Création de points de terminaison pour les services web Azure Machine Learning Studio déployés
 > [!NOTE]
 >  Cette rubrique décrit les techniques applicables à un service web Machine Learning **classique**.
 > 
@@ -33,7 +32,7 @@ Lorsque vous créez des services web que vous vendez à vos clients, vous devez 
 
 Azure Machine Learning Studio donne ainsi la possibilité de créer plusieurs points de terminaison pour un service web déployé. Chaque point de terminaison du service web est adressé, limité et géré de façon indépendante. Chaque point de terminaison est une URL unique, et la clé d’autorisation que vous pouvez distribuer à vos clients.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="adding-endpoints-to-a-web-service"></a>Ajout de points de terminaison à un service web
 Il existe deux façons d’ajouter un point de terminaison à un service web.

@@ -1,21 +1,22 @@
 ---
 title: Traduire une entrée vocale à l’aide du kit de développement logiciel (SDK) Speech pour C++
 titleSuffix: Azure Cognitive Services
-description: Montre comment traduire une entrée vocale à l’aide du kit de développement logiciel (SDK) Speech pour C++.
+description: Cet article comprend des exemples de code permettant de traduire une entrée vocale à l’aide du kit SDK Speech dans un environnement C++.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 1bd466d231387034ead5dd46745708802f6e7488
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 917eb170ee1798546f4ba6dcf228097d5a5d853c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464729"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092211"
 ---
 # <a name="translate-speech-with-the-cognitive-services-speech-sdk-for-c"></a>Traduire une entrée vocale avec le kit de développement logiciel Cognitive Services Speech pour C++
 

@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 89bab4d2751cdbc3ba9b2303bc88dba874bc117b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d05789f8e98d0c2e12989df804a975639d8f653e
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723941"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811033"
 documentType: LandingData
 title: Documentation Azure Cosmos DB
 metadata:
   document_id: e77bd640-1036-8b31-955c-a2cc990c69a1
-  title: Documentation Azure Cosmos DB - Tutoriels, informations de référence sur les API
-  description: Apprenez à utiliser Azure Cosmos DB pour créer des bases de données multi-modèles distribuées mondialement. Le composant Tutoriels vous montre comment créer et interroger des documents, des bases de données de graphique et de clé/valeur.
+  title: Documentation Azure Cosmos DB - Didacticiels, Référence des API
+  description: Apprenez à utiliser Azure Cosmos DB pour créer des bases de données multi-modèles distribuées mondialement. Le composant Didacticiels vous montre comment créer et interroger des documents, des bases de données de graphique et de clé/valeur.
   services: cosmos-db
   author: SnehaGunda
   ms.author: sngun
@@ -18,7 +18,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/26/2018
 abstract:
-  description: Azure Cosmos DB est un service de base de données multimodèle mondialement distribué qui prend en charge les bases de données de documents, de valeurs clés, de colonne large et de graphes. Découvrez comment utiliser Azure Cosmos DB avec nos mises en route rapides, tutoriels et exemples.
+  description: Azure Cosmos DB est un service de base de données multimodèle globalement distribué qui prend en charge les bases de données de documents, de valeurs clés, à colonne large et de graphiques. Découvrez comment utiliser Azure Cosmos DB avec nos mises en route rapides, tutoriels et exemples.
   aside:
     image:
       alt: 
@@ -51,10 +51,10 @@ sections:
         src: media/index/graph-api.svg
       title: API Gremlin
     - href: /azure/cosmos-db/mongodb-introduction/
-      html: <p>Utilisez Azure Cosmos DB pour l’API MongoDB si vous migrez des données d’une base de données MongoDB vers le service complètement managé Azure Cosmos DB.</p>
+      html: <p>Utilisez l’API d’Azure Cosmos DB pour MongoDB si vous migrez des données d’une base de données MongoDB vers le service complètement managé d’Azure Cosmos DB.</p>
       image:
         src: media/index/mongodb-api.svg
-      title: Azure Cosmos DB pour l’API MongoDB
+      title: API d’Azure Cosmos DB pour MongoDB
     - href: /azure/cosmos-db/table-introduction/
       html: <p>Utilisez l’API Table si vous migrez des données du Stockage Table Azure vers l’offre de table premium d’Azure Cosmos DB.</p>
       image:
@@ -103,7 +103,7 @@ sections:
       - href: 
       - href: 
       - href: /azure/cosmos-db/create-sql-api-xamarin-dotnet
-    - title: Azure Cosmos DB pour l’API MongoDB
+    - title: API d’Azure Cosmos DB pour MongoDB
       values:
       - href: /azure/cosmos-db/create-mongodb-java
       - href: /azure/cosmos-db/create-mongodb-dotnet
@@ -139,7 +139,7 @@ sections:
       - href: 
       - href: 
       - href: 
-- title: Tutoriels pas à pas
+- title: Didacticiels pas à pas
   items:
   - type: paragraph
     text: Apprenez à développer des applications à l’aide d’Azure Cosmos DB&#58;
@@ -183,7 +183,7 @@ sections:
     items:
     - title: API SQL
       html: <p><a href="/rest/api/cosmos-db/">REST</a></p><p><a href="https://aka.ms/acdbnetref">.NET</a></p><p><a href="sql-api-sdk-dotnet-changefeed">Flux de modification .NET</a></p><p><a href="https://aka.ms/acdbnetcoreref">.NET Core</a></p><p><a href="https://aka.ms/acdbnoderef">Node.JS</a></p><p><a href="https://aka.ms/acdbjavaref">Java</a></p><p><a href="https://aka.ms/acdbpythonref">Python</a></p><p><a href="/rest/api/cosmos-db-resource-provider/">API REST Resource Provider</a></p><p><a href="sql-api-sql-query-reference">SQL</a></p>
-    - title: Azure Cosmos DB pour l’API MongoDB
+    - title: API d’Azure Cosmos DB pour MongoDB
       html: <p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">Protocole Wire</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.JS</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>
     - title: API de table
       html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p><p><a href="/azure/cosmos-db/table-sdk-nodejs">Node.JS</a></p><p><a href="/azure/cosmos-db/table-sdk-java">Java</a></p><p><a href="/azure/cosmos-db/table-sdk-python">Python</a></p>

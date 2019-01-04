@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 2aa8036149f4056f2d197f0712b86104f5cf2215
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 18398326e21ac6f3d64e43a577cf7d57cfb23438
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095043"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139518"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Utilisation d’Azure Functions Proxies
 
@@ -90,7 +90,7 @@ Les paramètres de réponse peuvent être utilisés lors de la modification de l
 
 * **{backend.response.statusCode}** : code d’état HTTP renvoyé dans la réponse du serveur principal.
 * **{backend.response.statusReason}** : motif HTTP renvoyé dans la réponse du serveur principal.
-* **{backend.response.headers.\<HeaderName\>}** : en-tête pouvant être lu à partir de la réponse du serveur principal. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez lire. Si l’en-tête n’est pas inclus dans la réponse, la valeur sera une chaîne vide.
+* **{backend.response.headers.\<HeaderName\>}** : un en-tête qui peut être lu à partir de la réponse du serveur principal. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez lire. Si l’en-tête n’est pas inclus dans la réponse, la valeur sera une chaîne vide.
 
 ### <a name="use-appsettings"></a>Référencement des paramètres de l’application
 
@@ -109,7 +109,7 @@ Pour déboguer un proxy du côté client, ajoutez un jeu d’en-têtes `Proxy-Tr
 
 ### <a name="block-proxy-traces"></a>Bloquer les traces de proxy
 
-Pour des raisons de sécurité, vous pouvez interdire tout appel à votre service et ainsi éviter toute génération de trace. Le cas échéant, les utilisateurs ne pourront pas accéder aux contenu de suivi sans vos informations de connexion. Notez toutefois que la génération de trace consomme des ressources et expose votre utilisation des proxys de fonction.
+Pour des raisons de sécurité, vous pouvez interdire tout appel à votre service et ainsi éviter toute génération de trace. Le cas échéant, les utilisateurs ne pourront pas accéder aux contenus de suivi sans vos informations de connexion. Notez toutefois que la génération de trace consomme des ressources et expose votre utilisation des proxys de fonction.
 
 Désactivez les traces en ajoutant `"debug":false` à tout proxy de votre instance `proxies.json`.
 
@@ -140,18 +140,18 @@ Les serveurs proxy que vous configurez sont stockés dans un fichier *proxies.js
 Chaque proxy a un nom convivial, tel que *proxy1* dans l’exemple ci-dessus. L’objet de définition de proxy correspondant est défini par les propriétés suivantes :
 
 * **matchCondition** : Obligatoire - un objet définissant les demandes qui déclenchent l’exécution de ce proxy. Il contient deux propriétés partagées avec les [déclencheurs HTTP] :
-    * _méthodes_ : un tableau des méthodes HTTP auxquelles le proxy répond. À défaut de spécification, le proxy répond à toutes les méthodes HTTP sur le routage.
-    * _route_ : Obligatoire - définit le modèle de routage, en contrôlant les URL de demande auxquelles votre proxy répond. Contrairement aux déclencheurs HTTP, il n’y a pas de valeur par défaut.
+    * _methods_ : un tableau des méthodes HTTP auxquelles le proxy répond. À défaut de spécification, le proxy répond à toutes les méthodes HTTP sur le routage.
+    * _route_ : Obligatoire - définit le modèle de routage, en contrôlant les URL de demande auxquelles votre proxy répond. Contrairement aux déclencheurs HTTP, il n’y a pas de valeur par défaut.
 * **backendUri** : l’URL de la ressource principale à laquelle la demande doit être transmise par proxy. Cette valeur peut faire référence aux paramètres de l’application et à ceux de la demande client d’origine. Si cette propriété n’est pas incluse, Azure Functions répond avec un message HTTP 200 OK.
 * **requestOverrides** : un objet définissant les transformations apportées à la demande du serveur principal. Consultez la section [Définition d’un objet requestOverrides].
-* **responseOverrides** : un objet définissant les transformations apportées à la réponse client. Consultez la section [Définition d’un objet responseOverrides].
+* **responseOverrides** : un objet définissant les transformations apportées à la réponse du client. Consultez la section [Définition d’un objet responseOverrides].
 
 > [!NOTE] 
 > La propriété *route* dans Azure Functions Proxies n’honore pas la propriété *routePrefix* de la configuration d’hôte Function App. Si vous souhaitez inclure un préfixe tel que `/api`, il doit être inclus dans la propriété *route*.
 
-### <a name="disableProxies"></a>Désactiver des proxys individuels
+### <a name="disableProxies"></a> Désactiver des proxys individuels
 
-Pour désactivez des proxys individuels, ajoutez `"disabled": true` au proxy considéré dans le fichier `proxies.json`. Ainsi, toute requête correspondant à matchCondition renverra une erreur 404.
+Pour désactiver des proxys individuels, ajoutez `"disabled": true` au proxy considéré dans le fichier `proxies.json`. Ainsi, toute requête correspondant à matchCondition renverra une erreur 404.
 ```json
 {
     "$schema": "http://json.schemastore.org/proxies",
@@ -167,13 +167,29 @@ Pour désactivez des proxys individuels, ajoutez `"disabled": true` au proxy con
 }
 ```
 
+### <a name="applicationSettings"></a> Paramètres de l’application
+
+Le comportement du proxy peut être contrôlé via plusieurs paramètres d’application. Ceux-ci sont décrits dans les [Informations de référence sur les paramètres d’application d’Azure Functions](./functions-app-settings.md)
+
+* [AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL](./functions-app-settings.md#azurefunctionproxydisablelocalcall)
+* [AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES](./functions-app-settings.md#azurefunctionproxybackendurldecodeslashes)
+
+### <a name="reservedChars"></a> Caractères réservés (mise en forme de chaînes)
+
+Les proxys lisent toutes les chaînes sans interprétation, à l’exception des accolades et des barres obliques
+
+|Caractère|Caractère d’échappement|Exemples|
+|-|-|-|
+|{ ou }|{{ ou }}|`{{ example }}` --> `{ example }`
+|/|///| `example.com///text.html` --> `example.com/text.html`
+
 ### <a name="requestOverrides"></a>Définition d’un objet requestOverrides
 
 L’objet requestOverrides définit les modifications apportées à la demande lors de l’appel de la ressource du serveur principal. L’objet est défini par les propriétés suivantes :
 
 * **backend.request.method** : méthode HTTP utilisée pour appeler le backend.
 * **backend.request.querystring.\<ParameterName\>** : paramètre de chaîne de requête pouvant être défini pour l’appel au backend. Remplacez *\<ParameterName\>* par le nom de l’en-tête que vous souhaitez définir. Si une chaîne vide est fournie, le paramètre n’est pas inclus dans la demande du serveur principal.
-* **backend.request.headers.\<HeaderName\>** : en-tête qui peut être défini pour l’appel au backend. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez définir. Si vous fournissez une chaîne vide, l’en-tête n’est pas inclus dans la demande du serveur principal.
+* **backend.request.headers.\<HeaderName\>** : en-tête pouvant être défini pour l’appel au backend. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez définir. Si vous fournissez une chaîne vide, l’en-tête n’est pas inclus dans la demande du serveur principal.
 
 Les valeurs peuvent faire référence aux paramètres de l’application et aux paramètres de la demande client d’origine.
 
@@ -204,8 +220,8 @@ L’objet requestOverrides définit les modifications apportées à la réponse 
 
 * **response.statusCode** : code d’état HTTP à renvoyer au client.
 * **response.statusReason** : motif HTTP à renvoyer au client.
-* **response.body** : la représentation sous forme de chaîne du corps à renvoyer au client.
-* **response.headers.\<HeaderName\>** : un en-tête pouvant être défini pour la réponse au client. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez définir. Si vous fournissez une chaîne vide, l’en-tête n’est pas inclus dans la réponse.
+* **response.body** : représentation sous forme de chaîne du corps à renvoyer au client.
+* **response.headers.\<HeaderName\>** : en-tête pouvant être défini pour la réponse au client. Remplacez *\<HeaderName\>* par le nom de l’en-tête que vous souhaitez définir. Si vous fournissez une chaîne vide, l’en-tête n’est pas inclus dans la réponse.
 
 Les valeurs peuvent faire référence aux paramètres de l’application, aux paramètres de la demande client d’origine et aux paramètres de la réponse du serveur principal.
 

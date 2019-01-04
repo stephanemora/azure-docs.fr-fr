@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a0d0cbacfa03080d519e5d9e3592ad01ed58b933
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f3c055d55da06e6410520084a1c96baa78b91496
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316581"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341710"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Appliquer les mises à jour système dans Azure Security Center
 Azure Security Center recherche quotidiennement les mises à jour manquantes du système d’exploitation sur les ordinateurs et machines virtuelles Windows et Linux. Security Center récupère une liste des mises à jour de sécurité et critiques disponibles dans Windows Update ou Windows Server Update Services (WSUS), selon le service configuré sur un ordinateur Windows. Security Center recherche également les dernières mises à jour dans les systèmes Linux. S’il manque une mise à jour système sur votre machine virtuelle ou ordinateur, Security Center vous recommande de l’appliquer.
@@ -45,19 +45,19 @@ Dans cet exemple, nous utilisons **Calcul**.
 
   La partie inférieure du tableau de bord répertorie toutes les mises à jour manquantes sur l’ensemble de vos ordinateurs et machines virtuelles, ainsi que le niveau de gravité de la mise à jour manquante.  Cette liste comprend les éléments suivants :
 
-    - NOM : nom de la mise à jour manquante.
-    - NOMBRE DE MACHINES VIRTUELLES ET D’ORDINATEURS : nombre total de machines virtuelles et d’ordinateurs sur lesquels cette mise à jour n’a pas été installée.
-    - ÉTAT : état actuel de la recommandation :
+    - NOM : Nom de la mise à jour manquante.
+    - NOMBRE DE MACHINES VIRTUELLES ET D’ORDINATEURS : Nombre total de machines virtuelles et d’ordinateurs sur lesquels cette mise à jour n’a pas été installée.
+    - ÉTAT : État actuel de la recommandation :
 
-      - Ouverte : la recommandation n’a pas encore été prise en compte.
-      - En cours : la recommandation est actuellement appliquée à ces ressources ; aucune action de votre part n’est nécessaire.
-      - Résolue : la recommandation a déjà été achevée. (Une fois problème résolu, l’entrée a été grisée).
+      - Ouverte : La recommandation n’a pas encore été prise en compte.
+      - En cours : La recommandation est actuellement appliquée aux ressources ; aucune action de votre part n’est nécessaire.
+      - Résolue : La recommandation a déjà été achevée. (Une fois problème résolu, l’entrée a été grisée).
 
-    - GRAVITÉ : donne le niveau de gravité de chaque recommandation :
+    - GRAVITÉ : Donne le niveau de gravité de chaque recommandation :
 
-      - Élevée : existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle, groupe de sécurité réseau). Le problème doit être analysé.
-      - Moyenne : certaines étapes supplémentaires sont nécessaires pour terminer un processus ou éliminer une vulnérabilité.
-      - Faible : existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite aucune attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
+      - Élevée : Existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle, groupe de sécurité réseau). Le problème doit être analysé.
+      - Moyenne : Certaines étapes supplémentaires sont nécessaires pour terminer un processus ou éliminer une vulnérabilité.
+      - Faible : Existence d’une vulnérabilité devant être prise en compte, mais qui ne nécessite aucune attention immédiate. Par défaut, les recommandations de niveau Faible ne sont pas affichées, mais vous pouvez filtrer les recommandations pour les faire apparaître.
 
 3. Sélectionnez une mise à jour manquante dans la liste pour afficher les détails.
 
@@ -84,7 +84,7 @@ Redémarrez la machine virtuelle à partir d’Azure pour terminer le processus.
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
-* [Définition des stratégies de sécurité dans Azure Security Center](security-center-azure-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
+* [Définition des stratégies de sécurité dans Azure Security Center](tutorial-security-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 * [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez comment les recommandations peuvent vous aider à protéger vos ressources Azure.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.

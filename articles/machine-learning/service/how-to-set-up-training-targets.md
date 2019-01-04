@@ -1,6 +1,7 @@
 ---
-title: Configurer des cibles de calcul pour l’entraînement de modèle avec le service Azure Machine Learning | Microsoft Docs
-description: Découvrez comment sélectionner et configurer les environnements d’entraînement (cibles de calcul) servant à entraîner vos modèles Machine Learning. Avec le service Azure Machine Learning, il est très facile de basculer d’un environnement d’entraînement à un autre. Démarrez l’entraînement localement et, si une montée en charge est nécessaire, basculez vers une cible de calcul basée sur le cloud.
+title: Cibles de calcul pour l’entraînement des modèles
+titleSuffix: Azure Machine Learning service
+description: Configurer les environnements d’entraînement (cibles de calcul) pour l’entraînement des modèles de machine learning. Vous pouvez facilement basculer entre des environnements d’entraînement. Démarrez l’entraînement localement et, si une montée en charge est nécessaire, basculez vers une cible de calcul basée sur le cloud. Databricks
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -9,55 +10,57 @@ manager: cgronlun
 ms.service: machine-learning
 ms.component: core
 ms.topic: article
-ms.date: 09/24/2018
-ms.openlocfilehash: 7eacc475145dac61db1717f1860e22cedd022262
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 664d56daf3e70e2e5699d0c07331c466c60e06c5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231445"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338856"
 ---
-# <a name="select-and-use-a-compute-target-to-train-your-model"></a>Sélectionner et utiliser une cible de calcul pour entraîner votre modèle
+# <a name="set-up-compute-targets-for-model-training"></a>Configurer des cibles de calcul pour l’entraînement des modèles
 
-Avec le service Azure Machine Learning, vous pouvez entraîner votre modèle dans différents environnements. Ces environnements, appelés __cibles de calcul__, peuvent être locaux ou dans le cloud. Dans ce document, vous allez découvrir les cibles de calcul prises en charge et comment les utiliser.
+Avec le service Azure Machine Learning, vous pouvez entraîner votre modèle sur différentes ressources de calcul. Ces ressources de calcul, appelées __cibles de calcul__, peuvent être locales ou dans le cloud. Dans ce document, vous allez découvrir les cibles de calcul prises en charge et comment les utiliser.
 
-Une cible de calcul est la ressource qui exécute votre script d’entraînement ou qui héberge votre modèle quand il est déployé en tant que service web. Vous pouvez les créer et les gérer à l’aide du SDK Azure Machine Learning ou de l’interface CLI. Si vous avez des cibles de calcul qui ont été créées par un autre processus (par exemple le portail Azure ou Azure CLI), vous pouvez les utiliser en les attachant à votre espace de travail du service Azure Machine Learning.
+Une cible de calcul est une ressource où votre script d’entraînement est exécutée, ou bien où votre modèle est hébergé quand il est déployé comme service web. Vous pouvez créer et gérer une cible de calcul avec le SDK Azure Machine Learning, Azure CLI ou le portail Azure. Si vous avez des cibles de calcul qui ont été créées via un autre service (par exemple un cluster HDInsight), vous pouvez les utiliser en les attachant à votre espace de travail du service Azure Machine Learning.
 
-Vous pouvez commencer par des exécutions locales sur votre ordinateur, puis monter en puissance en passant à d’autres environnements, comme des machines virtuelles DSVM avec GPU ou Azure Batch AI. 
+Il existe trois grandes catégories de cibles de calcul prises en charge par Azure Machine Learning :
 
->[!NOTE]
-> Le code présenté dans cet article a été testé avec le kit SDK Azure Machine Learning version 0.168 
+* __Locales__ : Votre ordinateur local ou une machine virtuelle cloud que vous utilisez comme environnement de développement/expérience. 
+
+* __Capacité de calcul managée__ : Capacité de calcul Azure Machine Learning est une offre de capacité de calcul gérée par le service Azure Machine Learning. Il vous permet de créer facilement des capacités de calcul à un ou plusieurs nœuds pour l’entraînement, le test et l’inférence par lot.
+
+* __Capacité de calcul attachée__ : Vous pouvez également utiliser votre propre capacité de calcul Azure et l’attacher à Azure Machine Learning. Vous trouverez plus d’informations ci-dessous sur les types de capacité de calcul pris en charge et comment les utiliser.
+
 
 ## <a name="supported-compute-targets"></a>Cibles de calcul prises en charge
 
-Le service Azure Machine Learning prend en charge les cibles de calcul suivantes :
+La prise en charge par le service Azure Machine Learning varie selon les différentes cibles de calcul. Un cycle de vie typique du développement d’un modèle commence par le développement/l’expérience sur une petite quantité de données. À ce stade, nous recommandons d’utiliser un environnement local. Par exemple, votre ordinateur local ou une machine virtuelle basée cloud. Quand vous effectuez un scale-up de votre entraînement sur des jeux de données plus grands ou que vous faites un entraînement distribué, nous recommandons d’utiliser Capacité de calcul Azure Machine Learning pour créer un cluster avec un ou plusieurs nœuds qui se met à l’échelle automatiquement chaque fois que vous lancez une exécution. Vous pouvez également attacher votre propre ressource de calcul, bien que la prise en charge des différents scénarios puisse varier comme indiqué ci-dessous :
 
-|Cible de calcul| Accélération GPU | Réglage automatisé des hyperparamètres | Sélection automatisée du modèle | Peut être utilisé dans les pipelines|
+|Cible de calcul| Accélération GPU | Réglage automatisé des hyperparamètres | Machine learning automatisé | Pipelines faciles à utiliser|
 |----|:----:|:----:|:----:|:----:|
 |[Ordinateur local](#local)| Peut-être | &nbsp; | ✓ | &nbsp; |
-|[Data Science Virtual Machine (DSVM)](#dsvm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Capacité de calcul Azure Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
+|[Machine virtuelle distante](#vm) | ✓ | ✓ | ✓ | ✓ |
+|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | ✓ | ✓[*](#pipeline-only) |
 |[Service Analytique Azure Data Lake](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
 > [!IMPORTANT]
-> <a id="pipeline-only"></a>* Azure Databricks et Azure Data Lake Analytics peuvent __uniquement__ être utilisés dans un pipeline. Pour plus d’informations sur les pipelines, consultez le document [Pipelines dans Azure Machine Learning](concept-ml-pipelines.md).
-
-__[Azure Container Instances (ACI)](#aci)__  peut également être utilisé pour entraîner des modèles. Il s’agit d’une offre de cloud serverless peu coûteuse et facile à créer et à utiliser. ACI ne prend pas en charge l’accélération GPU, le réglage automatisé des hyperparamètres, ni la sélection automatisée du modèle. De plus, vous ne pouvez pas l’utiliser dans un pipeline.
-
-Les principales différences entre les cibles de calcul sont les suivantes :
-* __Accélération GPU__ : les GPU sont disponibles avec Data Science Virtual Machine et Azure Batch AI. Vous pouvez avoir accès à un GPU sur votre ordinateur local, en fonction du matériel, des pilotes et des frameworks installés.
-* __Réglage automatisé des hyperparamètres__ : l’optimisation automatisée des hyperparamètres Azure Machine Learning vous aide à trouver les meilleures hyperparamètres pour votre modèle.
-* __Sélection automatisée du modèle__ : le service Azure Machine Learning peut recommander de manière intelligente une sélection d’algorithmes et d’hyperparamètres durant la génération d’un modèle. La sélection automatisée du modèle vous aide à obtenir un modèle de haute qualité plus rapidement que si vous deviez essayer manuellement différentes combinaisons. Pour plus d’informations, consultez le [Tutoriel : Entraîner automatiquement un modèle de classification avec le machine learning automatisé dans Azure Machine Learning](tutorial-auto-train-models.md).
-* __Pipelines__ : le service Azure Machine Learning vous permet de combiner différentes tâches telles que l’entraînement et le déploiement dans un pipeline. Les pipelines peuvent être exécutés en parallèle ou séquentiellement, et ils procurent un mécanisme d’automation fiable. Pour plus d’informations, consultez le document [Générer des pipelines de machine learning avec le service Azure Machine Learning](concept-ml-pipelines.md).
-
-Vous pouvez utiliser le SDK Azure Machine Learning, Azure CLI ou le portail Azure pour créer des cibles de calcul. Vous pouvez également utiliser des cibles de calcul existantes en les ajoutant (attachant) à votre espace de travail.
+> <a id="pipeline-only"></a>__*__ Azure Databricks et Azure Data Lake Analytics peuvent être utilisés __seulement__ dans un pipeline. Pour plus d’informations sur les pipelines, consultez le document [Pipelines dans Azure Machine Learning](concept-ml-pipelines.md).
 
 > [!IMPORTANT]
-> Vous ne pouvez pas attacher une instance ACI existante à votre espace de travail. Au lieu de cela, vous devez créer une nouvelle instance.
+> Capacité de calcul Azure Machine Learning doit être créé depuis un espace de travail. Vous ne pouvez pas attacher des instances existantes à un espace de travail.
 >
-> Vous ne pouvez pas créer Azure HDInsight, Azure Databricks ou Azure Data Lake Store au sein d’un espace de travail. Au lieu de cela, vous devez créer la ressource puis l’attacher à votre espace de travail.
+> Les autres cibles de calcul doivent être créées en dehors d’Azure Machine Learning, puis attachées à votre espace de travail.
+
+> [!NOTE]
+> Certaines cibles de calcul s’appuient sur des images de conteneur Docker lors de l’entraînement d’un modèle. L’image de base GPU doit être utilisée seulement sur les services Microsoft Azure. Pour l’entraînement des modèles, ces services sont :
+>
+> * Capacité de calcul Azure Machine Learning
+> * Azure Kubernetes Service
+> * Data Science Virtual Machine
 
 ## <a name="workflow"></a>Workflow
 
@@ -73,11 +76,14 @@ Le workflow de développement et de déploiement de modèle avec Azure Machine L
 > [!IMPORTANT]
 > Votre script d’entraînement n’est pas lié à une cible de calcul spécifique. Vous pouvez effectuer l’entraînement initial sur votre ordinateur local, puis changer de cible de calcul sans avoir à réécrire le script d’entraînement.
 
+> [!TIP]
+> Chaque fois que vous associez une cible de calcul à votre espace de travail, en créant une capacité de calcul managée ou en attachant une capacité de calcul existante, vous devez spécifier un nom pour votre capacité de calcul. Il doit comprendre entre 2 et 16 caractères.
+
 Le basculement d’une cible de calcul à une autre implique la création d’une [configuration d’exécution](concept-azure-machine-learning-architecture.md#run-configuration). La configuration d’exécution définit comment exécuter le script sur la cible de calcul.
 
 ## <a name="training-scripts"></a>Scripts d’entraînement
 
-Quand vous démarrez une exécution d’entraînement, l’ensemble du répertoire qui contient vos scripts d’entraînement est envoyé. Un instantané est créé et envoyé à la cible de calcul. Pour plus d’informations, consultez [Instantanés](concept-azure-machine-learning-architecture.md#snapshot).
+Quand vous démarrez une exécution d’entraînement, un instantané du répertoire qui contient vos scripts d’entraînement est créé et envoyé à la cible de calcul. Pour plus d’informations, consultez [Instantanés](concept-azure-machine-learning-architecture.md#snapshot).
 
 ## <a id="local"></a>Ordinateur local
 
@@ -99,7 +105,6 @@ run_config_user_managed.environment.python.user_managed_dependencies = True
 #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
 ```
 
-Pour un obtenir un notebook Jupyter qui fait la démonstration d’un entraînement dans un environnement géré par l’utilisateur, consultez [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
   
 ### <a name="system-managed-environment"></a>Environnement géré par le système
 
@@ -121,53 +126,152 @@ run_config_system_managed.auto_prepare_environment = True
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
 
-Pour un obtenir un notebook Jupyter qui fait la démonstration d’un entraînement dans un environnement géré par le système, consultez [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
+## <a id="amlcompute"></a>Capacité de calcul Azure Machine Learning
 
-## <a id="dsvm"></a>Data Science Virtual Machine
+Capacité de calcul Machine Learning est une infrastructure de capacité de calcul managée qui permet à l’utilisateur de créer facilement une capacité de calcul à un ou plusieurs nœuds. Il est créé __dans la région de votre espace de travail__ et il s’agit d’une ressource qui peut être partagée avec d’autres utilisateurs dans votre espace de travail. Il fait l’objet d’un scale-up automatique quand un travail est soumis et peut être placé dans un réseau virtuel Azure. Il s’exécute dans un __environnement conteneurisé__, avec un empaquetage des dépendances de votre modèle dans un conteneur Docker.
 
-Il se peut que votre ordinateur local ne dispose pas des ressources de calcul ou GPU nécessaires pour entraîner le modèle. Dans ce cas, vous pouvez effectuer une montée en charge ou en puissance du processus d’entraînement en ajoutant des cibles de calcul telles que des images DSVM (Data Science Virtual Machines).
+Vous pouvez utiliser une capacité de calcul Azure Machine Learning pour distribuer le processus d’entraînement sur un cluster de nœuds de capacité de calcul de CPU ou de GPU dans le cloud. Pour plus d’informations sur les tailles de machine virtuelle qui incluent des GPU, consultez la documentation [Tailles de machine virtuelle à GPU optimisé](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
+
+> [!NOTE]
+> Capacité de calcul Azure Machine Learning a des limites par défaut sur des éléments comme le nombre de cœurs qui peuvent être alloués. Pour plus d’informations, consultez le document [Gérer et demander des quotas pour les ressources Azure](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
+
+Vous pouvez créer une Capacité de calcul Azure Machine Learning à la demande quand vous planifiez une exécution ou comme ressource persistante.
+
+### <a name="run-based-creation"></a>Création basée sur l’exécution
+
+Vous pouvez créer une Capacité de calcul Azure Machine Learning comme cible de calcul au moment de l’exécution. Dans ce cas, la capacité de calcul est créée automatiquement pour votre exécution, fait l’objet d’un scale-up jusqu’à la valeur de max_nodes que vous spécifiez dans la configuration de votre exécution, puis elle est __supprimée automatiquement__ après l’exécution.
+
+> [!IMPORTANT]
+> La création de la Capacité de calcul Azure Machine Learning basée sur l’exécution est actuellement en préversion. N’utilisez pas la création basée sur l’exécution si vous utilisez l’optimisation des hyperparamètres ou le machine learning automatisé. Si vous avez besoin d’utiliser l’optimisation des hyperparamètres ou le machine learning automatisé, créez la Capacité de calcul Azure Machine Learning avant de soumettre une exécution.
+
+```python
+from azureml.core.compute import ComputeTarget, AmlCompute
+
+#Let us first list the supported VM families for Azure Machine Learning Compute
+AmlCompute.supported_vmsizes()
+
+from azureml.core.runconfig import RunConfiguration
+
+# create a new runconfig object
+run_config = RunConfiguration()
+
+# signal that you want to use AmlCompute to execute script.
+run_config.target = "amlcompute"
+
+# AmlCompute will be created in the same region as workspace. Set vm size for AmlCompute from the list returned above
+run_config.amlcompute.vm_size = 'STANDARD_D2_V2'
+
+```
+
+### <a name="persistent-compute-basic"></a>Capacité de calcul persistante (De base)
+
+Une Capacité de calcul Azure Machine Learning persistante peut être réutilisée par plusieurs travaux. Il peut être partagé avec d’autres utilisateurs dans l’espace de travail et conservé entre les travaux.
+
+Pour créer une ressource Capacité de calcul Azure Machine Learning persistante, vous spécifiez les paramètres `vm_size` et `max_nodes`. Azure Machine Learning utilise ensuite des valeurs calculées par défaut pour le reste des paramètres.  Par exemple, la capacité de calcul est définie de façon à se mettre à l’échelle automatiquement avec zéro nœud quand elle n’est pas utilisée et à créer des machines virtuelles dédiées pour exécuter vos travaux en fonction des besoins. 
+
+* **vm_size** : famille de machines virtuelles des nœuds créés par Capacité de calcul Azure Machine Learning.
+* **max_nodes** : nombre maximal de nœuds pour la mise à l’échelle automatique lors de l’exécution d’un travail sur Capacité de calcul Azure Machine Learning.
+
+```python
+from azureml.core.compute import ComputeTarget, AmlCompute
+from azureml.core.compute_target import ComputeTargetException
+
+# Choose a name for your CPU cluster
+cpu_cluster_name = "cpucluster"
+
+# Verify that cluster does not exist already
+try:
+    cpu_cluster = ComputeTarget(workspace=ws, name=cpu_cluster_name)
+    print('Found existing cluster, use it.')
+except ComputeTargetException:
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                           max_nodes=4)
+    cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
+
+cpu_cluster.wait_for_completion(show_output=True)
+
+```
+
+### <a name="persistent-compute-advanced"></a>Capacité de calcul persistante (Avancé)
+
+Vous pouvez aussi configurer plusieurs propriétés avancées lors de la création d’une Capacité de calcul Azure Machine Learning.  Ces propriétés vous permettent de créer un cluster persistant de taille fixe, ou au sein d’un réseau virtuel Azure existant dans votre abonnement.
+
+En plus de `vm_size` et `max_nodes`, vous pouvez utiliser les propriétés suivantes :
+
+* **min_nodes** : nombre minimal de nœuds (0 nœud par défaut) pour la mise à l’échelle décroissante lors de l’exécution d’un travail sur Capacité de calcul Azure Machine Learning.
+* **vm_priority** : choisissez entre des machines virtuelles « dédiées » (valeur par défaut) et « lowpriority » (Basse priorité) lors de la création de la Capacité de calcul Azure Machine Learning. Les machines virtuelles basse priorité utilisent les capacités excédentaires d’Azure : elles sont par conséquent moins chères, mais risquent de faire passer votre exécution après d’autres travaux.
+* **idle_seconds_before_scaledown** : durée d’attente d’inactivité (120 secondes par défaut) après l’achèvement de l’exécution avant la mise à l’échelle vers min_nodes.
+* **vnet_resourcegroup_name** : groupe de ressources du réseau virtuel __existant__. La Capacité de calcul Azure Machine Learning est créée dans ce réseau virtuel.
+* **vnet_name** : nom du réseau virtuel. Le réseau virtuel doit être dans la même région que votre espace de travail Azure Machine Learning.
+* **subnet_name** : nom du sous-réseau au sein du réseau virtuel. Les ressources de la Capacité de calcul Azure Machine Learning recevront des adresses IP de la plage de ce sous-réseau.
+
+> [!TIP]
+> Quand vous créez une ressource de Capacité de calcul Azure Machine Learning persistante vous avez également la possibilité de mettre à jour ses propriétés, comme min_nodes ou max_nodes. Appelez simplement la fonction `update()` pour celle-ci.
+
+```python
+from azureml.core.compute import ComputeTarget, AmlCompute
+from azureml.core.compute_target import ComputeTargetException
+
+# Choose a name for your CPU cluster
+cpu_cluster_name = "cpucluster"
+
+# Verify that cluster does not exist already
+try:
+    cpu_cluster = ComputeTarget(workspace=ws, name=cpu_cluster_name)
+    print('Found existing cluster, use it.')
+except ComputeTargetException:
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                           vm_priority='lowpriority',
+                                                           min_nodes=2,
+                                                           max_nodes=4,
+                                                           idle_seconds_before_scaledown='300',
+                                                           vnet_resourcegroup_name='<my-resource-group>',
+                                                           vnet_name='<my-vnet-name>',
+                                                           subnet_name='<my-subnet-name>')
+    cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
+
+cpu_cluster.wait_for_completion(show_output=True)
+
+```
+
+
+## <a id="vm"></a>Machine virtuelle distante
+
+Azure Machine Learning prend également en charge l’utilisation de votre propre ressource de calcul et son attachement à votre espace de travail. Un tel type de ressource est une machine virtuelle distante arbitraire tant qu’elle est accessible depuis le service Azure Machine Learning. Il peut s’agir d’une machine virtuelle Azure ou d’un serveur distant dans votre organisation, ou encore d’un serveur local. En particulier, avec l’adresse IP et les informations d’identification (nom d’utilisateur/mot de passe ou clé SSH), vous pouvez utiliser n’importe quelle machine virtuelle accessible pour les exécutions à distance.
+Vous pouvez utiliser un environnement Conda intégré au système, un environnement Python déjà existant ou un conteneur Docker. L’exécution avec un conteneur Docker nécessite que le moteur Docker soit en cours d’exécution sur la machine virtuelle. Cette fonctionnalité est particulièrement pratique quand vous voulez obtenir un environnement cloud de développement/expérience plus flexible que votre ordinateur local.
+
+> [!TIP]
+> Nous recommandons l’utilisation de Data Science Virtual Machine comme choix de machine virtuelle Azure pour ce scénario. Il s’agit d’un environnement préconfiguré de développement de science des données et d’intelligence artificielle dans Azure, avec un choix organisé d’outils et de frameworks pour le cycle de vie complet du développement ML. Pour plus d’informations sur l’utilisation de Data Science Virtual Machine avec Azure Machine Learning, consultez le document [Configurer un environnement de développement](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm).
 
 > [!WARNING]
 > Azure Machine Learning prend uniquement en charge les machines virtuelles exécutant Ubuntu. Quand vous créez une machine virtuelle ou que vous sélectionnez une machine existante, vous devez en sélectionner une qui utilise Ubuntu.
 
 Les étapes suivantes utilisent le SDK pour configurer une DSVM comme cible d’entraînement :
 
-1. Créer ou attacher une machine virtuelle
+1. Pour attacher une machine virtuelle existante comme cible de calcul, vous devez fournir le nom de domaine complet, le nom de connexion et le mot de passe de la machine virtuelle.  Dans l’exemple, remplacez ```<fqdn>``` par le nom de domaine complet public de la machine virtuelle, ou l’adresse IP publique. Remplacez ```<username>``` et ```<password>``` par l’utilisateur SSH et le mot de passe de la machine virtuelle :
+
+    ```python
+    from azureml.core.compute import RemoteCompute, ComputeTarget
     
-    * Avant de créer une DSVM, vérifiez tout d’abord si vous avez une DSVM portant le même nom. Si ce n’est pas le cas, créez une machine virtuelle :
-    
-        ```python
-        from azureml.core.compute import DsvmCompute
-        from azureml.core.compute_target import ComputeTargetException
+    # Create compute config.
+    attach_config = RemoteCompute.attach_configuration(address = "ipaddress",
+                                                       ssh_port=22,
+                                                       username='<username>',
+                                                       password="<password>")
+    # If using SSH instead of a password, use this:
+    #                                                  ssh_port=22,
+    #                                                   username='<username>',
+    #                                                   password=None,
+    #                                                   private_key_file="path-to-file",
+    #                                                   private_key_passphrase="passphrase")
 
-        compute_target_name = 'mydsvm'
+    # Attach the compute
+    compute = ComputeTarget.attach(ws, "attach-dsvm", attach_config)
 
-        try:
-            dsvm_compute = DsvmCompute(workspace = ws, name = compute_target_name)
-            print('found existing:', dsvm_compute.name)
-        except ComputeTargetException:
-            print('creating new.')
-            dsvm_config = DsvmCompute.provisioning_configuration(vm_size = "Standard_D2_v2")
-            dsvm_compute = DsvmCompute.create(ws, name = compute_target_name, provisioning_configuration = dsvm_config)
-            dsvm_compute.wait_for_completion(show_output = True)
-        ```
-    * Pour attacher une machine virtuelle existante comme cible de calcul, vous devez fournir le nom de domaine complet, le nom de connexion et le mot de passe de la machine virtuelle.  Dans l’exemple, remplacez ```<fqdn>``` par le nom de domaine complet public de la machine virtuelle, ou l’adresse IP publique. Remplacez ```<username>``` et ```<password>``` par l’utilisateur SSH et le mot de passe de la machine virtuelle :
+    compute.wait_for_completion(show_output=True)
+    ```
 
-        ```python
-        from azureml.core.compute import RemoteCompute
-
-        dsvm_compute = RemoteCompute.attach(ws,
-                                        name="attach-dsvm",
-                                        username='<username>',
-                                        address="<fqdn>",
-                                        ssh_port=22,
-                                        password="<password>")
-
-        dsvm_compute.wait_for_completion(show_output=True)
-    
-   It takes around 5 minutes to create the DSVM instance.
-
-1. Create a configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on DSVM:
+1. Créer une configuration pour la cible de calcul de DSVM. Docker et Conda sont utilisés pour créer et configurer l’environnement d’entraînement sur DSVM :
 
     ```python
     from azureml.core.runconfig import RunConfiguration
@@ -198,124 +302,6 @@ Les étapes suivantes utilisent le SDK pour configurer une DSVM comme cible d’
 
     ```
 
-1. Pour supprimer les ressources de calcul quand vous avez terminé, utilisez le code suivant :
-
-    ```python
-    dsvm_compute.delete()
-    ```
-
-Pour un obtenir un notebook Jupyter qui fait la démonstration d’un entraînement sur une machine virtuelle DSVM, consultez [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb).
-
-## <a id="batch"></a>Azure Batch AI
-
-Si l’entraînement du modèle prend beaucoup de temps, vous pouvez utiliser Azure Batch AI pour répartir la charge d’entraînement sur un cluster de ressources de calcul dans le cloud. Batch AI peut également être configuré pour activer une ressource GPU.
-
-L’exemple suivant recherche un cluster Batch AI existant par nom. S’il n’en trouve aucun, il en crée un :
-
-```python
-from azureml.core.compute import BatchAiCompute
-from azureml.core.compute import ComputeTarget
-import os
-
-# choose a name for your cluster
-batchai_cluster_name = os.environ.get("BATCHAI_CLUSTER_NAME", ws.name + "gpu")
-cluster_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 1)
-cluster_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 3)
-vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_NC6")
-autoscale_enabled = os.environ.get("BATCHAI_CLUSTER_AUTOSCALE_ENABLED", True)
-
-
-if batchai_cluster_name in ws.compute_targets():
-    compute_target = ws.compute_targets()[batchai_cluster_name]
-    if compute_target and type(compute_target) is BatchAiCompute:
-        print('found compute target. just use it. ' + batchai_cluster_name)
-else:
-    print('creating a new compute target...')
-    provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
-                                                                vm_priority = 'lowpriority', # optional
-                                                                autoscale_enabled = autoscale_enabled,
-                                                                cluster_min_nodes = cluster_min_nodes, 
-                                                                cluster_max_nodes = cluster_max_nodes)
-
-    # create the cluster
-    compute_target = ComputeTarget.create(ws, batchai_cluster_name, provisioning_config)
-    
-    # can poll for a minimum number of nodes and for a specific timeout. 
-    # if no min node count is provided it will use the scale settings for the cluster
-    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-    
-     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
-    print(compute_target.status.serialize())
-```
-
-Pour attacher un cluster Batch AI existant comme cible de calcul, vous devez fournir l’ID de ressource Azure. Pour obtenir l’ID de ressource à partir du portail Azure, effectuez les étapes suivantes :
-1. Recherchez le service `Batch AI` sous **Tous les Services**.
-1. Cliquer sur le nom de l’espace de travail auquel appartient votre cluster.
-1. Sélectionner le cluster.
-1. Cliquer sur **Propriétés**.
-1. Copiez **l’ID**
-
-L’exemple suivant utilise le SDK pour attacher un cluster à votre espace de travail. Dans l’exemple, remplacez `<name>` par n’importe quel nom pour la cible de calcul. Le nom ne doit pas nécessairement correspondre au nom du cluster. Remplacez `<resource-id>` par l’ID de ressource Azure détaillé plus haut :
-
-```python
-from azureml.core.compute import BatchAiCompute
-BatchAiCompute.attach(workspace=ws,
-                      name=<name>,
-                      resource_id=<resource-id>)
-```
-
-Vous pouvez également vérifier l’état des travaux et du cluster Batch AI à l’aide des commandes Azure CLI suivantes :
-
-- Vérifiez l’état du cluster. Vous pouvez voir combien de nœuds sont en cours d’exécution à l’aide de `az batchai cluster list`.
-- Vérifiez l’état des travaux. Vous pouvez voir combien de travaux sont en cours d’exécution à l’aide de `az batchai job list`.
-
-La création du cluster Batch AI prend environ cinq minutes.
-
-Pour un obtenir un notebook Jupyter qui fait la démonstration d’un entraînement dans un cluster Batch AI, consultez [https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb).
-
-## <a name='aci'></a>Azure Container Instance (ACI)
-
-Les instances ACI sont des conteneurs isolés qui offrent des temps de démarrage plus courts et n’exigent pas la gestion de machines virtuelles par l’utilisateur. Le service Azure Machine Learning utilise des conteneurs Linux, qui sont disponibles dans les régions westus, eastus, westeurope, northeurope, westus2 et southeastasia. Pour plus d’informations, consultez [Disponibilité des régions](https://docs.microsoft.com/azure/container-instances/container-instances-quotas#region-availability). 
-
-L’exemple suivant montre comment utiliser le SDK pour créer une cible de calcul ACI et l’utiliser pour entraîner un modèle : 
-
-```python
-from azureml.core.runconfig import RunConfiguration
-from azureml.core.conda_dependencies import CondaDependencies
-
-# create a new runconfig object
-run_config = RunConfiguration()
-
-# signal that you want to use ACI to run script.
-run_config.target = "containerinstance"
-
-# ACI container group is only supported in certain regions, which can be different than the region the Workspace is in.
-run_config.container_instance.region = 'eastus'
-
-# set the ACI CPU and Memory 
-run_config.container_instance.cpu_cores = 1
-run_config.container_instance.memory_gb = 2
-
-# enable Docker 
-run_config.environment.docker.enabled = True
-
-# set Docker base image to the default CPU-based image
-run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-
-# use conda_dependencies.yml to create a conda environment in the Docker image
-run_config.environment.python.user_managed_dependencies = False
-
-# auto-prepare the Docker image when used for the first time (if it is not already prepared)
-run_config.auto_prepare_environment = True
-
-# specify CondaDependencies obj
-run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
-```
-
-La création d’une cible de calcul ACI peut prendre de quelques secondes à quelques minutes.
-
-Pour un obtenir un notebook Jupyter qui fait la démonstration d’un entraînement sur Azure Container Instances, consultez [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
-
 ## <a id="databricks"></a>Azure Databricks
 
 Azure Databricks est un environnement basé sur Apache Spark dans le cloud Azure. Il peut être utilisé comme une cible de calcul lors de l’apprentissage des modèles avec un pipeline Azure Machine Learning.
@@ -327,26 +313,16 @@ Azure Databricks est un environnement basé sur Apache Spark dans le cloud Azure
 
 Pour attacher Azure Databricks comme cible de calcul, vous devez utiliser le Kit de développement logiciel Azure Machine Learning et fournir les informations suivantes :
 
-* __Nom du calcul__ : nom que vous souhaitez attribuer à cette ressource de calcul.
-* __ID de ressource__ : ID de la ressource dans l’espace de travail Azure Databricks. Le texte suivant est un exemple de format pour cette valeur :
-
-    ```text
-    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.Databricks/workspaces/<databricks-workspace-name>
-    ```
-
-    > [!TIP]
-    > Pour obtenir l’ID de la ressource, utilisez la commande Azure CLI suivante. Remplacez `<databricks-ws>` par le nom de votre espace de travail Databricks :
-    > ```azurecli-interactive
-    > az resource list --name <databricks-ws> --query [].id
-    > ```
-
+* __Nom de la capacité de calcul__ : nom que vous voulez affecter à cette ressource de calcul.
+* __Nom de l’espace de travail Databricks__ : nom de l’espace de travail Azure Databricks.
 * __Jeton d’accès__ : jeton d’accès utilisé pour s’authentifier auprès d’Azure Databricks. Pour générer un jeton d’accès, consultez le document [Authentification](https://docs.azuredatabricks.net/api/latest/authentication.html).
 
 Le code suivant montre comment attacher Azure Databricks comme cible de calcul :
 
 ```python
 databricks_compute_name = os.environ.get("AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
-databricks_resource_id = os.environ.get("AML_DATABRICKS_RESOURCE_ID", "<databricks_resource_id>")
+databricks_workspace_name = os.environ.get("AML_DATABRICKS_WORKSPACE", "<databricks_workspace_name>")
+databricks_resource_group = os.environ.get("AML_DATABRICKS_RESOURCE_GROUP", "<databricks_resource_group>")
 databricks_access_token = os.environ.get("AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
 
 try:
@@ -355,13 +331,17 @@ try:
 except ComputeTargetException:
     print('compute not found')
     print('databricks_compute_name {}'.format(databricks_compute_name))
-    print('databricks_resource_id {}'.format(databricks_resource_id))
+    print('databricks_workspace_name {}'.format(databricks_workspace_name))
     print('databricks_access_token {}'.format(databricks_access_token))
-    databricks_compute = DatabricksCompute.attach(
-             workspace=ws,
-             name=databricks_compute_name,
-             resource_id=databricks_resource_id,
-             access_token=databricks_access_token
+
+    # Create attach config
+    attach_config = DatabricksCompute.attach_configuration(resource_group = databricks_resource_group,
+                                                           workspace_name = databricks_workspace_name,
+                                                           access_token = databricks_access_token)
+    databricks_compute = ComputeTarget.attach(
+             ws,
+             databricks_compute_name,
+             attach_config
          )
     
     databricks_compute.wait_for_completion(True)
@@ -378,24 +358,16 @@ Azure Data Lake Analytics est une plateforme analytique de Big Data dans le clou
 
 Pour attacher Data Lake Analytics comme cible de calcul, vous devez utiliser le Kit de développement logiciel Azure Machine Learning et fournir les informations suivantes :
 
-* __Nom du calcul__ : nom que vous souhaitez attribuer à cette ressource de calcul.
-* __ID de ressource__ : ID de la ressource du compte Data Lake Analytics. Le texte suivant est un exemple de format pour cette valeur :
-
-    ```text
-    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.DataLakeAnalytics/accounts/<datalakeanalytics-name>
-    ```
-
-    > [!TIP]
-    > Pour obtenir l’ID de la ressource, utilisez la commande Azure CLI suivante. Remplacez `<datalakeanalytics>` par le nom de votre compte Data Lake Analytics :
-    > ```azurecli-interactive
-    > az resource list --name <datalakeanalytics> --query [].id
-    > ```
+* __Nom de la capacité de calcul__ : nom que vous voulez affecter à cette ressource de calcul.
+* __Groupe de ressources__ : groupe de ressources contenant le compte Data Lake Analytics.
+* __Nom du compte__ : Le nom du compte Data Lake Analytics.
 
 Le code suivant montre comment attacher Data Lake Analytics comme cible de calcul :
 
 ```python
 adla_compute_name = os.environ.get("AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
-adla_resource_id = os.environ.get("AML_ADLA_RESOURCE_ID", "<adla_resource_id>")
+adla_resource_group = os.environ.get("AML_ADLA_RESOURCE_GROUP", "<adla_resource_group>")
+adla_account_name = os.environ.get("AML_ADLA_ACCOUNT_NAME", "<adla_account_name>")
 
 try:
     adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
@@ -403,11 +375,16 @@ try:
 except ComputeTargetException:
     print('compute not found')
     print('adla_compute_name {}'.format(adla_compute_name))
-    print('adla_resource_id {}'.format(adla_resource_id))
-    adla_compute = AdlaCompute.attach(
-             workspace=ws,
-             name=adla_compute_name,
-             resource_id=adla_resource_id
+    print('adla_resource_id {}'.format(adla_resource_group))
+    print('adla_account_name {}'.format(adla_account_name))
+    # create attach config
+    attach_config = AdlaCompute.attach_configuration(resource_group = adla_resource_group,
+                                                     account_name = adla_account_name)
+    # Attach ADLA
+    adla_compute = ComputeTarget.attach(
+             ws,
+             adla_compute_name,
+             attach_config
          )
     
     adla_compute.wait_for_completion(True)
@@ -416,7 +393,7 @@ except ComputeTargetException:
 > [!TIP]
 > Les pipelines Azure Machine Learning peuvent uniquement fonctionner avec les données stockées dans le magasin de données par défaut du compte Data Lake Analytics. Si les données dont vous avez besoin se trouvent dans un magasin non défini par défaut, vous pouvez utiliser un [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) pour copier les données avant l’apprentissage.
 
-## <a id="hdinsight"></a>Attacher un cluster HDInsight 
+## <a id="hdinsight"></a>Azure HDInsight 
 
 HDInsight est une plateforme populaire pour l’analytique de Big Data. Elle fournit Apache Spark, que vous pouvez utiliser pour entraîner votre modèle.
 
@@ -435,14 +412,17 @@ Pour configurer HDInsight comme cible de calcul, vous devez fournir le nom de do
 > ![Capture d’écran de la vue d’ensemble du cluster HDInsight avec l’entrée d’URL mise en surbrillance](./media/how-to-set-up-training-targets/hdinsight-overview.png)
 
 ```python
-from azureml.core.compute import HDInsightCompute
+from azureml.core.compute import HDInsightCompute, ComputeTarget
 
 try:
     # Attaches a HDInsight cluster as a compute target.
-    HDInsightCompute.attach(ws,name = "myhdi",
-                            address = "<fqdn>",
-                            username = "<username>",
-                            password = "<password>")
+    attach_config = HDInsightCompute.attach_configuration(address = "fqdn-or-ipaddress",
+                                                          ssh_port = 22,
+                                                          username = "username",
+                                                          password = None, #if using ssh key
+                                                          private_key_file = "path-to-key-file",
+                                                          private_key_phrase = "key-phrase")
+    compute = ComputeTarget.attach(ws, "myhdi", attach_config)
 except UserErrorException as e:
     print("Caught = {}".format(e.message))
     print("Compute config already attached.")
@@ -482,7 +462,6 @@ run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
-Pour un obtenir un notebook Jupyter qui fait la démonstration d’un entraînement avec Spark sur HDInsight, consultez [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
 
 ### <a name="submit-using-a-pipeline"></a>Soumettre à l’aide d’un pipeline
 
@@ -535,21 +514,23 @@ Suivez les étapes ci-dessus pour afficher la liste des cibles de calcul, puis p
     ![Ajouter une cible de calcul ](./media/how-to-set-up-training-targets/add-compute-target.png)
 
 1. Entrez un nom pour la cible de calcul.
-1. Sélectionnez le type de cible de calcul à attacher pour l’__Entraînement__. 
+1. Sélectionnez **Capacité de calcul Machine Learning** comme type de capacité de calcul à utiliser pour __Entraînement__
 
     > [!IMPORTANT]
-    > Il n’est pas possible de créer tous les types de calcul à l’aide du portail Azure. Actuellement, les types qui peuvent être créés pour l’apprentissage sont les suivants :
-    > 
-    > * Machine virtuelle
-    > * Batch AI
+    > Vous pouvez créer une capacité de calcul Azure Machine Learning seulement comme capacité de calcul managée pour l’entraînement
 
-1. Sélectionnez __Créer nouveau__ et remplissez le formulaire. 
+1. Remplissez le formulaire demandé, en particulier la famille de machines virtuelles et le nombre maximal de nœuds à utiliser pour configurer la capacité de calcul 
 1. Sélectionnez __Créer__
-1. Vous pouvez afficher l’état de l’opération de création en sélectionnant la cible de calcul dans la liste.
+1. Vous pouvez afficher l’état de l’opération de création en sélectionnant la cible de calcul dans la liste
 
-    ![Afficher la liste des cibles de calcul](./media/how-to-set-up-training-targets/View_list.png) Vous verrez alors les détails de la cible de calcul.
-    ![Afficher les détails](./media/how-to-set-up-training-targets/vm_view.PNG)
-1. Vous pouvez maintenant soumettre une exécution par rapport à ces cibles comme indiqué ci-dessus.
+    ![Afficher la liste des capacités de calcul](./media/how-to-set-up-training-targets/View_list.png)
+
+1. Vous voyez alors les détails de la cible de calcul.
+
+    ![Afficher les détails](./media/how-to-set-up-training-targets/compute-target-details.png)
+
+1. Vous pouvez maintenant soumettre une exécution sur ces cibles, comme indiqué ci-dessus.
+
 
 ### <a name="reuse-existing-compute-in-your-workspace"></a>Réutiliser une cible de calcul existante dans votre espace de travail
 
@@ -557,18 +538,18 @@ Suivez les étapes ci-dessus pour afficher la liste des cibles de calcul, puis p
 
 1. Cliquez sur le signe **+** pour ajouter une cible de calcul.
 2. Entrez un nom pour la cible de calcul.
-3. Sélectionnez le type de cible de calcul à attacher pour l’Entraînement.
+3. Sélectionnez le type de capacité de calcul à attacher pour __Entraînement__.
 
     > [!IMPORTANT]
     > Il n’est pas possible d’attacher tous les types de calcul à l’aide du portail.
     > Actuellement, les types qui peuvent être attachés pour l’apprentissage sont les suivants :
     > 
-    > * Machine virtuelle
-    > * Batch AI
+    > * Machine virtuelle distante
+    > * Databricks
+    > * Data Lake Analytics
+    > * HDInsight
 
-1. Sélectionnez « Utiliser l’existant ».
-    - Lors de l’attachement de clusters Batch AI, sélectionnez la cible de calcul dans la liste déroulante, sélectionnez l’espace de travail Batch AI et le cluster Batch AI, puis cliquez sur **Créer**.
-    - Lors de l’attachement d’une machine virtuelle, entrez l’adresse IP, la combinaison nom d’utilisateur/mot de passe, les clés publique/privée et le port, puis cliquez sur Créer.
+1. Remplir le formulaire demandé
 
     > [!NOTE]
     > Microsoft recommande d’utiliser des clés SSH, car elles sont plus sûres que les mots de passe. Les mots de passe sont vulnérables aux attaques par force brute, alors que les clés SSH s’appuient sur des signatures de chiffrement. Pour plus d’informations sur la création de clés SSH pour une utilisation avec Machines virtuelles Azure, consultez les documents suivants :
@@ -576,18 +557,17 @@ Suivez les étapes ci-dessus pour afficher la liste des cibles de calcul, puis p
     > * [Créer et utiliser des clés SSH sur Linux ou macOS]( https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
     > * [Créer et utiliser des clés SSH sur Windows]( https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
-5. Vous pouvez afficher l’état du provisionnement en sélectionnant la cible de calcul dans la liste.
-6. Vous pouvez maintenant soumettre une exécution par rapport à ces cibles.
+1. Sélectionner Attacher
+1. Vous pouvez afficher l’état de l’opération d’attachement en sélectionnant la cible de calcul dans la liste
+1. Vous pouvez maintenant soumettre une exécution sur ces cibles, comme indiqué ci-dessus.
 
 ## <a name="examples"></a>Exemples
-Les notebooks suivants illustrent les concepts de cet article :
-* [01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
-* [01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm)
-* [01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci)
-* [01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark)
-* [tutorials/01.train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
+Reportez-vous aux notebooks dans les emplacements suivants :
+* [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
 
-Consultez ces notebooks : [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+* [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
+
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 9feb6ef5b708813c2f73a70a930cabfd69dff114
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 90b9a1104dd387c857e4955cabfb121773aedcca
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143469"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410061"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Que sont les conditions dans l’accès conditionnel Azure Active Directory ? 
 
-Vous pouvez contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud avec l’[accès conditionnel Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Dans une stratégie d’accès conditionnel, vous définissez la réponse (« Ensuite faire ») sur la raison du déclenchement de votre stratégie (« Quand cela se produit »). 
+Vous pouvez contrôler la façon dont les utilisateurs accèdent à vos applications cloud avec l’[accès conditionnel Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Dans une stratégie d’accès conditionnel, vous définissez la réponse (« Ensuite faire ») sur la raison du déclenchement de votre stratégie (« Quand cela se produit »). 
 
 ![Raison et réponse](./media/conditions/10.png)
 
@@ -50,7 +50,7 @@ Lorsque vous sélectionnez **Tous les utilisateurs**, votre stratégie est appli
 
 Lorsque vous **sélectionnez des utilisateurs et des groupes**, vous pouvez définir les options suivantes :
 
-* L’option **Tous les utilisateurs invités** permet de cibler une stratégie sur des utilisateurs invités B2B. Cette condition recherche tous les comptes d’utilisateur dont l’attribut **userType** a la valeur **invité**. Vous pouvez utiliser ce paramètre quand une stratégie doit être appliquée dès la création du compte dans un flux d’invitation dans Azure AD.
+* L’option **Tous les utilisateurs invités** permet de cibler une stratégie sur des utilisateurs invités B2B. Cette condition recherche tous les comptes d’utilisateur dont l’attribut **userType** a la valeur **invité**. Utilisez ce paramètre quand une stratégie doit être appliquée dès la création du compte dans un flux d’invitation dans Azure AD.
 
 * Les **rôles d’annuaire** permettent de cibler une stratégie selon l’attribution de rôle d’un utilisateur. Cette condition prend en charge les rôles d’annuaire comme **administrateur général** ou **administrateur de mots de passe**.
 
@@ -74,7 +74,7 @@ Sélectionnez :
 
 - **Toutes les applications cloud** pour que les stratégies de base s’appliquent à toute l’organisation. Procédez ainsi pour les stratégies qui requièrent l’authentification multifacteur lorsqu’un risque à la connexion est détecté sur une application cloud. Une stratégie appliquée à **toutes les applications cloud** concerne l’accès à tous les services et sites web. Ce paramètre n’est pas limité aux applications cloud de la liste **Sélection des applications**. 
 
-- Applications cloud individuelles pour cibler des services spécifiques par stratégie. Par exemple, vous pouvez demander aux utilisateurs d’avoir un [Appareil conforme](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) pour accéder à SharePoint Online. Cette stratégie s’applique aussi à d’autres services lorsqu’ils accèdent à des contenus SharePoint. Microsoft Teams en est un exemple. 
+- **Sélection des applications** pour cibler des services spécifiques avec votre stratégie. Par exemple, vous pouvez demander aux utilisateurs d’avoir un [Appareil conforme](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) pour accéder à SharePoint Online. Cette stratégie s’applique aussi à d’autres services lorsqu’ils accèdent à des contenus SharePoint. Microsoft Teams en est un exemple. 
 
 Vous pouvez exclure des applications spécifiques d’une stratégie. Toutefois, ces applications sont toujours soumises aux stratégies appliquées aux services auxquels elles accèdent. 
 
@@ -82,7 +82,7 @@ Vous pouvez exclure des applications spécifiques d’une stratégie. Toutefois,
 
 ## <a name="sign-in-risk"></a>Risque à la connexion
 
-Un risque à la connexion est une indication de la probabilité (haute, moyenne ou faible) qu’une tentative de connexion n’émane pas du propriétaire légitime d’un compte d’utilisateur. Azure AD calcule le niveau de risque à la connexion lors de la connexion d’un utilisateur. Vous pouvez utiliser le niveau de risque de connexion calculé en tant que condition dans une stratégie d’accès conditionnel.
+Un risque à la connexion est une indication de la probabilité (haute, moyenne ou faible) qu’une connexion n’émane pas du propriétaire légitime d’un compte d’utilisateur. Azure AD calcule le niveau de risque à la connexion lors de la connexion d’un utilisateur. Vous pouvez utiliser le niveau de risque de connexion calculé en tant que condition dans une stratégie d’accès conditionnel.
 
 ![Niveaux de risque à la connexion](./media/conditions/22.png)
 
@@ -93,7 +93,7 @@ Les cas d’utilisation courants pour cette condition sont des stratégies qui o
 - Bloquer les utilisateurs présentant un risque élevé. Cette protection empêche les utilisateurs potentiellement illégitimes d’accéder à vos applications cloud. 
 - Exiger une authentification multifacteur pour les utilisateurs présentant un risque moyen. En appliquant l’authentification multifacteur, vous pouvez fournir l’assurance supplémentaire que la connexion est effectuée par le propriétaire légitime d’un compte.
 
-Pour plus d’informations, consultez [Connexions risquées](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-security-risky-sign-ins).  
+Pour plus d’informations, consultez [Bloquer l’accès lorsqu’un risque de session est détecté](app-sign-in-risk.md).  
 
 ## <a name="device-platforms"></a>Plateformes d’appareils
 
@@ -111,13 +111,12 @@ Un cas d’usage commun pour cette condition est une stratégie qui limite l’a
 
 ## <a name="device-state"></a>État de l’appareil
 
-La condition d’état de l’appareil exclut les appareils hybrides joints à Azure AD et les appareils marqués comme conformes d’une stratégie d’accès conditionnel. Cette condition s’avère utile quand une stratégie doit s’appliquer uniquement un appareil non géré pour des raisons de renforcement de la sécurité des sessions. Par exemple, appliquez uniquement le contrôle de session Microsoft Cloud App Security quand un appareil n’est pas géré. 
+La condition d’état de l’appareil exclut les appareils hybrides joints à Azure AD et les appareils marqués comme conformes d’une stratégie d’accès conditionnel. 
 
 
 ![Configurer l’état de l’appareil](./media/conditions/112.png)
 
-Pour bloquer l’accès des appareils non gérés, implémentez un [accès conditionnel en fonction de l’appareil](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
-
+Cette condition s’avère utile quand une stratégie doit s’appliquer uniquement un appareil non géré pour des raisons de renforcement de la sécurité des sessions. Par exemple, appliquez uniquement le contrôle de session Microsoft Cloud App Security quand un appareil n’est pas géré. 
 
 ## <a name="locations"></a>Emplacements
 
@@ -136,98 +135,67 @@ Pour plus d’informations, consultez [Qu’est-ce que la condition d’emplacem
 
 ## <a name="client-apps"></a>Applications clientes
 
-En utilisant la condition d’applications client, vous pouvez appliquer une stratégie à différents types d’applications. Il peut s’agir de sites web, de services, d’applications mobiles et d’applications de bureau. 
+Par défaut, une stratégie d’accès conditionnel s’applique aux applications suivantes :
+
+- **[Applications de navigateur](technical-reference.md#supported-browsers)** - Parmi les applications de navigateur figurent les sites web qui utilisent le protocole d’authentification unique web SAML, WS-Federation ou OpenID Connect. Cette stratégie s’applique également à tout site ou service web inscrit en tant que client confidentiel OAuth. Par exemple : le site web Office 365 SharePoint. 
+
+- **[Applications de bureau et mobiles utilisant l’authentification moderne](technical-reference.md#supported-mobile-applications-and-desktop-clients)** - Parmi ces applications figurent les applications de bureau et de téléphone Office. 
 
 
+Vous pouvez également cibler une stratégie à des applications clientes spécifiques qui n’utilisent pas l’authentification moderne, par exemple :
 
-Une application entre dans les catégories suivantes :
+- **[Clients Exchange ActiveSync](conditions.md#exchange-activesync-clients)** - Quand une stratégie bloque l’utilisation d’Exchange ActiveSync, les utilisateurs affectés reçoivent un e-mail de quarantaine leur indiquant pourquoi ils sont bloqués. Si nécessaire, l’e-mail fournit des instructions sur l’inscription d’appareils à Intune.
 
-- Site web ou service, si elle utilise les protocoles d’authentification unique web, SAML, WS-Fed ou OpenID Connect pour un client confidentiel.
+- **[Autres clients](block-legacy-authentication.md)** - Parmi ces applications figurent les clients qui utilisent l’authentification de base avec des protocoles de messagerie comme IMAP, MAPI, POP et SMTP ainsi que les applications Office plus anciennes qui n’utilisent pas l’authentification moderne. Pour plus d’informations, consultez [Fonctionnement de l’authentification moderne pour les applications clientes Office 2013 et Office 2016](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
 
-- Application mobile ou de bureau, si elle utilise l’application mobile OpenID Connect pour un client natif.
+![Applications clientes](./media/conditions/41.png)
 
-Pour obtenir la liste des applications clientes utilisables dans une stratégie d’accès conditionnel, consultez [Client apps condition](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#client-apps-condition) (Condition des applications clientes) dans la référence technique sur l’accès conditionnel Azure Active Directory.
+Les cas d’utilisation courants pour cette condition sont des stratégies avec les exigences suivantes :
 
-Les cas d’utilisation courants pour cette condition sont des stratégies qui offrent les protections suivantes : 
+- **[Exiger un appareil géré](require-managed-devices.md)** pour les applications mobiles et de bureau qui téléchargent des données sur un appareil. En même temps, autorisez l’accès au navigateur à partir de n’importe quel appareil. Ce scénario empêche l’enregistrement et la synchronisation des documents sur un appareil non géré. Avec cette méthode, vous pouvez réduire le risque de perte de données si l’appareil est perdu ou volé.
 
-- Exigez un [appareil conforme](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) pour les applications mobiles et de bureau qui téléchargent de grandes quantités de données sur l’appareil. En même temps, autorisez l’accès au navigateur à partir de n’importe quel appareil.
+- **[Exiger un appareil géré](require-managed-devices.md)** pour les applications utilisant ActiveSync pour accéder à Exchange Online.
+
+- **[Bloquer l’authentification héritée](block-legacy-authentication.md)** à Azure AD (autres clients)
 
 - Bloquez l’accès aux applications web, mais autorisez l’accès à partir des applications de bureau et mobiles.
 
-Vous pouvez appliquer cette condition aux protocoles d’authentification modernes et d’authentification unique web. Vous pouvez également l’appliquer aux applications de messagerie qui utilisent Microsoft Exchange ActiveSync. Par exemple, aux applications de messagerie natives sur la plupart des smartphones. 
 
-Vous ne pouvez choisir la condition d’applications clientes que si Microsoft Office 365 Exchange Online est la seule application cloud que vous avez sélectionnée.
 
-![Applications cloud](./media/conditions/32.png)
+### <a name="exchange-activesync-clients"></a>Clients Exchange ActiveSync
 
-La sélection d’**Exchange ActiveSync** comme condition d’applications clientes n’est prise en charge que si vous n’avez pas d’autres conditions configurées dans une stratégie. Vous pouvez toutefois limiter l’étendue de cette condition pour qu’elle ne s’applique qu’aux plateformes prises en charge.
+Vous pouvez uniquement sélectionner **Clients Exchange ActiveSync** si :
 
+
+- Microsoft Office 365 Exchange Online est la seule application cloud que vous avez sélectionnée.
+
+    ![Applications cloud](./media/conditions/32.png)
+
+- Vous n’avez pas d’autres conditions configurées dans une stratégie. Vous pouvez toutefois limiter l’étendue de cette condition pour qu’elle ne s’applique qu’aux [plateformes prises en charge](technical-reference.md#device-platform-condition).
  
-![Appliquer la stratégie uniquement aux plateformes prises en charge](./media/conditions/33.png)
-
-L’application de cette condition uniquement aux plateformes prises en charge équivaut à toutes les plateformes d’appareils dans une [condition de plateforme d’appareil](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
-
-![Configurer des plateformes d’appareils](./media/conditions/34.png)
+    ![Appliquer la stratégie uniquement aux plateformes prises en charge](./media/conditions/33.png)
 
 
- Pour plus d’informations, voir les articles suivants :
+Quand l’accès est bloqué du fait qu’un [appareil géré](require-managed-devices.md) est exigé, les utilisateurs affectés reçoivent un message les invitant à utiliser Intune. 
+
+Si une application approuvée est exigée, les utilisateurs affectés reçoivent des instructions pour installer et utiliser le client mobile Outlook.
+
+Dans d’autres cas, par exemple si MFA est exigé, les utilisateurs affectés sont bloqués dans la mesure où les clients utilisant l’authentification de base ne prennent pas en charge MFA.
+
+Vous pouvez cibler uniquement ce paramètre à des utilisateurs et à des groupes. Il ne prend pas en charge les invités et les rôles. Si une condition relative à un invité ou un rôle est configurée, tous les utilisateurs sont bloqués dans la mesure où l’accès conditionnel ne peut pas déterminer si la stratégie doit s’appliquer à l’utilisateur ou non.
+
+
+ Pour plus d'informations, consultez les pages suivantes :
 
 - [Configurer SharePoint Online et Exchange Online pour l’accès conditionnel Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication)
  
 - [Accès conditionnel basé sur les applications Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) 
 
 
-### <a name="legacy-authentication"></a>Authentification héritée  
-
-L’accès conditionnel s’applique désormais aux clients Microsoft Office plus anciens qui ne prennent pas en charge l’authentification moderne. Il s’applique également aux clients qui utilisent des protocoles de messagerie tels que POP, IMAP et SMTP. À l’aide de l’authentification héritée, vous pouvez configurer des stratégies, telles que **bloquer l’accès à partir d’autres clients**.
-
-
-![Configurer les applications clientes](./media/conditions/160.png)  
-
-
-#### <a name="known-issues"></a>Problèmes connus
-
-- La configuration d’une stratégie pour **d’autres clients** bloque l’organisation entière à partir de certains clients tels que SPConnect. Ce blocage se produit, car les clients plus anciens s’authentifient de manière inattendue. Ce problème ne concerne pas aux principales applications Office, telles que les anciens clients Office. 
-
-- L’entrée en vigueur de la stratégie peut prendre jusqu’à 24 heures. 
-
-
-#### <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
-
-**Q :** Cette authentification bloquera-t-elle Microsoft Exchange Web Services ?
-
-Cela dépend du protocole d’authentification utilisé par Exchange Web Services. Si l’application Exchange Web Services utilise une authentification moderne, elle est couverte par l’application cliente **Applications mobiles et clients de bureau**. L’authentification de base est couverte par l’application cliente **Autres clients**.
-
-
-**Q :** Quels contrôles puis-je utiliser pour **Autres clients** ?
-
-N’importe quel contrôle peut être configuré pour **Autres clients**. Toutefois, l’expérience de l’utilisateur final bloquera l’accès dans tous les cas. Les **Autres clients** ne gèrent pas les contrôles tels que l’authentification multifacteur, la conformité de l’appareil et la jonction de domaine. 
- 
-**Q :** Quelles conditions puis-je utiliser pour **Autres clients** ?
-
-N’importe quelle condition peut être configurée pour **Autres clients**.
-
-**Q :** Exchange ActiveSync prend-il en charge toutes les conditions et tous les contrôles ?
-
-Non. La liste suivante résume la prise en charge Exchange ActiveSync : 
-
-- Exchange ActiveSync prend uniquement en charge le ciblage de groupe et d’utilisateur. Il ne prend pas en charge les invités et les rôles. Si une condition d’invité ou de rôle est configurée, tous les utilisateurs sont bloqués. Exchange ActiveSync bloque tous les utilisateurs, car il ne peut pas déterminer si la stratégie doit s’appliquer à l’utilisateur ou non.
-
-- Exchange ActiveSync fonctionne uniquement avec Microsoft Exchange Online en tant qu’application cloud. 
-
-- Exchange ActiveSync ne prend pas en charge les conditions, à l’exception de l’application cliente elle-même. 
-
-- Exchange ActiveSync peut être configuré avec n’importe quel contrôle. Tous les contrôles, à l’exception de la conformité des appareils, entraînent un blocage.
-
-**Q :** Les stratégies s’appliquent-elles par défaut à toutes les applications clientes à partir de maintenant ?
-
-Non. Il n’existe aucun changement de comportement dans la stratégie par défaut. Les stratégies continuent de s’appliquer au navigateur et aux applications mobiles/clients bureau par défaut.
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Démarrage rapide - Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory](app-based-mfa.md).
+- Pour apprendre à configurer une stratégie d’accès conditionnel, consultez [Démarrage rapide : Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory](app-based-mfa.md).
 
 - Pour configurer des stratégies d’accès conditionnel pour votre environnement, consultez les [meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](best-practices.md). 
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 53643b185825d4cc03073144e1b3547452629c08
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9df2e8762d546e6115dc1205548e927cfee7bb60
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497612"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341878"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 
@@ -81,9 +81,9 @@ Si un appareil ne peut pas utiliser les Kits device SDK, il peut toujours se con
 
   Pour plus d’informations sur la génération de jetons SAP, consultez la section consacrée aux appareils dans la rubrique [Utilisation de jetons de sécurité IoT Hub][lnk-sas-tokens].
 
-  Lors du test, vous pouvez également utiliser l’[extension Azure IoT Toolkit pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) multiplateforme ou l’outil [Device Explorer][lnk-device-explorer] afin de générer rapidement un jeton SAP que vous pouvez copier-coller dans votre propre code :
+  Lors du test, vous pouvez également utiliser l’[extension Azure IoT Hub Toolkit pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anciennement appelée extension Azure IoT Toolkit) multiplateforme ou l’outil [Device Explorer][lnk-device-explorer] afin de générer rapidement un jeton SAP que vous pouvez copier-coller dans votre propre code :
 
-Pour Azure IoT Toolkit :
+Pour Azure IoT Hub Toolkit :
 
   1. Déroulez l’onglet **APPAREILS AZURE IOT HUB** dans le coin inférieur gauche de Visual Studio Code.
   2. Faites un clic droit sur votre appareil et sélectionnez **Générer un jeton SAP pour l’appareil**.

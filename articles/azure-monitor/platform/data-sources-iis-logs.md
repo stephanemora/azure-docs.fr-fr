@@ -1,6 +1,6 @@
 ---
-title: Journaux IIS dans Azure Log Analytics | Microsoft Docs
-description: Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Log Analytics.  Cet article décrit comment configurer la collecte des journaux IIS et les détails des enregistrements qu’ils créent dans l’espace de travail Log Analytics.
+title: Journaux IIS dans Azure Monitor | Microsoft Docs
+description: Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Azure Monitor.  Cet article décrit comment configurer la collecte des journaux IIS et des détails des enregistrements qu'ils créent dans Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -8,36 +8,33 @@ manager: carmonm
 editor: tysonn
 ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2018
+ms.date: 11/28/2018
 ms.author: bwren
-ms.comopnent: ''
-ms.openlocfilehash: e33c30f9de56c4c5dd5f898a6a5136bbcef36c18
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: cd28eef249ae6b07b9e3f74b80c32a4b53370215
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336442"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436736"
 ---
-# <a name="iis-logs-in-log-analytics"></a>Journaux IIS dans Log Analytics
-Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Log Analytics.  
+# <a name="collect-iis-logs-in-azure-monitor"></a>Collecter des journaux IIS dans Azure Monitor
+Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Azure Monitor et stockés en tant que [données de journal](data-collection.md).
 
 ![Journaux IIS](media/data-sources-iis-logs/overview.png)
 
 ## <a name="configuring-iis-logs"></a>Configuration de journaux IIS
-Log Analytics regroupant les entrées des fichiers journaux créés par IIS, vous devez [configurer IIS pour la journalisation](https://technet.microsoft.com/library/hh831775.aspx).
+Azure Monitor regroupe des entrées des fichiers journaux créés par IIS. Vous devez donc [configurer IIS pour la journalisation](https://technet.microsoft.com/library/hh831775.aspx).
 
-Log Analytics prend en charge uniquement les fichiers journaux IIS stockés au format W3C, et ne prend pas en charge les champs personnalisés ou IIS Advanced Logging.  
-Log Analytics ne collecte pas de journaux aux formats natifs NCSA ou IIS.
+Azure Monitor prend en charge uniquement les fichiers journaux IIS stockés au format W3C, et ne prend pas en charge les champs personnalisés ou IIS Advanced Logging. Il ne collecte pas les journaux au format natif NCSA ou IIS.
 
-Configurez les journaux IIS dans Log Analytics à partir du [menu Données dans Paramètres Log Analytics](agent-data-sources.md#configuring-data-sources).  Aucune configuration n’est requise autre que la sélection de l’option **Collecter les fichiers journaux IIS au format W3C**.
+Configurez les journaux IIS dans Azure Monitor à partir du [menu des paramètres avancés](agent-data-sources.md#configuring-data-sources).  Aucune configuration n’est requise autre que la sélection de l’option **Collecter les fichiers journaux IIS au format W3C**.
 
 
 ## <a name="data-collection"></a>Collecte des données
-Log Analytics collecte les entrées de journal IIS à partir de chaque agent chaque fois que le journal est fermé et qu’un nouveau est créé. Cette fréquence est contrôlée par le paramètre de **planification de la substitution de fichier journal** pour le site IIS qui est, par défaut, défini sur une fois par jour. Par exemple, si le paramètre est **horaire**, Log Analytics collecte le journal toutes les heures.  Si le paramètre est **quotidien**, Log Analytics collecte le journal toutes les 24 heures.
+Azure Monitor collecte les entrées de journal IIS à partir de chaque agent, à chaque fois que le journal est fermé et qu’un nouveau est créé. Cette fréquence est contrôlée par le paramètre de **planification de la substitution de fichier journal** pour le site IIS qui est, par défaut, défini sur une fois par jour. Par exemple, si le paramètre est **horaire**, Azure Monitor collecte le journal toutes les heures.  Si le paramètre est **quotidien**, Azure Monitor collecte le journal toutes les 24 heures.
 
 
 ## <a name="iis-log-record-properties"></a>Propriétés d’enregistrement de journal IIS
@@ -67,7 +64,7 @@ Les enregistrements de journal IIS sont de type **W3CIISLog** et leurs propriét
 | TimeGenerated |Date et heure de consignation de l'entrée. |
 | TimeTaken |Délai de traitement de la requête en millisecondes. |
 
-## <a name="log-searches-with-iis-logs"></a>Recherches de journaux avec les journaux IIS
+## <a name="log-queries-with-iis-logs"></a>Enregistrer des requêtes avec les journaux IIS
 Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extraient des enregistrements de journaux IIS.
 
 | Requête | Description |
@@ -79,6 +76,5 @@ Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extra
 | W3CIISLog &#124; résumer sum(csBytes) par ordinateur &#124; prendre 500000 |Nombre total d'octets reçus par chaque ordinateur IIS. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Configurez Log Analytics pour collecter d’autres [sources de données](agent-data-sources.md) à analyser.
-* Découvrez les [recherches de journaux](../../log-analytics/log-analytics-queries.md) pour analyser les données collectées à partir de sources de données et de solutions.
-* Configurez les alertes dans Log Analytics pour être informé de façon proactive des conditions importantes rencontrées dans les journaux IIS.
+* Configurez Azure Monitor pour collecter d’autres [sources de données](agent-data-sources.md) à analyser.
+* Découvrez les [requêtes dans les journaux](../../log-analytics/log-analytics-queries.md) pour analyser les données collectées à partir de sources de données et de solutions.

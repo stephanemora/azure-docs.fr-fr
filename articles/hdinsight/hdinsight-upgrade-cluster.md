@@ -1,29 +1,24 @@
 ---
-title: Mettre à niveau le cluster HDInsight avec une version plus récente - Azure | Microsoft Docs
+title: Mettre à niveau le cluster HDInsight avec une version plus récente - Azure
 description: Découvrez comment mettre à niveau le cluster HDInsight vers une version plus récente.
 services: hdinsight
-documentationcenter: ''
-author: bhanupr
-manager: asadk
-editor: bhanupr
-ms.assetid: 60eb573c-e639-4815-9fc6-ea8b106d8dbc
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2017
-ms.author: bhanupr
-ms.openlocfilehash: 8845a049ebcda59bc0e6fd26618c33f51565e0ca
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 2ebfc4b0d9bb71cf51e0927e6399d30488c2f939
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225487"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409415"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Mettre à niveau le cluster HDInsight
 Pour tirer parti des dernières fonctionnalités proposées par HDInsight, nous vous recommandons de mettre à niveau les clusters HDInsight vers la version la plus récente. Suivez les instructions ci-dessous pour mettre à niveau vos clusters HDInsight.
 
-> [!NOTE]
+> [!NOTE]  
 > Pour obtenir des informations sur les versions HDInsight prises en charge, consultez [Quels sont les différents composants Hadoop disponibles avec HDInsight ?](hdinsight-component-versioning.md#supported-hdinsight-versions).
 >
 >
@@ -50,5 +45,5 @@ Une fois que vous avez vérifié que tout fonctionne comme prévu, planifiez un 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Se connecter à HDInsight à l’aide de SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
-* [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Gérer un cluster Linux avec Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 

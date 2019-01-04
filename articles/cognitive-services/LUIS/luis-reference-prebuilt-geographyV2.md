@@ -1,23 +1,24 @@
 ---
-title: Informations de référence sur l’entité prédéfinie geographyV2 - LUIS
+title: Entité prédéfinie geographyV2
 titleSuffix: Azure Cognitive Services
 description: Cet article contient des informations sur l’entité prédéfinie geographyV2 dans Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cjgronlund
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 3559bc02944f88f486104d4d9553f0c45a1f1754
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a81c97cf8883d2a3629d1eb1b9f6137609c6edda
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983410"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135098"
 ---
-# <a name="geographyv2-entity"></a>Entité geographyV2
+# <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie geographyV2 pour une application LUIS
 L’entité prédéfinie geographyV2 détecte les emplacements géographiques. Étant donné que cette entité est déjà entraînée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant geographyV2 aux intentions de l’application. L’entité geographyV2 est prise en charge pour la [culture](luis-reference-prebuilt-entities.md) Anglais.
 
 ## <a name="subtypes"></a>Sous-types
@@ -35,7 +36,7 @@ Les emplacements géographiques ont des sous-types :
 ## <a name="resolution-for-geographyv2-entity"></a>Résolution de l’entité geographyV2
 L’exemple suivant montre la résolution de l’entité **builtin.geographyV2**.
 
-```JSON
+```json
 {
     "query": "Carol is visiting the sphinx in gizah egypt in africa before heading to texas",
     "topScoringIntent": {

@@ -4,14 +4,14 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 5f7cbdd98d25855e9b8bb102413bd71148193318
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 488fbb2acbf43ac092a7834fc25f433ef09d2b00
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133893"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52973236"
 ---
-### <a name="server-auth"></a>Procédure : authentification auprès d’un fournisseur (flux serveur)
+### <a name="server-auth"></a>Guide pratique pour l’authentification auprès d’un fournisseur (flux serveur)
 Pour que Mobile Apps gère le processus d’authentification dans votre application, vous devez inscrire votre application auprès de votre fournisseur d’identité. Ensuite, dans Azure App Service, vous devez configurer l’ID d’application et le secret fournis par votre fournisseur.
 Pour plus d'informations, consultez le didacticiel [Ajout de l'authentification à votre application](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
 
@@ -32,7 +32,7 @@ Les valeurs valides pour le fournisseur sont « aad », « facebook », « 
 
 Dans ce cas, Azure App Service gère le flux d’authentification OAuth 2.0.  Il affiche la page de connexion du fournisseur sélectionné et génère un jeton d’authentification App Service après avoir établi une connexion avec le fournisseur d’identité. La fonction de connexion, quand elle est utilisée, renvoie un objet JSON qui expose l’ID utilisateur et le jeton d’authentification App Service dans les champs userId et authenticationToken, respectivement. Ce jeton peut être mis en cache et réutilisé jusqu'à ce qu'il arrive à expiration.
 
-### <a name="client-auth"></a>Procédure : authentification auprès d’un fournisseur (flux client)
+### <a name="client-auth"></a>Guide pratique pour l’authentification auprès d’un fournisseur (flux client)
 
 Votre application peut également contacter le fournisseur d’identité de manière indépendante, puis fournir le jeton renvoyé à App Service à des fins d’authentification. Le flux client permet de proposer l'authentification unique aux utilisateurs ou de récupérer d'autres données utilisateur auprès du fournisseur d'identité.
 
@@ -53,28 +53,7 @@ client.login(
 ```
 Cet exemple part du principe que le jeton fourni par le Kit de développement logiciel (SDK) propre au fournisseur est stocké dans une variable token.
 
-#### <a name="microsoft-account-example"></a>Exemple de compte Microsoft
-
-L'exemple suivant utilise le Kit de développement logiciel (SDK) Live, qui prend en charge l'authentification unique pour les applications Windows Store à l'aide d'un compte Microsoft :
-
-```
-WL.login({ scope: "wl.basic"}).then(function (result) {
-      client.login(
-            "microsoftaccount",
-            {"authenticationToken": result.session.authentication_token})
-      .done(function(results){
-            alert("You are now signed in as: " + results.userId);
-      },
-      function(error){
-            alert("Error: " + err);
-      });
-});
-
-```
-
-Cet exemple récupère un jeton de Live Connect, qui est fourni à App Service en appelant la fonction login.
-
-### <a name="auth-getinfo"></a>Procédure : obtention des informations sur l’utilisateur authentifié
+### <a name="auth-getinfo"></a>Guide pratique pour l’obtention des informations sur l’utilisateur authentifié
 
 Les informations d’authentification peuvent être récupérées du point de terminaison `/.auth/me` à l’aide d’un appel HTTP avec une bibliothèque AJAX.  Veillez à définir l’en-tête `X-ZUMO-AUTH` sur votre jeton d’authentification.  Le jeton d'authentification est stocké dans `client.currentUser.mobileServiceAuthenticationToken`.  Par exemple, pour utiliser l’API d’extraction :
 

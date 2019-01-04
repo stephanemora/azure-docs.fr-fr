@@ -12,38 +12,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 38120b2be2ab7789946a4ad2fe688954e6212189
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 21a6eeb4b0a83574be4c5c996e43d9867c3249d0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959024"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185730"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Fonctionnalités et concepts clés de Azure Stack
 Si vous ne connaissez pas encore Microsoft Azure Stack, ces termes et descriptions de fonctionnalité peuvent vous être utiles.
 
 ## <a name="personas"></a>Rôles
-Il existe deux types d’utilisateurs pour Microsoft Azure Stack, l’opérateur cloud (fournisseur) et le locataire (consommateur).
+Il existe deux types d’utilisateurs pour Microsoft Azure Stack : l’opérateur et l’utilisateur.
 
-* Un **opérateur cloud** peut configurer Azure Stack et gérer les offres, les plans, les services, les quotas et la tarification pour fournir des ressources à ses locataires.  Les opérateurs cloud gèrent aussi la capacité et répondent aux alertes.  
-* Un **locataire** (également appelé utilisateur) consomme des services proposés par l’administrateur de cloud. Les clients peuvent approvisionner, surveiller et gérer les services auxquels ils sont abonnés, tels que les Web Apps, le stockage et les machines virtuelles.
+* Un **opérateur** Azure Stack peut configurer Azure Stack en gérant les offres, les plans, les services, les quotas et la tarification pour fournir des ressources à ses utilisateurs locataires. Les opérateurs gèrent aussi la capacité et répondent aux alertes.  
+* Un **utilisateur** Azure Stack (également appelé locataire) consomme les services offerts par l’opérateur. Les utilisateurs peuvent provisionner, superviser et gérer les services auxquels ils sont abonnés, tels que les applications web, le stockage et les machines virtuelles.
 
 ## <a name="portal"></a>Portail
-Les principales méthodes d’interaction avec Microsoft Azure Stack sont le portail administrateur, le portail utilisateur et PowerShell.
+Les principales méthodes d’interaction avec Microsoft Azure Stack sont le portail d’administration, le portail utilisateur et PowerShell.
 
-Les portails Azure Stack sont chacun secondés par des instances distinctes d’Azure Resource Manager.  Un opérateur cloud utilise le portail administrateur pour gérer Azure Stack et effectuer des tâches telles que la création d’offres pour les locataires.  Le portail utilisateur (également appelé portail du locataire) fournit une expérience de libre-service pour la consommation de ressources cloud telles que des machines virtuelles, des comptes de stockage et des applications web. Pour plus d’informations, consultez [Utilisation des portails administrateur et utilisateur d’Azure Stack](azure-stack-manage-portals.md).
+Les portails Azure Stack sont chacun secondés par des instances distinctes d’Azure Resource Manager. Un opérateur utilise le portail d’administration pour gérer Azure Stack et effectuer des tâches telles que la création d’offres pour les locataires. Le portail utilisateur (également appelé portail du locataire) fournit une expérience de libre-service pour la consommation de ressources cloud telles que des machines virtuelles, des comptes de stockage et des applications web. Pour plus d’informations, consultez [Utilisation des portails administrateur et utilisateur d’Azure Stack](azure-stack-manage-portals.md).
 
 ## <a name="identity"></a>Identité 
-Azure Stack utilise Azure Active Directory (AAD) ou Active Directory Federation Services (AD FS) en tant que fournisseur d’identité.  
+Azure Stack utilise Azure Active Directory (Azure AD) ou Active Directory Federation Services (AD FS) comme fournisseur d’identité.  
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
-Azure Active Directory est le fournisseur d’identité Microsoft multilocataire basé sur le cloud.  La plupart des scénarios hybrides utilisent Azure Active Directory comme magasin d’identités.
+Azure AD est le fournisseur d’identité Microsoft multilocataire basé sur le cloud. La plupart des scénarios hybrides utilisent Azure AD comme magasin d’identités.
 
 ### <a name="active-directory-federation-services"></a>Services de fédération Active Directory (AD FS)
-Vous pouvez choisir d’utiliser les services AD FS pour les déploiements déconnectés d’Azure Stack.  Azure Stack, les fournisseurs de ressources et les autres applications fonctionnent quasiment de la même façon avec AD FS et avec Azure Active Directory. Azure Stack inclut sa propre instance d’AD FS et d’Active Directory, ainsi qu’une API Graph Active Directory. Le Kit de développement Azure Stack prend en charge les scénarios AD FS suivants :
+Vous pouvez choisir d’utiliser les services AD FS pour les déploiements déconnectés d’Azure Stack. Azure Stack, les fournisseurs de ressources et les autres applications fonctionnent quasiment de la même façon avec AD FS et Azure AD. Azure Stack inclut sa propre instance d’Active Directory ainsi qu’une API Graph Active Directory. Le Kit de développement Azure Stack prend en charge les scénarios AD FS suivants :
 
 - Se connecter au déploiement à l’aide d’AD FS
 - Créer une machine virtuelle avec des secrets dans Key Vault
@@ -93,9 +93,9 @@ Pour l’administrateur, un Abonnement Fournisseur par défaut est créé pendan
 Azure Resource Manager vous permet de travailler avec vos ressources d’infrastructure selon un modèle déclaratif et basé sur des modèles.   Il fournit une interface unique que vous pouvez utiliser pour déployer et gérer les composants de votre solution. Pour plus d’informations et pour obtenir des instructions, consultez [Présentation d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ### <a name="resource-groups"></a>Groupes de ressources
-Les groupes de ressources sont des ensembles de ressources, de services et d’applications, et chaque ressource a son type, tel que les machines virtuelles, les réseaux virtuels, les IP publiques, les comptes de stockage et les sites web. Chaque ressource doit être dans un groupe de ressources. Ceux-ci aident à organiser les ressources de manière logique, par exemple par charge de travail ou par emplacement.  Dans Microsoft Azure Stack, les ressources, telles que les plans et les offres, sont également gérées dans des groupes de ressources.
+Les groupes de ressources sont des ensembles de ressources, de services et d’applications, et chaque ressource a son type, tel que les machines virtuelles, les réseaux virtuels, les IP publiques, les comptes de stockage et les sites web. Chaque ressource doit être dans un groupe de ressources. Ceux-ci aident à organiser les ressources de manière logique, par exemple par charge de travail ou par emplacement. Dans Azure Stack, les ressources telles que les plans et les offres sont également gérées dans des groupes de ressources.
 
-Contrairement à [Azure](../azure-resource-manager/resource-group-move-resources.md), vous ne pouvez pas déplacer des ressources entre des groupes de ressources. Quand vous affichez les propriétés d’une ressource ou d’un groupe de ressources dans le portail d’administration Azure Stack, le bouton *Déplacer* est grisée et non disponible. 
+Contrairement à [Azure](../azure-resource-manager/resource-group-move-resources.md), vous ne pouvez pas déplacer des ressources Azure Stack entre des groupes de ressources. Quand vous affichez les propriétés d’une ressource ou d’un groupe de ressources dans le portail d’administration Azure Stack, le bouton *Déplacer* est grisée et non disponible. En outre, l’utilisation des actions **Changer le groupe de ressources** et **Changer l’abonnement** à partir des propriétés d’un groupe de ressources ou d’un élément de groupe de ressources n’est pas prise en charge. Toutes les tentatives de déplacement échoueront.
  
 ### <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
 Avec z Resource Manager, vous pouvez créer un modèle (au format JSON) qui définit le déploiement et la configuration de votre application. Ce modèle est connu sous le nom de modèle Azure Resource Manager et permet de définir le déploiement de façon déclarative. En utilisant un modèle, vous pouvez déployer votre application à plusieurs reprises tout au long du cycle de vie de l’application et avoir ainsi l’assurance que vos ressources présentent un état cohérent lors de leur déploiement.
@@ -103,7 +103,7 @@ Avec z Resource Manager, vous pouvez créer un modèle (au format JSON) qui déf
 ## <a name="resource-providers-rps"></a>Fournisseurs de ressources
 Les fournisseurs de ressources sont les services web qui constituent la base de tous les services IaaS et PaaS Azure. Azure Resource Manager s’appuie sur différents fournisseurs de ressources pour fournir l’accès aux services.
 
-Il existe quatre fournisseurs de ressources principaux : réseau, stockage, calcul et KeyVault. Chacun de ces fournisseurs vous permet de configurer et contrôler ses ressources respectives. Les administrateurs de services peuvent également ajouter de nouveaux fournisseurs de ressources personnalisés.
+Il existe quatre fournisseurs de ressources fondamentaux : Réseau, Stockage, Calcul et KeyVault. Chacun de ces fournisseurs vous permet de configurer et contrôler ses ressources respectives. Les administrateurs de services peuvent également ajouter de nouveaux fournisseurs de ressources personnalisés.
 
 ### <a name="compute-rp"></a>Fournisseur de ressources de calcul
 Le fournisseur de ressources de calcul (CRP) permet aux clients Azure Stack de créer leurs propres machines virtuelles. Le CRP inclut la possibilité de créer des machines virtuelles, ainsi que des extensions de machine virtuelle. Le service d’extension de machine virtuelle fournit des fonctionnalités IaaS pour les machines virtuelles Windows et Linux.  Par exemple, vous pouvez utiliser le CRP pour approvisionner une machine virtuelle Linux et exécuter des scripts Bash pendant le déploiement pour configurer la machine virtuelle.
@@ -129,7 +129,7 @@ Le Stockage File d’attente Azure fournit une messagerie cloud entre les compos
 Le fournisseur de ressources KeyVault fournit la gestion et l’audit des secrets, tels que les mots de passe et les certificats. Par exemple, un locataire peut utiliser le fournisseur de ressources KeyVault pour fournir des mots de passe ou des clés d’administrateur lors du déploiement de machine virtuelle.
 
 ## <a name="high-availability-for-azure-stack"></a>Haute disponibilité pour Azure Stack
-*S’applique à : Azure Stack 1802 et versions ultérieures*
+*S’applique à : Azure Stack 1802 et versions ultérieures*
 
 Pour garantir la haute disponibilité d’un système de production à plusieurs machines virtuelles dans Azure, ces machines virtuelles sont placées dans un groupe à haute disponibilité qui les répartit entre plusieurs domaines d’erreur et de mise à jour. Les [machines virtuelles déployées dans des groupes à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) sont ainsi physiquement isolées les uns des autres sur des racks de serveurs distincts, ce qui assure une résilience en cas d’échec, comme l’indique le diagramme suivant :
 
@@ -150,7 +150,7 @@ Pour les groupes de machines virtuelles identiques, un groupe à haute disponibi
 ## <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle (RBAC)
 Vous pouvez utiliser le contrôle RBAC pour accorder l’accès au système aux utilisateurs, groupes et services autorisés en leur attribuant des rôles au niveau de l’abonnement, du groupe de ressources ou de la ressource individuelle. Chaque rôle définit le niveau d’accès dont un utilisateur, un groupe ou un service dispose sur les ressources Microsoft Azure Stack.
 
-Le contrôle d’accès en fonction du rôle Azure comporte trois rôles de base qui s’appliquent à tous les types de ressources : Propriétaire, Contributeur et Lecteur. Le Propriétaire dispose d’un accès total à toutes les ressources, ainsi que le droit de déléguer l’accès à d’autres personnes. Le Contributeur peut créer et gérer tous types de ressources Azure, mais ne peut pas accorder l’accès à d’autres personnes. Le Lecteur peut uniquement afficher les ressources Azure existantes. Les autres rôles RBAC dans Azure permettent de gérer des ressources Azure spécifiques. Par exemple, le rôle de Contributeur de machine virtuelle autorise la création et la gestion de machines virtuelles, mais pas la gestion du réseau virtuel ou du sous-réseau auquel la machine virtuelle se connecte.
+Le contrôle d’accès en fonction du rôle Azure comporte trois rôles de base qui s’appliquent à tous les types de ressources : Propriétaire, Contributeur et Lecteur. Le Propriétaire dispose d’un accès total à toutes les ressources, ainsi que le droit de déléguer l’accès à d’autres personnes. Le Contributeur peut créer et gérer tous types de ressources Azure, mais ne peut pas accorder l’accès à d’autres personnes. Le Lecteur peut uniquement afficher les ressources Azure existantes. Les autres rôles RBAC dans Azure permettent de gérer des ressources Azure spécifiques. Par exemple, le rôle de Contributeur de machine virtuelle autorise la création et la gestion de machines virtuelles, mais pas la gestion du réseau virtuel ou du sous-réseau auquel la machine virtuelle se connecte.
 
 ## <a name="usage-data"></a>Données d'utilisation
 Microsoft Azure Stack collecte et agrège les données d’utilisation de tous les fournisseurs de ressources, et il les transmet à Azure en vue de leur traitement par la solution commerciale Azure. Les données d’utilisation collectées sur Azure Stack sont consultables par le biais d’une API REST. Il existe une API client, et des API fournisseur et fournisseur délégué cohérentes au niveau Azure pour obtenir des données d’utilisation sur tous les abonnements du locataire. Ces données peuvent être utilisées pour intégrer un outil ou un service externe de facturation ou de facturation interne. Une fois les données d’utilisation traitées par la solution commerciale Azure, elles peuvent être visualisées dans le portail de facturation Azure.

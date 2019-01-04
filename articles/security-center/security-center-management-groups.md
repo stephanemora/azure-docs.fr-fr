@@ -3,7 +3,7 @@ title: Gagner en visibilité au niveau locataire dans Azure Security Center | Mi
 description: Découvrez comment gagner en visibilité au niveau des locataires dans Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
-ms.author: terrylan
-ms.openlocfilehash: caab7e3d15f6d82ee4daf6eb343601ff849bfde5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: rkarlin
+ms.openlocfilehash: cb70c99d56cb1d09e561a44a90fd6c007ea9b59f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298776"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964115"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Gagner en visibilité au niveau locataire dans Azure Security Center
 Cet article vous aide à démarrer en effectuant plusieurs actions qui optimisent les avantages qu’offre Azure Security Center. En effet, en effectuant ces actions, vous obtenez une meilleure visibilité de tous les abonnements Azure qui sont liés à votre locataire Azure Active Directory et vous gérez efficacement la sécurité de votre organisation à grande échelle en appliquant des stratégies de sécurité sur plusieurs abonnements en même temps.
@@ -93,13 +93,16 @@ Pour faire gagner en visibilité à tous les abonnements, les administrateurs de
 #### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Attribuer des rôles RBAC aux utilisateurs via le portail Azure : 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
-2. Pour voir les groupes d’administration, sélectionnez **Tous les services** sous le menu principal d’Azure puis sélectionnez **Groupes d'administration**.
-3.  Sélectionnez un groupe d’administration et cliquez sur **Détails**.
+1. Pour voir les groupes d’administration, sélectionnez **Tous les services** sous le menu principal d’Azure puis sélectionnez **Groupes d'administration**.
+1.  Sélectionnez un groupe d’administration et cliquez sur **Détails**.
 
     ![Capture d’écran Détails des groupes d'administration](./media/security-center-management-groups/management-group-details.PNG)
  
-4. Cliquez sur **Contrôle d’accès (IAM)** puis **Ajouter**.
-5. Sélectionnez le rôle à affecter et l’utilisateur, puis cliquez sur **Enregistrer**.  
+1. Cliquez sur **Contrôle d’accès (IAM)**, puis **Attributions de rôles**.
+
+1. Cliquez sur **Ajouter une attribution de rôle**.
+
+1. Sélectionnez le rôle à affecter et l’utilisateur, puis cliquez sur **Enregistrer**.  
    
    ![Capture d’écran de l’ajout du rôle Lecteur Sécurité](./media/security-center-management-groups/asc-security-reader.png)
 

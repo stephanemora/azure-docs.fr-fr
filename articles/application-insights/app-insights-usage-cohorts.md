@@ -8,24 +8,23 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: d8bb7a975bd5bab8698d20e5d21514b79945eac6
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 4a7b5cd925bd4b66e25754c30de5cbaf866dab0b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564916"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970618"
 ---
 # <a name="application-insights-cohorts"></a>Cohortes Application Insights
 
 Une cohorte est un ensemble d’utilisateurs, de sessions, d’événements ou d’opérations qui partagent un point commun. Dans Azure Application Insights, les cohortes sont définies par une requête analytique. Si vous analysez un ensemble d’utilisateurs ou d’événements à plusieurs reprises, les cohortes vous offrent davantage de souplesse pour exprimer précisément ce qui vous intéresse.
 
-![Volet des cohortes](.\media\app-insights-usage-cohorts\001.png)
+![Volet des cohortes](./media/app-insights-usage-cohorts/001.png)
 
 ## <a name="cohorts-versus-basic-filters"></a>Cohortes ou filtres de base
 
@@ -36,7 +35,7 @@ Vous pouvez définir une cohorte pour les utilisateurs qui ont testé une nouvel
 > [!NOTE]
 > Une fois créées, les cohortes sont disponibles dans les outils Utilisateurs, Sessions, Événements et Flux d’utilisateurs.
 
-## <a name="example-engaged-users"></a>Exemple : utilisateurs engagés
+## <a name="example-engaged-users"></a>Exemple : Utilisateurs engagés
 
 Votre équipe définit un utilisateur engagé comme une personne qui utilise votre application au moins cinq fois pendant un mois donné. Dans cette section, vous allez définir une cohorte pour ces utilisateurs engagés.
 
@@ -53,14 +52,14 @@ Votre équipe définit un utilisateur engagé comme une personne qui utilise vot
 
 4. Sélectionnez **5+ days** (+ de 5 jours) dans **UsedAtLeastCustom** et conservez la valeur par défaut de 28 jours dans **Period** (Période).
 
-    ![Utilisateurs engagés](.\media\app-insights-usage-cohorts\003.png)
+    ![Utilisateurs engagés](./media/app-insights-usage-cohorts/003.png)
 
     Maintenant, cette cohorte représente tous les ID d’utilisateur qui ont été envoyés avec un événement personnalisé ou une page consultée sur cinq jours différents, au cours des 28 derniers jours.
 
 5. Sélectionnez **Enregistrer**.
 
    > [!TIP]
-   >  Attribuez un nom à votre cohorte, tel que « Utilisateurs engagés (+ de 5 jours) ». Enregistrez-la dans « Mes rapports » ou « Rapports partagés », selon que vous souhaitiez ou non autoriser d’autres personnes qui ont accès à cette ressource Application Insights, à voir cette cohorte.
+   > Attribuez un nom à votre cohorte, tel que « Utilisateurs engagés (+ de 5 jours) ». Enregistrez-la dans « Mes rapports » ou « Rapports partagés », selon que vous souhaitiez ou non autoriser d’autres personnes qui ont accès à cette ressource Application Insights, à voir cette cohorte.
 
 6. Sélectionnez **Back to Gallery** (Retour à la galerie).
 
@@ -70,15 +69,16 @@ Ouvrez l’outil Utilisateurs. Dans le menu déroulant **Afficher**, choisissez 
 
 Maintenant, l’outil Utilisateurs est filtré sur cette cohorte d’utilisateurs :
 
-![Volet Utilisateurs filtré sur une cohorte particulière](.\media\app-insights-usage-cohorts\004.png)
+![Volet Utilisateurs filtré sur une cohorte particulière](./media/app-insights-usage-cohorts/004.png)
 
 Voici quelques points importants à prendre en considération :
+
 * Vous ne pouvez pas créer cet ensemble à l’aide de filtres normaux. La logique de date est plus perfectionnée.
 * Vous pouvez filtrer davantage cette cohorte à l’aide des filtres normaux dans l’outil Utilisateurs. Par conséquent, même si la cohorte est définie sur des périodes de 28 jours, vous pouvez régler l’intervalle sur 30, 60 ou 90 jours dans l’outil Utilisateurs.
 
 Ces filtres prennent en charge des questions plus sophistiquées qui sont impossibles à exprimer via le Générateur de requêtes. Par exemple _personnes engagées au cours des 28 derniers jours. Quel a été le comportement de ces personnes au cours des 60 derniers jours ?_
 
-## <a name="example-events-cohort"></a>Exemple : cohorte d’événements
+## <a name="example-events-cohort"></a>Exemple : Cohorte d’événements
 
 Vous pouvez également créer des cohortes d’événements. Dans cette section, vous allez définir une cohorte pour ces événements et pour ces pages consultées. Ensuite, vous allez voir comment les utiliser dans d’autres outils. Cette cohorte peut définir un ensemble d’événements que votre équipe considère comme une _utilisation active_, ou un ensemble d’événements liés à une nouvelle fonctionnalité.
 
@@ -88,21 +88,21 @@ Vous pouvez également créer des cohortes d’événements. Dans cette section,
 
 3. Sélectionnez **Events Picker** (Sélecteur d’événements).
 
-    ![Capture d’écran d’Events Picker](.\media\app-insights-usage-cohorts\006.png)
+    ![Capture d’écran d’Events Picker](./media/app-insights-usage-cohorts/006.png)
 
 4. Dans le menu déroulant **Activities** (Activités), sélectionnez les événements que vous souhaitez inclure dans la cohorte.
 
 5. Enregistrez la cohorte et attribuez-lui un nom.
 
-## <a name="example-active-users-where-you-modify-a-query"></a>Exemple : utilisateurs actifs dont vous modifiez la requête
+## <a name="example-active-users-where-you-modify-a-query"></a>Exemple : utilisateurs actifs dont vous modifiez la requête
 
 Les deux cohortes précédentes ont été définies à l’aide de zones de liste déroulante. Toutefois, pour une flexibilité totale, vous pouvez également définir des cohortes avec des requêtes analytiques. Voyons comment faire en créant une cohorte d’utilisateurs du Royaume-Uni.
 
-![Présentation animée de l’utilisation de l’outil Cohorts](.\media\app-insights-usage-cohorts\cohorts0001.gif)
+![Présentation animée de l’utilisation de l’outil Cohorts](./media/app-insights-usage-cohorts/cohorts0001.gif)
 
 1. Ouvrez l’outil Cohortes, sélectionnez l’onglet **Galerie des modèles**, puis sélectionnez **Cohorte d’utilisateurs vide**.
 
-    ![Cohorte d’utilisateurs vide](.\media\app-insights-usage-cohorts\001.png)
+    ![Cohorte d’utilisateurs vide](./media/app-insights-usage-cohorts/001.png)
 
     Les sections sont au nombre de trois :
     * Une section de texte Markdown, où vous pouvez décrire la cohorte plus en détail pour les membres de votre équipe.
@@ -137,7 +137,8 @@ Les cohortes et les filtres sont différents. Supposons que vous ayez une cohort
 * La version filtre n’affiche que les événements du Royaume-Uni. Toutefois, si vous fractionnez les données par pays ou région, vous ne voyez que celles du Royaume-Uni.
 
 ## <a name="learn-more"></a>En savoir plus
-- [Langage de requête Analytics](https://go.microsoft.com/fwlink/?linkid=856587)
-- [Utilisateurs, sessions, événements](app-insights-usage-segmentation.md)
-- [Flux d’utilisateurs](app-insights-usage-flows.md)
-- [Vue d’ensemble de l’utilisation](app-insights-usage-overview.md)
+
+* [Langage de requête Analytics](https://go.microsoft.com/fwlink/?linkid=856587)
+* [Utilisateurs, sessions, événements](app-insights-usage-segmentation.md)
+* [Flux d’utilisateurs](app-insights-usage-flows.md)
+* [Vue d’ensemble de l’utilisation](app-insights-usage-overview.md)

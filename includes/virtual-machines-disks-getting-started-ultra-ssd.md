@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b28830ac2634ad2238d834238de83c9184bcd6f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ec8fa6c06dff0091627a800c895d45fd3b0e778e
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47010389"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53381469"
 ---
 # <a name="enabling-azure-ultra-ssds"></a>Activation d’Azure Ultra SSD
 
@@ -84,6 +84,6 @@ Une fois que la machine virtuelle est provisionnée, vous pouvez partitionner et
 - Ultra SSD permet la modification des attributs de performances des disques (IOPS et débit) lors de l’exécution, sans détacher le disque de la machine virtuelle. Une fois qu’une opération de redimensionnement de performances de disque est émise sur un disque, elle peut mettre jusqu’à une heure à être appliquée.
 - Pour augmenter la capacité du disque, vous devez désallouer une machine virtuelle.
 
-# <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Si vous souhaitez essayer le nouveau type de disque alors que vous n’êtes pas inscrit à la préversion, [demandez l’accès par le biais de cette enquête](https://aka.ms/UltraSSDPreviewSignUp).

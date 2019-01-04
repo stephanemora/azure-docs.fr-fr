@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: a17e2fa4bef6890d59f7e66c6ede349f8dee3b8a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e535d1c2c581e20667a1ccf10fc97fcf988bc91a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280451"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001832"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
 La communauté Kubernetes publie des versions mineures à peu près tous les trois mois. Ces versions contiennent de nouvelles fonctionnalités et des améliorations. Les publications de correctifs sont plus fréquentes (parfois hebdomadaires) et sont destinées seulement aux correctifs de bogues critiques dans une version mineure. Ces publications de correctifs incluent des correctifs pour des vulnérabilités de sécurité ou des bogues majeurs, ayant un impact sur un grand nombre de clients et de produits exécutés en production et basés sur Kubernetes.
 
-Une nouvelle version mineure de Kubernetes est rendue disponible dans [acs-engine][acs-engine] au jour Un. L’objectif de niveau de service d’AKS cible la publication de la version mineure pour les clusters AKS dans les 30 jours, soumis à la stabilité de la version.
+Une nouvelle version mineure de Kubernetes est rendue disponible dans [aks-engine][aks-engine] au jour Un. L’objectif de niveau de service d’AKS cible la publication de la version mineure pour les clusters AKS dans les 30 jours, soumis à la stabilité de la version.
 
 ## <a name="kubernetes-version-support-policy"></a>Stratégie de prise en charge des versions de Kubernetes
 
@@ -41,19 +41,19 @@ Pour savoir quelles sont les versions disponibles pour vos abonnement et région
 az aks get-versions --location eastus --output table
 ```
 
-La sortie est similaire à l’exemple suivant, qui montre que la version Kubernetes *1.11.3* est la version disponible la plus récente :
+La sortie est similaire à l’exemple suivant, qui montre que la version Kubernetes *1.11.5* est la version disponible la plus récente :
 
 ```
 KubernetesVersion    Upgrades
 -------------------  ----------------------
-1.11.3               None available
-1.11.2               1.11.3
-1.10.8               1.11.2, 1.11.3
-1.10.7               1.10.8, 1.11.2, 1.11.3
-1.9.10               1.10.7, 1.10.8
-1.9.9                1.9.10, 1.10.7, 1.10.8
-1.8.15               1.9.9, 1.9.10
-1.8.14               1.8.15, 1.9.9, 1.9.10
+1.11.5               None available
+1.11.4               1.11.5
+1.10.9               1.11.4, 1.11.5
+1.10.8               1.10.9, 1.11.4, 1.11.5
+1.9.11               1.10.8, 1.10.9
+1.9.10               1.9.11, 1.10.8, 1.10.9
+1.8.15               1.9.10, 1.9.11
+1.8.14               1.8.15, 1.9.10, 1.9.11
 ```
 
 ## <a name="faq"></a>Forum Aux Questions
@@ -84,7 +84,7 @@ Le maître est automatiquement mis à jour avec la version prise en charge la pl
 Pour plus d’informations sur la mise à niveau de votre cluster, consultez [Mettre à niveau un cluster Azure Kubernetes Service (AKS)][aks-upgrade].
 
 <!-- LINKS - External -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [azure-update-channel]: https://azure.microsoft.com/updates/?product=kubernetes-service
 
 <!-- LINKS - Internal -->

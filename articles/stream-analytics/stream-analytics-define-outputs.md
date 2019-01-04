@@ -7,13 +7,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2018
-ms.openlocfilehash: 869941781643d3486506b5a3caed4006019fb3b7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 555a2bdfe3997114c1aaa202a89d650287f27c0e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310037"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091626"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 Cet article décrit les différents types de sorties disponibles pour un travail Azure Stream Analytics. Les sorties permettent de stocker et d’enregistrer les résultats du travail Stream Analytics. Vous pouvez utiliser ces données pour aller plus loin dans l’analyse marketing et l’entreposage de vos données. 
@@ -34,20 +35,20 @@ La sortie Azure Data Lake Store de Stream Analytics n’est pas disponible dans 
 
 1. Lorsque Data Lake Storage est sélectionné en tant que sortie dans le portail Azure, vous êtes invité à autoriser une connexion à un Data Lake Store existant.  
 
-   ![Autoriser Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
+   ![Autoriser la connexion à Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
 2. Si vous avez déjà accès à Data Lake Store, sélectionnez **Autoriser maintenant**. Une page s’affiche avec le message suivant : **Redirection vers l’autorisation en cours**. Une fois l’autorisation accordée, une page s’affiche pour vous permettre de configurer la sortie Data Lake Store.
 
 3. Une fois le compte Data Lake Store authentifié, vous pouvez configurer les propriétés de votre sortie Data Lake Store. Le tableau ci-dessous répertorie les noms de propriétés et leur description pour configurer votre sortie Data Lake Store.
 
-   ![Autoriser Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
+   ![Définir Data Lake Store en tant que sortie de Stream Analytics](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 | Nom de la propriété | Description | 
 | --- | --- |
 | Alias de sortie | Nom convivial utilisé dans les requêtes pour diriger la sortie de la requête vers Data Lake Store. | 
 | Nom du compte | Nom du compte de stockage Data Lake Storage où vous envoyez votre sortie. Vous accédez à la liste déroulante des comptes Data Lake Store disponibles dans votre abonnement. |
 | Modèle de préfixe de chemin d’accès | Chemin de fichier utilisé pour écrire vos fichiers dans le compte Data Lake Store spécifié. Vous pouvez spécifier une ou plusieurs instances des variables {date} et {time}.</br><ul><li>Exemple 1 : dossier1/journaux/{date}/{heure}</li><li>Exemple 2 : dossier1/journaux/{date}</li></ul><br>L’horodatage de la structure de dossiers créée suit l’heure UTC et pas l’heure locale.</br><br>Si le modèle de chemin d’accès du fichier ne se termine pas par le caractère « / », le dernier modèle du chemin d’accès du fichier est traité comme préfixe de nom de fichier. </br></br>De nouveaux fichiers sont créés dans les cas de figure suivants :<ul><li>modification du schéma de sortie ;</li><li>redémarrage externe ou interne d’un travail.</li></ul> |
-| Format de la date | facultatif. Si le jeton de la date est utilisé dans le chemin d’accès du préfixe, vous pouvez sélectionner le format de date dans lequel vos fichiers sont organisés. Exemple : JJ/MM/AAAA |
+| Format de la date | facultatif. Si le jeton de la date est utilisé dans le chemin d’accès du préfixe, vous pouvez sélectionner le format de date dans lequel vos fichiers sont organisés. Exemple : AAAA/MM/JJ |
 |Format de l’heure | facultatif. Si le jeton de l’heure est utilisé dans le chemin d’accès du préfixe, spécifiez le format d’heure dans lequel vos fichiers sont organisés. Actuellement, la seule valeur possible est HH. |
 | Format de sérialisation de l’événement | Format de sérialisation pour les données de sortie. JSON, CSV et Avro sont pris en charge.| 
 | Encodage | Si vous utilisez le format CSV ou JSON, vous devez spécifier un encodage. UTF-8 est le seul format de codage actuellement pris en charge.|
@@ -59,7 +60,7 @@ Vous devez authentifier de nouveau votre compte Data Lake Store si son mot de pa
 
 Pour renouveler l’autorisation, **Arrêtez** votre travail > accédez à votre sortie Data Lake Store > cliquez sur le lien **Renouveler l’autorisation**. Pendant un bref instant, une page s’affiche avec le message suivant : **Redirection vers l’autorisation en cours...**. Elle se ferme automatiquement et indique le message suivant : **L’autorisation a été renouvelée** si l’opération a réussi. Vous devez ensuite cliquer sur **Enregistrer** en bas de la page, puis redémarrer votre travail à partir de **l’heure du dernier arrêt** pour éviter une perte de données.
 
-![Autoriser Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
+![Renouveler une autorisation Data Lake Store dans la sortie](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>Base de données SQL
 [base de données SQL Azure](https://azure.microsoft.com/services/sql-database/) comme sortie pour les données relationnelles ou pour les applications qui dépendent de contenus hébergés dans une base de données relationnelle. Les travaux Stream Analytics écrivent les données dans une table existante d’une base de données Azure SQL Database.  Notez que le schéma de table doit correspondre exactement aux champs et aux types de sortie de votre travail. [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) peut également être spécifié en tant que sortie via l’option de sortie SQL Database. Pour découvrir les moyens d’améliorer le débit d’écriture, consultez l’article [Sortie Stream Analytics dans Azure SQL DB](stream-analytics-sql-output-perf.md). Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de base de données SQL.
@@ -89,7 +90,7 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 | Clé du compte de stockage | Clé secrète associée au compte de stockage.                              |
 | Conteneur de stockage   | Les conteneurs fournissent un regroupement logique des objets blob stockés dans le service d’objets blob Microsoft Azure. Lorsque vous téléchargez un objet blob dans le service d'objets Blob, vous devez spécifier un conteneur pour cet objet blob. |
 | Modèle de chemin d'accès | facultatif. Modèle de chemin d’accès au fichier utilisé pour écrire vos blobs dans le conteneur spécifié. <br /><br /> Dans le modèle de chemin d’accès, vous pouvez choisir d’utiliser une ou plusieurs instances des variables Date/Heure pour spécifier la fréquence d’écriture des objets blob : <br /> {date}, {time} <br /><br />Si vous utilisez ce [lien d'accès au Portail Azure ](https://portal.azure.com/?microsoft_azure_streamanalytics_bloboutputpathpartitioning=true&Microsoft_Azure_StreamAnalytics_bloboutputcontainerpartitioning=true) pour accéder à la préversion du partitionnement d'objets blob personnalisé, vous pouvez spécifier un nom de champ ({field}) personnalisé à partir de vos données d'événement pour partitionner les objets blob. Le nom du champ est alphanumérique et peut inclure des espaces, des traits d’union et des traits de soulignement. Voici les restrictions qui s’appliquent aux champs personnalisés : <ul><li>Non-respect de la casse (pas de différence entre « ID » et « id » de colonne)</li><li>impossibilité d’utiliser des champs imbriqués (utiliser un alias dans la requête du travail pour « aplatir » le champ) ;</li><li>Des expressions ne peuvent pas être utilisées comme nom de champ.</li></ul> <br /><br /> La préversion permet également d’utiliser des configurations de spécificateur de format de date/heure personnalisé dans le chemin d’accès. Les formats de date et d’heure personnalisés doivent être spécifiés un par un et délimités par le mot clé {DateHeure :\<spécificateur >}. Les entrées autorisées \<spécificateur > sont yyyy, MM, M, dd, d, HH, H, mm, m, ss ou s. Le mot clé {DateHeure :\<spécificateur >} peut être utilisé plusieurs fois dans le chemin d’accès pour former des configurations de date/d’heure personnalisées. <br /><br />Exemples : <ul><li>Exemple 1 : cluster1/logs/{date}/{time}</li><li>Exemple 2 : cluster1/logs/{date}</li><li>Exemple 3 (préversion) : cluster1/{client_id}/{date}/{time}</li><li>Exemple 4 (préversion) : cluster1/{datetime:ss}/{myField}, où la requête est : SELECT data.myField AS myField FROM Input;</li><li>Exemple 5 (préversion) : cluster1/année = {datetime:yyyy} / mois = {datetime:MM} / jour = {datetime:dd}</ul><br /><br />L’horodatage de la structure de dossiers créée suit l’heure UTC et pas l’heure locale.<br /><br/>La procédure d’affection de noms respecte la convention suivante : <br /><br />{Modèle de préfixe de chemin d’accès}/Code_hachage_schéma_Numéro_Guid.extension<br /><br />Exemples de fichier de sortie :<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br /><br /> Pour plus d’informations sur cette préversion, consultez [Modèles de chemin DateTime personnalisé pour les sorties du stockage Blob d’Azure Stream Analytics (Préversion)](stream-analytics-custom-path-patterns-blob-storage-output.md). |
-| Format de la date | facultatif. Si le jeton de la date est utilisé dans le chemin d’accès du préfixe, vous pouvez sélectionner le format de date dans lequel vos fichiers sont organisés. Exemple : JJ/MM/AAAA |
+| Format de la date | facultatif. Si le jeton de la date est utilisé dans le chemin d’accès du préfixe, vous pouvez sélectionner le format de date dans lequel vos fichiers sont organisés. Exemple : AAAA/MM/JJ |
 | Format de l’heure | facultatif. Si le jeton de l’heure est utilisé dans le chemin d’accès du préfixe, spécifiez le format d’heure dans lequel vos fichiers sont organisés. Actuellement, la seule valeur possible est HH. |
 | Format de sérialisation de l’événement | Format de sérialisation pour les données de sortie.  JSON, CSV et Avro sont pris en charge. |
 | Encodage    | Si vous utilisez le format CSV ou JSON, vous devez spécifier un encodage. UTF-8 est le seul format de codage actuellement pris en charge. |
@@ -116,7 +117,7 @@ Quelques paramètres sont requis pour configurer les flux de données Event Hub 
 | --- | --- |
 | Alias de sortie | Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cet Event Hub. |
 | Espace de noms Event Hub |Conteneur pour un ensemble d’entités de messagerie. En créant un hub d’événements, vous avez également créé un espace de noms Event Hub. |
-| Nom du hub d’événements | Nom de votre sortie Event Hub. |
+| Nom de l’Event Hub | Nom de votre sortie Event Hub. |
 | Nom de la stratégie du hub d’événements | Stratégie d’accès partagé, qui peut être créée dans l’onglet Configuration du hub d’événements. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. |
 | Clé de stratégie Event Hub | Clé d’accès partagé utilisée pour authentifier l’accès à l’espace de noms Event Hub. |
 | Colonne de clé de partition [facultatif] | Cette colonne contient la clé de partition pour la sortie du hub d’événements. |
@@ -133,11 +134,11 @@ La sortie Power BI de Stream Analytics n’est pas disponible dans les régions 
 ### <a name="authorize-a-power-bi-account"></a>Autorisation d’un compte Power BI
 1. Lorsque Power BI est sélectionné en tant que sortie dans le portail Azure, vous êtes invité à autoriser un utilisateur Power BI existant ou à créer un compte Power BI.  
    
-   ![Autoriser un utilisateur de Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
+   ![Autoriser un utilisateur de Power BI à configurer la sortie](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 
 2. Créez un compte si vous n’en avez pas déjà un, puis cliquez sur Autoriser maintenant.  La page suivante s’affiche :
    
-   ![Compte Azure Power BI](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
+   ![S’authentifier auprès de Power BI à partir d’un compte Azure](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
 
 3. Dans cette étape, indiquez le compte professionnel ou scolaire servant à autoriser la sortie Power BI. Si vous n’êtes pas déjà inscrit à Power BI, choisissez S’inscrire maintenant. Le compte professionnel ou scolaire que vous utilisez pour Power BI peut être différent du compte d’abonnement Azure avec lequel vous êtes actuellement connecté.
 
@@ -190,13 +191,13 @@ DateTime | Chaîne | Chaîne |  DateTime | Chaîne
 ### <a name="renew-power-bi-authorization"></a>Renouvellement de l’autorisation Power BI
 Si le mot de passe de votre compte Power BI est modifié après la création ou la dernière authentification de votre travail Stream Analytics, vous devrez effectuer une nouvelle authentification. Par ailleurs, si l’authentification MFA (Multi-Factor Authentication) est configurée sur votre client Azure Active Directory (AAD), vous devrez renouveler l’autorisation Power BI toutes les deux semaines. Un symptôme de ce problème est l’absence de sortie de la tâche et une « erreur d’authentification de l’utilisateur » dans les journaux des opérations :
 
-  ![Erreur de jeton d’actualisation Power BI](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
+  ![Authentifier une erreur de l’utilisateur Power BI](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 
 Pour résoudre ce problème, arrêtez votre tâche en cours d'exécution et accédez à votre sortie Power BI.  Cliquez sur le lien **Renouveler l’autorisation**, puis redémarrez votre travail à partir de **l’Heure du dernier arrêt** pour éviter de perdre des données.
 
-  ![Renouvellement de l’autorisation par Power BI](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
+  ![Renouveler une autorisation Power BI pour la sortie](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
-## <a name="table-storage"></a>Stockage de tables
+## <a name="table-storage"></a>Stockage Table
 [stockage de tables Azure](../storage/common/storage-introduction.md) offre un stockage hautement disponible et massivement évolutif, afin qu’une application puisse être mise à l’échelle automatiquement pour répondre à la demande des utilisateurs. Le stockage de tables correspond au magasin de clés/attributs NoSQL de Microsoft, qui peut être utilisé pour les données structurées, en présentant moins de contraintes au niveau du schéma. Le stockage des données sur les tables Azure permet d’assurer leur persistance et une récupération efficace.
 
 Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de table.
@@ -329,7 +330,7 @@ Le tableau suivant expose certaines considérations relatives au traitement par 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
 
-> [Guide de démarrage rapide : Créer un travail Stream Analytics à l’aide du Portail Azure](stream-analytics-quick-create-portal.md)
+> [Démarrage rapide : Créer une tâche Stream Analytics à l’aide du portail Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

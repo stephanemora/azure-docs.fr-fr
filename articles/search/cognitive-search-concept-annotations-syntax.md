@@ -1,5 +1,5 @@
 ---
-title: Référencer une annotation dans les entrées et sorties d’un pipeline de recherche cognitive dans Recherche Azure | Microsoft Docs
+title: Référencer les entrées et sorties dans les pipelines de recherche cognitive - Recherche Azure
 description: Cet article explique la syntaxe d’annotation et la manière de référencer une annotation dans les entrées et sorties d’un jeu de compétences dans un pipeline de recherche cognitive dans Recherche Azure.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 1ccc1fb20cb08cfd97d58984676ef4006e693118
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec2018
+ms.openlocfilehash: 57fed710d7d58199fb3cb70640d1f2d3f316f180
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801945"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315803"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Comment référencer des annotations dans un jeu de compétences de recherche cognitive
 
@@ -33,7 +34,7 @@ Avant d’examiner la syntaxe, revenons sur quelques concepts importants pour mi
 | Contexte d’enrichissement | Contexte dans lequel l’enrichissement a lieu, déterminant l’élément qui est enrichi. Par défaut, le contexte d’enrichissement est au niveau `"/document"`, limité à des documents individuels. Quand une compétence est appliquée, ses résultats deviennent des [propriétés du contexte défini](#example-2).|
 
 <a name="example-1"></a>
-## <a name="example-1-simple-annotation-reference"></a>Exemple 1 : référencer une annotation simple
+## <a name="example-1-simple-annotation-reference"></a>Exemple 1 : référencer une annotation simple
 
 Dans un stockage d’objets blob Azure, supposons que vous ayez une variété de fichiers contenant des références à des noms de personnes que vous souhaitez extraire à l’aide d’une reconnaissance d’entité nommée. Dans la définition de compétence ci-dessous, `"/document/content"` est la représentation textuelle du document entier, et « personnes » une extraction de noms complets d’entités identifiées en tant que personnes.
 
@@ -93,7 +94,7 @@ Lorsque les annotations sont des tableaux ou des collections de chaînes, vous p
 
 <a name="example-3"></a>
 
-## <a name="example-3-reference-members-within-an-array"></a>Exemple 3 : référencer des membres à l’intérieur d’un tableau
+## <a name="example-3-reference-members-within-an-array"></a>Exemple 3 : référencer des membres à l’intérieur d’un tableau
 
 Parfois, vous devez regrouper toutes les annotations d’un type particulier pour les transmettre à une compétence particulière. Imaginez une compétence personnalisée hypothétique qui identifie le nom de famille le plus courant parmi tous les noms de famille extraits dans l’Exemple 2. Pour fournir uniquement les noms de famille à la compétence personnalisée, spécifiez le contexte comme `"/document"` et l’entrée comme `"/document/people/*/lastname"`.
 

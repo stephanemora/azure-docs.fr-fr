@@ -1,20 +1,22 @@
 ---
-title: Comment utiliser des déploiements de services web - Azure Machine Learning
-description: Découvrez comment utiliser un service web créé en déployant un modèle Azure Machine Learning. Le déploiement d’un modèle Azure Machine Learning crée un service web qui expose une API REST. Vous pouvez créer des clients pour cette API avec le langage de programmation de votre choix. Dans ce document, découvrez comment accéder à l’API avec Python et C#.
+title: Créer un client pour consommer un service web déployé
+titleSuffix: Azure Machine Learning service
+description: Découvrez comment utiliser un service web qui a été généré lorsqu’un modèle a été déployé avec un modèle Azure Machine Learning. Le service web qui expose une API REST. Créez des clients pour cette API avec le langage de programmation de votre choix.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.author: raymondl
-author: raymondlaghaeian
+ms.author: aashishb
+author: aashishb
 ms.reviewer: larryfr
-ms.date: 10/30/2018
-ms.openlocfilehash: 58c1b53a4b97aad7b916e593fd4d6b52b51b7a52
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 12/03/2018
+ms.custom: seodec18
+ms.openlocfilehash: fc1f472cec1b1da26456924885d7905ab2458e14
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262897"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251128"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Utiliser un modèle Azure Machine Learning déployé en tant que service web
 
@@ -100,7 +102,7 @@ L’API REST attend que le corps de la demande soit un document JSON avec la str
 > [!IMPORTANT]
 > La structure des données doit correspondre à ce que le script de scoring et le modèle du service attendent. Le script de scoring peut modifier les données avant de les transmettre au modèle.
 
-Par exemple, le modèle de l’exemple [Effectuer l'apprentissage dans un bloc-notes](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) attend un tableau de 10 chiffres. Le script de scoring pour cet exemple crée un tableau Numpy à partir de la demande et le transmet au modèle. L’exemple suivant montre les données que ce service attend :
+Par exemple, le modèle de l’exemple [Effectuer l'apprentissage dans un bloc-notes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) attend un tableau de 10 chiffres. Le script de scoring pour cet exemple crée un tableau Numpy à partir de la demande et le transmet au modèle. L’exemple suivant montre les données que ce service attend :
 
 ```json
 {
@@ -124,9 +126,46 @@ Par exemple, le modèle de l’exemple [Effectuer l'apprentissage dans un bloc-n
 
 Le service web peut accepter plusieurs jeux de données dans une même demande. Il retourne un document JSON contenant un tableau de réponses.
 
+### <a name="binary-data"></a>Données binaires
+
+Si votre modèle accepte les données binaires, comme une image, vous devez modifier le fichier `score.py` utilisé pour votre déploiement afin d’accepter les demandes HTTP brutes. Voici un exemple d’un `score.py` qui accepte les données binaires et retourne les octets inversés pour les requêtes POST. Pour les requêtes GET, il retourne l’URL complète dans le corps de réponse :
+
+```python 
+from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        respBody = bytearray(reqBody)
+        respBody.reverse()
+        respBody = bytes(respBody)
+        return AMLResponse(respBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> Les éléments dans l’espace de noms `azureml.contrib` changent fréquemment car nous travaillons à améliorer le service. Par conséquent, tout ce qui est compris dans cet espace de noms doit être considéré comme une préversion et n’est pas entièrement pris en charge par Microsoft.
+>
+> Si vous avez besoin d’effectuer ce test sur votre environnement de développement local, vous pouvez installer les composants dans l’espace de noms de contribution à l’aide de la commande suivante :
+> 
+> ```shell
+> pip install azureml-contrib-services
+> ```
+
 ## <a name="call-the-service-c"></a>Appeler le service (C#)
 
-Cet exemple montre comment utiliser C# pour appeler le service web créé à partir de l’exemple [Train dans bloc-notes](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) :
+Cet exemple montre comment utiliser C# pour appeler le service web créé à partir de l’exemple [Train dans bloc-notes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) :
 
 ```csharp
 using System;
@@ -215,7 +254,7 @@ Les résultats retournés sont similaires au document JSON suivant :
 
 ## <a name="call-the-service-go"></a>Appeler le service (Go)
 
-Cet exemple montre comment utiliser Go pour appeler le service web créé à partir de l’exemple [Train dans bloc-notes](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) :
+Cet exemple montre comment utiliser Go pour appeler le service web créé à partir de l’exemple [Train dans bloc-notes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) :
 
 ```go
 package main
@@ -307,7 +346,7 @@ Les résultats retournés sont similaires au document JSON suivant :
 
 ## <a name="call-the-service-java"></a>Appeler le service (Java)
 
-Cet exemple montre comment utiliser Java pour appeler le service web créé à partir de l’exemple [Train dans bloc-notes](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) :
+Cet exemple montre comment utiliser Java pour appeler le service web créé à partir de l’exemple [Train dans bloc-notes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) :
 
 ```java
 import java.io.IOException;
@@ -387,7 +426,7 @@ Les résultats retournés sont similaires au document JSON suivant :
 
 ## <a name="call-the-service-python"></a>Appeler le service (Python)
 
-Cet exemple montre comment utiliser Python pour appeler le service web créé à partir de l’exemple [Train dans bloc-notes](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) :
+Cet exemple montre comment utiliser Python pour appeler le service web créé à partir de l’exemple [Train dans bloc-notes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) :
 
 ```python
 import requests
@@ -446,7 +485,3 @@ Les résultats retournés sont similaires au document JSON suivant :
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
-
-## <a name="next-steps"></a>Étapes suivantes
-
-Maintenant que vous avez appris comment créer un client pour un modèle déployé, découvrez comment [Déployer un modèle sur un appareil IoT Edge](how-to-deploy-to-iot.md).
