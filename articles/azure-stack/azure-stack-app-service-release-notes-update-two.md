@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: 9f320f508fd45b6ad70b1357e873663796825621
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: f40d88df7a46c73981b6f20bee0b119743c08257
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078795"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714489"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 2
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Ces notes de publication décrivent les améliorations et les correctifs apportés à Azure App Service sur Azure Stack Update 2, ainsi que les problèmes connus. Les problèmes connus ont été divisés selon qu’ils concernent le déploiement, le processus de mise à jour ou la build (après l’installation).
 
@@ -66,7 +66,7 @@ Azure App Service sur Azure Stack Update 2 inclut les améliorations et correcti
   - Mise à jour des composants .Net Core pour qu’ils soient cohérents avec Azure App Service dans le cloud public.
   - Mise à jour de Kudu
 
-- Activation de la fonctionnalité d’échange automatique des emplacements de déploiement - [Configuration de l’échange automatique](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing#configure-auto-swap)
+- Activation de la fonctionnalité d’échange automatique des emplacements de déploiement - [Configuration de l’échange automatique](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)
 
 - Activation de la fonctionnalité de test en production - [Présentation du test en production](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
@@ -83,14 +83,14 @@ Azure App Service sur Azure Stack Update 2 inclut les améliorations et correcti
 - Les Workers ne peuvent pas atteindre le serveur de fichiers si App Service est déployé dans un réseau virtuel existant et si le serveur de fichiers est uniquement disponible sur le réseau privé.
 
 Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau Worker et le serveur de fichiers. Pour ce faire, accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
- * Source : Toutes
+ * Source : Quelconque
  * Plage de ports source : : *
- * Destination : adresses IP
- * Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
- * Plage de ports de destination : 445
- * Protocole : TCP
- * Action : Autoriser
- * Priorité : 700
+ * Destination : Adresses IP
+ * Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
+ * Plage de ports de destination : 445
+ * Protocole : TCP
+ * Action : AUTORISER
+ * Priorité : 700
  * Nom : Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problèmes connus des administrateurs cloud utilisant Azure App Service sur Azure Stack

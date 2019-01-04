@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: b884fc15770e91268d1033dc4bab9bf96766de94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: af85975fce20a87af8365f8fe6ea73ed1e6e1416
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868937"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998912"
 ---
 # <a name="smart-detection-in-application-insights"></a>Détection intelligente dans Application Insights
  La détection intelligente vous informe automatiquement des éventuels problèmes de performances dans votre application web. Elle effectue une analyse proactive des données de télémétrie que votre application envoie à [Application Insights](app-insights-overview.md). S’ils détectent une augmentation soudaine du taux d’échec, ou des modèles anormaux de performances client ou serveur, vous recevez une alerte. Cette fonctionnalité ne nécessite aucune configuration. Elle fonctionne si votre application envoie suffisamment de données de télémétrie.
@@ -54,12 +54,12 @@ Il existe trois types de détection :
 ## <a name="next-steps"></a>Étapes suivantes
 Ces outils de diagnostic vous aident à inspecter les données de télémétrie à partir de votre application :
 
-* [Metrics Explorer](app-insights-metrics-explorer.md)
-* [Navigateur de recherche](app-insights-diagnostic-search.md)
+* [Metrics Explorer](../azure-monitor/app/metrics-explorer.md)
+* [Navigateur de recherche](../azure-monitor/app/diagnostic-search.md)
 * [Analytics : un puissant langage de requête](../azure-monitor/log-query/get-started-portal.md)
 
 La détection intelligente est entièrement automatique. Mais vous souhaitez peut-être configurer des alertes supplémentaires ?
 
-* [Alertes de mesures configurées manuellement](app-insights-alerts.md)
-* [Tests web de disponibilité](app-insights-monitor-web-app-availability.md) 
+* [Alertes de mesures configurées manuellement](../azure-monitor/app/alerts.md)
+* [Tests web de disponibilité](../azure-monitor/app/monitor-web-app-availability.md) 
 

@@ -4,18 +4,18 @@ ms.service: app-service
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
-ms.openlocfilehash: ed771d1817e7ee1161e0f94ec9eefb5d2dfb3e23
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7771bbcab08fb84a941eedab402880fb7bc4232d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50737228"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53550855"
 ---
 ## <a name="rest"></a>Déployer un fichier ZIP avec l’API REST 
 
 Vous pouvez utiliser les [API REST du service de déploiement](https://github.com/projectkudu/kudu/wiki/REST-API) pour déployer le fichier .zip sur votre application dans Azure. Pour déployer, envoyez une demande POST à https://<nom_application>.scm.azurewebsites.net/api/zipdeploy. La demande POST doit contenir le fichier .zip dans le corps du message. Les informations d’identification de déploiement pour votre application sont fournies dans la demande avec l’authentification de base HTTP. Pour plus d’informations, consultez les [informations de référence des envois (push) de fichiers .zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 
 
-Pour l’authentification HTTP BASIC, vous avez besoin de vos informations d’identification de déploiement App Service. Pour découvrir comment définir les informations d’identification de votre déploiement, consultez [Définir et réinitialiser les informations d’identification de niveau utilisateur](../articles/app-service/app-service-deployment-credentials.md#userscope).
+Pour l’authentification HTTP BASIC, vous avez besoin de vos informations d’identification de déploiement App Service. Pour découvrir comment définir les informations d’identification de votre déploiement, consultez [Définir et réinitialiser les informations d’identification de niveau utilisateur](../articles/app-service/deploy-configure-credentials.md#userscope).
 
 ### <a name="with-curl"></a>Avec cURL
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: f8771be9a96ae188a9610a1b19dfd6cbd49ba277
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: b08540787fc61b9bb38ed921bd42e0f3065cf8f4
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270431"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653830"
 ---
 # <a name="use-firewall-rules"></a>Utiliser des règles de pare-feu
 
@@ -53,7 +53,7 @@ Les règles de filtre IP sont appliquées dans l’ordre et la première règle 
 > - Explorateur de données Azure
 >
 > Les services Microsoft suivants doivent être sur un réseau virtuel
-> - Azure Web Apps 
+> - Azure App Service
 > - Azure Functions
 
 ### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Création d’une règle de pare-feu et de réseau virtuel avec des modèles Azure Resource Manager

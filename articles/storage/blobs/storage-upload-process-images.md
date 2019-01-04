@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: c55e63d813c462db8a6c404894b8754f4130d935
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 882a43a75fa720b13d931740818e5ee6e893bcab
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097945"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753334"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutoriel : Charger des données d’image dans le cloud avec le Stockage Azure
 
 Ce tutoriel est la première partie d’une série d’étapes. Dans ce tutoriel, vous allez apprendre à déployer une application web qui utilise la bibliothèque de client Stockage Azure dans le but de charger des images dans un compte de stockage. À la fin, vous disposerez d’une application web qui stocke et affiche des images à partir du Stockage Azure.
 
-# <a name="nettabnet"></a>[\.NET](#tab/net)
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 ![Affichage du conteneur d’images](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
@@ -99,7 +99,7 @@ Notez le nom et la clé de votre compte de stockage Blob. L’exemple d’applic
 
 ## <a name="create-an-app-service-plan"></a>Créer un plan App Service
 
-Un [plan App Service](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) spécifie l’emplacement, la taille et les fonctionnalités de la batterie de serveurs web qui héberge votre application.
+Un [plan App Service](../../app-service/overview-hosting-plans.md) spécifie l’emplacement, la taille et les fonctionnalités de la batterie de serveurs web qui héberge votre application.
 
 Créez un plan App Service avec la commande [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create).
 
@@ -111,7 +111,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## <a name="create-a-web-app"></a>Créer une application web
 
-L’application web offre un espace d’hébergement au code de l’exemple d’application qui est déployé à partir du dépôt d’exemples GitHub. Créez une [application web](../../app-service/app-service-web-overview.md) dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp#az_webapp_create).  
+L’application web offre un espace d’hébergement au code de l’exemple d’application qui est déployé à partir du dépôt d’exemples GitHub. Créez une [application web](../../app-service/overview.md) dans le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp#az_webapp_create).  
 
 Dans la commande suivante, remplacez `<web_app>` par un nom unique. Les caractères valides sont `a-z`, `0-9` et `-`. Si `<web_app>` n’est pas unique, le message d’erreur suivant s'affiche : _Un site web avec ce nom `<web_app>` existe déjà._ L’URL par défaut de l’application web est `https://<web_app>.azurewebsites.net`.  
 
@@ -121,7 +121,7 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 ## <a name="deploy-the-sample-app-from-the-github-repository"></a>Déployer l’exemple d’application à partir du référentiel GitHub
 
-# <a name="nettabnet"></a>[\.NET](#tab/net)
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
 App Service prend en charge plusieurs façons de déployer du contenu vers une application web. Dans ce didacticiel, vous déployez l’application web depuis un [exemple de référentiel GitHub public](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configurez le déploiement GitHub sur l’application web avec la commande [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config). Remplacez `<web_app>` par le nom de l’application web que vous avez créée à l’étape précédente.
 
@@ -159,7 +159,7 @@ Une fois l’application web déployée et configurée, vous pouvez tester la fo
 Pour tester l’application web, accédez à l’URL de l’application publiée. L’URL par défaut de l’application web est `https://<web_app>.azurewebsites.net`.
 Sélectionnez la zone **Charger des photos** pour sélectionner et charger un fichier, ou faites glisser un fichier dans la zone. L’image disparaît si le chargement a réussi.
 
-# <a name="nettabnet"></a>[\.NET](#tab/net)
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
 ![Application ImageResizer](media/storage-upload-process-images/figure1.png)
 
@@ -281,7 +281,7 @@ Choisissez un fichier à l’aide du sélecteur de fichiers, puis sélectionnez 
 
 Revenez à votre application pour vérifier que l’image chargée dans le conteneur **thumbnails** est visible.
 
-# <a name="nettabnet"></a>[\.NET](#tab/net)
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 ![Affichage du conteneur d’images](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)

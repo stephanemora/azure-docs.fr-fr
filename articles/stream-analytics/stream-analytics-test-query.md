@@ -1,21 +1,20 @@
 ---
 title: Tester une tâche Azure Stream Analytics avec des exemples de données
-description: Test des requêtes dans les travaux Stream Analytics
-keywords: Cet article explique comment utiliser le portail Azure pour tester une tâche Azure Stream Analytics, des exemples d’entrées et charger des exemples de données.
+description: Cet article explique comment utiliser le portail Azure pour tester une tâche Azure Stream Analytics, des exemples d’entrées et charger des exemples de données.
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
-manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.openlocfilehash: 139ad76826f3e67577beba0369f6d4425e242af9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: fca76b632e9bcc27ed762886eaea696a5696ad3f
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978347"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557630"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>Tester une requête Stream Analytics avec des exemples de données
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f611733400b8bfd18a135fe07f84606f13e59704
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ac62217af096653d61a79ff29ae352c8e950f8af
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275708"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719300"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Comment se préparer à un changement d’adresse IP sortante
 
@@ -48,4 +48,4 @@ Les nouvelles adresses IP sortantes sont affichées dans le portail avant leur e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article a expliqué comment se préparer à un changement d’adresse IP initié par Azure. Pour plus d’informations sur les adresses IP dans Azure App Service, consultez [Inbound and Inbound IP addresses in Azure App Service](app-service-ip-addresses.md) (Entrées et adresses IP entrantes dans Azure App Service).
+Cet article a expliqué comment se préparer à un changement d’adresse IP initié par Azure. Pour plus d’informations sur les adresses IP dans Azure App Service, consultez [Inbound and Inbound IP addresses in Azure App Service](overview-inbound-outbound-ips.md) (Entrées et adresses IP entrantes dans Azure App Service).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: c5f1c5add069be99f7a6f467f6e3e2bd9c2b3535
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 082170d6f8bfb687195de87cde4247697571b0d6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543086"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715917"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio
 Avec Visual Studio, vous pouvez créer un projet qui déploie votre infrastructure et votre code sur Azure. Par exemple, vous pouvez définir l’hôte web, le site web et la base de données de votre application, et déployer cette infrastructure parallèlement au code. Visual Studio fournit de nombreux modèles de démarrage différents pour déployer des scénarios courants. Dans cet article, vous déployez une application web et SQL Database.  
@@ -132,7 +132,7 @@ Vous êtes maintenant prêt à déployer votre projet. Lorsque vous déployez un
     ![Bouton Modifier les paramètres](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
 4. Fournissez des valeurs pour les paramètres vides et sélectionnez le bouton **Enregistrer**. Les paramètres vides sont **hostingPlanName**, **administratorLogin**, **administratorLoginPassword** et **databaseName**.
    
-    **hostingPlanName** spécifie le nom du [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) à créer. 
+    **hostingPlanName** spécifie le nom du [plan App Service](../app-service/overview-hosting-plans.md) à créer. 
    
     **administratorLogin** spécifie le nom d’utilisateur de l’administrateur SQL Server. N’utilisez pas de noms d’administrateur communs comme **sa** ou **admin**. 
    

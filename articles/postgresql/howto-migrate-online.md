@@ -1,20 +1,17 @@
 ---
 title: Migration avec temps d’arrêt minimal vers Azure Database pour PostgreSQL
 description: Cet article décrit comment effectuer une migration de base de données PostgreSQL vers Azure Database pour PostgreSQL avec un temps d’arrêt minimal à l’aide du service Azure Database Migration Service.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/07/2018
-ms.openlocfilehash: 0c8c3443a19c26dade9699560e883969d3c074df
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: ceb64781dc7e5243f785ad239c24e5f21b0481ce
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53010839"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543646"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Migration avec temps d’arrêt minimal vers Azure Database pour PostgreSQL
 Vous pouvez effectuer des migrations PostgreSQL vers Azure Database pour PostgreSQL avec un temps d’arrêt minimal à l’aide de la toute nouvelle **fonctionnalité de synchronisation continue** du service [Azure Database Migration Service](https://aka.ms/get-dms) (DMS). Cette fonctionnalité limite les temps d’arrêt affectant l’application.

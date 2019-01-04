@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6f1869b83f46f97d0c54eb874a8879521a43b1e2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 253cfd7ddeb04a12a3609ab5e14a37365015a568
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387061"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790875"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 
@@ -457,7 +457,7 @@ Après avoir trouvé le fournisseur de ressources et le type de ressource, utili
 | ------------- | -------------- | ------------ |
 | applicationgateways | Non  | Non  |
 | applicationsecuritygroups | Oui | Oui |
-| azurefirewalls | Oui | Oui |
+| azurefirewalls | Non  | Non  |
 | connections | Oui | Oui |
 | ddosprotectionplans | Non  | Non  |
 | dnszones | Oui | Oui |

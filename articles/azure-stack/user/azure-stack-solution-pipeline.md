@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 36637137741aef6b34ab8e70109d692f5399043a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 12f9ed6d5b5d4c8dc7e5b0b68a0a394749cc72bd
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967059"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714608"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutoriel : Déployer des applications sur Azure et Azure Stack
 
@@ -72,7 +72,7 @@ Ce tutoriel suppose que vous disposez de connaissances de base sur Azure et Azur
 ### <a name="azure-requirements"></a>Conditions requises pour Azure
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-* Créez une [application web](https://docs.microsoft.com/azure/app-service/app-service-web-overview) dans Azure. Notez l’URL de l’application web, vous devrez l’utiliser dans le didacticiel.
+* Créez une [application web](https://docs.microsoft.com/azure/app-service/overview) dans Azure. Notez l’URL de l’application web, vous devrez l’utiliser dans le didacticiel.
 
 ### <a name="azure-stack-requirements"></a>Configuration requise d’Azure Stack
 
@@ -180,9 +180,7 @@ Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ress
 
 3. Dans Visual Studio Enterprise, sélectionnez **Contrôle d’accès (IAM)**.
 
-    ![Contrôle d’accès (IAM)](media/azure-stack-solution-hybrid-pipeline/000_12.png)
-
-4. Sélectionnez **Ajouter**.
+4. Sélectionnez **Ajouter une attribution de rôle**.
 
     ![Ajouter](media/azure-stack-solution-hybrid-pipeline/000_13.png)
 

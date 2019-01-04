@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 47a634ca1c4e904cc1054db3a834483489ade0ec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 993d3dc065b792cc6d4ca0b1321cb1950cea85d8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093554"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652601"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installer des applications Apache Hadoop tierces sur Azure HDInsight
 
@@ -35,7 +35,7 @@ La liste suivante affiche les applications publiées :
 * **Starburst Presto** Presto est un moteur de requête SQL rapide et évolutif. Conçu pour séparer le calcul du stockage, Presto est parfait pour interroger des données dans les bases de données Azure Data Lake Storage, Stockage Blob Azure, SQL et NoSQL et autres sources de données.
 * **Streamsets Data Collector for HDnsight** fournit un environnement de développement intégré complet qui prend en charge la conception, le test, le déploiement et la gestion des pipelines d’ingestion universels qui maillent les flux et groupent les données, tout en incluant diverses transformations intégrées au flux, sans aucune écriture de code personnalisé. 
 * **Striim** (prononcé « stream ») est une plateforme de bout en bout d’intégration et d’intelligence qui permet l’ingestion, le traitement et l’analyse en continu de flux de données disparates.
-* **[Trifacta](http://www.trifacta.com/)** permet aux ingénieurs et aux analystes de données d’explorer plus efficacement et de préparer les différents types de données d’aujourd’hui en utilisant l’apprentissage automatique pour fournir une expérience utilisateur, un flux de travail et une architecture exceptionnels.
+* **[Trifacta](https://www.trifacta.com/)** permet aux ingénieurs et aux analystes de données d’explorer plus efficacement et de préparer les différents types de données d’aujourd’hui en utilisant l’apprentissage automatique pour fournir une expérience utilisateur, un flux de travail et une architecture exceptionnels.
 * **La plateforme de données Unifi** est une suite intégrée d’outils de données en libre-service conçus pour permettre aux utilisateurs professionnels de faire face aux défis liés aux de données pour générer plus de revenu, réduire les coûts ou la complexité opérationnelle. 
 * **WANdisco Fusion HDI App** permet une connectivité continue homogène avec les données, car elles changent en fonction de votre emplacement. Cette application vous permet d’accéder à vos données à tout moment et partout sans temps d’arrêt ni interruption.
 * **Waterline** catalogue, organise et régit les données à l’aide de l’intelligence artificielle pour baliser de façon automatique les données avec des termes professionnels. Le catalogue Waterline est un composant important pour la réussite de l’analytique en libre-service, de la conformité et de la gouvernance et des différentes initiatives de gestion informatique.

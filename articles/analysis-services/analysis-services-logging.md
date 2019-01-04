@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f3a3261fa1b7aa2075a05d7b87ea3fc29c5b9fab
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: f2e0767e78119b224f7be9256ab7050deca37e32
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385871"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546978"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurer la journalisation des diagnostics
 
-Une des fonctions importantes d’une solution Analysis Services est d’analyser les performances de vos serveurs. Avec les [journaux de diagnostic des ressources Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), vous pouvez analyser et envoyer des journaux au [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et les exporter à [Log Analytics](https://azure.microsoft.com/services/log-analytics/) un service [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
+Une des fonctions importantes d’une solution Analysis Services est d’analyser les performances de vos serveurs. Avec les [journaux de diagnostic des ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md), vous pouvez analyser et envoyer des journaux au [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et les exporter à [Log Analytics](https://azure.microsoft.com/services/log-analytics/) un service [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
 
 ![Journalisation des diagnostics pour le stockage, Event Hubs et Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -304,6 +304,6 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur la [journalisation des diagnostics de ressources Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+En savoir plus sur la [journalisation des diagnostics de ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 Consultez [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/Set-AzureRmDiagnosticSetting) dans l’aide de PowerShell.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: ce74d12e4ea91d8c230218081461bc375e250ce4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7f87f93ebc739d75c796859c7091d4cf62a820a0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260582"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714982"
 ---
 # <a name="azure-stack-1807-update"></a>Mise à jour 1807 d’Azure Stack
 
@@ -162,9 +162,8 @@ Pour plus d’informations sur ces vulnérabilités, cliquez sur les liens préc
 
 ### <a name="prerequisites"></a>Prérequis
 
-- Installez la [mise à jour 1805](azure-stack-update-1805.md) d’Azure Stack avant d’appliquer la mise à jour 1807 d’Azure Stack.  Il n’existe pas de mise à jour 1806.  
-
-- Installez [la dernière mise à jour ou le dernier correctif logiciel disponibles pour la version 1805](azure-stack-update-1805.md#post-update-steps).  
+- Installez la [mise à jour 1805](azure-stack-update-1805.md) d’Azure Stack avant d’appliquer la mise à jour 1807 d’Azure Stack. Il n’existe pas de mise à jour 1806.  
+ 
   > [!TIP]  
   > Abonnez-vous aux flux *RRS* ou *Atom* suivants pour vous tenir informés des correctifs logiciels Azure Stack :
   > - RRS : https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
@@ -244,16 +243,16 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 - Vous risquez de recevoir des alertes pour le composant **Contrôleur d’intégrité** contenant les informations suivantes :  
 
    Alerte 1 :
-   - NOM : Rôle d’infrastructure défectueux
-   - GRAVITÉ : Avertissement
-   - COMPOSANT : Contrôleur d’intégrité
-   - DESCRIPTION : L’analyseur de pulsations du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.  
+   - NOM :  Rôle d’infrastructure défectueux
+   - Niveau de gravité : Avertissement
+   - COMPOSANT : Contrôleur d’intégrité
+   - DESCRIPTION : L’analyseur de pulsations du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.  
 
   Alerte 2 :
-   - NOM : Rôle d’infrastructure défectueux
-   - GRAVITÉ : Avertissement
-   - COMPOSANT : Contrôleur d’intégrité
-   - DESCRIPTION : L’analyseur d’erreur du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.
+   - NOM :  Rôle d’infrastructure défectueux
+   - Niveau de gravité : Avertissement
+   - COMPOSANT : Contrôleur d’intégrité
+   - DESCRIPTION : L’analyseur d’erreur du contrôleur d’intégrité n’est pas disponible. Cela peut affecter les rapports et les métriques d’intégrité.
 
   Les deux alertes peuvent être ignorées en toute sécurité. Elles se ferment automatiquement au bout d’un moment.  
 
@@ -262,7 +261,7 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 - Vous pouvez voir une alerte pour le composant **Stockage** avec les informations suivantes :
 
    - NOM : Erreur de communication interne du service de stockage  
-   - GRAVITÉ : Critique  
+   - Niveau de gravité : Critique  
    - COMPOSANT : Stockage  
    - DESCRIPTION : Une erreur de communication interne du service de stockage s’est produite lors de l’envoi des requêtes aux nœuds suivants.  
 
@@ -278,10 +277,10 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 - En utilisant les applets de commande PowerShell **Start-AzsScaleUnitNode** ou **Stop-AzsScaleunitNode** pour gérer les unités d’échelle, il est possible que la première tentative de démarrage ou d’arrêt de l’unité d’échelle échoue. Si la cmdlet échoue une première fois, exécutez-la une seconde fois. La deuxième exécution doit permettre de terminer l’opération. 
 
 <!-- 2494144 - IS, ASDK --> 
-- Quand vous sélectionnez une taille de machine virtuelle pour un déploiement de machine virtuelle, certaines tailles de machine virtuelle de série F ne sont pas visibles dans le sélecteur de taille lorsque vous créez une machine virtuelle. Les tailles de machine virtuelle suivantes n’apparaissent pas dans le sélecteur : *F8s_v2*, *F16s_v2*, *F32s_v2* et *F64s_v2*.  
+- Quand vous sélectionnez une taille de machine virtuelle pour un déploiement de machine virtuelle, certaines tailles de machine virtuelle de série F ne sont pas visibles dans le sélecteur de taille lorsque vous créez une machine virtuelle. Les tailles de machines virtuelles suivantes n’apparaissent pas dans le sélecteur : *F8s_v2*, *F16s_v2*, *F32s_v2* et *F64s_v2*.  
   Pour résoudre ce problème, utilisez l’une des méthodes suivantes pour déployer une machine virtuelle. Dans chaque méthode, vous devez spécifier la taille de machine virtuelle que vous voulez utiliser.
 
-  - **Modèle Azure Resource Manager :** lorsque vous utilisez un modèle, définissez la valeur *vmSize* dans le modèle pour qu’elle soit égale à la taille de machine virtuelle que vous voulez utiliser. Par exemple, l’entrée suivante permet de déployer une machine virtuelle qui utilise la taille *F32s_v2* :  
+  - **Modèle Azure Resource Manager :** quand vous utilisez un modèle, définissez la valeur *vmSize* dans le modèle pour qu’elle soit égale à la taille de machine virtuelle que vous voulez utiliser. Par exemple, l’entrée suivante permet de déployer une machine virtuelle qui utilise la taille *F32s_v2* :  
 
     ```
         "properties": {
@@ -289,7 +288,7 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **Azure CLI :** Vous pouvez utiliser la commande [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) et spécifiez la taille de machine virtuelle comme paramètre, identique à `--size "Standard_F32s_v2"`.
+  - **Azure CLI :** vous pouvez utiliser la commande [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) et spécifier la taille de machine virtuelle comme paramètre, identique à `--size "Standard_F32s_v2"`.
 
   - **PowerShell :** avec PowerShell, vous pouvez utiliser [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) avec le paramètre qui spécifie la taille de machine virtuelle, identique à `-VMSize "Standard_F32s_v2"`.
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: d9d34441f36ea60141ed2659b3e33efdaac94ad3
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 351734ea394b8820e87799a6d9a87979dd9c3807
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497120"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604529"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Soumettre des travaux à partir d’outils R pour Visual Studio
 
@@ -35,7 +35,7 @@ RTVS améliore votre flux de travail R en offrant des outils tels que la [fenêt
 
 4. Installez [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) sur votre ordinateur. ML Server propose les fonctions [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) et `RxSpark`.
 
-5. Installez [PuTTY](http://www.putty.org/) pour fournir un contexte de calcul afin d’exécuter les fonctions `RevoScaleR` de votre client local sur votre cluster HDInsight.
+5. Installez [PuTTY](https://www.putty.org/) pour fournir un contexte de calcul afin d’exécuter les fonctions `RevoScaleR` de votre client local sur votre cluster HDInsight.
 
 6. Vous pouvez appliquer les Paramètres de science des données à votre environnement Visual Studio, qui fournit une nouvelle disposition pour votre espace de travail pour les outils R.
     1. Pour enregistrer vos paramètres Visual Studio actuels, utilisez la commande **Outils > Importation et exportation de paramètres**, puis sélectionnez **Exporter les paramètres d'environnement sélectionnés** et spécifiez un nom de fichier. Pour restaurer ces paramètres, utilisez la même commande et sélectionnez **Importer les paramètres d'environnement sélectionnés**.
@@ -44,7 +44,7 @@ RTVS améliore votre flux de travail R en offrant des outils tels que la [fenêt
 
         ![Paramètres de science des données](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > À l’aide de l’approche décrite à l’étape 1, vous pouvez également enregistrer et restaurer votre disposition de scientifique des données personnalisée, plutôt que de répéter la commande **Paramètres de science des données**.
 
 ## <a name="execute-local-r-methods"></a>Exécuter des méthodes R locales

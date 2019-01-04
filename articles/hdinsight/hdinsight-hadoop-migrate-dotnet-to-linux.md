@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3681f87780f1ef2a6b42e33bcd6fc2d761994d5c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3a9a026af67cd5528dfc00148bcbbcef82b8b189
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384194"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714659"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migration de solutions .NET pour HDInsight sous Windows vers HDInsight sous Linux
 
@@ -24,7 +24,7 @@ Les clusters HDInsight Linux utilisent [Mono (https://mono-project.com)](https:/
 
 La version 4.2.1 de Mono est incluse dans la version 3.6 de HDInsight. Pour plus d’informations sur la version de Mono fournie avec HDInsight, consultez [Versions des composants HDInsight](hdinsight-component-versioning.md). Pour installer une version particulière de Mono, consultez le document [Installation ou mise à jour de Mono](hdinsight-hadoop-install-mono.md).
 
-Pour plus d’informations sur la compatibilité entre Mono et .NET, consultez le document [sur la compatibilité avec Mono (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/).
+Pour plus d’informations sur la compatibilité entre Mono et .NET, consultez le document [sur la compatibilité avec Mono (https://www.mono-project.com/docs/about-mono/compatibility/)](https://www.mono-project.com/docs/about-mono/compatibility/).
 
 > [!IMPORTANT]  
 > L’infrastructure SCP.NET est compatible avec Mono. Pour plus d’informations sur l’utilisation de SCP.NET avec Mono, consultez la rubrique [Utiliser Visual Studio pour développer des topologies C# pour Apache Storm sur HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
@@ -52,7 +52,7 @@ L’[Analyseur de portabilité .NET](https://marketplace.visualstudio.com/items?
 
 ## <a name="manual-portability-analysis"></a>Analyse de portabilité manuelle
 
-Procédez à un audit manuel de votre code en utilisant les informations du [document sur la portabilité de l’application (http://www.mono-project.com/docs/getting-started/application-portability/)](http://www.mono-project.com/docs/getting-started/application-portability/).
+Procédez à un audit manuel de votre code en utilisant les informations du [document sur la portabilité de l’application (https://www.mono-project.com/docs/getting-started/application-portability/)](https://www.mono-project.com/docs/getting-started/application-portability/).
 
 ## <a name="modify-and-build"></a>Modifier et générer
 

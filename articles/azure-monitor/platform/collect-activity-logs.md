@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 1556c228aa2e00cf18f16cc26eefab4691f6de23
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 20246cfa5904c3c89ab9a14d11f2e61883b27344
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184942"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540238"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Collecter et analyser les journaux d’activités Azure dans Log Analytics
 
 ![Symbole des journaux d’activité Azure](./media/collect-activity-logs/activity-log-analytics.png)
 
-La solution Activity Log Analytics vous aide à analyser et rechercher le [journal d’activité Azure](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) parmi tous vos abonnements Azure. Le journal d’activité Azure est un journal qui fournit des informations sur les opérations réalisées sur les ressources de vos abonnements. Le journal d’activité était précédemment appelé *journal d’audit* ou *journal des opérations*, car il indique les événements pour vos abonnements.
+La solution Activity Log Analytics vous aide à analyser et rechercher le [journal d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md) parmi tous vos abonnements Azure. Le journal d’activité Azure est un journal qui fournit des informations sur les opérations réalisées sur les ressources de vos abonnements. Le journal d’activité était précédemment appelé *journal d’audit* ou *journal des opérations*, car il indique les événements pour vos abonnements.
 
 Avec le journal d’activité, vous pouvez déterminer *qui*, *quand* et *quoi* pour toutes les opérations d’écriture (PUT, POST, DELETE) réalisées sur des ressources dans votre abonnement. Vous pouvez également comprendre l’état des opérations et d’autres propriétés pertinentes. Le journal d’activité n’inclut pas d’opérations de lecture (GET) ni d’opérations pour les ressources qui utilisent le modèle de déploiement Classic.
 

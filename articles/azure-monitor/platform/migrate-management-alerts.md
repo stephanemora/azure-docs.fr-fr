@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: e3159ac4074e7ff437e052e0e2c1ae7d31378abe
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8fd7161208f6303e03deaacca6a1e2fad24ec45e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345089"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580874"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrer les alertes Azure pour les événements de gestion vers les alertes de journal d’activité
 
@@ -110,9 +110,9 @@ Les alertes pour des événements de gestion que vous avez créées précédemme
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les [journaux d’activité](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+* En savoir plus sur les [journaux d’activité](../../azure-monitor/platform/activity-logs-overview.md)
 * Configurer les [alertes de journal d’activité par le biais du portail Azure](../../azure-monitor/platform/activity-log-alerts.md)
 * Configurer les [alertes de journal d’activité au moyen de Resource Manager](../../azure-monitor/platform/alerts-activity-log.md)
 * Consulter le [schéma de webhook d’alerte de journal d’activité](../../azure-monitor/platform/activity-log-alerts-webhook.md)
-* Apprenez-en plus sur les [notifications de service](../../monitoring-and-diagnostics/monitoring-service-notifications.md)
+* Apprenez-en plus sur les [notifications de service](../../azure-monitor/platform/service-notifications.md)
 * En savoir plus sur les [groupes d’actions](../../azure-monitor/platform/action-groups.md)

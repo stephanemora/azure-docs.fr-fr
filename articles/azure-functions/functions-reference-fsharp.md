@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: bd971b84b907d3fda1bea9922b2fd1881eb369e9
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 112a986efc11822f6c847511a33be6206b1f00da
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087234"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717482"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Informations de référence pour les développeurs F# sur Azure Functions
 
@@ -96,7 +96,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Journalisation
-Pour consigner la sortie dans vos [journaux de streaming](../app-service/web-sites-enable-diagnostic-log.md) en F#, votre fonction doit utiliser un argument de type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Par souci de cohérence, nous vous recommandons de nommer cet argument `log`. Par exemple : 
+Pour consigner la sortie dans vos [journaux de streaming](../app-service/troubleshoot-diagnostic-logs.md) en F#, votre fonction doit utiliser un argument de type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Par souci de cohérence, nous vous recommandons de nommer cet argument `log`. Par exemple : 
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =

@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c73a802cd67c9ecb94482cfcd6aac51fc8bbc19e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d90a4272f843cc9f2b66aa202ddefe54e7b1a361
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317472"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632159"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexation de documents dans Azure Blob Storage avec Azure Search
 Cet article explique comment utiliser Azure Search pour indexer des documents (tels que des fichiers PDF, des documents Microsoft Office et plusieurs autres formats courants) stockés dans le stockage d’objets blob Azure. Tout d’abord, il présente les concepts de base de la définition et de la configuration d’un indexeur d’objets blob. Ensuite, il offre une exploration plus approfondie des comportements et des scénarios que vous êtes susceptible de rencontrer.
@@ -334,7 +334,7 @@ L’indexation d’objets blob peut être un processus long. Dans le cas où vou
 
 Vous pourriez souhaiter « rassembler » des documents provenant de plusieurs sources dans votre index. Par exemple, vous pourriez souhaiter fusionner des textes de blobs avec d’autres métadonnées stockées dans la base de données Cosmos. Vous pouvez même utiliser le push de l’indexation des API ainsi que plusieurs indexeurs pour générer des documents de recherche à partir de plusieurs parties. 
 
-Pour ce faire, tous les indexeurs et les autres composants doivent s’accorder sur la clé de document. Pour une procédure détaillée, consultez l’article externe : [Combine documents with other data in Azure Search](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Associer des documents à d’autres données dans Recherche Azure).
+Pour ce faire, tous les indexeurs et les autres composants doivent s’accorder sur la clé de document. Pour une procédure détaillée, consultez l’article externe : [Combine documents with other data in Azure Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) (Associer des documents à d’autres données dans Recherche Azure).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexation en texte brut 

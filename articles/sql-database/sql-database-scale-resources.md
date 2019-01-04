@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 5e3c282c198b6a1290e724549a4af30119f9cb04
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1c83ebd0153e7a28365317b02d3debbe43d976f9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251213"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601574"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Mettre à l’échelle de façon dynamique les ressources de base de données moyennant un temps d’arrêt minimal
 
@@ -62,7 +62,7 @@ Ces trois possibilités d’Azure SQL Database offrent des capacités à mettre 
 
 La mise à l'échelle des ressources reste la façon la plus facile et efficace pour améliorer les performances de votre base de données sans changer le code de la base de données ou de l’application. Dans certains cas, même les niveaux de service, les tailles de calcul et les optimisations de performances les plus élevés peuvent ne pas suffire à gérer votre charge de travail correctement et de façon économique. Dans ce cas, vous disposez d’autres options pour mettre à l’échelle votre base de données :
 
-- L’[échelle lecture](sql-database-read-scale-out.md) est une fonctionnalité disponible qui vous offre un réplica en lecture seule de vos données, sur lequel vous pouvez exécuter des requêtes en lecture seule exigeantes telles que les rapports. Le réplica en lecture seule gère votre charge de travail en lecture seule sans affecter l’utilisation des ressources sur votre base de données primaire.
+- L’[échelle lecture](sql-database-read-scale-out.md) est une fonctionnalité disponible qui vous offre un réplica en lecture seule de vos données, sur lequel vous pouvez exécutez des requêtes en lecture seule exigeantes telles que les rapports. Le réplica en lecture seule gère votre charge de travail en lecture seule sans affecter l’utilisation des ressources sur votre base de données primaire.
 - Le [partitionnement de base de données](sql-database-elastic-scale-introduction.md) est un ensemble de techniques qui vous permet de diviser vos données en plusieurs bases de données pour les mettre à l'échelle indépendamment.
 
 ## <a name="next-steps"></a>Étapes suivantes

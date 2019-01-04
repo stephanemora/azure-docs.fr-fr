@@ -4,19 +4,19 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 30b5ae499d29b8b78b5852074362841ac1ceb49f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: e087a1db008422aeec8fd4e073a7476eebe4d54b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134128"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53729405"
 ---
 1. Connectez-vous au [portail Azure].
 2. Sélectionnez **+NOUVEAU** > **Web + Mobile** > **Application mobile**, puis indiquez le nom de votre serveur principal Mobile Apps.
 3. Pour **Groupe de ressources**, sélectionnez un groupe de ressources existant ou créez-en un (en utilisant le même nom que votre application). 
 4. Pour **Plan App Service**, le plan par défaut (dans [Niveau Standard](https://azure.microsoft.com/pricing/details/app-service/)) est sélectionné. Vous pouvez sélectionner un autre plan ou en [créer un](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). 
 
-   Les paramètres du plan App Service déterminent [l’emplacement, les fonctionnalités, les coûts et les ressources de calcul](https://azure.microsoft.com/pricing/details/app-service/) associés à votre application. Pour plus d’informations sur les plans App Service et sur la création d’un plan à un autre niveau tarifaire et à l’emplacement souhaité, consultez l’article [Présentation détaillée des plans Azure App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+   Les paramètres du plan App Service déterminent [l’emplacement, les fonctionnalités, les coûts et les ressources de calcul](https://azure.microsoft.com/pricing/details/app-service/) associés à votre application. Pour plus d’informations sur les plans App Service et sur la création d’un plan à un autre niveau tarifaire et à l’emplacement souhaité, consultez l’article [Présentation détaillée des plans Azure App Service](../articles/app-service/overview-hosting-plans.md).
    
 5. Sélectionnez **Créer**. Cette opération crée le serveur principal Mobile Apps. 
 6. Dans le volet **Paramètres** du nouveau serveur principal Mobile Apps, sélectionnez **Démarrage rapide** > votre plateforme d’application cliente > **Connecter une base de données**. 

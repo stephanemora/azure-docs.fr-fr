@@ -9,20 +9,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: b03cffe35337ee5720944dc4cfe88c17c3b5b748
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 933506e732926b0f3827f039a65e78acd3a6932b
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163825"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653813"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurer la réplication de cluster Apache HBase dans les réseaux virtuels Azure
 
-Découvrez comment configurer la réplication [Apache HBase](http://hbase.apache.org/) dans un réseau virtuel ou entre deux réseaux virtuels dans Azure.
+Découvrez comment configurer la réplication [Apache HBase](https://hbase.apache.org/) dans un réseau virtuel ou entre deux réseaux virtuels dans Azure.
 
 La réplication en cluster utilise une méthodologie par émission de données source. Un cluster HBase peut être une source, une destination ou jouer les deux rôles à la fois. La réplication est asynchrone. L'objectif de la réplication est une cohérence éventuelle. Quand la source reçoit une modification apportée à une famille de colonnes lorsque la réplication activée, cette modification est propagée à tous les clusters de destination. Quand les données sont répliquées d’un cluster à un autre, le cluster source et tous les clusters qui ont déjà utilisé les données font l’objet d’un suivi afin d’empêcher les boucles de réplication.
 
-Dans ce didacticiel, vous configurez une réplication source-destination. Pour d'autres topologies de cluster, consultez le [Guide de référence d'Apache HBase](http://hbase.apache.org/book.html#_cluster_replication).
+Dans ce didacticiel, vous configurez une réplication source-destination. Pour d'autres topologies de cluster, consultez le [Guide de référence d'Apache HBase](https://hbase.apache.org/book.html#_cluster_replication).
 
 Cas d’utilisation de la réplication HBase pour un seul réseau virtuel :
 
@@ -121,7 +121,7 @@ Pour installer Bind, procédez comme suit :
 
     Remplacez `sshuser` par le compte d’utilisateur SSH que vous avez spécifié lors de la création de la machine virtuelle DNS.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Il existe plusieurs façons d’obtenir l’utilitaire `ssh`. Sur Linux, Unix et macOS, il est généralement fourni en tant que composant du système d’exploitation. Si vous utilisez Windows, envisagez l’une des options suivantes :
     >
     > * [Azure Cloud Shell](../../cloud-shell/quickstart.md)
@@ -162,7 +162,7 @@ Pour installer Bind, procédez comme suit :
     };
     ```
     
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Remplacez les valeurs de la section `goodclients` par la plage d’adresses IP des deux réseaux virtuels. Cette section définit les adresses d’origine des demandes que ce serveur DNS accepte.
 
     Pour modifier ce fichier, utilisez la commande suivante :
@@ -197,7 +197,7 @@ Pour installer Bind, procédez comme suit :
     };
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Vous devez remplacer `v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` par le suffixe DNS de l’autre réseau virtuel. Et l’adresse IP de redirection est l’adresse IP privée du serveur DNS de l’autre réseau virtuel.
 
     Pour modifier ce fichier, utilisez la commande suivante :
@@ -221,7 +221,7 @@ Pour installer Bind, procédez comme suit :
     nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Remplacez `vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` par le nom de domaine complet (FQDN) de la machine virtuelle DNS de l’autre réseau.
     >
     > Remplacez `10.2.0.4` par __l’adresse IP interne__ de votre serveur DNS personnalisé dans l’autre réseau virtuel.
@@ -258,7 +258,7 @@ sudo service bind9 status
 
 ## <a name="create-apache-hbase-clusters"></a>Créer des clusters Apache HBase
 
-Créez un cluster [Apache HBase](http://hbase.apache.org/) dans chacun des deux réseaux virtuels avec la configuration suivante :
+Créez un cluster [Apache HBase](https://hbase.apache.org/) dans chacun des deux réseaux virtuels avec la configuration suivante :
 
 - **Nom du groupe de ressources** : utilisez le même nom de groupe de ressources que vous avez créé pour les réseaux virtuels.
 - **Type de cluster** : hbase
@@ -289,14 +289,13 @@ Les étapes suivantes décrivent comment appeler le script d’action de script 
 5. Sélectionnez ou saisissez les informations suivantes :
 
   1. **Nom** : entrez **Activer la réplication**.
-  2. **URL du script Bash** : Entrez **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+  2. **URL du script Bash** : Entrez https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
   3.  **Principal** : assurez-vous que cette option est sélectionnée. Supprimez les autres types de nœuds.
   4. **Paramètres** : les paramètres d'exemple suivants activent la réplication pour toutes les tables existantes, puis copient toutes les données du cluster source vers le cluster de destination :
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
-    >[!note]
-    >
+    > [!NOTE]
     > Utilisez le nom d’hôte plutôt que le nom de domaine complet (FQDN) pour le nom DNS du cluster source et du cluster de destination.
 
 6. Sélectionnez **Créer**. L’exécution du script peut prendre un certain temps, en particulier lorsque vous utilisez l’argument **-copydata**.

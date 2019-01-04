@@ -13,12 +13,12 @@ ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 7da0717273892893bec03c164b9b297f28e5218d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a0284675417ae31c2e16651a312f4c11c4e238ff
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995538"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969350"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Résoudre les problèmes des outils d’analytique du comportement des utilisateurs dans Application Insights
 Vous avez des questions concernant les [outils d’analytique du comportement des utilisateurs dans Application Insights](app-insights-usage-overview.md) : [Utilisateurs, sessions, événements](app-insights-usage-segmentation.md), [Entonnoirs](usage-funnels.md), [Flux d’utilisateurs](app-insights-usage-flows.md), [Conservation](app-insights-usage-retention.md) ou Cohortes ? Voici quelques réponses.
@@ -26,13 +26,13 @@ Vous avez des questions concernant les [outils d’analytique du comportement de
 ## <a name="counting-users"></a>Comptage d'utilisateurs
 **Les outils d’analytique du comportement des utilisateurs indiquent que mon application a un utilisateur/une session, mais je sais que mon application a un grand nombre d’utilisateurs/de sessions. Comment puis-je corriger ces erreurs de comptage ?**
 
-Tous les événements de télémétrie dans Application Insights ont un [ID d’utilisateur anonyme](application-insights-data-model-context.md) et un [ID de session](application-insights-data-model-context.md) définis en tant que deux de leurs propriétés standard. Par défaut, tous les outils d’analyse de l’utilisation comptent les utilisateurs et les sessions en fonction de ces ID. Si ces propriétés standard ne sont pas renseignées par des ID uniques pour chaque utilisateur et chaque session de votre application, le nombre d’utilisateurs et de sessions affiché dans les outils d’analyse de l’utilisation seront incorrects.
+Tous les événements de télémétrie dans Application Insights ont un [ID d’utilisateur anonyme](../azure-monitor/app/data-model-context.md) et un [ID de session](../azure-monitor/app/data-model-context.md) définis en tant que deux de leurs propriétés standard. Par défaut, tous les outils d’analyse de l’utilisation comptent les utilisateurs et les sessions en fonction de ces ID. Si ces propriétés standard ne sont pas renseignées par des ID uniques pour chaque utilisateur et chaque session de votre application, le nombre d’utilisateurs et de sessions affiché dans les outils d’analyse de l’utilisation seront incorrects.
 
-Si vous effectuez le suivi d’une application web, la solution la plus simple consiste à ajouter le [Kit SDK JavaScript Application Insights ](app-insights-javascript.md) à votre application, puis à vérifier que l’extrait de code de script est correctement chargé sur chaque page dont vous souhaitez effectuer le suivi. Le Kit SDK JavaScript génère automatiquement les ID d’utilisateur anonyme et de session, puis renseigne les événements de télémétrie à l’aide de ces ID tels qu’ils sont envoyés à partir de votre application.
+Si vous effectuez le suivi d’une application web, la solution la plus simple consiste à ajouter le [Kit SDK JavaScript Application Insights ](../azure-monitor/app/javascript.md) à votre application, puis à vérifier que l’extrait de code de script est correctement chargé sur chaque page dont vous souhaitez effectuer le suivi. Le Kit SDK JavaScript génère automatiquement les ID d’utilisateur anonyme et de session, puis renseigne les événements de télémétrie à l’aide de ces ID tels qu’ils sont envoyés à partir de votre application.
 
 Si vous effectuez le suivi d’un service web (sans interface utilisateur), [créez un initialiseur de télémétrie qui renseigne les propriétés des ID d’utilisateur anonyme et des ID de session](app-insights-usage-send-user-context.md) selon les notions d’utilisateurs et de sessions uniques de votre service.
 
-Si votre application envoie des [ID d’utilisateur authentifié](app-insights-api-custom-events-metrics.md#authenticated-users), vous pouvez effectuer le comptage en fonction des ID d’utilisateur authentifié dans l’outil Utilisateurs. Dans la liste déroulante « Afficher », sélectionnez l’option « Utilisateurs authentifiés ».
+Si votre application envoie des [ID d’utilisateur authentifié](../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), vous pouvez effectuer le comptage en fonction des ID d’utilisateur authentifié dans l’outil Utilisateurs. Dans la liste déroulante « Afficher », sélectionnez l’option « Utilisateurs authentifiés ».
 
 Les outils d’analytique du comportement des utilisateurs ne prennent actuellement pas en charge le comptage d’utilisateurs ou de sessions à partir de propriétés autres que les ID d’utilisateur anonyme, les ID d’utilisateur authentifié et les ID de session.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3c3ff606958503efcf2df5fd99b6e52e4687de4a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 68155b69c1122d645eca5fe121d32bd9353db2da
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996253"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002720"
 ---
 # <a name="create-an-application-insights-resource"></a>Création d’une ressource Application Insights dans Azure
 Azure Application Insights affiche les données relatives à votre application dans une *ressource* Microsoft Azure. La création d’une nouvelle ressource fait, par conséquent, partie de la [configuration d’Application Insights pour surveiller une nouvelle application][start]. Dans de nombreux cas, il est possible de créer une ressource automatiquement à l’aide de l’IDE. Mais dans certains cas, vous créez manuellement une ressource : par exemple, pour avoir des ressources distinctes pour le développement et la production des builds de votre application.
@@ -66,18 +66,18 @@ Cliquez sur la vignette de recherche pour afficher [Recherche de diagnostic][dia
 Après quelques secondes, cliquez sur **Actualiser** pour obtenir des données supplémentaires.
 
 ## <a name="creating-a-resource-automatically"></a>Création automatique d’une ressource
-Vous pouvez écrire un [script PowerShell](app-insights-powershell.md) pour créer automatiquement une ressource.
+Vous pouvez écrire un [script PowerShell](../azure-monitor/app/powershell.md) pour créer automatiquement une ressource.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Création d’un tableau de bord](app-insights-dashboards.md)
-* [Recherche de diagnostic](app-insights-diagnostic-search.md)
-* [Exploration des mesures](app-insights-metrics-explorer.md)
-* [Écriture de requêtes Analytics](app-insights-analytics.md)
+* [Création d’un tableau de bord](../azure-monitor/app/app-insights-dashboards.md)
+* [Recherche de diagnostic](../azure-monitor/app/diagnostic-search.md)
+* [Exploration des mesures](../azure-monitor/app/metrics-explorer.md)
+* [Écriture de requêtes Analytics](../azure-monitor/app/analytics.md)
 
 <!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md
-[diagnostic]: app-insights-diagnostic-search.md
-[metrics]: app-insights-metrics-explorer.md
+[api]: ../azure-monitor/app/api-custom-events-metrics.md
+[diagnostic]: ../azure-monitor/app/diagnostic-search.md
+[metrics]: ../azure-monitor/app/metrics-explorer.md
 [start]: app-insights-overview.md
 

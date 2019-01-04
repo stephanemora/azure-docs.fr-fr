@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: twhitney
-ms.openlocfilehash: 85623f5acfb33d73774e5898e3f8937b4e07a5a9
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: c4add1034e4b149cbe9d3c76c03987d45ca587c4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299076"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993777"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Afficher les fichiers journaux d’un service de conteneurs Service Fabric
 Azure Service Fabric, qui est un orchestrateur de conteneurs, prend en charge les [conteneurs Linux et Windows](service-fabric-containers-overview.md).  Cet article décrit comment afficher les fichiers journaux de conteneurs d’un service de conteneurs en cours d’exécution ou d’un conteneur mort, de manière à pouvoir diagnostiquer et résoudre les problèmes.
@@ -64,10 +64,10 @@ Corps de réponse 200 :
 ```
 
 ### <a name="service-fabric-sfctl"></a>Service Fabric (SFCTL)
-Utilisez la commande [sfctl service get-container-logs](service-fabric-sfctl-service.md) afin d’extraire les journaux pour un conteneur planté.  Spécifiez le nom du nœud sur lequel le conteneur s’exécutait, le nom de l’application, le nom du manifeste de service et le nom du package de code. Spécifiez l’indicateur `-previous`.  La réponse contiendra les journaux du conteneur mort de l’instance de package de code.
+Utilisez la commande [sfctl service get-container-logs](service-fabric-sfctl-service.md) afin d’extraire les journaux pour un conteneur planté.  Spécifiez le nom du nœud sur lequel le conteneur s’exécutait, le nom de l’application, le nom du manifeste de service et le nom du package de code. Spécifiez l’indicateur `--previous`.  La réponse contiendra les journaux du conteneur mort de l’instance de package de code.
 
 ```
-sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –previous
+sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –-previous
 ```
 Réponse :
 ```json

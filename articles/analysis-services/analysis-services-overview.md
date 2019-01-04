@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 15dbdc0bb2a3b7ee5af544adb2672a97f839f694
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2dd209025db762f659510898e23cb371a31291b9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970193"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544683"
 ---
 # <a name="what-is-azure-analysis-services"></a>Qu’est-ce qu’Azure Analysis Services ?
 
@@ -215,7 +215,7 @@ Les outils modernes d’exploration et de visualisation de données comme Power 
 
 ## <a name="monitoring-and-diagnostics"></a>Surveillance et diagnostics
 
-Azure Analysis Services est intégré aux métriques Azure, fournissant ainsi un nombre important de métriques propres à la ressource pour vous aider à surveiller les performances et l’intégrité de vos serveurs. Pour plus d’informations, consultez [Surveiller les métriques du serveur](analysis-services-monitor.md). Enregistrez des métriques avec les [journaux de diagnostic des ressources Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Analysez et envoyer des journaux au [Stockage Azure](https://azure.microsoft.com/services/storage/), transmettez-les à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et exportez-les vers [Log Analytics](https://azure.microsoft.com/services/log-analytics/), un service [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Pour en savoir plus, consultez [Configurer la journalisation des diagnostics](analysis-services-logging.md).
+Azure Analysis Services est intégré aux métriques Azure, fournissant ainsi un nombre important de métriques propres à la ressource pour vous aider à surveiller les performances et l’intégrité de vos serveurs. Pour plus d’informations, consultez [Surveiller les métriques du serveur](analysis-services-monitor.md). Enregistrez des métriques avec les [journaux de diagnostic des ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md). Analysez et envoyer des journaux au [Stockage Azure](https://azure.microsoft.com/services/storage/), transmettez-les à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et exportez-les vers [Log Analytics](https://azure.microsoft.com/services/log-analytics/), un service [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Pour en savoir plus, consultez [Configurer la journalisation des diagnostics](analysis-services-logging.md).
 
 Azure Analysis Services prend également en charge l’utilisation de [vues de gestion dynamique (DMV)](https://docs.microsoft.com/sql/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). Basées sur la syntaxe SQL, les vues de gestion dynamique font l’interface avec les lignes de schéma qui retournent des métadonnées et des informations d’analyse sur l’instance de serveur.
 

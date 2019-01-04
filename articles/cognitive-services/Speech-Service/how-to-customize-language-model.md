@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 0eb946babaa3a01ca933a1290122755978fa017b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e65fa21eefcc103f553f8e1bc47792ac372c59e3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093451"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975438"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Tutoriel : Créer un modèle linguistique personnalisé
 
@@ -100,9 +100,7 @@ Les paramètres régionaux appropriés doivent être sélectionnés avant d’en
 
 Dans la page Create Language Model (Créer un modèle de langage), entrez un **Name** (Nom) et une **Description** pour pouvoir effectuer un suivi sur les informations utiles de ce modèle, telles que le jeu de données qui est utilisé. Sélectionnez ensuite **Base Language Model** (Modèle de langage de base) dans le menu déroulant. Ce modèle est le point de départ de votre personnalisation.
 
-Deux modèles de langage de base existants peuvent être sélectionnés. Le modèle Search and Dictation (Recherche et dictée) est approprié pour la reconnaissance vocale qui est destinée à une application, comme les commandes, les requêtes de recherche ou la dictée. Le modèle Conversational (Conversation) est adapté à la reconnaissance vocale d’énoncés de type conversationnel. Ce type de voix s’adresse généralement à une autre personne et se retrouve dans les centres d’appel ou les réunions.
-
-Le modèle Search and Dictation (Recherche et dictée) est approprié pour la reconnaissance vocale qui est destinée à une application, comme les commandes, les requêtes de recherche ou la dictée. Le modèle Conversational (Conversation) est adapté à la reconnaissance vocale d’énoncés de type conversationnel. Ce type de voix s’adresse généralement à une autre personne et se retrouve dans les centres d’appel ou les réunions. Un nouveau modèle appelé Universal (Universel) est également disponible publiquement. Le modèle Universal a pour but de convenir à tous les scénarios, et de remplacer au final les modèles Search and Dictation (Recherche et dictée) et Conversational (Conversation).
+Deux modèles de langage de base existants peuvent être sélectionnés. Le modèle Search and Dictation (Recherche et dictée) est approprié pour la reconnaissance vocale qui est destinée à une application, comme les commandes, les requêtes de recherche ou la dictée. Le modèle Conversational (Conversation) est adapté à la reconnaissance vocale d’énoncés de type conversationnel. Ce type de voix s’adresse généralement à une autre personne et se retrouve dans les centres d’appel ou les réunions. Un nouveau modèle appelé Universal (Universel) est également disponible publiquement. Le modèle Universal a pour but de convenir à tous les scénarios, et de remplacer au final les modèles Search and Dictation (Recherche et dictée) et Conversational (Conversation).
 
 Comme illustré dans l’exemple suivant, après avoir spécifié le modèle de langage de base, servez-vous du menu déroulant **Language Data** (Données de langage) pour sélectionner le jeu de données de langage à utiliser pour la personnalisation.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: e618bce78a3a3ce080b6c24cc34a27c2f5fb39e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6b3f862acd5aba39a7ad6eb0ce2f0a9b4a9e5307
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977551"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973653"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Créer une machine virtuelle Linux complète avec Azure CLI
 Pour créer rapidement une machine virtuelle dans Azure, vous pouvez utiliser une seule commande Azure CLI qui utilise des valeurs par défaut pour créer toutes les ressources associées requises. Les ressources telles que le réseau virtuel, l’adresse IP publique et les règles de groupe de sécurité réseau sont automatiquement créées. Pour un meilleur contrôle de votre environnement en production, vous pouvez créer ces ressources à l’avance, puis leur ajouter vos machines virtuelles. Cet article vous accompagne dans la création d’une machine virtuelle et de chacune des ressources associées.
@@ -112,7 +112,7 @@ az network public-ip create \
     --dns-name mypublicdns
 ```
 
-Output:
+Sortie :
 
 ```json
 {
@@ -182,7 +182,7 @@ Examinez le groupe et les règles de sécurité réseau avec la commande [az net
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
 ```
 
-Output:
+Sortie :
 
 ```json
 {
@@ -210,7 +210,7 @@ Output:
       "destinationPortRange": "*",
       "direction": "Inbound",
       "etag": "W/\"3371b313-ea9f-4687-a336-a8ebdfd80523\"",
-      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup/defaultSecurityRules/AllowAzureLoadBalancerInBou
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup/defaultSecurityRules/AllowAzureLoadBalancerInBou",
       "name": "AllowAzureLoadBalancerInBound",
       "priority": 65001,
       "protocol": "*",
@@ -345,7 +345,7 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Output:
+Sortie :
 
 ```json
 {

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: f7d6f34c75069f91e06d58c960249d040b2bda8a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6e3ab097b08e3a15d012ccc644307bc8f4b281ab
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299190"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971680"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copier des données à partir d’un stockage Blob Azure vers une base de données SQL en utilisant Azure Data Factory
 Dans ce didacticiel, vous créez une fabrique de données à l’aide de l’interface utilisateur (IU) d’Azure Data Factory. Le pipeline de cette fabrique de données copie les données d’un stockage Blob Azure vers une base de données SQL. Le modèle de configuration de ce didacticiel s’applique à la copie depuis un magasin de données de fichiers vers un magasin de données relationnelles. Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -217,7 +217,7 @@ Dans ce didacticiel, vous commencez par créer le pipeline. Puis vous créez des
 
     ![Onglet Pipeline](./media/tutorial-copy-data-portal/pipeline-tab-2.png)        
 
-### <a name="confugure-mapping"></a>Configuration du mappage
+### <a name="configure-mapping"></a>Configuration du mappage
 
 Accédez à l’onglet **Mappage** au bas de la fenêtre **Propriétés**, puis sélectionnez **Importer des schémas**. Les première et deuxième colonnes du fichier source sont mappées aux champs **FirstName** et **LastName** dans la base de données SQL.
 

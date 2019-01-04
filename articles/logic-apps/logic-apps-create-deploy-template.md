@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: ffa619351ca4a4bfd3a812775ee7ff6cd71ddea4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c953d4635ce43ee05fe7c507076c5bd11e9d8c81
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089699"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000561"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Créer des modèles Azure Resource Manager pour déployer des applications logiques
 
@@ -73,7 +73,7 @@ Une fois PowerShell installé, vous pouvez générer un modèle à l’aide de l
 `$SubscriptionId` est l’ID d’abonnement Azure. Cette ligne obtient d’abord un jeton d’accès via ARMClient, puis le dirige vers le script PowerShell et enfin crée le modèle dans un fichier JSON.
 
 ## <a name="add-parameters-to-a-logic-app-template"></a>Ajouter des paramètres à un modèle d’application logique
-Après avoir créé votre modèle d’application logique, vous pouvez continuer à ajouter ou modifier les paramètres dont vous avez besoin. Par exemple, si votre définition inclut un ID de ressource à une fonction Azure ou à un workflow imbriqué que vous envisagez de déployer dans un déploiement unique, vous pouvez ajouter des ressources supplémentaires à votre modèle et paramétrer les ID en fonction de vos besoins. Cela s’applique également à toutes les références aux API personnalisées ou aux points de terminaison Swagger que vous pensez déployer avec chaque groupe de ressources.
+Après avoir créé votre modèle d’application logique, vous pouvez continuer à ajouter ou modifier les paramètres dont vous avez besoin. Par exemple, si votre définition inclut un ID de ressource à une fonction Azure ou à un workflow imbriqué que vous envisagez de déployer dans un déploiement unique, vous pouvez ajouter des ressources supplémentaires à votre modèle et  paramétrer les ID en fonction de vos besoins. Cela s’applique également à toutes les références aux API personnalisées ou aux points de terminaison Swagger que vous pensez déployer avec chaque groupe de ressources.
 
 ### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>Ajouter les références des ressources dépendantes aux modèles de déploiement Visual Studio
 
@@ -187,7 +187,7 @@ Vous trouverez un exemple de script sur GitHub sous le projet [LogicAppConnectio
 <a name="team-services"></a>
 ## <a name="azure-devops-azure-pipelines"></a>Azure DevOps Azure Pipelines
 
-Le déploiement et la gestion d’un environnement passent souvent par l’utilisation d’un outil tel que Azure Pipelines dans Azure DevOps, avec un modèle de déploiement d’application logique. Azure DevOps inclut une tâche de [déploiement de groupe de ressources Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) que vous pouvez ajouter à tout pipeline de build ou de mise en production. Vous devez disposer d’un [principal de service](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) pour obtenir l’autorisation de déployer, après quoi vous pouvez générer le pipeline de mise en production.
+Le déploiement et la gestion d’un environnement passent souvent par l’utilisation d’un outil tel que Azure Pipelines dans Azure DevOps, avec un modèle de déploiement d’application logique. Azure DevOps inclut une tâche de [déploiement de groupe de ressources Azure](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) que vous pouvez ajouter à tout pipeline de build ou de mise en production. Vous devez disposer d’un [principal de service](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) pour obtenir l’autorisation de déployer, après quoi vous pouvez générer le pipeline de mise en production.
 
 1. Dans Azure Pipelines, sélectionnez **Vide** pour créer un pipeline vide.
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: de96de96d68164d021f8b823e69bc52322642aa7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 02942cafe6e1532a6829ad7a6761b825739a1e85
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865401"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597968"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Création de rapports sur des bases de données cloud mises à l’échelle (version préliminaire)
 ![Requête sur plusieurs partitions][1]
@@ -184,7 +184,7 @@ Exemple :
 ## <a name="connectivity-for-tools"></a>Connectivité des outils
 Utilisez des chaînes de connexion SQL Server standard pour connecter votre application, vos outils d’intégration BI et des données de la base de données avec vos définitions de table externe. Assurez-vous que SQL Server est pris en charge comme source de données pour votre outil. Référencez la base de données de requête élastique comme n’importe quelle autre base de données SQL Server connectée à l’outil et utilisez des tables externes à partir de votre outil ou votre application comme s’il s’agissait de tables locales. 
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 * Assurez-vous que la base de données du point de terminaison de requête élastique est autorisée à accéder à la base de données de mappage de partition et à toutes les partitions via les pare-feu de base de données SQL.  
 * Validez ou appliquez la distribution de données définie par la table externe. Si la distribution réelle des données est différente de la distribution spécifiée dans la définition de votre table, vos requêtes peuvent donner des résultats inattendus. 
 * La requête élastique n’effectue pas d’élimination de partition lorsque les prédicats de clé de partitionnement permettent d’exclure en toute sécurité certaines partitions du traitement.

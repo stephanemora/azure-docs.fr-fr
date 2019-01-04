@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0d6c22d54de0486ad679f93343f0e7b208f21f4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 5db4387c2fd610313aaac032c122366aa45dc7f9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384045"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720184"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Développer des scripts d’action de script pour des clusters HDInsight Windows
 Découvrez comment écrire des scripts d’action de script pour HDInsight. Pour plus d’informations sur les scripts d’action de script, consultez [Personnaliser des clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster.md). Pour accéder au même article écrit pour les clusters HDInsight basés sur Linux, consultez [Développer des scripts d’action de script pour HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -32,8 +32,6 @@ L’action de script permet d’installer des logiciels supplémentaires s’ex�
 > System.Management.Automation.CommandNotFoundException; ExceptionMessage : Le terme Save-HDIFile n’est pas reconnu comme nom d’applet de commande, fonction, fichier de script ou programme exécutable. Vérifiez l’orthographe du nom ou, si un chemin d’accès a été inclus, vérifiez que le chemin d’accès est correct et réessayez.
 > 
 > Cela signifie que vous n’avez pas inclus les méthodes d’assistance.  Consultez [Méthodes d’assistance pour les scripts personnalisés](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
->
->
 
 ## <a name="sample-scripts"></a>Exemples de scripts
 Pour créer des clusters HDInsight sur un système d’exploitation Windows, l’action de script est le script Azure PowerShell. Le script suivant est un exemple pour configurer les fichiers de configuration de site :

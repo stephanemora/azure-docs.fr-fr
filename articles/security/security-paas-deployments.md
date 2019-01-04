@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: ee62e81b8c75200f26dfb5f7303083190f83eb8e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 199ea6855e661ef39104fdeb54941ccfd9f36933
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016842"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728480"
 ---
 # <a name="securing-paas-deployments"></a>Sécurisation des déploiements PaaS
 
@@ -119,11 +119,11 @@ Le tableau suivant répertorie les menaces STRIDE et donne des exemples d’att�
 | Élévation de privilège | Authorization | Utilisez [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
 
 ## <a name="develop-on-azure-app-service"></a>Développer sur Azure App Service
-[Azure App Service](../app-service/app-service-web-overview.md) est une offre PaaS qui vous permet de créer des applications mobiles et web pour tout type d’appareil ou de plateforme, et de vous connecter à des données en tout lieu, dans le cloud ou localement. App Service inclut les fonctionnalités web et mobiles qui étaient précédemment fournies séparément dans Sites Web Azure et Azure Mobile Services. Il inclut également de nouvelles fonctionnalités d’automatisation des processus d’entreprise et d’hébergement d’API cloud. App Service est un service intégré unique qui apporte un ensemble complet de fonctionnalités pour les scénarios web, mobiles et d’intégration.
+[Azure App Service](../app-service/overview.md) est une offre PaaS qui vous permet de créer des applications mobiles et web pour tout type d’appareil ou de plateforme, et de vous connecter à des données en tout lieu, dans le cloud ou localement. App Service inclut les fonctionnalités web et mobiles qui étaient précédemment fournies séparément dans Sites Web Azure et Azure Mobile Services. Il inclut également de nouvelles fonctionnalités d’automatisation des processus d’entreprise et d’hébergement d’API cloud. App Service est un service intégré unique qui apporte un ensemble complet de fonctionnalités pour les scénarios web, mobiles et d’intégration.
 
 Voici les bonnes pratiques relatives à l’utilisation d’App Service.
 
-**Bonne pratique** : [S’authentifier par le biais d’Azure Active Directory (AD)](../app-service/app-service-authentication-overview.md).   
+**Bonne pratique** : [S’authentifier par le biais d’Azure Active Directory (AD)](../app-service/overview-authentication-authorization.md).   
 **Détail** : App Service fournit un service OAuth 2.0 pour votre fournisseur d’identité. OAuth 2.0 privilégie la simplicité du développement client tout en fournissant des flux d’autorisation spécifiques pour les applications web, les applications de bureau et les téléphones mobiles. Azure AD utilise OAuth 2.0 pour vous permettre d’autoriser l’accès aux applications mobiles et web.
 
 **Bonne pratique** : Restreindre l’accès en fonction des principes du besoin de connaître et du privilège minimum.   

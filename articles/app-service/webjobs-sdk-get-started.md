@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 034f182cc282f50eb3a4a1de05331f42957f49fe
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9f3d84b1f2e179d265c811faf2d35bd55bc1410f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339805"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606979"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Prise en main du Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -54,7 +54,7 @@ La solution [Azure Functions](../azure-functions/functions-overview.md) est bas�
 
 ## <a name="prerequisites"></a>Prérequis
 
-Dans cet article, il est supposé que vous avez [un compte Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) et une expérience en matière [d’applications dans Azure App Service](app-service-web-overview.md). Pour accomplir les étapes décrites dans cet article :
+Dans cet article, il est supposé que vous avez [un compte Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) et une expérience en matière [d’applications dans Azure App Service](overview.md). Pour accomplir les étapes décrites dans cet article :
 
 * [Installez Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/) avec la charge de travail de **développement Azure**. Si vous possédez déjà Visual Studio, mais que vous n’avez pas cette charge de travail, ajoutez-la en sélectionnant **Outils > Get Tools and Features** (Obtenir des outils et des fonctionnalités).
 * [Créez une application App Service](app-service-web-get-started-dotnet-framework.md). Si vous en avez déjà une sur laquelle vous pouvez déployer une tâche web, vous pouvez l’utiliser au lieu d’en créer une.

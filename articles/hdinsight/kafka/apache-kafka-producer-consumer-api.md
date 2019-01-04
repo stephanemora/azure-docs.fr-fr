@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: dd4c077e23170a295a29a75df08cf8f29f8ba3e4
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 23a676c64ec2788ec4a9b3d61f86529fa437079f
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413351"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580380"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutoriel : Utiliser les API de producteur et de consommateur Apache Kafka
 
@@ -39,7 +39,7 @@ Les composants suivants doivent être installés dans votre environnement de dé
 
 * [Java JDK 8](https://aka.ms/azure-jdks), ou un équivalent, par exemple, OpenJDK.
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * Un client SSH et la commande `scp`. Pour plus d’informations, consultez le document [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -82,7 +82,7 @@ Les points importants à comprendre dans le fichier `pom.xml` sont les suivants 
     </dependency>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > L’entrée `${kafka.version}` est déclarée dans la section `<properties>..</properties>` de `pom.xml` et elle est configurée pour la version Kafka du cluster HDInsight.
 
 * Plug-ins : les plug-ins Maven fournissent diverses fonctionnalités. Dans ce projet, les plug-ins suivants sont utilisés :
@@ -220,7 +220,7 @@ Cette commande utilise `tmux` pour fractionner le terminal en deux colonnes. Un 
 
 La consommation par les clients au sein du même groupe est gérée par le biais des partitions de la rubrique. Dans cet exemple de code, la rubrique `test` créée précédemment possède huit partitions. Si vous lancez huit consommateurs, chaque consommateur lit les enregistrements à partir d’une seule partition pour la rubrique.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Il ne peut pas y avoir plus d’instances de consommateurs dans un groupe de consommateurs que de partitions. Dans cet exemple, un groupe de consommateurs peut contenir jusqu’à huit consommateurs puisque c’est le nombre de partitions de la rubrique. Vous pouvez également disposer de plusieurs groupes de consommateurs, chacun ne dépassant pas huit consommateurs.
 
 Les enregistrements stockés dans Kafka sont stockés dans l’ordre de réception dans une partition. Pour obtenir la livraison chronologique des enregistrements *dans une partition*, créez un groupe de consommateurs où le nombre d’instances de consommateurs correspond au nombre de partitions. Pour obtenir la livraison chronologique des enregistrements *dans la rubrique*, créez un groupe de consommateurs avec une seule instance de consommateur.

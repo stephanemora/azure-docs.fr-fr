@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide Azure - Créer un objet blob dans un stockage d’objets à l’aide de PHP | Microsoft Docs
+title: Guide de démarrage rapide Azure - Créer un objet blob dans un stockage d’objets à l’aide de PHP | Microsoft Docs
 description: Apprenez rapidement à transférer des objets vers/à partir de Stockage Blob Azure avec PHP
 services: storage
 author: roygara
@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 6ecb87af9cc75898aa8734b329dce01f70511a27
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 58d1d47b548569f7542e24bd09a41299f12e496e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712906"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787883"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transférer des objets vers/à partir de Stockage Blob Azure avec PHP
 Dans ce guide de démarrage rapide, vous apprenez à utiliser PHP pour charger, télécharger et lister des objets blob de blocs dans un conteneur de stockage blob Azure. 
@@ -43,14 +43,14 @@ Cette commande clone le dépôt dans votre dossier git local. Pour ouvrir l’ex
 ## <a name="configure-your-storage-connection-string"></a>Configurer votre chaîne de connexion de stockage
 Dans l’application, vous devez fournir le nom de votre compte de stockage et votre clé de compte pour créer l’instance **BlobRestProxy** associée à votre application. Il est recommandé de stocker ces identificateurs dans une variable d’environnement sur l’ordinateur local exécutant l’application. Utilisez l’un des exemples suivants, en fonction de votre système d’exploitation, pour créer la variable d’environnement. Remplacez les valeurs **youraccountname** et **youraccountkey** par votre nom de compte et votre clé de compte.
 
-# <a name="linux-tablinux"></a>[Linux] (#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```bash
 export ACCOUNT_NAME=<youraccountname>
 export ACCOUNT_KEY=<youraccountkey>
 ```
 
-# <a name="windows-tabwindows"></a>[Windows] (#tab/windows)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 ```cmd
 setx ACCOUNT_NAME=<youraccountname>

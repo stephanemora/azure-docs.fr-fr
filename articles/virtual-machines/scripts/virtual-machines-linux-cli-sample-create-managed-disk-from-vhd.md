@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 15a5e3e566b03f29f33c3f21aa6581a03b0abe2e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 93a4a47b539184910f01fe9261562ffd8816ad45
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29851005"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581230"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli"></a>Créer un disque managé à partir d’un fichier de VHD dans un compte de stockage dans le même abonnement avec l’interface de ligne de commande
 
@@ -51,4 +51,4 @@ Ce script a recours aux commandes suivantes pour créer un disque managé à par
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure).
 
-Vous trouverez des exemples supplémentaires de scripts CLI de machine virtuelle et de disques managés dans la [documentation relative aux machines virtuelles Linux Azure](../../app-service/app-service-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Vous trouverez des exemples supplémentaires de scripts CLI de machine virtuelle et de disques managés dans la [documentation relative aux machines virtuelles Linux Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

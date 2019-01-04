@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0adc8ad651989d198fecabf00d38fbdeb7cf3cd1
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: a54c47c0f67052f2ce486a97e009293a118919d4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407092"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994111"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Charger des données pour des travaux Apache Hadoop dans HDInsight
 
@@ -171,12 +171,10 @@ or
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-Pour la liste des autres commandes Hadoop qui fonctionnent avec des fichiers, voir [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+Pour la liste des autres commandes Hadoop qui fonctionnent avec des fichiers, voir [https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]  
 > Sur les clusters Apache HBase, la taille de bloc par défaut durant l’écriture de données est de 256 Ko. Bien que cela fonctionne bien quand vous utilisez les API HBase ou les API REST, l’utilisation des commandes `hadoop` ou `hdfs dfs` pour écrire des données supérieures à ~12 Go génère une erreur. Pour plus d’informations, consultez la section [Exception de stockage pour l’écriture sur un objet blob](#storageexception) dans cet article.
->
->
 
 ### <a name="graphical-clients"></a>Clients graphiques
 Plusieurs applications fournissent également une interface graphique pour utiliser Azure Storage. Le tableau suivant répertorie quelques-unes de ces applications :
@@ -184,17 +182,17 @@ Plusieurs applications fournissent également une interface graphique pour utili
 | Client | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Outils Microsoft Visual Studio pour HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
-| [Azure Storage Explorer](http://storageexplorer.com/) |✔ |✔ |✔ |
-| [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
+| [Azure Storage Explorer](https://storageexplorer.com/) |✔ |✔ |✔ |
+| [Cloud Storage Studio 2](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
-| [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
+| [Azure Explorer](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>Outils Visual Studio pour HDInsight
 Pour plus d’informations, consultez [Accéder aux ressources liées](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources).
 
 #### <a id="storageexplorer"></a>Azure Storage Explorer
-*Azure Storage Explorer* est un outil utile pour examiner et modifier les données de l’objet blob. Il s’agit d’un outil open source gratuit qui peut être téléchargé à partir de [http://storageexplorer.com/](http://storageexplorer.com/). Le code source est également disponible à partir de ce lien.
+*Azure Storage Explorer* est un outil utile pour examiner et modifier les données de l’objet blob. Il s’agit d’un outil open source gratuit qui peut être téléchargé à partir de [https://storageexplorer.com/](https://storageexplorer.com/). Le code source est également disponible à partir de ce lien.
 
 Avant de l'utiliser, vous devez connaître le nom et la clé de votre compte Azure Storage. Pour obtenir des instructions permettant d’obtenir ces informations, consultez la section « Affichage, copie et régénération des clés d’accès de stockage » de l’article [Création, gestion et suppression d’un compte de stockage][azure-create-storage-account].
 
@@ -315,7 +313,7 @@ Maintenant que vous savez comment obtenir des données avec HDInsight, consultez
 
 [sqldatabase-create-configure]: ../sql-database-create-configure.md
 
-[apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
+[apache-sqoop-guide]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 

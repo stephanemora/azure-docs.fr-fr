@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: d626fd9b083b9ca2c55c286a1dd806620a639434
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0f9188ba26c818ce21e0951fad5b54c2ea5a893e
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498030"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994910"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Utiliser les planifications de maintenance pour gérer les mises à jour et la maintenance des services
 
@@ -51,7 +51,7 @@ Même si la planification de la maintenance n’est pas encore disponible dans v
 - [En savoir plus](changing-maintenance-schedule.md) sur la modification d’une planification de maintenance.
 - [En savoir plus](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) sur la création, l’affichage et la gestion des alertes à l’aide d’Azure Monitor.
 - [En savoir plus](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) sur les actions webhook pour les règles d’alerte de journal.
-- [En savoir plus](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) sur la création et la gestion de groupes d’actions.
+- [En savoir plus](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) sur la création et la gestion de groupes d’actions.
 - [En savoir plus](https://docs.microsoft.com/azure/service-health/service-health-overview) sur Azure Service Health.
 
 

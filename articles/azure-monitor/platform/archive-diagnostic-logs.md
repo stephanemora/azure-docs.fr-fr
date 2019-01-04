@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 3aa3b2fa0dffb38970b80fe061f1fe09271e15b1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: bc3ee549a4219441b657b89bef56d35dfac6626a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438276"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547488"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archivage des journaux de diagnostic Azure
 
-Dans cet article, nous vous expliquons comment utiliser le portail Azure, les applets de commande PowerShell, l’interface de ligne de commande ou l’API REST pour archiver vos [journaux de diagnostic Azure](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) dans un compte de stockage. Cette option est utile si vous voulez conserver vos journaux de diagnostic avec une stratégie de rétention facultative à des fins d’audit, d’analyse statique ou de sauvegarde. Il n’est pas nécessaire que le compte de stockage se trouve dans le même abonnement que la ressource générant des journaux, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
+Dans cet article, nous vous expliquons comment utiliser le portail Azure, les applets de commande PowerShell, l’interface de ligne de commande ou l’API REST pour archiver vos [journaux de diagnostic Azure](../../azure-monitor/platform/diagnostic-logs-overview.md) dans un compte de stockage. Cette option est utile si vous voulez conserver vos journaux de diagnostic avec une stratégie de rétention facultative à des fins d’audit, d’analyse statique ou de sauvegarde. Il n’est pas nécessaire que le compte de stockage se trouve dans le même abonnement que la ressource générant des journaux, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
 
 > [!WARNING]
 > À compter du 1er novembre 2018, le format des données de journal dans le compte de stockage deviendra JSON Lines. [Consultez cet article pour en savoir plus sur les conséquences liées à ce changement et pour découvrir comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -33,7 +33,7 @@ Avant de commencer, vous devez [créer un compte de stockage](../../storage/comm
 
 ## <a name="diagnostic-settings"></a>Paramètres de diagnostic
 
-Pour archiver vos journaux de diagnostic à l’aide de l’une des méthodes ci-dessous, vous devez définir un **paramètre de diagnostic** pour chaque ressource. Un paramètre de diagnostic pour une ressource définit les catégories de journaux et les données métriques envoyées vers une destination (compte de stockage, espace de noms Event Hubs ou Log Analytics). Il définit également la stratégie de rétention (nombre de jours de conservation) pour les événements de chaque catégorie de journal et de données métriques stockés dans un compte de stockage. Si la stratégie de rétention est définie sur zéro, les événements de cette catégorie de journal sont stockés indéfiniment (c’est-à-dire pour toujours). Une stratégie de rétention peut également être définie sur n’importe quel nombre de jours entre 1 et 2147483647. [Vous trouverez plus d’informations sur les paramètres de diagnostic ici](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings). Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’avant-hier seront supprimés. Le processus de suppression commence à minuit UTC, mais notez que la suppression des journaux de votre compte de stockage peut prendre jusqu’à 24 heures. 
+Pour archiver vos journaux de diagnostic à l’aide de l’une des méthodes ci-dessous, vous devez définir un **paramètre de diagnostic** pour chaque ressource. Un paramètre de diagnostic pour une ressource définit les catégories de journaux et les données métriques envoyées vers une destination (compte de stockage, espace de noms Event Hubs ou Log Analytics). Il définit également la stratégie de rétention (nombre de jours de conservation) pour les événements de chaque catégorie de journal et de données métriques stockés dans un compte de stockage. Si la stratégie de rétention est définie sur zéro, les événements de cette catégorie de journal sont stockés indéfiniment (c’est-à-dire pour toujours). Une stratégie de rétention peut également être définie sur n’importe quel nombre de jours entre 1 et 2147483647. [Vous trouverez plus d’informations sur les paramètres de diagnostic ici](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’avant-hier seront supprimés. Le processus de suppression commence à minuit UTC, mais notez que la suppression des journaux de votre compte de stockage peut prendre jusqu’à 24 heures. 
 
 > [!NOTE]
 > L’envoi de métriques multidimensionnelles via les paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension.
@@ -162,6 +162,6 @@ Dans le fichier PT1H.json, chaque événement est stocké dans le tableau « enr
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Télécharger des objets blob pour analyse](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-* [Diffuser en continu les journaux de diagnostic sur un espace de noms Event Hubs](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Diffuser en continu les journaux de diagnostic sur un espace de noms Event Hubs](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Archive Azure Active Directory logs with Azure Monitor](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) (Archivage des journaux Azure Active Directory avec Azure Monitor)
-* [En savoir plus sur les journaux de diagnostic](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [En savoir plus sur les journaux de diagnostic](../../azure-monitor/platform/diagnostic-logs-overview.md)

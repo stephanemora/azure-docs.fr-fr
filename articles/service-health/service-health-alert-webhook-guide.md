@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2018
 ms.author: shtabriz
-ms.openlocfilehash: 5d32c3539446482f2dcdaeb954bb704dc9b78c58
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 740adefbb8bfa53e96b5ed0e1c7181abf22f1490
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274919"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580267"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Configurer des notifications sur l’intégrité pour les systèmes de gestion des problèmes existants à l’aide d’un Webhook
 
@@ -119,5 +119,5 @@ Cela montre qu’il existe des problèmes avec les alertes et les mesures dans l
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Consultez le [schéma webhook des alertes de journal d’activité](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- En savoir plus sur les [notifications sur l’intégrité du service](../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- En savoir plus sur les [notifications sur l’intégrité du service](../azure-monitor/platform/service-notifications.md).
 - En savoir plus sur les [groupes d’actions](../azure-monitor/platform/action-groups.md).

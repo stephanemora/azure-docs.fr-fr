@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/13/2018
+ms.date: 12/28/2018
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: 42aa275e692e4e2e9b7ca38825c828c1f56247fb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e81b8fb06240d566e46ca0b45a0910e014dee329
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628131"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53995688"
 ---
 Le contrôle d’accès en fonction du rôle est une stratégie de sécurité basée sur l’héritage permettant de gérer les accès, les autorisations et les rôles. Les rôles descendants héritent des autorisations des rôles parents. Les autorisations peuvent également être attribuées sans être héritées d’un rôle parent. Elle peuvent aussi être attribuées pour personnaliser un rôle, si besoin.
 

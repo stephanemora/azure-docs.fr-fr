@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: c8b54631f0d37e0e90135dd9e23ff85591cead1b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 90ba4f2197dc1b00ad2a3d234f3e81e529ae7e4f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495363"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653915"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publier une application HDInsight sur la Place de marché Microsoft Azure
 Vous pouvez installer une application Azure HDInsight sur un cluster HDInsight basé sur Linux. Cet article explique comment publier une application HDInsight sur la Place de marché Microsoft Azure. Pour obtenir des informations générales sur la publication sur la Place de marché Microsoft Azure, consultez [Publier une offre sur la Place de marché Microsoft Azure](../marketplace/marketplace-publishers-guide.md).
@@ -53,7 +53,7 @@ La publication d’applications sur la Place de marché comprend deux étapes. D
 ## <a name="application-installation-script"></a>Script d’installation de l’application
 Lorsqu’une application est installée sur un cluster (existant ou nouveau), un nœud de périphérie est créé. Le script d’installation de l’application s’exécute sur le nœud de périphérie.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Le nom du script d’installation de l’application sur un cluster spécifique doit être unique et avoir le format suivant :
   > 
   > "name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
@@ -81,9 +81,8 @@ Créez un fichier zip contenant tous les fichiers requis pour l’installation d
 * mainTemplate.json (voir l’exemple de la page [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md))
 * Tous les scripts nécessaires
 
-> [!NOTE]
+> [!NOTE]  
 > Vous pouvez héberger les fichiers d’application (y compris des fichiers d’application web) sur n’importe quel point de terminaison accessible au public.
-> 
 
 ## <a name="publish-the-application"></a>Publication de l'application
 Pour publier une application HDInsight :

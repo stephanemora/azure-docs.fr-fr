@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 2418de5c20c34ae82ad36a914955fb338afd2822
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e3fb703d49b97b7e8fa4136f8cd49fed20ee12a9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877182"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720712"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transactions distribuées entre bases de données cloud
 Les transactions de bases de données élastiques pour la base de données SQL Azure (SQL DB) vous permettent d’exécuter des transactions qui s’étendent sur plusieurs bases de données dans SQL DB. Ces transactions sont disponibles pour les applications .NET utilisant ADO .NET et s’intègrent à une expérience de programmation familière basée sur les classes [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Pour obtenir la bibliothèque, consultez [.NET Framework 4.6.1 (programme d’installation web)](https://www.microsoft.com/download/details.aspx?id=49981).
 
-En local, un tel scénario nécessitait généralement d’exécuter Microsoft Distributed Transaction Coordinator (MSDTC). Étant donné que MSDTC n’est pas disponible pour une application de plateforme en tant que service (PaaS) dans Azure, la fonctionnalité permettant de coordonner les transactions distribuées a maintenant été intégrée directement dans la base de données SQL. Les applications peuvent se connecter à n’importe quelle base de données SQL pour lancer des transactions distribuées, après quoi l’une des bases de données coordonnera en toute transparence les transactions distribuées, comme illustré sur la figure suivante. 
+En local, un tel scénario nécessitait généralement d’exécuter Microsoft Distributed Transaction Coordinator (MSDTC). Étant donné que MSDTC n’est pas disponible pour une application de plateforme en tant que service (PaaS) dans Azure, la fonctionnalité permettant de coordonner les transactions distribuées a maintenant été intégrée directement dans la base de données SQL. Les applications peuvent se connecter à n’importe quelle base de données SQL pour lancer des transactions distribuées, après quoi l’une des base de données coordonnera en toute transparence les transactions distribuées, comme illustré sur la figure suivante. 
 
   ![Transactions distribuées avec la base de données SQL Azure utilisant les transactions de bases de données élastiques ][1]
 
@@ -92,7 +92,7 @@ Les transactions de bases de données élastiques pour la base de données SQL p
 
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Installation de .NET pour Azure Cloud Services
-Azure fournit plusieurs offres pour héberger des applications .NET. Une comparaison des différentes offres est disponible dans la section [Comparaison entre Azure App Service, Cloud Services et Virtual Machines](../app-service/choose-web-site-cloud-service-vm.md). Si le SE invité de l'offre est antérieur à la version .NET 4.6.1 requise pour les transactions élastiques, vous devez mettre à niveau le SE invité vers la version 4.6.1. 
+Azure fournit plusieurs offres pour héberger des applications .NET. Une comparaison des différentes offres est disponible dans la section [Comparaison entre Azure App Service, Cloud Services et Virtual Machines](../app-service/overview-compare.md). Si le SE invité de l'offre est antérieur à la version .NET 4.6.1 requise pour les transactions élastiques, vous devez mettre à niveau le SE invité vers la version 4.6.1. 
 
 Pour Azure App Services, les mises à niveau du SE invité ne sont actuellement pas prises en charge. Pour Azure Virtual Machines, connectez-vous à la machine virtuelle et exécutez le programme d'installation du .NET Framework le plus récent. Pour Azure Cloud Services, vous devez inclure l'installation d'une version plus récente de .NET dans les tâches de démarrage de votre déploiement. Les concepts et les étapes sont documentés dans [Installer .NET sur un rôle de service cloud](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 

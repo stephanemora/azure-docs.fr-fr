@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: ce2391014eb5e15650c0a81ebb8e2fd4a08ca96b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 0a2ccdc6b02e9d348517bee95306ffc88d9ccd98
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139222"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599942"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Déployer une passerelle de périmètre pour l’accélérateur de solution d’usine connectée sur Windows ou Linux
 
@@ -70,7 +70,7 @@ Pour plus d’informations, consultez le guide de référence sur le moteur Dock
 
 Avant d’installer les composants OPC, effectuez les étapes suivantes pour préparer votre environnement :
 
-1. Pour terminer le déploiement de la passerelle, vous avez besoin de la chaîne de connexion  **iothubowner**  du hub IoT dans le déploiement de votre solution Usine connectée. Dans le  [portail Azure](http://portal.azure.com/), accédez à votre hub IoT dans le groupe de ressources que vous avez créé durant le déploiement de la solution Usine connectée. Cliquez sur  **Stratégies d’accès partagé**  pour accéder à la chaîne de connexion  **iothubowner**  :
+1. Pour terminer le déploiement de la passerelle, vous avez besoin de la chaîne de connexion  **iothubowner**  du hub IoT dans le déploiement de votre solution Usine connectée. Dans le  [portail Azure](https://portal.azure.com/), accédez à votre hub IoT dans le groupe de ressources que vous avez créé durant le déploiement de la solution Usine connectée. Cliquez sur  **Stratégies d’accès partagé**  pour accéder à la chaîne de connexion  **iothubowner**  :
 
     ![Recherche de la chaîne de connexion IoT Hub](./media/iot-accelerators-connected-factory-gateway-deployment/image2.png)
 

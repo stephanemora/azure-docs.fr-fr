@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 6d063eb0ae2a468bc8aa73d18b88135f1f119bec
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a5b82cb5f2ea90876001fe2db0f62d8b1df64f0c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345084"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580244"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Créer une alerte de mesure avec un modèle Resource Manager
 
-Cet article explique comment vous pouvez utiliser un [modèle Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) pour configurer les [alertes de métriques plus récentes](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) dans Azure Monitor. Les modèles Resource Manager vous permettent de configurer des alertes par programmation de manière cohérente et reproductible dans vos environnements. Les alertes de métrique plus récentes sont disponibles pour [cet ensemble de types de ressources](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+Cet article explique comment vous pouvez utiliser un [modèle Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) pour configurer les [alertes de métriques plus récentes](../../azure-monitor/platform/alerts-metric-near-real-time.md) dans Azure Monitor. Les modèles Resource Manager vous permettent de configurer des alertes par programmation de manière cohérente et reproductible dans vos environnements. Les alertes de métrique plus récentes sont disponibles pour [cet ensemble de types de ressources](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
 > Le modèle Resource Manager spécifié pour l’alerte de métrique ne fonctionne pas pour le type de ressource Microsoft.operationalinsights/Workspaces puisque la prise en charge des métriques à partir de Log Analytics est en préversion. Les utilisateurs qui veulent utiliser la fonctionnalité en préversion avec le modèle de ressource peuvent contacter l’équipe [Azure Alerts Feedback](mailto:azurealertsfeedback@microsoft.com)

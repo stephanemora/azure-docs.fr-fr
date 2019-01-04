@@ -3,25 +3,24 @@ title: 'Exemple de Script Azure PowerShell : sauvegarder une machine virtuelle A
 description: 'Exemple de Script Azure PowerShell : sauvegarder une machine virtuelle Azure'
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 tags: ''
 ms.assetid: ''
 ms.service: backup
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/07/2017
-ms.author: markgal
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4376add4a2e51806bd5db228ad2fe2afcf2e4f57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb22dc88c971e0ddc293fabd64bfd30145b2edd1
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22997524"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651382"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>Sauvegarder une machine virtuelle Azure chiffrée avec PowerShell
 
@@ -48,7 +47,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 Ce script a recours aux commandes suivantes pour créer le déploiement. Chaque élément du tableau renvoie à une documentation spécifique.
 
 
-| Commande | Remarques | 
+| Commande | Notes | 
 |---|---| 
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. | 
 | [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/New-AzureRmRecoveryServicesVault) | Crée un coffre Recovery Services pour stocker les sauvegardes. | 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2fb1f5ad0c3b46623550cbcc1204761b57f6093b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 98d3d1f6fc0f2f30196f360811808579dfbab312
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251049"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727477"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Montée en puissance d’une application dans Azure
 
@@ -34,7 +34,7 @@ Cet article décrit la mise à l’échelle d’une application web dans Azure A
 * [Augmentation de la taille des instances](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling) : augmentez le nombre d’instances de machine virtuelle qui exécutent votre application.
   Ce nombre peut atteindre 20 instances, en fonction de votre niveau tarifaire. La solution [Environnements App Service](environment/intro.md) au niveau **Isolé** augmente votre capacité de montée en puissance parallèle à 100 instances. Pour plus d’informations sur l’augmentation de la taille des instances, voir [Mise à l’échelle manuelle ou automatique du nombre d’instances](../monitoring-and-diagnostics/insights-how-to-scale.md). Vous y trouverez comment utiliser la mise à l’échelle automatique, qui permet de mettre à l’échelle le nombre d’instances automatiquement en fonction des planifications et des règles prédéfinies.
 
-Ces paramètres de mise à l’échelle sont applicables en quelques secondes et affectent toutes les applications de votre [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+Ces paramètres de mise à l’échelle sont applicables en quelques secondes et affectent toutes les applications de votre [plan App Service](../app-service/overview-hosting-plans.md).
 Ils ne nécessitent pas de modifier votre code ou de redéployer votre application.
 
 Pour plus d’informations sur la tarification et les fonctionnalités de chaque plan App Service, voir [Détails de la tarification - App Service](https://azure.microsoft.com/pricing/details/web-sites/).  

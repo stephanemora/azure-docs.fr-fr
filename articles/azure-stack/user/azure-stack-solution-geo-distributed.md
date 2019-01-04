@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 632393696274eaf6f876ea717b5fccf7d4fbea3f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f1151c845797d74bbb9a5e50feeeb288a4ab349b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965391"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714846"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutoriel : Créer une solution d’application géolocalisée avec Azure et Azure Stack
 
@@ -63,11 +63,11 @@ Avant de créer une empreinte d’application distribuée, il est préférable d
 
 -   **Domaine Traffic Manager :** vous devez choisir un nom de domaine au moment de la création d’un [profil Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles). Ce nom est associé au suffixe *trafficmanager.net* pour enregistrer une entrée de domaine gérée par Traffic Manager. Dans l’exemple d’application, le nom choisi est *scalable-ase-demo*. Par conséquent, le nom de domaine complet géré par Traffic Manager est *scalable-ase-demo.trafficmanager.net*.
 
--   **Stratégie de mise à l’échelle de l’empreinte de l’application :** l’empreinte de l’application sera-t-elle distribuée sur plusieurs environnements App Service dans une seule région ? Plusieurs régions ? Combinaison des deux approches ? La décision doit être prise en fonction des attentes depuis l’emplacement d’origine du trafic du client, ainsi que sur la manière dont peut évoluer le reste de l’application prenant en charge l’infrastructure principale. Par exemple, avec une application à 100 % sans état, une application peut être adaptée à très grande échelle à l’aide d’une combinaison de plusieurs environnements App Service, puis multipliée par les environnements App Service déployés dans plusieurs régions Azure. Avec plus de 15 régions Azure globales disponibles, les clients peuvent véritablement créer une empreinte d’application à échelle mondiale. Pour l’exemple d’application utilisé pour cet article, trois environnements App Service ont été créés dans une seule région Azure (USA Centre Sud).
+-   **Stratégie de mise à l’échelle de l’empreinte de l’application :** l’empreinte de l’application sera-t-elle distribuée sur plusieurs environnements App Service dans une seule région ? Plusieurs régions ? Combinaison des deux approches ? La décision doit être prise en fonction des attentes depuis l’emplacement d’origine du trafic du client, ainsi que sur la manière dont peut évoluer le reste de l’application prenant en charge l’infrastructure principale. Par exemple, avec une application à 100 % sans état, une application peut être adaptée à très grande échelle à l’aide d’une combinaison de plusieurs environnements App Service, puis multipliée par les environnements App Service déployés dans plusieurs régions Azure. Avec plus de 15 régions Azure globales disponibles, les clients peuvent véritablement créer une empreinte d’application à échelle mondiale. Pour l’exemple d’application utilisé pour cet article, trois environnements App Service ont été créés dans une seule région Azure (USA Centre Sud).
 
--   **Convention de nommage pour les environnements App Service :** chaque environnement App Service requiert un nom unique. Au-delà d’un ou deux environnements App Service, une convention d’affectation de noms identifiant chaque environnement App Service peut s’avérer utile. Pour l’exemple d’application, une convention d’affectation de noms simple a été utilisée. Les noms des trois environnements App Service sont respectivement *fe1ase*, *fe2ase* et *fe3ase*.
+-   **Convention de nommage pour les environnements App Service :** chaque environnement App Service requiert un nom unique. Au-delà d’un ou deux environnements App Service, une convention d’affectation de noms identifiant chaque environnement App Service peut s’avérer utile. Pour l’exemple d’application, une convention d’affectation de noms simple a été utilisée. Les noms des trois environnements App Service sont respectivement *fe1ase*, *fe2ase* et *fe3ase*.
 
--   **Convention d’affectation de noms pour les applications :** comme plusieurs instances de l’application vont être déployées, un nom est requis pour chacune d’entre elles. Avec les environnements App Service, le même nom d’application peut être utilisé sur plusieurs environnements App Service. Étant donné que chaque environnement App Service comporte un suffixe de domaine unique, les développeurs peuvent choisir d’utiliser le même nom d’application dans chaque environnement. Par exemple, un développeur peut avoir des applications nommées comme suit : *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, etc. Pour l’application dans ce scénario, chaque instance de l’application a un nom unique. Les noms d’instance application utilisés sont *webfrontend1*, *webfrontend2* et *webfrontend3*.
+-   **Convention d’affectation de noms pour les applications :** comme plusieurs instances de l’application vont être déployées, un nom est requis pour chacune d’entre elles. Avec les environnements App Service, le même nom d’application peut être utilisé sur plusieurs environnements App Service. Étant donné que chaque environnement App Service comporte un suffixe de domaine unique, les développeurs peuvent choisir d’utiliser le même nom d’application dans chaque environnement. Par exemple, un développeur peut avoir des applications nommées comme suit : *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, etc. Pour l’application dans ce scénario, chaque instance de l’application a un nom unique. Les noms d’instance application utilisés sont *webfrontend1*, *webfrontend2* et *webfrontend3*.
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
@@ -122,7 +122,7 @@ Configurez la CI/CD hybride pour déployer Web App sur Azure et Azure Stack, et 
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>Création d’un déploiement d’application web dans les deux clouds
 
-1.  Modifiez le fichier **WebApplication.csproj** : Sélectionnez **Runtimeidentifier** et ajoutez **win10-x64**. (Consultez la documentation sur le [déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).)
+1.  Modifiez le fichier **WebApplication.csproj** : Sélectionnez Runtimeidentifier et ajoutez **win10-x64**. (Consultez la documentation sur le [déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).)
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image3.png)
 
@@ -242,7 +242,7 @@ Azure DevOps et Azure DevOps Server fournissent un pipeline hautement configurab
 
 ## <a name="part-2-update-web-app-options"></a>Partie 2 : Mettre à jour les options de l’application web
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. 
+[Azure App Service](https://docs.microsoft.com/azure/app-service/overview) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. 
 
 ![Alt text](media/azure-stack-solution-geo-distributed/image27.png)
 
@@ -255,7 +255,7 @@ Azure DevOps et Azure DevOps Server fournissent un pipeline hautement configurab
 > [!Note]  
 >  Utilisez un enregistrement CNAME pour tous les noms DNS personnalisés, à l’exception d’un domaine racine (par exemple, northwind.com).
 
-Pour migrer un site actif et son nom de domaine DNS vers App Service, voir [Migrer un nom DNS actif vers Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-custom-domain-name-migrate).
+Pour migrer un site actif et son nom de domaine DNS vers App Service, voir [Migrer un nom DNS actif vers Azure App Service](https://docs.microsoft.com/azure/app-service/manage-custom-dns-migrate-domain).
 
 ### <a name="prerequisites"></a>Prérequis
 
@@ -276,7 +276,7 @@ Mettez à jour le fichier de zone DNS pour le domaine. Azure AD vérifie la prop
 Par exemple, pour ajouter les entrées DNS fornorthwindcloud.com et www.northwindcloud.com, configurez les paramètres DNS pour le domaine racine thenorthwindcloud.com.
 
 > [!Note]  
->  Vous pouvez acheter un nom de domaine à l’aide du [portail Azure](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app).  
+>  Vous pouvez acheter un nom de domaine à l’aide du [portail Azure](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).  
 > Pour mapper un nom DNS personnalisé à une application web, le [plan App Service](https://azure.microsoft.com/pricing/details/app-service/) de l’application web doit être un niveau payant (**Partagé**, **De base**, **Standard** ou **Premium**).
 
 

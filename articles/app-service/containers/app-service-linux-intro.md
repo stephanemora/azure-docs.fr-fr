@@ -16,16 +16,16 @@ ms.topic: overview
 ms.date: 10/09/2018
 ms.author: wesmc
 ms.custom: seodec18
-ms.openlocfilehash: ac8d5ddb843227e5c5d8e7508c3ea46946f4850e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2dc12c7250e6747359c8f3813a84537f98bc69d6
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257877"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993873"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Présentation d’Azure App Service sur Linux
 
-[Web App](../app-service-web-overview.md) est une plateforme de calcul entièrement gérée, optimisée pour l’hébergement de sites et d’applications web. Les clients peuvent utiliser App Service sur Linux pour héberger des applications web en mode natif sur Linux pour les piles d’applications prises en charge. Les sections suivantes listent les piles d’applications actuellement prises en charge.
+[Web App](../overview.md) est une plateforme de calcul entièrement gérée, optimisée pour l’hébergement de sites et d’applications web. Les clients peuvent utiliser App Service sur Linux pour héberger des applications web en mode natif sur Linux pour les piles d’applications prises en charge. Les sections suivantes listent les piles d’applications actuellement prises en charge.
 
 ## <a name="languages"></a>Langues
 
@@ -63,7 +63,7 @@ Consultez [Créer une application web Java dans App Service sur Linux](https://d
 
 ## <a name="scaling"></a>Mise à l'échelle
 
-* Les clients peuvent faire monter ou descendre en puissance les applications web en modifiant le niveau de leur [plan App Service](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview?toc=%2fazure%2fapp-service-web%2ftoc.json).
+* Les clients peuvent faire monter ou descendre en puissance les applications web en modifiant le niveau de leur [plan App Service](https://docs.microsoft.com/azure/app-service/overview-hosting-plans?toc=%2fazure%2fapp-service-web%2ftoc.json).
 
 ## <a name="locations"></a>Emplacements
 
@@ -93,7 +93,7 @@ Vous pouvez accéder au site SCM à partir d’**Outils avancés** dans le menu 
 Les articles suivants vous aident dans la prise en main d’App Service sur Linux avec des applications web écrites dans une variété de langages :
 
 * [.NET Core](quickstart-dotnetcore.md)
-* [PHP](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-php)
+* [PHP](https://docs.microsoft.com/azure/app-service/containers/quickstart-php)
 * [Node.JS](quickstart-nodejs.md)
 * [Java](quickstart-java.md)
 * [Python](quickstart-python.md)
@@ -105,7 +105,7 @@ Consultez également les articles suivants pour plus d’informations sur App Se
 
 * [FAQ pour App Service pour Linux](app-service-linux-faq.md)
 * [Prise en charge SSH pour App Service sur Linux](app-service-linux-ssh-support.md)
-* [Configurer des environnements intermédiaires dans App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Configurer des environnements intermédiaires dans App Service](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Déploiement continu Docker Hub](app-service-linux-ci-cd.md)
 
 Vous pouvez poser des questions et signaler vos préoccupations sur [notre forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).

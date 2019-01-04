@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 833b655246035fa3eb9a820316a95b73eed5b2bd
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 07d233ba50f4253b4ea3097748b9c58142e08a91
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388296"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549426"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Forum aux questions sur le déploiement de Web Apps dans Azure
 
@@ -36,7 +36,7 @@ Voici quelques options pour la publication de votre code d’application web :
 *   Effectuer un déploiement à l’aide de Visual Studio. Si vous disposez de la solution Visual Studio, cliquez avec le bouton droit sur le projet d’application web, puis sélectionnez **Publier**.
 *   Déployez à l’aide d’un client FTP. Dans le portail Azure, téléchargez le profil de publication de l’application web vers laquelle vous souhaitez déployer votre code. Ensuite, chargez les fichiers dans \site\wwwroot en utilisant les informations d’identification FTP du profil de publication.
 
-Pour plus d’informations, voir [Déploiement de votre application dans Azure App Service](app-service-deploy-local-git.md).
+Pour plus d’informations, voir [Déploiement de votre application dans Azure App Service](deploy-local-git.md).
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Un message d’erreur s’affiche quand je tente de déployer à partir de Visual Studio. Comment résoudre ce problème ?
 
@@ -51,7 +51,7 @@ Le didacticiel [Création d’une application web ASP.NET dans Azure](app-servic
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>Quelles sont les différents types d’informations d’identification de déploiement ?
 
-App Service prend en charge deux types d’informations d’identification pour le déploiement Git local et le déploiement FTP/S. Pour plus d’informations sur la façon de configurer les informations d’identification de déploiement, voir [Configurer les informations d’identification de déploiement pour Azure App Service](app-service-deployment-credentials.md).
+App Service prend en charge deux types d’informations d’identification pour le déploiement Git local et le déploiement FTP/S. Pour plus d’informations sur la façon de configurer les informations d’identification de déploiement, voir [Configurer les informations d’identification de déploiement pour Azure App Service](deploy-configure-credentials.md).
 
 ## <a name="what-is-the-file-or-directory-structure-of-my-app-service-web-app"></a>Qu’est la structure de fichiers ou de répertoires de mon application web App Service ?
 
@@ -63,7 +63,7 @@ Si vous voyez ce message, il est probable que vous atteignez un quota de disque 
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>Comment configurer un déploiement continu pour mon application web App Service ?
 
-Vous pouvez configurer un déploiement continu à partir de plusieurs ressources, dont Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox et d’autres référentiels Git. Ces options sont disponibles dans le portail. Le didacticiel [Déploiement continu vers App Service](app-service-continuous-deployment.md) explique comment configurer un déploiement continu.
+Vous pouvez configurer un déploiement continu à partir de plusieurs ressources, dont Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox et d’autres référentiels Git. Ces options sont disponibles dans le portail. Le didacticiel [Déploiement continu vers App Service](deploy-continuous-deployment.md) explique comment configurer un déploiement continu.
 
 ## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>Comment résoudre les problèmes de déploiement continu à partir de GitHub et de Bitbucket ?
 
@@ -100,4 +100,4 @@ Le déploiement de code en continu pour ces deux options dépend des flux de tra
 
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>Comment utiliser FTP ou FTPS pour déployer mon application vers App Service ?
 
-Pour plus d’informations sur l’utilisation de FTP ou FTPS pour déployer votre application web vers App Service, voir [Déployer votre application dans Azure App Service avec FTP/S](app-service-deploy-ftp.md).
+Pour plus d’informations sur l’utilisation de FTP ou FTPS pour déployer votre application web vers App Service, voir [Déployer votre application dans Azure App Service avec FTP/S](deploy-ftp.md).

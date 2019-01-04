@@ -9,12 +9,12 @@ ms.date: 12/03/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: d31ee60977bb4ac11a93cfe1e72134c65baf839c
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 6dac55e69761067cf9700e10f449af27ca659f20
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53161229"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000323"
 ---
 # <a name="find-service-fabric-mesh-samples"></a>Rechercher des exemples Service Fabric Mesh
 
@@ -27,7 +27,7 @@ Pour plus d’informations sur le déploiement des modèles directement dans Azu
 |------------|--------------------|----------|----------------------|
 | [Application Hello World](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/helloworld) | Page web statique hébergée dans un conteneur. Elle utilise nginx pour Linux et IIS pour Windows. | [Code source](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/helloworld) | Aucune exigence |
 | [Application de compteur pour les volumes Azure Files](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/counter) | État du stockage après le montage d’un volume Azure Files dans le conteneur. <br><br> **Remarque :** Ce modèle nécessite un partage de fichiers Azure Files pour être préprovisionné [Instructions](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share) | [Code source](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter) | Visual Studio Mesh Tooling |
-| [TodoListApp](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/todolistapp) | Créez une application avec un service front-end et back-end qui utilise la résolution DNS. Utilisée pour un tutoriel [ici](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore) | [Code source](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/todolistapp) | Visual Studio Mesh Tooling |
+| [TodoListApp](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/todolist) | Créez une application avec un service front-end et back-end qui utilise la résolution DNS. Utilisée pour un tutoriel [ici](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore) | [Code source](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/todolistapp) | Visual Studio Mesh Tooling |
 | [Application Visual Objects](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/visualobjects) | Effectuez la mise à l’échelle et la mise à niveau de microservices au sein d’une application. | [Code source](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/visualobjects) |  Visual Studio Mesh Tooling |
-| [Application Voting](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/votingapp) | Créez une application avec un service front-end et back-end qui utilise la résolution DNS. | [Code source](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp) | Visual Studio Mesh Tooling pour la version Windows, Visual Studio Code. L’interface CLI dotnet peut être utilisée pour la version Linux |
+| [Application Voting](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/voting) | Créez une application avec un service front-end et back-end qui utilise la résolution DNS. | [Code source](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp) | Visual Studio Mesh Tooling pour la version Windows, Visual Studio Code. L’interface CLI dotnet peut être utilisée pour la version Linux |
 | [Application de compteur pour des volumes Service Fabric fiables](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/templates/counter)| État du stockage après le montage d’un volume Service Fabric Reliable Disk dans le conteneur.| [Code source](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter) | Visual Studio Mesh Tooling |

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 6a9f3fcb372606e7f608b5137fb1ed15376d72d9
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6f6dac37d1114e8a9faa16c07fd5c14a90a5b0fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407335"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976730"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guide du développeur Java pour App Service sur Linux
 
@@ -28,7 +28,7 @@ Ce guide fournit les concepts et instructions clés aux développeurs Java qui u
 
 ## <a name="logging-and-debugging-apps"></a>Journalisation et débogage des applications
 
-Vous trouverez des rapports de performances, des visualisations de trafic et des contrôles d’intégrité pour chaque application dans le portail Azure. Consultez [Vue d’ensemble des diagnostics Azure App Service](/azure/app-service/app-service-diagnostics) pour plus d’informations sur la façon d’accéder à ces outils de diagnostic et des les utiliser.
+Vous trouverez des rapports de performances, des visualisations de trafic et des contrôles d’intégrité pour chaque application dans le portail Azure. Consultez [Vue d’ensemble des diagnostics Azure App Service](/azure/app-service/overview-diagnostics) pour plus d’informations sur la façon d’accéder à ces outils de diagnostic et des les utiliser.
 
 ## <a name="application-performance-monitoring"></a>Analyse des performances des applications
 
@@ -54,11 +54,11 @@ Ensuite, envoyez les journaux à votre console en utilisant `az webapp log tail`
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
 
-Pour plus d’informations, consultez [Envoi de journaux avec l’interface Azure CLI](../web-sites-enable-diagnostic-log.md#streaming-with-azure-cli).
+Pour plus d’informations, consultez [Envoi de journaux avec l’interface Azure CLI](../troubleshoot-diagnostic-logs.md#streaming-with-azure-cli).
 
 ### <a name="app-logging"></a>Journalisation des applications
 
-Activez [Journal des applications](/azure/app-service/web-sites-enable-diagnostic-log#enablediag) via le portail Azure ou [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) pour configurer App Service de sorte à écrire la sortie de console standard de votre application et les flux d’erreur de console standard dans le système de fichiers local ou le service Stockage Blob Azure. La journalisation sur l’instance du système de fichiers App Service locale est désactivée 12 heures après avoir été configurée. Si vous en avez besoin plus longtemps, configurez l’application pour écrire la sortie sur un conteneur de stockage d’objets blob.
+Activez [Journal des applications](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) via le portail Azure ou [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) pour configurer App Service de sorte à écrire la sortie de console standard de votre application et les flux d’erreur de console standard dans le système de fichiers local ou le service Stockage Blob Azure. La journalisation sur l’instance du système de fichiers App Service locale est désactivée 12 heures après avoir été configurée. Si vous en avez besoin plus longtemps, configurez l’application pour écrire la sortie sur un conteneur de stockage d’objets blob.
 
 Si votre application utilise [Logback](https://logback.qos.ch/) ou [Log4j](https://logging.apache.org/log4j) pour le traçage, vous pouvez transférer ces traces pour révision vers Azure Application Insights en suivant les instructions de configuration des frameworks de journalisation dans [Exploration des journaux de traces Java dans Application Insights](/azure/application-insights/app-insights-java-trace-logs). 
 
@@ -173,9 +173,6 @@ Pour configurer Tomcat afin d’utiliser Java Database Connectivity (JDBC) ou l�
 
 Ou définissez les variables d’environnement dans le panneau « Paramètres d’application » du portail Azure.
 
->[!NOTE]
-> Si vous utilisez Azure Database for Postgres, remplacez `ssl=true` par `sslmode=require` dans la chaîne de connexion JDBC.
-
 Ensuite, déterminez si la source de données doit être mise à la disposition d’une seule application ou de toutes les applications exécutées sur le servlet Tomcat.
 
 #### <a name="for-application-level-data-sources"></a>Pour les sources de données au niveau de l’application : 
@@ -259,7 +256,7 @@ Ensuite, déterminez si la source de données doit être mise à la disposition 
 
     3. Connectez-vous au port de tunneling local avec votre client SFTP et chargez les fichiers dans le dossier `/home/tomcat/lib`.
 
-    Vous pouvez également utiliser un client FTP pour charger le pilote JDBC. Suivez ces [instructions pour obtenir vos informations d’identification FTP](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials).
+    Vous pouvez également utiliser un client FTP pour charger le pilote JDBC. Suivez ces [instructions pour obtenir vos informations d’identification FTP](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 2. Si vous avez créé une source de données de niveau serveur, redémarrez l’application App Service Linux. Tomcat rétablit `CATALINA_HOME` sur `/home/tomcat/conf` et utilise la configuration mise à jour.
 

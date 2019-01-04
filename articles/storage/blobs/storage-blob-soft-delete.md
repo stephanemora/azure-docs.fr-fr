@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: 0e7487525dc23482cbd3029b626e7bb30dd51b50
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 7f7071c9f87528eddbfe3d541cd85624e308948f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398558"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633383"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Suppression réversible pour objets blob de Stockage Azure
 Le Stockage Azure offre désormais une fonctionnalité de suppression réversible pour les objets blob, qui vous permet de récupérer plus facilement vos données en cas de modification ou de suppression malencontreuses de celles-ci par une application ou un autre utilisateur du compte de stockage.
@@ -170,26 +170,29 @@ Après avoir annulé la suppression d’instantanés d’un objet blob, vous pou
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
 ### <a name="powershell"></a>PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Pour activer la suppression réversible, mettez à jour les propriétés du service du client d’un objet blob. L’exemple suivant active la suppression réversible pour un sous-ensemble de comptes dans un abonnement :
 
 ```powershell
-Set-AzureRmContext -Subscription "<subscription-name>"
-$MatchingAccounts = Get-AzureRMStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
-$MatchingAccounts | Enable-AzureStorageDeleteRetentionPolicy -RetentionDays 7
+Set-AzContext -Subscription "<subscription-name>"
+$MatchingAccounts = Get-AzStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
+$MatchingAccounts | Enable-AzStorageDeleteRetentionPolicy -RetentionDays 7
 ```
 Vous pouvez vérifier que la suppression réversible a été activée à l’aide de la commande suivante :
 
 ```powershell
-$MatchingAccounts | Get-AzureStorageServiceProperty -ServiceType Blob
+$MatchingAccounts | Get-AzStorageServiceProperty -ServiceType Blob
 ```
 
 Pour récupérer des objets blob supprimés accidentellement, appelez la commande Undelete sur ceux-ci. N’oubliez pas que l’appel de la commande **Undelete Blob** sur les objets blob tant actifs que supprimés de manière réversible, a pour effet de restaurer comme actifs tous les instantanés d’objets blob supprimés de manière réversible. L’exemple suivant appelle la commande Undelete sur tous les objets blob, tant actifs que supprimés de manière réversible, figurant dans un conteneur :
 ```powershell
 # Create a context by specifying storage account name and key
-$ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+$ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
 # Get the blobs in a given container and show their properties
-$Blobs = Get-AzureStorageBlob -Container $StorageContainerName -Context $ctx -IncludeDeleted
+$Blobs = Get-AzStorageBlob -Container $StorageContainerName -Context $ctx -IncludeDeleted
 $Blobs.ICloudBlob.Properties
 
 # Undelete the blobs
@@ -198,8 +201,8 @@ $Blobs.ICloudBlob.Undelete()
 Pour rechercher la stratégie actuelle de conservation de suppression réversible, utilisez la commande suivante :
 
 ```azurepowershell-interactive
-   $account = Get-AzureRmStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
-   Get-AzureStorageServiceProperty -ServiceType Blob -Context $account.Context
+   $account = Get-AzStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
+   Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
 ### <a name="azure-cli"></a>Azure CLI 

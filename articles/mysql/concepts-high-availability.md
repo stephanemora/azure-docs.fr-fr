@@ -1,20 +1,17 @@
 ---
 title: Concepts de haute disponibilité dans Azure Database pour MySQL
 description: Cette rubrique fournit des informations de haute disponibilité lors de l’utilisation d’Azure Database pour MySQL.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 82d6106b7cebf47e6d68347857dd3d8a2d22dc3c
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 70577f32debc526aaccbd79b62dd35e82119e3f9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298685"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548390"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Concepts de haute disponibilité dans Azure Database pour MySQL
 Le service Azure Database pour MySQL fournit un haut niveau de disponibilité garanti. Le contrat de niveau de service (SLA) est de 99,99 % en disponibilité générale. Il n’existe pratiquement aucun temps d’arrêt d’application lors de l’utilisation de ce service.

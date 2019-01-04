@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: cf01ddd53741a77df61e3dc1946eb836640034d0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b24b98760e276c207bb360687f32ae902b3306fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345144"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976951"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Vue d’ensemble des alertes dans Microsoft Azure 
 
@@ -56,7 +56,7 @@ La **ressource cible** définit l’étendue et les signaux disponibles pour les
 
 ## <a name="what-you-can-alert-on"></a>Sur quoi portent les alertes ?
 
-Vous pouvez définir des alertes sur des métriques et des journaux, comme décrit dans les [sources de données de surveillance](../../monitoring-and-diagnostics/monitoring-data-sources.md). Ces vérifications portent notamment sur les revendications suivantes :
+Vous pouvez définir des alertes sur des métriques et des journaux, comme décrit dans les [sources de données de surveillance](../../azure-monitor/platform/data-sources-reference.md). Ces vérifications portent notamment sur les revendications suivantes :
 - Valeurs de métrique
 - Requêtes de recherche de journal
 - Événements du journal d'activité
@@ -131,7 +131,7 @@ Par le passé, Azure Monitor, Application Insights, Log Analytics et Service Hea
 | **Source de la surveillance** | **Type de signal**  | **Description** | 
 |-------------|----------------|-------------|
 | État d’intégrité du service | Journal d’activité  | Non pris en charge. Consultez [Créer des alertes de journal d’activité sur les notifications de service](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Tests de disponibilité web | Non pris en charge. Consultez [Alertes de test web](../../application-insights/app-insights-monitor-web-app-availability.md). Disponibles pour tout site web instrumenté pour envoyer des données à Application Insights. Réception d’une notification lorsque la réactivité ou la disponibilité d’un site web est inférieure aux attentes. |
+| Application Insights | Tests de disponibilité web | Non pris en charge. Consultez [Alertes de test web](../../azure-monitor/app/monitor-web-app-availability.md). Disponibles pour tout site web instrumenté pour envoyer des données à Application Insights. Réception d’une notification lorsque la réactivité ou la disponibilité d’un site web est inférieure aux attentes. |
 
 
 ## <a name="all-alerts-page"></a>Page Toutes les alertes 

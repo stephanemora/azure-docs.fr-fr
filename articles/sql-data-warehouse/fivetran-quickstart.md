@@ -80,5 +80,5 @@ Pour vous connecter à Fivetran, entrez les informations d’identification que 
 * Hôte (nom de votre serveur).
 * Port.
 * Base de données.
-* Utilisateur (le nom d’utilisateur doit être **fivetran@_nom_serveur_** où *nom_serveur* fait partie de votre URI d’hôte Azure : ***nom_serveur*.database.windows .net**).
+* Utilisateur (le nom d’utilisateur doit être **fivetran@_nom_serveur_** où *nom_serveur* fait partie de votre URI d’hôte Azure : **nom_serveur.database.windows .net**).
 * Password.

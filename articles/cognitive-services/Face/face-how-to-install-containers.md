@@ -11,12 +11,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 556cf755890f49e540afe64de6e485d9ebde2147
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ac273ac7d4c6c371670e6b8a8170274602a5318b
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086434"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536540"
 ---
 # <a name="install-and-run-containers"></a>Install and run containers
 
@@ -30,11 +30,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Vous devez respecter les prérequis suivants avant d’effectuer le conteneur Visage :
 
-**Moteur Docker** : le moteur Docker doit être installé localement. Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) et [Windows](https://docs.docker.com/docker-for-windows/). Sur Windows, vous devez configurer Docker pour prendre en charge les conteneurs Linux. Les conteneurs Docker peuvent également être déployés directement sur [Azure Kubernetes Service](/azure/aks/), sur [Azure Container Instances](/azure/container-instances/) ou sur un cluster [Kubernetes](https://kubernetes.io/) déployé sur [Azure Stack](/azure/azure-stack/). Pour plus d’informations sur le déploiement de Kubernetes sur Azure Stack, consultez [Déployer Kubernetes sur Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+**Moteur Docker** : le moteur Docker doit être installé localement. Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) et [Windows](https://docs.docker.com/docker-for-windows/). Sur Windows, vous devez configurer Docker pour prendre en charge les conteneurs Linux. Les conteneurs Docker peuvent également être déployés directement sur [Azure Kubernetes Service](../../aks/index.yml), sur [Azure Container Instances](../../container-instances/index.yml) ou sur un cluster [Kubernetes](https://kubernetes.io/) déployé sur [Azure Stack](../../azure-stack/index.yml). Pour plus d’informations sur le déploiement de Kubernetes sur Azure Stack, consultez [Déployer Kubernetes sur Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation.
 
-**Connaissance de Microsoft Container Registry et de Docker** : vous devez avoir une compréhension élémentaire des concepts de Microsoft Container Registry et de Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.  
+**Connaissance de Microsoft Container Registry et de Docker** : vous devez avoir une compréhension élémentaire des concepts de Microsoft Container Registry et de Docker, notamment les registres, dépôts, conteneurs et images conteneur, ainsi qu’une maîtrise des commandes `docker` de base.  
 
 Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).
 

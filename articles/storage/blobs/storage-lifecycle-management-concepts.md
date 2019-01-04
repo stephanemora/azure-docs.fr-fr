@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: 4dff63a20f9ae3372e37cbd413dd3ec6187ea2cc
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5c77d7d8f1ce3b4a13e497d461244aae5b34d08c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310219"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631360"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gestion du cycle de vie de Stockage Blob Azure (préversion)
 
@@ -22,9 +22,9 @@ Les jeux de données ont des cycles de vie différents. Tôt dans le cycle de vi
 La gestion du cycle de vie vous permet de :
 
 - Faire passer les objets blob à un niveau de stockage plus froid (de Chaud à Froid, de Chaud à Archive ou de Froid à Archive) pour optimiser les performances et le coût.
-- Supprimer les objets blob à la fin de leur cycle de vie.
+- Supprimer les objets blob à la fin de leur cycle de vie
 - Définir des règles à exécuter une fois par jour au niveau du compte de stockage.
-- Appliquer des règles aux conteneurs ou à un sous-ensemble d’objets blob (en utilisant des préfixes comme filtres).
+- Appliquer des règles aux conteneurs ou à un sous-ensemble d’objets blob (en utilisant des préfixes comme filtres)
 
 Considérez le scénario où un jeu de données est sollicité fréquemment durant les premières étapes du cycle de vie, mais seulement occasionnellement après deux semaines. Au-delà du premier mois, le jeu de données est rarement sollicité. Dans ce scénario, le stockage chaud est préférable durant les premiers temps. Le stockage froid est plus adapté à un accès occasionnel, tandis que l’archivage est la meilleure option pour les données datant de plus d’un mois. En ajustant les niveaux de stockage en fonction de l’ancienneté des données, vous pouvez concevoir les options de stockage les moins coûteuses par rapport à vos besoins. Pour effectuer cette transition, les règles de stratégie de gestion du cycle de vie permettent de déplacer les données vieillissantes vers des niveaux plus froids.
 
@@ -43,14 +43,16 @@ Pour soumettre une requête, exécutez les commandes PowerShell ou CLI suivantes
 
 ### <a name="powershell"></a>PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Pour soumettre une requête :
 
 ```powershell
-Register-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage 
+Register-AzProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage 
 ```
 Vous pouvez vérifier l’état de l'approbation de l’inscription à l’aide de la commande suivante :
 ```powershell
-Get-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
+Get-AzProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
 ```
 Avec l’approbation et l’inscription appropriée, vous recevez l’état *Inscrit* quand vous envoyez les requêtes précédentes.
 
@@ -69,7 +71,7 @@ Avec l’approbation et l’inscription appropriée, vous recevez l’état *Ins
 
 ## <a name="add-or-remove-a-policy"></a>Ajouter ou supprimer une stratégie 
 
-Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du portail Azure, de [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), d’[Azure CLI](https://docs.microsoft.com/cli/azure/ext/storage-preview/storage/account/management-policy?view=azure-cli-latest#ext-storage-preview-az-storage-account-management-policy-create), des [API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/createorupdate) ou des outils clients dans les langages suivants : [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du portail Azure, de [PowerShell](https://www.powershellgallery.com/packages/Az.Storage), d’[Azure CLI](https://docs.microsoft.com/cli/azure/ext/storage-preview/storage/account/management-policy?view=azure-cli-latest#ext-storage-preview-az-storage-account-management-policy-create), des [API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/createorupdate) ou des outils clients dans les langages suivants : [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Portail Azure
 
@@ -84,9 +86,9 @@ Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du portail
 ```powershell
 $rules = '{ ... }' 
 
-Set-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName] -Policy $rules 
+Set-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName] -Policy $rules 
 
-Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName]
+Get-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName]
 ```
 
 ### <a name="azure-cli"></a>Azure CLI

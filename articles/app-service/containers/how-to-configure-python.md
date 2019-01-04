@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 1d9b0e356f0f65be44a533fe098282084b900d89
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f7e63fa75f473d5da911fbf845f0662d8eec5c70
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249632"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717396"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Configurer votre application Python pour Azure App Service sur Linux
 
@@ -132,4 +132,4 @@ Si App Service ne trouve pas de commande personnalisée, d’application Django 
 - **Le message « Service indisponible » s’affiche dans le navigateur.** Le délai d’attente du navigateur a expiré en l’absence d’une réponse d’App Service. Cela indique qu’App Service a démarré le serveur Gunicorn, mais que les arguments qui spécifient le code d’application sont incorrects.
   - Actualisez le navigateur, en particulier si vous utilisez les niveaux tarifaires les plus bas pour votre Plan App Service. Par exemple, l’application peut prendre plus de temps à démarrer si vous utilisez des niveaux gratuits et répondre une fois que vous avez actualisé le navigateur.
   - Vérifiez que votre application est structurée selon ce qu’App Service attend pour [Django](#django-app) ou [Flask](#flask-app), ou bien utilisez une [commande de démarrage personnalisée](#custom-startup-command).
-  - Utilisez SSH ou la Console Kudu pour vous connecter à App Service, puis examinez les journaux de diagnostic stockés dans le dossier *LogFiles*. Pour plus d’informations sur la journalisation, consultez [Activer la journalisation des diagnostics pour les applications web dans Azure App Service](../web-sites-enable-diagnostic-log.md).
+  - Utilisez SSH ou la Console Kudu pour vous connecter à App Service, puis examinez les journaux de diagnostic stockés dans le dossier *LogFiles*. Pour plus d’informations sur la journalisation, consultez [Activer la journalisation des diagnostics pour les applications web dans Azure App Service](../troubleshoot-diagnostic-logs.md).

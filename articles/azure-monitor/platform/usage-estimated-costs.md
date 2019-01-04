@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: 072201dd552f5d68a9b6621b2ca7c83acd76a1f5
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6b8940f62b94615b4622f60786e411b9a18b2dee
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439566"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001615"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Surveillance de l’utilisation et de l’estimation des coûts
 
@@ -22,7 +22,7 @@ ms.locfileid: "53439566"
 > Cet article explique comment visualiser l’utilisation et les coûts estimés avec plusieurs fonctions de surveillance Azure en fonction des différents modèles de tarification.  Pour plus d’informations, consultez les articles suivants.
 > - L’article [Gérer les coûts en contrôlant le volume et la conservation des données dans Log Analytics](../../azure-monitor/platform/manage-cost-storage.md) explique comment contrôler ses coûts en modifiant la durée de conservation des données.
 > - L’article [Analyser l’utilisation des données dans Log Analytics](../../azure-monitor/platform/data-usage.md) décrit comment analyser votre utilisation des données et donner des informations à ce sujet.
-> - L’article [Gérer la tarification et le volume de données dans Application Insights](../../application-insights/app-insights-pricing.md) décrit comment analyser l’utilisation des données dans Application Insights.
+> - L’article [Gérer la tarification et le volume de données dans Application Insights](../../azure-monitor/app/pricing.md) décrit comment analyser l’utilisation des données dans Application Insights.
 
 Dans le hub Monitor du portail Azure, la page **Utilisation et estimation des coûts** explique l’utilisation des principales fonctionnalités de surveillance comme les [alertes, mesures, notifications](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) et [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Pour les clients ayant souscrit aux plans de tarification avant avril 2018, cela inclut également l’utilisation de Log Analytics acheté via l’offre Insights et Analytics.
 

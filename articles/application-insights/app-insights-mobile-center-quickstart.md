@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 040e54b02161386dcc16b943956f39b86b264303
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 77fafb3f3a4c834c5a7f185d129a1c651db58089
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950520"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719844"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Commencer à analyser votre application mobile avec App Center et Application Insights
 
@@ -76,7 +76,7 @@ Dès que votre application envoie des événements personnalisés et que ces der
 
     | Paramètres        |  Valeur           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Une valeur globale unique, comme « myApp-iOS » | Nom identifiant l’application que vous analysez |
+   | **Nom**      | Une valeur globale unique, comme « myApp-iOS » | Nom identifiant l’application que vous analysez |
    | **Type d’application** | Application App Center | Type de l’application que vous analysez |
    | **Groupe de ressources**     | Un nouveau groupe de ressources, ou un groupe de ressources existant à partir du menu | Groupe de ressources dans lequel créer la ressource Application Insights |
    | **Lieu** | Un emplacement à partir du menu | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
@@ -126,7 +126,7 @@ Application Insights peut interroger, segmenter, filtrer et analyser les donnée
    1. Sélectionnez la requête en cliquant n’importe où sur celle-ci dans l’éditeur de texte.
    2. Ensuite, cliquez sur **Accéder** pour exécuter la requête. 
 
-   Découvrez-en plus sur [Application Insights Analytics](app-insights-analytics.md) et le [langage de requête Log Analytics](https://aka.ms/LogAnalyticsLanguageReference).
+   Découvrez-en plus sur [Application Insights Analytics](../azure-monitor/app/analytics.md) et le [langage de requête Log Analytics](https://aka.ms/LogAnalyticsLanguageReference).
 
 
 2. **Segmenter et filtrer les données de télémétrie de vos événements personnalisés.** Dans la page **Vue d’ensemble** d’Application Insights, choisissez **Utilisateurs** dans la table des matières.
@@ -152,7 +152,7 @@ Application Insights peut interroger, segmenter, filtrer et analyser les donnée
    * **Classeurs**, pour combiner des visualisations et du texte dans un rapport partageable.
    * **Cohortes**, pour nommer et enregistrer des groupes d’utilisateurs ou d’événements spécifiques afin qu’ils puissent être facilement référencés à partir d’autres outils d’analytique.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous ne souhaitez pas continuer à utiliser Application Insights avec App Center, désactivez l’exportation dans App Center, puis supprimez la ressource Application Insights. Ainsi, vous ne serez plus facturé par Application Insights pour cette ressource.
 

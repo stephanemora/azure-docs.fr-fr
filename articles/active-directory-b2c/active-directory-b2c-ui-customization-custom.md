@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/18/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b0e24da86d253139a85e792bf3c59d777cf5db6a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: cc96da060a7a91e0e3118c436a93bdafca3b0372
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833939"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633008"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C
 
@@ -50,9 +50,6 @@ Créez du contenu HTML dont le titre intègre le nom de la marque de votre produ
    </body>
    </html>
    ```
-
-   >[!NOTE]
-   >Pour des raisons de sécurité, l’utilisation de JavaScript est actuellement bloquée pour la personnalisation.
 
 2. Collez l’extrait de code que vous venez de copier dans un éditeur de texte, puis enregistrez le fichier sous *customize-ui.html*.
 
@@ -124,7 +121,7 @@ Pour configurer la personnalisation de l’interface utilisateur, copiez l’él
 3. Ouvrez le fichier d’extension. Par exemple, *TrustFrameworkExtensions.xml*. Recherchez l’élément **BuildingBlocks**. Si l’élément n’existe pas, ajoutez-le.
 4. Collez le contenu entier de l’élément **ContentDefinitions** que vous avez copié en tant qu’enfant de l’élément **BuildingBlocks**. 
 5. Recherchez l’élément **ContentDefinition** contenant `Id="api.signuporsignin"` dans le code XML que vous avez copié.
-6. Remplacez la valeur de **LoadUri** par l’URL du fichier HTML que vous avez chargé dans le stockage. Par exemple, `https://mystore1.azurewebsites.net/b2c/customize-ui.html.
+6. Remplacez la valeur de **LoadUri** par l’URL du fichier HTML que vous avez chargé dans le stockage. Par exemple : https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html.
     
     Votre stratégie personnalisée doit ressembler à ce qui suit :
 

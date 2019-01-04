@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b42529df406febc617c778d18d5b420f9c38c59a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1940908cc0120ed5a69ae6603ec101d020b0ef3f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434662"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722071"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
@@ -66,7 +66,7 @@ Pensez à un plan App Service dans les cas suivants :
 * Vous avez besoin de fonctionnalités qui sont disponibles uniquement dans un plan App Service, telles que la prise en charge d’App Service Environment, la connectivité des réseaux virtuels/VPN et la configuration de machines virtuelles volumineuses.
 * Vous souhaitez exécuter votre application de fonction sur Linux, ou voulez fournir une image personnalisée sur laquelle exécuter vos fonctions.
 
-L’utilisation d’une machine virtuelle dissocie le coût du nombre d’exécutions, de la durée d’exécution et de la mémoire utilisée. Vous ne payez donc pas plus que le coût de l’instance de machine virtuelle que vous allouez. Pour plus d’informations sur le fonctionnement du plan App Service, consultez l’article [Présentation détaillée des plans d’Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+L’utilisation d’une machine virtuelle dissocie le coût du nombre d’exécutions, de la durée d’exécution et de la mémoire utilisée. Vous ne payez donc pas plus que le coût de l’instance de machine virtuelle que vous allouez. Pour plus d’informations sur le fonctionnement du plan App Service, consultez l’article [Présentation détaillée des plans d’Azure App Service](../app-service/overview-hosting-plans.md). 
 
 Avec un plan App Service, vous pouvez augmenter manuellement la taille des instances en ajoutant des instances de machine virtuelle, ou vous pouvez activer la mise à l’échelle automatique. Pour plus d’informations, consultez [Mettre à l’échelle le nombre d’instances manuellement ou automatiquement](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Vous pouvez également effectuer une montée en puissance en choisissant un autre plan App Service. Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](../app-service/web-sites-scale.md). 
 

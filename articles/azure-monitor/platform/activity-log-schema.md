@@ -7,16 +7,16 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
-ms.component: activitylog
-ms.openlocfilehash: 9129ccdd66b07fc53fe46aa64317f7f064eb7e0c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.component: logs
+ms.openlocfilehash: 64b92a758d3d5f713b58a5e310a897ac1f11024d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388581"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714829"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
-Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cet article décrit le schéma d’événements par catégorie de données. Le schéma des données varie selon que vous lisez les données dans le portail, dans PowerShell, dans l’interface CLI, ou directement dans l’API REST, au lieu de [diffuser en continu les données vers le stockage ou vers des Event Hubs à l’aide d’un profil de journal](./../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Les exemples ci-dessous montrent le schéma, tel qu’il se présente dans le portail, PowerShell, l’interface CLI et l’API REST. Un mappage de ces propriétés vers le [schéma des journaux de diagnostic Azure](./tutorial-dashboards.md) est fourni à la fin de cet article.
+Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cet article décrit le schéma d’événements par catégorie de données. Le schéma des données varie selon que vous lisez les données dans le portail, dans PowerShell, dans l’interface CLI, ou directement dans l’API REST, au lieu de [diffuser en continu les données vers le stockage ou vers des Event Hubs à l’aide d’un profil de journal](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Les exemples ci-dessous montrent le schéma, tel qu’il se présente dans le portail, PowerShell, l’interface CLI et l’API REST. Un mappage de ces propriétés vers le [schéma des journaux de diagnostic Azure](./tutorial-dashboards.md) est fourni à la fin de cet article.
 
 ## <a name="administrative"></a>Administratif
 Cette catégorie contient l’enregistrement de toutes les opérations de création, mise à jour, suppression et action effectuées par le biais du gestionnaire de ressources. Les exemples de types d’événements que vous pouvez voir dans cette catégorie incluent « créer une machine virtuelle » et « supprimer un groupe de sécurité réseau ». Toute mesure prise par un utilisateur ou une application utilisant le gestionnaire de ressources est modélisée comme une opération sur un type de ressources en particulier. Si le type d’opération est Écrire, Supprimer ou Action, les enregistrements de début et de réussite ou d’échec de cette opération sont enregistrés dans la catégorie Administrative. La catégorie Administrative inclut également toute modification apportée à un contrôle d’accès basé sur un rôle dans un abonnement.
@@ -128,7 +128,7 @@ Cette catégorie contient l’enregistrement de toutes les opérations de créat
 | operationName |Nom de l’opération. |
 | properties |Jeu de paires `<Key, Value>` (c’est-à-dire Dictionary) décrivant les détails de l’événement. |
 | status |Chaîne décrivant l’état de l’opération. Voici plusieurs valeurs courantes : « Started », « In Progress », « Succeeded », « Failed », « Active », « Resolved ». |
-| subStatus |En général, le code d’état HTTP de l’appel REST correspondant. Peut également inclure d’autres chaînes décrivant un sous-état, comme les valeurs courantes suivantes : OK (code d'état HTTP : 200), Créé (code d'état HTTP : 201), Accepté (code d'état HTTP : 202), Aucun contenu (code d'état HTTP : 204), Requête incorrecte (code d'état HTTP : 400), Introuvable (code d'état HTTP : 404), Conflit (code d’état HTTP : 409), Erreur interne du serveur (code d'état HTTP : 500), Service indisponible (code d'état HTTP : 503), Dépassement de délai de la passerelle (code d'état HTTP : 504). |
+| subStatus |En général, le code d’état HTTP de l’appel REST correspondant. Peut également inclure d’autres chaînes décrivant un sous-état, comme les valeurs courantes suivantes : OK (code d'état HTTP : 200), Créé (code d’état HTTP : 201), Accepté (code d’état HTTP : 202, Aucun contenu (code d’état HTTP : 204, Requête incorrecte (code d’état HTTP : 400, Introuvable (code d’état HTTP : 404), Conflit (code d’état HTTP : 409), Erreur interne du serveur (code d’état HTTP : 500), Service indisponible (code d'état HTTP : 503), Dépassement de délai de la passerelle (code d'état HTTP : 504). |
 | eventTimestamp |Horodatage lorsque l’événement a été généré par le service Azure traitant la demande correspondant à l’événement. |
 | submissionTimestamp |Horodatage lorsque l’événement est devenu disponible pour l’interrogation. |
 | subscriptionId |ID d’abonnement Azure. |
@@ -191,7 +191,7 @@ Cette catégorie contient l’enregistrement de tout incident de l’état d’i
   }
 }
 ```
-Reportez-vous à l’article [Notifications d’intégrité du service](./../../monitoring-and-diagnostics/monitoring-service-notifications.md) pour plus d’informations sur les valeurs dans les propriétés.
+Reportez-vous à l’article [Notifications d’intégrité du service](./../../azure-monitor/platform/service-notifications.md) pour plus d’informations sur les valeurs dans les propriétés.
 
 ## <a name="resource-health"></a>Intégrité des ressources
 Cette catégorie contient l’enregistrement de tout événement d’intégrité de la ressource survenu dans vos ressources Azure. Par exemple, cette catégorie peut comporter le type d’événement suivant : « L’état d’intégrité de la machine virtuelle est passé à Indisponible ». Les événements d’intégrité de ressource peuvent représenter l’un des quatre états d’intégrité : Disponible, Indisponible, Détérioré et Inconnu. En outre, les événements d’intégrité de ressource peuvent être initiés par la plateforme ou initiés par l’utilisateur.
@@ -676,5 +676,5 @@ Lorsque vous diffusez en continu le contenu du journal d’activité Azure vers 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur le journal d’activité (autrefois appelé journal d’audit)](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
-* [Stream the Azure Activity Log to Event Hubs (Diffuser en continu le journal d’activités Azure vers Event Hubs)](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+* [En savoir plus sur le journal d’activité (autrefois appelé journal d’audit)](../../azure-monitor/platform/activity-logs-overview.md)
+* [Stream the Azure Activity Log to Event Hubs (Diffuser en continu le journal d’activités Azure vers Event Hubs)](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)

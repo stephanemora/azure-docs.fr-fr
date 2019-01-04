@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 48f178b7a94e8989f8a0154bea6195834b1ec35f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1d199275d6c17dff72c020bd3a9807f50af8af1e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438674"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544037"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Activer automatiquement les paramètres de diagnostic lors de la création de ressources à l’aide d’un modèle Resource Manager
 Dans cet article, nous vous expliquons comment utiliser un [modèle Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) pour configurer les paramètres de diagnostic d’une ressource lors de sa création. Cela vous permet de démarrer automatiquement la diffusion en continu de vos journaux de diagnostic et des mesures vers Event Hubs, leur archivage dans un compte de stockage ou leur envoi à Log Analytics lorsqu’une ressource est créée.
@@ -25,7 +25,7 @@ Dans cet article, nous vous expliquons comment utiliser un [modèle Azure Resour
 
 La méthode d’activation des journaux de diagnostic à l’aide d’un modèle Resource Manager varie selon le type de ressource.
 
-* Les ressources **Non-Compute** (comme Network Security Groups, Logic Apps, Automation) utilisent les [paramètres de diagnostic décrits dans cet article](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+* Les ressources **Non-Compute** (comme Network Security Groups, Logic Apps, Automation) utilisent les [paramètres de diagnostic décrits dans cet article](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings).
 * **de calcul** (basées sur WAD/LAD) utilisent le [fichier de configuration de WAD/LAD décrit dans cet article](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
 Dans cet article, nous expliquons comment configurer les diagnostics à l’aide de deux méthodes.
@@ -266,6 +266,6 @@ Pour activer les diagnostics pour une ressource de calcul, par exemple un cluste
 L’intégralité du processus, y compris des exemples, est décrite [dans ce document](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur les journaux de diagnostic Azure](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-* [Stream Azure Diagnostic Logs to Event Hubs (Diffuser en continu les journaux de diagnostic Azure vers Event Hubs)](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [En savoir plus sur les journaux de diagnostic Azure](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Stream Azure Diagnostic Logs to Event Hubs (Diffuser en continu les journaux de diagnostic Azure vers Event Hubs)](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 

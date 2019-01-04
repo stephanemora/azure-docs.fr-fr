@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 327bc964f8dedeee03220e7cd7db1ef7c1e00de6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 11259b99ea9d2486c8c0afde21398710ccc6ccd8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435767"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726288"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Authentifier des requêtes auprès d’Azure Cognitive Services
 
@@ -34,9 +34,9 @@ Passons rapidement en revue les en-têtes d’authentification disponibles en vu
 
 | En-tête | Description |
 |--------|-------------|
-| Ocp-Apim-Subscription-Key | Utilisez cet en-tête pour authentifier une requête avec une clé d’abonnement à un service spécifique ou une clé d’abonnement multiservice. Si vous utilisez une clé d’abonnement multiservice, la région de votre abonnement doit être indiquée dans l’en-tête `Ocp-Apim-Subscription-Region`. |
+| Ocp-Apim-Subscription-Key | Utilisez cet en-tête pour authentifier une requête avec une clé d’abonnement à un service spécifique ou une clé d’abonnement multiservice. |
 | Ocp-Apim-Subscription-Region | Cet en-tête n’est nécessaire que si vous utilisez une clé d’abonnement multiservice avec l’[API de traduction de texte Translator Text](./Translator/reference/v3-0-reference.md). Utilisez cet en-tête pour spécifier la région de l’abonnement. |
-| Autorisation | Utilisez cet en-tête si vous utilisez un jeton d’authentification. Les étapes à suivre pour effectuer un échange de jeton sont détaillées dans les sections suivantes. La valeur fournie est au format suivant : `Bearer <TOKEN>`. |
+| Authorization | Utilisez cet en-tête si vous utilisez un jeton d’authentification. Les étapes à suivre pour effectuer un échange de jeton sont détaillées dans les sections suivantes. La valeur fournie est au format suivant : `Bearer <TOKEN>`. |
 
 ## <a name="authenticate-with-a-single-service-subscription-key"></a>Authentification avec une clé d’abonnement monoservice
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 8c601bdd7fbba536aa5b8a4d1965f4ef2bb906f9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 684fa85749bc131b21ef12070055841ff7d3d169
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187844"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726216"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solution de gestion Application Insights Connector (préversion)
 
@@ -161,8 +161,8 @@ La solution reçoit les types de données de télémétrie suivants à partir de
 - Disponibilité
 - Exceptions
 - Demandes
-- Affichages de pages – Pour que votre espace de travail reçoive des affichages de pages, vous devez configurer vos applications pour recueillir ces informations. Pour plus d’informations, voir [PageViews](../../application-insights/app-insights-api-custom-events-metrics.md#page-views).
-- Événements personnalisés – Pour que votre espace de travail reçoive des événements personnalisés, vous devez configurer vos applications pour recueillir ces informations. Pour plus d’informations, voir [TrackEvent](../../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
+- Affichages de pages – Pour que votre espace de travail reçoive des affichages de pages, vous devez configurer vos applications pour recueillir ces informations. Pour plus d’informations, voir [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
+- Événements personnalisés – Pour que votre espace de travail reçoive des événements personnalisés, vous devez configurer vos applications pour recueillir ces informations. Pour plus d’informations, voir [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 Log Analytics reçoit les données en provenance d’Application Insights dès qu’elles sont disponibles.
 

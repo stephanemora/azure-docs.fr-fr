@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: fb6efad1f1c06349adb877516f5323d8b9ee45e8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ec33ac469d33a07d00f379beef2db9f4405e4679
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272233"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631123"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guide du langage de spécification des réseaux neuronaux Net# pour Azure Machine Learning Studio
 
@@ -388,7 +388,7 @@ Cet exemple illustre certaines commandes de base, comme suit :
 
 + La première ligne définit la couche d’entrée (nommé `Data`). Quand vous utilisez le mot-clé `auto`, le réseau neuronal inclut automatiquement toutes les colonnes de caractéristique dans les exemples d’entrée. 
 + La deuxième ligne crée la couche masquée. Le nom `H` est affecté à la couche masquée, qui contient 200 nœuds. Cette couche est entièrement connectée à la couche d’entrée.
-+ La troisième ligne définit la couche de sortie (nommée `O`), qui contient 10 nœuds de sortie. Si le réseau neuronal est utilisé pour une classification, il y a un nœud de sortie par classe. Le mot clé **sigmoid** indique que la fonction de sortie est appliquée à la couche de sortie.
++ La troisième ligne définit la couche de sortie (nommée `Out`), qui contient 10 nœuds de sortie. Si le réseau neuronal est utilisé pour une classification, il y a un nœud de sortie par classe. Le mot clé **sigmoid** indique que la fonction de sortie est appliquée à la couche de sortie.
 
 ### <a name="define-multiple-hidden-layers-computer-vision-example"></a>Définir plusieurs couches masquées : exemple de vision
 

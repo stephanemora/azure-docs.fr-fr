@@ -7,16 +7,16 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
-ms.component: activitylog
-ms.openlocfilehash: 19f97d097c47229038595b202e82ccf41dfbfefc
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.component: logs
+ms.openlocfilehash: 9714cb8ce1c3380ac74150148c8d84bd410e3fc4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434917"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715209"
 ---
 # <a name="archive-the-azure-activity-log"></a>Archiver le journal d’activité Azure
-Dans cet article, nous vous expliquons comment vous pouvez utiliser le portail Azure, les applets de commande PowerShell ou l’interface de ligne de commande multiplateforme pour archiver votre [**journal d’activité Azure dans un compte de stockage**](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Cette option est utile si vous souhaitez conserver votre journal d’activité pendant une période supérieure à 90 jours (en disposant d’un contrôle total sur la stratégie de rétention) à des fins d’audit, d’analyse statique ou de sauvegarde. Si vous devez conserver vos événements pendant 90 jours ou moins, il est inutile de configurer l’archivage sur un compte de stockage, puisque les événements du journal d’activité sont conservés dans la plateforme Azure pendant 90 jours sans que l’archivage ne soit activé.
+Dans cet article, nous vous expliquons comment vous pouvez utiliser le portail Azure, les applets de commande PowerShell ou l’interface de ligne de commande multiplateforme pour archiver votre [**journal d’activité Azure dans un compte de stockage**](../../azure-monitor/platform/activity-logs-overview.md). Cette option est utile si vous souhaitez conserver votre journal d’activité pendant une période supérieure à 90 jours (en disposant d’un contrôle total sur la stratégie de rétention) à des fins d’audit, d’analyse statique ou de sauvegarde. Si vous devez conserver vos événements pendant 90 jours ou moins, il est inutile de configurer l’archivage sur un compte de stockage, puisque les événements du journal d’activité sont conservés dans la plateforme Azure pendant 90 jours sans que l’archivage ne soit activé.
 
 > [!WARNING]
 > À compter du 1er novembre 2018, le format des données de journal dans le compte de stockage deviendra JSON Lines. [Consultez cet article pour en savoir plus sur les conséquences liées à ce changement et pour découvrir comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -30,7 +30,7 @@ Avant de commencer, vous devez [créer un compte de stockage](../../storage/comm
 >  Vous ne pouvez pas actuellement archiver les données dans un compte de stockage créé derrière un réseau virtuel sécurisé.
 
 ## <a name="log-profile"></a>Profil de journal
-Pour archiver le journal d’activité à l’aide de l’une des méthodes ci-dessous, définissez le **profil journal** pour un abonnement. Le profil de journal définit le type d’événements qui sont stockés ou diffusés et les types de sortie : compte de stockage et/ou hub d’événements. Il définit également la stratégie de rétention (nombre de jours de conservation) pour les événements stockés dans un compte de stockage. Si la stratégie de rétention est définie sur zéro, les événements sont stockés indéfiniment. Elle peut également être définie sur n’importe quelle valeur comprise entre 1 et 2147483647. Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’avant-hier seront supprimés. Le processus de suppression commence à minuit UTC, mais notez que la suppression des journaux de votre compte de stockage peut prendre jusqu’à 24 heures. [Vous trouverez plus d’informations sur les profils de journal ici](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
+Pour archiver le journal d’activité à l’aide de l’une des méthodes ci-dessous, définissez le **profil journal** pour un abonnement. Le profil de journal définit le type d’événements qui sont stockés ou diffusés et les types de sortie : compte de stockage et/ou hub d’événements. Il définit également la stratégie de rétention (nombre de jours de conservation) pour les événements stockés dans un compte de stockage. Si la stratégie de rétention est définie sur zéro, les événements sont stockés indéfiniment. Elle peut également être définie sur n’importe quelle valeur comprise entre 1 et 2147483647. Les stratégies de rétention sont appliquées sur une base quotidienne. Donc, à la fin d’une journée (UTC), les journaux de la journée qui est désormais au-delà de la stratégie de rétention sont supprimés. Par exemple, si vous aviez une stratégie de rétention d’une journée, au début de la journée d’aujourd’hui les journaux d’avant-hier seront supprimés. Le processus de suppression commence à minuit UTC, mais notez que la suppression des journaux de votre compte de stockage peut prendre jusqu’à 24 heures. [Vous trouverez plus d’informations sur les profils de journal ici](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). 
 
 ## <a name="archive-the-activity-log-using-the-portal"></a>Archiver le journal d’activité à l’aide du portail
 1. Dans le portail, cliquez sur le lien **Journal d’activité** dans le volet de navigation de gauche. Si vous ne voyez pas de lien pour le journal d’activité, cliquez d’abord sur le lien **Tous les services**.
@@ -182,6 +182,6 @@ Dans le fichier PT1H.json, chaque événement est stocké dans le tableau « enr
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Télécharger des objets blob pour analyse](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-* [Transférer le journal d’activité vers Event Hubs](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
-* [En savoir plus sur le journal d’activité](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+* [Transférer le journal d’activité vers Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+* [En savoir plus sur le journal d’activité](../../azure-monitor/platform/activity-logs-overview.md)
 

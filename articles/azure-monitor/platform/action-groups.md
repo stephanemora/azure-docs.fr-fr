@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 432f1a89979829bd43596d0d6a3ab7a2a3bfb996
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2b427669fe692704343d5a3c2096df92cffb8d76
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336468"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583984"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 ## <a name="overview"></a>Vue d’ensemble ##
@@ -98,7 +98,7 @@ Plage d’adresses IP sources
     - 13.106.38.148
     - 13.106.57.196
 
-Pour recevoir des mises à jour sur les modifications apportées à ces adresses IP, nous vous recommandons de configurer une [alerte Service Health](./../../monitoring-and-diagnostics/monitoring-service-notifications.md) qui surveille les notifications d’information relatives au service Groupes d’actions.
+Pour recevoir des mises à jour sur les modifications apportées à ces adresses IP, nous vous recommandons de configurer une [alerte Service Health](./../../azure-monitor/platform/service-notifications.md) qui surveille les notifications d’information relatives au service Groupes d’actions.
 
 
 ## <a name="next-steps"></a>Étapes suivantes ##

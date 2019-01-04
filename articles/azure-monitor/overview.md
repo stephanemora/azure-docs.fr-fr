@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: bwren
-ms.openlocfilehash: 160078787d28f43ef800d25c8b50fb316b38944f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: f1125c9d0ce543984393c99d70d511a3a162041e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436175"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975183"
 ---
 # <a name="azure-monitor-overview"></a>Vue d’ensemble d’Azure Monitor
 
@@ -39,9 +39,7 @@ Pour de nombreuses ressources Azure, vous verrez les données collectées par Az
 
 ![Mesures](media/overview/metrics.png)
 
-<<<<<<< HEAD Les données de journal collectées par Azure Monitor peuvent être analysées à l’aide de [requêtes](log-query/log-query-overview.md) qui permettent de récupérer, consolider et analyser les données collectées rapidement.  Vous pouvez créer et tester des requêtes à l’aide de [Log Analytics](../log-analytics/log-analytics-log-search-portals.md) dans le Portail Azure, avant d’analyser directement les données à l’aide de ces outils ou d’enregistrer les requêtes pour les utiliser pour les [visualisations](visualizations.md) ou les [règles d’alerte](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
-======= Les données de journal collectées par Azure Monitor sont stockées dans Log Analytics, qui inclut un [langage de requête riche](../azure-monitor/log-query/log-query-overview.md) pour rapidement récupérer, consolider et analyser les données collectées.  Vous pouvez créer et tester des requêtes à l’aide de la [page Log Analytics](../azure-monitor/log-query/portals.md) du portail Azure, avant d’analyser directement les données à l’aide de ces outils ou d’enregistrer les requêtes pour les utiliser pour les [visualisations](visualizations.md) ou les [règles d’alerte](../azure-monitor/platform/alerts-overview.md).
->>>>>>> 98b6f1655e9ada6d4b6a408ada0f1e4c9ed727d2
+Les données de journal collectées par Azure Monitor sont stockées dans Log Analytics, qui inclut un [langage de requête riche](../azure-monitor/log-query/log-query-overview.md) pour rapidement récupérer, consolider et analyser les données collectées.  Vous pouvez créer et tester des requêtes à l’aide de la [page Log Analytics](../azure-monitor/log-query/portals.md) du portail Azure, avant d’analyser directement les données à l’aide de ces outils ou d’enregistrer les requêtes pour les utiliser pour les [visualisations](visualizations.md) ou les [règles d’alerte](../azure-monitor/platform/alerts-overview.md).
 
 Azure Monitor utilise une version du [langage de requête Data Explorer](/azure/kusto/query/) qui est adapté aux requêtes simples dans les journaux, mais inclut également des fonctionnalités avancées telles que les agrégations, les jointures et les analyses intelligentes. Il existe [plusieurs leçons](log-query/get-started-queries.md) pour vous aider à apprendre le langage de requête.  Des conseils particuliers sont fournis aux utilisateurs qui connaissent déjà [SQL](log-query/sql-cheatsheet.md) et [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -56,11 +54,11 @@ Azure Monitor peut recueillir des données de diverses sources. Vous pouvez envi
 - **Données de surveillance de l’abonnement Azure** : données concernant le fonctionnement et la gestion d’un abonnement Azure, mais aussi données concernant l’intégrité et le fonctionnement d’Azure. 
 - **Données de surveillance du locataire Azure** : données concernant le fonctionnement des services Azure au niveau du locataire, tels qu’Azure Active Directory.
 
-Dès que vous créez un abonnement Azure et commencez à ajouter des ressources telles que des machines virtuelles et des applications web, Azure Monitor commence la collecte de données.  Les [journaux d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) enregistrent la création et la modification des ressources. Les [métriques](../monitoring-and-diagnostics/monitoring-overview-metrics.md) vous indiquent les performances de la ressource et les ressources qu’elle consomme. 
+Dès que vous créez un abonnement Azure et commencez à ajouter des ressources telles que des machines virtuelles et des applications web, Azure Monitor commence la collecte de données.  Les [journaux d’activité](../azure-monitor/platform/activity-logs-overview.md) enregistrent la création et la modification des ressources. Les [métriques](../monitoring-and-diagnostics/monitoring-overview-metrics.md) vous indiquent les performances de la ressource et les ressources qu’elle consomme. 
 
-Augmentez le champ des données que vous collectez dans le fonctionnement actuel des ressources en [activant les diagnostics](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) et en [ajoutant un agent](platform/agent-windows.md) aux ressources de calcul. Vous recueillerez ainsi les données de télémétrie pour le fonctionnement interne de la ressource et pourrez configurer différentes [sources de données](platform/agent-data-sources.md) afin de collecter les journaux et les métriques à partir du système d’exploitation invité Windows et Linux. 
+Augmentez le champ des données que vous collectez dans le fonctionnement actuel des ressources en [activant les diagnostics](../azure-monitor/platform/diagnostic-logs-overview.md) et en [ajoutant un agent](platform/agent-windows.md) aux ressources de calcul. Vous recueillerez ainsi les données de télémétrie pour le fonctionnement interne de la ressource et pourrez configurer différentes [sources de données](platform/agent-data-sources.md) afin de collecter les journaux et les métriques à partir du système d’exploitation invité Windows et Linux. 
 
-[Ajoutez un package d’instrumentation à votre application](../application-insights/app-insights-azure-web-apps.md) pour autoriser Application Insights à collecter des informations détaillées sur votre application, notamment les affichages de pages, les requêtes d’application et les exceptions. Vérifiez la disponibilité de votre application en configurant un [test de disponibilité](../application-insights/app-insights-monitor-web-app-availability.md) pour simuler le trafic utilisateur.
+[Ajoutez un package d’instrumentation à votre application](../azure-monitor/app/azure-web-apps.md) pour autoriser Application Insights à collecter des informations détaillées sur votre application, notamment les affichages de pages, les requêtes d’application et les exceptions. Vérifiez la disponibilité de votre application en configurant un [test de disponibilité](../azure-monitor/app/monitor-web-app-availability.md) pour simuler le trafic utilisateur.
 
 ### <a name="custom-sources"></a>Sources personnalisées
 Azure Monitor peut collecter des données de journal à partir de n’importe quel client REST à l’aide de l’[API de collecte de données](../azure-monitor/platform/data-collector-api.md). Cela vous permet de créer des scénarios de supervision personnalisés et d’étendre la supervision à des ressources qui n’exposent pas de données de télémétrie via d’autres sources.
@@ -131,7 +129,7 @@ Les [vues](../log-analytics/log-analytics-view-designer.md) présentent de mani�
 Vous devrez souvent intégrer Azure Monitor à d’autres systèmes et créer des solutions personnalisées qui utilisent vos données de supervision. D’autres services Azure fonctionnent avec Azure Monitor en vue de fournir cette intégration.
 
 ### <a name="event-hub"></a>Event Hub
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) est une plateforme de diffusion en continu et un service d’ingestion d’événements qui peut transformer et stocker les données à l’aide de n’importe quel fournisseur de services d’analyse en temps réel ou de n’importe quel adaptateur de traitement par lot/stockage. Utilisez Event Hubs pour [diffuser en continu les données de journal à partir d’Azure Monitor](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) auprès des outils SIEM (Security Information and Event Management) et de supervision.
+[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) est une plateforme de diffusion en continu et un service d’ingestion d’événements qui peut transformer et stocker les données à l’aide de n’importe quel fournisseur de services d’analyse en temps réel ou de n’importe quel adaptateur de traitement par lot/stockage. Utilisez Event Hubs pour [diffuser en continu les données de journal à partir d’Azure Monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) auprès des outils SIEM (Security Information and Event Management) et de supervision.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 

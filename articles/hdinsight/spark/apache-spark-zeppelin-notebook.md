@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 83adec0c3127e87da9871e294026fd467199c720
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 0571347b7b44d6f6836d4dec1ebcf9b752d8fa8f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012876"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634437"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Utiliser des blocs-notes Apache Zeppelin avec un cluster Apache Spark sur HDInsight
 
@@ -28,12 +28,11 @@ Les clusters HDInsight Spark incluent des blocs-notes [Apache Zeppelin](https://
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Lancer un bloc-notes Apache Zeppelin
 1. Dans le panneau du cluster Spark, cliquez sur **Tableau de bord du cluster**, puis sur **Bloc-notes Zeppelin**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
    
-   > [!NOTE]
+   > [!NOTE]  
    > Vous pouvez également atteindre le bloc-notes Zeppelin pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez **CLUSTERNAME** par le nom de votre cluster.
    > 
    > `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
-   > 
-   > 
+
 1. Créer un nouveau bloc-notes. Dans le volet d'en-tête, cliquez sur **Bloc-notes**, puis sur **Créer une note**.
    
     ![Créer un nouveau bloc-notes Zeppelin](./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "Créer un nouveau bloc-notes Zeppelin")
@@ -74,9 +73,8 @@ Les clusters HDInsight Spark incluent des blocs-notes [Apache Zeppelin](https://
    
     Vous pouvez également indiquer un titre pour chaque paragraphe. Dans le coin droit, cliquez sur l’icône **Settings**, puis sur **Show title**.
 
-> [!NOTE]
+> [!NOTE]  
 > L’interpréteur %spark2 n’est pas pris en charge dans les bloc-notes Zeppelin sur toutes les versions HDInsight et l’interpréteur %sh ne sera pas pris en charge à partir de HDInsight 4.0 et versions ultérieures.
->
 
 1. Vous pouvez maintenant exécuter des instructions Spark SQL dans la table **hvac** . Collez la requête suivante dans un nouveau paragraphe. La requête récupère l’ID de bâtiment et la différence entre les températures cibles et réelles pour chaque bâtiment à une date donnée. Appuyez sur **MAJ + ENTRÉE**.
    
@@ -108,9 +106,9 @@ Les clusters HDInsight Spark incluent des blocs-notes [Apache Zeppelin](https://
     ![Redémarrer l’interpréteur Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Redémarrer l’interpréteur Zeppelin")
 
 ## <a name="how-do-i-use-external-packages-with-the-notebook"></a>Comment utiliser des packages externes avec le bloc-notes ?
-Vous pouvez configurer le bloc-notes Zeppelin dans un cluster Apache Spark sur HDInsight (Linux) pour utiliser des packages externes bénéficiant de la contribution de la communauté, qui ne sont pas inclus dans le cluster. Vous pouvez rechercher le [référentiel Maven](http://search.maven.org/) pour obtenir la liste complète des packages disponibles. Vous pouvez également obtenir une liste des packages disponibles à partir d’autres sources. Par exemple, une liste complète des packages bénéficiant de la contribution de la communauté est disponible sur le site [Spark Packages](http://spark-packages.org/)(Packages Spark).
+Vous pouvez configurer le bloc-notes Zeppelin dans un cluster Apache Spark sur HDInsight (Linux) pour utiliser des packages externes bénéficiant de la contribution de la communauté, qui ne sont pas inclus dans le cluster. Vous pouvez rechercher le [référentiel Maven](https://search.maven.org/) pour obtenir la liste complète des packages disponibles. Vous pouvez également obtenir une liste des packages disponibles à partir d’autres sources. Par exemple, une liste complète des packages bénéficiant de la contribution de la communauté est disponible sur le site [Spark Packages](https://spark-packages.org/)(Packages Spark).
 
-Dans cet article, vous allez apprendre à utiliser le package [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) avec le bloc-notes Jupyter.
+Dans cet article, vous allez apprendre à utiliser le package [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) avec le bloc-notes Jupyter.
 
 1. Ouvrez les paramètres de l’interpréteur. Dans le coin supérieur droit, cliquez sur le nom d’utilisateur connecté, puis cliquez sur **Interpreter** (Interpréteur).
    
@@ -118,14 +116,14 @@ Dans cet article, vous allez apprendre à utiliser le package [spark-csv](http:/
 1. Accédez aux paramètres d’interpréteur Livy, puis cliquez sur **Modifier**.
    
     ![Modifier les paramètres de l’interpréteur](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Modifier les paramètres de l’interpréteur")
-1. Ajoutez une nouvelle clé, appelée **livy.spark.jars.packages** et définissez sa valeur au format `group:id:version`. Par conséquent, si vous souhaitez utiliser le package [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar), vous devez définir la valeur de la clé sur `com.databricks:spark-csv_2.10:1.4.0`.
+1. Ajoutez une nouvelle clé, appelée **livy.spark.jars.packages** et définissez sa valeur au format `group:id:version`. Par conséquent, si vous souhaitez utiliser le package [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar), vous devez définir la valeur de la clé sur `com.databricks:spark-csv_2.10:1.4.0`.
    
     ![Modifier les paramètres de l’interpréteur](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Modifier les paramètres de l’interpréteur")
    
     Cliquez sur **Enregistrer**, puis redémarrez l’interpréteur Livy.
 1. **Conseil** : si vous souhaitez savoir comment atteindre la valeur de la clé entrée ci-dessus, lisez ce qui suit.
    
-    a. Recherchez le package dans le référentiel Maven. Dans ce didacticiel, nous avons utilisé [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
+    a. Recherchez le package dans le référentiel Maven. Dans ce didacticiel, nous avons utilisé [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
     b. À partir du référentiel, rassemblez les valeurs pour **GroupId**, **ArtifactId** et **Version**.
    
@@ -159,7 +157,7 @@ Dans ce cas, vous devez effectuer les étapes suivantes avant de commencer à ex
 * [Présentation : Apache Spark sur Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scénarios
-* [Apache Spark avec BI : effectuer une analyse interactive des données à l’aide de Spark sur HDInsight avec des outils décisionnels](apache-spark-use-bi-tools.md)
+* [Apache Spark avec BI : effectuer une analyse interactive des données à l’aide de Spark sur HDInsight avec des outils décisionnels](apache-spark-use-bi-tools.md)
 * [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide des données des systèmes HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](apache-spark-machine-learning-mllib-ipython.md)
 * [Analyse des journaux de site web à l’aide d’Apache Spark dans HDInsight](apache-spark-custom-library-website-log-analysis.md)

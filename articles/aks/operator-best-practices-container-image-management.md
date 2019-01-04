@@ -7,16 +7,14 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 20d3d3d755a35927550064ddfdf3b983348f93d3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1cc91f55d3895f06176875cb9ae620685dc09a26
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110848"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605549"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques relatives à la gestion et à la sécurisation des images de conteneur dans Azure Kubernetes Services (AKS)
-
-Lorsque vous développez et exécutez des applications dans Azure Kubernetes Service (ACS), la sécurité de vos conteneurs est primordiale. Les conteneurs incluant des images de base ou un runtime d’application obsolètes constituent un risque de sécurité et un vecteur d’attaque possible. Pour réduire ces risques, vous devez intégrer des outils capables de rechercher et de résoudre les problèmes dans vos conteneurs.
 
 Lorsque vous développez et exécutez des applications dans Azure Kubernetes Service (ACS), la sécurité de vos conteneurs et de vos images de conteneur est primordiale. Les conteneurs qui incluent des images de base obsolètes ou des runtimes d’application non corrigés constituent un risque de sécurité et un possible vecteur d’attaque. Pour réduire ces risques, vous devez intégrer des outils capables de rechercher et de résoudre les problèmes dans vos conteneurs au moment de la génération aussi bien que de l’exécution. Plus la vulnérabilité ou l’image de base obsolète est identifiée tôt dans le processus, plus le cluster est sécurisé. Dans cet article, le terme *conteneurs* se réfère à la fois aux images de conteneur stockées dans un Registre de conteneurs, et aux conteneurs en cours d’exécution.
 

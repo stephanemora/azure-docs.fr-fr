@@ -4,28 +4,28 @@ description: Utiliser Visual Studio Code pour créer un appareil IoT Edge dans v
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/14/2018
+ms.date: 01/03/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: cc812cc7f628f533cbf342edee66e01ce703678f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6d1abedf7186aaef4a13c7c958609c9de50299b8
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099766"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53968840"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-visual-studio-code"></a>Inscrire un nouvel appareil Azure IoT Edge à partir de Visual Studio Code
 
-Avant d’utiliser vos appareils IoT avec Azure IoT Edge, vous devez les inscrire auprès de votre hub IoT. Une fois que vous avez inscrit un appareil, vous recevez une chaîne de connexion qui vous permet de le configurer pour les charges de travail Edge. 
+Avant d’utiliser vos appareils IoT avec Azure IoT Edge, vous devez les inscrire auprès de votre hub IoT. Une fois que vous avez inscrit un appareil, vous recevez une chaîne de connexion qui vous permet de le configurer pour les charges de travail Edge.
 
-Cet article explique comment inscrire un nouvel appareil IoT Edge à l’aide de Visual Studio Code (VS Code). Il existe plusieurs façons d’effectuer la plupart des opérations dans VS Code. Cet article utilise l’Explorateur, mais vous pouvez également utiliser la palette de commandes pour exécuter la plupart des étapes. 
+Cet article explique comment inscrire un nouvel appareil IoT Edge à l’aide de Visual Studio Code (VS Code). Il existe plusieurs façons d’effectuer la plupart des opérations dans VS Code. Cet article utilise l’Explorateur, mais vous pouvez également utiliser la palette de commandes pour exécuter la plupart des étapes.
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) dans votre abonnement Azure
-* [Visual Studio Code](https://code.visualstudio.com/) 
+* [Visual Studio Code](https://code.visualstudio.com/)
 * [Extension Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) pour Visual Studio Code
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Se connecter pour accéder à votre hub ioT
@@ -34,35 +34,35 @@ Vous pouvez utiliser les extensions Azure IoT pour Visual Studio Code afin d’e
 
 1. Dans Visual Studio Code, ouvrez la vue **Explorateur**.
 
-2. En bas de l’Explorateur, développez la section **Appareils Azure IoT Hub**. 
+1. En bas de l’Explorateur, développez la section **Appareils Azure IoT Hub**.
 
    ![Développer la section Appareils Azure IoT Hub](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
 
-3. Cliquez sur **...** dans l’en-tête de section **Appareils Azure IoT Hub**. Si vous ne voyez pas les points de suspension, cliquez ou pointez sur l’en-tête. 
+1. Cliquez sur **...** dans l’en-tête de section **Appareils Azure IoT Hub**. Si vous ne voyez pas les points de suspension, cliquez ou pointez sur l’en-tête.
 
-4. Choisissez **Sélectionner un hub IoT**.
+1. Choisissez **Sélectionner un hub IoT**.
 
-5. Si vous n’êtes pas connecté à votre compte Azure, suivez les invites à cette fin. 
+1. Si vous n’êtes pas connecté à votre compte Azure, suivez les invites à cette fin.
 
-6. Sélectionnez votre abonnement Azure. 
+1. Sélectionnez votre abonnement Azure.
 
-7. Sélectionnez votre hub IoT. 
+1. Sélectionnez votre hub IoT.
 
 ## <a name="create-a-device"></a>Créer un appareil
 
-1. Dans l’Explorateur VS Code, développez la section **Appareils Azure IoT Hub**. 
+1. Dans l’Explorateur VS Code, développez la section **Appareils Azure IoT Hub**.
 
-2. Cliquez sur **...** dans l’en-tête de section **Appareils Azure IoT Hub**. Si vous ne voyez pas les points de suspension, cliquez ou pointez sur l’en-tête. 
+1. Cliquez sur **...** dans l’en-tête de section **Appareils Azure IoT Hub**. Si vous ne voyez pas les points de suspension, cliquez ou pointez sur l’en-tête.
 
-3. Sélectionnez **Créer un appareil IoT Edge**. 
+1. Sélectionnez **Créer un appareil IoT Edge**.
 
-4. Dans la zone de texte qui s’ouvre, donnez un ID à votre appareil. 
+1. Dans la zone de texte qui s’ouvre, donnez un ID à votre appareil.
 
-Dans l’écran de sortie, vous voyez le résultat de la commande. Les informations de l’appareil apparaissent, notamment l’ID d’appareil (**deviceId**) que vous avez fourni et la chaîne de connexion (**connectionString**) qui vous permet de connecter votre appareil physique à votre hub IoT. 
+Dans l’écran de sortie, vous voyez le résultat de la commande. Les informations de l’appareil apparaissent, notamment l’ID d’appareil (**deviceId**) que vous avez fourni et la chaîne de connexion (**connectionString**) qui vous permet de connecter votre appareil physique à votre hub IoT.
 
 ## <a name="view-all-devices"></a>Voir tous les appareils
 
-Tous les appareils qui se connectent à votre hub IoT sont répertoriés dans la section **Appareils Azure IoT Hub** de l’Explorateur de Visual Studio Code. Les appareils IoT Edge se distinguent des appareils non-Edge par leur icône spécifique et par le fait que vous pouvez les développer pour afficher les modules déployés sur chacun d’eux. 
+Tous les appareils qui se connectent à votre hub IoT sont répertoriés dans la section **Appareils Azure IoT Hub** de l’Explorateur de Visual Studio Code. Les appareils IoT Edge se distinguent des appareils non-Edge par leur icône spécifique et par le fait que vous pouvez les développer pour afficher les modules déployés sur chacun d’eux.
 
    ![Afficher tous les appareils IoT Edge de votre hub IoT](./media/how-to-register-device-vscode/view-devices.png)
 
@@ -70,13 +70,13 @@ Tous les appareils qui se connectent à votre hub IoT sont répertoriés dans la
 
 Pour configurer votre appareil, vous avez besoin de la chaîne de connexion qui établit un lien entre votre appareil physique et son identité dans le hub IoT.
 
-1. Cliquez avec le bouton droit sur l’ID de votre appareil dans la section **Appareils Azure IoT Hub**. 
-2. Sélectionnez **Copier la chaîne de connexion de l’appareil**.
+1. Cliquez avec le bouton droit sur l’ID de votre appareil dans la section **Appareils Azure IoT Hub**.
 
-   La chaîne de connexion est copiée dans le Presse-papiers. 
+1. Sélectionnez **Copier la chaîne de connexion de l’appareil**.
 
-Vous pouvez également sélectionner **Obtenir les informations de l’appareil** dans le menu contextuel pour voir les informations de l’appareil, notamment la chaîne de connexion, dans la fenêtre de sortie. 
+   La chaîne de connexion est copiée dans le Presse-papiers.
 
+Vous pouvez également sélectionner **Obtenir les informations de l’appareil** dans le menu contextuel pour voir les informations de l’appareil, notamment la chaîne de connexion, dans la fenêtre de sortie.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

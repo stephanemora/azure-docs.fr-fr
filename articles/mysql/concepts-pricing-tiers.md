@@ -1,20 +1,17 @@
 ---
 title: Niveaux tarifaires pour Azure Database pour MySQL
 description: Cet article présente les niveaux tarifaires pour Azure Database pour MySQL.
-services: mysql
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 644a3a2fe6bce6ccc99b0c1c99ea07b129676653
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 805f7844b144da1feb141a46080912790008f32e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320844"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538769"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Niveaux tarifaires Azure Database pour MySQL
 
@@ -44,7 +41,7 @@ Après avoir créé un serveur, le nombre de vCores, la génération du matérie
 Les ressources de calcul sont fournies en tant que vCores, représentant le processeur logique du matériel sous-jacent. Actuellement, vous pouvez choisir entre deux générations de calcul, Gen 4 et Gen 5. Les processeurs logiques Gen 4 sont basés sur des processeurs Intel E5-2673 v3 (Haswell) 2.4 GHz. Les processeurs logiques Gen 5 sont basés sur des processeurs Intel E5-2673 v4 (Broadwell) 2.3 GHz. Les processeurs Gen 4 et Gen 5 sont disponibles dans les régions suivantes (« X » indique la disponibilité).
 
 > [!IMPORTANT]
-> À compter du 12 décembre 2018, les nouveaux clients ne seront pas en mesure d’approvisionner les serveurs de calcul de génération 4 de calcul dans les zones Brésil Sud, Canada Centre, Canada Est, Asie Est, USA Est 2, Inde Centre, Inde Ouest, Japon Ouest, USA Centre Nord, USA Ouest. Les serveurs de génération 4 précédemment créés seront migrés vers la génération 5 à compter du 1er février 2019 dans ces régions.
+> À compter du 12 décembre 2018, les nouveaux clients ne seront pas en mesure de provisionner les serveurs de calcul de génération 4 dans les zones Brésil Sud, Canada Centre, Canada Est, Asie Est, USA Est 2, Inde Centre, Inde Ouest, Japon Ouest, USA Centre Nord, USA Ouest. Les serveurs de calcul de génération 4 précédemment créés seront migrés vers la génération 5 à compter du 1er février 2019 dans ces régions.
 
 | **Région Azure** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|

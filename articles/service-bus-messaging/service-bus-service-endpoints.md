@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: clemensv
-ms.openlocfilehash: 3e1bdcc9340cc6cf997bebcdf1567bf676521ea5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 87a89ffd627454752924bfc69e44da87b071b5e5
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276126"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651433"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Utiliser des points de terminaison de service de réseau virtuel avec Azure Service Bus
 
@@ -30,7 +30,7 @@ Il en résulte une relation privée et isolée entre les charges de travail lié
 >
 > Les services Microsoft de confiance ne sont pas pris en charge quand les réseaux virtuels sont implémentés. Ils le seront prochainement.
 >
-> Scénarios courants Azure qui ne fonctionnent pas avec les réseaux virtuels (Notez que cette liste **N’EST PAS** exhaustive) :
+> Scénarios courants Azure qui ne fonctionnent pas avec les réseaux virtuels (Notez que cette liste **N’EST PAS** exhaustive) :
 > - Azure Monitor
 > - Azure Stream Analytics
 > - Intégration à Azure Event Grid
@@ -39,7 +39,7 @@ Il en résulte une relation privée et isolée entre les charges de travail lié
 > - Explorateur de données Azure
 >
 > Les services Microsoft suivants doivent être sur un réseau virtuel
-> - Azure Web Apps 
+> - Azure App Service
 > - Azure Functions
 
 > [!IMPORTANT]
@@ -75,7 +75,7 @@ Paramètres du modèle :
 * **virtualNetworkingSubnetId** : chemin complet de Resource Manager pour le sous-réseau de réseau virtuel, par exemple `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` pour le sous-réseau par défaut d’un réseau virtuel.
 
 > [!NOTE]
-> Bien qu’il n’existe aucune règle de refus possible, le l’action par défaut du modèle Azure Resource Manager est **Autoriser**, ce qui ne restreint pas les connexions.
+> Bien qu’il n’existe aucune règle de refus possible, l’action par défaut du modèle Azure Resource Manager est **Autoriser**, ce qui ne restreint pas les connexions.
 > Lorsque vous élaborez des règles de réseau virtuel ou de pare-feu, vous devez modifier ***defaultAction***
 > 
 > from

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: 59ca7a98bfa275502e847a8d2c34ec79141603da
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1d57b6edcff5222bb411a74cc86afbbd7819f9d3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433812"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970829"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Requête Apache Hive par le biais du pilote JDBC dans HDInsight
 
@@ -31,7 +31,7 @@ Pour plus d’informations sur l’interface JDBC pour Hive, consultez [HiveJDB
   > [!IMPORTANT]
   > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, reportez-vous à la rubrique [Déclassement de HDInsight 3.3](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* [SQuirreL SQL](https://squirrel-sql.sourceforge.net/). SQuirreL est une application cliente JDBC.
+* [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL est une application cliente JDBC.
 
 * Le [Kit de développeur Java (JDK) version 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou supérieure.
 

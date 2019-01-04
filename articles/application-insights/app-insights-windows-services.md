@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 850ff2cfb02b5a968a40e0cd43b5c65d9d4e3490
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b760780912642dac664f68c1f2b9d8d4ebf8cbde
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001724"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809894"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Configurer manuellement Application Insights pour des applications .NET
 
-Vous pouvez configurer [Application Insights](app-insights-overview.md) pour analyser un large éventail d’applications ou de rôles d’applications, de composants ou de microservices. Pour les services et applications web, Visual Studio permet un [configuration en une seule étape](app-insights-asp-net.md). Pour les autres types d’application .NET, telles que les rôles de serveur principal ou les applications de bureau, vous pouvez configurer Application Insights manuellement.
+Vous pouvez configurer [Application Insights](app-insights-overview.md) pour analyser un large éventail d’applications ou de rôles d’applications, de composants ou de microservices. Pour les services et applications web, Visual Studio permet un [configuration en une seule étape](../azure-monitor/app/asp-net.md). Pour les autres types d’application .NET, telles que les rôles de serveur principal ou les applications de bureau, vous pouvez configurer Application Insights manuellement.
 
 ![Exemples de graphiques d’analyse des performances](./media/app-insights-windows-services/10-perf.png)
 
@@ -90,7 +90,7 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 * Définissez la clé d’instrumentation dans le code, par exemple dans `main()`: 
   
     `TelemetryConfiguration.Active.InstrumentationKey = "`*votre clé*`";` 
-* [Écrivez vos propres données de télémétrie à l’aide de l’API](app-insights-api-custom-events-metrics.md#ikey).
+* [Écrivez vos propres données de télémétrie à l’aide de l’API](../azure-monitor/app/api-custom-events-metrics.md#ikey).
 
 **Si vous avez installé d’autres packages Application Insights** , vous pouvez, si vous préférez, utiliser le fichier .config pour définir la clé d’instrumentation :
 
@@ -119,7 +119,7 @@ Cliquez sur un des graphiques pour afficher des mesures plus détaillées. [En s
 
 ### <a name="no-data"></a>Pas de données ?
 * Utilisez l'application en ouvrant différentes pages pour générer des données de télémétrie.
-* Ouvrez la vignette [Rechercher](app-insights-diagnostic-search.md) pour afficher les événements individuels. Parfois, les événements mettent un peu plus de temps pour parcourir le pipeline de métriques.
+* Ouvrez la vignette [Rechercher](../azure-monitor/app/diagnostic-search.md) pour afficher les événements individuels. Parfois, les événements mettent un peu plus de temps pour parcourir le pipeline de métriques.
 * Attendez quelques secondes, puis cliquez sur **Actualiser**. Les graphiques s’actualisent à intervalles réguliers, mais vous pouvez les actualiser manuellement si vous attendez que certaines données s’affichent.
 * Consultez la rubrique [Résolution des problèmes](app-insights-troubleshoot-faq.md).
 
@@ -134,7 +134,7 @@ Lorsque vous exécutez l'application en mode débogage, la télémétrie est env
 Ouvrez les ports pour le trafic sortant dans le pare-feu de votre serveur. Consultez [cette page](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses) pour obtenir la liste d’adresses requises 
 
 ### <a name="trouble-on-your-build-server"></a>Vous rencontrez des problèmes sur votre serveur de builds ?
-Consultez cet article de [résolution des problèmes](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
+Consultez cet article de [résolution des problèmes](../azure-monitor/app/asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 > [!NOTE]
 > Si votre application génère un volume important de télémétrie, le module d'échantillonnage adaptatif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Cependant, les événements liés à la même demande seront activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes. 
@@ -147,5 +147,5 @@ Consultez cet article de [résolution des problèmes](app-insights-asp-net-troub
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Ajoutez des données de télémétrie](app-insights-asp-net-more.md) pour obtenir une vue à 360 degrés de votre application.
+* [Ajoutez des données de télémétrie](../azure-monitor/app/asp-net-more.md) pour obtenir une vue à 360 degrés de votre application.
 

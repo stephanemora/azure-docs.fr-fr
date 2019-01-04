@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: bf9d9368207f8791c33db84e1467d44201d6a5af
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d478107f3176e79c88a05d9cbe6207606a6246d5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38765929"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444095"
 ---
 Dans le portail Azure, vous pouvez afficher l’état de la connexion d’une passerelle VPN Resource Manager en accédant à cette connexion. Les étapes suivantes montrent un moyen d’accéder à votre connexion pour la vérifier.
 
@@ -21,4 +21,4 @@ Dans le portail Azure, vous pouvez afficher l’état de la connexion d’une p
 2. Dans le panneau de votre passerelle de réseau virtuel, cliquez sur **Connexions**. Vous pouvez voir l’état de chaque connexion.
 3. Cliquez sur le nom de la connexion que vous souhaitez vérifier pour ouvrir **Essentials**. Dans Essentials, vous pouvez afficher plus d’informations sur la connexion. Ce **champ** indique « Opération réussie » et « Connecté » lorsqu’une connexion a été établie.
 
-  ![Vérifier la connexion de la passerelle VPN à l’aide du portail Azure](./media/vpn-gateway-verify-connection-portal-rm-include/connection-succeeded.png)
+   ![Vérifier la connexion de la passerelle VPN à l’aide du portail Azure](./media/vpn-gateway-verify-connection-portal-rm-include/connection-succeeded.png)

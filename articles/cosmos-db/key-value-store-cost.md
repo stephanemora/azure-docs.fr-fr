@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 3ab066cc3d2b06dc12c2399d718aeec6aac03b25
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 8e04439d63646a8aebe224adbf629491cc2dfbc6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134180"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547216"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB comme magasin de valeurs de clés – Synthèse des coûts
 
-Azure Cosmos DB est un service de base de données multimodèle, distribué dans le monde entier, qui permet de créer facilement des applications à grande échelle et à haute disponibilité. Par défaut, Azure Cosmos DB indexe automatiquement et efficacement toutes les données qu’il reçoit. Vous pouvez ainsi créer des requêtes [SQL](how-to-sql-query.md) (et [JavaScript](programming.md)) rapides et cohérentes sur n’importe quel type de données. 
+Azure Cosmos DB est un service de base de données multimodèle, distribué dans le monde entier, qui permet de créer facilement des applications à grande échelle et à haute disponibilité. Par défaut, Azure Cosmos DB indexe automatiquement et efficacement toutes les données qu’il reçoit. Vous pouvez ainsi créer des requêtes [SQL](how-to-sql-query.md) (et [JavaScript](stored-procedures-triggers-udfs.md)) rapides et cohérentes sur n’importe quel type de données. 
 
 Cet article décrit le coût qu’implique l’utilisation d’Azure Cosmos DB pour de simples opérations de lecture et d’écriture lorsqu’il est utilisé comme magasin de valeurs de clés. Les opérations d’écriture incluent des insertions, des remplacements, des suppressions et des upserts de documents. En plus de la garantie d’un contrat SLA de disponibilité à 99,99 % pour tous les comptes à une et plusieurs régions avec cohérence souple, et de la disponibilité de lecture de 99,999 % pour tous les comptes de base de données couvrant plusieurs régions, Azure Cosmos DB garantit une latence inférieure à 10 ms pour les lectures et une latence inférieure à 15 ms pour les écritures (indexées), au 99e centile. 
 

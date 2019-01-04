@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.date: 09/17/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0883784d5c7f833556a07f2bc6431470febdc4c7
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: f1d072d40967ac6d106de7489e0a2148fe7948ed
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384154"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598099"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Exécuter un conteneur Windows personnalisé dans Azure (préversion)
 
-[Azure App Service](app-service-web-overview.md) fournit des piles d’applications prédéfinies sur Windows, par exemple ASP.NET ou Node.js, exécuté sur IIS. L’environnement Windows préconfiguré verrouille l’accès administrateur du système d’exploitation, de même que l’installation des logiciels, les modifications du Global Assembly Cache et ainsi de suite (voir [Fonctionnalités du système d’exploitation sur Azure App Service](operating-system-functionality.md)). Si votre application nécessite un accès plus important que celui permis par l’environnement préconfiguré, vous pouvez déployer un conteneur Windows personnalisé à la place. Ce guide de démarrage rapide montre comment déployer une application ASP.NET incluse dans une image Windows sur [Docker Hub](https://hub.docker.com/) à partir de Visual Studio et comment l’exécuter dans un conteneur personnalisé dans Azure App Service.
+[Azure App Service](overview.md) fournit des piles d’applications prédéfinies sur Windows, par exemple ASP.NET ou Node.js, exécuté sur IIS. L’environnement Windows préconfiguré verrouille l’accès administrateur du système d’exploitation, de même que l’installation des logiciels, les modifications du Global Assembly Cache et ainsi de suite (voir [Fonctionnalités du système d’exploitation sur Azure App Service](operating-system-functionality.md)). Si votre application nécessite un accès plus important que celui permis par l’environnement préconfiguré, vous pouvez déployer un conteneur Windows personnalisé à la place. Ce guide de démarrage rapide montre comment déployer une application ASP.NET incluse dans une image Windows sur [Docker Hub](https://hub.docker.com/) à partir de Visual Studio et comment l’exécuter dans un conteneur personnalisé dans Azure App Service.
 
 ![](media/app-service-web-get-started-windows-container/app-running-vs.png)
 

@@ -1,20 +1,17 @@
 ---
 title: Guide pratique pour vider et restaurer dans Azure Database pour PostgreSQL
 description: Explique comment extraire une base de données PostgreSQL dans un fichier de vidage et restaurer à partir d’un fichier créé par la commande pg_dump dans Azure Database pour PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 2aa59bcf0d56358601b81730abe330a56ca35d02
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 41a5f2eab78d68bdb1f51b423955cfefa5a541b8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966906"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538584"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migration de votre base de données PostgreSQL par vidage et restauration
 Vous pouvez utiliser la commande [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) pour extraire une base de données PostgreSQL vers un fichier de vidage, et la commande [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) pour restaurer la base de données PostgreSQL à partir d’un fichier d’archive créé par pg_dump.

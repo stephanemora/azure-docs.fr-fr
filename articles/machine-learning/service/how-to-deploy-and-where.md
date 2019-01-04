@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 17193bf3285a2052a913293ec3adc6f9b8884f72
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0c171ff768395540c123c4ef2a19168d926b0661
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435941"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633825"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Déployer des modèles avec le service Azure Machine Learning
 
@@ -46,11 +46,11 @@ Vous pouvez déployer des modèles sur les cibles de calcul suivantes :
 Le processus de déploiement d'un modèle est similaire pour toutes les cibles de calcul :
 
 1. Formez un modèle.
-1. Inscrivez le modèle.
+1. Inscrire le modèle.
 1. Créez une configuration d'image.
 1. Créez l’image.
 1. Déployez l'image sur une cible de calcul.
-1. Testez le déploiement.
+1. test du déploiement
 1. (Facultatif) Nettoyez les artefacts.
 
     * Dans le cadre d'un **déploiement en tant que service web**, trois options de déploiement sont disponibles :
@@ -63,7 +63,7 @@ Le processus de déploiement d'un modèle est similaire pour toutes les cibles d
 
     * Lors d'un **déploiement en tant que module IoT Edge**, vous devez inscrire le modèle et créer l'image.
 
-## <a name="register-a-model"></a>Inscrire un modèle
+## <a name="register-a-model"></a>Inscrivez un modèle
 
 Seuls les modèles formés peuvent être déployés. Le modèle peut être formé à l'aide d'Azure Machine Learning ou d'un autre service. Pour inscrire un modèle à partir d'un fichier, utilisez le code suivant :
 
@@ -164,7 +164,7 @@ Pour effectuer un déploiement sur Azure Container Instances, procédez comme su
     > [!TIP]
     > Si des erreurs se produisent au cours du déploiement, utilisez `service.get_logs()` pour afficher les journaux du service AKS. Les informations journalisées peuvent indiquer la cause de l’erreur.
 
-Pour plus d'informations, consultez la documentation de référence des classes [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) et [Webservice](https://docs.microsoft.comS/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py).
+Pour plus d'informations, consultez la documentation de référence des classes [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) et [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
 
 ### <a id="aks"></a> Procéder à un déploiement sur Azure Kubernetes Service
 
@@ -211,6 +211,7 @@ Pour effectuer un déploiement sur Azure Kubernetes Service, procédez comme sui
     > Si vous disposez déjà d'un cluster AKS dans le cadre de votre abonnement Azure, et qu'il s'agit de la version 1.11.*, vous pouvez l'utiliser pour déployer votre image. Le code suivant montre comment associer un cluster existant à votre espace de travail :
     >
     > ```python
+    > from azureml.core.compute import AksCompute, ComputeTarget
     > # Set the resource group that contains the AKS cluster and the cluster name
     > resource_group = 'myresourcegroup'
     > cluster_name = 'mycluster'
@@ -218,7 +219,7 @@ Pour effectuer un déploiement sur Azure Kubernetes Service, procédez comme sui
     > # Attatch the cluster to your workgroup
     > attach_config = AksCompute.attach_configuration(resource_group = resource_group,
     >                                          cluster_name = cluster_name)
-    > compute = ComputeTarget.attach(ws, 'mycompute', attach_config)
+    > aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
     > 
     > # Wait for the operation to complete
     > aks_target.wait_for_completion(True)
@@ -275,7 +276,7 @@ Vous devez créer un hub IoT et inscrire un appareil ou en réutiliser un à l'a
 ssh <yourusername>@<yourdeviceip>
 sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister
 sudo chmod +x createNregister
-sudo ./createNregister <The Azure subscriptionID you wnat to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
+sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
 ```
 
 Enregistrez la chaîne de connexion obtenue après « cs":"{copier cette chaîne} ».

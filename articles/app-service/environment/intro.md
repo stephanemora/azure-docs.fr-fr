@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: af279f3a37290a3ab8a98318b5080d1145f45078
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 48b053b6520bff2ac83cd02af31194f81413e92c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269051"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598752"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Présentation des environnements App Service #
  
@@ -81,7 +81,7 @@ Pour plus d’informations sur le fonctionnement des environnements App Service 
 
 ## <a name="app-service-environment-v1"></a>Environnement App Service v1 ##
 
-L’environnement App Service est disponible en deux versions : ASEv1 et ASEv2. Les informations précédentes sont basées sur ASEv2. Cette section montre les différences entre ASEv1 et ASEv2. 
+App Service Environment est disponible en deux versions : ASEv1 et ASEv2. Les informations précédentes sont basées sur ASEv2. Cette section montre les différences entre ASEv1 et ASEv2. 
 
 Dans ASEv1, vous devez gérer toutes les ressources manuellement. Celles-ci incluent les frontends, les workers et les adresses IP utilisées pour le protocole SSL basé sur IP. Pour pouvoir augmenter l’échelle de votre plan App Service, vous devez d’abord augmenter celle du pool de workers où vous voulez héberger le plan.
 
@@ -100,7 +100,7 @@ Les versions ASEv1 et ASEv2 utilisent un modèle tarifaire différent. Dans ASE
 [NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
-[webapps]: ../app-service-web-overview.md
+[webapps]: ../overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/

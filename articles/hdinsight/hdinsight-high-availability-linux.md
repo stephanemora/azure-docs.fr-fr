@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 41c8315bab1b716f79b47afb77c6d371a757691d
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 89878b2774727d49d81ebec4c2a3c2cee355d8e8
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386425"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743661"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilité et fiabilité des clusters Apache Hadoop dans HDInsight
 
@@ -47,7 +47,7 @@ Les nœuds Nimbus sont disponibles avec les clusters Apache Storm. Les nœuds Ni
 
 ### <a name="apache-zookeeper-nodes"></a>Nœuds Apache ZooKeeper
 
-Des nœuds [ZooKeeper](http://zookeeper.apache.org/) sont utilisés pour l’élection de leader des services maîtres sur nœuds principaux. Ils sont également utilisés pour s’assurer que les services, les nœuds de données (worker) et les passerelles sachent sur quel nœud principal un service maître est actif. Par défaut, HDInsight fournit trois nœuds ZooKeeper.
+Des nœuds [ZooKeeper](https://zookeeper.apache.org/) sont utilisés pour l’élection de leader des services maîtres sur nœuds principaux. Ils sont également utilisés pour s’assurer que les services, les nœuds de données (worker) et les passerelles sachent sur quel nœud principal un service maître est actif. Par défaut, HDInsight fournit trois nœuds ZooKeeper.
 
 ### <a name="worker-nodes"></a>Nœuds de travail
 
@@ -192,7 +192,7 @@ Une fois connecté, vous voyez apparaître une invite `sftp>` . À partir de cet
 Pour obtenir la liste des commandes disponibles, entrez `help` au niveau de l’invite `sftp>`.
 
 > [!NOTE]  
-> Il existe également des interfaces graphiques qui vous permettent de visualiser le système de fichiers lorsque vous êtes connecté à l’aide du protocole SFTP. Par exemple, [MobaXTerm](http://mobaxterm.mobatek.net/) vous offre la possibilité de parcourir le système de fichiers au moyen d’une interface semblable à l’Explorateur Windows.
+> Il existe également des interfaces graphiques qui vous permettent de visualiser le système de fichiers lorsque vous êtes connecté à l’aide du protocole SFTP. Par exemple, [MobaXTerm](https://mobaxterm.mobatek.net/) vous offre la possibilité de parcourir le système de fichiers au moyen d’une interface semblable à l’Explorateur Windows.
 
 ### <a name="ambari"></a>Ambari
 
