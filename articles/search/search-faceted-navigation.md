@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 3/10/2017
+ms.date: 03/10/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 337ee5259e980509c73099f0e3417bb31ec3276d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 67cc955e4a265a2b29893bd0484dd905f4f2c2b2
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313936"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632431"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implémentation de la navigation à facettes dans Azure Search
 La navigation à facettes est un mécanisme de filtrage qui fournit une navigation autonome d'extraction dans les applications de recherche. Le terme « navigation à facettes » peut vous sembler peu familier, mais vous l’avez très certainement déjà utilisé. Comme l'indique l'exemple ci-dessous, la navigation à facettes correspond tout simplement aux catégories utilisées pour filtrer les résultats.
@@ -34,7 +34,7 @@ Dans le développement de votre application, l’écriture du code qui construit
 ## <a name="sample-code-and-demo"></a>Exemple de code et démonstration
 Cet article prend l’exemple d’un portail de recrutement. L’exemple est implémenté en tant qu’application ASP.NET MVC.
 
--   Consultez et testez la démonstration en ligne sur la [démonstration du portail de recrutement Recherche Azure](http://azjobsdemo.azurewebsites.net/).
+-   Consultez et testez la démonstration en ligne sur la [démonstration du portail de recrutement Recherche Azure](https://azjobsdemo.azurewebsites.net/).
 
 -   Téléchargez le code à partir du [référentiel Azure-Samples sur GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -371,7 +371,7 @@ Vous trouverez des exemples de filtres dans [Syntaxe d'expression OData (Azure S
 ## <a name="try-the-demo"></a>Essayer la démonstration
 La démonstration du portail de recrutement Recherche Azure contient les exemples référencés dans cet article.
 
--   Consultez et testez la démonstration en ligne sur la [démonstration du portail de recrutement Recherche Azure](http://azjobsdemo.azurewebsites.net/).
+-   Consultez et testez la démonstration en ligne sur la [démonstration du portail de recrutement Recherche Azure](https://azjobsdemo.azurewebsites.net/).
 
 -   Téléchargez le code à partir du [référentiel Azure-Samples sur GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -396,12 +396,12 @@ Lorsque vous utilisez les résultats de la recherche, observez les modifications
 <a name="nextstep"></a>
 
 ## <a name="learn-more"></a>En savoir plus
-Regardez la [Présentation approfondie de la Recherche Azure](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). À 45:25 sur la vidéo, vous trouverez une démonstration sur la façon d'implémenter des facettes.
+Regardez la [Présentation approfondie de la Recherche Azure](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). À 45:25 sur la vidéo, vous trouverez une démonstration sur la façon d'implémenter des facettes.
 
 Pour plus d'informations sur les principes de conception pour la navigation à facettes, nous vous recommandons les liens suivants :
 
 * [Conception pour la recherche à facettes](http://www.uie.com/articles/faceted_search/)
-* [Modèles de conception : Navigation à facettes](http://alistapart.com/article/design-patterns-faceted-navigation)
+* [Modèles de conception : Navigation à facettes](https://alistapart.com/article/design-patterns-faceted-navigation)
 
 
 <!--Anchors-->
@@ -431,7 +431,7 @@ Pour plus d'informations sur les principes de conception pour la navigation à f
 
 <!--Link references-->
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
-[Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
+[Design Patterns: Faceted Navigation]: https://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
 [OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/

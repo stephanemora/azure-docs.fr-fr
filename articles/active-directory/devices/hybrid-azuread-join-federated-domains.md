@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c35c16e1414b1287fa891d1ce1f65ca8eff3d2c5
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3bce57f919490e1689ce40f59a3799ce451ee6e7
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434951"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752790"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Didacticiel : Configurer la jointure hybride Azure Active Directory pour des domaines fédérés
 
@@ -57,8 +57,6 @@ Ce tutoriel part du principe que vous connaissez :
 Pour configurer le scénario décrit dans ce tutoriel, vous avez besoin de ce qui suit :
 
 - Windows Server 2012 R2 avec AD FS
-
-- Une instance Active Directory (AD) locale avec un niveau de schéma de 85 ou supérieur. Pour plus d’informations, consultez [Mettre à niveau votre schéma Active Directory](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0 ou une version ultérieure 
  
@@ -170,7 +168,7 @@ Pour inscrire des appareils Windows de bas niveau, vous devez vous assurer que l
 
 
     
-La stratégie suivante doit être définie sur **Tout** : **Les utilisateurs peuvent inscrire leurs appareils sur Azure AD**
+La stratégie suivante doit être définie sur **All** (Tout) : **Les utilisateurs peuvent inscrire leurs appareils sur Azure AD**
 
 ![Inscrire des appareils](./media/hybrid-azuread-join-federated-domains/23.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: b1bea9b1a2bdb04a60fa6a8fa1d92bfbaf80c6d6
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 2df24cfe217a9955a3abb08d042836821b083946
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320827"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580635"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Recevoir une alerte de métrique classique pour notifier un système non-Azure à l’aide d’un webhook
 Les Webhooks permettent de rediriger une notification d’alerte Azure vers d’autres systèmes pour effectuer un post-traitement ou des actions personnalisées. Vous pouvez utiliser un Webhook sur une alerte pour rediriger cette dernière vers des services qui envoient des SMS, consignent des bogues, avertissent une équipe dans des services de conversation instantanée/messagerie ou effectuent d’autres actions. 
@@ -27,7 +27,7 @@ Pour ajouter ou mettre à jour l’URI du Webhook, dans le [portail Azure](https
 
 ![Volet Ajouter une règle d’alerte](./media/alerts-webhooks/Alertwebhook.png)
 
-Vous pouvez également configurer une alerte à publier vers un URI de Webhook à l’aide des [applets de commande Azure PowerShell](../../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts), de [l’interface de ligne de commande multiplateforme](../../azure-monitor/platform/cli-samples.md#work-with-alerts) ou des [API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Vous pouvez également configurer une alerte à publier vers un URI de Webhook à l’aide des [applets de commande Azure PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-metric-alerts), de [l’interface de ligne de commande multiplateforme](../../azure-monitor/platform/cli-samples.md#work-with-alerts) ou des [API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="authenticate-the-webhook"></a>Authentifier le Webhook
 Le Webhook peut s’authentifier à l’aide de l’autorisation basée sur un jeton. L’URI du Webhook est enregistré avec un ID de jeton. Par exemple : `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`

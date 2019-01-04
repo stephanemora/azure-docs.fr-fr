@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f2890fa4d8260485fa76478571aa66abe1efd35e
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: b8d57a2bbaa53a0291dc9c05ab234c3238322a71
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515401"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605442"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Présentation d’Azure Functions  
 Azure Functions est une solution conçue pour exécuter facilement des petits morceaux de code, ou « fonctions », dans le cloud. Vous pouvez simplement écrire le code dont vous avez besoin pour le problème, sans vous soucier d’une application dans sa globalité ou de l’infrastructure pour l’exécuter. Grâce à Functions, le développement gagne en productivité et vous pouvez utiliser votre langage de développement préféré, tel que C#, F#, Node.js, Java ou PHP. Payez uniquement pour temps d’exécution de votre code et faites confiance à Azure pour effectuer la mise à l’échelle nécessaire. Azure Functions vous permet de développer des applications [sans serveur](https://azure.microsoft.com/solutions/serverless/) sur Microsoft Azure.
@@ -33,7 +33,7 @@ Voici les principales fonctionnalités de Functions :
 * **Intégration de vos propres dépendances** : Azure Functions prenant en charge NuGet et NPM, vous pouvez utiliser vos bibliothèques préférées.  
 * **Sécurité intégrée** : protégez les fonctions déclenchées par HTTP à l’aide de fournisseurs OAuth comme Azure Active Directory, Facebook, Google, Twitter et Microsoft Account.  
 * **Intégration simplifiée** : tirez facilement parti des services Azure et des offres SaaS (software as a service). Pour obtenir des exemples, consultez la [section relative aux intégrations](#integrations).  
-* **Développement flexible** : codez vos fonctions directement dans le portail ou configurez une intégration continue et déployez votre code via [GitHub](../app-service/scripts/app-service-cli-continuous-deployment-github.md), [Azure DevOps Services](../app-service/scripts/app-service-cli-continuous-deployment-vsts.md) et les autres [outils de développement pris en charge](../app-service/app-service-deploy-local-git.md).  
+* **Développement flexible** : codez vos fonctions directement dans le portail ou configurez une intégration continue et déployez votre code via [GitHub](../app-service/scripts/cli-continuous-deployment-github.md), [Azure DevOps Services](../app-service/scripts/cli-continuous-deployment-vsts.md) et les autres [outils de développement pris en charge](../app-service/deploy-local-git.md).  
 * **Open Source** : le runtime Azure Functions est open source et [disponible sur GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
 ## <a name="what-can-i-do-with-functions"></a>Que puis-je faire avec Azure Functions ?
@@ -82,6 +82,6 @@ Pour plus d’informations sur les plans d’hébergement, consultez [Comparaiso
    décrit plusieurs outils et techniques permettant de tester vos fonctions.
 * [Comment mettre à l’échelle Azure Functions](functions-scale.md)  
   Présente les plans de service disponibles pour Azure Functions, dont le plan d’hébergement de consommation, et explique comment choisir le plan adapté à vos besoins. 
-* [En savoir plus sur Azure App Service](../app-service/app-service-web-overview.md)  
+* [En savoir plus sur Azure App Service](../app-service/overview.md)  
   Azure Functions s’appuie sur Azure App Service pour les fonctionnalités essentielles comme les déploiements, les variables d’environnement et les diagnostics. 
 

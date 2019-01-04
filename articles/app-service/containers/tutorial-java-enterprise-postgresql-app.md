@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 2a38b117cde6d6b51b101f6b0ef0eb3a19b42ba3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3a668783e8257ef9074d12b30ff0afc3a40325f4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344225"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539719"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Didacticiel : Créer une application web Java EE et Postgres dans Azure
 
@@ -170,7 +170,7 @@ Nous vous suggérons fortement de lire le contenu de ces fichiers, en particulie
 
 ### <a name="ftp-the-configuration-files"></a>Transférer via FTP les fichiers de configuration
 
-Nous devons transférer via FTP le contenu de `wildfly_config/` sur notre instance App Service. Pour obtenir vos informations d’identification FTP, cliquez sur le bouton **Obtenir le profil de publication** qui est situé dans le panneau App Service du portail Azure. Vos nom d’utilisateur et mot de passe FTP se trouvent dans le document XML téléchargé. Pour plus d’informations sur le profil de publication, consultez [ce document](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials).
+Nous devons transférer via FTP le contenu de `wildfly_config/` sur notre instance App Service. Pour obtenir vos informations d’identification FTP, cliquez sur le bouton **Obtenir le profil de publication** qui est situé dans le panneau App Service du portail Azure. Vos nom d’utilisateur et mot de passe FTP se trouvent dans le document XML téléchargé. Pour plus d’informations sur le profil de publication, consultez [ce document](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 À l’aide de l’outil FTP de votre choix, transférez les quatre fichiers de `wildfly_config/` vers `/home/site/deployments/tools/`. (Notez que vous ne devez pas transférer le répertoire, seulement les fichiers.)
 

@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 2cce962058357e104ee2f8b8677af8fa4a31f80a
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 5e36a41c1678ac38c7ebee5b47fd88076fa3fb70
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409273"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629694"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utiliser un partage de fichiers Azure avec Windows
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Il est possible d’utiliser sans problème le partage de fichiers Azure dans Windows et Windows Server. Cet article décrit les considérations concernant l’utilisation d’un partage de fichiers Azure avec Windows et Windows Server.
@@ -39,6 +39,8 @@ Vous pouvez utiliser des partages de fichiers Azure sur une installation Window
 
 > [!Note]  
 > Nous vous conseillons de prendre la base de connaissances la plus récente pour votre version de Windows.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prérequis 
 * **Nom du compte de stockage** : Pour monter un partage de fichiers Azure, vous avez besoin du nom du compte de stockage.
@@ -89,10 +91,10 @@ L’utilitaire [cmdkey](https://docs.microsoft.com/windows-server/administration
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 
-# These commands require you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+# These commands require you to be logged into your Azure account, run Login-AzAccount if you haven't
 # already logged in.
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$storageAccountKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$storageAccountKeys = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
 # The cmdkey utility is a command-line (rather than PowerShell) tool. We use Invoke-Expression to allow us to 
 # consume the appropriate values from the storage account variables. The value given to the add parameter of the
@@ -144,11 +146,11 @@ $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 $fileShareName = "<your-file-share-name>"
 
-# These commands require you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+# These commands require you to be logged into your Azure account, run Login-AzAccount if you haven't
 # already logged in.
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$storageAccountKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
-$fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object { 
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$storageAccountKeys = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object { 
     $_.Name -eq $fileShareName -and $_.IsSnapshot -eq $false
 }
 

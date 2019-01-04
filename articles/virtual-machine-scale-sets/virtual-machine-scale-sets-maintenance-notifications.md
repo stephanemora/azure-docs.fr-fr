@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 4e30b143a11e35fc83103abfa03e3fb7f29cf9dc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 727ae9bbea4cabc5d27c32baff2123a7c03b531c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270125"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546859"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notifications de maintenance planifiées pour les groupes de machines virtuelles identiques
 
@@ -32,7 +32,7 @@ Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilit
 
 La maintenance planifiée nécessitant un redémarrage s’effectue par vagues. Chaque vague a une portée différente (régions) :
 
-- Une vague commence par une notification aux clients. Par défaut, la notification est envoyée aux propriétaire et copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des options de messagerie (par exemple, e-mails, SMS et Webhooks) aux notifications à l’aide des [alertes de journal d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) Azure.  
+- Une vague commence par une notification aux clients. Par défaut, la notification est envoyée aux propriétaire et copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des options de messagerie (par exemple, e-mails, SMS et Webhooks) aux notifications à l’aide des [alertes de journal d’activité](../azure-monitor/platform/activity-logs-overview.md) Azure.  
 - La notification vous propose une *fenêtre de libre-service*. Pendant cet intervalle, vous pouvez rechercher quelles machines virtuelles sont incluses dans cette vague. Vous pouvez alors démarrer la maintenance de manière proactive en fonction de vos besoins de planification.
 - Après la fenêtre de libre-service, une *fenêtre de maintenance planifiée* apparaît. Au cours de cette fenêtre, Azure planifie et applique la maintenance requise à votre machine virtuelle. 
 
@@ -95,7 +95,7 @@ La colonne **Maintenance en libre-service** s’affiche désormais dans la liste
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notification et alertes dans le portail
 
-Azure communique une planification de maintenance planifiée en envoyant un e-mail au propriétaire et au groupe de copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des chaînes à cette communication en créant des alertes de journal d’activité. Pour en savoir plus, consultez [Surveiller l’activité d’abonnement avec le journal d’activité Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Azure communique une planification de maintenance planifiée en envoyant un e-mail au propriétaire et au groupe de copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des chaînes à cette communication en créant des alertes de journal d’activité. Pour en savoir plus, consultez [Surveiller l’activité d’abonnement avec le journal d’activité Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans le menu de gauche, sélectionnez **Surveiller**. 

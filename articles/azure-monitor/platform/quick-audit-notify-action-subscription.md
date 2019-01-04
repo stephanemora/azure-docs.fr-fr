@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: alerts
-ms.openlocfilehash: 76ed904a90b84e7b0bac86b2ed5380289d7802c1
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 79375dbbc7c966f2e972389788cefe8a0fe3692d
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387945"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582675"
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Audit et réception de notifications relatives à des actions importantes dans votre abonnement Azure
 
@@ -98,4 +98,4 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources et le gr
 Dans ce guide de démarrage rapide, vous avez effectué une opération pour générer un événement de journal d’activité et vous avez créé une alerte de journal d’activité pour être averti si cette opération se produit de nouveau à l’avenir. Vous avez ensuite testé l’alerte en réexécutant cette opération. Dans Azure, les événements de journal d’activité des 90 derniers jours sont disponibles. Si vous souhaitez conserver des événements pendant plus de 90 jours, essayez d’archiver les données de votre journal d’activité de la même façon que vos autres données de surveillance.
 
 > [!div class="nextstepaction"]
-> [Archiver les données de surveillance](./../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md)
+> [Archiver les données de surveillance](./../../azure-monitor/learn/tutorial-archive-data.md)

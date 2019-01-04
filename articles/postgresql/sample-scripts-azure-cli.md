@@ -1,22 +1,19 @@
 ---
 title: Exemples Azure CLI pour base de données pour PostgreSQL
 description: Cet article répertorie plusieurs exemples de code de commande de la CLI Azure disponibles pour l’interaction avec des serveurs Azure Database pour PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: sample, mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: b44f23adfb69c250757248a3462317eabaf5f111
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b2364448f7994146bf79cdb23d5573003b87076a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29688120"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539862"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-postgresql"></a>Exemples Azure CLI pour base de données pour PostgreSQL 
 Le tableau suivant comprend des liens vers des exemples de scripts de CLI Azure pour Azure Database pour PostgreSQL.

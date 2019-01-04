@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: e435baf4a5e3382e3e77195e5315299e3963ff5c
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4e478c2559ac534f595393fdc36b95ad8e9c989a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409256"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725029"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Utiliser le Kit de développement logiciel (SDK) Node.js pour Mobile Apps
 
@@ -153,14 +153,14 @@ Lorsque vous créez un serveur principal Node.js pour Mobile Apps à l’aide du
 La procédure suivante utilise un référentiel Git pour télécharger le code de projet de démarrage rapide :
 
 1. Si vous ne l’avez pas déjà fait, installez Git. La procédure requise pour installer Git diffère selon les systèmes d'exploitation. Consultez la rubrique [Installing Git](https://git-scm.com/book/en/Getting-Started-Installing-Git) (Installation de Git) pour accéder aux distributions et consignes d’installation propres aux différents systèmes d’exploitation.
-1. Pour activer le dépôt Git pour votre site principal, voir [Préparer votre dépôt](../app-service/app-service-deploy-local-git.md#prepare-your-repository). Notez le nom d’utilisateur et le mot de passe associés au déploiement.
-1. Dans le volet de votre serveur principal Mobile Apps, prenez note du paramètre **URL de clone Git**.
-1. Exécutez la commande `git clone` à l’aide de l’URL de clone Git. Entrez votre mot de passe lorsque vous y êtes invité, comme dans l’exemple suivant :
+2. Pour activer le dépôt Git pour votre site principal, voir [Préparer votre dépôt](../app-service/deploy-local-git.md#prepare-your-repository). Notez le nom d’utilisateur et le mot de passe associés au déploiement.
+3. Dans le volet de votre serveur principal Mobile Apps, prenez note du paramètre **URL de clone Git**.
+4. Exécutez la commande `git clone` à l’aide de l’URL de clone Git. Entrez votre mot de passe lorsque vous y êtes invité, comme dans l’exemple suivant :
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
 
-1. Accédez au répertoire local (`/todolist` dans l’exemple précédent). Vous remarquerez que les fichiers de projet ont été téléchargés. Recherchez le fichier todoitem.json dans le répertoire `/tables`. Ce fichier définit les autorisations sur la table. Recherchez également le fichier todoitem.js dans le même répertoire. Il définit les scripts d’opération CRUD pour la table.
-1. Après avoir apporté vos modifications aux fichiers de projet, exécutez les commandes suivantes pour ajouter, valider, puis charger les modifications sur le site :
+5. Accédez au répertoire local (`/todolist` dans l’exemple précédent). Vous remarquerez que les fichiers de projet ont été téléchargés. Recherchez le fichier todoitem.json dans le répertoire `/tables`. Ce fichier définit les autorisations sur la table. Recherchez également le fichier todoitem.js dans le même répertoire. Il définit les scripts d’opération CRUD pour la table.
+6. Après avoir apporté vos modifications aux fichiers de projet, exécutez les commandes suivantes pour ajouter, valider, puis charger les modifications sur le site :
 
         $ git commit -m "updated the table script"
         $ git push origin master
@@ -968,10 +968,10 @@ Le portail Azure vous permet de modifier les fichiers de script de votre serveur
 [Comment configurer votre application App Service de manière à utiliser la connexion via Google]: ../app-service/configure-authentication-provider-google.md
 [Comment configurer votre application App Service pour utiliser une connexion par compte Microsoft]: ../app-service/configure-authentication-provider-microsoft.md
 [Comment configurer votre application App Service de manière à utiliser la connexion via Twitter]: ../app-service/configure-authentication-provider-twitter.md
-[Déploiement Git local vers Azure App Service]: ../app-service/app-service-deploy-local-git.md
+[Déploiement Git local vers Azure App Service]: ../app-service/deploy-local-git.md
 [Surveillance des applications dans Azure App Service]: ../app-service/web-sites-monitor.md
-[Activer la journalisation des diagnostics pour les applications web dans Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
-[Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
+[Activer la journalisation des diagnostics pour les applications web dans Azure App Service]: ../app-service/troubleshoot-diagnostic-logs.md
+[Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio]: ../app-service/troubleshoot-dotnet-visual-studio.md
 [spécifier la version de Node]: ../nodejs-specify-node-version-azure-apps.md
 [utiliser les modules Node]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/

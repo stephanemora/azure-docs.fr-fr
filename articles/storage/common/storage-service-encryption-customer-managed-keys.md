@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 5ef9c15d4edf62ef63b16765f16971a9be5ca58b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e2497233ec97ffc88bf13797f62d601d4da373a1
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970703"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628491"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault
 
@@ -32,6 +32,8 @@ Pourquoi créer vos propres clés ? Les clés personnalisées vous permettent d
 
 Pour utiliser des clés gérées par le client avec SSE, vous pouvez créer un coffre de clés et une clé ou utiliser un coffre de clés et une clé existants. Le compte de stockage et le coffre de clés doivent se trouver dans la même région, mais ils peuvent appartenir à des abonnements différents.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ### <a name="step-1-create-a-storage-account"></a>Étape 1 : Créez un compte de stockage.
 
 Commencez par créer un compte de stockage si vous n’en avez pas encore. Pour plus d’informations, consultez la rubrique [Création d’un compte de stockage](storage-quickstart-create-account.md) .
@@ -42,10 +44,10 @@ Pour activer SSE à l’aide de clés gérées par le client, deux fonctionnalit
 
 Si vous souhaitez activer des clés pour SSE par programmation gérée par le client, vous pouvez utiliser [l’API REST du fournisseur de ressources de stockage Azure](https://docs.microsoft.com/rest/api/storagerp), la [Storage Resource Provider Client Library pour .NET](https://docs.microsoft.com/dotnet/api), [ Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
-Pour utiliser des clés gérées par le client avec SSE, vous devez attribuer une identité de compte de stockage au compte de stockage. Vous pouvez définir l’identité en exécutant la commande PowerShell ou Azure CLI suivante :
+Pour utiliser des clés gérée par le client avec SSE, vous devez attribuer une identité de compte de stockage au compte de stockage. Vous pouvez définir l’identité en exécutant la commande PowerShell ou Azure CLI suivante :
 
 ```powershell
-Set-AzureRmStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
+Set-AzStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
 ```
 
 ```azurecli-interactive
@@ -58,18 +60,18 @@ az storage account \
 Vous pouvez activer les fonctionnalités « Suppression réversible » et « Ne pas vider » en exécutant les commandes PowerShell ou Azure CLI suivantes :
 
 ```powershell
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
 $vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
 enableSoftDelete -Value 'True'
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
 $vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
 enablePurgeProtection -Value 'True'
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 ```
 
@@ -121,11 +123,11 @@ Vous pouvez également accorder l’accès par le biais du portail Azure en acc�
 Vous pouvez associer la clé ci-dessus à un compte de stockage existant à l’aide des commandes PowerShell suivantes :
 
 ```powershell
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
-$keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
+$keyVault = Get-AzKeyVault -VaultName "mykeyvault"
 $key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+Set-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
 ```
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Étape 5 : Copier les données dans le compte de stockage
@@ -154,7 +156,7 @@ Storage Service Encryption est disponible pour Azure Managed Disks avec des clé
 Azure Disk Encryption fournit une intégration entre les solutions basées sur le système d’exploitation, telles que BitLocker et DM-Crypt, et Azure Key Vault. Storage Service Encryption fournit un chiffrement en mode natif dans la couche de plateforme de stockage Azure, sous la machine virtuelle.
 
 **Est-il possible de révoquer l’accès aux clés de chiffrement ?**
-Oui, vous pouvez révoquer l’accès à tout moment. Il existe plusieurs façons de révoquer l’accès à vos clés. Reportez-vous aux pages [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) et [Interface de ligne de commande Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault) pour plus d’informations. La révocation de l’accès bloque efficacement l’accès à tous les objets blob dans le compte de stockage, car la clé de chiffrement du compte n’est pas accessible au stockage Azure.
+Oui, vous pouvez révoquer l’accès à tout moment. Il existe plusieurs façons de révoquer l’accès à vos clés. Reportez-vous aux pages [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) et [Interface de ligne de commande Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault) pour plus d’informations. La révocation de l’accès bloque efficacement l’accès à tous les objets blob dans le compte de stockage, car la clé de chiffrement du compte n’est pas accessible au stockage Azure.
 
 **Puis-je créer un compte de stockage et une clé dans une autre région ?**  
 Non, le compte de stockage, Azure Key Vault et la clé doivent être dans la même région.
@@ -171,7 +173,7 @@ SSE est activé pour tous les comptes de stockage et pour le stockage d’objets
 **Je ne parviens pas à activer SSE à l’aide de clés gérées par le client sur mon compte de stockage.**  
 S’agit-il d’un compte de stockage Azure Resource Manager? Les comptes de stockage classiques ne sont pas pris en charge avec des clés gérées par le client. SSE avec des clés gérées par le client ne peut être activé que sur des comptes de stockage Resource Manager.
 
-**Que signifient Suppression réversible et Ne pas vider ? Dois-je activer ce paramètre pour utiliser SSE avec des clés gérées par le client ?**  
+**Que signifient Suppression réversible et Ne pas vider ? Dois-je activer ce paramètre pour utiliser SSE avec des clés de gérées par le client ?**  
 Suppression réversible et Ne pas vider doivent être activés pour utiliser SSE avec des clés gérées par le client. Ces paramètres empêchent la suppression accidentelle ou intentionnelle de votre clé. La période de rétention maximale des clés est définie à 90 jours, ce qui protège les utilisateurs contre les intervenants malveillants et les rançongiciels. Ce paramètre ne peut pas être désactivé.
 
 **SSE avec des clés gérées par le client est-il uniquement autorisé dans des régions spécifiques ?**  

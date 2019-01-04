@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.date: 09/17/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 96f83f86a03b4fa6b12962c28ce1488d4250ba5a
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 4cfa25b8d32a37c4ccbf8a18f21a0e56a219b156
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384579"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601642"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrer une application ASP.NET vers Azure App Service à l’aide d’un conteneur Windows (préversion)
 
-[Azure App Service](app-service-web-overview.md) fournit des piles d’applications prédéfinies sur Windows, par exemple ASP.NET ou Node.js, exécuté sur IIS. L’environnement Windows préconfiguré verrouille l’accès administrateur du système d’exploitation, de même que l’installation des logiciels, les modifications du Global Assembly Cache et ainsi de suite (voir [Fonctionnalités du système d’exploitation sur Azure App Service](operating-system-functionality.md)). Toutefois, comme l’utilisation d’un conteneur Windows personnalisé dans App Service vous permet de changer le système d’exploitation selon les besoins de votre application, vous pouvez facilement migrer une application locale qui nécessite une configuration personnalisée de système d’exploitation et de logiciels. Ce tutoriel montre comment migrer vers App Service une application ASP.NET qui utilise des polices personnalisées installées dans la bibliothèque de polices Windows. Vous déployez une image Windows configurée de façon personnalisée à partir de Visual Studio sur [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), puis vous l’exécutez dans App Service.
+[Azure App Service](overview.md) fournit des piles d’applications prédéfinies sur Windows, par exemple ASP.NET ou Node.js, exécuté sur IIS. L’environnement Windows préconfiguré verrouille l’accès administrateur du système d’exploitation, de même que l’installation des logiciels, les modifications du Global Assembly Cache et ainsi de suite (voir [Fonctionnalités du système d’exploitation sur Azure App Service](operating-system-functionality.md)). Toutefois, comme l’utilisation d’un conteneur Windows personnalisé dans App Service vous permet de changer le système d’exploitation selon les besoins de votre application, vous pouvez facilement migrer une application locale qui nécessite une configuration personnalisée de système d’exploitation et de logiciels. Ce tutoriel montre comment migrer vers App Service une application ASP.NET qui utilise des polices personnalisées installées dans la bibliothèque de polices Windows. Vous déployez une image Windows configurée de façon personnalisée à partir de Visual Studio sur [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), puis vous l’exécutez dans App Service.
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 

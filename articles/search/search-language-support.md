@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 3f88965e0d48a9ed3e9a91b4df42a79b83d2a79b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a198fa7fe5e1ed81e30987990359f9ecedbe225b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313324"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631547"
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Création d’un index de documents dans plusieurs langues dans Azure Search
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Voici les captures d'écran des panneaux du portail Azure pour Azure Search qui 
 ![][2]
 *Sélectionnez un des analyseurs pris en charge pour chaque champ*
 
-Par défaut, tous les champs pouvant faire l'objet d'une recherche utilisent l' [analyseur Lucene Standard](http://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) qui est indépendant du langage. Pour afficher la liste complète des analyseurs pris en charge, consultez [Prise en charge linguistique dans Azure Search](https://msdn.microsoft.com/library/azure/dn879793.aspx).
+Par défaut, tous les champs pouvant faire l'objet d'une recherche utilisent l' [analyseur Lucene Standard](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) qui est indépendant du langage. Pour afficher la liste complète des analyseurs pris en charge, consultez [Prise en charge linguistique dans Azure Search](https://msdn.microsoft.com/library/azure/dn879793.aspx).
 
 Une fois que l'analyseur de langage est sélectionné pour un champ, il sera utilisé à chaque demande de recherche et d'indexation pour ce champ. Lorsqu'une requête est émise sur plusieurs champs à l'aide de différents analyseurs, elle sera traitée indépendamment par les analyseurs corrects pour chaque champ.
 
@@ -81,7 +81,7 @@ Parfois, la langue de l'agent d'émission d'une requête n'est pas connue, auque
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2017-11-11`
 
-Si vous êtes un développeur .NET, notez que vous pouvez configurer les analyseurs de langage à l'aide du [Kit de développement logiciel (SDK) Azure Search .NET](http://www.nuget.org/packages/Microsoft.Azure.Search). La dernière version prend également en charge les analyseurs de langage Microsoft.
+Si vous êtes un développeur .NET, notez que vous pouvez configurer les analyseurs de langage à l'aide du [Kit de développement logiciel (SDK) Azure Search .NET](https://www.nuget.org/packages/Microsoft.Azure.Search). La dernière version prend également en charge les analyseurs de langage Microsoft.
 
 <!-- Image References -->
 [1]: ./media/search-language-support/AnalyzerTab.png
