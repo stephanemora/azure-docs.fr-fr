@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/11/2018
+ms.date: 12/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 9dd519f8efc9700f7a747aa37a9c02414f3e1865
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: c0793cd4adc5359aaa2282eb2505c257315c056f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093882"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793391"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box"></a>Utiliser l’interface utilisateur web locale pour administrer votre Data Box
 
@@ -25,8 +25,7 @@ Cet article inclut les didacticiels suivants :
 
 - Générer un package de support
 - Arrêter ou redémarrer votre appareil
-- Effacer en toute sécurité des données de votre appareil
-- Analyser la capacité disponible sur l’appareil
+- Afficher la capacité disponible sur l’appareil
 - Ignorer la validation de la somme de contrôle 
 
 ## <a name="generate-support-package"></a>Générer un package de support
