@@ -9,17 +9,17 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 245372b39f4b730128c593ddd04225bd82875393
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 138368c8e79d68a9a9c5a711b99d8926da7dc68d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387095"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601557"
 ---
-# <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des diagnostics et métriques Azure SQL Database
+# <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database
 
 Azure SQL Database, les pools élastiques, Managed Instance et les bases de données de Managed Instance peuvent diffuser en continu des métriques et des journaux de diagnostic pour faciliter la supervision des performances. Vous pouvez configurer une base de données de sorte qu’elle transmette les informations relatives à l’utilisation des ressources, aux workers et sessions ainsi qu’à la connectivité à l’une de ces ressources Azure :
 
@@ -31,8 +31,8 @@ Azure SQL Database, les pools élastiques, Managed Instance et les bases de donn
 
 Pour plus d’informations sur les métriques et les catégories de journal prises en charge par les divers services Azure, consultez :
 
-* [Vue d’ensemble des métriques dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Vue d’ensemble des journaux de diagnostics Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Vue d’ensemble des mesures dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+* [Vue d’ensemble des journaux de diagnostics Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 Cet article fournit des conseils qui vous aideront à activer la télémétrie de diagnostic pour les bases de données, les pools élastiques et Managed Instance. Il peut aussi vous aider à comprendre comment configurer Azure SQL Analytics comme outil de supervision pour consulter les données de télémétrie de diagnostic de base de données.
 
@@ -49,7 +49,7 @@ Vous pouvez activer et gérer la journalisation des métriques et des données d
 Quand vous activez les métriques et la journalisation des diagnostics, vous devez spécifier la destination des ressources Azure pour la collecte des données de télémétrie de diagnostic. Les options disponibles sont les suivantes :
 
 - Azure SQL Analytics
-- Azure Event Hubs
+- Hubs d'événements Azure
 - Stockage Azure
 
 Vous pouvez approvisionner une nouvelle ressource Azure ou sélectionner une ressource existante. Après avoir choisi une ressource à l’aide de l’option **Paramètres de diagnostic**, spécifiez les données à collecter.
@@ -168,7 +168,7 @@ Pour activer le streaming des données de télémétrie de diagnostic pour une r
 
 Vous pouvez configurer une ressource Managed Instance de sorte qu’elle collecte les données de télémétrie de diagnostic suivantes :
 
-| Resource | Supervision des données de télémétrie |
+| Ressource | Supervision des données de télémétrie |
 | :------------------- | ------------------- |
 | **Managed Instance** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats) contient le nombre de vCores, le pourcentage de processeur moyen, le requêtes d’E/S, les octets lus/écrits, l’espace de stockage réservé et l’espace de stockage utilisé. |
 
@@ -396,7 +396,7 @@ Pour plus d’informations sur toutes les métriques par ressource, consultez le
 
 |**Ressource**|**Métriques**|
 |---|---|
-|Pool élastique|Pourcentage DTU, eDTU utilisé, Limite eDTU, Pourcentage UC, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Pourcentage de sessions, Pourcentage de Workers, Stockage, Pourcentage de stockage, Limite de stockage, Pourcentage de stockage XTP |
+|Pool élastique|Pourcentage DTU, eDTU utilisé, Limite eDTU, Pourcentage UC, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Limite de stockage, Pourcentage de stockage XTP |
 
 ### <a name="all-metrics-for-azure-sql-databases"></a>Toutes les métriques pour bases de données Azure SQL Database
 
@@ -415,7 +415,7 @@ Consultez le tableau suivant pour obtenir des détails sur les journaux pour Man
 |TenantId|Votre ID d’abonné |
 |SourceSystem|Toujours : Azure|
 |TimeGenerated [UTC]|Horodatage indiquant à quel moment le journal a été enregistré |
-|Type|Toujours : AzureDiagnostics |
+|type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
 |Catégorie|Nom de la catégorie. Toujours : ResourceUsageStats |
 |Ressource|Nom de la ressource |
@@ -691,7 +691,7 @@ Apprenez-en davantage sur le [format de journal Intelligent Insights](sql-databa
 Pour savoir comment activer la journalisation et comprendre les catégories de journaux et de métriques prises en charge par les différents services Azure, consultez :
 
 * [Vue d’ensemble des mesures dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Vue d’ensemble des journaux de diagnostics Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Vue d’ensemble des journaux de diagnostics Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 Pour plus d’informations sur les concentrateurs d’événements, lisez :
 

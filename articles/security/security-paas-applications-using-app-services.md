@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 99f706a3b24991e7f5a3473d40a568971b71a979
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: bece63c36bf0027524dea051e78d290c407ca349
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451984"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716087"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Bonnes pratiques pour la sécurisation des applications mobiles et web PaaS avec Azure App Service
 
-Dans cet article, nous abordons un ensemble de bonnes pratiques de sécurité [Azure App Service](../app-service/app-service-web-overview.md) pour protéger vos applications mobiles et web PaaS. Ces bonnes pratiques sont issues de notre expérience d’Azure, mais également de celle des clients, comme vous.
+Dans cet article, nous abordons un ensemble de bonnes pratiques de sécurité [Azure App Service](../app-service/overview.md) pour protéger vos applications mobiles et web PaaS. Ces bonnes pratiques sont issues de notre expérience d’Azure, mais également de celle des clients, comme vous.
 
 Azure App Service est une offre PaaS (Platform-as-a-Service) qui vous permet de créer des applications mobiles et web pour tout type d’appareil ou de plateforme, et de vous connecter à des données en tout lieu, dans le cloud ou localement. App Service inclut les fonctionnalités web et mobiles qui étaient précédemment fournies séparément dans Sites Web Azure et Azure Mobile Services. Il inclut également de nouvelles fonctionnalités d’automatisation des processus d’entreprise et d’hébergement d’API cloud. App Service est un service intégré unique qui apporte un ensemble complet de fonctionnalités pour les scénarios web, mobiles et d’intégration.
 
 ## <a name="authenticate-through-azure-active-directory-ad"></a>S’authentifier par le biais d’Azure Active Directory (AD)
-App Service fournit un service OAuth 2.0 pour votre fournisseur d’identité. OAuth 2.0 privilégie la simplicité du développement client tout en fournissant des flux d’autorisation spécifiques pour les applications web, les applications de bureau et les téléphones mobiles. Azure AD utilise OAuth 2.0 pour vous permettre d’autoriser l’accès aux applications mobiles et web. Pour en savoir plus, consultez la page [Authentification et autorisation dans Azure App Service](../app-service/app-service-authentication-overview.md).
+App Service fournit un service OAuth 2.0 pour votre fournisseur d’identité. OAuth 2.0 privilégie la simplicité du développement client tout en fournissant des flux d’autorisation spécifiques pour les applications web, les applications de bureau et les téléphones mobiles. Azure AD utilise OAuth 2.0 pour vous permettre d’autoriser l’accès aux applications mobiles et web. Pour plus d’informations, consultez [Authentification et autorisation dans Azure App Service](../app-service/overview-authentication-authorization.md).
 
 ## <a name="restrict-access-based-on-role"></a>Restreindre l’accès en fonction d’un rôle 
 La restriction de l’accès est indispensable pour les organisations qui veulent appliquer des stratégies de sécurité portant sur l’accès aux données. Vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour affecter des autorisations aux utilisateurs, groupes et applications à une certaine étendue, comme les principes de sécurité des privilèges minimum et du besoin de connaître. Pour en savoir plus sur l’octroi aux utilisateurs du droit d’accès aux applications, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md).

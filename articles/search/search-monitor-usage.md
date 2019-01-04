@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 584d1d8ce3285f9f5fb986c9779d3c403ce13d1b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: aaeb24b836b47f72d0be299738e6c90f599f8d1f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314157"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631892"
 ---
 # <a name="monitor-an-azure-search-service-in-azure-portal"></a>Surveiller un service Recherche Azure dans le Portail Azure
 
@@ -70,7 +70,7 @@ Vous pouvez exporter les journaux des opérations pour votre service et les donn
 
 
 ### <a name="enabling-monitoring"></a>Activation de la surveillance
-Ouvrez votre service de recherche Azure dans le [portail Azure](http://portal.azure.com) sous l’option Activer la surveillance.
+Ouvrez votre service de recherche Azure dans le [portail Azure](https://portal.azure.com) sous l’option Activer la surveillance.
 
 Choisissez les données à exporter : Journaux, Métriques ou les deux. Vous pouvez les copier sur un compte de stockage, les envoyer à un Event Hub ou les exporter vers Log Analytics.
 

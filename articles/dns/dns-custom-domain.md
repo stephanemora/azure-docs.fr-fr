@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/19/2018
 ms.author: victorh
-ms.openlocfilehash: 9c0ccb7c5ccb3eced32ea5bcd9f1961c5ccd2110
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 8e8a09ede66213247b306c77938dbff30651fee5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173841"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727146"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utiliser DNS Azure pour fournir des paramètres de domaine personnalisé pour un service Azure
 
@@ -116,7 +116,7 @@ Une fois que le processus est terminé, exécutez **nslookup** pour vérifier qu
 
 Pour en savoir plus sur le mappage d’un domaine personnalisé à App Service, voir [Mapper un nom DNS personnalisé existant à des applications web Azure](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
 
-Si vous avez besoin d’acheter un domaine personnalisé, pour en savoir plus sur les domaines App Service, voir [Acheter et configurer un nom de domaine personnalisé dans Azure App Service](../app-service/custom-dns-web-site-buydomains-web-app.md).
+Si vous avez besoin d’acheter un domaine personnalisé, pour en savoir plus sur les domaines App Service, voir [Acheter et configurer un nom de domaine personnalisé dans Azure App Service](../app-service/manage-custom-dns-buy-domain.md).
 
 ## <a name="blob-storage"></a>Stockage d'objets blob
 

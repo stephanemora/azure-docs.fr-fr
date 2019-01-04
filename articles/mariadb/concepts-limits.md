@@ -3,17 +3,15 @@ title: Limitations dans Azure Database for MariaDB
 description: Cet article décrit les limitations dans Azure Database for MariaDB, telles que le nombre de connexions et les options du moteur de stockage.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 4fb774341b19034d3905341a99be2114a0d1e18b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e611c5e11d3c86474a7775971918ba95b8487da4
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835707"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970283"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitations dans Azure Database for MariaDB
 Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données.
@@ -36,7 +34,7 @@ Le nombre maximal de connexions par niveau tarifaire et de vCores est le suivant
 |Mémoire optimisée| 16| 5 000|
 
 Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l’erreur suivante :
-> ERREUR 1040 (08004) : Trop de connexions
+> ERREUR 1040 (08004) : Trop de connexions
 
 ## <a name="storage-engine-support"></a>Prise en charge du moteur de stockage
 
@@ -46,14 +44,14 @@ Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l
 
 ### <a name="unsupported"></a>Non pris en charge
 - [MyISAM](https://mariadb.com/kb/en/library/myisam-storage-engine/)
-- [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/l)
+- [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/)
 - [ARCHIVE](https://mariadb.com/kb/en/library/archive/)
 
 ## <a name="privilege-support"></a>Prise en charge des privilèges
 
 ### <a name="unsupported"></a>Non pris en charge
-- Rôle d’administrateur de base de données : plusieurs paramètres de serveur peuvent dégrader de façon inattendue les performances du serveur ou nier les propriétés ACID du système de gestion de base de données. Par conséquent, pour préserver l’intégrité du service et le contrat SLA au niveau du produit, ce service n’expose pas le rôle d’administrateur de bases de données. Le compte d’utilisateur par défaut, qui est créé en même temps qu’une instance de base de données, permet à l’utilisateur d’exécuter la plupart des instructions DDL et DML dans l’instance de base de données gérée.
-- Privilège de superutilisateur : de la même façon, les [privilèges de superutilisateur](https://mariadb.com/kb/en/library/grant/#global-privileges) sont eux aussi limités.
+- Rôle d’administrateur de base de données : plusieurs paramètres de serveur peuvent dégrader de façon inattendue les performances du serveur ou nier les propriétés ACID du système de gestion de base de données. Par conséquent, pour préserver l’intégrité du service et le contrat SLA au niveau du produit, ce service n’expose pas le rôle d’administrateur de bases de données. Le compte d’utilisateur par défaut, qui est créé en même temps qu’une instance de base de données, permet à l’utilisateur d’exécuter la plupart des instructions DDL et DML dans l’instance de base de données gérée.
+- Privilège de superutilisateur : de la même façon, les [privilèges de superutilisateur](https://mariadb.com/kb/en/library/grant/#global-privileges) sont eux aussi limités.
 
 ## <a name="data-manipulation-statement-support"></a>Prise en charge des instructions de manipulation des données
 

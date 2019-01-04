@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 85bbd59cb921e5f20feb7b1cf1073fd7b695864f
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 7f50d6f6417764a20125f85398dd9cbf93f3a4a1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393568"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542108"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Journaux de diagnostic Service Bus
 
 Vous pouvez afficher deux types de journaux pour Azure Service Bus :
-* **[Journaux d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Ces journaux contiennent des informations sur les opérations effectuées sur un travail. Les journaux sont toujours activés.
-* **[Journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Vous pouvez configurer les journaux de diagnostic pour obtenir des informations plus détaillés sur tous les événements associés à un travail. Les journaux de diagnostic couvrent les activités qui se déroulent entre la création du travail et sa suppression, notamment les mises à jour et les activités durant l’exécution du travail.
+* **[Journaux d’activité](../azure-monitor/platform/activity-logs-overview.md)**. Ces journaux contiennent des informations sur les opérations effectuées sur un travail. Les journaux sont toujours activés.
+* **[Journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md)**. Vous pouvez configurer les journaux de diagnostic pour obtenir des informations plus détaillés sur tous les événements associés à un travail. Les journaux de diagnostic couvrent les activités qui se déroulent entre la création du travail et sa suppression, notamment les mises à jour et les activités durant l’exécution du travail.
 
 ## <a name="turn-on-diagnostic-logs"></a>Activer les journaux de diagnostic
 
@@ -52,7 +52,7 @@ Les journaux de diagnostic sont désactivés par défaut. Pour activer les journ
 
 Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux apparaissent dans la cible d’archivage configurée, dans le panneau **Journaux de diagnostic**.
 
-Pour plus d’informations sur la configuration des diagnostics, consultez la [vue d’ensemble des journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Pour plus d’informations sur la configuration des diagnostics, consultez la [vue d’ensemble des journaux de diagnostic Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 ## <a name="diagnostic-logs-schema"></a>Schéma des journaux de diagnostic
 

@@ -8,17 +8,17 @@ ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: douglaslMS
+ms.author: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: e87f8a0d168db02bf0e93216991767f5a9be584c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 89cf69ba8bc88a40582ea795b6a17fab4f286d64
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863514"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651978"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migration de base de données SQL Server vers Azure SQL Database
 
@@ -35,7 +35,7 @@ Dans les deux cas, vous devez vérifier que la base de données source est compa
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>Méthode 1 : Migration avec un temps d’arrêt pendant l’opération
 
- Utilisez cette méthode pour migrer une base de données unique ou en mise pool si vous pouvez vous permettre un temps d’arrêt ou si vous effectuez un test de migration d’une base de données de production que vous envisagez de migrer. Pour un didacticiel, consultez [Migrer une base de données SQL Server](sql-database-migrate-your-sql-server-database.md).
+ Utilisez cette méthode pour migrer une base de données unique ou en mise pool si vous pouvez vous permettre un temps d’arrêt ou si vous effectuez un test de migration d’une base de données de production que vous envisagez de migrer. Pour un didacticiel, consultez [Migrer une base de données SQL Server](../dms/tutorial-sql-server-to-azure-sql.md).
 
 La liste suivante contient le workflow général pour la migration d’une base de données SQL Server unique ou mise en pool à l’aide de cette méthode. Pour la migration vers une Managed Instance, consultez [Migration vers Managed Instance](sql-database-managed-instance-migrate.md).
 

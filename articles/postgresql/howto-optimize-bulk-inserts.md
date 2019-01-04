@@ -3,16 +3,15 @@ title: Optimiser les insertions en bloc sur un serveur Azure Database pour Postg
 description: Cet article explique comment vous pouvez optimiser des insertions en bloc dans un serveur Azure Database pour PostgreSQL.
 author: dianaputnam
 ms.author: dianas
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 2fe3c3cc71823880d71223334b89816199561ca9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9d2bfcddc649e4fff68bdba49df0945e88067036
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628695"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545228"
 ---
 # <a name="optimizing-bulk-inserts-and-use-of-transient-data-on-azure-database-for-postgresql-server"></a>Optimisation d’insertions en bloc et utilisation de données temporaires sur un serveur Azure Database pour PostgreSQL 
 Cet article explique comment vous pouvez optimiser des insertions en bloc et décrit l’utilisation de données temporaires dans un serveur Azure Database pour PostgreSQL.

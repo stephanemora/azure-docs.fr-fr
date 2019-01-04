@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 501fe1d2da89b6968f5a3619fc8e02b01b1abd7a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f0d0442a8640a75b21e95e3ae024fd7994602b51
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263434"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807939"
 ---
 # <a name="optimizing-throughput-cost-in-azure-cosmos-db"></a>Optimisation du coût du débit dans Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Comme indiqué dans le tableau suivant, selon le choix de l’API, vous pouvez a
 |API|Pour un débit **partagé**, configurer |Pour un débit **dédié**, configurer |
 |----|----|----|
 |API SQL|Base de données|Conteneur|
-|API MongoDB|Base de données|Collection|
+|API d’Azure Cosmos DB pour MongoDB|Base de données|Collection|
 |API Cassandra|Espace de clés|Table|
 |API Gremlin|Compte de base de données|Graph|
 |API de table|Compte de base de données|Table|
@@ -177,7 +177,7 @@ Les étapes suivantes vous aider à rendre vos solutions hautement évolutives e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour continuer à développer vos connaissances sur l’optimisation des coûts dans Azure Cosmos DB, consultez les articles suivants :
+Pour continuer à développer vos connaissances sur l’optimisation des coûts dans Azure Cosmos DB, consultez les articles suivants :
 
 * En savoir plus sur l’[optimisation pour le développement et le test](optimize-dev-test.md)
 * En savoir plus sur les [factures Azure Cosmos DB](understand-your-bill.md)

@@ -16,16 +16,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
 ms.author: kasing
-ms.openlocfilehash: 942141fad09e6233efc7f850212a73f8a39c163c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b7fafa148417ba1667ec0277b414105f95e428ce
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30918303"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971782"
 ---
 # <a name="manage-your-virtual-machines-by-using-azure-powershell"></a>Gérer vos machines virtuelles à l’aide d’Azure PowerShell
 > [!IMPORTANT] 
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour connaître les commandes PowerShell courantes avec le modèle Resource Manager, consultez [cet article](../../virtual-machines-windows-ps-common-ref.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour connaître les commandes PowerShell courantes avec le modèle Resource Manager, consultez [cet article](../../virtual-machines-windows-ps-common-ref.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Il est possible d’automatiser les nombreuses tâches quotidiennes liées à la gestion de vos machines virtuelles en utilisant les applets de commande Azure PowerShell. Cet article donne des exemples de commandes pour réaliser des tâches simples et contient des liens vers des articles indiquant les commandes à utiliser pour des tâches plus complexes.
 
@@ -42,7 +42,7 @@ Il s’agit d’une tâche de base que vous utiliserez souvent. Utilisez-la pour
 
 Pour obtenir des informations sur la machine virtuelle, exécutez cette commande en remplaçant tous les éléments entre guillemets notamment les caractères < et > :
 
-     Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+    Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 Pour stocker le résultat dans une variable $vm, exécutez :
 
@@ -54,7 +54,7 @@ Exécutez ces commandes :
 > [!NOTE]
 > Vous pouvez obtenir le nom du service cloud et de la machine virtuelle à partir de l’affichage de la commande **Get-AzureVM** .
 > 
-> $svcName = "<cloud service name>" $vmName = "<virtual machine name>" $localPath = "<emplacement du lecteur et du dossier pour stocker le fichier RDP téléchargé, par exemple : C:\temp >" $localFile = $localPath + "\" + $vmname + ".rdp" Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
+> $svcName = `"<cloud service name>"` $vmName = `"<virtual machine name>"` $localPath = `"<drive and folder location to store the downloaded RDP file, example: c:\temp >"` $localFile = $localPath + "\" + $vmname + ".rdp" Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
 > 
 > 
 
@@ -64,7 +64,7 @@ Exécutez cette commande :
     Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 > [!IMPORTANT]
-> Utilisez ce paramètre pour conserver l’adresse IP virtuelle du service cloud s’il s’agit de la dernière machine virtuelle de ce service. <br><br> Si vous utilisez le paramètre StayProvisioned, vous êtes toujours facturé pour cette machine virtuelle.
+> Utilisez ce paramètre pour conserver l’adresse IP virtuelle du service cloud s’il s’agit de la dernière machine virtuelle de ce service. <br><br>  Si vous utilisez le paramètre StayProvisioned, vous êtes toujours facturé pour cette machine virtuelle.
 > 
 > 
 

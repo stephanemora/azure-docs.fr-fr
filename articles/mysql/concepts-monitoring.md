@@ -1,20 +1,17 @@
 ---
 title: Monitoring dans Azure Database pour MySQL
 description: Cet article décrit les métriques de surveillance et d’alerte pour Azure Database pour MySQL, notamment les statistiques sur l’UC, le stockage et la connexion.
-services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: a66311cb35815b5db7724a277677ad41d7afec77
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: de339fbab3d360507a77708816b5fccdca80a7d1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035731"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544751"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoring dans Azure Database pour MySQL
 La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour MySQL propose diverses métriques qui fournissent des insights sur le comportement de votre serveur.
@@ -36,9 +33,9 @@ Ces métriques sont disponibles pour Azure Database pour MySQL :
 |serverlog_storage_usage|Stockage du journal du serveur utilisé|Octets|Quantité de stockage du journal du serveur en cours d’utilisation.|
 |serverlog_storage_limit|Limite de stockage du journal du serveur|Octets|Stockage du journal du serveur maximal défini pour ce serveur.|
 |storage_limit|Limite de stockage|Octets|Stockage maximal pour ce serveur.|
-|active_connections|Connexions actives|Count|Nombre de connexions actives sur le serveur.|
-|connections_failed|Connexions ayant échoué|Count|Nombre de connexions au serveur ayant échoué.|
-|seconds_behind_master|Décalage de la réplication en secondes|Count|Nombre de secondes de latence du serveur réplica par rapport au serveur maître.|
+|active_connections|Connexions actives|Nombre|Nombre de connexions actives sur le serveur.|
+|connections_failed|Connexions ayant échoué|Nombre|Nombre de connexions au serveur ayant échoué.|
+|seconds_behind_master|Décalage de la réplication en secondes|Nombre|Nombre de secondes de latence du serveur réplica par rapport au serveur maître.|
 |network_bytes_egress|Network Out|Octets|Sortie réseau entre connexions actives.|
 |network_bytes_ingress|Network In|Octets|Entrée réseau entre connexions actives.|
 |backup_storage_used|Stockage de sauvegarde utilisé|Octets|Quantité de stockage de sauvegarde utilisée.|

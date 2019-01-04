@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 19582c59460644d8599034afeaafde8735c04ec3
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1e81f165c3ab38fffae7523efc6cb2ae307a1a25
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440256"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549630"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compris en créant des graphiques dans le portail, en y accédant via l’API REST ou en envoyant des requêtes avec PowerShell ou l’interface CLI. Voici une liste complète de toutes les métriques actuellement offertes par le pipeline de métrique d’Azure Monitor. D’autres métriques peuvent être disponibles dans le portail ou via les API héritées. La liste ci-dessous englobe uniquement les métriques disponibles en utilisant le pipeline de métriques Azure Monitor consolidé. Pour rechercher ces métriques et y accéder, veuillez utiliser [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions).
@@ -21,7 +21,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 > [!NOTE]
 > L’envoi de métriques à plusieurs dimensions via les paramètres de diagnostic n’est actuellement pas pris en charge. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension.
 >
-> *Par exemple* : La métrique « Messages entrants » sur un Event Hub peut être examinée et représentée sur un niveau par file d'attente. Toutefois, lors de l’exportation via les paramètres de diagnostic, la métrique est représentée sous la forme de tous les messages entrants, dans toutes les files d’attente de l’Event Hub.
+> *Par exemple* : La métrique « Messages entrants » sur un Event Hub peut être examinée et représentée sur un niveau par file d’attente. Toutefois, lors de l’exportation via les paramètres de diagnostic, la métrique est représentée sous la forme de tous les messages entrants, dans toutes les files d’attente de l’Event Hub.
 >
 >
 
@@ -1572,4 +1572,4 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les mesures dans Azure Monitor](../../azure-monitor/platform/data-collection.md)
 * [Créer des alertes sur les mesures](../../azure-monitor/platform/alerts-overview.md)
-* [Exporter des mesures vers le stockage, un hub d’événements ou Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Exporter des mesures vers le stockage, un hub d’événements ou Log Analytics](../../azure-monitor/platform/diagnostic-logs-overview.md)

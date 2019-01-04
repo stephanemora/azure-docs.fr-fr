@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9ad161e3e19a1e546f30a17b38737fa88bc0953a
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 0ccb502cd5ae21468e52bdc4d56202a595cd19ef
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53399860"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594204"
 ---
 Vous pouvez facilement [mettre automatiquement à l’échelle](../articles/azure-monitor/platform/autoscale-best-practices.md) vos [machines virtuelles (VM)](../articles/virtual-machines/windows/overview.md) lorsque vous utilisez [les groupes de machine virtuelles identiques](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) et [la fonctionnalité de mise à l’échelle automatique de Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md). Vos machines virtuelles doivent être membres d’un groupe identique pour pouvoir être mises à l’échelle automatiquement. Cet article fournit des informations vous permettant de mieux comprendre comment mettre vos machines virtuelles à l’échelle, verticalement et horizontalement, à l’aide de méthodes automatique et manuelle.
 
@@ -29,7 +29,7 @@ Les jeux de mise à l’échelle facilitent le déploiement et la gestion de mac
 
 La mise à l’échelle automatique fournit le nombre approprié de machines virtuelles pour gérer la charge sur votre application. Elle vous permet d’ajouter des machines virtuelles pour gérer les augmentations de charge et économiser de l’argent en supprimant les machines virtuelles qui sont inactives. Vous spécifiez un nombre minimal et maximal de machines virtuelles à exploiter sur un ensemble de règles. Avoir un nombre minimal d’instances permet de vous assurer que votre application est toujours en cours d’exécution même en l’absence de charge. Avoir une valeur maximale d’instances limite votre coût total possible par heure.
 
-Vous pouvez activer la mise à l’échelle automatique lorsque vous créez un jeu de mise à l’échelle à l’aide de [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) ou de [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). Vous pouvez également l’activer après avoir créé le jeu de mise à d’échelle. Vous pouvez créer un jeu de mise à l’échelle, installer l’extension et configurer la mise à l’échelle automatique à l’aide d’un [modèle Azure Resource Manager](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). Dans le portail Azure, activez la mise à l’échelle automatique depuis Azure Monitor, ou bien à partir des paramètres du jeu de mise à l’échelle.
+Vous pouvez activer la mise à l’échelle automatique lorsque vous créez un jeu de mise à l’échelle à l’aide de [Azure PowerShell](../articles/azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings) ou de [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). Vous pouvez également l’activer après avoir créé le jeu de mise à d’échelle. Vous pouvez créer un jeu de mise à l’échelle, installer l’extension et configurer la mise à l’échelle automatique à l’aide d’un [modèle Azure Resource Manager](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). Dans le portail Azure, activez la mise à l’échelle automatique depuis Azure Monitor, ou bien à partir des paramètres du jeu de mise à l’échelle.
 
 ![Activer la mise à l’échelle automatique](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  

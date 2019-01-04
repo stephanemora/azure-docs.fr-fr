@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 71be338aeb6d0234d22d412d6838e36a26797b20
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5a74097521cc7dceea2c47f78c1dbb2f17e292aa
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002125"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726678"
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Mettre à niveau votre application .NET Azure Mobile Services existante vers App Service
 App Service Mobile représente une nouvelle façon de créer des applications mobiles avec Microsoft Azure. Pour en savoir plus, consultez [Que sont les applications Mobile Apps ?]
@@ -98,7 +98,7 @@ Au cours du déploiement, vous devez effectuer les opérations suivantes :
 2. Cliquez sur **+NOUVEAU** > **Web + Mobile** > **Application mobile**, puis indiquez le nom de votre serveur principal Mobile App.
 3. Pour **Groupe de ressources**, sélectionnez un groupe de ressources existant ou créez-en un (en utilisant le même nom que votre application).
 
-    Sélectionnez un autre plan App Service ou créez-en un. Pour plus d’informations sur les plans App Service et sur la création d’un plan à un autre niveau de tarification et à l’emplacement souhaité, voir [Présentation détaillée des plans Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+    Sélectionnez un autre plan App Service ou créez-en un. Pour plus d’informations sur les plans App Service et sur la création d’un plan à un autre niveau de tarification et à l’emplacement souhaité, voir [Présentation détaillée des plans Azure App Service](../app-service/overview-hosting-plans.md).
 4. Pour le **plan App Service**, le plan par défaut (du [niveau Standard](https://azure.microsoft.com/pricing/details/app-service/)) est sélectionné. Vous pouvez sélectionner un autre plan ou en [créer un](../app-service/app-service-plan-manage.md#create-an-app-service-plan). Les paramètres du plan App Service déterminent [l’emplacement, les fonctionnalités, les coûts et les ressources de calcul](https://azure.microsoft.com/pricing/details/app-service/) associés à votre application.
 
     Après avoir choisi le plan, cliquez sur **Créer**. Cette action crée le serveur principal Mobile App.
@@ -162,7 +162,7 @@ Une fois la nouvelle version cliente prête, essayez-la par rapport à votre pro
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [Tarification d’App Service]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Concepts d’authentification]: ../app-service/app-service-authentication-overview.md
+[Concepts d’authentification]: ../app-service/overview-authentication-authorization.md
 [Authentication Quickstart (Démarrage rapide de l’authentification) (Démarrage rapide de l’authentification)]: app-service-mobile-auth.md
 
 [Portail Azure]: https://portal.azure.com/

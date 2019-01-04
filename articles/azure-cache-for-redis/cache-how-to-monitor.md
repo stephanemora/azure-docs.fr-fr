@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 5ab2f1df72f04b6456f1083de6870fb86bad6616
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6292c97d3e7bbbe74477188586257b4fbf91218
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438279"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582709"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Surveillance du cache Azure pour Redis
 Le cache Azure pour Redis utilise [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) afin d’offrir plusieurs possibilités de surveillance de vos instances de cache. Vous pouvez afficher les mesures, épingler des graphiques de mesure au Tableau d’accueil, personnaliser la plage de date et d’heure des graphiques de surveillance, ajouter et supprimer des mesures dans les graphiques et définir des alertes lorsque certaines conditions sont remplies. Ces outils vous permettent de surveiller l’intégrité de vos instances de cache Azure pour Redis et vous aident à gérer vos applications de mise en cache.
@@ -45,7 +45,7 @@ La **Section surveillance** du **Panneau de vue d’ensemble** affiche des **Cor
 ![Graphiques de surveillance](./media/cache-how-to-monitor/redis-cache-monitoring-part.png)
 
 ### <a name="usage-charts"></a>Graphiques d’utilisation
-La section **utilisation** du panneau **Vue d’ensemble** affiche les graphiques **Charge du serveur Redis**, **Utilisation de la mémoire**, **Bande passante réseau** et **Utilisation de l’UC**, et affiche également le **Niveau tarifaire** de l’instance de cache.
+La section **utilisation** du panneau **Vue d’ensemble** affiche les graphiques **Charge du serveur Redis**, **Utilisation de la mémoire**, **Bande passante réseau** et **Utilisation de l’UC**, ainsi que affiche également le **Niveau tarifaire** de l’instance de cache.
 
 ![Graphiques d’utilisation](./media/cache-how-to-monitor/redis-cache-usage-part.png)
 
@@ -79,7 +79,7 @@ Pour configurer un compte de stockage pour vos mesures de cache :
 >
 >
 
-Pour accéder à vos mesures, vous pouvez les afficher dans le portail Azure, comme décrit précédemment dans cet article. Vous pouvez également y accéder à l’aide de l’ [API REST Azure Monitor Metrics](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+Pour accéder à vos mesures, vous pouvez les afficher dans le portail Azure, comme décrit précédemment dans cet article. Vous pouvez également y accéder à l’aide de l’ [API REST Azure Monitor Metrics](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 > [!NOTE]
 > Si vous changez de compte de stockage, les données du compte de stockage configuré précédemment restent disponibles en téléchargement, mais elles ne sont pas affichées dans le portail Azure.  
@@ -142,7 +142,7 @@ Les journaux d’activité fournissent des insights sur les opérations qui ont 
 
 Pour afficher les journaux d’activité de votre cache, cliquez sur **Journaux d’activité** depuis le **menu Ressource**.
 
-Pour plus d’informations à propos des Journaux d’activité, consultez [Vue d’ensemble des Journaux d’activité Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Pour plus d’informations à propos des Journaux d’activité, consultez [Vue d’ensemble des Journaux d’activité Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 
 

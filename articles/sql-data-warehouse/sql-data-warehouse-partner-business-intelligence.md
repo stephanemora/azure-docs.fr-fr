@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 9880afb6c4fd2b7fe1e97b5390c4769c8cafb4ed
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e293c27faa69fe5c79b776a98bcae0f72e85c3ee
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634616"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811152"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Partenaires décisionnels de SQL Data Warehouse
 Pour créer votre solution d’entrepôt de données de bout en bout, vous pouvez choisir parmi un large éventail d’outils performants.  Cet article met en évidence les sociétés partenaires de Microsoft qui proposent des solutions d’aide à la décision (BI) prenant en charge Azure SQL Data Warehouse.
@@ -34,7 +34,7 @@ Pour créer votre solution d’entrepôt de données de bout en bout, vous pouve
 | ![SiSense][9] |**SiSense**<br>SiSense est un logiciel d’aide à la décision à pile complète, intégrant les outils dont une entreprise a besoin pour analyser et visualiser des données : une base de données analytique hautement performante, la possibilité d’associer plusieurs sources, une extraction de données simple (ETL, extraction, transformation et chargement), ainsi qu’une visualisation des données web. Commencez à analyser et à visualiser des jeux de données volumineux avec le logiciel décisionnel et d’analyse SiSense dès aujourd’hui. |[Site web][sisense_website]<br>[Feuille de données][sisense_datasheet]<br>[Twitter][sisense_twitter]<br>[YouTube][sisense_youtube] |[![Vidéo sisense](./media/sql-data-warehouse-partner-business-intelligence/sisense_video.jpg)](https://www.youtube.com/watch?v=6N3mkTWI5R4) |
 | ![Tableau][10] |**Tableau**<br>Les outils d’analyse en libre service Tableau permettent à tous les utilisateurs de visualiser et de comprendre une multitude de types de données, depuis les fichiers plats jusqu’aux bases de données. Tableau comporte un connecteur optimisé natif pour Microsoft Azure SQL Data Warehouse qui prend en charge à la fois les données actives et les analyses en mémoire. |[Marketplace][tableau_marketplace]<br>[Site web][tableau_website]<br>[Feuille de données][tableau_datasheet]<br>[Twitter][tableau_twitter]<br>[YouTube][tableau_youtube] |[![Vidéo tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_video.jpg)](https://www.youtube.com/watch?v=TwbkI3ZzCHE) |
 | ![Targit][11] |**Targit**<br>Targit Decision Suite offre une plateforme décisionnelle et d’analyse regroupant dans une même solution cohésive des tableaux de bord en temps réel, des analyses en libre service, des fonctions de création de rapports conviviales, de remarquables fonctionnalités mobiles et une technologie de découverte de données simple. Targit encourage les entreprises à passer à l’action. |[Marketplace][targit_marketplace]<br>[Site web][targit_website]<br>[Twitter][targit_twitter]<br>[YouTube][targit_youtube] |[![Vidéo targit](./media/sql-data-warehouse-partner-business-intelligence/targit_video.jpg)](https://www.youtube.com/watch?v=A0vET80Ker4) |
-| ![Yellowfin][12] |**Yellowfin**<br>Yellowfin, figurant en tête du classement de l’étude sur l’aide à la décision menée par BARC (Business Application Research Center), est un fournisseur de solutions cloud d’aide à la décision pour la création de rapports et de tableaux de bord ad hoc. Connectez-vous à Azure SQL Data Warehouse, puis créez et partagez de remarquables rapports et tableaux de bord par le biais de fonctionnalités décisionnelles et géodécisionnelles collaboratives primées. |[Marketplace][yellowfin_marketplace]<br>[Site web][yellowfin_website]<br>[Datasheet][yellowfin_datasheet]<br>[Twitter][yellowfin_twitter]<br>[YouTube][yellowfin_youtube] |[![Vidéo yellowfin](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_video.jpg)](https://www.youtube.com/watch?v=i1q33AftI0A) |
+| ![Yellowfin][12] |**Yellowfin**<br>Yellowfin, figurant en tête du classement de l’étude sur l’aide à la décision menée par BARC (Business Application Research Center), est un fournisseur de solutions cloud d’aide à la décision pour la création de rapports et de tableaux de bord ad hoc. Connectez-vous à Azure SQL Data Warehouse, puis créez et partagez de remarquables rapports et tableaux de bord par le biais de fonctionnalités décisionnelles et géodécisionnelles collaboratives primées. |[Marketplace][yellowfin_marketplace]<br>[Site web][yellowfin_website]<br>[Feuille de données][yellowfin_datasheet]<br>[Twitter][yellowfin_twitter]<br>[YouTube][yellowfin_youtube] |[![Vidéo yellowfin](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_video.jpg)](https://www.youtube.com/watch?v=i1q33AftI0A) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
@@ -95,12 +95,17 @@ Pour en savoir plus sur certains de nos autres partenaires, consultez [Partenair
 
 [tableau_datasheet]:http://www.tableau.com/stories/workbook/azure-sql-data
 
-<!--[targit_datasheet]:--> [yellowfin_datasheet]:http://www.yellowfinbi.com/Document.i4?DocumentId=877299
+<!--[targit_datasheet]:-->
+
+[yellowfin_datasheet]:http://www.yellowfinbi.com/Document.i4?DocumentId=877299
 
 <!--Marketplace Links -->
+
 [birst_marketplace]:https://azure.microsoft.com/marketplace/partners/birst/birst/
 
-<!--[clearstory_marketplace]:--> [dell_statistica_marketplace]:https://azure.microsoft.com/marketplace/partners/dell-software/statistica-data-miner
+<!--[clearstory_marketplace]:-->
+
+[dell_statistica_marketplace]:https://azure.microsoft.com/marketplace/partners/dell-software/statistica-data-miner
 
 [dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ 
 
@@ -118,15 +123,24 @@ Pour en savoir plus sur certains de nos autres partenaires, consultez [Partenair
 
 <!--Press links-->
 
-<!--[birst_press]:--> [clearstory_press]:http://www.clearstorydata.com/press/clearstory-data-paired-with-new-microsoft-azure-sql-data-warehouse-release-provides-highly-scalable-data-analysis-at-apache-spark-speed/
+<!--[birst_press]:-->
 
-<!--[dell_statistica_press]:--> [dundas_bi_press]:https://www.dundas.com/about/news/24-06-2015-dundas-data-visualization-provides-seamless-integration-with-microsoft-azure-and-azure-sql-data-warehouse
+[clearstory_press]:http://www.clearstorydata.com/press/clearstory-data-paired-with-new-microsoft-azure-sql-data-warehouse-release-provides-highly-scalable-data-analysis-at-apache-spark-speed/
 
-<!--[jinfonet_press]:--> [logianalytics_press]:http://www.logianalytics.com/logi-news/announcing-logi-info-integration-with-azure-sql-data-warehouse/ [looker_press]:https://looker.com/news/press/looker-brings-self-serve-analytics-to-microsoft-azure
+<!--[dell_statistica_press]:-->
+
+[dundas_bi_press]:https://www.dundas.com/about/news/24-06-2015-dundas-data-visualization-provides-seamless-integration-with-microsoft-azure-and-azure-sql-data-warehouse
+
+<!--[jinfonet_press]:-->
+
+[logianalytics_press]:http://www.logianalytics.com/logi-news/announcing-logi-info-integration-with-azure-sql-data-warehouse/
+[looker_press]:https://looker.com/news/press/looker-brings-self-serve-analytics-to-microsoft-azure
 
 <!--[qlik_press]:-->
 
-<!--[sisense_press]:--> [tableau_press]:https://www.tableau.com/about/blog/2015/7/visualizing-data-cloud-microsoft-azure-tableau-online-40832 
+<!--[sisense_press]:-->
+
+[tableau_press]:https://www.tableau.com/about/blog/2015/7/visualizing-data-cloud-microsoft-azure-tableau-online-40832 
 
 <!--[targit_press]:-->
 <!--[yellowfin_press]:-->

@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/7/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 14e959e4aa26b04ec70cbb03ea3feaf0e93f31c1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: cf643c8c2a0921cfbe1f5599a9e96a27770ef1ef
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344174"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718586"
 ---
 # <a name="durable-functions-overview"></a>Vue d’ensemble de Fonctions durables
 
-*Fonctions durables* est une extension d[’Azure Functions](../functions-overview.md) et d[’Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) qui vous permet d’écrire des fonctions avec état dans un environnement sans serveur. L’extension gère l’état, les points de contrôle et les redémarrages à votre place.
+*Fonctions durables* est une extension d[’Azure Functions](../functions-overview.md) et d[’Azure WebJobs](../../app-service/webjobs-create.md) qui vous permet d’écrire des fonctions avec état dans un environnement sans serveur. L’extension gère l’état, les points de contrôle et les redémarrages à votre place.
 
 L’extension vous permet de définir des flux de travail avec état dans un nouveau type de fonction appelé [*fonction d’orchestrateur*](durable-functions-types-features-overview.md#orchestrator-functions). Voici quelques-uns des avantages des fonctions d’orchestrateur :
 
@@ -216,7 +216,7 @@ module.exports = async function (context, req) {
 ```
 
 > [!WARNING]
-> Quand vous développez localement dans JavaScript, vous devez définir la variable d’environnement `WEBSITE_HOSTNAME` sur `localhost:<port>`, par exemple `localhost:7071`, pour utiliser des méthodes sur `DurableOrchestrationClient`. Pour plus d’informations sur cette configuration, consultez le [problème GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
+> Quand vous développez localement dans JavaScript, vous devez définir la variable d’environnement `WEBSITE_HOSTNAME` sur `localhost:<port>`, par exemple `localhost:7071` pour utiliser les méthodes sur `DurableOrchestrationClient`. Pour plus d’informations sur cette configuration, consultez le [problème GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 Dans .NET, le paramètre [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` est une valeur provenant de la liaison de sortie `orchestrationClient`, qui fait partie de l’extension Durable Functions. En JavaScript, cet objet est retourné en appelant `df.getClient(context)`. Ces objets fournissent des méthodes pour démarrer, envoyer des événements, terminer et rechercher les instances de fonctions orchestrator nouvelles ou existantes.
 

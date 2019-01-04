@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: d8d88484181c3c38f64cf8f00f9d8feaa3b0217a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f5610f03cb613c7da2f89da1a38b6bf058a4e0cc
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962560"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714404"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Activer la sauvegarde d’Azure Stack à partir du portail d’administration
 Activez le service de sauvegarde d’infrastructure via le portail d’administration afin qu’Azure Stack puisse générer des sauvegardes. Vous pouvez utiliser ces sauvegardes pour restaurer votre environnement avec la récupération cloud en cas [d’erreur irrécupérable](./azure-stack-backup-recover-data.md). L’objectif d’une récupération cloud est de s’assurer que les opérateurs et utilisateurs peuvent se reconnecter au portail une fois la récupération terminée. Les utilisateurs ont leurs abonnements restaurés, avec notamment les autorisations d’accès en fonction du rôle et les rôles, les plans d’origine, les offres, le calcul défini précédemment, le stockage et les quotas réseau.
@@ -30,7 +30,7 @@ Toutefois, le service Infrastructure Backup ne sauvegarde pas les machines virtu
 Les administrateurs et utilisateurs sont responsables de la sauvegarde et de la restauration des ressources IaaS et PaaS séparément du processus de sauvegarde d’infrastructure. Pour plus d’informations sur la sauvegarde des ressources IaaS et PaaS, consultez les liens suivants :
 
 - [Machines virtuelles](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-protect)
-- [App Service](https://docs.microsoft.com/azure/app-service/web-sites-backup)
+- [App Service](https://docs.microsoft.com/azure/app-service/manage-backup)
 - [SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 

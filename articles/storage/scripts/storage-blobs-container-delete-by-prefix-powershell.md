@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 629189b9dbe2327763d364abc95f49539a312c53
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 18ca854f1e04127a900c1b753245ed6e2a331d68
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
-ms.locfileid: "25983896"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628166"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Supprimer des conteneurs selon un préfixe de nom de conteneur
 
@@ -39,18 +39,18 @@ Ce script supprime des conteneurs dans le stockage d’objets blob Azure selon u
 Exécutez la commande suivante pour supprimer le groupe de ressources, les conteneurs restants, ainsi que toutes les ressources associées.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name containerdeletetestrg
+Remove-AzResourceGroup -Name containerdeletetestrg
 ```
 
 ## <a name="script-explanation"></a>Explication du script
 
 Ce script utilise les commandes suivantes pour supprimer des conteneurs selon un préfixe de nom de conteneur. Chaque élément du tableau renvoie à une documentation spécifique de la commande.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
-| [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) | Obtient un compte de stockage spécifié ou tous les comptes de stockage dans un groupe de ressources ou l’abonnement. |
-| [Get-AzureStorageContainer](/powershell/module/azure.storage/get-azurestoragecontainer) | Répertorie les conteneurs de stockage associés à un compte de stockage. |
-| [Remove-AzureStorageContainer](/powershell/module/azure.storage/remove-azurestoragecontainer) | Supprime le conteneur de stockage spécifié. |
+| [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Obtient un compte de stockage spécifié ou tous les comptes de stockage dans un groupe de ressources ou l’abonnement. |
+| [Get-AzStorageContainer](/powershell/module/azure.storage/get-AzStoragecontainer) | Répertorie les conteneurs de stockage associés à un compte de stockage. |
+| [Remove-AzStorageContainer](/powershell/module/azure.storage/remove-AzStoragecontainer) | Supprime le conteneur de stockage spécifié. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

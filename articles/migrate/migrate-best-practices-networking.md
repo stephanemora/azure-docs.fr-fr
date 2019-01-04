@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: 1493eb6978b00771aa8ed4d8cfc28c37a9dde5b6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c6a995c20beefb3a939aa1421eed537137037922
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139739"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994961"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>Meilleures pratiques de configuration du réseau pour les charges de travail migrées vers Azure
 
@@ -118,7 +118,7 @@ Azure ajoute par défaut un serveur DNS lorsque vous déployez un réseau virtue
 
 **En savoir plus :**
 - [En savoir plus sur](https://docs.microsoft.com/azure/migrate/contoso-migration-infrastructure) la résolution de noms lorsque vous utilisez votre propre serveur DNS.
-- [En savoir plus sur](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) les règles et restrictions d’affectation de noms DNS.
+- [En savoir plus sur](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) les règles et restrictions d’affectation de noms DNS.
 
 
 ## <a name="best-practice-set-up-availability-zones"></a>Meilleure pratique : Configurer des zones de disponibilité
@@ -336,7 +336,7 @@ Les balises de service permettent d’automatiser l’attribution d’une règle
 
 **En savoir plus :**
 
-- [En savoir plus](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) sur les groupes de sécurité réseau.
+- [En savoir plus](https://docs.microsoft.com/azure/virtual-network/security-overview) sur les groupes de sécurité réseau.
 - [En savoir plus](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) sur les balises de service disponibles pour les groupes de sécurité réseau.
 
 

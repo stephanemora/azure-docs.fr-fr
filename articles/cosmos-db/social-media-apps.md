@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: maquaran
-ms.openlocfilehash: 669cfdc59fc0b2f509db704afa4867d8f55d86f8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 494566cc7d49d502fd0bd864e70b338b8d6e0788
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083969"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726780"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Réseaux sociaux avec Azure Cosmos DB
 
@@ -100,7 +100,7 @@ La création de flux consiste simplement à créer des documents qui peuvent con
 
 Vous pourriez avoir un flux « récent » avec les publications classées par date de création. Ou vous pourriez avoir un flux « populaire » regroupant les publications ayant le plus de mentions J’aime durant les dernières 24 heures. Vous pourriez même implémenter un flux personnalisé pour chaque utilisateur basé sur une logique comme les abonnés et les centres d’intérêt. Il s’agirait toujours d’une liste de publications. La question est de savoir comment créer ces listes, mais les performances de lecture ne sont pas affectées. Une fois que vous avez obtenu une de ces listes, vous émettez une requête unique à Cosmos DB avec l’[opérateur IN](how-to-sql-query.md#WhereClause) pour obtenir plusieurs pages de publications simultanément.
 
-Les flux de commentaires peuvent être créés à l’aide des processus d’arrière-plan d’[Azure App Services](https://azure.microsoft.com/services/app-service/) : [Webjobs](../app-service/web-sites-create-web-jobs.md). Une fois qu’une publication est créée, le traitement en arrière-plan peut être déclenché avec des [files d’attente](../storage/queues/storage-dotnet-how-to-use-queues.md) de [Stockage Azure](https://azure.microsoft.com/services/storage/) et des tâches webjobs déclenchées avec le [SDK Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki), implémentant la propagation des publications dans des flux basés sur votre propre logique personnalisée.
+Les flux de commentaires peuvent être créés à l’aide des processus d’arrière-plan d’[Azure App Services](https://azure.microsoft.com/services/app-service/) : [Webjobs](../app-service/webjobs-create.md). Une fois qu’une publication est créée, le traitement en arrière-plan peut être déclenché avec des [files d’attente](../storage/queues/storage-dotnet-how-to-use-queues.md) de [Stockage Azure](https://azure.microsoft.com/services/storage/) et des tâches webjobs déclenchées avec le [SDK Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki), implémentant la propagation des publications dans des flux basés sur votre propre logique personnalisée.
 
 Les points et les J’aime attribués à une publication peuvent être traités de manière différée à l’aide de cette même technique pour créer un environnement cohérent.
 

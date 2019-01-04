@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: b2399e47c9071bac159f407deac9755606763a67
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: c22c97efed7c70b554acd449ed15c6641e377b6a
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325399"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788495"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Envoyer des données de diagnostic de service cloud, de machine virtuelle ou de Service Fabric à Application Insights
 Les services cloud, les machines virtuelles, les groupes de machines virtuelles identiques et Service Fabric utilisent l’extension Azure Diagnostics pour collecter des données.  Les diagnostics Azure envoient les données dans des tables de stockage Azure.  Toutefois, vous pouvez également transmettre toutes les données ou un sous-ensemble de données vers d’autres emplacements à l’aide de l’extension Azure Diagnostics 1.5 ou version ultérieure.
@@ -62,7 +62,7 @@ Exemple de configuration d’un récepteur pour Application Insights :
 
 - L’élément **ApplicationInsights** spécifie la clé d’instrumentation de la ressource Application Insights où les données des diagnostics Azure sont envoyées.
     - Si vous ne disposez pas d’une ressource Application Insights, consultez [Créer une ressource Application Insights](../../application-insights/app-insights-create-new-resource.md) pour plus d’informations sur la création d’une ressource et l’obtention de la clé d’instrumentation.
-    - Si vous développez un service cloud avec le kit SDK Azure 2.8 et ultérieur, cette clé d’instrumentation est automatiquement renseignée. La valeur est basée sur le paramètre de configuration de service **APPINSIGHTS_INSTRUMENTATIONKEY** lors de l’empaquetage du projet de service cloud. Consultez [Application Insights pour Microsoft Azure Cloud Services](../../application-insights/app-insights-cloudservices.md).
+    - Si vous développez un service cloud avec le kit SDK Azure 2.8 et ultérieur, cette clé d’instrumentation est automatiquement renseignée. La valeur est basée sur le paramètre de configuration de service **APPINSIGHTS_INSTRUMENTATIONKEY** lors de l’empaquetage du projet de service cloud. Consultez [Application Insights pour Microsoft Azure Cloud Services](../../azure-monitor/app/cloudservices.md).
 
 - L’élément **Channels** contient au moins un élément **Channel**.
     - L’attribut *name* fait référence uniquement à ce canal.

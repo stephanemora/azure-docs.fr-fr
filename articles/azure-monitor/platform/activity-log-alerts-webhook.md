@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 3fb68370f9b26aacc33d0e2e6090fe819010f468
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0f72097ad9e8b8675d78654c07a62fb6baf90f4a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283215"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582301"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook des alertes du journal d’activité Azure
 Dans le cadre de la définition d’un groupe d’actions, vous pouvez configurer des points de terminaison Webhook pour qu’ils reçoivent des notifications d’alerte du journal d’activité. Grâce aux Webhooks, vous pouvez acheminer ces notifications vers d’autres systèmes à des fins de post-traitement ou d’exécution d’actions personnalisées. Cet article montre également à quoi ressemble la charge utile d’une requête HTTP POST pour un webhook.
@@ -161,9 +161,9 @@ La charge utile JSON contenue dans l’opération POST varie en fonction de cham
 }
 ```
 
-Pour obtenir des informations spécifiques au sujet des schémas des alertes du journal d’activité sur les notifications d’intégrité du service, consultez la page [Notifications d’intégrité du service](../../monitoring-and-diagnostics/monitoring-service-notifications.md). En outre, découvrez comment [configurer des notifications de Webhook relatives à l’intégrité du service avec vos solutions existantes de gestion des problèmes](../../service-health/service-health-alert-webhook-guide.md).
+Pour obtenir des informations spécifiques au sujet des schémas des alertes du journal d’activité sur les notifications d’intégrité du service, consultez la page [Notifications d’intégrité du service](../../azure-monitor/platform/service-notifications.md). En outre, découvrez comment [configurer des notifications de Webhook relatives à l’intégrité du service avec vos solutions existantes de gestion des problèmes](../../service-health/service-health-alert-webhook-guide.md).
 
-Pour obtenir des informations spécifiques au sujet des schémas de toutes les autres alertes du journal d’activité, consultez la page [Vue d’ensemble du journal d’activité Azure](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Pour obtenir des informations spécifiques au sujet des schémas de toutes les autres alertes du journal d’activité, consultez la page [Vue d’ensemble du journal d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md).
 
 | Nom de l'élément | Description |
 | --- | --- |
@@ -193,10 +193,10 @@ Pour obtenir des informations spécifiques au sujet des schémas de toutes les a
 | operationName |Nom de l’opération. |
 | properties |Les propriétés de l’événement. |
 | status |Chaîne. État de l’opération. Les valeurs courantes sont : Started, In Progress, Succeeded, Failed, Active et Resolved. |
-| subStatus |Inclut généralement le code d’état HTTP de l’appel REST correspondant. Peut également inclure d’autres chaînes décrivant un sous-état. Les valeurs de sous-état courantes incluent OK (Code d’état HTTP : 200), Créé (code d’état HTTP : 201), Accepté (code d’état HTTP : 202, Aucun contenu (code d’état HTTP : 204, Requête incorrecte (code d’état HTTP : 400, Introuvable (code d’état HTTP : 404, Conflit (code d’état HTTP : 409, Erreur interne du serveur (code d’état HTTP : 500), Service indisponible (code d’état HTTP : 503 et Dépassement de délai de la passerelle (code d’état HTTP : 504). |
+| subStatus |Inclut généralement le code d’état HTTP de l’appel REST correspondant. Peut également inclure d’autres chaînes décrivant un sous-état. Les valeurs de sous-état courantes incluent OK (Code d’état HTTP : 200), Créé (code d’état HTTP : 201), Accepté (code d’état HTTP : 202, Aucun contenu (code d’état HTTP : 204, Requête incorrecte (code d’état HTTP : 400, Introuvable (code d’état HTTP : 404), Conflit (code d’état HTTP : 409), Erreur interne du serveur (code d’état HTTP : 500), Service indisponible (code d’état HTTP : 503) et Dépassement de délai de la passerelle (code d’état HTTP : 504). |
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur le journal d’activité](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+* [En savoir plus sur le journal d’activité](../../azure-monitor/platform/activity-logs-overview.md).
 * [Exécuter des scripts Azure Automation (Runbooks) sur des alertes Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Utiliser une application logique pour envoyer un SMS par le biais de Twilio à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Cet exemple s’applique aux alertes de métrique, mais il peut être modifié pour fonctionner avec une alerte du journal d’activité.
 * [Utiliser une application logique pour envoyer un message Slack à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Cet exemple s’applique aux alertes de métrique, mais il peut être modifié pour fonctionner avec une alerte du journal d’activité.

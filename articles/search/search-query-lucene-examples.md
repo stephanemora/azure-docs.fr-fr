@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0ce230bc6a926229ed383c828f83aafd60117471
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 962c1cff91a5ac3f52dc67c30bd2c7a4e2e22b9d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317151"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631836"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Exemples de syntaxe de requête Lucene pour créer des requêtes avancées dans Recherche Azure
 Lors de la construction de requêtes pour Recherche Azure, vous pouvez remplacer l’[analyseur de requêtes simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) par défaut par l’[analyseur de requêtes Lucene dans Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus vaste, afin de formuler des définitions de requêtes spécialisées et avancées. 
@@ -174,7 +174,7 @@ Lors de la définition du niveau de facteur, plus le facteur de promotion est é
 
 ## <a name="example-6-regex"></a>Exemple 6 : Expression régulière
 
-Une recherche d’expression régulière trouve une correspondance en fonction du contenu placé entre des barres obliques « / », comme le décrit la [classe RegExp](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
+Une recherche d’expression régulière trouve une correspondance en fonction du contenu placé entre des barres obliques « / », comme le décrit la [classe RegExp](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
 
 Dans cette requête, on recherche les tâches contenant le terme Senior ou junior : `search=business_title:/(Sen|Jun)ior/``.
 

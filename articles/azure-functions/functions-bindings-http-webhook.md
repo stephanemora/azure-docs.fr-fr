@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: acd2d5a3448d805b8b3c741139fc5f9a79c40ed2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8d2bd74609447463b7ff857aa1037eaf5b6e3abb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317438"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727001"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Déclencheurs et liaisons HTTP d’Azure Functions
 
@@ -491,7 +491,7 @@ Par défaut, tous les itinéraires de fonction sont préfixés par *api*. Vous p
 
 ### <a name="working-with-client-identities"></a>Utilisation d’identités de clients
 
-S votre application de fonction utilise [Authentification d’App Service/Autorisation](../app-service/app-service-authentication-overview.md), vous pouvez afficher des informations sur les clients authentifiés à partir de votre code. Ces informations sont disponibles en tant qu’[en-têtes de demande injectées par la plateforme](../app-service/app-service-authentication-how-to.md#access-user-claims). 
+S votre application de fonction utilise [Authentification d’App Service/Autorisation](../app-service/overview-authentication-authorization.md), vous pouvez afficher des informations sur les clients authentifiés à partir de votre code. Ces informations sont disponibles en tant qu’[en-têtes de demande injectées par la plateforme](../app-service/app-service-authentication-how-to.md#access-user-claims). 
 
 Vous pouvez également lire ces informations à partir de la liaison de données. Cette fonctionnalité est uniquement disponible pour le runtime de Functions 2.x. Elle n’est actuellement également disponible que pour les langages .NET.
 
@@ -577,7 +577,7 @@ Vous pouvez autoriser les requêtes anonymes, qui ne nécessitent pas de clés. 
 
 Pour sécuriser complètement vos points de terminaison de fonction en production, vous devez envisager d’implémenter une des options suivantes de sécurité au niveau de l’application de fonction :
 
-* Activer l’authentification / autorisation App Service pour votre application de fonction. La plateforme App Service vous permet d’utiliser Azure Active Directory (AAD) et plusieurs fournisseurs d’identité tiers pour authentifier les clients. Vous pouvez utiliser ceci pour implémenter des règles d’autorisation personnalisées pour vos fonctions, et vous pouvez utiliser les informations utilisateur dans le code de votre fonction. Pour plus d’informations, consultez [Authentification et autorisation dans Azure App Service](../app-service/app-service-authentication-overview.md) et [Utilisation des identités de clients](#working-with-client-identities).
+* Activer l’authentification / autorisation App Service pour votre application de fonction. La plateforme App Service vous permet d’utiliser Azure Active Directory (AAD) et plusieurs fournisseurs d’identité tiers pour authentifier les clients. Vous pouvez utiliser ceci pour implémenter des règles d’autorisation personnalisées pour vos fonctions, et vous pouvez utiliser les informations utilisateur dans le code de votre fonction. Pour plus d’informations, consultez [Authentification et autorisation dans Azure App Service](../app-service/overview-authentication-authorization.md) et [Utilisation des identités de clients](#working-with-client-identities).
 
 * Utilisez Gestion des API Azure pour authentifier les requêtes. Gestion des API Azure offre une variété d’options de sécurité des API pour les requêtes entrantes. Pour plus d’informations, consultez [Stratégies d’authentification dans Gestion des API](../api-management/api-management-authentication-policies.md). Avec Gestion des API Azure en place, vous pouvez configurer votre application de fonction pour qu’elle accepte seulement les requêtes provenant de l’adresse IP de votre instance Gestion des API Azure. Pour plus d’informations, consultez [Restriction des adresses IP](ip-addresses.md#ip-address-restrictions).
 

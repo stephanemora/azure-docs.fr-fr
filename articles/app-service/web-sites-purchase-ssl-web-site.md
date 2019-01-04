@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ff2fd2c9b66cc9c80087ab5009ee65c0ba73714b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 78b7668dee892841ced1a06626ff09a534a88b69
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268714"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714298"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Acheter et configurer un certificat SSL pour Azure App Service
 
@@ -35,7 +35,7 @@ Ce tutoriel vous montre comment sécuriser votre application web en créant (en 
 Pour effectuer les étapes de ce guide pratique, vous devez au préalable :
 
 - [Création d’une application App Service](/azure/app-service/)
-- [Mapper un nom de domaine à votre application web](app-service-web-tutorial-custom-domain.md) ou [acheter et configurer un nom de domaine dans Azure](custom-dns-web-site-buydomains-web-app.md)
+- [Mapper un nom de domaine à votre application web](app-service-web-tutorial-custom-domain.md) ou [acheter et configurer un nom de domaine dans Azure](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -91,7 +91,7 @@ Sélectionnez **Vérification App Service**. Étant donné que vous avez déjà 
 > Quatre types de méthodes de vérification du domaine sont pris en charge : 
 > 
 > - **App Service** : option la plus pratique quand le domaine a déjà été mappé à une application App Service dans le même abonnement. Elle profite du fait que l’application App Service a déjà vérifié la propriété du domaine.
-> - **Domaine** : permet de vérifier un [domaine App Service que vous avez acheté sur Azure](custom-dns-web-site-buydomains-web-app.md). Azure ajoute automatiquement l’enregistrement TXT de vérification pour vous et effectue le processus.
+> - **Domaine** : permet de vérifier un [domaine App Service que vous avez acheté sur Azure](manage-custom-dns-buy-domain.md). Azure ajoute automatiquement l’enregistrement TXT de vérification pour vous et effectue le processus.
 > - **E-mail** : permet de vérifier le domaine en envoyant un e-mail à l’administrateur de domaine. Quand vous sélectionnez cette option, des instructions supplémentaires s’affichent.
 > - **Manuelle** : permet de vérifier le domaine à l’aide d’une page HTML (certificat **Standard** uniquement) ou d’un enregistrement TXT DNS. Quand vous sélectionnez cette option, des instructions supplémentaires s’affichent.
 

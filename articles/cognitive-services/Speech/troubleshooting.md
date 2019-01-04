@@ -10,12 +10,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 80e39e845ab631ad5cc3ae8af9e2e42f09b521bf
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 2da6795e938f1a0c0ed0495fb169007126501eea
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342188"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753658"
 ---
 # <a name="troubleshooting-bing-speech"></a>Résolution des problèmes rencontrés avec la Reconnaissance vocale Bing
 
@@ -52,7 +52,7 @@ Vous pouvez exécuter la commande suivante à titre de vérification. Pensez à 
 > [!NOTE]
 > Remplacez `YOUR_SUBSCRIPTION_KEY` par votre propre clé d’abonnement.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -88,7 +88,7 @@ Cette étape est nécessaire uniquement si vous utilisez un jeton d’autorisati
 > [!NOTE]
 > Remplacez `YOUR_AUDIO_FILE` par le chemin d’accès à votre fichier audio préenregistré et `YOUR_ACCESS_TOKEN` par le jeton d’autorisation retourné à l’étape précédente.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 

@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: c453998eea2a747b2cb608482f0ef9c1ee197ee0
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b07e21131d9560a49d99644525835ac5ee3bac9e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185429"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606783"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Intégrer des données SIM à la solution de surveillance à distance
 
 Les appareils IoT se connectent souvent au cloud à l’aide d’une carte SIM qui leur permet d’envoyer des flux de données à partir de n’importe quel endroit. La solution de surveillance à distance d’Azure IoT permet l’intégration des données de connectivité managée d’IoT : les opérateurs peuvent ainsi également suivre l’intégrité de l’appareil via les données fournies par la carte SIM IoT.
 
-La surveillance à distance fournit une intégration avec la connectivité IoT Telefónica, ce qui permet aux clients utilisant sa plateforme de connectivité IoT de synchroniser les données de connectivité des cartes SIM de leurs appareils à leurs solutions. Cette solution peut être étendue pour prendre en charge d’autres fournisseurs de connectivité IoT via un [référentiel](http://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) GitHub.
+La surveillance à distance fournit une intégration avec la connectivité IoT Telefónica, ce qui permet aux clients utilisant sa plateforme de connectivité IoT de synchroniser les données de connectivité des cartes SIM de leurs appareils à leurs solutions. Cette solution peut être étendue pour prendre en charge d’autres fournisseurs de connectivité IoT via un [référentiel](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) GitHub.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: b019523227bcd45e502ec84055cfb09025918331
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 623e7276ccba85b6df74291ee857613019349b7a
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406122"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993431"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Sauvegarder et récupérer des informations d’authentification de compte avec l’application Microsoft Authenticator
 
@@ -76,7 +76,7 @@ Pour des comptes Microsoft personnels, vous pouvez prouver votre identité en sa
 ### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>Pour effectuer une vérification supplémentaire des comptes professionnels ou scolaires
 1.  Dans l’écran **Comptes** de l’application Microsoft Authenticator, cliquez sur la flèche déroulante en regard du compte que vous souhaitez récupérer.
 
-    ![Application Microsoft Authenticator, affichant les comptes disponibles avec leurs menus déroulants associés](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
+    ![Application Microsoft Authenticator, affichant les comptes disponibles avec leurs menus déroulants associés](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additional-accts.png)
 
 2.  Sélectionnez **Scan QR code to recover** (Lire le code QR pour récupérer), puis lisez le code QR.
 

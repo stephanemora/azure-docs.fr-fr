@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5a06e2577468baa6f3e46f838db11f1925ec0e1d
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 205e61634a902ef052f665c65f2b67a66e6fe598
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271604"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728225"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Présentation d’App Service Environment v1
 
@@ -29,7 +29,7 @@ ms.locfileid: "53271604"
 > 
 
 ## <a name="overview"></a>Vue d’ensemble
-Un environnement App Service est une option de plan de service [Premium][PremiumTier] [Azure App Service](../app-service-web-overview.md) qui fournit un environnement totalement isolé et dédié pour exécuter en toute sécurité des applications Azure App Service à grande échelle, comme des applications web, mobiles et d’API.  
+Un environnement App Service est une option de plan de service [Premium][PremiumTier] [Azure App Service](../overview.md) qui fournit un environnement totalement isolé et dédié pour exécuter en toute sécurité des applications Azure App Service à grande échelle, comme des applications web, mobiles et d’API.  
 
 Les environnements App Service constituent le meilleur choix pour les charges de travail applicatives avec les exigences suivantes :
 
@@ -88,7 +88,7 @@ Pour plus d’informations sur l’utilisation d’un environnement App Service 
 <!-- LINKS -->
 [PremiumTier]: https://azure.microsoft.com/pricing/details/app-service/
 [MoreInfoOnVirtualNetworks]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
-[AppServicePlan]: ../azure-web-sites-web-hosting-plans-in-depth-overview.md
+[AppServicePlan]: ../overview-hosting-plans.md
 [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
 [LogicApps]: https://azure.microsoft.com/documentation/articles/app-service-logic-what-are-logic-apps/
 [AzureConDeepDive]:  https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/

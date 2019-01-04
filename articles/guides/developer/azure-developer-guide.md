@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 80f7d93037c0b900608301ebf6463f85be10f2de
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 84d8d3838740ec5d448b14b5c4539f7d78c96b5e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311318"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714353"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guide de prise en main pour les développeurs Azure
 
@@ -56,7 +56,7 @@ Si vous voulez bénéficier du moyen le plus rapide pour publier vos projets web
 
 Vous pouvez créer des applications web, des back-ends d’applications mobiles et des applications API.
 
-Comme ces trois types d’application partagent le runtime App Service, vous pouvez héberger un site web, prendre en charge les clients mobiles et exposer vos API dans Azure, tout cela depuis un même projet ou une même solution. Pour plus d’informations sur App Service, consultez l’article [Vue d’ensemble de Web Apps](../../app-service/app-service-web-overview.md).
+Comme ces trois types d’application partagent le runtime App Service, vous pouvez héberger un site web, prendre en charge les clients mobiles et exposer vos API dans Azure, tout cela depuis un même projet ou une même solution. Pour plus d’informations sur App Service, consultez l’article [Vue d’ensemble de Web Apps](../../app-service/overview.md).
 
 App Service a été conçu en tenant compte de DevOps. Il prend en charge divers outils de déploiement d’intégration continue et de publication, notamment les webhooks GitHub, Jenkins, Azure DevOps, TeamCity, etc.
 
@@ -168,7 +168,7 @@ Il est essentiel non seulement de savoir qui utilise vos applications, mais auss
 
     >**Quand l’utiliser** : lorsque vous souhaitez activer l’authentification dans une application App Service en utilisant Azure AD, des fournisseurs d’identité sociale, ou les deux.
 
-    >**Démarrer** : pour en savoir plus sur l’authentification dans App Service, consultez [Authentification et autorisation dans Azure App Service](../../app-service/app-service-authentication-overview.md).
+    >**Démarrer** : pour en savoir plus sur l’authentification dans App Service, consultez [Authentification et autorisation dans Azure App Service](../../app-service/overview-authentication-authorization.md).
 
 Pour en savoir plus sur les bonnes pratiques de sécurité dans Azure, consultez [Bonnes pratiques et modèle de sécurité dans Azure](../../security/security-best-practices-and-patterns.md).
 
@@ -190,7 +190,7 @@ Qu’il s’agisse de mettre en service des machines virtuelles ou de publier vo
 
 >**Essayez-le :** [essayez plusieurs intégrations DevOps](https://azure.microsoft.com/try/devops/).
 
->**Démarrer** : pour voir les options DevOps d’une application App Service, consultez [Déploiement continu vers Azure App Service](../../app-service/app-service-continuous-deployment.md).
+>**Démarrer** : pour voir les options DevOps d’une application App Service, consultez [Déploiement continu vers Azure App Service](../../app-service/deploy-continuous-deployment.md).
 
 
 ## <a name="azure-regions"></a>Régions Azure

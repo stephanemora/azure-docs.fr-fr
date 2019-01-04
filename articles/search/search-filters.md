@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d99196e231d122fcb0e707d30aed4d3b3eb2b89d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 539a7fc5b9d3038424059f1ee599c6966a968781
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310349"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629593"
 ---
 # <a name="filters-in-azure-search"></a>Filtres dans Recherche Azure 
 
@@ -96,7 +96,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## <a name="filter-design-patterns"></a>Modèles de conception de filtre
 
-Les exemples suivants illustrent plusieurs modèles de conception pour des scénarios de filtre. Pour d’autres idées, voir [Syntaxe d’expression OData > Exemples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
+Les exemples suivants illustrent plusieurs modèles de conception pour des scénarios de filtre. Pour d’autres idées, voir [Syntaxe d’expression OData > Exemples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
 
 + **$filter** autonome, sans chaîne de requête, utile lorsque l’expression de filtre est en mesure de qualifier complètement les documents d’intérêt. À défaut de chaîne de requête, il n’y a ni analyse lexicale ou linguistique, ni notation, ni classement. Vous pouvez remarquer que la chaîne de recherche est vide.
 
@@ -192,7 +192,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
 ```
 
-Pour utiliser d’autres exemples, voir [Syntaxe d’expression de filtre OData > Exemples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
+Pour utiliser d’autres exemples, voir [Syntaxe d’expression de filtre OData > Exemples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
 
 ## <a name="see-also"></a>Voir aussi
 

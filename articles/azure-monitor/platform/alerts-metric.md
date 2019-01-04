@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 3a106b0fe570fe44f96529d830271dfe4912437f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4aa6f8fdf4eaa8e439c1a8c8c0202cf49a04433c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336469"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584303"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de métrique à l’aide d’Azure Monitor
 
@@ -33,7 +33,7 @@ La procédure suivante décrit comment créer une règle d’alerte de métrique
 
 3. Cliquez sur **Sélectionner une cible** dans le volet contextuel qui se charge, puis sélectionnez une ressource cible à modifier. Utilisez les listes déroulantes **Abonnement** et **Type de ressource** pour rechercher la ressource à surveiller. Vous pouvez également utiliser la barre de recherche pour rechercher votre ressource.
 
-4. Si la ressource sélectionnée dispose de métriques pour lesquelles vous pouvez créer des alertes, la zone des **signaux disponibles** dans la partie inférieure droite inclura des métriques. Vous pouvez afficher la liste complète des types de ressources pris en charge pour les alertes de métrique dans cet [article](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+4. Si la ressource sélectionnée dispose de métriques pour lesquelles vous pouvez créer des alertes, la zone des **signaux disponibles** dans la partie inférieure droite inclura des métriques. Vous pouvez afficher la liste complète des types de ressources pris en charge pour les alertes de métrique dans cet [article](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 5. Une fois que vous avez sélectionné une ressource cible, cliquez sur **Ajouter des critères**.
 
@@ -130,4 +130,4 @@ Les sections précédentes décrivaient comment créer, afficher et gérer des r
 
 - [Créer des alertes de métrique à l’aide de modèles Azure Resource Manager](../../azure-monitor/platform/alerts-enable-template.md)
 - [Comprendre le fonctionnement des alertes de métrique](alerts-metric-overview.md)
-- [Comprendre le schéma des webhooks pour les alertes de métrique](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#payload-schema)
+- [Comprendre le schéma des webhooks pour les alertes de métrique](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)

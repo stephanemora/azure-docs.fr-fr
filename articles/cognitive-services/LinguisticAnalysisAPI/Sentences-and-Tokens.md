@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
 ROBOTS: NOINDEX
-ms.openlocfilehash: 289cab4999276cbfb1fa558f558ebafa8e4e3a30
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 96c2bd1c11554481e441662a6051620f4b2e2993
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237872"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972360"
 ---
 # <a name="sentence-separation-and-tokenization"></a>Séparation des phrases et segmentation du texte en unités lexicales
 
@@ -75,4 +75,4 @@ En anglais, cette segmentation du texte en unités lexicales nous permet de trai
 ## <a name="specification"></a>Caractéristique
 
 Il est important de prendre ces décisions quant à ce qui constitue une phrase et une unité lexicale.
-Nous nous appuyons sur la spécification du [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42) (certains détails supplémentaires sont disponibles sur ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html).
+Nous nous appuyons sur la spécification du [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42) (certains détails supplémentaires sont disponibles sur ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html).

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c94e7f761dcbc7e05965e359d7f9a864335c9c6b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6e683eb07b690d7d5680b7a4d429d1150f22f67e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269343"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717838"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>Mise à l'échelle des applications dans un environnement App Service
 Dans Azure App Service, il existe normalement trois éléments que vous pouvez mettre à l'échelle :
@@ -79,7 +79,7 @@ Pour prendre en main les environnements App Service, consultez [Comment créer u
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [CreateWebappinASE]: app-service-web-how-to-create-a-web-app-in-an-ase.md
-[Appserviceplans]: ../azure-web-sites-web-hosting-plans-in-depth-overview.md
+[Appserviceplans]: ../overview-hosting-plans.md
 [AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [AppScale]: ../web-sites-scale.md

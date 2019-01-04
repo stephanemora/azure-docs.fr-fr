@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 35493d9a7f47bda3344dbc8b0ea415d4492c5741
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5431372abb9a1157b322a8af4a07ba5fa15d8e8e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340048"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720457"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configuration d’un nom de domaine personnalisé pour une application web dans Azure App Service utilisant Traffic Manager
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 [!INCLUDE [intro](../../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-Cet article contient des instructions génériques sur l’utilisation d’un nom de domaine personnalisé avec une application [App Service](app-service-web-overview.md) intégrée à [Traffic Manager](../traffic-manager/traffic-manager-overview.md) pour l’équilibrage de la charge.
+Cet article contient des instructions génériques sur l’utilisation d’un nom de domaine personnalisé avec une application [App Service](overview.md) intégrée à [Traffic Manager](../traffic-manager/traffic-manager-overview.md) pour l’équilibrage de la charge.
 
 [!INCLUDE [tmwebsitefooter](../../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
@@ -47,7 +47,7 @@ Cet article contient des instructions génériques sur l’utilisation d’un no
 
 ## <a name="add-a-dns-record-for-your-custom-domain"></a>Ajout d'un enregistrement DNS pour votre domaine personnalisé
 > [!NOTE]
-> Si vous avez acheté un domaine via Azure App Service Web Apps, ignorez les étapes suivantes et reportez-vous à l'étape finale de l'article [Acheter un domaine pour Web Apps](custom-dns-web-site-buydomains-web-app.md) .
+> Si vous avez acheté un domaine via Azure App Service Web Apps, ignorez les étapes suivantes et reportez-vous à l'étape finale de l'article [Acheter un domaine pour Web Apps](manage-custom-dns-buy-domain.md) .
 > 
 > 
 

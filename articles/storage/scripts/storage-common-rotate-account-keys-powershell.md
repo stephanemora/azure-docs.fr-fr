@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: a7aaacf316799540a6a72b699ba8ea8bb389c8a8
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 026c399af70a0c97446fba28b5dd7ca1ed82b89c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
-ms.locfileid: "25984160"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635491"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Créer un compte de stockage et faire tourner ses clés d’accès
 
@@ -39,20 +39,20 @@ Ce script crée un compte de stockage Azure, affiche la clé d’accès primaire
 Exécutez la commande suivante pour supprimer le groupe de ressources, le compte de stockage et toutes les ressources associées.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name rotatekeystestrg
+Remove-AzResourceGroup -Name rotatekeystestrg
 ```
 
 ## <a name="script-explanation"></a>Explication du script
 
 Ce script utilise les commandes suivantes pour créer le compte de stockage, récupérer l’une de ses clés d’accès et fait tourner celle-ci. Chaque élément du tableau renvoie à une documentation spécifique de la commande.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
-| [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) | Obtient l’ensemble des emplacements et des fournisseurs de ressources pris en charge pour chaque emplacement. |
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crée un groupe de ressources Azure. |
-| [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) | Crée un compte de stockage. |
-| [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) | Obtient les clés d’accès pour le compte Azure Storage. |
-| [New-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/new-azurermstorageaccountkey) | Régénère une clé d’accès pour un compte de stockage Azure. |
+| [Get-AzLocation](/powershell/module/az.resources/get-azlocation) | Obtient l’ensemble des emplacements et des fournisseurs de ressources pris en charge pour chaque emplacement. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Crée un groupe de ressources Azure. |
+| [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Crée un compte de stockage. |
+| [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) | Obtient les clés d’accès pour le compte Azure Storage. |
+| [New-AzStorageAccountKey](/powershell/module/az.storage/new-azstorageaccountkey) | Régénère une clé d’accès pour un compte de stockage Azure. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

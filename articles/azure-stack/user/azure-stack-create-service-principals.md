@@ -3,27 +3,26 @@ title: Créer un principal de service pour Azure Stack | Microsoft Docs
 description: Cet article explique comment créer un principal de service utilisable avec le contrôle d’accès en fonction du rôle dans Azure Resource Manager pour gérer l’accès aux ressources.
 services: azure-resource-manager
 documentationcenter: na
-author: sethmanheim
+author: mattbriggs
 manager: femila
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
-ms.author: sethm
+ms.date: 12/12/2018
+ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: a32327109bc71a41f871682936c5f27ed490975c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4c205055239b7bf16bbb73448c21818de419e623
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958312"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715821"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Permettre à des applications d’accéder à des ressources Azure Stack en créant des principaux de service
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Vous pouvez autoriser une application à accéder à des ressources Azure Stack en créant un principal de service qui utilise Azure Resource Manager. Un principal de service vous permet de déléguer des autorisations spécifiques à l’aide d’un [contrôle d’accès en fonction du rôle](azure-stack-manage-permissions.md).
 
@@ -52,7 +51,7 @@ La façon que vous avez configuré Active Directory pour Azure Stack détermine 
 
 Les étapes d’assignation d’un principal de service à un rôle sont identiques pour Azure AD et AD FS. Après avoir créé le principal de service, vous pouvez [déléguer des autorisations](azure-stack-create-service-principals.md#assign-role-to-service-principal) en l’assignant à un rôle.
 
-## <a name="create-a-service-principal-for-azure-ad"></a>Créer un principal de service pour Azure AD
+## <a name="create-service-principal-for-azure-ad"></a>Créer un principal de service pour Azure AD
 
 Si votre Azure Stack utilise Azure AD en tant que le magasin d’identités, vous pouvez créer un service principal en procédant de la même façon que dans Azure, en utilisant le portail Azure.
 
@@ -95,11 +94,11 @@ Si vous avez déployé Azure Stack en utilisant AD FS en tant que magasin d’id
 * Assigner un principal de service à un rôle.
 * Vous connecter en utilisant l’identité du principal de service.
 
-Pour plus d’informations sur la façon de créer le principal du service, consultez [Créer un principal du service pour AD FS](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
+Pour plus d’informations sur la façon de créer le principal du service, consultez [Créer un principal du service pour AD FS](../azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 ## <a name="assign-the-service-principal-to-a-role"></a>Assigner le principal de service à un rôle
 
-Pour accéder aux ressources de votre abonnement, vous devez affecter un rôle à l’application. Vous devez décider du rôle qui doit représenter les autorisations appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](../../role-based-access-control/built-in-roles.md).
+Pour accéder aux ressources de votre abonnement, vous devez affecter un rôle à l’application. Vous devez décider du rôle qui doit représenter les autorisations appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](../../role-based-access-control/built-in-roles.md).
 
 >[!NOTE]
 Vous pouvez définir l’étendue d’un rôle au niveau d’un abonnement, d’un groupe de ressources ou d’une ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue Par exemple, une application avec le rôle Lecteur pour un groupe de ressources peut lire toutes les ressources de ce groupe.
@@ -114,9 +113,7 @@ Pour attribuer un rôle à un principal de service, procédez comme suit.
 
 3. Sélectionnez **Contrôle d’accès (IAM)** pour l’abonnement.
 
-     ![Sélectionner Contrôle d’accès](./media/azure-stack-create-service-principal/image17.png)
-
-4. Sélectionnez **Ajouter**.
+4. Sélectionnez **Ajouter une attribution de rôle**.
 
 5. Sélectionnez le rôle que vous souhaitez affecter à l’application.
 

@@ -13,12 +13,12 @@ ms.date: 01/25/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 6bc18d73f66c1ede777d579b764127f034d9f0ca
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9b987ccd17f2060eea125a5d384446cec24fb68a
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725724"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969163"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Analyse de l’impact avec Application Insights
 
@@ -35,7 +35,7 @@ Mais l’analyse des performances n’est qu’une partie de ce que peut faire I
 ![Conversion de capture d’écran par les navigateurs](./media/app-insights-usage-impact/0004-browsers.png)
 
 > [!NOTE]
-> Votre ressource Application Insights doit contenir des pages consultées ou des événements personnalisés pour pouvoir utiliser l’outil Impact. [Découvrez comment configurer votre application pour collecter des vues de page automatiquement à l’aide du Kit de développement logiciel (SDK) JavaScript Application Insights](app-insights-javascript.md). Gardez également à l’esprit que, dans la mesure où vous analysez une corrélation, la taille de l’échantillon est importante.
+> Votre ressource Application Insights doit contenir des pages consultées ou des événements personnalisés pour pouvoir utiliser l’outil Impact. [Découvrez comment configurer votre application pour collecter des vues de page automatiquement à l’aide du Kit de développement logiciel (SDK) JavaScript Application Insights](../azure-monitor/app/javascript.md). Gardez également à l’esprit que, dans la mesure où vous analysez une corrélation, la taille de l’échantillon est importante.
 >
 >
 

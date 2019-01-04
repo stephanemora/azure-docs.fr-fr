@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b22f79195a7246c87a8d5d5b4b5e012cc30a62dd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c951d4f646fdaec9731ec4b6320e5f625ad91a42
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274562"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993281"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Guide pratique pour planifier l’implémentation de la jointure Azure Active Directory hybride
 
@@ -146,9 +146,9 @@ Depuis la version 1.1.819.0, Azure AD Connect comporte un Assistant permettant d
 
 ## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Prise en charge des ID de connexion de substitution dans une jointure hybride Azure AD
 
-Une jointure hybride Azure AD Windows 10 offre une prise en charge limitée pour les [ID de connexion de substitution](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) en fonction du type d’ID de connexion de substitution, de la [méthode d’authentification](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn), du type de domaine et de la version de Windows 10. Deux types d’ID de connexion de substitution peuvent exister au sein de votre environnement.
+Une jointure hybride Azure AD Windows 10 offre une prise en charge limitée pour les [ID de connexion de substitution](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) en fonction du type d’ID de connexion de substitution, de la [méthode d’authentification](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), du type de domaine et de la version de Windows 10. Deux types d’ID de connexion de substitution peuvent exister au sein de votre environnement.
 
- - ID de connexion de substitution routable : Un ID de connexion de substitution routable possède un domaine valide vérifié, inscrit auprès d’un bureau d’enregistrement de domaines. Par exemple, si contoso.com est le domaine principal, contoso.org et contoso.co.uk sont des domaines valides appartenant à Contoso et [vérifiés dans Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain)
+ - ID de connexion de substitution routable : Un ID de connexion de substitution routable possède un domaine valide vérifié, inscrit auprès d’un bureau d’enregistrement de domaines. Par exemple, si contoso.com est le domaine principal, contoso.org et contoso.co.uk sont des domaines valides appartenant à Contoso et [vérifiés dans Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
  - ID de connexion de substitution non routable : Un ID de connexion de substitution non routable ne possède pas un domaine vérifié. Il est applicable uniquement au sein du réseau privé de votre organisation. Par exemple, si contoso.com est le domaine primaire, contoso.local n’est pas un domaine vérifiable sur internet mais il est utilisé au sein du réseau de Contoso.
  

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 3c9514e39e061067b7332570e0eb6273924529e0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: be86e961d04b600f112a173c041b60cbe50ea00d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339210"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725051"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor  
 
@@ -23,7 +23,7 @@ Cet article explique comment configurer des alertes de journal à l’aide de l�
 - Critères : Condition spécifique ou logique qui, une fois détectée (signal), doit déclencher une action
 - Action : Appel spécifique envoyé au récepteur d’une notification (e-mail, SMS, webhook, etc.)
 
-Le terme **alertes de journal** décrit les alertes où le signal est une requête personnalisée basée sur [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) ou [Application Insights](../../application-insights/app-insights-analytics.md). Obtenez plus d’informations sur la fonctionnalité, la terminologie et les types dans [Alertes de journal - Vue d’ensemble](../../azure-monitor/platform/alerts-unified-log.md).
+Le terme **alertes de journal** décrit les alertes où le signal est une requête personnalisée basée sur [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/analytics.md). Obtenez plus d’informations sur la fonctionnalité, la terminologie et les types dans [Alertes de journal - Vue d’ensemble](../../azure-monitor/platform/alerts-unified-log.md).
 
 > [!NOTE]
 > Les données de journal populaires d’[Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) sont désormais également disponibles sur la plateforme de métrique dans Azure Monitor. Pour la vue de détails, consultez [Alerte de métrique pour les journaux](../../azure-monitor/platform/alerts-metric-logs.md)
@@ -245,6 +245,6 @@ Une fois l’opération réussie, le code 201 est retourné pour signaler la cr�
 
 * En savoir plus sur les [alertes de journal dans les alertes Azure ](../../azure-monitor/platform/alerts-unified-log.md)
 * Comprendre les [actions Webhook pour les alertes de journal](../../azure-monitor/platform/alerts-log-webhook.md)
-* En savoir plus sur [Application Insights](../../application-insights/app-insights-analytics.md)
+* En savoir plus sur [Application Insights](../../azure-monitor/app/analytics.md)
 * En savoir plus sur [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
 

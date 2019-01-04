@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: e9e88fc9aa3aad902c140ac176e31571b9e55ee3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: ef55f25657d1decb09e438d443e7c289823f7d9d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353739"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605906"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Questions fréquentes sur l’accélérateur de solution d’usine connectée
 
@@ -27,7 +27,7 @@ Le code source est stocké dans le dépôt GitHub suivant :
 
 ### <a name="what-is-opc-ua"></a>Qu’est-ce que l’UA OPC ?
 
-OPC UA (Unified Architecture) est un standard d’interopérabilité indépendant de la plateforme et orienté services, qui date de 2008. OPC UA est utilisé par différents systèmes et dispositifs industriels tels que les PC industriels, les automates programmables industriels et les capteurs. OPC UA intègre les fonctionnalités des spécifications OPC Classic dans un seul et même framework extensible avec un dispositif de sécurité intégré. La fondation OPC Foundation est à l’origine de cette norme. [OPC Foundation](http://opcfoundation.org/) est une organisation à but non lucratif qui compte plus de 440 membres. L’objectif de cette organisation est d’utiliser les spécifications OPC de façon à favoriser une interopérabilité fiable et sécurisée entre les fabricants et les plateformes par les moyens suivants :
+OPC UA (Unified Architecture) est un standard d’interopérabilité indépendant de la plateforme et orienté services, qui date de 2008. OPC UA est utilisé par différents systèmes et dispositifs industriels tels que les PC industriels, les automates programmables industriels et les capteurs. OPC UA intègre les fonctionnalités des spécifications OPC Classic dans un seul et même framework extensible avec un dispositif de sécurité intégré. La fondation OPC Foundation est à l’origine de cette norme. [OPC Foundation](https://opcfoundation.org/) est une organisation à but non lucratif qui compte plus de 440 membres. L’objectif de cette organisation est d’utiliser les spécifications OPC de façon à favoriser une interopérabilité fiable et sécurisée entre les fabricants et les plateformes par les moyens suivants :
 
 * Infrastructure
 * Spécifications
@@ -78,7 +78,7 @@ Si vous avez déployé la solution à partir de www.azureiotsolutions.com, vous 
 1. Pour démarrer tous les conteneurs de simulation :
     * Exportez une variable shell sous le nom **IOTHUB_CONNECTIONSTRING**. Utilisez la valeur du paramètre **IotHubOwnerConnectionString** du fichier `<name of your deployment>.config.user`. Par exemple : 
 
-        ```
+        ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
         ```
 
@@ -142,7 +142,7 @@ Si vous constatez qu’aucune donnée n’a été envoyée à IoT Hub, c’est q
 
 Pour activer une carte interactive dans votre solution d’usine connectée, vous devez disposer d’un compte Azure Maps.
 
-Lors du déploiement à partir de [www.azureiotsolutions.com](http://www.azureiotsolutions.com), le processus de déploiement ajoute un compte Azure Maps au groupe de ressources qui contient les services d’accélérateur de solution.
+Lors du déploiement à partir de [www.azureiotsolutions.com](https://www.azureiotsolutions.com), le processus de déploiement ajoute un compte Azure Maps au groupe de ressources qui contient les services d’accélérateur de solution.
 
 Quand vous procédez au déploiement à l’aide du script `build.ps1` dans le dépôt GitHub d’usine connectée, affectez à la variable d’environnement `$env:MapApiQueryKey` dans la fenêtre de build la [clé de votre compte Azure Maps](../azure-maps/how-to-manage-account-keys.md). La carte interactive est ensuite automatiquement activée.
 
@@ -174,15 +174,15 @@ Pour envoyer des données de télémétrie à la solution d’usine connectée �
 
     ```json
     [
-      {
-        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
-        "DisplayName": "<name_of_the_datapoint>",
-        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
-        "Value": {
-          "Value": <datapoint_value>,
-          "SourceTimestamp": "<timestamp>"
-        }
-      }
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
     ]
     ```
 

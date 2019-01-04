@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: b2b4bfc6aa03039a7eca402f7a9af083a44f0829
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: db1af4f046bd8849fddee299e949d6edbdaae86a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43346687"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53609087"
 ---
 ## <a name="access-the-virtual-machine"></a>Accéder à la machine virtuelle
 
@@ -35,7 +35,7 @@ Les étapes suivantes vous permettent de configurer la machine virtuelle Azure a
     az network nsg rule update --name SSH --nsg-name contoso-simulation-nsg -g contoso-simulation --access Allow -o table
     ```
 
-    Activez uniquement l’accès SSH durant les phases de développement et de test. Si vous activez SSH, [vous devez le désactiver à nouveau dès que possible](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices#disable-rdpssh-access-to-azure-virtual-machines).
+    Activez uniquement l’accès SSH durant les phases de développement et de test. Si vous activez SSH, [vous devez le désactiver à nouveau dès que possible](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices#disable-rdpssh-access-to-virtual-machines).
 
 1. Changez le mot de passe du compte **azureuser** sur la machine virtuelle par un mot de passe de votre choix. Spécifiez votre propre mot de passe quand vous exécutez la commande suivante :
 

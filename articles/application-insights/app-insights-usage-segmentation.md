@@ -13,12 +13,12 @@ ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 6a7f62d4018e5a8bd39cbf2bb2b1418137d93638
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 16795ce1fd53b9634dbc2ff7513d1c39752b8848
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720148"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974588"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analyse des utilisateurs, des sessions et des événements dans Application Insights
 
@@ -36,9 +36,9 @@ Trois des panneaux d’utilisation exploitent le même outil pour segmenter et t
 
 * **Outil Utilisateurs** : nombre de personnes ayant utilisé votre application et ses fonctionnalités.  Les utilisateurs sont comptabilisés à l’aide des ID anonymes stockés dans les cookies du navigateur. Une seule personne utilisant plusieurs navigateurs ou ordinateurs est comptabilisée comme plusieurs utilisateurs.
 * **Outil Sessions** : nombre de sessions d’activité utilisateur ayant inclus certaines pages et fonctionnalités de votre application. Une session est comptabilisée après une demi-heure d’inactivité de l’utilisateur ou après 24 heures d’utilisation continue.
-* **Outil Événements** : fréquence à laquelle certaines pages et fonctionnalités de votre application sont utilisées. L’affichage d’une page est comptabilisé lorsqu’un navigateur charge la page à partir de votre application, à condition que vous l’ayez [instrumentée](app-insights-javascript.md). 
+* **Outil Événements** : fréquence à laquelle certaines pages et fonctionnalités de votre application sont utilisées. L’affichage d’une page est comptabilisé lorsqu’un navigateur charge la page à partir de votre application, à condition que vous l’ayez [instrumentée](../azure-monitor/app/javascript.md). 
 
-    Un événement personnalisé représente une occurrence de quelque chose qui se produit dans votre application, souvent une interaction utilisateur, comme un clic sur un bouton ou l’achèvement d’une tâche. Vous insérez le code dans votre application pour [générer des événements personnalisés](app-insights-api-custom-events-metrics.md#trackevent).
+    Un événement personnalisé représente une occurrence de quelque chose qui se produit dans votre application, souvent une interaction utilisateur, comme un clic sur un bouton ou l’achèvement d’une tâche. Vous insérez le code dans votre application pour [générer des événements personnalisés](../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 ## <a name="querying-for-certain-users"></a>Interrogation de certains utilisateurs
 

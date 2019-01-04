@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: b39c01e76ba3ec21f0cd2d16b86da5664e1d5002
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 4f6f6042eaacc809b9d413ef01883987bd558507
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014666"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651603"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Résolution de problèmes Apache HBase à l’aide d’Azure HDInsight
 
@@ -314,7 +314,7 @@ Un message indiquant que la table *hbase: meta* n’est pas en ligne peut s’af
 
 ### <a name="additional-reading"></a>Documentation supplémentaire
 
-[Unable to process the HBase table](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table) (Traitement de la table HBase impossible, en anglais)
+[Unable to process the HBase table](https://stackoverflow.com/questions/4794092/unable-to-access-hbase-table) (Traitement de la table HBase impossible, en anglais)
 
 
 ### <a name="error"></a>Error

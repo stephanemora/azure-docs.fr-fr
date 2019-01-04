@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 84a8a0687a1da0eaf7842a9bf6115c1d0f5d3fd1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3e7db670a125f3c5f308107aabfbbab9301b7561
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338139"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718093"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Créer une application web dans un environnement App Service Environment v1
 
@@ -51,7 +51,7 @@ Ce didacticiel part du principe que vous avez créé un environnement App Servic
     Les *groupes de ressources* vous permettent de gérer les ressources Azure connexes en tant qu’unité et sont utiles lors de l’établissement de règles de *contrôle d’accès en fonction du rôle* (RBAC) pour vos applications. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager][ResourceGroups]. 
 4. Sélectionnez ou créez un plan App Service.
    
-    *plans App Service* sont des ensembles gérés d’applications web.  Normalement, lorsque vous sélectionnez la tarification, le prix facturé s’applique au plan App Service et non aux applications individuelles. Dans un ASE, vous payez les instances de calcul allouées à l’ASE plutôt que ce que vous avez répertorié avec votre ASP.  Pour augmenter le nombre d’instances d’une application web, vous augmentez la taille des instances de votre plan App Service, et toutes les applications web du plan sont affectées.  Certaines fonctionnalités, telles que les emplacements de site ou l'intégration de réseau virtuel, présentent aussi des restrictions de quantité à l'intérieur du plan.  Pour plus d’informations, consultez la rubrique [Présentation des plans Azure App Service](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
+    *plans App Service* sont des ensembles gérés d’applications web.  Normalement, lorsque vous sélectionnez la tarification, le prix facturé s’applique au plan App Service et non aux applications individuelles. Dans un ASE, vous payez les instances de calcul allouées à l’ASE plutôt que ce que vous avez répertorié avec votre ASP.  Pour augmenter le nombre d’instances d’une application web, vous augmentez la taille des instances de votre plan App Service, et toutes les applications web du plan sont affectées.  Certaines fonctionnalités, telles que les emplacements de site ou l'intégration de réseau virtuel, présentent aussi des restrictions de quantité à l'intérieur du plan.  Pour plus d’informations, consultez la rubrique [Présentation des plans Azure App Service](../overview-hosting-plans.md)
    
     Vous pouvez identifier les plans App Service dans votre environnement App Service en examinant l’emplacement indiqué sous le nom du plan.  
    
@@ -108,7 +108,7 @@ Après avoir créé votre application web et votre plan App Service, il peut êt
 
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
-[Appserviceplans]: ../azure-web-sites-web-hosting-plans-in-depth-overview.md
+[Appserviceplans]: ../overview-hosting-plans.md
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
