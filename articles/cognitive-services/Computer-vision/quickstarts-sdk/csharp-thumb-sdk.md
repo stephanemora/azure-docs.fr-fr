@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Générer une miniature - Kit de développement logiciel (SDK), C# - Vision par ordinateur'
+title: 'Démarrage rapide : Générer une miniature - SDK, C#'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous générez une miniature à partir d’une image, à l’aide de la bibliothèque de client Windows en C# de l’API Vision par ordinateur.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: a4a6dac4ca42f98bd03da022aaed79db094a9ed6
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.custom: seodec18
+ms.openlocfilehash: 03659278adf9bfe1af23a147633a72bd8f425601
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413283"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53578612"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Démarrage rapide : Générer une miniature à l’aide du kit de développement logiciel (SDK) Vision par ordinateur et de C#
 

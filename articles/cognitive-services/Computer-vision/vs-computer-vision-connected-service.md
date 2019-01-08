@@ -1,7 +1,7 @@
 ---
-title: 'Didacticiel : API Vision par ordinateur avec C#'
+title: Service connecté Visual Studio - Vision par ordinateur
 titleSuffix: Azure Cognitive Services
-description: Connectez-vous à l’API Vision par ordinateur sur une application web ASP.NET Core.
+description: Connectez-vous à l’API Vision par ordinateur à partir d’une application web ASP.NET Core à l’aide de la fonctionnalité Service connecté Visual Studio.
 services: cognitive-services
 author: ghogen
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: Tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: ebfcabdea1e83a83af5eea8025ba5a411c3f9880
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.custom: seodec18
+ms.openlocfilehash: e9207fe19272dac23db165e160ce9f7a7e802c14
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077948"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579734"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Utilisation des Services connectés dans Visual Studio pour se connecter à l’API Vision par ordinateur
 
@@ -37,15 +38,15 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
 1. Dans **l’Explorateur de solutions**, choisissez **Ajouter** > **Service connecté**.
    La page Service connecté s’affiche et montre des services que vous pouvez ajouter à votre projet.
 
-   ![Ajouter un élément de menu Service connecté](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Capture d’écran d’un menu accessible avec le bouton droit sur un projet Visual Studio : Ajouter > Service connecté](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. Dans le menu des services disponibles, choisissez **API Vision par ordinateur Cognitive Services**.
 
-   ![Choisir le service](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![Menu Services connectés, dans lequel est encadrée l’option Analyser les images avec Vision par ordinateur](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
    Si vous êtes connecté à Visual Studio et si un abonnement Azure est associé à votre compte, une page s’affiche et montre la liste déroulante de vos abonnements.
 
-   ![Sélectionnez votre abonnement](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![Fenêtre Visual Studio « API Vision par ordinateur » dans laquelle est encadrée la liste déroulante Abonnement](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. Sélectionnez l’abonnement que vous souhaitez utiliser. Ensuite, choisissez un nom pour l’API Vision par ordinateur ou cliquez sur le lien Modifier pour modifier le nom généré automatiquement. Choisissez le groupe de ressources et le niveau tarifaire.
 
@@ -93,11 +94,11 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
 
 1. Dans le dossier wwwroot de votre projet, ajoutez un dossier images et un fichier image. Par exemple, vous pouvez utiliser l’une des images de cette [page de l’API Vision par ordinateur](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Cliquez avec le bouton droit sur l’une des images et enregistrez-la sur votre disque dur local. Ensuite, dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier images et choisissez **Ajouter** > **Élément existant** pour l’ajouter à votre projet. Votre projet devrait se présenter ainsi dans l’Explorateur de solutions : 
   
-   ![Dossier images avec fichier image](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
+   ![Capture d’écran de la vue Explorateur de solutions dans laquelle un fichier image est sélectionné](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 
 1. Cliquez avec le bouton droit sur le fichier image, choisissez Propriétés, puis **Copier si plus récent**. 
 
-   ![Copier si plus récent](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
+   ![Fenêtre de propriétés d’une image ; Copier dans le répertoire de sortie est défini sur Copier si plus récent](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
 1. Remplacez la méthode Configurer par le code suivant pour accéder à l’API Vision par ordinateur et tester une image.
 

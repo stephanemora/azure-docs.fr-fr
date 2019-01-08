@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2debb52c703aaa25b2ff0a182bed3e07431b6f48
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 89852e30929cc26aa0cbe63ed4e334c4e878b90b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270261"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714336"
 ---
-# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Didacticiel : Mapper un nom DNS personnalisé existant à des applications web Azure
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Didacticiel : Mapper un nom DNS personnalisé existant à Azure App Service
 
-[Azure Web Apps](app-service-web-overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce didacticiel vous montre comment mapper un nom DNS personnalisé existant à des applications web Azure.
+[Azure App Service](overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce tutoriel vous montre comment mapper un nom DNS personnalisé existant à Azure App Service.
 
 ![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
@@ -48,7 +48,7 @@ Pour suivre ce tutoriel :
   Par exemple, pour ajouter des entrées DNS pour `contoso.com` et `www.contoso.com`, vous devez pouvoir configurer les paramètres DNS du domaine racine `contoso.com`.
 
   > [!NOTE]
-  > Si vous ne disposez d’aucun nom de domaine existant, envisagez d’[acheter un domaine à l’aide du portail Azure](custom-dns-web-site-buydomains-web-app.md). 
+  > Si vous ne disposez d’aucun nom de domaine existant, envisagez d’[acheter un domaine à l’aide du portail Azure](manage-custom-dns-buy-domain.md). 
 
 ## <a name="prepare-the-app"></a>Préparer l’application
 
@@ -156,7 +156,7 @@ Un certain temps peut être nécessaire pour que le nouveau nom d’hôte soit r
 ![Enregistrement CNAME ajouté](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> Pour ajouter une liaison SSL, consultez [Lier un certificat SSL existant à des applications web Azure](app-service-web-tutorial-custom-ssl.md).
+> Pour ajouter une liaison SSL, consultez [Lier un certificat SSL personnalisé existant à Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 Si vous avez raté une étape ou fait une faute de frappe à un endroit, une erreur de vérification peut apparaître au bas de la page.
 
@@ -231,7 +231,7 @@ Un certain temps peut être nécessaire pour que le nouveau nom d’hôte soit r
 ![Enregistrement A ajouté](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> Pour ajouter une liaison SSL, consultez [Lier un certificat SSL existant à des applications web Azure](app-service-web-tutorial-custom-ssl.md).
+> Pour ajouter une liaison SSL, consultez [Lier un certificat SSL personnalisé existant à Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 Si vous avez raté une étape ou fait une faute de frappe à un endroit, une erreur de vérification peut apparaître au bas de la page.
 
@@ -286,7 +286,7 @@ Cliquez de nouveau sur l’icône **+** pour ajouter un autre nom d’hôte qui 
 ![Enregistrement CNAME ajouté](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> Pour ajouter une liaison SSL, consultez [Lier un certificat SSL existant à des applications web Azure](app-service-web-tutorial-custom-ssl.md).
+> Pour ajouter une liaison SSL, consultez [Lier un certificat SSL personnalisé existant à Azure App Service](app-service-web-tutorial-custom-ssl.md).
 
 ## <a name="test-in-browser"></a>Test dans le navigateur
 
@@ -305,7 +305,7 @@ Si vous recevez une erreur HTTP 404 (Introuvable) lors de la navigation vers l'U
 
 ## <a name="migrate-an-active-domain"></a>Migrer un domaine actif
 
-Pour migrer un site actif et son nom de domaine DNS vers App Service sans interruption de service, voir [Migrer un nom DNS actif vers Azure App Service](app-service-custom-domain-name-migrate.md).
+Pour migrer un site actif et son nom de domaine DNS vers App Service sans interruption de service, voir [Migrer un nom DNS actif vers Azure App Service](manage-custom-dns-migrate-domain.md).
 
 ## <a name="redirect-to-a-custom-directory"></a>Rediriger vers un répertoire personnalisé
 
@@ -334,7 +334,7 @@ az webapp config hostname add \
     --hostname <fully_qualified_domain_name> 
 ``` 
 
-Pour plus d’informations, consultez [Mapper un nom de domaine personnalisé à une application web](scripts/app-service-cli-configure-custom-domain.md). 
+Pour plus d’informations, consultez [Mapper un nom de domaine personnalisé à une application web](scripts/cli-configure-custom-domain.md). 
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 
@@ -347,7 +347,7 @@ Set-AzureRmWebApp `
     -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
-Pour plus d’informations, consultez [Attribuer un domaine personnalisé à une application web](scripts/app-service-powershell-configure-custom-domain.md).
+Pour plus d’informations, consultez [Attribuer un domaine personnalisé à une application web](scripts/powershell-configure-custom-domain.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -363,4 +363,4 @@ Dans ce didacticiel, vous avez appris à :
 Passez au didacticiel suivant pour découvrir comment lier un certificat SSL personnalisé à une application web.
 
 > [!div class="nextstepaction"]
-> [Lier un certificat SSL existant à des applications web Azure](app-service-web-tutorial-custom-ssl.md)
+> [Lier un certificat SSL personnalisé existant à Azure App Service](app-service-web-tutorial-custom-ssl.md)

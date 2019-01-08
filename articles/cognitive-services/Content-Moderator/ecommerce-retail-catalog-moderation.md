@@ -1,252 +1,123 @@
 ---
-title: 'Tutoriel : Modération des catalogues eCommerce - Content Moderator'
+title: 'Tutoriel : Modérer les images de produits e-commerce - Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Modérez automatiquement les catalogues eCommerce avec le machine learning et l’intelligence artificielle.
+description: Configurez une application pour analyser et classer des images de produits avec des étiquettes spécifiées (à l’aide de l’API Azure Vision par ordinateur et du service Azure Vision personnalisée), et marquez les images répréhensibles à des fins de vérification (à l’aide d’Azure Content Moderator).
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: sajagtap
-ms.openlocfilehash: 285590435a7e3c31d45d5d154d4e430ed3252838
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.author: pafarley
+ms.openlocfilehash: 209fb3bba2b5462caad53d809c46eba0ebf4d836
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256228"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547896"
 ---
-# <a name="tutorial-ecommerce-catalog-moderation-with-machine-learning"></a>Tutoriel : Modération des catalogues eCommerce avec le machine learning
+# <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Didacticiel : Modérer les images de produits e-commerce avec Azure Content Moderator
 
-Dans ce didacticiel, nous apprenons à implémenter une modération intelligente de catalogue eCommerce avec machine learning en combinant des technologies IA assistées par ordinateur avec modération humaine pour fournir un système intelligent de catalogue.
+Dans ce tutoriel, vous allez apprendre à utiliser les services cognitifs Azure, notamment Content Moderator, pour classer et modérer efficacement des images de produits dans le cadre d’un scénario e-commerce. Vous allez utiliser Vision par ordinateur et Vision personnalisée pour appliquer différentes étiquettes aux images, puis créer une révision d’équipe, qui associe les technologies de Content Moderator basées sur le machine learning à des équipes de révision humaine pour fournir un système de modération intelligente.
 
-![Images de produits classés](images/tutorial-ecommerce-content-moderator.PNG)
+Ce didacticiel vous explique les procédures suivantes :
 
-## <a name="business-scenario"></a>Scénario d'entreprise
+> [!div class="checklist"]
+> * Inscription à Content Moderator et création d’une équipe de révision.
+> * Utilisation de l’API image Content Moderator pour analyser du contenu pour adultes ou osé.
+> * Utilisation du service Vision par ordinateur pour rechercher du contenu sur les célébrités (ou d’autres étiquettes détectables par Vision par ordinateur).
+> * Utilisation du service Vision personnalisée pour rechercher la présence de drapeaux, jouets et stylos (ou autres étiquettes personnalisées).
+> * Présentation des résultats d’analyses combinées pour révision par un opérateur humain et prise de décision finale.
 
-Utilisez des technologies assistées par ordinateur pour classer et modérer des images de produits dans ces catégories :
+L’exemple de code complet est disponible dans le dépôt [Samples eCommerce Catalog Moderation](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) sur GitHub.
 
-1. Adulte (nudité)
-2. Osé (suggestif)
-3. Célébrités
-4. Signes américains
-5. Jouets
-6. Stylos
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="tutorial-steps"></a>Étapes du didacticiel
+## <a name="prerequisites"></a>Prérequis
 
-Ce tutoriel vous guide tout au long des étapes suivantes :
+- Une clé d’abonnement Content Moderator. Suivez les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service Content Moderator et obtenir votre clé.
+- Une clé d’abonnement Vision par ordinateur (mêmes instructions que ci-dessus).
+- N’importe quelle édition de [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
+- Un ensemble d’images pour chaque étiquette que le classifieur Vision personnalisée utilisera (en l’occurrence, jouets, stylos et drapeaux américains).
 
-1. Inscription et création d’une équipe Content Moderator.
-2. Configuration des balises (étiquettes) de modération pour contenu potentiel sur des signes et des célébrités.
-3. Utilisation de l’API image Content Moderator pour analyser du contenu pour adultes ou osé.
-4. Utilisation de l’API Vision par ordinateur pour rechercher des célébrités potentielles.
-5. Utilisation du service Vision personnalisée pour analyser la présence éventuelle de signes.
-6. Présentation des résultats d’analyses nuancées pour révision par un opérateur humain et prise de décision finale.
+## <a name="create-a-review-team"></a>Créer une équipe de révision
 
-## <a name="create-a-team"></a>Créer une équipe
+Reportez-vous au guide de démarrage rapide [Bien démarrer avec Content Moderator](quick-start.md) pour obtenir des instructions sur la façon de vous inscrire à l’[Outil de révision Content Moderator](https://contentmoderator.cognitive.microsoft.com/) et de créer une équipe de révision. Prenez note de la valeur de l’**ID de l’équipe** dans la page **Informations d’identification**.
 
-Reportez-vous à la page [Démarrage rapide](quick-start.md) pour vous inscrire à Content Moderator et créer une équipe. Notez l’**ID de l’équipe** présent sur la page **Informations d'identification**.
+## <a name="create-custom-moderation-tags"></a>Créer des étiquettes de modération personnalisées
 
-
-## <a name="define-custom-tags"></a>Définir des balises personnalisées
-
-Consultez l’article [Balises](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) pour savoir comment ajouter des balises personnalisées. Outre les balises intégrées **Adultes** et **Osé**, les nouvelles balises permettent à l’outil de vérification d’afficher les noms descriptifs des balises.
-
-Dans notre cas, nous définissons ces balises personnalisées (**célébrité**, **signe**, **us**, **jouet**, **stylo**) :
+Ensuite, créez des étiquettes personnalisées dans l’outil de révision (reportez-vous à l’article [Étiquettes](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) si vous avez besoin d’aide). En l’occurrence, nous allons ajouter les étiquettes suivantes : **célébrité**, **USA**, **drapeau**, **jouet** et **stylo**. Notez que toutes les étiquettes doivent être des catégories détectables dans Vision par ordinateur (comme **célébrité**) ; vous pouvez ajouter vos propres étiquettes personnalisées, à condition que vous entraîniez le classifieur Vision personnalisée à leur détection par la suite.
 
 ![Configurer les balises personnalisées](images/tutorial-ecommerce-tags2.PNG)
 
-## <a name="list-your-api-keys-and-endpoints"></a>Répertorier vos clés et points de terminaison API
+## <a name="create-visual-studio-project"></a>Création d’un projet Visual Studio
 
-1. Le didacticiel utilise trois API et leurs clés correspondantes ainsi que des points de terminaison d’API.
-2. Vos points de terminaison d’API sont différents selon les régions de vos abonnements ainsi que l’ID de l’équipe d’analyse Content Moderator.
+1. Dans Visual Studio, ouvrez la boîte de dialogue Nouveau projet. Développez **Installé** et **Visual C#** , puis sélectionnez **Application console (.NET Framework)**.
+1. Nommez l’application **EcommerceModeration**, puis cliquez sur **OK**.
+1. Si vous ajoutez ce projet à une solution existante, sélectionnez-le comme projet de démarrage unique.
 
-> [!NOTE]
-> Le didacticiel est conçu pour utiliser des clés d’abonnement dans les régions visibles dans les points de terminaison suivants. Veuillez à faire correspondre vos clés API avec la région Uris, autrement vos clés risquent de ne pas fonctionner avec les points de terminaison suivants :
+Ce tutoriel met en lumière le code qui est essentiel pour le projet, mais ne couvre pas chaque ligne de code nécessaire. Copiez le contenu complet de _Program.cs_ à partir de l’exemple de projet ([Samples eCommerce Catalog Moderation](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)) dans le fichier _Program.cs_ de votre nouveau projet. Ensuite, parcourez les sections suivantes pour en savoir plus sur le fonctionnement du projet et son utilisation.
 
-         // Your API keys
-        public const string ContentModeratorKey = "XXXXXXXXXXXXXXXXXXXX";
-        public const string ComputerVisionKey = "XXXXXXXXXXXXXXXXXXXX";
-        public const string CustomVisionKey = "XXXXXXXXXXXXXXXXXXXX";
+## <a name="define-api-keys-and-endpoints"></a>Définir les clés et points de terminaison API
 
-        // Your end points URLs will look different based on your region and Content Moderator Team ID.
-        public const string ImageUri = "https://westus.api.cognitive.microsoft.com/contentmoderator/moderate/v1.0/ProcessImage/Evaluate";
-        public const string ReviewUri = "https://westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0/teams/YOURTEAMID/reviews";
-        public const string ComputerVisionUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0";
-        public const string CustomVisionUri = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/XXXXXXXXXXXXXXXXXXXX/url";
+Comme mentionné plus haut, ce tutoriel utilise trois services cognitifs ; ainsi, il requiert trois clés et points de terminaison API correspondants. Observez les champs suivants dans la classe **Program** : 
 
-## <a name="scan-for-adult-and-racy-content"></a>Analyser du contenu pour adultes et osé
+[!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
-1. La fonction prend l’URL d’une image et un tableau de paires clé/valeur comme paramètres.
-2. Elle appelle l’API Image Content Moderator pour obtenir les scores pour Adultes et Osé.
-3. Si le score est supérieur à 0,4 (la plage est de 0 à 1), elle définit la valeur dans le tableau **ReviewTags** sur **True**.
-4. Le tableau **ReviewTags** sert à mettre en surbrillance la balise correspondante dans l’outil de vérification.
+Vous devez mettre à jour les champs `___Key` avec les valeurs de vos clés d’abonnement (vous obtiendrez la `CustomVisionKey` plus tard), et éventuellement changer les champs `___Uri` pour qu’ils contiennent les identificateurs de région appropriés. Renseignez la partie `YOURTEAMID` du champ `ReviewUri` avec l’ID de l’équipe de révision que vous avez créée précédemment. Vous renseignerez la dernière partie du champ `CustomVisionUri` plus tard.
 
-        public static bool EvaluateAdultRacy(string ImageUrl, ref KeyValuePair[] ReviewTags)
-        {
-            float AdultScore = 0;
-            float RacyScore = 0;
+## <a name="primary-method-calls"></a>Appels de la méthode principale
 
-            var File = ImageUrl;
-            string Body = $"{{\"DataRepresentation\":\"URL\",\"Value\":\"{File}\"}}";
+Observez le code suivant dans la méthode **Main**, qui effectue une itération sur une liste d’URL d’images. Il analyse chaque image avec les trois services différents, enregistre les étiquettes appliquées dans le tableau **ReviewTags**, puis crée une révision pour des modérateurs humains (envoi des images à l’outil de révision Content Moderator). Vous allez explorer ces méthodes dans les sections suivantes. Notez qu’ici, si vous le souhaitez, vous pouvez contrôler quelles images sont envoyées à des fins de révision, en utilisant le tableau **ReviewTags** dans une instruction conditionnelle pour vérifier les étiquettes qui ont été appliquées.
 
-            HttpResponseMessage response = CallAPI(ImageUri, ContentModeratorKey, CallType.POST,
-                                                   "Ocp-Apim-Subscription-Key", "application/json", "", Body);
+[!code-csharp[Main: evaluate each image and create review](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=53-70)]
 
-            if (response.IsSuccessStatusCode)
-            {
-                // {“answers”:[{“answer”:“Hello”,“questions”:[“Hi”],“score”:100.0}]}
-                // Parse the response body. Blocking!
-                GetAdultRacyScores(response.Content.ReadAsStringAsync().Result, out AdultScore, out RacyScore);
-            }
+## <a name="evaluateadultracy-method"></a>Méthode EvaluateAdultRacy
 
-            ReviewTags[0] = new KeyValuePair();
-            ReviewTags[0].Key = "a";
-            ReviewTags[0].Value = "false";
-            if (AdultScore > 0.4)
-            {
-                ReviewTags[0].Value = "true";
-            }
+Observez la méthode **EvaluateAdultRacy** dans la classe **Program**. Cette méthode prend l’URL d’une image et un tableau de paires clé/valeur comme paramètres. Elle appelle l’API Image Content Moderator (en utilisant REST) pour obtenir les scores de l’image pour Adultes et Osé. Si le score de l’une de ces catégories est supérieur à 0,4 (la plage est de 0 à 1), elle définit la valeur correspondante dans le tableau **ReviewTags** sur **True**.
 
-            ReviewTags[1] = new KeyValuePair();
-            ReviewTags[1].Key = "r";
-            ReviewTags[1].Value = "false";
-            if (RacyScore > 0.3)
-            {
-                ReviewTags[1].Value = "true";
-            }
-            return response.IsSuccessStatusCode;
-        }
+[!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 
-## <a name="scan-for-celebrities"></a>Analyser du contenu sur les célébrités
+## <a name="evaluatecustomvisiontags-method"></a>Méthode EvaluateCustomVisionTags
 
-1. Inscrivez-vous pour un [essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision) de l’[API Vision par ordinateur](https://azure.microsoft.com/services/cognitive-services/computer-vision/).
-2. Cliquez sur le bouton **Obtenir la clé API**.
-3. Acceptez les conditions.
-4. Pour vous connecter, choisissez un des comptes dans la liste des comptes Internet disponibles.
-5. Notez les clés API affichées sur la page de votre service.
-    
-   ![Clés API Vision par ordinateur](images/tutorial-computer-vision-keys.PNG)
-    
-6. Consultez le code source du projet de la fonction qui analyse l’image avec l’API Vision par ordinateur.
+La méthode suivante prend une URL d’image et vos informations d’abonnement Vision par ordinateur et recherche la présence de célébrités dans l’image. Si une ou plusieurs célébrités sont trouvées, elle définit la valeur correspondante dans le tableau **ReviewTags** sur **True**. 
 
-         public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
-        {
-            var File = ImageUrl;
-            string Body = $"{{\"URL\":\"{File}\"}}";
+[!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=115-146)]
 
-            HttpResponseMessage Response = CallAPI(ComputerVisionUri, ComputerVisionKey, CallType.POST,
-                                                   "Ocp-Apim-Subscription-Key", "application/json", "", Body);
+## <a name="evaluatecustomvisiontags-method"></a>Méthode EvaluateCustomVisionTags
 
-            if (Response.IsSuccessStatusCode)
-            {
-                ReviewTags[2] = new KeyValuePair();
-                ReviewTags[2].Key = "cb";
-                ReviewTags[2].Value = "false";
+Ensuite, observez la méthode **EvaluateCustomVisionTags**, qui classifie les produits proprement dits&mdash;en l’occurrence, les drapeaux, jouets et stylos. Suivez les instructions du guide [Comment créer un classifieur](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) pour créer votre propre classifieur d’image personnalisé afin de détecter la présence de drapeaux, jouets et stylos (ou de ce que vous avez choisi comme étiquettes personnalisées) dans les images.
 
-                ComputerVisionPrediction CVObject = JsonConvert.DeserializeObject<ComputerVisionPrediction>(Response.Content.ReadAsStringAsync().Result);
+![Page web Vision personnalisée avec images d’entraînement de stylos, jouets et drapeaux](images/tutorial-ecommerce-custom-vision.PNG)
 
-                if ((CVObject.categories[0].detail != null) && (CVObject.categories[0].detail.celebrities.Count() > 0))
-                {                 
-                    ReviewTags[2].Value = "true";
-                }
-            }
+Après avoir entraîné votre classifieur, obtenez la clé de prédiction et l’URL de point de terminaison de prédiction (consultez [Obtenir l’URL et la clé de prédiction](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) si vous avez besoin d’aide pour les récupérer) et affectez ces valeurs à vos champs `CustomVisionKey` et `CustomVisionUri`, respectivement. La méthode utilise ces valeurs pour interroger le classifieur. Si le classifieur détecte une ou plusieurs étiquettes personnalisées dans l’image, cette méthode définit la ou les valeurs correspondantes dans le tableau **ReviewTags** sur **True**. 
 
-            return Response.IsSuccessStatusCode;
-        }
+[!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 
-## <a name="classify-into-flags-toys-and-pens"></a>Classer en signes, jouets et stylos
+## <a name="create-reviews-for-review-tool"></a>Créer des révisions pour l’outil de révision
 
-1. [Connectez-vous](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) à la [préversion de l’API Vision personnalisée](https://www.customvision.ai/).
-2. Utilisez le [guide de démarrage rapide](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) pour créer un classifieur personnalisé afin de détecter la présence potentielle de signes, jouets et stylos.
-   ![Image de formation Vision personnalisée](images/tutorial-ecommerce-custom-vision.PNG)
-3. [Obtenez l’URL du point de terminaison de prédiction](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) de votre classifieur personnalisé.
-4. Consultez le code source du projet pour voir la fonction qui appelle le point de terminaison de prédiction de votre classifieur personnalisé afin d’analyser votre image.
+Les sections précédentes vous ont montré les méthodes d’analyse d’images entrantes à la recherche de contenus pour adultes et osé (Content Moderator), sur des célébrités (Vision par ordinateur) et autres objets (Vision personnalisée). À présent, observez la méthode **CreateReview**, qui charge les images ainsi que toutes leurs étiquettes appliquées (transmises en tant que _Metadata_), dans l’Outil de révision Content Moderator afin qu’elles puissent faire l’objet d’une révision humaine. 
 
-        public static bool EvaluateCustomVisionTags(string ImageUrl, string CustomVisionUri, string CustomVisionKey, ref KeyValuePair[] ReviewTags)
-        {
-            var File = ImageUrl;
-            string Body = $"{{\"URL\":\"{File}\"}}";
+[!code-csharp[define CreateReview method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=173-196)]
 
-            HttpResponseMessage response = CallAPI(CustomVisionUri, CustomVisionKey, CallType.POST,
-                                                   "Prediction-Key", "application/json", "", Body);
+Les images apparaissent sous l’onglet Review de l’[outil de révision Content Moderator](https://contentmoderator.cognitive.microsoft.com/).
 
-            if (response.IsSuccessStatusCode)
-            {
-                // Parse the response body. Blocking!
-                SaveCustomVisionTags(response.Content.ReadAsStringAsync().Result, ref ReviewTags);
-            }
-            return response.IsSuccessStatusCode;
-        }       
- 
-## <a name="reviews-for-human-in-the-loop"></a>Révision pour opérateur humain
+![Capture d’écran de l’outil de révision Content Moderator avec plusieurs images et étiquettes correspondantes en surbrillance](images/tutorial-ecommerce-content-moderator.PNG)
 
-1. Dans les sections précédentes, vous avez analysé les images entrantes à la recherche de contenus pour adultes et osé (Content Moderator), sur des célébrités (Vision par ordinateur) et signes (Vision personnalisée).
-2. Selon nos seuils de correspondance pour chaque analyse, réalisez des études nuancées disponibles pour une révision par un opérateur humain dans l’outil de révision.
-        public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata) {
+## <a name="submit-a-list-of-test-images"></a>Envoyer une liste d’images de test
 
-            ReviewCreationRequest Review = new ReviewCreationRequest();
-            Review.Item[0] = new ReviewItem();
-            Review.Item[0].Content = ImageUrl;
-            Review.Item[0].Metadata = new KeyValuePair[MAXTAGSCOUNT];
-            Metadata.CopyTo(Review.Item[0].Metadata, 0);
+Comme vous pouvez le voir dans la méthode **Main**, ce programme recherche un répertoire « C:Test » avec un fichier _Urls.txt_ qui contient une liste d’URL d’images. Créez un fichier et un répertoire de ce type ou changez le chemin d’accès afin qu’il pointe vers votre fichier texte et remplissez ce fichier avec les URL des images que vous souhaitez tester.
 
-            //SortReviewItems(ref Review);
+[!code-csharp[Main: set up test directory, read lines](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=38-51)]
 
-            string Body = JsonConvert.SerializeObject(Review.Item);
+## <a name="run-the-program"></a>Exécuter le programme
 
-            HttpResponseMessage response = CallAPI(ReviewUri, ContentModeratorKey, CallType.POST,
-                                                   "Ocp-Apim-Subscription-Key", "application/json", "", Body);
-
-            return response.IsSuccessStatusCode;
-        }
-
-## <a name="submit-batch-of-images"></a>Soumettre le lot d’images
-
-1. Ce didacticiel se base sur un répertoire « C:Test » avec un fichier texte disposant d’une liste d’URL d’images.
-2. Le code suivant vérifie l’existence du fichier et lit toutes les URL dans la mémoire.
-            // Check for a test directory for a text file with the list of Image URLs to scan var topdir = @"C:\test\"; var Urlsfile = topdir + "Urls.txt";
-
-            if (!Directory.Exists(topdir))
-                return;
-
-            if (!File.Exists(Urlsfile))
-            {
-                return;
-            }
-
-            // Read all image URLs in the file
-            var Urls = File.ReadLines(Urlsfile);
-
-## <a name="initiate-all-scans"></a>Démarrer toutes les analyses
-
-1. Cette fonction de niveau supérieur fait le tour de toutes les URL d’images dans le fichier texte dont nous parlions plus tôt.
-2. Elle les analyse avec chaque API et si le score de fiabilité correspondance entre dans nos critères, elle crée une révision pour les modérateurs humains.
-             // for each image URL in the file... foreach (var Url in Urls) { // Initiatize a new review tags array ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
-
-                // Evaluate for potential adult and racy content with Content Moderator API
-                EvaluateAdultRacy(Url, ref ReviewTags);
-
-                // Evaluate for potential presence of celebrity (ies) in images with Computer Vision API
-                EvaluateComputerVisionTags(Url, ComputerVisionUri, ComputerVisionKey, ref ReviewTags);
-
-                // Evaluate for potential presence of custom categories other than Marijuana
-                EvaluateCustomVisionTags(Url, CustomVisionUri, CustomVisionKey, ref ReviewTags);
-
-                // Create review in the Content Moderator review tool
-                CreateReview(Url, ReviewTags);
-            }
-
-## <a name="license"></a>Licence
-
-Tous les SDK Microsoft Cognitive Services et les exemples sont fournis sous licence MIT. Pour plus d’informations, consultez [LICENCE](https://microsoft.mit-license.org/).
-
-## <a name="developer-code-of-conduct"></a>Code de conduite du développeur
-
-Les développeurs qui utilisent Cognitive Services, notamment cette bibliothèque cliente et cet exemple, sont supposés suivre le « Code de conduite du développeur pour Microsoft Cognitive Services », disponible à l’adresse http://go.microsoft.com/fwlink/?LinkId=698895.
+Si vous avez suivi toutes les étapes ci-dessus, le programme doit traiter chaque image (en interrogeant les trois services en fonction des étiquettes appropriées), puis charger les images avec les informations d’étiquettes dans l’outil de révision Content Moderator.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Créer et étendre le tutoriel en utilisant les [fichiers sources du projet](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) sur GitHub.
+Dans ce tutoriel, vous avez configuré un programme pour analyser des images de produits afin de les étiqueter par type de produit et de permettre à une équipe de révision de prendre les décisions appropriées du point de vue de la modération du contenu. À présent, découvrez les détails de la modération des images.
+
+> [!div class="nextstepaction"]
+> [Réviser les images modérées](./review-tool-user-guide/review-moderated-images.md)

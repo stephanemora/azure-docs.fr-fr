@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Appel d’un point de terminaison à l’aide de Python - Recherche personnalisée Bing'
+title: 'Démarrage rapide : Appeler votre point de terminaison Recherche personnalisée Bing avec Python | Microsoft Docs'
 titlesuffix: Azure Cognitive Services
-description: Ce guide de démarrage rapide montre comment demander les résultats de la recherche à partir de votre instance de recherche personnalisée en utilisant Python pour appeler le point de terminaison Recherche personnalisée Bing.
+description: Utiliser ce guide de démarrage rapide pour commencer à demander des résultats de recherche à partir de votre instance Recherche personnalisée Bing, avec Python
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,63 +10,54 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: aahi
-ms.openlocfilehash: d7977f49a484665f133a119f491bd8986c0b6fc4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9534a60e66f194bf653e1bfd28d6d6f2a96ba90a
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310717"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558717"
 ---
-# <a name="quickstart-call-bing-custom-search-endpoint-python"></a>Démarrage rapide : Appel du point de terminaison Recherche personnalisée Bing (Python)
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-python"></a>Démarrage rapide : Appeler votre point de terminaison Recherche personnalisée Bing avec Python
 
-Ce guide de démarrage rapide montre comment demander les résultats de la recherche à partir de votre instance de recherche personnalisée en utilisant Python pour appeler le point de terminaison Recherche personnalisée Bing. 
+Utilisez ce guide de démarrage rapide pour commencer à demander des résultats de recherche à partir de votre instance Recherche personnalisée Bing. Si d’un côté cette application est écrite en Python, de l’autre, l’API Recherche personnalisée Bing constitue un service web RESTful compatible avec la plupart des langages de programmation. Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingCustomSearchv7.py).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
+- Une instance Recherche personnalisée Bing. Consultez [Démarrage rapide : Créer votre première instance Recherche personnalisée Bing](quick-start.md) pour de plus amples informations.
+- [Python](https://www.python.org/) 2.x ou 3.x
 
-- Une instance de recherche personnalisée prête à l’emploi. Consultez [Créer votre première instance Recherche personnalisée Bing](quick-start.md).
-- [Python](https://www.python.org/) (déjà installé).
-- Une clé d’abonnement Vous pouvez obtenir une clé d’abonnement quand vous activez votre [essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), ou vous pouvez utiliser une clé d’abonnement payant de votre tableau de bord Azure (voir [Compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).   Consultez également [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 
-## <a name="run-the-code"></a>Exécuter le code
+## <a name="create-and-initialize-the-application"></a>Créer et initialiser l’application
 
-Pour exécuter cet exemple, suivez ces étapes :
+1. Créez un fichier Python dans votre éditeur ou IDE favori, puis ajoutez les instructions d’importation suivantes. Créez des variables pour votre clé d’abonnement, votre ID de configuration personnalisée et un terme de recherche. 
 
-1. Créez un dossier pour votre code.  
-  
-2. À partir d’un terminal ou d’une invite de commandes en mode administrateur, accédez au dossier que vous venez de créer.  
-  
-3. Installez le module Python **requests** :  
-  
-    <pre>
-    pip install pipenv
-    pipenv install requests
-    </pre>  
-      
-4. Créez un fichier nommé BingCustomSearch.py dans le dossier que vous avez créé et copiez-y le code suivant. Remplacez **YOUR-SUBSCRIPTION-KEY** et **YOUR-CUSTOM-CONFIG-ID** par votre clé d’abonnement et votre ID de configuration.  
-  
-    ``` Python
+    ```python
     import json
     import requests
     
     subscriptionKey = "YOUR-SUBSCRIPTION-KEY"
     customConfigId = "YOUR-CUSTOM-CONFIG-ID"
     searchTerm = "microsoft"
-    
-    url = 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=' + searchTerm + '&customconfig=' + customConfigId
+    ```
+
+## <a name="send-and-receive-a-search-request"></a>Envoyer et recevoir une requête de recherche 
+
+1. Construisez l’URL de requête en ajoutant votre terme de recherche au paramètre de requête `q=`, et l’ID de configuration personnalisée de votre instance de recherche à `customconfig=`. Séparez les paramètres par un caractère `&`. 
+
+    ```python
+    url = 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?' + 'q=' + searchTerm + '&' + 'customconfig=' + customConfigId
+    ```
+
+2. Envoyez la requête à votre instance Recherche personnalisée Bing et affichez les résultats de recherche retournés.  
+
+    ```python
     r = requests.get(url, headers={'Ocp-Apim-Subscription-Key': subscriptionKey})
     print(r.text)
-    ```  
-  
-7. Exécutez le code à l’aide de la commande suivante.  
-  
-    ```
-    python BingCustomSearch.py
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Configurer votre expérience d’interface utilisateur hébergée](./hosted-ui.md)
-- [Utiliser des marqueurs d’ornement pour mettre en surbrillance du texte](./hit-highlighting.md)
-- [Paginer des pages web](./page-webpages.md)
+
+> [!div class="nextstepaction"]
+> [Créer une application web Recherche personnalisée](./tutorials/custom-search-web-page.md)

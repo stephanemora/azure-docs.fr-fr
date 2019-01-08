@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 12/07/2018
+ms.date: 12/17/2018
 ms.author: danlep
-ms.openlocfilehash: a7b61702feb062c57fdec84f335ace44a47d0283
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 86c169c84e905362e8fdb069e8ceadcb5e19fe67
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249479"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602390"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Disponibilité des régions et quotas pour Azure Container Instances
 
@@ -24,16 +24,17 @@ Tous les services Azure incluent certains quotas et limites par défaut pour les
 
 ## <a name="region-availability"></a>Disponibilité des régions
 
-Azure Container Instances est disponible dans les régions suivantes avec les limites de processeur et de mémoire spécifiées.
+Azure Container Instances est disponible dans les régions suivantes avec les limites de processeur et de mémoire spécifiées. Les valeurs sont à jour au moment de la publication. Pour des informations à jour, utilisez l’API [Liste des fonctionnalités](/rest/api/container-instances/listcapabilities/listcapabilities).
 
 | Lieu | SE | UC | Mémoire (Go) |
 | -------- | -- | :---: | :-----------: |
+| Centre du Canada | Linux | 4 | 16 |
 | USA Est, Europe Nord, Europe Ouest, USA Ouest, USA Ouest 2 | Linux | 4 | 14 |
 | Japon Est | Linux | 2 | 8 |
 | Australie Est, USA Est 2, Asie Sud-Est | Linux | 2 | 7 |
-| Canada Centre, Inde Centre, Asie Est, USA Centre Nord, USA Centre Sud | Linux | 2 | 3,5 |
+| Inde Centre, Asie Est, USA Centre Nord, USA Centre Sud, Inde Sud | Linux | 2 | 3,5 |
 | USA Est, Europe Ouest, USA Ouest |  Windows | 4 | 14 |
-| Australie Est, Canada Centre, Inde Centre, Asie Est, USA Est 2, Japon Est, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, USA Ouest 2 |  Windows | 2 | 3,5 |
+| Australie Est, Canada Centre, Inde Centre, Asie Est, USA Est 2, Japon Est, USA Centre Nord, Europe Nord, USA Centre Sud, Inde Sud, Asie Sud-Est, USA Ouest 2 |  Windows | 2 | 3,5 |
 
 Les instances de conteneur créées dans les limites de ces ressources sont soumises à la disponibilité dans la région de déploiement. Quand une région a une charge importante, vous pouvez rencontrer un échec durant le déploiement des instances. Pour atténuer ce type d’échec de déploiement, essayez de déployer des instances avec des paramètres de mémoire et de processeur inférieurs, ou essayez d’effectuer le déploiement plus tard.
 

@@ -1,7 +1,7 @@
 ---
-title: Qu’est-ce que la Recherche personnalisée Bing ?
+title: Qu’est-ce que l’API Recherche personnalisée Bing ?
 titlesuffix: Azure Cognitive Services
-description: Fournit une vue d’ensemble globale de la Recherche personnalisée Bing.
+description: L’API Recherche personnalisée Bing vous permet de créer des expériences de recherche adaptées aux sujets qui vous intéressent.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,48 +10,42 @@ ms.component: bing-custom-search
 ms.topic: overview
 ms.date: 09/29/2017
 ms.author: aahi
-ms.openlocfilehash: 2be1d76cc37de2ce2965cc08c116b37286bd8b52
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8dae58b1ae58a634ca6a566424a7c2d3fcf6add2
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163237"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554603"
 ---
-# <a name="what-is-bing-custom-search"></a>Qu’est-ce que la Recherche personnalisée Bing ?
+# <a name="what-is-the-bing-custom-search-api"></a>Qu’est-ce que l’API Recherche personnalisée Bing ?
 
-La Recherche personnalisée Bing vous permet de créer des expériences de recherche adaptées pour les sujets qui vous intéressent. Par exemple, si vous possédez un site web qui fournit une expérience de recherche, vous pouvez spécifier les domaines, sites web et pages web dans lesquels Bing effectue les recherches. Vos utilisateurs consultent des résultats de recherche adaptés au contenu qui les intéresse au lieu d’être obligé de compulser des pages de résultats de recherche générale contenant des informations inappropriées.
+L’API Recherche personnalisée Bing vous permet de créer des expériences de recherche exemptes de publicité, adaptées aux sujets qui vous intéressent. Vous pouvez spécifier les domaines et pages web dans lesquels Bing doit effectuer ses recherches, également épingler, élever ou rétrograder un contenu précis pour créer une vue personnalisée du web qui permet à vos utilisateurs d’obtenir rapidement des résultats pertinents par rapport à leurs recherches. 
 
-Pour créer votre vue personnalisée du web, utilisez le [portail](https://customsearch.ai) de la Recherche personnalisée Bing. Ce portail vous permet de créer une instance de recherche qui spécifie les domaines, sites web et pages web que Bing doit utiliser pour ses recherches, et ceux qu’il ne doit pas utiliser. Non seulement vous spécifiez les URL du contenu que vous connaissez, mais vous pouvez également utiliser le portail pour trouver du contenu susceptible de vous intéresser et que vous pouvez ajouter.
+## <a name="features"></a>Caractéristiques
 
-Le portail vous permet également d’épingler une page web particulière en haut des résultats de recherche si l’utilisateur entre un terme de recherche spécifique. 
+|Fonctionnalité  |Description  |
+|---------|---------|
+|[Suggestions personnalisées de recherche en temps réel](define-custom-suggestions.md)     | Fournir des suggestions de recherche qui peuvent être affichées sous forme de liste déroulante, au fur et à mesure que l’utilisateur tape un texte au clavier.       | 
+|[Expériences personnalisées de recherche d’image](get-images-from-instance.md)     | Autoriser les utilisateurs à rechercher des images dans les domaines et sites web spécifiés dans votre instance de recherche personnalisée.        |        
+|[Expériences personnalisées de recherche de vidéo](get-videos-from-instance.md)     | Autoriser les utilisateurs à rechercher des vidéos dans les domaines et sites web spécifiés dans votre instance de recherche personnalisée.        |    
+|[Partager votre instance de recherche personnalisée](share-your-custom-search.md)     | Modifier et tester en collaboration votre instance de recherche en la partageant avec des membres de votre équipe.        | 
+|[Configurer une interface utilisateur pour vos applications et sites web](hosted-ui.md)     | Modifier et tester en collaboration votre instance de recherche en la partageant avec des membres de votre équipe.        | 
+## <a name="workflow"></a>Workflow
 
-Après avoir défini votre instance, vous pouvez intégrer la recherche personnalisée à votre site web, application de bureau ou application mobile en appelant l’API Recherche personnalisée. Si vous avez un site ou une application web, vous pouvez laisser l’IU hébergée restituer l’interface de recherche pour vous.
+Vous pouvez créer une instance de recherche personnalisée par l’intermédiaire du [portail Recherche personnalisée Bing](https://customsearch.ai). Ce portail vous permet de créer une instance de recherche personnalisée qui spécifie les domaines, sites web et pages web que Bing doit utiliser pour ses recherches, et ceux qu’il ne doit pas utiliser. Vous pouvez également utiliser le portail pour afficher un aperçu de l’expérience de recherche, ajuster les classements de recherche que fournit l’API et, au besoin, configurer une interface utilisateur de recherche affichable dans vos applications et vos sites web.
 
-L’illustration suivante montre la simplicité de l’intégration de la recherche personnalisée.
+Après avoir créé votre instance de recherche, vous pouvez l’intégrer (avec une interface utilisateur si nécessaire) à votre application ou votre site web en appelant l’API Recherche personnalisée Bing :
 
-![picture alt](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/cognitive-services/Bing-Custom-Search/media/BCS-Overview.png "Fonctionnement de la Recherche personnalisée Bing.")
+![Image illustrant la possibilité de se connecter à la Recherche personnalisée Bing via l’API](media/BCS-Overview.png "Fonctionnement de la Recherche personnalisée Bing.")
 
-## <a name="adding-custom-search-box-suggestions"></a>Ajout de suggestions de zone de recherche personnalisées
-
-Vous pouvez enrichir votre expérience de recherche personnalisée avec des suggestions de zone de recherche personnalisées. Cette fonctionnalité vous permet de fournir des suggestions de recherche personnalisée appropriées à votre expérience de recherche. Quand l’utilisateur tape dans la zone de recherche, il voit une liste déroulante qui contient des suggestions de chaînes de requête basées sur la chaîne de requête qu’il a commencé à taper. Vous pouvez spécifier que seules vos suggestions personnalisées soient retournées ou aussi celles de Bing. [En savoir plus](define-custom-suggestions.md).
-
-## <a name="adding-custom-image-search-experience"></a>Ajout d’une expérience de recherche d’images personnalisée
-
-Vous pouvez enrichir votre expérience de recherche personnalisée avec des images. Comme les résultats web, la recherche personnalisée prend en charge la recherche d’images dans la liste de sites web de votre instance. [En savoir plus](get-images-from-instance.md).
-
-## <a name="adding-custom-video-search-experience"></a>Ajout d’une expérience de recherche de vidéos personnalisée
-
-Vous pouvez enrichir votre expérience de recherche personnalisée avec des vidéos. Comme les résultats web, la recherche personnalisée prend en charge la recherche de vidéos dans la liste de sites web de votre instance. [En savoir plus](get-videos-from-instance.md).
-
-## <a name="sharing-your-custom-search-instance-with-others"></a>Partage de votre instance de recherche personnalisée avec d’autres utilisateurs
-
-Vous pouvez facilement autoriser des modifications et des tests collaboratifs sur votre instance en la partageant avec les membres de votre équipe. [En savoir plus](share-your-custom-search.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour bien démarrer rapidement, consultez [Créer votre première instance Recherche personnalisée Bing](quick-start.md).
 
 Pour plus d’informations sur la personnalisation de votre instance de recherche, consultez [Définir une instance de recherche personnalisée](define-your-custom-view.md).
+
+Prenez soin de lire les [Conditions d’utilisation et d’affichage Bing](./use-and-display-requirements.md) pour utiliser des résultats de recherche dans vos services et applications.
 
 Familiarisez-vous avec le contenu de référence pour chacun des points de terminaison de la recherche personnalisée. Vous y trouverez les points de terminaison, les en-têtes et les paramètres de requête à utiliser pour demander les résultats de la recherche. Vous y trouverez également les définitions des objets de réponse.
 
@@ -60,5 +54,3 @@ Familiarisez-vous avec le contenu de référence pour chacun des points de termi
 - [API Vidéo personnalisée](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
 - [API Suggestion automatique personnalisée](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
 
-
-Prenez soin de lire les [exigences relatives à l’affichage et à l’utilisation de Bing](./use-and-display-requirements.md) pour respecter les règles d’utilisation des résultats de la recherche.

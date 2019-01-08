@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 45bf9bbffdbba22336da08c81df069ce0267686f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 40df81d496e04ab2d549923cc0645afb8eddaf57
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092658"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724451"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Utiliser des outils de transfert de données pour le stockage Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Microsoft Azure Stack fournit un ensemble de services de stockage pour les disques, les objets blob, les tables, les files d’attente, ainsi que des fonctions de gestion de compte. Vous pouvez utiliser un ensemble d’outils de stockage Azure si vous voulez gérer des données ou les déplacer vers ou à partir du stockage Azure Stack. Cet article fournit une vue d’ensemble des outils disponibles.
 
@@ -48,7 +48,7 @@ Vos exigences déterminent lequel des outils suivants est le mieux pour vous :
 
     Un pilote de système de fichiers virtuel pour Stockage Blob Azure, qui vous permet d’accéder à vos données blob de blocs dans votre compte de stockage via le système de fichiers Linux. 
 
-En raison des différences des services de stockage Azure et Azure Stack, chaque outil décrit dans les sections suivantes peut avoir des exigences spécifiques. Pour une comparaison entre le stockage Azure et le stockage Azure Stack, consultez [Stockage Azure Stack : Différences et considérations](azure-stack-acs-differences.md).
+En raison des différences des services de stockage Azure et Azure Stack, chaque outil décrit dans les sections suivantes peut avoir des exigences spécifiques. Pour une comparaison entre le stockage Azure et le stockage Azure Stack, consultez [Stockage Azure Stack : différences et considérations](azure-stack-acs-differences.md).
 
 ## <a name="azcopy"></a>AzCopy
 
@@ -56,16 +56,17 @@ AzCopy est un utilitaire de ligne de commande conçu pour copier des données à
 
 ### <a name="download-and-install-azcopy"></a>Téléchargement et installation d’AzCopy
 
-Il existe deux versions de l’utilitaire AzCopy : AzCopy sur Windows et AzCopy sur Linux.
+Il existe deux versions de l’utilitaire AzCopy : AzCopy sur Windows et AzCopy sur Linux.
 
  - **AzCopy sur Windows**
-    - Téléchargez la version d’AzCopy prise en charge pour Azure Stack. Vous pouvez installer et utiliser AzCopy sur Azure Stack comme sur Azure. Pour en savoir plus, consultez [AzCopy sur Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
-        - Pour la mise à jour 1802, ou plus récente, [téléchargez AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
-        - Pour des versions antérieures, [téléchargez AzCopy 5.0.0](https://aka.ms/azcopyforazurestack20170417).
+    - Téléchargez la version d’AzCopy prise en charge pour Azure Stack. Vous pouvez installer et utiliser AzCopy sur Azure Stack comme sur Azure. Pour plus d’informations, voir [AzCopy sur Windows](../../storage/common/storage-use-azcopy.md).
+        - Pour la mise à jour 1811, ou plus récente, [téléchargez AzCopy 7.3.0](https://aka.ms/azcopyforazurestack20171109).
+        - Pour des versions antérieures (mises à jour 1802 à 1809), [téléchargez AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
 
  - **AzCopy sur Linux**
 
-    - AzCopy sur Linux prend en charge la mise à jour 1802 d’Azure Stack ou des versions plus récentes. Vous pouvez installer et utiliser AzCopy sur Azure Stack comme sur Azure. Pour en savoir plus, consultez [AzCopy sur Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
+    - Vous pouvez installer et utiliser AzCopy sur Azure Stack comme sur Azure. Pour plus d’informations, voir [AzCopy sur Linux](../../storage/common/storage-use-azcopy-linux.md).
+    - Pour les versions précédentes (mises à jour 1802 à 1809), consultez la [Procédure d’installation d’AzCopy 7.1 et versions antérieures](../../storage/common/storage-use-azcopy-linux.md#installation-steps-for-azcopy-71-and-earlier-versions).
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Exemples de commandes AzCopy pour le transfert de données
 
@@ -75,36 +76,36 @@ Les exemples suivants présentent des scénarios permettant de copier des donné
 
 **Windows**
 
-````AzCopy
+```shell
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
-````
+```
 
 **Linux**
 
-````AzCopy
+```bash
 azcopy \
     --source https://myaccount.blob.local.azurestack.external/mycontainer \
     --destination /mnt/myfiles \
     --source-key <key> \
     --recursive
-````
+```
 
 ### <a name="upload-single-file-to-virtual-directory"></a>Télécharger un fichier unique dans le répertoire virtuel
 
 **Windows**
 
-```AzCopy
+```shell
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 
 **Linux**
 
-````AzCopy
+```bash
 azcopy \
     --source /mnt/myfiles/abc.txt \
     --destination https://myaccount.blob.local.azurestack.external/mycontainer/vd/abc.txt \
     --dest-key <key>
-````
+```
 
 ### <a name="move-data-between-azure-and-azure-stack-storage"></a>Déplacer des données entre le stockage Azure et Azure Stack
 
@@ -112,13 +113,13 @@ Le transfert de données asynchrone entre le stockage Azure et Azure Stack n’e
 
 **Windows**
 
-````AzCopy
+```shell
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
-````
+```
 
 **Linux**
 
-````AzCopy
+```bash
 azcopy \
     --source https://myaccount1.blob.local.azurestack.external/myContainer/ \
     --destination https://myaccount2.blob.core.windows.net/myContainer/ \
@@ -126,7 +127,7 @@ azcopy \
     --dest-key <key2> \
     --include "abc.txt" \
     --sync-copy
-````
+```
 
 ### <a name="azcopy-known-issues"></a>Problèmes connus d’AzCopy
 
@@ -217,28 +218,27 @@ New-Item -Path $DestinationFolder -ItemType Directory -Force
 $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 
 # end
-````
+```
 
 ### <a name="powershell-known-issues"></a>Problèmes connus de PowerShell
 
 La version actuelle du module Azure PowerShell compatible avec Azure Stack est 1.2.11 pour les opérations utilisateur. Elle est différente de la dernière version d’Azure PowerShell. Cette différence impacte le fonctionnement des services de stockage :
 
-* Le format de la valeur renvoyée de `Get-AzureRmStorageAccountKey` dans la version 1.2.11 comporte deux propriétés, `Key1` et `Key2`, alors que la version actuelle d’Azure renvoie un tableau contenant toutes les clés de compte.
+Le format de la valeur renvoyée de `Get-AzureRmStorageAccountKey` dans la version 1.2.11 comporte deux propriétés, `Key1` et `Key2`, alors que la version actuelle d’Azure renvoie un tableau contenant toutes les clés de compte.
 
-   ```
-   # This command gets a specific key for a storage account, 
-   # and works for Azure PowerShell version 1.4, and later versions.
-   (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
-   -AccountName "MyStorageAccount").Value[0]
+```powershell
+# This command gets a specific key for a storage account, 
+# and works for Azure PowerShell version 1.4, and later versions.
+(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+-AccountName "MyStorageAccount").Value[0]
 
-   # This command gets a specific key for a storage account, 
-   # and works for Azure PowerShell version 1.3.2, and previous versions.
-   (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
-   -AccountName "MyStorageAccount").Key1
+# This command gets a specific key for a storage account, 
+# and works for Azure PowerShell version 1.3.2, and previous versions.
+(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+-AccountName "MyStorageAccount").Key1
+```
 
-   ```
-
-   Pour plus d’informations, consultez [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0).
+Pour plus d’informations, consultez [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey).
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -265,7 +265,7 @@ Avant d’exécuter ce script, vérifiez que vous pouvez vous connecter au Azure
 4. Rendez le script exécutable, si nécessaire : `chmod +x my_storage_sample.sh`
 5. Exécutez le script. Par exemple, dans Bash : `./my_storage_sample.sh`
 
-```bash
+```azurecli
 #!/bin/bash
 # A simple Azure Stack storage example script
 
@@ -296,7 +296,7 @@ echo "Downloading the file..."
 az storage blob download --container-name $AZURESTACK_STORAGE_CONTAINER_NAME --account-name $AZURESTACK_STORAGE_ACCOUNT_NAME --name $AZURESTACK_STORAGE_BLOB_NAME --file $DESTINATION_FILE --output table
 
 echo "Done"
-````
+```
 
 ## <a name="microsoft-azure-storage-explorer"></a>Explorateur de stockage Microsoft Azure
 
@@ -317,20 +317,20 @@ Dans le Kit de développement Azure Stack, blobEndpoint doit être `myaccount.bl
 
 Notez que vous ne pouvez pas configurer à la fois accountKey et sasToken. Quand la clé du compte de stockage est spécifiée, le fichier de configuration des informations d’identification est au format suivant : 
 
-```text  
-    accountName myaccount 
-    accountKey myaccesskey== 
-    containerName mycontainer 
-    blobEndpoint myaccount.blob.local.azurestack.external
+```
+accountName myaccount 
+accountKey myaccesskey== 
+containerName mycontainer 
+blobEndpoint myaccount.blob.local.azurestack.external
 ```
 
 Quand le jeton d’accès partagé est spécifié, le fichier de configuration des informations d’identification est au format suivant :
 
-```text  
-    accountName myaccount 
-    sasToken ?mysastoken 
-    containerName mycontainer 
-    blobEndpoint myaccount.blob.local.azurestack.external
+```  
+accountName myaccount 
+sasToken ?mysastoken 
+containerName mycontainer 
+blobEndpoint myaccount.blob.local.azurestack.external
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -15,21 +15,21 @@ ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cd5da2a3c5fa3d9cd67715493eb649926badb694
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 314f1c1656485f93942eb23f928cc66720a12565
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622532"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753538"
 ---
-# <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Démarrage rapide : Installer le pack de contenu Azure Active Directory Power BI
+# <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Démarrage rapide : installer le pack de contenu Power BI Azure Active Directory
 
 |  |
 |--|
 |Actuellement, le pack de contenu Azure AD Power BI utilise les API Azure AD Graph pour récupérer des données à partir de votre locataire Azure AD. Par conséquent, vous pouvez voir certaines différences entre les données disponibles dans le pack de contenu et les données récupérées à l’aide des [API Microsoft Graph pour les rapports](concept-reporting-api.md). |
 |  |
 
-Le pack de contenu Power BI pour Azure Active Directory (Azure AD) vous donne la possibilité de visualiser les données de rapport de votre environnement. Vous pouvez télécharger le pack de contenu prédéfini et l’utiliser pour créer des rapports sur toutes les activités au sein de votre annuaire en utilisant l’expérience de visualisation avancée qu’offre Power BI. Vous pouvez créer votre propre tableau de bord et le partager facilement avec d’autres personnes de votre organisation. 
+Le pack de contenu Power BI pour Azure Active Directory (Azure AD) vous donne la possibilité de visualiser les données de rapport de votre environnement. Vous pouvez télécharger le pack de contenu exemple et l’utiliser pour créer des rapports sur toutes les activités au sein de votre répertoire grâce à la puissante expérience de visualisation qu’offre Power BI. Vous pouvez créer votre propre tableau de bord et le partager facilement avec d’autres personnes de votre organisation. 
 
 Dans ce démarrage rapide, vous allez apprendre à installer le pack de contenu.
 
@@ -39,7 +39,7 @@ Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
 * Un compte Microsoft Power BI. Il s’agit du même compte que votre compte Office 365 ou Azure AD. 
 * Votre ID de locataire Azure AD. Il s’agit de l’**ID de répertoire** de votre répertoire obtenu sur la [page de propriétés](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) du portail Azure.
-* Une licence Azure AD Premium (P1/P2). 
+* Une licence Azure AD Premium (P1/P2). Consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) pour mettre à niveau votre édition d’Azure Active Directory.
 
 ## <a name="install-azure-ad-power-bi-content-pack"></a>Installer le pack de contenu Azure AD Power BI 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Analyse d’une image distante - REST, Python - API Vision par ordinateur'
+title: 'Démarrage rapide : Analyser une image distante - REST, Python'
 titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide, vous analysez une image distante à l’aide de l’API Vision par ordinateur avec Python.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: daad35129c99deb37b44e4a98e0c228963d99840
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: f60a3c3c2ab586bdf1eb44cf1e81a9adb87584b0
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854150"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583934"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Démarrage rapide : Analyse d’une image distante à l’aide de l’API REST et de Python dans l’API Vision par ordinateur
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Démarrage rapide : Analyse d’une image distante à l’aide de l’API REST et de Python dans l’API Vision par ordinateur
 
 Dans ce démarrage rapide, vous analysez une image stockée à distance pour extraire des caractéristiques visuelles à l’aide de l’API REST de Vision par ordinateur. Avec la [méthode d’analyse d’une image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), vous pouvez extraire des fonctionnalités visuelles en fonction du contenu de l’image.
 

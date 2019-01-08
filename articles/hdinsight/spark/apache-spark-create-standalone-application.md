@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : créer une application Scala Maven pour Spark dans Azure HDInsight à l’aide d’IntelliJ'
+title: 'Didacticiel : Créer une application Scala Maven pour Spark dans Azure HDInsight à l’aide d’IntelliJ'
 description: Créez une application Spark écrite en Scala avec Apache Maven comme système de génération et un archétype Maven existant pour Scala fourni par IntelliJ IDEA.
 services: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: d83c04946b67dd25bae306c2fa41a0864287bfc8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: eef755c01a6703976383ee31b52bde14d32f0110
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499319"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604063"
 ---
-# <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Tutoriel : Créer une application Scala Maven pour Apache Spark dans HDInsight à l’aide d’IntelliJ
+# <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Didacticiel : Créer une application Scala Maven pour Apache Spark dans HDInsight à l’aide d’IntelliJ
 
 Dans ce tutoriel, vous allez voir comment créer une application [Apache Spark](https://spark.apache.org/) écrite en [Scala](https://www.scala-lang.org/) à l’aide d’[Apache Maven](https://maven.apache.org/) avec IntelliJ IDEA. Dans cet article, Apache Maven est utilisé comme système de génération. Le document présente dans un premier temps un archétype Maven existant pour Scala fourni par IntelliJ IDEA.  La création d’une application Scala avec IntelliJ IDEA implique les étapes suivantes :
 
@@ -26,7 +26,7 @@ Dans ce tutoriel, vous allez voir comment créer une application [Apache Spark](
 * Générer un fichier jar qui peut être soumis à des clusters HDInsight Spark.
 * Exécuter l’application à distance sur le cluster Spark à l’aide de Livy.
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight propose également un outil de plug-in IntelliJ IDEA pour faciliter le processus de création et d’envoi des applications à un cluster HDInsight Spark sous Linux. Pour plus d’informations, consultez [Utiliser le plug-in Outils HDInsight pour IntelliJ IDEA afin de créer et d’envoyer des applications Apache Spark](apache-spark-intellij-tool-plugin.md).
 > 
 
@@ -106,7 +106,7 @@ Pour installer le plug-in Scala, procédez comme suit :
 1. Indiquez les valeurs appropriées pour **GroupId**, **ArtifactId** et **Version**. Les valeurs suivantes sont utilisées dans ce didacticiel :
 
     - GroupId : com.microsoft.spark.example
-    - ArtifactId : SparkSimpleApp
+    - ArtifactId : SparkSimpleApp
 1. Sélectionnez **Suivant**.
 1. Vérifiez les paramètres, puis sélectionnez **Suivant**.
 1. Vérifiez le nom et l’emplacement du projet, puis sélectionnez **Terminer**.

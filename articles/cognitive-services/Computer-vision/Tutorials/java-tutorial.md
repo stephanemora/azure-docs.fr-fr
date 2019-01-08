@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : API Vision par ordinateur avec Java'
+title: 'Didacticiel : Effectuer des opérations sur les images - Java'
 titlesuffix: Azure Cognitive Services
 description: Explorez une application Java Swing de base qui utilise l’API Vision par ordinateur dans Azure Cognitive Services. Effectuez une reconnaissance OCR, créez des miniatures et utilisez des fonctionnalités visuelles dans une image.
 services: cognitive-services
@@ -9,15 +9,16 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
 ms.author: kefre
+ms.custom: seodec18
 ms.date: 09/21/2017
-ms.openlocfilehash: 36a8a49ee49636d186ca217ae223b1eebf9bb54b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f039e85ab3fccfc36b704f06d9fcfa3b4cfed758
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340254"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584545"
 ---
-# <a name="tutorial-computer-vision-api-java"></a>Tutoriel : API Vision par ordinateur avec Java
+# <a name="tutorial-computer-vision-api-java"></a>Didacticiel : API Vision par ordinateur avec Java
 
 Ce tutoriel montre les fonctionnalités de l’API REST Vision par ordinateur dans Azure Cognitive Services.
 
@@ -77,7 +78,7 @@ Importez le fichier **cognitive-services-java-computer-vision-tutorial-master.zi
 
 1. Quittez l’application du tutoriel.
 
-## <a name="add-the-tutorial-code-to-the-project"></a>Ajoutez le code du didacticiel au projet
+## <a name="add-the-tutorial-code-to-the-project"></a>Ajouter le code du didacticiel au projet
 
 L’application Java Swing est configurée avec six onglets. Chaque onglet illustre une fonctionnalité différente de Vision par ordinateur (analyse, OCR, etc.). Les six sections du didacticiel n’ont pas de dépendances entre elles. Vous pouvez donc ajouter une section, la totalité des six sections ou n’importe quel sous-ensemble. Vous pouvez ajouter les sections dans n’importe quel ordre.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Analyser une image - Kit de développement logiciel (SDK), C# - Vision par ordinateur'
+title: 'Démarrage rapide : Analyser une image - SDK, C#'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous analysez une image à l’aide de la bibliothèque de client Windows en C# de l’API Vision par ordinateur.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: 0983978221e9872e92ca366edd3bd3f2bfd9c3f4
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.custom: seodec18
+ms.openlocfilehash: 5bb11d77a6bdca3ef328ad24ac18ade8df9f65ec
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413317"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583362"
 ---
 # <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Démarrage rapide : Analyser une image à l’aide du kit de développement logiciel (SDK) Vision par ordinateur et de C#
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 467484824ec3a3ceffb6dfa692953406ed6acc1b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ec282bc1159e8a8cf21b88b8430bbf3067686528
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963319"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788614"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Tutoriel : Déployer une application Service Fabric Mesh
 
@@ -38,7 +38,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * [Déboguer une application Service Fabric Mesh qui s’exécute dans votre cluster de développement local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
 > * Déployer une application Service Fabric Mesh
 > * [Mettre à niveau une application Service Fabric Mesh](service-fabric-mesh-tutorial-upgrade.md)
-> * [Nettoyer les ressources Service Fabric Mesh](service-fabric-mesh-tutorial-cleanup-resources.md)
+> * [Nettoyer des ressources Service Fabric Mesh](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -113,10 +113,10 @@ Vous pouvez utiliser le service Azure Cloud Shell ou une installation locale de 
 
 À ce stade, votre application a été déployée. Vous pouvez vérifier son état à l’aide de la commande `app show`. 
 
-Le nom de l’application pour l’application du tutoriel est `ServiceMeshApp`. Collecter les informations relatives à l’application à l’aide de la commande suivante :
+Le nom de l’application pour l’application du tutoriel est `todolistapp`. Collecter les informations relatives à l’application à l’aide de la commande suivante :
 
 ```azurecli-interactive
-az mesh app show --resource-group $rg --name ServiceMeshApp
+az mesh app show --resource-group $rg --name todolistapp
 ```
 
 ## <a name="see-all-applications-currently-deployed-to-your-subscription"></a>Voir toutes les applications actuellement déployées dans votre abonnement

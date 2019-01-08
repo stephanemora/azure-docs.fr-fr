@@ -3,7 +3,7 @@ title: 'Démarrage rapide : se connecter à Azure SQL Database et interroger la 
 description: Cet article de démarrage rapide sur Azure SQL Database explique comment se connecter à une base de données SQL Azure et l’interroger.
 services: sql-database
 ms.service: sql-database
-ms.subservice: scenario
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -12,14 +12,14 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 11/01/2018
-ms.openlocfilehash: ab1f96b2348c24a746aaa7bdd670f396884ee3f5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 613b4cf2b08269259a4608a6960b815777cd0ae9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870195"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608032"
 ---
-# <a name="quickstarts-azure-sql-database-connect-and-query"></a>Démarrages rapides : Se connecter à Azure SQL Database et l’interroger
+# <a name="quickstarts-azure-sql-database-connect-and-query"></a>Guides de démarrage rapide : Connexion et interrogation d’Azure SQL Database
 
 Le document suivant contient des liens vers des exemples Azure expliquant comment se connecter à une base de données SQL Azure et l’interroger. Il contient également des recommandations pour la sécurité de niveau transport.
 

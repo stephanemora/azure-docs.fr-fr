@@ -1,21 +1,19 @@
 ---
 title: 'Script Azure CLI : Télécharger des journaux de serveur dans Azure Database for MariaDB'
 description: Cet exemple de script Azure CLI montre comment activer et télécharger les journaux de serveur sur un serveur Azure Database for MariaDB.
-services: mariadb
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
-ms.openlocfilehash: cda2f1f02bf48c261da2fdda53c1c145154fe3ee
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: da2a8ed610873d957866117a9ef7aab424edd452
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585167"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548084"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Activer et télécharger les journaux des requêtes lentes sur un serveur Azure Database for MariaDB à l’aide d’Azure CLI
 Cet exemple de script CLI montre comment activer et télécharger les journaux des requêtes lentes sur un serveur Azure Database for MariaDB.
@@ -46,5 +44,5 @@ Ce script utilise les commandes décrites dans le tableau suivant :
 | [az group delete](/cli/azure/group#az-group-delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur Azure CLI : [Documentation d’Azure CLI](/cli/azure)
-- Pour essayer d’autres scripts : [Exemples Azure CLI pour Azure Database for MariaDB](../sample-scripts-azure-cli.md)
+- Découvrez-en plus sur Azure CLI : [Documentation d’Azure CLI](/cli/azure)
+- Essayez d’autres scripts : [Exemples Azure CLI pour Azure Database for MariaDB](../sample-scripts-azure-cli.md)

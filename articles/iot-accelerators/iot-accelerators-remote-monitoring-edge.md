@@ -1,5 +1,5 @@
 ---
-title: Détecter des anomalies en périphérie dans une solution Azure - Tutoriel | Microsoft Docs
+title: Tutoriel de détection des anomalies en périphérie dans une solution - Azure | Microsoft Docs
 description: Dans ce tutoriel, vous allez découvrir comment superviser vos appareils IoT avec l’accélérateur de solution de supervision à distance.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 51c19447e115426bd39d39fedc86193c8f091df1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2f6e8b40907d02e62ede95a44fa10168f7590bd5
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843306"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606246"
 ---
-# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutoriel : Détecter des anomalies à la périphérie avec l’accélérateur de solution de supervision à distance
+# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Didacticiel : Détecter des anomalies en périphérie avec l’accélérateur de solution de supervision à distance
 
 Dans ce tutoriel, vous allez configurer la solution de supervision à distance pour résoudre les anomalies détectées par un appareil IoT Edge. Les appareils IoT Edge vous permettent de traiter la télémétrie à la périphérie afin de réduire le volume des données de télémétrie envoyées à la solution et de répondre plus rapidement aux événements des appareils. Pour connaître les avantages du traitement de données en périphérie, consultez [Qu’est-ce qu’Azure IoT Edge](../iot-edge/about-iot-edge.md).
 

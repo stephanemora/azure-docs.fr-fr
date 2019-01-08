@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: d0b6fc1ebd08b29b9acc28cfb0107b815c7d7bad
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 74240298b0c8bec46ab2beab6fcdfbb59fd7b12a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068237"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579972"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Intégrer avec des services gérés par Azure à l’aide d’Open Service Broker pour Azure (OSBA)
 
@@ -77,7 +77,7 @@ v1beta1.storage.k8s.io               10
 
 L’étape suivante consiste à installer [Open Service Broker pour Azure][open-service-broker-azure], qui inclut le catalogue des services gérés par Azure. Azure Database pour PostgreSQL, Azure Database pour MySQL et Azure SQL Database sont des exemples de services Azure disponibles.
 
-Commencez par ajouter le référentiel Helm Open Service Broker pour Azure :
+Commencez par ajouter le dépôt Helm Open Service Broker pour Azure :
 
 ```azurecli-interactive
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
@@ -171,7 +171,7 @@ Enfin, répertoriez tous les plans de services disponibles. Les plans de service
 Dans cette étape, vous utilisez Helm pour installer un graphique Helm mis à jour pour WordPress. Le graphique provisionne une instance Azure Database pour MySQL externe qui peut être utilisée par WordPress. Ce processus peut prendre plusieurs minutes.
 
 ```azurecli-interactive
-helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0
+helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0 --set replicaCount=1
 ```
 
 Pour vérifier que l’installation a provisionné les bonnes ressources, répertoriez les liaisons et les instances de service installées :

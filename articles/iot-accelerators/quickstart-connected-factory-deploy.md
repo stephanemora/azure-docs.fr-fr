@@ -1,5 +1,5 @@
 ---
-title: Essayer une solution sur Azure pour gérer mes appareils IoT industriels | Microsoft Docs
+title: Essayer une solution pour gérer mes appareils IoT industriels - Azure | Microsoft Docs
 description: Dans ce démarrage rapide, vous allez déployer l’accélérateur de solution Usine connectée Azure IoT, puis vous connecter pour utiliser le tableau de bord de la solution.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 8cb604aee39f651770cb708f8dd92b6fbc0921f5
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d02e72a46e2bec69792eacef673c779310561f83
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138994"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602645"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Démarrage rapide : Essayer une solution informatique pour gérer mes appareils IoT industriels
+# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Démarrage rapide : Essayer une solution cloud pour gérer mes appareils IoT industriels
 
 Ce démarrage rapide vous montre comment déployer l’accélérateur de solution Usine connectée Azure IoT pour exécuter une simulation de supervision et de gestion informatique pour les appareils IoT industriels. Lorsque vous déployez l’accélérateur de solution Usine connectée, il est prérempli avec des ressources simulées qui vous permettent de parcourir un scénario IoT industriel courant. Plusieurs usines simulées sont connectées à la solution et rapportent les valeurs de données nécessaires pour calculer le taux de rendement global (TRG) et les indicateurs de performance clés (KPI). Ce démarrage rapide vous montre comment utiliser le tableau de bord des solutions pour :
 

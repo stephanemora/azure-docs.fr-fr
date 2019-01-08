@@ -1,5 +1,5 @@
 ---
-title: Essayer une solution de maintenance prédictive IoT cloud sur Azure | Microsoft Docs
+title: Essayer une solution de maintenance prédictive IoT cloud - Azure | Microsoft Docs
 description: Dans ce guide de démarrage rapide, vous allez déployer l’accélérateur de solution Maintenance prédictive Azure IoT, puis vous connecter pour utiliser le tableau de bord de la solution.
 author: dominicbetts
 manager: timlt
@@ -7,22 +7,22 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 10ff6565ed8997a5cb87394aa0d743a0d94b67e0
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 22f0eae805ad112c5a6a7746897dac7e37d90028
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144310"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604335"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Démarrage rapide : Essayer une solution informatique pour exécuter une analyse de maintenance prédictive sur mes appareils connectés
+# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Démarrage rapide : Essayer une solution cloud pour exécuter une analyse de maintenance prédictive sur mes appareils connectés
 
 Ce démarrage rapide vous montre comment déployer l’accélérateur de solution Maintenance prédictive Azure IoT pour exécuter une simulation de maintenance prédictive informatique. Une fois l’accélérateur de solution déployé, vous utilisez la page **Tableau de bord** de la solution pour exécuter une analyse de maintenance prédictive sur les données d’un moteur d’avion simulé. Vous pouvez utiliser cet accélérateur de solution comme point de départ de votre propre implémentation ou comme outil d’apprentissage.
 
 Dans cette simulation, Fabrikam est une compagnie aérienne régionale qui s’efforce d’offrir à ses clients une expérience optimale à des prix compétitifs. Une des causes de retard des vols est liée à des problèmes de gestion, et la maintenance des moteurs d'avion est particulièrement complexe. Une panne de moteur en plein vol devant être évitée à tout prix, Fabrikam inspecte ses moteurs régulièrement et suit un programme de maintenance planifiée. Mais les moteurs d’avion ne vieillissent pas tous de la même manière. Et certaines opérations de maintenance inutiles sont effectuées sur les moteurs. Plus important encore, les problèmes clouent les appareils au sol jusqu'à ce que l'opération de maintenance soit terminée. Si un appareil est immobilisé sur un site qui ne dispose pas des techniciens qualifiés ni des pièces de rechange nécessaires, ces problèmes peuvent s’avérer particulièrement coûteux.
 
-Les appareils de Fabrikam sont équipés de capteurs qui analysent les paramètres du moteur pendant le vol. Après de longues années passées à analyser les données liées au fonctionnement et aux pannes des moteurs, les spécialistes de Fabrikam ont développé un modèle capable de prédire la durée de vie utile restante ou RUL (Remaining Useful Life) d’un moteur d'avion. Le modèle se sert d’une corrélation entre les données de quatre des capteurs moteur et l'usure du moteur conduisant à une panne. Tandis que Fabrikam continue à effectuer des inspections régulières pour garantir la sécurité, l’entreprise peut maintenant utiliser les modèles pour calculer la durée de vie utile restante de chaque moteur après chaque vol. Fabrikam peut dorénavant prédire ces futurs points de défaillance et planifier une maintenance afin de minimiser le temps d’immobilisation des appareils et de réduire les coûts d’exploitation tout en garantissant la sécurité des passagers et de l’équipage.
+Les appareils de Fabrikam sont équipés de capteurs qui analysent les paramètres du moteur pendant le vol. Fabrikam recueille depuis des années des données sur le fonctionnement et les pannes de ces capteurs. Les scientifiques de Fabrikam ont utilisé ces données pour développer un modèle permettant de prédire la durée de vie utile restante d’un moteur d’avion. Le modèle se sert d’une corrélation entre les données de quatre des capteurs moteur et l'usure du moteur conduisant à une panne. Tandis que Fabrikam continue à effectuer des inspections régulières pour garantir la sécurité, l’entreprise peut maintenant utiliser les modèles pour calculer la durée de vie utile restante de chaque moteur après chaque vol. Fabrikam peut désormais anticiper les futurs points de défaillance et planifier la maintenance afin de réduire le temps que l’avion doit passer au sol. Ce processus réduit les coûts d’exploitation tout en garantissant la sécurité des passagers et de l’équipage.
 
 Pour suivre ce guide de démarrage rapide, vous devez avoir un abonnement Azure actif.
 
@@ -32,11 +32,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Quand vous déployez l’accélérateur de solution dans votre abonnement Azure, vous devez définir des options de configuration.
 
-Connectez-vous à [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) avec les informations d’identification de votre compte Azure.
+Accédez à [Accélérateurs de solution Microsoft Azure IoT](https://www.azureiotsolutions.com), puis connectez-vous en utilisant les informations d’identification de votre compte Azure.
 
-Cliquez sur **Essayer maintenant** sur la vignette **Maintenance prédictive**.
+Cliquez sur la vignette **Maintenance prédictive**. Dans **Maintenance prédictive**, cliquez sur **Essayer maintenant** :
 
-![Choisir Maintenance prédictive](./media/quickstart-predictive-maintenance-deploy/predictivemaintenance.png)
+![Essayer dès maintenant](./media/quickstart-predictive-maintenance-deploy/predictivemaintenance.png)
 
 Sur la page **Créer une solution de maintenance prédictive**, saisissez un **Nom de solution** unique pour votre accélérateur de solution de maintenance prédictive. Pour ce démarrage rapide, nous allons utiliser **MyPredictiveMaintenance**.
 
@@ -72,7 +72,7 @@ La simulation s’exécute sur le jeu de données complet pour les 148 cycles e
 
 Vous pouvez arrêter la simulation à tout moment. L’option **Démarrer la simulation** réexécute la simulation à partir du début du jeu de données.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous prévoyez d’explorer davantage, laissez l’accélérateur de solution Maintenance prédictive déployé.
 

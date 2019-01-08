@@ -1,6 +1,6 @@
 ---
-title: Charger, encoder et diffuser en continu à l’aide d’Azure Media Services - REST | Microsoft Docs
-description: Suivez les étapes décrites dans ce didacticiel pour charger un fichier et encoder la vidéo, puis diffuser en continu votre contenu avec Azure Media Services à l’aide de REST.
+title: Encoder un fichier distant basé sur une URL et streamer la vidéo avec Azure Media Services - REST | Microsoft Docs
+description: Suivez les étapes décrites dans ce tutoriel pour encoder un fichier basé sur une URL et streamer votre contenu avec Azure Media Services au moyen de REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,20 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 12/19/2018
 ms.author: juliako
-ms.openlocfilehash: 67a0b6ced771519bd97934f8914ba420ee3119ce
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cd020566b61dac7da37b24f10eebfc69b19073cb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615770"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720949"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Tutoriel : charger, encoder et diffuser en continu des vidéos à l’aide de REST
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutoriel : Encoder un fichier distant basé sur une URL et streamer la vidéo - REST
 
 Azure Media Services vous permet d’encoder vos fichiers multimédias dans des formats pouvant être lus sur un large choix de navigateurs et d’appareils. Par exemple, vous pouvez streamer votre contenu au format HLS ou MPEG DASH d’Apple. Avant la diffusion en continu, vous devez encoder votre fichier multimédia numérique haute qualité. Pour obtenir des instructions d’encodage, consultez [Encoding concept](encoding-concept.md) (Concept d’encodage).
 
-Ce tutoriel vous explique comment charger, encoder et diffuser en continu des fichiers vidéo avec Azure Media Services au moyen de REST. 
+Ce tutoriel montre comment encoder un fichier distant basé sur une URL et comment streamer la vidéo avec Azure Media Services au moyen de REST. 
 
 ![Lire la vidéo](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -42,7 +42,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Installez et utilisez l’interface CLI localement. Vous devez avoir Azure CLI 2.0 ou version ultérieure pour cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
+- Installez et utilisez l’interface CLI localement. Vous devez disposer d’Azure CLI 2.0 ou version ultérieure pour cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
 
     Actuellement, les commandes [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) ne fonctionnent pas toutes dans Azure Cloud Shell. Il est recommandé d’utiliser l’interface CLI localement.
 
@@ -52,7 +52,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 - Installez le client REST [Postman](https://www.getpostman.com/) pour exécuter les API REST indiquées dans certains des didacticiels REST AMS. 
 
-    Nous utilisons **Postman** mais n’importe quel outil REST serait approprié. Les autres solutions sont : **Visual Studio Code** avec le plug-in REST ou **Telerik Fiddler**. 
+    Nous utilisons **Postman** mais n’importe quel outil REST serait approprié. Les autres solutions possibles sont : **Visual Studio Code** avec le plug-in REST ou **Telerik Fiddler**. 
 
 ## <a name="download-postman-files"></a>Télécharger les fichiers Postman
 
@@ -111,7 +111,7 @@ Dans cette section, nous enverrons des requêtes qui sont pertinentes pour le co
 
 ### <a name="get-azure-ad-token"></a>Obtenir un jeton Azure AD 
 
-1. Dans la fenêtre de gauche de Postman, sélectionnez « étape 1 : obtenir un jeton d’authentification AAD ».
+1. Dans la fenêtre de gauche de Postman, sélectionnez « Étape 1 : Obtenir le jeton d’authentification AAD ».
 2. Ensuite, sélectionnez « obtenir un jeton Azure AD pour l’authentification du principal du service ».
 3. Appuyez sur **Envoyer**.
 
@@ -174,7 +174,7 @@ Vous pouvez utiliser un préréglage EncoderNamedPreset intégré ou des préré
         ```json
         {
             "properties": {
-                "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
+                "description": "Standard Transform using an Adaptive Streaming encoding preset from the library of built-in Standard Encoder presets",
                 "outputs": [
                     {
                     "onError": "StopProcessingJob",
@@ -228,7 +228,7 @@ Dans cet exemple, l’entrée du travail est basée sur une URL HTTPS (« https:
 
 Le travail prend du temps à se terminer et vous voulez être prévenu lorsque c’est le cas. Pour afficher la progression du travail, nous vous recommandons d’utiliser Event Grid. Ce dernier est conçu pour une haute disponibilité, des performances cohérentes et une mise à l’échelle dynamique. Avec Event Grid, vos applications peuvent écouter les événements de presque tous les services Azure ou de toute source personnalisée, et y réagir. La gestion simple et réactive des événements basée sur HTTP vous aide à générer des solutions efficaces grâce au filtrage et au routage intelligents des événements.  Consultez [Acheminer des événements Azure Media Services vers un point de terminaison personnalisé à l’aide de CLI](job-state-events-cli-how-to.md).
 
-Le **travail** passe généralement par les états suivants : **Planifié**, **En attente**,  **Traitement en cours**, **Terminé** (l’état final). Si le travail a rencontré une erreur, vous obtenez l’état **Erreur**. Si le travail est en cours d’annulation, vous obtenez **Annulation en cours** et **Annulé** une fois l’opération terminée.
+Le **travail** passe généralement par les états suivants : **Planifié**, **En attente**,  **Traitement en cours**, **Terminé** (l’état final). Si le travail a rencontré une erreur, vous obtenez l’état **Erreur**. Si le travail est en cours d’annulation, vous obtenez **Annulation en cours** et **Annulé** une fois l’opération terminée.
 
 ### <a name="create-a-streaming-locator"></a>Créer un localisateur de diffusion en continu
 

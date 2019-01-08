@@ -2,25 +2,18 @@
 title: Sauvegarder des bases de données SQL Server dans Azure | Microsoft Docs
 description: Ce tutoriel explique comment sauvegarder SQL Server avec Azure, ainsi que la récupération de SQL Server.
 services: backup
-documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
-editor: ''
-keywords: ''
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/02/2018
-ms.author: anuragm
-ms.custom: ''
-ms.openlocfilehash: e2e6742fb3eda0523c7333451e836beb069e57ca
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.topic: tutorial
+ms.date: 12/21/2018
+ms.author: raynew
+ms.openlocfilehash: 50085336c59f2284f357e32b875eae08ff90d30f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410361"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790163"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Sauvegarder des bases de données SQL Server sur Azure
 
@@ -44,9 +37,9 @@ Les éléments suivants constituent des limitations connues de la préversion pu
 - Une machine virtuelle SQL (VM) requiert une connectivité Internet pour accéder aux adresses IP publiques Azure. Pour plus de détails, consultez [Établir la connectivité réseau](backup-azure-sql-database.md#establish-network-connectivity).
 - Vous pouvez protéger jusqu’à 2 000 bases de données SQL dans un coffre Recovery Services. Vous devez stocker les bases de données SQL supplémentaires dans un autre coffre Recovery Services.
 - [La sauvegarde des groupes de disponibilité distribués](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) présente des limitations.
-- Les instances de cluster de basculement (FCI) Always On de SQL Server ne sont pas prises en charge.
+- Les instances de cluster de basculement (FCI) Always On de SQL Server ne sont pas prises en charge pour la sauvegarde.
 - Utilisez le portail Azure pour configurer Sauvegarde Azure afin de protéger des bases de données SQL Server. Azure PowerShell, l’interface de ligne de commande Azure et les API REST ne sont pas pris en charge actuellement.
-- Les opérations de sauvegarde/restauration pour les bases de données miroirs, les instantanés de base de données et les bases de données sous ICF ne sont pas prises en charge.
+- Les opérations de sauvegarde/restauration pour les bases de données miroirs FCI, les instantanés de base de données et les bases de données ne sont pas prises en charge.
 - Les bases de données comprenant un grand nombre de fichiers ne peuvent pas être protégées. Le nombre maximal de fichiers pris en charge n’est pas un nombre très déterministe, car il varie selon le nombre de fichiers mais aussi la longueur du chemin d’accès des fichiers. Ces cas sont toutefois moins répandus. Nous concevons une solution pour gérer cette situation.
 
 Reportez-vous à la [section FAQ](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) pour plus d’informations sur les scénarios pris en charge et non pris en charge.
@@ -136,7 +129,7 @@ Les compromis entre les options sont les suivants : facilité de gestion, contr�
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Définir des autorisations pour les machines virtuelles SQL autres que celles de la Place de marché
 
-Pour sauvegarder une machine virtuelle, Sauvegarde Azure nécessite l’installation de l’extension **AzureBackupWindowsWorkload**. Si vous utilisez des machines virtuelles de la Place de marché Azure, continuez avec [Détecter les bases de données SQL Server](backup-azure-sql-database.md#discover-sql-server-databases). Si la machine virtuelle hébergeant vos bases de données SQL n’a pas été créée à partir de la Place de marché Azure, complétez la section suivante pour installer l’extension et définir les autorisations appropriées. Outre l’extension **AzureBackupWindowsWorkload**, Sauvegarde Azure nécessite des privilèges d’administrateur système SQL pour protéger les bases de données SQL. Lors de la détection des bases de données sur la machine virtuelle, Sauvegarde Azure crée un compte **NT Service\AzureWLBackupPluginSvc**. Ce compte est utilisé pour la sauvegarde et la restauration, et il doit disposer de l’autorisation sysadmin SQL. En outre, Sauvegarde Azure utilise le compte **NT AUTHORITY\SYSTEM** pour la détection/l’interrogation des bases de données. Ce compte doit donc être une connexion publique sur SQL.
+Pour sauvegarder une machine virtuelle, Sauvegarde Azure nécessite l’installation de l’extension **AzureBackupWindowsWorkload**. Si vous utilisez des machines virtuelles de la Place de marché Azure, continuez avec [Détecter les bases de données SQL Server](backup-azure-sql-database.md#discover-sql-server-databases). Si la machine virtuelle hébergeant vos bases de données SQL n’a pas été créée à partir de la Place de marché Azure, complétez la section suivante pour installer l’extension et définir les autorisations appropriées. Outre l’extension **AzureBackupWindowsWorkload**, Sauvegarde Azure nécessite des privilèges d’administrateur système SQL pour protéger les bases de données SQL. Lors de la détection des bases de données sur la machine virtuelle, Sauvegarde Azure crée le compte **NT SERVICE\AzureWLBackupPluginSvc**. Ce compte est utilisé pour la sauvegarde et la restauration, et il doit disposer de l’autorisation sysadmin SQL. En outre, Sauvegarde Azure utilise le compte **NT AUTHORITY\SYSTEM** pour la détection/l’interrogation des bases de données. Ce compte doit donc être une connexion publique sur SQL.
 
 Pour configurer des autorisations :
 
@@ -182,7 +175,7 @@ Pendant l’installation, si vous rencontrez l’erreur `UserErrorSQLNoSysadminM
 
     ![Dans la boîte de dialogue Connexion - Nouveau, sélectionnez Rechercher](./media/backup-azure-sql-database/new-login-search.png)
 
-3. Le compte de service virtuel Windows **NT Service\AzureWLBackupPluginSvc** a été créé pendant la phase d’inscription de la machine virtuelle et de découverte SQL. Entrez le nom du compte, comme indiqué dans la case **Enter the object name to select**  (Entrez le nom de l’objet à sélectionner). Sélectionnez **Vérifier les noms** pour résoudre le nom.
+3. Le compte de service virtuel Windows **NT SERVICE\AzureWLBackupPluginSvc** a été créé pendant la phase d’inscription de la machine virtuelle et de découverte SQL. Entrez le nom du compte, comme indiqué dans la case **Enter the object name to select**  (Entrez le nom de l’objet à sélectionner). Sélectionnez **Vérifier les noms** pour résoudre le nom.
 
     ![Cliquer sur Vérifier les noms pour résoudre le nom de service inconnu](./media/backup-azure-sql-database/check-name.png)
 

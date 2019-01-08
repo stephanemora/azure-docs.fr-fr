@@ -9,12 +9,12 @@ ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 76bc59b41bf35f6427b1dcb273f3f50c5e70b748
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f69babb4520b4829a8cf59e2dac7763471a2db65
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344055"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557091"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Tutoriel : Développer et déployer un module IoT Edge Node.js sur votre appareil simulé
 
@@ -36,6 +36,7 @@ Le module IoT Edge que vous créez dans ce tutoriel filtre les données de temp�
 Un appareil Azure IoT Edge :
 
 * Vous pouvez utiliser votre ordinateur de développement ou une machine virtuelle comme un appareil Edge, en suivant les étapes décrites dans le Guide de démarrage rapide pour [Linux](quickstart-linux.md) ou pour les [Appareils Windows](quickstart.md).
+* Si vous exécutez IoT Edge sur Windows, IoT Edge version 1.0.5 ne prend pas en charge les modules Node.js. Pour plus d’informations, consultez les [notes de publication de la version 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Pour obtenir des instructions sur la façon d’installer une version spécifique, consultez [Mettre à jour le runtime et le démon de sécurité IoT Edge](how-to-update-iot-edge.md).
 
 Ressources cloud :
 
@@ -94,7 +95,7 @@ Utilisez **npm** pour créer un modèle de solution Node.js sur lequel vous pouv
 
 3. Dans la palette de commandes, tapez et exécutez la commande **Azure: Sign in** (Azure : Se connecter) et suivez les instructions pour vous connecter à votre compte Azure. Si vous êtes déjà connecté, vous pouvez ignorer cette étape.
 
-4. Dans la palette de commandes, tapez et exécutez la commande **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge : Nouvelle solution IoT Edge). Suivez les invites de la palette de commandes pour créer votre solution.
+4. Dans la palette de commandes, saisissez et exécutez la commande **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge : Nouvelle solution IoT Edge). Suivez les invites de la palette de commandes pour créer votre solution.
 
    | Champ | Valeur |
    | ----- | ----- |

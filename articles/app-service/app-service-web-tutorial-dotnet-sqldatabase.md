@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 14dbd723772caa0045e9744ddb726060e3a1b8cf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ffa6e44a4be8813b74dc707f161bd5c17f72f350
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257775"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720048"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutoriel : Création d’une application ASP.NET dans Azure avec SQL Database
 
-[Azure Web Apps](app-service-web-overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce didacticiel vous montre comment déployer dans Azure une application web ASP.NET axée sur les données et comment la connecter à [Azure SQL Database](../sql-database/sql-database-technical-overview.md). Lorsque vous avez terminé, vous disposez d’une application ASP.NET exécutée dans Azure et connectée à la base de données SQL.
+[Azure App Service](overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce tutoriel montre comment déployer une application ASP.NET pilotée par les données dans App Service et comment la connecter à [Azure SQL Database](../sql-database/sql-database-technical-overview.md). Lorsque vous avez terminé, vous disposez d’une application ASP.NET exécutée dans Azure et connectée à la base de données SQL.
 
-![Application ASP.NET publiée dans une application web Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![Application ASP.NET publiée dans Azure App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -65,7 +65,7 @@ Entrez `Ctrl+F5` pour exécuter l’application sans débogage. L’application 
 
 Testez les liens **Edit**, **Details** et **Delete**.
 
-L’application utilise un contexte de base de données pour se connecter à la base de données. Dans cet exemple, le contexte de base de données utilise une chaîne de connexion appelée `MyDbConnection`. Cette chaîne de connexion est définie dans le fichier *Web.config* et référencée dans le fichier *Models\MyDatabaseContext.cs*. Utilisé plus loin dans ce didacticiel, le nom de chaîne de connexion permet de connecter l’application web Azure à une base de données SQL Azure Database. 
+L’application utilise un contexte de base de données pour se connecter à la base de données. Dans cet exemple, le contexte de base de données utilise une chaîne de connexion appelée `MyDbConnection`. Cette chaîne de connexion est définie dans le fichier *Web.config* et référencée dans le fichier *Models\MyDatabaseContext.cs*. Utilisé plus loin dans ce tutoriel, le nom de chaîne de connexion permet de connecter l’application Azure à une base de données SQL Azure Database. 
 
 ## <a name="publish-to-azure-with-sql-database"></a>Publier dans Azure avec SQL Database
 
@@ -77,7 +77,7 @@ Assurez-vous que **Microsoft Azure App Service** est sélectionné et cliquez su
 
 ![Publier à partir de la page de présentation du projet](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-to-app-service.png)
 
-La publication ouvre la boîte de dialogue **Créer App Service** qui vous permet de créer toutes les ressources Azure dont vous avez besoin pour exécuter votre application web ASP.NET dans Azure.
+La publication ouvre la boîte de dialogue **Créer App Service**, qui vous permet de créer toutes les ressources Azure dont vous avez besoin pour exécuter votre application ASP.NET dans Azure.
 
 ### <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -118,7 +118,7 @@ Dans la boîte de dialogue **Configurer plan App Service** configurez le nouveau
 
 | Paramètre  | Valeur suggérée | Pour plus d’informations |
 | ----------------- | ------------ | ----|
-|**Plan App Service**| myAppServicePlan | [Plans App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
+|**Plan App Service**| myAppServicePlan | [Plans App Service](../app-service/overview-hosting-plans.md) |
 |**Lieu**| Europe Ouest | [Régions Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
 |**Taille**| Gratuit | [Niveaux de tarification](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
@@ -139,7 +139,7 @@ Ajoutez un nom d’utilisateur administrateur et un mot de passe. Pour plus d’
 Gardez en tête ce nom d'utilisateur et ce mot de passe. Vous en aurez besoin pour gérer l’instance de serveur logique ultérieurement.
 
 > [!IMPORTANT]
-> Même si votre mot de passe dans les chaînes de connexion est masqué (dans Visual Studio et également dans App Service), le fait qu’il soit conservé quelque part augmente la surface d’attaque de votre application. App Service peut utiliser des [identités de service managées ](app-service-managed-service-identity.md) pour éliminer ce risque en supprimant toute nécessité de conserver les secrets dans votre configuration de code ou d’application. Pour plus d’informations, consultez [Étapes suivantes](#next-steps).
+> Même si votre mot de passe dans les chaînes de connexion est masqué (dans Visual Studio et également dans App Service), le fait qu’il soit conservé quelque part augmente la surface d’attaque de votre application. App Service peut utiliser des [identités de service managées ](overview-managed-identity.md) pour éliminer ce risque en supprimant toute nécessité de conserver les secrets dans votre configuration de code ou d’application. Pour plus d’informations, consultez [Étapes suivantes](#next-steps).
 
 ![Créer une instance SQL Server](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
@@ -163,7 +163,7 @@ Une fois que l’Assistant a créé les ressources Azure, il publie votre applic
 
 Ajoutez quelques tâches.
 
-![Application ASP.NET publiée dans une application web Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![Application ASP.NET publiée dans une application Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 Félicitations ! Votre application ASP.NET orientée données s’exécute dans Azure App Service.
 
@@ -189,7 +189,7 @@ Entrez le mot de passe de l’administrateur de base de données que vous avez c
 
 ### <a name="allow-client-connection-from-your-computer"></a>Autoriser une connexion client à partir de votre ordinateur
 
-La boîte de dialogue **Créer une nouvelle règle de pare-feu** s’ouvre. Par défaut, votre instance SQL Database n’autorise que les connexions provenant de services Azure, comme votre application web Azure. Pour vous connecter à votre base de données, créez une règle de pare-feu dans l’instance SQL Database. Cette règle de pare-feu autorise l’adresse IP publique de votre ordinateur local.
+La boîte de dialogue **Créer une nouvelle règle de pare-feu** s’ouvre. Par défaut, votre instance SQL Database n’autorise que les connexions provenant de services Azure, comme votre application Azure. Pour vous connecter à votre base de données, créez une règle de pare-feu dans l’instance SQL Database. Cette règle de pare-feu autorise l’adresse IP publique de votre ordinateur local.
 
 La boîte de dialogue contient déjà l’adresse IP de votre ordinateur.
 
@@ -207,7 +207,7 @@ Développez votre connexion > **Bases de données** > **&lt;votre base de donné
 
 ## <a name="update-app-with-code-first-migrations"></a>Mettre à jour l’application avec les Code First Migrations
 
-Vous pouvez utiliser les outils que vous connaissez dans Visual Studio pour mettre à jour votre base de données et votre application web dans Azure. Dans cette étape, vous allez utiliser des Code First Migrations dans Entity Framework pour apporter une modification à votre schéma de base de données et la publier sur Azure.
+Vous pouvez utiliser les outils que vous connaissez dans Visual Studio pour mettre à jour votre base de données et votre application dans Azure. Dans cette étape, vous allez utiliser des Code First Migrations dans Entity Framework pour apporter une modification à votre schéma de base de données et la publier sur Azure.
 
 Pour plus d’informations sur l’utilisation de Migrations Entity Framework Code First, consultez [Getting Started with Entity Framework 6 Code First using MVC 5 (Mise en route avec Entity Framework 6 Code First à l’aide de MVC 5)](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
@@ -301,7 +301,7 @@ Vous pouvez maintenant ajouter un élément de tâche et cocher **Terminé**. Ce
 
 ### <a name="enable-code-first-migrations-in-azure"></a>Activer Code First Migrations dans Azure
 
-Maintenant que votre changement de code fonctionne, y compris la migration de la base de données, vous allez le publiez dans votre application web Azure et mettre également à jour votre instance SQL Database avec Code First Migrations.
+Maintenant que votre modification de code fonctionne, y compris la migration de la base de données, vous allez la publier dans votre application Azure et mettre également à jour votre instance SQL Database avec les Migrations Code First.
 
 Comme précédemment, cliquez avec le bouton droit sur votre projet et sélectionnez **Publier**.
 
@@ -315,40 +315,40 @@ Assurez-vous que la chaîne de connexion pour votre instance SQL Database est re
 
 Sélectionnez **Exécuter les migrations Code First (s’exécute au démarrage de l’application)**, puis cliquez sur **Enregistrer**.
 
-![Activer Code First Migrations dans l’application web Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
+![Activer les Migrations Code First dans l’application Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
 
 ### <a name="publish-your-changes"></a>Publier vos modifications
 
-Maintenant que vous avez activé les Migrations Code First dans votre application web Azure, publiez vos modifications du code.
+Maintenant que vous avez activé les Migrations Code First dans votre application Azure, publiez vos modifications du code.
 
 Dans la page de publication, cliquez sur **Publier**.
 
 Essayez d’ajouter à nouveau des tâches et de sélectionner **Terminé** : elles doivent apparaître dans votre page d’accueil comme éléments terminés.
 
-![Application web Azure après l’activation de Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
+![Application Azure après l’activation des Migrations Code First](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 Toutes les tâches existantes sont toujours affichées. Lorsque vous republiez votre application ASP.NET, les données existantes dans votre instance SQL Database ne sont pas perdues. En outre, Code First Migrations modifie uniquement le schéma de données, sans toucher à vos données existantes.
 
 
 ## <a name="stream-application-logs"></a>Diffuser les journaux d’applications
 
-Vous pouvez diffuser des messages de suivi directement entre votre application web Azure et Visual Studio.
+Vous pouvez diffuser des messages de suivi directement entre votre application Azure et Visual Studio.
 
 Ouvrez _Controllers\TodosController.cs_.
 
-Chaque action commence par une méthode `Trace.WriteLine()`. Ce code est ajouté pour vous montrer comment ajouter des messages de trace à votre application web Azure.
+Chaque action commence par une méthode `Trace.WriteLine()`. Ce code est ajouté pour vous montrer comment ajouter des messages de suivi à votre application Azure.
 
 ### <a name="open-server-explorer"></a>Ouvrir l’Explorateur de serveurs
 
-Dans le menu **Vue**, sélectionnez **Explorateur de serveurs**. Vous pouvez configurer la journalisation pour votre application web Azure dans **l’Explorateur de serveurs**. 
+Dans le menu **Vue**, sélectionnez **Explorateur de serveurs**. Vous pouvez configurer la journalisation pour votre application Azure dans l’**Explorateur de serveurs**. 
 
 ### <a name="enable-log-streaming"></a>Activer la diffusion de journaux
 
 Dans **l’Explorateur de serveurs**, développez **Azure** > **App Service**.
 
-Développez le groupe de ressources **myResourceGroup** que vous avez créé lorsque vous avez créé l’application web Azure.
+Développez le groupe de ressources **myResourceGroup** que vous avez créé quand vous avez créé l’application Azure.
 
-Cliquez avec le bouton droit sur votre application web Azure et sélectionnez **Afficher les journaux de streaming**.
+Cliquez avec le bouton droit sur votre application Azure et sélectionnez **Afficher les journaux de streaming**.
 
 ![Activer la diffusion de journaux](./media/app-service-web-tutorial-dotnet-sqldatabase/stream-logs.png)
 
@@ -356,13 +356,13 @@ Les journaux sont maintenant transmis à la fenêtre **Sortie**.
 
 ![Diffusion des journaux dans la fenêtre Sortie](./media/app-service-web-tutorial-dotnet-sqldatabase/log-streaming-pane.png)
 
-Vous ne pourrez cependant pas visualiser les messages de suivi à ce stade. La raison est simple : lorsque vous sélectionnez **Afficher les journaux de streaming**, votre application web Azure définit le niveau de suivi sur `Error`, ce qui enregistre uniquement les événements d’erreur (avec la méthode `Trace.TraceError()`).
+Vous ne pourrez cependant pas visualiser les messages de suivi à ce stade. La raison est simple : quand vous sélectionnez **Afficher les journaux de streaming**, votre application Azure définit le niveau de suivi sur `Error`, ce qui enregistre uniquement les événements d’erreur (avec la méthode `Trace.TraceError()`).
 
 ### <a name="change-trace-levels"></a>Modifier les niveaux de suivi
 
 Pour modifier les niveaux de suivi pour générer d’autres messages de suivi, revenez à **l’Explorateur de serveurs**.
 
-Cliquez de nouveau avec le bouton droit sur votre application web Azure et sélectionnez **Voir les paramètres**.
+Cliquez à nouveau avec le bouton droit sur votre application Azure et sélectionnez **Afficher les paramètres**.
 
 Dans la liste déroulante **Journal des applications (Système de fichiers)**, sélectionnez **Détaillé**. Cliquez sur **Enregistrer**.
 
@@ -373,7 +373,7 @@ Dans la liste déroulante **Journal des applications (Système de fichiers)**, s
 >
 >
 
-Dans votre navigateur, accédez de nouveau à votre application web à *http://&lt;nom de votre application>.azurewebsites.net*, puis essayez de cliquer autour de l’application de la liste des tâches dans Azure. Les messages de suivi sont maintenant diffusés vers la fenêtre **Sortie** dans Visual Studio.
+Dans votre navigateur, accédez à nouveau à votre application à *http://&lt;nom_de_votre_application>.azurewebsites.net*, puis essayez de cliquer autour de l’application de la liste des tâches dans Azure. Les messages de suivi sont maintenant diffusés vers la fenêtre **Sortie** dans Visual Studio.
 
 ```console
 Application: 2017-04-06T23:30:41  PID[8132] Verbose     GET /Todos/Index
@@ -390,17 +390,17 @@ Pour arrêter le service de diffusion de journaux, cliquez sur le bouton **Arrê
 
 ![Arrêter la diffusion de journaux](./media/app-service-web-tutorial-dotnet-sqldatabase/stop-streaming.png)
 
-## <a name="manage-your-azure-web-app"></a>Gérer votre application web Azure
+## <a name="manage-your-azure-app"></a>Gérer votre application Azure
 
-Accédez au [portail Azure](https://portal.azure.com) pour voir l’application web que vous avez créée. 
+Accédez au [portail Azure](https://portal.azure.com) pour voir l’application que vous avez créée. 
 
 
 
-Dans le menu de gauche, cliquez sur **App Service**, puis cliquez sur le nom de votre application web Azure.
+Dans le menu de gauche, cliquez sur **App Service**, puis cliquez sur le nom de votre application Azure.
 
-![Navigation au sein du portail pour accéder à l’application web Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
+![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 
-Vous accédez à la page de votre application web. 
+Vous accédez à la page de votre application. 
 
 Par défaut, le portail affiche la page **Vue d’ensemble**. Cette page propose un aperçu de votre application. Ici, vous pouvez également effectuer des tâches de gestion de base (parcourir, arrêter, démarrer, redémarrer et supprimer des éléments, par exemple). Les onglets sur le côté gauche de la page affichent les différentes pages de configuration que vous pouvez ouvrir. 
 

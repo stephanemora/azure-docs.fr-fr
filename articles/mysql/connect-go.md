@@ -1,24 +1,21 @@
 ---
 title: Se connecter à Azure Database pour MySQL à l’aide de Go
 description: Ce guide de démarrage rapide fournit plusieurs exemples de code Go que vous pouvez utiliser pour vous connecter et interroger des données de la base de données Azure pour MySQL.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 8f11453cd7ccdd878e20d80469f12263e72166b7
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b61aefcee36584b6ecfd1d701cb548c06f731d05
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264855"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536642"
 ---
-# <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Base de données Azure pour MySQL : Utilisation du langage Go pour se connecter et interroger des données
+# <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Azure Database pour MySQL : Utiliser la langage Go pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure Database pour MySQL à partir de plateformes Windows, Ubuntu Linux et Mac à l’aide d’un code écrit dans le langage [Go](https://golang.org/). Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cette rubrique part du principe que vous connaissez les bases du développement Go et que vous ne savez pas utiliser Azure Database pour MySQL.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -29,7 +26,7 @@ Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un
 ## <a name="install-go-and-mysql-connector"></a>Installer le connecteur pour Go et MySQL
 Installez [Go](https://golang.org/doc/install) et le pilote [go-sql-driver pour MySQL](https://github.com/go-sql-driver/mysql#installation) sur votre propre ordinateur. Suivez les étapes correspondant à votre plateforme :
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 1. [Téléchargez](https://golang.org/doc/install) et installez Go pour Microsoft Windows en fonction des [instructions d’installation](https://golang.org/dl/).
 2. Lancez l’invite de commandes à partir du menu Démarrer.
 3. Créez un dossier pour votre projet. `mkdir  %USERPROFILE%\go\src\mysqlgo`.

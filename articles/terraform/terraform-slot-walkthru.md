@@ -9,24 +9,24 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 4/05/2018
-ms.openlocfilehash: bbd06ae8927e6c21607ac1c997f1e5cf37f092bf
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: a85e7c46aa41309bc031f59ed841dc8149d878b3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667234"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723958"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Utiliser Terraform pour approvisionner une infrastructure avec des emplacements de déploiement Azure
 
-Vous pouvez utiliser des [emplacements de déploiement Azure](/azure/app-service/web-sites-staged-publishing) pour alterner entre différentes versions de votre application. Cette fonctionnalité vous permet de minimiser l’incidence des déploiements défaillants. 
+Vous pouvez utiliser des [emplacements de déploiement Azure](/azure/app-service/deploy-staging-slots) pour alterner entre différentes versions de votre application. Cette fonctionnalité vous permet de minimiser l’incidence des déploiements défaillants. 
 
 Cet article illustre un exemple d’utilisation d’emplacements de déploiement en vous guidant à travers le déploiement de deux applications via GitHub et Azure. L’une de ces applications est hébergée dans un emplacement de production. La seconde application est hébergée dans un emplacement de préproduction. (Les noms « production » et « intermédiaire ». Il peut s’agir de tout type d’emplacement requis dans le cadre de votre scénario.) Après avoir configuré vos emplacements de déploiement, vous pouvez utiliser Terraform pour basculer entre les deux emplacements en fonction de vos besoins.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
+- **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
-- **Compte GitHub** : vous devez disposer d’un compte [GitHub](http://www.github.com) pour dupliquer (fork) et utiliser le référentiel GitHub de test.
+- **Compte GitHub** : vous avez besoin d’un compte [GitHub](http://www.github.com) pour dupliquer (fork) et utiliser le dépôt GitHub de test.
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Créer et appliquer le plan Terraform
 
@@ -58,7 +58,7 @@ Cet article illustre un exemple d’utilisation d’emplacements de déploiement
 
     ![Cloud Shell après la création des répertoires](./media/terraform-slot-walkthru/cloud-shell-after-creating-dirs.png)
 
-1. Remplacez le répertoire par le répertoire `deploy`.
+1. Déplacez-vous dans le répertoire `deploy`.
 
     ```bash
     cd deploy

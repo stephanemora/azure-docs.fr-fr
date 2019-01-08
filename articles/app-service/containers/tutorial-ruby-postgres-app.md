@@ -1,5 +1,5 @@
 ---
-title: Créer une application web Ruby avec Postgres sur Linux - Azure App Service | Microsoft Docs
+title: Générer une application Ruby avec Postgres sur Linux - Azure App Service | Microsoft Docs
 description: Découvrez comment faire fonctionner une application Ruby dans Azure en établissant une connexion à une base de données PostgreSQL dans Azure.
 services: app-service\web
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 247c4f24869901f0f50b081d8f57b7e3841a8e8a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e42d9592d74e845410441097fa6082cfb3f4ac5e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271026"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713877"
 ---
-# <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>Créer une application web Ruby et Postgres dans Azure App Service sur Linux
+# <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Générer une application Ruby et Postgres dans Azure App Service sur Linux
 
-[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce tutoriel vous explique comment créer une application web Ruby et comment la connecter à une base de données PostgreSQL. Une fois terminé, vous disposerez d’une application [Ruby on Rails](https://rubyonrails.org/) s’exécutant dans App Service sur Linux.
+[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce tutoriel vous explique comment créer une application Ruby et comment la connecter à une base de données PostgreSQL. Une fois terminé, vous disposerez d’une application [Ruby on Rails](https://rubyonrails.org/) s’exécutant dans App Service sur Linux.
 
 ![Application Ruby on Rails s’exécutant dans Azure App Service](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
@@ -162,7 +162,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 ```
 
 > [!TIP] 
-> Vous pouvez être encore plus restrictif dans votre règle de pare-feu en [choisissant uniquement les adresses IP sortantes que votre application utilise](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
+> Vous pouvez être encore plus restrictif dans votre règle de pare-feu en [choisissant uniquement les adresses IP sortantes que votre application utilise](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
 ### <a name="connect-to-production-postgres-server-locally"></a>Se connecter au serveur de production Postgres localement
@@ -357,7 +357,7 @@ remote: Running deployment command...
 < Output has been truncated for readability >
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>Rechercher l’application web Azure
+### <a name="browse-to-the-azure-app"></a>Accéder à l’application Azure
 
 Accédez à `http://<app_name>.azurewebsites.net` et ajoutez quelques tâches à la liste.
 
@@ -470,21 +470,21 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-Une fois le `git push` terminé, accédez à l’application web Azure et essayez la nouvelle fonctionnalité.
+Une fois le `git push` terminé, accédez à l’application Azure et testez la nouvelle fonctionnalité.
 
 ![Modifications du modèle et de la base de données publiées dans Azure](media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
 Si vous avez ajouté des tâches, celles-ci sont conservées dans la base de données. Les mises à jour appliquées au schéma de données n’affectent pas les données existantes.
 
-## <a name="manage-the-azure-web-app"></a>Gérer l’application web Azure
+## <a name="manage-the-azure-app"></a>Gérer l’application Azure
 
-Accédez au [Portail Azure](https://portal.azure.com) pour gérer l’application web que vous avez créée.
+Accédez au [portail Azure](https://portal.azure.com) pour gérer l’application que vous avez créée.
 
-Dans le menu de gauche, cliquez sur **App Services**, puis cliquez sur le nom de votre application web Azure.
+Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
 
-![Navigation au sein du portail pour accéder à l’application web Azure](./media/tutorial-php-mysql-app/access-portal.png)
+![Navigation au sein du portail pour accéder à l’application Azure](./media/tutorial-php-mysql-app/access-portal.png)
 
-Vous voyez apparaître la page Vue d’ensemble de votre application web. Ici, vous pouvez effectuer des tâches de gestion de base (arrêter, démarrer, redémarrer, parcourir et supprimer).
+La page Vue d’ensemble de votre application s’affiche. Ici, vous pouvez effectuer des tâches de gestion de base (arrêter, démarrer, redémarrer, parcourir et supprimer).
 
 Le menu de gauche fournit des pages vous permettant de configurer votre application.
 
@@ -506,7 +506,7 @@ Dans ce tutoriel, vous avez appris à :
 > * Diffusion des journaux de diagnostic à partir d’Azure
 > * Gérer l’application dans le portail Azure
 
-Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à une application web.
+Passez au tutoriel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application.
 
 > [!div class="nextstepaction"]
-> [Mapper un nom DNS personnalisé existant à des applications web Azure](../app-service-web-tutorial-custom-domain.md)
+> [Mapper un nom DNS personnalisé existant à Azure App Service](../app-service-web-tutorial-custom-domain.md)

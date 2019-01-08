@@ -1,21 +1,19 @@
 ---
 title: 'Script Azure CLI : Créer une instance d’Azure Database for MariaDB'
 description: Cet exemple de script CLI crée un serveur Azure Database for MariaDB et configure une règle de pare-feu au niveau du serveur.
-services: mariadb
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
-ms.openlocfilehash: 80609035933e45ea9b7cc911a908f6ed24b9f6a7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a7e8a4c8f8572cfdd236b1752e89b3a1b4e7b758
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585241"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546808"
 ---
 # <a name="create-a-mariadb-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Créer un serveur MariaDB et configurer une règle de pare-feu à l’aide d’Azure CLI
 Cet exemple de script CLI crée un serveur Azure Database for MariaDB et configure une règle de pare-feu au niveau du serveur. Une fois que le script s’exécute correctement, le serveur MariaDB est accessible par tous les services Azure et par l’adresse IP configurée.
@@ -43,5 +41,5 @@ Ce script utilise les commandes décrites dans le tableau suivant :
 | [az group delete](/cli/azure/group#az-group-delete) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur Azure CLI : [Documentation d’Azure CLI](/cli/azure)
-- Pour essayer d’autres scripts : [Exemples Azure CLI pour Azure Database for MariaDB](../sample-scripts-azure-cli.md)
+- Découvrez-en plus sur Azure CLI : [Documentation d’Azure CLI](/cli/azure)
+- Essayez d’autres scripts : [Exemples Azure CLI pour Azure Database for MariaDB](../sample-scripts-azure-cli.md)

@@ -5,29 +5,27 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 67904c1e487387f7ed99ba1c0e8d7ebf03e3dc06
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cc17df68280c342f863e69e6a253788d20caeba8
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30196974"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444115"
 ---
 ### <a name="to-add-additional-address-space"></a>Ajout d’un espace d’adressage supplémentaire
 
-1. Pour ajouter un espace d’adressage supplémentaire, dans la section **Paramètres** de la page de votre réseau virtuel, cliquez sur **Espace d’adressage** pour ouvrir la page correspondante.
-2. Ajoutez l’espace d’adressage supplémentaire, puis cliquez sur **Enregistrer** en haut de la page.
+1. Pour ajouter des plages d’adresses supplémentaires à votre espace d’adressage, dans la section **Paramètres** de la page de votre réseau virtuel, sélectionnez **Espace d’adressage**. La page **Espace d’adressage** s’affiche.
+2. Ajoutez la plage d’adresses supplémentaire, puis sélectionnez **Enregistrer** en haut de la page.
 
-  ![Ajouter un espace d’adressage](./media/vpn-gateway-additional-address-space-include/address_space.png)
+   ![Ajouter un espace d’adressage](./media/vpn-gateway-additional-address-space-include/address_space.png)
 
 ### <a name="to-create-additional-subnets"></a>Création de sous-réseaux supplémentaires
 
-1. Pour créer des sous-réseaux, dans la section **Paramètres** de la page de votre réseau virtuel, cliquez sur **Sous-réseaux** pour ouvrir la page **Sous-réseaux**. 
-2. Sur la page Sous-réseaux, cliquez sur **+Sous-réseau** pour ouvrir la page **Ajouter un sous-réseau**. Nommez votre nouveau sous-réseau et spécifiez la plage d’adresses.
+1. Pour créer des sous-réseaux, dans la section **Paramètres** de la page de votre réseau virtuel, sélectionnez **Sous-réseaux**. La page **Sous-réseaux** s’affiche. 
+2. Sélectionnez **Sous-réseau** pour ouvrir la page **Ajouter un sous-réseau**. Entrez le **Nom** de votre nouveau sous-réseau et spécifiez la **Plage d’adresses**.
 
-  ![Paramètres de sous-réseau](./media/vpn-gateway-additional-address-space-include/add_subnet.png)
-3. Pour enregistrer les modifications, cliquez sur **OK** en bas de la page.
-
-  ![Paramètres de sous-réseau](./media/vpn-gateway-additional-address-space-include/ok.png)
+   ![Paramètres de sous-réseau](./media/vpn-gateway-additional-address-space-include/add_subnet.png)
+3. Pour enregistrer les modifications, sélectionnez **OK** en bas de la page.

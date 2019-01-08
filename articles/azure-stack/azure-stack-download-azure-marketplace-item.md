@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/19/2018
+ms.date: 12/10/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: b5c2c51429e37eea2473ae5966b1f41295875cb6
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 70bbade2877b62c3d211600f69e1825677f12040
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638169"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721867"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Télécharger des éléments de la Place de marché à partir d’Azure dans Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 En tant qu’opérateur cloud, vous pouvez télécharger des éléments à partir de la Place de marché Azure et les rendre disponibles dans Azure Stack. Les éléments que vous pouvez choisir font partie d’une liste d’éléments de la Place de marché Azure testés au préalable et prenant en charge le travail avec Azure Stack. De nouveaux éléments sont fréquemment ajoutés à cette liste, consultez-la régulièrement pour voir de nouveaux contenus. 
 
@@ -75,8 +75,8 @@ Si Azure Stack est en mode déconnecté et sans connexion internet, vous utilise
 L’outil de syndication Place de marché peut également être utilisé dans un scénario connecté. 
 
 Ce scénario comporte deux parties :
-- **Partie 1 :** télécharger à partir de la Place de marché Azure. Sur l’ordinateur avec un accès internet, vous configurez PowerShell, téléchargez l’outil de syndication et puis vous téléchargez les éléments à partir de la Place de marché Azure.  
-- **Partie 2 :** télécharger et publier dans la Place de marché Azure Stack. Vous déplacez les fichiers que vous avez téléchargés dans votre environnement Azure Stack, vous les importez dans Azure Stack, puis vous les publiez dans la Place de marché Azure.  
+- **Partie 1 :** télécharger à partir de la Place de marché Azure. Sur l’ordinateur avec un accès internet, vous configurez PowerShell, téléchargez l’outil de syndication et puis vous téléchargez les éléments à partir de la Place de marché Azure.  
+- **Partie 2 :** charger et publier dans la Place de marché Azure Stack. Vous déplacez les fichiers que vous avez téléchargés dans votre environnement Azure Stack, vous les importez dans Azure Stack, puis vous les publiez dans la Place de marché Azure.  
 
 
 ### <a name="prerequisites"></a>Prérequis
@@ -89,6 +89,8 @@ Ce scénario comporte deux parties :
 - Vous devez disposer d’un [compte de stockage](azure-stack-manage-storage-accounts.md) dans Azure Stack disposant d’un conteneur accessible publiquement (qui est un objet blob de stockage). Vous utilisez le conteneur comme un stockage temporaire pour les fichiers de la galerie des éléments de la Place de marché. Si vous n’êtes pas familiarisé avec les comptes de stockage et les conteneurs, consultez [Travailler avec des objets blob - portail Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) dans la documentation Azure.
 
 - L’outil de syndication Place de marché est téléchargé lors de la première procédure. 
+
+- Vous pouvez installer [AzCopy](../storage/common/storage-use-azcopy.md) pour bénéficier de performances de téléchargement optimales, mais cette opération n’est pas obligatoire.
 
 ### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Utiliser l’outil de syndication Place de marché pour télécharger les éléments de la Place de marché
 
@@ -126,10 +128,7 @@ Ce scénario comporte deux parties :
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Sync-AzSOfflineMarketplaceItem 
-      -Destination "Destination folder path in quotes" `
-      -AzureTenantID $AzureContext.Tenant.TenantId ` 
-      -AzureSubscriptionId $AzureContext.Subscription.Id 
+   Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
    ```
 
 6. Lorsque vous exécutez les outils, vous devriez voir un écran similaire à l’image suivante, avec la liste des éléments de la Place de marché disponibles :
@@ -144,7 +143,35 @@ Ce scénario comporte deux parties :
 
 9. Le temps de téléchargement dépend de la taille de l’élément. Une fois le téléchargement terminé, l’élément est disponible dans le dossier que vous avez spécifié dans le script. Le téléchargement comprend un fichier VHD (pour les machines virtuelles) ou un fichier .zip (pour les extensions de machine virtuelle). Il peut également inclure un package de la galerie au format *.azpkg*, autrement dit un simple fichier .zip.
 
-### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>Importer le téléchargement et le publier sur la Place de marché Azure Stack
+10. Si le téléchargement échoue, vous pouvez réessayer en exécutant de nouveau l’applet de commande PowerShell suivante :
+
+    ```powershell
+    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes”
+    ```
+
+    Avant de procéder à une nouvelle tentative, supprimez le dossier du produit dans lequel le téléchargement a échoué. Par exemple, si le script de téléchargement échoue lors du téléchargement sur `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1`, supprimez le dossier `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1`, puis réexécutez l’applet de commande.
+ 
+### <a name="import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher"></a>Importer le téléchargement et le publier dans la Place de marché Azure Stack (1811 et versions supérieures)
+
+1. Vous devez déplacer les fichiers que vous avez [précédemment téléchargés](#use-the-marketplace-syndication-tool-to-download-marketplace-items) localement, afin de les rendre disponibles dans votre environnement Azure Stack. L’outil de syndication de la Place de marché doit également être disponible dans votre environnement Azure Stack, car il vous est utile pour effectuer l’opération d’importation.
+
+   L’illustration suivante montre un exemple de structure de dossier. `D:\downloadfolder` contient tous les éléments de place de marché téléchargés. Chaque sous-dossier est un élément de place de marché (par exemple, `microsoft.custom-script-linux-arm-2.0.3`), nommé par l’ID de produit. À l’intérieur de chaque sous-dossier se trouve le contenu téléchargé de l’élément de place de marché.
+
+   [ ![Structure du répertoire de téléchargement de la Place de marché](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Structure du répertoire de téléchargement de la Place de marché") ](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
+
+2. Pour configurer la session PowerShell de l’opérateur Azure Stack, suivez les instructions de [cet article](azure-stack-powershell-configure-admin.md). 
+
+3. Importez le module de syndication, puis lancez l’outil de syndication de place de marché en exécutant le script suivant :
+
+   ```PowerShell
+   $credential = Get-Credential -Message "Enter the azure stack operator credential:"
+   Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -armendpoint "Environment Arm Endpoint" -AzsCredential $credential
+   ```
+   Le paramètre `-AzsCredential` est facultatif. Il est utilisé pour renouveler le jeton d’accès, s’il a expiré. Si le paramètre `-AzsCredential` n’est pas spécifié et que le jeton expire, vous êtes invité à entrer les informations d’identification de l’opérateur.
+
+4. Une fois l’exécution du script terminée correctement, l’élément doit être disponible dans la Place de marché Azure Stack.
+
+### <a name="import-the-download-and-publish-to-azure-stack-marketplace-1809-and-lower"></a>Importer le téléchargement et le publier dans la Place de marché Azure Stack (1809 et versions inférieures)
 
 1. Les fichiers pour les images de machine virtuelle ou les modèles de solution que vous avez [précédemment téléchargés](#use-the-marketplace-syndication-tool-to-download-marketplace-items) doivent être accessibles localement dans votre environnement Azure Stack.  
 
@@ -159,7 +186,7 @@ Ce scénario comporte deux parties :
    3. Sélectionnez le conteneur que vous souhaitez utiliser, puis sélectionnez **Télécharger** pour ouvrir le volet **Télécharger des objets blob**.  
       [ ![Conteneur](media/azure-stack-download-azure-marketplace-item/container.png "Conteneur") ](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
    
-   4. Dans le volet Télécharger des objets blob, recherchez le package et les fichiers disque que vous souhaitez charger dans le stockage, puis sélectionnez **Télécharger** : [ ![Télécharger](media/azure-stack-download-azure-marketplace-item/uploadsm.png "Télécharger") ](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
+   4. Dans le volet Charger l’objet blob, recherchez le package et les fichiers disque que vous souhaitez charger dans le stockage, puis sélectionnez **Charger**: [ ![Charger](media/azure-stack-download-azure-marketplace-item/uploadsm.png "Charger") ](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
    5. Les fichiers que vous téléchargez apparaissent dans le volet du conteneur. Sélectionnez un fichier, puis copiez l’URL à partir du volet **Propriétés d’objets blob**. Vous allez utiliser cette URL à l’étape suivante lorsque vous importez l’élément de Place de marché dans Azure Stack.  Dans l’image suivante, le conteneur est *blob-test-storage* et le fichier est *Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  L’URL du fichier est *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
       [ ![Propriétés de l’objet BLOB](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Propriétés de l’objet BLOB") ](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
@@ -170,6 +197,8 @@ Ce scénario comporte deux parties :
  
    Dans l’exemple de script suivant, les valeurs pour la machine virtuelle Server Core (Windows Server 2016 Datacenter) sont utilisées. La valeur pour *-Osuri* est un exemple de chemin d’accès à l’emplacement de stockage des objets blob de l’élément.
 
+   Comme alternative, vous pouvez utiliser la [procédure décrite dans cet article](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) pour importer l’image .VHD avec le portail Azure.
+
    ```PowerShell  
    Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
@@ -179,11 +208,12 @@ Ce scénario comporte deux parties :
     -Version "2016.127.20171215" `
     -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
-   **À propos des modèles de solution :** certains modèles peuvent inclure un petit fichier VHD d’environ 3 Mo portant le nom **fixed3.vhd**. Vous n’avez pas besoin d’importer ce fichier dans Azure Stack. Fixed3.vhd.  Ce fichier est inclus avec certains modèles de solution afin de répondre aux exigences de publication pour Place de marché Azure.
+
+   **À propos des modèles de solution :** certains modèles peuvent inclure un petit fichier .VHD d’environ 3 Mo portant le nom **fixed3.vhd**. Vous n’avez pas besoin d’importer ce fichier dans Azure Stack. Fixed3.vhd.  Ce fichier est inclus avec certains modèles de solution afin de répondre aux exigences de publication pour Place de marché Azure.
 
    Consultez la description des modèles et téléchargez puis importez des exigences supplémentaires comme des disques durs virtuels requis pour fonctionner avec le modèle de solution.  
    
-   **À propos des extensions :** lorsque vous travaillez avec des extensions d’image de machine virtuelle, utilisez les paramètres suivants :
+   **À propos des extensions :** lorsque vous travaillez avec des extensions d’image de machine virtuelle, utilisez les paramètres suivants :
    - *Publisher*
    - *Type*
    - *Version*  

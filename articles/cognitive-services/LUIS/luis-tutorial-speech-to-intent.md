@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 1bc3b9e016bed59f6453c26371cce7bd089568aa
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 8e664e26a2cafc2f0b32ebea0f019918426d956c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162629"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714576"
 ---
-# <a name="integrate-speech-service"></a>Intégrer le service de reconnaissance vocale
+# <a name="integrate-speech-service-with-your-language-understanding-app"></a>Intégrer le service Speech à votre Language Understanding
 Le [service de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) vous permet d’utiliser une seule requête pour recevoir de l’audio et retourner les objets JSON de prédiction de LUIS. Dans cet article, vous téléchargez et utilisez un projet C# dans Visual Studio pour prononcer un énoncé dans un microphone et recevoir les informations de prédiction de LUIS. Le projet utilise le package [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) Speech, déjà inclus comme référence. 
 
 Pour cet article, vous devez disposer d’un compte [LUIS][LUIS] gratuit afin d’importer l’application.
@@ -27,7 +27,7 @@ Pour cet article, vous devez disposer d’un compte [LUIS][LUIS] gratuit afin d�
 Dans le portail Azure, [créer](luis-how-to-azure-subscription.md#create-luis-endpoint-key) une clé **Language Understanding** (LUIS). 
 
 ## <a name="import-human-resources-luis-app"></a>Importer l’application Ressources humaines LUIS
-Les intentions et les énoncés de cet article proviennent de l’application Ressources humaines LUIS, disponible dans le référentiel GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Téléchargez le fichier [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), enregistrez-le avec l’extension `.json`, puis [importez-le](luis-how-to-start-new-app.md#import-new-app) dans LUIS. 
+Les intentions et les énoncés de cet article proviennent de l’application Ressources humaines LUIS, disponible dans le dépôt GitHub [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding). Téléchargez le fichier [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json), enregistrez-le avec l’extension `.json`, puis [importez-le](luis-how-to-start-new-app.md#import-new-app) dans LUIS. 
 
 Cette application dispose d’intentions, d’entités et d’énoncés associés au secteur des ressources humaines. Les exemples d’énoncés sont les suivants :
 
@@ -62,7 +62,7 @@ Après avoir importé l’application, sélectionnez **Entités**, puis **Ajoute
 Cet article utilise l’appareil audio de votre ordinateur. Il peut s’agir d’un casque avec microphone ou d’un appareil audio intégré. Vérifiez les niveaux d’entrée audio pour savoir si vous devez parler plus fort que d’habitude pour que votre appareil audio vous détecte. 
 
 ## <a name="download-the-luis-sample-project"></a>Télécharger l’exemple de projet LUIS
- Clonez ou téléchargez le référentiel [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Ouvrez le [projet de conversion de sortie orale en intention](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition) avec Visual Studio et restaurez les packages NuGet. Le fichier de solution Visual Studio est .\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
+ Clonez ou téléchargez le dépôt [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding). Ouvrez le [projet de conversion de sortie orale en intention](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-speech-intent-recognition) avec Visual Studio et restaurez les packages NuGet. Le fichier de solution Visual Studio est documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
 
 Le Kit de développement logiciel (SDK) Speech est déjà inclus comme référence. 
 
@@ -93,7 +93,7 @@ Le Kit de développement logiciel (SDK) Speech retourne l’ensemble de la répo
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 Lorsque vous n’en avez plus besoin, supprimez l’application LUIS Ressources humaines. Pour ce faire, sélectionnez l’application, puis dans la barre d’outils contextuelle au-dessus de la liste, choisissez **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
 
-Rappelez-vous de supprimer le répertoire LUIS-Samples lorsque vous en avez terminé avec l’exemple de code.
+Rappelez-vous de supprimer le répertoire quand vous en avez terminé avec l’exemple de code.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

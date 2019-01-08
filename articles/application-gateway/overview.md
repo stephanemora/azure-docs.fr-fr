@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: b58237f25a51438f0255243f960cc2a6aed2b0ca
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6badfabb3ad20b5c17b3bb2bf09ae13f63568d05
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679169"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714745"
 ---
 # <a name="what-is-azure-application-gateway"></a>Qu’est-ce qu’Azure Application Gateway ?
 
@@ -106,10 +106,18 @@ Application Gateway prend en charge les protocoles WebSocket et HTTP/2 de maniè
 
 Les protocoles WebSocket et HTTP/2 permettent une communication en duplex intégral entre le serveur et le client via une connexion TCP de longue durée. Cela assure une communication plus interactive entre le serveur web et le client, qui peut être bidirectionnelle sans nécessiter d’interrogations, comme c’est le cas pour les implémentations basées sur le protocole HTTP. Ces protocoles engendrent une faible surcharge et peuvent réutiliser la même connexion TCP pour plusieurs demandes/réponses, ce qui entraîne une utilisation plus efficace des ressources. Ces protocoles sont conçus pour fonctionner sur les ports HTTP traditionnels (80 et 443).
 
+## <a name="rewrite-http-headers-public-preview"></a>Réécrire les en-têtes HTTP (préversion publique)
+
+Les en-têtes HTTP permettent au client et au serveur de passer des informations supplémentaires avec la requête ou la réponse. La réécriture de ces en-têtes HTTP permet de prendre en charge plusieurs scénarios importants, notamment l’ajout de champs d’en-tête liés à la sécurité comme HSTS/ X-XSS-Protection ou la suppression de champs d’en-tête de réponse pouvant révéler des informations sensibles comme le nom du serveur back-end. 
+
+Application Gateway permet désormais de réécrire les en-têtes des requêtes HTTP entrantes et des réponses HTTP sortantes. Vous pouvez ajouter, supprimer ou mettre à jour les en-têtes de requête et de réponse HTTP pendant le déplacement des paquets de requête/réponse entre les pools client et back-end. Vous pouvez réécrire les champs d’en-tête standard (définis dans la [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) et non standard.  
+
+Pour plus d’informations sur cette fonctionnalité en préversion publique, consultez [Réécrire les en-têtes HTTP](rewrite-http-headers.md).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Selon vos besoins et l’environnement, vous pouvez créer une passerelle Application Gateway test à l’aide du portail Azure, de Azure PowerShell ou de Azure CLI :
 
-- [Démarrage rapide : Diriger le trafic web avec Azure Application Gateway - Portail Azure](quick-create-portal.md).
-- [Démarrage rapide : Diriger le trafic web avec Azure Application Gateway - Azure PowerShell](quick-create-powershell.md)
-- [Démarrage rapide : Diriger le trafic web avec Azure Application Gateway - Azure CLI](quick-create-cli.md)
+- [Démarrage rapide : diriger le trafic web avec Azure Application Gateway - Portail Azure](quick-create-portal.md).
+- [Démarrage rapide : diriger le trafic web avec Azure Application Gateway - Azure PowerShell](quick-create-powershell.md)
+- [Démarrage rapide : diriger le trafic web avec Azure Application Gateway - Azure CLI](quick-create-cli.md)

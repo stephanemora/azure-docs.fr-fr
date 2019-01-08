@@ -1,24 +1,21 @@
 ---
 title: 'Tutoriel : Concevoir une base de données Azure Database for MariaDB à l’aide d’Azure CLI'
 description: Ce tutoriel explique comment créer et gérer un serveur et une base de données Azure Database for MariaDB avec Azure CLI, depuis la ligne de commande.
-services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 2d715f89b56af822c2c1174cca0f2a9c1b847fc0
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: fa056dad052914e771251585cb426c70591aa235
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516331"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541189"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Tutoriel : Concevoir une base de données Azure Database for MariaDB à l’aide d’Azure CLI
+# <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Didacticiel : Concevoir une base de données Azure Database for MariaDB à l’aide d’Azure CLI
 
 Azure Database for MariaDB est un service de base de données relationnelle dans le cloud Microsoft qui repose sur le moteur de base de données MariaDB Community Edition. Dans ce didacticiel, vous allez utiliser l’interface Azure CLI (interface de ligne de commande) et d’autres utilitaires pour apprendre à :
 
@@ -176,7 +173,7 @@ Imaginez que vous avez supprimé cette table par erreur. Il s’agit de quelque 
 Pour effectuer la restauration, vous avez besoin des informations suivantes :
 
 - Point de restauration : sélectionnez un point dans le temps avant la modification du serveur. Doit être supérieure ou égale à la plus ancienne valeur de sauvegarde de la base de données source.
-- Serveur cible : spécifiez un nouveau nom de serveur sur lequel vous souhaitez effectuer la restauration
+- Serveur cible : indiquez le nom du nouveau serveur sur lequel vous souhaitez effectuer la restauration
 - Serveur source : indiquez le nom du serveur à partir duquel vous voulez effectuer la restauration
 - Emplacement : vous ne pouvez pas sélectionner la région. Par défaut, elle est identique à celle du serveur source
 

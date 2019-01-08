@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 9853e84ffd2de8a1dfd6d9c4f32f58bb36b16403
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 581c47d84466f37d7c7c3ad3e98ae1749f8d9524
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164430"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608645"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Didacticiel : Créer une base de connaissances puis répondre à une question via le portail QnA Maker
 
@@ -83,9 +83,9 @@ Ce tutoriel nécessite un [service QnA Maker](../How-To/set-up-qnamaker-service-
 
 1. Sélectionnez la dernière page de questions et réponses à partir du bas de la table. La page affiche les questions et réponses de la personnalité d’échanges de conversation. 
 
-1. Sélectionnez l’engrenage dans la barre d’outils au-dessus de la liste de questions et réponses. Cela affiche les filtres pour chaque question et réponse. Les questions d’échanges de conversation ont le filtre **editorial: chit-chat** déjà défini. Ce filtre est retourné à l’application cliente avec la réponse sélectionnée. L’application cliente, par exemple un bot conversationnel, peut utiliser ce filtre pour déterminer un traitement ou des interactions supplémentaires avec l’utilisateur.
+1. Sélectionnez l’icône de métadonnées dans la barre d’outils au-dessus de la liste de questions et réponses. Des balises de métadonnées apparaissent alors pour chaque question et réponse. Les questions d’échanges de conversation ont les métadonnées **editorial: chit-chat** déjà définies. Ces métadonnées sont retournées à l’application cliente avec la réponse sélectionnée. L’application cliente, par exemple un bot conversationnel, peut utiliser ces métadonnées filtrées pour déterminer un traitement ou des interactions supplémentaires avec l’utilisateur.
 
-    ![Filtres de vue](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![Afficher les balises de métadonnées](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
 
 1. Sélectionnez **Enregistrer et effectuer l’apprentissage** dans la barre de menus supérieure.
 
@@ -171,7 +171,7 @@ Une fois la base de connaissances publiée, le point de terminaison s’affiche
    
     ```
 
-    Étant donné que la question de `Thank you` correspond exactement à une question d’échanges de conversation, QnA Maker est totalement confiant avec un score de 100. QnA Maker a également renvoyé toutes les questions associées, ainsi que la propriété de métadonnées contenant les informations du filtre d’échanges de conversation.  
+    Étant donné que la question de `Thank you` correspond exactement à une question d’échanges de conversation, QnA Maker est totalement confiant avec un score de 100. QnA Maker a également retourné toutes les questions associées, ainsi que la propriété de métadonnées contenant les informations de la balise de métadonnées d’échanges de conversation.  
 
 ## <a name="use-curl-to-query-for-the-default-answer"></a>Utilisez curl pour interroger la réponse par défaut
 

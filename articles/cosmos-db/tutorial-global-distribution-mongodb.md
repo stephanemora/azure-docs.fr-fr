@@ -1,36 +1,36 @@
 ---
-title: Tutoriel de distribution mondiale Azure Cosmos DB pour l’API MongoDB
-description: Découvrez comment configurer la diffusion mondiale d’Azure Cosmos DB à l’aide de l’API MongoDB.
+title: Tutoriel sur la distribution mondiale à l’aide de l’API Azure Cosmos DB pour MongoDB
+description: Découvrez comment configurer la distribution mondiale à l’aide de l’API Azure Cosmos DB pour MongoDB.
 services: cosmos-db
-keywords: diffusion mondiale, MongoDB
-author: SnehaGunda
+keywords: distribution globale, MongoDB
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.author: sngun
+ms.date: 12/26/2018
+ms.author: rimman
 ms.custom: mvc
-ms.openlocfilehash: 27fa9849c13de151f6922e829514cc8838f295ea
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a5bcfcac891a80807a15657a91eb44df1921f7ee
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874758"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787187"
 ---
-# <a name="set-up-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>Configurer la diffusion mondiale d’Azure Cosmos DB à l’aide de l’API MongoDB
+# <a name="set-up-global-distributed-database-using-azure-cosmos-dbs-api-for-mongodb"></a>Configurer une base de données distribuée à l’échelle mondiale à l’aide de l’API Azure Cosmos DB pour MongoDB
 
-Dans cet article, nous vous montrons comment utiliser le portail Azure pour configurer la diffusion mondiale d’Azure Cosmos DB, puis établir une connexion à l’aide de l’API MongoDB.
+Dans cet article, nous vous montrons comment utiliser le portail Azure pour configurer une base de données distribuée à l’échelle mondiale et vous y connecter à l’aide de l’API Azure Cosmos DB pour MongoDB.
 
 Cet article décrit les tâches suivantes : 
 
 > [!div class="checklist"]
 > * Configurer la diffusion mondiale à l’aide du portail Azure
-> * Configurer la diffusion mondiale à l’aide de [l’API MongoDB](mongodb-introduction.md)
+> * Configurer la distribution mondiale à l’aide de l’[API Azure Cosmos DB pour MongoDB](mongodb-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-## <a name="verifying-your-regional-setup-using-the-mongodb-api"></a>Vérification de votre configuration régionale avec l’API MongoDB
-La façon la plus simple de vérifier votre configuration globale au sein de l’API pour MongoDB consiste à exécuter la commande *isMaster()* à partir de l’interpréteur de commandes Mongo.
+## <a name="verifying-your-regional-setup"></a>Vérification de votre configuration régionale 
+La façon la plus simple de vérifier votre configuration mondiale avec l’API Cosmos DB pour MongoDB consiste à exécuter la commande *isMaster()* à partir de l’interpréteur de commandes Mongo.
 
 À partir de votre interpréteur de commandes Mongo :
 
@@ -64,9 +64,9 @@ Résultats de l’exemple :
       }
    ```
 
-## <a name="connecting-to-a-preferred-region-using-the-mongodb-api"></a>Connexion à une région de prédilection avec l’API MongoDB
+## <a name="connecting-to-a-preferred-region"></a>Connexion à une région de prédilection 
 
-L’API MongoDB vous permet de spécifier les préférences de lecture de votre collection pour une base de données mondialement diffusée. Pour les lectures à faible latence et la haute disponibilité globale, nous vous recommandons de définir les préférences de lecture de votre collection sur *La plus proche*. Une préférence de lecture définie sur *La plus proche* est configurée pour lire à partir de la région la plus proche.
+L’API Azure Cosmos DB pour MongoDB vous permet de spécifier les préférences de lecture de votre collection pour une base de données mondialement distribuée. Pour les lectures à faible latence et la haute disponibilité globale, nous vous recommandons de définir les préférences de lecture de votre collection sur *La plus proche*. Une préférence de lecture définie sur *La plus proche* est configurée pour lire à partir de la région la plus proche.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
@@ -95,10 +95,10 @@ C’est ici que s’achève ce didacticiel. Découvrez comment gérer la cohére
 Dans ce tutoriel, vous avez :
 
 > [!div class="checklist"]
-> * Configurer la diffusion mondiale à l’aide du portail Azure
-> * Configurer la distribution mondiale à l’aide des API SQL
+> * Configuré la distribution globale à l’aide du portail Azure.
+> * Configuré la distribution mondiale à l’aide de l’API de Cosmos DB pour MongoDB.
 
 Vous pouvez maintenant passer au didacticiel suivant pour apprendre à développer en local à l’aide de l’émulateur local Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Développer en local avec l’émulateur](local-emulator.md)
+> [Développer localement avec l’émulateur Azure Cosmos DB](local-emulator.md)

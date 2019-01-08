@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2fe5c44e834826f9dc62acd30e853c3736b432ee
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 951b47c7193b2b405def9831e94c5e29faff3119
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412433"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791114"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Fédérer plusieurs instances d’Azure AD avec une seule instance d’AD FS
 
@@ -45,13 +45,13 @@ Pour qu’AD FS dans contoso.com puisse authentifier les utilisateurs de fabrika
  
 ## <a name="step-2-modify-contosocom-federation-settings"></a>Étape 2 : Modifier les paramètres de fédération contoso.com 
  
-L’émetteur par défaut défini pour un seul domaine fédéré sur AD FS est « http://ADFSServiceFQDN/adfs/services/trust » (par exemple, `http://fs.contoso.com/adfs/services/trust`). Azure Active Directory nécessite un émetteur unique pour chaque domaine fédéré. Étant donné qu’une même instance d’AD FS va fédérer deux domaines, la valeur de l’émetteur doit être modifiée pour être propre à chaque domaine qu’AD FS fédère avec Azure Active Directory. 
+L’émetteur par défaut défini pour un seul domaine fédéré sur AD FS est « http\://ADFSServiceFQDN/adfs/services/trust » ; par exemple, `http://fs.contoso.com/adfs/services/trust`. Azure Active Directory nécessite un émetteur unique pour chaque domaine fédéré. Étant donné qu’une même instance d’AD FS va fédérer deux domaines, la valeur de l’émetteur doit être modifiée pour être propre à chaque domaine qu’AD FS fédère avec Azure Active Directory. 
  
 Sur le serveur AD FS, ouvrez Azure AD PowerShell (assurez-vous que le module MSOnline est installé) et effectuez les étapes suivantes :
  
 Connectez-vous à l’instance d’Azure Active Directory qui contient le domaine contoso.com : Connect-MsolService. Mettez à jour les paramètres de fédération de contoso.com : Update-MsolFederatedDomain -DomainName contoso.com –SupportMultipleDomain
  
-L’émetteur du paramètre de fédération de domaines sera modifié en « http://contoso.com/adfs/services/trust» et une règle de revendication d’émission sera ajoutée pour que l’approbation de la partie de confiance Azure AD émette la valeur issuerId correspondant au suffixe UPN.
+L’émetteur du paramètre de fédération de domaines sera remplacé par « http\://contoso.com/adfs/services/trust » et une règle de revendication d’émission sera ajoutée pour que l’approbation de la partie de confiance Azure AD émette la valeur issuerId appropriée correspondant au suffixe UPN.
  
 ## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>Étape 3 : Fédérer fabrikam.com avec AD FS
  

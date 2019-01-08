@@ -1,21 +1,19 @@
 ---
-title: 'Démarrage rapide : Créer un serveur Azure Database for MariaDB - Azure CLI'
+title: 'Démarrage rapide : Créer un serveur Azure Database for MariaDB - Azure CLI'
 description: Ce guide de démarrage rapide explique comment utiliser l’interface CLI Azure pour créer un serveur Azure Database for MariaDB dans un groupe de ressources Azure.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: bc32cde7e4b4cf68b12b100eb402237098459aae
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 19c1952a25e6a6db9b81b74f79bdcd2970cb2c78
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566446"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538738"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Créer un serveur Azure Database for MariaDB à l’aide d’Azure CLI
 
@@ -52,14 +50,14 @@ Paramètre | Exemple de valeur | Description
 Nom | **mydemoserver** | Entrez un nom unique qui identifie votre serveur Azure Database for MariaDB. Le nom de serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit contenir entre 3 et 63 caractères.
 resource-group | **myresourcegroup** | Entez le nom du groupe de ressources Azure.
 sku-name | **GP_Gen5_2** | Nom de la référence SKU. Suit la convention *niveau tarifaire*\_*génération de calcul*\_*vCores* dans le raccourci. Pour plus d’informations sur le paramètre **sku-name**, consultez la section après ce tableau.
-backup-retention | **7** | Durée pendant laquelle la sauvegarde doit être conservée. Exprimée en jours. Plage : de 7 à 35 
-geo-redundant-backup | **Désactivé** | Indique si les sauvegardes géoredondantes doivent être activées ou non pour ce serveur. Valeurs autorisées :**Activé**, **Désactivé**.
+backup-retention | **7** | Durée pendant laquelle la sauvegarde doit être conservée. Exprimée en jours. Plage : 7 à 35. 
+geo-redundant-backup | **Désactivé** | Indique si les sauvegardes géoredondantes doivent être activées ou non pour ce serveur. Valeurs autorisées : **Activé**, **Désactivé**.
 location | **westus** | Emplacement Azure du serveur.
-ssl-enforcement | **Activé** | Indique si le protocole SSL doit être activé ou non pour ce serveur. Valeurs autorisées :**Activé**, **Désactivé**.
+ssl-enforcement | **Activé** | Indique si le protocole SSL doit être activé ou non pour ce serveur. Valeurs autorisées : **Activé**, **Désactivé**.
 storage-size | **51200** | Capacité de stockage du serveur (exprimée en mégaoctets). Les tailles de stockage valides sont 5 120 Mo (minimum) avec des augmentations par incréments de 1 024 Mo. Consultez le document [Niveaux tarifaires pour Azure Database for MariaDB](./concepts-pricing-tiers.md) pour plus d’informations sur les limites de taille de stockage. 
 version | **10.2** | Version majeure du moteur MariaDB.
 admin-user | **myadmin** | Nom d’utilisateur du compte administrateur. Le paramètre **admin-user** ne peut pas être **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
-admin-password | *votre mot de passe* | Mot de passe de l’utilisateur Administrateur. Votre mot de passe doit contenir entre 8 et 128 caractères. Il doit contenir des caractères appartenant à trois des catégories suivantes : lettres majuscules, lettres minuscules, chiffres et caractères non alphanumériques.
+admin-password | *votre mot de passe* | Mot de passe de l’utilisateur Administrateur. Votre mot de passe doit contenir entre 8 et 128 caractères. Il doit contenir des caractères de trois des catégories suivantes : Lettres majuscules, lettres minuscules, chiffres et caractères non alphanumériques.
 
 La valeur du paramètre **sku-name** suit la convention *niveau tarifaire*\_*génération de calcul*\_*vCores* comme dans les exemples suivants :
 + `--sku-name B_Gen5_4` correspond au niveau tarifaire De base, à la génération de calcul Gen 5 et à 4 vCores.

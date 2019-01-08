@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 06a7ce6301af6e5a7c04ac5c5a0a1240c21f834e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 6e7f6499a78b21ad81af5d541966e18090467532
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887506"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787628"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Tutoriel : Déboguer une application Service Fabric Mesh s’exécutant dans votre cluster de développement local
 
@@ -93,8 +93,8 @@ Si vous obtenez des erreurs de build dans le fichier **service.yaml**, assurez-v
 ### <a name="debug-in-visual-studio"></a>Déboguer dans Visual Studio
 
 Pour déboguer une application Service Fabric Mesh dans Visual Studio, vous utilisez un cluster de développement Service Fabric local. Pour voir comment des éléments de tâche sont récupérés à partir du service back-end, effectuez un débogage dans la méthode OnGet().
-1. Dans le projet **WebFrontEnd**, ouvrez **Pages** > **Index.cshtml** > **Index.cshtml.cs** et définissez un point d’arrêt dans la méthode **Get** (ligne 17).
-2. Dans le projet **ToDoService**, ouvrez **TodoController.cs** et définissez un point d’arrêt dans la méthode **OnGet** (ligne 15).
+1. Dans le projet **WebFrontEnd**, ouvrez **Pages** > **Index.cshtml** > **Index.cshtml.cs** et définissez un point d’arrêt dans la méthode **OnGet** (ligne 17).
+2. Dans le projet **ToDoService**, ouvrez **TodoController.cs** et définissez un point d’arrêt dans la méthode **Get** (ligne 15).
 3. Accédez à votre navigateur et actualisez la page. Vous avez atteint le point d’arrêt dans la méthode `OnGet()` du service web frontal. Vous pouvez examiner la variable `backendUrl` pour voir comment les variables d’environnement que vous avez définies dans le fichier **service.yaml** forment l’URL utilisée pour contacter le service back-end.
 4. Survolez (F10) l’appel `client.GetAsync(backendUrl).GetAwaiter().GetResult())` pour atteindre le point d'arrêt `Get()` du contrôleur. Dans cette méthode, vous pouvez voir comment la liste des éléments de tâche est récupérée à partir de la liste en mémoire.
 5. Lorsque vous avez terminé, arrêtez le débogage de votre projet dans Visual Studio en appuyant sur **Maj+F5**.

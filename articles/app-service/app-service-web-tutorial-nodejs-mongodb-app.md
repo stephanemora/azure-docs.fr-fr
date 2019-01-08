@@ -15,20 +15,20 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3666af764fa20a8343addedbddcdb12de0daf4a1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 514915d68ef79c3f6db2ff1da2b5ea6e348de150
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251502"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633808"
 ---
-# <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Didacticiel : Créer une application web Node.js et MongoDB dans Azure
+# <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Didacticiel : Créer une application Node.js et MongoDB dans Azure
 
 > [!NOTE]
-> Cet article explique comment déployer une application sur App Service sous Windows. Pour déployer une application App Service sur _Linux_, consultez [Créer une application web Node.js et MongoDB dans Azure App Service sur Linux](./containers/tutorial-nodejs-mongodb-app.md).
+> Cet article explique comment déployer une application sur App Service sous Windows. Pour déployer une application App Service sur _Linux_, consultez [Créer une application Node.js et MongoDB dans Azure App Service sur Linux](./containers/tutorial-nodejs-mongodb-app.md).
 >
 
-Azure Web Apps fournit un service d’hébergement hautement évolutif et appliquant des mises à jour correctives automatiquement. Ce didacticiel vous montre comment créer une application web Node.js dans Azure et comment la connecter à une base de données. Lorsque vous aurez terminé, vous disposerez d’une application MEAN (MongoDB, Express, AngularJS et Node.js) exécutée sous [Azure App Service](app-service-web-overview.md). Pour plus de simplicité, l’exemple d’application utilise [l’infrastructure de développement web MEAN.js](https://meanjs.org/).
+Azure App Service offre un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques. Ce tutoriel montre comment créer une application Node.js dans App Service et comment la connecter à une base de données MongoDB. Lorsque vous aurez terminé, vous disposerez d’une application MEAN (MongoDB, Express, AngularJS et Node.js) exécutée sous [Azure App Service](overview.md). Pour plus de simplicité, l’exemple d’application utilise [l’infrastructure de développement web MEAN.js](https://meanjs.org/).
 
 ![Application MEAN.js exécutée dans Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -119,7 +119,7 @@ Sélectionnez **Admin > Manage Articles** (Administrateur > Gérer les articles)
 Pour arrêter Node.js à tout moment, appuyez sur `Ctrl+C` dans le terminal. 
 
 > [!NOTE]
-> Le [guide de démarrage rapide Node.js](app-service-web-get-started-nodejs.md) mentionne la nécessité d’un fichier web.config au sein du répertoire racine de l’application. Toutefois, dans ce didacticiel, ce fichier web.config sera automatiquement généré par App Service lorsque vous déployez vos fichiers à l’aide du [déploiement Git local](app-service-deploy-local-git.md) au lieu du déploiement de fichier Zip. 
+> Le [guide de démarrage rapide Node.js](app-service-web-get-started-nodejs.md) mentionne la nécessité d’un fichier web.config au sein du répertoire racine de l’application. Toutefois, dans ce didacticiel, ce fichier web.config sera automatiquement généré par App Service lorsque vous déployez vos fichiers à l’aide du [déploiement Git local](deploy-local-git.md) au lieu du déploiement de fichier Zip. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -268,11 +268,11 @@ Dans cette étape, vous allez déployer dans Azure App Service votre application
 
 ### <a name="configure-an-environment-variable"></a>Configurer une variable d’environnement
 
-Par défaut, le projet MEAN.js conserve _config/env/local-production.js_ hors du référentiel Git. Ainsi, pour votre application web Azure, vous utilisez des paramètres d’application pour définir votre chaîne de connexion MongoDB.
+Par défaut, le projet MEAN.js conserve _config/env/local-production.js_ hors du référentiel Git. Ainsi, pour votre application Azure, vous utilisez des paramètres d’application pour définir votre chaîne de connexion MongoDB.
 
 Pour définir les paramètres de l’application, utilisez la commande [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) dans Cloud Shell. 
 
-L’exemple suivant configure un paramètre d’application `MONGODB_URI` dans votre application web Azure. Remplacez les espaces réservés *\<app_name>*, *\<cosmosdb_name>*, et *\<primary_master_key>*.
+L’exemple suivant configure un paramètre d’application `MONGODB_URI` dans votre application Azure. Remplacez les espaces réservés *\<app_name>*, *\<cosmosdb_name>*, et *\<primary_master_key>*.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -318,11 +318,11 @@ Vous remarquerez peut-être que le processus de déploiement exécute [Gulp](htt
 - _.deployment_ : ce fichier indique à App Service d’exécuter `bash deploy.sh` en tant que script de déploiement personnalisé.
 - _deploy.sh_ : le script de déploiement personnalisé. Si vous examinez le fichier, vous verrez qu’il exécute `gulp prod` après `npm install` et `bower install`. 
 
-Vous pouvez utiliser cette approche pour ajouter une étape à votre déploiement Git. Notez que si vous redémarrez votre application web Azure à tout moment, App Service ne réexécute pas ces tâches d’automatisation.
+Vous pouvez utiliser cette approche pour ajouter une étape à votre déploiement Git. Si vous redémarrez votre application Azure à un moment donné, App Service ne réexécute pas ces tâches d’automatisation.
 
-### <a name="browse-to-the-azure-web-app"></a>Rechercher l’application web Azure 
+### <a name="browse-to-the-azure-app"></a>Accéder à l’application Azure 
 
-Accédez à l’application web déployée à l’aide de votre navigateur web. 
+Accédez à l’application déployée à l’aide de votre navigateur web. 
 
 ```bash 
 http://<app_name>.azurewebsites.net 
@@ -464,7 +464,7 @@ git commit -am "added article comment"
 git push azure master
 ```
 
-Une fois le `git push` terminé, accédez à votre application web Azure et essayez la nouvelle fonctionnalité.
+Une fois le `git push` terminé, accédez à votre application Azure et testez la nouvelle fonctionnalité.
 
 ![Modifications du modèle et de la base de données publiées dans Azure](media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
@@ -480,19 +480,19 @@ Pour démarrer la diffusion de journaux, utilisez la commande [`az webapp log ta
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ``` 
 
-Une fois que la diffusion a démarré, actualisez votre application web Azure dans le navigateur pour générer un trafic web. Vous voyez maintenant les journaux de la console acheminés vers votre terminal.
+Une fois que la diffusion a démarré, actualisez votre application Azure dans le navigateur pour générer un trafic web. Vous voyez maintenant les journaux de la console acheminés vers votre terminal.
 
 Pour arrêter la diffusion de journaux à tout moment, tapez `Ctrl+C`. 
 
-## <a name="manage-your-azure-web-app"></a>Gérer votre application web Azure
+## <a name="manage-your-azure-app"></a>Gérer votre application Azure
 
-Accédez au [portail Azure](https://portal.azure.com) pour voir l’application web que vous avez créée.
+Accédez au [portail Azure](https://portal.azure.com) pour voir l’application que vous avez créée.
 
-Dans le menu de gauche, cliquez sur **App Services**, puis cliquez sur le nom de votre application web Azure.
+Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
 
-![Navigation au sein du portail pour accéder à l’application web Azure](./media/app-service-web-tutorial-nodejs-mongodb-app/access-portal.png)
+![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-tutorial-nodejs-mongodb-app/access-portal.png)
 
-Par défaut, le portail affiche la page **Vue d’ensemble** de votre application web. Cette page propose un aperçu de votre application. Ici, vous pouvez également effectuer des tâches de gestion de base (parcourir, arrêter, démarrer, redémarrer et supprimer des éléments, par exemple). Les onglets sur le côté gauche de la page affichent les différentes pages de configuration que vous pouvez ouvrir.
+Par défaut, le portail affiche la page **Vue d’ensemble** de votre application. Cette page propose un aperçu de votre application. Ici, vous pouvez également effectuer des tâches de gestion de base (parcourir, arrêter, démarrer, redémarrer et supprimer des éléments, par exemple). Les onglets sur le côté gauche de la page affichent les différentes pages de configuration que vous pouvez ouvrir.
 
 ![Page App Service du Portail Azure](./media/app-service-web-tutorial-nodejs-mongodb-app/web-app-blade.png)
 
@@ -511,7 +511,7 @@ Vous avez appris à effectuer les opérations suivantes :
 > * Diffuser des journaux à partir d’Azure vers votre terminal
 > * Gérer l’application dans le portail Azure
 
-Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
+Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à l’application.
 
 > [!div class="nextstepaction"] 
-> [Mapper un nom DNS personnalisé existant à des applications web Azure](app-service-web-tutorial-custom-domain.md)
+> [Mapper un nom DNS personnalisé existant à Azure App Service](app-service-web-tutorial-custom-domain.md)

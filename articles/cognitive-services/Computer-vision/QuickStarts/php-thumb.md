@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Générer une miniature - REST, PHP - Vision par ordinateur'
+title: 'Démarrage rapide : Générer une miniature - REST, PHP'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous générez une miniature d’une image en utilisant l’API Vision par ordinateur avec PHP.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 171893dd3017d46c405d2269506fe37896155e55
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 1527f57a1d300f730222d100bc9caf2001098fea
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964507"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579343"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-php-in-computer-vision"></a>Démarrage rapide : Générer une miniature à l’aide de l’API REST et PHP dans Vision par ordinateur
 
@@ -33,7 +34,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 
-1. Installez le package [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) PHP5.
+1. Installez le package [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) PHP5.
    1. Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur.
    1. Exécutez la commande suivante :
 

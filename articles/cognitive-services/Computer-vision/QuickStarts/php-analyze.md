@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Analyser une image distante - REST, PHP - Vision par ordinateur'
+title: 'Démarrage rapide : Analyser une image distante - REST, PHP'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous analysez une image en utilisant l’API Vision par ordinateur avec PHP.
 services: cognitive-services
@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
-ms.openlocfilehash: d9e65b5fa42cc9026f8b1e3f18901f988c38cc46
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 8af75c05d3c30fd8a3f2808cf81de840b7df2d6c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341002"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584290"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-php-in-computer-vision"></a>Démarrage rapide : Analyser une image distante à l’aide de l’API REST et PHP dans Vision par ordinateur
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-php-in-computer-vision"></a>Démarrage rapide : Analyser une image distante à l’aide de l’API REST et PHP dans Vision par ordinateur
 
-Dans ce guide de démarrage rapide, vous analysez une image stockée à distance pour extraire des caractéristiques visuelles à l’aide de l’API REST de Vision par ordinateur. Avec la [méthode d’analyse d’une image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), vous pouvez extraire des fonctionnalités visuelles en fonction du contenu de l’image.
+Dans ce démarrage rapide, vous analysez une image stockée à distance pour extraire des caractéristiques visuelles à l’aide de l’API REST de Vision par ordinateur. Avec la [méthode d’analyse d’une image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), vous pouvez extraire des fonctionnalités visuelles en fonction du contenu de l’image.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) avant de commencer.
 
@@ -33,7 +34,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 
-1. Installez le package [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) PHP5.
+1. Installez le package [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) PHP5.
    1. Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur.
    1. Exécutez la commande suivante :
 

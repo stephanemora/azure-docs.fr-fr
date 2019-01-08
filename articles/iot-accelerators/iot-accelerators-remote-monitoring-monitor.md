@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Surveiller vos appareils IoT à partir d’une solution Azure | Microsoft Docs'
+title: 'Tutoriel : Superviser vos appareils IoT à partir d’une solution Azure - Azure | Microsoft Docs'
 description: Dans ce tutoriel, vous découvrez comment surveiller vos appareils IoT avec l’accélérateur de solution Monitoring à distance.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d8afe474f88f0881de5b0e7b132009c6e03ac2af
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7dd7612817f83fe713759965fc28f6f86a0d624a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824742"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602526"
 ---
-# <a name="tutorial-monitor-your-iot-devices"></a>Tutoriel : Surveiller vos appareils IoT
+# <a name="tutorial-monitor-your-iot-devices"></a>Didacticiel : Superviser vos appareils IoT
 
 Dans ce tutoriel, vous utilisez l’accélérateur de solution Monitoring à distance pour surveiller vos appareils IoT connectés. Vous utilisez le tableau de bord des solutions pour afficher des données de télémétrie, des informations sur les appareils, des alertes et des indicateurs de performance clés.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer une page web de recherche personnalisée - Recherche personnalisée Bing'
+title: 'Tutoriel : Créer une page web de recherche personnalisée - Recherche personnalisée Bing'
 titlesuffix: Azure Cognitive Services
 description: Décrit la configuration d’une instance de recherche personnalisée et son intégration à une page web.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: aahi
-ms.openlocfilehash: d39ec856d628a8a607c6a8ea214f5dd9fbd63a9c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0c98f75417bbcba13e179502eb1c8b4488b17d78
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427346"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558020"
 ---
-# <a name="tutorial-build-a-custom-search-web-page"></a>Didacticiel : Créer une page web de recherche personnalisée
+# <a name="tutorial-build-a-custom-search-web-page"></a>Didacticiel : Créer une page web Recherche personnalisée
 
-La Recherche personnalisée Bing vous permet de créer des expériences de recherche adaptées pour les sujets qui vous intéressent. Par exemple, si vous avez un site web d’arts martiaux qui fournit une expérience de recherche, vous pouvez spécifier les domaines, sous-sites et pages web dans lesquels Bing effectue les recherches. Vos utilisateurs consultent des résultats de recherche adaptés au contenu qui les intéresse au lieu de compulser des pages de résultats de recherche générale dont le contenu peut être inapproprié. 
+La Recherche personnalisée Bing vous permet de créer des expériences de recherche adaptées pour des sujets qui vous intéressent. Par exemple, si vous avez un site web d’arts martiaux qui fournit une expérience de recherche, vous pouvez spécifier les domaines, sous-sites et pages web dans lesquels Bing effectue les recherches. Vos utilisateurs consultent des résultats de recherche adaptés au contenu qui les intéresse au lieu de compulser des pages de résultats de recherche générale dont le contenu peut être inapproprié. 
 
 Ce tutoriel montre comment configurer une instance de recherche personnalisée et l’intégrer à une nouvelle page web.
 
@@ -79,7 +79,7 @@ Pour exclure les résultats d’URL ou de sites web particuliers, ajoutez-les à
 
 ## <a name="add-pinned-entries"></a>Ajout d’entrées épinglées
 
-Pour épingler une page web spécifique au début des résultats de recherche, ajoutez la page web et le terme de requête dans l’onglet **Pinned** (Éléments épinglés). L’onglet **Pinned** (Éléments épinglés) contient une liste de paires, constituées de termes de requête associés à des pages web, qui spécifient la page web devant s’afficher en tant que meilleur résultat pour une requête particulière. La page web est épinglée uniquement si la chaîne de requête de l’utilisateur correspond à la chaîne de requête de l’épingle selon la condition de correspondance de l’épingle. Seules les pages web indexées apparaîtront dans les recherches. Consultez [Définir votre affichage personnalisé](../define-your-custom-view.md#pin-to-top) pour en savoir plus.
+Pour épingler une page web spécifique au début des résultats de recherche, ajoutez la page web et le terme de requête dans l’onglet **Pinned** (Éléments épinglés). L’onglet **Pinned** (Éléments épinglés) contient une liste de paires, constituées de termes de requête associés à des pages web, qui spécifient la page web devant s’afficher en tant que meilleur résultat pour une requête particulière. La page web est épinglée uniquement si la chaîne de requête de l’utilisateur correspond à la chaîne de requête de l’épingle selon la condition de correspondance de l’épingle. Seules les pages web indexées apparaîtront dans les recherches. Consultez [Définir votre affichage personnalisé](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results) pour en savoir plus.
 
 1. Dans la page **Configuration**, cliquez sur l’onglet **Pinned** et entrez la page web et le terme de requête de la page web que vous voulez voir retourner comme premier résultat.  
   
@@ -127,8 +127,8 @@ La Recherche personnalisée fournit une IU hébergée pour restituer la réponse
 
 Il existe deux façons de consommer l’IU hébergée.  
 
-- Option 1 : intégrer l’extrait de code JavaScript fourni dans votre application.
-- Option 2 : utiliser le point de terminaison HTML fourni.
+- Option 1 : intégrer l’extrait de code JavaScript fourni dans votre application.
+- Option 2 : utiliser le point de terminaison HTML fourni.
 
 Le reste de ce tutoriel illustre l’**Option 1 : Extrait de code Javascript**.  
 

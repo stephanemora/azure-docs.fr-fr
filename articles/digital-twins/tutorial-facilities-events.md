@@ -1,20 +1,21 @@
 ---
-title: Capturer des événements à partir d’un espace Azure Digital Twins | Microsoft Docs
+title: 'Didacticiel : Capturer des événements à partir d’un espace Azure Digital Twins | Microsoft Docs'
 description: Découvrez comment recevoir des notifications à partir de vos espaces en intégrant Azure Digital Twins à Logic Apps en suivant la procédure décrite dans ce didacticiel.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: bf41be4a3a4856302a054e5767b3d7b5ba423c60
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a52a3be8c3023893569e95b566a18c032be26459
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583259"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556014"
 ---
-# <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutoriel : Recevoir des notifications à partir de vos espaces Azure Digital Twins avec Logic Apps
+# <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Didacticiel : Recevoir des notifications à partir de vos espaces Azure Digital Twins avec Logic Apps
 
 Après avoir déployé votre instance Azure Digital Twins, puis provisionné vos espaces et implémenté des fonctions personnalisées pour surveiller des conditions spécifiques, vous pouvez avertir par e-mail votre administrateur des bureaux lorsque ces conditions surveillées se présentent. 
 
@@ -174,7 +175,7 @@ Vous pouvez utiliser le service [Azure Logic Apps](../logic-apps/logic-apps-over
 
    c. Dans la zone **To** (À), entrez votre ID de messagerie pour recevoir des notifications. Dans **Objet**, entrez le texte **Notification Digital Twins pour la mauvaise qualité de l’air dans l’espace**. Sélectionnez ensuite **TopologyObjectId** à partir de la liste **Contenu dynamique** pour **Analyser JSON**.
 
-   d. Sous **Corps** dans la même fenêtre, entrez un texte similaire à celui-ci : **Mauvaise qualité d’air détectée dans une salle et température à régler**. N’hésitez pas à apporter des précisions en utilisant les éléments de la liste **Contenu dynamique**.
+   d. Sous **Corps** dans la même fenêtre, entrez du texte similaire à ceci : **Qualité de l’air médiocre détectée dans une pièce. La température doit être ajustée**. N’hésitez pas à apporter des précisions en utilisant les éléments de la liste **Contenu dynamique**.
 
    ![Sélections de « Envoyer un e-mail » dans Logic Apps](./media/tutorial-facilities-events/logic-app-send-email.png)
 
@@ -205,8 +206,8 @@ Si vous souhaitez arrêter votre exploration d’Azure Digital Twins ici, vous p
 
 Pour savoir comment visualiser vos données de capteur, analyser les tendances et détecter les anomalies, passez au tutoriel suivant : 
 > [!div class="nextstepaction"]
-> [Didacticiel : Visualiser et analyser des événements à partir de vos espaces Azure Digital Twins à l’aide de Time Series Insights](tutorial-facilities-analyze.md)
+> [Tutoriel : Visualiser et analyser des événements à partir de vos espaces Azure Digital Twins à l’aide de Time Series Insights](tutorial-facilities-analyze.md)
 
 Vous pouvez également parfaire vos connaissances sur les modèles objet et les graphes d’intelligence spatiale dans Azure Digital Twins : 
 > [!div class="nextstepaction"]
-> [Présentation du graphe d’intelligence spatiale et des modèles objet Digital Twins](concepts-objectmodel-spatialgraph.md)
+> [Comprendre le graphique d’intelligence spatiale et les modèles objets Digital Twins](concepts-objectmodel-spatialgraph.md)

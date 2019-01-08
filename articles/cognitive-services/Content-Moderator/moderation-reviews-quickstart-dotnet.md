@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: ce90c5f691a0a8a333161f3135856d720d1de310
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6409011c1a7c125dd03bb706f49ccad1a1fd49a4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226583"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538869"
 ---
 # <a name="quickstart-create-reviews-using-net"></a>Démarrage rapide : Créer des révisions à l’aide de .NET
 
@@ -24,7 +24,7 @@ Cet article fournit des informations et des exemples de code qui vont vous aider
 - Créer un ensemble de révisions pour les modérateurs humains
 - Obtenir le statut de révisions existantes pour les modérateurs humains
 
-En règle générale, le contenu passe par des modérations automatisées avant planification d’une révision par un opérateur humain. Cet article ne couvre que la création de révisions en vue d’une modération humaine. Pour un scénario plus complet, consultez les didacticiels [Modération du contenu Facebook](facebook-post-moderation.md) et [Modération de catalogue eCommerce](ecommerce-retail-catalog-moderation.md).
+En règle générale, le contenu passe par des modérations automatisées avant planification d’une révision par un opérateur humain. Cet article ne couvre que la création de révisions en vue d’une modération humaine. Pour un scénario plus complet, consultez les tutoriels [Modération du contenu Facebook](facebook-post-moderation.md) et [Modérer les images de produits e-commerce](ecommerce-retail-catalog-moderation.md).
 
 Cet article part du principe que vous connaissez déjà Visual Studio et C#.
 
@@ -43,7 +43,7 @@ Une fois les étapes précédentes effectuées, il est possible que vous ayez de
 
 Si vous envisagez d’utiliser la clé API fournie par Azure dans votre exemple de SDK, suivez les étapes mentionnées dans la section [Utilisation de la clé Azure avec l’API de révision](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) pour permettre à votre application d’appeler l’API de révision et de créer des révisions.
 
-Si vous utilisez la clé d’essai générée par l’outil de révision, votre compte d’outil de révision connaît déjà la clé ; aucune étape supplémentaire n’est donc nécessaire.
+Si vous utilisez la clé d’essai générée par l’outil de révision, votre compte d’outil de révision connaît déjà la clé ; aucune étape supplémentaire n’est donc nécessaire.
 
 ## <a name="create-your-visual-studio-project"></a>Créer votre projet Visual Studio
 

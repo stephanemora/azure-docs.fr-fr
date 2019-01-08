@@ -4,15 +4,15 @@ description: Cet article explique comment migrer des machines sur site vers Azur
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1df09a885d6c636ff6bd4bcbec03d27ff7b44ff9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5023171c4f943b7e698a0b6bbcadef209965e2df
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836982"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789244"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrer des machines sur site vers Azure
 
@@ -63,9 +63,9 @@ Sélectionnez les éléments à répliquer et l’emplacement de la réplication
 1. Cliquez sur **Coffres Recovery Services** > coffre.
 2. Dans le menu Ressource, cliquez sur **Site Recovery** > **Préparer l’infrastructure** > **Objectif de protection**.
 3. Dans **Objectif de protection**, sélectionnez les composants à migrer.
-    - **VMware** : sélectionnez **Vers Azure** > **Oui, avec hyperviseur vSphere VMWare**.
-    - **Machine physique** : sélectionnez **Vers Azure** > **Non virtualisé / Autre**.
-    - **Hyper-V** : sélectionnez **Vers Azure** > **Oui, avec Hyper-V**. Si des machines virtuelles Hyper-V sont gérées par VMM, sélectionnez **Oui**.
+    - **VMware** : sélectionnez **Vers Azure** > **Oui, avec hyperviseur vSphere VMWare**.
+    - **Machine physique** : sélectionnez **Vers Azure** > **Non virtualisé / Autre**.
+    - **Hyper-V** : sélectionnez **Vers Azure** > **Oui, avec Hyper-V**. Si des machines virtuelles Hyper-V sont gérées par VMM, sélectionnez **Oui**.
 
 
 ## <a name="set-up-the-source-environment"></a>Configurer l’environnement source
@@ -119,7 +119,7 @@ Exécutez un basculement pour les machines que vous souhaitez migrer.
 
 
 > [!WARNING]
-> **N’annulez pas un basculement en cours** : la réplication de la machine virtuelle est arrêtée avant que le basculement démarre. Si vous annulez un basculement en cours, le basculement s’arrête mais la machine virtuelle ne sera pas à nouveau répliquée.
+> **N’annulez pas un basculement en cours** : la réplication de la machine virtuelle est arrêtée avant le démarrage du basculement. Si vous annulez un basculement en cours, le basculement s’arrête mais la machine virtuelle ne sera pas à nouveau répliquée.
 
 Dans certains scénarios, le basculement nécessite un traitement supplémentaire qui dure environ huit à dix minutes. Vous constaterez peut-être des délais de basculement plus longs pour les serveurs physiques, les machines virtuelles VMware Linux, les machines virtuelles VMware pour lesquelles le service DHCP n’est pas activé, et les machines virtuelles VMware qui ne disposent pas des pilotes de démarrage suivants : storvsc, vmbus, storflt, intelide, atapi.
 

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7f57e75f90511ace45198d7516a5d2550123d9be
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 19b485add894dbe99a524d16f891d001991c1ec7
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075112"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558377"
 ---
-# <a name="enable-capturing-of-events-streaming-through-azure-event-event-hubs"></a>Activer la capture d’événements diffusés en continu par le biais d’Azure Event Hubs
+# <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Activer la capture d’événements diffusés en continu par le biais d’Azure Event Hubs
 
 Azure [Event Hubs Capture][capture-overview] vous permet de fournir automatiquement les données de diffusion en continu d’Event Hubs à un compte de [stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/) ou [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) de votre choix.
 
@@ -59,7 +59,7 @@ Pour capturer des données vers Azure Data Lake Store, vous créez un compte Dat
 
 Vous pouvez configurer la fonctionnalité Capture sur des concentrateurs d’événements se trouvant dans des espaces de noms Event Hubs. Pour activer Capture sur un hub d’événements existant, ou pour modifier les paramètres de cette fonctionnalité, cliquez sur l’espace de noms afin de charger l’écran de vue d’ensemble, puis cliquez sur le hub d’événements pour lequel vous souhaitez activer ou modifier la configuration de Capture. Pour finir, cliquez sur l’option **Capture** à gauche du panneau ouvert, puis modifiez les paramètres de Capture, comme indiqué dans la figure suivante :
 
-### <a name="azure-blob-storage"></a>Stockage Blob Azure
+### <a name="azure-blob-storage"></a>un stockage Azure Blob
 
 ![Configurer Stockage Blob Azure][2]
 

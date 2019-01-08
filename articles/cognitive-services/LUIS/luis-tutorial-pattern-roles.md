@@ -9,18 +9,36 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8b66895e1ae37947c995ffc643505d466c42b93b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094404"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753113"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutoriel 4 : Extraire des modèles relatifs au contexte
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Tutoriel : Extraire des modèles relatifs au contexte à l’aide rôles
 
 Dans ce tutoriel, vous allez utiliser un modèle pour extraire des données à partir d’un énoncé de modèle au format approprié. L’énoncé de modèle utilise une entité simple et des rôles pour extraire des données associées telles que l’emplacement d’origine et l’emplacement de destination.  Lorsque vous utilisez des modèles, l’intention nécessite moins d’exemples d’énoncés.
+
+
+**Dans ce tutoriel, vous allez découvrir comment :**
+
+> [!div class="checklist"]
+> * Importer l’exemple d’application
+> * Créer des entités
+> * Créer une intention
+> * Former
+> * Publish
+> * Obtenir les intentions et les entités à partir du point de terminaison
+> * Créer un modèle avec des rôles
+> * Créer une liste d’expressions de villes
+> * Obtenir les intentions et les entités à partir du point de terminaison
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="using-roles-in-patterns"></a>Utilisation de rôles dans les modèles
 
 L’objectif des rôles est extraire les entités liées au contexte d’un énoncé. Dans l’énoncé, les valeurs de ville d’origine (`Move new employee Robert Williams from Sacramento and San Francisco`) et de ville de destination sont liées et utilisent un langage commun pour indiquer chaque emplacement. 
 
@@ -37,27 +55,12 @@ Comme l’exemple d’énoncé `Move new employee Robert Williams from Sacrament
 
 Si vous avez des difficultés avec la détection d’une entité simple car elle représente un nom comme une ville, vous pouvez utiliser une liste d’expressions de valeurs similaires. Cela permet de détecter le nom de la ville en fournissant à LUIS des détails supplémentaires sur ce type de mot ou d’expression. Les listes d’expressions sont utiles uniquement avec le modèle car elles facilitent la détection de l’entité, ce qui est nécessaire pour que le modèle corresponde. 
 
-**Dans ce tutoriel, vous allez découvrir comment :**
-
-> [!div class="checklist"]
-> * Utiliser l’application de tutoriel existante
-> * Créer des entités
-> * Créer une intention
-> * Former
-> * Publish
-> * Obtenir les intentions et les entités à partir du point de terminaison
-> * Créer un modèle avec des rôles
-> * Créer une liste d’expressions de villes
-> * Obtenir les intentions et les entités à partir du point de terminaison
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>Utiliser l’application existante
+## <a name="import-example-app"></a>Importer l’exemple d’application
 Continuez avec l’application créée dans le dernier tutoriel, nommée **HumanResources**. 
 
-Si vous n’avez pas l’application HumanResources du tutoriel précédent, effectuez les étapes suivantes :
+Procédez comme suit :
 
-1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
 
 2. Importez le code JSON dans une nouvelle application.
 

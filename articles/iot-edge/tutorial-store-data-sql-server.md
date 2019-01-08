@@ -9,12 +9,12 @@ ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 0193d79dec663b089184099c2a4d275c91380c8b
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: a78c4d64761b5eecc5b7ebf8aa0223b862935575
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163410"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728191"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Didacticiel : Stocker des données en périphérie avec les bases de données SQL Server
 
@@ -324,7 +324,7 @@ Quand vous indiquez à Visual Studio Code de générer votre solution, il extrai
 
 Vous pouvez définir des modules sur un appareil via le hub IoT, mais vous pouvez également accéder à vos hub IoT et appareils via Visual Studio Code. Dans cette section, vous configurez l’accès à votre hub IoT, puis utilisez VS Code pour déployer la solution sur votre appareil IoT Edge. 
 
-1. Dans la palette de commandes VS Code, sélectionnez **Azure IoT Hub: Select IoT Hub**.
+1. Dans la palette de commandes VS Code, sélectionnez **Azure IoT Hub: Sélectionner IoT Hub**.
 
 2. Suivez les instructions de l’invite pour vous connecter à votre compte Azure. 
 

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cd3229773b19b9f6c4d9ff76402f1841a4810bc7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 24503a821445bbf1610588d7f69ec87948a812b9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851126"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793068"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -101,7 +101,7 @@ Quand les machines virtuelles Azure sont créées après la migration (basculeme
 
 Dans la page de votre coffre dans le portail Azure, dans la section **Bien démarrer**, sélectionnez **Site Recovery** puis sélectionnez sur **Préparer l’infrastructure**. Effectuez ensuite les tâches suivantes.
 
-### <a name="1-protection-goal"></a>1 : Objectif de protection
+### <a name="1-protection-goal"></a>1: Objectif de protection
 
 Dans la page **Objectif de protection**, sélectionnez les valeurs suivantes :
 
@@ -113,7 +113,7 @@ Dans la page **Objectif de protection**, sélectionnez les valeurs suivantes :
 
 Quand vous avez terminé, sélectionnez **OK** pour passer à la section suivante.
 
-### <a name="2-prepare-source"></a>2 : Préparer la source
+### <a name="2-prepare-source"></a>2 : Préparer la source
 
 Dans la page **Préparer la source**, sélectionnez **+ Serveur de configuration**.
 
@@ -136,9 +136,9 @@ Dans la page **Préparer la source**, sélectionnez **+ Serveur de configuration
     11. **Progression de l’installation** vous montre des informations sur le processus d’installation. Quand cela est terminé, cliquez sur **Terminer**. Une fenêtre affiche un message concernant un redémarrage. Sélectionnez **OK**. Ensuite, une fenêtre affiche un message concernant la phrase secrète de la connexion du serveur de configuration. Copiez la phrase secrète dans votre Presse-papiers et enregistrez-la dans un endroit sûr.
 6. Sur la machine virtuelle, exécutez cspsconfigtool.exe pour créer un ou plusieurs comptes de gestion sur le serveur de configuration. Vérifiez que les comptes de gestion disposent des autorisations d’administrateur sur les instances EC2 que vous voulez migrer.
 
-Quand vous avez terminé la configuration du serveur de configuration, revenez au portail et sélectionnez le serveur que vous avez créer pour le **serveur de configuration**. Sélectionnez **OK** pour accéder à 3 : Préparer la cible.
+Quand vous avez terminé la configuration du serveur de configuration, revenez au portail et sélectionnez le serveur que vous avez créer pour le **serveur de configuration**. Sélectionnez **OK** pour passer à l’étape 3 : Préparer la cible.
 
-### <a name="3-prepare-target"></a>3 : Préparer la cible
+### <a name="3-prepare-target"></a>3 : Préparer la cible
 
 Dans cette section, vous entrez des informations sur les ressources que vous avez créées dans [Préparer les ressources Azure](#prepare-azure-resources), plus tôt dans ce tutoriel.
 
@@ -148,7 +148,7 @@ Dans cette section, vous entrez des informations sur les ressources que vous ave
 4. Quand vous avez terminé, sélectionnez **OK**.
 
 
-### <a name="4-prepare-replication-settings"></a>4 : Préparer les paramètres de réplication
+### <a name="4-prepare-replication-settings"></a>4 : Préparer les paramètres de réplication
 
 Vous devez créer une stratégie de réplication avant de pouvoir activer la réplication.
 
@@ -156,7 +156,7 @@ Vous devez créer une stratégie de réplication avant de pouvoir activer la ré
 2. Dans **Nom**, entrez **myReplicationPolicy**.
 3. Conservez les autres paramètres par défaut puis sélectionnez **OK** pour créer la stratégie. La nouvelle stratégie est automatiquement associée au serveur de configuration.
 
-### <a name="5-select-deployment-planning"></a>5 : Sélectionner la planification d’un déploiement
+### <a name="5-select-deployment-planning"></a>5 : Sélectionner la planification d’un déploiement
 
 Dans **Avez-vous effectué la planification du déploiement ?**, sélectionnez **Je le ferai plus tard**, puis sélectionnez **OK**.
 
@@ -169,8 +169,8 @@ Activez la réplication pour chaque machine virtuelle que vous voulez migrer. Qu
 
 1. Accédez au [portail Azure](htts://portal.azure.com).
 1. Dans la page correspondant à votre coffre, sous **Bien démarrer**, sélectionnez **Site Recovery**.
-2. Sous **Pour les ordinateurs locaux et les machines virtuelles Azure**, sélectionnez **Étape 1 : Répliquer l’application**. Remplissez les pages de l’Assistant avec les informations suivantes. Sélectionnez **OK** sur chaque page lorsque vous avez terminé :
-    - 1 : Configurer la source
+2. Sous **Pour les ordinateurs locaux et les machines virtuelles Azure**, sélectionnez **Étape 1 : Répliquer l’application**. Remplissez les pages de l’Assistant avec les informations suivantes. Sélectionnez **OK** sur chaque page lorsque vous avez terminé :
+    - 1: Configurer la source
 
     |  |  |
     |-----|-----|
@@ -179,7 +179,7 @@ Activez la réplication pour chaque machine virtuelle que vous voulez migrer. Qu
     |Type de machine : | Sélectionner **Machines physiques**.|
     | Serveur de processus : | Sélectionnez le serveur de configuration dans la liste déroulante.|
 
-    - 2 : Configurer la cible
+    - 2 : Configurer la cible
 
     |  |  |
     |-----|-----|
@@ -192,15 +192,15 @@ Activez la réplication pour chaque machine virtuelle que vous voulez migrer. Qu
     | Réseau Azure post-basculement : | Choisissez le réseau que vous avez créé dans [Préparer les ressources Azure](#prepare-azure-resources).|
     | Sous-réseau : | Sélectionnez la **valeur par défaut** dans la liste déroulante.|
 
-    - 3 : Sélectionner les machines physiques
+    - 3 : Sélectionner les machines physiques
 
       Sélectionnez **Machine physique**, puis entrez les valeurs pour le **Nom**, l’**Adresse IP** et le **Type de système d’exploitation** de l’instance EC2 que vous voulez migrer. Sélectionnez **OK**.
 
-    - 4 : Configurer les propriétés
+    - 4 : Configurer les propriétés
 
       Sélectionnez le compte que vous avez créé sur le serveur de configuration puis sélectionnez **OK**.
 
-    - 5 : Configurer les paramètres de réplication
+    - 5 : Configurer les paramètres de réplication
 
       Vérifiez que la stratégie de réplication sélectionnée dans la liste déroulante est **myReplicationPolicy**, puis cliquez sur **OK**.
 
@@ -222,8 +222,8 @@ Dans le portail, effectuez le test de basculement :
 
 1. Dans la page correspondant à votre coffre, accédez à **Éléments protégés** > **Éléments répliqués**. Sélectionnez la machine virtuelle, puis **Test de basculement**.
 2. Sélectionnez un point de récupération à utiliser pour le basculement :
-    - **Dernier point traité** : bascule la machine virtuelle vers le dernier point de récupération qui a été traité par Site Recovery. L’horodatage est affiché. Cette option, avec laquelle aucun temps n’est passé à traiter les données, offre un objectif de délai de récupération faible (RTO).
-    - **Dernier point de cohérence des applications** : cette option bascule toutes les machines virtuelles vers le dernier point de récupération de cohérence des applications. L’horodatage est affiché.
+    - **Dernier point traité** : bascule la machine virtuelle vers le dernier point de récupération qui a été traité par Site Recovery. L’horodatage est affiché. Cette option, avec laquelle aucun temps n’est passé à traiter les données, offre un objectif de délai de récupération faible (RTO).
+    - **Dernier point de cohérence des applications** : cette option bascule toutes les machines virtuelles vers le dernier point de récupération de cohérence des applications. L’horodatage est affiché.
     - **Personnalisé** : sélectionnez n’importe quel point de récupération.
 
 3. Dans **Tester le basculement**, sélectionnez le réseau Azure cible auquel les machines virtuelles Azure seront connectées après le basculement. Il doit s’agir du réseau que vous avez créé dans [Préparer les ressources Azure](#prepare-azure-resources).

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/13/2018
+ms.date: 12/17/2018
 ms.author: b-juche
-ms.openlocfilehash: 8fc76c33055f7131444a073d2f8560e136c0701d
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 937ff9cf4c099f229df28070be07ba76339704e0
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413239"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583993"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Créer un volume pour Azure NetApp Files
 
@@ -62,7 +62,7 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
         Spécifiez le sous-réseau que vous souhaitez utiliser pour le volume.  
         Le sous-réseau que vous spécifiez doit être délégué à Azure NetApp Files. 
         
-        Si vous n’avez pas délégué un sous-réseau, vous pouvez cliquer sur **Créer** sur la page Créer un volume. Ensuite, dans la page Créer un sous-réseau, fournissez les informations sur le sous-réseau, puis sélectionnez **Microsoft.NetApp/volumes** pour déléguer le sous-réseau à Azure NetApp Files.    
+        Si vous n’avez pas délégué un sous-réseau, vous pouvez cliquer sur **Créer** sur la page Créer un volume. Ensuite, dans la page Créer un sous-réseau, fournissez les informations sur le sous-réseau, puis sélectionnez **Microsoft.NetApp/volumes** pour déléguer le sous-réseau à Azure NetApp Files. Notez que dans chaque réseau virtuel, un seul sous-réseau peut être délégué à Azure NetApp Files.   
  
         ![Nouveau volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     

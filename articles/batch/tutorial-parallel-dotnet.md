@@ -8,19 +8,19 @@ ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/20/2018
+ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 7e654e070ce64b0f5e7f9fb5734bf0ec1584dbf6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9db223075284b02de1cf3de8cfa7a0b5aa35f286
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423607"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754218"
 ---
-# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Didacticiel : exécuter une charge de travail parallèle avec Azure Batch à l’aide de l’API .NET
+# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Didacticiel : Exécuter une charge de travail parallèle avec Azure Batch à l’aide de l’API .NET
 
-Utilisez Azure Batch pour exécuter des programmes de traitement par lots de calcul haute performance (HPC) en parallèle dans Azure, efficacement et à grande échelle. Ce didacticiel vous permet de découvrir un exemple d’exécution C# d’une charge de travail parallèle utilisant Batch. Vous découvrez un workflow d’application Batch courant et comment interagir par programme avec les ressources de stockage et Batch. Vous allez apprendre à effectuer les actions suivantes :
+Utilisez Azure Batch pour exécuter des programmes de traitement par lots de calcul haute performance (HPC) en parallèle, efficacement et à grande échelle dans Azure. Ce didacticiel vous permet de découvrir un exemple d’exécution C# d’une charge de travail parallèle utilisant Batch. Vous découvrez un workflow d’application Batch courant et comment interagir par programme avec les ressources de stockage et Batch. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Ajouter un package d’application à votre compte Batch
@@ -175,8 +175,8 @@ Ensuite, les fichiers sont chargés dans le conteneur d’entrée à partir du d
 
 Deux méthodes de `Program.cs` sont impliquées dans le chargement des fichiers :
 
-* `UploadResourceFilesToContainerAsync` : renvoie une collection d’objets ResourceFile et appelle `UploadResourceFileToContainerAsync` en interne pour charger chaque fichier transmis dans le paramètre `inputFilePaths`.
-* `UploadResourceFileToContainerAsync`: charge chaque fichier en tant qu’un objet blob dans le conteneur d’entrée. Après le chargement du fichier, la méthode obtient une signature d’accès partagé (SAP) pour l’objet Blob et renvoie un objet ResourceFile pour la représenter.
+* `UploadResourceFilesToContainerAsync`: retourne une collection d’objets ResourceFile et appelle `UploadResourceFileToContainerAsync` en interne pour charger chaque fichier transmis dans le paramètre `inputFilePaths`.
+* `UploadResourceFileToContainerAsync`: charge chaque fichier en tant qu’objet blob dans le conteneur d’entrée. Après le chargement du fichier, la méthode obtient une signature d’accès partagé (SAP) pour l’objet Blob et renvoie un objet ResourceFile pour la représenter.
 
 ```csharp
 string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
@@ -248,11 +248,14 @@ await job.CommitAsync();
 
 L’exemple crée des tâches dans le travail avec un appel à la méthode `AddTasksAsync`, ce qui crée une liste d’objets [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask). Chaque `CloudTask` exécute ffmpeg pour traiter un objet `ResourceFile` d’entrée à l’aide de la propriété [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). ffmpeg a été précédemment installé sur chaque nœud lors de la création du pool. Ici, la ligne de commande exécute ffmpeg pour convertir chaque fichier (vidéo) MP4 en fichier MP3 (audio).
 
-L’exemple crée un objet [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) pour le fichier MP3 après l’exécution de la ligne de commande. Les fichiers de sortie de chaque tâche (un, dans ce cas) sont chargés sur un conteneur dans le compte de stockage lié, à l’aide de la propriété [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles).
+L’exemple crée un objet [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) pour le fichier MP3 après l’exécution de la ligne de commande. Les fichiers de sortie de chaque tâche (un, dans ce cas) sont chargés sur un conteneur dans le compte de stockage lié, à l’aide de la propriété [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles). Précédemment dans l’exemple de code, une URL de signature d’accès partagé (`outputContainerSasUrl`) a été obtenue pour fournir un accès en écriture au conteneur de sortie. Notez les conditions définies sur l’objet `outputFile`. Un fichier de sortie d’une tâche est chargé sur le conteneur seulement une fois la tâche terminée avec succès (`OutputFileUploadCondition.TaskSuccess`). Pour plus de détails sur l’implémentation, consultez l’[exemple de code complet](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) sur GitHub.
 
 Ensuite, l’exemple ajoute des tâches au travail avec la méthode [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync), qui les met en file d’attente afin de les exécuter sur les nœuds de calcul.
 
 ```csharp
+ // Create a collection to hold the tasks added to the job.
+List<CloudTask> tasks = new List<CloudTask>();
+
 for (int i = 0; i < inputFiles.Count; i++)
 {
     string taskId = String.Format("Task{0}", i);
@@ -265,7 +268,7 @@ for (int i = 0; i < inputFiles.Count; i++)
         ".mp3");
     string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-3.4-win64-static\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
 
-    // Create a cloud task (with the task ID and command line) 
+    // Create a cloud task (with the task ID and command line)
     CloudTask task = new CloudTask(taskId, taskCommandLine);
     task.ResourceFiles = new List<ResourceFile> { inputFiles[i] };
 

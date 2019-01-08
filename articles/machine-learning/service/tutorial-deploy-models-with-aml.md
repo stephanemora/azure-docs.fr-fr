@@ -11,20 +11,20 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: ea446c89fc74fca444793a5e0f803a54fa251ed1
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d93eadd1053cfbc88b2d0748f2f22e359694baa7
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312168"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579649"
 ---
-# <a name="tutorial--deploy-an-image-classification-model-in-azure-container-instance"></a>Tutoriel :  Déployer un modèle de classification d’images dans Azure Container Instances
+# <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Didacticiel : Déployer un modèle de classification d’images dans Azure Container Instances
 
 Ce tutoriel est le **deuxième d’une série de deux**. Dans le [tutoriel précédent](tutorial-train-models-with-aml.md), vous avez entraîné des modèles Machine Learning, puis vous avez inscrit un modèle dans votre espace de travail sur le cloud.  
 
-Vous êtes maintenant prêt à déployer le modèle en tant que service web dans [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). Un service web est une image, dans ce cas une image Docker, qui encapsule la logique de scoring et le modèle lui-même. 
+Vous êtes maintenant prêt à déployer le modèle en tant que service web dans [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). Un service web est une image, dans le cas présent une image Docker. Elle encapsule la logique de scoring et le modèle proprement dit. 
 
-Dans cette partie du tutoriel, vous utilisez Azure Machine Learning Service pour :
+Dans cette partie du tutoriel, vous utilisez Azure Machine Learning service pour effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 > * Configurer votre environnement de test
@@ -33,7 +33,7 @@ Dans cette partie du tutoriel, vous utilisez Azure Machine Learning Service pour
 > * Déployer le modèle sur Azure Container Instances
 > * Tester le modèle déployé
 
-Azure Container Instances n’est pas idéal pour les déploiements de production, mais il est très utile pour tester et comprendre le flux de travail. Pour les déploiements de production évolutifs, envisagez d’utiliser Azure Kubernetes Service. Pour plus d’informations, consultez le document [Comment et où déployer](how-to-deploy-and-where.md).
+Azure Container Instances n’est pas idéal pour les déploiements de production, mais il est très utile pour tester et comprendre le flux de travail. Pour les déploiements de production évolutifs, envisagez d’utiliser Azure Kubernetes Service. Pour plus d’informations, consultez [Comment et où déployer](how-to-deploy-and-where.md).
 
 ## <a name="get-the-notebook"></a>Obtenir le bloc-notes
 
@@ -46,7 +46,7 @@ Pour des raisons pratiques, ce didacticiel est disponible en tant que [bloc-note
 
 ## <a name="prerequisites"></a>Prérequis
 
-Effectuez l’apprentissage du modèle dans le notebook suivant : [Tutoriel 1 : Effectuer l’apprentissage d’un modèle de classification d’images avec Azure Machine Learning Service](tutorial-train-models-with-aml.md).  
+Effectuez l’entraînement du modèle dans le notebook suivant : [Tutoriel (partie 1) : Effectuer l’apprentissage d’un modèle de classification d’images avec Azure Machine Learning Service](tutorial-train-models-with-aml.md).  
 
 
 ## <a name="set-up-the-environment"></a>Configurer l’environnement
@@ -55,7 +55,7 @@ Commencez par configurer un environnement de test.
 
 ### <a name="import-packages"></a>Importer des packages
 
-Importer les packages Python nécessaires pour ce tutoriel.
+Importez les packages Python nécessaires pour ce tutoriel :
 
 ```python
 %matplotlib inline
@@ -72,7 +72,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### <a name="retrieve-the-model"></a>Récupérer le modèle
 
-Vous avez inscrit un modèle dans votre espace de travail au cours du tutoriel précédent. Chargez maintenant cet espace de travail et téléchargez le modèle dans votre répertoire local.
+Vous avez inscrit un modèle dans votre espace de travail au cours du tutoriel précédent. Chargez maintenant cet espace de travail et téléchargez le modèle dans votre répertoire local :
 
 
 ```python
@@ -87,16 +87,16 @@ import os
 os.stat('./sklearn_mnist_model.pkl')
 ```
 
-## <a name="test-model-locally"></a>Tester le modèle localement
+## <a name="test-the-model-locally"></a>Tester le modèle localement
 
-Avant de déployer, vérifiez que votre modèle fonctionne localement :
-* En chargeant des données de test
-* En effectuant des prédictions avec les données de test
-* En examinant la matrice de confusion
+Avant de déployer, vérifiez que votre modèle fonctionne localement :
+* Chargez les données de test.
+* Effectuez des prédictions avec les données de test.
+* Examinez la matrice de confusion.
 
 ### <a name="load-test-data"></a>Charger les données de test
 
-Chargez les données de test à partir du répertoire **./data/** créé au cours du tutoriel consacré à l’entraînement.
+Chargez les données de test à partir du répertoire **./data/** créé au cours du tutoriel consacré à l’entraînement :
 
 ```python
 from utils import load_data
@@ -110,7 +110,7 @@ y_test = load_data('./data/test-labels.gz', True).reshape(-1)
 
 ### <a name="predict-test-data"></a>Effectuant des prédictions avec les données de test
 
-Alimentez le jeu de données de test du modèle pour obtenir des prédictions.
+Pour obtenir des prédictions, fournissez le jeu de données de test au modèle.
 
 ```python
 import pickle
@@ -122,7 +122,7 @@ y_hat = clf.predict(X_test)
 
 ###  <a name="examine-the-confusion-matrix"></a>Examiner la matrice de confusion
 
-Générez une matrice de confusion pour voir combien d’exemples du jeu de test sont classifiés correctement. Notez la valeur indiquant la mauvaise classification pour les prédictions incorrectes. 
+Générez une matrice de confusion pour voir combien d’exemples du jeu de test sont classifiés correctement. Notez la valeur indiquant la mauvaise classification pour les prédictions incorrectes : 
 
 ```python
 from sklearn.metrics import confusion_matrix
@@ -147,7 +147,7 @@ La sortie montre la matrice de confusion :
     Overall accuracy: 0.9204
    
 
-Utilisez `matplotlib` pour afficher la matrice de confusion sous forme de graphe. Dans ce graphe, l’axe X représente les valeurs réelles, et l’axe Y représente les valeurs prédites. La couleur dans chaque grille représente le taux d’erreur. Plus la couleur est claire, plus le taux d’erreurs est élevé. Par exemple, beaucoup de 5 sont incorrectement classifiés en 3. Par conséquent, vous voyez une grille claire en (5,3).
+Utilisez `matplotlib` pour afficher la matrice de confusion sous forme de graphe. Dans ce graphe, l’axe x montre les valeurs réelles et l’axe y montre les valeurs prédites. La couleur dans chaque grille montre le taux d’erreur. Plus la couleur est claire, plus le taux d’erreurs est élevé. Par exemple, beaucoup de 5 sont incorrectement classifiés en 3. Par conséquent, vous voyez une grille claire en (5,3) :
 
 ```python
 # normalize the diagonal cells so that they don't overpower the rest of the cells when visualized
@@ -172,23 +172,23 @@ plt.show()
 
 ![Schéma montrant la matrice de confusion](./media/tutorial-deploy-models-with-aml/confusion.png)
 
-## <a name="deploy-as-web-service"></a>Déployer en tant que service web
+## <a name="deploy-as-a-web-service"></a>Déployer en tant que service web
 
 Une fois que vous avez testé le modèle et que vous êtes satisfait des résultats, déployez le modèle en tant que service web hébergé dans Azure Container Instances. 
 
-Pour créer l’environnement approprié pour Azure Container Instances, fournissez les éléments suivants :
+Pour créer l’environnement approprié pour Azure Container Instances, fournissez les composants suivants :
 * Un script de scoring pour montrer comment utiliser le modèle
 * Un fichier d’environnement pour indiquer quels packages doivent être installés
-* Un fichier de configuration pour créer l’instance de conteneur
-* Le modèle que vous avez précédemment entraîné
+* Un fichier de configuration pour générer l’instance de conteneur
+* Le modèle entraîné précédemment
 
 <a name="make-script"></a>
 
 ### <a name="create-scoring-script"></a>Créer le script de scoring
 
-Créer le script de scoring, appelé score.py. L’appel de service web utilise ce script pour montrer comment utiliser le modèle.
+Créez le script de scoring, appelé **score.py**. L’appel de service web utilise ce script pour montrer comment utiliser le modèle.
 
-Vous devez inclure deux fonctions nécessaires dans le script de scoring :
+Incluez ces deux fonctions nécessaires dans le script de scoring :
 * La fonction `init()`, qui charge en général le modèle dans un objet global. Cette fonction est exécutée une seule fois lors du démarrage du conteneur Docker. 
 
 * La fonction `run(input_data)` utilise le modèle pour prédire une valeur sur la base des données d’entrée. Les entrées et les sorties de l’exécution utilisent en général JSON pour la sérialisation et la désérialisation, mais d’autres formats sont pris en charge.
@@ -206,7 +206,7 @@ from azureml.core.model import Model
 
 def init():
     global model
-    # retreive the path to the model file using the model name
+    # retrieve the path to the model file using the model name
     model_path = Model.get_model_path('sklearn_mnist')
     model = joblib.load(model_path)
 
@@ -221,7 +221,7 @@ def run(raw_data):
 
 ### <a name="create-environment-file"></a>Créer un fichier d’environnement
 
-Ensuite, créez un fichier d’environnement nommé myenv.yml, qui spécifie toutes les dépendances de package du script. Ce fichier est utilisé pour vérifier que toutes ces dépendances sont installées dans l’image Docker. Ce modèle nécessite `scikit-learn` et `azureml-sdk`.
+Ensuite, créez un fichier d’environnement nommé **myenv.yml**, qui spécifie toutes les dépendances de package du script. Ce fichier sert à vérifier que toutes ces dépendances sont installées dans l’image Docker. Ce modèle nécessite `scikit-learn` et `azureml-sdk` :
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies 
@@ -232,16 +232,16 @@ myenv.add_conda_package("scikit-learn")
 with open("myenv.yml","w") as f:
     f.write(myenv.serialize_to_string())
 ```
-Examinez le contenu du fichier `myenv.yml`.
+Examinez le contenu du fichier `myenv.yml` :
 
 ```python
 with open("myenv.yml","r") as f:
     print(f.read())
 ```
 
-### <a name="create-configuration-file"></a>Création d’un fichier de configuration
+### <a name="create-a-configuration-file"></a>Créer un fichier de configuration
 
-Créez un fichier de configuration de déploiement, et spécifiez le nombre de processeurs et de gigaoctets de RAM nécessaires pour votre conteneur Azure Container Instances. Bien que cela dépende de votre modèle, les valeurs par défaut de 1 cœur et de 1 gigaoctet de RAM sont généralement suffisantes pour de nombreux modèles. Si vous pensez plus tard que des valeurs supérieures sont nécessaires, vous devrez recréer l’image et redéployer le service.
+Créez un fichier de configuration de déploiement. Spécifiez le nombre de processeurs et de gigaoctets de RAM nécessaires pour votre conteneur Azure Container Instances. Bien que cela dépende de votre modèle, les valeurs par défaut de 1 cœur et de 1 gigaoctet de RAM sont suffisantes pour de nombreux modèles. Si plus tard vous avez besoin de davantage, vous devez recréer l’image et redéployer le service.
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -253,15 +253,15 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
 ```
 
 ### <a name="deploy-in-container-instances"></a>Déployer dans Container Instances
-Durée estimée : **environ 7 à 8 minutes**
+Le temps estimé pour terminer le déploiement est de **sept à huit minutes**.
 
 Configurez l’image et déployez. Le code suivant effectue ces étapes :
 
-1. Créer une image avec :
-   * Le fichier de scoring (`score.py`).
-   * Le fichier d’environnement (`myenv.yml`).
-   * Le fichier de modèle.
-1. Inscrire cette image sous l’espace de travail. 
+1. Générez une image à l’aide de ces fichiers :
+   * Le fichier de scoring, `score.py`
+   * Le fichier d’environnement, `myenv.yml`.
+   * Le fichier de modèle
+1. Inscrivez l’image sous l’espace de travail. 
 1. Envoyer l’image au conteneur Azure Container Instances.
 1. Démarrer un conteneur dans Azure Container Instances à l’aide de l’image.
 1. Obtenir le point de terminaison HTTP du service web.
@@ -286,25 +286,25 @@ service = Webservice.deploy_from_model(workspace=ws,
 service.wait_for_deployment(show_output=True)
 ```
 
-Obtenir le point de terminaison HTTP du service web de scoring qui accepte les appels du client REST. Vous pouvez partager ce point de terminaison avec toute personne souhaitant tester le service web ou l’intégrer dans une application. 
+Obtenir le point de terminaison HTTP du service web de scoring qui accepte les appels du client REST. Vous pouvez partager ce point de terminaison avec toute personne souhaitant tester le service web ou l’intégrer dans une application : 
 
 ```python
 print(service.scoring_uri)
 ```
 
 
-## <a name="test-deployed-service"></a>Tester le service déployé
+## <a name="test-the-deployed-service"></a>Tester le service déployé
 
 Vous avez précédemment attribué un score à toutes les données de test avec la version locale du modèle. Vous pouvez maintenant tester le modèle déployé avec un échantillon aléatoire de 30 images provenant des données de test.  
 
 Le code suivant effectue ces étapes :
 1. Envoyer les données sous forme de tableau JSON au service web hébergé dans Azure Container Instances. 
 
-1. Utiliser l’API `run` du SDK pour appeler le service. Vous pouvez également effectuer des appels directs avec n’importe quel outil HTTP, comme curl.
+1. Utiliser l’API `run` du SDK pour appeler le service. Vous pouvez également effectuer des appels directs avec n’importe quel outil HTTP, comme **curl**.
 
 1. Affichez les prédictions retournées et tracez-les avec les images d’entrée. Une police rouge et une image inverse (blanc sur fond noir) sont utilisées pour mettre en évidence les exemples mal classifiés. 
 
- Comme la précision du modèle est élevée, il peut être nécessaire d’exécuter le code suivant plusieurs fois avant de voir un exemple mal classifié.
+La précision du modèle étant élevée, il peut être nécessaire d’exécuter le code suivant plusieurs fois avant de voir un exemple mal classifié :
 
 ```python
 import json
@@ -339,9 +339,13 @@ for s in sample_indices:
 plt.show()
 ```
 
-Voici le résultat d’un échantillon aléatoire d’images de test : ![Schéma montrant les résultats](./media/tutorial-deploy-models-with-aml/results.png)
+Ce résultat provient d’un échantillon aléatoire d’images de test :
 
-Vous pouvez également envoyer une demande HTTP directe pour tester le service web.
+![Graphisme montrant les résultats](./media/tutorial-deploy-models-with-aml/results.png)
+
+![Résultats](./media/tutorial-deploy-models-with-aml/results.png)
+
+Vous pouvez également envoyer une requête HTTP brute pour tester le service web :
 
 ```python
 import requests
@@ -378,6 +382,6 @@ service.delete()
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-+ Apprenez-en davantage sur les [options de déploiement disponibles pour Azure Machine Learning Service](how-to-deploy-and-where.md), y compris ACI, Azure Kubernetes Service, FPGA et IoT Edge.
++ Découvrez toutes les [options de déploiement pour Azure Machine Learning service](how-to-deploy-and-where.md). Les options incluent Azure Container Instances, Azure Kubernetes Service, les FPGA et Azure IoT Edge.
 
-+ Découvrez comment le service Azure Machine Learning peut sélectionner automatiquement et optimiser le meilleur algorithme pour votre modèle et générer ce modèle pour vous. Suivez pour cela le didacticiel [Sélection automatique d’un algorithme](tutorial-auto-train-models.md). 
++ Découvrez comment Azure Machine Learning service peut sélectionner et optimiser automatiquement le meilleur algorithme pour votre modèle. Il génère également ce modèle pour vous. Suivez le tutoriel [Sélection automatique d’un algorithme](tutorial-auto-train-models.md). 

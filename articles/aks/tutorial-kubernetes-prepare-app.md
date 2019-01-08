@@ -3,20 +3,19 @@ title: Didacticiel Kubernetes sur Azure - Préparer une application
 description: Dans ce didacticiel Azure Kubernetes Service (AKS), vous découvrez comment préparer et créer une application à plusieurs conteneurs avec Docker Compose que vous pouvez ensuite déployer sur AKS.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 20a57a0d528fa6a291aa66f91ff6ddd71053f478
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: b529af1db6d72d87abc25eb37f2f1c39216a0ba4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297058"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724162"
 ---
-# <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Didacticiel : préparer une application pour Azure Kubernetes Service (AKS)
+# <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Didacticiel : Préparer une application pour Azure Kubernetes Service (AKS)
 
 Dans ce didacticiel (le premier d’une série de sept), vous allez préparer une application à plusieurs conteneurs à son utilisation dans Kubernetes. Les outils de développement existants tels que Docker Compose servent à créer et tester en local une application. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -29,7 +28,7 @@ Une fois ces étapes effectuées, l’application suivante s’exécute dans vot
 
 ![Image du cluster Kubernetes sur Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-Dans les didacticiels suivants, l’image conteneur est chargée dans Azure Container Registry, puis déployée dans un cluster AKS.
+Dans d’autres tutoriels, l’image conteneur est chargée dans un registre Azure Container Registry, puis déployée dans un cluster AKS.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -49,7 +48,7 @@ Utilisez [git][] pour cloner l’exemple d’application dans votre environnemen
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Modifiez les répertoires de manière à travailler à partir des répertoires clonés.
+Passez au répertoire cloné.
 
 ```console
 cd azure-voting-app-redis
@@ -94,7 +93,7 @@ Pour voir l’application en cours d’exécution, entrez http://localhost:8080 
 
 ![Image du cluster Kubernetes sur Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Maintenant que la fonctionnalité de l’application a été validée, les conteneurs en cours d’exécution peuvent être arrêtés et supprimés. Ne supprimez pas les images de conteneur. Dans le didacticiel suivant, l’image *azure-vote-front* est chargée dans une instance Azure Container Registry.
 

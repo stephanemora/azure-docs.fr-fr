@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: db4a9a43a971f66870c2079762b9c62802122baa
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 33b47d33262a4968a0eafb9ec70ef73e50975735
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093321"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602815"
 ---
-# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Didacticiel : Ajouter Azure CDN à une application web Azure App Service
+# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutoriel : Ajouter Azure CDN à une application web Azure App Service
 
-Ce didacticiel montre comment ajouter [Azure Content Delivery Network (CDN)](cdn-overview.md) à une [application web dans Azure App Service](../app-service/app-service-web-overview.md). Web Apps est un service pour l’hébergement d’applications web, d’API REST et de backends mobiles. 
+Ce didacticiel montre comment ajouter [Azure Content Delivery Network (CDN)](cdn-overview.md) à une [application web dans Azure App Service](../app-service/overview.md). Web Apps est un service pour l’hébergement d’applications web, d’API REST et de backends mobiles. 
 
 Voici la page d’accueil de l’exemple de site HTML statique que vous allez utiliser :
 
@@ -268,6 +268,6 @@ Vous avez appris à effectuer les opérations suivantes :
 Découvrez comment optimiser les performances du réseau CDN dans les articles suivants :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Ajouter un domaine personnalisé à un point de terminaison Azure CDN](cdn-map-content-to-custom-domain.md)
+> [Tutoriel : Ajouter un domaine personnalisé à votre point de terminaison Azure CDN](cdn-map-content-to-custom-domain.md)
 
 

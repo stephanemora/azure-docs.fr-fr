@@ -1,67 +1,51 @@
 ---
-title: Rechercher des données non structurées dans le stockage cloud Azure
-description: Recherche de données non structurées à l’aide de Recherche Azure.
+title: 'Tutoriel : Rechercher des données non structurées dans le stockage Blob Azure'
+description: 'Tutoriel : Recherche de données non structurées dans le stockage Blob à l’aide de la recherche Azure.'
 author: roygara
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 10/12/2017
+ms.date: 12/13/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 902009d7807b1ce340000c271350af1c37231d77
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 42c67d73ee776488fbe932676f61cb7166c2984b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181190"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599830"
 ---
-# <a name="tutorial-search-unstructured-data-in-cloud-storage"></a>Didacticiel : Rechercher des données non structurées dans le stockage cloud
+# <a name="tutorial-search-unstructured-data-in-cloud-storage"></a>Tutoriel : Rechercher des données non structurées dans le stockage cloud
 
-Dans ce didacticiel, vous apprenez à rechercher des données non structurées à l’aide de [Recherche Azure](../../search/search-what-is-azure-search.md) en utilisant des données stockées dans des objets blob Azure. Les données non structurées sont des données qui ne sont pas organisées de manière prédéfinie ou qui n’ont pas de modèle de données. Un fichier .txt en est un exemple.
+Dans ce tutoriel, vous apprenez à rechercher des données non structurées à l’aide de la [recherche Azure](../../search/search-what-is-azure-search.md), en utilisant des données stockées dans le stockage Blob Azure. Les données non structurées sont des données qui ne sont pas organisées de manière prédéfinie ou qui n’ont pas de modèle de données. Il s’agit par exemple d’un fichier .txt.
+
+Pour suivre ce tutoriel, vous avez besoin d’un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer un groupe de ressources
-> * Créez un compte de stockage.
-> * Créez un conteneur.
+> * Créer un compte de stockage
+> * Créer un conteneur
 > * Télécharger des données vers votre conteneur
 > * Créer un service de recherche via le portail
+> * Connecter un service de recherche à un compte de stockage
+> * Créer une source de données
+> * Configurer l’index
+> * Créer un indexeur
 > * Utiliser le service de recherche pour rechercher votre conteneur
 
-## <a name="download-the-sample"></a>Télécharger l’exemple
+## <a name="prerequisites"></a>Prérequis
 
-Un exemple de jeu de données a été préparé pour vous. **Téléchargez le fichier [clinical-trials.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials.zip)** et décompressez-le dans son propre dossier.
+Chaque compte de stockage doit appartenir à un groupe de ressources Azure. Un groupe de ressources est un conteneur logique servant à grouper vos services Azure. Quand vous créez un compte de stockage, vous avez le choix entre créer un groupe de ressources ou utiliser un groupe de ressources existant. Ce tutoriel crée un groupe de ressources.
 
-L’exemple comprend des fichiers texte obtenus auprès de [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). Vous pouvez les utiliser comme exemples de fichiers texte pour effectuer des recherches en utilisant Azure.
+Connectez-vous au [Portail Azure](http://portal.azure.com).
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
-Connectez-vous au [portail Azure](http://portal.azure.com).
+Vous allez utiliser un exemple de jeu de données préparé spécialement pour ce tutoriel. Téléchargez [clinical-trials.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials.zip) et décompressez-le dans son propre dossier.
 
-## <a name="create-a-storage-account"></a>Créez un compte de stockage.
-
-Le compte de stockage fournit un emplacement unique pour stocker vos objets de données Stockage Azure et y accéder.
-
-Actuellement, il existe deux types de comptes de stockage, **Blob** et **Usage général**. Dans ce didacticiel, vous créez un compte de stockage **Usage général**.
-
-Si vous ne connaissez pas le processus de création d’un compte de stockage à usage général, voici comment en créer un :
-
-1. Dans le menu de gauche, sélectionnez **Comptes de stockage**, puis sélectionnez **Ajouter**.
-
-2. Entrez un nom unique pour votre compte de stockage. 
-
-3. Sélectionnez **Gestionnaire des ressources** pour votre **modèle de déploiement** et sélectionnez **Usage général** dans la liste déroulante **Type de compte**.
-
-4. Sélectionnez **Stockage localement redondant (LRS)** dans la liste déroulante **Réplication**.
-
-5. Sous **Groupe de ressources**, sélectionnez **Créer** et entrez un nom unique.
-
-6. Sélectionnez un abonnement approprié.
-
-7. Choisissez un emplacement et sélectionnez **Créer.**
-
-  ![Recherche de données non structurées](media/storage-unstructured-search/storagepanes2.png)
+L’exemple comprend des fichiers texte obtenus auprès de [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). Ce tutoriel utilise ces exemples de fichiers texte pour les recherches effectuées à l’aide des services de recherche Azure.
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 
@@ -75,9 +59,9 @@ Dans ce didacticiel, vous utilisez un seul conteneur pour stocker les fichiers t
 
 3. Ajoutez un nouveau conteneur.
 
-4. Nommez ce conteneur « données » et sélectionnez **Conteneur** pour le niveau d’accès public.
+4. Nommez ce conteneur **données** et sélectionnez **Conteneur** pour le niveau d’accès public.
 
-5. Sélectionnez **OK** pour créer le conteneur. 
+5. Sélectionnez **OK** pour créer le conteneur.
 
   ![Recherche de données non structurées](media/storage-unstructured-search/storageactinfo.png)
 
@@ -87,29 +71,29 @@ Maintenant que vous avez un conteneur, vous pouvez y charger votre exemple de do
 
 1. Sélectionnez votre conteneur, puis **Charger**.
 
-2. Sélectionnez l’icône de dossier bleue située en regard du champ Fichiers et accédez au dossier local où vous avez extrait l’exemple de données.
+2. Sélectionnez l’icône de dossier bleue à côté du champ **Fichiers** et accédez au dossier local où vous avez extrait l’exemple de données.
 
-3. Sélectionnez tous les fichiers extraits, puis **Ouvrir**.
+3. Sélectionnez tous les fichiers extraits, puis sélectionnez **Ouvrir**.
 
 4. Sélectionnez **Charger** pour lancer le processus de chargement.
 
-  ![Recherche non structurée](media/storage-unstructured-search/upload.png)
+  ![Recherche de données non structurées](media/storage-unstructured-search/upload.png)
 
 Le processus de chargement peut durer quelques minutes.
 
-Une fois qu’il est terminé, accédez à votre conteneur de données pour vérifier que les fichiers texte sont chargés.
+Une fois que ce processus est terminé, accédez à votre conteneur de données pour vérifier que les fichiers texte ont bien été chargés.
 
   ![Recherche de données non structurées](media/storage-unstructured-search/clinicalfolder.png)
 
 ## <a name="create-a-search-service"></a>Créer un service de recherche
 
-Recherche Azure est une solution cloud de recherche en tant que service, qui offre aux développeurs des API et des outils permettant d’ajouter une expérience de recherche riche concernant vos données dans les applications web, mobiles et d’entreprise.
+La recherche Azure est une solution cloud de service de recherche qui fournit aux développeurs des API et des outils permettant d’ajouter une expérience de recherche dans des données.
 
-Si vous ne connaissez pas le processus de création d’un service de recherche, voici comment en créer un :
+Dans ce tutoriel, vous utilisez un service de recherche pour faire des recherches dans les fichiers texte obtenus auprès de clinicaltrials.gov.
 
 1. Accédez à votre compte de stockage dans le portail Azure.
 
-2. Faites défiler vers le bas et cliquez sur **Ajouter Recherche Azure** sous **SERVICE BLOB**.
+2. Faites défiler vers le bas et sélectionnez **Ajouter Recherche Azure** sous **SERVICE BLOB**.
 
 3. Sous **Importer des données**, sélectionnez **Choisir votre service**.
 
@@ -119,7 +103,7 @@ Si vous ne connaissez pas le processus de création d’un service de recherche,
 
 6. Sous **Groupe de ressources**, sélectionnez **Utiliser l’existant** et choisissez le groupe de ressources que vous avez créé précédemment.
 
-7. Pour **Niveau tarifaire**, sélectionnez le niveau **Gratuit** et cliquez sur **Sélectionner**.
+7. Comme **Niveau tarifaire**, sélectionnez le niveau **Gratuit** et cliquez sur **Sélectionner**.
 
 8. Sélectionnez **Créer** pour créer le service de recherche.
 
@@ -131,23 +115,17 @@ Maintenant que vous avez un service de recherche, vous pouvez l’attacher à vo
 
 1. Accédez à votre compte de stockage.
 
-2. Sélectionnez **Ajouter Recherche Azure** sous **SERVICE BLOB.**
+2. Sélectionnez **Ajouter Recherche Azure** sous **SERVICE BLOB**.
 
 3. Sélectionnez **Service de recherche** dans **Importer des données**, puis cliquez sur le service de recherche que vous avez créé dans la section précédente. La fenêtre **Nouvelle source de données** s’ouvre.
 
-### <a name="new-data-source"></a>Nouvelle source de données
+### <a name="create-a-data-source"></a>Création d'une source de données
 
   Une source de données spécifie les données à indexer et comment accéder à ces données. Le même service de recherche peut utiliser une source de données plusieurs fois.
 
 1. Entrez un nom pour la source de données. Sous **Données à extraire**, sélectionnez **Contenu et métadonnées**. La source de données spécifie les parties des objets blob à indexer.
-    
-    a. Dans vos propres futurs scénarios, vous pourrez également sélectionner **Métadonnées de stockage uniquement**. Vous effectueriez cette sélection si vous souhaitiez limiter les données indexées aux propriétés des objets blob standard ou aux propriétés définies par l’utilisateur.
-    
-    b. Vous pouvez également choisir **Toutes les métadonnées** pour obtenir à la fois les propriétés des objets blob standard et *toutes* les métadonnées propres au type de contenu. 
 
-2. Étant donné que les objets blob que vous utilisez sont des fichiers texte, affectez à **Mode d’analyse** la valeur **Texte**.
-    
-    a. Dans vos propres futurs scénarios, vous pourrez éventuellement sélectionner [Autres modes d’analyse](../../search/search-howto-indexing-azure-blob-storage.md) selon le contenu de vos objets blob.
+2. Étant donné que les objets blob que vous utilisez sont des fichiers texte, définissez **Mode d’analyse** sur **Texte**.
 
   ![Recherche de données non structurées](media/storage-unstructured-search/datasources.png)
 
@@ -155,48 +133,48 @@ Maintenant que vous avez un service de recherche, vous pouvez l’attacher à vo
 
 4. Sélectionnez votre compte de stockage, puis sélectionnez le conteneur que vous avez créé précédemment.
 
-5. Cliquez sur **Sélectionner** pour revenir à **Nouvelle source de données** et sélectionnez **OK** pour continuer.
-
   ![Recherche de données non structurées](media/storage-unstructured-search/datacontainer.png)
+
+5. Cliquez sur **Sélectionner** pour revenir à **Nouvelle source de données**, puis sélectionnez **OK** pour continuer.
 
 ### <a name="configure-the-index"></a>Configurer l’index
 
-  Un index est une collection de champs issus de votre source de données dans lesquels vous pouvez effectuer des recherches. L’index indique à votre service de recherche comment effectuer des recherches dans vos données.
+  Un index est une collection de champs issus de votre source de données dans lesquels vous pouvez effectuer des recherches. Vous devez définir et configurer les paramètres de ces champs pour indiquer au service de recherche de quelle manière effectuer des recherches dans vos données.
 
 1. Dans **Importer des données**, sélectionnez **Personnaliser l’index cible**.
- 
+
 2. Entrez un nom pour votre index dans le champ **Nom de l’index**.
 
 3. Cochez la case de l’attribut **Récupérable** sous **metadata_storage_name**.
 
   ![Recherche de données non structurées](media/storage-unstructured-search/valuestoselect.png)
 
-4. Cliquez sur **OK**, ce qui permet d’afficher **Créer un indexeur**.
+4. Sélectionnez **OK** pour accéder à la fenêtre **Créer un indexeur**.
 
-Les paramètres de l’index et les attributs que vous donnez à ces paramètres sont importants. Les paramètres spécifient *quelles* données stocker, tandis que les attributs indiquent *comment* stocker ces données.
+Les paramètres de l’index et les attributs que vous donnez à ces paramètres sont importants. Les paramètres spécifient *quelles* données stocker et les attributs indiquent *comment* stocker ces données.
 
 La colonne **NOM DU CHAMP** contient les paramètres. Le tableau suivant fournit la liste des attributs disponibles et leurs descriptions.
 
-### <a name="field-attributes"></a>Attributs de champ
+#### <a name="field-attributes"></a>Attributs de champ
+
 | Attribut | Description |
 | --- | --- |
 | *Clé* |Chaîne fournissant un ID unique à chaque document utilisé pour rechercher des documents. Chaque index doit avoir une clé. Un seul champ peut être la clé, et son type doit être défini sur Edm.String. |
 | *Affichable dans les résultats d’une recherche* |Définit si un champ peut être retourné dans un résultat de recherche. |
 | *Filtrable* |Permet d’utiliser le champ dans des requêtes de filtre. |
 | *Triable* |Permet à une requête de trier les résultats de recherche à l’aide de ce champ. |
-| *À choix multiple* |Permet d’utiliser un champ pour le filtrage autonome dans une structure de navigation par facettes par un utilisateur. En général, les champs contenant des valeurs répétitives que vous pouvez utiliser pour regrouper plusieurs documents (par exemple, plusieurs documents appartenant à une seule marque ou catégorie de service) sont les mieux adaptés en tant que facettes. |
+| *À choix multiple* |Permet d’utiliser un champ pour le filtrage autonome dans une structure de navigation par facettes par un utilisateur. En général, les champs contenant des valeurs répétitives que vous pouvez utiliser pour regrouper des documents (par exemple, plusieurs documents correspondant à la même marque ou catégorie de service) sont les mieux adaptés en tant que facettes. |
 | *Possibilité de recherche* |Indique que le champ peut faire l’objet d’une recherche en texte intégral. |
 
-
 ### <a name="create-an-indexer"></a>Créer un indexeur
-    
+
   Un indexeur connecte une source de données à un index de recherche et permet de planifier la réindexation de vos données.
 
 1. Entrez un nom dans le champ **Nom**, puis sélectionnez **OK**.
 
   ![Recherche de données non structurées](media/storage-unstructured-search/exindexer.png)
 
-2. Vous revenez à **Importer des données**, sélectionnez **OK** pour terminer le processus de connexion.
+2. Vous revenez alors dans **Importer des données**. Sélectionnez **OK** pour terminer le processus de connexion.
 
 Vous avez maintenant connecté votre objet blob à votre service de recherche. Le portail a besoin de quelques minutes pour montrer que l’index est rempli. Toutefois, le service de recherche démarre l’indexation immédiatement afin que vous puissiez effectuer des recherches tout de suite.
 
@@ -206,53 +184,54 @@ Pour rechercher dans vos fichiers, ouvrez l’Explorateur de recherche dans l’
 
 Les étapes suivantes vous indiquent où trouver l’Explorateur de recherche en vous fournissant quelques exemples de requêtes :
 
-1. Accédez à toutes les ressources et recherchez votre service de recherche nouvellement créé.
+1. Accédez à toutes les ressources et recherchez le service de recherche que vous venez de créer.
 
   ![Recherche de données non structurées](media/storage-unstructured-search/exampleurl.png)
 
-3. Sélectionnez votre index pour l’ouvrir. 
+2. Sélectionnez votre index pour l’ouvrir.
 
   ![Recherche de données non structurées](media/storage-unstructured-search/overview.png)
 
-4. Sélectionnez **Explorateur de recherche** pour ouvrir l’Explorateur de recherche, où vous pouvez effectuer des requêtes actives sur vos données.
+3. Sélectionnez **Explorateur de recherche** pour ouvrir l’Explorateur de recherche, où vous pouvez effectuer des requêtes actives sur vos données.
 
   ![Recherche de données non structurées](media/storage-unstructured-search/indexespane.png)
 
-5. Sélectionnez **Rechercher** alors que le champ de chaîne de requête est vide. Une requête vide retourne *toutes* les données de vos objets blob.
+4. Sélectionnez **Rechercher** alors que le champ de chaîne de requête est vide. Une requête vide retourne *toutes* les données de vos objets blob.
 
   ![Recherche de données non structurées](media/storage-unstructured-search/emptySearch.png)
 
-### <a name="full-text-search"></a>Recherche en texte intégral 
+### <a name="perform-a-full-text-search"></a>Effectuer une recherche en texte intégral
 
-Entrez « Myopia » dans le champ **Chaîne de requête**, puis sélectionnez **Rechercher**. Lancement d’une recherche du contenu des fichiers et retour d’un sous-ensemble de ces fichiers, contenant le mot « Myopia ».
+Entrez **Myopia** dans le champ **Chaîne de requête**, puis sélectionnez **Rechercher**. Cette étape démarre une recherche dans le contenu des fichiers et retourne un sous-ensemble de ces fichiers contenant le mot « Myopia ».
 
-  ![Recherche de données non structurées](media/storage-unstructured-search/secondMyopia.png) 
+  ![Recherche de données non structurées](media/storage-unstructured-search/secondMyopia.png)
 
-### <a name="system-properties-search"></a>Recherche de propriétés système
+### <a name="perform-a-system-properties-search"></a>Effectuer une recherche de propriétés système
 
-Vous pouvez aussi créer des requêtes qui effectuent des recherches par propriétés système à l’aide du paramètre `$select`. Entrez `$select=metadata_storage_name` dans la chaîne de requête et appuyez sur Entrée, ce qui retourne uniquement ce champ précis.
-    
+En plus d’une recherche en texte intégral, vous pouvez créer des requêtes pour effectuer des recherches par propriétés système à l’aide du paramètre `$select`.
+
+Entrez `$select=metadata_storage_name` dans la chaîne de requête et appuyez sur **Entrée**. Seul ce champ précis est retourné.
+
 La chaîne de requête modifie directement l’URL, donc les espaces ne sont pas autorisés. Pour rechercher dans plusieurs champs, utilisez une virgule, comme ici : `$select=metadata_storage_name,metadata_storage_path`
-    
+
 Vous pouvez uniquement utiliser le paramètre `$select` avec des champs qui ont été marqués comme récupérables lors de la définition de votre index.
 
-  ![Recherche de données non structurées](media/storage-unstructured-search/metadatasearchunstructured.png) 
+  ![Recherche de données non structurées](media/storage-unstructured-search/metadatasearchunstructured.png)
 
 Vous avez maintenant terminé ce didacticiel et vous avez un ensemble de données non structurées dans lequel vous pouvez effectuer des recherches.
 
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Pour supprimer les ressources que vous avez créées, le plus simple est de supprimer le groupe de ressources. La suppression du groupe de ressources supprime aussi toutes les ressources qu’il contient. Dans l’exemple suivant, la suppression du groupe de ressources supprime aussi le compte de stockage et le groupe de ressources.
+
+1. Dans le portail Azure, accédez à la liste des groupes de ressources associés à votre abonnement.
+2. Sélectionnez le groupe de ressources que vous souhaitez supprimer.
+3. Sélectionnez le bouton **Supprimer le groupe de ressources** et entrez le nom du groupe de ressources dans le champ de suppression.
+4. Sélectionnez **Supprimer**.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à rechercher des données non structurées en utilisant Recherche Azure, à savoir comment effectuer les tâches suivantes :
-
-> [!div class="checklist"]
-> * Créer un groupe de ressources
-> * Créez un compte de stockage.
-> * Créez un conteneur.
-> * Charger des données dans votre conteneur
-> * Créer un service de recherche
-> * Utilisation du service de recherche pour effectuer une recherche dans votre conteneur
-
-Suivez ce lien pour en savoir plus sur l’indexation des documents avec Recherche Azure.
+Suivez ce lien pour en savoir plus sur l’indexation des documents avec la recherche Azure :
 
 > [!div class="nextstepaction"]
 > [Indexation de documents dans Stockage Blob Azure avec Recherche Azure](../../search/search-howto-indexing-azure-blob-storage.md)

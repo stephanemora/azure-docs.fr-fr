@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Détecter des problèmes d’appareils dans la solution de surveillance à distance Azure | Microsoft Docs'
+title: Tutoriel de détection des problèmes d’appareils dans une solution de supervision à distance - Azure | Microsoft Docs
 description: Ce tutoriel montre comment utiliser des règles et des actions pour détecter automatiquement les problèmes d’appareils liés au seuil dans la solution de surveillance à distance.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7ebe81565bc6bd28747f3a251b39a3c010493307
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 91ee5087e5f41cda3648c2ecadcfcf16fd32a249
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819098"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598672"
 ---
-# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutoriel : Détecter des problèmes liés aux appareils connectés à votre solution de surveillance
+# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Didacticiel : Détecter les problèmes liés aux appareils connectés à votre solution de supervision
 
 Dans ce tutoriel, vous configurez l’accélérateur de solution de surveillance à distance pour détecter les problèmes liés à vos appareils IoT connectés. Pour détecter les problèmes liés à vos appareils, vous ajoutez des règles qui génèrent des alertes sur le tableau de bord de la solution.
 

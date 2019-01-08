@@ -1,5 +1,5 @@
 ---
-title: Créer une application web Node.js sous Linux - Azure App Service | Microsoft Docs
+title: Créer une application Node.js sur Linux - Azure App Service | Microsoft Docs
 description: Déployez votre premier programme Hello World Node.js dans Azure App Service sur Linux en quelques minutes.
 services: app-service\web
 documentationcenter: ''
@@ -15,17 +15,17 @@ ms.topic: quickstart
 ms.date: 06/07/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 22a022b12e931fd4edf139038eb7506e69422f8e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c739aa4fb510bd5ebe9e3ffff67f93a2dd49cf0c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253567"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631530"
 ---
-# <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Créer une application web Node.js dans Azure App Service sur Linux
+# <a name="create-a-nodejs-app-in-azure-app-service-on-linux"></a>Créer une application Node.js dans Azure App Service sur Linux
 
 > [!NOTE]
-> Cet article explique comment déployer une application sur App Service sous Linux. Pour déployer une application App Service sur _Windows_, consultez [Créer une application web Node.js dans Azure](../app-service-web-get-started-nodejs.md).
+> Cet article explique comment déployer une application sur App Service sous Linux. Pour déployer sur App Service sur _Windows_, consultez [Créer une application Node.js dans Azure](../app-service-web-get-started-nodejs.md).
 >
 
 [App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce démarrage rapide montre comment déployer une application Node.js sur App Service sur Linux à l’aide de [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
@@ -136,17 +136,17 @@ La commande `az webapp up` exécute les actions suivantes :
 
 - Créer une application avec le nom spécifié
 
-- [Décompressez](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip) les fichiers depuis le répertoire de travail en cours sur l’application web.
+- [Déployez les fichiers zip](https://docs.microsoft.com/azure/app-service/deploy-zip) à partir du répertoire de travail actif sur l’application web.
 
 ## <a name="browse-to-the-app"></a>Accéder à l’application
 
-Accédez à l’application déployée à l’aide de votre navigateur web. Remplacez <nom de l’application> par le nom de votre application web.
+Accédez à l’application déployée à l’aide de votre navigateur web. Remplacez <app_name> par le nom de votre application.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-L’exemple de code Node.js s’exécute dans une application web avec une image intégrée.
+L’exemple de code Node.js s’exécute dans App Service sur Linux avec une image intégrée.
 
 ![Exemple d’application s’exécutant dans Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -166,7 +166,7 @@ response.end("Hello Azure!");
 
 Enregistrez vos modifications et quittez nano. Utilisez la commande `^O` pour enregistrer et `^X` pour quitter.
 
-Vous allez maintenant redéployer l’application. Remplacez `<app_name>` par votre application web.
+Vous allez maintenant redéployer l’application. Remplacez `<app_name>` par votre application.
 
 ```bash
 az webapp up -n <app_name>
@@ -176,15 +176,15 @@ Une fois le déploiement terminé, revenez à la fenêtre du navigateur que vous
 
 ![Mise à jour de l’exemple d’application s’exécutant dans Azure](media/quickstart-nodejs/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Gérer votre nouvelle application web Azure
+## <a name="manage-your-new-azure-app"></a>Gérer votre nouvelle application Azure
 
-Accédez au <a href="https://portal.azure.com" target="_blank">Portail Azure</a> pour gérer l’application web que vous avez créée.
+Accédez au <a href="https://portal.azure.com" target="_blank">portail Azure</a> pour gérer l’application que vous avez créée.
 
-Dans le menu de gauche, cliquez sur **App Services**, puis cliquez sur le nom de votre application web Azure.
+Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
 
-![Navigation au sein du portail pour accéder à l’application web Azure](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
+![Navigation au sein du portail pour accéder à l’application Azure](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
 
-Vous voyez apparaître la page Vue d’ensemble de votre application web. Elle vous permet d’exécuter des tâches de gestion de base, telles que parcourir, arrêter, démarrer, redémarrer et supprimer.
+La page Vue d’ensemble de votre application s’affiche. Elle vous permet d’exécuter des tâches de gestion de base, telles que parcourir, arrêter, démarrer, redémarrer et supprimer.
 
 ![Page App Service du Portail Azure](media/quickstart-nodejs/nodejs-docs-hello-world-app-service-detail.png)
 

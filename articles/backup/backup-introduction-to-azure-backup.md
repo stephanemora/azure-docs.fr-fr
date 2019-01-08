@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 8/2/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b0d920c1a41ff679c3dedcb6745e250b77cb769a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f07bcf3cb1b489ad7ec06dff1437e49d83748998
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878297"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631152"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Vue d’ensemble des fonctionnalités de sauvegarde Azure
 Azure Backup est le service Azure qui vous permet de sauvegarder (ou de protéger) et de restaurer vos données dans le cloud Microsoft. Azure Backup remplace votre solution de sauvegarde locale ou hors site par une solution basée dans le cloud à la fois fiable, sécurisée et économique. Azure Backup propose plusieurs composants que vous pouvez télécharger et déployer sur l’ordinateur ou sur le serveur approprié, ou dans le cloud. Vous déployez un composant (ou un agent) en fonction de ce que vous souhaitez protéger. Vous pouvez utiliser tous les composants de Sauvegarde Azure (que vous protégiez des données en local ou dans le cloud) pour sauvegarder des données dans un coffre Recovery Services d’Azure. Pour plus d’informations sur le composant à utiliser pour protéger des données, des applications ou des charges de travail spécifiques, consultez le [tableau des composants Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (plus loin dans cet article).
@@ -78,17 +78,17 @@ Le tableau suivant fournit une matrice des données et des charges de travail po
 | Machines virtuelles IaaS Azure (Linux) |exécution dans Azure |[Azure Backup (extension de machine virtuelle)](backup-azure-vms-introduction.md) |
 
 ## <a name="linux-support"></a>Prise en charge de Linux
-Le tableau suivant montre les composants Azure Backup prenant en charge Linux.  
+Le tableau suivant montre les composants de Sauvegarde Azure pris en charge pour Linux.  
 
-| Composant | Prise en charge Linux (approuvée par Azure) |
-| --- | --- |
-| Agent Azure Backup (MARS) |Aucun (agent uniquement sur Windows) |
-| System Center DPM |<li> Sauvegarde cohérente au niveau fichier de machines virtuelles invitées Linux sur Hyper-V et VMware<br/> <li> Restauration de machines virtuelles invitées Linux Hyper-V et VMware </br> </br>  *Sauvegarde cohérente des fichiers non disponible pour la machine virtuelle Azure* <br/> |
-| Azure Backup Server |<li>Sauvegarde cohérente au niveau fichier de machines virtuelles invitées Linux sur Hyper-V et VMware<br/> <li> Restauration de machines virtuelles invitées Linux Hyper-V et VMware </br></br> *Sauvegarde cohérente des fichiers non disponible pour la machine virtuelle Azure*  |
-| Sauvegarde des machines virtuelles IaaS Azure |Sauvegarde cohérente au niveau application à l’aide de [l’infrastructure pré et post-script](backup-azure-linux-app-consistent.md)<br/> [Récupération de fichiers granulaire](backup-azure-restore-files-from-vm.md)<br/> [Restaurer tous les disques de machines virtuelles](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [Restauration de machines virtuelles](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
+**Composant** | **Linux (approuvé par Azure)**
+--- | --- 
+Agent Azure Backup (MARS) | Aucun (agent Windows uniquement) 
+System Center DPM | Sauvegarde cohérente au niveau fichier de machines virtuelles invitées Linux sur Hyper-V et VMware<br/><br/> Restauration de machines virtuelles invitées Linux Hyper-V et VMware</br></br> Sauvegarde cohérente au niveau fichier non disponible pour les machines virtuelles Azure
+Azure Backup Server | Sauvegarde cohérente au niveau fichier de machines virtuelles invitées Linux sur Hyper-V et VMware<br/><br/> Restauration de machines virtuelles invitées Linux Hyper-V et VMware</br></br> Sauvegarde cohérente au niveau fichier non disponible pour les machines virtuelles Azure 
+Sauvegarde des machines virtuelles IaaS Azure | Sauvegarde cohérente au niveau application à l’aide du [framework de préscript et postscript](backup-azure-linux-app-consistent.md)<br/><br/> [Récupération au niveau du fichier](backup-azure-restore-files-from-vm.md)<br/><br/> [Créer une machine virtuelle à partir d’un disque restauré](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Créer une machine virtuelle à partir d’un point de récupération](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Utilisation des machines virtuelles Premium Storage avec Azure Backup
-Azure Backup protège les machines virtuelles Premium Storage. Stockage Premium Azure est un stockage SSD conçu pour supporter des charges de travail nécessitant de nombreuses E/S. Stockage Premium est intéressant pour les charges de travail des machines virtuelles. Pour plus d’informations sur le stockage Premium, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../virtual-machines/windows/premium-storage.md).
+Azure Backup protège les machines virtuelles Premium Storage. Stockage Premium Azure est un stockage SSD conçu pour supporter des charges de travail nécessitant de nombreuses E/S. Stockage Premium est intéressant pour les charges de travail des machines virtuelles. Pour plus d’informations sur le stockage Premium, consultez l’article [Stockage Premium : Stockage hautes performances pour les charges de travail de machine virtuelle Azure](../virtual-machines/windows/premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Sauvegarder des machines virtuelles Premium Storage
 Au moment de sauvegarder des machines virtuelles de stockage Premium, le service de sauvegarde crée un emplacement temporaire intermédiaire appelé « AzureBackup- » dans le compte Stockage Premium. La taille de l’emplacement intermédiaire est égale à la taille de la capture instantanée de point de récupération. Vérifiez que le compte de stockage Premium dispose d’un espace libre suffisant pour prendre en compte cet emplacement intermédiaire temporaire. Pour plus d’informations, consultez l’article [Limites du stockage Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). Une fois la sauvegarde terminée, l'emplacement intermédiaire est supprimé. Le prix du stockage utilisé pour l’emplacement intermédiaire est conforme à l’ensemble de la [tarification de Premium Storage](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
@@ -209,7 +209,7 @@ Une instance protégée est une référence générique à un ordinateur Windows
 Parmi les exemples d’instances protégées, citons les machines virtuelles, les serveurs d’applications, les bases de données et les ordinateurs personnels exécutant le système d’exploitation Windows. Par exemple : 
 
 * Machine virtuelle exécutant la structure d’hyperviseur Hyper-V ou Azure IaaS. Les systèmes d’exploitation invités de cette machine virtuelle peuvent être Windows Server ou Linux.
-* Serveur d’applications : le serveur d’applications peut être une machine physique ou virtuelle exécutant Windows Server et des charges de travail impliquant des données à sauvegarder. Les charges de travail courantes sont Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server et le rôle Serveur de fichiers sur Windows Server. Pour sauvegarder ces charges de travail, vous avez besoin de System Center Data Protection Manager (DPM) ou du serveur de sauvegarde Azure.
+* Un serveur d’applications : Le serveur d’applications peut être une machine physique ou virtuelle exécutant Windows Server et des charges de travail avec des données à sauvegarder. Les charges de travail courantes sont Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server et le rôle Serveur de fichiers sur Windows Server. Pour sauvegarder ces charges de travail, vous avez besoin de System Center Data Protection Manager (DPM) ou du serveur de sauvegarde Azure.
 * Un ordinateur personnel, une station de travail ou un ordinateur portable exécutant le système d’exploitation Windows.
 
 

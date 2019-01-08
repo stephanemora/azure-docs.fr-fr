@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer des appareils dans une solution de supervision à distance Azure | Microsoft Docs'
+title: Tutoriel de configuration d’appareils dans une solution de supervision à distance - Azure | Microsoft Docs
 description: Ce tutoriel vous montre comment configurer les appareils connectés à l’accélérateur de solution de supervision à distance.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: b8352b062efdb49df01834bd3c2a5e1393e11a44
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5505ceaa88f1ad792df57f9728f5e4809404942c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679152"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599499"
 ---
-# <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Tutoriel : Configurer les appareils connectés à votre solution de supervision
+# <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Didacticiel : Configurer les appareils connectés à votre solution de supervision
 
 Dans ce didacticiel, vous utilisez l’accélérateur de solution de surveillance à distance pour configurer et gérer vos appareils IoT connectés. Vous ajoutez un nouvel appareil à l’accélérateur de solution et vous le configurez.
 

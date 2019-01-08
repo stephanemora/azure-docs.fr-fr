@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2018
-ms.openlocfilehash: cff7d0dea27dd21ac4f7bb133e297e4f5928d2c2
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 8ef4e9917623f43e5c9900150deb22d62169c836
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680597"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555963"
 ---
 # <a name="test-terraform-modules-in-azure-by-using-terratest"></a>Tester des modules Terraform dans Azure à l’aide de Terratest
 
@@ -35,10 +35,10 @@ Ce guide pratique peut être utilisé avec n’importe quelle plateforme. Vous p
 
 Avant de commencer, installez les logiciels suivants :
 
-- **Le langage de programmation Go** : les cas de test Terraform sont écrits en [Go](https://golang.org/dl/).
+- **Langage de programmation Go** : les cas de test Terraform sont écrits dans le langage [Go](https://golang.org/dl/).
 - **dep** : [dep](https://github.com/golang/dep#installation) est un outil de gestion de dépendance pour Go.
-- **Azure CLI** : [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) est un outil en ligne de commande pour la gestion des ressources Azure (Terraform prend en charge l’authentification auprès d’Azure via un principal de service ou [via l’interface Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html)).
-- **Mage** : nous utilisons l’[exécutable Mage](https://github.com/magefile/mage/releases) pour vous montrer comment simplifier les cas Terratest en cours d’exécution. 
+- **Azure CLI** : [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) est un outil en ligne de commande pour la gestion des ressources Azure. (Terraform prend en charge l’authentification auprès d’Azure via un principal de service ou [via l’interface Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html)).
+- **Mage** : nous utilisons l’[exécutable Mage](https://github.com/magefile/mage/releases) pour vous montrer comment simplifier l’exécution des cas Terratest. 
 
 ## <a name="create-a-static-webpage-module"></a>Créer un module de page Web statique
 
@@ -96,7 +96,7 @@ La logique principale du module provisionne quatre ressources :
 - **Groupe de ressources** : le nom du groupe de ressources correspond à l’entrée `website_name` à laquelle est ajouté `-staging-rg`.
 - **Compte de stockage** : le nom du compte de stockage correspond à l’entrée `website_name` à laquelle est ajouté `data001`. Afin de respecter les limites de longueur pour le nom du compte de stockage, le module supprime tous les caractères spéciaux et utilise des lettres minuscules dans l’intégralité du nom.
 - **Conteneur de nom fixe** : le conteneur est nommé `wwwroot` et est créé dans le compte de stockage.
-- **Fichier HTML** : un fichier HTML est lu dans l’entrée `html_path`, puis chargé dans `wwwroot/index.html`.
+- **Fichier HTML** : le fichier HTML est lu dans l’entrée `html_path`, puis chargé dans `wwwroot/index.html`.
 
 La logique de module de page Web statique est implémentée dans `./main.tf` :
 
@@ -298,7 +298,7 @@ Commençons par les exemples. Un exemple de dossier appelé `hello-world/` est c
 </head>
 <body>
     <h1>Hi, Terraform Module</h1>
-    <p>This is a sample webpage to demostrate Terratest.</p>
+    <p>This is a sample webpage to demonstrate Terratest.</p>
 </body>
 </html>
 ```
@@ -365,7 +365,7 @@ func TestIT_HelloWorldExample(t *testing.T) {
     http_helper.HttpGetWithCustomValidation(t, homepage, func(status int, content string) bool {
         return status == 200 &&
             strings.Contains(content, "Hi, Terraform Module") &&
-            strings.Contains(content, "This is a sample web page to demostrate Terratest.")
+            strings.Contains(content, "This is a sample web page to demonstrate Terratest.")
     })
 }
 ```
@@ -417,11 +417,11 @@ Mage ne nécessite qu’une seule chose : `magefile.go`, qui se trouve dans le 
 ```
 
 Voici un exemple de `./magefile.go`. Dans ce script de génération, écrit en Go, nous avons implémenté cinq étapes de génération :
-- `Clean` : cette étape supprime tous les fichiers générés et temporaires qui sont générés au cours des tests.
-- `Format` : cette étape exécute `terraform fmt` et `go fmt` afin de formater votre base de code.
-- `Unit` : cette étape exécute tous les tests unitaires (à l’aide de la convention de nommage des fonctions `TestUT_*`) sous le dossier `./test/`.
-- `Integration` : cette étape est similaire à `Unit`, sauf qu’au lieu d’exécuter des tests unitaires, elle exécute des tests d’intégration (`TestIT_*`).
-- `Full` : l’étape exécute `Clean`, `Format`, `Unit` et `Integration` dans cet ordre.
+- `Clean`: cette étape supprime tous les fichiers générés et les fichiers temporaires générés au cours des tests.
+- `Format`: cette étape exécute `terraform fmt` et `go fmt` afin de formater votre base de code.
+- `Unit`: cette étape exécute tous les tests unitaires (en utilisant la convention de nommage des fonctions `TestUT_*`) sous le dossier `./test/`.
+- `Integration`: cette étape est similaire à `Unit`, sauf qu’au lieu d’exécuter des tests unitaires, elle exécute des tests d’intégration (`TestIT_*`).
+- `Full`: cette étape exécute `Clean`, `Format`, `Unit` et `Integration` dans cet ordre.
 
 ```go
 // +build mage
@@ -504,7 +504,7 @@ Vous pouvez utiliser les commandes suivantes pour exécuter une suite de tests c
 $ cd [Your GoPath]/src/staticwebpage
 GoPath/src/staticwebpage$ dep init    # Run only once for this folder
 GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in magefile or test cases
-GoPath/src/staticwebpage$ go fmt      # Only requied when you change the magefile
+GoPath/src/staticwebpage$ go fmt      # Only required when you change the magefile
 GoPath/src/staticwebpage$ az login    # Required when no service principal environment variables are present
 GoPath/src/staticwebpage$ mage
 ```
@@ -513,7 +513,7 @@ Vous pouvez remplacer la dernière ligne de commande par les étapes Mage suppl�
 
 Avec Mage, vous pouvez également partager les étapes en utilisant le système de package Go. Dans ce cas, vous pouvez simplifier les fichiers mage sur l’ensemble de vos modules en référençant une implémentation commune et en déclarant des dépendances (`mg.Deps()`).
 
-**Facultatif : définissez des variables d’environnement de principal de service pour exécuter des tests d’acceptation**
+**Facultatif : définissez des variables d’environnement de principal de service pour exécuter des tests d’acceptation**
  
 Au lieu d’exécuter `az login` avant les tests, vous pouvez procéder à l’authentification Azure en définissant les variables d’environnement du principal de service. Terraform publie la [liste des noms de variables d’environnement](https://www.terraform.io/docs/providers/azurerm/index.html#testing). (Seuls les quatre premières variables d’environnement sont obligatoires.) Terraform publie également des instructions détaillées expliquant comment [obtenir la valeur de ces variables d’environnement](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html).
 

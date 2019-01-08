@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : API Vision par ordinateur avec JavaScript'
+title: 'Tutoriel : Effectuer des opérations sur les images - JavaScript'
 titlesuffix: Azure Cognitive Services
 description: Explorez une application JavaScript de base qui utilise l’API Vision par ordinateur dans Azure Cognitive Services. Effectuez une reconnaissance OCR, créez des miniatures et utilisez des fonctionnalités visuelles dans une image.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: c024e517eb59c7d3b61408e477c94004ccb01a54
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 46d992fc44a0c3b2d355861d5753aa6f8c22215e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341308"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581367"
 ---
-# <a name="tutorial-computer-vision-api-javascript"></a>Tutoriel : API Vision par ordinateur avec JavaScript
+# <a name="tutorial-computer-vision-api-javascript"></a>Didacticiel : API Vision par ordinateur avec JavaScript
 
 Ce tutoriel montre les fonctionnalités de l’API REST Vision par ordinateur dans Azure Cognitive Services.
 
@@ -494,7 +495,7 @@ La fonctionnalité Reconnaissance optique des caractères (OCR) de Vision par or
 
 Pour compléter la fonctionnalité OCR de l’application du tutoriel, effectuez les étapes suivantes :
 
-### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>Étape 1 de la fonctionnalité OCR : Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
+### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>Étape 1 de l’OCR : Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
 
 Ouvrez le fichier **ocr.html** dans un éditeur de texte et recherchez la fonction **ocrButtonClick** près du bas du fichier.
 

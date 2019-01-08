@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: c57edd897797d4352706283072aa19444948436b
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 4b4f208524f18b98d44dc3d34e05359445fb2f17
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49644783"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598308"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Créer, entraîner et publier votre base de connaissances QnA Maker
 
@@ -57,9 +57,7 @@ Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre
 
 11. Dans le coin supérieur droit, sélectionnez **Save and train** (Enregistrer et entraîner) pour enregistrer vos modifications et entraîner le modèle QnA Maker. Les modifications ne sont conservées que si elles sont enregistrées.
 
-   ![Enregistrer et entraîner](../media/qnamaker-quickstart-kb/add-qna-pair2.png)
-
-12. Dans le coin supérieur droit, sélectionnez **Test** pour vérifier que les modifications apportées ont pris effet. Tapez **salut** dans la zone, puis sélectionnez Entrée. Vous devriez voir la réponse que vous avez créée.
+12. Dans le coin supérieur droit, sélectionnez **Test** pour vérifier que les modifications apportées ont pris effet. Tapez `hi there` dans la zone, puis sélectionnez Entrée. Vous devriez voir la réponse que vous avez créée.
 
 13. Sélectionnez **Inspect** pour examiner la réponse plus en détail. La fenêtre de test sert à tester vos modifications de la base de connaissances avant leur publication.
 

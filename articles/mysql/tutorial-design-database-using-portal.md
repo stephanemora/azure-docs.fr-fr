@@ -1,23 +1,20 @@
 ---
-title: 'Didacticiel : Créer une base de données Azure Database pour MySQL à l’aide du portail Azure'
-description: Ce didacticiel explique comment créer et gérer un serveur de base de données Azure pour MySQL à l’aide du portail Azure.
-services: mysql
+title: 'Tutoriel : Créer une base de données Azure Database pour MySQL à l’aide du portail Azure'
+description: Ce tutoriel explique comment créer et gérer un serveur de base de données Azure pour MySQL à l’aide du portail Azure.
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 395ebbe3879660ce31abd570e936a010536db4de
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: bf46b047af69dcd1a751661a701b1eb9b7f75563
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266531"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537726"
 ---
-# <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Didacticiel : Créer une base de données Azure Database pour MySQL à l’aide du portail Azure
+# <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Tutoriel : Créer une base de données Azure Database pour MySQL à l’aide du portail Azure
 Base de données Azure pour MySQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données MySQL hautement disponibles dans le cloud. À l’aide du portail Azure, vous pouvez facilement gérer votre serveur et concevoir une base de données.
 
 Ce didacticiel vous montre comment utiliser le portail Azure pour :
@@ -52,7 +49,7 @@ Un serveur de base de données Azure pour MySQL est créé avec un ensemble déf
     Groupe de ressources | *myresourcegroup* | Spécifiez un nom de groupe de ressources nouveau ou existant.    Groupe de ressources|*myresourcegroup*| Un nouveau nom de groupe de ressources ou un nom de groupe existant dans votre abonnement.
     Sélectionner une source | *Vide* | Sélectionnez *Vide* pour créer un nouveau serveur à partir de zéro. (Vous sélectionnez *Sauvegarde* si vous créez un serveur à partir d’une sauvegarde géographique d’un serveur Azure Database pour MySQL existant).
     Connexion d’administrateur serveur | myadmin | Un compte de connexion à utiliser lors de la connexion au serveur. Le nom de connexion d’administrateur ne doit pas être **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
-    Mot de passe | *Votre choix* | Spécifiez un mot de passe pour le compte Administrateur du serveur. Il doit inclure entre 8 et 128 caractères. Votre mot de passe doit contenir des caractères appartenant à trois des catégories suivantes : lettres majuscules, lettres minuscules, chiffres (0 à 9) et caractères non alphanumériques (!, $, #, %, etc.).
+    Mot de passe | *Votre choix* | Spécifiez un mot de passe pour le compte Administrateur du serveur. Il doit inclure entre 8 et 128 caractères. Votre mot de passe doit contenir des caractères de trois des catégories suivantes : Lettres majuscules, lettres minuscules, chiffres (0-9) et caractères non alphanumériques (comme !, $, #, %, etc.).
     Confirmer le mot de passe | *Votre choix*| Confirmez le mot de passe du compte d’administrateur.
     Lieu | *La région la plus proche de vos utilisateurs*| Choisissez l’emplacement le plus proche de vos utilisateurs ou de vos autres applications Azure.
     Version | *La version la plus récente*| La version la plus récente (sauf si vous avez des exigences spécifiques).
@@ -151,10 +148,10 @@ Imaginez que vous avez accidentellement supprimé une table de base de données 
    
    ![10-2 Formulaire de restauration](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **Point de restauration** : sélectionnez un point dans le temps vers lequel vous souhaitez effectuer une restauration, pendant la période répertoriée. Veillez à convertir votre fuseau horaire local vers le fuseau horaire UTC.
-   - **Restaurer sur un nouveau serveur** : spécifiez un nouveau nom de serveur sur lequel vous souhaitez effectuer la restauration.
-   - **Emplacement** : la région est identique à celle du serveur source et ne peut pas être modifiée.
-   - **Niveau tarifaire** : le niveau tarifaire est identique à celui du serveur source et ne peut pas être modifié.
+   - **Point de restauration** : sélectionnez un point dans le temps vers lequel vous souhaitez effectuer une restauration, dans la période listée. Veillez à convertir votre fuseau horaire local vers le fuseau horaire UTC.
+   - **Restaurer sur un nouveau serveur** : indiquez le nom du nouveau serveur sur lequel vous souhaitez effectuer la restauration.
+   - **Emplacement** : la région est identique à celle du serveur source et ne peut pas être changée.
+   - **Niveau tarifaire** : le niveau tarifaire est identique à celui du serveur source et ne peut pas être changé.
    
 3. Cliquez sur **OK** pour restaurer le serveur [à un point dans le temps](./howto-restore-server-portal.md) avant la suppression de la table. La restauration d’un serveur crée une copie du serveur à partir du point dans le temps que vous spécifiez. 
 

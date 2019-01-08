@@ -1,5 +1,5 @@
 ---
-title: 'Exemple : Appeler l’API Vision par ordinateur'
+title: 'Exemple : Appeler l’API d’analyse d’image - Vision par ordinateur'
 titlesuffix: Azure Cognitive Services
 description: Découvrez comment appeler l’API Vision par ordinateur à l’aide de REST dans Azure Cognitive Services.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
-ms.openlocfilehash: e8297fbe59ebe2dea9caf112ebea4517447cf9e0
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 9520d4bcec0e170700aacc5ef4bc69100e333af1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981743"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581706"
 ---
-# <a name="example-how-to-call-the-computer-vision-api"></a>Exemple : Appeler l’API Vision par ordinateur
+# <a name="example-how-to-call-the-computer-vision-api"></a>Exemple : Appeler l’API Vision par ordinateur
 
 Ce guide montre comment appeler l’API Vision par ordinateur à l’aide de REST. Les exemples sont écrits en C# avec la bibliothèque de client d’API Vision par ordinateur et en tant qu’appels HTTP POST/GET. Nous expliquerons en particulier :
 
@@ -26,10 +27,10 @@ Ce guide montre comment appeler l’API Vision par ordinateur à l’aide de RES
 
 ### <a name="Prerequisites">Composants requis</a> 
 URL d’image ou chemin de l’image stockée localement.
-  * Méthodes d’entrée prises en charge : image Raw binaire sous forme de flux application/octet ou d’URL d’image
-  * Formats d’image pris en charge : JPEG, PNG, GIF, BMP
-  * Taille du fichier image : inférieure à 4 Mo
-  * Dimension de l’image : plus de 50 x 50 pixels
+  * Méthodes d’entrée prises en charge : image Raw binaire sous forme de flux application/octet ou d’URL d’image
+  * Formats d’image pris en charge : JPEG, PNG, GIF, BMP
+  * Taille du fichier image : moins de 4 Mo
+  * Dimensions de l’image : plus de 50 x 50 pixels
   
 Les exemples ci-dessous illustrent les fonctionnalités suivantes :
 
@@ -38,10 +39,10 @@ Les exemples ci-dessous illustrent les fonctionnalités suivantes :
 
 Les fonctionnalités sont présentées en deux options :
 
-  * **Option 1** : Analyse délimitée - Analyser uniquement un modèle donné
-  * **Option 2** : Analyse élargie - Analyser avec la [taxonomie des 86 catégories](../Category-Taxonomy.md) pour fournir des détails supplémentaires
+  * **Option 1 :** Analyse délimitée - Analyser uniquement un modèle donné
+  * **Option 2 :** Analyse élargie - Analyser avec la [taxonomie des 86 catégories](../Category-Taxonomy.md) pour fournir des détails supplémentaires
   
-### <a name="Step1">Étape 1 : Autoriser l’appel d’API</a> 
+### <a name="Step1">Étape 1 : Autoriser l’appel d’API</a> 
 Chaque appel de l’API Vision par ordinateur nécessite une clé d’abonnement. Cette clé doit être transmise par le biais d’un paramètre de chaîne de requête ou spécifiée dans l’en-tête de requête. 
 
 Pour obtenir une clé d’abonnement, consultez [Obtenir des clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md
@@ -64,7 +65,7 @@ La façon la plus simple d’effectuer l’appel d’API Vision par ordinateur e
 
 Voici comment obtenir les étiquettes (« Tags ») et la « Description » d’une image :
 
-**Option 1** : Obtenir la liste des étiquettes et une description
+**Option 1 :** Obtenir la liste des étiquettes et une description
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
 ```
@@ -99,7 +100,7 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 ```
 ### <a name="here-is-how-to-get-domain-specific-analysis-in-our-case-for-celebrities"></a>Voici comment obtenir une analyse spécifique à un domaine (dans notre cas, pour « celebrities »).
 
-**Option 1** : Analyse délimitée - Analyser uniquement un modèle donné
+**Option 1 :** Analyse délimitée - Analyser uniquement un modèle donné
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/models/celebrities/analyze
 var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
@@ -109,7 +110,7 @@ Avec cette option, les autres paramètres de requête {visualFeatures, details} 
 GET https://westus.api.cognitive.microsoft.com/vision/v2.0/models 
 var models = await visionClient.ListModelsAsync();
 ```
-**Option 2** : Analyse élargie - Analyser avec la [taxonomie des 86 catégories](../Category-Taxonomy.md) pour fournir des détails supplémentaires
+**Option 2 :** Analyse élargie - Analyser avec la [taxonomie des 86 catégories](../Category-Taxonomy.md) pour fournir des détails supplémentaires
 
 Dans les applications où vous souhaitez obtenir une analyse d’image générique en plus des détails issus d’un ou de plusieurs modèles spécifiques à un domaine, nous étendons l’API v1 avec le paramètre de requête « models ».
 ```
@@ -149,7 +150,7 @@ Voici un exemple :
     }
   }
 ```
-Champ   | Type  | Contenu
+Champ   | type  | Contenu
 ------|------|------|
 Balises    | objet    | Objet de premier niveau pour le tableau d’étiquettes
 tags[].Name | chaîne    | Mot clé d’un classifieur d’étiquettes
@@ -161,7 +162,7 @@ description.captions[].confidence   | number    | Score de confiance de l’expr
 
 ### <a name="Step4">Étape 4 : Récupérer et comprendre la sortie JSON de modèles spécifiques au domaine</a>
 
-**Option 1** : Analyse délimitée - Analyser uniquement un modèle donné
+**Option 1 :** Analyse délimitée - Analyser uniquement un modèle donné
 
 La sortie est un tableau d’étiquettes, similaire à l’exemple suivant :
 ```
@@ -179,7 +180,7 @@ La sortie est un tableau d’étiquettes, similaire à l’exemple suivant :
   }
 ```
 
-**Option 2** : Analyse élargie - Analyser avec la taxonomie des 86 catégories pour fournir des détails supplémentaires
+**Option 2 :** Analyse élargie - Analyser avec la taxonomie des 86 catégories pour fournir des détails supplémentaires
 
 Pour les modèles spécifiques au domaine qui utilisent l’option 2 (Analyse élargie), le type de retour des catégories est étendu. Exemple :
 ```
@@ -209,7 +210,7 @@ Pour les modèles spécifiques au domaine qui utilisent l’option 2 (Analyse é
 
 Le champ « categories » est une liste d’une ou plusieurs catégories parmi les [86 catégories](../Category-Taxonomy.md) de la taxonomie d’origine. Notez également que chaque catégorie qui se termine par un trait de soulignement correspond à cette catégorie et à ses enfants (par exemple, people_ et people_group pour le modèle celebrities).
 
-Champ   | Type  | Contenu
+Champ   | type  | Contenu
 ------|------|------|
 Catégories | objet | Objet de premier niveau
 categories[].name    | chaîne   | Nom issu de la taxonomie des 86 catégories

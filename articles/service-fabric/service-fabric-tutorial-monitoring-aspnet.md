@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9bbff92b7706fd207894616b83580c4ddf85e5eb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: a130351131f59511ef4f60b579197da96f9334e6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444782"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720726"
 ---
-# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutoriel : surveiller et diagnostiquer une application ASP.NET Core dans Service Fabric
+# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutoriel : Surveiller et diagnostiquer une application ASP.NET Core dans Service Fabric à l’aide d’Application Insights
 
 Ce tutoriel est la cinquième partie de la série. Il décrit les étapes requises pour configurer la surveillance et les diagnostics pour une application ASP.NET Core s’exécutant sur un cluster Service Fabric à l’aide d’Application Insights. Nous collecterons les données de télémétrie à partir de l’application développée dans la première partie du didacticiel [Créer une application .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md).
 
@@ -191,11 +191,11 @@ En outre, vous pouvez cliquer sur *Mise en correspondance d’applications* dans
 
 ![Détails de la trace AI](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
-La mise en correspondance d’applications peut vous aider à mieux comprendre la topologie de votre application, en particulier si vous commencez à ajouter plusieurs services différents qui fonctionnent ensemble. Elle vous fournit également des données de base sur les taux de réussite des demandes et peut vous aider à diagnostiquer les demandes ayant échoué pour comprendre où se situe le problème. Pour en savoir plus sur la mise en correspondance d’applications, consultez [Mise en correspondance d’applications dans Application Insights](../application-insights/app-insights-app-map.md).
+La mise en correspondance d’applications peut vous aider à mieux comprendre la topologie de votre application, en particulier si vous commencez à ajouter plusieurs services différents qui fonctionnent ensemble. Elle vous fournit également des données de base sur les taux de réussite des demandes et peut vous aider à diagnostiquer les demandes ayant échoué pour comprendre où se situe le problème. Pour en savoir plus sur la mise en correspondance d’applications, consultez [Mise en correspondance d’applications dans Application Insights](../azure-monitor/app/app-map.md).
 
 ## <a name="add-custom-instrumentation-to-your-application"></a>Ajouter une instrumentation personnalisée à votre application
 
-Bien qu’Application Insights fournisse un grand nombre de données de télémétrie prêtes à l’emploi, vous voudrez peut-être ajouter une instrumentation personnalisée. Ceci peut être dû aux besoins de votre entreprise ou pour améliorer les diagnostics lorsque des problèmes apparaissent dans votre application. Application Insights a une API pour ingérer des événements et des métriques personnalisés, sur laquelle vous pouvez en apprendre plus [ici](../application-insights/app-insights-api-custom-events-metrics.md).
+Bien qu’Application Insights fournisse un grand nombre de données de télémétrie prêtes à l’emploi, vous voudrez peut-être ajouter une instrumentation personnalisée. Ceci peut être dû aux besoins de votre entreprise ou pour améliorer les diagnostics lorsque des problèmes apparaissent dans votre application. Application Insights a une API pour ingérer des événements et des métriques personnalisés, sur laquelle vous pouvez en apprendre plus [ici](../azure-monitor/app/api-custom-events-metrics.md).
 
 Ajoutons des événements personnalisés à *VoteDataController.cs* (sous *VotingData* > *Contrôleurs*) pour effectuer le suivi lorsque des votes sont ajoutés et supprimés à partir de l’élément *votesDictionary* sous-jacent.
 

@@ -16,14 +16,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0e6e72424530d18b55f68077ba7c3328d9a2e549
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3e20af1c90f0e8a7a582d2d01dc4218a14496c40
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621426"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653286"
 ---
-# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Démarrage rapide : Télécharger un rapport de connexion avec le portail Azure
+# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Démarrage rapide : télécharger un rapport de connexion à l’aide du portail Azure
 
 Dans ce guide de démarrage rapide, vous apprenez à télécharger les données de connexion des dernières 24 heures pour votre locataire.
 
@@ -31,7 +31,7 @@ Dans ce guide de démarrage rapide, vous apprenez à télécharger les données 
 
 Ce dont vous avez besoin :
 
-* Un locataire Azure Active Directory, avec une licence Premium pour afficher le rapport d’activité de connexion. 
+* Un locataire Azure Active Directory, avec une licence Premium pour afficher le rapport d’activité de connexion. Consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) pour mettre à niveau votre édition d’Azure Active Directory.
 * Un utilisateur dans le rôle **Administrateur de la sécurité**, **Lecteur Sécurité**, **Lecteur de rapport** ou **Administrateur général** pour le locataire. De plus, tout utilisateur du locataire peut accéder à ses propres connexions.
 
 ## <a name="quickstart-download-a-sign-in-report"></a>Démarrage rapide : Télécharger un rapport de connexion

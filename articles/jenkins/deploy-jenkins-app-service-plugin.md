@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 98e69c7759f736c132601305156290f7a43eeaf9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319351"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537577"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Déployer sur Azure App Service à l’aide du plug-in Jenkins 
 
@@ -55,7 +55,7 @@ Pour déployer sur Web App pour conteneurs, installez Docker sur le serveur maî
 Un principal de service Azure est nécessaire pour les déploiements sur Azure. 
 
 
-1. Pour créer un principal de service Azure, utilisez [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) ou le [portail Azure](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+1. Pour créer un principal de service Azure, utilisez [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)  ou le [portail Azure](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 2. Dans le tableau de bord Jenkins, sélectionnez **Informations d’identification** > **Système**. Puis, sélectionnez **Informations d’identification globales (sans restriction)**.
 3. Pour ajouter un principal de service Microsoft Azure, sélectionnez **Ajouter les informations d’identification**. Entrez des valeurs pour les champs **ID d’abonnement**, **ID client**, **Secret client** et **Point de terminaison de jeton OAuth 2.0**. Définissez le champ **ID** sur **mySp**. Nous utilisons cet ID dans les étapes suivantes de cet article.
 
@@ -64,9 +64,9 @@ Un principal de service Azure est nécessaire pour les déploiements sur Azure.
 
 Pour déployer votre projet dans Web Apps, vous pouvez télécharger vos artefacts de build par téléchargement de fichiers. Azure App Service prend en charge plusieurs options de déploiement. Le plug-in Jenkins Azure App Service simplifie l’opération et choisit l’option de déploiement en fonction du type de fichier. 
 
-* Pour les applications Java EE, un [déploiement WAR](/azure/app-service/app-service-deploy-zip#deploy-war-file) est utilisé.
-* Pour les applications Java SE, un [déploiement ZIP](/azure/app-service/app-service-deploy-zip#deploy-zip-file) est utilisé.
-* Pour les autres langages, un [déploiement Git](/azure/app-service/app-service-deploy-local-git) est utilisé.
+* Pour les applications Java EE, un [déploiement WAR](/azure/app-service/deploy-zip#deploy-war-file) est utilisé.
+* Pour les applications Java SE, un [déploiement ZIP](/azure/app-service/deploy-zip#deploy-zip-file) est utilisé.
+* Pour les autres langages, un [déploiement Git](/azure/app-service/deploy-local-git) est utilisé.
 
 Avant de configurer le travail dans Jenkins, vous avez besoin d’un plan Azure App Service et d’une application web pour l’exécution de l’application Java.
 
@@ -206,7 +206,7 @@ Pour la valeur **URL de Registre Docker**, entrez l’URL à l’aide du format 
     Sun Jun 17 16:39:10 UTC 2017
     ```
 
-3. Accédez à http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Remplacez &lt;x> et &lt;y> par n’importe quels chiffres pour obtenir la somme de x + y. La calculatrice affiche la somme : ![Calculatrice : ajouter](./media/execute-cli-jenkins-pipeline/calculator-add.png)
+3. Accédez à http://&lt;your_app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Remplacez &lt;x> et &lt;y> par n’importe quels chiffres pour obtenir la somme de x + y. La calculatrice affiche la somme : ![Calculatrice : additionner](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
 ### <a name="for-azure-app-service-on-linux"></a>Pour Azure App Service sur Linux
 

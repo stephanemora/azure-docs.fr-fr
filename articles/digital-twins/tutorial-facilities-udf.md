@@ -1,20 +1,21 @@
 ---
-title: Surveiller un espace avec Azure Digital Twins | Microsoft Docs
+title: 'Didacticiel : Surveiller un espace avec Azure Digital Twins | Microsoft Docs'
 description: Découvrez comment provisionner vos ressources spatiales et superviser les conditions de travail avec Azure Digital Twins en suivant les étapes de ce tutoriel.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: a9784860cbc0b6d58f63fb22b7ad676048c8aee6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 077dee19bbe32379bc88919117b3c61177828094
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584194"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556099"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Didacticiel : Approvisionner votre bâtiment et surveiller les conditions de travail avec Azure Digital Twins
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Didacticiel : Provisionner votre bâtiment et superviser les conditions de travail avec Azure Digital Twins
 
 Ce didacticiel montre comment utiliser Azure Digital Twins pour surveiller les conditions de température et le niveau de confort souhaités pour vos espaces. Après avoir [configuré votre exemple de bâtiment](tutorial-facilities-setup.md), vous pouvez le provisionner et exécuter des fonctions personnalisées dans vos données de capteur en suivant les étapes de ce tutoriel.
 
@@ -203,9 +204,9 @@ Dans cette section, vous utilisez le projet nommé *device-connectivity* dans l�
 
 1. Ouvrez le fichier **appSettings.json** dans votre éditeur et modifiez les valeurs suivantes :
 
-   a. **DeviceConnectionString** : affectez la valeur de `ConnectionString` dans la fenêtre de sortie à partir de la section précédente. Copiez cette chaîne entièrement, entre guillemets, pour que le simulateur puisse se connecter correctement au hub IoT.
+   a. **DeviceConnectionString** : affectez la valeur de `ConnectionString` dans la fenêtre de sortie de la section précédente. Copiez cette chaîne entièrement, entre guillemets, pour que le simulateur puisse se connecter correctement au hub IoT.
 
-   b. **HardwareId** dans le tableau **Sensors** : étant donné que vous simulez des événements à partir des capteurs provisionnés dans votre instance Azure Digital Twins, l’ID du matériel et les noms des capteurs de ce fichier doivent correspondre au nœud `sensors` du fichier provisionSample.yaml.
+   b. **HardwareId** dans le tableau **Sensors** : étant donné que vous simulez des événements à partir des capteurs provisionnés dans votre instance Azure Digital Twins, l’ID du matériel et les noms des capteurs de ce fichier doivent correspondre au nœud `sensors` du fichier provisionSample.yaml.
 
       Ajoutez une nouvelle entrée pour le capteur de température. Le nœud **Sensors** (Capteurs) dans le fichier appSettings.json doit se présenter de la façon suivante :
 
@@ -264,7 +265,7 @@ Si vous souhaitez arrêter votre exploration d’Azure Digital Twins ici, vous p
 Maintenant que vous avez provisionné vos espaces et créé une infrastructure pour déclencher des notifications personnalisées, vous pouvez passer à l’un des tutoriels suivants :
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Recevoir des notifications à partir de vos espaces Azure Digital Twins à l’aide de Logic Apps](tutorial-facilities-events.md)
+> [Tutoriel : Recevoir des notifications à partir de vos espaces Azure Digital Twins à l’aide de Logic Apps](tutorial-facilities-events.md)
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Visualiser et analyser des événements à partir de vos espaces Azure Digital Twins à l’aide de Time Series Insights](tutorial-facilities-analyze.md)
+> [Tutoriel : Visualiser et analyser des événements à partir de vos espaces Azure Digital Twins à l’aide de Time Series Insights](tutorial-facilities-analyze.md)

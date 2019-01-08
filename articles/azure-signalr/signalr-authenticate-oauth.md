@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: beaedf754df2b1c4739c5dfb2abcdc40c163dc81
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: be44a233c2b09aa91ec04b5a64b523a2d0b00db1
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254120"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599857"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Didacticiel : Authentification par Azure SignalR Service
 
@@ -378,7 +378,7 @@ Dans cette section, vous allez activer l’authentification réelle en ajoutant 
 
 ## <a name="deploy-the-app-to-azure"></a>Déploiement de l’application dans Azure
 
-Dans cette section, vous allez utiliser l’interface de ligne de commande (CLI) d’Azure Cloud Shell afin de créer une [nouvelle application web Azure](https://docs.microsoft.com/azure/app-service/) hébergeant votre application ASP.NET dans Azure. L’application web sera configurée pour l’utilisation du déploiement local Git. L’application web sera également configurée avec votre chaîne de connexion SignalR, les secrets d’application GitHub OAuth et un utilisateur de déploiement.
+Dans cette section, vous allez utiliser l’interface de ligne de commande (CLI) d’Azure Cloud Shell afin de créer une application web dans [Azure App Service](https://docs.microsoft.com/azure/app-service/) pour héberger votre application ASP.NET dans Azure. L’application web sera configurée pour l’utilisation du déploiement local Git. L’application web sera également configurée avec votre chaîne de connexion SignalR, les secrets d’application GitHub OAuth et un utilisateur de déploiement.
 
 Les étapes de cette section utilisent l’extension *signalr* pour l’interface Azure CLI. Exécutez la commande suivante pour installer l’extension *signalr* pour l’interface Azure CLI :
 

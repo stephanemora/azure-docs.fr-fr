@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: 6bc354ef3451862e3567adbe5ff8ee6da0eacaf6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 4681dad55807705a2ce8e9908cbd3ee53fb3c32e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314871"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631496"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configuration d'un pare-feu d'applications Web (WAF) pour un environnement App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -74,12 +74,12 @@ Lorsque vous êtes connecté, un tableau de bord comme celui illustré dans l’
 
 ![Tableau de bord de gestion][ManagementDashboard]
 
-Cliquez sur l’onglet **Services** pour configurer votre WAF pour les services qu’il protège. Pour plus d’informations sur la configuration de votre WAF Barracuda, consultez [la documentation appropriée](https://techlib.barracuda.com/waf/getstarted1). Dans l’exemple suivant, une application Web Azure desservant le trafic HTTP et HTTPS a été configurée.
+Cliquez sur l’onglet **Services** pour configurer votre WAF pour les services qu’il protège. Pour plus d’informations sur la configuration de votre WAF Barracuda, consultez [la documentation appropriée](https://techlib.barracuda.com/waf/getstarted1). Dans l’exemple suivant, une application App Service traitant le trafic sur HTTP et HTTPS a été configurée.
 
 ![Ajouter des services de gestion][ManagementAddServices]
 
 > [!NOTE]
-> Selon la configuration de vos applications et les fonctionnalités utilisées dans votre environnement App Service, vous devez transférer le trafic pour les ports TCP autres que 80 et 443 ; par exemple, si vous avez configuré IP SSL pour une application Web. Pour obtenir la liste des ports réseau utilisés dans les environnements App Service, consultez la section Ports réseau de la [documentation relative au contrôle du trafic entrant](app-service-app-service-environment-control-inbound-traffic.md).
+> Selon la configuration de vos applications et les fonctionnalités utilisées dans votre instance d’App Service Environment, vous devez transférer le trafic pour les ports TCP autres que 80 et 443 ; par exemple, si vous avez configuré IP SSL pour une application App Service. Pour obtenir la liste des ports réseau utilisés dans les environnements App Service, consultez la section Ports réseau de la [documentation relative au contrôle du trafic entrant](app-service-app-service-environment-control-inbound-traffic.md).
 > 
 > 
 

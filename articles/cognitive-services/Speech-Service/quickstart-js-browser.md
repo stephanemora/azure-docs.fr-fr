@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaissance vocale, Javascript (navigateur) - Services de reconnaissance vocale'
+title: 'Démarrage rapide : Reconnaissance vocale, Javascript (navigateur) - Services Speech'
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment procéder à la reconnaissance vocale en JavaScript dans un navigateur avec le kit SDK Service Speech
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: f8b6f4d39ce4dc65d691ec6a0e3d0734abb19734
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b6add6ac94e45789033cfe9913ec64e69f394f45
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087913"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715135"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Démarrage rapide : Reconnaissance vocale en JavaScript dans un navigateur avec le kit SDK de reconnaissance vocale
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Dans cet article, vous allez apprendre à créer un site web en utilisant la liaison JavaScript du SDK Speech de Cognitive Services en vue de transcrire de la parole en texte.
-L’application est basée sur le kit SDK Speech de Microsoft Cognitive Services ([Télécharger la version 1.1.0](https://aka.ms/csspeech/jsbrowserpackage)).
+L’application est basée sur le SDK Speech de Microsoft Cognitive Services ([télécharger la version 1.2.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -40,8 +40,8 @@ Créez un dossier vide. Si vous souhaitez héberger l’exemple sur un serveur w
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Téléchargez le SDK Speech en tant que [package .zip](https://aka.ms/csspeech/jsbrowserpackage), puis décompressez-le dans le dossier que vous venez de créer. Deux fichiers doivent avoir été décompressés : `microsoft.cognitiveservices.speech.sdk.bundle.js` et `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
-Le deuxième fichier est facultatif et permet de déboguer le code du SDK, si nécessaire.
+Téléchargez le SDK Speech en tant que [package .zip](https://aka.ms/csspeech/jsbrowserpackage), puis décompressez-le dans le dossier que vous venez de créer. Les deux fichiers suivants sont alors décompressés : `microsoft.cognitiveservices.speech.sdk.bundle.js` et `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
+Le second est facultatif et est utile pour déboguer le code du SDK.
 
 ## <a name="create-an-indexhtml-page"></a>Créer une page index.html
 
@@ -74,7 +74,7 @@ Créez un fichier nommé `index.html` dans le dossier, puis ouvrez-le dans un é
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
 
-1. Associez des gestionnaires pour le bouton de reconnaissance, le résultat de la reconnaissance et les champs relatifs à l’abonnement qui sont définis par le code de l’interface utilisateur :
+1. Associez des gestionnaires pour le bouton de reconnaissance, le résultat de la reconnaissance et les champs relatifs à l’abonnement qui sont définis par le code de l’interface utilisateur :
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
 
@@ -103,10 +103,7 @@ Pour lancer l’application, double-cliquez sur le fichier index.html ou ouvrez-
 
 Pour lancer l’application, ouvrez le navigateur web de votre choix, accédez à l’URL publique où est hébergé le dossier, entrez votre [région](regions.md), puis déclenchez la reconnaissance à l’aide du microphone. Vous obtiendrez un jeton de votre source de jeton, si cette option est configurée.
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Recherchez cet exemple dans le dossier `quickstart/js-browser`.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Découvrez nos exemples](speech-sdk.md#get-the-samples)
+> [Explorer des exemples Java sur GitHub](https://aka.ms/csspeech/samples)

@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 65c503c96305cf23b97511dd06a56b5eb6fcc1be
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 8ebaab260d38a3fe4f492f2545c5ec8b07990235
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409388"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715237"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Tutoriel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service sous Linux
 
-[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. En outre, App Service prend, de base, en charge [l’authentification et l’autorisation des utilisateurs](../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). Ce tutoriel montre comment sécuriser vos applications avec l’authentification et l’autorisation App Service. Il utilise une application ASP.NET Core avec un serveur frontal Angular.js, mais c’est uniquement pour notre exemple. L’authentification et l’autorisation App Service prennent en charge tous les runtimes de langage, et vous pouvez apprendre comment les appliquer à votre langage préféré en suivant le tutoriel.
+[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. En outre, App Service prend, de base, en charge [l’authentification et l’autorisation des utilisateurs](../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). Ce tutoriel montre comment sécuriser vos applications avec l’authentification et l’autorisation App Service. Il utilise une application ASP.NET Core avec un serveur frontal Angular.js, mais c’est uniquement pour notre exemple. L’authentification et l’autorisation App Service prennent en charge tous les runtimes de langage, et vous pouvez apprendre comment les appliquer à votre langage préféré en suivant le tutoriel.
 
 Ce tutoriel utilise l’exemple d’application pour vous montrer comment sécuriser une application autonome (dans [Activer l’authentification et l’autorisation pour l’application principale](#enable-authentication-and-authorization-for-back-end-app)).
 
@@ -86,7 +86,7 @@ Dans cette étape, vous déployez le projet dans deux applications App Service. 
 
 ### <a name="create-azure-resources"></a>Créer des ressources Azure
 
-Dans Cloud Shell, exécutez les commandes suivantes pour créer deux applications web. Remplacez _&lt;front\_end\_app\_name>_ et _&lt;back\_end\_app\_name>_ par deux noms d’applications globalement uniques (les caractères valides sont `a-z`, `0-9` et `-`). Pour plus d’informations sur chaque commande, consultez la section [Créer une application web .NET Core dans App Service sur Linux](quickstart-dotnetcore.md).
+Dans Cloud Shell, exécutez les commandes suivantes pour créer deux applications App Service. Remplacez _&lt;front\_end\_app\_name>_ et _&lt;back\_end\_app\_name>_ par deux noms d’applications globalement uniques (les caractères valides sont `a-z`, `0-9` et `-`). Pour plus d’informations sur chaque commande, consultez [Créer une application .NET Core dans App Service sur Linux](quickstart-dotnetcore.md).
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
@@ -129,7 +129,7 @@ git commit -m "add CORS to back end"
 
 ### <a name="push-to-azure-from-git"></a>Effectuer une transmission de type push vers Azure à partir de Git
 
-Dans la fenêtre de terminal local, exécutez les commandes Git suivantes pour effectuer le déploiement vers l’application principale. Remplacez _&lt;deploymentLocalGitUrl-of-back-end-app>_ par l’URL du référentiel Git distant que vous avez enregistrée à la section [Créer des ressources Azure](#create-azure-resources). Lorsque vous êtes invité à saisir les informations d’identification par Git Credential Manager, assurez-vous d’entrer [vos informations d’identification de déploiement](../app-service-deployment-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), et non pas celles vous permettant de vous connecter au portail Azure.
+Dans la fenêtre de terminal local, exécutez les commandes Git suivantes pour effectuer le déploiement vers l’application principale. Remplacez _&lt;deploymentLocalGitUrl-of-back-end-app>_ par l’URL du référentiel Git distant que vous avez enregistrée à la section [Créer des ressources Azure](#create-azure-resources). Lorsque vous êtes invité à saisir les informations d’identification par Git Credential Manager, assurez-vous d’entrer [vos informations d’identification de déploiement](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), et non pas celles vous permettant de vous connecter au portail Azure.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
@@ -143,7 +143,7 @@ git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
 git push frontend master
 ```
 
-### <a name="browse-to-the-azure-web-apps"></a>Accéder aux applications web Azure
+### <a name="browse-to-the-azure-apps"></a>Accéder aux applications Azure
 
 Accédez aux URL suivantes dans un navigateur et observez les deux applications en action.
 
@@ -453,7 +453,7 @@ Vous avez appris à effectuer les opérations suivantes :
 > * Utiliser des jetons d’accès à partir du code du serveur
 > * Utiliser des jetons d’accès à partir du code du client (navigateur)
 
-Passez au tutoriel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
+Passez au tutoriel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application.
 
 > [!div class="nextstepaction"]
-> [Mapper un nom DNS personnalisé existant à des applications web Azure](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+> [Mapper un nom DNS personnalisé existant à Azure App Service](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

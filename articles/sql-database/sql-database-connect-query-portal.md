@@ -13,16 +13,16 @@ ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/05/2018
-ms.openlocfilehash: fa46260fdd5623ba32da9979aaea8470139096b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86120e65ad6a3b7fab2a5db78a338bed0e277cb8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091388"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651945"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Démarrage rapide : Utiliser l’éditeur de requête SQL du portail Azure pour se connecter et interroger des données
 
-L’éditeur de requête SQL est un outil de navigateur du portail Azure qui offre un moyen simple d’exécuter des requêtes SQL sur votre base de données SQL Azure ou sur un entrepôt de données SQL Azure. Ce guide de démarrage rapide montre comment utiliser l’éditeur de requête pour se connecter à une base de données SQL et exécuter des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données.
+L’éditeur de requête SQL est un outil de navigateur du portail Azure qui offre un moyen simple d’exécuter des requêtes SQL sur votre base de données SQL Azure ou sur un entrepôt de données SQL Azure. Dans ce guide de démarrage rapide, vous utilisez l’éditeur de requête pour vous connecter à une base de données SQL, puis exécutez des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -70,7 +70,7 @@ La configuration d’un administrateur Active Directory vous permet d’utiliser
 
 4. Dans la barre d’outils de la page d’administration d’AD, sélectionnez **Enregistrer**.
 
-5. Accédez à la base de données **mySampleDatabase** puis, dans le menu de gauche, sélectionnez **Éditeur de requête (préversion)**. La page **Connexion** apparaît. Si vous êtes administrateur AD, sur le côté droit, sous **Authentification unique Active Directory**, un message s’affiche indiquant que vous avez été connecté. 
+5. Accédez à la base de données **mySampleDatabase** puis, dans le menu de gauche, sélectionnez **Éditeur de requête (préversion)**. La page **Connexion** apparaît. Si vous êtes administrateur AD, à droite, sous **Authentification unique Active Directory**, un message s’affiche indiquant que vous êtes connecté. 
    
 6. Sélectionnez **OK**.
 
@@ -92,7 +92,7 @@ La configuration d’un administrateur Active Directory vous permet d’utiliser
 
 ## <a name="insert-data"></a>Insertion des données
 
-Utilisez l’instruction Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) suivante pour ajouter un nouveau produit dans la table `SalesLT.Product`.
+Exécutez l’instruction Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) suivante pour ajouter un nouveau produit dans la table `SalesLT.Product`.
 
 1. Remplacez la requête précédente par celle-ci.
 
@@ -117,12 +117,12 @@ Utilisez l’instruction Transact-SQL [INSERT](https://msdn.microsoft.com/librar
    ```
 
 
-2. Sélectionnez **Exécuter** pour insérer une nouvelle ligne dans la table Product. Le volet **Messages** affiche **Requête réussie : Lignes affectées : 1**.
+2. Sélectionnez **Exécuter** pour insérer une nouvelle ligne dans la table `Product`. Le volet **Messages** affiche **Requête réussie : Lignes affectées : 1**.
 
 
 ## <a name="update-data"></a>Mettre à jour des données
 
-Utilisez l’instruction Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) suivante pour modifier votre nouveau produit.
+Exécutez l’instruction Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) suivante pour modifier votre nouveau produit.
 
 1. Remplacez la requête précédente par celle-ci.
 
@@ -132,11 +132,11 @@ Utilisez l’instruction Transact-SQL [UPDATE](https://msdn.microsoft.com/librar
    WHERE Name = 'myNewProduct';
    ```
 
-2. Sélectionnez **Exécuter** pour mettre à jour la ligne spécifiée dans la table Product. Le volet **Messages** affiche **Requête réussie : Lignes affectées : 1**.
+2. Sélectionnez **Exécuter** pour mettre à jour la ligne spécifiée dans la table `Product`. Le volet **Messages** affiche **Requête réussie : Lignes affectées : 1**.
 
 ## <a name="delete-data"></a>Suppression de données
 
-Utilisez l’instruction Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) suivante pour supprimer votre nouveau produit.
+Exécutez l’instruction Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) suivante pour supprimer votre nouveau produit.
 
 1. Remplacez la requête précédente par celle-ci :
 
@@ -145,7 +145,7 @@ Utilisez l’instruction Transact-SQL [DELETE](https://msdn.microsoft.com/librar
    WHERE Name = 'myNewProduct';
    ```
 
-2. Sélectionnez **Exécuter** pour supprimer la ligne spécifiée dans la table Product. Le volet **Messages** affiche **Requête réussie : Lignes affectées : 1**.
+2. Sélectionnez **Exécuter** pour supprimer la ligne spécifiée dans la table `Product`. Le volet **Messages** affiche **Requête réussie : Lignes affectées : 1**.
 
 
 ## <a name="query-editor-considerations"></a>Considérations relatives à l’éditeur de requête
@@ -156,7 +156,7 @@ Il y a quelques informations à connaître quand vous travaillez avec l’édite
 
 * Le fait d’appuyer sur F5 réinitialise la page de l’éditeur de requête, effaçant la requête sur laquelle vous travaillez.
 
-* L’éditeur de requête ne prend pas en charge la connexion à la base de données master.
+* L’éditeur de requête ne prend pas en charge la connexion à la base de données `master`.
 
 * Il y a un délai d’expiration de 5 minutes pour l’exécution des requêtes.
 

@@ -1,9 +1,9 @@
 ---
-title: Vue d’ensemble d’Azure Batch pour développeurs | Microsoft Docs
+title: Vue d’ensemble pour les développeurs - Azure Batch | Microsoft Docs
 description: Découvrez les fonctionnalités du service Batch et de ses API du point de vue du développeur.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 08/22/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b6e543a4835410368e752e70e7e8cb6d8805c0e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.date: 12/18/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: f844b460e5fc6548a17b93038d1232fe61483018
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735577"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754065"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Développer des solutions de calcul parallèles à grande échelle avec Batch
 
@@ -264,7 +264,7 @@ Lorsque vous créez une tâche, vous pouvez spécifier les éléments suivants :
 * Une référence d’**image de conteneur** dans Docker Hub ou bien un registre privé et des paramètres supplémentaires pour créer un conteneur Docker dans lequel la tâche s’exécute sur le nœud. Vous spécifiez uniquement ces informations si le pool est configuré avec une configuration de conteneur.
 
 > [!NOTE]
-> La durée de vie maximale d’une tâche, entre le moment où elle est ajoutée au travail et la fin de son exécution, est de 7 jours. Les tâches terminées sont conservées indéfiniment ; les données de tâches non terminées pendant la durée de vie maximale ne sont pas accessibles.
+> La durée de vie maximale d’une tâche, entre le moment où elle est ajoutée au travail et la fin de son exécution, est de 180 jours. Les tâches terminées sont conservées pendant sept jours. Les données de tâches non terminées pendant la durée de vie maximale ne sont pas accessibles.
 
 Outre les tâches que vous pouvez définir pour effectuer des calculs sur un nœud, les tâches spéciales suivantes sont également fournies par le service Batch :
 
@@ -314,8 +314,8 @@ Une tâche du gestionnaire de travaux est lancée avant toutes les autres tâche
 ### <a name="job-preparation-and-release-tasks"></a>Tâches de préparation et lancement
 Batch fournit des tâches de préparation des travaux pour la configuration de l’exécution des travaux préliminaire. Les tâches de validation des travaux sont destinées à la maintenance ou au nettoyage postérieurs aux travaux.
 
-* **Tâche de préparation de travail**: une tâche de préparation de travail s’exécute sur tous les nœuds de calcul qui sont planifiés pour exécuter les tâches avant l’exécution des autres tâches du travail. Vous pouvez utiliser une tâche de préparation du travail pour copier les données partagées par toutes les tâches, mais propres au travail, par exemple.
-* **Tâche de validation de travail**: lorsqu’un travail est terminé, une tâche de validation de travail s’exécute sur chaque nœud du pool ayant exécuté au moins une tâche. Vous pouvez utiliser une tâche de validation de travail pour supprimer les données copiées par la tâche de préparation de travail, ou pour compresser et charger des données de journaux de diagnostic, par exemple.
+* **Tâche de préparation de travail** : une tâche de préparation de travail s’exécute sur tous les nœuds de calcul qui sont planifiés pour exécuter des tâches, avant l’exécution des autres tâches du travail. Vous pouvez utiliser une tâche de préparation du travail pour copier les données partagées par toutes les tâches, mais propres au travail, par exemple.
+* **Tâche de validation de travail** : quand un travail est terminé, une tâche de validation de travail s’exécute sur chaque nœud du pool ayant exécuté au moins une tâche. Vous pouvez utiliser une tâche de validation de travail pour supprimer les données copiées par la tâche de préparation de travail, ou pour compresser et charger des données de journaux de diagnostic, par exemple.
 
 Les tâches de préparation et de validation de travail vous permettent de spécifier une ligne de commande à exécuter lorsque la tâche est appelée. Elles offrent des fonctionnalités telles que le téléchargement de fichiers, une exécution élevée, des variables d’environnement personnalisées, une durée d’exécution maximale, le nombre de tentatives et la durée de rétention des fichiers.
 
@@ -349,15 +349,15 @@ Vous trouverez la liste complète des variables d’environnement définies par 
 ## <a name="files-and-directories"></a>Fichiers et répertoires
 Chaque tâche possède un *répertoire de travail* sous lequel elle crée zéro ou plusieurs fichiers et répertoires. Ce répertoire de travail peut être utilisé pour stocker le programme exécuté par la tâche, les données qu’il traite et la sortie du traitement qu’il effectue. Tous les fichiers et répertoires d’une tâche sont détenus par l’utilisateur de la tâche.
 
-Le service Batch expose une partie du système de fichiers sur un nœud en tant que *répertoire racine*. Les tâches peuvent accéder au répertoire racine en référençant la variable d’environnement `AZ_BATCH_NODE_ROOT_DIR` . Pour plus d’informations sur l’utilisation de variables d’environnement, consultez la section [Paramètres d’environnement des tâches](#environment-settings-for-tasks).
+Le service Batch expose une partie du système de fichiers sur un nœud en tant que *répertoire racine*. Les tâches peuvent accéder au répertoire racine en référençant la variable d’environnement `AZ_BATCH_NODE_ROOT_DIR`. Pour plus d’informations sur l’utilisation de variables d’environnement, consultez la section [Paramètres d’environnement des tâches](#environment-settings-for-tasks).
 
 Le répertoire racine contient la structure de répertoires suivante :
 
 ![Structure de répertoire du nœud de calcul][1]
 
-* **Partagé**: ce répertoire fournit un accès en lecture/écriture à *toutes* les tâches qui s’exécutent sur un nœud. Les tâches qui s’exécutent sur le nœud peuvent créer, lire, mettre à jour et supprimer des fichiers dans ce répertoire. Les tâches peuvent accéder à ce répertoire en référençant la variable d’environnement `AZ_BATCH_NODE_SHARED_DIR` .
-* **Démarrage**: ce répertoire est utilisé par une tâche de démarrage en tant que répertoire de travail. Tous les fichiers téléchargés vers le nœud par la tâche de démarrage sont stockés ici. La tâche de démarrage peut créer, lire, mettre à jour et supprimer des fichiers dans ce répertoire. Les tâches peuvent accéder à ce répertoire en référençant la variable d’environnement `AZ_BATCH_NODE_STARTUP_DIR` .
-* **Tâches**: un répertoire est créé pour chaque tâche qui s’exécute sur le nœud. Il est accessible en référençant la variable d’environnement `AZ_BATCH_TASK_DIR` .
+* **shared** : ce répertoire fournit un accès en lecture/écriture à *toutes* les tâches qui s’exécutent sur un nœud. Les tâches qui s’exécutent sur le nœud peuvent créer, lire, mettre à jour et supprimer des fichiers dans ce répertoire. Les tâches peuvent accéder à ce répertoire en référençant la variable d’environnement `AZ_BATCH_NODE_SHARED_DIR`.
+* **startup** : ce répertoire est utilisé comme répertoire de travail par une tâche de démarrage. Tous les fichiers téléchargés vers le nœud par la tâche de démarrage sont stockés ici. La tâche de démarrage peut créer, lire, mettre à jour et supprimer des fichiers dans ce répertoire. Les tâches peuvent accéder à ce répertoire en référençant la variable d’environnement `AZ_BATCH_NODE_STARTUP_DIR` .
+* **Tâches** : un répertoire est créé pour chaque tâche qui s’exécute sur le nœud. Il est accessible en référençant la variable d’environnement `AZ_BATCH_TASK_DIR` .
 
     Dans chaque répertoire de la tâche, le service Batch crée un répertoire de travail (`wd`) dont le chemin unique est spécifié par la variable d’environnement `AZ_BATCH_TASK_WORKING_DIR`. Ce répertoire fournit un accès en lecture/écriture à la tâche. La tâche peut créer, lire, mettre à jour et supprimer des fichiers dans ce répertoire. Ce répertoire est conservé en fonction de la contrainte *RetentionTime* spécifiée pour la tâche.
 
@@ -508,7 +508,7 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 * Découvrez les [outils et API Batch](batch-apis-tools.md) disponibles pour créer des solutions Batch.
 * Découvrez les bases du développement d’une application Batch à l’aide de la [bibliothèque Azure Batch pour .NET](quick-run-dotnet.md) ou [Python](quick-run-python.md). Ces démarrages rapides décrivent la création d’un exemple d’application qui utilise le service Batch pour exécuter une charge de travail sur plusieurs nœuds de calcul, et inclut l’utilisation d’Azure Storage pour la mise en attente et la récupération de fichiers de la charge de travail.
 * Téléchargez et installez [Batch Explorer][batch_labs] pour l’utiliser lors du développement de vos solutions Batch. Utilisez Batch Explorer pour vous aider à créer, déboguer et analyser les applications de Azure Batch. 
-* Consultez les ressources de la Communauté, notamment [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), le [dépôt de la communauté Batch](https://github.com/Azure/Batch)et le [forum Azure Batch][batch_forum] sur MSDN. 
+* Consultez les ressources de la Communauté, notamment [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), le [dépôt de la communauté Batch](https://github.com/Azure/Batch)et le [forum Azure Batch][batch_forum] sur MSDN. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 

@@ -1,24 +1,21 @@
 ---
 title: Se connecter à Azure Database pour MySQL à partir de code C++
 description: Ce guide de démarrage rapide fournit un exemple de code C++ que vous pouvez utiliser pour vous connecter à la base de données Azure pour MySQL et pour interroger les données de cette dernière.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
-ms.devlang: C++
+ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 04/12/2018
-ms.openlocfilehash: 6d9deba8c7e6317ab349f86d5a1730f05288ea35
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: b262359b91a2545682e7611c44cfccd2b08da0c1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987662"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544190"
 ---
-# <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Base de données Azure pour MySQL : utiliser Connector/C++ pour vous connecter et interroger des données
+# <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database pour MySQL : Utiliser Connector/C++ pour se connecter et interroger des données
 Ce guide de démarrage rapide explique comment se connecter à une base de données Azure Database pour MySQL à l’aide d’une application C#. Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cette rubrique part du principe que vous connaissez les bases du développement C++ et que vous ne savez pas utiliser Azure Database pour MySQL.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -41,10 +38,10 @@ Les étapes de cette section supposent que vous êtes familiarisé avec l’util
    2. Exécutez le programme d’installation et suivez que les invites.
 
 ### <a name="configure-visual-studio"></a>**Configurer Visual Studio**
-1. Dans Visual Studio, Projet -> Propriétés -> Éditeur de liens > Général > Répertoires de bibliothèques supplémentaires, ajoutez le répertoire « \lib\opt » du connecteur c++ (c’est-à-dire C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt).
+1. Dans Visual Studio, Projet -> Propriétés -> Éditeur de liens -> Général > Répertoires de bibliothèques supplémentaires, ajoutez le répertoire « \lib\opt » (par ex. : C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt) du connecteur C++.
 2. Dans Visual Studio, Projet -> Propriétés -> C/C++ -> Général > Autres répertoires include :
-   - Ajoutez le répertoire « \include » du connecteur C++ (c’est-à-dire C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\).
-   - Ajoutez le répertoire racine de la bibliothèque Boost (c’est-à-dire C:\boost_1_64_0\).
+   - Ajoutez le répertoire « \include » du connecteur c++ (par ex. : C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\include\).
+   - Ajoutez le répertoire racine de la bibliothèque Boost (par ex. : C:\boost_1_64_0\).
 3. Dans Visual Studio, Projet -> Propriétés -> Éditeur de liens -> Entrée -> Dépendances supplémentaires, ajoutez **mysqlcppconn.lib** dans le champ de texte.
 4. Copiez le fichier **mysqlcppconn.dll** du dossier de la bibliothèque de connecteurs C++ de l’étape 3 vers le même répertoire que l’exécutable de l’application, ou ajoutez-le à la variable d’environnement pour permettre à votre application de le retrouver.
 

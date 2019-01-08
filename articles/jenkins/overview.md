@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: overview
 ms.date: 07/25/2018
-ms.openlocfilehash: cb4082046e57ac16abd6cdef3d5779525e7cfc82
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 93185483a2c5a1ddb308cc2fc9fd918c539b5e3d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105527"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602327"
 ---
 # <a name="azure-and-jenkins"></a>Azure et Jenkins
 
@@ -35,7 +35,7 @@ Surveiller et gérer votre déploiement Azure Jenkins à l’aide de [Log Analyt
 
 Ajoutez des agents de build à votre déploiement Jenkins existant pour mettre à l’échelle la capacité de votre build Jenkins à mesure que le nombre de builds et la complexité de vos travaux et pipelines augmentent. Vous pouvez exécuter ces agents de build sur des machines virtuelles Azure à l’aide du [plug-in Agents de machine virtuelle Azure](jenkins-azure-vm-agents.md). Consultez notre [didacticiel](/azure/jenkins/jenkins-azure-vm-agents) pour plus d’informations.
 
-Une fois configurés avec un [principal du service Azure](/azure/azure-resource-manager/resource-group-overview), les travaux et pipelines Jenkins peuvent utiliser ces informations d’identification pour accomplir ce qui suit :
+Une fois configuré avec un [principal du service Azure](/azure/azure-resource-manager/resource-group-overview), les travaux et pipelines Jenkins peuvent utiliser ces informations d’identification pour accomplir ce qui suit :
 
 - Stocker en toute sécurité et archiver des artefacts de build [Stockage Azure](/azure/storage/common/storage-introduction) à l’aide du [plug-in Stockage Azure](https://plugins.jenkins.io/windows-azure-storage). Consultez les [procédures de stockage Jenkins](/azure/storage/common/storage-java-jenkins-continuous-integration-solution) pour en savoir plus.
 - Gérer et configurer des ressources Azure avec l’[interface de ligne de commande Azure](/azure/jenkins/execute-cli-jenkins-pipeline).
@@ -46,5 +46,5 @@ Utilisez les plug-ins Jenkins pour déployer vos applications sur Azure dans le 
 
  Des plug-ins sont disponibles pour être déployés sur les services et environnements suivants :
 
-- [Azure Web App sur Linux](/azure/app-service/containers/app-service-linux-intro). Consultez le [didacticiel](java-deploy-webapp-tutorial.md) pour commencer.
-- [Azure Web App](/azure/app-service/app-service-web-overview). Consultez les [procédures](deploy-Jenkins-app-service-plugin.md) pour commencer.
+- [Azure App Service sur Linux](/azure/app-service/containers/app-service-linux-intro). Consultez le [didacticiel](java-deploy-webapp-tutorial.md) pour commencer.
+- [Azure App Service](/azure/app-service/overview). Consultez les [procédures](deploy-Jenkins-app-service-plugin.md) pour commencer.

@@ -1,20 +1,18 @@
 ---
-title: 'Démarrage rapide : Créer un serveur Azure Database for MariaDB - Portail Azure'
+title: 'Démarrage rapide : Créer un serveur Azure Database for MariaDB - Portail Azure'
 description: Cet article vous montre comment utiliser le Portail Azure pour créer rapidement un exemple de serveur Azure Database for MariaDB en cinq minutes environ.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 721cd87dcf58a2b5a7a8fd32fdfa8b2d65453b24
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: fb02cfd2419d1c98a92d1eae8b59256499d017a8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321935"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541385"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Créer un serveur Azure Database for MariaDB à l’aide du portail Azure
 
@@ -44,12 +42,12 @@ Pour créer un serveur Azure Database for MariaDB :
 
     Paramètre | Valeur suggérée | Description
     ---|---|---
-    Nom du serveur | *un nom de serveur unique* | Choisissez un nom unique qui identifie votre serveur Azure Database for MariaDB. Par exemple, **mydemoserver**. Le nom de domaine *.mariadb.database.azure.com* est ajouté au nom de serveur que vous entrez. Le nom de serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit contenir entre 3 et 63 caractères.
+    Nom du serveur | *un nom de serveur unique* | Choisissez un nom unique qui identifie votre serveur Azure Database for MariaDB. Par exemple, **mydemoserver**. Le nom de domaine *.mariadb.database.azure.com* est ajouté au nom du serveur que vous entrez. Le nom de serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit contenir entre 3 et 63 caractères.
     Abonnement | *votre abonnement* | Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour votre serveur. Si vous avez plusieurs abonnements, choisissez celui dans lequel la ressource est facturée.
     Groupe de ressources | **myresourcegroup** | Entrez le nom d’un nouveau groupe de ressources, ou sélectionnez un groupe de ressources existant. 
     Sélectionner une source | **Vide** | Sélectionnez **Vide** pour créer un nouveau serveur à partir de zéro. (Sélectionnez **Sauvegarde** si vous créez un serveur à partir d’une géosauvegarde d’un serveur Azure Database for MariaDB existant.)
     Connexion d’administrateur serveur | **myadmin** | Un compte de connexion à utiliser lors de la connexion au serveur. Le nom de connexion d’administrateur ne doit pas être **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
-    Mot de passe | *votre choix* | Entrez un nouveau mot de passe pour le compte d’administrateur du serveur. Il doit contenir entre 8 et 128 caractères. Votre mot de passe doit contenir des caractères appartenant à trois des catégories suivantes : lettres majuscules, lettres minuscules, chiffres (0 à 9) et caractères non alphanumériques (!, $, #, %, etc.).
+    Mot de passe | *votre choix* | Entrez un nouveau mot de passe pour le compte d’administrateur du serveur. Il doit contenir entre 8 et 128 caractères. Votre mot de passe doit contenir des caractères de trois des catégories suivantes : Lettres majuscules, lettres minuscules, chiffres (0-9) et caractères non alphanumériques (!, $, #, % et ainsi de suite).
     Confirmer le mot de passe | *votre choix*| Confirmez le mot de passe du compte d’administrateur.
     Lieu | *La région la plus proche de vos utilisateurs*| Choisissez l’emplacement le plus proche de vos utilisateurs ou de vos autres applications Azure.
     Version | *La version la plus récente*| La version la plus récente (sauf si vous avez des exigences spécifiques pour utiliser une autre version).
@@ -85,7 +83,7 @@ Pour créer une règle de pare-feu au niveau du serveur :
 4. Dans la barre d’outils supérieure de la page **Sécurité de la connexion**, sélectionnez **Enregistrer**. Avant de continuer, attendez de voir la notification indiquant que la mise à jour s’est terminée avec succès. 
 
    > [!NOTE]
-   > Les connexions à Azure Database for MariaDB communiquent sur le port 3306. Si vous essayez de vous connecter dans un réseau d’entreprise, le trafic sortant sur le port 3306 peut être bloqué. Dans ce cas, pour vous connecter à votre serveur, votre service informatique doit ouvrir le port 3306.
+   > Les connexions à Azure Database for MariaDB communiquent sur le port 3306. Si vous essayez de vous connecter depuis un réseau d’entreprise, le trafic sortant sur le port 3306 peut être bloqué. Dans ce cas, pour vous connecter à votre serveur, votre service informatique doit ouvrir le port 3306.
    > 
 
 ## <a name="get-connection-information"></a>Obtenir des informations de connexion
@@ -154,7 +152,7 @@ Tout d’abord, nous allons utiliser l’outil de ligne de commande [mysql](http
     > [!TIP]
     > Si le pare-feu n’est pas configuré pour autoriser l’adresse IP d’Azure Cloud Shell, l’erreur suivante se produit :
     >
-    >   ERROR 2003 (28000) : Le client avec l’adresse IP 123.456.789.0 n’est pas autorisé à accéder au serveur.
+    >   ERROR 2003 (28000) : Le client avec l’adresse IP 123.456.789.0 n’est pas autorisé à accéder au serveur.
     >
     > Pour résoudre l’erreur, assurez-vous que la configuration du serveur correspond à celle décrite dans la section [Configurer une règle pare-feu au niveau du serveur](#configure-firewall-rule).
 

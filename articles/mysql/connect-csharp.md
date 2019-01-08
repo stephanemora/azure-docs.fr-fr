@@ -1,24 +1,21 @@
 ---
 title: Se connecter à Azure Database pour MySQL à partir de code C#
 description: Ce guide de démarrage rapide fournit un exemple de code C# (.NET) que vous pouvez utiliser pour vous connecter et interroger des données de la base de données Azure pour MySQL.
-services: MySQL
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: c92d28bd7515372c17af34d90a4ac73317a13630
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e0536440ea38f127a34639ffb40e5015154ec550
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265018"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547454"
 ---
-# <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Base de données Azure pour MySQL : Utilisation de .NET (C#) pour vous connecter et interroger des données
+# <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Azure Database pour MySQL : Utiliser .NET (C#) pour se connecter et interroger des données
 Ce guide de démarrage rapide explique comment vous connecter à Azure Database pour MySQL en utilisant une application C#. Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cette rubrique part du principe que vous connaissez les bases du développement à l’aide de C# et que vous ne savez pas utiliser Azure Database pour MySQL.
 
 ## <a name="prerequisites"></a>Prérequis

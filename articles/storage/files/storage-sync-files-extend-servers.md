@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: cc34411cc27870dbd9c707a34ebf34b96c7253dc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3ebf450f4e84fed572307a18f20f36013e32c7a5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986115"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630697"
 ---
-# <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Didacticiel : étendre les serveurs de fichiers Windows avec Azure File Sync
+# <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutoriel : Étendre les serveurs de fichiers Windows avec Azure File Sync
 Dans ce didacticiel, nous allons montrer les étapes de base permettant d’étendre la capacité de stockage d’un serveur Windows à l’aide d’Azure File Sync. Bien que nous utilisions une machine virtuelle Azure Windows Server pour ce didacticiel, ce processus s’applique sans problème à vos serveurs locaux. Si vous êtes prêt à déployer Azure File Sync dans votre propre environnement, consultez plutôt l’article [Déployer Azure File Sync](storage-sync-files-deployment-guide.md).
 
 > [!div class="checklist"]
@@ -163,14 +163,14 @@ Dans la machine virtuelle **Windows Server 2016 Datacenter**, le **Gestionnaire 
 
 1. Fermez l’**Explorateur** et le **Gestionnaire de serveur**.
 
-### <a name="download-the-azurerm-powershell-module"></a>Télécharger le module AzureRM PowerShell
-Ensuite, sur la machine virtuelle **Windows Server 2016 Datacenter**, installez le **module AzureRM PowerShell** sur le serveur.
+### <a name="download-the-azure-powershell-module"></a>Télécharger le module Azure PowerShell
+Ensuite, sur la machine virtuelle **Windows Server 2016 Datacenter**, installez le **module Azure PowerShell** sur le serveur.
 
 1. Dans la machine virtuelle, ouvrez une fenêtre Windows PowerShell avec des privilèges élevés.
 1. Exécutez la commande suivante :
 
    ```powershell
-   Install-Module -Name AzureRM -AllowClobber
+   Install-Module -Name Az -AllowClobber
    ```
 
    > [!NOTE]
@@ -189,7 +189,7 @@ Ensuite, sur la machine virtuelle **Windows Server 2016 Datacenter**, installez 
 
 1. Répondez `Yes` ou `Yes to All` pour procéder à l’installation.
 
-Le module `AzureRM` est un module cumulatif pour les cmdlets Azure PowerShell. Son installation permet de télécharger tous les modules Azure Resource Manager disponibles, et rend leurs cmdlets disponibles.
+Le module `Az` est un module cumulatif pour les cmdlets Azure PowerShell. Son installation permet de télécharger tous les modules Azure Resource Manager disponibles, et rend leurs cmdlets disponibles.
 
 À ce stade, vous avez terminé de configurer votre environnement pour le didacticiel et vous êtes prêt à commencer à déployer le **Service de synchronisation de stockage**.
 

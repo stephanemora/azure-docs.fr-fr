@@ -2,8 +2,7 @@
 title: 'Tutoriel : Exécuter Azure Functions avec des travaux Azure Stream Analytics | Microsoft Docs'
 description: Dans ce didacticiel, vous apprenez à configurer Azure Functions comme récepteur de sortie pour les travaux Stream Analytics.
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
+author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
@@ -11,12 +10,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 6a89333f32fb4ccc8fc4d4710266157fca16fe02
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 818c75feffc5dcf09421b22d82b8b0c767cbed7f
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164158"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993006"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Exécuter Azure Functions à partir des travaux Azure Stream Analytics 
 
@@ -152,7 +151,7 @@ Suivez le didacticiel [Détection des fraudes en temps réel](stream-analytics-r
 
 1. Dans le portail Azure, ouvrez votre travail Stream Analytics.  
 
-2. Accédez à votre fonction et sélectionnez **Vue d’ensemble** > **Sorties** > **Ajouter**. Pour ajouter une nouvelle sortie, sélectionnez **Azure Function** pour l’option de récepteur. Le nouvel adaptateur de sortie Functions est disponible, avec les propriétés suivantes :  
+2. Accédez à votre fonction et sélectionnez **Vue d’ensemble** > **Sorties** > **Ajouter**. Pour ajouter une nouvelle sortie, sélectionnez **Azure Function** pour l’option de récepteur. L’adaptateur de sortie Functions a les propriétés suivantes :  
 
    |**Nom de la propriété**|**Description**|
    |---|---|
@@ -160,7 +159,7 @@ Suivez le didacticiel [Détection des fraudes en temps réel](stream-analytics-r
    |Option d’importation| Vous pouvez utiliser la fonction de l’abonnement actuel ou renseigner manuellement les paramètres si la fonction se trouve dans un autre abonnement. |
    |Function App| Nom de votre application Functions. |
    |Fonction| Nom de la fonction dans votre application Functions (nom de votre fonction run.csx).|
-   |Taille de lot maximale|Définit la taille maximale de chaque lot de sortie envoyé à votre fonction. Par défaut, cette valeur est définie sur 256 Ko.|
+   |Taille de lot maximale|Définit la taille maximale de chaque lot de sortie envoyé à votre fonction, en octets. Par défaut, cette valeur est définie à 262 144 octets (256 Ko).|
    |Nombre maximal de lots|Spécifie le nombre maximal d’événements dans chaque lot envoyé à la fonction. La valeur par défaut est 100. Cette propriété est facultative.|
    |Clé|Vous permet d’utiliser une fonction d’un autre abonnement. Indiquez la valeur de la clé pour accéder à votre fonction. Cette propriété est facultative.|
 

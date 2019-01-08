@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: fdbdbe77c6541d62acef0d23d599d9687f5301b1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1443508985c7c7fef313a7eea3f622e7759a71ef
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251859"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540094"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Démarrage rapide : Diffuser des messages en temps réel à partir de l’application de console
 
@@ -129,13 +129,13 @@ La liste des API disponibles spécifiques à chaque version se trouvent dans la 
 
 API | `1.0-preview` | `1.0`
 --- | --- | ---
-[Diffuser à tout le monde](#broadcast) | :heavy_check_mark: | :heavy_check_mark:
-[Diffuser à un groupe](#broadcast-group) | :heavy_check_mark: | :heavy_check_mark:
-Diffuser à certains groupes | :heavy_check_mark: (Déconseillé) | `N / A`
-[Envoyer à des utilisateurs spécifiques](#send-user) | :heavy_check_mark: | :heavy_check_mark:
-Envoyer à certains utilisateurs | :heavy_check_mark: (Déconseillé) | `N / A`
-[Ajout d’un utilisateur à un groupe](#add-user-to-group) | `N / A` | :heavy_check_mark:
-[Suppression d’un utilisateur d’un groupe](#remove-user-from-group) | `N / A` | :heavy_check_mark:
+[Diffuser à tout le monde](#broadcast) | **&#x2713;** | **&#x2713;**
+[Diffuser à un groupe](#broadcast-group) | **&#x2713;** | **&#x2713;**
+Diffuser à certains groupes | **&#x2713;** (déprécié) | `N / A`
+[Envoyer à des utilisateurs spécifiques](#send-user) | **&#x2713;** | **&#x2713;**
+Envoyer à certains utilisateurs | **&#x2713;** (déprécié) | `N / A`
+[Ajout d’un utilisateur à un groupe](#add-user-to-group) | `N / A` | **&#x2713;**
+[Suppression d’un utilisateur d’un groupe](#remove-user-from-group) | `N / A` | **&#x2713;**
 
 <a name="broadcast"></a>
 ### <a name="broadcast-to-everyone"></a>Diffuser à tout le monde

@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: tamram
-ms.openlocfilehash: f6f421e780bfbb7922a4b11f758330f2a9a0b84b
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b41366b89a0598d52ae973e2a6d27e60ed548765
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24814573"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634454"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>Calculer la taille totale d’un conteneur de stockage d’objets blob
 
@@ -42,17 +42,17 @@ Ce script calcule la taille d’un conteneur dans le stockage d’objets blob Az
 Exécutez la commande suivante pour supprimer le groupe de ressources, le conteneur et toutes les ressources associées.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name bloblisttestrg
+Remove-AzResourceGroup -Name bloblisttestrg
 ```
 
 ## <a name="script-explanation"></a>Explication du script
 
 Ce script utilise les commandes suivantes pour calculer la taille du conteneur de stockage d’objets blob. Chaque élément du tableau renvoie à une documentation spécifique de la commande.
 
-| Commande | Remarques |
+| Commande | Notes |
 |---|---|
-| [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) | Obtient un compte de stockage spécifié ou tous les comptes de stockage dans un groupe de ressources ou l’abonnement. |
-| [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) | Répertorie les objets blob inclus dans un conteneur. ||
+| [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Obtient un compte de stockage spécifié ou tous les comptes de stockage dans un groupe de ressources ou l’abonnement. |
+| [Get-AzStorageBlob](/powershell/module/azure.storage/get-AzStorageblob) | Répertorie les objets blob inclus dans un conteneur. ||
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: b75d84fefa9c45711003731666ecb21336057cc2
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 6b2ab1ba89fbc2b271ede177a906a1919c14023d
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53018663"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557663"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-application"></a>Démarrage rapide : Utiliser le cache Azure pour Redis avec une application .NET
 
@@ -160,7 +160,7 @@ Ajoutez le code suivant pour la procédure `Main` de la classe `Program` pour vo
             Console.WriteLine("\nCache command  : " + cacheCommand + " or StringSet()");
             Console.WriteLine("Cache response : " + cache.StringSet("Message", "Hello! The cache is working from a .NET console app!").ToString());
 
-            // Demostrate "SET Message" executed as expected...
+            // Demonstrate "SET Message" executed as expected...
             cacheCommand = "GET Message";
             Console.WriteLine("\nCache command  : " + cacheCommand + " or StringGet()");
             Console.WriteLine("Cache response : " + cache.StringGet("Message").ToString());
@@ -201,7 +201,7 @@ Install-Package Newtonsoft.Json
 
 Ajoutez l’instruction `using` suivante au début de *Program.cs* :
 
-```charp
+```csharp
 using Newtonsoft.Json;
 ```
 

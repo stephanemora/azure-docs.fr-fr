@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 775d7595e80c02bcfbc1c3d6abc687d5e335d7da
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0b4549323b64b0f6210a228ea6cb5ca301839ec8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261005"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721850"
 ---
-# <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Tutoriel : Créer une application web .NET Core et SQL Database dans Azure App Service
+# <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>Didacticiel : Créer une application .NET Core et SQL Database dans Azure App Service
 
 > [!NOTE]
-> Cet article explique comment déployer une application sur App Service sous Windows. Pour déployer vers App Service sur _Linux_, voir [Créer une application web .NET Core et SQL Database dans Azure App Service sur Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
+> Cet article explique comment déployer une application sur App Service sous Windows. Pour déployer sur App Service sur _Linux_, consultez [Créer une application .NET Core et SQL Database dans Azure App Service sur Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
 >
 
-[App Service](app-service-web-overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques dans Azure. Ce didacticiel vous montre comment créer une application web .NET Core et comment la connecter à une instance SQL Database. Quand vous avez terminé, vous disposez d’une application MVC .NET Core s’exécutant dans App Service.
+[App Service](overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques dans Azure. Ce tutoriel montre comment créer une application .NET Core et comment la connecter à une instance SQL Database. Quand vous avez terminé, vous disposez d’une application MVC .NET Core s’exécutant dans App Service.
 
 ![Application exécutée dans App Service](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
@@ -135,7 +135,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 ```
 
 > [!TIP] 
-> Vous pouvez être encore plus restrictif dans votre règle de pare-feu en [choisissant uniquement les adresses IP sortantes que votre application utilise](app-service-ip-addresses.md#find-outbound-ips).
+> Vous pouvez être encore plus restrictif dans votre règle de pare-feu en [choisissant uniquement les adresses IP sortantes que votre application utilise](overview-inbound-outbound-ips.md#find-outbound-ips).
 >
 
 ### <a name="create-a-database"></a>Créer une base de données
@@ -182,7 +182,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 Définissez ensuite le paramètre d’application `ASPNETCORE_ENVIRONMENT` sur _Production_. Ce paramètre vous permet de savoir si vous utilisez Azure, car vous utilisez SQLite pour votre environnement de développement local et SQL Database pour votre environnement Azure.
 
-L’exemple suivant configure un paramètre d’application `ASPNETCORE_ENVIRONMENT` dans votre application web Azure. Remplacez l’espace réservé *\<appname>*.
+L’exemple suivant configure un paramètre d’application `ASPNETCORE_ENVIRONMENT` dans votre application Azure. Remplacez l’espace réservé *\<appname>*.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
@@ -257,9 +257,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>Rechercher l’application web Azure
+### <a name="browse-to-the-azure-app"></a>Accéder à l’application Azure
 
-Accédez à l’application web déployée à l’aide de votre navigateur web.
+Accédez à l’application déployée à l’aide de votre navigateur web.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -361,21 +361,21 @@ git commit -m "added done field"
 git push azure master
 ```
 
-Une fois le `git push` terminé, accédez à votre application web Azure et essayez la nouvelle fonctionnalité.
+Une fois le `git push` terminé, accédez à votre application App Service et essayez la nouvelle fonctionnalité.
 
-![Application web Azure après l’activation de Code First Migration](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
+![Application Azure après l’activation des Migrations Code First](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
 Toutes les tâches existantes sont toujours affichées. Lorsque vous republiez votre application .NET Core, les données existantes dans votre instance SQL Database ne sont pas perdues. En outre, Entity Framework Core Migrations modifie uniquement le schéma de données, sans toucher à vos données existantes.
 
-## <a name="manage-your-azure-web-app"></a>Gérer votre application web Azure
+## <a name="manage-your-azure-app"></a>Gérer votre application Azure
 
-Accédez au [portail Azure](https://portal.azure.com) pour voir l’application web que vous avez créée.
+Accédez au [portail Azure](https://portal.azure.com) pour voir l’application que vous avez créée.
 
-Dans le menu de gauche, cliquez sur **App Services**, puis cliquez sur le nom de votre application web Azure.
+Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
 
-![Navigation au sein du portail pour accéder à l’application web Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
+![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
 
-Par défaut, le portail affiche la page **Vue d’ensemble** de votre application web. Cette page propose un aperçu de votre application. Ici, vous pouvez également effectuer des tâches de gestion de base (parcourir, arrêter, démarrer, redémarrer et supprimer des éléments, par exemple). Les onglets sur le côté gauche de la page affichent les différentes pages de configuration que vous pouvez ouvrir.
+Par défaut, le portail affiche la page **Vue d’ensemble** de votre application. Cette page propose un aperçu de votre application. Ici, vous pouvez également effectuer des tâches de gestion de base (parcourir, arrêter, démarrer, redémarrer et supprimer des éléments, par exemple). Les onglets sur le côté gauche de la page affichent les différentes pages de configuration que vous pouvez ouvrir.
 
 ![Page App Service du Portail Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/web-app-blade.png)
 
@@ -394,7 +394,7 @@ Vous avez appris à effectuer les opérations suivantes :
 > * Diffuser des journaux à partir d’Azure vers votre terminal
 > * Gérer l’application dans le portail Azure
 
-Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
+Passez au tutoriel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application.
 
 > [!div class="nextstepaction"]
-> [Mapper un nom DNS personnalisé existant à des applications web Azure](app-service-web-tutorial-custom-domain.md)
+> [Mapper un nom DNS personnalisé existant à Azure App Service](app-service-web-tutorial-custom-domain.md)

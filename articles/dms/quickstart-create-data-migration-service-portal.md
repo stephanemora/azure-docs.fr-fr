@@ -1,24 +1,24 @@
 ---
-title: Créer une instance d’Azure Database Migration Service à l’aide du portail Azure | Microsoft Docs
+title: 'Démarrage rapide : Créer une instance d’Azure Database Migration Service à l’aide du portail Azure | Microsoft Docs'
 description: Utiliser le portail Azure pour créer une instance d’Azure Database Migration Service
 services: database-migration
 author: pochiraju
 ms.author: rajpo
 manager: craigg
-ms.reviewer: ''
-ms.service: database-migration
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/09/2018
-ms.openlocfilehash: 662543a0717fbddb8eaefb5938f36adc88f4f3f2
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 2b3ec4a09fb2baee7d532f348fc18cb3d428d092
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883752"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53711820"
 ---
-# <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Créer une instance d’Azure Database Migration Service à l’aide du portail Azure
+# <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Démarrage rapide : Créer une instance d’Azure Database Migration Service à l’aide du portail Azure
 Dans ce démarrage rapide, vous allez utiliser le portail Azure pour créer une instance d’Azure Database Migration Service.  Une fois le service créé, vous pouvez l’utiliser pour migrer des données entre une instance locale de SQL Server et une base de données SQL Azure.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
@@ -56,7 +56,7 @@ Avant de créer votre première instance Database Migration Service, vous devez 
 
         Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, voir l’article [Créer un réseau virtuel à l’aide du portail Azure](https://aka.ms/vnet).
 
-    - Pour le **niveau tarifaire**, sélectionnez « De base : 1 vCore ».
+    - Sélectionnez De base : 1 vCore pour le **Niveau tarifaire**.
 
         ![Créer un service de migration](media/quickstart-create-data-migration-service-portal/dms-create-service1.png)
 

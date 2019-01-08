@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: acc926151e5abd1d6f9d0992591575198d1fdf44
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: f5d74c2283d25d5774bd46bb9fe94795ff98fe9b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890532"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720563"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-python"></a>Utiliser Azure Key Vault avec une machine virtuelle Linux Azure et le langage Python
+# <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-python"></a>Didacticiel : Utiliser Azure Key Vault avec une machine virtuelle Linux Azure et le langage Python
 
 Azure Key Vault vous permet de protéger des secrets tels que les clés API et les chaînes de connexion de base de données nécessaires pour accéder à vos applications, services et ressources.
 
-Dans ce tutoriel, vous suivez les étapes nécessaires pour qu’une application web Azure puisse lire les informations depuis Azure Key Vault à l’aide d’identités managées pour les ressources Azure. Ce didacticiel est basé sur [Azure Web Apps](../app-service/app-service-web-overview.md). Vous apprendrez à :
+Dans ce tutoriel, vous suivez les étapes nécessaires pour qu’une application web Azure puisse lire les informations depuis Azure Key Vault à l’aide d’identités managées pour les ressources Azure. Vous apprendrez à :
 
 > [!div class="checklist"]
 > * Création d’un coffre de clés
@@ -80,9 +80,9 @@ Le groupe de ressources que vous venez de créer est utilisé tout au long de ce
 
 Ensuite, vous créez un coffre de clés dans le groupe de ressources que vous avez créé à l’étape précédente. Fournissez les informations suivantes :
 
-* Nom de coffre de clés : le nom doit être une chaîne de 3 à 24 caractères et doit contenir uniquement (0-9, a-z, A-Z et -).
+* Nom du coffre de clés : le nom doit être une chaîne de 3 à 24 caractères et doit contenir uniquement (0-9, a-z, A-Z et -).
 * Nom du groupe de ressources.
-* Emplacement : **USA Ouest**.
+* Localisation : **USA Ouest**.
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
@@ -160,7 +160,7 @@ Vous pouvez suivre ce [tutoriel](https://docs.microsoft.com/azure/virtual-machin
 
 ## <a name="create-and-run-sample-python-app"></a>Créer et exécuter l’exemple d’application Python
 
-Le fichier ci-dessous est un exemple de fichier nommé « Sample.py ». Il utilise la bibliothèque [requests](http://docs.python-requests.org/master/) pour effectuer des appels HTTP GET.
+Le fichier ci-dessous est un exemple de fichier nommé « Sample.py ». Il utilise la bibliothèque [requests](https://pypi.org/project/requests/2.7.0/) pour effectuer des appels HTTP GET.
 
 ## <a name="edit-samplepy"></a>Modifier Sample.py
 Après avoir créé Sample.py, ouvrez le fichier puis copiez-y le code ci-dessous.

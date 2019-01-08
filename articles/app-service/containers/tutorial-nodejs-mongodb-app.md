@@ -15,27 +15,27 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 59173550c0cdff44931e0b686308b39e985dddcf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 44f5ea606efafbb310e4740d75cbf86b7069e7ca
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254953"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722513"
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Créer une application web Node.js et MongoDB dans Azure App Service sur Linux
+# <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Générer une application Node.js et MongoDB dans Azure App Service sur Linux
 
 > [!NOTE]
-> Cet article explique comment déployer une application sur App Service sous Linux. Pour effectuer un déploiement sur App Service sous _Windows_, consultez la page [Créer une application web Node.js et MongoDB sur Azure](../app-service-web-tutorial-nodejs-mongodb-app.md).
+> Cet article explique comment déployer une application sur App Service sous Linux. Pour effectuer un déploiement dans App Service sur _Windows_, consultez [Générer une application Node.js et MongoDB dans Azure](../app-service-web-tutorial-nodejs-mongodb-app.md).
 >
 
-[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce didacticiel montre comment créer une application web Node.js, la connecter localement à une base de données MongoDB, puis la déployer sur Azure, qui est connecté à une base de données CosmosDB avec l’API MongoDB. Quand vous aurez terminé, vous disposerez d’une application MEAN (MongoDB, Express, AngularJS et Node.js) exécutée dans App Service sur Linux. Pour plus de simplicité, l’exemple d’application utilise [l’infrastructure de développement web MEAN.js](https://meanjs.org/).
+[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce tutoriel montre comment créer une application Node.js, la connecter localement à une base de données MongoDB, puis la déployer sous la forme de base de données d’API Azure Cosmos DB pour MongoDB. Quand vous aurez terminé, vous disposerez d’une application MEAN (MongoDB, Express, AngularJS et Node.js) exécutée dans App Service sur Linux. Pour plus de simplicité, l’exemple d’application utilise [l’infrastructure de développement web MEAN.js](https://meanjs.org/).
 
 ![Application MEAN.js exécutée dans Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
 Vous apprendrez à :
 
 > [!div class="checklist"]
-> * Créer une base de données CosmosDB à l’aide de l’API MongoDB dans Azure
+> * Créer une base de données à l’aide de l’API Azure Cosmos DB pour MongoDB
 > * Connecter une application Node.js à MongoDB
 > * Déploiement de l’application dans Azure
 > * Mise à jour du modèle de données et redéploiement de l’application
@@ -121,9 +121,7 @@ Pour arrêter Node.js à tout moment, appuyez sur `Ctrl+C` dans le terminal.
 
 ## <a name="create-production-mongodb"></a>Créer une base de données MongoDB de production
 
-Dans cette étape, vous allez créer une base de données MongoDB dans Azure. Lorsque votre application est déployée sur Azure, elle utilise cette base de données cloud.
-
-Pour MongoDB, ce didacticiel utilise [Azure Cosmos DB](/azure/documentdb/). Cosmos DB prend en charge les connexions client MongoDB.
+Dans cette étape, vous créez une base de données Cosmos configurée avec l’API MongoDB dans Azure. Lorsque votre application est déployée sur Azure, elle utilise cette base de données cloud.
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -159,7 +157,7 @@ Une fois le compte Cosmos DB créé, Azure CLI affiche des informations similai
 }
 ```
 
-## <a name="connect-app-to-production-mongodb"></a>Connecter l’application à la production MongoDB
+## <a name="connect-app-to-production-cosmos-db-configured-with-mongodb-api"></a>Connecter l’application au Cosmos DB de production configuré avec l’API MongoDB
 
 Pendant cette étape, vous connectez votre exemple d’application MEAN.js à la base de données Cosmos DB que vous venez de créer, en utilisant une chaîne de connexion MongoDB.
 
@@ -239,7 +237,7 @@ Dans le terminal, arrêtez Node.js en tapant `Ctrl+C`.
 
 ## <a name="deploy-app-to-azure"></a>Déployer des applications dans Azure
 
-Dans cette étape, vous allez déployer dans Azure App Service votre application Node.js connectée à MongoDB.
+Dans cette étape, vous déployez votre application Node.js dans Azure App Service.
 
 ### <a name="configure-local-git-deployment"></a>Configurer le déploiement Git local
 
@@ -257,11 +255,11 @@ Dans cette étape, vous allez déployer dans Azure App Service votre application
 
 ### <a name="configure-an-environment-variable"></a>Configurer une variable d’environnement
 
-Par défaut, le projet MEAN.js conserve _config/env/local-production.js_ hors du référentiel Git. Ainsi, pour votre application web Azure, vous utilisez des paramètres d’application pour définir votre chaîne de connexion MongoDB.
+Par défaut, le projet MEAN.js conserve _config/env/local-production.js_ hors du référentiel Git. Ainsi, pour votre application Azure, vous utilisez des paramètres d’application pour définir votre chaîne de connexion MongoDB.
 
 Pour définir les paramètres de l’application, utilisez la commande [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) dans Cloud Shell.
 
-L’exemple suivant configure un paramètre d’application `MONGODB_URI` dans votre application web Azure. Remplacez les espaces réservés *\<app_name>*, *\<cosmosdb_name>*, et *\<primary_master_key>*.
+L’exemple suivant configure un paramètre d’application `MONGODB_URI` dans votre application Azure. Remplacez les espaces réservés *\<app_name>*, *\<cosmosdb_name>*, et *\<primary_master_key>*.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -307,11 +305,11 @@ Vous remarquerez peut-être que le processus de déploiement exécute [Gulp](htt
 - _.deployment_ : ce fichier indique à App Service d’exécuter `bash deploy.sh` en tant que script de déploiement personnalisé.
 - _deploy.sh_ : le script de déploiement personnalisé. Si vous examinez le fichier, vous verrez qu’il exécute `gulp prod` après `npm install` et `bower install`.
 
-Vous pouvez utiliser cette approche pour ajouter une étape à votre déploiement Git. Notez que si vous redémarrez votre application web Azure à tout moment, App Service ne réexécute pas ces tâches d’automatisation.
+Vous pouvez utiliser cette approche pour ajouter une étape à votre déploiement Git. Si vous redémarrez votre application Azure à un moment donné, App Service ne réexécute pas ces tâches d’automatisation.
 
-### <a name="browse-to-the-azure-web-app"></a>Rechercher l’application web Azure
+### <a name="browse-to-the-azure-app"></a>Accéder à l’application Azure
 
-Accédez à l’application web déployée à l’aide de votre navigateur web.
+Accédez à l’application déployée à l’aide de votre navigateur web.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -319,7 +317,7 @@ http://<app_name>.azurewebsites.net
 
 Cliquez sur **S’inscrire** dans le menu supérieur et créez un utilisateur fictif.
 
-Si vous réussissez, et si l’application se connecte automatiquement à l’utilisateur créé, cela signifie que votre application MEAN.js dans Azure dispose d’une connectivité à l’API MongoDB de la base de données Cosmos DB.
+Si vous réussissez que l’application se connecte automatiquement à l’utilisateur créé, cela signifie que votre application MEAN.js dans Azure dispose d’une connectivité à l’API Azure Cosmos DB pour MongoDB.
 
 ![Application MEAN.js exécutée dans Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -447,21 +445,21 @@ git commit -am "added article comment"
 git push azure master
 ```
 
-Une fois le `git push` terminé, accédez à votre application web Azure et essayez la nouvelle fonctionnalité.
+Une fois le `git push` terminé, accédez à votre application Azure et testez la nouvelle fonctionnalité.
 
 ![Modifications du modèle et de la base de données publiées dans Azure](media/tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
 Si vous avez ajouté des articles précédemment, vous pouvez toujours les visualiser. Les données existantes dans votre Cosmos DB ne sont pas perdues. De plus, les mises à jour que vous appliquez au schéma de données n’affectent pas vos données existantes.
 
-## <a name="manage-your-azure-web-app"></a>Gérer votre application web Azure
+## <a name="manage-your-azure-app"></a>Gérer votre application Azure
 
-Accédez au [portail Azure](https://portal.azure.com) pour voir l’application web que vous avez créée.
+Accédez au [portail Azure](https://portal.azure.com) pour voir l’application que vous avez créée.
 
-Dans le menu de gauche, cliquez sur **App Services**, puis cliquez sur le nom de votre application web Azure.
+Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
 
-![Navigation au sein du portail pour accéder à l’application web Azure](./media/tutorial-nodejs-mongodb-app/access-portal.png)
+![Navigation au sein du portail pour accéder à l’application Azure](./media/tutorial-nodejs-mongodb-app/access-portal.png)
 
-Par défaut, le portail affiche la page **Vue d’ensemble** de votre application web. Cette page propose un aperçu de votre application. Ici, vous pouvez également effectuer des tâches de gestion de base (parcourir, arrêter, démarrer, redémarrer et supprimer des éléments, par exemple). Les onglets sur le côté gauche de la page affichent les différentes pages de configuration que vous pouvez ouvrir.
+Par défaut, le portail affiche la page **Vue d’ensemble** de votre application. Cette page propose un aperçu de votre application. Ici, vous pouvez également effectuer des tâches de gestion de base (parcourir, arrêter, démarrer, redémarrer et supprimer des éléments, par exemple). Les onglets sur le côté gauche de la page affichent les différentes pages de configuration que vous pouvez ouvrir.
 
 ![Page App Service du Portail Azure](./media/tutorial-nodejs-mongodb-app/web-app-blade.png)
 
@@ -474,14 +472,14 @@ Par défaut, le portail affiche la page **Vue d’ensemble** de votre applicatio
 Vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Créer une base de données CosmosDB à l’aide de l’API MongoDB dans Azure
-> * Connecter une application Node.js à MongoDB
+> * Créer une base de données à l’aide de l’API Azure Cosmos DB pour MongoDB
+> * Connecter une application Node.js à une base de données
 > * Déploiement de l’application dans Azure
 > * Mettre à jour le modèle de données et redéployer l’application
 > * Diffuser des journaux à partir d’Azure vers votre terminal
 > * Gérer l’application dans le portail Azure
 
-Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
+Passez au tutoriel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application.
 
 > [!div class="nextstepaction"]
-> [Mapper un nom DNS personnalisé existant à des applications web Azure](../app-service-web-tutorial-custom-domain.md)
+> [Mapper un nom DNS personnalisé existant à Azure App Service](../app-service-web-tutorial-custom-domain.md)
