@@ -1,22 +1,19 @@
 ---
 title: Se connecter à Azure Database pour MySQL à partir de Python
 description: Ce guide de démarrage rapide fournit plusieurs exemples de code Python, que vous pouvez utiliser pour vous connecter et interroger des données d’Azure Database pour MySQL.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 54b25aa141da15224d5d8034ba54783d3633f5be
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 3adfe85be46c338bcdb0eb429d7e81b8787cf12e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914734"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539634"
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database pour MySQL : Utiliser Python pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment utiliser [Python](https://python.org) pour se connecter à une base de données Azure Database pour MySQL. Il utilise des instructions SQL pour interroger, insérer, mettre à jour et supprimer des données de la base de données sur des plateformes Mac OS et Ubuntu Linux et Windows. Cette rubrique part du principe que vous connaissez les bases du développement à l’aide de Python et que vous ne savez pas utiliser Azure Database pour MySQL.
@@ -33,7 +30,7 @@ Installez [Python](https://www.python.org/downloads/) et le [connecteur MySQL po
 > Ce démarrage rapide utilise une approche de requêtes SQL brutes pour se connecter à MySQL afin d’exécuter des requêtes. Si vous utilisez une infrastructure Web, utilisez le connecteur recommandé pour ces infrastructures. Par exemple, [mysqlclient](https://pypi.org/project/mysqlclient/) est suggéré pour une utilisation avec Django.
 >
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 1. Téléchargez et installez Python 2.7 sur [python.org](https://www.python.org/downloads/windows/). 
 2. Vérifiez l’installation de Python en lançant l’invite de commandes. Exécutez la commande `C:\python27\python.exe -V` à l’aide du commutateur V majuscule pour voir le numéro de version.
 3. Installez le connecteur Python pour MySQL correspondant à votre version de Python sur [mysql.com](https://dev.mysql.com/downloads/connector/python/).

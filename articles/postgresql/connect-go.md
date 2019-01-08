@@ -1,24 +1,21 @@
 ---
 title: Se connecter à Azure Database pour PostgreSQL à l’aide du langage Go
 description: Ce guide de démarrage rapide fournit un exemple de langage de programmation Go, que vous pouvez utiliser pour vous connecter et interroger des données de la base de données Azure pour PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: eef5d9b6878b46d402a91f3adbfd965c47493c25
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 026913e8afbc1eca5742e21d28ed65c1f1f04d96
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986475"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549517"
 ---
-# <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>Base de données Azure pour PostgreSQL : Utilisation du langage Go pour se connecter et interroger des données
+# <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>Azure Database pour PostgreSQL : Utiliser la langage Go pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour PostgreSQL en utilisant du code écrit dans le langage [Go](https://golang.org/) (golang). Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cet article suppose que vous connaissez les bases du développement à l’aide de Go, mais que vous ne connaissez pas la base de données Azure pour PostgreSQL.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -29,7 +26,7 @@ Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’u
 ## <a name="install-go-and-pq-connector"></a>Installer le connecteur pour Go et pq
 Installez [Go](https://golang.org/doc/install) et le [pilote Pure Go Postgres (pq)](https://github.com/lib/pq) sur votre propre ordinateur. Suivez les étapes correspondant à votre plateforme :
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 1. [Téléchargez](https://golang.org/doc/install) et installez Go pour Microsoft Windows en fonction des [instructions d’installation](https://golang.org/dl/).
 2. Lancez l’invite de commandes à partir du menu Démarrer.
 3. Créez un dossier pour votre projet, tel que `mkdir  %USERPROFILE%\go\src\postgresqlgo`.

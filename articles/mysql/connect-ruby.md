@@ -1,24 +1,21 @@
 ---
 title: Se connecter à Azure Database pour MySQL à l’aide de Ruby
 description: Ce guide de démarrage rapide fournit plusieurs exemples de code Ruby que vous pouvez utiliser pour vous connecter et interroger des données de la base de données Azure pour MySQL.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: cfaf6cc5b93ee80017a8fe5634c7afa7b9ce0ccf
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2a5b05985494602e73fa949033958f4a974602b0
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986795"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542541"
 ---
-# <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Base de données Azure pour MySQL : Utilisation de Ruby pour vous connecter et interroger des données
+# <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Azure Database pour MySQL : Utiliser Ruby pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour MySQL via une application [Ruby](https://www.ruby-lang.org) et le gem [mysql2](https://rubygems.org/gems/mysql2), à partir de plateformes Windows, Ubuntu Linux et Mac. Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cette rubrique suppose que vous connaissez les bases du développement à l’aide de Ruby, et que vous ne savez pas utiliser la base de données Azure pour MySQL.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -29,7 +26,7 @@ Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un
 ## <a name="install-ruby"></a>Installer Ruby
 Installez Ruby, Gem et la bibliothèque MySQL2 sur votre propre ordinateur. 
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 1. Téléchargez et installez la version 2.3 de [Ruby](https://rubyinstaller.org/downloads/).
 2. Démarrez une nouvelle invite de commandes (cmd) à partir du menu Démarrer.
 3. Basculez dans le répertoire Ruby pour la version 2.3. `cd c:\Ruby23-x64\bin`

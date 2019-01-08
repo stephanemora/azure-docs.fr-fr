@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 7af18272c335c835a2aa406fc635f3e7afda2a3a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 182dada35e0bea7101cc58ff62fde76fbcb8971e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003450"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722275"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Création et déploiement d'une application Node.js dans Azure Cloud Services
 
@@ -60,8 +60,8 @@ Effectuez les tâches suivantes pour créer un projet Azure Cloud Services, avec
 
     L’applet de commande crée les fichiers suivants :
 
-   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** et **ServiceDefinition.csdef** sont des fichiers propres à Azure, nécessaires à la publication de votre application. Pour plus d'informations, consultez la page [Présentation de la création d'un service hébergé pour Azure].
-   * **deploymentSettings.json**stocke les paramètres locaux utilisés par les cmdlets de déploiement Azure PowerShell.
+   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** et **ServiceDefinition.csdef** : fichiers propres à Azure nécessaires pour publier votre application. Pour plus d'informations, consultez la page [Présentation de la création d'un service hébergé pour Azure].
+   * **deploymentSettings.json** : stocke les paramètres locaux utilisés par les applets de commande de déploiement Azure PowerShell.
 4. Entrez la commande suivante pour ajouter un nouveau rôle Web :
 
        Add-AzureNodeWebRole
@@ -160,18 +160,18 @@ Après avoir déployé votre application, vous pouvez la désactiver afin de vou
    > La suppression du service ne supprime pas le compte de stockage qui a été créé lors de la publication initiale du service. Le stockage utilisé continuera à vous être facturé. Si aucun autre élément n’utilise le stockage, il peut être préférable de le supprimer.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations, consultez le [Centre pour développeurs Node.js].
+Pour plus d’informations, consultez le [Centre de développement Node.js].
 
 <!-- URL List -->
 
-[Comparaison des sites Web Azure, des services cloud et des machines virtuelles]: ../app-service/choose-web-site-cloud-service-vm.md
+[Comparaison des sites Web Azure, des services cloud et des machines virtuelles]: ../app-service/overview-compare.md
 [utiliser une application web légère]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Kit de développement logiciel (SDK) Azure pour .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Connectez PowerShell]: /powershell/azureps-cmdlets-docs#step-3-connect
 [nodejs.org]: http://nodejs.org/
 [Présentation de la création d'un service hébergé pour Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
-[Centre pour développeurs Node.js]: https://azure.microsoft.com/develop/nodejs/
+[Centre de développement Node.js]: https://azure.microsoft.com/develop/nodejs/
 
 <!-- IMG List -->
 

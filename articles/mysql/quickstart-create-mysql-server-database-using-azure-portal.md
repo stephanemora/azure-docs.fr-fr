@@ -1,21 +1,18 @@
 ---
-title: 'Démarrage rapide : création d’un serveur Azure Database pour MySQL - Portail Azure'
+title: 'Démarrage rapide : Créer un serveur Azure Database pour MySQL - Portail Azure'
 description: Cet article vous guide dans le portail Azure pour créer rapidement un exemple de serveur Azure Database pour MySQL en environ cinq minutes.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/12/2018
-ms.openlocfilehash: f26cadf28205359b111a8f92b8fadcbd9f26f958
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 11/01/2018
+ms.openlocfilehash: aede3f432614023739d6967c6e76ff3aaf892cca
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407619"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537798"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Création d’un serveur Azure Database pour MySQL à l’aide du portail Azure
 
@@ -48,7 +45,7 @@ Pour créer un serveur de base de données Azure pour MySQL, suivez les étapes 
     Groupe de ressources | *myresourcegroup* | Spécifiez un nom de groupe de ressources nouveau ou existant.    Groupe de ressources|*myresourcegroup*| Un nouveau nom de groupe de ressources ou un nom de groupe existant dans votre abonnement.
     Sélectionner une source | *Vide* | Sélectionnez *Vide* pour créer un nouveau serveur à partir de zéro. (Vous sélectionnez *Sauvegarde* si vous créez un serveur à partir d’une sauvegarde géographique d’un serveur Azure Database pour MySQL existant).
     Connexion d’administrateur serveur | myadmin | Un compte de connexion à utiliser lors de la connexion au serveur. Le nom de connexion d’administrateur ne doit pas être **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
-    Mot de passe | *Votre choix* | Spécifiez un mot de passe pour le compte Administrateur du serveur. Il doit inclure entre 8 et 128 caractères. Votre mot de passe doit contenir des caractères appartenant à trois des catégories suivantes : lettres majuscules, lettres minuscules, chiffres (0 à 9) et caractères non alphanumériques (!, $, #, %, etc.).
+    Mot de passe | *Votre choix* | Spécifiez un mot de passe pour le compte Administrateur du serveur. Il doit inclure entre 8 et 128 caractères. Votre mot de passe doit contenir des caractères de trois des catégories suivantes : Lettres majuscules, lettres minuscules, chiffres (0-9) et caractères non alphanumériques (!, $, #, % et ainsi de suite).
     Confirmer le mot de passe | *Votre choix*| Confirmez le mot de passe du compte d’administrateur.
     Lieu | *La région la plus proche de vos utilisateurs*| Choisissez l’emplacement le plus proche de vos utilisateurs ou de vos autres applications Azure.
     Version | *La version principale la plus récente*| La version principale la plus récente (sauf si vous avez des exigences spécifiques).
@@ -98,20 +95,9 @@ Pour trouver ces valeurs, effectuez les étapes suivantes :
 Dans cet exemple, le nom du serveur est **mydemoserver.mysql.database.azure.com**, et la connexion d’administrateur du serveur est **myadmin@mydemoserver**.
 
 ## <a name="connect-to-mysql-by-using-the-mysql-command-line-tool"></a>Se connecter à MySQL avec l’outil de ligne de commande mysql
-Vous pouvez utiliser différentes applications pour vous connecter à votre serveur de base de données Azure pour MySQL. 
+Connectez-vous à votre serveur avec l’outil en ligne de commande **mysql.exe**. Vous pouvez télécharger MySQL [ici](https://dev.mysql.com/downloads/) et l’installer sur votre ordinateur. 
 
-Commençons par utiliser l’outil de ligne de commande [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) pour illustrer la procédure de connexion au serveur. Vous pouvez aussi utiliser un navigateur web et Azure Cloud Shell comme décrit dans cet article sans avoir besoin d’installer d’autres logiciels. Si vous avez installé l’utilitaire mysql en local, vous pouvez également vous y connecter depuis cet emplacement.
-
-1. Lancez Azure Cloud Shell via l’icône de la console (**>_**) située dans le coin supérieur droit du portail Azure.
-![Symbole de terminal Azure Cloud Shell](./media/quickstart-create-mysql-server-database-using-azure-portal/7-cloud-console.png)
-
-2.  Azure Cloud Shell s’ouvre dans votre navigateur pour vous permettre de taper des commandes de l’interpréteur de commandes bash.
-
-   ![Invite de commandes - Exemple de ligne de commande mysql](./media/quickstart-create-mysql-server-database-using-azure-portal/8-bash.png)
-
-3. À l’invite Cloud Shell, connectez-vous à votre serveur Azure Database pour MySQL en tapant la ligne de commande mysql.
-
-    Pour vous connecter à un serveur Azure Database pour MySQL avec l’utilitaire mysql, utilisez le format suivant :
+1. Pour vous connecter à un serveur Azure Database pour MySQL avec l’utilitaire mysql, utilisez le format suivant :
 
     ```bash
     mysql --host <fully qualified server name> --user <server admin login name>@<server name> -p
@@ -119,7 +105,7 @@ Commençons par utiliser l’outil de ligne de commande [mysql](https://dev.mysq
 
     Par exemple, la commande ci-après permet de se connecter au serveur de notre exemple :
 
-    ```azurecli-interactive
+    ```bash
     mysql --host mydemoserver.mysql.database.azure.com --user myadmin@mydemoserver -p
     ```
 
@@ -149,9 +135,9 @@ Commençons par utiliser l’outil de ligne de commande [mysql](https://dev.mysq
     mysql>
     ```
     > [!TIP]
-    > Si le pare-feu n’est pas configuré pour autoriser l’adresse IP d’Azure Cloud Shell, l’erreur suivante se produit :
+    > Si le pare-feu n’est pas configuré pour autoriser l’adresse IP de votre client, l’erreur suivante se produit :
     >
-    > ERROR 2003 (28000) : Le client avec l’adresse IP 123.456.789.0 n’est pas autorisé à accéder au serveur.
+    > ERROR 2003 (28000) : Le client avec l’adresse IP 123.456.789.0 n’est pas autorisé à accéder au serveur.
     >
     > Pour résoudre l’erreur, veillez à ce que la configuration du serveur corresponde à celle détaillée dans la section « Configurer une règle de pare-feu au niveau du serveur » de l’article.
 
@@ -178,7 +164,7 @@ Commençons par utiliser l’outil de ligne de commande [mysql](https://dev.mysq
     SHOW DATABASES;
     ```
 
-7.  Tapez `\q`, puis sélectionnez la clé **Entrer** pour quitter l’outil mysql. Une fois terminé, vous pouvez fermer Azure Cloud Shell.
+7.  Tapez `\q`, puis sélectionnez la clé **Entrer** pour quitter l’outil mysql. 
 
 Vous venez de vous connecter au serveur Azure Database pour MySQL et de créer une base de données utilisateur vide. Passez à la section suivante pour effectuer un exercice similaire. L’exercice suivant montre comment se connecter au même serveur à l’aide d’un autre outil commun, MySQL Workbench.
 
