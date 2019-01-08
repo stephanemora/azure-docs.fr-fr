@@ -319,7 +319,7 @@ Vous avez [activé le transfert IP](#turn-on-ip-forwarding) pour l’interface r
     ```cmd
     mstsc /v:myVmPublic
     ```
-1. Dans le Bureau à distance de *myVmPrivate*, ouvrez PowerShell.
+1. Dans le Bureau à distance de *myVmPublic*, ouvrez PowerShell.
 
 1. Activez le protocole ICMP (Internet Control Message Protocol) via le pare-feu Windows en entrant cette commande :
 
