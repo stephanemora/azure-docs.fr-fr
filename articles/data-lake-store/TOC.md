@@ -6,7 +6,7 @@
 ## [Comparer avec le Stockage Azure](data-lake-store-comparison-with-blob-storage.md)
 ## [Traitement du Big Data](data-lake-store-data-scenarios.md)
 ## [Utilisation des applications open source](data-lake-store-compatible-oss-other-applications.md)
-## [Meilleures pratiques](data-lake-store-best-practices.md)
+## [Bonnes pratiques](data-lake-store-best-practices.md)
 
 # Prise en main
 ## [En passant par le portail Azure](data-lake-store-get-started-portal.md)
@@ -92,6 +92,7 @@
 ## [Python (gestion des comptes)](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python)
 ## [Python (gestion du système de fichiers)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
+## [modèle Azure Resource Manager](/azure/templates/microsoft.datalakestore/allversions)
 ## [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/dls)
 
 # Ressources
