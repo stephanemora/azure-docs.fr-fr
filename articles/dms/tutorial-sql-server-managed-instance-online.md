@@ -5,24 +5,21 @@ services: dms
 author: pochiraju
 ms.author: rajpo
 manager: craigg
-ms.reviewer: ''
+ms.reviewer: douglasl
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/04/2018
-ms.openlocfilehash: 030cd89bbd6407cd2e83a9b56942adbf419e069b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/19/2018
+ms.openlocfilehash: f23b297acdd8de0c26bf5fc02bc2d5415845b828
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956701"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718178"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Tutoriel : Migrer SQL Server vers Azure SQL Database Managed Instance en ligne à l’aide d’Azure Database Migration Service
 Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de données d’une instance SQL Server locale vers une instance [Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance.md) avec un temps d’arrêt minimal. Pour des méthodes supplémentaires pouvant nécessiter un effort manuel, voir l’article [Migration d’une instance SQL Server vers Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-migrate.md).
-
->[!IMPORTANT]
->Les projets de migration en ligne de SQL Server vers Azure SQL Database Managed Instance sont en préversion et soumis aux [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Dans ce didacticiel, vous allez migrer la base de données **Adventureworks2012** d’une instance locale de SQL Server vers Azure SQL Database Managed Instance, avec un temps d’arrêt minimal, en utilisant Azure Database Migration Service.
 
@@ -34,7 +31,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Basculer la migration lorsque vous êtes prêt.
 
 > [!NOTE]
-> Effectuer une migration en ligne à l’aide d’Azure Database Migration Service nécessite la création d’une instance basée sur le niveau de tarification Premium (Préversion).
+> Effectuer une migration en ligne à l’aide d’Azure Database Migration Service nécessite la création d’une instance basée sur le niveau de tarification Premium.
 
 > [!IMPORTANT]
 > Pour une expérience de migration optimale, Microsoft vous recommande de créer une instance Azure Database Migration Service dans la même région Azure que la base de données cible. Le déplacement des données entre les régions ou les zones géographiques peut ralentir le processus de migration et introduire des erreurs.
@@ -95,10 +92,10 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
     Pour plus de détails, voir l’article [Topologies de réseau pour les migrations Azure SQL DB Managed Instance à l’aide d’Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
 
-6. Sélectionnez une référence SKU à partir du niveau tarifaire « Critique pour l’entreprise (préversion) ».
+6. Sélectionnez une référence (SKU) dans le niveau tarifaire Premium.
 
     > [!NOTE]
-    > Les migrations en ligne sont uniquement prises en charge lorsque vous utilisez le niveau « Critique pour l’entreprise (préversion) ». 
+    > Les migrations en ligne sont uniquement prises en charge lorsque vous utilisez le niveau Premium. 
    
     Pour plus d’informations sur les coûts et les niveaux de tarification, consultez la [page de tarification](https://aka.ms/dms-pricing).
    
@@ -118,7 +115,7 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
  
 3. Sélectionnez **+ Nouveau projet de migration**.
 
-4. Sur l’écran **Nouveau projet de migration**, spécifiez un nom pour le projet. Dans la zone de texte **Type de serveur source**, sélectionnez **SQL Server**. Dans la zone de texte **Type de serveur cible**, sélectionnez **Azure SQL Database Managed Instance**. Enfin, dans **Choisir un type d’activité**, sélectionnez **Online data migration (preview)** (Migration de données en ligne (préversion)).
+4. Dans l’écran **Nouveau projet de migration**, spécifiez un nom pour le projet. Dans la zone de texte **Type de serveur source**, sélectionnez **SQL Server**. Dans la zone de texte **Type de serveur cible**, sélectionnez **Azure SQL Database Managed Instance**. Enfin, dans la zone de texte **Choisir un type d’activité**, sélectionnez **Migration de données hors connexion**.
 
    ![Créer un projet DMS](media/tutorial-sql-server-to-managed-instance-online/dms-create-project3.png)
 

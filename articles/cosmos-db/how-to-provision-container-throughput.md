@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: dd47976bca75569142f1912eee06c66061e92fa6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4c17c972a39cd336ab33f6be8bd3db5b8f0f2c92
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097663"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808415"
 ---
 # <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>Approvisionner le débit d’un conteneur Azure Cosmos DB
 
@@ -47,7 +47,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-Si vous approvisionnez le débit du compte d’API MongoDB, utilisez '/myShardKey' comme chemin d’accès à la clé de partition, et lors de l’approvisionnement du débit du compte d’API Cassandra, utilisez '/myPrimaryKey' comme chemin d’accès à la clé de partition.
+Si vous approvisionnez le débit d’un compte Cosmos configuré avec l’API Azure Cosmos DB pour MongoDB, utilisez '/myShardKey' comme chemin d’accès à la clé de partition. Si vous approvisionnez le débit d’un compte Cosmos configuré pour l’API Cassandra, utilisez '/myPrimaryKey' comme chemin d’accès à la clé de partition.
 
 ## <a name="provision-throughput-using-net-sdk"></a>Approvisionner le débit à l’aide du Kit de développement logiciel (SDK) .NET
 

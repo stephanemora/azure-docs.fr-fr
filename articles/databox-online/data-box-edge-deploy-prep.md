@@ -1,6 +1,6 @@
 ---
 title: Didacticiel sur la préparation du Portail Azure pour déployer Data Box Edge | Microsoft Docs
-description: Le premier didacticiel visant à déployer Azure Data Box Edge implique la préparation du Portail Azure.
+description: Le premier didacticiel sur le déploiement d’Azure Data Box Edge implique la préparation du portail Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 10/08/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 35ac28d687c8bc6636a7d8e10f54ffb5b219a776
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 25f68b011d1fcba450903e9a691b98dfe9e87281
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167458"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726117"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-data-box-edge-preview"></a>Didacticiel : Préparer le déploiement d’Azure Data Box Edge (préversion)
+# <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Didacticiel : préparer le déploiement d’Azure Data Box Edge  
 
 
-Ce didacticiel est le premier d’une série de didacticiels permettant de déployer entièrement Azure Data Box Edge. Il explique comment préparer le Portail Azure pour déployer la ressource Data Box Edge. 
+Ce didacticiel est le premier d’une série de didacticiels permettant de déployer entièrement Azure Data Box Edge. Il explique comment préparer le portail Azure pour déployer une ressource Data Box Edge. 
 
 Vous avez besoin de privilèges d’administrateur pour terminer le processus d’installation et de configuration. La préparation du portail prend moins de 10 minutes.
 
@@ -33,7 +33,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 
 > [!IMPORTANT]
-> Data Box Edge est en préversion. Veuillez lire les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de commander et déployer cette solution. 
+> Data Box Edge est en préversion. Avant de commander et déployer cette solution, lisez les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).  
 
 ### <a name="get-started"></a>Prise en main
 
@@ -51,22 +51,21 @@ Vous pouvez maintenant commencer à configurer le portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Dans cette section, vous pouvez trouver la configuration requise pour votre ressource Data Box Edge, votre appareil Data Box Edge et le réseau du centre de données.
+Vous trouverez ci-après la configuration requise pour votre ressource Data Box Edge, votre appareil Data Box Edge et le réseau du centre de données.
 
 ### <a name="for-the-data-box-edge-resource"></a>Pour la ressource Data Box Edge
 
 Avant de commencer, assurez-vous que :
 
-* Votre abonnement Microsoft Azure doit être activé pour la ressource Data Box Edge.
+* Votre abonnement Microsoft Azure est activé pour la ressource Data Box Edge.
 * Vous disposez d’un compte de stockage Microsoft Azure doté d’informations d’identification d’accès.
 
 ### <a name="for-the-data-box-edge-device"></a>Pour l’appareil Data Box Edge
 
 Avant de déployer un appareil physique, assurez-vous que :
-
-- Vous avez un 1 emplacement U disponible dans un rack de 19’’ standard dans votre centre de données pour le montage en rack de l’appareil. 
-- Vérifiez que vous avez accès à une surface de travail plane, stable et de niveau sur laquelle poser l’appareil en sécurité.
-- Vérifiez que le site où vous envisagez de configurer l’appareil dispose d’une alimentation secteur standard provenant d’une source indépendante ou d’une unité de distribution de l’alimentation (PDU) en rack avec un onduleur (UPS).
+- Vous avez un 1 emplacement U disponible dans un rack de 19’’ standard dans votre centre de données pour le montage en rack de l’appareil. 
+- Vous avez accès à une surface de travail plane, stable et de niveau sur laquelle poser l’appareil en sécurité.
+- Le site où vous envisagez de configurer l’appareil dispose d’une alimentation secteur standard provenant d’une source indépendante ou d’une unité de distribution de l’alimentation (PDU) en rack avec un onduleur (UPS).
 - Vous avez accès à un appareil physique.
 
 
@@ -74,9 +73,9 @@ Avant de déployer un appareil physique, assurez-vous que :
 
 Avant de commencer, assurez-vous que :
 
-* Le réseau de votre centre de données est configuré conformément à la configuration réseau requise pour votre appareil Data Box Edge. Pour plus d’informations, consultez le document [Data Box Edge System Requirements](data-box-gateway-system-requirements.md) (Configuration système requise Data Box Edge).
+* Le réseau de votre centre de données est configuré conformément à la configuration réseau requise pour votre appareil Data Box Edge. Pour plus d’informations, consultez la [configuration système requise Data Box Edge](data-box-gateway-system-requirements.md).
 
-* Votre instance Data Box Edge est dotée d’une bande passante Internet dédiée de 20 Mbits/s (ou plus) disponible à tout moment. La bande passante ne doit pas être partagée avec d’autres applications. Si vous utilisez la limitation de bande passante et si vous souhaitez qu’elle soit fonctionnelle, nous vous recommandons d’utiliser une bande passante Internet de 32 Mbits/s ou plus.
+* Data Box Edge est doté d’une bande passante Internet dédiée de 20 Mbits/s (ou plus) disponible à tout moment. La bande passante ne doit pas être partagée avec d’autres applications. Si vous utilisez la limitation de bande passante et si vous souhaitez qu’elle soit fonctionnelle, nous vous recommandons d’utiliser une bande passante Internet de 32 Mbits/s ou plus.
 
 ## <a name="create-a-new-resource"></a>Créer une nouvelle ressource
 
@@ -84,11 +83,11 @@ Pour créer une ressource Data Box Edge, procédez comme suit.
 
 Si vous disposez d’une ressource Data Box Edge existante pour gérer votre appareil physique, ignorez cette étape et passez à la section [Obtenir la clé d’activation](#get-the-activation-key).
 
-Pour créer une ressource Data Box, procédez comme suit dans le Portail Azure.
+Pour créer une ressource Data Box Edge, procédez comme suit dans le portail Azure.
 
-1. Utilisez vos informations d’identification Microsoft Azure pour vous connecter à la préversion du portail Azure en suivant cette URL : [https://aka.ms/databox-edge](https://aka.ms/databox-edge). 
+1. Utilisez vos informations d’identification Microsoft Azure pour vous connecter à la préversion du portail Azure en suivant cette URL : [https://aka.ms/databox-edge](https://aka.ms/databox-edge). 
 
-2. Sélectionnez l’abonnement que vous souhaitez utiliser pour la préversion de Data Box Edge. Sélectionnez la région dans laquelle vous souhaitez déployer la ressource Data Box Edge. Dans l’option **Data Box Edge**, cliquez sur **Créer**.
+2. Sélectionnez l’abonnement que vous souhaitez utiliser pour la préversion de Data Box Edge. Sélectionnez la région dans laquelle vous souhaitez déployer la ressource Data Box Edge. Dans l’option **Data Box Edge**, sélectionnez **Créer**.
 
     ![Rechercher le service Data Box Edge](media/data-box-edge-deploy-prep/data-box-edge-sku.png)
 
@@ -96,14 +95,14 @@ Pour créer une ressource Data Box, procédez comme suit dans le Portail Azure.
     
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Nom de la ressource   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom de la ressource doit être compris entre 2 et 50 caractères, et se composer uniquement de lettres, de chiffres et de traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |
+    |Nom de la ressource   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom de la ressource doit comporter entre 2 et 50 caractères, et se composer uniquement de lettres, de chiffres et de traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |
     |Abonnement    |L’abonnement est lié à votre compte de facturation. |
     |Groupe de ressources  |Sélectionnez un groupe existant ou créez-en un.<br>Obtenez plus d’informations sur les [groupes de ressources Azure](../azure-resource-manager/resource-group-overview.md).     |
     |Lieu     |Pour cette version, les zones USA Est, USA Ouest 2, Asie Sud-Est et Europe Ouest sont disponibles. <br> Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil.|
     
     ![Créer une ressource Data Box Edge](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
     
-4. Cliquez sur **OK**.
+4. Sélectionnez **OK**.
  
 La création de la ressource prend quelques minutes. Un message vous informe que la ressource a bien été créée.
 
@@ -112,14 +111,14 @@ La création de la ressource prend quelques minutes. Un message vous informe que
 
 Une fois que la ressource Data Box Edge est active et en cours d’exécution, vous devez obtenir la clé d’activation. Cette clé sert à activer votre appareil Data Box Edge et à le connecter à la ressource. Vous pouvez obtenir cette clé maintenant, lorsque vous vous trouvez dans le Portail Azure.
 
-1. Cliquez sur la ressource que vous avez créée, puis sur **Vue d’ensemble**.
+1. Sélectionnez la ressource que vous avez créée, puis **Vue d’ensemble**.
 
-2. Cliquez sur **Générer une clé** pour créer une clé d’activation. Cliquez sur l’icône de copie pour copier la clé et l’enregistrer pour une utilisation ultérieure.
+2. Sélectionnez **Générer une clé** pour créer une clé d’activation. Sélectionnez l’icône de copie pour copier la clé et l’enregistrer pour une utilisation ultérieure.
 
     ![Obtenir une clé d’activation](media/data-box-edge-deploy-prep/get-activation-key.png)
 
 > [!IMPORTANT]
-> - La clé d’activation expire 3 jours après sa création. 
+> - La clé d’activation expire 3 jours après sa création. 
 > - Si la clé expire, générez une nouvelle clé. L’ancienne clé n'est plus valide.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -127,8 +126,8 @@ Une fois que la ressource Data Box Edge est active et en cours d’exécution, v
 Dans ce didacticiel, vous avez approfondi vos connaissances sur Data Box Edge et avez notamment appris à :
 
 > [!div class="checklist"]
-> * Créer une nouvelle ressource
-> * Obtenir la clé d'activation
+> * Création d’une ressource
+> * Obtention de la clé d’activation
 
 Passez au didacticiel suivant pour apprendre à installer Data Box Edge. 
 

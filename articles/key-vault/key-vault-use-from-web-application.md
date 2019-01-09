@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Utilisation d’Azure Key Vault à partir d’une application web | Microsoft Docs'
+title: 'Tutoriel : utilisation d’Azure Key Vault à partir d’une application web - Azure Key Vault | Microsoft Docs'
 description: Utilisez ce tutoriel pour découvrir comment utiliser Azure Key Vault à partir d'une application web.
 services: key-vault
 author: barclayn
@@ -9,16 +9,16 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/09/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: b66c9912ba0b6508c2beb786d2327efa779c6645
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 79bccbcbcf78de18504c5cb0235e29930d90ede8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079461"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999303"
 ---
-# <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Tutoriel : Utilisation d'Azure Key Vault à partir d'une application web
+# <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Tutoriel : utilisation d’Azure Key Vault à partir d’une application web
 
 Utilisez ce tutoriel pour découvrir comment utiliser Azure Key Vault à partir d'une application web. Il illustre le processus d’accès à une clé secrète à partir d’Azure Key Vault pour une utilisation dans une application web. Le tutoriel s’appuie sur le processus et utilise un certificat au lieu d’une clé secrète client. Ce tutoriel est conçu pour les développeurs web qui comprennent les principes fondamentaux de création d'applications web sur Azure.
 
@@ -40,9 +40,9 @@ Pour suivre ce tutoriel, vous avez besoin des éléments suivants :
 * un ID client et une clé secrète client pour une application web enregistrés avec Azure Active Directory qui a accès à votre Key Vault ;
 * une application web. Ce tutoriel affiche les étapes d'une application ASP.NET MVC déployée dans Azure en tant qu'application web.
 
-Suivez les étapes de [Prise en main d'Azure Key Vault](key-vault-get-started.md) pour obtenir l’URI pour une clé secrète, un ID client, une clé secrète client et enregistrer l’application. L’application web accédera au coffre et doit être enregistrée dans Azure Active Directory. Elle doit également disposer de droits d’accès à Key Vault. Si cela n'est pas le cas, revenez à Enregistrer une application dans le tutoriel de prise en main et répétez les étapes répertoriées. Pour plus d'informations sur la création d’Azure Web Apps, consultez [Vue d'ensemble de Web Apps](../app-service/app-service-web-overview.md).
+Suivez les étapes de [Prise en main d'Azure Key Vault](key-vault-get-started.md) pour obtenir l’URI pour une clé secrète, un ID client, une clé secrète client et enregistrer l’application. L’application web accédera au coffre et doit être enregistrée dans Azure Active Directory. Elle doit également disposer de droits d’accès à Key Vault. Si cela n'est pas le cas, revenez à Enregistrer une application dans le tutoriel de prise en main et répétez les étapes répertoriées. Pour plus d'informations sur la création d’Azure Web Apps, consultez [Vue d'ensemble de Web Apps](../app-service/overview.md).
 
-Cet exemple est basé sur l’approvisionnement manuel des identités Azure Active Directory. Par contre, vous devez vous servir des [identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) pour provisionner automatiquement les identités Azure AD. Pour plus d’informations, consultez l’exemple sur [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) et le [didacticiel App Service et Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). Vous pouvez également consulter le [didacticiel Configurer une application web Azure pour lire un secret dans le coffre de clés](tutorial-web-application-keyvault.md).
+Cet exemple est basé sur l’approvisionnement manuel des identités Azure Active Directory. Par contre, vous devez vous servir des [identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) pour provisionner automatiquement les identités Azure AD. Pour plus d’informations, consultez l’exemple sur [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) et le [didacticiel App Service et Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity). Vous pouvez également consulter le [didacticiel Configurer une application web Azure pour lire un secret dans le coffre de clés](tutorial-web-application-keyvault.md).
 
 ## <a id="packages"></a>Ajouter des packages NuGet
 
@@ -71,8 +71,6 @@ Il existe trois paramètres d'application qui doivent être ajoutés au fichier 
     <add key="SecretUri" value="secreturi" />
     <!-- If you aren't hosting your app as an Azure Web App, then you should use the actual ClientId, Client Secret, and Secret URI values -->
 ```
-
-
 
 ## <a id="gettoken"></a>Ajouter une méthode pour obtenir un jeton d'accès
 
@@ -159,7 +157,7 @@ Export-PfxCertificate -cert $Cert -FilePath $PFXFilePath -Password $SecStringPw
 Export-Certificate -cert $Cert -FilePath $CerFilePath 
 ```
 
-Prenez note de la date de fin et du mot de passe pour le fichier.pfx (dans cet exemple : 15 mai 2019 et MyPassword). Vous en aurez besoin pour le script ci-dessous. 
+Prenez note de la date de fin et du mot de passe pour le fichier .pfx (dans cet exemple : 15/05/2019 et MyPassword). Vous en aurez besoin pour le script ci-dessous. 
 ### <a name="associate-the-certificate-with-an-azure-ad-application"></a>Associer le certificat à une application AzureAD
 
 Maintenant que vous disposez d’un certificat, vous devez l’associer à une application Azure AD. L’association peut être effectuée via PowerShell. Exécutez les commandes suivantes pour associer le certificat à l’application Azure AD :
@@ -188,11 +186,11 @@ Après avoir exécuté ces commandes, vous pouvez voir l'application dans Azure 
 
 Nous allons maintenant ajouter du code à votre application web pour accéder au certificat et l’utiliser pour l’authentification. 
 
-Tout d'abord vient le code d'accès au certificat. Notez que l'emplacement StoreLocation est CurrentUser, et non LocalMachine. Et que nous choisissons « false » pour la méthode Find, car nous utilisons un certificat de test.
+Tout d'abord vient le code d'accès au certificat. Notez que l’emplacement de stockage est CurrentUser, et non LocalMachine. Et que nous choisissons « false » pour la méthode Find, car nous utilisons un certificat de test.
 
 ```cs
 //Add this using statement
-using System.Security.Cryptography.X509Certificates;  
+using System.Security.Cryptography.X509Certificates;  
 
 public static class CertificateHelper
 {

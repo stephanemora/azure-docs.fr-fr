@@ -17,20 +17,20 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 731b68e3f7dbb46f2fa51a18cb5b3da6b4626fa6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 57c207af3a48eb03b9d526197aed85d7755ad370
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963932"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975948"
 ---
-# <a name="quickstart-set-up-a-dev-environment"></a>Démarrage rapide : configurer un environnement de développement
+# <a name="quickstart-set-up-a-dev-environment"></a>Démarrage rapide : Configurer un environnement de développement
 
-La plateforme d’identité Microsoft permet aux développeurs de créer des applications qui ciblent un large éventail d’environnements Microsoft 365 personnalisés et d’identités. Pour bien commencer avec la plateforme d’identité Microsoft, vous devez accéder à un environnement, également appelé un locataire Azure AD, qui peut inscrire et gérer des applications, accéder aux données Microsoft 365 et déployer des accès conditionnels et des restrictions personnalisés au niveau du locataire. 
+La plateforme d’identité Microsoft permet aux développeurs de créer des applications qui ciblent un large éventail d’environnements Microsoft 365 personnalisés et d’identités. Pour bien commencer avec la plateforme d’identité Microsoft, vous devrez accéder à un environnement, également appelé un locataire Azure AD, qui peut inscrire et gérer des applications, accéder aux données Microsoft 365 et déployer des accès conditionnels et des restrictions personnalisés au niveau du locataire.
 
-Le locataire est la représentation d’une organisation. Il s’agit d’une instance Azure AD dédiée, reçue par une organisation ou un développeur d’applications lorsque l’organisation ou le développeur d’applications crée une relation avec Microsoft (l’inscription à Azure, Microsoft Intune ou Microsoft 365, par exemple). 
+Le locataire est la représentation d’une organisation. Il s’agit d’une instance Azure AD dédiée, reçue par une organisation ou un développeur d’applications lorsque l’organisation ou le développeur d’applications crée une relation avec Microsoft (l’inscription à Azure, Microsoft Intune ou Microsoft 365, par exemple).
 
-Chaque locataire Azure AD est distinct et séparé des autres locataires Azure AD. Il dispose de sa propre représentation d’identités professionnelles et scolaires, d’identités des consommateurs (dans le cas de locataire Azure AD B2C) et d’inscriptions d’application. Dans votre locataire, une inscription d’application peut autoriser des authentifications à partir de comptes situés au sein de votre locataire uniquement ou bien à partir de tous les locataires. 
+Chaque locataire Azure AD est distinct et séparé des autres locataires Azure AD. Il dispose de sa propre représentation d’identités professionnelles et scolaires, d’identités des consommateurs (dans le cas de locataire Azure AD B2C) et d’inscriptions d’application. Dans votre locataire, une inscription d’application peut autoriser des authentifications à partir de comptes situés au sein de votre locataire uniquement ou bien à partir de tous les locataires.
 
 ## <a name="determining-environment-type"></a>Déterminer le type d’environnement
 
@@ -69,7 +69,7 @@ Si vous ne disposez pas déjà d’un locataire Azure AD ou si vous souhaitez en
 
 ## <a name="social-and-local-accounts"></a>Comptes sociaux et locaux
 
-Pour commencer à créer des applications pour connecter des comptes sociaux et locaux, vous devez créer un locataire Azure AD B2C. Pour commencer, suivez les instructions de [création d’un locataire Azure AD B2C](../../active-directory-b2c/tutorial-create-tenant.md). 
+Pour commencer à créer des applications pour connecter des comptes sociaux et locaux, vous devez créer un locataire Azure AD B2C. Pour commencer, suivez les instructions de [création d’un locataire Azure AD B2C](../../active-directory-b2c/tutorial-create-tenant.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

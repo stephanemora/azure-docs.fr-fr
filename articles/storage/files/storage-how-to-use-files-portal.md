@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 12e6b3a3fe790183a35c71fbb87243890ad22236
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: f295245cc14000e48cb3db55dc291edf02bb660e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944836"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634386"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Guide de démarrage rapide : créer et gérer les partages de fichiers Azure avec le portail Azure 
+# <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Démarrage rapide : créer et gérer les partages de fichiers Azure avec le Portail Azure 
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans Windows, Linux et macOS. Ce guide vous explique les bases de l’utilisation du partage de fichiers avec le [portail Azure](https://portal.azure.com/).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -45,7 +45,7 @@ Pour monter un partage de fichiers avec SMB, consultez le document suivant en fo
 - [macOS](storage-how-to-use-files-mac.md)
 
 ### <a name="using-an-azure-file-share-from-the-azure-portal"></a>Utilisation d’un partage de fichiers dans le portail Azure
-Toutes les requêtes faites via le portail Azure sont faites avec l’API REST File, ce qui vous permet de créer, modifier et supprimer des fichiers et répertoires sur des clients sans accès SMB. Il est possible de travailler directement avec le protocole de REST de fichier (c’est-à-dire fabriquer vous-même les appels HTTP REST manuellement), mais la méthode la plus courante (hormis l’utilisation du portail Azure) d’utiliser le protocole REST de fichier consiste à utiliser le [module AzureRM PowerShell](storage-how-to-use-files-powershell.md), [Azure CLI](storage-how-to-use-files-cli.md), ou le Kit de développement logiciel (SDK) du stockage Azure. Toutes ces solutions offrent un bon wrapper autour du protocole REST de fichier dans le langage de script/programmation de votre choix. 
+Toutes les requêtes faites via le portail Azure sont faites avec l’API REST File, ce qui vous permet de créer, modifier et supprimer des fichiers et répertoires sur des clients sans accès SMB. Il est possible de travailler directement avec le protocole de REST de fichier (c’est-à-dire fabriquer vous-même les appels HTTP REST manuellement), mais la méthode la plus courante (hormis l’utilisation du portail Azure) d’utiliser le protocole REST de fichier consiste à utiliser le [module Azure PowerShell](storage-how-to-use-files-powershell.md), [Azure CLI](storage-how-to-use-files-cli.md), ou le Kit de développement logiciel (SDK) du stockage Azure. Toutes ces solutions offrent un bon wrapper autour du protocole REST de fichier dans le langage de script/programmation de votre choix. 
 
 Dans la plupart des scénarios Azure Files, vous allez utiliser votre partage de fichiers Azure sur le protocole SMB, car cela vous permet d’utiliser les applications et outils existants que l’on s’attend à utiliser. Toutefois, utiliser l’API REST de fichier plutôt que SMB est avantageux pour plusieurs raisons, par exemple :
 

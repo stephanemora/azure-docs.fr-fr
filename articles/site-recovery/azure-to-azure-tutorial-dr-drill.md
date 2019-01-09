@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7a93ae00a33ceba920630eed14fb0a3e308739e6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 55e61158b2c0f21809be7d172f208fa5fea44713
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836047"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792558"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Exécuter une simulation de récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire
 
@@ -41,8 +41,8 @@ Ce didacticiel vous montre comment exécuter une simulation de récupération d�
 
 2. Dans **Test de basculement**, sélectionnez un point de récupération à utiliser pour le basculement :
 
-   - **Dernier point traité** : bascule la machine virtuelle vers le dernier point de récupération qui a été traité par le service Site Recovery. L’horodatage est affiché. Cette option, qui n’implique aucun traitement de données, offre un objectif de délai de récupération faible.
-   - **Dernier point de cohérence des applications** : cette option bascule toutes les machines virtuelles vers le dernier point de récupération de cohérence des applications. L’horodatage est affiché.
+   - **Dernier point traité** : bascule la machine virtuelle vers le dernier point de récupération qui a été traité par le service Site Recovery. L’horodatage est affiché. Cette option, qui n’implique aucun traitement de données, offre un objectif de délai de récupération faible.
+   - **Dernier point de cohérence des applications** : cette option bascule toutes les machines virtuelles vers le dernier point de récupération de cohérence des applications. L’horodatage est affiché.
    - **Personnalisé** : sélectionnez n’importe quel point de récupération.
 
 3. Sélectionnez le réseau virtuel Azure cible auquel les machines virtuelles Azure dans la région secondaire seront connectées après le basculement.

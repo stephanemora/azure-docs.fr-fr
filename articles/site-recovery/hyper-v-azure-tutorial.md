@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 44b5702aa765b0e821850f6a390432563126482d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6e0cff6725db52601b4639ad638216370dd3cfda
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839906"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810693"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurer la récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -81,8 +81,24 @@ Exécutez le fichier de configuration de fournisseur (AzureSiteRecoveryProvider.
 5. Dans **Paramètres de proxy**, sélectionnez **Se connecter directement à Azure Site Recovery sans proxy**.
 6. Dans **Inscription**, une fois que le serveur est inscrit dans le coffre, cliquez sur **Terminer**.
 
-Les métadonnées du serveur Hyper-V sont récupérées par Azure Site Recovery et le serveur s’affiche dans **Infrastructure Site Recovery** > **Hôtes Hyper-V**. Ce processus peut prendre jusqu’à 30 minutes.
+Les métadonnées du serveur Hyper-V sont récupérées par Azure Site Recovery et le serveur s’affiche dans **Infrastructure Site Recovery** > **Hôtes Hyper-V**. Ce processus peut prendre jusqu’à 30 minutes.        
 
+Si vous utilisez un serveur Hyper-V, suivez les étapes ci-dessous une fois que vous téléchargez les informations d’identification du fournisseur et du coffre comme indiqué [ici](#set-up-the-source-environment)
+
+1. Extrayez les fichiers du dossier AzureSiteRecoveryProvider.exe en exécutant la commande suivante :
+
+    ``AzureSiteRecoveryProvider.exe /x:. /q``
+ 
+    Cela permet d’extraire les fichiers dans le répertoire local.
+ 
+2.  Exécutez ``.\setupdr.exe /i ``
+
+    Les résultats sont consignés dans %Programdata%\ASRLogs\DRASetupWizard.log
+
+3.  Inscrivez le serveur à l’aide de la commande suivante :
+
+``cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved" ``
+ 
 
 ## <a name="set-up-the-target-environment"></a>Configurer l’environnement cible
 

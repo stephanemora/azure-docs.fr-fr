@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 040d0dae7bb16e0c2a79640812b18ad75754ca3e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: cccfc3d028cb2da9346e629a5aca080bedd7fee9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846604"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794513"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurer la récupération d’urgence des machines virtuelles Hyper-V vers un site local secondaire
 
@@ -65,7 +65,7 @@ Préparez les serveurs VMM comme suit :
 
 Sélectionnez les éléments à répliquer et l’emplacement de la réplication.
 
-1. Cliquez sur **Site Recovery** > **Étape 1 : Préparez l’infrastructure** > **Objectif de protection**.
+1. Cliquez sur **Site Recovery** > **Étape 1 : préparer l’infrastructure** > **Objectif de protection**.
 2. Sélectionnez **Vers le site de récupération**, puis **Oui, avec Hyper-V**.
 3. Sélectionnez **Oui** pour indiquer que vous utilisez VMM pour gérer les hôtes Hyper-V.
 4. Sélectionnez **Oui** si vous avez un serveur VMM secondaire. Si vous déployez la réplication entre des clouds sur un seul serveur VMM, cliquez sur **Non**. Cliquez ensuite sur **OK**.

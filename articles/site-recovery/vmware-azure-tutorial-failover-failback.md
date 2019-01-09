@@ -4,16 +4,17 @@ description: Découvrez comment basculer des machines virtuelles et des serveurs
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 517355a32fc7a549370aed2c7a8408c3a0887e13
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e17ddb45143e03023c30b69ed314270ed97dc039
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838019"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973166"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Basculer et restaurer automatiquement des machines virtuelles et des serveurs physiques VMware répliqués vers Azure
 
@@ -42,10 +43,10 @@ Il s’agit du cinquième didacticiel d’une série. Ce didacticiel suppose que
 
 Le basculement et la restauration automatique comportent quatre étapes :
 
-1. **Basculer vers Azure** : basculer les machines du site local vers Azure.
-2. **Reprotéger des machines virtuelles Azure** : reprotégez les machines virtuelles Azure afin qu’elles soient répliquées sur les machines virtuelles VMware locales. La machine virtuelle locale est désactivée au cours de la reprotection. Cela permet de garantir la cohérence des données pendant la réplication.
-3. **Basculer sur un site local** : effectuez un basculement pour restaurer automatiquement depuis Azure.
-4. **Reprotéger les machines virtuelles locales** : une fois les données restaurées automatiquement, reprotégez les machines virtuelles locales vers lesquelles vous avez restauré automatiquement pour qu’elles soient répliquées vers Azure.
+1. **Basculer vers Azure** : basculez les machines du site local vers Azure.
+2. **Reprotéger des machines virtuelles Azure** : reprotégez les machines virtuelles Azure afin qu’elles soient répliquées sur les machines virtuelles VMware locales. La machine virtuelle locale est désactivée au cours de la reprotection. Cela permet de garantir la cohérence des données pendant la réplication.
+3. **Basculer sur un site local** : effectuez un basculement pour restaurer automatiquement à partir d’Azure.
+4. **Reprotéger les machines virtuelles locales** : une fois les données restaurées automatiquement, reprotégez les machines virtuelles locales vers lesquelles vous avez procédé à la restauration automatique pour qu’elles soient répliquées vers Azure.
 
 ## <a name="verify-vm-properties"></a>Vérifier les propriétés de la machine virtuelle
 
@@ -66,9 +67,9 @@ Vérifiez les propriétés de la machine virtuelle et que la machine virtuelle e
 1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine virtuelle > **Basculer**.
 
 2. Dans **Basculement**, sélectionnez un **point de récupération** vers lequel basculer. Vous pouvez utiliser l’une des options suivantes :
-   - **Dernier** : cette option traite d’abord toutes les données envoyées à Site Recovery. Elle fournit l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle Azure créée après le basculement a toutes les données qui ont été répliquées vers Site Recovery quand le basculement a été déclenché.
-   - **Dernier point traité** : cette option bascule la machine virtuelle vers le dernier point de récupération traité par Site Recovery. Cette option fournit un objectif de délai de récupération (RTO) faible, car aucun temps n’est consacré à traiter les données non traitées.
-   - **Dernier point de cohérence des applications** : cette option bascule la machine virtuelle vers le dernier point de récupération de cohérence des applications traité par Site Recovery.
+   - **Les dernières** : cette option traite d’abord toutes les données envoyées à Site Recovery. Elle fournit l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle Azure créée après le basculement a toutes les données qui ont été répliquées vers Site Recovery quand le basculement a été déclenché.
+   - **Dernier point traité** : cette option bascule la machine virtuelle vers le dernier point de récupération traité par Site Recovery. Cette option fournit un objectif de délai de récupération (RTO) faible, car aucun temps n’est consacré à traiter les données non traitées.
+   - **Dernier point de cohérence des applications** : cette option bascule la machine virtuelle vers le dernier point de récupération de cohérence des applications traité par Site Recovery.
    - **Personnalisé** : spécifiez un point de récupération.
 
 3. Sélectionnez **Arrêter la machine avant de commencer le basculement** pour tenter d’arrêter les machines virtuelles sources avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
@@ -76,7 +77,7 @@ Vérifiez les propriétés de la machine virtuelle et que la machine virtuelle e
 Dans certains scénarios, le basculement nécessite un traitement supplémentaire qui dure environ huit à dix minutes. Vous pouvez remarquer que **les temps de basculement de test sont plus longs** pour des machines virtuelles VMware qui utilisent un service de mobilité de version antérieure à 9.8, des serveurs physiques, des machines virtuelles VMware Linux, des machines virtuelles Hyper-V protégées en tant que serveurs physiques. Les machines virtuelles VMware pour lesquels le service DHCP n’est pas activé, et les machines virtuelles VMware qui n’ont pas les pilotes de démarrage suivants : storvsc, vmbus, storflt, intelide, atapi.
 
 > [!WARNING]
-> **N’annulez pas un basculement en cours** : avant que le basculement soit démarré, la réplication de la machine virtuelle est arrêtée.
+> **N’annulez pas un basculement en cours** : Avant le démarrage du basculement, la réplication de la machine virtuelle est arrêtée.
 > Si vous annulez un basculement en cours, le basculement s’arrête mais la machine virtuelle ne sera pas à nouveau répliquée.
 
 ## <a name="connect-to-failed-over-virtual-machine-in-azure"></a>Se connecter à une machine virtuelle ayant basculé dans Azure

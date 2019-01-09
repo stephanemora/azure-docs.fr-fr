@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: d27491d84d4df1757f77a403cd754496bbff6887
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0c72318f6c80563d138d9c885ea5984a22c5c7fa
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252607"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653898"
 ---
-# <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Démarrage rapide : créer une application web Java dans App Service sur Linux
+# <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Démarrage rapide : créer une application Java dans App Service sous Linux
 
-[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce guide de démarrage rapide montre comment utiliser l’interface [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) avec le [plug-in Maven pour les applications web Azure (préversion)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) afin de déployer le fichier WAR (archive web) d’une application web Java.
+[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce guide de démarrage rapide montre comment utiliser l’interface [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) avec le [plug-in Maven pour les applications web Azure (préversion)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) afin de déployer un fichier WAR (archive web) Java.
 
 ![Exemple d’application s’exécutant dans Azure](media/quickstart-java/java-hello-world-in-browser.png)
 
@@ -34,7 +34,7 @@ ms.locfileid: "53252607"
 
 ## <a name="create-a-java-app"></a>Créer une application Java
 
-Exécutez la commande Maven suivante dans l’invite Cloud Shell pour créer une application web nommée `helloworld` :
+Exécutez la commande Maven suivante dans l’invite Cloud Shell pour créer une application nommée `helloworld` :
 
 ```bash
 mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
@@ -62,12 +62,12 @@ Ajoutez ensuite la définition de plug-in suivante dans l’élément `<build>` 
         <version>1.4.0</version>
         <configuration>
    
-            <!-- Web App information -->
+            <!-- App information -->
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
    
-            <!-- Java Runtime Stack for Web App on Linux-->
+            <!-- Java Runtime Stack for App on Linux-->
             <linuxRuntime>tomcat 8.5-jre8</linuxRuntime>
    
         </configuration>
@@ -84,9 +84,9 @@ Mettez à jour les espaces réservés suivants dans la configuration du plug-in 
 
 | Placeholder | Description |
 | ----------- | ----------- |
-| `RESOURCEGROUP_NAME` | Nom du nouveau groupe de ressources dans lequel créer votre application web. En plaçant toutes les ressources d’une application dans un groupe, vous pouvez les gérer ensemble. Par exemple, si vous supprimez le groupe de ressources, vous supprimez également toutes les ressources associées à l’application. Mettez à jour cette valeur avec un nouveau nom de groupe de ressources unique, par exemple, *TestResources*. Vous utiliserez ce nom de groupe de ressources pour nettoyer toutes les ressources Azure dans une section ultérieure. |
-| `WEBAPP_NAME` | Le nom d’application fera partie du nom d’hôte pour l’application web lors du déploiement vers Azure (WEBAPP_NAME.azurewebsites.net). Mettez à jour cette valeur avec un nom unique pour la nouvelle application web Azure, qui va héberger votre application Java, par exemple *contoso*. |
-| `REGION` | Une région Azure où l’application web est hébergée, par exemple `westus2`. Vous pouvez obtenir une liste de régions à partir du Cloud Shell ou de l’interface CLI à l’aide de la commande `az account list-locations`. |
+| `RESOURCEGROUP_NAME` | Nom du nouveau groupe de ressources dans lequel créer votre application. En plaçant toutes les ressources d’une application dans un groupe, vous pouvez les gérer ensemble. Par exemple, si vous supprimez le groupe de ressources, vous supprimez également toutes les ressources associées à l’application. Mettez à jour cette valeur avec un nouveau nom de groupe de ressources unique, par exemple, *TestResources*. Vous utiliserez ce nom de groupe de ressources pour nettoyer toutes les ressources Azure dans une section ultérieure. |
+| `WEBAPP_NAME` | Le nom d’application fera partie du nom d’hôte pour l’application lors du déploiement vers Azure (WEBAPP_NAME.azurewebsites.net). Mettez à jour cette valeur avec un nom unique pour la nouvelle application App Service, qui va héberger votre application Java (par exemple, *contoso*). |
+| `REGION` | Une région Azure où l’application est hébergée, par exemple `westus2`. Vous pouvez obtenir une liste de régions à partir du Cloud Shell ou de l’interface CLI à l’aide de la commande `az account list-locations`. |
 
 ## <a name="deploy-the-app"></a>Déployer l’application
 
@@ -108,7 +108,7 @@ Une fois le déploiement terminé, accédez à l’application déployée à l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez utilisé Maven pour créer une application web Java, configuré le [plug-in Maven pour Azure Web Apps ](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), puis déployé une application web Java empaquetée dans une archive web sur App Service sur Linux. Consultez les didacticiels et les articles pratiques suivants pour plus d’informations sur l’hébergement des applications Java au sein d’App service sous Linux.
+Dans ce démarrage rapide, vous avez utilisé Maven pour créer une application Java, configuré le [plug-in Maven pour Azure Web Apps ](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), puis déployé une application web Java packagée dans une archive web sur App Service sous Linux. Consultez les didacticiels et les articles pratiques suivants pour plus d’informations sur l’hébergement des applications Java au sein d’App service sous Linux.
 
 - [Didacticiel : Déployer une application Java d’entreprise avec PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
 - [Configurer une source de données Tomcat](app-service-linux-java.md#connecting-to-data-sources)

@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: a770c88b294de24eb9e0f482681038e4d36b1d6f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 05f198aa869bbff121d438688aaee89a292516c1
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874598"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807962"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Paramètres de configuration de la passerelle VPN pour Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Une passerelle VPN est un type de passerelle de réseau virtuel qui envoie le trafic chiffré entre votre réseau virtuel dans Azure Stack et une passerelle VPN distante. La passerelle VPN distante peut être dans Azure, un appareil dans votre centre de données ou un appareil dans un autre site.  S’il y a une connexion réseau entre deux points de terminaison, vous pouvez établir une connexion VPN sécurisée de site à site (S2S) entre les deux réseaux.
+Une passerelle VPN est un type de passerelle de réseau virtuel qui envoie le trafic chiffré entre votre réseau virtuel dans Azure Stack et une passerelle VPN distante. La passerelle VPN distante peut être dans Azure, un appareil dans votre centre de données ou un appareil dans un autre site. S’il y a une connexion réseau entre deux points de terminaison, vous pouvez établir une connexion VPN sécurisée de site à site (S2S) entre les deux réseaux.
 
-Une connexion de passerelle VPN s’appuie sur la configuration de plusieurs ressources, contenant chacune des paramètres configurables. Cet article présente les ressources et les paramètres relatifs à une passerelle VPN pour un réseau virtuel créé dans le modèle de déploiement Resource Manager. Vous trouverez les descriptions et les diagrammes de topologie de chaque solution de connexion dans [À propos la passerelle VPN pour Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md).
+Une connexion de passerelle VPN s’appuie sur la configuration de plusieurs ressources, contenant chacune des paramètres configurables. Cet article décrit les ressources et les paramètres relatifs à une passerelle VPN pour un réseau virtuel créé dans le modèle de déploiement Resource Manager. Vous trouverez les descriptions et les diagrammes de topologie de chaque solution de connexion dans [À propos la passerelle VPN pour Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md).
 
 ## <a name="vpn-gateway-settings"></a>Paramètres de la passerelle VPN
 
@@ -35,7 +35,7 @@ Une connexion de passerelle VPN s’appuie sur la configuration de plusieurs res
 
 Chaque réseau virtuel de Azure Stack prend en charge une passerelle de réseau virtuel unique, qui doit être du type **Vpn**.  Cela diffère d’Azure, qui prend également en charge d’autres types.  
 
-Lorsque vous créez une passerelle de réseau virtuel, vous devez vous assurer que le type de passerelle est adapté à votre configuration. Une passerelle VPN nécessite l’élément `-GatewayType Vpn`, par exemple :
+Lorsque vous créez une passerelle de réseau virtuel, vous devez vous assurer que le type de passerelle est adapté à votre configuration. Une passerelle VPN nécessite l’indicateur `-GatewayType Vpn`, par exemple :
 
 ```PowerShell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
@@ -65,11 +65,11 @@ De même, Azure Stack ne gère pas les redimensionnements d’une référence SK
 
 #### <a name="azure-stack-portal"></a>Portail Azure Stack
 
-Si vous utilisez le portail Azure Stack pour créer une passerelle de réseau virtuel Resource Manager, vous pouvez sélectionner la référence SKU de la passerelle dans la liste déroulante. Les options qui vous sont présentées correspondent au type de passerelle et au type de VPN sélectionnés.
+Si vous utilisez le portail Azure Stack pour créer une passerelle de réseau virtuel Resource Manager, vous pouvez sélectionner la référence SKU de la passerelle dans la liste déroulante. Ces options correspondent au type de passerelle et au type de VPN sélectionnés.
 
 #### <a name="powershell"></a>PowerShell
 
-Dans l’exemple PowerShell ci-après, la référence SKU de passerelle **-GatewaySku** présente la valeur VpnGw1.
+Dans l’exemple PowerShell ci-après, la référence SKU de passerelle **-GatewaySku** présente la valeur `VpnGw1`:
 
 ```PowerShell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
@@ -83,17 +83,17 @@ Dans le modèle de déploiement de Resource Manager, chaque configuration néces
 
 * IPsec
 
-L’exemple PowerShell ci-après crée une connexion S2S qui nécessite le type de connexion IPsec.
+   L’exemple PowerShell ci-après crée une connexion S2S qui nécessite le type de connexion IPsec :
 
-```PowerShell
-New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
--Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local
--ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-```
+   ```PowerShell
+   New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
+   -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local
+   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+   ```
 
 ### <a name="vpn-types"></a>Types de VPN
 
-Lorsque vous créez la passerelle de réseau virtuel d’une configuration de passerelle VPN, vous devez spécifier un type de VPN. Le type de VPN que vous choisissez dépend de la topologie de connexion que vous souhaitez créer.  Un type VPN peut également dépendre du matériel utilisé. Les configurations S2S nécessitent un périphérique VPN. Certains périphériques VPN seront ne prennent en charge qu’un certain type de VPN.
+Lorsque vous créez la passerelle de réseau virtuel d’une configuration de passerelle VPN, vous devez spécifier un type de VPN. Le type de VPN que vous choisissez dépend de la topologie de connexion que vous souhaitez créer. Un type VPN peut également dépendre du matériel utilisé. Les configurations S2S nécessitent un périphérique VPN. Certains périphériques VPN seront ne prennent en charge qu’un certain type de VPN.
 
 > [!IMPORTANT]  
 > Pour l’instant, Azure Stack prend uniquement en charge le type de VPN basé sur le routage. Si votre appareil ne gère que les VPN basés sur les stratégies, les connexions à ces appareils à partir d’Azure Stack ne sont pas prises en charge.  
@@ -103,11 +103,11 @@ Lorsque vous créez la passerelle de réseau virtuel d’une configuration de pa
 * **PolicyBased** : les VPN basés sur les stratégies chiffrent et acheminent les paquets par le biais des tunnels IPsec basés sur les stratégies IPsec qui sont configurées avec les combinaisons de préfixes d’adresses entre votre réseau local et le réseau virtuel Azure Stack. La stratégie ou le sélecteur de trafic prennent généralement la forme d’une liste d’accès dans la configuration de périphérique VPN.
 
   >[!NOTE]
-  >Le type PolicyBased est pris en charge dans Azure, mais non dans Azure Stack.
+  >Le type **PolicyBased** est pris en charge dans Azure, mais non dans Azure Stack.
 
-* **RouteBased** : les VPN basés sur le routage utilisent des itinéraires qui sont configurés dans la table de transfert IP ou de routage pour acheminer les paquets vers leurs interfaces de tunnel correspondantes. Les interfaces de tunnel chiffrent ou déchiffrent ensuite les paquets se trouvant dans et hors des tunnels. La stratégie ou le sélecteur de trafic des VPN basés sur le routage sont configurés comme universels (ou utilisent des caractères génériques). Par défaut, ils ne sont pas modifiables. Le VPN de type basé sur un itinéraire a pour valeur RouteBased.
+* **RouteBased** : les VPN RouteBased basés sur le routage utilisent des itinéraires qui sont configurés dans la table de transfert IP ou de routage pour acheminer les paquets vers leurs interfaces de tunnel correspondantes. Les interfaces de tunnel chiffrent ou déchiffrent ensuite les paquets se trouvant dans et hors des tunnels. La stratégie ou le sélecteur de trafic des VPN **RouteBased** basés sur le routage sont configurés comme universels (ou utilisent des caractères génériques). Par défaut, ils ne sont pas modifiables. Le VPN **RouteBased** a pour valeur **RouteBased**.
 
-Dans l’exemple PowerShell ci-après, le type de VPN **-VpnType** présente la valeur RouteBased. Lorsque vous créez une passerelle, vous devez vous assurer que le type **-VpnType** est adapté à votre configuration.
+Dans l’exemple PowerShell ci-après, le type de VPN **-VpnType** présente la valeur **RouteBased**. Lorsque vous créez une passerelle, vous devez vous assurer que le type **-VpnType** est adapté à votre configuration.
 
 ```PowerShell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
@@ -128,7 +128,7 @@ Le tableau suivant répertorie la configuration requise pour les passerelles VPN
 
 ### <a name="gateway-subnet"></a>Sous-réseau de passerelle
 
-Avant de créer votre passerelle VPN, vous devez d’abord créer un sous-réseau de passerelle. Le sous-réseau de passerelle comporte les adresses IP utilisées par les machines virtuelles et les services de passerelle de réseau virtuel. Lors de la création de votre passerelle de réseau virtuel, les machines virtuelles de passerelle sont déployées dans le sous-réseau de passerelle et configurées avec les paramètres de passerelle VPN requis. Ne déployez **aucun** autre élément (des machines virtuelles supplémentaires, par exemple) dans le sous-réseau de passerelle.
+Avant de créer votre passerelle VPN, vous devez d’abord créer un sous-réseau de passerelle. Le sous-réseau de passerelle comporte les adresses IP utilisées par les machines virtuelles et les services de passerelle de réseau virtuel. Lors de la création de votre passerelle de réseau virtuel, les machines virtuelles de passerelle sont déployées dans le sous-réseau de passerelle et configurées avec les paramètres de passerelle VPN requis. Ne déployez aucun autre élément (des machines virtuelles supplémentaires, par exemple) dans le sous-réseau de passerelle.
 
 >[!IMPORTANT]
 >Pour fonctionner correctement, le sous-réseau de passerelle doit être nommé **SousRéseau_Passerelle** . Azure Stack utilise ce nom pour identifier le sous-réseau dans lequel déployer les machines virtuelles et les services de passerelle de réseau virtuel.
@@ -137,14 +137,14 @@ Lorsque vous créez le sous-réseau de passerelle, vous spécifiez le nombre d�
 
 En outre, vous devez vous assurer que votre sous-réseau de passerelle dispose de suffisamment d’adresses IP pour gérer les futures configurations supplémentaires. Bien qu’il vous soit possible de créer un sous-réseau de passerelle aussi petit que /29, nous vous recommandons de créer un sous-réseau de taille /28 ou supérieure (/28, /27, /26, etc.). Ainsi, si vous ajoutez des fonctionnalités par la suite, vous n’aurez pas à détruire votre passerelle, puis à supprimer et à recréer le sous-réseau de passerelle pour autoriser d’autres adresses IP.
 
-L’exemple PowerShell Resource Manager suivant montre un sous-réseau de passerelle nommé GatewaySubnet. Vous pouvez voir que la notation CIDR spécifie une taille /27, ce qui permet d’avoir un nombre suffisamment élevé d’adresses IP pour la plupart des configurations actuelles.
+L’exemple PowerShell Resource Manager suivant montre un sous-réseau de passerelle nommé **GatewaySubnet**. Vous pouvez voir que la notation CIDR spécifie une taille /27, ce qui permet d’avoir un nombre suffisamment élevé d’adresses IP pour la plupart des configurations actuelles.
 
 ```PowerShell
 Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
 > [!IMPORTANT]
-> Lorsque vous travaillez avec des sous-réseaux de passerelle, évitez d’associer un groupe de sécurité réseau (NSG) au sous-réseau de passerelle. Si vous associez un groupe de sécurité réseau à ce sous-réseau, votre passerelle VPN cessera peut-être de fonctionner normalement. Pour plus d’informations sur les groupes de sécurité réseau, consultez [Présentation du groupe de sécurité réseau ?](/azure/virtual-network/virtual-networks-nsg).
+> Lorsque vous travaillez avec des sous-réseaux de passerelle, évitez d’associer un groupe de sécurité réseau (NSG) au sous-réseau de passerelle. Si vous associez un groupe de sécurité réseau à ce sous-réseau, votre passerelle VPN cessera peut-être de fonctionner normalement. Pour plus d’informations sur les groupes de sécurité réseau, consultez [Présentation du groupe de sécurité réseau ?](../virtual-network/virtual-networks-nsg.md).
 
 ### <a name="local-network-gateways"></a>Passerelles de réseau local
 
@@ -159,11 +159,11 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
-Parfois, vous devez modifier les paramètres de passerelle de réseau local. C’est le cas, par exemple, lorsque vous ajoutez ou modifiez la plage d’adresses, ou lorsque l’adresse IP du périphérique VPN change. Voir [Modification des paramètres de passerelle de réseau local à l’aide de PowerShell](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway).
+Parfois, vous devez modifier les paramètres de passerelle de réseau local. C’est le cas, par exemple, lorsque vous ajoutez ou modifiez la plage d’adresses, ou lorsque l’adresse IP du périphérique VPN change. Voir [Modification des paramètres de passerelle de réseau local à l’aide de PowerShell](../vpn-gateway/vpn-gateway-modify-local-network-gateway.md).
 
 ## <a name="ipsecike-parameters"></a>Paramètres IPsec/IKE
 
-Lorsque vous configurez une connexion VPN dans Azure Stack, vous devez configurer la connexion à chaque extrémité.  Si vous configurez une connexion VPN entre Azure Stack et un périphérique matériel tel qu’un commutateur ou un routeur agissant comme une passerelle VPN, ce périphérique peut exiger un paramétrage supplémentaire.
+Lorsque vous configurez une connexion VPN dans Azure Stack, vous devez configurer la connexion à chaque extrémité. Si vous configurez une connexion VPN entre Azure Stack et un périphérique matériel tel qu’un commutateur ou un routeur agissant comme une passerelle VPN, ce périphérique peut demander des paramétrages supplémentaires.
 
 Contrairement à Azure, qui prend en charge plusieurs offres en tant qu’initiateur et répondeur, Azure Stack ne prend en charge qu’une seule offre.
 
@@ -189,8 +189,8 @@ Contrairement à Azure, qui prend en charge plusieurs offres en tant qu’initia
 |PFS (Perfect Forward Secrecy) |Aucun<sup>Voir remarque 1</sup> |
 |Détection d’homologue mort | Pris en charge|  
 
-* *Remarque 1 :* avant la version 1807, Azure Stack utilise la valeur PFS2048 pour la propriété PFS (Perfect Forward Secrecy).
+* *Remarque 1 :*  avant la version 1807, Azure Stack utilise la valeur PFS2048 pour la propriété PFS (Perfect Forward Secrecy).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Connexion d’Azure Stack à Azure à l’aide d’ExpressRoute](azure-stack-connect-expressroute.md)
+- [Connexion d’Azure Stack à Azure à l’aide d’ExpressRoute](azure-stack-connect-expressroute.md)

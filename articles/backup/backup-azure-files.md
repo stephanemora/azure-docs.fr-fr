@@ -8,12 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 94a3282451a0efcc9209c4aac3d316e40560495f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 13003f671e479217d73d1c611be36987b3bda7bc
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972122"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793579"
 ---
 # <a name="back-up-azure-file-shares"></a>Sauvegarder des partages de fichiers Azure
 Cet article explique comment utiliser le portail Azure pour sauvegarder et restaurer des [partages de fichiers Azure](../storage/files/storage-files-introduction.md).
@@ -33,8 +33,8 @@ Avant de sauvegarder un partage de fichiers Azure, assurez-vous qu’il est pré
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitations pour la sauvegarde de partage de fichiers Azure en préversion
 La sauvegarde des partages de fichiers Azure est disponible en préversion. Les partages de fichiers Azure dans les comptes de stockage à usage général v1 et v2 sont pris en charge. Les scénarios de sauvegarde suivants ne sont pas pris en charge pour les partages de fichiers Azure :
 - Vous ne pouvez pas protéger les partages de fichiers Azure dans des comptes de stockage disposant d’une réplication de [stockage géoredondant avec accès en lecture](../storage/common/storage-redundancy-grs.md) (RA-GRS)*.
-- Vous ne pouvez pas protéger des partages de fichiers Azure dans des comptes de stockage qui ont activé les réseaux virtuels ou le pare-feu.
-- Aucune interface PowerShell ou interface de ligne de commande n’est disponible pour la protection des fichiers Azure à l’aide de la Sauvegarde Microsoft Azure.
+- Vous ne pouvez pas protéger les partages de fichiers Azure dans des comptes de stockage qui ont activé les réseaux virtuels ou le pare-feu.
+- Il n’y a aucune interface CLI disponible pour la protection d’Azure Files à l’aide de Sauvegarde Azure.
 - Vous pouvez effectuer une seule sauvegarde planifiée par jour.
 - Vous pouvez effectuer quatre sauvegardes à la demande par jour maximum.
 - Utilisez les [verrous de ressources](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) sur le compte de stockage pour empêcher la suppression accidentelle des sauvegardes de votre coffre Recovery Services.

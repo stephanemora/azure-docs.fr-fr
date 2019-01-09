@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Utiliser Azure Key Vault avec une machine virtuelle Linux Azure dans .NET | Microsoft Docs'
+title: Tutoriel - Utiliser Azure Key Vault avec une machine virtuelle Linux Azure dans .NET - Azure Key Vault | Microsoft Docs
 description: 'Didacticiel : configurer une application ASP.NET Core pour lire un secret dans le coffre de clés'
 services: key-vault
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: key-vault
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 928339a245525933ae142a5d73137ce699cf1f7c
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 68a788205917e87469b432de435e296dcabc350c
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712328"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001683"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>Tutoriel : Utiliser Azure Key Vault avec une machine virtuelle Linux Azure dans .NET
+# <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>Didacticiel : Utiliser Azure Key Vault avec une machine virtuelle Linux Azure dans .NET
 
 Azure Key Vault vous permet de protéger des secrets tels que les clés API et les chaînes de connexion de base de données nécessaires pour accéder à vos applications, services et ressources.
 
-Dans ce tutoriel, vous allez suivre les étapes nécessaires pour qu’une application console puisse lire des informations dans Azure Key Vault à l’aide d’identités managées pour les ressources Azure. Ce didacticiel est basé sur [Azure Web Apps](../app-service/app-service-web-overview.md). Vous apprendrez à :
+Dans ce tutoriel, vous allez suivre les étapes nécessaires pour qu’une application console puisse lire des informations dans Azure Key Vault à l’aide d’identités managées pour les ressources Azure. Vous apprendrez à :
 
 > [!div class="checklist"]
 > * Création d’un coffre de clés
@@ -34,7 +34,7 @@ Dans ce tutoriel, vous allez suivre les étapes nécessaires pour qu’une appli
 > * Octroyer les autorisations nécessaires à l’application console pour lire les données provenant du coffre de clés.
 > * Récupérer des secrets à partir de Key Vault
 
-Avant d’aller plus loin, veuillez lire les [concepts de base](key-vault-whatis.md#basic-concepts).
+Avant d’aller plus loin, lisez les [concepts de base](key-vault-whatis.md#basic-concepts).
 
 ## <a name="prerequisites"></a>Prérequis
 * Toutes les plateformes :
@@ -45,6 +45,7 @@ Avant d’aller plus loin, veuillez lire les [concepts de base](key-vault-whatis
 Ce tutoriel utilise Managed Service Identity
 
 ## <a name="what-is-managed-service-identity-and-how-does-it-work"></a>Qu’est-ce que le service Managed Service Identity et comment fonctionne-t-il ?
+
 Avant d’avancer, il faut comprendre ce qu’est MSI. Azure Key Vault peut stocker des informations d'identification de façon sécurisée afin qu’elles ne se retrouvent pas dans votre code, mais pour les récupérer vous devez vous authentifier sur Azure Key Vault. Pour vous authentifier sur Key Vault, il vous faut des informations d’identification. Problème de démarrage classique. Grâce à la magie d’Azure et Azure AD, MSI offre une « identité de démarrage » qui simplifie grandement le démarrage.
 
 Fonctionnement : Lorsque vous activez MSI pour un service Azure tel que des machines virtuelles, App Service ou Functions, Azure crée un [principal de service](key-vault-whatis.md#basic-concepts) pour l’instance du service dans Azure Active Directory, et injecte les informations d'identification du principal de service dans l’instance du service. 
@@ -54,9 +55,9 @@ Fonctionnement : Lorsque vous activez MSI pour un service Azure tel que des mach
 Ensuite, votre code appelle un service de métadonnée local disponible sur les ressources Azure pour obtenir un jeton d'accès.
 Il utilise alors le jeton obtenu du point de terminaison local MSI_ENDPOINT pour vous authentifier sur un service Azure Key Vault. 
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Pour vous connecter à Azure à l’aide de l’interface CLI, entrez :
+Pour vous connecter à Azure à l’aide de l’interface CLI Azure, entrez ceci :
 
 ```azurecli
 az login
@@ -80,9 +81,9 @@ Le groupe de ressources que vous venez de créer est utilisé tout au long de ce
 
 Ensuite, vous créez un coffre de clés dans le groupe de ressources que vous avez créé à l’étape précédente. Fournissez les informations suivantes :
 
-* Nom de coffre de clés : le nom doit être une chaîne de 3 à 24 caractères et doit contenir uniquement (0-9, a-z, A-Z et -).
+* Nom du coffre de clés : le nom doit être une chaîne de 3 à 24 caractères et doit contenir uniquement (0-9, a-z, A-Z et -).
 * Nom du groupe de ressources.
-* Emplacement : **USA Ouest**.
+* Localisation : **USA Ouest**.
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
@@ -132,13 +133,14 @@ La création de la machine virtuelle et des ressources de support ne nécessite 
 Notez votre propre `publicIpAddress` dans la sortie à partir de votre machine virtuelle. Cette adresse permet d’accéder à la machine virtuelle lors des étapes suivantes.
 
 ## <a name="assign-identity-to-virtual-machine"></a>Affecter l’identité à la machine virtuelle
-Dans cette étape, nous créons une identité affectée par le système pour la machine virtuelle en exécutant la commande suivante :
+
+Dans cette étape, nous allons créer une identité affectée par le système pour la machine virtuelle en exécutant la commande suivante :
 
 ```
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-Veuillez noter la valeur de systemAssignedIdentity indiquée ci-dessous. La sortie de la commande ci-dessus devrait être : 
+Notez la valeur de systemAssignedIdentity indiquée ci-dessous. La sortie de la commande ci-dessus devrait être : 
 
 ```
 {
@@ -148,21 +150,23 @@ Veuillez noter la valeur de systemAssignedIdentity indiquée ci-dessous. La sort
 ```
 
 ## <a name="give-vm-identity-permission-to-key-vault"></a>Donner l’autorisation d’identité de la machine virtuelle à Key Vault
+
 À présent, nous pouvons donner à Key Vault l’autorisation d’identité créée ci-dessus en exécutant la commande suivante :
 
 ```
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="login-to-the-virtual-machine"></a>Se connecter à la machine virtuelle
+## <a name="sign-in-to-the-virtual-machine"></a>Se connecter à la machine virtuelle
 
-Connectez-vous maintenant à la machine virtuelle avec un terminal
+Connectez-vous maintenant à la machine virtuelle avec un terminal.
 
 ```
 ssh azureuser@<PublicIpAddress>
 ```
 
 ## <a name="install-dot-net-core-on-linux"></a>Installer Dot Net core sur Linux
+
 ### <a name="register-the-microsoft-product-key-as-trusted-run-the-following-two-commands"></a>Enregistrez la clé de produit Microsoft comme digne de confiance. Exécutez les deux commandes suivantes :
 
 ```
@@ -171,6 +175,7 @@ sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 ```
 
 ### <a name="set-up-desired-version-host-package-feed-based-on-operating-system"></a>Configurez le flux du package d’hôte de la version souhaitée en fonction du système d’exploitation :
+
 ```
 # Ubuntu 17.10
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-artful-prod artful main" > /etc/apt/sources.list.d/dotnetdev.list'
@@ -200,7 +205,7 @@ dotnet --version
 
 ## <a name="create-and-run-sample-dot-net-app"></a>Créer et exécuter l’exemple d’application Dot Net (.Net)
 
-En exécutant les commandes ci-dessous, vous devriez voir le texte « Hello World » affiché dans la console.
+En exécutant les commandes ci-dessous, vous devriez voir le texte « Hello World » affiché dans la console.
 
 ```
 dotnet new console -o helloworldapp
@@ -209,6 +214,7 @@ dotnet run
 ```
 
 ## <a name="edit-console-app"></a>Modifier l’application console
+
 Ouvrez le fichier Program.cs et ajoutez ces packages :
 ```
 using System;
@@ -218,8 +224,10 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
-Ensuite, modifiez le fichier de classe pour contenir le code ci-dessous. Il s’agit d’une procédure en 2 étapes. 
-1. Récupérez un jeton du point de terminaison MSI local sur la machine virtuelle qui, à son tour, extrait un jeton depuis Azure Active Directory.
+
+Ensuite, modifiez le fichier de classe pour contenir le code ci-dessous. Ce processus comprend deux étapes.
+
+1. Récupérez (fetch) un jeton du point de terminaison MSI local sur la machine virtuelle qui, à son tour, extrait un jeton à partir d’Azure Active Directory.
 2. Passez le jeton à Key Vault et récupérez votre secret. 
 
 ```
@@ -268,7 +276,6 @@ Ensuite, modifiez le fichier de classe pour contenir le code ci-dessous. Il s’
 ```
 
 Le code ci-dessus montre comment effectuer des opérations avec Azure Key Vault dans une machine virtuelle Linux Azure. 
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

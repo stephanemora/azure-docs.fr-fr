@@ -4,57 +4,47 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 85b8d4d0-3f6a-4913-b9d3-8cc327d8280d
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/21/2018
+ms.topic: tutorial
+ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 9c63808af8d883badd379cf8bc3372a1d65d6624
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2fc81cc06063c0fee0a4f875b4b0f8bd1343cf85
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968649"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810455"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutoriel : Intégration d’Azure Active Directory à SharePoint (local)
 
 Dans ce tutoriel, vous allez apprendre à intégrer SharePoint (local) avec Azure Active Directory (Azure AD).
-
 L’intégration de SharePoint (local) avec Azure AD offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à SharePoint (local).
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à SharePoint (local) (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Dans Azure AD, vous pouvez contrôler qui a accès à SharePoint (local).
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à SharePoint (local) (via l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec SharePoint (local), vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD
-- Un abonnement SharePoint (local) pour lequel l’authentification unique est activée
-
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Abonnement SharePoint (local) pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test.
-Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-1. Ajout de SharePoint (local) à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+* SharePoint (local) prend en charge l’authentification unique initiée par **SP**
 
 ## <a name="adding-sharepoint-on-premises-from-the-gallery"></a>Ajout de SharePoint (local) à partir de la galerie
 
@@ -64,82 +54,93 @@ Pour configurer l’intégration de SharePoint (local) avec Azure AD, vous devez
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
-    ![Bouton Azure Active Directory][1]
+    ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
-    ![Panneau Applications d’entreprise][2]
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Bouton Nouvelle application][3]
+    ![Bouton Nouvelle application](common/add-new-app.png)
 
 4. Dans la zone de recherche, tapez **SharePoint (local)**, sélectionnez **SharePoint (local)** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![SharePoint (local) dans la liste des résultats](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_addfromgallery.png)
+     ![SharePoint (local) dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec SharePoint (local) grâce à un utilisateur de test appelé « Britta Simon ».
-
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur SharePoint (local) équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et l’utilisateur SharePoint (local) associé doit être établie.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec SharePoint (local) grâce à un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur SharePoint (local) associé.
 
 Pour configurer et tester l’authentification unique Azure AD avec SharePoint (local), vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Accorder l’accès à un utilisateur de test SharePoint local](#grant-access-to-sharePoint-on-premises-test-user)** : pour avoir un équivalent de Britta Simon dans SharePoint (local) qui soit lié à la représentation Azure AD de l’utilisateur.
+2. **[Configurer l’authentification unique SharePoint (local)](#configure-sharepoint-on-premises-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+5. **[Accorder l’accès à un utilisateur de test SharePoint local](#grant-access-to-sharepoint-on-premises-test-user)** : pour avoir un équivalent de Britta Simon dans SharePoint (local) qui soit lié à la représentation Azure AD de l’utilisateur.
+6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application SharePoint (local).
+Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-**Pour configurer l’authentification unique Azure AD avec SharePoint (local), effectuez les étapes suivantes :**
+Pour configurer l’authentification unique Azure AD avec SharePoint (local), procédez comme suit :
 
-1. Dans le portail Azure, dans la page d’intégration de l’application **SharePoint (local)**, cliquez sur **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **SharePoint (local)**, sélectionnez **Authentification unique**.
 
-    ![Lien Configurer l’authentification unique][4]
+    ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
-    ![Boîte de dialogue Authentification unique](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_samlbase.png)
+    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-3. Dans la section **Domaine et URL SharePoint (local)**, effectuez les étapes suivantes :
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
-    ![Informations d’authentification unique dans Domaine et URL de SharePoint (local)](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
+    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<YourSharePointServerURL>/_trust/default.aspx`
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    b. Dans la zone de texte **Identificateur**, tapez l’URL : `urn:sharepoint:federation`
+    ![Informations d’authentification unique dans Domaine et URL de SharePoint (local)](common/sp-identifier-reply.png)
 
-    c. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<YourSharePointServerURL>/_trust/default.aspx`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<YourSharePointServerURL>/_trust/default.aspx`.
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+    b. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `urn:sharepoint:federation`
 
-    ![Lien Téléchargement de certificat](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
+    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<YourSharePointServerURL>/_trust/default.aspx`
+
+    > [!NOTE]
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez [l’équipe du support client SharePoint (local)](https://support.office.com/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+
+5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
+
+    ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
     > [!Note]
     > Notez le chemin d’accès dans lequel vous avez téléchargé le fichier de certificat. En effet, vous devrez l’utiliser ultérieurement dans le script PowerShell pour la configuration.
 
-5. Cliquez sur le bouton **Enregistrer** .
-
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/sharepoint-on-premises-tutorial/tutorial_general_400.png)
-
-6. Dans la section **Configuration de SharePoint (local)**, cliquez sur **Configurer SharePoint (local)** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’ID d’entité SAML** à partir de la **section Référence rapide**. Sous **URL du service d’authentification unique**, indiquez une valeur respectant le format suivant : `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
+6. Dans la section **Configurer SharePoint (local)**, copiez la ou les URL appropriées en fonction de vos besoins. Sous **URL du service d’authentification unique**, indiquez une valeur respectant le format suivant : `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
 
     > [!Note]
     > _my_directory_id_ est l’ID de locataire de l’abonnement Azure AD.
 
-    ![Configuration de SharePoint (local)](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
+    ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
+    a. URL de connexion
+
+    b. Identificateur Azure AD
+
+    c. URL de déconnexion
 
     > [!NOTE]
     > L’application SharePoint (local) utilise un jeton SAML 1.1. Azure Active Directory attend donc une demande WS Fed en provenance de SharePoint Server, et après l’authentification il émet le jeton SAML 1.1.
 
-7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise SharePoint (local) en tant qu’administrateur.
+### <a name="configure-sharepoint-on-premises-single-sign-on"></a>Configurer l’authentification unique SharePoint (local)
 
-8. **Configurer un nouveau fournisseur d’identité approuvé dans SharePoint Server 2016**
+1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise SharePoint (local) en tant qu’administrateur.
+
+2. **Configurer un nouveau fournisseur d’identité approuvé dans SharePoint Server 2016**
 
     Connectez-vous au serveur SharePoint Server 2016, puis ouvrez SharePoint 2016 Management Shell. Renseignez les valeurs de $realm (valeur de l’identificateur figurant dans la section SharePoint on-premises Domain and URLs (Domaine et URL SharePoint en local)), $wsfedurl (URL du service d’authentification unique) et $filepath (chemin d’accès dans lequel vous avez téléchargé le fichier de certificat) à partir du Portail Azure, puis exécutez les commandes suivantes pour configurer un nouveau fournisseur d’identité approuvé.
 
@@ -180,31 +181,24 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-   ![Créer un utilisateur de test Azure AD][100]
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
-1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
+2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 
-    ![Bouton Azure Active Directory](./media/sharepoint-on-premises-tutorial/create_aaduser_01.png)
+    ![Bouton Nouvel utilisateur](common/new-user.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/sharepoint-on-premises-tutorial/create_aaduser_02.png)
+    ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
+  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    Par exemple, BrittaSimon@contoso.com
 
-    ![Bouton Ajouter](./media/sharepoint-on-premises-tutorial/create_aaduser_03.png)
-
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
-
-    ![Boîte de dialogue Utilisateur](./media/sharepoint-on-premises-tutorial/create_aaduser_04.png)
-
-    a. Dans la zone **Nom**, tapez **BrittaSimon**.
-
-    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Cliquez sur **Créer**.
 
@@ -273,55 +267,42 @@ Pour faciliter ce scénario, il existe une solution open source appelée [AzureC
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à SharePoint (local).
 
-![Attribuer le rôle utilisateur][200]
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis sélectionnez **SharePoint (local)**.
 
-**Pour affecter Britta Simon à SharePoint (local), effectuez les étapes suivantes :**
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+2. Dans la liste des applications, tapez et sélectionnez **SharePoint (local)**.
 
-    ![Affecter des utilisateurs][201]
+    ![Lien SharePoint (local) dans la liste des applications](common/all-applications.png)
 
-2. Dans la liste des applications, sélectionnez **SharePoint (local)**.
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
-    ![Lien SharePoint dans la liste des applications](./media/sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_app.png)
+    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
-    ![Lien « Utilisateurs et groupes »][202]
+    ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-    ![Volet Ajouter une attribution][203]
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+### <a name="create-sharepoint-on-premises-test-user"></a>Créer un utilisateur de test SharePoint (local)
 
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans SharePoint (local). Pour ajouter les utilisateurs dans la plateforme SharePoint (local), faites-vous aider par  [l’équipe de support de SharePoint (local)](https://support.office.com/). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette SharePoint (local) dans le volet d’accès, vous devez être connecté automatiquement à votre application SharePoint (local).
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
+Quand vous cliquez sur la vignette SharePoint (local) dans le volet d’accès, vous devez être connecté automatiquement à l’application SharePoint (local) pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-* [Utilisation d’Azure AD pour l’authentification SharePoint Server](https://docs.microsoft.com/office365/enterprise/using-azure-ad-for-sharepoint-server-authentication)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/sharepoint-on-premises-tutorial/tutorial_general_01.png
-[2]: ./media/sharepoint-on-premises-tutorial/tutorial_general_02.png
-[3]: ./media/sharepoint-on-premises-tutorial/tutorial_general_03.png
-[4]: ./media/sharepoint-on-premises-tutorial/tutorial_general_04.png
-
-[100]: ./media/sharepoint-on-premises-tutorial/tutorial_general_100.png
-
-[200]: ./media/sharepoint-on-premises-tutorial/tutorial_general_200.png
-[201]: ./media/sharepoint-on-premises-tutorial/tutorial_general_201.png
-[202]: ./media/sharepoint-on-premises-tutorial/tutorial_general_202.png
-[203]: ./media/sharepoint-on-premises-tutorial/tutorial_general_203.png
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

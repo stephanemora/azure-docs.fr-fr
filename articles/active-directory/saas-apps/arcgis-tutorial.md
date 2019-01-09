@@ -4,58 +4,47 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: a9e132a4-29e7-48bf-beb9-4148e617c8a9
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/03/2018
+ms.topic: tutorial
+ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 3284202ffaa6767a8dd4a6a5050dbdc928075237
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1acb32b7001ef5d37a3c52d65563fc0627ec3643
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846112"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808143"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Tutoriel : Intégration d’Azure Active Directory à ArcGIS Online
 
 Dans ce didacticiel, vous allez apprendre à intégrer ArcGIS Online à Azure Active Directory (Azure AD).
-
 L’intégration d’ArcGIS Online à Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous contrôlez qui a accès à ArcGIS Online.
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à ArcGIS Online (authentification unique) avec leurs comptes Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Dans Azure AD, vous contrôlez qui a accès à ArcGIS Online.
+* Vous pouvez permettre à vos utilisateurs d’être connectés automatiquement à ArcGIS Online (par le biais de l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à ArcGIS Online, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD
-- Un abonnement ArcGIS Online pour lequel l’authentification unique est activée
-
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Abonnement ArcGIS Online pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test.
-Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-1. Ajout d’ArcGIS Online à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+* ArcGIS Online prend en charge l’authentification unique initiée par **SP**
 
 ## <a name="adding-arcgis-online-from-the-gallery"></a>Ajout d’ArcGIS Online à partir de la galerie
 
@@ -63,96 +52,92 @@ Pour configurer l’intégration d’ArcGIS Online à Azure AD, vous devez ajout
 
 **Pour ajouter ArcGIS Online à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
-    ![image](./media/arcgis-tutorial/selectazuread.png)
+    ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
-    ![image](./media/arcgis-tutorial/a_select_app.png)
-    
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![image](./media/arcgis-tutorial/a_new_app.png)
+    ![Bouton Nouvelle application](common/add-new-app.png)
 
 4. Dans la zone de recherche, tapez **ArcGIS Online**, sélectionnez **ArcGIS Online** dans le volet des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-     ![image](./media/arcgis-tutorial/a_add_app.png)
+     ![ArcGIS Online dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec ArcGIS Online sur un utilisateur de test nommé « Britta Simon ».
-
-Pour que l’authentification unique fonctionne, Azure AD doit connaître l’utilisateur ArcGIS Online correspondant à l’utilisateur Azure AD. En d’autres termes, une relation doit être établie entre l’utilisateur Azure AD et l’utilisateur ArcGIS Online associé.
-
-Dans ArcGIS Online, affectez la valeur du **nom d’utilisateur** indiquée dans Azure AD comme valeur du **nom d’utilisateur** pour établir la relation.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec ArcGIS Online sur un utilisateur de test nommé **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur ArcGIS Online associé doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD avec ArcGIS Online, vous devez suivre les instructions des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test ArcGIS Online](#create-an-arcgis-online-test-user)** pour avoir dans ArcGIS Online un équivalent de Britta Simon lié à la représentation Azure AD de l’utilisateur.
+2. **[Configurer l’authentification unique ArcGIS Online](#configure-arcgis-online-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+5. **[Créer un utilisateur de test ArcGIS Online](#create-arcgis-online-test-user)** pour avoir dans ArcGIS Online un équivalent de Britta Simon lié à la représentation Azure AD de l’utilisateur.
+6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure et configurez l’authentification unique dans votre application ArcGIS Online.
+Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-**Pour configurer l’authentification unique Azure AD avec ArcGIS Online, effectuez les étapes suivantes :**
+Pour configurer l’authentification unique Azure AD avec ArcGIS Online, effectuez les étapes suivantes :
 
 1. Dans le [portail Microsoft Azure](https://portal.azure.com/), dans la page d’intégration de l’application **ArcGIS Online**, sélectionnez **Authentification unique**.
 
-    ![image](./media/arcgis-tutorial/b1_b2_select_sso.png)
+    ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Cliquez sur **Modifier le mode d’authentification unique** au-dessus de l’écran pour sélectionner le mode **SAML**.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
-      ![image](./media/arcgis-tutorial/b1_b2_saml_ssso.png)
+    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-3. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, cliquez sur **Sélectionner** pour le mode **SAML** afin d’activer l’authentification unique.
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
-    ![image](./media/arcgis-tutorial/b1_b2_saml_sso.png)
+    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Sur la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    ![image](./media/arcgis-tutorial/b1-domains_and_urlsedit.png)
+    ![Informations d’authentification unique : domaine et URL ArcGIS Online](common/sp-identifier.png)
 
-5. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
+    a. Dans la zone de texte **URL de connexion**, tapez une URL en utilisant le modèle suivant : `https://<companyname>.maps.arcgis.com`
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.maps.arcgis.com`.
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une URL en utilisant le modèle suivant : `<companyname>.maps.arcgis.com`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `<companyname>.maps.arcgis.com`.
+    > [!NOTE]
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support ArcGIS Online](https://support.esri.com/en/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-    ![image](./media/arcgis-tutorial/b1-domains_and_urls.png)
+5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
 
-    > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support ArcGIS Online](https://support.esri.com/en/).
+    ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-6. Dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger **XML de métadonnées de fédération**, puis enregistrez le fichier XML sur votre ordinateur.
-
-    ![image](./media/arcgis-tutorial/federationxml.png)
-
-7. Pour automatiser la configuration dans **ArcGIS Online**, vous devez installer **l’extension de navigateur My Apps Secure Sign-in** en cliquant sur **Install the extension** (Installer l’extension).
+6. Pour automatiser la configuration dans **ArcGIS Online**, vous devez installer **l’extension de navigateur My Apps Secure Sign-in** en cliquant sur **Install the extension** (Installer l’extension).
 
     ![image](./media/arcgis-tutorial/install_extension.png)
 
-8. Après l’ajout de l’extension au navigateur, cliquez sur **Setup ArcGIS Online** (Configurer ArcGIS Online) pour être orienté vers l’application ArcGIS Online. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à ArcGIS Online. Cette extension de navigateur configurera automatiquement l’application pour vous et automatisera les étapes 9 à 13.
+7. Après l’ajout de l’extension au navigateur, cliquez sur **Setup ArcGIS Online** (Configurer ArcGIS Online) pour être orienté vers l’application ArcGIS Online. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à ArcGIS Online. Cette extension de navigateur configure automatiquement l’application pour vous et automatise les étapes de la section **Configurer l’authentification unique ArcGIS Online**.
 
-9. Si vous souhaitez configurer manuellement ArcGIS Online, ouvrez une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise ArcGIS en tant qu’administrateur et procédez comme suit :
+### <a name="configure-arcgis-online-single-sign-on"></a>Configurer l’authentification unique ArcGIS Online
 
-10. Cliquez sur **Edit Settings** (Modifier les paramètres).
+1. Si vous souhaitez configurer manuellement ArcGIS Online, ouvrez une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise ArcGIS en tant qu’administrateur et procédez comme suit :
+
+2. Cliquez sur **Edit Settings** (Modifier les paramètres).
 
     ![Modifier les paramètres](./media/arcgis-tutorial/ic784742.png "Modifier les paramètres")
 
-11. Cliquez sur **Sécurité**.
+3. Cliquez sur **Sécurité**.
 
     ![Sécurité](./media/arcgis-tutorial/ic784743.png "Sécurité")
 
-12. Sous **Enterprise Logins** (Informations de connexion entreprise), cliquez sur **Set Identity Provider** (Définir un fournisseur d’identité).
+4. Sous **Enterprise Logins** (Informations de connexion entreprise), cliquez sur **Set Identity Provider** (Définir un fournisseur d’identité).
 
     ![Connexions de l’entreprise](./media/arcgis-tutorial/ic784744.png "Connexions de l’entreprise")
 
-13. Dans la page de configuration **Set Identity Provider** , procédez comme suit :
+5. Dans la page de configuration **Set Identity Provider** , procédez comme suit :
 
     ![Définir le fournisseur d’identité](./media/arcgis-tutorial/ic784745.png "Définir le fournisseur d’identité")
 
@@ -170,26 +155,52 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
-    ![image](./media/arcgis-tutorial/d_users_and_groups.png)
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
 2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 
-    ![image](./media/arcgis-tutorial/d_adduser.png)
+    ![Bouton Nouvel utilisateur](common/new-user.png)
 
 3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
-    ![image](./media/arcgis-tutorial/d_userproperties.png)
+    ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
-    c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
-    d. Sélectionnez **Créer**.
+    d. Cliquez sur **Créer**.
 
-### <a name="create-an-arcgis-online-test-user"></a>Créer un utilisateur de test ArcGIS Online
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+
+Dans cette section, vous autorisez Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à ArcGIS Online.
+
+1. Dans le Portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **ArcGIS Online**.
+
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+
+2. Dans la liste des applications, saisissez et sélectionnez **ArcGIS Online**.
+
+    ![Lien ArcGIS Online dans la liste des applications](common/all-applications.png)
+
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
+
+    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
+
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+
+    ![Volet Ajouter une attribution](common/add-assign-user.png)
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+### <a name="create-arcgis-online-test-user"></a>Créer un utilisateur de test ArcGIS Online
 
 Pour permettre aux utilisateurs Azure AD de se connecter à ArcGIS Online, vous devez les attribuer dans ArcGIS Online.  
 Pour ArcGIS Online, cette attribution s’effectue manuellement.
@@ -220,41 +231,17 @@ Pour ArcGIS Online, cette attribution s’effectue manuellement.
     > [!NOTE]
     > Le titulaire du compte Azure Active Directory reçoit un message électronique contenant un lien à suivre pour confirmer son compte et l’activer.
 
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
-
-Dans cette section, vous autorisez Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à ArcGIS Online.
-
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
-
-    ![image](./media/arcgis-tutorial/d_all_applications.png)
-
-2. Dans la liste des applications, sélectionnez **ArcGIS Online**.
-
-    ![image](./media/arcgis-tutorial/d_all_application.png)
-
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
-
-    ![image](./media/arcgis-tutorial/d_leftpaneusers.png)
-
-4. Sélectionnez le bouton **Ajouter**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![image](./media/arcgis-tutorial/d_assign_user.png)
-
-4. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-5. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez le bouton **Attribuer**.
-
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette ArcGIS Online dans le volet d’accès, vous devez être authentifié automatiquement auprès de votre application ArcGIS Online.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
+Le fait de cliquer sur la vignette ArcGIS Online dans le panneau d’accès doit vous connecter automatiquement à l’application ArcGIS Online pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

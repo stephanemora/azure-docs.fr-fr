@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/10/2018
-ms.openlocfilehash: 952e34f70e245866589e4bce56bfbee7cf61fb88
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: f0e23371bc615283c48e5ed14ac08edc93802efc
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685835"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717852"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Utiliser PowerShell pour mettre à jour le schéma de synchronisation dans un groupe de synchronisation existant
 
@@ -28,8 +28,10 @@ Cet exemple PowerShell met à jour le schéma de synchronisation dans un groupe 
 
 Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.7.0 ou version ultérieure pour les besoins de ce tutoriel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
 
-
 Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync](../sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> Azure SQL Data Sync ne prend **pas** en charge Azure SQL Database Managed Instance pour le moment.
 
 ## <a name="sample-script"></a>Exemple de script
 
@@ -91,7 +93,7 @@ Pour plus d’informations sur SQL Data Sync, consultez :
 
 -   Vue d’ensemble - [Synchroniser des données entre plusieurs bases de données cloud et locales avec Azure SQL Data Sync](../sql-database-sync-data.md)
 -   Configurer Data Sync
-    - Dans le portail [Tutoriel : Configurer SQL Data Sync pour synchroniser les données entre Azure SQL Database et SQL Server en local](../sql-database-get-started-sql-data-sync.md)
+    - Sur le portail - [Tutoriel : Configurer SQL Data Sync pour synchroniser les données entre Azure SQL Database et SQL Server en local](../sql-database-get-started-sql-data-sync.md)
     - Avec PowerShell
         -  [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données SQL Azure](sql-database-sync-data-between-sql-databases.md)
         -  [Utiliser PowerShell pour la synchronisation entre une base de données SQL Azure et une base de données locale SQL Server](sql-database-sync-data-between-azure-onprem.md)

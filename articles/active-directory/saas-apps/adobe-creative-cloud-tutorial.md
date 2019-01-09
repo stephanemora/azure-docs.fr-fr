@@ -5,57 +5,46 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: c199073f-02ce-45c2-b515-8285d4bbbca2
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/10/2018
+ms.topic: tutorial
+ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 506f52faf916aa0d5ca2e8587bdbcc16ab88e130
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8000208dfe15744c891bbf27ad8f9e69f44ef4dc
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054282"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807786"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Didacticiel : Intégration d’Azure Active Directory à Adobe Creative Cloud
+# <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Didacticiel : Intégration d’Azure Active Directory à Adobe Creative Cloud
 
 Dans ce didacticiel, vous allez apprendre à intégrer Adobe Creative Cloud à Azure Active Directory (Azure AD).
-
 L’intégration de Adobe Creative Cloud dans Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Adobe Creative Cloud.
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Adobe Creative Cloud (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Dans Azure AD, vous pouvez contrôler qui a accès à Adobe Creative Cloud.
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Adobe Creative Cloud (via l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Adobe Creative Cloud, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD
-- Un abonnement Adobe Creative Cloud pour lequel l’authentification unique est activée
-- Une version d’Adobe Creative Cloud Enterprise est nécessaire
-
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Adobe Creative Cloud pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-1. Ajout de Adobe Creative Cloud à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+* Adobe Creative Cloud prend en charge l’authentification unique initiée par **SP et IDP**
 
 ## <a name="adding-adobe-creative-cloud-from-the-gallery"></a>Ajout de Adobe Creative Cloud à partir de la galerie
 
@@ -63,109 +52,123 @@ Pour configurer l’intégration de Adobe Creative Cloud à Azure AD, vous deve
 
 **Pour ajouter Adobe Creative Cloud à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
-    ![Bouton Azure Active Directory][1]
+    ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
-    ![Panneau Applications d’entreprise][2]
-    
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Bouton Nouvelle application][3]
+    ![Bouton Nouvelle application](common/add-new-app.png)
 
 4. Dans la zone de recherche, tapez **Adobe Creative Cloud**, sélectionnez **Adobe Creative Cloud** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![Adobe Creative Cloud dans la liste des résultats](./media/adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_addfromgallery.png)
+     ![Adobe Creative Cloud dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Adobe Creative Cloud, avec un utilisateur de test appelé « Britta Simon ».
-
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Adobe Creative Cloud équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Adobe Creative Cloud associé doit être établie.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Adobe Creative Cloud, avec un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur Adobe Creative Cloud associé doit être établie.
 
 Pour configurer et tester l’authentification unique avec Azure AD avec Adobe Creative Cloud, vous devez compléter les blocs de construction suivants :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test Adobe Creative Cloud](#create-an-adobe-creative-cloud-test-user)** pour avoir un équivalent de Britta Simon dans Adobe Creative Cloud lié à la représentation Azure AD associée.
+2. **[Configurer l’authentification unique Adobe Creative Cloud](#configure-adobe-creative-cloud-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+5. **[Créer un utilisateur de test Adobe Creative Cloud](#create-adobe-creative-cloud-test-user)** pour avoir un équivalent de Britta Simon dans Adobe Creative Cloud lié à la représentation Azure AD associée.
+6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Adobe Creative Cloud.
+Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-**Pour configurer l’authentification unique Azure AD avec Adobe Creative Cloud, procédez comme suit :**
+Pour configurer l’authentification unique Azure AD avec Adobe Creative Cloud, procédez comme suit :
 
-1. Dans le portail Azure, sur la page d’intégration de l’application **Adobe Creative Cloud**, cliquez sur **Authentification unique**.
+1. Dans le [Portail Azure](https://portal.azure.com/), sur la page d’intégration de l’application **Adobe Creative Cloud**, sélectionnez **Authentification unique**.
 
-    ![Lien Configurer l’authentification unique][4]
+    ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
-    ![Boîte de dialogue Authentification unique](./media/adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_samlbase.png)
+    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-3. Dans la section **Domaines et URL Adobe Creative Cloud**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par IDP :
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
-    ![Informations d’authentification unique dans Domaine et URL Adobe Creative Cloud](./media/adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_url.png)
+    ![Modifier la configuration SAML de base](common/edit-urls.png)
+
+4. À la section **Configuration SAML de base**, si vous souhaitez configurer en mode initié par **IDP**, suivez les étapes ci-dessous :
+
+    ![Informations d’authentification unique dans Domaine et URL Adobe Creative Cloud](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://www.okta.com/saml2/service-provider/<token>`
 
-    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<company name>.okta.com/auth/saml20/accauthlinktest`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<company name>.okta.com/auth/saml20/accauthlinktest`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’équipe [d’Adobe Creative Cloud Enterprise](https://www.adobe.com/au/creativecloud/business/teams/plans.html).
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez [l’équipe du support technique d’Adobe Creative Cloud](https://www.adobe.com/au/creativecloud/business/teams/plans.html). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-4. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de service**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
+5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL Adobe Creative Cloud](./media/adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_url2.png)
+    Dans la zone de texte **URL de connexion**, tapez la valeur `https://adobe.com`.
 
-    Dans la zone de texte **URL de connexion**, tapez la valeur suivante : `https://adobe.com`
+    ![Informations d’authentification unique dans Domaine et URL Adobe Creative Cloud](common/metadata-upload-additional-signon.png)
 
-5. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+6. L’application Adobe Creative Cloud attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur**.
 
-    ![Lien Téléchargement de certificat](./media/adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_certificate.png)
-     
-6. L’application Adobe Creative Cloud attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de l’onglet **Attributs utilisateur** de l’application. La capture d’écran suivante montre un exemple :
+    ![image](common/edit-attribute.png)
 
-    ![Configurer l'authentification unique](./media/adobe-creative-cloud-tutorial/tutorial_attribute.png)
+7. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
+ 
+    | NOM | Attribut source|
+    |----- | --------- |
+    | FirstName | user.givenname |
+    | LastName | user.surname |
+    | Email | user.mail
 
-7. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
+    a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
-    | Nom de l'attribut | Valeur de l’attribut |
-    | ---------------| ----------------|
-    | FirstName |user.givenname |
-    | LastName |user.surname |
-    | Email |user.mail |
+    ![image](common/new-save-attribute.png)
 
-    a. Cliquez sur **Ajouter un attribut** pour ouvrir la boîte de dialogue **Ajouter un attribut**.
-
-    ![Configurer l'authentification unique](./media/adobe-creative-cloud-tutorial/tutorial_attribute_04.png)
-
-    ![Configurer l'authentification unique](./media/adobe-creative-cloud-tutorial/tutorial_attribute_05.png)
+    ![image](common/new-attribute-details.png)
 
     b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
-    c. Dans la liste **Valeur** , saisissez la valeur d’attribut affichée pour cette ligne.
+    c. Laissez le champ **Espace de noms** vide.
 
-    d. Cliquez sur **OK**.
+    d. Sélectionnez Source comme **Attribut**.
+
+    e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
+
+    f. Cliquez sur **OK**.
+
+    g. Cliquez sur **Enregistrer**.
 
     > [!NOTE]
     > Les utilisateurs doivent posséder une licence Office 365 ExO pour que la valeur de demande par message soit renseignée dans la réponse SAML.
 
-8. Cliquez sur le bouton **Enregistrer** .
+8. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/adobe-creative-cloud-tutorial/tutorial_general_400.png)
+    ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-9. Dans la section **Configuration de Adobe Creative Cloud**, cliquez sur **Configurer Adobe Creative Cloud** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
+9. Dans la section **Configurer Adobe Creative Cloud**, copiez la ou les URL appropriées correspondant à vos besoins.
 
-    ![Configuration Adobe Creative Cloud](./media/adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_configure.png)
+    ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-10. Dans une fenêtre différente de navigateur, connectez-vous à [Adobe Admin Console](https://adminconsole.adobe.com) en tant qu’administrateur.
+    a. URL de connexion
 
-11. Accédez à **Paramètres** sur la barre de navigation supérieure, puis sélectionnez **Identité**. La liste des domaines s’ouvre. Cliquez sur le lien **Configurer** en regard de votre domaine. Suivez ensuite la procédure de la section **Configuration de l’authentification unique requise**. Pour plus d’informations, consultez la section relative à la [configuration d’un domaine](https://helpx.adobe.com/enterprise/using/set-up-domain.html).
+    b. Identificateur Azure AD
+
+    c. URL de déconnexion
+
+### <a name="configure-adobe-creative-cloud-single-sign-on"></a>Configurer l’authentification unique Adobe Creative Cloud
+
+1. Dans une fenêtre différente de navigateur, connectez-vous à [Adobe Admin Console](https://adminconsole.adobe.com) en tant qu’administrateur.
+
+2. Accédez à **Paramètres** sur la barre de navigation supérieure, puis sélectionnez **Identité**. La liste des domaines s’ouvre. Cliquez sur le lien **Configurer** en regard de votre domaine. Suivez ensuite la procédure de la section **Configuration de l’authentification unique requise**. Pour plus d’informations, consultez la section relative à la [configuration d’un domaine](https://helpx.adobe.com/enterprise/using/set-up-domain.html).
 
     ![Paramètres](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "Paramètres")
 
@@ -181,7 +184,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     f. Cliquez sur le bouton **Enregistrer** .
 
-12. Le tableau de bord présente maintenant le fichier XML **« Télécharger les métadonnées »**. Il contient les URL EntityDescriptor et AssertionConsumerService d’Adobe. Ouvrez le fichier et configurez-les dans l’application Azure AD.
+3. Le tableau de bord présente maintenant le fichier XML **« Télécharger les métadonnées »**. Il contient les URL EntityDescriptor et AssertionConsumerService d’Adobe. Ouvrez le fichier et configurez-les dans l’application Azure AD.
 
     ![Configurer l’authentification unique côté application](./media/adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
@@ -193,35 +196,54 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-   ![Créer un utilisateur de test Azure AD][100]
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
-1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
+2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 
-    ![Bouton Azure Active Directory](./media/adobe-creative-cloud-tutorial/create_aaduser_01.png)
+    ![Bouton Nouvel utilisateur](common/new-user.png)
 
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/adobe-creative-cloud-tutorial/create_aaduser_02.png)
+    ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
+  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    Par exemple, BrittaSimon@contoso.com
 
-    ![Bouton Ajouter](./media/adobe-creative-cloud-tutorial/create_aaduser_03.png)
-
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
-
-    ![Boîte de dialogue Utilisateur](./media/adobe-creative-cloud-tutorial/create_aaduser_04.png)
-
-    a. Dans la zone **Nom**, tapez **BrittaSimon**.
-
-    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Cliquez sur **Créer**.
- 
-### <a name="create-an-adobe-creative-cloud-test-user"></a>Créer un utilisateur de test Adobe Creative Cloud
+
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Adobe Creative Cloud.
+
+1. Dans le Portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis sélectionnez **Adobe Creative Cloud**.
+
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+
+2. Dans la liste des applications, sélectionnez **Adobe Creative Cloud**.
+
+    ![Lien Adobe Creative Cloud dans la liste Applications](common/all-applications.png)
+
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
+
+    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
+
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+
+    ![Volet Ajouter une attribution](common/add-assign-user.png)
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+### <a name="create-adobe-creative-cloud-test-user"></a>Créer un utilisateur de test Adobe Creative Cloud
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Adobe Creative Cloud, vous devez les approvisionner dans Adobe Creative Cloud. Dans le cas d’Adobe Creative Cloud, cet approvisionnement est une tâche manuelle.
 
@@ -236,60 +258,20 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Adobe Creative Cloud
     * Dans l’utilitaire de l’application de bureau > connexion
     * Dans l’application > aide > connexion
 
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
-
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Adobe Creative Cloud.
-
-![Attribuer le rôle utilisateur][200] 
-
-**Pour affecter Britta Simon Adobe Creative Cloud, procédez comme suit :**
-
-1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
-
-    ![Affecter des utilisateurs][201] 
-
-2. Dans la liste des applications, sélectionnez **Adobe Creative Cloud**.
-
-    ![Lien Adobe Creative Cloud dans la liste Applications](./media/adobe-creative-cloud-tutorial/tutorial_adobecreativecloud_app.png)  
-
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
-
-    ![Lien « Utilisateurs et groupes »][202]
-
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
-
-    ![Volet Ajouter une attribution][203]
-
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
-
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
-
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette Adobe Creative Cloud dans le volet d’accès, vous devez être connecté automatiquement à votre application Adobe Creative Cloud.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
+Lorsque vous cliquez sur la vignette Adobe Creative Cloud dans le volet d’accès, vous devez être connecté automatiquement à l’application Adobe Creative Cloud pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-* [Configurer un domaine (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
-* [Configurer Azure pour une utilisation avec l’authentification unique Adobe (adobe.com)](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/adobe-creative-cloud-tutorial/tutorial_general_01.png
-[2]: ./media/adobe-creative-cloud-tutorial/tutorial_general_02.png
-[3]: ./media/adobe-creative-cloud-tutorial/tutorial_general_03.png
-[4]: ./media/adobe-creative-cloud-tutorial/tutorial_general_04.png
-
-[100]: ./media/adobe-creative-cloud-tutorial/tutorial_general_100.png
-
-[200]: ./media/adobe-creative-cloud-tutorial/tutorial_general_200.png
-[201]: ./media/adobe-creative-cloud-tutorial/tutorial_general_201.png
-[202]: ./media/adobe-creative-cloud-tutorial/tutorial_general_202.png
-[203]: ./media/adobe-creative-cloud-tutorial/tutorial_general_203.png
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+  
+- [Configurer un domaine (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
+  
+- [Configurer Azure pour une utilisation avec l’authentification unique Adobe (adobe.com)](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)

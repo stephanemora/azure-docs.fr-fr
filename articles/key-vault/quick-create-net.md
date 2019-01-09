@@ -1,22 +1,22 @@
 ---
-title: 'Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web Node | Microsoft Docs'
-description: 'Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web .NET'
+title: 'Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web Node - Azure Key Vault | Microsoft Docs'
+description: 'Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web .NET'
 services: key-vault
 author: prashanthyv
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: a53130dcc489764ce9284f15b8de0de37e0827e5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 20d47ecaea8ce393f60cba93c3dbcf7ca4a076c8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686668"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002601"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web .NET
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web .NET
 
 Dans ce guide de démarrage rapide, vous suivez les étapes nécessaires pour qu’une application web Azure puisse lire les informations depuis Azure Key Vault à l’aide d’identités managées pour les ressources Azure. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -77,9 +77,9 @@ Le groupe de ressources que vous venez de créer est utilisé tout au long de ce
 
 Ensuite, vous créez un coffre de clés dans le groupe de ressources que vous avez créé à l’étape précédente. Fournissez les informations suivantes :
 
-* Nom de coffre de clés : le nom doit être une chaîne de 3 à 24 caractères et doit contenir uniquement (0-9, a-z, A-Z et -).
+* Nom du coffre de clés : le nom doit être une chaîne de 3 à 24 caractères et doit contenir uniquement (0-9, a-z, A-Z et -).
 * Nom du groupe de ressources.
-* Emplacement : **Est des États-Unis**.
+* Localisation : **USA Est**.
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "East US"

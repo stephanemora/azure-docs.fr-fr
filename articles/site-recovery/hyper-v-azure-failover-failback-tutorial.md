@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ea372b4363ce506b926a37686b85cb36e51546eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 03b8dd9bd0a7acc63fdae66330904142384429a8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833452"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794207"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Basculer et restaurer automatiquement des machines virtuelles Hyper-V répliquées sur Azure
 
@@ -39,9 +39,9 @@ Assurez-vous qu’il n’existe aucun instantané sur la machine virtuelle et qu
 
 Le basculement et la restauration automatique comportent trois étapes :
 
-1. **Basculement vers Azure** : basculement de machines virtuelles Hyper-V du site local vers Azure.
-2. **Restauration automatique sur un site local** : basculement de machines virtuelles Azure vers votre site local, lorsqu’il est disponible. La synchronisation des données à partir d’Azure vers le site local débute et une fois l’opération terminée, les machines virtuelles se trouvent en local.  
-3. **Inverser la réplication de machines virtuelles locales** : une fois le basculement en local effectué, inversez la réplication des machines virtuelles locales pour démarrer leur réplication vers Azure.
+1. **Basculement vers Azure** : Basculement de machines virtuelles Hyper-V du site local vers Azure.
+2. **Restauration automatique sur un site local** : Basculement de machines virtuelles Azure vers votre site local, lorsqu’il est disponible. La synchronisation des données à partir d’Azure vers le site local débute et une fois l’opération terminée, les machines virtuelles se trouvent en local.  
+3. **Réplication inverse de machines virtuelles locales** : Une fois le basculement en local effectué, inversez la réplication des machines virtuelles locales pour démarrer leur réplication vers Azure.
 
 ## <a name="verify-vm-properties"></a>Vérifier les propriétés de la machine virtuelle
 
@@ -65,7 +65,7 @@ Dans **Éléments protégés**, cliquez sur **Éléments répliqués** > Machine
 4. Après avoir vérifié le basculement, cliquez sur **Valider**. Ceci supprime tous les points de récupération disponibles.
 
 > [!WARNING]
-> **N’annulez pas un basculement en cours** : si vous annulez un basculement en cours, le basculement s’arrête mais la machine virtuelle ne sera pas à nouveau répliquée.
+> **N’annulez pas un basculement en cours** : Si vous annulez un basculement en cours, il s’arrête mais la machine virtuelle ne sera pas à nouveau répliquée.
 
 ## <a name="failback-azure-vm-to-on-premises-and-reverse-replicate-the-on-premises-vm"></a>Restauration automatique de machine virtuelle Azure vers un site local et inverser la réplication de la machine virtuelle locale
 

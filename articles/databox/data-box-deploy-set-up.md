@@ -8,14 +8,14 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 78e56286e0dec3307c7481a6097c53a1362f57cc
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: fb2ec4802ad2ecf25a8fca031553c8209dc4267d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427520"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791317"
 ---
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Didacticiel : branchement des câbles et connexion à une Azure Data Box
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutoriel : Branchement des câbles et connexion à une Azure Data Box
 
 Ce didacticiel explique le raccordement, la connexion et le démarrage d’une Azure Data Box.
 
@@ -29,7 +29,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Avant de commencer, assurez-vous que :
 
-1. Vous avez terminé le [didacticiel : Commander une Azure Data Box](data-box-deploy-ordered.md).
+1. Vous avez terminé le [Tutoriel : Commander Azure Data Box](data-box-deploy-ordered.md).
 2. Vous avez reçu votre Data Box et que l’état de la commande dans le portail est **Remis** 
     - Une étiquette d’expédition se trouve dans le sachet transparent fixé sur l’appareil sous l’étiquette actuelle. Gardez cette étiquette en lieu sûr car vous allez l’utiliser pour le retour.
     - Dans certaines régions d’Europe, l’appareil peut être envoyé par colis. Déballez l’appareil et conservez la boîte en cas de retour nécessaire.
@@ -54,7 +54,7 @@ Procédez comme suit pour brancher les câbles de l’appareil.
     
     ![Vue arrière d’une Data Box raccordée](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 
-    1. Branchez le câble d’alimentation à l’emplacement d’entrée étiqueté. L’autre extrémité du câble d’alimentation doit être branché sur une unité de distribution d’alimentation.
+    1. Branchez le câble d’alimentation à l’emplacement d’entrée étiqueté. L’autre extrémité du câble d’alimentation doit être branchée sur une unité de distribution d’alimentation.
     2. Utilisez le câble RJ-45 CAT 6pour raccorder le port MGNT à un ordinateur portable.            
     3. Utilisez le câble réseau RJ-45 CAT 6A pour brancher le port DATA 3 à une extrémité. DATA 3 est configuré en tant que 10 GbE si vous utilisez un câble RJ-45 CAT 6A a et en tant que 1 GbE si vous utilisez un câble RJ-45 CAT 6.
     4. Utilisez les câbles en cuivre Twinax SFP+ 10 GbE 10 GbE pour raccorder respectivement les ports DATA 1 et DATA 2. 
@@ -69,7 +69,7 @@ Procédez comme suit pour brancher les câbles de l’appareil.
 Procédez comme suit pour configurer votre appareil à l’aide de l’interface utilisateur web locale et de l’interface utilisateur du portail.
 
 1. Configurez la carte Ethernet sur l'ordinateur portable que vous utilisez pour vous connecter à l’appareil avec l'adresse IP statique 192.168.100.5 et le sous-réseau 255.255.255.0. 
-2. Connectez-vous au port MGMT de votre appareil et accédez à l’interface utilisateur web locale à l’adresse https://192.168.100.10. Une fois l’appareil sous tension, cela peut prendre jusqu'à 5 minutes.
+2. Connectez-vous au port MGMT de votre appareil et accédez à l’interface utilisateur web locale à l’adresse https\://192.168.100.10. Une fois l’appareil sous tension, cela peut prendre jusqu'à 5 minutes.
 3. Cliquez sur **Détails** puis **accédez à la page web**.
 
    ![Connexion à l'interface utilisateur web locale](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 

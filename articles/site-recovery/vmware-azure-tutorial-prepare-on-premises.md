@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: da5643f707a2f891fcf6663ec88f5a5dff40ac86
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 505acdde07c23654ddd3875fa600046a67e04aea
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846638"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970812"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Préparer des serveurs VMware locaux à la récupération d’urgence vers Azure
 
@@ -67,8 +67,8 @@ Préparez le compte comme suit :
 
 Préparez un domaine ou un compte local avec les autorisations nécessaires pour l’installation sur la machine virtuelle.
 
-- **Machines virtuelles Windiows** : Pour une installation sur des machines virtuelles Windows, si vous n’utilisez pas un compte de domaine, désactivez le contrôle d’accès des utilisateurs distants sur la machine locale. Pour ce faire, dans le Registre > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, ajoutez l’entrée DWORD **LocalAccountTokenFilterPolicy** avec une valeur de 1.
-- **Machines virtuelles Linux** : Pour une installation sur des machines virtuelles Linux, préparez un compte racine sur le serveur Linux source.
+- **Machines virtuelles Windows** : Pour une installation sur des machines virtuelles Windows, si vous n’utilisez pas un compte de domaine, désactivez le contrôle d’accès des utilisateurs distants sur la machine locale. Pour ce faire, dans le Registre > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, ajoutez l’entrée DWORD **LocalAccountTokenFilterPolicy** avec une valeur de 1.
+- **Machines virtuelles Linux** : Pour une installation sur des machines virtuelles Linux, préparez un compte racine sur le serveur Linux source.
 
 
 ## <a name="check-vmware-requirements"></a>Vérifier les conditions requises VMware
@@ -80,6 +80,7 @@ Vérifiez que les machines virtuelles et serveurs VMware respectent les conditio
 3. Vérifiez la prise en charge du [réseau](vmware-physical-azure-support-matrix.md#network) et du [stockage](vmware-physical-azure-support-matrix.md#storage) locaux. 
 4. Vérifiez ce qui est pris en charge pour la [mise en réseau Azure](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), le [stockage](vmware-physical-azure-support-matrix.md#azure-storage) et le [calcul](vmware-physical-azure-support-matrix.md#azure-compute) après le basculement.
 5. Les machines virtuelles locales que vous répliquez vers Azure doivent respecter les [exigences relatives aux machines virtuelles Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
+6. Sur des machines virtuelles Linux, le nom de l’appareil ou le nom du point de montage doit être unique. Vérifiez qu’aucun appareil ou point de montage ne possède un nom sensible à la casse. Par exemple, il est interdit d’attribuer à deux appareils de la même machine virtuelle les noms *appareil1* et *Appareil1*.
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Préparer la connexion aux machines virtuelles Azure après le basculement

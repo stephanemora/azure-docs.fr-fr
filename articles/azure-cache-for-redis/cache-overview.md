@@ -14,16 +14,16 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 1f41172a493f3e5e1b98cbba32b0180cee16c072
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: eab4365b6b86a82f29dbd1a79d4fda6dc9b30e0e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53018738"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971322"
 ---
 # <a name="what-is-azure-cache-for-redis"></a>Présentation du cache Azure pour Redis
 
-Le cache Azure pour Redis se base sur le [cache Azure pour Redis](https://redis.io/) open source connu. Il est généralement utilisé en tant que cache pour améliorer les performances et l’évolutivité des systèmes qui reposent grandement sur des banques de données back-end. Les performances sont améliorées en copiant temporairement les données fréquemment sollicitées dans un stockage rapide situé près de l’application. Avec le [cache Azure pour Redis](https://redis.io/), ce stockage rapide est localisé en mémoire plutôt que d’être chargé à partir d’un disque par une base de données.
+Le cache Azure pour Redis est dérivé du très populaire logiciel [Redis](https://redis.io/). Il est généralement utilisé en tant que cache pour améliorer les performances et l’évolutivité des systèmes qui reposent grandement sur des banques de données back-end. Les performances sont améliorées en copiant temporairement les données fréquemment sollicitées dans un stockage rapide situé près de l’application. Avec le [cache Azure pour Redis](https://redis.io/), ce stockage rapide est localisé en mémoire plutôt que d’être chargé à partir d’un disque par une base de données.
 
 Le cache Azure pour Redis peut également être utilisé comme banque de structure de données en mémoire, base de données non relationnelle distribuée et courtier de messages. Les performances des applications sont améliorées en tirant parti des performances à faible latence et à débit élevé du moteur Redis.
 

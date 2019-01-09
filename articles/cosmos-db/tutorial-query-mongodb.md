@@ -1,29 +1,29 @@
 ---
-title: 'Azure Cosmos DB : Comment interroger à l’aide de l’API MongoDB ?'
-description: Apprenez à interroger au moyen de l’API MongoDB pour Azure Cosmos DB
+title: Interroger des données avec l’API Azure Cosmos DB pour MongoDB
+description: Découvrez comment interroger des données avec l’API Azure Cosmos DB pour MongoDB.
 services: cosmos-db
-author: SnehaGunda
-ms.author: sngun
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/29/2018
-ms.openlocfilehash: 8c865ab7fa997b169e481612ce791d960688da56
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/26/2018
+ms.openlocfilehash: b2bfc48fa0ba8aab0bbdf19e1b127155633e2271
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841504"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793204"
 ---
-# <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Didacticiel : Interroger Azure Cosmos DB à l’aide de l’API MongoDB
+# <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Interroger des données à l’aide de l’API Azure Cosmos DB pour MongoDB
 
-[L’API pour MongoDB](mongodb-introduction.md) d’Azure Cosmos DB prend en charge les [requêtes shell MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
+[L’API Azure Cosmos DB pour MongoDB](mongodb-introduction.md) prend en charge les [requêtes MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
 Cet article décrit les tâches suivantes : 
 
 > [!div class="checklist"]
-> * Interrogation des données avec MongoDB
+> * Interrogation de données stockées dans votre base de données Cosmos à l’aide de l’interpréteur de commandes MongoDB
 
 Vous pouvez commencer en utilisant les exemples dans ce document et regarder la vidéo [Interroger Azure Cosmos DB avec l’interpréteur de commandes MongoDB](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/).
 
@@ -300,10 +300,10 @@ Aucun résultat n’est renvoyé car il n’y a aucune famille avec plus de deux
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez :
 
 > [!div class="checklist"]
-> * Effectuer des interrogations à l’aide de MongoDB 
+> * Appris à interroger des données à l’aide de l’API Cosmos DB pour MongoDB
 
 Vous pouvez maintenant poursuivre avec le didacticiel suivant montrant comment distribuer vos données globalement.
 

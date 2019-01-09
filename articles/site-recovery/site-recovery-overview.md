@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5942f27313cf8bb6a9ed8bf0a5cc4fb556693065
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2cd9e89c92b2bed75c52654d779f4f7d8c17596e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832222"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975319"
 ---
 # <a name="about-site-recovery"></a>À propos de Site Recovery
 
@@ -23,8 +23,8 @@ En tant qu’organisation, vous devez adopter une stratégie de récupération d
 
 Azure Recovery Services contribue à votre stratégie BCDR :
 
-- **Service Site Recovery** : Site Recovery permet d’assurer la continuité de l’activité en maintenant l’exécution des charges de travail et applications métier lors des interruptions. Site Recovery réplique les charges de travail s’exécutant sur des machines virtuelles et physiques depuis un site principal vers un emplacement secondaire. En cas d’interruption au niveau de votre site principal, vous basculez vers l’emplacement secondaire, depuis lequel vous pouvez accéder aux applications. Quand l’emplacement principal est de nouveau fonctionnel, vous pouvez effectuer une restauration automatique vers celui-ci.  
-- **Service Sauvegarde** : le service [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/) assure la sécurité de vos données. En sauvegardant ces données sur Azure, elles sont récupérables.
+- **Service Site Recovery** : Site Recovery permet d’assurer la continuité de l’activité en maintenant l’exécution des charges de travail et applications métier lors des interruptions. Site Recovery réplique les charges de travail s’exécutant sur des machines virtuelles et physiques depuis un site principal vers un emplacement secondaire. En cas d’interruption au niveau de votre site principal, vous basculez vers l’emplacement secondaire, depuis lequel vous pouvez accéder aux applications. Quand l’emplacement principal est de nouveau fonctionnel, vous pouvez effectuer une restauration automatique vers celui-ci.  
+- **Service Sauvegarde** : le service [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/) assure la sécurité de vos données. En sauvegardant ces données sur Azure, elles sont récupérables.
 
 Site Recovery peut gérer la réplication pour :
 

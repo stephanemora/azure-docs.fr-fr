@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 12/31/2018
 ms.author: tamram
 ms.custom: seodec18
-ms.openlocfilehash: d007f7f1aeee2b4397e5b9e68c0e48108772fb32
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: eb472465c0d35150f2a13563058905751219411d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110338"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976458"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -40,7 +40,7 @@ Après avoir installé Visual Studio Code, installez l’extension de préversio
 
     ![Installer l’extension Stockage Azure dans VS Code](media/storage-blob-static-website-host/install-extension-vs-code.png)
 
-## <a name="sign-in-to-the-azure-portal"></a>Se connecter au portail Azure
+## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
 Pour commencer, connectez-vous au [portail Azure](https://portal.azure.com/).
 
@@ -78,7 +78,7 @@ Maintenant, créez une page web Hello World avec Visual Studio Code et déployez
     ```
 
 1. Créez le fichier d’erreur par défaut et nommez-le *404.html*.
-1. Ouvrez *error.html* dans l’éditeur, collez le texte suivant dans le fichier et enregistrez-le :
+1. Ouvrez *404.html* dans l’éditeur, collez le texte suivant dans le fichier et enregistrez-le :
 
     ```
     <h1>404</h1>

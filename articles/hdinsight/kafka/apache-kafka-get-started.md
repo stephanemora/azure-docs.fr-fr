@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 10/12/2018
-ms.openlocfilehash: 5b1768978425d3153f775e20a1a4c44a39794779
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 76f09af66e362fb6b03346b43a6be1a3ec7cf681
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315952"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976764"
 ---
-# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Démarrage rapide : Créer un cluster Apache Kafka sur HDInsight
+# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Démarrage rapide : Créer un cluster Apache Kafka sur HDInsight
 
 Apache Kafka est une plateforme de streaming open source distribuée. Elle est souvent utilisée comme broker de messages, car elle propose des fonctionnalités similaires à une file d’attente de messages de publication/abonnement. 
 
@@ -23,7 +23,7 @@ Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster [A
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > L’API Apache Kafka n’est accessible qu’aux ressources se trouvant dans le même réseau virtuel. Dans ce guide de démarrage rapide, vous accéderez directement au cluster suivant le protocole SSH. Pour connecter d’autres services, réseaux ou machines virtuelles à Apache Kafka, vous devez tout d’abord créer un réseau virtuel, puis créer les ressources au sein du réseau.
 >
 > Pour plus d’informations, consultez le document [Se connecter à Apache Kafka à l’aide d’un réseau virtuel](apache-kafka-connect-vpn-gateway.md).
@@ -40,7 +40,7 @@ Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster [A
 
     * [Installez le sous-système Windows pour Linux](https://docs.microsoft.com/windows/wsl/install-win10). Les distributions Linux disponibles sur Microsoft Store fournissent la commande `ssh`.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Les étapes décrites dans ce document supposent que vous utilisez l’un des clients SSH mentionnés ci-dessus. Si vous utilisez un autre client SSH et que vous rencontrez des problèmes, consultez la documentation de votre client SSH.
     >
     > Pour plus d’informations, consultez le document [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -49,7 +49,13 @@ Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster [A
 
 Pour créer un cluster Apache Kafka sur HDInsight, procédez comme suit :
 
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **+ Créer une ressource**, **Données + Analytique**, puis **HDInsight**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+
+1. Dans le menu de gauche, sélectionnez **+ Créer une ressource**.
+
+1. Sous **Place de marché Azure**, sélectionnez **Analyse**.
+
+1. Sous **En vedette**, sélectionnez **HDInsight**.
    
     ![Création d’un cluster HDInsight](./media/apache-kafka-get-started/create-hdinsight.png)
 
@@ -85,7 +91,7 @@ Pour créer un cluster Apache Kafka sur HDInsight, procédez comme suit :
     | Groupe de ressources | Groupe de ressources dans lequel le cluster sera créé. |
     | Emplacement | Région Azure dans laquelle le cluster sera créé. |
 
-    > [!TIP]
+    > [!TIP]  
     > Chaque région Azure (emplacement) fournit des _domaines d’erreur_. Un domaine d’erreur est un regroupement logique de matériel sous-jacent dans un datacenter Azure. Chaque domaine d’erreur partage une source d’alimentation et un commutateur réseau communs. Les machines virtuelles et les disques managés mettant en œuvre les nœuds au sein d’un cluster HDInsight sont répartis dans ces domaines d’erreur. Cette architecture limite l’impact potentiel des défaillances de matériel physique.
     >
     > Pour garantir la haute disponibilité des données, sélectionnez une région (emplacement) comportant __trois domaines d’erreur__. Pour plus d’informations sur le nombre de domaines d’erreur dans une région, consultez le document [Disponibilité des machines virtuelles Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
@@ -100,7 +106,7 @@ Pour créer un cluster Apache Kafka sur HDInsight, procédez comme suit :
 
    ![Ajouter un cluster à un réseau virtuel](./media/apache-kafka-get-started/kafka-security-config.png)
 
-6. À partir du panneau **Stockage**, sélectionnez ou créez un compte de stockage. Concernant les étapes de ce document, laissez les autres champs sur leurs valeurs par défaut. Utilisez le bouton __Suivant__ pour enregistrer la configuration de stockage. Pour plus d’informations sur l’utilisation de Data Lake Storage Gen2, consultez [Démarrage rapide : configurer des clusters dans HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+6. À partir du panneau **Stockage**, sélectionnez ou créez un compte de stockage. Concernant les étapes de ce document, laissez les autres champs sur leurs valeurs par défaut. Utilisez le bouton __Suivant__ pour enregistrer la configuration de stockage. Pour plus d’informations sur l’utilisation de Data Lake Storage Gen2, consultez [Démarrage rapide : Configurer des clusters dans HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
    ![Définir les paramètres de compte de stockage pour HDInsight](./media/apache-kafka-get-started/storage-configuration.png)
 
@@ -108,10 +114,10 @@ Pour créer un cluster Apache Kafka sur HDInsight, procédez comme suit :
 
 8. Dans __Taille du cluster__, sélectionnez __Suivant__ pour laisser les paramètres par défaut.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Pour garantir la disponibilité d’Apache Kafka sur HDInsight, choisissez un __nombre de nœuds de travail__ supérieur ou égal à 3. La valeur par défaut est 4.
     
-    > [!TIP]
+    > [!TIP]  
     > L’entrée relative aux **disques par nœud de travail** configure l’extensibilité d’Apache Kafka sur HDInsight. Apache Kafka sur HDInsight utilise le disque local des machines virtuelles du cluster pour stocker les données. En raison de son utilisation intensive des E/S, Apache Kafka utilise [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) pour obtenir un débit élevé et davantage de stockage à chaque nœud. Le type de disque managé peut être soit __Standard__ (HDD), soit __Premium__ (SSD). Le type de disque dépend de la taille de la machine virtuelle utilisée par les nœuds de travail (brokers Apache Kafka). Les disques Premium sont utilisés automatiquement avec les machines virtuelles des séries DS et GS. Tous les autres types de machines virtuelles utilisent des disques Standard.
 
    ![Définir la taille du cluster Apache Kafka](./media/apache-kafka-get-started/kafka-cluster-size.png)
@@ -148,7 +154,7 @@ Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
  * Support:        https://ubuntu.com/advantage
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+    https://www.ubuntu.com/business/services/cloud
 
 83 packages can be updated.
 37 updates are security updates.

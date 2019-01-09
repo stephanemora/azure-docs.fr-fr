@@ -4,15 +4,15 @@ description: Décrit comment découvrir et évaluer des machines virtuelles VMwa
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 04bc43093a6edc66cdbb661a94989f5980445027
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 8971bba1e25a8e87ed57463dcc9b013fea56a0ff
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257809"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976832"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure.
 
@@ -58,8 +58,9 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 **Zone géographique** | **Emplacement de stockage**
 --- | ---
-États-Unis | USA Centre-Ouest ou USA Est
 Azure Government | Gouvernement américain - Virginie
+Europe | Europe Nord ou Europe Ouest
+États-Unis | USA Est ou Centre-Ouest des États-Unis
 
 ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
 
@@ -76,7 +77,7 @@ Azure Migrate crée une machine virtuelle locale connue en tant qu’appliance c
     > [!NOTE]
     > L’appliance de découverte unique est désormais dépréciée, car son utilisation dépend des paramètres de statistiques vCenter Server concernant la disponibilité des points de données de performances, et nécessite la collecte des données de compteurs de performance moyenne, ce qui a comme résultat d’attribuer une taille insuffisante aux machines virtuelles pour la migration vers Azure.
 
-    **Résultats instantanés :** avec l’application de découverte continue, une fois la découverte terminée (au bout de deux heures environ, en fonction du nombre de machines virtuelles), vous pouvez créer immédiatement des évaluations. Étant donné que la collecte des données de performances démarre lorsque vous lancez la découverte, si vous voulez obtenir des résultats instantanément, vous devez sélectionner le critère de dimensionnement *Localement* dans l’évaluation. Pour les évaluations de performances, il est conseillé d’attendre au moins un jour après le lancement de la découverte afin d’obtenir des recommandations de taille fiables.
+    **Résultats instantanés :** avec l’application de détection continue, une fois la détection terminée (au bout de deux heures environ, en fonction du nombre de machines virtuelles), vous pouvez créer immédiatement des évaluations. Étant donné que la collecte des données de performances démarre lorsque vous lancez la découverte, si vous voulez obtenir des résultats instantanément, vous devez sélectionner le critère de dimensionnement *Localement* dans l’évaluation. Pour les évaluations de performances, il est conseillé d’attendre au moins un jour après le lancement de la découverte afin d’obtenir des recommandations de taille fiables.
 
     L’appliance collecte uniquement les données de performances en continu. Elle ne détecte pas les changements de configuration dans l’environnement local (par exemple, ajout ou suppression de machine virtuelle, ajout de disque etc.). En cas de modification de configuration de l’environnement local, vous pouvez procéder aux opérations suivantes pour refléter les modifications dans le portail :
 

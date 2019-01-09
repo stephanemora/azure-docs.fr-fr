@@ -9,14 +9,14 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 1d2be579dda9f90f06897f11d62ccd08076f892e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fbfb6a030d4979f9bd6a27f4c5b6908e62ffd9ab
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413568"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001751"
 ---
-# <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutoriel : mise à jour de l’inventaire à l’aide de CLI et des rubriques/abonnements
+# <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Didacticiel : mise à jour de l’inventaire à l’aide de CLI et des rubriques/abonnements
 
 Microsoft Azure Service Bus est un service de messagerie cloud multi-locataire qui envoie des informations entre les applications et les services. Le fonctionnement asynchrone vous offre un service de messagerie répartie flexible, avec messagerie premier entré, premier sorti (FIFO) et fonctionnalités de publication/abonnement. Ce tutoriel montre comment utiliser les rubriques et abonnements Service Bus dans un scénario d’inventaire de vente au détail, avec des canaux de publication/abonnement à l’aide d’Azure CLI et de Java.
 
@@ -126,7 +126,7 @@ Après l’exécution de la dernière commande, copiez et collez la chaîne de c
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Créer des règles de filtre sur les abonnements
 
-Une fois que l’espace de noms et les rubriques/abonnements sont configurés, et que vous disposez des informations d’identification nécessaires, vous êtes prêt à créer des règles de filtre sur les abonnements, puis à envoyer et recevoir des messages. Vous pouvez consulter le code dans [ce dossier d’exemples GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/tutorial-topics-subscriptions-filters-java/src/main/java/com/microsoft/azure/).
+Une fois que l’espace de noms et les rubriques/abonnements sont configurés, et que vous disposez des informations d’identification nécessaires, vous êtes prêt à créer des règles de filtre sur les abonnements, puis à envoyer et recevoir des messages. Vous pouvez consulter le code dans [ce dossier d’exemples GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 ## <a name="send-and-receive-messages"></a>Envoyer et recevoir des messages
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 4b5f884fe6e1f1fdc12d7993418f7a10614a4cbe
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 76a509c1cb9277ac72f99ec9ebfc239bfd71390c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602953"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969180"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importer une application logique en tant qu’API
 
@@ -33,18 +33,18 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="prerequisites"></a>Prérequis
 
-+ Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
-+ Assurez-vous que votre abonnement contient une application logique. Pour plus d’informations, consultez [Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Effectuez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md)
+* Assurez-vous que votre abonnement contient une application logique qui expose un point de terminaison HTTP. Pour plus d’informations, consultez l’article [Appeler, déclencher ou imbriquer des workflows via des points de terminaison HTTP dans des applications logiques](../logic-apps/logic-apps-http-endpoint.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>Importer et publier une API backend
+## <a name="create-api"> </a>Importer et publier une API de serveur principal
 
 1. Sélectionnez **API** sous **Gestion des API**.
 2. Sélectionnez **Application logique** dans la liste **Ajouter une nouvelle API**.
 
     ![Application logique](./media/import-logic-app-as-api/logic-app-api.png)
-3. Appuyez sur **Parcourir** pour afficher la liste des applications logiques de votre abonnement.
+3. Appuyez sur **Parcourir** pour afficher la liste des applications logiques pouvant être appelées dans votre abonnement.
 4. Sélectionnez l’application. APIM recherche le swagger associé à l’application sélectionnée, l’extrait et l’importe. 
 5. Ajoutez un suffixe d’URL d’API. Le suffixe est un nom qui identifie cette API spécifique dans cette instance APIM. Il doit être unique dans cette instance APIM.
 6. Publiez l’API en l’associant à un produit. Dans ce cas, le produit « *Illimité* » est utilisé.  Si vous souhaitez que l’API soit publiée et mise à la disposition des développeurs, ajoutez-la à un produit. Vous pouvez effectuer cette opération durant la création de l’API ou ultérieurement.

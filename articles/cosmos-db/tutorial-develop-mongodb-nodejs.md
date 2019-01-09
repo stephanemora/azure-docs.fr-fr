@@ -7,21 +7,21 @@ ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: ea69e4c8ba74dc685dd0b0fb7ac61cc6d061a26f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 364c8d4c0ca9ac9a733ee98fd73b2dfd8497625f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137648"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791283"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db"></a>Créer une application MongoDB avec Angular et Azure Cosmos DB 
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb"></a>Créer une application Angular avec l’API Azure Cosmos DB pour MongoDB
 
-Ce didacticiel en plusieurs parties montre comment créer une application [API MongoDB](mongodb-introduction.md) avec Express, Angular et Node.js (la pile MEAN) puis comment se connecter à la base de données Azure Cosmos DB. Azure Cosmos DB prend en charge les connexions au client MongoDB pour vous permettre d’utiliser Azure Cosmos DB à la place, tout en utilisant le même code utilisé pour les applications MongoDB, avec des avantages supplémentaires. Les avantages sont les suivants : une simplification des déploiements cloud, des mises à l’échelle, une sécurité accrue, une réplication mondiale des données, des supports multi-modèles et des fonctions d’écriture et de lecture extrêmement rapides. 
+Ce tutoriel en plusieurs parties montre comment créer une application écrite en Node.js avec Express et Angular, puis comment la connecter à votre [compte Cosmos configuré avec l’API de Cosmos DB pour MongoDB](mongodb-introduction.md).
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Il vous permet de créer et d’interroger rapidement des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Il vous permet de créer et d’interroger rapidement des documents, des paires clé/valeur et des bases de données de graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur de Cosmos DB. 
 
 Ce didacticiel en plusieurs parties décrit les tâches suivantes :
 

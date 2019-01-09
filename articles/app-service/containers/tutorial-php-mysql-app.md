@@ -1,5 +1,5 @@
 ---
-title: Créer une application web PHP avec MySQL sur Linux - Azure App Service | Microsoft Docs
+title: Générer une application PHP avec MySQL sur Linux - Azure App Service | Microsoft Docs
 description: Découvrez comment faire fonctionner une application PHP dans Azure App Service sur Linux en établissant une connexion à une base de données MySQL dans Azure.
 services: app-service\web
 author: cephalin
@@ -11,20 +11,20 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5d9843eecfed56f09c3a6d659976ca1ce5f42d80
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0470c12f7965ec5d7e151bb6b03163d6946b83e6
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342356"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743236"
 ---
-# <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Créer une application web PHP et MySQL dans Azure App Service sur Linux
+# <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Générer une application PHP et MySQL dans Azure App Service sous Linux
 
 > [!NOTE]
-> Cet article explique comment déployer une application sur App Service sous Linux. Pour déployer vers App Service sur _Windows_, consultez [Créer une application web PHP et MySQL dans Azure](../app-service-web-tutorial-php-mysql.md).
+> Cet article explique comment déployer une application sur App Service sous Linux. Pour déployer vers App Service sous _Windows_, consultez [Créer une application PHP et MySQL dans Azure](../app-service-web-tutorial-php-mysql.md).
 >
 
-[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce didacticiel vous montre comment créer une application web PHP et comment la connecter à une base de données MySQL. Une fois terminé, vous disposerez d’une application [Laravel](https://laravel.com/) s’exécutant dans App Service sur Linux.
+[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce didacticiel vous montre comment créer une application PHP et comment la connecter à une base de données MySQL. Une fois terminé, vous disposerez d’une application [Laravel](https://laravel.com/) s’exécutant dans App Service sur Linux.
 
 ![Application PHP exécutée dans Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -161,7 +161,7 @@ Dans cette étape, vous allez créer une base de données MySQL dans [Azure Data
 
 Créez un serveur dans Azure Database pour MySQL avec la commande [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
-Dans la commande suivante, remplacez un nom de serveur unique par l’espace réservé *\<mysql_server_name>*, un nom d’utilisateur par l’espace réservé *\<admin_user>* et un mot de passe par l’espace réservé *\<admin_password>*. Le nom de serveur est utilisé dans votre point de terminaison MySQL (`https://<mysql_server_name>.mysql.database.azure.com`). C’est pourquoi, il doit être unique parmi l’ensemble des serveurs dans Azure.
+Dans la commande suivante, remplacez un nom de serveur unique par l’espace réservé *\<mysql_server_name>*, un nom d’utilisateur par l’espace réservé *\<admin_user>* et un mot de passe par l’espace réservé *\<admin_password>*. Le nom de serveur est utilisé dans votre point de terminaison MySQL (`https://<mysql_server_name>.mysql.database.azure.com`). C’est pourquoi, il doit être unique parmi l’ensemble des serveurs dans Azure. Pour plus d’informations sur la sélection de la référence (SKU) de base de données MySQL, consultez [Créer un serveur de base de données Azure pour MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql_server_name> --location "West Europe" --admin-user <admin_user> --admin-password <admin_password> --sku-name B_Gen5_1
@@ -191,7 +191,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 ```
 
 > [!TIP] 
-> Vous pouvez être encore plus restrictif dans votre règle de pare-feu en [choisissant uniquement les adresses IP sortantes que votre application utilise](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
+> Vous pouvez être encore plus restrictif dans votre règle de pare-feu en [choisissant uniquement les adresses IP sortantes que votre application utilise](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
 Dans Cloud Shell, exécutez à nouveau la commande pour autoriser l’accès à partir de votre ordinateur local en remplaçant *\<your_ip_address>* par [votre adresse IP IPv4 locale](https://www.whatsmyip.org/).
@@ -373,13 +373,13 @@ Utilisez `php artisan` pour générer une nouvelle clé d’application sans l�
 php artisan key:generate --show
 ```
 
-Définissez la clé d’application dans l’application web App Service en utilisant la commande [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Remplacez les espaces réservés _&lt;appname>_ et _&lt;outputofphpartisankey:generate>_.
+Définissez la clé d’application dans l’application App Service en utilisant la commande [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Remplacez les espaces réservés _&lt;appname>_ et _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
-`APP_DEBUG="true"` indique à Laravel de renvoyer les informations de débogage lorsque l’application web déployée rencontre des erreurs. Lorsque vous exécutez une application de production, affectez-lui la valeur `false`, qui est plus sécurisée.
+`APP_DEBUG="true"` indique à Laravel de renvoyer les informations de débogage quand l’application déployée rencontre des erreurs. Lorsque vous exécutez une application de production, affectez-lui la valeur `false`, qui est plus sécurisée.
 
 ### <a name="push-to-azure-from-git"></a>Effectuer une transmission de type push vers Azure à partir de Git
 
@@ -422,7 +422,7 @@ remote: Running deployment command...
 > Vous pouvez utiliser cette approche pour ajouter une étape à votre déploiement Git sur App Service. Pour plus d'informations, consultez le [script de déploiement personnalisé](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 >
 
-### <a name="browse-to-the-azure-web-app"></a>Rechercher l’application web Azure
+### <a name="browse-to-the-azure-app"></a>Accéder à l’application Azure
 
 Accédez à `http://<app_name>.azurewebsites.net` et ajoutez quelques tâches à la liste.
 
@@ -566,21 +566,21 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-Une fois le `git push` terminé, accédez à l’application web Azure et essayez la nouvelle fonctionnalité.
+Une fois le `git push` terminé, accédez à l’application Azure et testez la nouvelle fonctionnalité.
 
 ![Modifications du modèle et de la base de données publiées dans Azure](media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
 Si vous avez ajouté des tâches, celles-ci sont conservées dans la base de données. Les mises à jour appliquées au schéma de données n’affectent pas les données existantes.
 
-## <a name="manage-the-azure-web-app"></a>Gérer l’application web Azure
+## <a name="manage-the-azure-app"></a>Gérer l’application Azure
 
-Accédez au [Portail Azure](https://portal.azure.com) pour gérer l’application web que vous avez créée.
+Accédez au [portail Azure](https://portal.azure.com) pour gérer l’application que vous avez créée.
 
-Dans le menu de gauche, cliquez sur **App Services**, puis cliquez sur le nom de votre application web Azure.
+Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
 
-![Navigation au sein du portail pour accéder à l’application web Azure](./media/tutorial-php-mysql-app/access-portal.png)
+![Navigation au sein du portail pour accéder à l’application Azure](./media/tutorial-php-mysql-app/access-portal.png)
 
-Vous voyez apparaître la page Vue d’ensemble de votre application web. Ici, vous pouvez effectuer des tâches de gestion de base (arrêter, démarrer, redémarrer, parcourir et supprimer).
+La page Vue d’ensemble de votre application s’affiche. Ici, vous pouvez effectuer des tâches de gestion de base (arrêter, démarrer, redémarrer, parcourir et supprimer).
 
 Le menu de gauche fournit des pages vous permettant de configurer votre application.
 
@@ -602,7 +602,7 @@ Dans ce tutoriel, vous avez appris à :
 > * Diffusion des journaux de diagnostic à partir d’Azure
 > * Gérer l’application dans le portail Azure
 
-Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à une application web.
+Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application.
 
 > [!div class="nextstepaction"]
-> [Mapper un nom DNS personnalisé existant à des applications web Azure](../app-service-web-tutorial-custom-domain.md)
+> [Mapper un nom DNS personnalisé existant à Azure App Service](../app-service-web-tutorial-custom-domain.md)

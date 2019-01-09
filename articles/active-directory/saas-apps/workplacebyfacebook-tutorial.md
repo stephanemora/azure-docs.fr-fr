@@ -1,44 +1,44 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Workplace par Facebook | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Workplace by Facebook | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Workplace by Facebook.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 30f2ee64-95d3-44ef-b832-8a0a27e2967c
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/30/2018
+ms.topic: tutorial
+ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 2e072a27087f90bddd3f7c416904758e40c2f6b9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: da016d95891df97f8f5074277a37a3deb4df4016
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425172"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973602"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Didacticiel : Intégration d’Azure Active Directory à Workplace by Facebook
+# <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Tutoriel : Intégration d’Azure Active Directory à Workplace by Facebook | Microsoft Docs
 
 Dans ce didacticiel, vous allez apprendre à intégrer Workplace by Facebook à Azure Active Directory (Azure AD).
-
 L’intégration de Workplace by Facebook à Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Workplace by Facebook.
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Workplace by Facebook (par le biais de l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
+* Dans Azure AD, vous pouvez contrôler qui a accès à Workplace by Facebook.
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Workplace by Facebook (par le biais de l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec Workplace by Facebook, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD
-- Un abonnement Workplace by Facebook pour lequel l’authentification unique est activée
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Abonnement Workplace by Facebook pour lequel l’authentification unique est activée
 
 > [!NOTE]
 > Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
@@ -52,116 +52,121 @@ Vous devez en outre suivre les recommandations ci-dessous :
 > Facebook a deux produits, Espace de travail Standard (gratuit) et Espace de travail Premium (payant). N’importe quel abonné de l’Espace de travail Premium peut configurer l’intégration SCIM et SSO sans autre implication sur les coûts ou les licences requises. L’authentification unique et SCIM ne sont pas disponibles dans les instances de l’Espace de travail Standard.
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de Workplace by Facebook à partir de la galerie
-1. Configuration et test de l’authentification unique Azure AD
+Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
+
+* Workplace by Facebook prend en charge l’authentification unique initiée par **SP**
+* Workplace by Facebook prend en charge **l’approvisionnement juste-à-temps**
+* Workplace by Facebook prend en charge **[l’approvisionnement automatique d’utilisateurs](workplacebyfacebook-provisioning-tutorial.md)**
 
 ## <a name="adding-workplace-by-facebook-from-the-gallery"></a>Ajout de Workplace by Facebook à partir de la galerie
+
 Pour configurer l’intégration de Workplace by Facebook à Azure AD, vous devez ajouter Workplace by Facebook à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter Workplace by Facebook à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
-    ![Active Directory][1]
+    ![Bouton Azure Active Directory](common/select-azuread.png)
 
-1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
-    ![APPLICATIONS][2]
-    
-1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-    ![APPLICATIONS][3]
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-1. Dans la zone de recherche, tapez **Workplace by Facebook**.
+    ![Bouton Nouvelle application](common/add-new-app.png)
 
-    ![Création d’un utilisateur de test Azure AD](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_search.png)
+4. Dans la zone de recherche, tapez **Workplace by Facebook**, sélectionnez **Workplace by Facebook** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-1. Dans le volet de résultats, sélectionnez **Workplace by Facebook**, puis cliquez sur **Ajouter** pour ajouter l’application.
+     ![Workplace by Facebook dans la liste des résultats](common/search-new-app.png)
 
-    ![Création d’un utilisateur de test Azure AD](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Workplace by Facebook, avec un utilisateur de test appelé « Britta Simon ».
-
-Pour que l’authentification unique fonctionne, Azure AD doit connaître l’utilisateur Workplace by Facebook équivalent à un utilisateur dans Azure AD. En d’autres termes, une relation doit être établie entre l’utilisateur Azure AD et l’utilisateur Workplace by Facebook associé.
-
-Pour cela, assignez la valeur du **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans Workplace by Facebook.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Workplace by Facebook, avec un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, vous devez établir une relation entre l’utilisateur Azure AD et l’utilisateur Workplace by Facebook associé.
 
 Pour configurer et tester l’authentification unique Azure AD avec Workplace by Facebook, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-1. **[Configuration de la fréquence de réauthentification](#configuring-reauthentication-frequency)** pour configurer Workplace pour qu’il affiche une invite de vérification SAML.
-1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Création d’un utilisateur de test Workplace by Facebook](#creating-a-workplace-by-facebook-test-user)** pour avoir un équivalent de Britta Simon dans Workplace by Facebook, associé à sa représentation dans Azure AD.
-1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Configurer l’authentification unique Workplace by Facebook](#configure-workplace-by-facebook-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test Workplace by Facebook](#create-workplace-by-facebook-test-user)** pour avoir un équivalent de Britta Simon dans Workplace by Facebook, associé à sa représentation dans Azure AD.
+6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD sur le portail Azure et configurer l’authentification unique dans votre application Workplace by Facebook.
+Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-**Pour configurer l’authentification unique Azure AD avec Workplace by Facebook, procédez comme suit :**
+Pour configurer l’authentification unique Azure AD avec Workplace by Facebook, procédez comme suit :
 
-1. Sur le portail Azure, à la page d’intégration de l’application **Workplace by Facebook**, cliquez sur **Authentification unique**.
+1. Sur le [portail Azure](https://portal.azure.com/), à la page d’intégration de l’application **Workplace by Facebook**, sélectionnez **Authentification unique**.
 
-    ![Configurer l'authentification unique][4]
+    ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
-    ![Configurer l'authentification unique](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_samlbase.png)
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
-1. Dans la section **Domaine et URL Workplace by Facebook**, effectuez les étapes suivantes :
+    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-    ![Configurer l'authentification unique](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_url.png)
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<instancename>.facebook.com`
+    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://www.facebook.com/company/<instanceID>`
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
+
+    ![Informations d’authentification unique dans Domaine et URL Workplace by Facebook](common/sp-identifier.png)
+
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://<instancename>.facebook.com`
+
+    b. Dans la zone de texte **Identificateur (ID d’entité)**, entrez une URL au format suivant : `https://www.facebook.com/company/<instanceID>`
 
     > [!NOTE] 
-    > Il ne s’agit pas des valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour connaître les valeurs correctes pour votre communauté Workplace, consultez la page d’authentification du tableau de bord Entreprise de Workplace. 
+    > Il ne s’agit pas des valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour connaître les valeurs correctes pour votre communauté Workplace, consultez la page d’authentification du tableau de bord Entreprise de Workplace.
 
-1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
-    ![Configure Single Sign-On](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_certificate.png) 
+    ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-1. Cliquez sur le bouton **Enregistrer** .
+6. Dans la section **Configurer Workplace by Facebook**, copiez la ou les URL appropriées correspondant à vos besoins.
 
-    ![Configurer l'authentification unique](./media/workplacebyfacebook-tutorial/tutorial_general_400.png)
+    ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-1. Dans la section **Configuration de Workplace by Facebook**, cliquez sur **Configurer Workplace by Facebook** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+    a. URL de connexion
 
-    ![Configurer l'authentification unique](./media/workplacebyfacebook-tutorial/config.png) 
+    b. Identificateur Azure AD
+
+    c. URL de déconnexion
+
+### <a name="configure-workplace-by-facebook-single-sign-on"></a>Configurer l’authentification unique Workplace by Facebook
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise Workplace by Facebook en tant qu’administrateur.
   
-   > [!NOTE] 
+   > [!NOTE]
    > Dans le cadre du processus d’authentification SAML, Workplace peut utiliser des chaînes de requête d’une taille pouvant aller jusqu’à 2,5 Ko pour transmettre des paramètres à Azure AD.
 
-1. Dans **Admin Panel** (Panneau d’administration), accédez à l’onglet **Security** (Sécurité), puis à **Authentication** (Authentification).
+2. Dans **Admin Panel** (Panneau d’administration), accédez à l’onglet **Security** (Sécurité), puis à **Authentication** (Authentification).
 
-1. Sous **SAML Authentication**, sélectionnez **SSO Only** dans la liste déroulante.
+3. Sous **SAML Authentication**, sélectionnez **SSO Only** dans la liste déroulante.
 
-1. Entrez les valeurs copiées à partir de la section **Configuration de Workplace by Facebook** du portail Azure dans les champs correspondants :
+4. Entrez les valeurs copiées à partir de la section **Configuration de Workplace by Facebook** du portail Azure dans les champs correspondants :
 
-    *   Dans la zone de texte **SAML URL**, collez la valeur de l’**URL du service d’authentification unique**, copiée à partir du portail Azure.
-    *   Dans la zone de texte **SAML Issuer URL** (URL de l’émetteur SAML), collez la valeur de l’**ID d’entité SAML**, que vous avez copiée à partir du portail Azure.
-    *   Dans **SAML Logout Redirect** (Redirection de déconnexion SAML) (facultatif), collez la valeur de l’**URL de déconnexion**, que vous avez copiée à partir du portail Azure.
-    *   Ouvrez dans le Bloc-notes votre **certificat codé en base 64**, téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **SAML Certificate** (Certificat SAML).
+    * Dans la zone de texte **URL SAML**, collez la valeur **URL de connexion** que vous avez copiée dans le portail Azure.
+    * Dans la zone de texte **SAML Issuer URL** (URL de l’émetteur SAML), collez la valeur de **l’identifiant Azure AD** que vous avez copiée dans le portail Azure.
+    * Dans **SAML Logout Redirect** (Redirection de déconnexion SAML) (facultatif), collez la valeur de **l’URL de déconnexion**, que vous avez copiée à partir du portail Azure.
+    * Ouvrez dans le Bloc-notes votre **certificat codé en base 64**, téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **SAML Certificate** (Certificat SAML).
 
-1. Vous devrez peut-être entrer l’URL d’audience, l’URL de destinataire et l’URL du service consommateur d’assertion (ACS), répertoriées sous la section **SAML Configuration** (Configuration SAML).
+5. Vous devrez peut-être entrer l’URL d’audience, l’URL de destinataire et l’URL du service consommateur d’assertion (ACS), répertoriées sous la section **Basic SAML Configuration** (Configuration SAML de base).
 
-1. Faites défiler l’affichage jusqu’au bas de la section et cliquez sur le bouton **Test SSO**. Une fenêtre contextuelle apparaît, avec la page de connexion Azure AD. Entrez normalement vos informations d’identification pour vous authentifier. 
+6. Faites défiler l’affichage jusqu’au bas de la section et cliquez sur le bouton **Test SSO**. Une fenêtre contextuelle apparaît, avec la page de connexion Azure AD. Entrez normalement vos informations d’identification pour vous authentifier.
 
     **Résolution des problèmes :** Vérifiez que l’adresse e-mail retournée par Azure AD est identique au compte Workplace avec lequel vous êtes connecté.
 
-1. Une fois le test terminé, faites défiler jusqu’au bas de la page et cliquez sur le bouton **Save** (Enregistrer).
+7. Une fois le test terminé, faites défiler jusqu’au bas de la page et cliquez sur le bouton **Save** (Enregistrer).
 
-1. La page de connexion à Azure AD sera désormais présentée à tous les utilisateurs de Workplace pour qu’ils s’authentifient.
+8. La page de connexion à Azure AD sera désormais présentée à tous les utilisateurs de Workplace pour qu’ils s’authentifient.
 
-1. **Redirection de déconnexion SAML (facultatif)** - 
+9. **Redirection de déconnexion SAML (facultatif)** -
 
     Vous pouvez choisir de configurer une URL de déconnexion SAML, qui peut être utilisée pour pointer vers la page de déconnexion d’Azure AD. Quand ce paramètre est activé et configuré, l’utilisateur n’est plus dirigé vers la page de déconnexion de Workplace. Au lieu de cela, il est redirigé vers l’URL qui a été ajoutée dans le paramètre SAML Logout Redirect.
 
@@ -169,44 +174,63 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
 
 Vous pouvez configurer Workplace pour demander une vérification SAML chaque jour, tous les trois jours, toutes les deux semaines, tous les mois ou jamais.
 
-> [!NOTE] 
->La valeur minimale pour la vérification SAML sur les applications mobiles est d’une semaine.
+> [!NOTE]
+> La valeur minimale pour la vérification SAML sur les applications mobiles est toutes les semaines.
 
-Vous pouvez également forcer une réinitialisation SAML pour tous les utilisateurs à l’aide du bouton Require SAML authentication for all users now.
+Vous pouvez également forcer une réinitialisation SAML pour tous les utilisateurs en utilisant ce bouton : Require SAML authentication for all users now (Demander une authentification SAML pour tous les utilisateurs).
 
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-![Créer un utilisateur Azure AD][100]
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
-1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
+2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 
-    ![Création d’un utilisateur de test Azure AD](./media/workplacebyfacebook-tutorial/create_aaduser_01.png) 
+    ![Bouton Nouvel utilisateur](common/new-user.png)
 
-1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
-    
-    ![Création d’un utilisateur de test Azure AD](./media/workplacebyfacebook-tutorial/create_aaduser_02.png) 
+3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
-1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
- 
-    ![Création d’un utilisateur de test Azure AD](./media/workplacebyfacebook-tutorial/create_aaduser_03.png) 
+    ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
- 
-    ![Création d’un utilisateur de test Azure AD](./media/workplacebyfacebook-tutorial/create_aaduser_04.png) 
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
+  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    Par exemple, BrittaSimon@contoso.com
 
-    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
-
-    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
-
-    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Cliquez sur **Créer**.
- 
-### <a name="creating-a-workplace-by-facebook-test-user"></a>Création d’un utilisateur de test Workplace by Facebook
+
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Workplace by Facebook.
+
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis sélectionnez **Workplace by Facebook**.
+
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+
+2. Dans la liste des applications, tapez et sélectionnez **Workplace by Facebook**.
+
+    ![Lien Workplace by Facebook dans la liste des applications](common/all-applications.png)
+
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
+
+    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
+
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+
+    ![Volet Ajouter une attribution](common/add-assign-user.png)
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+### <a name="create-workplace-by-facebook-test-user"></a>Créer un utilisateur de test Workplace by Facebook
 
 Dans cette section, un utilisateur appelé Britta Simon est créé dans Workplace by Facebook. Workplace by Facebook prend en charge l’approvisionnement juste-à-temps, qui est activé par défaut.
 
@@ -215,60 +239,18 @@ Vous n’avez aucune opération à effectuer dans cette section. S’il n’exis
 >[!Note]
 >Si vous avez besoin de créer un utilisateur manuellement, contactez l’[équipe de prise en charge des clients Workplace by Facebook](https://workplace.fb.com/faq/).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Workplace by Facebook.
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-![Affecter des utilisateurs][200] 
-
-**Pour assigner Britta Simon à Workplace by Facebook, effectuez les étapes suivantes :**
-
-1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
-
-    ![Affecter des utilisateurs][201] 
-
-1. Dans la liste des applications, sélectionnez **Workplace by Facebook**.
-
-    ![Configurer l'authentification unique](./media/workplacebyfacebook-tutorial/tutorial_workplacebyfacebook_app.png) 
-
-1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
-
-    ![Affecter des utilisateurs][202] 
-
-1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
-
-    ![Affecter des utilisateurs][203]
-
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
-
-1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
-
-1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
-
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
-
+Le fait de cliquer sur la vignette Workplace by Facebook dans le panneau d’accès doit vous connecter automatiquement à l’application Workplace by Facebook pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-* [Configurer l’approvisionnement de l’utilisateur](workplacebyfacebook-provisioning-tutorial.md)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-<!--Image references-->
-
-[1]: ./media/workplacebyfacebook-tutorial/tutorial_general_01.png
-[2]: ./media/workplacebyfacebook-tutorial/tutorial_general_02.png
-[3]: ./media/workplacebyfacebook-tutorial/tutorial_general_03.png
-[4]: ./media/workplacebyfacebook-tutorial/tutorial_general_04.png
-
-[100]: ./media/workplacebyfacebook-tutorial/tutorial_general_100.png
-
-[200]: ./media/workplacebyfacebook-tutorial/tutorial_general_200.png
-[201]: ./media/workplacebyfacebook-tutorial/tutorial_general_201.png
-[202]: ./media/workplacebyfacebook-tutorial/tutorial_general_202.png
-[203]: ./media/workplacebyfacebook-tutorial/tutorial_general_203.png
+- [Configurer l’approvisionnement de l’utilisateur](workplacebyfacebook-provisioning-tutorial.md)

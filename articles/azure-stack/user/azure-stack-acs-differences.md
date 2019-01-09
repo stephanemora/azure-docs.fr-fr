@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 1d1811549978d78a8dddad8e89895fdf605ed02b
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 1393dd32aea8cb6d348092ea1fc56752f659beab
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341896"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717869"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Stockage Azure Stack : Différences et considérations
 
@@ -34,8 +34,8 @@ Cet article récapitule les différences connues entre le stockage Azure Stack e
 | Fonctionnalité | Azure (global) | Azure Stack |
 | --- | --- | --- |
 |Stockage Fichier|Partages de fichiers SMB sur le cloud pris en charge|Pas encore pris en charge
-|Chiffrement du service de stockage Azure pour les données au repos|Chiffrement AES 256 bits|Chiffrement AES 128 bits BitLocker
-|Type de compte de stockage|Comptes de stockage à usage général et comptes de stockage d’objets blob Azure|À usage général uniquement.
+|Chiffrement du service de stockage Azure pour les données au repos|Chiffrement AES 256 bits. Prise en charge du chiffrement à l’aide de clés gérées par le client dans Azure Key Vault.|Chiffrement AES 128 bits BitLocker. Chiffrement à l’aide de clés gérées par le client non pris en charge.
+|Type de compte de stockage|Comptes de stockage à usage général V1 et V2, et comptes de stockage d’objets blob|Comptes de stockage à usage général V1 uniquement
 |Options de réplication|Stockage localement redondant, stockage géoredondant, stockage géoredondant avec accès en lecture et stockage redondant interzone|Stockage localement redondant.
 |Stockage Premium|Entièrement pris en charge|Peut être approvisionné, mais sans limite ni garantie de performances.
 |Disques gérés|Premium et standard pris en charge|Pris en charge lorsque vous utilisez la version 1808 ou ultérieure.
@@ -44,11 +44,14 @@ Cet article récapitule les différences connues entre le stockage Azure Stack e
 |Copie d’instantané d’objet blob de pages|Prise en charge des disques de machine virtuelle non gérés par Sauvegarde Azure attachés à une machine virtuelle en fonctionnement|Pas encore pris en charge.
 |Copie d’instantané incrémentiel d’objet blob de pages|Objets blob de pages Azure Premium et standard pris en charge|Pas encore pris en charge.
 |Niveaux de stockage pour le Stockage Blob|Niveaux de stockage chaud, à froid et archivage.|Pas encore pris en charge.
-Suppression réversible pour le Stockage Blob|VERSION PRÉLIMINAIRE|Pas encore pris en charge.
+|Suppression réversible pour le Stockage Blob|Disponibilité générale|Pas encore pris en charge.
 |Taille maximale d’un objet blob de pages|8 To|1 To
 |Taille de page d’un objet blob de pages|512 octets|4 Ko
 |Taille de la clé de ligne et de la clé de partition de table|1 024 caractères (2 048 octets)|400 caractères (800 octets)
-|Instantané d’objet blob|Le nombre maximum d’instantanés d’un objet blob n’est pas limité.|Le nombre maximum d’instantanés d’un objet blob est de 1 000.|
+|Instantané d’objet blob|Le nombre maximum d’instantanés d’un objet blob n’est pas limité.|Le nombre maximum d’instantanés d’un objet blob est de 1 000.
+|Azure AD Authentication pour le stockage|En préversion|Pas encore pris en charge.
+|Objets blob immuables|Disponibilité générale|Pas encore pris en charge.
+|Règles de pare-feu et de réseau virtuel pour le stockage|Disponibilité générale|Pas encore pris en charge.|
 
 Il existe également des différences sur le plan des métriques de stockage :
 
@@ -61,7 +64,17 @@ Les versions suivantes sont prises en charge avec le stockage Azure Stack :
 
 API de services de Stockage Azure :
 
-Mise à jour 1802 ou plus récente :
+Mise à jour 1811 ou plus récente :
+
+ - [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
+ - [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
+ - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+ - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+ - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+ - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+
+Mise à jour 1802 à 1809 :
 
 - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
@@ -79,6 +92,12 @@ API de gestion des services de Stockage Azure :
 - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
+Versions antérieures :
+
+ - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ 
 ## <a name="sdk-versions"></a>Versions du SDK
 
 Le stockage Azure Stack prend en charge les bibliothèques de client suivantes :

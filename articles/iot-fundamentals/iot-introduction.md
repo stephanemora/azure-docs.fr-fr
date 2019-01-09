@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: ca99f9ac36281ecddf41bcc228440adcad90412b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2480aa92dec8d8e8879db813b1cfcddc26f77b7e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582417"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792524"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Qu’est-ce que l’Internet des objets Azure (IoT) ?
 
@@ -103,21 +103,21 @@ En implémentant cette solution IoT, les propriétaires de la ferme peuvent exam
 
 Il existe plusieurs services IoT dans Azure et il peut être difficile de déterminer celui que vous souhaitez utiliser. Certains, comme IoT Central et les accélérateurs de solution IoT, fournissent des modèles qui vous aident à créer votre propre solution et à devenir opérationnel rapidement. Vous pouvez aussi développer vos propres solutions de A à Z en utilisant d’autres services disponibles. Tout dépend de l’aide et du contrôle que vous souhaitez avoir. Voici une liste des services disponibles et dans quel but vous pourriez les utiliser.
 
-1. [**IoT Central**](../iot-central/overview-iot-central.md) : Il s’agit d’une solution SaaS qui vous permet de connecter, surveiller et gérer vos appareils IoT. Pour commencer, sélectionnez un modèle pour votre type d’appareil, puis créez et testez une application IoT Central simple qu’utiliseront les opérateurs de l’appareil. L’application IoT Central vous permettra aussi de surveiller les appareils et d’en provisionner de nouveaux. Ce service est pour les solutions simples qui ne nécessitent pas une personnalisation avancée du service. 
+1. [**IoT Central**](../iot-central/overview-iot-central.md) : il s’agit d’une solution SaaS qui vous permet de connecter, surveiller et gérer vos appareils IoT. Pour commencer, sélectionnez un modèle pour votre type d’appareil, puis créez et testez une application IoT Central simple qu’utiliseront les opérateurs de l’appareil. L’application IoT Central vous permettra aussi de surveiller les appareils et d’en provisionner de nouveaux. Ce service est pour les solutions simples qui ne nécessitent pas une personnalisation avancée du service. 
 
-2. [**Accélérateurs de solution IoT**](/azure/iot-suite) : Il s’agit d’un ensemble de solutions PaaS que vous pouvez utiliser pour accélérer le développement d’une solution IoT. Commencez avec une solution IoT qui vous est fournie, puis personnalisez cette solution dans son intégralité selon vos besoins. Vous devez avoir des compétences en Java ou .NET pour personnaliser le back-end et des compétences en JavaScript pour personnaliser la visualisation. 
+2. [**Accélérateurs de solution IoT**](/azure/iot-suite) : il s’agit d’un ensemble de solutions PaaS que vous pouvez utiliser pour accélérer le développement d’une solution IoT. Commencez avec une solution IoT qui vous est fournie, puis personnalisez cette solution dans son intégralité selon vos besoins. Vous devez avoir des compétences en Java ou .NET pour personnaliser le back-end et des compétences en JavaScript pour personnaliser la visualisation. 
 
-3. [**IoT Hub**](/azure/iot-hub/) : Ce service vous permet de vous connecter depuis vos appareils à un hub IoT et de surveiller et contrôler des milliards d’appareils IoT. Il est particulièrement utile si vous avez besoin d’une communication bidirectionnelle entre vos appareils IoT et votre back-end. Il s’agit du service sous-jacent d’IoT Central et des accélérateurs de solution IoT. 
+3. [**IoT Hub**](/azure/iot-hub/) : ce service vous permet de vous connecter depuis vos appareils à un hub IoT et de surveiller et contrôler des milliards d’appareils IoT. Il est particulièrement utile si vous avez besoin d’une communication bidirectionnelle entre vos appareils IoT et votre back-end. Il s’agit du service sous-jacent d’IoT Central et des accélérateurs de solution IoT. 
 
-4. [**Service IoT Hub Device Provisioning**](/azure/iot-dps/) : Il s’agit d’un service d’assistance pour IoT Hub que vous pouvez utiliser pour provisionner des appareils sur votre hub IoT de façon sécurisée. Avec ce service, vous pouvez facilement provisionner des millions d’appareils rapidement plutôt que de le faire un par un. 
+4. [**Service IoT Hub Device Provisioning**](/azure/iot-dps/) : il s’agit d’un service d’assistance pour IoT Hub que vous pouvez utiliser pour provisionner des appareils sur votre hub IoT de façon sécurisée. Avec ce service, vous pouvez facilement provisionner des millions d’appareils rapidement plutôt que de le faire un par un. 
 
-5. [**IoT Edge**](/azure/iot-edge/) : Ce service repose sur IoT Hub. Il peut être utilisé pour analyser les données sur les appareils IoT plutôt que dans le cloud. En déplaçant des parties de votre charge de travail à la périphérie, moins de messages doivent être envoyés au cloud. 
+5. [**IoT Edge**](/azure/iot-edge/) : ce service repose sur IoT Hub. Il peut être utilisé pour analyser les données sur les appareils IoT plutôt que dans le cloud. En déplaçant des parties de votre charge de travail à la périphérie, moins de messages doivent être envoyés au cloud. 
 
-6. [**Azure Digital Twins**](../digital-twins/index.yml) : Ce service vous permet de créer des modèles complets de l’environnement physique. Vous pouvez modéliser les relations et les interactions entre les personnes, les espaces et les appareils. Par exemple, vous pouvez prévoir les besoins de maintenance d’une usine, analyser les besoins énergétiques en temps réel d’un réseau électrique ou optimiser l’utilisation de l’espace disponible d’un bureau.
+6. [**Azure Digital Twins**](../digital-twins/index.yml) : ce service vous permet de créer des modèles complets de l’environnement physique. Vous pouvez modéliser les relations et les interactions entre les personnes, les espaces et les appareils. Par exemple, vous pouvez prévoir les besoins de maintenance d’une usine, analyser les besoins énergétiques en temps réel d’un réseau électrique ou optimiser l’utilisation de l’espace disponible d’un bureau.
 
-7. [**Time Series Insights**](/azure/time-series-insights) : Ce service vous permet de stocker, visualiser et interroger de grandes quantités de données de série chronologique générées par les appareils IoT. Vous pouvez utiliser ce service avec IoT Hub. 
+7. [**Time Series Insights**](/azure/time-series-insights) : ce service vous permet de stocker, de visualiser et d’interroger de grandes quantités de données de série chronologique générées par les appareils IoT. Vous pouvez utiliser ce service avec IoT Hub. 
 
-8. [**Azure Maps**](/azure/azure-maps) : Ce service fournit des informations géographiques aux applications web et mobiles. Vous pouvez utiliser un ensemble complet d’API REST et un contrôle JavaScript web pour créer des applications souples qui fonctionnent sur des applications de bureau ou mobiles pour les appareils Apple et Windows.
+8. [**Azure Maps**](/azure/azure-maps) : ce service fournit des informations géographiques aux applications web et mobiles. Vous pouvez utiliser un ensemble complet d’API REST et un contrôle JavaScript web pour créer des applications souples qui fonctionnent sur des applications de bureau ou mobiles pour les appareils Apple et Windows.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

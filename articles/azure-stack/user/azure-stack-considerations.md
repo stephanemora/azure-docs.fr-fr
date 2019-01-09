@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/12/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: 9f229caa76059db403ced5b74c7a35ec2f0b8e9d
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 91966bf2958b1670559aa57076eae7a62214fec5
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721878"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809797"
 ---
-# <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Considérations importantes : utilisation de services ou génération d’applications pour Azure Stack
+# <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Principales considérations relatives à l’utilisation de services ou à la création d’applications pour Azure Stack
 
 Avant d’utiliser des services ou de générer des applications pour Azure Stack, vous devez comprendre les différences entre Azure Stack et Azure. Cet article présente les points importants à prendre en compte lorsque vous utilisez Azure Stack comme environnement de développement cloud hybride.
 
@@ -41,7 +41,8 @@ Le contenu technique Azure suppose que les applications sont développées pour 
 ## <a name="cheat-sheet-high-level-differences"></a>Aide-mémoire : principales différences
 
 Le tableau suivant décrit les principales différences entre Azure Stack et Azure. Gardez ces différences à l’esprit lorsque vous développez pour Azure Stack ou utilisez des services Azure Stack.
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 | Domaine | Azure (global) | Azure Stack |
 | -------- | ------------- | ----------|
@@ -52,17 +53,17 @@ Le tableau suivant décrit les principales différences entre Azure Stack et Azu
 | URL du portail* | [https://portal.azure.com](https://portal.azure.com) | Pour un système intégré Azure Stack, accédez à l’URL fournie par votre opérateur Azure Stack.<br><br>Pour le kit de développement, utilisez : https://portal.local.azurestack.external
 | Région | Vous pouvez sélectionner la région où effectuer le déploiement. | Pour un système intégré Azure Stack, utilisez la région disponible sur votre système.<br><br>Pour le kit de développement, la région est toujours définie sur **local**.
 | Groupes de ressources | Un groupe de ressources peut s’étendre sur plusieurs régions. | Pour les systèmes intégrés et le kit de développement, il n’existe qu’une seule région.
-|Espaces de noms, types de ressources et versions d’API pris en charge | La dernière version (ou les versions antérieures qui ne sont pas encore obsolètes). | Azure Stack prend en charge des versions spécifiques. Consultez la section « Configuration requise pour la version » de cet article.
+|Espaces de noms, types de ressources et versions d’API pris en charge | La dernière version (ou les versions antérieures qui ne sont pas encore obsolètes). | Azure Stack prend en charge des versions spécifiques. Consultez la section [Configuration requise pour la version](#version-requirements) de cet article.
 | | |
 
 *Si vous êtes un opérateur Azure Stack, consultez [Utilisation du portail administrateur](../azure-stack-manage-portals.md) et [Principes de bases de l’administration](../azure-stack-manage-basics.md) pour plus d’informations.
 
 ## <a name="helpful-tools-and-best-practices"></a>Outils utiles et meilleures pratiques
  
- Microsoft fournit plusieurs outils et des conseils qui vous aident lors du développement pour Azure Stack.
+ Microsoft fournit des outils et des conseils qui vous aident lors du développement pour Azure Stack.
 
-| Recommandation | Références | 
-| -------- | ------------- | 
+| Recommandation | Références |
+| -------- | ------------- |
 | Installez les outils appropriés sur votre station de travail du développeur. | - [Installer PowerShell](azure-stack-powershell-install.md)<br>- [Télécharger des outils](azure-stack-powershell-download.md)<br>- [Configurer PowerShell](azure-stack-powershell-configure-user.md)<br>- [Installer Visual Studio](azure-stack-install-visual-studio.md) 
 | Passez en revue les informations relatives aux éléments suivants :<br>- Considérations relatives au modèle Azure Resource Manager<br>- Comment trouver les modèles de démarrage rapide<br>- Utiliser un module de stratégie pour vous aider à utiliser Azure pour le développement pour Azure Stack | [Développer pour Azure Stack](azure-stack-developer.md) | 
 | Passez en revue et appliquez les meilleures pratiques relatives aux modèles. | [Modèles de démarrage rapide Resource Manager](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#best-practices)
@@ -75,16 +76,16 @@ Azure Stack prend en charge des versions spécifiques d’Azure PowerShell et de
 Pour vous assurer que vous utilisez une version appropriée d’Azure PowerShell, utilisez les [profils de version d’API](azure-stack-version-profiles.md). Pour connaître le profil de version d’API le plus récent que vous pouvez utiliser, vous devez savoir quelle version d’Azure Stack vous utilisez. Contactez votre administrateur Azure Stack pour obtenir ces informations.
 
 >[!NOTE]
- Si vous utilisez le Kit de développement Azure Stack, et que vous disposez d’un accès administratif, consultez la section « Déterminer la version actuelle » sous [Gérer les mises à jour](../azure-stack-updates.md#determine-the-current-version) pour connaître le build Azure Stack.
+ Si vous utilisez le Kit de développement Azure Stack, et que vous disposez d’un accès administratif, consultez la section [Déterminer la version actuelle](../azure-stack-updates.md#determine-the-current-version) pour connaître le build Azure Stack.
 
-Pour les autres API, exécutez la commande PowerShell suivante pour afficher les espaces de noms, les types de ressources et les versions d’API qui sont pris en charge dans votre abonnement Azure Stack. Notez que des différences peuvent subsister au niveau de la propriété. (Pour que cette commande fonctionne, vous devez avoir déjà [installé](azure-stack-powershell-install.md) et [configuré](azure-stack-powershell-configure-user.md) PowerShell pour un environnement Azure Stack. Vous devez également disposer d’un abonnement à une offre Azure Stack.)
+Pour les autres API, exécutez la commande PowerShell suivante pour afficher les espaces de noms, les types de ressources et les versions d’API qui sont pris en charge dans votre abonnement Azure Stack. Notez que des différences peuvent subsister au niveau de la propriété. Pour que cette commande fonctionne, vous devez avoir déjà [installé](azure-stack-powershell-install.md) et [configuré](azure-stack-powershell-configure-user.md) PowerShell pour un environnement Azure Stack. Vous devez également disposer d’un abonnement à une offre Azure Stack.
 
 ```powershell
 Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```
 
-Exemple de sortie (tronquée) : ![Exemple de sortie de la commande Get-AzureRmResourceProvider](media/azure-stack-considerations/image1.png)
+Exemple de sortie (tronquée) : ![Exemple de sortie de la commande Get-AzureRmResourceProvider](media/azure-stack-considerations/image1.png)
  
 ## <a name="next-steps"></a>Étapes suivantes
 

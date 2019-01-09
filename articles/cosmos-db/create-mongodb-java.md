@@ -1,23 +1,23 @@
 ---
-title: "Azure Cosmos DB : Développer une application console avec Java et l'API MongoDB"
-description: Cet article présente un exemple de code Java que vous pouvez utiliser pour vous connecter à l’API MongoDB d’Azure Cosmos DB, et pour l’interroger.
+title: Générer une application console en utilisant l’API Azure Cosmos DB pour MongoDB et le kit de développement logiciel (SDK) Java
+description: Cet article présente un exemple de code Java que vous pouvez utiliser pour vous connecter à l’API Azure Cosmos DB pour MongoDB et pour l’interroger.
 services: cosmos-db
-author: slyons
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc
+ms.custom: quickstart
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 05/10/2017
-ms.author: sclyon
-ms.openlocfilehash: 30e87ba14c6754fa39269f3afac318a02cf99a2c
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.date: 12/26/2017
+ms.author: rimman
+ms.openlocfilehash: 6a27958a38006d8ef81fab469bbf3c9d97e90a69
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162016"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793130"
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB : Développer une application console API MongoDB avec Java et le portail Azure
+# <a name="build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-java-sdk"></a>Générer une application web en utilisant l’API Azure Cosmos DB pour MongoDB et le kit de développement logiciel (SDK) Java
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -28,9 +28,9 @@ ms.locfileid: "53162016"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur de Cosmos DB. 
 
-Ce guide de démarrage rapide explique comment créer un compte, une base de données de documents et une collection [API MongoDB](mongodb-introduction.md) Azure Cosmos DB à l’aide du portail Azure. Vous allez ensuite créer et déployer une application console basée sur le [pilote Java MongoDB](https://docs.mongodb.com/ecosystem/drivers/java/). 
+Ce démarrage rapide montre comment créer un compte Cosmos avec l’[API d’Azure Cosmos DB pour MongoDB](mongodb-introduction.md). Vous allez ensuite créer et déployer une application console à l’aide du [pilote Java MongoDB](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -53,7 +53,7 @@ Nommez votre nouvelle base de données, **db**, et votre nouvelle collection, **
 
 ## <a name="clone-the-sample-application"></a>Clonage de l’exemple d’application
 
-À présent, nous allons cloner une application API MongoDB à partir de GitHub, configurer la chaîne de connexion, et l'exécuter. Vous verrez combien il est facile de travailler par programmation avec des données. 
+À présent, nous allons cloner une application à partir de GitHub, configurer la chaîne de connexion et l’exécuter. Vous verrez combien il est facile de travailler par programmation avec des données. 
 
 1. Ouvrez une invite de commandes, créez un nouveau dossier nommé git-samples, puis fermez l’invite de commandes.
 
@@ -137,9 +137,7 @@ Vous pouvez maintenant utiliser [Robomongo](mongodb-robomongo.md) / [Studio 3T](
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB, à créer une collection à l’aide de l’Explorateur de données, et à exécuter une application console. Vous pouvez maintenant importer des données supplémentaires à votre compte Cosmos DB. 
+Dans ce guide de démarrage rapide, vous avez appris à créer un compte Cosmos, à créer une collection et à exécuter une application console. Vous pouvez maintenant importer des données supplémentaires dans votre base de données Cosmos.
 
 > [!div class="nextstepaction"]
 > [Importer des données MongoDB dans Azure Cosmos DB](mongodb-migrate.md)
-
-

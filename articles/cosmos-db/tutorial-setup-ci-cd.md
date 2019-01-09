@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 8b64142a7d693e8e48e1739a61978abbab740e3d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 83178abab84679dcfb36a361950097f9224eda81
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875210"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810634"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurer un pipeline CI/CD avec la tâche de génération d’émulateur Azure Cosmos DB
 
@@ -81,7 +81,7 @@ Voici un exemple de fichier **.runsettings** qui définit les paramètres à tra
 </RunSettings>
 ```
 
-Si vous configurez un pipeline CI/CD pour une application qui utilise l’API MongoDB Azure Cosmos DB, la chaîne de connexion MongoDB par défaut inclut le numéro de port 10255. Toutefois, ce port n’est pas ouvert actuellement ; en guise d’alternative, utilisez plutôt le port 10250 pour établir la connexion. La chaîne de connexion de l’API MongoDB reste la même, à l’exception du numéro de port pris en charge qui est 10250 au lieu de 10255.
+Si vous configurez un pipeline CI/CD pour une application qui utilise l’API Azure Cosmos DB pour MongoDB, la chaîne de connexion par défaut inclut le numéro de port 10255. Toutefois, ce port n’est pas ouvert actuellement ; en guise d’alternative, utilisez plutôt le port 10250 pour établir la connexion. La chaîne de connexion de l’API Azure Cosmos DB pour MongoDB reste la même, à l’exception du numéro de port pris en charge qui est 10250 au lieu de 10255.
 
 Ces paramètres `TestRunParameters` sont référencés via une propriété `TestContext` dans le projet de test de l’application. Voici un exemple de test qui s’exécute sur Cosmos DB.
 
@@ -131,23 +131,23 @@ namespace todo.Tests
 }
 ```
 
-Accédez aux options d’exécution dans la tâche de test Visual Studio. Dans l’option **Settings file** (Fichier de paramètres), spécifiez que les tests sont configurés à l’aide du fichier **.runsettings**. Dans l’option **Remplacer les paramètres de série de tests**, ajoutez ` -endpoint $(CosmosDbEmulator.Endpoint)`. Cela configurera la tâche de test pour faire référence au point de terminaison de la tâche de build d’émulateur, au lieu de celle définie dans le fichier **.runsettings**.  
+Accédez aux options d’exécution dans la tâche de test Visual Studio. Dans l’option **Settings file** (Fichier de paramètres), spécifiez que les tests sont configurés à l’aide du fichier **.runsettings**. Dans l’option **Remplacer les paramètres de série de tests**, ajoutez ` -endpoint $(CosmosDbEmulator.Endpoint)`. Cela configurera la tâche de test pour faire référence au point de terminaison de la tâche de génération d’émulateur, au lieu de celle définie dans le fichier **.runsettings**.  
 
-![Remplacer la variable de point de terminaison par le point de terminaison de la tâche de build d’émulateur](./media/tutorial-setup-ci-cd/addExtension_5.png)
+![Remplacer la variable de point de terminaison par le point de terminaison de la tâche de génération d’émulateur](./media/tutorial-setup-ci-cd/addExtension_5.png)
 
-## <a name="run-the-build"></a>Exécuter la build
+## <a name="run-the-build"></a>Exécutez la génération
 
-Maintenant, **enregistrez et mettez en file d’attente** la build. 
+Maintenant, **enregistrez et mettez en file d’attente** le build. 
 
-![Enregistrer et exécuter la build](./media/tutorial-setup-ci-cd/runBuild_1.png)
+![Enregistrer et exécuter la génération](./media/tutorial-setup-ci-cd/runBuild_1.png)
 
-Une fois que la build a démarré, vous noterez que la tâche d’émulateur Cosmos DB a commencé une extraction de l’image Docker avec l’émulateur installé. 
+Une fois que la génération a démarré, vous noterez que la tâche d’émulateur Cosmos DB a commencé une extraction de l’image Docker avec l’émulateur installé. 
 
-![Enregistrer et exécuter la build](./media/tutorial-setup-ci-cd/runBuild_4.png)
+![Enregistrer et exécuter la génération](./media/tutorial-setup-ci-cd/runBuild_4.png)
 
-Une fois la build terminée, vous noterez que vos tests réussissent et qu’ils s’exécutent tous sur l’émulateur Cosmos DB de la tâche de build !
+Une fois la génération terminée, vous noterez que vos tests réussissent, et qu’ils s’exécutent tous sur l’émulateur Cosmos DB de la tâche de génération !
 
-![Enregistrer et exécuter la build](./media/tutorial-setup-ci-cd/buildComplete_1.png)
+![Enregistrer et exécuter la génération](./media/tutorial-setup-ci-cd/buildComplete_1.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

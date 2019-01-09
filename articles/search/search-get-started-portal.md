@@ -1,32 +1,34 @@
 ---
-title: Tutoriel sur l’indexation, l’interrogation et le filtrage dans le Portail Azure - Recherche Azure
-description: Dans ce tutoriel, utilisez le portail Azure et des exemples de données prédéfinis pour générer un index dans Recherche Azure. Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle, la recherche géographique, et bien davantage.
+title: Didacticiel de démarrage rapide pour l’indexation et la création de requêtes à l’aide du Portail Azure - Recherche Azure
+description: Dans ce guide de démarrage rapide, vous allez utiliser le Portail Azure et des exemples de données intégrés pour générer un index dans Recherche Azure. Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle, la recherche géographique, et bien davantage.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d8b95aaab99fc4f0aa5df21374d6ec023f869b7d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3f75cd61d948f3f6df34124a9b16b333f6c5e6d5
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314021"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001785"
 ---
-# <a name="tutorial-use-built-in-portal-tools-for-azure-search-indexing-and-queries"></a>Tutoriel : Utiliser des outils du portail intégrés pour l’indexation et les requêtes dans Recherche Azure
+# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Démarrage rapide : Utiliser les outils du portail intégrés pour l’importation, l’indexation et la création de requêtes dans Recherche Azure
 
-Pour passer rapidement en revue les concepts de Recherche Azure et les maîtriser, vous pouvez utiliser les outils intégrés fournis dans le portail Azure, dans la page de service correspondante. Ces outils n’offrent pas toujours toutes les fonctionnalités des API .NET et REST. Toutefois, les assistants et les éditeurs proposent une présentation sans code de Recherche Azure pour vous permettre d’écrire immédiatement des requêtes intéressantes d’après un jeu de données fourni à titre d’exemple.
+Pour vous familiariser rapidement avec les concepts de Recherche Azure, essayez les outils intégrés dans le Portail Azure. Les assistants et éditeurs n’offrent pas de parité complète avec l’environnement .NET et les API REST, mais vous pouvez suivre cette présentation sans code pour écrire des requêtes intéressantes sur des exemples de données en seulement quelques minutes.
 
 > [!div class="checklist"]
-> * Démarrez avec un échantillon de données publiques et générez automatiquement un index Recherche Azure à l’aide de l’Assistant **Importer des données**.
-> * Affichez le schéma d’index et les attributs de n’importe quel index publié dans Recherche Azure.
-> * Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle et la recherche géographique avec **l’Explorateur de recherche**.  
+> * Commencez par un exemple de jeu de données public gratuit hébergé sur Azure
+> * Exécutez l’Assistant **Importation de données** dans Recherche Azure pour charger des données et générer un index
+> * Surveillez la progression de l’indexation dans le portail
+> * Affichez un index existant et les options disponibles pour le modifier
+> * Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle et la recherche géographique avec **l’Explorateur de recherche**
 
-Si ces outils sont trop limités, envisagez d’utiliser une [introduction à la programmation Recherche Azure basée sur le code dans .NET](search-howto-dotnet-sdk.md) ou des [outils de test sur le web pour effectuer des appels d’API REST](search-fiddler.md).
+Si ces outils sont trop limités, vous pouvez suivre une [introduction à la programmation Recherche Azure basée sur le code dans .NET](search-howto-dotnet-sdk.md) ou utiliser [Postman ou Fiddler pour effectuer des appels d’API REST](search-fiddler.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. Vous pouvez également visionner une démonstration de 6 minutes de la procédure décrite dans ce tutoriel à partir de la troisième minute environ de cette [vidéo de présentation du service Recherche Azure](https://channel9.msdn.com/Events/Connect/2016/138).
 
@@ -44,82 +46,95 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 De nombreux clients commencent avec le service gratuit. Cette version est limitée à trois index, trois sources de données et trois indexeurs. Avant de commencer, assurez-vous de disposer d’assez d’espace pour stocker des éléments supplémentaires. Ce didacticiel crée une occurrence de chaque objet.
 
-> [!TIP]
-> Les vignettes figurant sur le tableau de bord des services indiquent le nombre d’index, d’indexeurs et de sources de données dont vous disposez déjà. La vignette Indexeurs affiche des indicateurs de réussite et d’échec. Cliquez sur cette vignette pour visualiser le nombre d’indexeurs.
->
-> ![Vignettes Indexeurs et Sources de données][1]
->
+Les sections figurant sur le tableau de bord des services indiquent le nombre d’index, d’indexeurs et de sources de données dont vous disposez déjà. 
+
+![Lists of indexes, indexers, and datasources][media/search-get-started-portal/tiles-indexers-datasources2.png]
 
 ## <a name="create-index"></a> Créer un index et charger des données
 
 Les requêtes de recherche se répètent sur un [*index*](search-what-is-an-index.md) contenant les données de recherche, les métadonnées et les constructions supplémentaires utilisées pour l’optimisation de certains comportements de recherche.
 
-Pour les besoins de ce didacticiel, nous utilisons un exemple de jeu de données intégré qu’il est possible d’analyser à l’aide d’un [*indexeur*](search-indexer-overview.md) par le biais de l’Assistant **Importer des données**. Un indexeur est un robot d’indexation spécifique à la source qui peut lire les métadonnées et le contenu des sources de données prises en charge Azure. Dans le portail, ces indexeurs sont exposés via l’Assistant **Importer des données**. Par la suite, vous pourrez créer et gérer ces indexeurs en tant que ressources indépendantes, par le biais d’un programme.
+Pour les besoins de ce didacticiel, nous utilisons un exemple de jeu de données intégré qu’il est possible d’analyser à l’aide d’un [*indexeur*](search-indexer-overview.md) par le biais de l’Assistant **Importer des données**. Un indexeur est un robot d’indexation spécifique à la source qui peut lire les métadonnées et le contenu des sources de données prises en charge Azure. Normalement, les indexeurs sont utilisés par programmation, mais dans le portail, vous pouvez y accéder via l’Assistant **Importation de données**. 
 
-### <a name="step-1-start-the-import-data-wizard"></a>Étape 1 : Démarrer l’Assistant Importer des données
+### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>Étape 1 : démarrer l’Assistant Importation de données et créer une source de données
 
-1. Dans le tableau de bord du service Recherche Azure, cliquez sur **Importer des données** dans la barre de commandes pour démarrer l’Assistant. Cet Assistant vous permet de créer et remplir un index de recherche.
+1. Dans le tableau de bord du service Recherche Azure, cliquez sur **Importer des données** dans la barre de commandes pour créer et remplir un index de recherche.
 
-    ![Commande Importer des données][2]
+   ![Commande Importer des données](media/search-get-started-portal/import-data-cmd2.png)
 
-2. Dans l’Assistant, cliquez sur **Se connecter aux données** > **Exemples** > **realestate-us-sample**. Cette source de données est préconfigurée avec un nom, un type et des informations de connexion. Une fois créée, elle devient une « source de données existante » qui peut être réutilisée dans d’autres opérations d’importation.
+2. Dans l’Assistant, cliquez sur **Se connecter aux données** > **Exemples** > **realestate-us-sample**. Cette source de données est intégrée. Si vous avez créé votre propre source de données, vous devez spécifier un nom, un type et des informations de connexion. Une fois créée, elle devient une « source de données existante » qui peut être réutilisée dans d’autres opérations d’importation.
 
-    ![Sélection d’un exemple de jeu de données][9]
+   ![Sélection d’un exemple de jeu de données](media/search-get-started-portal/import-datasource-sample2.png)
 
-3. Cliquez sur **OK** pour utiliser cette source.
+3. Passez à la page suivante.
 
-### <a name="skip-cognitive-skills"></a>Ignorer les compétences cognitives
+   ![Bouton de page suivante pour la recherche cognitive](media/search-get-started-portal/next-button-add-cog-search.png)
 
-La fonction **Importer des données** inclut une étape facultative concernant les compétences cognitives laquelle vous permet d’ajouter à l’indexation des algorithmes d’intelligence artificielle personnalisés. Pour l’instant, ignorez cette étape et passez à l’étape de **personnalisation de l’index cible**.
+### <a name="step-2---skip-cognitive-skills"></a>Étape 2 : ignorer les compétences cognitives
+
+L’Assistant prend en charge la création d’un [pipeline de compétences cognitives](cognitive-search-concept-intro.md) permettant d’intégrer des algorithmes d’intelligence artificielle Cognitive Services dans l’indexation. 
+
+Nous allons pour le moment ignorer cette étape et passer directement à l’étape de **personnalisation de l’index cible**.
+
+   ![Ignorer l’étape des compétences cognitives](media/search-get-started-portal/skip-cog-skill-step.png)
 
 > [!TIP]
 > Si vous êtes intéressé par la nouvelle fonctionnalité d’aperçu de recherche cognitive dans Recherche Azure, essayez le [démarrage rapide](cognitive-search-quickstart-blob.md) ou le [didacticiel](cognitive-search-tutorial-blob.md) de recherche cognitive.
 
-   ![Ignorer l’étape des compétences cognitives][11]
+### <a name="step-3---configure-index"></a>Étape 3 : configurer l’index
 
-### <a name="step-2-define-the-index"></a>Étape 2 : Définir l’index
-
-En règle générale, la création d’un index est un exercice manuel effectué en utilisant du code. Pour les besoins de ce didacticiel, l’Assistant génère un index pour n’importe quelle source de données à analyser. Un index requiert au minimum un nom et une collection de champs. L’un de ces champs servira de clé du document pour identifier chaque document de façon unique.
+En règle générale, la création d’index exige d’utiliser du code avant le chargement des données. Comme indiqué dans ce didacticiel, l’Assistant peut cependant générer un index de base pour n’importe quelle source de données à analyser. Un index requiert au minimum un nom et une collection de champs. L’un de ces champs servira de clé du document pour identifier chaque document de façon unique. En outre, vous pouvez spécifier des analyseurs de langage ou des suggesteurs si vous souhaitez bénéficier d’une saisie semi-automatique ou de suggestions de requêtes.
 
 Les champs comportent des types de données et des attributs. Les cases à cocher figurant dans la partie supérieure sont des *attributs d’index* qui contrôlent le mode d’utilisation du champ.
 
 * **Récupérable** signifie que le champ s’affiche dans la liste des résultats de recherche. En décochant cette case, vous pouvez marquer des champs individuels comme hors limites pour les résultats de recherche, par exemple lorsqu’un champ est utilisé uniquement dans les expressions de filtre.
-* Les options **Filtrable**, **Triable** et **À choix multiples** déterminent si le champ peut être utilisé dans un filtre, un tri ou une structure de navigation à facettes.
+* **Clé** désigne l’identificateur unique du document. Il est toujours présenté sous forme d’une chaîne et est obligatoire.
+* Les options **Filtrable**, **Triable** et **À choix multiples** déterminent si les champs sont utilisés dans une structure de filtre, de tri ou de navigation à facettes.
 * **Possibilité de recherche** signifie que le champ est inclus dans la recherche en texte intégral. Les chaînes sont utilisables dans une recherche. Les champs numériques et booléens sont souvent marqués comme ne pouvant pas faire l’objet d’une recherche.
+
+Votre sélection n’a aucune influence sur les besoins en stockage. Par exemple, si vous définissez l’attribut **Récupérable** sur plusieurs champs, les besoins en stockage n’augmentent pas.
 
 Par défaut, l’Assistant analyse la source de données pour y rechercher des identificateurs uniques comme base pour le champ de clé. Les chaînes sont dotées d’attributs les définissant comme récupérables et utilisables dans une recherche. Les entiers présentent des attributs les définissant comme récupérables, filtrables, triables et à choix multiples.
 
-  ![Index généré pour la source realestate][3]
+1. Acceptez toutes les valeurs par défaut.
 
-Cliquez sur **OK** pour créer l’index.
+  ![Index généré pour la source realestate](media/search-get-started-portal/realestateindex2.png)
 
-### <a name="step-3-define-the-indexer"></a>Étape 3 : Définir l’indexeur
+2. Passez à la page suivante.
+
+  ![Page suivante - Créer un indexeur](media/search-get-started-portal/next-button-create-indexer.png)
+
+### <a name="step-4---configure-indexer"></a>Étape 4 : configurer l’indexeur
 
 Toujours dans l’Assistant **Importer des données**, cliquez sur **Indexeur** > **Nom**, puis tapez un nom pour l’indexeur.
 
-Cet objet définit un processus exécutable. Vous pouvez le configurer en planification récurrente, mais pour l’instant, utilisez l’option par défaut qui exécute l’indexeur une seule fois dès que vous cliquez sur **OK**.  
+Cet objet définit un processus exécutable. Vous pouvez le configurer en planification récurrente, mais pour l’instant, utilisez l’option par défaut qui exécute immédiatement l’indexeur une seule fois.
 
-  ![Indexeur de la source realestate][8]
+Cliquez sur **Envoyer** pour créer et exécuter simultanément l’indexeur.
 
-### <a name="check-progress"></a>Vérification de la progression
+  ![Indexeur de la source realestate](media/search-get-started-portal/realestate-indexer2.png)
 
-Pour surveiller le processus d’importation des données, revenez au tableau de bord des services, faites défiler la page vers le bas, puis double-cliquez sur la vignette **Indexeurs** pour ouvrir la liste des indexeurs. L’indexeur que vous venez de créer devrait apparaître dans la liste, avec un état indiquant que l’opération est en cours ou qu’elle a réussi, ainsi que le nombre de documents indexés.
+## <a name="monitor-progress"></a>Surveiller la progression
 
-   ![Message de progression de l’indexeur][4]
+L’Assistant doit vous rediriger vers la liste des indexeurs où vous pourrez en surveiller la progression. Pour une navigation automatique, accédez à la page Vue d’ensemble et cliquez sur **Indexeurs**.
 
-### <a name="step-4-view-the-index"></a>Étape 4 : Afficher l’index
+Il faut parfois plusieurs minutes au portail pour actualiser la page, mais l’indexeur que vous venez de créer devrait apparaître dans la liste, avec un état indiquant que l’opération est en cours ou qu’elle a réussi, ainsi que le nombre de documents indexés.
 
-Les vignettes du tableau de bord du service fournissent des informations résumées des différents objets d’une ressource, mais aussi un accès aux informations détaillées. La vignette **Index** dresse la liste des index existants, notamment de l’index *realestate-us-sample* que vous avez créé à l’étape précédente.
+   ![Message de progression de l’indexeur](media/search-get-started-portal/indexers-inprogress2.png)
 
-Cliquez sur l’index *realestate-us-sample* maintenant pour afficher les options du portail pour sa définition. L’option **Ajouter/Modifier des champs** vous permet de créer et d’attribuer de nouveaux champs. Les champs existants ont une représentation physique dans Recherche Azure et ne sont donc pas modifiables, pas même dans le code. Pour modifier considérablement un champ existant, créez-en un nouveau et supprimez l’original.
+## <a name="view-the-index"></a>Afficher l’index
 
-   ![définition de l’index d’exemples][10]
+La liste **Index** indique les index existants, notamment l’index *realestate-us-sample* que vous avez créé à l’aide de l’Assistant.
+
+Dans cette liste, vous pouvez afficher le schéma d’index et éventuellement ajouter de nouveaux champs, mais vous ne pouvez pas modifier les champs existants. Les champs existants ont une représentation physique dans Recherche Azure et ne sont donc pas modifiables, pas même dans le code. Pour modifier considérablement un champ existant, créez un nouvel index en supprimant l’original.
+
+   ![définition de l’index d’exemples](media/search-get-started-portal/sample-index-def.png)
 
 D’autres constructions, telles que des profils de score et des options CORS, peuvent être ajoutées à tout moment.
 
-Pour comprendre clairement ce que vous pouvez et ne pouvez pas modifier lors de la conception d’index, prenez une minute pour consulter les options de définition d’index. Les options grisées indiquent qu’une valeur ne peut pas être modifiée ou supprimée. De même pour l’instant, ignorez les cases à cocher Analyseur et Générateur de suggestions.
+Pour comprendre clairement ce que vous pouvez et ne pouvez pas modifier lors de la conception d’index, prenez une minute pour consulter les options de définition d’index. Les options grisées indiquent qu’une valeur ne peut pas être modifiée ou supprimée. 
 
-## <a name="query-index"></a> Interroger l’index
+## <a name="query-index"></a> Lancer des requêtes à l’aide de l’Explorateur de recherche
 
 Vous devriez maintenant avoir un index de recherche prêt à lancer des requêtes à l’aide de la page de requête [**Explorateur de recherche**](search-explorer.md) intégrée. Il fournit une zone de recherche afin que vous puissiez tester les chaînes de requête arbitraires.
 
@@ -129,29 +144,33 @@ Vous devriez maintenant avoir un index de recherche prêt à lancer des requête
 
 1. Cliquez sur **Explorateur de recherche** dans la barre de commandes.
 
-   ![Commande Explorateur de recherche][5]
+   ![Commande Explorateur de recherche](media/search-get-started-portal/search-explorer-cmd2.png)
 
 2. Dans la barre de commandes, cliquez sur **Modifier l’index** pour basculer vers la source de données *realestate-us-sample*. Dans la barre de commandes, cliquez sur **Définir l’API de version** pour découvrir les API REST disponibles. Pour les requêtes ci-après, utilisez la version mise à la disposition générale (2017-11-11).
 
-   ![Commandes d’index et d’API][6]
+   ![Commandes d’index et d’API](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 
 3. Dans la barre de recherche, entrez les chaînes de recherche ci-dessous, puis cliquez sur **Rechercher**.
 
     > [!NOTE]
-    > L’**Explorateur de recherche** n’est équipé que pour gérer la [demande d’API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents). Il accepte à la fois la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) et la [syntaxe de l’analyseur de requêtes complètes Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), ainsi que tous les paramètres de recherche disponibles dans les opérations [Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+    > **L’Explorateur de recherche** n’est équipé que pour gérer la [demande d’API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents). Il accepte à la fois la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) et la [syntaxe de l’analyseur de requêtes complètes Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), ainsi que tous les paramètres de recherche disponibles dans les opérations [Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
     >
+
+## <a name="example-queries"></a>Exemples de requêtes
+
+Vous pouvez entrer soit des termes et expressions, de la même manière que dans une recherche Bing ou Google, soit des expressions de requête entièrement spécifiées. Les résultats sont retournés sous forme de documents JSON détaillés.
 
 ### <a name="simple-query-with-top-n-results"></a>Requête simple avec les N premiers résultats
 
-#### <a name="example-string-searchseattle"></a>Exemple (chaîne) : `search=seattle`
+#### <a name="example-string-query-searchseattle"></a>Exemple (requête sous forme de chaîne) : `search=seattle`
 
 * Le paramètre **recherche** permet d’entrer une recherche par mot clé pour une recherche en texte intégral et, dans ce cas précis, renvoie les entrées du Comté de King, dans l’État de Washington, dont le document contient le terme *Seattle* dans l’un des champs utilisables dans une recherche.
 
 * **L’Explorateur de recherche** renvoie les résultats au format JSON, qui est particulièrement détaillé et difficile à lire si les documents présentent une structure dense. Cela est intentionnel ; la visibilité du document entier est importante en matière de développement, en particulier lors des tests. Pour une meilleure expérience utilisateur, vous devrez écrire le code qui [gère les résultats de recherche](search-pagination-page-layout.md) pour mettre en évidence les éléments importants.
 
-* Les documents sont composés de tous les champs marqués comme « récupérables » dans l’index. Pour visualiser les attributs d’index dans le portail, cliquez sur *realestate-us-sample* dans la vignette **Index**.
+* Les documents sont composés de tous les champs marqués comme « récupérables » dans l’index. Pour visualiser les attributs d’index dans le portail, cliquez sur *realestate-us-sample* dans la liste **Index**.
 
-#### <a name="example-parameterized-searchseattlecounttruetop100"></a>Exemple (paramétrable) : `search=seattle&$count=true&$top=100`
+#### <a name="example-parameterized-query-searchseattlecounttruetop100"></a>Exemple (requête paramétrable) : `search=seattle&$count=true&$top=100`
 
 * Le symbole **&** permet d’ajouter des paramètres de recherche, qui peuvent être spécifiés dans n’importe quel ordre.
 
@@ -231,13 +250,13 @@ La recherche géographique est utile si votre application de recherche dispose d
 
 ## <a name="takeaways"></a>Éléments importants à retenir
 
-Ce didacticiel fourni une brève introduction à l’utilisation de Recherche Azure à partir du portail Azure.
+Ce didacticiel fourni une brève introduction à l’utilisation de Recherche Azure à l’aide du Portail Azure.
 
 Vous avez appris à créer un index de recherche à l’aide de l’Assistant **Importer des données**. Vous avez découvert les [indexeurs](search-indexer-overview.md), ainsi que le flux de travail de base pour la conception d’index, y compris les [modifications prises en charge pour un index publié](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
 À l’aide de **l’Explorateur de recherche** dans le portail Azure, vous avez découvert la syntaxe de requête par le biais d’exemples pratiques qui illustraient des fonctionnalités clés comme les filtres, la mise en surbrillance des correspondances, la recherche partielle et la recherche basée sur la géolocalisation.
 
-Vous avez également appris comment utiliser les vignettes du tableau de bord du portail pour l’index de recherche, l’indexeur et les sources de données. À l’avenir, pour toute nouvelle source de données et afin de limiter vos efforts, vous pourrez utiliser le portail pour vérifier rapidement ses définitions ou les collections de champs.
+Vous avez également appris à rechercher des index, des indexeurs et des sources de données dans le portail. À l’avenir, pour toute nouvelle source de données et afin de limiter vos efforts, vous pourrez utiliser le portail pour vérifier rapidement ses définitions ou les collections de champs.
 
 ## <a name="clean-up"></a>Nettoyer
 
@@ -248,18 +267,5 @@ Si ce didacticiel constitue votre première utilisation du service Recherche Azu
 Pour en savoir plus sur Recherche Azure, utilisez les outils de programmation :
 
 * [Création d’un index à l’aide du Kit de développement logiciel .NET](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
-* [Création d’un index à l’aide des API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* Utilisation d’un [outil de test web comme Postman ou Fiddler pour appeler les API REST Recherche Azure](search-fiddler.md)
-
-<!--Image references-->
-[1]: ./media/search-get-started-portal/tiles-indexers-datasources2.png
-[2]: ./media/search-get-started-portal/import-data-cmd2.png
-[3]: ./media/search-get-started-portal/realestateindex2.png
-[4]: ./media/search-get-started-portal/indexers-inprogress2.png
-[5]: ./media/search-get-started-portal/search-explorer-cmd2.png
-[6]: ./media/search-get-started-portal/search-explorer-changeindex-se2.png
-[7]: ./media/search-get-started-portal/search-explorer-query2.png
-[8]: ./media/search-get-started-portal/realestate-indexer2.png
-[9]: ./media/search-get-started-portal/import-datasource-sample2.png
-[10]: ./media/search-get-started-portal/sample-index-def.png
-[11]: ./media/search-get-started-portal/skip-cog-skill-step.png
+* [Création d’un index à l’aide de l’API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
+* [Création d’un index à l’aide de Postman ou Fiddler et des API REST Recherche Azure](search-fiddler.md)

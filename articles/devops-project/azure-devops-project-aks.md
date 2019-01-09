@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Déployer des applications ASP.NET Core dans Azure Kubernetes Service avec Azure DevOps Projects'
+title: 'Didacticiel : Déployer des applications ASP.NET Core dans Azure Kubernetes Service avec Azure DevOps Projects'
 description: Azure DevOps Projects facilite la prise en main d’Azure. Avec Azure DevOps Projects, vous pouvez déployer votre application ASP.NET Core à l’aide d’Azure Kubernetes Service (AKS) en quelques étapes rapides.
 ms.author: mlearned
 ms.manager: douge
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 7980ea439cfd3eaefcaa308795836a909f980043
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 2aa103b36f60a84aaafc47f03a6cf6d5b6b66160
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620640"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993776"
 ---
 # <a name="tutorial-deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-projects"></a>Tutoriel : Déployer des applications ASP.NET Core dans Azure Kubernetes Service avec Azure DevOps Projects
 
@@ -191,4 +191,4 @@ Si vous le souhaitez, vous pouvez modifier ces pipelines de build et de mise en 
 Pour en savoir plus sur l’utilisation du tableau de bord Kubernetes, consultez :
 
 > [!div class="nextstepaction"]
-> [Utiliser le tableau de bord Kubernetes](https://docs.microsoft.com/en-us/azure/aks/kubernetes-dashboard)
+> [Utiliser le tableau de bord Kubernetes](https://docs.microsoft.com/azure/aks/kubernetes-dashboard)

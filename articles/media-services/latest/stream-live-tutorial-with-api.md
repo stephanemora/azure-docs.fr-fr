@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 12/28/2018
 ms.author: juliako
-ms.openlocfilehash: 7863f007093b5a86fb5095ee8bf1e14fc01d0348
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 858c062c2b3d61b38247e323bf70d2768d33b257
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613390"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969333"
 ---
-# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Tutoriel : Diffuser en temps réel avec Media Services v3 à l’aide d’API
+# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Didacticiel : Diffuser en temps réel avec Media Services v3 à l’aide d’API
 
 Dans Azure Media Services, les [événements en temps réel](https://docs.microsoft.com/rest/api/media/liveevents) sont responsables du traitement du contenu vidéo en flux continu. Un LiveEvent (événement en temps réel) fournit un point de terminaison d’entrée (URL de réception) que vous fournissez ensuite à un encodeur live. Il reçoit des flux de données entrants en continu d’un encodeur live et les rend disponibles en diffusion via un ou plusieurs [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) (point de terminaison de streaming). Ces événements fournissent également un point de terminaison d’aperçu (URL d’aperçu) que vous utilisez pour obtenir un aperçu et valider votre flux avant tout traitement et remise supplémentaires. Ce didacticiel explique comment utiliser .NET Core pour créer un type de **canal direct** d’un événement en temps réel. 
 
@@ -44,7 +44,7 @@ Ce didacticiel explique les procédures suivantes :
 Les éléments suivants sont requis pour suivre le didacticiel.
 
 - Installez Visual Studio Code ou Visual Studio.
-- Installez et utilisez l’interface CLI localement. Vous devez avoir Azure CLI 2.0 ou version ultérieure pour cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
+- Installez et utilisez l’interface CLI localement. Vous devez disposer d’Azure CLI 2.0 ou version ultérieure pour cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
 
     Actuellement, les commandes [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) ne fonctionnent pas toutes dans Azure Cloud Shell. Il est recommandé d’utiliser l’interface CLI localement.
 
@@ -89,7 +89,7 @@ Pour commencer à utiliser les API Media Services avec .NET, vous devez créer u
 
 ### <a name="create-a-live-event"></a>Créer un événement en temps réel
 
-Cette section montre comment créer un type de **canal direct** d’événement en temps réel (LiveEventEncodingType défini sur Aucun). Si vous voulez créer un événement en temps réel dont l’encodage en temps réel est activé, définissez LiveEventEncodingType sur De base. 
+Cette section montre comment créer un type de **canal direct** d’événement en temps réel (LiveEventEncodingType défini sur Aucun). Si vous voulez créer un événement en temps réel dont l’encodage en temps réel est activé, définissez LiveEventEncodingType sur Standard. 
 
 Voici quelques éléments que vous voudrez probablement spécifier lors de la création de l’événement en temps réel :
 
@@ -107,7 +107,7 @@ Lors de la création de l’événement, vous pouvez préciser que vous voulez q
 
 ### <a name="get-ingest-urls"></a>Obtenir les URL de réception
 
-Lorsque le canal est créé, vous pouvez obtenir des URL de réception que vous devez fournir à l’encodeur dynamique. L’encodeur utilise ces URL pour entrer un flux dynamique.
+Une fois le LiveEvent créé, vous pouvez obtenir des URL de réception que vous devez fournir à l’encodeur live. L’encodeur utilise ces URL pour entrer un flux dynamique.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetIngestURL)]
 

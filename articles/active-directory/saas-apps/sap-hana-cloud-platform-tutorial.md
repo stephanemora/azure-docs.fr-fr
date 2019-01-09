@@ -5,41 +5,40 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: bd398225-8bd8-4697-9a44-af6e6679113a
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/15/2017
+ms.topic: tutorial
+ms.date: 12/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 07b3c32601d90fdeed1c335c0f36a5ccbdbe4f1d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5ea4c3928c7bb3ee8250fd7b69ff9646a698fa3b
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446712"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809078"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Didacticiel : Intégration d’Azure Active Directory avec SAP Cloud Platform
+# <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Didacticiel : Intégration d’Azure Active Directory avec SAP Cloud Platform
 
 Dans ce didacticiel, vous allez apprendre à intégrer SAP Cloud Platform à Azure Active Directory (Azure AD).
-
 L’intégration de SAP Cloud Platform à Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à SAP Cloud Platform.
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à SAP Cloud Platform (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Dans Azure AD, vous pouvez contrôler qui a accès à SAP Cloud Platform.
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à SAP Cloud Platform (via l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à SAP Cloud Platform, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD
-- Un abonnement SAP Cloud Platform pour lequel l’authentification unique est activée
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Abonnement SAP Cloud Platform pour lequel l’authentification unique est activée
 
 À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à SAP Cloud Platform pourront s’authentifier de manière unique dans l’application (connexion initiée par le fournisseur du service) à l’aide de la [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
@@ -47,71 +46,69 @@ Pour configurer l’intégration d’Azure AD à SAP Cloud Platform, vous avez b
 >Vous devez déployer votre propre application ou vous abonner à une application sur votre compte SAP Cloud Platform pour tester l’authentification unique. Dans ce didacticiel, une application est déployée dans le compte.
 > 
 
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
-
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de SAP Cloud Platform à partir de la galerie
-1. Configuration et test de l’authentification unique Azure AD
+Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
+
+* SAP Cloud Platform prend en charge l’authentification unique initiée par **SP**
 
 ## <a name="adding-sap-cloud-platform-from-the-gallery"></a>Ajout de SAP Cloud Platform à partir de la galerie
+
 Pour configurer l’intégration de SAP Cloud Platform à Azure AD, vous devez ajouter SAP Cloud Platform disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
 **Pour ajouter SAP Cloud Platform à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
-    ![Bouton Azure Active Directory][1]
+    ![Bouton Azure Active Directory](common/select-azuread.png)
 
-1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
-    ![Panneau Applications d’entreprise][2]
-    
-1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-    ![Bouton Nouvelle application][3]
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-1. Dans la zone de recherche, tapez **SAP Cloud Platform**, sélectionnez **SAP Cloud Platform** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+    ![Bouton Nouvelle application](common/add-new-app.png)
 
-    ![SAP Cloud Platform dans la liste des résultats](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_addfromgallery.png)
+4. Dans la zone de recherche, tapez **SAP Cloud Platform**, sélectionnez **SAP Cloud Platform** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+
+     ![SAP Cloud Platform dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec SAP Cloud Platform avec un utilisateur de test appelé « Britta Simon ».
-
-Pour que l’authentification unique fonctionne, Azure AD doit connaître l’utilisateur SAP Cloud Platform correspondant à l’utilisateur Azure AD. En d’autres termes, une relation doit être établie entre l’utilisateur Azure AD et l’utilisateur SAP Cloud Platform associé.
-
-Dans SAP Cloud Platform, affectez la valeur du **nom d’utilisateur** dans Azure AD comme valeur du **nom d’utilisateur** pour établir la relation.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec SAP Cloud Platform avec un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur SAP Cloud Platform associé doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD avec SAP Cloud Platform, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Créer un utilisateur test SAP Cloud Platform](#create-a-sap-cloud-platform-test-user)** pour avoir un équivalent de Britta Simon dans SAP Cloud Platform lié à la représentation Azure AD associée.
-1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+2. **[Configurer l’authentification unique SAP Cloud Platform](#configure-sap-cloud-platform-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur test SAP Cloud Platform](#create-sap-cloud-platform-test-user)** pour avoir un équivalent de Britta Simon dans SAP Cloud Platform lié à la représentation Azure AD associée.
+6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application SAP Cloud Platform.
+Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-**Pour configurer l’authentification unique Azure AD avec SAP Cloud Platform, effectuez les étapes suivantes :**
+Pour configurer l’authentification unique Azure AD avec SAP Cloud Platform, effectuez les étapes suivantes :
 
-1. Dans le portail Azure, dans la page d’intégration de l’application **SAP Cloud Platform**, cliquez sur **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **SAP Cloud Platform**, sélectionnez **Authentification unique**.
 
-    ![Lien Configurer l’authentification unique][4]
+    ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
-    ![Boîte de dialogue Authentification unique](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_samlbase.png)
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
-1. Dans la section **Domaine et URL SAP Cloud Platform**, effectuez les étapes suivantes :
+    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-    ![Informations d’authentification unique dans Domaine et URL SAP Cloud Platform](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_url.png)
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+
+    ![Modifier la configuration SAML de base](common/edit-urls.png)
+
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
+
+    ![Informations d’authentification unique dans Domaine et URL SAP Cloud Platform](common/sp-identifier-reply.png)
 
     a. Dans la zone de texte **URL d’authentification**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application **SAP Cloud Platform**. Il s’agit de l’URL spécifique au compte d’une ressource protégée de votre application SAP Cloud Platform. L’URL est basée sur le modèle suivant : `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
@@ -148,22 +145,19 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE] 
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Contactez l’[équipe de support client SAP Cloud Platform](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html) pour obtenir l’URL de connexion et l’identificateur. URL de réponse que vous obtenez dans la section Gestion des approbations qui est expliquée plus loin dans le didacticiel.
     > 
-     
-1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+4. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération**  en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_certificate.png) 
+    ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-1. Cliquez sur le bouton **Enregistrer** .
-
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/sap-hana-cloud-platform-tutorial/tutorial_general_400.png)
+### <a name="configure-sap-cloud-platform-single-sign-on"></a>Configurer l’authentification unique SAP Cloud Platform
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à SAP Cloud Platform Cockpit à l’adresse `https://account.<landscape host>.ondemand.com/cockpit`(par exemple : https://account.hanatrial.ondemand.com/cockpit).
 
-1. Cliquez sur l’onglet **Trust** .
+2. Cliquez sur l’onglet **Trust** .
    
     ![Trust](./media/sap-hana-cloud-platform-tutorial/ic790800.png "Trust")
 
-1. Dans la section Gestion des approbations, sous **Fournisseur de services local**, procédez comme suit :
+3. Dans la section Gestion des approbations, sous **Fournisseur de services local**, procédez comme suit :
 
     ![Trust Management](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Trust Management")
    
@@ -181,7 +175,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     g. Cliquez sur **Enregistrer**.
 
-1. Une fois les paramètres **Fournisseur de services local** enregistrés, procédez comme suit pour obtenir l’URL de réponse :
+4. Une fois les paramètres **Fournisseur de services local** enregistrés, procédez comme suit pour obtenir l’URL de réponse :
    
     ![Obtenir les métadonnées](./media/sap-hana-cloud-platform-tutorial/ic793930.png "Obtenir les métadonnées")
 
@@ -191,7 +185,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
     c. Copiez la valeur de l’attribut **Emplacement** et collez-la dans le champ **URL de réponse** dans la configuration d’Azure AD pour SAP Cloud Platform.
 
-1. Cliquez sur l’onglet **Trusted Identity Provider**, puis sur **Add Trusted Identity Provider**.
+5. Cliquez sur l’onglet **Trusted Identity Provider**, puis sur **Add Trusted Identity Provider**.
    
     ![Trust Management](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Trust Management")
    
@@ -200,7 +194,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > 
     > 
 
-1. Cliquez sur l’onglet **General**, puis sur **Browse** pour charger le fichier de métadonnées que vous avez téléchargé.
+6. Cliquez sur l’onglet **General**, puis sur **Browse** pour charger le fichier de métadonnées que vous avez téléchargé.
     
     ![Trust Management](./media/sap-hana-cloud-platform-tutorial/ic793932.png "Trust Management")
     
@@ -208,9 +202,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     >Après avoir téléchargé le fichier de métadonnées, les valeurs de **Authentification unique**, **URL de déconnexion unique** et de **Certificat de signature** sont remplies automatiquement.
     > 
      
-1. Cliquez sur onglet **Attributes** .
+7. Cliquez sur onglet **Attributes** .
 
-1. Sous l’onglet **Attributes**, procédez comme suit :
+8. Sous l’onglet **Attributes**, procédez comme suit :
     
     ![Attributs](./media/sap-hana-cloud-platform-tutorial/ic790804.png "Attributs") 
 
@@ -240,43 +234,58 @@ Par exemple, si l’assertion contient l’attribut « *contract=temporaire* �
  
 Utilisez des groupes basés sur une assertion quand vous voulez affecter simultanément plusieurs utilisateurs à un ou plusieurs rôles d’applications dans votre compte SAP Cloud Platform. Si vous ne voulez affecter qu’un seul utilisateur ou un petit nombre d’utilisateurs à des rôles spécifiques, nous vous recommandons de les affecter directement dans l’onglet « **Autorisations** » de SAP Cloud Platform Cockpit.
 
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-   ![Créer un utilisateur de test Azure AD][100]
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
-1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
+2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 
-    ![Bouton Azure Active Directory](./media/sap-hana-cloud-platform-tutorial/create_aaduser_01.png)
+    ![Bouton Nouvel utilisateur](common/new-user.png)
 
-1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/sap-hana-cloud-platform-tutorial/create_aaduser_02.png)
+    ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
+  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
+    Par exemple, BrittaSimon@contoso.com
 
-    ![Bouton Ajouter](./media/sap-hana-cloud-platform-tutorial/create_aaduser_03.png)
-
-1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
-
-    ![Boîte de dialogue Utilisateur](./media/sap-hana-cloud-platform-tutorial/create_aaduser_04.png)
-
-    a. Dans la zone **Nom**, tapez **BrittaSimon**.
-
-    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Cliquez sur **Créer**.
- 
-### <a name="create-a-sap-cloud-platform-test-user"></a>Créer un utilisateur test SAP Cloud Platform
+
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à SAP Cloud Platform.
+
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis sélectionnez **SAP Cloud Platform**.
+
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+
+2. Dans la liste des applications, tapez et sélectionnez **SAP Cloud Platform**.
+
+    ![Lien SAP Cloud Platform dans la liste Applications](common/all-applications.png)
+
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
+
+    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
+
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+
+    ![Volet Ajouter une attribution](common/add-assign-user.png)
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+### <a name="create-sap-cloud-platform-test-user"></a>Créer un utilisateur test SAP Cloud Platform
 
 Pour permettre aux utilisateurs d’Azure AD de se connecter à SAP Cloud Platform, vous devez leur attribuer des rôles dans SAP Cloud Platform.
 
@@ -284,7 +293,7 @@ Pour permettre aux utilisateurs d’Azure AD de se connecter à SAP Cloud Platfo
 
 1. Connectez-vous à votre cockpit **SAP Cloud Platform**.
 
-1. Procédez comme suit :
+2. Procédez comme suit :
    
     ![Autorisations](./media/sap-hana-cloud-platform-tutorial/ic790805.png "Autorisations")
    
@@ -298,61 +307,17 @@ Pour permettre aux utilisateurs d’Azure AD de se connecter à SAP Cloud Platfo
 
     e. Cliquez sur **Enregistrer**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à SAP Cloud Platform.
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-![Attribuer le rôle utilisateur][200] 
-
-**Pour affecter Britta Simon à SAP Cloud Platform, procédez comme suit :**
-
-1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
-
-    ![Affecter des utilisateurs][201] 
-
-1. Dans la liste des applications, sélectionnez **SAP Cloud Platform**.
-
-    ![Lien SAP Cloud Platform dans la liste Applications](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_app.png)  
-
-1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
-
-    ![Lien « Utilisateurs et groupes »][202]
-
-1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
-
-    ![Volet Ajouter une attribution][203]
-
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
-
-1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
-
-1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
-
-L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
-
-Lorsque vous cliquez sur la vignette SAP Cloud Platform dans le volet d’accès, vous devez être connecté automatiquement à votre application SAP Cloud Platform.
-
+Lorsque vous cliquez sur la vignette SAP Cloud Platform dans le volet d’accès, vous devez être connecté automatiquement à l’application SAP Cloud Platform pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/sap-hana-cloud-platform-tutorial/tutorial_general_01.png
-[2]: ./media/sap-hana-cloud-platform-tutorial/tutorial_general_02.png
-[3]: ./media/sap-hana-cloud-platform-tutorial/tutorial_general_03.png
-[4]: ./media/sap-hana-cloud-platform-tutorial/tutorial_general_04.png
-
-[100]: ./media/sap-hana-cloud-platform-tutorial/tutorial_general_100.png
-
-[200]: ./media/sap-hana-cloud-platform-tutorial/tutorial_general_200.png
-[201]: ./media/sap-hana-cloud-platform-tutorial/tutorial_general_201.png
-[202]: ./media/sap-hana-cloud-platform-tutorial/tutorial_general_202.png
-[203]: ./media/sap-hana-cloud-platform-tutorial/tutorial_general_203.png
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

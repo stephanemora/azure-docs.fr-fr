@@ -9,23 +9,23 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 346d8a83661c487a1d9a11e4da7d7bb67843e0b4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 05af52ab492fcfe509b547efdd182a366642b9ed
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075520"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754405"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Tutoriel 3 : Ajouter des formats d’énoncé courants
+# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Didacticiel : Ajouter des formats d’énoncés de modèles courants
 
 Dans ce tutoriel, vous allez utiliser des modèles pour augmenter la prédiction des intentions et des entités tout en fournissant moins d’exemples d’énoncés. Le modèle est fourni par le biais d’un exemple d’énoncé de modèle, qui inclut la syntaxe pour identifier les entités et le texte pouvant être ignoré. Un modèle est une combinaison de correspondance par expression et de machine learning.  Les exemples de modèles d’énoncés, ainsi que les énoncés de l’intention, permettent à LUIS de mieux comprendre quels énoncés correspondent à l’intention. 
 
 **Dans ce tutoriel, vous allez découvrir comment :**
 
 > [!div class="checklist"]
-> * Utiliser l’application de tutoriel existante 
+> * Importer un exemple d’application 
 > * Créer une intention
 > * Former
 > * Publish
@@ -37,13 +37,13 @@ Dans ce tutoriel, vous allez utiliser des modèles pour augmenter la prédiction
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Utiliser l’application existante
+## <a name="import-example-app"></a>Importer un exemple d’application
 
 Continuez avec l’application créée dans le dernier tutoriel, nommée **HumanResources**. 
 
-Si vous n’avez pas l’application HumanResources du tutoriel précédent, effectuez les étapes suivantes :
+Procédez comme suit :
 
-1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
+1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
 
 2. Importez le code JSON dans une nouvelle application.
 

@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 03d7c63d09ddaf64a552a4534612f0f7e9fd249b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 66c6b6908a225301f0bce9f70b43e96047bcd6d1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312365"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791143"
 ---
-# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Démarrage rapide : Créer un cluster Apache Kafka sur HDInsight
+# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Démarrage rapide : créer un cluster Apache Kafka sur HDInsight
 
 [Apache Kafka](https://kafka.apache.org/) est une plateforme de streaming open source distribuée. Elle est souvent utilisée comme broker de messages, car elle propose des fonctionnalités similaires à une file d’attente de messages de publication/abonnement. 
 
@@ -23,7 +23,7 @@ Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster [A
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > L’API Kafka n’est accessible qu’aux ressources se trouvant dans le même réseau virtuel. Dans ce guide de démarrage rapide, vous accéderez directement au cluster suivant le protocole SSH. Pour connecter d’autres services, réseaux ou machines virtuelles à Kafka, vous devez tout d’abord créer un réseau virtuel, puis créer les ressources au sein du réseau.
 >
 > Pour plus d’informations, consultez le document [Se connecter à Apache Kafka à l’aide d’un réseau virtuel](apache-kafka-connect-vpn-gateway.md).
@@ -40,7 +40,7 @@ Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster [A
 
     * [Installez le sous-système Windows pour Linux](https://docs.microsoft.com/windows/wsl/install-win10). Les distributions Linux disponibles sur Microsoft Store fournissent la commande `ssh`.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Les étapes décrites dans ce document supposent que vous utilisez l’un des clients SSH mentionnés ci-dessus. Si vous utilisez un autre client SSH et que vous rencontrez des problèmes, consultez la documentation de votre client SSH.
     >
     > Pour plus d’informations, consultez le document [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -68,7 +68,7 @@ Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster [A
 
 3. Sélectionnez **J’accepte les termes et conditions mentionnés ci-dessus** et **Épingler au tableau de bord**, puis cliquez sur **Acheter**.
 
-> [!NOTE]
+> [!NOTE]  
 > La création du cluster peut prendre jusqu’à 20 minutes.
 
 ## <a name="connect-to-the-cluster"></a>Connexion au cluster
@@ -94,7 +94,7 @@ Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
  * Support:        https://ubuntu.com/advantage
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+    https://www.ubuntu.com/business/services/cloud
 
 83 packages can be updated.
 37 updates are security updates.
@@ -135,7 +135,7 @@ Dans cette section, vous allez récupérer les informations sur l’hôte grâce
 
     Lorsque vous y êtes invité, entrez le mot de passe du compte de connexion au cluster (pas du compte SSH).
 
-    > [!NOTE]
+    > [!NOTE]  
     > Cette commande récupère tous les hôtes ZooKeeper et retourne uniquement les deux premières entrées, ce qui assure une redondance au cas où l’un des hôtes serait inaccessible.
 
 4. Pour vérifier que la variable d’environnement est correctement définie, utilisez la commande suivante :
@@ -182,14 +182,14 @@ Kafka stocke les flux de données dans des *rubriques*. Vous pouvez utiliser l�
 
     * Chaque partition est répliquée sur trois nœuds de travail du cluster.
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > Si vous avez créé le cluster dans une région Azure comportant trois domaines d’erreur, utilisez un facteur de réplication de trois. Sinon, utilisez un facteur de réplication de quatre.
         
         Dans les régions comportant trois domaines d’erreur, un facteur de réplication de trois permet de répartir les réplicas entre les domaines d’erreur. Dans celles qui comptent deux domaines d’erreur, un facteur de réplication de quatre répartit uniformément les réplicas entre les domaines.
         
         Pour plus d’informations sur le nombre de domaines d’erreur dans une région, consultez le document [Disponibilité des machines virtuelles Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
-        > [!IMPORTANT] 
+        > [!IMPORTANT]   
         > Kafka n’est pas informé des domaines d’erreur Azure. Lors de la création de réplicas de partitions pour les rubriques, il ne peut pas distribuer les réplicas correctement pour la haute disponibilité.
 
         Pour garantir une haute disponibilité, utilisez l’[outil de rééquilibrage de partitions d’Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Cet outil doit être exécuté à partir d’une connexion SSH au nœud principal du cluster Kafka.
@@ -216,7 +216,7 @@ Kafka stocke les flux de données dans des *rubriques*. Vous pouvez utiliser l�
 
     Cette commande supprime la rubrique nommée `topicname`.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Si vous supprimez la rubrique `test` créée précédemment, vous devrez la recréer. Elle sera utilisée ultérieurement dans ce document.
 
 Pour plus d’informations sur les commandes disponibles avec l’utilitaire `kafka-topics.sh`, utilisez la commande suivante :
@@ -249,7 +249,7 @@ Pour stocker les enregistrements dans la rubrique test créée précédemment, p
    
     Cette commande permet de récupérer les enregistrements à partir de la rubrique et de les afficher. L’utilisation de `--from-beginning` indique au consommateur de démarrer à partir du début du flux, de manière à récupérer tous les enregistrements.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Si vous utilisez une version antérieure de Kafka, remplacez `--bootstrap-server $KAFKABROKERS` par `--zookeeper $KAFKAZKHOSTS`.
 
 4. Utilisez la combinaison __Ctrl + C__ pour arrêter le consommateur.
@@ -258,7 +258,7 @@ Vous pouvez également créer les producteurs et consommateurs par programme. Po
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
 
-Si vous rencontrez des problèmes lors de la création de clusters HDInsight, reportez-vous aux [exigences de contrôle d’accès](../hdinsight-administer-use-portal-linux.md#create-clusters).
+Si vous rencontrez des problèmes lors de la création de clusters HDInsight, reportez-vous aux [exigences de contrôle d’accès](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -270,7 +270,7 @@ Pour supprimer le groupe de ressources à l’aide du portail Azure :
 2. Recherchez le groupe de ressources à supprimer, puis faites un clic droit sur le bouton __Plus__ (...) se trouvant à droite de la liste.
 3. Sélectionnez __Supprimer le groupe de ressources__ et confirmez.
 
-> [!WARNING]
+> [!WARNING]  
 > La facturation du cluster HDInsight démarre à la création du cluster et s’arrête à sa suppression. La facturation est effectuée au prorata des minutes écoulées. Par conséquent, vous devez toujours supprimer votre cluster lorsqu’il n’est plus utilisé.
 > 
 > La suppression d’un cluster Kafka sur HDInsight supprime toutes les données stockées dans Kafka.

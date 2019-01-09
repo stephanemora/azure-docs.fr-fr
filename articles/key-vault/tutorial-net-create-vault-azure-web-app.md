@@ -1,5 +1,5 @@
 ---
-title: Tutoriel - Utiliser Azure Key Vault avec une application web Azure dans .NET | Microsoft Docs
+title: Tutoriel - Utiliser Azure Key Vault avec une application web Azure dans .NET - Azure Key Vault | Microsoft Docs
 description: Tutoriel - Configurer une application ASP.NET Core pour lire un secret dans le coffre de clés
 services: key-vault
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 50a7f3166d677fe1af961866ccae4445a3d810b8
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: b6dbae0f721983920c2073927fff74100528678e
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322139"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998793"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Tutoriel : Utiliser Azure Key Vault avec une application web Azure dans .NET
 
 Azure Key Vault vous permet de protéger les secrets tels que les clés API et les chaînes de connexion de base de données. Il vous permet d’accéder à vos applications, services et ressources informatiques.
 
-Dans ce tutoriel, vous allez apprendre à créer une application web Azure qui peut lire des informations dans un coffre de clés Azure. Le processus utilise des identités managées pour les ressources Azure. Pour plus d’informations sur les applications web Azure, consultez [Azure Web Apps](../app-service/app-service-web-overview.md).
+Dans ce tutoriel, vous allez apprendre à créer une application web Azure qui peut lire des informations dans un coffre de clés Azure. Le processus utilise des identités managées pour les ressources Azure. Pour plus d’informations sur les applications web Azure, consultez [Azure App Service](../app-service/overview.md).
 
 Cet article vous montre comment :
 
@@ -256,4 +256,4 @@ Vous avez créé une application web dans .NET qui stocke et récupère ses secr
 ## <a name="next-steps"></a>Étapes suivantes
 
 >[!div class="nextstepaction"]
->[Guide du développeur de coffre de clés Azure](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-developers-guide)
+>[Guide du développeur de coffre de clés Azure](https://docs.microsoft.com/azure/key-vault/key-vault-developers-guide)
