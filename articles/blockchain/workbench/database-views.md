@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 893e44b3298a03559b7dea4721e3bbbab0c65897
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4d5b98ab001bcb30091590880954c7075701e53b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615923"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607351"
 ---
 # <a name="database-views-in-azure-blockchain-workbench"></a>Vues de base de donnés dans Azure Blockchain Workbench
 
@@ -27,7 +27,7 @@ Cette section inclut une présentation des vues de la base de données et des do
 
 > [!NOTE]
 > L’utilisation directe de tables de base de données localisées dans la base de données en dehors de ces vues est possible mais elle n’est pas prise en charge.
-> 
+>
 
 ## <a name="vwapplication"></a>vwApplication
 
@@ -39,11 +39,11 @@ Cette vue fournit des détails sur les **applications** qui ont été chargées 
 | ApplicationName                  | nvarchar(50)  | Non           | Nom de l’application |
 | ApplicationDescription           | nvarchar(255) | Oui         | Description de l’application |
 | ApplicationDisplayName           | nvarchar(255) | Non           | Nom d’affichage dans une interface utilisateur |
-| ApplicationEnabled               | bit           | Non           | Identifie si l’application est actuellement activée</br> **Remarque :** même si une application peut être indiquée comme étant désactivée dans la base de données, les contrats associés restent sur le blockchain et les données relatives à ces contrats restent dans la base de données. |
+| ApplicationEnabled               | bit           | Non           | Identifie si l’application est actuellement activée<br /> **Remarque :** Même si une application peut être indiquée comme étant désactivée dans la base de données, les contrats associés restent sur la blockchain et les données relatives à ces contrats restent dans la base de données. |
 | UploadedDtTm                     | datetime2(7)  | Non           | Date et heure de chargement d’un contrat |
 | UploadedByUserId                 | int           | Non           | ID de l’utilisateur ayant chargé l’application |
 | UploadedByUserExternalId         | nvarchar(255) | Non           | Identificateur externe de l’utilisateur ayant chargé l’application. Par défaut, il s’agit de l’ID de l’utilisateur provenant d’Azure Active Directory pour le consortium.                                                                                                |
-| UploadedByUserProvisioningStatus | int           | Non           | Identifie l’état actuel du processus d’approvisionnement pour l’utilisateur. Les valeurs possibles sont les suivantes : </br>0 : l’utilisateur a été créé par l’API<br>1 : une clé a été associée à l’utilisateur dans la base de données</br>2 : l’utilisateur est entièrement configuré                         |
+| UploadedByUserProvisioningStatus | int           | Non           | Identifie l’état actuel du processus d’approvisionnement pour l’utilisateur. Les valeurs possibles sont les suivantes : <br />0 : l’utilisateur a été créé par l’API<br />1 : une clé a été associée à l’utilisateur dans la base de données<br />2 : l’utilisateur est entièrement configuré                         |
 | UploadedByUserFirstName          | nvarchar(50)  | Oui         | Prénom de l’utilisateur qui a chargé le contrat |
 | UploadedByUserLastName           | nvarchar(50)  | Oui         | Nom de l’utilisateur qui a chargé le contrat |
 | UploadedByUserEmailAddress       | nvarchar(255) | Oui         | Adresse e-mail de l’utilisateur qui a chargé le contrat |
@@ -81,7 +81,7 @@ Dans une application de *transfert de ressources*, par exemple, *John Smith* peu
 | ApplicationRoleDescription | nvarchar(255) | Oui         | Description du rôle                                                                                                                                                                                                             |
 | UserId                     | int           | Non           | ID de l’utilisateur associé au rôle |
 | UserExternalId             | nvarchar(255) | Non           | Identificateur externe de l’utilisateur associé au rôle. Par défaut, il s’agit de l’ID de l’utilisateur provenant d’Azure Active Directory pour le consortium.                                                                     |
-| UserProvisioningStatus     | int           | Non           | Identifie l’état actuel du processus d’approvisionnement pour l’utilisateur. Les valeurs possibles sont les suivantes : </br>0 : l’utilisateur a été créé par l’API</br>1 : une clé a été associée à l’utilisateur dans la base de données<br>2 : l’utilisateur est entièrement configuré |
+| UserProvisioningStatus     | int           | Non           | Identifie l’état actuel du processus d’approvisionnement pour l’utilisateur. Les valeurs possibles sont les suivantes : <br />0 : l’utilisateur a été créé par l’API<br />1 : une clé a été associée à l’utilisateur dans la base de données<br />2 : l’utilisateur est entièrement configuré |
 | UserFirstName              | nvarchar(50)  | Oui         | Prénom de l’utilisateur associé au rôle |
 | UserLastName               | nvarchar(255) | Oui         | Nom de l’utilisateur associé au rôle |
 | UserEmailAddress           | nvarchar(255) | Oui         | Adresse e-mail de l’utilisateur associé au rôle |
@@ -103,7 +103,7 @@ Cette vue fournit des détails sur les connexions qui ont été définies dans A
 | LedgerDisplayName        | nvarchar(255) | Non           | Nom d’affichage du registre dans l’interface utilisateur |
 | UserId                   | int           | Non           | ID de l’utilisateur associé à la connexion |
 | UserExternalId           | nvarchar(255) | Non           | Identificateur externe de l’utilisateur associé à la connexion. Par défaut, il s’agit de l’ID de l’utilisateur provenant d’Azure Active Directory pour le consortium. |
-| UserProvisioningStatus   | int           | Non           |Identifie l’état actuel du processus d’approvisionnement pour l’utilisateur. Les valeurs possibles sont les suivantes : </br>0 : l’utilisateur a été créé par l’API</br>1 : une clé a été associée à l’utilisateur dans la base de données<br>2 : l’utilisateur est entièrement configuré |
+| UserProvisioningStatus   | int           | Non           |Identifie l’état actuel du processus d’approvisionnement pour l’utilisateur. Les valeurs possibles sont les suivantes : <br />0 : l’utilisateur a été créé par l’API<br />1 : une clé a été associée à l’utilisateur dans la base de données<br />2 : l’utilisateur est entièrement configuré |
 | UserFirstName            | nvarchar(50)  | Oui         | Prénom de l’utilisateur associé à la connexion |
 | UserLastName             | nvarchar(255) | Oui         | Nom de l’utilisateur associé à la connexion |
 | UserEmailAddress         | nvarchar(255) | Oui         | Adresse e-mail de l’utilisateur associé à la connexion |
@@ -129,7 +129,7 @@ Cette vue fournit des détails sur les contrats déployés. Pour chaque contrat,
 | ApplicationId                            | int            | Non           | Identificateur unique de l’application |
 | ApplicationName                          | nvarchar (50)  | Non           | Nom de l’application |
 | ApplicationDisplayName                   | nvarchar (255) | Non           | Nom d’affichage dans une interface utilisateur |
-| ApplicationEnabled                       | bit            | Non           | Identifie si l’application est actuellement activée.</br> **Remarque :** même si une application peut être indiquée comme étant désactivée dans la base de données, les contrats associés restent sur le blockchain et les données relatives à ces contrats restent dans la base de données.  |
+| ApplicationEnabled                       | bit            | Non           | Identifie si l’application est actuellement activée.<br /> **Remarque :** Même si une application peut être indiquée comme étant désactivée dans la base de données, les contrats associés restent sur la blockchain et les données relatives à ces contrats restent dans la base de données.  |
 | WorkflowId                               | int            | Non           | Identificateur unique du workflow associé à un contrat |
 | WorkflowName                             | nvarchar(50)   | Non           | Nom du workflow associé à un contrat |
 | WorkflowDisplayName                      | nvarchar(255)  | Non           | Nom d’affichage du workflow associé au contrat dans l’interface utilisateur |
@@ -138,11 +138,11 @@ Cette vue fournit des détails sur les contrats déployés. Pour chaque contrat,
 | ContractFileName                         | int            | Non           | Nom du fichier contenant le code de contrat intelligent de ce workflow. |
 | ContractUploadedDtTm                     | int            | Non           | Date et heure de chargement du code de contrat |
 | ContractId                               | int            | Non           | Identificateur unique du contrat |
-| ContractProvisioningStatus               | int            | Non           | Identifie l’état actuel du processus de configuration pour le contrat. Les valeurs possibles sont les suivantes : </br>0 : le contrat a été créé par l’API dans la base de données</br>1 : le contrat a été envoyé au registre</br>2 : le contrat a été déployé avec succès dans le registre</br>3 ou 4 : le déploiement du contrat dans le registre a échoué</br>5 : le contrat a été déployé avec succès dans le registre </br></br>Les valeurs de 0 à 5 sont prises en charge à partir de la version 1.5. Pour assurer la compatibilité descendante, la version actuelle propose le mode d’affichage **vwContractV0**, qui prend uniquement en charge les valeurs de 0 à 2. |
+| ContractProvisioningStatus               | int            | Non           | Identifie l’état actuel du processus de configuration pour le contrat. Les valeurs possibles sont les suivantes : <br />0 : le contrat a été créé par l’API dans la base de données<br />1 : le contrat a été envoyé au registre<br />2 : le contrat a été déployé avec succès dans le registre<br />3 ou 4 : le déploiement du contrat dans le registre a échoué<br />5 : le contrat a été déployé avec succès dans le registre <br /><br />Les valeurs de 0 à 5 sont prises en charge à partir de la version 1.5. Pour assurer la compatibilité descendante, la version actuelle propose le mode d’affichage **vwContractV0**, qui prend uniquement en charge les valeurs de 0 à 2. |
 | ContractLedgerIdentifier                 | nvarchar (255) |             | Adresse e-mail de l’utilisateur qui a déployé le contrat |
 | ContractDeployedByUserId                 | int            | Non           | Identificateur externe pour l’utilisateur qui a déployé le contrat. Par défaut, il s’agit du GUID représentant l’ID utilisateur Azure Active Directory.                                                                                                          |
 | ContractDeployedByUserExternalId         | nvarchar(255)  | Non           | Identificateur externe pour l’utilisateur qui a déployé le contrat. Par défaut, il s’agit du GUID représentant l’ID utilisateur Azure Active Directory.                                                                                                         |
-| ContractDeployedByUserProvisioningStatus | int            | Non           | Identifie l’état actuel du processus de configuration pour l’utilisateur. Les valeurs possibles sont les suivantes : </br>0 : l’utilisateur a été créé par l’API</br>1 : une clé a été associée à l’utilisateur dans la base de données </br>2 : l’utilisateur est entièrement configuré                     |
+| ContractDeployedByUserProvisioningStatus | int            | Non           | Identifie l’état actuel du processus de configuration pour l’utilisateur. Les valeurs possibles sont les suivantes : <br />0 : l’utilisateur a été créé par l’API<br />1 : une clé a été associée à l’utilisateur dans la base de données <br />2 : l’utilisateur est entièrement configuré                     |
 | ContractDeployedByUserFirstName          | nvarchar(50)   | Oui         | Prénom de l’utilisateur qui a déployé le contrat |
 | ContractDeployedByUserLastName           | nvarchar(255)  | Oui         | Nom de l’utilisateur qui a déployé le contrat |
 | ContractDeployedByUserEmailAddress       | nvarchar(255)  | Oui         | Adresse e-mail de l’utilisateur qui a déployé le contrat |
@@ -170,7 +170,7 @@ Cette vue représente la majorité des informations relatives aux actions effect
 | WorkflowDisplayName                      | nvarchar(255) | Non           | Nom d’affichage du workflow dans une interface utilisateur |
 | WorkflowDescription                      | nvarchar(255) | Oui         | Description du workflow |
 | ContractId                               | int           | Non           | Identificateur unique du contrat |
-| ContractProvisioningStatus               | int           | Non           | Identifie l’état actuel du processus de configuration pour le contrat. Les valeurs possibles sont les suivantes : </br>0 : le contrat a été créé par l’API dans la base de données</br>1 : le contrat a été envoyé au registre</br>2 : le contrat a été déployé avec succès dans le registre</br>3 ou 4 : le déploiement du contrat dans le registre a échoué</br>5 : le contrat a été déployé avec succès dans le registre </br></br>Les valeurs de 0 à 5 sont prises en charge à partir de la version 1.5. Pour assurer la compatibilité descendante, la version actuelle propose le mode d’affichage **vwContractActionV0**, qui prend uniquement en charge les valeurs de 0 à 2. |
+| ContractProvisioningStatus               | int           | Non           | Identifie l’état actuel du processus de configuration pour le contrat. Les valeurs possibles sont les suivantes : <br />0 : le contrat a été créé par l’API dans la base de données<br />1 : le contrat a été envoyé au registre<br />2 : le contrat a été déployé avec succès dans le registre<br />3 ou 4 : le déploiement du contrat dans le registre a échoué<br />5 : le contrat a été déployé avec succès dans le registre <br /><br />Les valeurs de 0 à 5 sont prises en charge à partir de la version 1.5. Pour assurer la compatibilité descendante, la version actuelle propose le mode d’affichage **vwContractActionV0**, qui prend uniquement en charge les valeurs de 0 à 2. |
 | ContractCodeId                           | int           | Non           | Identificateur unique pour l’implémentation de code du contrat |
 | ContractLedgerIdentifier                 | nvarchar(255) | Oui         | Identificateur unique associé à la version déployée d’un contrat intelligent pour un registre distribué spécifique. Par exemple, Ethereum. |
 | ContractDeployedByUserId                 | int           | Non           | Identificateur unique de l’utilisateur qui a déployé le contrat |
@@ -183,12 +183,12 @@ Cette vue représente la majorité des informations relatives aux actions effect
 | WorkflowFunctionDisplayName              | nvarchar(255) | Non           | Nom d’affichage d’une fonction dans l’interface utilisateur. |
 | WorkflowFunctionDescription              | nvarchar(255) | Non           | Description de la fonction |
 | ContractActionId                         | int           | Non           | Identificateur unique d’une action de contrat |
-| ContractActionProvisioningStatus         | int           | Non           | Identifie l’état actuel du processus de configuration pour l’action de contrat. Les valeurs possibles sont les suivantes : </br>0 : l’action de contrat a été créée par l’API dans la base de données</br>1 : l’action de contrat a été envoyée au registre</br>2 : l’action de contrat a été déployée avec succès dans le registre</br>3 ou 4 : le déploiement du contrat dans le registre a échoué</br>5 : le contrat a été déployé avec succès dans le registre </br></br>Les valeurs de 0 à 5 sont prises en charge à partir de la version 1.5. Pour assurer la compatibilité descendante, la version actuelle propose le mode d’affichage **vwContractActionV0**, qui prend uniquement en charge les valeurs de 0 à 2. |
+| ContractActionProvisioningStatus         | int           | Non           | Identifie l’état actuel du processus de configuration pour l’action de contrat. Les valeurs possibles sont les suivantes : <br />0 : l’action de contrat a été créée par l’API dans la base de données<br />1 : l’action de contrat a été envoyée au registre<br />2 : l’action de contrat a été déployée avec succès dans le registre<br />3 ou 4 : le déploiement du contrat dans le registre a échoué<br />5 : le contrat a été déployé avec succès dans le registre <br /><br />Les valeurs de 0 à 5 sont prises en charge à partir de la version 1.5. Pour assurer la compatibilité descendante, la version actuelle propose le mode d’affichage **vwContractActionV0**, qui prend uniquement en charge les valeurs de 0 à 2. |
 | ContractActionTimestamp                  | datetime(2,7) | Non           | Timestamp de l’action de contrat |
 | ContractActionExecutedByUserId           | int           | Non           | Identificateur unique de l’utilisateur qui a exécuté l’action de contrat |
 | ContractActionExecutedByUserFirstName    | int           | Oui         | Prénom de l’utilisateur qui a exécuté l’action de contrat |
 | ContractActionExecutedByUserLastName     | nvarchar(50)  | Oui         | Nom de l’utilisateur qui a exécuté l’action de contrat |
-| ContractActionExecutedByUserExternalId   | nvarchar(255) | Oui         | Identificateur externe de l’utilisateur qui a exécuté l’action de contrat.  Par défaut, il s’agit du GUID qui représente son identité dans le consortium Azure Active Directory. |
+| ContractActionExecutedByUserExternalId   | nvarchar(255) | Oui         | Identificateur externe de l’utilisateur qui a exécuté l’action de contrat. Par défaut, il s’agit du GUID qui représente son identité dans le consortium Azure Active Directory. |
 | ContractActionExecutedByUserEmailAddress | nvarchar(255) | Oui         | Adresse e-mail de l’utilisateur qui a exécuté l’action de contrat |
 | WorkflowFunctionParameterId              | int           | Non           | Identificateur unique d’un paramètre de la fonction |
 | WorkflowFunctionParameterName            | nvarchar(50)  | Non           | Nom d’un paramètre de la fonction |
@@ -204,7 +204,7 @@ Cette vue représente la majorité des informations relatives aux actions effect
 | TransactionTo                            | nvarchar(255) | Oui         | Partie avec laquelle la transaction a eu lieu |
 | TransactionHash                          | nvarchar(255) | Oui         | Code de hachage d’une transaction |
 | TransactionIsWorkbenchTransaction        | bit           | Oui         | Bit qui indique si la transaction est une transaction Azure Blockchain Workbench |
-| TransactionProvisioningStatus            | int           | Oui         | Identifie l’état actuel du processus de configuration pour la transaction. Les valeurs possibles sont les suivantes : </br>0 : la transaction a été créée par l’API dans la base de données</br>1 : la transaction a été envoyée au registre</br>2 : la transaction a été déployée avec succès dans le registre                 |
+| TransactionProvisioningStatus            | int           | Oui         | Identifie l’état actuel du processus de configuration pour la transaction. Les valeurs possibles sont les suivantes : <br />0 : la transaction a été créée par l’API dans la base de données<br />1 : la transaction a été envoyée au registre<br />2 : la transaction a été déployée avec succès dans le registre                 |
 | TransactionValue                         | decimal(32,2) | Oui         | Valeur de la transaction |
 
 ## <a name="vwcontractproperty"></a>vwContractProperty
@@ -223,13 +223,13 @@ Cette vue représente la majorité des informations relatives aux propriétés a
 | ApplicationId                      | int           | Non           | Identificateur unique de l’application |
 | ApplicationName                    | nvarchar(50)  | Non           | Nom de l’application |
 | ApplicationDisplayName             | nvarchar(255) | Non           | Nom d’affichage dans une interface utilisateur |
-| ApplicationEnabled                 | bit           | Non           | Identifie si l’application est actuellement activée.</br>**Remarque :** même si une application peut être indiquée comme étant désactivée dans la base de données, les contrats associés restent sur le blockchain et les données relatives à ces contrats restent dans la base de données.                      |
+| ApplicationEnabled                 | bit           | Non           | Identifie si l’application est actuellement activée.<br />**Remarque :** Même si une application peut être indiquée comme étant désactivée dans la base de données, les contrats associés restent sur la blockchain et les données relatives à ces contrats restent dans la base de données.                      |
 | WorkflowId                         | int           | Non           | Identificateur unique du workflow |
 | WorkflowName                       | nvarchar(50)  | Non           | Nom du workflow |
 | WorkflowDisplayName                | nvarchar(255) | Non           | Nom d’affichage du workflow dans l’interface utilisateur |
 | WorkflowDescription                | nvarchar(255) | Oui         | Description du workflow |
 | ContractId                         | int           | Non           | Identificateur unique du contrat |
-| ContractProvisioningStatus         | int           | Non           | Identifie l’état actuel du processus de configuration pour le contrat. Les valeurs possibles sont les suivantes : </br>0 : le contrat a été créé par l’API dans la base de données</br>1 : le contrat a été envoyé au registre</br>2 : le contrat a été déployé avec succès dans le registre</br>3 ou 4 : le déploiement du contrat dans le registre a échoué</br>5 : le contrat a été déployé avec succès dans le registre </br></br>Les valeurs de 0 à 5 sont prises en charge à partir de la version 1.5. Pour assurer la compatibilité descendante, la version actuelle propose le mode d’affichage **vwContractPropertyV0**, qui prend uniquement en charge les valeurs de 0 à 2. |
+| ContractProvisioningStatus         | int           | Non           | Identifie l’état actuel du processus de configuration pour le contrat. Les valeurs possibles sont les suivantes : <br />0 : le contrat a été créé par l’API dans la base de données<br />1 : le contrat a été envoyé au registre<br />2 : le contrat a été déployé avec succès dans le registre<br />3 ou 4 : le déploiement du contrat dans le registre a échoué<br />5 : le contrat a été déployé avec succès dans le registre <br /><br />Les valeurs de 0 à 5 sont prises en charge à partir de la version 1.5. Pour assurer la compatibilité descendante, la version actuelle propose le mode d’affichage **vwContractPropertyV0**, qui prend uniquement en charge les valeurs de 0 à 2. |
 | ContractCodeId                     | int           | Non           | Identificateur unique pour l’implémentation de code du contrat |
 | ContractLedgerIdentifier           | nvarchar(255) | Oui         | Identificateur unique associé à la version déployée d’un contrat intelligent pour un registre distribué spécifique. Par exemple, Ethereum. |
 | ContractDeployedByUserId           | int           | Non           | Identificateur unique de l’utilisateur qui a déployé le contrat |
@@ -263,14 +263,14 @@ Cette vue représente la majorité des informations relatives à l’état d’u
 | ApplicationId                      | int           | Non           | Identificateur unique de l’application |
 | ApplicationName                    | nvarchar(50)  | Non           | Nom de l’application |
 | ApplicationDisplayName             | nvarchar(255) | Non           | Nom d’affichage dans une interface utilisateur |
-| ApplicationEnabled                 | bit           | Non           | Identifie si l’application est actuellement activée.</br>**Remarque :** même si une application peut être indiquée comme étant désactivée dans la base de données, les contrats associés restent sur le blockchain et les données relatives à ces contrats restent dans la base de données. |
+| ApplicationEnabled                 | bit           | Non           | Identifie si l’application est actuellement activée.<br />**Remarque :** Même si une application peut être indiquée comme étant désactivée dans la base de données, les contrats associés restent sur la blockchain et les données relatives à ces contrats restent dans la base de données. |
 | WorkflowId                         | int           | Non           | Identificateur unique du workflow |
 | WorkflowName                       | nvarchar(50)  | Non           | Nom du workflow |
 | WorkflowDisplayName                | nvarchar(255) | Non           | Nom affiché dans l’interface utilisateur |
 | WorkflowDescription                | nvarchar(255) | Oui         | Description du workflow |
 | ContractLedgerImplementationId     | nvarchar(255) | Oui         | Identificateur unique associé à la version déployée d’un contrat intelligent pour un registre distribué spécifique. Par exemple, Ethereum. |
 | ContractId                         | int           | Non           | Identificateur unique du contrat |
-| ContractProvisioningStatus         | int           | Non           |Identifie l’état actuel du processus de configuration pour le contrat. Les valeurs possibles sont les suivantes : </br>0 : le contrat a été créé par l’API dans la base de données</br>1 : le contrat a été envoyé au registre</br>2 : le contrat a été déployé avec succès dans le registre</br>3 ou 4 : le déploiement du contrat dans le registre a échoué</br>5 : le contrat a été déployé avec succès dans le registre </br></br>Les valeurs de 0 à 5 sont prises en charge à partir de la version 1.5. Pour assurer la compatibilité descendante, la version actuelle propose le mode d’affichage **vwContractStateV0**, qui prend uniquement en charge les valeurs de 0 à 2. |
+| ContractProvisioningStatus         | int           | Non           |Identifie l’état actuel du processus de configuration pour le contrat. Les valeurs possibles sont les suivantes : <br />0 : le contrat a été créé par l’API dans la base de données<br />1 : le contrat a été envoyé au registre<br />2 : le contrat a été déployé avec succès dans le registre<br />3 ou 4 : le déploiement du contrat dans le registre a échoué<br />5 : le contrat a été déployé avec succès dans le registre <br /><br />Les valeurs de 0 à 5 sont prises en charge à partir de la version 1.5. Pour assurer la compatibilité descendante, la version actuelle propose le mode d’affichage **vwContractStateV0**, qui prend uniquement en charge les valeurs de 0 à 2. |
 | ConnectionId                       | int           | Non           | Identificateur unique de l’instance blockchain sur laquelle le workflow est déployé |
 | ContractCodeId                     | int           | Non           | Identificateur unique pour l’implémentation de code du contrat |
 | ContractDeployedByUserId           | int           | Non           | Identificateur unique de l’utilisateur qui a déployé le contrat |
@@ -297,7 +297,7 @@ Cette vue fournit des détails sur les membres du consortium qui peuvent utilise
 |--------------------|---------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID                 | int           | Non           | Identificateur unique d’un utilisateur |
 | ExternalID         | nvarchar(255) | Non           | Identificateur externe d’un utilisateur. Par défaut, il s’agit du GUID représentant l’ID utilisateur Azure Active Directory. |
-| ProvisioningStatus | int           | Non           |Identifie l’état actuel du processus d’approvisionnement pour l’utilisateur. Les valeurs possibles sont les suivantes : </br>0 : l’utilisateur a été créé par l’API</br>1 : une clé a été associée à l’utilisateur dans la base de données<br>2 : l’utilisateur est entièrement configuré |
+| ProvisioningStatus | int           | Non           |Identifie l’état actuel du processus d’approvisionnement pour l’utilisateur. Les valeurs possibles sont les suivantes : <br />0 : l’utilisateur a été créé par l’API<br />1 : une clé a été associée à l’utilisateur dans la base de données<br />2 : l’utilisateur est entièrement configuré |
 | FirstName          | nvarchar(50)  | Oui         | Prénom de l’utilisateur |
 | LastName           | nvarchar(50)  | Oui         | Nom de l’utilisateur |
 | EmailAddress       | nvarchar(255) | Oui         | Adresse e-mail de l’utilisateur |
@@ -331,7 +331,7 @@ Cette vue représente les métadonnées du principal workflow de détails, ainsi
 
 ## <a name="vwworkflowfunction"></a>vwWorkflowFunction
 
-Cette vue représente les métadonnées du principal workflow de détails, ainsi que les fonctions et les paramètres du workflow. Conçue pour la création de rapports, elle contient également les métadonnées relatives à l’application associée au workflow. Cette vue comporte les données issues de plusieurs tables sous-jacentes pour faciliter la création de rapports sur les workflows.  Pour chaque fonction de workflow, cette vue contient les données suivantes :
+Cette vue représente les métadonnées du principal workflow de détails, ainsi que les fonctions et les paramètres du workflow. Conçue pour la création de rapports, elle contient également les métadonnées relatives à l’application associée au workflow. Cette vue comporte les données issues de plusieurs tables sous-jacentes pour faciliter la création de rapports sur les workflows. Pour chaque fonction de workflow, cette vue contient les données suivantes :
 
 -   Définition d’application associée
 -   Définition de workflow associé
@@ -371,7 +371,7 @@ Cette vue représente les propriétés définies pour un workflow. Pour chaque p
 | ApplicationId                | int           | Non           | Identificateur unique de l’application |
 | ApplicationName              | nvarchar(50)  | Non           | Nom de l’application |
 | ApplicationDisplayName       | nvarchar(255) | Non           | Nom d’affichage dans une interface utilisateur |
-| ApplicationEnabled           | bit           | Non           | Identifie si l’application est actuellement activée.</br>**Remarque :** même si une application peut être indiquée comme étant désactivée dans la base de données, les contrats associés restent sur le blockchain et les données relatives à ces contrats restent dans la base de données. |
+| ApplicationEnabled           | bit           | Non           | Identifie si l’application est actuellement activée.<br />**Remarque :** Même si une application peut être indiquée comme étant désactivée dans la base de données, les contrats associés restent sur la blockchain et les données relatives à ces contrats restent dans la base de données. |
 | WorkflowId                   | int           | Non           | Identificateur unique du workflow |
 | WorkflowName                 | nvarchar(50)  | Non           | Nom du workflow |
 | WorkflowDisplayName          | nvarchar(255) | Non           | Nom affiché pour le workflow dans une interface utilisateur |
@@ -398,7 +398,7 @@ Cette vue représente les propriétés associées à un workflow. Pour chaque co
 | ApplicationId                | int           | Non           | Identificateur unique de l’application |
 | ApplicationName              | nvarchar(50)  | Non           | Nom de l’application |
 | ApplicationDisplayName       | nvarchar(255) | Non           | Description de l’application |
-| ApplicationEnabled           | bit           | Non           | Identifie si l’application est actuellement activée.</br>**Remarque :** même si une application peut être indiquée comme étant désactivée dans la base de données, les contrats associés restent sur le blockchain et les données relatives à ces contrats restent dans la base de données. |
+| ApplicationEnabled           | bit           | Non           | Identifie si l’application est actuellement activée.<br />**Remarque :** Même si une application peut être indiquée comme étant désactivée dans la base de données, les contrats associés restent sur la blockchain et les données relatives à ces contrats restent dans la base de données. |
 | WorkflowId                   | int           | Non           | Identificateur unique du workflow |
 | WorkflowName                 | nvarchar(50)  | Non           | Nom du workflow |
 | WorkflowDisplayName          | nvarchar(255) | Non           | Nom affiché pour le workflow dans l’interface utilisateur |

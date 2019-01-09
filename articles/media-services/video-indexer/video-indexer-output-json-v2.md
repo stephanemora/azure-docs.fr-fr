@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 8acb1c70dc21efc87e13e0e5e94d9a61acfe01e9
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 666be9c2ebba9dc9607e4188b2390fff49fd59b9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291858"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554654"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examiner la sortie de Video Indexer générée par l’API v2
 
@@ -78,8 +78,8 @@ Cette section présente le résumé des insights.
 |Attribut | Description|
 |---|---|
 |Nom|Nom de la vidéo. Exemple : Azure Monitor.|
-|shortId|ID de la vidéo. Exemple : 63c6d532ff.|
-|privacyMode|Votre vidéo peut avoir l’un des modes suivants : **Privé**, **Public**. **Public** : tous les membres de votre compte et toutes les personnes disposant d’un lien vers la vidéo peuvent la visionner. **Privé** : tous les membres de votre compte peuvent la visionner.|
+|id|ID de la vidéo. Exemple : 63c6d532ff.|
+|privacyMode|La décomposition peut avoir l’un des modes suivants : **Privé**, **Public**. **Public** : tous les membres de votre compte et toutes les personnes disposant d’un lien vers la vidéo peuvent la visionner. **Privé** : tous les membres de votre compte peuvent la visionner.|
 |duration|Contient la durée d’un insight. La durée est exprimée en secondes.|
 |thumbnailVideoId|ID de la vidéo à partir de laquelle la vidéo miniature a été réalisée.
 |thumbnailId|ID de la miniature de la vidéo. Pour obtenir la vidéo miniature réelle, appelez la méthode Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) et transmettez-lui les attributs thumbnailVideoId et thumbnailId.|
@@ -149,7 +149,7 @@ Cette section présente le résumé des insights.
 
 Les insights sont un ensemble de dimensions (par exemple, les lignes de transcription, les visages, les marques, etc.), où chacune d’elles est une liste d’éléments uniques (par exemple, face1, face2, face3), et où chaque élément possède ses propres métadonnées et une liste de ses instances (qui sont des intervalles de temps avec des métadonnées facultatives supplémentaires).
 
-Un visage peut être doté d’un ID, d’un nom, d’une miniature, d’autres métadonnées et d’une liste de ses instances temporelles (exemple : 00:00:05 – 00:00:10, 00:01:00 - 00:02:30 and 00:41:21 – 00:41:49.) Chaque instance temporelle peut compter des métadonnées supplémentaires. Exemple : les coordonnées du rectangle du visage (20, 230, 60, 60).
+Un visage peut être doté d’un ID, d’un nom, d’une miniature, d’autres métadonnées et d’une liste de ses instances temporelles (exemple : 00:00:05 – 00:00:10, 00:01:00 - 00:02:30 et 00:41:21 – 00:41:49.) Chaque instance temporelle peut compter des métadonnées supplémentaires. Exemple : les coordonnées du rectangle du visage (20, 230, 60, 60).
 
 |Version|Version du code|
 |---|---|
@@ -553,7 +553,7 @@ Noms des entreprises et des marques de produits détectés dans la reconnaissanc
 |NOM|Description|
 |---|---|
 |CorrespondenceCount|Nombre de correspondances contenues dans la vidéo.|
-|WordCount|Nombre de mots par intervenant.|
+|SpeakerWordCount|Nombre de mots par intervenant.|
 |SpeakerNumberOfFragments|Quantité de fragments de l’intervenant dans une vidéo.|
 |SpeakerLongestMonolog|Monologue le plus long de l’intervenant. Si le monologue de l’intervenant comporte des silences, ils sont inclus. Les silences du début et de la fin du monologue sont supprimés.| 
 |SpeakerTalkToListenRatio|Le calcul est basé sur le temps passé sur le monologue de l’intervenant (sans les silences intermédiaires) divisé par la durée totale de la vidéo. L’heure est arrondie à la troisième décimale.|
@@ -767,8 +767,8 @@ Video Indexer fait des inférences des principales rubriques à partir de transc
 |NOM|Description|
 |---|---|
 |id|ID de la rubrique.|
-|Nom|Nom de la rubrique, par exemple : « Produits pharmaceutiques ».|
-|referenceId|Barres de navigation indiquant la hiérarchie des rubriques. Par exemple : « Santé et bien-être / Médecine et soins médicaux / Produits pharmaceutiques ».|
+|Nom|Nom de la rubrique, par exemple : « Produits pharmaceutiques ».|
+|referenceId|Barres de navigation indiquant la hiérarchie des rubriques. Par exemple :  « Santé et bien-être/Médecine et soins médicaux/Produits pharmaceutiques ».|
 |confidence|Score de confiance dans la plage [0,1]. Un score plus élevé est d’une plus grande confiance.|
 |Langage|Langue utilisée dans la rubrique.|
 |iptcName|Nom de code multimédia IPTC, si détecté.|

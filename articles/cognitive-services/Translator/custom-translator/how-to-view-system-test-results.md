@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 61d3869559d88e14c0b9a3c3e23cd8a1f9c2b6c4
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 701f97a006e7457fcbdcc835f87832b269f986a8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626801"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630340"
 ---
 # <a name="view-system-test-results"></a>Afficher les résultats de test système
 
@@ -26,11 +26,11 @@ Sélectionnez un projet, puis l’onglet Modèles de ce projet. Recherchez le mo
 
 L’onglet Test affiche ce qui suit :
 
-1.  Résultats des tests système : le résultat du processus de test d'apprentissage. Le processus de test génère le score BLEU.
+1.  **System Test Results (Résultats des tests système) :** résultat du processus de test lors des apprentissages. Le processus de test génère le score BLEU.
 
-    **Nombre de phrases :** nombre de phrases parallèles utilisées dans le jeu de test.
+    **Sentence Count (Nombre de phases) :** nombre de phrases parallèles utilisées dans le jeu de test.
 
-     **Score BLEU :** score BLEU généré pour un modèle au terme de l'apprentissage.
+     **BLEU Score (Score BLEU) :** score BLEU généré pour un modèle au terme de l’apprentissage.
 
     **État :** indique si le processus de test est terminé ou en cours.
 
@@ -42,7 +42,7 @@ L’onglet Test affiche ce qui suit :
 
     **Ref :** cette phrase correspond à la traduction de référence de la phrase source comme indiqué dans le jeu de données de test.
 
-    **MT :** cette phrase correspond à la traduction automatique de la phrase source effectuée par le modèle généré au terme de l'apprentissage.
+    **MT :** cette phrase correspond à la traduction automatique de la phrase source effectuée par le modèle généré au terme de l’apprentissage.
 
     ![Comparaison des résultats des tests système](media/how-to/how-to-system-test-results-2.png)
 
@@ -54,11 +54,11 @@ Cliquez sur le lien Télécharger les traductions pour télécharger un fichier 
 
 Cette archive zip téléchargée contient trois fichiers.
 
-1.  custom.mt.txt : ce fichier contient la traduction automatique des phrases de la langue source vers la langue cible effectuée par le modèle formé avec les données de l’utilisateur.
+1.  **custom.mt.txt :** ce fichier contient la traduction automatique des phrases de la langue source vers la langue cible effectuée par le modèle formé avec les données de l’utilisateur.
 
-2.  ref.txt : ce fichier contient les traductions fournies par l’utilisateur des phrases de la langue source vers la langue cible.
+2.  **ref.txt :** ce fichier contient les traductions fournies par l’utilisateur des phrases de la langue source vers la langue cible.
 
-3.  source.txt : ce fichier contient des phrases dans la langue source.
+3.  **source.txt :** ce fichier contient des phrases dans la langue source.
 
     ![Résultats des tests système téléchargés](media/how-to/how-to-download-system-test.png)
 
@@ -73,14 +73,29 @@ Pour demander un déploiement :
     ![Déployer le modèle](media/how-to/how-to-deploy-model.png)
 
 3.  Cliquez sur Déployer.
-4.  Sélectionnez la(les) région(s) où vous souhaitez déployer votre modèle, puis cliquez sur Enregistrer. Vous pouvez sélectionner plusieurs régions.
+4.  Sélectionnez **Deployed (Déployé)** pour la ou les régions où vous souhaitez déployer votre modèle, puis cliquez sur Enregistrer. Vous pouvez sélectionner **Deployed (Déployé)** pour plusieurs régions.
 
     ![Déployer le modèle](media/how-to/how-to-deploy-model-regions.png)
 
 5.  Vous pouvez afficher l’état de votre modèle dans la colonne « État ».
 
+## <a name="update-deployment-settings"></a>Mettre à jour les paramètres de déploiement
+
+Pour mettre à jour les paramètres de déploiement :
+
+1.  Sélectionnez un projet, accédez à l’onglet **Models (Modèles)**.
+
+2. Pour un modèle déployé réussi, il affiche le bouton **Update (Mettre à jour)**.
+
+    ![Déployer le modèle](media/how-to/how-to-update-undeploy-model.png)
+
+3.  Sélectionnez **Update**.
+4.  Sélectionnez **Deployed (Déployé)** ou **Undeployed (Non déployé)** pour la ou les régions où vous souhaitez déployer votre modèle (ou en annuler le déploiement), puis cliquez sur **Save (Enregistrer)**.
+
+    ![Déployer le modèle](media/how-to/how-to-undeploy-model.png)
+
 >[!Note]
->Si un modèle est déjà déployé, le bouton « Annuler le déploiement » s'affiche. Pour annuler le déploiement d'un modèle, cliquez sur « Annuler le déploiement ».
+>Si vous sélectionnez **Undeployed (Non déployé)** pour toutes les régions, le déploiement du modèle est annulé dans toutes les régions et le modèle est mis dans un état annulé. Il n’est plus disponible pour utilisation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

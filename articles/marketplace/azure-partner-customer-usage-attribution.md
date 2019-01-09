@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 1ae10fb749e671f7a8b5ca48e652711d7dcf98c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: fad023b7593b0e13b05d081a11333f5e92c8ecef
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262599"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602169"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribution de l’utilisation de client partenaire Azure
 
@@ -29,8 +29,8 @@ Microsoft propose désormais une méthode aidant les partenaires à mieux suivre
 
 En tant que partenaire Microsoft, vous pouvez associer l’utilisation d’Azure à des ressources Azure quelconques que vous configurez pour le compte d’un client. Vous pouvez former cette association sur la Place de marché Azure, dans le référentiel de démarrage rapide, dans les référentiels GitHub privés et lors d’engagements clients individualisés. Pour activer le suivi, deux approches sont possibles :
 
-- Modèles Azure Resource Manager : modèles Resource Manager ou modèles de solution permettant de déployer les services Azure afin d’exécuter les logiciels du partenaire. Les partenaires peuvent créer un modèle Resource Manager qui définit l’infrastructure et la configuration de leur solution Azure. Un modèle Resource Manager vous permet, ainsi qu’à vos clients, de déployer votre solution tout au long de son cycle de vie. Vous pouvez être certain que vos ressources sont déployées dans un état cohérent. 
-- API Azure Resource Manager : les partenaires peuvent appeler directement les API Resource Manager pour déployer un modèle Resource Manager ou pour générer les appels d’API, afin de configurer directement les services Azure. 
+- via les modèles Azure Resource Manager : modèles Resource Manager ou modèles de solution permettant de déployer les services Azure afin d’exécuter les logiciels du partenaire. Les partenaires peuvent créer un modèle Resource Manager qui définit l’infrastructure et la configuration de leur solution Azure. Un modèle Resource Manager vous permet, ainsi qu’à vos clients, de déployer votre solution tout au long de son cycle de vie. Vous pouvez être certain que vos ressources sont déployées dans un état cohérent. 
+- API Azure Resource Manager : les partenaires peuvent appeler directement les API Resource Manager pour déployer un modèle Resource Manager ou pour générer les appels d’API, afin de provisionner directement des services Azure. 
 
 L’attribution de l’utilisation de client est obligatoire pour tous les [modèles de solution](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) publiés dans la Place de marché Azure. 
 
@@ -96,7 +96,7 @@ Pour cette approche de suivi, lorsque vous concevez vos appels d’API, incluez 
 > [!Note]
 > Le format de la chaîne est important. Si le préfixe **pid-** n’est pas inclus, il est impossible d’interroger les données. D’autres kits SDK procèdent au suivi différemment. Pour implémenter cette méthode, passez en revue la prise en charge et le suivi de votre kit SDK Azure préféré. 
 
-#### <a name="example-the-python-sdk"></a>Exemple : Kit de développement logiciel (SDK) Python
+#### <a name="example-the-python-sdk"></a>Exemple : SDK Python
 
 Pour Python, utilisez l’attribut **config**. Vous pouvez uniquement ajouter l’attribut à un UserAgent. Voici un exemple :
 
@@ -270,15 +270,11 @@ Microsoft permet aux partenaires de visualiser les déploiements de leurs modèl
 
 **Qui peut ajouter un GUID à un modèle ?**
 
-La ressource de suivi vise à connecter la solution du partenaire à l’utilisation d’Azure par les clients. Les données d’utilisation sont liées à l’identité Microsoft Partner Network d’un partenaire (ID MPN). La création de rapports est mise à la disposition des partenaires sur le portail Cloud Partner.
+La ressource de suivi vise à connecter la solution du partenaire à l’utilisation d’Azure par les clients. Les données d’utilisation sont liées à l’identité Microsoft Partner Network d’un partenaire (ID MPN). 
 
 **Une fois ajouté, un GUID peut-il être modifié ?**
  
 Oui, un client ou un partenaire d’implémentation peut personnaliser le modèle et modifier ou supprimer le GUID. Nous suggérons aux partenaires de décrire de façon proactive le rôle de la ressource et le GUID à leurs clients et partenaires pour empêcher la suppression ou la modification du GUID de suivi. La modification du GUID affecte uniquement les ressources et les déploiements nouveaux, qui n’existent pas.
-
-**Quand la création de rapports sera-t-elle disponible ?**
-
-Une version bêta de la création de rapports doit être disponible bientôt. La création de rapports sera intégrée sur le portail Cloud Partner.
 
 **Puis-je effectuer le suivi de modèles déployés à partir d’un dépôt autre que Microsoft tel que GitHub ?**
 

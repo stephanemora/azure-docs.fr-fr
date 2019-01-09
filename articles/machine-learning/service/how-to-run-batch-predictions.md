@@ -11,27 +11,27 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a711b80471da0677c5e2d0dd0ee5e371e5a16f75
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7b0e3bc14c97c874b9d5936c025f4534665a461e
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268646"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752620"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Exécuter des prédictions par lots sur de grands jeux de données avec Azure Machine Learning service
 
-Dans cet article, vous apprendrez à effectuer rapidement et efficacement des prévisions sur de grandes quantités de données de façon asynchrone à l’aide d’Azure Machine Learning service.
+Dans cet article, apprendez à effectuer des prévisions sur de grandes quantités de données de façon asynchrone à l’aide d’Azure Machine Learning service.
 
 La prédiction par lots (ou le scoring par lots) fournit une inférence économique avec un débit inégalé pour les applications asynchrones. Les pipelines de prédiction par lots peuvent être mis à l’échelle pour effectuer l’inférence sur plusieurs téraoctets de données de production. La prédiction par lots est optimisée pour les débits élevés et les prédictions autonomes (fire and forget) pour un vaste ensemble de données.
 
->[!NOTE]
-> Si votre système requiert un traitement à faible latence (un seul document ou un petit ensemble de documents à traiter rapidement), utilisez le [scoring en temps réel](how-to-consume-web-service.md) plutôt que la prédiction par lots.
+>[!TIP]
+> Si votre système requiert un traitement à faible latence (pour traiter un seul document ou un petit ensemble de documents rapidement), utilisez le [scoring en temps réel](how-to-consume-web-service.md) plutôt que la prédiction par lots.
 
-Au cours des prochaines étapes, vous allez créer un [pipeline Machine Learning](concept-ml-pipelines.md) pour inscrire un modèle de vision par ordinateur préformé ([Inception-V3](https://arxiv.org/abs/1512.00567)), puis l’utiliser pour le scoring par lots des images disponibles dans votre compte d’objets Blob Azure. Les images utilisées pour le scoring sont des images sans étiquette issues du jeu de données [ImageNet](http://image-net.org/).
+Au cours des prochaines étapes, vous allez créer un [pipeline Machine Learning](concept-ml-pipelines.md) pour inscrire un modèle de vision par ordinateur préformé ([Inception-V3](https://arxiv.org/abs/1512.00567)). Puis utiliser le modèle préformé pour effectuer le scoring par lots sur les images disponibles dans votre compte Stockage Blob Azure. Les images utilisées pour le scoring sont des images sans étiquette issues du jeu de données [ImageNet](http://image-net.org/).
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](http://aka.ms/AMLFree) dès aujourd’hui.
+- Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](http://aka.ms/AMLFree).
 
 - Configurez votre environnement de développement pour installer le SDK Azure Machine Learning. Pour obtenir davantage d’informations, consultez la page [Configurer un environnement de développement pour Azure Machine Learning](how-to-configure-environment.md).
 
@@ -52,14 +52,14 @@ Les étapes suivantes vous permettent de configurer les ressources dont vous ave
 
 - Accédez au magasin de données qui dispose déjà du modèle préformé, des étiquettes d’entrée et des images pour le scoring (ces paramètres sont déjà configurés).
 - Configurez un magasin de données pour stocker vos sorties.
-- Configurez les objets DataReference afin qu’ils pointent vers les données des magasins de données précédents.
+- Configurez les objets  `DataReference`  afin qu’ils pointent vers les données des magasins de données précédents.
 - Configurez les machines ou les clusters de calcul où les étapes du pipeline seront exécutées.
 
 ### <a name="access-the-datastores"></a>Accéder aux magasins de données
 
 Tout d’abord, accédez au magasin de données qui dispose du modèle, des étiquettes et des images.
 
-Vous utiliserez un conteneur d’objets Blob public nommé *sampledata* dans le compte *pipelinedata* qui contient des images issues de l’ensemble d’évaluation ImageNet. Le nom du magasin de données pour ce conteneur public correspond à *images_datastore*. Enregistrez ce magasin de données avec votre espace de travail :
+Vous allez utiliser un conteneur de blobs public nommé *sampledata* dans le compte *pipelinedata* qui contient des images issues de l’ensemble d’évaluation ImageNet. Le nom du magasin de données pour ce conteneur public correspond à *images_datastore*. Enregistrez ce magasin de données avec votre espace de travail :
 
 ```python
 # Public blob container details
@@ -76,7 +76,7 @@ batchscore_blob = Datastore.register_azure_blob_container(ws,
 
 Ensuite, poursuivez la configuration afin d’utiliser le magasin de données par défaut pour les sorties.
 
-Lorsque vous créez votre espace de travail, des éléments de  [stockage de fichiers Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)  et de  [stockage d’objets Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)  sont joints à l’espace de travail par défaut. Le stockage de fichiers Azure représente « le magasin de données par défaut » pour un espace de travail, mais vous pouvez également utiliser le stockage d’objets Blob en tant que magasin de données. En savoir plus sur les  [options de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
+Lorsque vous créez votre espace de travail, des éléments de [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)  et [Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)  sont joints à l’espace de travail par défaut. Azure Files représente le magasin de données par défaut pour un espace de travail, mais vous pouvez également utiliser le Stockage Blob en tant que magasin de données. Pour plus d’informations, consultez [Options de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ```python
 def_data_store = ws.get_default_datastore()
@@ -86,7 +86,7 @@ def_data_store = ws.get_default_datastore()
 
 À présent, référencez les données dans votre pipeline en tant qu’entrées pour les étapes du pipeline.
 
-Dans un pipeline, une source de données est représentée par un objet [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) . L’objet DataReference pointe vers les données qui se trouvent dans un magasin de données ou qui sont accessibles par ce biais. Vous avez besoin des objets DataReference pour le répertoire utilisé pour les images d’entrée, le répertoire de stockage du modèle préformé, le répertoire dédié aux étiquettes, ainsi que le répertoire de sortie.
+Dans un pipeline, une source de données est représentée par un objet [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) . L’objet  `DataReference`  pointe vers les données qui se trouvent dans un magasin de données ou qui sont accessibles par ce biais. Vous avez besoin des objets `DataReference`  pour le répertoire utilisé pour les images d’entrée, le répertoire de stockage du modèle préformé, le répertoire dédié aux étiquettes, ainsi que le répertoire de sortie.
 
 ```python
 input_images = DataReference(datastore=batchscore_blob, 
@@ -111,7 +111,7 @@ output_dir = PipelineData(name="scores",
 
 ### <a name="set-up-compute-target"></a>Configurer la cible de calcul
 
-Dans Azure Machine Learning, le calcul (ou la cible de calcul) fait référence aux machines ou aux clusters qui effectuent les étapes de calculs de votre pipeline Machine Learning. Par exemple, vous pouvez créer un `Azure Machine Learning compute`.
+Dans Azure Machine Learning, le *calcul* (ou la *cible de calcul*) fait référence aux machines ou aux clusters qui effectuent les étapes de calcul de votre pipeline Machine Learning. Par exemple, vous pouvez créer un `Azure Machine Learning compute`.
 
 ```python
 compute_name = "gpucluster"
@@ -148,7 +148,7 @@ Avant d’utiliser le modèle préformé, vous devez télécharger le modèle et
 
 ### <a name="download-the-pretrained-model"></a>Télécharger le modèle préformé
 
-Téléchargez le modèle de vision par ordinateur préformé (InceptionV3) à l’adresse <http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz>. Une fois téléchargé, extrayez le modèle dans le sous-dossier `models`.
+Téléchargez le modèle de vision par ordinateur préformé (InceptionV3) à l’adresse <http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz>. Extrayez-le ensuite dans le sous-dossier `models`.
 
 ```python
 import os
@@ -167,6 +167,8 @@ tar.extractall(model_dir)
 
 ### <a name="register-the-model"></a>Inscrire le modèle
 
+Voici comment enregistrer le modèle :
+
 ```python
 import shutil
 from azureml.core.model import Model
@@ -183,7 +185,7 @@ model = Model.register(
 ## <a name="write-your-scoring-script"></a>Écrire votre script de scoring
 
 >[!Warning]
->Le code suivant constitue uniquement un échantillon du contenu du fichier [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/batch_score.py) utilisé par l’[exemple de bloc-notes](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-batch-scoring.ipynb). Vous aurez besoin de créer votre propre script de scoring pour votre scénario.
+>Le code suivant constitue uniquement un échantillon du contenu du fichier [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/batch_score.py) utilisé par l’[exemple de bloc-notes](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-batch-scoring.ipynb). Vous devez créer votre propre script de scoring pour votre scénario.
 
 Le script `batch_score.py` récupère les images d’entrée dans  *dataset_path*, les modèles préformés dans  *model_dir* et envoie les sorties *results-label.txt*  vers  *output_dir*.
 
@@ -297,7 +299,7 @@ Maintenant, exécutez le pipeline et examinez la sortie qu'il produit. La sortie
 pipeline = Pipeline(workspace=ws, steps=[batch_score_step])
 pipeline_run = Experiment(ws, 'batch_scoring').submit(pipeline, pipeline_params={"param_batch_size": 20})
 
-# Wait for the run to finish (this may take several minutes)
+# Wait for the run to finish (this might take several minutes)
 pipeline_run.wait_for_completion(show_output=True)
 
 # Download and review the output
@@ -312,7 +314,7 @@ df.head()
 
 ## <a name="publish-the-pipeline"></a>Publier le pipeline
 
-Une fois que vous êtes satisfait du résultat de l’exécution, publiez le pipeline afin de l’exécuter ultérieurement avec différentes valeurs d’entrée. Lorsque vous publiez un pipeline, vous obtenez un point de terminaison REST qui accepte l’appel du pipeline avec l’ensemble des paramètres que vous avez déjà intégrés à l’aide de [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py).
+Une fois que vous êtes satisfait du résultat de l’exécution, publiez le pipeline afin de l’exécuter ultérieurement avec différentes valeurs d’entrée. Lorsque vous publiez un pipeline, vous obtenez un point de terminaison REST. Celui-ci accepte l’appel du pipeline avec l’ensemble des paramètres que vous avez déjà intégrés à l’aide de [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py).
 
 ```python
 published_pipeline = pipeline_run.publish_pipeline(
@@ -321,9 +323,9 @@ published_pipeline = pipeline_run.publish_pipeline(
     version="1.0")
 ```
 
-## <a name="rerun-the-pipeline-using-the-rest-endpoint"></a>Exécuter à nouveau le pipeline à l’aide du point de terminaison REST
+## <a name="rerun-the-pipeline-by-using-the-rest-endpoint"></a>Réexécuter le pipeline à l’aide du point de terminaison REST
 
-Pour réexécuter le pipeline, vous aurez besoin d’un jeton d’en-tête d’authentification Azure Active Directory comme décrit dans la [classe AzureCliAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py).
+Pour réexécuter le pipeline, vous avez besoin d’un jeton d’en-tête d’authentification Azure Active Directory comme décrit dans la [classe AzureCliAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py).
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -344,7 +346,7 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour examiner cette opération de bout en bout, essayez le bloc-notes de scoring par lots ([how-to-use-azureml/machine-learning-pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). 
+Pour examiner cette opération de bout en bout, essayez le bloc-notes de scoring par lots dans [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
