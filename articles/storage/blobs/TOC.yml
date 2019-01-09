@@ -14,7 +14,7 @@ items:
       href: storage-blobs-introduction.md
   - name: Démarrages rapides
     items:
-    - name: Créer un compte de stockage
+    - name: Créez un compte de stockage.
       href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Gérer des objets blob sans code
       items:
@@ -44,7 +44,7 @@ items:
         href: storage-quickstart-blobs-javascript-client-libraries.md
       - name: PHP
         href: storage-quickstart-blobs-php.md
-  - name: Tutoriels
+  - name: Didacticiels
     items:
     - name: Télécharger et traiter une image
       items:
@@ -461,9 +461,9 @@ items:
       href: https://azure.microsoft.com/pricing/details/storage/blobs/
     - name: Calculatrice de prix
       href: https://azure.microsoft.com/pricing/calculator/
-    - name: Stack Overflow
+    - name: Dépassement de capacité de la pile
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
-    - name: Vidéos
+    - name: vidéos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
     - name: Explorateur de stockage Azure
       items:
@@ -541,13 +541,13 @@ items:
       href: ../blobs/data-lake-storage-quickstart-create-connect-hdi-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Bien démarrer avec l’Explorateur Stockage Azure
       href: ../blobs/data-lake-storage-explorer.md
-  - name: Tutoriels
+  - name: Didacticiels
     items:
     - name: Extraire, transformer et charger des données à l’aide d’Azure Databricks
       href: ../blobs/data-lake-storage-handle-data-using-databricks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Accéder aux données Data Lake Storage avec Databricks à l’aide de Spark
       href: ../blobs/data-lake-storage-use-databricks-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Extraire, transformer et charger des données à l’aide d’Apache Hive sur Azure HDInsight
+    - name: Extraire, transformer et charger des données avec Apache Hive sur Azure HDInsight
       href: ../blobs/data-lake-storage-tutorial-extract-transform-load-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Concepts
     items:
@@ -627,13 +627,13 @@ items:
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Mises à jour de service
       href: https://azure.microsoft.com/updates/?product=storage
-    - name: Stack Overflow
+    - name: Dépassement de capacité de la pile
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
-    - name: Vidéos
+    - name: vidéos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: fe6113657f033501f53b761b71fe4bc0104bf611
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 0b87fc2be7602e865693c2013cf18ea11e47e7c3
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386976"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104248"
