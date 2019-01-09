@@ -22,7 +22,7 @@ ms.lasthandoff: 07/10/2018
 ms.locfileid: "37047041"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copier des données vers et à partir d’un système de fichiers local à l’aide d’Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez:"]
 > * [Version 1](data-factory-onprem-file-system-connector.md)
 > * [Version 2 (version actuelle)](../connector-file-system.md)
 
