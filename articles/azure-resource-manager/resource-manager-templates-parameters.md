@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2018
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d09a057d9b8a02c7f8313161e64aa3a42eb6db2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fd6fcff6ac556abe3b2d34c7e8b1b0290208f5b0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604333"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722140"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Section des paramètres des modèles Azure Resource Manager
-C’est dans la section des paramètres du modèle que vous pouvez spécifier les valeurs que vous pouvez saisir lors du déploiement des ressources. Ces valeurs de paramètre vous permettent de personnaliser le déploiement grâce à des valeurs adaptées à un environnement particulier (par exemple développement, test et production). Il est inutile de fournir des paramètres dans votre modèle, mais sans les paramètres, votre modèle déploie toujours les mêmes ressources avec les mêmes noms, emplacements et propriétés.
+C’est dans la section des paramètres du modèle que vous pouvez spécifier les valeurs que vous pouvez saisir lors du déploiement des ressources. Ces valeurs de paramètre vous permettent de personnaliser le déploiement grâce à des valeurs adaptées à un environnement particulier (par exemple développement, test et production). Vous n’êtes pas obligé de fournir des paramètres dans votre modèle, mais sans paramètres, votre modèle déploie toujours les mêmes ressources avec les mêmes noms, emplacements et propriétés.
 
-Vous êtes limité à 255 paramètres dans un modèle. Vous pouvez réduire le nombre de paramètres en utilisant des objets contenant plusieurs propriétés, comme indiqué dans cet article.
+Vous êtes limité à 256 paramètres dans un modèle. Vous pouvez réduire le nombre de paramètres en utilisant des objets contenant plusieurs propriétés, comme indiqué dans cet article.
 
 ## <a name="define-and-use-a-parameter"></a>Définir et utiliser un paramètre
 
@@ -85,19 +85,19 @@ L’exemple précédent a seulement illustré quelques-unes des propriétés que
 
 | Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
-| nom_paramètre |OUI |Nom du paramètre. Doit être un identificateur JavaScript valide. |
-| Type |OUI |Type de la valeur du paramètre. Les types et valeurs autorisés sont : **string**, **secureString**, **int**, **bool**, **object**, **secureObject** et **array**. |
+| nom_paramètre |Oui |Nom du paramètre. Doit être un identificateur JavaScript valide. |
+| Type |Oui |Type de la valeur du paramètre. Les types et valeurs autorisés sont : **string**, **secureString**, **int**, **bool**, **object**, **secureObject** et **array**. |
 | defaultValue |Non  |Valeur par défaut du paramètre, si aucune valeur n'est fournie pour le paramètre. |
 | allowedValues |Non  |Tableau des valeurs autorisées pour le paramètre afin de vous assurer que la bonne valeur a bien été fournie. |
 | minValue |Non  |Valeur minimale pour les paramètres de type int, cette valeur est inclusive. |
 | maxValue |Non  |Valeur maximale pour les paramètres de type int. Cette valeur est inclusive. |
-| minLength |Non  |Valeur minimale pour les paramètres de type string, securestring et array. Cette valeur est inclusive. |
-| maxLength |Non  |Valeur maximale pour les paramètres de type string, securestring et array. Cette valeur est inclusive. |
+| minLength |Non  |Valeur minimale pour les paramètres de type string, secure string et array. Cette valeur est inclusive. |
+| maxLength |Non  |Valeur maximale pour les paramètres de type string, secure string et array. Cette valeur est inclusive. |
 | description |Non  |Description du paramètre qui apparaît aux utilisateurs dans le portail. |
 
 ## <a name="template-functions-with-parameters"></a>Fonctions de modèle avec des paramètres
 
-Quand vous fournissez la valeur par défaut d’un paramètre, vous pouvez utiliser la plupart des fonctions de modèle. Vous pouvez utiliser une autre valeur de paramètre pour générer une valeur par défaut. Le modèle suivant illustre l’utilisation de fonctions avec les valeurs par défaut :
+Quand vous spécifiez la valeur par défaut d’un paramètre, vous pouvez utiliser la plupart des fonctions de modèle. Vous pouvez utiliser une autre valeur de paramètre pour générer une valeur par défaut. Le modèle suivant illustre l’utilisation de fonctions avec les valeurs par défaut :
 
 ```json
 "parameters": {
@@ -188,74 +188,6 @@ Référencez ensuite les sous-propriétés du paramètre en utilisant l’opéra
 ]
 ```
 
-## <a name="recommendations"></a>Recommandations
-Les informations suivantes peuvent être utiles lorsque vous travaillez avec des paramètres :
-
-* Réduisez l’utilisation des paramètres. Si possible, utilisez une variable ou une valeur littérale. Utilisez des paramètres uniquement pour les scénarios suivants :
-   
-   * les paramètres que vous souhaitez utiliser varient en fonction de l’environnement (référence SKU, taille, capacité) ;
-   * les noms de ressources que vous souhaitez spécifier pour faciliter l’identification ;
-   * les valeurs que vous utilisez souvent pour effectuer d’autres tâches (par exemple, le nom d’utilisateur administrateur) ;
-   * les clés secrètes (notamment les mots de passe) ;
-   * le nombre ou le tableau de valeurs à utiliser lors de la création de plusieurs instances d’un type de ressource.
-* Utilisez la casse mixte pour les noms de paramètre.
-* Fournissez une description dans les métadonnées pour chaque paramètre :
-
-   ```json
-   "parameters": {
-       "storageAccountType": {
-           "type": "string",
-           "metadata": {
-               "description": "The type of the new storage account created to store the VM disks."
-           }
-       }
-   }
-   ```
-
-* Définissez des valeurs par défaut pour les paramètres (à l’exception des mots de passe et des clés SSH). En fournissant une valeur par défaut, le paramètre devient facultatif durant le déploiement. La valeur par défaut peut être une chaîne vide. 
-   
-   ```json
-   "parameters": {
-        "storageAccountType": {
-            "type": "string",
-            "defaultValue": "Standard_GRS",
-            "metadata": {
-                "description": "The type of the new storage account created to store the VM disks."
-            }
-        }
-   }
-   ```
-
-* Utilisez **securestring** pour tous les mots de passe et les clés secrètes. Si vous transmettez des données sensibles dans un objet JSON, utilisez le type **secureObject**. Il est impossible de lire les paramètres du modèle dont le type est securestring ou secureobject après le déploiement de la ressource. 
-   
-   ```json
-   "parameters": {
-       "secretValue": {
-           "type": "securestring",
-           "metadata": {
-               "description": "The value of the secret to store in the vault."
-           }
-       }
-   }
-   ```
-
-* Utilisez un paramètre pour indiquer l’emplacement et partagez cette valeur de paramètre autant que possible avec les ressources qui sont susceptibles de se trouver dans le même emplacement. Cette approche réduit le nombre de fois où les utilisateurs sont invités à fournir des informations d’emplacement. Si un type de ressource est uniquement pris en charge dans un nombre limité d’emplacements, envisagez de spécifier un emplacement valide directement dans le modèle, ou ajoutez un autre paramètre d’emplacement. Si une organisation limite les régions autorisées pour les utilisateurs, l’expression **resourceGroup().location** peut empêcher un utilisateur de déployer le modèle. Par exemple, un utilisateur crée un groupe de ressources dans une région. Un deuxième utilisateur doit effectuer un déploiement vers ce groupe de ressources, mais n’a pas accès à la région. 
-   
-   ```json
-   "resources": [
-     {
-         "name": "[variables('storageAccountName')]",
-         "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
-         "location": "[parameters('location')]",
-         ...
-     }
-   ]
-   ```
-    
-* Évitez d’utiliser un paramètre ou une variable pour la version de l’API pour un type de ressource. Les propriétés de ressource et les valeurs peuvent varier selon le numéro de version. IntelliSense dans des éditeurs de code n’est pas en mesure de déterminer le schéma correct lorsque la version de l’API est définie sur un paramètre ou une variable. Au lieu de cela, codez en dur la version de l’API dans le modèle.
-* Évitez d’indiquer dans votre modèle un nom de paramètre correspondant à un paramètre dans la commande de déploiement. Resource Manager élimine ce risque de conflit de noms en ajoutant le suffixe **FromTemplate** au paramètre du modèle. Par exemple, si vous incluez dans votre modèle un paramètre nommé **ResourceGroupName**, celui-ci est en conflit avec le paramètre **ResourceGroupName** dans l’applet de commande [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Pendant le déploiement, vous êtes invité à fournir une valeur pour **ResourceGroupNameFromTemplate**.
-
 ## <a name="example-templates"></a>Exemples de modèles
 
 Ces exemples de modèles montrent quelques scénarios d’utilisation de paramètres. Déployez-les pour tester la façon dont les paramètres sont gérés dans différents cas de figure.
@@ -269,5 +201,5 @@ Ces exemples de modèles montrent quelques scénarios d’utilisation de paramè
 
 * Pour afficher des modèles complets pour de nombreux types de solutions, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/).
 * Pour plus d’informations sur la saisie des valeurs de paramètre au cours du déploiement, consultez [Déployer une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md). 
-* Pour plus d’informations sur les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md).
+* Pour obtenir des recommandations sur la création de modèles, consultez [Bonnes pratiques relatives aux modèles Azure Resource Manager](template-best-practices.md).
 * Pour plus d’informations sur l’utilisation d’un objet de paramètre, consultez [Utiliser un objet en tant que paramètre dans un modèle Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).

@@ -1,20 +1,19 @@
 ---
 title: Créer une application console .NET pour gérer des données dans le compte de l’API SQL Azure Cosmos DB (kit SDK Version 3 - préversion)
 description: Un didacticiel qui crée une application de base de données en ligne et de console C# à l’aide de l’API SQL.
-keywords: didacticiel nosql, base de données en ligne, application console c#
 author: deborahc
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 139d7a13b9f6ce6132bffb798aa41b207ebf7929
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 27686adb7ae20e50ce822f83002135844f9f93bb
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317405"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037019"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Créer une application console .NET pour gérer des données dans le compte de l’API SQL Azure Cosmos DB (kit SDK Version 3 - préversion)
 

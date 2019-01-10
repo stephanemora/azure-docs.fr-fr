@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2018
 ms.author: ryanwi
-ms.openlocfilehash: 968c9f2455269cf41a701de685e4f47255b46847
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 064d73aa3d1a9183eddd53b1a1b8ddbf02afb04d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386419"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792847"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Préparer votre environnement de développement sur Windows
 > [!div class="op_single_selector"]
@@ -50,6 +50,9 @@ Les versions de système d’exploitation prises en charge pour le développemen
 ## <a name="install-the-sdk-and-tools"></a>Installer le Kit de développement logiciel (SDK) et les outils
 Web Platform Installer (WebPI) est la méthode recommandée pour installer le Kit de développement logiciel (SDK) et les outils. Si vous recevez des erreurs de runtime utilisant WebPI, vous trouverez également des liens directs vers les programmes d’installation dans les notes de publication pour une version spécifique de Service Fabric. Les notes de publication figurent dans les diverses annonces de version sur le [blog de l’équipe Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/).
 
+> [!NOTE]
+> Les mises à niveau du cluster de développement Service Fabric local ne sont pas prises en charge.
+
 ### <a name="to-use-visual-studio-2017"></a>Pour utiliser Visual Studio 2017
 Les outils Service Fabric font partie de la charge de travail de développement Azure dans Visual Studio 2017. Activez cette charge de travail dans le cadre de votre installation de Visual Studio.
 En outre, vous devez installer le Kit de développement logiciel (SDK) et le runtime Microsoft Azure Service Fabric à l’aide de Web Platform Installer.
@@ -66,8 +69,8 @@ Si vous avez uniquement besoin du SDK, vous pouvez installer ce package :
 * [Installer le Kit de développement logiciel (SDK) Microsoft Azure Service Fabric][core-sdk]
 
 Les versions actuelles sont les suivantes :
-* Outils et kit SDK Service Fabric 3.3.617
-* Runtime Service Fabric 6.4.617
+* SDK et outils Service Fabric 3.3.622
+* Runtime Service Fabric 6.4.622
 * Outils Service Fabric pour Visual Studio 2015 2.4.11116.1
 * Visual Studio 2017 15.9 inclut les outils Service Fabric pour Visual Studio 2.4.11024.1 
 

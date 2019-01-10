@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 43f3628878654a32be8aeafe1ba0d2e42e03d82f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d64c55857cda0aa64dc010566490e1696fffdea0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240407"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972377"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurer un groupe de disponibilité AlwaysOn sur des machines virtuelles Azure dans des emplacements différents
 
@@ -84,6 +84,7 @@ Pour créer un réplica dans un centre de données distant, procédez comme suit
    - Inclure un pool principal comprenant uniquement des machines virtuelles situées dans la même région que l’équilibrage de charge.
    - Utiliser une sonde de port TCP propre à l’adresse IP.
    - Avoir une règle d’équilibrage de charge propre à SQL Server dans la même région.  
+   - Être un équilibreur de charge Standard si les machines virtuelles dans le pool de back-ends ne font pas partie d’un groupe à haute disponibilité ni d’un groupe de machines virtuelles identiques. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
 1. [Ajoutez la fonction de Clustering avec basculement au nouveau serveur SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms).
 

@@ -14,27 +14,30 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0f4ff7c11952e6e222104b3953c547a91b4fc124
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 487872b1e9344aaefad5ca0953c41b59f01027b0
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223070"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753963"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guide de publication de la Place de marché Azure et AppSource
 
 Le guide de publication de la Place de marché a été conçu pour aider les nouveaux éditeurs et ceux qui le sont déjà à utiliser les vitrines de la [Place de marché Azure](https://azuremarketplace.microsoft.com) et [Microsoft AppSource](https://appsource.microsoft.com) afin de développer leur partenariat commercial avec Microsoft en proposant des applications et des services.
 
+>[!Note]
+>La Place de marché fait ici référence à la fois à la Place de marché Azure et à AppSource.  Pour plus d’informations, consultez [Une Place de marché, deux vitrines](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace).
+
 Ce guide aborde les thèmes suivants : 
 *   Ce qu’est la Place de marché et comment elle fonctionne 
 *   La différence entre la vitrine de la Place de marché Azure et celle d’AppSource 
 *   Les avantages à participer à la Place de marché 
-*   La marche à suivre pour devenir éditeur et proposer un catalogue d’applications ou de services 
-*   Les clés pour développer votre activité 
+*   la marche à suivre pour devenir éditeur et proposer un catalogue d’applications ou de services ; 
+*   les clés pour développer votre activité. 
 
 Ce guide contient des informations techniques et commerciales sur les étapes à effectuer avant de proposer des applications et des services. Utilisez la table des matières pour accéder aux différentes sections du guide et accéder directement aux rubriques clés.
 
-Pour toute autre question sur la Place de marché Azure et AppSource, envoyez-nous un message sous **Type de problème** > **Intégration à la Place de marché**.  Notre équipe d’intégration des éditeurs sur la Place de marché se fera un plaisir de vous aider ! 
+Pour toute autre question sur la Place de marché Azure et AppSource, envoyez-nous un message sous **Type de problème** > **Intégration à la Place de marché**.  Notre équipe d’intégration des éditeurs sur la marketplace se fera un plaisir de vous aider ! 
 
 ## <a name="benefits-of-participating-in-the-marketplace"></a>Avantages à participer à la Place de marché 
 

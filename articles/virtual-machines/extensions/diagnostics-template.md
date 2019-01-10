@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 792a3401c483327eb7fb9fcd88039bc09025b3ef
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 85e9b49cb8be1a3f53ca0f3b4816e6165b68bde0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944951"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993104"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Utiliser la surveillance et les diagnostics avec une machine virtuelle Windows et des modèles Azure Resource Manager
 L’extension Diagnostics Azure fournit des fonctionnalités d’analyse et de diagnostics sur une machine virtuelle Azure basée sur Windows. Vous pouvez activer ces fonctionnalités sur la machine virtuelle en incluant l’extension dans le modèle Azure Resource Manager. Pour plus d’informations sur l’ajout d’une extension dans un modèle de machine virtuelle, consultez [Création de modèles Azure Resource Manager avec des extensions de machine virtuelle](../windows/template-description.md#extensions) . Cet article décrit comment ajouter l’extension Diagnostics Azure à un modèle de machine virtuelle Windows.  
@@ -92,13 +92,13 @@ L’extrait de code JSON de l’extension Diagnostics ci-dessus suppose deux par
     "type": "string",
     "metadata": {
 "description": "The name of an existing storage account to which diagnostics data is transfered."
-    }        
+    }
 },
 "existingdiagnosticsStorageResourceGroup": {
     "type": "string",
     "metadata": {
 "description": "The resource group for the storage account specified in existingdiagnosticsStorageAccountName"
-      }
+    }
 }
 ```
 
@@ -158,24 +158,24 @@ La valeur MetricAggregation de *PT1M* et *PT1H* fait référence à une agrégat
 ## <a name="wadmetrics-tables-in-storage"></a>Tables WADMetrics dans le stockage
 La configuration des métriques ci-dessus génère les tables de votre compte de stockage de diagnostics avec les conventions de nommage suivantes :
 
-* **WADMetrics** : préfixe standard pour toutes les tables WADMetrics
-* **PT1H** ou **PT1M** : indique que la table contient des données agrégées sur 1 heure ou 1 minute
-* **P10D** : indique que la table contiendra les données pour une période de 10 jours à partir du moment où la table a commencé à collecter les données
-* **V2S** : constante de chaîne
-* **aaaammjj** : date à laquelle la table a démarré la collecte de données
+* **WADMetrics** : Préfixe standard pour toutes les tables WADMetrics
+* **PT1H** ou **PT1M** : Indique que la table contient des données agrégées sur 1 heure ou 1 minute
+* **P10D** : Indique que la table contient les données d’une période de 10 jours à partir du moment où la table a commencé à collecter les données
+* **V2S** : Constante de chaîne
+* **aaaammjj** : Date à laquelle la table a démarré la collecte de données
 
-Exemple : *WADMetricsPT1HP10DV2S20151108* contient les données de mesures agrégées pendant une heure et pour une période de 10 jours commençant le 11 novembre 2015    
+Exemple : *WADMetricsPT1HP10DV2S20151108* contient les données de métriques agrégées sur une heure pendant 10 jours à partir du 11 novembre 2015    
 
 Chaque table WADMetrics contient les colonnes suivantes :
 
-* **PartitionKey** : la clé de partition se base sur la valeur *resourceID* pour identifier de manière unique la ressource de machine virtuelle. Par exemple : 002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
-* **RowKey** : suit le format `<Descending time tick>:<Performance Counter Name>`. Le calcul du cycle horaire décroissant correspond aux cycles horaires maximaux moins l’heure de début de la période d’agrégation. Par exemple, si la période d’échantillonnage a démarré le 10 novembre 2015 à 00h00 UTC, le calcul est le suivant : `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Pour le compteur de performances d’octets disponibles en mémoire, la clé de ligne a l’aspect suivant : `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
-* **CounterName** : nom du compteur de performances. Cela correspond à l’élément *counterSpecifier* défini dans la configuration XML.
-* **Maximum** : valeur maximale du compteur de performances sur la période d’agrégation.
-* **Minimum** : valeur minimale du compteur de performances sur la période d’agrégation.
-* **Total** : somme de toutes les valeurs du compteur de performances signalées sur la période d’agrégation.
-* **Count** : nombre total de valeurs signalées pour le compteur de performances.
-* **Average** : valeur moyenne (total/count) du compteur de performances sur la période d’agrégation.
+* **PartitionKey** : La clé de partition se base sur la valeur *resourceID* pour identifier de manière unique la ressource de machine virtuelle. Par exemple : `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
+* **RowKey** : Suit le format `<Descending time tick>:<Performance Counter Name>`. Le calcul du cycle horaire décroissant correspond aux cycles horaires maximaux moins l’heure de début de la période d’agrégation. Par exemple, si la période d’échantillonnage a démarré le 10 novembre 2015 à 00h00 UTC, le calcul est le suivant : `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Pour le compteur de performances d’octets disponibles en mémoire, la clé de ligne a l’aspect suivant : `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
+* **CounterName** : Nom du compteur de performances. Cela correspond à l’élément *counterSpecifier* défini dans la configuration XML.
+* **Maximum** : Valeur maximale du compteur de performances sur la période d’agrégation.
+* **Minimale** : Valeur minimale du compteur de performances sur la période d’agrégation.
+* **Total** : Somme de toutes les valeurs du compteur de performances signalées sur la période d’agrégation.
+* **Nombre** : Nombre total de valeurs signalées pour le compteur de performances.
+* **Average** : Valeur moyenne (total/count) du compteur de performances sur la période d’agrégation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir un exemple de modèle complet d’une machine virtuelle Windows avec l’extension Diagnostics, consultez [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   

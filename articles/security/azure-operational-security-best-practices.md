@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: terrylan
-ms.openlocfilehash: ae6eeb2506eb82160c68e15e17eeb95c1e2ec046
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 14c21db9e1da23e97815953937f434fe7f25e354
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853608"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725318"
 ---
 # <a name="azure-operational-security-best-practices"></a>Bonnes pratiques pour Azure Operational Security
 La sécurité opérationnelle Azure fait référence aux services, contrôles et fonctionnalités auxquels les utilisateurs ont accès pour protéger leurs données, leurs applications et d’autres ressources dans Azure. La sécurité opérationnelle Azure repose sur un framework qui intègre les connaissances acquises via des fonctionnalités propres à Microsoft, notamment [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl), le programme [Centre de réponse aux problèmes de sécurité Microsoft](https://www.microsoft.com/msrc?rtc=1) et une connaissance approfondie du paysage des cybermenaces.
@@ -55,39 +55,39 @@ Les clients créent un réseau de bout en bout dans Azure en combinant des resso
 
 Voici des bonnes pratiques pour la supervision du réseau et les outils disponibles.
 
-**Bonne pratique** : automatiser la supervision du réseau à distance avec la capture de paquets.  
-**Détails** : supervisez et diagnostiquez les problèmes réseau sans vous connecter à vos machines virtuelles à l’aide de Network Watcher. Déclenchez la [capture de paquets](../network-watcher/network-watcher-alert-triggered-packet-capture.md) en définissant des alertes et bénéficiez d’un accès à des informations en temps réel sur le niveau de performance au niveau du paquet. Quand vous identifiez un problème, vous pouvez l’examiner en détail pour effectuer de meilleurs diagnostics.
+**Bonne pratique** : Automatisez la surveillance réseau à distance avec la capture de paquets.  
+**Détail** : Surveillez et diagnostiquez les problèmes réseau sans vous connecter à vos machines virtuelles à l’aide de Network Watcher. Déclenchez la [capture de paquets](../network-watcher/network-watcher-alert-triggered-packet-capture.md) en définissant des alertes et bénéficiez d’un accès à des informations en temps réel sur le niveau de performance au niveau du paquet. Quand vous identifiez un problème, vous pouvez l’examiner en détail pour effectuer de meilleurs diagnostics.
 
-**Bonne pratique** : obtenir des insights sur votre trafic réseau à l’aide de journaux de flux.  
-**Détails** : développez une meilleure compréhension de vos modèles de trafic réseau à l’aide de [journaux de flux de groupes de sécurité réseau](../network-watcher/network-watcher-nsg-flow-logging-overview.md). Les informations contenues dans les journaux de flux vous aident à recueillir des données sur la conformité, l’audit et la supervision de votre profil de sécurité réseau.
+**Bonne pratique** : Obtenez des insights sur votre trafic réseau en utilisant des journaux de flux.  
+**Détail** : Développez une meilleure compréhension de vos modèles de trafic réseau à l’aide des [journaux de flux des groupes de sécurité réseau](../network-watcher/network-watcher-nsg-flow-logging-overview.md). Les informations contenues dans les journaux de flux vous aident à recueillir des données sur la conformité, l’audit et la supervision de votre profil de sécurité réseau.
 
-**Bonne pratique** : diagnostiquer les problèmes de connectivité VPN.  
-**Détails** : utilisez Network Watcher pour [diagnostiquer les problèmes les plus courants liés aux connexions et à la passerelle VPN](../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). Vous pouvez non seulement identifier le problème, mais également utiliser des journaux détaillés pour approfondir vos recherches.
+**Bonne pratique** : Diagnostiquez les problèmes de connectivité d’un VPN.  
+**Détail** : Utilisez Network Watcher pour [diagnostiquer les problèmes les plus courants liés aux connexions et à la passerelle VPN](../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). Vous pouvez non seulement identifier le problème, mais également utiliser des journaux détaillés pour approfondir vos recherches.
 
 ## <a name="secure-deployment-by-using-proven-devops-tools"></a>Sécuriser le déploiement à l’aide d’outils DevOps éprouvés
 Utilisez les bonnes pratiques DevOps suivantes pour garantir la productivité et l’efficacité de votre entreprise et de vos équipes.
 
-**Bonnes pratiques** : automatiser la génération et le déploiement de services.  
-**Détails** : [L’infrastructure en tant que code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) est un ensemble de techniques et de pratiques qui aident les professionnels de l’informatique à supprimer le fardeau que constituent la génération et la gestion quotidiennes d’une infrastructure modulaire. Elle permet aux professionnels de l’informatique de générer et de gérer leur environnement serveur moderne d’une façon similaire à celle dont les développeurs de logiciels génèrent et gèrent le code de l’application.
+**Bonne pratique** : Automatisez la génération et le déploiement des services.  
+**Détail** : [L’infrastructure en tant que code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) est un ensemble de techniques et de pratiques qui aident les professionnels de l’informatique à supprimer la charge de travail que représentent la génération et la gestion quotidiennes d’une infrastructure modulaire. Elle permet aux professionnels de l’informatique de générer et de gérer leur environnement serveur moderne d’une façon similaire à celle dont les développeurs de logiciels génèrent et gèrent le code de l’application.
 
 Vous pouvez utiliser [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) pour provisionner vos applications à l’aide d’un modèle déclaratif. Dans un modèle unique, vous pouvez déployer plusieurs services ainsi que leurs dépendances. Le même modèle vous permet de déployer plusieurs fois votre application à chaque phase du cycle de vie de l’application.
 
-**Bonne pratique** : générer et déployer automatiquement des applications web Azure ou des services cloud.  
-**Détails** : vous pouvez utiliser Azure Pipelines pour [créer et déployer automatiquement](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) dans les applications web Azure ou les services cloud. Azure Pipelines déploie automatiquement les fichiers binaires après avoir effectué une génération sur Azure au terme de chaque archivage de code. Le processus de génération de package est équivalent à la commande Package de Visual Studio, et les étapes de la publication sont identiques à la commande Publier dans Visual Studio.
+**Bonne pratique** : Générez et déployez automatiquement des applications web Azure ou des services cloud.  
+**Détail** : Vous pouvez utiliser Azure Pipelines pour [créer et déployer automatiquement](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) des applications web ou des services cloud sur Azure. Azure Pipelines déploie automatiquement les fichiers binaires après avoir effectué une génération sur Azure au terme de chaque archivage de code. Le processus de génération de package est équivalent à la commande Package de Visual Studio, et les étapes de la publication sont identiques à la commande Publier dans Visual Studio.
 
-**Bonne pratique** : utilisez le déploiement continu.  
-**Détails** : [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) est une solution pour automatiser le déploiement en plusieurs étapes et gérer le processus de mise en production. Créez des pipelines de déploiement gérés et continus pour des publications rapides, faciles et fréquentes. Avec Azure Pipelines, vous pouvez automatiser votre processus de mise en production et avoir des workflows d’approbation prédéfinis. Déployez localement et dans le cloud, étendez et personnalisez en fonction de vos besoins.
+**Bonne pratique** : Utilisez le déploiement continu.  
+**Détail** : [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) est une solution pour automatiser le déploiement en plusieurs étapes et pour gérer le processus de mise en production. Créez des pipelines de déploiement gérés et continus pour des publications rapides, faciles et fréquentes. Avec Azure Pipelines, vous pouvez automatiser votre processus de mise en production et avoir des workflows d’approbation prédéfinis. Déployez localement et dans le cloud, étendez et personnalisez en fonction de vos besoins.
 
-**Bonne pratique** : vérifier les performances de votre application avant de la lancer ou de déployer des mises à jour en production.  
-**Détails** : exécutez des [tests de charge](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) basés sur le cloud à l’aide d’Azure Test Plans pour effectuer les opérations suivantes :
+**Bonne pratique** : Vérifiez les performances de votre application avant de la lancer ou de déployer des mises à jour en production.  
+**Détail** : Exécutez des [tests de charge](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) basés sur le cloud avec Azure Test Plans pour :
 
 - Rechercher des problèmes de performances dans votre application.
 - Améliorer la qualité du déploiement.
 - Garantir que votre application est toujours disponible.
 - Garantir que votre application peut gérer le trafic de votre prochaine campagne de lancement ou marketing.
 
-**Bonne pratique** : superviser les performances d’une application.  
-**Détails** : [Azure Application Insights](../application-insights/app-insights-overview.md) est un service extensible de gestion des performances des applications (APM) destiné aux développeurs web sur plusieurs plateformes. Utilisez Application Insights pour superviser votre application web en direct. Il détecte automatiquement les problèmes de performances. Il intègre des outils d’analyse pour vous aider à diagnostiquer les problèmes et à comprendre ce que font les utilisateurs avec votre application. Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité.
+**Bonne pratique** : Surveillez les performances des applications.  
+**Détail** : [Azure Application Insights](../application-insights/app-insights-overview.md) est un service extensible de gestion des performances des applications destiné aux développeurs web sur de multiples plateformes. Utilisez Application Insights pour superviser votre application web en direct. Il détecte automatiquement les problèmes de performances. Il intègre des outils d’analyse pour vous aider à diagnostiquer les problèmes et à comprendre ce que font les utilisateurs avec votre application. Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité.
 
 ## <a name="mitigate-and-protect-against-ddos"></a>Prévenir les attaques DDoS et s’en protéger
 DDoS (Distributed Denial of Service, déni de service distribué) est un type d’attaque qui tente d’épuiser les ressources d’une application. Son objectif est d’affecter la disponibilité de l’application et sa capacité à gérer des demandes légitimes. Ces attaques de plus en plus sophistiquées gagnent en importance et en impact. Elles peuvent être ciblées sur n’importe quel point de terminaison qui est publiquement accessible via Internet.
@@ -96,20 +96,20 @@ La conception et la génération d’une résilience DDoS nécessitent la planif
 
 Voici les bonnes pratiques relatives à la création de services résistants aux attaques DDoS sur Azure.
 
-**Bonne pratique** : vérifier que la sécurité est une priorité tout au long du cycle de vie d’une application, depuis la conception et l’implémentation jusqu’au déploiement et aux opérations. Les applications peuvent contenir des bogues qui laissent un volume relativement faible de requêtes conçues utiliser beaucoup de ressources, ce qui entraîne une interruption de service.  
-**Détails** : pour permettre de protéger un service fonctionnant sur Microsoft Azure, vous devez bien comprendre l’architecture de votre application et respecter les [cinq piliers de la qualité logicielle](https://docs.microsoft.com/azure/architecture/guide/pillars). Vous devez avoir connaissance des volumes de trafic habituels, du modèle de connectivité entre l’application et d’autres applications, et des points de terminaison de service exposés à l’Internet public.
+**Bonne pratique** : Assurez-vous que la sécurité est une priorité tout au long du cycle de vie d’une application, de la conception et de l’implémentation au déploiement et aux opérations. Les applications peuvent contenir des bogues qui laissent un volume relativement faible de requêtes conçues utiliser beaucoup de ressources, ce qui entraîne une interruption de service.  
+**Détail** : Pour permettre de protéger un service fonctionnant sur Microsoft Azure, vous devez bien comprendre l’architecture de votre application et respecter les [cinq piliers de la qualité logicielle](https://docs.microsoft.com/azure/architecture/guide/pillars). Vous devez avoir connaissance des volumes de trafic habituels, du modèle de connectivité entre l’application et d’autres applications, et des points de terminaison de service exposés à l’Internet public.
 
 Il est extrêmement important que vous conceviez une application suffisamment résiliente pour surmonter une attaque ciblée par déni de service. La plateforme Azure intègre des fonctionnalités de sécurité et de confidentialité, à commencer par [SDL (Security Development Lifecycle)](https://www.microsoft.com/en-us/sdl). SDL tient compte de la sécurité à chaque phase de développement et vérifie qu’Azure est continuellement mis à jour pour le rendre encore plus sécurisé.
 
-**Bonne pratique** : concevoir vos applications de telle sorte qu’elles puissent être [mises à l’échelle horizontalement](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) pour répondre à la demande d’une charge amplifiée, en particulier dans le cas d’une attaque DDoS. Si votre application repose sur une seule instance unique d’un service, cela crée un point de défaillance unique. L’approvisionnement de plusieurs instances rend votre système plus résilient et plus évolutif.  
-**Détails** : pour [Azure App Service](../app-service/app-service-value-prop-what-is.md), sélectionnez un [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) qui propose plusieurs instances.
+**Bonne pratique** : Concevez vos applications de sorte qu’elles puissent être [mises à l’échelle horizontalement](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) pour répondre à la demande d’une charge amplifiée, en particulier dans le cadre d’une attaque DDoS. Si votre application repose sur une seule instance unique d’un service, cela crée un point de défaillance unique. L’approvisionnement de plusieurs instances rend votre système plus résilient et plus évolutif.  
+**Détail** : Pour [Azure App Service](../app-service/app-service-value-prop-what-is.md), sélectionnez un [plan App Service](../app-service/overview-hosting-plans.md) qui offre plusieurs instances.
 
 Pour les Azure Cloud Services, configurez chacun de vos rôles de manière à utiliser [plusieurs instances](../cloud-services/cloud-services-choose-me.md).
 
 Pour [Machines virtuelles Azure](../virtual-machines/windows/overview.md), vérifiez que votre architecture de machine virtuelle inclut plusieurs machines virtuelles et que chaque machine virtuelle est dans un [groupe à haute disponibilité](../virtual-machines/virtual-machines-windows-manage-availability.md). Nous vous recommandons d’utiliser des groupes de machines virtuelles identiques pour les fonctionnalités de mise à l’échelle automatique.
 
-**Bonne pratique** : le fait de superposer des défenses dans une application réduit les chances de réussite d’une attaque. Implémentez des conceptions sécurisées pour vos applications à l’aide des fonctionnalités intégrées à la plateforme Azure.  
-**Détails** : plus la taille (surface d’exposition) de l’application est importante, plus le risque d’attaque est élevé. Vous pouvez réduire la surface d’exposition en créant des listes vertes permettant de limiter l’espace d’adressage IP exposé et les ports d’écoute qui ne sont pas nécessaires sur les équilibreurs de charge ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) et [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md)).
+**Bonne pratique** : Le fait de superposer des défenses dans une application réduit les chances de réussite d’une attaque. Implémentez des conceptions sécurisées pour vos applications à l’aide des fonctionnalités intégrées à la plateforme Azure.  
+**Détail** : Plus la taille (surface d’exposition) de l’application est importante, plus le risque d’attaque est élevé. Vous pouvez réduire la surface d’exposition en créant des listes vertes permettant de limiter l’espace d’adressage IP exposé et les ports d’écoute qui ne sont pas nécessaires sur les équilibreurs de charge ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) et [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md)).
 
 Les [groupes de sécurité réseau](../virtual-network/security-overview.md) permettent également de réduire la surface d’attaque. Vous pouvez utiliser des [balises de service](../virtual-network/security-overview.md#service-tags) et des [groupes de sécurité d’application](../virtual-network/security-overview.md#application-security-groups) pour simplifier la création de règles de sécurité et configurer la sécurité réseau comme prolongement naturel de la structure d’une application.
 

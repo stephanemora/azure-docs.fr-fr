@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3971311bff90d0b005acd516336e13766028cccf
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4b5b00da1c920d249283625e4970510ea00bafc8
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001559"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190742"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Démarrage rapide : Créer un serveur - PowerShell
 
@@ -21,7 +21,7 @@ Ce démarrage rapide décrit comment utiliser PowerShell à partir d’une ligne
 
 ## <a name="prerequisites"></a>Prérequis
 
-- **Abonnement Azure** : visitez [version d’évaluation gratuite d’Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) pour créer un compte.
+- **Abonnement Azure** : Visitez [Version d’évaluation gratuite d’Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) pour créer un compte.
 - **Azure Active Directory** : votre abonnement doit être associé à un client Azure Active Directory et vous devez disposer d’un compte dans ce répertoire. Pour en savoir plus, consultez [Authentification et autorisations utilisateur](analysis-services-manage-users.md).
 - **Module Azure PowerShell, version 4.0 ou ultérieure**. Pour connaître la version de l’interface, exécutez ` Get-Module -ListAvailable AzureRM`. Pour installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
 

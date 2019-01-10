@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ec1343f85216171adac22f873f9be2e72bb4c282
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: cbf134640f981056c0996ffc6768ebc1381ce2ac
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52893063"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995148"
 ---
 # <a name="add-a-heat-map-layer"></a>Ajouter un calque de carte thermique
 
 Les cartes thermiques, également appelées « cartes de densité de points », sont un type de visualisation de données utilisé pour représenter la densité de données à l’aide d’une palette de couleurs. Elles sont souvent utilisées pour afficher des « points chauds » sur une carte et sont idéales pour restituer de grands jeux de données de points.  Par exemple, le rendu de dizaines de milliers de points sous la forme de symboles prendrait quasiment tout l’espace sur une carte, avec des symboles qui se chevaucheraient, rendant les informations illisibles et l’obtention d’insights difficile. Toutefois, la visualisation de ce même jeu de données sous forme de carte thermique permet de voir plus facilement où les points de données sont les plus denses ainsi que la densité relative des autres zones. Il existe de nombreux scénarios dans lesquels les cartes thermiques sont utilisées. En voici quelques exemples :
 
 * Les données de température sont couramment affichées dans une carte thermique, car celle-ci fournit une estimation de la température située entre deux points de données.
-* Le rendu des données de capteurs de bruit sous forme de carte thermique permet non seulement de montrer le caractère nocif du bruit là où se trouve le capteur, mais également de fournir des insights sur la dissipation du bruit avec la distance. Sur un site, le niveau de bruit peut ne pas être élevé, toutefois, si les zones de couverture de plusieurs capteurs se chevauchent, il est possible que la zone de chevauchement obtienne des niveaux de bruit plus élevés, qui seraient alors visibles sur la carte thermique.
+* Le rendu des données de capteurs de bruit sous forme de carte thermique permet non seulement de montrer l’intensité du bruit là où se trouve le capteur, mais également de fournir des insights sur la dissipation du bruit avec la distance. Sur un site, le niveau de bruit peut ne pas être élevé, toutefois, si les zones de couverture de plusieurs capteurs se chevauchent, il est possible que la zone de chevauchement obtienne des niveaux de bruit plus élevés, qui seraient alors visibles sur la carte thermique.
 * La visualisation d’une trace GPS de suivi de la vitesse sous forme de carte poids-hauteur, où l’intensité de chaque point de données est basée sur la vitesse, est un excellent moyen de voir rapidement où un véhicule a accéléré.
 
 > [!TIP]

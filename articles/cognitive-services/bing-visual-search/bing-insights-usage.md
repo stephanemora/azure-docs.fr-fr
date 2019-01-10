@@ -10,20 +10,20 @@ ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: 40b9685c56dd494e82c05bff9ed75f425a3006ff
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 39468a4a143d184fcc964ae88f82ad7254e4f3b0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886625"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741740"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Exemples d’utilisation d’insights de Bing
 
-Cette section contient des exemples de la manière dont Bing peut afficher des insights sur Bing.com.
+Cet article contient des exemples d’utilisation et d’affichage d’insights relatifs aux images sur Bing.com.
 
 ## <a name="pagesincluding-insight-example"></a>Exemple d’insight PagesIncluding
 
-L’exemple suivant montre comment Bing peut afficher des pages web qui incluent l’image. L’exemple affiche un lien vers la première page web et permet à l’utilisateur de développer et de réduire la liste des autres pages web qui incluent l’image.
+L’exemple suivant affiche un lien vers la première page web et permet à l’utilisateur de développer et de réduire la liste des autres pages web qui contiennent l’image.
 
 ![Pages développés incluant](./media/pages-including.PNG)
 
@@ -83,9 +83,7 @@ Les balises autres que celles par défaut incluent le rectangle englobant qui id
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour consulter le JSON derrière ces exemples, consultez [Insights par défaut](default-insights-tag.md) et [Réponse JSON](overview.md#the-response).
-
-Pour configurer rapidement votre première requête, consultez les guides de démarrage rapide : [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
+Pour configurer rapidement votre première demande, consultez ces guides de démarrage rapide : [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
 
 
 

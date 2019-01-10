@@ -1,20 +1,17 @@
 ---
 title: Guide pratique pour utiliser sys_schema à des fins de réglage des performances et de maintenance de base de données dans Azure Database pour MySQL
 description: Cet article explique comment utiliser sys_schema pour rechercher des problèmes de performances et assurer la maintenance d’une base de données dans Azure Database pour MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/01/2018
-ms.openlocfilehash: 1e10e3b1b5f4518732408f254eb5767acb8485c6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 993c77056c09c1dc21d5317ddbfe8e937341718d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446905"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542847"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Guide pratique pour utiliser sys_schema à des fins de réglage des performances et de maintenance de base de données dans Azure Database pour MySQL
 
@@ -24,13 +21,13 @@ MySQL performance_schema, disponible initialement dans MySQL 5.5, fournit l’i
 
 Il existe 52 vues dans le sys_schema, et chaque vue présente l’un des préfixes suivants :
 
-- host_summary ou IO : latences liées aux E/S.
-- innoDB : état de la mémoire tampon et verrous InnoDB.
-- memory : utilisation de la mémoire par l’hôte et les utilisateurs.
-- schema : informations relatives au schéma, telles que l’incrémentation automatique, les index, etc.
-- statement : informations sur les instructions SQL ; il peut s’agir d’une instruction qui a entraîné une analyse de table complète ou une longue durée de requête.
-- user : ressources consommées et regroupées par utilisateurs. Il peut s’agir par exemple d’E/S de fichiers, de connexions ou de mémoire.
-- wait : événements d’attente regroupés par hôte ou utilisateur.
+- Host_summary ou IO : latences liées aux E/S.
+- InnoDB : état de la mémoire tampon et verrous InnoDB.
+- Memory : utilisation de la mémoire par l’hôte et les utilisateurs.
+- Schema : informations relatives au schéma, telles que l’incrémentation automatique, les index, etc.
+- Statement : informations sur les instructions SQL ; il peut s’agir d’une instruction qui a entraîné une analyse de table complète ou une durée de requête longue.
+- User : ressources consommées et regroupées par utilisateur. Il peut s’agir par exemple d’E/S de fichiers, de connexions ou de mémoire.
+- Wait : événements d’attente regroupés par hôte ou utilisateur.
 
 À présent, intéressons-nous à quelques modèles d’utilisation courants de sys_schema. Pour commencer, nous allons regrouper les modèles d’utilisation dans deux catégories : **réglage des performances** et **maintenance de base de données**.
 
@@ -40,15 +37,15 @@ Il existe 52 vues dans le sys_schema, et chaque vue présente l’un des préfi
 
 Les E/S représentent l’opération la plus coûteuse de la base de données. Nous pouvons déterminer la latence moyenne des E/S en interrogeant la vue *sys.user_summary_by_file_io*. Avec par défaut 125 Go de stockage provisionné, la latence des E/S est d’environ 15 secondes.
 
-![latence des E/S : 125 Go](./media/howto-troubleshoot-sys-schema/io-latency-125GB.png)
+![Latence des E/S : 125 Go](./media/howto-troubleshoot-sys-schema/io-latency-125GB.png)
 
 Dans la mesure où Azure Database pour MySQL adapte les E/S en fonction du stockage, après augmentation de mon stockage provisionné à 1 To, la latence des E/S se réduit à 571 ms.
 
-![latence des E/S : 1 To](./media/howto-troubleshoot-sys-schema/io-latency-1TB.png)
+![Latence des E/S : 1 To](./media/howto-troubleshoot-sys-schema/io-latency-1TB.png)
 
 ### <a name="sysschematableswithfulltablescans"></a>*sys.schema_tables_with_full_table_scans*
 
-En dépit d’une planification minutieuse, de nombreuses requêtes peuvent donner lieu à des analyses de table complète. Pour obtenir des informations complémentaires sur les types d’index et sur la façon de les optimiser, vous pouvez consulter cet article : [Guide pratique pour résoudre les problèmes de performances des requêtes](./howto-troubleshoot-query-performance.md). Les analyses de table complète sont gourmandes en ressources et dégradent les performances de votre base de données. Le moyen le plus rapide de rechercher des tables avec une analyse de table complète est d’interroger la vue *sys.schema_tables_with_full_table_scans*.
+En dépit d’une planification minutieuse, de nombreuses requêtes peuvent donner lieu à des analyses de table complète. Pour obtenir des informations supplémentaires sur les types d’index et sur la façon de les optimiser, vous pouvez consulter cet article : [Guide pratique pour résoudre les problèmes de performances des requêtes](./howto-troubleshoot-query-performance.md). Les analyses de table complète consomme beaucoup de ressources et dégradent les performances de vos bases de données. Le moyen le plus rapide de rechercher des tables avec une analyse de table complète est d’interroger la vue *sys.schema_tables_with_full_table_scans*.
 
 ![analyses de table complète](./media/howto-troubleshoot-sys-schema/full-table-scans.png)
 

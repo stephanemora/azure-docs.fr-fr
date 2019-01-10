@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 2f97a2e8ad38bb3c78333cc2c8eedad8f520e68a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: a6bbc61afcc1ed25d5eac8673b9abfa59e72dba9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036800"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602186"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log Integration avec la journalisation Azure Diagnostics et le transfert des événements Windows
 
@@ -151,9 +151,9 @@ Une fois l’installation de base effectuée, vous êtes prêt à passer aux ét
 Dans cette étape, vous configurez la machine exécutant le service Azure Log Integration pour qu’elle se connecte au compte de stockage qui contient les fichiers journaux.
 
 Pour effectuer cette étape, vous avez besoin de quelques éléments :  
-* **FriendlyNameForSource** : Il s’agit d’un nom convivial que vous pouvez appliquer au compte de stockage configuré sur la machine virtuelle pour stocker les informations d’Azure Diagnostics.
-* **StorageAccountName** : Il s’agit du nom du compte de stockage que vous avez spécifié quand vous avez configuré Azure Diagnostics.  
-* **StorageKey** : Il s’agit de la clé de stockage pour le compte de stockage où les informations Azure Diagnostics sont stockées pour cette machine virtuelle.  
+* **FriendlyNameForSource** : Nom convivial que vous pouvez appliquer au compte de stockage configuré sur la machine virtuelle pour stocker les informations d’Azure Diagnostics.
+* **StorageAccountName** : Nom du compte de stockage que vous avez spécifié quand vous avez configuré Azure Diagnostics.  
+* **StorageKey** : Clé de stockage pour le compte de stockage où les informations Azure Diagnostics sont stockées pour cette machine virtuelle.  
 
 Pour obtenir la clé de stockage, suivez ces étapes :
 1. Accédez au [portail Azure](http://portal.azure.com).
@@ -175,7 +175,7 @@ Pour obtenir la clé de stockage, suivez ces étapes :
 8. Accédez à C:\Program Files\Microsoft Azure Log Integration.
 9. Exécutez cette commande : `Azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey>`.
  
-  Exemple :
+  Exemple :
   
   `Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
@@ -183,7 +183,7 @@ Pour obtenir la clé de stockage, suivez ces étapes :
 
   `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
   
-  Exemple :
+  Exemple :
   
   `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
@@ -198,7 +198,7 @@ La vidéo suivante illustre les étapes précédentes :<br /><br />
 ## <a name="if-data-isnt-showing-up-in-the-forwarded-events-folder"></a>Si les données ne s’affichent pas dans le dossier Événements transférés
 Si les données ne s’affichent pas dans le dossier Événements transférés au bout d’une heure, suivez ces étapes :
 
-1. Examinez la machine qui exécute le service Azure Log Integration. Vérifiez qu’elle peut accéder à Azure. Pour tester la connectivité, dans un navigateur, essayez d’accéder au [portail Azure](http://portal.azure.com).
+1. Examinez la machine qui exécute le service Azure Log Integration. Vérifiez qu’elle peut accéder à Azure. Pour tester la connectivité, dans un navigateur, essayez d’accéder au [portail Azure](https://portal.azure.com).
 2. Vérifiez que le compte d’utilisateur AzLog a un accès en écriture au dossier users\Azlog.
   1. Ouvrez l’Explorateur de fichiers.
   2. Accédez à C:\users.
@@ -243,7 +243,7 @@ Vous pouvez également ouvrir une [demande de support](../azure-supportability/h
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur Azure Log Integration, consultez les articles suivants : avant d’effectuer les étapes décrites dans cet article, vous devez lire l’article Bien démarrer et effectuer les étapes qui y sont citées.
+Pour en savoir plus sur Azure Log Integration, consultez les articles suivants : Avant d’effectuer les étapes décrites dans cet article, vous devez lire l’article Bien démarrer et effectuer les étapes qui y sont décrites.
 
 * [Azure Log Integration pour les journaux Azure](https://www.microsoft.com/download/details.aspx?id=53324). Le Centre de téléchargement donne des informations, la configuration système requise et des instructions d’installation pour Azure Log Integration.
 * [Présentation d’Azure Log Integration](security-azure-log-integration-overview.md). Cet article présente Azure Log Integration, ses principales fonctionnalités et son fonctionnement.

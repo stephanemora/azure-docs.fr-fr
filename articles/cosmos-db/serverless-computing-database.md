@@ -1,18 +1,17 @@
 ---
 title: Traitement de base de données serverless - Azure Functions et Azure Cosmos DB
 description: Découvrez comment Azure Cosmos DB et Azure Functions peuvent être utilisés ensemble pour créer des applications informatiques sans serveur basées sur les événements.
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: f0f0308233334e2662704e818c765c625a80019d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ff202c85f20adce173a375987a5f2250fda565b2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878298"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041184"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Traitement de base de données serverless à l’aide d’Azure Cosmos DB et d’Azure Functions
 
@@ -29,7 +28,7 @@ Azure Cosmos DB et Azure Functions permettent d’intégrer vos bases de donnée
 * Liez une fonction à un conteneur Azure Cosmos DB à l’aide d’une **liaison de sortie**. Les liaisons de sortie écrivent des données dans un conteneur après l’exécution d’une fonction.
 
 > [!NOTE]
-> Actuellement, les liaisons d’entrée, les liaisons de sortie et le déclencheur Azure Cosmos DB sont uniquement pris en charge pour une utilisation avec l’API SQL. Pour toutes les autres API Azure Cosmos DB, vous devez accéder à la base de données depuis votre fonction en utilisant le client statique pour votre API, y compris l’API MongoDB, l’API Cassandra, l’API Gremlin et l’API Table.
+> Actuellement, les liaisons d’entrée, les liaisons de sortie et le déclencheur Azure Cosmos DB sont uniquement pris en charge pour une utilisation avec l’API SQL. Pour toutes les autres API Azure Cosmos DB, vous devez accéder à la base de données depuis votre fonction en utilisant le client statique pour votre API.
 
 
 Le diagramme suivant illustre chacune de ces trois intégrations : 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: d0180a32f2a4258cb728869e2cb9f2abd57cc545
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 06430bf476c2e9f3af2102272fb54d201a3f1066
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845958"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790807"
 ---
 # <a name="install-the-mobility-service-manually-on-vmware-vms-and-physical-servers"></a>Installer manuellement le service Mobilité sur des serveurs physiques et machines virtuelles VMware
 
@@ -91,7 +91,7 @@ Usage | UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Plat
 Fichiers journaux d’installation | Sous %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Paramètre d’installation obligatoire. Spécifie si le service Mobilité (MS) ou Master Target(MT) doit être installé.
 /InstallLocation| Paramètre facultatif. Spécifie l’emplacement d’installation du service Mobilité (n’importe quel dossier).
-/Platform | Obligatoire. Spécifie la plateforme sur laquelle le service Mobilité est installé. **VMware** pour les serveurs physiques/machines virtuelles Mware ; **Azure** pour les machines virtuelles Azure. 
+/Platform | Obligatoire. Spécifie la plateforme sur laquelle le service Mobilité est installé. **VMware** pour les serveurs physiques/machines virtuelles VMware ; **Azure** pour les machines virtuelles Azure. 
 /Silent| facultatif. Indique si le programme d’installation doit être exécuté en mode silencieux.
 
 #### <a name="registration-settings"></a>Paramètres d’inscription
@@ -129,7 +129,7 @@ Journaux de configuration de l’agent | Sous %ProgramData%\ASRSetupLogs\ASRUnif
 Usage | ./install -d <Install Location> -r <MS|MT> -v VmWare -q
 -r | Paramètre d’installation obligatoire. Spécifie si le service Mobilité (MS) ou Master Target(MT) doit être installé.
 -d | Paramètre facultatif. Spécifie l’emplacement d’installation du service Mobilité : /usr/local/ASR.
--v | Obligatoire. Spécifie la plateforme sur laquelle le service Mobilité est installé. **VMware** pour les serveurs physiques/machines virtuelles Mware ; **Azure** pour les machines virtuelles Azure. 
+-v | Obligatoire. Spécifie la plateforme sur laquelle le service Mobilité est installé. **VMware** pour les serveurs physiques/machines virtuelles VMware ; **Azure** pour les machines virtuelles Azure. 
 -q | facultatif. Indique si le programme d’installation doit être exécuté en mode silencieux.
 
 #### <a name="registration-settings"></a>Paramètres d’inscription

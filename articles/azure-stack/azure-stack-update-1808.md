@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7979bbafda6373c7f25c6e9c7d5cd997fbf5c3eb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86f4e99401278d13a17f40c4c021060e8bd15f8a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098089"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754541"
 ---
 # <a name="azure-stack-1808-update"></a>Mise à jour 1808 d’Azure Stack
 
@@ -253,7 +253,6 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 <!-- 2368581 - IS. ASDK --> 
 - En tant qu’opérateur d’Azure Stack, si vous recevez une alerte de mémoire insuffisante et que les machines virtuelles de locataire ne parviennent pas à se déployer à cause d’une **erreur de création de machine virtuelle de structure**, il est possible que l’horodatage d’Azure Stack soit à court de mémoire. Utilisez le [Capacity Planner Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) pour mieux comprendre la capacité disponible pour vos charges de travail.
 
-
 ### <a name="compute"></a>Calcul
 
 <!-- 3164607 – IS, ASDK -->
@@ -277,10 +276,10 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 Les rapports d’utilisation générés à partir des API d’utilisation d’Azure Stack affichent des quantités correctes et peuvent être utilisés.
 
 <!-- 3507629 - IS, ASDK --> 
-- Managed Disks crée deux nouveaux [types de quotas de calcul](azure-stack-quota-types.md#compute-quota-types) pour limiter la capacité maximale des disques managés qui peuvent être provisionnés. Par défaut, 2048 Gio sont alloués pour chaque type de quota de disques managés. Toutefois, vous pouvez rencontrer les problèmes suivants :
+- Managed Disks crée deux nouveaux [types de quotas de calcul](azure-stack-quota-types.md#compute-quota-types) pour limiter la capacité maximale des disques managés qui peuvent être provisionnés. Par défaut, 2 048 Gio sont alloués pour chaque type de quota de disques managés. Toutefois, vous pouvez rencontrer les problèmes suivants :
 
-   - Pour les quotas créés avant la mise à jour 1808, le quota Managed Disks affichera des valeurs 0 dans le portail de l’administrateur, bien que 2048 Gio soient alloués. Vous pouvez augmenter ou diminuer la valeur en fonction de vos besoins réels, et la nouvelle valeur de quota remplace la valeur par défaut de 2048 Gio.
-   - Si vous mettez à jour la valeur de quota à 0, cela équivalut à la valeur par défaut de 2048 Gio. En guise de solution de contournement, définissez la valeur de quota sur 1.
+   - Pour les quotas créés avant la mise à jour 1808, le quota Managed Disks affichera des valeurs 0 dans le portail de l’administrateur, bien que 2 048 Gio soient alloués. Vous pouvez augmenter ou diminuer la valeur en fonction de vos besoins réels, et la nouvelle valeur de quota remplace la valeur par défaut de 2 048 Gio.
+   - Si vous mettez à jour la valeur de quota à 0, cela équivalut à la valeur par défaut de 2 048 Gio. En guise de solution de contournement, définissez la valeur de quota sur 1.
 
 <!-- 2869209 – IS, ASDK --> 
 - Quand vous utilisez [l’applet de commande **Add-AzsPlatformImage**](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), vous devez spécifier le paramètre **-OsUri** comme URI du compte de stockage où le disque est chargé. Si vous utilisez le chemin local du disque, l’applet de commande échoue avec l’erreur suivante : *Échec de l’opération de longue durée avec l’état « Failed »*. 
@@ -315,7 +314,7 @@ Les rapports d’utilisation générés à partir des API d’utilisation d’Az
 
    Pour trouver le graphique de pourcentage d’UC de la machine virtuelle, accédez au panneau **Métriques** et affichez toutes les métriques de machines virtuelles Windows invitées prises en charge.
 
-
+- Une machine virtuelle 18.04 Ubuntu créée avec une autorisation SSH activée ne vous permet pas d’utiliser les clés SSH pour vous connecter. Pour contourner ce problème, utilisez un accès à la machine virtuelle pour l’extension Linux afin d’implémenter des clés SSH après l’approvisionnement, ou utilisez une authentification par mot de passe.
 
 ### <a name="networking"></a>Mise en réseau  
 
@@ -361,8 +360,10 @@ Les rapports d’utilisation générés à partir des API d’utilisation d’Az
 
 
 ## <a name="download-the-update"></a>Télécharger la mise à jour
-Vous pouvez télécharger la mise à jour 1808 d’Azure Stack à partir de [cet emplacement](https://aka.ms/azurestackupdatedownload).
-  
+
+Vous pouvez télécharger la mise à jour 1808 d’Azure Stack à partir de [cet emplacement](https://aka.ms/azurestackupdatedownload). 
+
+Dans les scénarios connectés, et uniquement dans ceux-ci, les déploiements Azure Stack consultent régulièrement un point de terminaison sécurisé et vous avertissent automatiquement si une mise à jour est disponible pour votre cloud. Pour plus d’informations, voir la documentation sur la [gestion des mises à jour pour Azure Stack](azure-stack-updates.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour passer en revue la stratégie de maintenance pour les systèmes intégrés Azure Stack et pour connaître la marche à suivre afin de conserver votre système dans un état de prise en charge, consultez [Stratégie de maintenance Azure Stack](azure-stack-servicing-policy.md).  

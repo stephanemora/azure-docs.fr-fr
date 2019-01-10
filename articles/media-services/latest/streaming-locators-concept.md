@@ -9,18 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/20/2018
 ms.author: juliako
-ms.openlocfilehash: cb34855fc9451679c885eebb0ef5a2fab0be8c57
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 658843fd5acbe0d4e29947e99c00edf4909fe9f4
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086843"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742743"
 ---
 # <a name="streaming-locators"></a>Localisateurs de diffusion en continu
 
-Pour fournir à vos clients une URL qu’ils peuvent utiliser pour lire les fichiers audio ou vidéo encodés, vous devez créer un [localisateur de diffusion en continu](https://docs.microsoft.com/rest/api/media/streaminglocators) et générer les URL de diffusion en continu. Pour plus d’informations, consultez la page [sur la diffusion en continu des fichiers](stream-files-dotnet-quickstart.md).
+Vous devez fournir à vos clients une URL qu'ils pourront utiliser pour lire les fichiers audio ou vidéo encodés. Vous devez également créer un [localisateur de diffusion en continu](https://docs.microsoft.com/rest/api/media/streaminglocators) et générer les URL de diffusion en continu. Pour plus d’informations, consultez la page [sur la diffusion en continu des fichiers](stream-files-dotnet-quickstart.md).
 
 ## <a name="streaminglocator-definition"></a>Définition d’un localisateur de diffusion en continu
 
@@ -29,16 +29,16 @@ Le tableau suivant présente les propriétés d’un localisateur de diffusion e
 |NOM|Description|
 |---|---|
 |id |ID de ressource complet pour la ressource.|
-|Nom   |Nom de la ressource.|
+|Nom|Nom de la ressource.|
 |properties.alternativeMediaId|Autre ID de support de ce localisateur de diffusion en continu.|
-|properties.assetName   |Nom de la ressource|
-|properties.contentKeys |Les ContentKeys utilisées par ce localisateur de diffusion en continu.|
-|properties.created |L’heure de création du localisateur de diffusion en continu.|
+|properties.assetName|Nom de la ressource|
+|properties.contentKeys|Les ContentKeys utilisées par ce localisateur de diffusion en continu.|
+|properties.created|L’heure de création du localisateur de diffusion en continu.|
 |properties.defaultContentKeyPolicyName|Nom de la valeur ContentKeyPolicy par défaut utilisée par ce localisateur de diffusion en continu.|
-|properties.endTime |Heure de fin du localisateur de diffusion en continu.|
+|properties.endTime|Heure de fin du localisateur de diffusion en continu.|
 |properties.startTime|Heure de début du localisateur de diffusion en continu.|
 |properties.streamingLocatorId|ID du localisateur de diffusion en continu.|
-|properties.streamingPolicyName |Nom de la stratégie de diffusion en continu utilisée par ce localisateur de diffusion en continu. Spécifiez le nom de la stratégie de streaming que vous avez créée ou utilisez l’une des stratégies de streaming prédéfinies. Les stratégies de streaming prédéfinies disponibles sont les suivantes : « Predefined_DownloadOnly », « Predefined_ClearStreamingOnly », « Predefined_DownloadAndClearStreaming », « Predefined_ClearKey », « Predefined_MultiDrmCencStreaming » et « Predefined_ MultiDrmStreaming ».|
+|properties.streamingPolicyName |Nom de la stratégie de diffusion en continu utilisée par ce localisateur de diffusion en continu. Spécifiez le nom de la stratégie de streaming que vous avez créée ou utilisez l’une des stratégies de streaming prédéfinies. Voici les stratégies de diffusion en continu prédéfinies disponibles : 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' et 'Predefined_MultiDrmStreaming'|
 |Type|Type de la ressource.|
 
 Pour obtenir la définition complète, consultez [Streaming Locators](https://docs.microsoft.com/rest/api/media/streaminglocators) (Localisateurs de diffusion en continu).

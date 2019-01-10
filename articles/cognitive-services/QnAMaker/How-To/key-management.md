@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 25b23d280aca9ef13b8820596686a1f9dbecd2a1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3984ac84271728b9066aba15a582065ea3121c76
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085941"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581757"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>Comment gérer les clés dans QnA Maker
 
@@ -24,9 +24,9 @@ Votre service QnA Maker porte sur deux types de clés, les **clés d’abonnemen
 
 ![gestion des clés](../media/qnamaker-how-to-key-management/key-management.png)
 
-1. **Clés d’abonnement** : ces clés sont utilisées pour accéder aux [API du service d’administration QnA Maker](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff). Ces API vous permettent d’effectuer diverses opérations CRUD sur votre base de connaissances.  
+1. **Clés d’abonnement** : ces clés sont utilisées pour accéder aux [API du service d’administration QnA Maker](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff). Ces API vous permettent de modifier votre base de connaissances.  
 
-2. **Clés de point de terminaison** : ces clés sont utilisées pour accéder au point de terminaison de la base de connaissances afin d’obtenir une réponse à une question de l’utilisateur. En général, vous utilisez ce point de terminaison dans le code de votre bot/application de conversation qui utilise le service QnA Maker.
+2. **Clés de point de terminaison** : ces clés sont utilisées pour accéder au point de terminaison de la base de connaissances afin d’obtenir une réponse à une question de l’utilisateur. En général, vous utilisez ce point de terminaison dans le code de votre bot conversationnel ou application cliente qui utilise le service QnA Maker.
  
 ## <a name="subscription-keys"></a>Clés d’abonnement
 Vous pouvez afficher et réinitialiser vos clés d’abonnement à partir du portail Azure où la ressource QnA Maker a été créée. 
@@ -42,7 +42,7 @@ Vous pouvez afficher et réinitialiser vos clés d’abonnement à partir du por
 
 Les clés de point de terminaison peuvent être gérées à partir du [portail QnA Maker](https://qnamaker.ai).
 
-1. Connectez-vous au [portail QnA Maker](https://qnamaker.ai) et accédez à **Gérer les clés**.
+1. Connectez-vous au [portail QnA Maker](https://qnamaker.ai) et accédez à **Paramètres de service**.
 
     ![clé de point de terminaison](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 
@@ -51,7 +51,7 @@ Les clés de point de terminaison peuvent être gérées à partir du [portail Q
     ![gestionnaire de la clé de point de terminaison](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
 
     >[!NOTE]
-    >Actualisez vos clés si vous pensez qu’elles ont été compromises. Cette opération peut nécessiter des modifications correspondantes apportées à votre code d’application/de bot.
+    >Actualisez vos clés si vous pensez qu’elles ont été compromises. Cette opération peut nécessiter des modifications correspondantes de votre code de bot ou d’application cliente.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 37748aaa7f34a51d24091ee04608496ebd45fa90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4496a0fd3ec220d03c4cc279876234b503b0dbb6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231621"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720864"
 ---
-# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection : bonnes pratiques et architectures de référence
+# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection : Bonnes pratiques et architectures de référence
 
 Cet article est destiné aux décideurs informatiques et aux équipes de sécurité. Il sous-tend que vous connaissez Azure, la mise en réseau et la sécurité.
 
@@ -81,7 +81,7 @@ Il est extrêmement important que vous conceviez une application suffisamment r�
 
 L’extensibilité correspond à la capacité d’un système à traiter une charge accrue. Vous devez concevoir vos applications de telle sorte qu’elles puissent être [mises à l’échelle horizontalement](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) pour répondre à la demande d’une charge amplifiée, en particulier dans le cadre d’une attaque DDoS. Si votre application repose sur une seule instance unique d’un service, cela crée un point de défaillance unique. L’approvisionnement de plusieurs instances rend votre système plus résilient et plus évolutif.
 
-Pour [Azure App Service](../app-service/app-service-value-prop-what-is.md), sélectionnez un [plan App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) qui offre plusieurs instances. Pour les Azure Cloud Services, configurez chacun de vos rôles de manière à utiliser [plusieurs instances](../cloud-services/cloud-services-choose-me.md). Pour [Machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), vérifiez que votre architecture de machines virtuelles inclut plusieurs machines virtuelles et que chacune d’elles figure dans un [groupe à haute disponibilité](../virtual-machines/virtual-machines-windows-manage-availability.md). Nous vous recommandons d’utiliser des [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) pour les fonctionnalités de mise à l’échelle automatique.
+Pour [Azure App Service](../app-service/app-service-value-prop-what-is.md), sélectionnez un [plan App Service](../app-service/overview-hosting-plans.md) qui offre plusieurs instances. Pour les Azure Cloud Services, configurez chacun de vos rôles de manière à utiliser [plusieurs instances](../cloud-services/cloud-services-choose-me.md). Pour [Machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), vérifiez que votre architecture de machines virtuelles inclut plusieurs machines virtuelles et que chacune d’elles figure dans un [groupe à haute disponibilité](../virtual-machines/virtual-machines-windows-manage-availability.md). Nous vous recommandons d’utiliser des [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) pour les fonctionnalités de mise à l’échelle automatique.
 
 ### <a name="defense-in-depth"></a>Défense en profondeur
 
@@ -96,7 +96,7 @@ Il arrive fréquemment que les ressources locales d’un client soient attaquée
 
 ## <a name="azure-offerings-for-ddos-protection"></a>Offres Azure pour la protection DDoS
 
-Azure propose deux offres de service DDoS qui assurent une protection contre les attaques réseau (couche 3 et 4) : la protection DDoS de base (DDoS Protection Basic) et la protection DDoS standard (DDoS Protection Standard). 
+Azure a deux offres de service DDoS qui fournissent une protection contre les attaques réseau (couche 3 et 4) : DDoS Protection Basic et DDoS Protection Standard. 
 
 ### <a name="ddos-protection-basic"></a>DDoS Protection Basic
 

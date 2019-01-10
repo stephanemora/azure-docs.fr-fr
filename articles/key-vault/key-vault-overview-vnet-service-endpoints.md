@@ -1,27 +1,27 @@
 ---
 ms.assetid: ''
-title: Points de terminaison de service de réseau virtuel pour Azure Key Vault | Microsoft Docs
+title: Points de terminaison de service de réseau virtuel pour Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Vue d’ensemble des points de terminaison de service de réseau virtuel pour Key Vault
 services: key-vault
 author: amitbapat
 ms.author: ambapat
 manager: mbaldwin
-ms.date: 08/31/2018
+ms.date: 01/02/2019
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 656007268dcf57910e4a655d85285da4fbd37425
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 1d53fc6cef022f627bb1cd1f832ebf65698207a9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681515"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002420"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Points de terminaison de service de réseau virtuel pour Azure Key Vault
 
 Les points de terminaison de service de réseau virtuel pour Azure Key Vault permettent de restreindre l’accès à un réseau virtuel spécifié. Les points de terminaison vous permettent également de restreindre l’accès à une liste de plages d’adresses IPv4 (Internet Protocol version 4). L’accès est refusé à tout utilisateur se connectant à votre coffre de clés en dehors de ces sources.
 
-Il existe une exception importante à cette restriction. Si un utilisateur a choisi d’autoriser les services Microsoft approuvés, les connexions à partir de ces services se font à travers le pare-feu. Par exemple, ces services incluent Office 365 Exchange Online, Office 365 SharePoint Online, Calcul Azure, Azure Resource Manager et Sauvegarde Azure. Ces utilisateurs doivent néanmoins toujours présenter un jeton Azure Active Directory valide et disposer d’autorisations (configurées en tant que stratégies d’accès) pour effectuer l’opération demandée. Pour plus d’informations, consultez [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
+Il existe une exception importante à cette restriction. Si un utilisateur a choisi d’autoriser les services Microsoft approuvés, les connexions à partir de ces services se font à travers le pare-feu. Par exemple, ces services incluent Office 365 Exchange Online, Office 365 SharePoint Online, Calcul Azure, Azure Resource Manager et Sauvegarde Azure. Ces utilisateurs doivent néanmoins toujours présenter un jeton Azure Active Directory valide et disposer d’autorisations (configurées en tant que stratégies d’accès) pour effectuer l’opération demandée. Pour plus d’informations, consultez [Points de terminaison du service Réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="usage-scenarios"></a>Scénarios d’utilisation
 
@@ -31,6 +31,7 @@ Vous pouvez configurer des [pare-feux et réseaux virtuels Key Vault](key-vault-
 > Les règles de pare-feu et de réseau virtuel Key Vault s’appliquent seulement au [plan de données](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) de Key Vault. Les opérations du plan de contrôle Key Vault (comme les opérations de création, de suppression et de modification, la définition de stratégies d’accès, la définition de pare-feux et de règles de réseau virtuel) ne sont pas affectées par les règles de pare-feux et de réseau virtuel.
 
 Voici quelques exemples d’utilisation de points de terminaison de service :
+
 * Vous utilisez Key Vault pour stocker des clés de chiffrement, des secrets d’application et des certificats, et vous voulez bloquer l’accès à votre coffre de clés depuis l’Internet public.
 * Vous voulez verrouiller l’accès à votre coffre de clés, afin que seule votre application ou une liste restreinte d’hôtes désignés puissent se connecter à votre coffre de clés.
 * Vous avez une application s’exécutant dans votre réseau virtuel Azure, qui est verrouillé pour tout trafic entrant et sortant. Votre application doit néanmoins toujours se connecter au coffre de clés pour extraire des secrets ou certificats, ou pour utiliser des clés de chiffrement.
@@ -38,6 +39,7 @@ Voici quelques exemples d’utilisation de points de terminaison de service :
 ## <a name="configure-key-vault-firewalls-and-virtual-networks"></a>Configurer les pare-feux et réseaux virtuels d’Azure Key Vault
 
 Voici les étapes requises pour configurer les pare-feux et réseaux virtuels. Ces étapes s’appliquent si vous utilisez PowerShell, Azure CLI ou le portail Azure.
+
 1. Activez la [journalisation Key Vault](key-vault-logging.md) pour voir des journaux d’accès détaillés. Ceci vous aide à poser des diagnostics quand des règles de pare-feux et de réseau virtuel empêchent l’accès à un coffre de clés. (Cette étape est facultative mais fortement recommandée.)
 2. Activez des **points de terminaison de service pour Key Vault** pour les réseaux et sous-réseaux virtuels cibles.
 3. Définissez des règles de pare-feux et de réseau virtuel pour un coffre de clés, afin de restreindre l’accès à ce coffre de clés à partir de réseaux virtuels, sous-réseaux et plages d’adresses IPv4 spécifiques.
@@ -57,6 +59,7 @@ Pour plus d’informations, consultez [Configurer les pare-feux et réseaux virt
 > * Seules les adresses IPv4 sont prises en charge pour le moment.
 
 ## <a name="trusted-services"></a>Services approuvés
+
 Voici une liste de services approuvés qui sont autorisés à accéder à un coffre de clés si l’option **Autoriser les services approuvés** est activée.
 
 |Service approuvé|Scénarios d’utilisation|
@@ -79,5 +82,5 @@ Voici une liste de services approuvés qui sont autorisés à accéder à un cof
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Sécuriser votre coffre de clés](key-vault-secure-your-key-vault.md)
+* [Sécurisez votre coffre de clés](key-vault-secure-your-key-vault.md)
 * [Configurer les pare-feux et réseaux virtuels d’Azure Key Vault](key-vault-network-security.md)

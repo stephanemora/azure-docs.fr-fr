@@ -1,5 +1,5 @@
 ---
-title: À propos des clés, des secrets et des certificats Azure Key Vault
+title: À propos des clés, des secrets et des certificats Azure Key Vault - Azure Key Vault
 description: Vue d’ensemble de l’interface REST Azure Key Vault et des détails de développement sur les clés, les secrets et les certificats.
 services: key-vault
 documentationcenter: ''
@@ -10,18 +10,17 @@ ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: 6d158f14afa305dd547392722abb5f81380de31f
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 0dcfd1bd75fa54a1bbea93497a0cc872ad6d5184
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384783"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078369"
 ---
-# <a name="about-keys-secrets-and-certificates"></a>Présentation des clés, des secrets et des certificats
+# <a name="about-keys-secrets-and-certificates"></a>À propos des clés, des secrets et des certificats
 
 Azure Key Vault permet aux utilisateurs et aux applications Microsoft Azure de stocker et d’utiliser plusieurs types de données de secret/clé :
 
@@ -36,9 +35,9 @@ Pour plus d’informations générales sur Key Vault, consultez [Présentation d
 
 Les sections suivantes fournissent des informations générales applicables à l’implémentation du service Key Vault.
 
-###  <a name="supporting-standards"></a>Prise en charge des standards
+### <a name="supporting-standards"></a>Prise en charge des standards
 
-Les spécifications JavaScript Object Notation (JSON) and JavaScript Object Signing and Encryption (JOSE) sont des informations d’arrière-plan importantes.  
+Les spécifications JSON (JavaScript Object Notation) et JOSE (JavaScript Object Signing and Encryption) sont des informations d’arrière-plan importantes.  
 
 -   [Clé web JSON (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
 -   [Chiffrement web JSON (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
@@ -60,7 +59,7 @@ Reportez-vous aux spécifications JOSE pour les types de données appropriés po
 -   **Identity** : identité d’Azure Active Directory (AAD).  
 -   **IntDate** : valeur décimale JSON représentant le nombre de secondes entre 1970-01-01T0:0:0Z UTC et la date/heure UTC spécifiée. Consultez la RFC3339 pour plus d’informations sur les dates/heures en général, et sur UTC en particulier.  
 
-###  <a name="objects-identifiers-and-versioning"></a>Objets, identificateurs et gestion de versions
+### <a name="objects-identifiers-and-versioning"></a>Objets, identificateurs et gestion de versions
 
 Les objets stockés dans Key Vault sont versionnés chaque fois qu’une nouvelle instance d’un objet est créée. Chaque version se voit assigner un identificateur unique et une URL. Quand un objet est créé, il se voit attribuer un identificateur de version unique et est marqué comme version actuelle de l’objet. La création d’une nouvelle instance portant le même nom d’objet attribue au nouvel objet un identificateur de version unique, ce qui en fait la version actuelle.  
 
@@ -78,14 +77,14 @@ Où :
 
 |||  
 |-|-|  
-|`keyvault-name`|Le nom d’un coffre de clés dans le service Microsoft Azure Key Vault.<br /><br /> Les noms de Key Vault sont choisis par l’utilisateur et sont globalement uniques.<br /><br /> Le nom d’un coffre de clés doit être une chaîne comprise entre 3 et 24 caractères qui doit contenir uniquement des chiffres, des lettres et des tirets (0-9, a-z, A-Z et -).|  
+|`keyvault-name`|Le nom d’un coffre de clés dans le service Microsoft Azure Key Vault.<br /><br /> Les noms de coffre de clés sont choisis par l’utilisateur et sont globalement uniques.<br /><br /> Le nom d’un coffre de clés doit être une chaîne comprise entre 3 et 24 caractères qui doit contenir uniquement des chiffres, des lettres et des tirets (0-9, a-z, A-Z et -).|  
 |`object-type`|Le type de l’objet, « clés » ou « secrets ».|  
-|`object-name`|Un `object-name` est un nom fourni par l’utilisateur et doit être unique dans un Key Vault. Le nom doit être une chaîne comprise entre 1 et 127 caractères qui doit contenir uniquement des chiffres, des lettres et des tirets (0-9, a-z, A-Z et -).|  
+|`object-name`|Un `object-name` est un nom fourni par l’utilisateur et doit être unique dans un coffre de clés. Le nom doit être une chaîne comprise entre 1 et 127 caractères qui doit contenir uniquement des chiffres, des lettres et des tirets (0-9, a-z, A-Z et -).|  
 |`object-version`|Un `object-version` est un identificateur de chaîne de 32 caractères généré par le système qui peut être utilisé pour une version unique d’un objet.|  
 
 ## <a name="key-vault-keys"></a>Clés Key Vault
 
-###  <a name="keys-and-key-types"></a>Clés et types de clés
+### <a name="keys-and-key-types"></a>Clés et types de clés
 
 Les clés de chiffrement dans Key Vault sont représentées en tant qu’objets de clé web JSON [JWK]. Les spécifications JWK/JWA de base sont également étendues pour rendre les types de clés uniques lors de l’implémentation du coffre de clés. Par exemple, l’importation de clés avec l’empaquetage spécifique au fournisseur HSM permet de sécuriser le transport des clés susceptibles d’être utilisées uniquement dans les modules HSM Key Vault.  
 
@@ -157,9 +156,9 @@ Pour plus d’informations, voir [Informations de référence sur les opération
 
 Lorsqu’une clé a été créée dans un coffre de clés, les opérations de chiffrement suivantes peuvent être exécutées à l’aide de la clé :  
 
--   **Signer et vérifier** : cette opération vise à « signer le hachage » ou à « vérifier le hachage », car Key Vault ne prend pas en charge le hachage du contenu lors la création de la signature. Les applications doivent hacher les données à signer localement puis demander à Key Vault de signer le hachage. La vérification des hachages signés est prise en charge par souci pratique pour les applications qui n’ont peut-être pas accès au matériel de clé [publique]. Pour de meilleures performances des applications, vérifiez que les opérations sont effectuées localement.  
--   **Chiffrement / encapsulation de clé** : une clé stockée dans Key Vault peut être utilisée pour protéger une autre clé, généralement une clé de chiffrement symétrique de contenu (CEK). Lorsque la clé dans Key Vault est asymétrique, le chiffrement de clé est utilisé. Par exemple, les opérations WRAPKEY/UNWRAPKEY et RSA-OAEP sont équivalentes à ENCRYPT/DECRYPT. Lorsque la clé dans Key Vault est symétrique, le wrapping de clé est utilisé. Par exemple, AES-KW. L’opération WRAPKEY est prise en charge par souci pratique pour les applications qui n’ont peut-être pas accès au matériel de clé [publique]. Pour de meilleures performances des applications, les opérations WRAPKEY doivent être effectuées localement.  
--   **Chiffrer et déchiffrer** : une clé stockée dans Key Vault peut être utilisée pour chiffrer ou déchiffrer un bloc de données. La taille du bloc est déterminée par le type de clé et l’algorithme de chiffrement sélectionné. L’opération Encrypt est fournie par souci pratique pour les applications qui n’ont peut-être pas accès au matériel de clé [publique]. Pour de meilleures performances des applications, les opérations de chiffrement doivent être effectuées localement.  
+-   **Signer et vérifier** : cette opération vise à « signer le hachage » ou à « vérifier le hachage », car Key Vault ne prend pas en charge le hachage du contenu lors la création de la signature. Les applications doivent hacher les données à signer localement puis demander à Key Vault de signer le hachage. La vérification des hachages signés est prise en charge par souci pratique pour les applications qui n’ont peut-être pas accès au matériel de clé [publique]. Pour optimiser les performances des applications, vérifiez que les opérations sont effectuées localement.  
+-   **Chiffrement / encapsulation de clé** : une clé stockée dans Key Vault peut être utilisée pour protéger une autre clé, généralement une clé de chiffrement symétrique de contenu (CEK). Lorsque la clé dans Key Vault est asymétrique, le chiffrement de clé est utilisé. Par exemple, les opérations WRAPKEY/UNWRAPKEY et RSA-OAEP sont équivalentes à ENCRYPT/DECRYPT. Lorsque la clé dans Key Vault est symétrique, le wrapping de clé est utilisé. Par exemple, AES-KW. L’opération WRAPKEY est prise en charge par souci pratique pour les applications qui n’ont peut-être pas accès au matériel de clé [publique]. Pour optimiser les performances des applications, les opérations WRAPKEY doivent être effectuées localement.  
+-   **Chiffrer et déchiffrer** : une clé stockée dans Key Vault peut être utilisée pour chiffrer ou déchiffrer un bloc de données. La taille du bloc est déterminée par le type de clé et l’algorithme de chiffrement sélectionné. L’opération Encrypt est fournie par souci pratique pour les applications qui n’ont peut-être pas accès au matériel de clé [publique]. Pour optimiser les performances des applications, les opérations de chiffrement doivent être effectuées localement.  
 
 Alors que les opérations WRAPKEY/UNWRAPKEY utilisant des clés asymétriques peuvent sembler superflues (car elles sont équivalentes à ENCRYPT/DECRYPT), l’utilisation d’opérations distinctes est importante. La distinction fournit une séparation de la sémantique et des autorisations de ces opérations, ainsi qu’une cohérence quand d’autres types de clés sont pris en charge par le service.  
 
@@ -201,7 +200,7 @@ Vous pouvez spécifier des métadonnées spécifiques à l’application supplé
 
 ###  <a name="key-access-control"></a>Contrôle d’accès aux clés
 
-Le contrôle d’accès pour les clés géré par Key Vault est fourni au niveau d’un Key Vault qui agit comme le conteneur de clés. La stratégie de contrôle d’accès pour les clés est différente de la stratégie de contrôle d’accès pour les secrets dans un même coffre de clés. Les utilisateurs peuvent créer un ou plusieurs coffres pour stocker les clés et doivent maintenir une segmentation et une gestion des clés appropriées au scénario. Le contrôle d’accès pour les clés est indépendant du contrôle d’accès pour les secrets.  
+Le contrôle d’accès pour les clés gérées par Key Vault est fourni au niveau d’un coffre de clés qui fait office de conteneur de clés. La stratégie de contrôle d’accès pour les clés est différente de la stratégie de contrôle d’accès pour les secrets dans un même coffre de clés. Les utilisateurs peuvent créer un ou plusieurs coffres pour stocker les clés et doivent maintenir une segmentation et une gestion des clés appropriées au scénario. Le contrôle d’accès pour les clés est indépendant du contrôle d’accès pour les secrets.  
 
 Les autorisations suivantes peuvent être accordées, par utilisateur/principal du service, dans l’entrée du contrôle d’accès aux clés sur un coffre. Ces autorisations reflètent précisément les opérations autorisées sur un objet clé :  
 
@@ -388,7 +387,7 @@ Un objet certificat Key Vault conserve une configuration utilisée pour communiq
 |DigiCert|Pris en charge dans tous les emplacements de service de coffre de clés dans le cloud public et Azure Government|
 |GlobalSign|Pris en charge dans tous les emplacements de service de coffre de clés dans le cloud public et Azure Government|
 
-Avant de pouvoir créer un émetteur de certificat dans un Key Vault, les étapes préliminaires 1 et 2 suivantes doivent être exécutées.  
+Avant de pouvoir créer un émetteur de certificat dans un coffre de clés, les étapes préliminaires 1 et 2 suivantes doivent être exécutées.  
 
 1. Intégrer aux fournisseurs d’autorités de certification  
 
@@ -435,8 +434,8 @@ Si la stratégie d’un certificat est définie sur le renouvellement automatiqu
   - *manageissuers* : gérer les autorités/émetteurs du certificat Key Vault
   - *getissuers* : obtenir les autorités/émetteurs d’un certificat
   - *listissuers* : lister les autorités/émetteurs d’un certificat  
-  - *setissuers* : créer ou mettre à jour les autorités/émetteurs d’un certificat Key Vault  
-  - *deleteissuers* : supprimer les autorités/émetteurs d’un certificat Key Vault  
+  - *setissuers* : créer ou mettre à jour les autorités/émetteurs d’un certificat Key Vault  
+  - *deleteissuers* : supprimer les autorités/émetteurs d’un certificat Key Vault  
  
 - Autorisations pour les opérations privilégiées
   - *purge* : effacer (supprimer définitivement) un certificat supprimé
@@ -458,7 +457,7 @@ Pour plus d’informations, consultez [Clés de compte de stockage Azure Key Vau
 
 Vous pouvez utiliser les autorisations suivantes quand vous autorisez un utilisateur ou un principal d’application à effectuer des opérations sur un compte de stockage géré :  
 
-- Autorisations pour les opérations de définition SAP et de compte de stockage géré
+- Autorisations pour les opérations de définition SAS et de compte de stockage géré
   - *get* : obtenir des informations sur un compte de stockage 
   - *list* : lister les comptes de stockage gérés par un coffre de clés
   - *update* : mettre à jour un compte de stockage

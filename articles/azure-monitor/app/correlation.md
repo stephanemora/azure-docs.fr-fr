@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 946d0895ff25509a0e35695fe27c783b3c50784b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a6937b5b6b3b85dd51d80a928de02a00c361cc0e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999575"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117603"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Corrélation de télémétrie dans Application Insights
 
-Dans l’environnement des microservices, les tâches associées à chaque opération logique doivent être exécutées dans différents composants du service. Chacun de ces composants peut être surveillé séparément par [Application Insights](../../application-insights/app-insights-overview.md). Le composant application web communique avec le composant fournisseur d’authentification pour valider les informations d’identification utilisateur et avec le composant API pour obtenir des données à des fins de visualisation. Le composant API peut à son tour interroger les données des autres services et utiliser les composants fournisseur de caches et notifier le composant facturation à propos de cet appel. Application Insights prend en charge la corrélation de télémétrie distribuée. Il vous permet de détecter le composant responsable de défaillances ou d’une dégradation des performances.
+Dans l’environnement des microservices, les tâches associées à chaque opération logique doivent être exécutées dans différents composants du service. Chacun de ces composants peut être surveillé séparément par [Application Insights](../../azure-monitor/app/app-insights-overview.md). Le composant application web communique avec le composant fournisseur d’authentification pour valider les informations d’identification utilisateur et avec le composant API pour obtenir des données à des fins de visualisation. Le composant API peut à son tour interroger les données des autres services et utiliser les composants fournisseur de caches et notifier le composant facturation à propos de cet appel. Application Insights prend en charge la corrélation de télémétrie distribuée. Il vous permet de détecter le composant responsable de défaillances ou d’une dégradation des performances.
 
 Cet article décrit le modèle de données utilisé par Application Insights pour mettre en corrélation les données de télémétrie envoyées par plusieurs composants. Il couvre les protocoles et les techniques de propagation de contexte. Il couvre également l’implémentation des concepts de corrélation sur différentes plateformes et dans différents langages.
 

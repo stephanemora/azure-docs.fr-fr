@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: d422b56acd56f87cb855c5e045e3a91666eee571
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: dbda20554b119bfb72b939cbeb7f19e0b9093b31
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499398"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597475"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Créer un pipeline d’apprentissage automatique Apache Spark
 
-La bibliothèque scalable d’apprentissage automatique (MLlib) Apache Spark apporte des fonctionnalités de modélisation à un environnement distribué. Le package Spark [`spark.ml`](http://spark.apache.org/docs/latest/ml-pipeline.html) est un ensemble d’API générales reposant sur des DataFrames. Ces API vous permettent de créer et de régler des pipelines d’apprentissage automatique pratiques.  *L’apprentissage automatique Spark* fait référence à cette API basée sur les DataFrames MLlib, et non à l’API de pipeline plus ancienne basée sur les RDD.
+La bibliothèque scalable d’apprentissage automatique (MLlib) Apache Spark apporte des fonctionnalités de modélisation à un environnement distribué. Le package Spark [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) est un ensemble d’API générales reposant sur des DataFrames. Ces API vous permettent de créer et de régler des pipelines d’apprentissage automatique pratiques.  *L’apprentissage automatique Spark* fait référence à cette API basée sur les DataFrames MLlib, et non à l’API de pipeline plus ancienne basée sur les RDD.
 
 Un pipeline d’apprentissage automatique est un flux de travail complet combinant plusieurs algorithmes d’apprentissage automatique. Il peut y avoir de nombreuses étapes nécessaires pour traiter et apprendre à partir des données, nécessitant une séquence d’algorithmes. Les pipelines définissent les phases et l’ordre d’un processus d’apprentissage automatique. Dans MLlib, les phases d’un pipeline sont représentées par une séquence spécifique de PipelineStages, où un Transformer et un Estimator effectuent chacun des tâches.
 
@@ -30,7 +30,7 @@ Chaque instance sans état d’un Transformer ou d’un Estimator a son propre i
 
 ## <a name="pipeline-example"></a>Exemple de pipeline
 
-Pour illustrer une utilisation pratique d’un pipeline d’apprentissage automatique, cet exemple utilise l’exemple de fichier de données `HVAC.csv` qui est préchargé sur le stockage par défaut pour votre cluster HDInsight, Stockage Azure ou Data Lake Store. Pour afficher le contenu du fichier, accédez au répertoire `/HdiSamples/HdiSamples/SensorSampleData/hvac`. `HVAC.csv` contient un ensemble d’heures avec des températures cibles et réelles pour des systèmes CVC (*chauffage, ventilation et climatisation*) dans différents bâtiments. L’objectif est de former le modèle sur les données et de produire une prédiction de température pour un bâtiment donné.
+Pour illustrer une utilisation pratique d’un pipeline d’apprentissage automatique, cet exemple utilise l’exemple de fichier de données `HVAC.csv` qui est préchargé sur le stockage par défaut pour votre cluster HDInsight, c’est-à-dire le stockage Azure ou Data Lake Storage. Pour afficher le contenu du fichier, accédez au répertoire `/HdiSamples/HdiSamples/SensorSampleData/hvac`. `HVAC.csv` contient un ensemble d’heures avec des températures cibles et réelles pour des systèmes CVC (*chauffage, ventilation et climatisation*) dans différents bâtiments. L’objectif est de former le modèle sur les données et de produire une prédiction de température pour un bâtiment donné.
 
 Le code suivant :
 

@@ -1,26 +1,26 @@
 ---
 title: Authentification avec un registre de conteneurs Azure
-description: Options d’authentification pour un registre de conteneurs Azure, y compris la connexion de registre et la connexion directe des principaux du service Azure Active Directory.
+description: Options d’authentification pour un registre de conteneurs Azure, y compris la connexion auprès d’une identité Azure Active Directory, au moyen de principaux de service et à l’aide d’informations d’identification d’administrateur facultatives.
 services: container-registry
 author: stevelas
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 12/21/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c0c2323d1864be24edbf6005d634ae1d08bba8ea
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: a68e4f70dac7aace9d49a41ecf282525ce6b1fd6
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116604"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752875"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>S’authentifier avec un registre de conteneurs Docker
 
 Plusieurs méthodes permettent de s’authentifier avec un registre de conteneurs Azure, chacune d’elles étant applicable à un ou plusieurs scénarios d’usage du registre.
 
-Vous pouvez vous connecter directement à un registre via une [connexion individuelle](#individual-login-with-azure-ad), et vos applications et orchestrateurs de conteneurs peuvent effectuer une authentification sans assistance, ou « sans périphérique de contrôle », à l’aide d’un [principal du service](#service-principal) Azure Active Directory (Azure AD).
+Vous pouvez vous connecter directement à un registre par le biais d’une [connexion individuelle](#individual-login-with-azure-ad), sinon vos applications et orchestrateurs de conteneurs peuvent procéder à une authentification sans assistance, ou « headless » (administrée à distance), à l’aide d’un [principal de service](#service-principal) Azure Active Directory (Azure AD).
 
 Azure Container Registry ne prend pas en charge les opérations Docker non authentifiées ni les accès anonymes. Pour des images publiques, vous pouvez utiliser [Docker Hub](https://docs.docker.com/docker-hub/).
 
@@ -32,43 +32,47 @@ Si vous utilisez directement votre registre, par exemple si vous extrayez des im
 az acr login --name <acrName>
 ```
 
-Si vous vous connectez avec `az acr login`, l’interface CLI utilise le jeton créé lorsque vous avez exécuté `az login` pour authentifier en toute transparence votre session avec votre registre. Une fois que vous êtes connecté de cette façon, vos informations d’identification sont mises en cache, et les commandes `docker` suivantes ne nécessitent pas de nom d’utilisateur ni de mot de passe. Si votre jeton arrive à expiration, vous pouvez l’actualiser en utilisant de nouveau la commande `az acr login` pour la réauthentification. L’utilisation de `az acr login` avec des identités Azure fournit un [accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md).
+Si vous vous connectez avec `az acr login`, l’interface CLI utilise le jeton créé lorsque vous avez exécuté [az login](/cli/azure/reference-index#az-login) pour authentifier en toute transparence votre session avec votre registre. Une fois que vous êtes connecté de cette façon, vos informations d’identification sont mises en cache, et les commandes `docker` suivantes ne nécessitent pas de nom d’utilisateur ni de mot de passe. Si votre jeton arrive à expiration, vous pouvez l’actualiser en utilisant de nouveau la commande `az acr login` pour la réauthentification. L’utilisation de `az acr login` avec des identités Azure fournit un [accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="service-principal"></a>Principal du service
 
-Vous pouvez affecter un [principal du service](../active-directory/develop/app-objects-and-service-principals.md) à votre registre, et votre application ou service peut l’utiliser pour une authentification sans périphérique de contrôle. Les principaux du service autorisent les [accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md) à un registre, et vous pouvez affecter plusieurs principaux du service à un registre. Plusieurs principaux du service vous permettent de définir différents accès pour plusieurs applications.
+Si vous affectez un [principal du service](../active-directory/develop/app-objects-and-service-principals.md) à votre registre, votre application ou service peut l’utiliser pour une authentification headless (administrée à distance). Les principaux du service autorisent les [accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md) à un registre, et vous pouvez affecter plusieurs principaux du service à un registre. Plusieurs principaux du service vous permettent de définir différents accès pour plusieurs applications.
 
-Rôles disponibles :
+Les rôles disponibles pour un registre de conteneurs sont les suivants :
 
-  * **Lecteur** : extraction
-  * **Contributeur** : extraction et envoi
-  * **Propriétaire** : extraction, envoi et attribution de rôles à d’autres utilisateurs
+* **AcrPull** : extraction
 
-Les principaux du service activent une connectivité sans périphérique de contrôle à un registre dans les scénarios d’envoi et d’extraction suivants :
+* **AcrPush**: extraction (pull) et envoi (push)
 
-  * *Lecteur* : déploiements de conteneurs à partir d’un registre vers des systèmes d’orchestration, y compris DC/OS, Docker Swarm et Kubernetes. Vous pouvez également procéder à des extractions depuis les registres de conteneurs vers des services Azure connexes tels que [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), et autres.
+* **Propriétaire** : extraction, envoi et attribution de rôles à d’autres utilisateurs
 
-  * *Contributeur* : solutions d’intégration et de déploiement en continu, comme Azure Pipelines ou Jenkins, qui créent des images de conteneur et les envoient vers un registre.
+Pour obtenir la liste complète des rôles, consultez [Autorisations et rôles Azure Container Registry](container-registry-roles.md).
 
-> [!TIP]
-> Vous pouvez régénérer le mot de passe d’un principal du service en exécutant la commande [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials).
->
+Pour que les scripts CLI créent un ID d’application de principal de service avec le mot de passe associé et s’authentifient auprès d’un registre de conteneurs Azure, ou pour qu’ils utilisent un principal de service existant, consultez [Authentification Azure Container Registry avec des principaux de service](container-registry-auth-service-principal.md).
+
+Les principaux de service activent une connectivité headless (administrée à distance) à un registre dans les scénarios d’extraction et d’envoi suivants :
+
+  * *Pull* : déployer des conteneurs à partir d’un registre vers des systèmes d’orchestration, y compris Kubernetes, DC/OS et Docker Swarm. Vous pouvez également procéder à des extractions depuis les registres de conteneurs vers des services Azure connexes, tels que [Azure Kubernetes Service](container-registry-auth-aks.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), etc.
+
+  * *Push* : générer des images conteneur et les envoyer (push) à un registre en utilisant des solutions d’intégration et de déploiement en continu, comme Azure Pipelines ou Jenkins.
 
 Vous pouvez également vous connecter directement avec un principal du service. Fournissez le mot de passe et l’ID d’application du principal du service pour la commande `docker login` :
 
 ```
-docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
+docker login myregistry.azurecr.io -u <SP_APP_ID> -p <SP_PASSWD>
 ```
 
 Une fois que vous êtes connecté, Docker met les informations d’identification en cache. Vous n’avez donc pas besoin de vous souvenir de l’ID d’application.
 
 Selon la version de Docker que vous avez installée, vous pouvez voir un avertissement de sécurité recommandant l’utilisation du paramètre `--password-stdin`. Même si son utilisation n’est pas le sujet de cet article, nous vous recommandons de suivre cette meilleure pratique. Pour en savoir plus, consultez les informations de référence sur la commande [docker login](https://docs.docker.com/engine/reference/commandline/login/).
 
-Pour plus d’informations sur l’utilisation d’un principal de service pour l’authentification sans périphérique de contrôle à ACR, consultez [Authentification d’Azure Container Registry avec des principaux de service](container-registry-auth-service-principal.md).
+> [!TIP]
+> Vous pouvez régénérer le mot de passe d’un principal du service en exécutant la commande [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials).
+>
 
 ## <a name="admin-account"></a>Compte d’administrateur
 
-Chaque registre de conteneurs inclut un compte d’utilisateur administrateur, qui est désactivé par défaut. Vous pouvez activer le compte d’utilisateur administrateur et gérer ses informations d’identification dans le [portail Azure](container-registry-get-started-portal.md#create-a-container-registry) ou à l’aide d’Azure CLI.
+Chaque registre de conteneurs inclut un compte d’utilisateur administrateur, qui est désactivé par défaut. Vous pouvez activer le compte d’utilisateur administrateur et gérer ses informations d’identification dans le [portail Azure](container-registry-get-started-portal.md#create-a-container-registry), sinon par le biais de l’interface Azure CLI ou d’autres outils Azure.
 
 > [!IMPORTANT]
 > Le compte d’administrateur est conçu pour permettre à un seul utilisateur d’accéder au registre, principalement à des fins de test. Nous vous recommandons de partager les informations d’identification du compte d’administrateur avec plusieurs utilisateurs. Tous les utilisateurs qui s’authentifient avec le compte d’administrateur apparaissent sous la forme d’un seul utilisateur avec un accès par envoi et par extraction au registre. La modification ou la désactivation de ce compte désactive l’accès au registre pour tous les utilisateurs qui utilisent ces informations d’identification. Une identité individuelle est recommandée pour les utilisateurs et principaux du service pour les scénarios sans périphérique de contrôle.

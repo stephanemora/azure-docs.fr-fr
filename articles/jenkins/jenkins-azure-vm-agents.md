@@ -3,17 +3,17 @@ title: Mettre à l’échelle des déploiements Jenkins avec des agents de machi
 description: Dotez vos pipelines Jenkins d’une capacité supplémentaire en utilisant des machines virtuelles Azure avec le plug-in Jenkins Azure VM Agents.
 ms.service: jenkins
 keywords: jenkins, azure, devops, virtual machine, agents
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 46710b3a669b6a00dc1826c55e8d35fe700f312f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 5cfece551f99a0925099b6ef936703e72f078985
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106221"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074663"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Mettre à l’échelle vos déploiements Jenkins pour répondre à la demande avec des agents de machines virtuelles Azure
 

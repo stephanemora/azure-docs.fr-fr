@@ -16,17 +16,20 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 87f5153ef71f74a0fa1a6be3c527fba03b65bf83
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 04287d286aed872a2b951c47e0f67a93bd19c7b3
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095565"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583474"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d’Azure Active Directory dans des applications
 
 ## <a name="overview"></a>Vue d’ensemble
 Azure Active Directory (Azure AD) peut affecter automatiquement des utilisateurs et des groupes à une application ou un magasin d’identités avec en façade un service Web avec l’interface définie dans la [Spécification du protocole SCIM (System for Cross-Domain Identity Management) 2.0](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory peut envoyer des requêtes pour créer, modifier ou supprimer des utilisateurs et groupes attribués au service web. Le service web peut ensuite traduire ces requêtes en opérations sur le magasin d’identités cible. 
+
+>[!IMPORTANT]
+>La dernière mise à jour du comportement de l’implémentation SCIM d’Azure AD a été effectuée le 18 décembre 2018. Pour plus d’informations sur ce qui a changé, consultez [Conformité au protocole SCIM 2.0 du service de provisionnement des utilisateurs Azure AD](application-provisioning-config-problem-scim-compatibility.md).
 
 ![][0]
 *Figure 1 : approvisionnement d’Azure Active Directory à un magasin d’identités par le biais d’un service web*
@@ -73,6 +76,10 @@ Les applications qui prennent en charge le profil SCIM décrit dans cet article 
 6. Dans le champ **URL du locataire**, entrez l’URL du point de terminaison SCIM de l’application. Exemple : https://api.contoso.com/scim/v2/
 7. Si le point de terminaison SCIM requiert un jeton de porteur OAuth d’un émetteur autre qu’Azure AD, copiez le jeton de porteur OAuth requis dans le champ facultatif **Secret Token** (Jeton secret). Si ce champ est laissé vide, Azure AD inclut un jeton de porteur OAuth émis par Azure AD avec chaque requête. Les applications qui utilisent Azure AD comme fournisseur d’identité peuvent valider ce jeton émis par Azure AD.
 8. Cliquez sur le bouton **Tester la connexion** pour qu’Azure Active Directory tente de se connecter au point de terminaison SCIM. Si les tentatives échouent, des informations d’erreur s’affichent.  
+
+    >[!NOTE]
+    >**Tester la connexion** interroge le point de terminaison SCIM pour un utilisateur qui n’existe pas, en utilisant un GUID aléatoire en tant que propriété correspondante sélectionnée dans la configuration Azure AD. La réponse correcte attendue est HTTP 200 OK avec un message SCIM ListResponse vide. 
+
 9. Si la tentative de connexion à l’application réussit, cliquez sur **Enregistrer** pour enregistrer les informations d’identification d’administrateur.
 10. Dans la section **Mappages**, il existe deux ensembles sélectionnables de mappages d’attributs : un pour les objets utilisateur et un pour les objets de groupe. Sélectionnez chacun d’eux pour consulter les attributs qui sont synchronisés entre Azure Active Directory et votre application. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les utilisateurs et les groupes dans votre application pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
 
@@ -149,6 +156,10 @@ Le moyen le plus simple d’implémenter un point de terminaison SCIM qui peut a
 6. Dans le champ **URL du locataire**, saisissez l’URL côté Internet et le port de votre point de terminaison SCIM. L’entrée pourrait être http://testmachine.contoso.com:9000 ou http://<ip-address>:9000/, où <ip-address> est l’adresse IP Internet exposée.  
 7. Si le point de terminaison SCIM requiert un jeton de porteur OAuth d’un émetteur autre qu’Azure AD, copiez le jeton de porteur OAuth requis dans le champ facultatif **Secret Token** (Jeton secret). Si ce champ est laissé vide, Azure AD inclura un jeton de porteur OAuth émis par Azure AD avec chaque requête. Les applications qui utilisent Azure AD comme fournisseur d’identité peuvent valider ce jeton émis par Azure AD.
 8. Cliquez sur le bouton **Tester la connexion** pour qu’Azure Active Directory tente de se connecter au point de terminaison SCIM. Si les tentatives échouent, des informations d’erreur s’affichent.  
+
+    >[!NOTE]
+    >**Tester la connexion** interroge le point de terminaison SCIM pour un utilisateur qui n’existe pas, en utilisant un GUID aléatoire en tant que propriété correspondante sélectionnée dans la configuration Azure AD. La réponse correcte attendue est HTTP 200 OK avec un message SCIM ListResponse vide
+
 9. Si la tentative de connexion à l’application réussit, cliquez sur **Enregistrer** pour enregistrer les informations d’identification d’administrateur.
 10. Dans la section **Mappages**, il existe deux ensembles sélectionnables de mappages d’attributs : un pour les objets utilisateur et un pour les objets de groupe. Sélectionnez chacun d’eux pour consulter les attributs qui sont synchronisés entre Azure Active Directory et votre application. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les utilisateurs et les groupes dans votre application pour les opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
 11. Sous **Paramètres**, le champ **Étendue** définit les utilisateurs et/ou les groupes qui sont synchronisés. Si vous sélectionnez « Sync only assigned users and groups » (Synchroniser uniquement les utilisateurs et les groupes attribués) (recommandé), seuls les utilisateurs et les groupes attribués seront synchronisés dans l’onglet **Utilisateurs et groupes**.

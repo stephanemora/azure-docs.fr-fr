@@ -1,6 +1,6 @@
 # [Documentation Data Catalog](index.md)
 
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Présentation de Data Catalog](data-catalog-what-is-data-catalog.md)
 ## [Scénarios courants](data-catalog-common-scenarios.md)
 ## [Sources de données prises en charge](data-catalog-dsr.md)
@@ -28,6 +28,7 @@
 # Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/resources/samples/?service=data-catalog)
 ## [REST](/rest/api/datacatalog/)
+## [modèle Azure Resource Manager](/azure/templates/microsoft.datacatalog/catalogs)
 ## [Informations de référence sur la syntaxe des recherches](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Concepts liés au développement](data-catalog-developer-concepts.md)
 

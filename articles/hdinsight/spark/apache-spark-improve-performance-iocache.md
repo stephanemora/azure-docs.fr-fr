@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 724e6c57f10fb85b4b91c2236d17a64899953d67
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 204a3230c782279b0cad4194e97aa4014c940635
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581933"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608492"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Améliorer les performances des charges de travail Apache Spark à l’aide d’Azure HDInsight IO Cache (préversion)
 
@@ -20,7 +20,7 @@ IO Cache est un service de mise en cache de données pour Azure HDInsight qui am
 
 La plupart des disques SSD fournissent plus de 1 Go par seconde de bande passante. Cette bande passante, complétée par le cache de fichiers en mémoire du système d’exploitation, fournit suffisamment de bande passante pour charger des moteurs de traitement de calcul Big Data, tels qu’Apache Spark. La mémoire d’exploitation reste disponible pour qu’Apache Spark traite des tâches fortement dépendantes de la mémoire, comme les lectures aléatoires. L’utilisation exclusive de la mémoire d’exploitation permet à Apache Spark d’atteindre une utilisation optimale des ressources.  
 
->[!Note]
+>[!Note]  
 >IO Cache utilise actuellement RubiX comme composant de mise en cache, mais cela pourrait changer dans les futures versions du service. Utilisez les interfaces IO Cache et n’utilisez aucune dépendance directement dans l’implémentation de RubiX.
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Avantages d’Azure HDInsight IO Cache
@@ -45,7 +45,7 @@ Azure HDInsight IO Cache est désactivé par défaut dans la préversion. IO Cac
 
 1. Confirmez le redémarrage de tous les services affectés sur le cluster.
 
->[!NOTE] 
+>[!NOTE]  
 > Même si la barre de progression indique que le service est activé, IO Cache n’est pas réellement activé jusqu’au redémarrage des autres services affectés.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
@@ -78,4 +78,4 @@ Si cela ne fonctionne pas, désactivez IO Cache.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Obtenez plus de détails sur IO Cache, notamment avec des tests de performances, dans ce billet de blog : [Apache Spark jobs gain up to 9x speed up with HDInsight IO Cache (Vitesse des travaux Apache Spark accélérée par 9 avec HDInsight IO Cache)](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/)
+- Pour en savoir plus sur le Cache d’E/S, notamment les tests de performances, consultez ce billet de blog : [Les tâches Apache Spark bénéficient d’une vitesse neuf fois plus rapide avec HDInsight IO Cache](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/)

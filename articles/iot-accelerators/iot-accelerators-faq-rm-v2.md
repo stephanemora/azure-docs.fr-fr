@@ -1,5 +1,5 @@
 ---
-title: Questions fréquentes (FAQ) sur l’accélérateur de solution de surveillance à distance | Microsoft Docs
+title: Questions fréquentes (FAQ) sur l’accélérateur de solution Supervision à distance - Azure | Microsoft Docs
 description: Questions fréquentes (FAQ) sur l’accélérateur de solution de surveillance à distance
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 59b52163ba7f5abd53c60264f10f5352e3e4f6cd
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 746d21c7ff4d5b939eea7690193ac07425b4001c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067786"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602628"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Questions fréquentes (FAQ) sur l’accélérateur de solution de surveillance à distance
 
@@ -38,7 +38,7 @@ Chaque option de déploiement répond à des besoins différents. Le déploiemen
 
 Pour plus d’informations, consultez [Upgrade map key to see devices on a dynamic map (Mettre à niveau une clé de mappage pour voir les appareils sur un mappage dynamique)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map).
 
-### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Où puis-je trouver des informations sur la version précédente de la solution de supervision à distance ?
+### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Où puis-je trouver des informations sur la version précédente de la solution de surveillance à distance ?
 
 La version précédente de l’accélérateur de solution de surveillance à distance était la solution préconfigurée de surveillance à distante IoT Suite. Vous trouverez la documentation archivée à l’emplacement [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
 

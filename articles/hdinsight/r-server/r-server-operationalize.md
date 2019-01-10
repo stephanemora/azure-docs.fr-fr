@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ce701c029c63256714452aa13f646af77991cb67
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d0cae4210fa313c5d6e1f33987422e7b0d53e76a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496917"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579955"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendre opérationnel un cluster ML Services sur Azure HDInsight
 
@@ -22,13 +22,13 @@ Après avoir utilisé un cluster ML Services dans HDInsight pour effectuer votr
 
 ## <a name="prerequisites"></a>Prérequis
 
-* **Un cluster ML Services sur HDInsight** : pour connaître la marche à suivre, consultez [Bien commencer avec ML Services sur HDInsight](r-server-get-started.md).
+* **Un cluster ML Services sur HDInsight** : pour obtenir des instructions, consultez [Bien démarrer avec ML Services sur les clusters HDInsight](r-server-get-started.md).
 
-* **Client Secure Shell (SSH)** : un client SSH est utilisé pour se connecter à distance au cluster HDInsight et exécuter des commandes directement sur celui-ci. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Un client Secure Shell (SSH)** : un client SSH est utilisé pour se connecter à distance au cluster HDInsight et exécuter des commandes directement sur celui-ci. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Rendre opérationnel un cluster ML Services avec une configuration à boîtier unique
 
-> [!NOTE]
+> [!NOTE]  
 > Les étapes ci-dessous s’appliquent à R Server 9.0 et ML Server 9.1. Pour ML Server 9.3, consultez [Utiliser l’outil d’administration pour gérer la configuration d’opérationnalisation](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch).
 
 1. Utilisez SSH au sein du nœud de périmètre.
@@ -137,7 +137,7 @@ Une fois votre session SSH active, le trafic à partir du port 12800 de votre m
 
 Pour mettre à l’échelle les nœuds de calcul, vous devez d’abord désactiver les nœuds Worker, puis configurer les nœuds de calcul sur les nœuds de travail désactivés.
 
-### <a name="step-1-decommission-the-worker-nodes"></a>Étape 1 : Désactiver les nœuds Worker
+### <a name="step-1-decommission-the-worker-nodes"></a>Étape 1 : Désactiver les nœuds Worker
 
 Le cluster ML Services n’est pas géré via [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). Si les nœuds Worker ne sont pas désactivés, le gestionnaire de ressources YARN ne fonctionne pas comme prévu, car il n’a pas connaissance des ressources prises en charge par le serveur. Afin d’éviter ce problème, nous vous recommandons de désactiver les nœuds Worker avant d’augmenter la taille des nœuds de calcul.
 

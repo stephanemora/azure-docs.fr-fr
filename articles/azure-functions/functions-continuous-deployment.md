@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 7529d20535eedab92d164df5a0435efeda83fca2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a0d697438c1265b8c4e6802dc2dad62a33f51855
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301546"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548593"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Déploiement continu pour Azure Functions
 Azure Functions vous permet de déployer votre Function App facilement à l’aide de l’intégration continue App Service. Functions s’intègre avec BitBucket, Dropbox, GitHub et Azure DevOps. Cela permet d’activer un workflow dans lequel les mises à jour du code de fonctions sont effectuées à l’aide d’un de ces services intégrés qui déclenchent le déploiement dans Azure. Si vous ne connaissez pas Azure Functions, commencez par consulter l’article [Vue d’ensemble d’Azure Functions](functions-overview.md).
@@ -26,7 +26,7 @@ Le déploiement continu est une option intéressante pour les projets auxquels p
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
 * Référentiel externe (Git ou Mercurial)
-* [Référentiel Git local](../app-service/app-service-deploy-local-git.md)
+* [Référentiel Git local](../app-service/deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
 * [Azure DevOps Services](https://www.visualstudio.com/team-services/)
@@ -52,7 +52,7 @@ Utilisez cette procédure pour configurer le déploiement continu d’une Functi
  
     ![Configurer un déploiement continu](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-2. Dans le panneau **Source de déploiement**, cliquez sur **Choisir une source**, entrez les informations pour la source de déploiement que vous avez choisie, puis cliquez sur **OK**.
+3. Dans le panneau **Source de déploiement**, cliquez sur **Choisir une source**, entrez les informations pour la source de déploiement que vous avez choisie, puis cliquez sur **OK**.
    
     ![Choisir une source de déploiement](./media/functions-continuous-deployment/choose-deployment-source.png)
 
@@ -93,12 +93,12 @@ Lorsque vous disposez de fonctions existantes que vous avez créées et conserv�
 > [!NOTE]
 > Après avoir configuré l’intégration continue, vous ne serez plus en mesure de modifier vos fichiers sources dans le portail Functions.
 
-- [Comment configurer les informations d’identification de déploiement](#credentials)
-- [Comment télécharger des fichiers via FTP](#downftp)
-- [Comment télécharger des fichiers via le référentiel Git local](#downgit)
+- [Guide pratique pour configurer les informations d’identification de déploiement](#credentials)
+- [Guide pratique pour télécharger des fichiers via FTP](#downftp)
+- [Guide pratique pour télécharger des fichiers via le dépôt Git local](#downgit)
 
 <a name="credentials"></a>
-#### <a name="how-to-configure-deployment-credentials"></a>Comment configurer les informations d’identification de déploiement
+#### <a name="how-to-configure-deployment-credentials"></a>Activation configurer les informations d’identification de déploiement
 Avant de pouvoir télécharger des fichiers à partir de votre Function App via FTP ou un référentiel Git local, vous devez configurer vos informations d’identification afin d’accéder au site. Les informations d’identification sont définies au niveau de l’application de fonction. Utilisez la procédure suivante pour définir les informations d’identification de déploiement dans le portail Azure :
 
 1. Dans votre Function App, dans le [portail Azure](https://portal.azure.com), cliquez sur **Fonctionnalités de la plate-forme** et **Informations d’identification du déploiement**.
@@ -108,7 +108,7 @@ Avant de pouvoir télécharger des fichiers à partir de votre Function App via 
 2. Entrez un nom d’utilisateur et un mot de passe, puis cliquez sur **Enregistrer**. Vous pouvez désormais utiliser ces informations d’identification pour accéder à votre application de fonction à partir du FTP ou du référentiel Git intégré.
 
 <a name="downftp"></a>
-#### <a name="how-to-download-files-using-ftp"></a>Comment télécharger des fichiers via le FTP
+#### <a name="how-to-download-files-using-ftp"></a>Activation télécharger des fichiers via FTP
 
 1. Dans votre Function App, dans le [portail Azure](https://portal.azure.com), cliquez sur **Fonctionnalités de la plate-forme** et **Propriétés**, puis copiez les valeurs de **Nom d’utilisateur FTP/déploiement**, **Nom d’hôte FTP** et **Nom d’hôte FTPS**.  
 
@@ -119,7 +119,7 @@ Avant de pouvoir télécharger des fichiers à partir de votre Function App via 
 2. À partir de votre client FTP, utilisez les informations de connexion que vous avez recueillies pour vous connecter à votre application et télécharger les fichiers sources pour vos fonctions.
 
 <a name="downgit"></a>
-#### <a name="how-to-download-files-using-a-local-git-repository"></a>Comment télécharger des fichiers via le référentiel Git local
+#### <a name="how-to-download-files-using-a-local-git-repository"></a>Activation télécharger des fichiers via un dépôt Git local
 
 1. Dans votre Function App, dans le [portail Azure](https://portal.azure.com), cliquez sur **Fonctionnalités de la plate-forme** et **Options de déploiement**. 
    

@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 12/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 973b5d3f40968790dc6153ae91d1638cb83202ee
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 77225c4d659755ec6de1a14bf67bd0a62659fb6a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384375"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753861"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Comprendre le filtrage d’événements pour les abonnements Event Grid
 
@@ -141,6 +141,7 @@ Le filtrage avancé présente les limites suivantes :
 * 512 caractères par valeur de type chaîne
 * Cinq valeurs pour les opérateurs **dans** et **pas dans**
 * La clé ne peut avoir qu'un niveau d’imbrication (comme data.key1)
+* Pour filtrer les schémas d’événement personnalisés, utilisez les champs de niveau supérieur
 
 La même clé peut être utilisée dans plusieurs filtres.
 

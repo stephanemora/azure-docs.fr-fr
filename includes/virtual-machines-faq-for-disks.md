@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a5f1e728f7a13f763367abc3f380fb9fbdb67b5c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5835e8275bedebaca01d585a992930d6856edfd7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326537"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53553436"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -189,7 +189,7 @@ Non, les disques SSD standard n’ont pas de SLA de machine virtuelle à instanc
 
 ## <a name="migrate-to-managed-disks"></a>Migrer vers Managed Disks
 
-**La migration a-t-elle un impact sur les performances des disques managés ?
+**La migration a-t-elle un impact sur les performances des disques managés ?**
 
 La migration implique le déplacement du disque d’un emplacement de stockage à un autre. Cette opération est effectuée par une copie en arrière-plan des données, qui peuvent prendre plusieurs heures (généralement moins de 24 heures), selon la quantité de données stockées sur les disques. Pendant ce temps, votre application peut afficher une latence de lecture supérieure à la normale car certaines lectures sont redirigées vers l’emplacement d’origine et prennent donc plus de temps. Il n’y a aucun impact sur la latence d’écriture pendant cette période.  
 

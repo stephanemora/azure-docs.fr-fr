@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: 74d6748a4d595e330103497dcc97ac57e01db250
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b1cfecca7d7b8a3f554466d95c666e2cbddbffde
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158616"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975676"
 ---
 # <a name="enable-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Activer le protocole LDAP sécurisé (LDAPS) pour un domaine managé Azure AD Domain Services
 
@@ -28,7 +28,7 @@ ms.locfileid: "50158616"
 Accomplissez la [Tâche 2 : Exporter le certificat du protocole LDAP sécurisé vers un fichier .PFX](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
 
 
-## <a name="task-3-enable-secure-ldap-for-the-managed-domain-using-the-azure-portal"></a>Tâche 3 : Activer le protocole LDAP sécurisé pour le domaine géré à l’aide du portail Azure
+## <a name="task-3-enable-secure-ldap-for-the-managed-domain-using-the-azure-portal"></a>Tâche 3 : Activer le protocole LDAP sécurisé pour le domaine géré à l’aide du portail Azure
 Exécutez les étapes de configuration suivantes pour activer le protocole LDAP sécurisé :
 
 1. Accédez au **[portail Azure](https://portal.azure.com)**.
@@ -51,7 +51,7 @@ Exécutez les étapes de configuration suivantes pour activer le protocole LDAP 
 5. Par défaut, l’accès LDAP sécurisé à votre domaine managé via Internet est désactivé. Si nécessaire, basculez **Autorisez l’accès LDAP sécurisé sur Internet** sur **Activer**.
 
     > [!WARNING]
-    > Quand vous activez l’accès LDAP sécurisé sur Internet, votre domaine est vulnérable aux attaques par force brute via Internet. Par conséquent, nous vous conseillons de définir un groupe de sécurité réseau pour bloquer l’accès aux plages d’adresses IP source requises. Consultez les instructions pour [Verrouiller l’accès LDAPS à votre domaine géré via internet](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
+    > Quand vous activez l’accès LDAP sécurisé sur Internet, votre domaine est vulnérable aux attaques par force brute via Internet. Par conséquent, nous vous conseillons de définir un groupe de sécurité réseau pour bloquer l’accès aux plages d’adresses IP source requises. Consultez les instructions pour [Verrouiller l’accès LDAPS à votre domaine géré via internet](active-directory-ds-ldaps-bind-lockdown.md#task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
     >
 
 6. Cliquez sur l’icône de dossier suivant le fichier **.PFX avec certificat LDAP sécurisé**. Spécifiez le chemin d’accès au fichier PFX avec le certificat pour l’accès LDAP sécurisé au domaine managé.

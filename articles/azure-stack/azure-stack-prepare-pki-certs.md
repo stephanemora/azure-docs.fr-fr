@@ -1,5 +1,5 @@
 ---
-title: Préparer des certificats pour infrastructure à clé publique Azure Stack pour le déploiement de systèmes intégrés Azure Stack | Microsoft Docs
+title: Préparer des certificats pour infrastructure à clé publique Azure Stack pour le déploiement de systèmes intégrés ou la rotation de secrets Azure Stack | Microsoft Docs
 description: Explique comment préparer le certificat pour infrastructure à clé publique Azure Stack pour des systèmes intégrés Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: c26dcbc2fab7cff3134846234cafaa481fd5ba1a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7a4c0d62fd1ea675c6569840c26ed1fb8e388850
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972025"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631479"
 ---
-# <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Préparer des certificats PKI Azure Stack pour le déploiement
+# <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Préparer des certificats PKI Azure Stack à utiliser dans le cadre du déploiement ou de la rotation
 Les fichiers de certificat [obtenus auprès de l’autorité de certification de votre choix](azure-stack-get-pki-certs.md) doivent être importés et exportés avec des propriétés correspondant aux exigences de certificat d’Azure Stack.
 
 
 ## <a name="prepare-certificates-for-deployment"></a>Préparer les certificats pour le déploiement
-Suivez ces étapes pour préparer et valider les certificats PKI Azure Stack : 
+Suivez ces étapes pour préparer et valider les certificats PKI Azure Stack qui seront utilisés pour déployer un nouvel environnement Azure Stack ou effectuer la rotation de secrets dans un environnement Azure Stack existant : 
 
 ### <a name="import-the-certificate"></a>Importer le certificat
 

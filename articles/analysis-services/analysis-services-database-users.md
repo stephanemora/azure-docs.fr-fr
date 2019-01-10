@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 863e465d888774730b9d9269024665a097a1207b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 7f8c410f368c5c63bd24bed25b9807b8061180be
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429290"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189794"
 ---
 # <a name="manage-database-roles-and-users"></a>Gérer les rôles et les utilisateurs de base de données
 
@@ -63,6 +63,7 @@ Lorsque vous créez un projet de modèle tabulaire, vous créez des rôles et aj
 
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssms"></a>Pour ajouter ou gérer des rôles et des utilisateurs dans SSMS
+
 Pour ajouter des rôles et des utilisateurs à une base de données du modèle déployée, vous devez être connecté au serveur en tant qu’administrateur de serveur ou déjà dans un rôle de base de données avec des autorisations d’administrateur.
 
 1. Dans Object Exporer, cliquez avec le bouton droit sur **Rôles** > **Nouveau rôle**.
@@ -83,6 +84,7 @@ Pour ajouter des rôles et des utilisateurs à une base de données du modèle d
 5. Si le rôle que vous créez a l’autorisation de Lecture, vous pouvez ajouter des filtres de lignes à l’aide d’une formule DAX. Cliquez sur **Filtres de lignes**, sélectionnez une table, puis tapez une formule DAX dans le champ **Filtre DAX**. 
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>Pour ajouter des rôles et des utilisateurs à l’aide d’un script TMSL
+
 Vous pouvez exécuter un script TMSL dans la fenêtre XMLA dans SSMS ou à l’aide de PowerShell. Utilisez la commande [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) et l’objet [Rôles](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/roles-object-tmsl).
 
 **Exemple de script TMSL**
@@ -116,6 +118,7 @@ Dans cet exemple, un utilisateur externe B2B et un groupe sont ajoutés au rôle
 ```
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Pour ajouter des rôles et des utilisateurs à l’aide de Powershell
+
 Le module [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) fournit des applets de commande de gestion de bases de données spécifiques à chaque tâche, ainsi que l’applet de commande Invoke-ASCmd à usage général, qui accepte un script ou une requête utilisant le langage de script de modèle tabulaire (TMSL). Les applets de commande suivantes sont utilisées pour la gestion des utilisateurs et des rôles de bases de données.
   
 |Applet de commande|Description|
@@ -125,6 +128,7 @@ Le module [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) fournit 
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Exécute un script TMSL.|
 
 ## <a name="row-filters"></a>Filtres de lignes  
+
 Les filtres de lignes définissent les lignes d’une table qui peuvent être interrogées par les membres d’un rôle donné. Les filtres de lignes sont définis pour chaque table dans un modèle à l’aide de formules DAX.  
   
 Les filtres de lignes peuvent être définis uniquement pour les rôles avec des autorisations de Lecture et de Lecture et processus. Par défaut, si un filtre de lignes n’est pas défini pour une table en particulier, les membres peuvent interroger toutes les lignes de la table, sauf si le filtrage croisé s’applique à partir d’une autre table.
@@ -135,8 +139,8 @@ Les filtres de lignes s’appliquent aux lignes spécifiées et aux lignes conne
   
 |Table|Expression DAX|  
 |-----------|--------------------|  
-|Région|=Region[Country]=”USA”|  
-|ProductCategory|=ProductCategory[Name]=”Bicycles”|  
+|Région|=Region[Country]="USA"|  
+|ProductCategory|=ProductCategory[Name]="Bicycles"|  
 |Transactions|=Transactions[Year]=2016|  
   
  L’effet net est que les membres peuvent interroger les lignes de données pour lesquelles le client réside aux États-Unis, la catégorie de produits est bicyclettes et l’année est 2016. Les utilisateurs ne peuvent pas interroger les transactions en dehors des États-Unis, qui ne sont pas des bicyclettes ou les transactions hors de 2016, sauf si ils sont membres d’un autre rôle qui accorde ces autorisations.
@@ -144,6 +148,7 @@ Les filtres de lignes s’appliquent aux lignes spécifiées et aux lignes conne
  Vous pouvez utiliser le filtre, *= FALSE()*, pour refuser l’accès à toutes les lignes pour une table entière.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
   [Gérer les administrateurs de serveur](analysis-services-server-admins.md)   
   [Gérer Azure Analysis Services avec PowerShell](analysis-services-powershell.md)  
   [Langage TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)

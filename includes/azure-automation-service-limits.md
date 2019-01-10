@@ -5,16 +5,18 @@ services: automation
 author: georgewallace
 ms.service: automation
 ms.topic: include
-ms.date: 11/07/2018
+ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 70cdd5a9d0482c24dfeb2037ae56b86cd9339fcf
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f3ae2289112948dea7d2649c4fad6b1cafb3804b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285797"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444110"
 ---
+#### <a name="process-automation"></a>Automatisation de processus
+
 | Ressource | Limite maximale |Notes|
 | --- | --- |---|
 | Nombre maximum de nouveaux travaux pouvant être envoyés toutes les 30 secondes par compte Automation (travaux non planifiés) |100 |Lorsque cette limite est atteinte, les demandes suivantes de création d’un travail échouent. Le client reçoit une réponse d’erreur.|
@@ -33,5 +35,19 @@ ms.locfileid: "51285797"
 | Paramètres de runbook maximaux   | 50|Vous pouvez passer une chaîne JSON ou XML sur un paramètre et l’analyser avec le runbook si vous atteignez la limite de 50 paramètres|
 | Taille maximale de la charge utile du webhook |  512 Ko|
 | Nombre maximal de jours de conservation des données de travail|30 jours|
+| Taille maximale de l’état du workflow PowerShell |5 Mo| S’applique aux runbooks de workflow PowerShell durant le contrôle de workflow.|
 
 **<sup>1</sup>**  Un bac à sable est un environnement partagé qui peut être utilisé par plusieurs travaux. Les travaux qui utilisent le même bac à sable sont liés par les limitations de ressources du bac à sable.
+
+#### <a name="change-tracking-and-inventory"></a>Suivi des modifications et inventaire
+
+Le tableau suivant montre les limites des éléments suivis par machine pour Change Tracking.
+
+| **Ressource** | **Limite**| **Remarques** |
+|---|---|---|
+|Fichier|500||
+|Registre|250||
+|Logiciels Windows|250|N’inclut pas les mises à jour logicielles|
+|Packages Linux|1250||
+|Services|250||
+|Daemon|250||

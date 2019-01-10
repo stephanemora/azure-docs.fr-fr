@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,ayolubek
+ms.reviewer: genemi,ayolubek, jrasnick
 manager: craigg
 ms.date: 02/05/2018
-ms.openlocfilehash: 290414ca07014d5f3bfbe160b0f571397fb13948
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 96627d96acee76516c9dc3db1b58d6e4b7b6ff15
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467124"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601036"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias DNS pour Azure SQL Database
 
@@ -55,12 +55,12 @@ Il peut arriver qu’une récupération d’urgence déplace un serveur SQL Data
 
 Les propriétés suivantes s’appliquent à tous les alias DNS du serveur SQL Database :
 
-- *Nom unique :* chaque nom d’alias créé est unique sur tous les serveurs Azure SQL Database, tout comme les noms de serveurs.
-- *Serveur requis :* il n’est possible de créer un alias DNS que s’il fait référence à exactement un serveur et que celui-ci existe déjà. Un alias mis à jour doit toujours faire référence à un seul serveur existant.
+- *Nom unique :* Chaque nom d’alias créé est unique sur tous les serveurs Azure SQL Database, tout comme les noms de serveurs.
+- *Un serveur est obligatoire :* Vous ne pouvez pas créer d’alias DNS sauf s’il référence un serveur exactement et que celui-ci existe déjà. Un alias mis à jour doit toujours faire référence à un seul serveur existant.
   - En cas de suppression d’un serveur SQL Database, le système Azure supprime également tous les alias DNS qui y font référence.
-- *Aucune liaison à une région :* les alias DNS ne sont pas liés à une région. Ils peuvent être mis à jour de façon à faire référence à un serveur Azure SQL Database quelle que soit sa région géographique.
+- *Pas de liaison à une région :* Les alias DNS ne sont pas liés à une région. Ils peuvent être mis à jour de façon à faire référence à un serveur Azure SQL Database quelle que soit sa région géographique.
   - Toutefois, en cas de référence à un autre serveur, les deux serveurs doivent se trouver dans le même *abonnement* Azure.
-- *Autorisations :* pour gérer un alias DNS, l’utilisateur doit au moins avoir l’autorisation *Collaborateur serveur*. Pour plus d’informations, consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md).
+- *Autorisations :* Pour gérer un alias DNS, l’utilisateur doit au moins avoir l’autorisation *Contributeur de serveur*. Pour plus d’informations, consultez [Bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md).
 
 ## <a name="manage-your-dns-aliases"></a>Gérer les alias DNS
 
@@ -95,10 +95,10 @@ Un exemple de code des cmdlets PowerShell utilisées pour gérer les alias DNS e
 
 Voici les cmdlets utilisées dans l’exemple de code :
 
-- [New-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/New-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1) : crée un alias DNS dans le système de service Azure SQL Database. L’alias fait référence au serveur 1 Azure SQL Database.
-- [Get-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1) : récupère et liste tous les alias DNS affectés au serveur 1 SQL DB.
-- [Set-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Set-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1) : modifie le nom du serveur auquel l’alias est configuré pour faire référence, en passant du serveur 1 au serveur 2 SQL DB.
-- [Remove-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1) : supprime l’alias DNS du serveur 2 SQL DB, en utilisant le nom de l’alias.
+- [New-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/New-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1) : Crée un alias DNS dans le système de service Azure SQL Database. L’alias fait référence au serveur 1 Azure SQL Database.
+- [Get-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1) : Obtient et liste tous les alias DNS attribués au serveur 1 SQL DB.
+- [Set-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Set-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1) : Remplace le nom du serveur que l’alias doit référencer (serveur 1) par serveur 2 SQL DB.
+- [Remove-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1) : Supprime l’alias DNS du serveur 2 SQL DB, en utilisant le nom de l’alias.
 
 Les cmdlets précédentes ont été ajoutées au module **AzureRM.Sql** à partir de la version 5.1.1.
 
@@ -106,10 +106,10 @@ Les cmdlets précédentes ont été ajoutées au module **AzureRM.Sql** à parti
 
 Actuellement, un alias DNS présente les limitations suivantes :
 
-- *Retard pouvant atteindre deux minutes :* la mise à jour et la suppression d’un alias DNS peuvent prendre jusqu’à deux minutes.
+- *Délai de 2 minutes max. :* La mise à jour ou la suppression d’un alias DNS peut prendre jusqu’à 2 minutes.
   - Indépendamment du bref délai, l’alias arrête immédiatement de faire référence aux connexions clientes au serveur hérité.
-- *Recherche DNS :* pour l’instant, le seul moyen sûr de vérifier à quel serveur un alias DNS donné fait référence consiste à effectuer une [recherche DNS](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
-- *[Audit des tables non pris en charge ](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md):* il n’est pas possible d’utiliser un alias DNS sur un serveur Azure SQL Database si *l’audit des tables* est activé sur une de ses bases de données.
+- *Recherche DNS :* Pour l’instant, le seul moyen sûr de vérifier quel serveur est référencé par un alias DNS donné est d’effectuer une [recherche DNS](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
+- *[L’audit des tables n’est pas pris en charge](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) :* Vous ne pouvez pas utiliser d’alias DNS sur un serveur Azure SQL Database si l’*audit des tables* est activé sur une base de données.
   - L’audit des tables est déconseillé.
   - Nous vous recommandons de passer à [l’Audit des objets blob](sql-database-auditing.md).
 

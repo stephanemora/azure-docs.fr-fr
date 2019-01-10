@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 6a374e7c83fc4054774d8605c93241ba8f22b9b5
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.reviewer: sngun
+ms.openlocfilehash: 5df11eb4e1b759d66200c09cabc8752532d0873c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263474"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042153"
 ---
 # <a name="understanding-your-azure-cosmos-db-bill"></a>Comprendre vos factures Azure Cosmos DB
 
@@ -262,7 +263,7 @@ Pour approfondir vos connaissances sur l’optimisation des coûts dans Azure Co
 * Pour plus d’informations, consultez [En quoi le modèle de tarification Cosmos DB est rentable pour les clients](total-cost-ownership.md)
 * En savoir plus sur [l’optimisation pour le développement et le test](optimize-dev-test.md)
 * En savoir plus sur [l’optimisation du coût du débit](optimize-cost-throughput.md)
-* En savoir plus sur [l’optimisation du coût de stockage](optimize-cost-storage.md)
-* En savoir plus sur [l’optimisation du coût des lectures et écritures](optimize-cost-reads-writes.md)
-* En savoir plus sur [l’optimisation du coût des requêtes](optimize-cost-queries.md)
-* En savoir plus sur [l’optimisation du coût des comptes Azure Cosmos sur plusieurs régions](optimize-cost-regions.md)
+* En savoir plus sur l’[optimisation du coût de stockage](optimize-cost-storage.md)
+* En savoir plus sur l’[optimisation du coût des lectures et écritures](optimize-cost-reads-writes.md)
+* En savoir plus sur l’[optimisation du coût des requêtes](optimize-cost-queries.md)
+* En savoir plus sur l’[optimisation du coût des comptes Azure Cosmos sur plusieurs régions](optimize-cost-regions.md)

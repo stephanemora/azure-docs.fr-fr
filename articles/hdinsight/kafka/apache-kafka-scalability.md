@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 1df23a35e16d4ba3562ebbc9d89a7a8003afc784
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: ab80dd86e544127fc3f40f5459ef9a587c7cd511
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498937"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581501"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>Configurer le stockage et l’extensibilité pour Apache Kafka sur HDInsight
 
@@ -26,18 +26,18 @@ Le diagramme ci-après compare l’utilisation de Kafka sur HDInsight avant les 
 
 ![Diagramme illustrant l’utilisation de Kafka sur HDInsight avec un seul VHD par machine virtuelle et avec plusieurs disques gérés par machine virtuelle](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
-## <a name="configure-managed-disks-azure-portal"></a>Configurer les disques gérés : Portail Azure
+## <a name="configure-managed-disks-azure-portal"></a>Configurer les disques managés : Portail Azure
 
 1. Pour comprendre la procédure courante de création d’un cluster à l’aide du portail, suivez les instructions de l’article [Création d’un cluster HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md). N’exécutez pas la procédure de création du portail.
 
 2. Dans la section __Taille du cluster__, utilisez le champ __Disques par nœud Worker__ pour configurer le nombre de disques.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Le type de disque managé peut être soit __Standard__ (HDD), soit __Premium__ (SSD). Les disques Premium sont utilisés avec les machines virtuelles séries DS et GS. Tous les autres types de machines virtuelles utilisent des disques Standard.
 
     ![Image de la section Taille du cluster avec mise en surbrillance des disques par nœud Worker](./media/apache-kafka-scalability/set-managed-disks-portal.png)
 
-## <a name="configure-managed-disks-resource-manager-template"></a>Configurer les disques gérés : modèle Resource Manager
+## <a name="configure-managed-disks-resource-manager-template"></a>Configurer les disques managés : Modèle Resource Manager
 
 Pour contrôler le nombre de disques utilisés par les nœuds Worker dans un cluster Kafka, utilisez la section ci-après du modèle :
 

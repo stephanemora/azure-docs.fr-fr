@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 7f093a1878bc3cf7e91cc14ec7a68b1a84764a49
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5c7c9938b6a0b3d2e6050940154a8dc3f114341e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39485848"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53638813"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Sauvegarde et récupération d’urgence pour les disques IaaS Azure
 
@@ -63,15 +63,15 @@ Pour protéger vos charges de travail IaaS contre les interruptions, vous devez 
 
 Vos considérations relatives à la récupération d’urgence peuvent inclure les aspects suivants :
 
-- Haute disponibilité : capacité de l’application à continuer de s’exécuter dans un état sain, sans temps d’arrêt significatif. L’état *Sain* signifie que l’application est réactive et que les utilisateurs peuvent s’y connecter et interagir avec elle. Certaines applications et bases de données critiques peuvent avoir besoin d’être toujours disponibles, même en cas de défaillances dans la plateforme. Pour ces charges de travail, vous devrez peut-être planifier une redondance pour l’application ainsi que les données.
+- Haute disponibilité : Capacité de l’application à continuer de s’exécuter dans un état sain, sans temps d’arrêt significatif. L’état *Sain* signifie que l’application est réactive et que les utilisateurs peuvent s’y connecter et interagir avec elle. Certaines applications et bases de données critiques peuvent avoir besoin d’être toujours disponibles, même en cas de défaillances dans la plateforme. Pour ces charges de travail, vous devrez peut-être planifier une redondance pour l’application ainsi que les données.
 
-- Durabilité des données : dans certains cas, la considération principale est de s’assurer que les données sont préservées en cas de sinistre. Par conséquent, vous aurez peut-être besoin d’une sauvegarde de vos données dans un autre site. Pour ces charges de travail, vous n’aurez peut-être pas besoin d’une redondance complète pour l’application, mais uniquement d’une sauvegarde régulière des disques.
+- Durabilité des données : Dans certains cas, l’essentiel est de vérifier que les données sont conservées en cas de sinistre. Par conséquent, vous aurez peut-être besoin d’une sauvegarde de vos données dans un autre site. Pour ces charges de travail, vous n’aurez peut-être pas besoin d’une redondance complète pour l’application, mais uniquement d’une sauvegarde régulière des disques.
 
 ## <a name="backup-and-dr-scenarios"></a>Scénarios de sauvegarde et de récupération d’urgence
 
 Examinons quelques exemples de charges de travail d’application et les éléments à prendre en compte pour la planification de la récupération d’urgence.
 
-### <a name="scenario-1-major-database-solutions"></a>Scénario 1 : solutions de base de données majeures
+### <a name="scenario-1-major-database-solutions"></a>Scénario 1 : Solutions de base de données majeures
 
 Prenons l’exemple d’un serveur de base de données de production, tel que SQL Server ou Oracle, prenant en charge la haute disponibilité. Les utilisateurs et les applications de production critiques dépendent de cette base de données. Le plan de récupération d’urgence pour ce système peut être de prendre en charge les exigences suivantes :
 
@@ -82,21 +82,21 @@ Le plan de récupération d’urgence peut nécessiter de maintenir un réplica 
 
 Les bases de données NoSQL comme MongoDB prennent également en charge les [réplicas](https://docs.mongodb.com/manual/replication/) pour assurer la redondance. Les réplicas pour la haute disponibilité sont utilisés.
 
-### <a name="scenario-2-a-cluster-of-redundant-vms"></a>Scénario 2 : un cluster de machines virtuelles redondantes
+### <a name="scenario-2-a-cluster-of-redundant-vms"></a>Scénario 2 : Cluster de machines virtuelles redondantes
 
 Prenons l’exemple d’une charge de travail gérée par un cluster de machines virtuelles qui fournit la redondance et l’équilibrage de charge. Il peut s’agir d’un cluster Cassandra déployé dans une région. Ce type d’architecture fournit déjà un niveau élevé de redondance dans cette région. Toutefois, pour protéger la charge de travail contre une défaillance au niveau régional, vous devez envisager de répartir le cluster entre deux régions ou d’effectuer des sauvegardes périodiques vers une autre région.
 
-### <a name="scenario-3-iaas-application-workload"></a>Scénario 3 : charge de travail d’application IaaS
+### <a name="scenario-3-iaas-application-workload"></a>Scénario 3 : Charge de travail d’application IaaS
 
 Examinons la charge de travail de l’application IaaS. Par exemple, cette application peut être une charge de travail de production standard exécutée sur une machine virtuelle Azure. Il peut s’agir d’un serveur web ou d’un serveur de fichiers contenant le contenu et d’autres ressources d’un site. Il peut également s’agir d’une application métier personnalisée exécutée sur une machine virtuelle qui stocke ses données, ressources et son état sur des disques de machine virtuelle. Dans ce cas, il est important de veiller à effectuer des sauvegardes régulièrement. La fréquence des sauvegardes doit être basée sur la nature de la charge de travail de machine virtuelle. Par exemple, si l’application s’exécute chaque jour et modifie des données, la sauvegarde doit être effectuée toutes les heures.
 
 Voici un autre exemple : un serveur de rapports qui extrait des données provenant d’autres sources et génère des rapports agrégés. La perte de cette machine virtuelle ou des disques peut entraîner la perte des rapports. Toutefois, il est possible de réexécuter le processus de création de rapports et de regénérer la sortie. Dans ce cas, vous ne subissez pas vraiment une perte de données, même si le serveur de rapports est atteint par un sinistre. Par conséquent, vous pouvez avoir un niveau plus élevé de tolérance en cas de perte d’une partie des données sur le serveur de rapports. Dans ce cas, des sauvegardes moins fréquentes sont une option permettant de réduire les coûts.
 
-### <a name="scenario-4-iaas-application-data-issues"></a>Scénario 4 : problèmes liés aux données d’une application IaaS
+### <a name="scenario-4-iaas-application-data-issues"></a>Scénario 4 : Problèmes liés aux données d’une application IaaS
 
 Des problèmes peuvent également affecter les données d’une application IaaS. Par exemple, vous avez une application qui calcule, tient à jour et gère des données commerciales critiques telles que des informations de tarification. Une nouvelle version de votre application a rencontré un bogue logiciel qui a incorrectement calculé la tarification et a endommagé les données commerciales actuelles prises en charge par la plateforme. Ici, le meilleur plan d’action consiste à rétablir la version antérieure de l’application et des données. Pour ce faire, effectuez des sauvegardes périodiques de votre système.
 
-## <a name="disaster-recovery-solution-azure-backup"></a>Solution de récupération d’urgence : Sauvegarde Azure 
+## <a name="disaster-recovery-solution-azure-backup"></a>Solution de reprise d’activité après sinistre : Sauvegarde Azure 
 
 [Sauvegarde Azure](https://azure.microsoft.com/services/backup/) est utilisé pour la sauvegarde et la récupération d’urgence et il fonctionne aussi bien avec les [disques managés](../articles/virtual-machines/windows/managed-disks-overview.md) que les [disques non managés](../articles/virtual-machines/windows/about-disks-and-vhds.md#unmanaged-disks). Vous pouvez créer un travail de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde. 
 
@@ -121,7 +121,7 @@ Pour obtenir une haute disponibilité, il est conseillé d’utiliser des disque
 
 Vos choix pour la haute disponibilité, la sauvegarde et la récupération d’urgence aux niveaux Application et Infrastructure peuvent être représentés comme suit :
 
-| Level |   Haute disponibilité   | Sauvegarde ou récupération d’urgence |
+| Niveau |   Haute disponibilité   | Sauvegarde ou récupération d’urgence |
 | --- | --- | --- |
 | Application | SQL Server AlwaysOn | Sauvegarde Azure |
 | Infrastructure    | Groupe à haute disponibilité  | Stockage géoredondant avec captures instantanées cohérentes |
@@ -152,7 +152,7 @@ Utilisez les étapes suivantes pour activer les sauvegardes de vos machines virt
 
 1.  Configurez la stratégie de sauvegarde et sélectionnez la machine virtuelle à partir de la même interface utilisateur.
 
-1.  Vérifiez que l’agent de sauvegarde est installé sur la machine virtuelle. Si votre machine virtuelle est créée à l’aide d’une image de la galerie Azure, l’agent de sauvegarde est déjà installé. Sinon (autrement dit, si vous utilisez une image personnalisée), utilisez les instructions de la page [Installer l’agent de machine virtuelle sur une machine virtuelle](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
+1.  Vérifiez que l’agent de sauvegarde est installé sur la machine virtuelle. Si votre machine virtuelle est créée à l’aide d’une image de la galerie Azure, l’agent de sauvegarde est déjà installé. Sinon (autrement dit, si vous utilisez une image personnalisée), utilisez les instructions de la page [Installer l’agent de machine virtuelle sur une machine virtuelle](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 
 1.  Vérifiez que la machine virtuelle autorise la connectivité réseau pour que le service de sauvegarde fonctionne. Suivez les instructions relatives à la [connectivité réseau](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
@@ -172,7 +172,7 @@ Pour plus d’informations, consultez les instructions de la section [Utiliser l
 
 Vous pouvez également utiliser PowerShell pour [restaurer une machine virtuelle](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster) ou [créer une machine virtuelle à partir de disques restaurés](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-## <a name="alternative-solution-consistent-snapshots"></a>Solution alternative : captures instantanées cohérentes
+## <a name="alternative-solution-consistent-snapshots"></a>Autre solution : Instantanés cohérents
 
 Si vous ne pouvez pas utiliser Sauvegarde Azure, vous pouvez implémenter votre propre mécanisme de sauvegarde à l’aide de captures instantanées. Il est compliqué de créer des captures instantanées cohérentes pour tous les disques utilisés par une machine virtuelle, puis de répliquer ces captures instantanées vers une autre région. Pour cette raison, Azure considère qu’il est préférable d’utiliser le service Sauvegarde plutôt que de créer une solution personnalisée. 
 
@@ -248,7 +248,7 @@ Par conséquent, votre processus de sauvegarde peut être une combinaison de deu
 
 Selon l’option de sauvegarde que vous choisissez, vous devrez peut-être gérer la sauvegarde des données et de la configuration ou il se peut que le service Sauvegarde gère tout cela pour vous.
 
-## <a name="appendix-understanding-the-impact-of-data-redundancy"></a>Annexe : comprendre l’impact de la redondance des données
+## <a name="appendix-understanding-the-impact-of-data-redundancy"></a>Annexe : Présentation de l’impact de la redondance des données
 
 Pour les comptes de stockage dans Azure, il existe trois types de redondance de données que vous devez prendre en compte lors d’une récupération d’urgence : le stockage localement redondant, le stockage géoredondant ou le stockage géoredondant avec accès en lecture. 
 

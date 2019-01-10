@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 0a4d5cf4731932ed72e0dc38c13a5f855a937864
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 21f8d8ad63e8ea7c134477a6171155c40a2b4dc8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317506"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792014"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Liaisons Azure Service Bus pour Azure Functions
 
@@ -331,6 +331,9 @@ Le déclencheur Service Bus fournit plusieurs [propriétés de métadonnées](fu
 |`Label`|`string`|L’étiquette spécifique de l’application.|
 |`CorrelationId`|`string`|L’ID de corrélation.|
 |`UserProperties`|`IDictionary<String,Object>`|Les propriétés de message spécifiques à l’application.|
+
+> [!NOTE]
+> Actuellement, le déclencheur fonctionne uniquement avec les files d’attente et les abonnements qui n’utilisent pas de sessions. Veuillez suivre [cet élément de fonctionnalité](https://github.com/Azure/azure-functions-host/issues/563) pour toute mise à jour supplémentaire concernant cette fonctionnalité. 
 
 Consultez les [exemples de code](#trigger---example) qui utilisent ces propriétés précédemment dans cet article.
 

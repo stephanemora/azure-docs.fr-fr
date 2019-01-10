@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: a3f837b41ba6ec7ecadb3e34917a8088e4d1e2d9
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 25b33242b9f7bddf0497067f111ca3fb4a1ea570
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233512"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600714"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Créer des API personnalisées que vous pouvez appeler à partir d’Azure Logic Apps
 
@@ -25,11 +25,11 @@ Bien qu’Azure Logic Apps offre [plus de 100 connecteurs intégrés](../connec
 * Aider les clients à utiliser votre service pour gérer des tâches personnelles ou professionnelles.
 * Étendre la portée, la détectabilité et l’utilisation de votre service.
 
-En principe, les connecteurs sont des API web qui utilisent REST pour les interfaces enfichables, le [format de métadonnées Swagger](http://swagger.io/specification/) pour la documentation et JSON en tant que format d’échange de données. Étant donné que les connecteurs sont des API REST qui communiquent via des points de terminaison HTTP, vous pouvez utiliser n’importe quel langage, comme .NET, Java ou Node.js, pour la création de connecteurs. Vous pouvez également héberger votre API sur [Azure App Service](../app-service/app-service-web-overview.md), une offre de plateforme en tant que service (PaaS) qui fournit une des manières les plus optimales, les plus simples et les plus évolutives d’héberger des API. 
+En principe, les connecteurs sont des API web qui utilisent REST pour les interfaces enfichables, le [format de métadonnées Swagger](http://swagger.io/specification/) pour la documentation et JSON en tant que format d’échange de données. Étant donné que les connecteurs sont des API REST qui communiquent via des points de terminaison HTTP, vous pouvez utiliser n’importe quel langage, comme .NET, Java ou Node.js, pour la création de connecteurs. Vous pouvez également héberger votre API sur [Azure App Service](../app-service/overview.md), une offre de plateforme en tant que service (PaaS) qui fournit une des manières les plus optimales, les plus simples et les plus évolutives d’héberger des API. 
 
 Pour que les API personnalisées fonctionnent avec les applications logiques, votre API peut fournir des [*actions*](./logic-apps-overview.md#logic-app-concepts) qui effectuent des tâches spécifiques dans les flux de travail des applications logiques. Votre API peut également faire office de [*déclencheur*](./logic-apps-overview.md#logic-app-concepts) qui démarre le flux de travail d’une application logique lorsque de nouvelles données ou un événement répondent à une condition donnée. Cette rubrique décrit les modèles courants que vous pouvez suivre pour la création d’actions et de déclencheurs dans votre API, en fonction du comportement que vous souhaitez que votre API adopte.
 
-Vous pouvez héberger vos API sur [Azure App Service](../app-service/app-service-web-overview.md), une offre PaaS (platform as a service) qui propose un hébergement d’API simple et hautement évolutif.
+Vous pouvez héberger vos API sur [Azure App Service](../app-service/overview.md), une offre PaaS (platform as a service) qui propose un hébergement d’API simple et hautement évolutif.
 
 > [!TIP] 
 > Bien que vous puissiez déployer vos API comme des applications web, envisagez la possibilité de les déployer comme des applications API, car cela pourrait vous faciliter la tâche lorsque vous créerez, hébergerez et consommerez des API dans le cloud et en local. Vous n’êtes pas obligé de modifier le code dans vos API. Il vous suffit de déployer votre code dans une application API. Par exemple, découvrez comment générer des applications API créées dans les langages suivants : 
@@ -104,7 +104,7 @@ Voici les étapes spécifiques que votre API doit suivre, décrites du point de 
    
    La réponse `202 ACCEPTED` doit inclure ces en-têtes :
    
-   * *Requis* : un en-tête `location` qui spécifie le chemin d’accès absolu à une URL permettant au moteur Logic Apps de vérifier l’état du travail de votre API
+   * *Obligatoire* : un en-tête `location` qui spécifie le chemin absolu à une URL permettant au moteur Logic Apps de vérifier l’état du travail de votre API.
 
    * *Facultatif* : un en-tête `retry-after` qui spécifie le nombre de secondes pendant lesquelles le moteur doit attendre avant de vérifier l’URL `location` pour connaître l’état du travail. 
 
@@ -134,7 +134,7 @@ Lorsque le travail est terminé, votre API utilise l’URL pour en informer le m
 
 Pour ce modèle, définissez deux points de terminaison sur votre contrôleur : `subscribe` et `unsubscribe`
 
-*  Point de terminaison `subscribe` : lorsque l’exécution atteint l’action de votre API dans le flux de travail, le moteur Logic Apps appelle le point de terminaison `subscribe`. Cette étape entraîne la création par l’application logique d’une URL de rappel que votre API enregistre, avant d’attendre le rappel de votre API lorsque le travail est terminé. Votre API envoie ensuite un rappel avec un élément POST HTTP à l’URL et transmet à l’application logique les en-têtes et le contenu renvoyés en tant qu’entrées.
+*  Point de terminaison `subscribe` : quand l’exécution atteint l’action de votre API dans le workflow, le moteur Logic Apps appelle le point de terminaison `subscribe`. Cette étape entraîne la création par l’application logique d’une URL de rappel que votre API enregistre, avant d’attendre le rappel de votre API lorsque le travail est terminé. Votre API envoie ensuite un rappel avec un élément POST HTTP à l’URL et transmet à l’application logique les en-têtes et le contenu renvoyés en tant qu’entrées.
 
 * Point de terminaison `unsubscribe` : si l’exécution de l’application logique est annulée, le moteur Logic Apps appelle le point de terminaison `unsubscribe`. Votre API peut alors annuler l’inscription de l’URL de rappel, et arrêter tous les processus selon les besoins.
 
@@ -196,9 +196,9 @@ Par exemple, pour vérifier périodiquement la présence de nouveaux fichiers da
 Un déclencheur Webhook est un *déclencheur d’émission* qui attend et écoute les nouvelles données ou les événements au point de terminaison de votre service. Si de nouvelles données ou un événement remplissent la condition spécifiée, le déclencheur est activé et crée une instance d’application logique, qui traite ensuite les données en tant qu’entrée.
 Les déclencheurs Webhook agissent de façon très similaire aux [actions Webhook](#webhook-actions) précédemment décrites dans cette rubrique. Ils sont configurés avec les points de terminaison `subscribe` et `unsubscribe`. 
 
-* Point de terminaison `subscribe` : lorsque vous ajoutez et enregistrez un déclencheur Webhook dans votre application logique, le moteur Logic Apps appelle le point de terminaison `subscribe`. Cette étape entraîne la création par l’application logique d’une URL de rappel que votre API enregistre. Lorsque de nouvelles données ou un événement remplissent la condition spécifiée, votre API envoie un rappel avec un élément POST HTTP à l’URL. La charge utile de contenu et les en-têtes sont transmis à l’application logique en tant qu’entrée.
+* Point de terminaison `subscribe` : quand vous ajoutez et enregistrez un déclencheur de webhook dans votre application logique, le moteur Logic Apps appelle le point de terminaison `subscribe`. Cette étape entraîne la création par l’application logique d’une URL de rappel que votre API enregistre. Lorsque de nouvelles données ou un événement remplissent la condition spécifiée, votre API envoie un rappel avec un élément POST HTTP à l’URL. La charge utile de contenu et les en-têtes sont transmis à l’application logique en tant qu’entrée.
 
-* Point de terminaison `unsubscribe` : si le déclencheur Webhook ou l’intégralité de l’application logique est supprimé, le moteur Logic Apps appelle le point de terminaison `unsubscribe`. Votre API peut alors annuler l’inscription de l’URL de rappel, et arrêter tous les processus selon les besoins.
+* Point de terminaison `unsubscribe` : si le déclencheur de webhook ou l’intégralité de l’application logique est supprimé, le moteur Logic Apps appelle le point de terminaison `unsubscribe`. Votre API peut alors annuler l’inscription de l’URL de rappel, et arrêter tous les processus selon les besoins.
 
 ![Modèle de déclencheur Webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 

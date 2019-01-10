@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: d801ed309b0d79dd6655c7dd59ebd17bd37de222
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 9d566c0f95325635c5ce5030f4d3b22dba7ceb08
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164396"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726029"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modèles d’achat Azure SQL Database
 
@@ -44,7 +44,7 @@ Le tableau et le graphique suivants comparent ces deux modèles d’achat.
 
 ## <a name="vcore-based-purchasing-model"></a>Modèle d’achat vCore
 
-Un vCore représente l’UC logique offerte avec une option permettant de choisir entre plusieurs générations de matériel et de caractéristiques physiques du matériel (par exemple, le nombre de cœurs, la mémoire, la taille de stockage). Le modèle d’achat vCore apporte flexibilité, contrôle et transparence pour la consommation des ressources. En outre, il permet de traduire facilement les exigences des charges de travail locales pour le cloud. Ce modèle permet de sélectionner le calcul, la mémoire et le stockage en fonction des besoins des charges de travail. Dans le modèle d’achat vCore, vous pouvez choisir entre les niveaux de service [Usage général](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) et [Critique pour l’entreprise](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) pour les [bases de données uniques](sql-database-single-database-scale.md), les [instances managées](sql-database-managed-instance.md) et les [pools élastiques](sql-database-elastic-pool.md). Pour les bases de données uniques, vous pouvez également choisir le niveau de service [Hyperscale (préversion)](sql-database-service-tier-hyperscale.md).
+Un vCore représente l’UC logique offerte avec une option permettant de choisir entre plusieurs générations de matériel et de caractéristiques physiques du matériel (par exemple, le nombre de cœurs, la mémoire, la taille de stockage). Le modèle d’achat vCore apporte flexibilité, contrôle et transparence pour la consommation des ressources individuelles. C’est aussi un moyen facile de traduire les exigences des charges de travail locales pour le cloud. Ce modèle permet de sélectionner le calcul, la mémoire et le stockage en fonction des besoins des charges de travail. Dans le modèle d’achat vCore, vous pouvez choisir entre les niveaux de service [Usage général](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) et [Critique pour l’entreprise](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) pour les [bases de données uniques](sql-database-single-database-scale.md), les [instances managées](sql-database-managed-instance.md) et les [pools élastiques](sql-database-elastic-pool.md). Pour les bases de données uniques, vous pouvez également choisir le niveau de service [Hyperscale (préversion)](sql-database-service-tier-hyperscale.md).
 
 Le modèle d’achat vCore vous permet de sélectionner les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances d’une exécution locale et d’optimiser les coûts. Dans le modèle d’achat vCore, les clients paient pour :
 

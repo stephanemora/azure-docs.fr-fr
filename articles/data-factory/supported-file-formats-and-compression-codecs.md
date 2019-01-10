@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b3498deb85b84c9c47544be1d8c3709c9fc78ae1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4c8fcc403b274d161893194109dee4bc8d0cb369
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100244"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974352"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formats de fichier et codecs de compression pris en charge dans Azure Data Factory
 
@@ -24,9 +24,9 @@ Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fic
 
 * [Format Texte](#text-format)
 * [Format JSON](#json-format)
-* [Format Avro](#avro-format)
-* [Format ORC](#orc-format)
 * [Format Parquet](#parquet-format)
+* [Format ORC](#orc-format)
+* [Format Avro](#avro-format)
 
 > [!TIP]
 > Découvrez comment l'activité mappe vos données source au récepteur à l'aide de la [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md), et comment les métadonnées sont déterminées en fonction de vos paramètres de format de fichier et des conseils sur la spécification de la section du [jeu de données`structure`](concepts-datasets-linked-services.md#dataset-structure).
@@ -91,8 +91,8 @@ Si vous souhaitez analyser des fichiers JSON ou écrire des données au format�
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | filePattern |Indiquez le modèle des données stockées dans chaque fichier JSON. Les valeurs autorisées sont les suivantes : **setOfObjects** et **arrayOfObjects**. La valeur **par défaut** est **setOfObjects**. Consultez la section [Modèles de fichiers JSON](#json-file-patterns) pour en savoir plus sur ces modèles. |Non  |
-| jsonNodeReference | Si vous souhaitez effectuer une itération et extraire des données à partir des objets situés à l’intérieur d’un champ de tableau présentant le même modèle, spécifiez le chemin d’accès JSON de ce tableau. Cette propriété est uniquement prise en charge lors de la copie de données de fichiers JSON. | Non  |
-| jsonPathDefinition | Spécifiez l’expression de chemin JSON pour chaque mappage de colonne avec un nom de colonne personnalisé (commencez par une lettre minuscule). Cette propriété est uniquement prise en charge lors de la copie de données à partir de fichiers JSON, et vous pouvez extraire des données d’un objet ou d’un tableau. <br/><br/> Pour les champs situés sous l’objet racine, commencez par $ racine ; pour ceux qui se trouvent dans le tableau sélectionné par la propriété `jsonNodeReference`, commencez par l’élément de tableau. Consultez la section [Exemple pour JsonFormat](#jsonformat-example) pour en savoir plus sur la méthode de configuration à suivre. | Non  |
+| jsonNodeReference | Si vous souhaitez effectuer une itération et extraire des données à partir des objets situés à l’intérieur d’un champ de tableau présentant le même modèle, spécifiez le chemin d’accès JSON de ce tableau. Cette propriété est uniquement prise en charge lors de la copie de données **à partir** de fichiers JSON. | Non  |
+| jsonPathDefinition | Spécifiez l’expression de chemin JSON pour chaque mappage de colonne avec un nom de colonne personnalisé (commencez par une lettre minuscule). Cette propriété est uniquement prise en charge lors de la copie de données **à partir** de fichiers JSON, et vous pouvez extraire des données d’un objet ou d’un tableau. <br/><br/> Pour les champs situés sous l’objet racine, commencez par $ racine ; pour ceux qui se trouvent dans le tableau sélectionné par la propriété `jsonNodeReference`, commencez par l’élément de tableau. Consultez la section [Exemple pour JsonFormat](#jsonformat-example) pour en savoir plus sur la méthode de configuration à suivre. | Non  |
 | encodingName |Spécifiez le nom du codage. Pour obtenir la liste des noms de codage valides, consultez : Propriété [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Par exemple : windows-1250 ou shift_jis. La valeur **par défaut** est : **UTF-8**. |Non  |
 | nestingSeparator |Caractère utilisé pour séparer les niveaux d'imbrication. La valeur par défaut est . (point). |Non  |
 
@@ -190,8 +190,6 @@ L’activité de copie peut analyser les modèles de fichiers JSON ci-dessous 
 ### <a name="jsonformat-example"></a>Exemple pour JsonFormat
 
 **Cas 1 : Copie de données à partir de fichiers JSON**
-
-Consultez les deux exemples suivants lors de la copie des données à partir de fichiers JSON. Voici quelques points généraux à prendre en compte :
 
 **Exemple 1 : Extraire des données d’objet et de tableau**
 
@@ -405,22 +403,51 @@ Le jeu de données de sortie présentant le type **JsonFormat** est défini comm
 }
 ```
 
-## <a name="avro-format"></a>Format AVRO
+## <a name="parquet-format"></a>Format Parquet
 
-Si vous souhaitez analyser des fichiers Avro ou écrire des données au format Avro, définissez la propriété `format` `type` sur **AvroFormat**. Il est inutile de spécifier des propriétés dans la partie Format de la section typeProperties. Exemple :
+Si vous souhaitez analyser des fichiers Parquet ou écrire des données au format Parquet, définissez la propriété `format` `type` sur **ParquetFormat**. Il est inutile de spécifier des propriétés dans la partie Format de la section typeProperties. Exemple :
 
 ```json
 "format":
 {
-    "type": "AvroFormat",
+    "type": "ParquetFormat"
 }
 ```
 
-Pour utiliser le format Avro dans une table Hive, vous pouvez faire référence au [didacticiel Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+> [!IMPORTANT]
+> Dans le cas de copies permises par Integration Runtime (auto-hébergé), par exemple, entre des magasins de données locaux et cloud, si vous ne copiez pas les fichiers Parquet **tels quels**, vous devrez installer JRE 8 (Java Runtime Environment) sur votre machine de runtime d’intégration. Un runtime d’intégration de 64 bits requiert la version 64 bits de JRE. Ces deux versions sont disponibles [ici](https://go.microsoft.com/fwlink/?LinkId=808605).
+>
 
 Notez les points suivants :
 
-* [Les types de données complexes](http://avro.apache.org/docs/current/spec.html#schema_complex) ne sont pas pris en charge (enregistrements, enums, tables, cartes, unions et fixes).
+* Les types de données complexes ne sont pas pris en charge (MAP, LIST).
+* Les espaces blancs dans le nom de colonne ne sont pas pris en charge.
+* Le fichier Parquet a les options liées à la compression suivantes : NONE, SNAPPY, GZIP et LZO. Data Factory prend en charge la lecture des données à partir de fichier Parquet dans tous ces formats compressés sauf LZO ; il utilise le codec de compression dans les métadonnées pour lire les données. Toutefois, lors de l’écriture dans un fichier Parquet, Data Factory choisit SNAPPY, qui est la valeur par défaut pour le format Parquet. Actuellement, il n’existe aucune option permettant de remplacer ce comportement.
+
+### <a name="data-type-mapping-for-parquet-files"></a>Mappage de type de données pour les fichiers Parquet
+
+| Type de données intermédiaires de Data Factory | Type primitif Parquet | Type d’origine Parquet (désérialiser) | Type d’origine Parquet (sérialiser) |
+|:--- |:--- |:--- |:--- |
+| Booléen | Booléen | N/A | N/A |
+| SByte | Int32 | Int8 | Int8 |
+| Byte | Int32 | UInt8 | Int16 |
+| Int16 | Int32 | Int16 | Int16 |
+| UInt16 | Int32 | UInt16 | Int32 |
+| Int32 | Int32 | Int32 | Int32 |
+| UInt32 | Int64 | UInt32 | Int64 |
+| Int64 | Int64 | Int64 | Int64 |
+| UInt64 | Int64/binaire | UInt64 | Décimal |
+| Single | Float | N/A | N/A |
+| Double | Double | N/A | N/A |
+| Décimal | Binary | Décimal | Décimal |
+| Chaîne | Binary | Utf8 | Utf8 |
+| Datetime | Int96 | N/A | N/A |
+| intervalle de temps | Int96 | N/A | N/A |
+| DatetimeOffset | Int96 | N/A | N/A |
+| ByteArray | Binary | N/A | N/A |
+| Guid | Binary | Utf8 | Utf8 |
+| Char | Binary | Utf8 | Utf8 |
+| CharArray | Non pris en charge | N/A | N/A |
 
 ## <a name="orc-format"></a>Format ORC
 
@@ -439,7 +466,8 @@ Si vous souhaitez analyser des fichiers ORC ou écrire des données au format 
 
 Notez les points suivants :
 
-* Les types de données complexes ne sont pas pris en charge (STRUCT, MAP, LIST, UNION)
+* Les types de données complexes ne sont pas pris en charge (STRUCT, MAP, LIST, UNION).
+* Les espaces blancs dans le nom de colonne ne sont pas pris en charge.
 * Le fichier ORC a trois [options liées à la compression](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/) : NONE, ZLIB, SNAPPY. Data Factory prend en charge la lecture des données du fichier ORC dans tous ces formats compressés. Il utilise le codec de compression se trouvant dans les métadonnées pour lire les données. Toutefois, lors de l’écriture dans un fichier ORC, Data Factory choisit ZLIB, qui est la valeur par défaut pour ORC. Actuellement, il n’existe aucune option permettant de remplacer ce comportement.
 
 ### <a name="data-type-mapping-for-orc-files"></a>Mappage de type de données pour fichiers Oracle
@@ -466,50 +494,22 @@ Notez les points suivants :
 | Guid | Chaîne |
 | Char | Char (1) |
 
-## <a name="parquet-format"></a>Format Parquet
+## <a name="avro-format"></a>Format AVRO
 
-Si vous souhaitez analyser des fichiers Parquet ou écrire des données au format Parquet, définissez la propriété `format` `type` sur **ParquetFormat**. Il est inutile de spécifier des propriétés dans la partie Format de la section typeProperties. Exemple :
+Si vous souhaitez analyser des fichiers Avro ou écrire des données au format Avro, définissez la propriété `format` `type` sur **AvroFormat**. Il est inutile de spécifier des propriétés dans la partie Format de la section typeProperties. Exemple :
 
 ```json
 "format":
 {
-    "type": "ParquetFormat"
+    "type": "AvroFormat",
 }
 ```
 
-> [!IMPORTANT]
-> Dans le cas de copies permises par Integration Runtime (auto-hébergé), par exemple, entre des magasins de données locaux et cloud, si vous ne copiez pas les fichiers Parquet **tels quels**, vous devrez installer JRE 8 (Java Runtime Environment) sur votre machine de runtime d’intégration. Un runtime d’intégration de 64 bits requiert la version 64 bits de JRE. Ces deux versions sont disponibles [ici](https://go.microsoft.com/fwlink/?LinkId=808605).
->
+Pour utiliser le format Avro dans une table Hive, vous pouvez faire référence au [didacticiel Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
 Notez les points suivants :
 
-* Les types de données complexes ne sont pas pris en charge (MAP, LIST)
-* Le fichier Parquet a les options liées à la compression suivantes : NONE, SNAPPY, GZIP et LZO. Data Factory prend en charge la lecture des données du fichier Parquet dans tous ces formats compressés. Il utilise le codec de compression se trouvant dans les métadonnées pour lire les données. Toutefois, lors de l’écriture dans un fichier Parquet, Data Factory choisit SNAPPY, qui est la valeur par défaut pour le format Parquet. Actuellement, il n’existe aucune option permettant de remplacer ce comportement.
-
-### <a name="data-type-mapping-for-parquet-files"></a>Mappage de type de données pour les fichiers Parquet
-
-| Type de données intermédiaires de Data Factory | Type primitif Parquet | Type d’origine Parquet (désérialiser) | Type d’origine Parquet (sérialiser) |
-|:--- |:--- |:--- |:--- |
-| Booléen | Booléen | N/A | N/A |
-| SByte | Int32 | Int8 | Int8 |
-| Byte | Int32 | UInt8 | Int16 |
-| Int16 | Int32 | Int16 | Int16 |
-| UInt16 | Int32 | UInt16 | Int32 |
-| Int32 | Int32 | Int32 | Int32 |
-| UInt32 | Int64 | UInt32 | Int64 |
-| Int64 | Int64 | Int64 | Int64 |
-| UInt64 | Int64/binaire | UInt64 | Décimal |
-| Single | Float | N/A | N/A |
-| Double | Double | N/A | N/A |
-| Décimal | Binary | Décimal | Décimal |
-| Chaîne | Binary | Utf8 | Utf8 |
-| Datetime | Int96 | N/A | N/A |
-| intervalle de temps | Int96 | N/A | N/A |
-| DatetimeOffset | Int96 | N/A | N/A |
-| ByteArray | Binary | N/A | N/A |
-| Guid | Binary | Utf8 | Utf8 |
-| Char | Binary | Utf8 | Utf8 |
-| CharArray | Non pris en charge | N/A | N/A |
+* [Les types de données complexes](http://avro.apache.org/docs/current/spec.html#schema_complex) ne sont pas pris en charge (enregistrements, enums, tables, cartes, unions et fixes).
 
 ## <a name="compression-support"></a>Prise en charge de la compression
 

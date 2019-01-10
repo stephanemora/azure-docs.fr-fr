@@ -1,6 +1,6 @@
 ---
-title: Configurer des applications web - Azure App Service
-description: Configuration d’une application web dans Azure App Service
+title: Configurer des applications - Azure App Service
+description: Configuration d’une application dans Azure App Service
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -15,22 +15,20 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4286aa9cbaf07743c1d420fb1f5caace91bab7ee
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: deb3b155af464e69c6811414135913917cf2193a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269428"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716461"
 ---
-# <a name="configure-web-apps-in-azure-app-service"></a>Configurer des applications web dans Azure App Service
+# <a name="configure-apps-in-azure-app-service"></a>Configurer des applications dans Azure App Service
 
-Cet article explique comment configurer une application web à l’aide du [portail Azure].
-
-[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+Cette rubrique explique comment configurer une application web, back-end mobile ou API à l’aide du [portail Azure].
 
 ## <a name="application-settings"></a>Paramètres de l’application
-1. Sur le [Portail Azure], ouvrez le panneau de l’application Web.
-3. Cliquez sur **Paramètres de l’application**.
+1. Dans le [Portail Azure], ouvrez le panneau de l’application.
+2. Cliquez sur **Paramètres de l’application**.
 
 ![Paramètres de l’application][configure01]
 
@@ -47,14 +45,14 @@ Le panneau **Paramètres de l’application** regroupe différents paramètres s
 Pour des raisons techniques, l’activation de Java pour votre application désactive les options .NET, PHP et Python.
 
 <a name="platform"></a>
-**Plateforme**. Indique si votre application web s’exécute dans un environnement 32 bits ou 64 bits. L'environnement 64 bits demande le niveau De base ou Standard. Les niveaux Gratuit et Partagé s'exécutent uniquement dans un environnement 32 bits.
+**Plateforme**. Indique si votre application s’exécute dans un environnement 32 bits ou 64 bits. L'environnement 64 bits demande le niveau De base ou Standard. Les niveaux Gratuit et Partagé s'exécutent uniquement dans un environnement 32 bits.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-**Web Sockets**. Sélectionnez la valeur **ACTIF** pour activer le protocole WebSocket. Par exemple, si votre application web utilise [ASP.NET SignalR] ou [socket.io](https://socket.io/).
+**Web Sockets**. Sélectionnez la valeur **ACTIF** pour activer le protocole WebSocket, par exemple si votre application utilise [ASP.NET SignalR] ou [socket.io](https://socket.io/).
 
 <a name="alwayson"></a>
-**Toujours actif**. Par défaut, les applications web sont déchargées si elles sont inactives pendant un certain temps. Cela permet au système d’économiser des ressources. En mode De base ou Standard, vous pouvez activer l’option **Toujours actif** pour garder l’application chargée en permanence. Si votre application exécute des WebJobs en continu ou après déclenchement par une expression CRON, activez l’option **Toujours actif**. Sinon, ils risquent de ne pas s’exécuter de façon fiable.
+**Toujours actif**. Par défaut, les applications sont déchargées si elles sont inactives pendant un certain temps. Cela permet au système d’économiser des ressources. En mode De base ou Standard, vous pouvez activer l’option **Toujours actif** pour garder l’application chargée en permanence. Si votre application exécute des WebJobs en continu ou après déclenchement par une expression CRON, activez l’option **Toujours actif**. Sinon, ils risquent de ne pas s’exécuter de façon fiable.
 
 **Version de pipeline gérée**. Définit le [mode pipeline]d'IIS. Laissez la valeur par défaut, Intégré, sauf si vous avez une application web qui demande une version plus ancienne d’IIS.
 
@@ -65,13 +63,13 @@ Pour des raisons techniques, l’activation de Java pour votre application désa
 
 **Affinité ARR**. Dans une application montée en charge en plusieurs instances de machine virtuelle, les cookies Affinité ARR garantissent l’acheminement du client vers la même instance pour la durée de vie de la session. Pour améliorer les performances des applications sans état, définissez cette option sur **Off**.   
 
-**Basculement automatique**. Si vous activez le basculement automatique pour un emplacement de déploiement, App Service fera basculer l’application web en production automatiquement lorsque vous enverrez une mise à jour sur cet emplacement. Pour plus d’informations, consultez [Déployer vers des emplacements intermédiaires pour les applications Web dans Azure App Service](web-sites-staged-publishing.md).
+**Basculement automatique**. Si vous activez le basculement automatique pour un emplacement de déploiement, App Service fera basculer l’application en production automatiquement quand vous enverrez (push) une mise à jour sur cet emplacement. Pour plus d’informations, consultez [Déployer vers des emplacements intermédiaires pour les applications dans Azure App Service](deploy-staging-slots.md).
 
 ### <a name="debugging"></a>Débogage
-**Débogage à distance**. Active le débogage distant. Quand cette option est activée, vous pouvez utiliser le débogueur distant de Visual Studio pour vous connecter directement à votre application web. Le débogage à distance reste activé pendant 48 heures. 
+**Débogage à distance**. Active le débogage distant. Quand cette option est activée, vous pouvez utiliser le débogueur distant de Visual Studio pour vous connecter directement à votre application. Le débogage à distance reste activé pendant 48 heures. 
 
 ### <a name="app-settings"></a>Paramètres de l’application
-Cette section contient des paires nom/valeur qui seront chargées par votre application web au démarrage. 
+Cette section contient des paires nom/valeur qui seront chargées par votre application au démarrage. 
 
 * Dans le cas des applications .NET, ces paramètres sont inclus dans les `AppSettings` de votre configuration .NET au moment de l’exécution, en remplacement des paramètres existants. 
 * Pour App Service sur Linux ou Web App pour conteneurs, si vous avez imbriqué une structure de clé json dans votre nom, par exemple `ApplicationInsights:InstrumentationKey`, vous avez besoin d’utiliser `ApplicationInsights__InstrumentationKey` comme nom de clé. Ainsi, notez le remplacement de `:` par `__` (autrement dit, un trait de soulignement double).
@@ -102,7 +100,7 @@ Les chaînes de connexion peuvent être résolues à partir de Key Vault à l’
 ### <a name="default-documents"></a>Documents par défaut
 Le document par défaut est la page web qui s’affiche à l’URL racine pour un site web.  Le premier fichier correspondant dans la liste est utilisé. 
 
-Les applications web peuvent utiliser des modules qui effectuent un routage en fonction de l’URL, au lieu de proposer du contenu statique. Dans ce cas, il n’existe pas de document par défaut.    
+Les applications peuvent utiliser des modules qui effectuent un routage en fonction de l’URL, au lieu de proposer du contenu statique. Dans ce cas, il n’existe pas de document par défaut.    
 
 ### <a name="handler-mappings"></a>Mappages de gestionnaires
 Utilisez cette zone pour ajouter des processeurs de script personnalisés et gérer les requêtes portant sur des extensions de fichiers spécifiques. 
@@ -117,7 +115,7 @@ Pour configurer des applications et des répertoires virtuels, spécifiez chaque
 ## <a name="enabling-diagnostic-logs"></a>Activation des journaux de diagnostic
 Pour activer les journaux de diagnostic, procédez comme suit :
 
-1. Dans le panneau de votre application Web, cliquez sur **Tous les paramètres**.
+1. Dans le panneau de votre application, cliquez sur **Tous les paramètres**.
 2. Cliquez sur **Journaux de diagnostic**. 
 
 Options liées à l'écriture des journaux de diagnostic à partir d'une application web qui prend en charge la journalisation : 
@@ -134,31 +132,31 @@ Options liées à l'écriture des journaux de diagnostic à partir d'une applica
 
 Pour afficher les fichiers journaux, vous devez créer des informations d’identification FTP, comme suit :
 
-1. Dans le panneau de votre application Web, cliquez sur **Tous les paramètres**.
+1. Dans le panneau de votre application, cliquez sur **Tous les paramètres**.
 2. Cliquez sur **Informations d’identification du déploiement**.
 3. Entrez un nom d'utilisateur et un mot de passe.
 4. Cliquez sur **Enregistrer**.
 
 ![Définir les informations d’identification de déploiement][configure03]
 
-Le nom d’utilisateur FTP complet est « app\username », où *app* représente le nom de votre application web. Le nom d’utilisateur est répertorié dans le panneau Application Web, sous **Essentials**.
+Le nom d’utilisateur FTP complet est « app\username », où *app* représente le nom de votre application. Le nom d’utilisateur est listé dans le panneau de l’application, sous **Essentials**.
 
 ![Informations d’identification de déploiement FTP][configure02]
 
 ## <a name="other-configuration-tasks"></a>Autres tâches de configuration
 ### <a name="ssl"></a>SSL
-En mode De base ou Standard, vous pouvez télécharger des certificats SSL pour un domaine personnalisé. Pour plus d’informations, consultez [Activer le protocole HTTPS pour une application web](app-service-web-tutorial-custom-ssl.md). 
+En mode De base ou Standard, vous pouvez télécharger des certificats SSL pour un domaine personnalisé. Pour plus d’informations, consultez [Activer le protocole HTTPS pour une application](app-service-web-tutorial-custom-ssl.md). 
 
 Pour afficher vos certificats téléchargés, cliquez sur **Tous les paramètres** > **Domaines personnalisés et SSL**.
 
 ### <a name="domain-names"></a>Noms de domaine
-Ajouter des noms de domaine personnalisés pour votre application web. Pour plus d’informations, consultez [Configurer un nom de domaine personnalisé pour une application web dans Azure App Service](app-service-web-tutorial-custom-domain.md).
+Ajoutez des noms de domaine personnalisés pour votre application. Pour plus d’informations, consultez [Configurer un nom de domaine personnalisé pour une application dans Azure App Service](app-service-web-tutorial-custom-domain.md).
 
 Pour afficher vos noms de domaine, cliquez sur **Tous les paramètres** > **Domaines personnalisés et SSL**.
 
 ### <a name="deployments"></a>Déploiements
-* Configurer un déploiement continu Consultez [Utilisation de Git pour déployer des applications web dans Azure App Service](app-service-deploy-local-git.md).
-* Emplacements de déploiement Consultez [Deploy to Staging Environments for Web Apps in Azure App Service (Procéder à des déploiements sur des environnements intermédiaires pour les applications web dans Azure App Service)].
+* Configurer un déploiement continu Consultez [Utilisation de Git pour déployer des applications dans Azure App Service](deploy-local-git.md).
+* Emplacements de déploiement Consultez [Déployer sur des environnements intermédiaires pour Azure App Service].
 
 Pour afficher vos emplacements de déploiement, cliquez sur **Tous les paramètres** > **Emplacements de déploiement**.
 
@@ -167,29 +165,23 @@ En mode De base ou Standard, vous pouvez tester la disponibilité des points de 
 
 Pour plus d’informations, consultez [Procédure : surveiller l’état d’un point de terminaison web].
 
-> [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service], où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
-> 
-> 
-
 ## <a name="next-steps"></a>Étapes suivantes
 * [Configuration d’un nom de domaine personnalisé dans Azure App Service]
 * [Activer le protocole HTTPS pour une application dans Azure App Service]
-* [Faire évoluer une application Web dans Azure App Service]
-* [Surveiller les applications Web dans Azure App Service]
+* [Mettre à l’échelle une application dans Azure App Service]
+* [Concepts de base de la supervision dans Azure App Service]
 
 <!-- URL List -->
 
 [ASP.NET SignalR]: https://www.asp.net/signalr
 [Portail Azure]: https://portal.azure.com/
 [Configuration d’un nom de domaine personnalisé dans Azure App Service]: ./app-service-web-tutorial-custom-domain.md
-[Deploy to Staging Environments for Web Apps in Azure App Service (Procéder à des déploiements sur des environnements intermédiaires pour les applications web dans Azure App Service)]: ./web-sites-staged-publishing.md
+[Déployer sur des environnements intermédiaires pour Azure App Service]: ./deploy-staging-slots.md
 [Activer le protocole HTTPS pour une application dans Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
 [Procédure : surveiller l’état d’un point de terminaison web]: https://go.microsoft.com/fwLink/?LinkID=279906
-[Surveiller les applications Web dans Azure App Service]: ./web-sites-monitor.md
+[Concepts de base de la supervision dans Azure App Service]: ./web-sites-monitor.md
 [mode pipeline]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Faire évoluer une application Web dans Azure App Service]: ./web-sites-scale.md
-[Essayer App Service]: https://azure.microsoft.com/try/app-service/
+[Mettre à l’échelle une application dans Azure App Service]: ./web-sites-scale.md
 
 <!-- IMG List -->
 

@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 08728a3c0b4d4578939004e2d1b1ee2d30a682ab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f6c629182fdcce83c566869860480d9c70488797
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359286"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53712744"
 ---
 # <a name="variables-section-of-azure-resource-manager-templates"></a>Section Variables des modèles Azure Resource Manager
-Dans la section des variables, vous définissez des valeurs pouvant être utilisées dans votre modèle. Il est inutile de définir des variables, mais elles simplifient souvent votre modèle en réduisant les expressions complexes.
+Dans la section des variables, vous définissez des valeurs pouvant être utilisées dans votre modèle. Vous n’êtes pas obligé de définir des variables, mais elles simplifient souvent votre modèle en réduisant les expressions complexes.
 
 ## <a name="define-and-use-a-variable"></a>Définir et utiliser une variable
 
@@ -269,13 +269,6 @@ Cette approche fonctionne bien pour vérifier que les valeurs des paramètres so
 }
 ```
 
-## <a name="recommendations"></a>Recommandations
-Les informations suivantes peuvent être utiles lorsque vous travaillez avec des variables :
-
-* Utilisez des variables pour les valeurs que vous devez utiliser plusieurs fois dans un modèle. Si une valeur est utilisée une seule fois, une valeur codée en dur rend votre modèle plus facile à lire.
-* Vous ne pouvez pas utiliser la fonction [référence](resource-group-template-functions-resource.md#reference) dans la section **variables** du modèle. La fonction **référence** dérive sa valeur de l’état d’exécution de la ressource. Toutefois, les variables sont résolues lors de l’analyse initiale du modèle. Construisez des valeurs qui ont besoin de la fonction **référence** directement dans la section **ressources** ou **outputs** du modèle.
-* Ajoutez des variables pour les noms de ressource qui doivent être uniques.
-
 ## <a name="example-templates"></a>Exemples de modèles
 
 Ces exemples de modèles montrent quelques scénarios d’utilisation de variables. Déployez-les pour tester la façon dont les variables sont gérées dans différents cas de figure. 
@@ -290,5 +283,5 @@ Ces exemples de modèles montrent quelques scénarios d’utilisation de variabl
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour afficher des modèles complets pour de nombreux types de solutions, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/).
 * Pour plus d’informations sur les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md).
-* Pour combiner plusieurs modèles lors du déploiement, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
+* Pour obtenir des recommandations sur la création de modèles, consultez [Bonnes pratiques relatives aux modèles Azure Resource Manager](template-best-practices.md).
 * Vous devrez peut-être utiliser des ressources qui existent au sein d'un groupe de ressources différent. Ce scénario est classique quand vous utilisez des comptes de stockage ou des réseaux virtuels qui sont partagés entre plusieurs groupes de ressources. Pour plus d'informations, consultez la [fonction resourceId](resource-group-template-functions-resource.md#resourceid).

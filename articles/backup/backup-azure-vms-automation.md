@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 814afb8731f8e4da3d3cbc75ef69c3b5da487914
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f2cdeea546e7153c63cb1edfbc53f3644facc4f2
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877859"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743899"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Utilisation de PowerShell pour sauvegarder et restaurer des machines virtuelles
 
-Cet article vous montre comment utiliser des cmdlets Azure PowerShell pour sauvegarder et restaurer une machine virtuelle Azure à partir d’un coffre Recovery Services. Un coffre Recovery Services est une ressource Azure Resource Manager utilisée pour protéger les données et les actifs dans Sauvegarde Azure et les services Azure Site Recovery. 
+Cet article vous montre comment utiliser des cmdlets Azure PowerShell pour sauvegarder et restaurer une machine virtuelle Azure à partir d’un coffre Recovery Services. Un coffre Recovery Services est une ressource Azure Resource Manager utilisée pour protéger les données et les actifs dans Sauvegarde Azure et les services Azure Site Recovery.
 
 > [!NOTE]
 > Azure comporte deux modèles de déploiement pour la création et l’utilisation de ressources : [Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article concerne l’utilisation avec des machines virtuelles créées à l’aide du modèle Resource Manager.
@@ -28,6 +28,7 @@ Cet article vous montre comment utiliser des cmdlets Azure PowerShell pour sauve
 Cet article vous guide tout au long de l’utilisation de PowerShell pour protéger une machine virtuelle et la restauration de données à partir d’un point de récupération.
 
 ## <a name="concepts"></a>Concepts
+
 Si vous n’êtes pas familiarisé avec le service Sauvegarde Azure, consultez l’article [Qu’est-ce que la Sauvegarde Azure ?](backup-introduction-to-azure-backup.md) afin d’obtenir une vue d’ensemble du service. Avant de commencer, assurez-vous de connaître les conditions préalables nécessaires pour travailler avec la Sauvegarde Azure ainsi que les limites de la solution actuelle de sauvegarde des machines virtuelles.
 
 Pour pouvoir utiliser efficacement PowerShell, il est nécessaire de comprendre la hiérarchie des objets et par où commencer.
@@ -43,7 +44,7 @@ Pour commencer :
 1. [Téléchargez la dernière version de PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (version minimale requise : 1.4.0)
 
 2. Rechercher les applets de commande PowerShell Azure Backup disponibles en tapant la commande suivante :
-   
+
     ```powershell
     Get-Command *azurermrecoveryservices*
     ```    
@@ -326,7 +327,7 @@ $rp[0]
 
 Le résultat ressemble à l’exemple suivant :
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -350,6 +351,7 @@ Pour restaurer les disques et les informations de configuration :
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG"
 $restorejob
 ```
+
 #### <a name="restore-managed-disks"></a>Restaurer des disques managés
 
 > [!NOTE]
@@ -359,16 +361,15 @@ $restorejob
 
 Précisez un paramètre supplémentaire **TargetResourceGroupName** correspondant au groupe de ressources dans lequel les disques managés seront restaurés.
 
-
 ```powershell
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"
 ```
 
 Le fichier **VMConfig.JSON** sera restauré dans le compte de stockage, et les disques managés seront restaurés dans le groupe de ressources cible spécifié.
 
-
 Le résultat ressemble à l’exemple suivant :
-```
+
+```powershell
 WorkloadName     Operation          Status               StartTime                 EndTime            JobID
 ------------     ---------          ------               ---------                 -------          ----------
 V2VM              Restore           InProgress           4/23/2016 5:00:30 PM                        cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
@@ -397,6 +398,27 @@ Après avoir restauré les disques, utilisez les étapes ci-après pour créer e
 > Pour créer des machines virtuelles chiffrées à partir de disques restaurés, votre rôle Azure doit avoir l’autorisation d’effectuer l’action **Microsoft.KeyVault/vaults/deploy/action**. Si votre rôle ne dispose pas de cette autorisation, créez un rôle personnalisé avec cette action. Pour plus d’informations, consultez [Rôles personnalisés dans le contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/custom-roles.md).
 >
 >
+
+> [!NOTE]
+> Après avoir restauré les disques, vous pouvez obtenir un modèle de déploiement que vous pouvez utiliser directement pour créer une machine virtuelle. Les cmdlets PS permettant de créer des machines virtuelles gérées/non gérées qui sont chiffrées/non chiffrées ne sont plus différentes.
+
+Les détails du travail obtenu donnent l’URI du modèle que vous pouvez interroger et déployer.
+
+```powershell
+   $properties = $details.properties
+   $templateBlobURI = $properties["Template Blob Uri"]
+```
+
+Il vous suffit de déployer le modèle pour créer une machine virtuelle, comme expliqué [ici](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy#deploy-a-template-from-an-external-source).
+
+```powershell
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS
+```
+
+La section suivante liste les étapes nécessaires pour créer une machine virtuelle à l’aide du fichier « VMConfig ».
+
+> [!NOTE]
+> Il est vivement recommandé d’utiliser le modèle de déploiement décrit ci-dessus pour créer une machine virtuelle. Cette section (points 1 à 6) sera bientôt dépréciée.
 
 1. Interrogez les propriétés des disques restaurés pour obtenir les détails du travail.
 
@@ -476,14 +498,14 @@ Après avoir restauré les disques, utilisez les étapes ci-après pour créer e
    * **Machines virtuelles managées et non chiffrées** : utilisez l’exemple suivant pour une machine virtuelle managée mais pas chiffrée. Pour plus d’informations, consultez l’article [Attacher un disque de données à une machine virtuelle Windows à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
    * **Machines virtuelles managées et chiffrées (à l’aide de clés BEK uniquement)**  : pour les machines virtuelles managées et chiffrées (à l’aide de clés BEK uniquement), joignez les disques managés restaurés. Pour plus d’informations, consultez l’article [Attacher un disque de données à une machine virtuelle Windows à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md).
-   
-      Utilisez la commande suivante pour activer manuellement le chiffrement des disques de données.
+
+     Utilisez la commande suivante pour activer manuellement le chiffrement des disques de données.
 
        ```powershell
        Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
        ```
 
-   * **Machines virtuelles managées et chiffrées (à l’aide de clés BEK et KEK)**  : pour les machines virtuelles managées et chiffrées (à l’aide de clés BEK et KEK), joignez les disques managés restaurés. Pour plus d’informations, consultez l’article [Attacher un disque de données à une machine virtuelle Windows à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md). 
+   * **Machines virtuelles managées et chiffrées (à l’aide de clés BEK et KEK)**  : pour les machines virtuelles managées et chiffrées (à l’aide de clés BEK et KEK), joignez les disques managés restaurés. Pour plus d’informations, consultez l’article [Attacher un disque de données à une machine virtuelle Windows à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
       Utilisez la commande suivante pour activer manuellement le chiffrement des disques de données.
 
@@ -520,7 +542,6 @@ Les étapes élémentaires pour restaurer un fichier à partir d’une sauvegard
 * Monter les disques du point de récupération
 * Copier les fichiers nécessaires
 * Démonter le disque
-
 
 ### <a name="select-the-vm"></a>Sélection de la machine virtuelle
 
@@ -575,7 +596,7 @@ Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 Le résultat ressemble à l’exemple suivant :
 
-```
+```powershell
 OsType  Password        Filename
 ------  --------        --------
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe

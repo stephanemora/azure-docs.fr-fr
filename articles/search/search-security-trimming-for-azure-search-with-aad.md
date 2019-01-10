@@ -1,5 +1,5 @@
 ---
-title: Utilisation de filtres de sécurité pour tronquer les résultats à l’aide d’identités Active Directory - Recherche Azure
+title: Filtres de sécurité pour tronquer les résultats avec Active Directory - Recherche Azure
 description: Contrôle d’accès sur le contenu Recherche Azure à l’aide de filtres de sécurité et d’identités Azure Active Directory (AAD).
 author: brjohnstmsft
 manager: jlembicz
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 2d1ac36341ef47ac95317c583005b675f31f1265
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 1cd862c59154f9da766b5df1ab8fb8d61e15d054
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308819"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628287"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Utilisation de filtres de sécurité pour tronquer les résultats de Recherche Azure à l’aide d’identités Active Directory
 

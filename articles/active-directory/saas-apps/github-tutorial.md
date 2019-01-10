@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à GitHub | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à GitHub | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et GitHub.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: dbd4634c575fd4f1886d3e7714ef9ddabbde0f8a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 41e8fb40f07a88cb6fa2108a38db7f973fccd2f9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341155"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607796"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-github"></a>Didacticiel : Intégration d’Azure Active Directory à GitHub
+# <a name="tutorial-azure-active-directory-integration-with-github"></a>Didacticiel : Intégration d’Azure Active Directory à GitHub
 
 Dans ce didacticiel, vous allez apprendre à intégrer GitHub à Azure Active Directory (Azure AD).
 
@@ -49,7 +49,8 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test.
+Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de GitHub à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -59,21 +60,21 @@ Pour configurer l’intégration de GitHub à Azure AD, vous devez ajouter GitH
 
 **Pour ajouter GitHub à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
     ![image](./media/github-tutorial/selectazuread.png)
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![image](./media/github-tutorial/a_select_app.png)
-    
+
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![image](./media/github-tutorial/a_new_app.png)
 
 4. Dans la zone de recherche, tapez **GitHub**, sélectionnez **GitHub** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-     ![image](./media/github-tutorial/tutorial_github_addfromgallery.png)
+    ![image](./media/github-tutorial/tutorial_github_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
@@ -103,13 +104,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![image](./media/github-tutorial/b1_b2_saml_sso.png)
 
-3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+3. Sur la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![image](./media/github-tutorial/b1-domains_and_urlsedit.png)
 
 4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    ![image](./media/github-tutorial/tutorial_github_url.png) 
+    ![image](./media/github-tutorial/tutorial_github_url.png)
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://github.com/orgs/<entity-id>/sso`
 
@@ -122,8 +123,8 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![image](./media/github-tutorial/i3-attribute.png)
 
-6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs d’utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et effectuez les étapes suivantes :
-    
+6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
+
     a. Cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
     ![image](./media/github-tutorial/i2-attribute.png)
@@ -133,7 +134,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     b. Dans la liste **Attribut de la source**, sélectionnez la valeur de l’attribut.
 
     c. Cliquez sur **Enregistrer**.
- 
+
 7. Dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)**, puis enregistrez-le sur votre ordinateur.
 
     ![image](./media/github-tutorial/tutorial_github_certficate.png)
@@ -142,11 +143,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     a. URL de connexion
 
-    b. Identificateur Azure Active Directory
+    b. Identificateur Azure AD
 
     c. URL de déconnexion
 
-    ![image](./media/github-tutorial/d1_samlsonfigure.png) 
+    ![image](./media/github-tutorial/d1_samlsonfigure.png)
 
 9. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise GitHub en tant qu’administrateur.
 
@@ -170,8 +171,8 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     d. Cliquez sur l’icône **Modifier** pour changer la **méthode de signature** et la **méthode Digest** de **RSA-SHA1** et **SHA1** en **RSA-SHA256** et **SHA256** comme indiqué ci-dessous.
 
-    ![image](./media/github-tutorial/tutorial_github_sha.png) 
-    
+    ![image](./media/github-tutorial/tutorial_github_sha.png)
+
 13. Cliquez sur **Tester la configuration SAML** pour vérifier l’absence d’échecs ou d’erreurs de validation pendant l’authentification unique (SSO).
 
     ![Paramètres](./media/github-tutorial/tutorial_github_config_github_06.png)
@@ -179,13 +180,13 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 14. Cliquez sur **Enregistrer**.
 
 > [!NOTE]
-> L’authentification unique dans GitHub authentifie auprès d’une organisation dans GitHub, et ne remplace pas l’authentification GitHub. Par conséquent, si la session GitHub.com a expiré, vous pouvez être invité à vous authentifier avec un ID ou un mot de passe GitHub pendant le processus d’authentification unique.
+> L’authentification unique dans GitHub authentifie auprès d’une organisation dans GitHub, et ne remplace pas l’authentification GitHub. Par conséquent, si la session github.com de l’utilisateur a expiré, vous pouvez être invité à vous authentifier avec un ID ou un mot de passe GitHub pendant le processus d’authentification unique.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le portail Azure, dans le volet gauche, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![image](./media/github-tutorial/d_users_and_groups.png)
 
@@ -199,13 +200,13 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**  
     Par exemple, BrittaSimon@contoso.com
 
     c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Sélectionnez **Créer**.
- 
+
 ### <a name="create-a-github-test-user"></a>Créer un utilisateur de test GitHub
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans GitHub. GitHub prend en charge l’attribution automatique d’utilisateurs, qui est activée par défaut. Vous trouverez plus d’informations [ici](github-provisioning-tutorial.md) sur la façon de configurer l’attribution automatique d’utilisateurs.
@@ -258,13 +259,13 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 4. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
 5. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez le bouton **Attribuer**.
-    
+
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la mosaïque GitHub dans le panneau d’accès, vous devez être connecté automatiquement à votre application GitHub.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

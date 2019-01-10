@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 18398326e21ac6f3d64e43a577cf7d57cfb23438
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 413decee89e99b8120d271e2e87e703d4d362c33
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139518"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999286"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Utilisation d’Azure Functions Proxies
 
@@ -109,7 +109,7 @@ Pour déboguer un proxy du côté client, ajoutez un jeu d’en-têtes `Proxy-Tr
 
 ### <a name="block-proxy-traces"></a>Bloquer les traces de proxy
 
-Pour des raisons de sécurité, vous pouvez interdire tout appel à votre service et ainsi éviter toute génération de trace. Le cas échéant, les utilisateurs ne pourront pas accéder aux contenus de suivi sans vos informations de connexion. Notez toutefois que la génération de trace consomme des ressources et expose votre utilisation des proxys de fonction.
+Pour des raisons de sécurité, vous pouvez interdire tout appel à votre service et ainsi éviter toute génération de trace. Le cas échéant, les utilisateurs ne pourront pas accéder aux contenu de suivi sans vos informations de connexion. Notez toutefois que la génération de trace consomme des ressources et expose votre utilisation des proxys de fonction.
 
 Désactivez les traces en ajoutant `"debug":false` à tout proxy de votre instance `proxies.json`.
 
@@ -151,7 +151,7 @@ Chaque proxy a un nom convivial, tel que *proxy1* dans l’exemple ci-dessus. L�
 
 ### <a name="disableProxies"></a> Désactiver des proxys individuels
 
-Pour désactiver des proxys individuels, ajoutez `"disabled": true` au proxy considéré dans le fichier `proxies.json`. Ainsi, toute requête correspondant à matchCondition renverra une erreur 404.
+Pour désactivez des proxys individuels, ajoutez `"disabled": true` au proxy considéré dans le fichier `proxies.json`. Ainsi, toute requête correspondant à matchCondition renverra une erreur 404.
 ```json
 {
     "$schema": "http://json.schemastore.org/proxies",
@@ -161,7 +161,7 @@ Pour désactiver des proxys individuels, ajoutez `"disabled": true` au proxy con
             "matchCondition": {
                 "route": "/example"
             },
-            "backendUri": "www.example.com"
+            "backendUri": "https://<AnotherApp>.azurewebsites.net/api/<FunctionName>"
         }
     }
 }
@@ -176,12 +176,13 @@ Le comportement du proxy peut être contrôlé via plusieurs paramètres d’app
 
 ### <a name="reservedChars"></a> Caractères réservés (mise en forme de chaînes)
 
-Les proxys lisent toutes les chaînes sans interprétation, à l’exception des accolades et des barres obliques
+Les proxys lisent toutes les chaînes en notation de chaîne C#, en utilisant \\\\\\ comme caractère d’échappement. Les proxys interprètent également les accolades. Consultez un ensemble complet d’exemples ci-dessous.
 
 |Caractère|Caractère d’échappement|Exemples|
 |-|-|-|
 |{ ou }|{{ ou }}|`{{ example }}` --> `{ example }`
-|/|///| `example.com///text.html` --> `example.com/text.html`
+| \ | \\\\\\\\ | `example.com\\\text.html` --> `example.com\text.html`
+|"|\\\\\\"| `\\\"example\\\"` --> `"example"`
 
 ### <a name="requestOverrides"></a>Définition d’un objet requestOverrides
 

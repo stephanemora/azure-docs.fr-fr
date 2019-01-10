@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
 ms.author: trinadhk
-ms.openlocfilehash: b751fe4feab48e6ed706a2e28bba8406f4f4891c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9bbaf23999c04eba5157ebe7dff73ed47418c99a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185696"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634182"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Dépannage de la sauvegarde de machine virtuelle Azure
 Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation de Sauvegarde Azure à l’aide des informations figurant dans le tableau suivant :
@@ -69,11 +69,11 @@ Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation de Sauveg
 | Le type de compte de stockage spécifié pour l’opération de restauration n’est pas en ligne : <br>Vérifiez que le compte de stockage spécifié dans l’opération de restauration est en ligne. |Cette erreur peut se produire dans le cas d’une erreur temporaire dans Stockage Azure ou d’une panne. Choisissez un autre compte de stockage. |
 | Le quota du groupe de ressources a été atteint : <br>Supprimez des groupes de ressources à partir du Portail Azure ou contactez le support Azure pour augmenter les limites. |Aucun |
 | Le sous-réseau sélectionné n’existe pas : <br>Sélectionnez un sous-réseau qui existe. |Aucun |
-| Le service Sauvegarde Azure n’a pas l’autorisation d’accéder aux ressources dans votre abonnement. |Pour résoudre cette erreur, commencez par restaurer les disques à l’aide de la procédure décrite dans [Restaurer des disques sauvegardés](backup-azure-arm-restore-vms.md#restore-backed-up-disks). Ensuite, suivez les étapes PowerShell dans [Créer une machine virtuelle à partir de disques restaurés](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) pour créer une machine virtuelle complète à partir de disques restaurés. |
+| Le service Sauvegarde Azure n’a pas l’autorisation d’accéder aux ressources dans votre abonnement. |Pour résoudre cette erreur, commencez par restaurer les disques à l’aide de la procédure décrite dans [Restaurer des disques sauvegardés](backup-azure-arm-restore-vms.md#create-new-restore-disks). Utilisez ensuite les étapes PowerShell indiquées dans [Créer une machine virtuelle à partir de disques restaurés](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
 ## <a name="backup-or-restore-takes-time"></a>Sauvegarde ou restauration qui prend du temps
 Si votre sauvegarde prend plus de 12 heures, ou si votre restauration prend plus de 6 heures :
-* Renseignez-vous sur [les facteurs qui conditionnent le temps de sauvegarde](backup-azure-vms-introduction.md#total-vm-backup-time) et sur [les facteurs qui conditionnent le temps de restauration](backup-azure-vms-introduction.md#total-restore-time).
+* Renseignez-vous sur [les facteurs qui conditionnent le temps de sauvegarde](backup-azure-vms-introduction.md#time-considerations) et sur [les facteurs qui conditionnent le temps de restauration](backup-azure-vms-introduction.md#restore-considerations).
 * Assurez-vous de suivre les [meilleures pratiques en matière de sauvegarde](backup-azure-vms-introduction.md#best-practices).
 
 ## <a name="vm-agent"></a>Agent VM

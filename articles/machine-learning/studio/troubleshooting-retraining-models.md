@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 0f12627e169af00f575347796d1f2e79fe1f6fa2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 97116c4ad6efbaad28aec6451b02fc0dee1ac79f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252777"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054858"
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Résolution des problèmes de réentraînement d’un service web Azure Machine Learning Studio classique
 ## <a name="retraining-overview"></a>Vue d’ensemble de la reformation
@@ -104,7 +104,7 @@ Vous pouvez vérifier sur quel service web se trouve le point de terminaison en 
 
 <!-- Image Links -->
 
-[image1]: ./media/troubleshooting-retraining-a-model/ml-studio-tm-connnected-to-web-service-out.png
+[image1]: ./media/troubleshooting-retraining-a-model/ml-studio-tm-connected-to-web-service-out.png
 [image2]: ./media/troubleshooting-retraining-a-model/addEndpoint-output.png
 [image3]: ./media/troubleshooting-retraining-a-model/azure-portal-update-resource.png
 [image4]: ./media/troubleshooting-retraining-a-model/check-workspace-region.png

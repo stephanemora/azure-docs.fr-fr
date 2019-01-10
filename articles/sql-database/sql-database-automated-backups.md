@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 2d6df569a2b5b813bd832adf5ef2e1d193de9364
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 21f6331276155ec926b47a5db8310486835cb3ae
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187566"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001275"
 ---
 # <a name="automated-backups"></a>Sauvegardes automatisées
 
@@ -105,13 +105,19 @@ Lorsque vous migrez votre base de données à partir d’un niveau de service ba
 Vous pouvez modifier la période de conservation des sauvegardes PITR par défaut à l’aide du Portail Azure, de PowerShell ou de l’API REST. Les valeurs prises en charge sont les suivantes : 7, 14, 21, 28 ou 35 jours. Les exemples suivants illustrent comment modifier la conservation de récupération jusqu’à une date et heure pour la faire passer à 28 jours.
 
 > [!NOTE]
-> Ces API affectent uniquement la période de conservation PITR. Si vous avez configuré la conservation à long terme pour votre base de données, elle ne sera pas affectée. Consultez [Conservation à long terme](sql-database-long-term-retention.md) pour en savoir plus sur la modification des périodes de conservation à long terme.
+> Ces API impactent uniquement la période de conservation PITR. Si vous avez configuré la conservation à long terme pour votre base de données, elle ne sera pas affectée. Consultez [Conservation à long terme](sql-database-long-term-retention.md) pour en savoir plus sur la modification des périodes de conservation à long terme.
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Modifier la période de conservation des sauvegardes PITR à l’aide du Portail Azure
 
-Pour modifier la période de conservation des sauvegardes PITR à l’aide du portail Azure, accédez à la base de données dont vous souhaitez modifier la période de rétention et cliquez sur **Vue d’ensemble**.
+Pour changer la période de conservation des sauvegardes PITR dans le portail Azure, accédez à l’objet serveur dont vous souhaitez changer la période de conservation dans le portail, puis sélectionnez l’option appropriée selon l’objet serveur que vous modifiez. 
 
-![Modification PITR sur le Portail Azure](./media/sql-database-automated-backup/configure-backup-retention.png)
+#### <a name="change-pitr-for-a-logical-server"></a>Changer la valeur PITR d’un serveur logique
+
+![Modification PITR sur le Portail Azure](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
+
+#### <a name="change-pitr-for-a-managed-instance"></a>Changer la valeur PITR d’une instance gérée
+
+![Modification PITR sur le Portail Azure](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>Modifier la période de conservation des sauvegardes PITR et à l’aide de PowerShell
 

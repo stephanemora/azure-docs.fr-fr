@@ -1,21 +1,18 @@
 ---
 title: Configurer et accéder aux journaux de serveur pour PostgreSQL à l’aide de l’interface de ligne de commande Azure
 description: Cet article décrit comment configurer les journaux du serveur dans Azure Database pour PostgreSQL à l’aide de la ligne de commande Azure CLI et comment y accéder.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: af5a0843acced4611b219088b7662f9ea4b32beb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 938aadaa1d17135808cbeb34adac5139bd61f833
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969578"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545020"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurer et accéder aux journaux du serveur à l’aide d’Azure CLI
 Vous pouvez télécharger les journaux des erreurs du serveur PostgreSQL à l’aide de l’interface de ligne de commande (Azure CLI). Toutefois, l’accès aux journaux des transactions n’est pas pris en charge. 
@@ -28,7 +25,7 @@ Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 ## <a name="configure-logging-for-azure-database-for-postgresql"></a>Configuration de la journalisation pour Azure Database pour PostgreSQL
 Vous pouvez configurer le serveur afin d’accéder aux journaux de requêtes et aux journaux d’erreurs. Les journaux des erreurs peuvent contenir des informations sur le nettoyage automatique, la connexion et les points de contrôle.
 1. Activez la journalisation.
-2. Pour activer la journalisation des requêtes, mettez à jour **l’instruction\_du journal** et **l’instruction\_durée\_minimale\_du journal**.
+2. Pour activer la journalisation des requêtes, mettez à jour **log\_statement** et **log\_min\_duration\_statement**.
 3. Mettez à jour la période de rétention.
 
 Pour plus d’informations, consultez [Personnalisation des paramètres de configuration du serveur](howto-configure-server-parameters-using-cli.md).

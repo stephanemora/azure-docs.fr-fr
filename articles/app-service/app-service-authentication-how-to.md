@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 931c1bc68c4e357432081dbfa2df685fcf9fc96d
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: f3e30309b230ec44ddf39648b943f3f76dc7805d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409749"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722649"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Utilisation avancée des paramètres d’authentification et d’autorisation dans Azure App Service
 
-Cet article vous explique comment personnaliser les [paramètres d’authentification et d’autorisation intégrés dans App Service](app-service-authentication-overview.md), et comment gérer les identités à partir de votre application. 
+Cet article vous explique comment personnaliser les [paramètres d’authentification et d’autorisation intégrés dans App Service](overview-authentication-authorization.md), et comment gérer les identités à partir de votre application. 
 
 Pour commencer rapidement, consultez l’un des didacticiels suivants :
 
@@ -37,13 +37,13 @@ Pour commencer rapidement, consultez l’un des didacticiels suivants :
 
 ## <a name="use-multiple-sign-in-providers"></a>Utiliser plusieurs fournisseurs de connexion
 
-La configuration du portail n’offre pas de solution clé en main pour présenter à vos utilisateurs plusieurs fournisseurs de connexion (telles que Facebook et Twitter). Toutefois, il est relativement simple d’ajouter cette fonctionnalité à votre application web. Voici la procédure à suivre :
+La configuration du portail n’offre pas de solution clé en main pour présenter à vos utilisateurs plusieurs fournisseurs de connexion (telles que Facebook et Twitter). Toutefois, il est relativement simple d’ajouter cette fonctionnalité à votre application. Voici la procédure à suivre :
 
 Tout d’abord, sur la page **Authentification / Autorisation** du portail Azure, configurez chaque fournisseur d’identité que vous souhaitez activer.
 
 Sous **Mesure à prendre quand une demande n’est pas authentifiée**, sélectionnez **Autoriser les requêtes anonymes (aucune action)**.
 
-Sur la page de connexion, dans la barre de navigation ou tout autre emplacement de votre application web, ajoutez un lien de connexion pour chacun des fournisseurs que vous avez activés (`/.auth/login/<provider>`). Par exemple : 
+Dans la page de connexion, la barre de navigation ou tout autre emplacement de votre application, ajoutez un lien de connexion pour chacun des fournisseurs que vous avez activés (`/.auth/login/<provider>`). Par exemple : 
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -63,7 +63,7 @@ Pour rediriger l’utilisateur post-connexion vers une URL personnalisée, utili
 
 ## <a name="validate-tokens-from-providers"></a>Valider les jetons des fournisseurs
 
-Dans une connexion dirigée par le client, l'application connecte manuellement l'utilisateur au fournisseur, puis soumet le jeton d'authentification à App Service pour validation (voir [Flux d'authentification](app-service-authentication-overview.md#authentication-flow)). Cette validation proprement dite ne vous octroie pas l'accès aux ressources souhaitées, mais une validation réussie vous conférera un jeton de session que vous pourrez utiliser pour accéder aux ressources de l'application. 
+Dans une connexion dirigée par le client, l'application connecte manuellement l'utilisateur au fournisseur, puis soumet le jeton d'authentification à App Service pour validation (voir [Flux d'authentification](overview-authentication-authorization.md#authentication-flow)). Cette validation proprement dite ne vous octroie pas l'accès aux ressources souhaitées, mais une validation réussie vous conférera un jeton de session que vous pourrez utiliser pour accéder aux ressources de l'application. 
 
 Pour valider le jeton du fournisseur, l'application App Service doit d'abord être configurée avec le fournisseur souhaité. Au moment de l'exécution, après avoir récupéré le jeton d'authentification auprès de votre fournisseur, envoyez-le à `/.auth/login/<provider>` pour validation. Par exemple :  
 
@@ -186,15 +186,15 @@ Lorsque le jeton d’accès de votre fournisseur a expiré, vous devez réauthen
 - **Compte Microsoft** : au moment de [configurer les paramètres d’authentification de compte Microsoft](configure-authentication-provider-microsoft.md), sélectionnez l’étendue `wl.offline_access`.
 - **Azure Active Directory** : Dans [https://resources.azure.com](https://resources.azure.com), effectuez les étapes suivantes :
     1. En haut de la page, sélectionnez **Lecture/écriture**.
-    1. Dans le navigateur de gauche, accédez à **abonnements** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **fournisseurs** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
-    1. Cliquez sur **Modifier**.
-    1. Modifiez la propriété suivante. Remplacez la valeur _\<app\_id>_ par l’ID d’application Azure Active Directory du service auquel vous souhaitez accéder.
+    2. Dans le navigateur de gauche, accédez à **abonnements** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **fournisseurs** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
+    3. Cliquez sur **Modifier**.
+    4. Modifiez la propriété suivante. Remplacez la valeur _\<app\_id>_ par l’ID d’application Azure Active Directory du service auquel vous souhaitez accéder.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    1. Cliquez sur **Put**. 
+    5. Cliquez sur **Put**. 
 
 Une fois que votre fournisseur est configuré, vous pouvez [rechercher le jeton d’actualisation et l’heure d’expiration pour le jeton d’accès](#retrieve-tokens-in-app-code) dans le magasin de jetons. 
 

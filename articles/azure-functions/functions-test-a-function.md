@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: cshoe
-ms.openlocfilehash: 90eac2fda46dc5fbfff791e1fc0afb9858aa27a4
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 19a5dee53bee20438098d1aaeb773ebf08f252d4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408032"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993448"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Stratégies permettant de tester votre code dans Azure Functions
 
@@ -29,7 +29,7 @@ Le contenu suivant est divisé en deux sections distinctes destinées à cibler 
 - [C# dans Visual Studio avec xUnit](#c-in-visual-studio)
 - [JavaScript dans VS Code avec Jest](#javascript-in-vs-code)
 
-L'exemple de référentiel est disponible sur [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
+L’exemple de dépôt est disponible sur [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
 
 ## <a name="c-in-visual-studio"></a>C# dans Visual Studio
 L’exemple suivant explique comment créer une application de fonction C# dans Visual Studio et exécuter des tests avec [xUnit](https://xunit.github.io).
@@ -43,8 +43,9 @@ Pour configurer votre environnement, créez une fonction et testez l’applicati
 1. [Créez une nouvelle application Functions](./functions-create-first-azure-function.md) et nommez-la *Functions*.
 2. [Créez une fonction HTTP à partir du modèle](./functions-create-first-azure-function.md) et nommez-la *HttpTrigger*.
 3. [Créez une fonction de minuteur à partir du modèle](./functions-create-scheduled-function.md) et nommez-la *HttpTrigger*.
-4. [Créez une application de test xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) et nommez-la *Functions.Test*.
-5. [Référencez l'application *Functions* à partir de l'application](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) *Functions.Test*.
+4. [Créez une application de test xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) dans Visual Studio en cliquant sur **Fichier > Nouveau > Projet > Visual C# > .NET Core > Projet de test xUnit**  et nommez-la *Functions.Test*. 
+5. Utilisez Nuget pour ajouter des références à partir de l’application de test à [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/) et [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+6. [Référencez l'application *Functions* à partir de l'application](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) *Functions.Test*.
 
 ### <a name="create-test-classes"></a>Créer des classes de test
 
@@ -203,7 +204,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string()
         {
             var request = TestFactory.CreateHttpRequest("name", "Bill");
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal("Hello, Bill", response.Value);
         }
 
@@ -212,7 +213,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string_from_member_data(string queryStringKey, string queryStringValue)
         {
             var request = TestFactory.CreateHttpRequest(queryStringKey, queryStringValue);
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal($"Hello, {queryStringValue}", response.Value);
         }
 
@@ -220,7 +221,7 @@ namespace Functions.Tests
         public void Timer_should_log_message()
         {
             var logger = (ListLogger)TestFactory.CreateLogger(LoggerTypes.List);
-            TimerFunction.Run(null, logger);
+            TimerTrigger.Run(null, logger);
             var msg = logger.Logs[0];
             Assert.Contains("C# Timer trigger function executed at", msg);
         }

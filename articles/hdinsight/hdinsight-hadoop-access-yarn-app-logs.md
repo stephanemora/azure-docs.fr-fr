@@ -9,26 +9,25 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: da105be19f7d546e530298f87974fe7f3f78989f
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7326cf6a1153d5dc1f7e5f910a376a21b05db606
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012213"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725438"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-windows-based-hdinsight"></a>Accéder aux journaux des applications Apache Hadoop YARN dans HDInsight Windows
 Ce document explique comment accéder aux journaux des applications [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) qui se sont terminées sur un cluster Apache Hadoop Windows dans Azure HDInsight.
 
-> [!IMPORTANT]
-> Les informations présentes dans ce document sont spécifiques aux clusters HDInsight sous Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Pour plus d’informations sur l’accès aux journaux YARN sur des clusters HDInsight Linux, consultez [Accéder aux journaux des applications Apache Hadoop YARN sur Apache Hadoop Linux dans HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md).
->
+> [!IMPORTANT]  
+> Les informations présentes dans ce document sont spécifiques aux clusters HDInsight sous Windows. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Pour plus d’informations sur l’accès aux journaux YARN sur des clusters HDInsight Linux, consultez [Accéder aux journaux d’applications YARN Apache Hadoop sous Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
 
 ### <a name="prerequisites"></a>Prérequis
 * Un cluster HDInsight Windows  Consultez [Création de clusters Apache Hadoop basés sur Windows dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>YARN Timeline Server
-Le serveur <a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">Apache Hadoop YARN Timeline Server</a> fournit des informations génériques sur les applications terminées ainsi que des informations sur les applications spécifiques au framework, via deux interfaces différentes. Plus précisément :
+Le serveur <a href="https://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">Apache Hadoop YARN Timeline Server</a> fournit des informations génériques sur les applications terminées ainsi que des informations sur les applications spécifiques au framework, via deux interfaces différentes. Plus précisément :
 
 * Le stockage et la récupération d’informations génériques sur les applications sur les clusters HDInsight sont activés dans les versions 3.1.1.374 ou ultérieures.
 * Le composant fournissant des informations sur les applications spécifiques à l'infrastructure n'est pas actuellement disponible sur les clusters HDInsight.
@@ -75,7 +74,7 @@ L’IU ResourceManager de YARN s’exécute sur le nœud principal du cluster e
 3. Cliquez sur **Tableau de bord**dans le menu du haut. Une page appelée **Console de requête HDInsight**s’ouvre dans un nouvel onglet.
 4. À partir de la **Console de requête HDInsight**, cliquez sur l’**interface utilisateur YARN**.
 
-[YARN-timeline-server]:http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
+[YARN-timeline-server]:https://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
 [log-aggregation]:https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/
 [T-file]:https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]:https://issues.apache.org/jira/browse/HADOOP-3315

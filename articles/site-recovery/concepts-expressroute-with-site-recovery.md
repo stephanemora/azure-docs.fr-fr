@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: mayg
-ms.openlocfilehash: 60da5d4e80a7465d02926066298a5dc63afb1de7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1fabbe3a9a486abc862bfb6c2671c60d11d8e8c7
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875176"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809928"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute avec Azure Site Recovery
 
@@ -38,7 +38,7 @@ Pour en savoir plus et comparer les domaines de routage ExpressRoute, [voir ici]
 
 Azure Site Recovery permet une récupération d’urgence et une migration sur Azure de [machines virtuelles Hyper-V](hyper-v-azure-architecture.md), de [machines virtuelles VMware](vmware-azure-architecture.md) et de [serveurs physiques](physical-azure-architecture.md) locaux. Pour tous les scénarios de réplication de service local sur Azure, les données sont envoyées à un compte de stockage Azure et stockées sur celui-ci. Lors d’une réplication, vous ne payez aucuns frais de machine virtuelle. Quand vous exécutez un basculement vers Azure, Site Recovery crée automatiquement des machines virtuelles Azure IaaS.
 
-Azure Site Recovery réplique les données sur un compte de stockage Azure, via un point de terminaison public. Pour utiliser ExpressRoute afin d’effectuer une réplication Site Recovery, vous pouvez utiliser une [homologation publique](../expressroute/expressroute-circuit-peerings.md#publicpeering) ou une [homologation Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). L’homologation Microsoft est le domaine de routage recommandé pour la réplication. Après que des machines virtuelles ou des serveurs ont basculé vers un réseau virtuel Azure, vous pouvez y accéder à l’aide d’une [homologation privée](../expressroute/expressroute-circuit-peerings.md#privatepeering). La réplication n’est pas pris en charge via une homologation privée.
+Azure Site Recovery réplique les données sur un compte de stockage Azure, via un point de terminaison public. Pour utiliser ExpressRoute afin d’effectuer une réplication Site Recovery, vous pouvez utiliser une [homologation publique](../expressroute/expressroute-circuit-peerings.md#publicpeering) ou une [homologation Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). L’homologation Microsoft est le domaine de routage recommandé pour la réplication. Vérifiez que les [exigences réseau](vmware-azure-configuration-server-requirements.md#network-requirements) sont également remplies pour la réplication. Après que des machines virtuelles ou des serveurs ont basculé vers un réseau virtuel Azure, vous pouvez y accéder à l’aide d’une [homologation privée](../expressroute/expressroute-circuit-peerings.md#privatepeering). La réplication n’est pas pris en charge via une homologation privée.
 
 Le scénario combiné est représenté dans le diagramme suivant : ![De local à Azure avec ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
 

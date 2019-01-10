@@ -11,14 +11,14 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: d93eadd1053cfbc88b2d0748f2f22e359694baa7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: a5f13bfa4d0e9962622565cc5ac9c80372b50123
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579649"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107682"
 ---
-# <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Didacticiel : Déployer un modèle de classification d’images dans Azure Container Instances
+# <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutoriel : Déployer un modèle de classification d’images dans Azure Container Instances
 
 Ce tutoriel est le **deuxième d’une série de deux**. Dans le [tutoriel précédent](tutorial-train-models-with-aml.md), vous avez entraîné des modèles Machine Learning, puis vous avez inscrit un modèle dans votre espace de travail sur le cloud.  
 
@@ -260,7 +260,7 @@ Configurez l’image et déployez. Le code suivant effectue ces étapes :
 1. Générez une image à l’aide de ces fichiers :
    * Le fichier de scoring, `score.py`
    * Le fichier d’environnement, `myenv.yml`.
-   * Le fichier de modèle
+   * Le fichier de modèle.
 1. Inscrivez l’image sous l’espace de travail. 
 1. Envoyer l’image au conteneur Azure Container Instances.
 1. Démarrer un conteneur dans Azure Container Instances à l’aide de l’image.
@@ -342,8 +342,6 @@ plt.show()
 Ce résultat provient d’un échantillon aléatoire d’images de test :
 
 ![Graphisme montrant les résultats](./media/tutorial-deploy-models-with-aml/results.png)
-
-![Résultats](./media/tutorial-deploy-models-with-aml/results.png)
 
 Vous pouvez également envoyer une requête HTTP brute pour tester le service web :
 

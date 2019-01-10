@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 71285ce3b1fb3cc592fc65b4ad96c6783de0c408
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 1e62495de35c8df4f446d371a0bbbcdc80c7118d
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499295"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650101"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Effectuer la migration d’un cluster Apache HBase vers une nouvelle version
 
@@ -26,16 +26,16 @@ Les clusters basés sur une tâche, tels que les clusters [Apache Spark](https:/
 4. Importez les données temporaires.
 5. Démarrez des travaux et poursuivez le traitement sur le nouveau cluster.
 
-Pour mettre à niveau un cluster [Apache HBase](http://hbase.apache.org/), quelques étapes supplémentaires sont nécessaires, comme décrit dans cet article.
+Pour mettre à niveau un cluster [Apache HBase](https://hbase.apache.org/), quelques étapes supplémentaires sont nécessaires, comme décrit dans cet article.
 
-> [!NOTE]
+> [!NOTE]  
 > Le temps d’arrêt lors de la mise à niveau doit être minime, de l’ordre de quelques minutes. Ce temps d’arrêt est dû à la procédure pour vider toutes les données en mémoire, puis au temps nécessaire à la configuration et au redémarrage des services sur le nouveau cluster. Vos résultats peuvent varier en fonction du nombre de nœuds, de la quantité de données et d’autres variables.
 
 ## <a name="review-apache-hbase-compatibility"></a>Vérifier la compatibilité d’Apache HBase
 
-Avant de mettre à niveau Apache HBase, vérifiez que la version de HBase présente sur le cluster source est compatible avec celle du cluster de destination. Pour plus d’informations, consultez [Quels sont les composants et versions Hadoop disponibles avec HDInsight ?](../hdinsight-component-versioning.md).
+Avant de mettre à niveau Apache HBase, vérifiez que la version de HBase présente sur le cluster source est compatible avec celle du cluster de destination. Pour plus d’informations, consultez [Composants et versions d’Apache Hadoop disponibles avec HDInsight](../hdinsight-component-versioning.md).
 
-> [!NOTE]
+> [!NOTE]  
 > Nous vous recommandons vivement d’examiner la matrice de compatibilité de versions dans le [guide sur HBase](https://hbase.apache.org/book.html#upgrading).
 
 Voici un exemple de matrice de compatibilité de versions, où O indique la compatibilité et N signale une incompatibilité potentielle :
@@ -54,7 +54,7 @@ Voici un exemple de matrice de compatibilité de versions, où O indique la comp
 | Compatibilité dépendance | N | O | O |
 | Compatibilité opérationnelle | N | N | O |
 
-> [!NOTE]
+> [!NOTE]  
 > Les dernières incompatibilités doivent être décrites dans les notes de publication de version HBase.
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>Mettre à niveau vers la même version principale d’Apache HBase
@@ -203,7 +203,7 @@ Le scénario suivant est destiné à la mise à niveau de HDInsight 3.4 vers 3.6
 9. Redémarrez tous les services requis, comme indiqué par Ambari.
 10. Pointez votre application vers le nouveau cluster.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Le DNS statique de votre application est modifié lors de la mise à niveau. Au lieu de coder en dur ce DNS, vous pouvez configurer un CNAME dans les paramètres DNS de votre nom de domaine qui pointe vers le nom du cluster. Une autre option consiste à utiliser un fichier config pour votre application, que vous pouvez mettre à jour sans nouveau déploiement.
 
 11. Lancez l’ingestion des données pour voir si tout fonctionne comme prévu.
@@ -211,7 +211,7 @@ Le scénario suivant est destiné à la mise à niveau de HDInsight 3.4 vers 3.6
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur [Apache HBase](http://hbase.apache.org/) et la mise à niveau de clusters HDInsight, consultez les articles suivants :
+Pour plus d’informations sur [Apache HBase](https://hbase.apache.org/) et la mise à niveau de clusters HDInsight, consultez les articles suivants :
 
 * [Mettre à niveau le cluster HDInsight](../hdinsight-upgrade-cluster.md)
 * [Superviser et gérer Azure HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari](../hdinsight-hadoop-manage-ambari.md)

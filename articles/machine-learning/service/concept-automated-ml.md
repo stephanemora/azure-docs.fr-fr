@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 12/04/2018
+ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7e55304fb02078c71b91b2904475a4bee4bcc018
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9e3297b2493ea12f9da50556e4fc9e72d625fd25
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436957"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583447"
 ---
 # <a name="what-is-automated-machine-learning"></a>Qu’est-ce que le machine learning automatisé ?
 
@@ -65,9 +65,10 @@ Suivez cet [exemple de notebook](https://github.com/Azure/MachineLearningNoteboo
 ## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les exemples et découvrez comment générer des modèles à l’aide du machine learning automatisé :
++ [Exemples : Utiliser des notebooks Jupyter pour explorer Azure Machine Learning service](samples-notebooks.md#automated-ml-setup)
 
-+ [Tutoriel : Entraîner automatiquement un modèle de classification avec le Machine Learning Azure automatisé](tutorial-auto-train-models.md).
++ [Tutoriel : Entraîner automatiquement un modèle de classification avec le Machine Learning Azure automatisé](tutorial-auto-train-models.md).
+
++ [Utiliser l’entraînement automatique sur une ressource distante](how-to-auto-train-remote.md)
 
 + [Configurer les paramètres pour l’entraînement automatique](how-to-configure-auto-train.md)
-
-+ [Utiliser l’entraînement automatique sur une ressource distante](how-to-auto-train-remote.md) 

@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 35929d820ac6f72b83d6c3f25547255ca3423fc8
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 1edb4818ff7fda170d123ea8b81e6df9d620f354
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138444"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713571"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Informations de référence sur le service Infrastructure Backup
 
 ## <a name="azure-backup-infrastructure"></a>Infrastructure de sauvegarde Azure
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Azure Stack se compose de plusieurs services comprenant le portail, Azure Resource Manager et l’expérience de gestion de l’infrastructure. L’expérience de gestion d’Azure Stack est similaire à celle d’une appliance et s’attache à réduire la complexité exposée à l’opérateur de la solution.
 
@@ -87,9 +87,16 @@ La configuration requise inclut :
 
 Infrastructure Backup Controller sauvegarde les données à la demande. La recommandation est de sauvegarder au moins deux fois par jour et de conserver au plus sept jours de sauvegarde. 
 
+**1811 et au-delà**
 | Échelle de l’environnement | Taille prévue de la sauvegarde | Quantité totale d’espace nécessaire |
 |-------------------|--------------------------|--------------------------------|
-| 4-16 nœuds        | 10 Go                     | 140 Go                          |
+| 4-16 nœuds        | 20 Go                    | 280 Go                        |
+| ASDK              | 10 Go                    | 140 Go                        |
+
+**Avant 1811**
+| Échelle de l’environnement | Taille prévue de la sauvegarde | Quantité totale d’espace nécessaire |
+|-------------------|--------------------------|--------------------------------|
+| 4-16 nœuds, ASDK  | 10 Go                     | 140 Go                        |
 
 ### <a name="network-requirements"></a>Configuration requise pour le réseau
 | Emplacement de stockage                                                                 | Détails                                                                                                                                                                                 |
@@ -109,7 +116,7 @@ Tenez compte de ces limites quand vous planifiez, déployez et utilisez vos inst
 | Identificateur de la limite                                                 | Limite        | Commentaires                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Type de sauvegarde                                                      | Complète uniquement    | Infrastructure Backup Controller prend en charge seulement les sauvegardes complètes. Les sauvegardes incrémentielles ne sont pas prises en charge.                                          |
-| Sauvegardes planifiées                                                | Manuelles uniquement  | Backup Controller prend actuellement en charge seulement les sauvegardes à la demande                                                                                 |
+| Sauvegardes planifiées                                                | Planifiées et manuelles  | Le contrôleur de sauvegarde prend en charge les sauvegardes planifiées et à la demande                                                                                 |
 | Nombre maximal de tâches de sauvegarde simultanées                                   | 1            | Une seule tâche de sauvegarde active par instance de Backup Controller est prise en charge.                                                                  |
 | Configuration du commutateur réseau                                     | Non compris | L’administrateur doit sauvegarder la configuration du commutateur réseau avec les outils OEM. Reportez-vous à la documentation pour Azure Stack de chaque fournisseur OEM. |
 | Hardware Lifecycle Host (HLH)                                          | Non compris | L’administrateur doit sauvegarder le HLH avec les outils OEM. Reportez-vous à la documentation pour Azure Stack de chaque fournisseur OEM.      |

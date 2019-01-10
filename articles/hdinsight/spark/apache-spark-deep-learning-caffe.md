@@ -8,21 +8,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: c63e2e3ec922d2cf26603fe19606008b1e8d3f45
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: eba66d4abf84603f1fdb5761d3ea1987983908de
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498172"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607028"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Utiliser Caffe sur Azure HDInsight Spark pour une formation approfondie échelonnée
 
 
 ## <a name="introduction"></a>Introduction
 
-La formation approfondie affecte tous les secteurs, de la santé publique au transport en passant par la fabrication, et plus encore. Des entreprises se tournent vers l’apprentissage profond pour résoudre des problématiques difficiles, telles que la [classification d’images](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), la [reconnaissance vocale](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), la reconnaissance d’objets et la traduction automatique. 
+La formation approfondie affecte tous les secteurs, de la santé publique au transport en passant par la fabrication, et plus encore. Des entreprises se tournent vers l’apprentissage profond pour résoudre des problématiques difficiles, telles que la [classification d’images](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), la [reconnaissance vocale](https://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), la reconnaissance d’objets et la traduction automatique. 
 
-Il existe de [nombreux frameworks populaires](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), notamment [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), [Apache MXNet](https://mxnet.apache.org/), Theano, etc. [Caffe ](http://caffe.berkeleyvision.org/)est l’un des frameworks de réseau neuronal non symbolique (impératif) les plus connus ; il a été largement adopté dans de nombreux secteurs, notamment dans celui de la vision par ordinateur. En outre, [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combine Caffe avec Apache Spark, auquel cas un apprentissage approfondi peut être facilement utilisé dans un cluster Hadoop existant. Vous pouvez utiliser un apprentissage approfondi avec les pipelines Spark ETL, réduisant ainsi la complexité du système et la latence pour l’apprentissage de la solution complète.
+Il existe de [nombreux frameworks populaires](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), notamment [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), [Apache MXNet](https://mxnet.apache.org/), Theano, etc. [Caffe ](https://caffe.berkeleyvision.org/)est l’un des frameworks de réseau neuronal non symbolique (impératif) les plus connus ; il a été largement adopté dans de nombreux secteurs, notamment dans celui de la vision par ordinateur. En outre, [CaffeOnSpark](https://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combine Caffe avec Apache Spark, auquel cas un apprentissage approfondi peut être facilement utilisé dans un cluster Hadoop existant. Vous pouvez utiliser un apprentissage approfondi avec les pipelines Spark ETL, réduisant ainsi la complexité du système et la latence pour l’apprentissage de la solution complète.
 
 [HDInsight](https://azure.microsoft.com/services/hdinsight/) est une offre de cloud Apache Hadoop qui propose des clusters analytiques open source optimisés pour Apache Spark, Apache Hive, Apache Hadoop, Apache HBase, Apache Storm, Apache Kafka et ML Services. HDInsight s’appuie sur un contrat de niveau de service (SLA) de 99,9 %. Chacune de ces technologies Big Data ainsi que les applications d’éditeurs de logiciels indépendants (ISV) sont facilement déployables sous forme de clusters gérés, avec une surveillance et une sécurité destinées aux entreprises.
 
@@ -37,13 +37,13 @@ La tâche est effectuée en quatre étapes :
 
 Dans la mesure où HDInsight est une solution PaaS, elle prend en charge de formidables fonctionnalités de plateforme. Dès lors, certaines tâches sont simples à exécuter. L’[action de script](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux) est l’une des fonctions utilisées dans cet article. Elle permet d’exécuter des commandes d’interpréteur dédiées à la personnalisation des nœuds de cluster (nœud principal, nœud de travail ou nœud de périphérie).
 
-## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>Étape 1 : Installation des dépendances requises sur l’ensemble des nœuds
+## <a name="step-1--install-the-required-dependencies-on-all-the-nodes"></a>Étape 1 :  Installation des dépendances requises sur l’ensemble des nœuds
 
 Pour commencer, vous devez installer les dépendances. Le site Caffe et le [site CaffeOnSpark](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) proposent certains Wikis utiles pour l’installation des dépendances pour Spark en mode YARN. HDInsight utilise également Spark en mode YARN. Toutefois, vous devez ajouter quelques dépendances pour la plateforme HDInsight. Pour ce faire, vous utilisez une action de script et l’exécutez sur l’ensemble des nœuds principaux et worker. Cette action de script prend environ 20 minutes, car ces dépendances sont également associées à d’autres packages. Vous avez intérêt à l’intégrer dans un emplacement accessible par votre cluster HDInsight, tel que l’emplacement GitHub ou le compte de stockage BLOB par défaut.
 
     #!/bin/bash
     #Please be aware that installing the below will add additional 20 mins to cluster creation because of the dependencies
-    #installing all dependencies, including the ones mentioned in http://caffe.berkeleyvision.org/install_apt.html, as well a few packages that are not included in HDInsight, such as gflags, glog, lmdb, numpy
+    #installing all dependencies, including the ones mentioned in https://caffe.berkeleyvision.org/install_apt.html, as well a few packages that are not included in HDInsight, such as gflags, glog, lmdb, numpy
     #It seems numpy will only needed during compilation time, but for safety purpose you install them on all the nodes
 
     sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler maven libatlas-base-dev libgflags-dev libgoogle-glog-dev liblmdb-dev build-essential  libboost-all-dev python-numpy python-scipy python-matplotlib ipython ipython-notebook python-pandas python-sympy python-nose
@@ -62,14 +62,14 @@ Pour commencer, vous devez installer les dépendances. Le site Caffe et le [site
 
 L’action de script présente deux étapes. La première étape consiste en l’installation de l’ensemble des bibliothèques requises. Nous parlons ici notamment des bibliothèques dédiées à la compilation de Caffe (comme gflags, glog) et à l’exécution de Caffe (comme numpy). Vous recourez à libatlas pour l’utilisation de l’UC. Toutefois, nous vous invitons à consulter la page wiki CaffeOnSpark sur l’installation d’autres bibliothèques d’optimisation, comme MKL ou CUDA (pour GPU).
 
-La seconde étape consiste à télécharger, compiler et installer protobuf 2.5.0 pour Caffe durant l’exécution. Si Protobuf 2.5.0 [est requise](https://github.com/yahoo/CaffeOnSpark/issues/87), cette version n’est pas disponible en tant que package sur Ubuntu 16. Dès lors, vous devez la compiler depuis le code source. D’autres ressources décrivant la procédure de compilation sont également disponibles sur Internet. Vous pourrez trouver plus d’informations [ici](http://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
+La seconde étape consiste à télécharger, compiler et installer protobuf 2.5.0 pour Caffe durant l’exécution. Si Protobuf 2.5.0 [est requise](https://github.com/yahoo/CaffeOnSpark/issues/87), cette version n’est pas disponible en tant que package sur Ubuntu 16. Dès lors, vous devez la compiler depuis le code source. D’autres ressources décrivant la procédure de compilation sont également disponibles sur Internet. Vous pourrez trouver plus d’informations [ici](https://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
 
 Pour démarrer, vous pouvez exécuter cette action de script sur l’ensemble des nœuds worker et principaux de votre cluster (pour HDInsight 3.5). Vous pouvez exécuter les actions de script sur un cluster existant ou les utiliser lors de la création du cluster. Pour plus d’informations sur les actions de script, consultez la documentation [ici](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
 
 ![Actions de script dédiées à l’installation des dépendances](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
 
-## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>Étape 2 : Génération de Caffe sur Apache Spark pour HDInsight sur le nœud principal
+## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>Étape 2 : Génération de Caffe sur Apache Spark pour HDInsight sur le nœud principal
 
 La seconde étape consiste en la génération de Caffe sur le nœud principal, puis en la distribution des bibliothèques compilées sur l’ensemble des nœuds de travail. Dans cette étape, vous devez exécuter la commande [ssh sur votre nœud principal](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix). Après quoi, vous devez suivre le [processus de génération de CaffeOnSpark](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn). Ci-après figure le script que vous pouvez utiliser pour générer CaffeOnSpark en quelques étapes supplémentaires. 
 
@@ -116,7 +116,7 @@ Il est possible que vous deviez suivre une procédure plus longue que celle déc
 - Placez les bibliothèques Caffe compilées dans le stockage BLOB. Plus tard, vous les copierez sur l’ensemble des nœuds à l’aide d’actions de script pour éviter tout délai supplémentaire de compilation.
 
 
-### <a name="troubleshooting-an-ant-buildexception-has-occurred-exec-returned-2"></a>Résolution des problèmes : An Ant BuildException has occurred: exec returned: 2
+### <a name="troubleshooting-an-ant-buildexception-has-occurred-exec-returned-2"></a>Résolution des problèmes : An Ant BuildException has occurred: exec returned: 2 (Une erreur Ant BuildException s’est produite : exec a retourné : 2) 2
 
 Lors de la première tentative de génération de CaffeOnSpark, le message suivant peut parfois s’afficher :
 
@@ -124,7 +124,7 @@ Lors de la première tentative de génération de CaffeOnSpark, le message suiva
 
 Nettoyez le référentiel du code en exécutant successivement les commandes make clean et make build pour résoudre ce problème, sous réserve que vous disposiez des dépendances appropriées.
 
-### <a name="troubleshooting-maven-repository-connection-time-out"></a>Résolution des problèmes : expiration du délai de connexion du référentiel Maven
+### <a name="troubleshooting-maven-repository-connection-time-out"></a>Résolution des problèmes : Expiration du délai de connexion du dépôt Maven
 
 Parfois, Maven retourne une erreur de dépassement du délai de connexion, similaire à l’extrait de code suivant :
 
@@ -146,7 +146,7 @@ Lors de la vérification finale de CaffeOnSpark, un échec de test s’affichera
     Tests: succeeded 6, failed 1, canceled 0, ignored 0, pending 0
     *** 1 TEST FAILED ***
 
-## <a name="step-3-distribute-the-required-libraries-to-all-the-worker-nodes"></a>Étape 3 : Répartition des bibliothèques requises sur l’ensemble des nœuds de travail
+## <a name="step-3-distribute-the-required-libraries-to-all-the-worker-nodes"></a>Étape 3 : Distribuer les bibliothèques requises sur l’ensemble des nœuds de travail
 
 L’étape suivante consiste à répartir les bibliothèques (celles de CaffeOnSpark/caffe-public/distribute/lib/ et CaffeOnSpark/caffe-distri/distribute/lib/) sur l’ensemble des nœuds. À l’étape 2, vous placez ces bibliothèques dans le stockage BLOB, et à cette étape, vous utilisez des actions de script pour le copier sur tous les nœuds principaux et les nœuds worker.
 
@@ -159,7 +159,7 @@ Veillez à pointer vers l’emplacement approprié propre à votre cluster.
 
 Dans la mesure où, à l’étape 2, vous procédez à un déplacement dans le stockage BLOB accessible à l’ensemble des nœuds, à cette étape vous vous contentez d’une copie sur l’ensemble des nœuds.
 
-## <a name="step-4-compose-a-caffe-model-and-run-it-in-a-distributed-manner"></a>Étape 4 : composer un modèle Caffe et l’exécuter de manière distribuée
+## <a name="step-4-compose-a-caffe-model-and-run-it-in-a-distributed-manner"></a>Étape 4 : Composer un modèle Caffe et l’exécuter de manière distribuée
 
 Caffe est installé après que vous avez exécuté les étapes précédentes. Il est ensuite question d’écrire un modèle Caffe. 
 
@@ -169,7 +169,7 @@ Le modèle dont vous effectuez l’apprentissage est un exemple de modèle pour 
 
 CaffeOnSpark fournit quelques exemples de topologies de réseau associés à la formation MNIST. La solution affiche une conception efficace de distribution et d’optimisation de l’architecture réseau (la topologie du réseau). Dans ce cas, deux fichiers sont requis : 
 
-Le fichier « solver » (${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt) est dédié à la supervision de l’optimisation et à la génération des mises à jour de paramètres. Par exemple, il détermine si UC ou GPU sont utilisées, l’inertie, le nombre d’itérations, etc. Il définit également la topologie de réseau neuronal utilisée par le programme (second fichier requis). Pour plus d’informations sur le fichier solver, consultez la [documentation Caffe](http://caffe.berkeleyvision.org/tutorial/solver.html).
+Le fichier « solver » (${CAFFE_ON_SPARK}/data/lenet_memory_solver.prototxt) est dédié à la supervision de l’optimisation et à la génération des mises à jour de paramètres. Par exemple, il détermine si UC ou GPU sont utilisées, l’inertie, le nombre d’itérations, etc. Il définit également la topologie de réseau neuronal utilisée par le programme (second fichier requis). Pour plus d’informations sur le fichier solver, consultez la [documentation Caffe](https://caffe.berkeleyvision.org/tutorial/solver.html).
 
 Pour cet exemple, dans la mesure où vous avez préféré UC à GPU, vous devez définir la dernière ligne sur :
 
@@ -187,7 +187,7 @@ Le second fichier (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt) déf
 
 ![Configuration de Caffe](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
 
-Pour plus d’informations sur la définition du réseau, consultez la [documentation Caffe sur le jeu de données MNIST](http://caffe.berkeleyvision.org/gathered/examples/mnist.html).
+Pour plus d’informations sur la définition du réseau, consultez la [documentation Caffe sur le jeu de données MNIST](https://caffe.berkeleyvision.org/gathered/examples/mnist.html).
 
 Pour les besoins de cet article, vous utilisez cet exemple MNIST. Exécutez les commandes suivantes à partir du nœud principal :
 
@@ -291,11 +291,11 @@ Dans cette documentation, vous avez essayé d’installer CaffeOnSpark en exécu
 
 
 ## <a name="seealso"></a>Voir aussi
-* [Vue d’ensemble : Apache Spark sur Azure HDInsight](apache-spark-overview.md)
+* [Présentation : Apache Spark sur Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scénarios
-* [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour analyser la température d’un bâtiment à l’aide de données issues des systèmes de chauffage, de ventilation et de climatisation](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark avec Machine Learning : Utiliser Spark dans HDInsight pour prédire les résultats d’une inspection alimentaire](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide des données des systèmes HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour prédire les résultats de l’inspection d’aliments](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>Gestion des ressources
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](apache-spark-resource-manager.md)

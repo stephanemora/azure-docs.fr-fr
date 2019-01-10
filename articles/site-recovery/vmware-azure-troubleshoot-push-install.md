@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 12/12/2018
-ms.openlocfilehash: 748f4e56b4b7fa52928f8f6507960ec35b5fe6e5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: fef0cfd05fe0d44966cbb9f15ba1148f8473207d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314395"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789905"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Résoudre les problèmes d’installation Push du service Mobilité
 
@@ -135,9 +135,8 @@ Vous pouvez trouver d’autres articles concernant la résolution des problèmes
 
 ## <a name="unsupported-operating-systems"></a>Systèmes d’exploitation non pris en charge
 
-Un échec peut aussi être dû à un système d’exploitation non pris en charge. Vérifiez que vous êtes sur la version du noyau/du système d’exploitation prise en charge pour réussir l’installation du service Mobilité.
-
-Pour en savoir plus sur les systèmes d’exploitation pris en charge par Azure Site Recovery, reportez-vous à notre [document de matrice de prise en charge](vmware-physical-azure-support-matrix.md#replicated-machines).
+Un échec peut aussi être dû à un système d’exploitation non pris en charge. Vérifiez que vous êtes sur la version du noyau/du système d’exploitation prise en charge pour réussir l’installation du service Mobilité. Évitez l’utilisation des correctifs privés.
+Pour voir la liste des systèmes d’exploitation et versions du noyau pris en charge par Azure Site Recovery, reportez-vous à notre [document avec la matrice de prise en charge](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 ## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Les partitions / volumes de démarrage et système ne sont pas le même disque (ErrorID : 95309)
 
@@ -146,6 +145,10 @@ Avant la version 9.20, les volumes/partitions de démarrage et système résida
 ## <a name="system-partition-on-multiple-disks-errorid-95313"></a>Partition système sur plusieurs disques (ErrorID : 95313)
 
 Avant la version 9.20, le logiciel ne prenait pas en charge la partition racine ou un volume placé sur plusieurs disques. À partir de la [version 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), cette configuration est prise en charge. Utilisez la dernière version de ce support.
+
+## <a name="grub-uuid-failure-errorid-95320"></a>GRUB UUID failure (ErrorID: 95320)
+
+Si le GRUB de la machine source utilise le nom de l’appareil au lieu de l’UUID, l’installation de l’agent de mobilité échoue. Adressez-vous à l’administrateur système pour qu’il apporte les modifications nécessaires au fichier GRUB.
 
 ## <a name="lvm-support-from-920-version"></a>Prise en charge de LVM à partir de la version 9.20
 

@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5d4c564ac797f40d7f6e9b169a6c864d3ef8147b
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: f95dec8a539a92a0397421fbde411f646eeca3ca
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165161"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720082"
 ---
-# <a name="find-endpoint-region-with-c"></a>Rechercher la région de point de terminaison avec C# 
+# <a name="programmatically-find-endpoint-region-with-c"></a>Rechercher par programmation la région du point de terminaison avec C# 
 Si vous disposez d’un ID d’application LUIS et d’un ID d’abonnement LUIS, vous pouvez rechercher la région à utiliser pour les requêtes de point de terminaison.
 
 > [!NOTE] 
-> La solution C# complète est disponible dans le [**dépôt GitHub** LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/).
+> L’intégralité de la solution C# est disponible dans le référentiel GitHub [**Azure-Samples**](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/find-region/csharp/).
 
 ## <a name="luis-endpoint-query-strategy"></a>Stratégie de requête de point de terminaison LUIS
 Chaque requête de point de terminaison LUIS nécessite :

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 57abea79a620aa83e16ad4cc2fd78a4294f2b278
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bda70a6854dc6d94d3d4b37e6f587e4dcd045126
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204853"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543835"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configuration et utilisation de l’affinité de service dans Service Fabric
 L’affinité est un contrôle qui permet principalement de faciliter la transition d’applications volumineuses monolithiques vers le cloud et les microservices. Elle peut également servir pour améliorer les performances des services, même si cela peut avoir des conséquences.
@@ -72,7 +72,7 @@ Actuellement, Cluster Resource Manager ne peut pas modéliser les chaînes de re
 ![Chaînes et étoiles dans le contexte des relations d’affinité][Image2]
 </center>
 
-Notez également que les relations d’affinité d’aujourd’hui sont directionnelles. Cela signifie que la règle d’affinité implique que l’enfant se trouve au même endroit que le parent. Elle ne garantit pas que le parent se trouve au même endroit que l’enfant. Il est également important de noter que la relation d’affinité ne peut pas être idéale ou instantanément appliquée car différents services ont différents cycles de vie et peuvent échouer et se déplacer indépendamment. Par exemple, supposons que le parent bascule soudainement vers un autre nœud suite à un plantage. Cluster Resource Manager et Failover Manager gèrent d’abord le basculement puisque le maintien, la cohérence et la disponible des services restent la priorité. Une fois le basculement terminé, la relation d’affinité est brisée, mais Cluster Resource Manager pense que tout fonctionne correctement, jusqu’à ce qu’il remarque que l’enfant ne se trouve pas avec le parent. Ces types de vérifications sont effectuées régulièrement. Vous trouverez plus d’informations sur la façon dont Cluster Resource Manager évalue les contraintes dans [cet article](service-fabric-cluster-resource-manager-management-integration.md#constraint-types), et [celui-ci](service-fabric-cluster-resource-manager-balancing.md) explique comment configurer la cadence à laquelle ces contraintes sont évaluées.   
+Notez également que les relations d’affinité sont aujourd’hui directionnelles par défaut. Cela signifie que la règle d’affinité implique que l’enfant se trouve au même endroit que le parent. Elle ne garantit pas que le parent se trouve au même endroit que l’enfant. Par conséquent, s’il existe une violation d’affinité et que, pour corriger la violation, il n’est pas possible pour une raison quelconque de déplacer l’enfant vers le nœud du parent, le parent n’est pas déplacé vers le nœud de l’enfant, même si le déplacement du parent vers le nœud de l’enfant aurait corrigé la violation. La définition du paramètre de configuration [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) sur true supprime la directionalité. Il est également important de noter que la relation d’affinité ne peut pas être idéale ou instantanément appliquée car différents services ont différents cycles de vie et peuvent échouer et se déplacer indépendamment. Par exemple, supposons que le parent bascule soudainement vers un autre nœud suite à un plantage. Cluster Resource Manager et Failover Manager gèrent d’abord le basculement puisque le maintien, la cohérence et la disponible des services restent la priorité. Une fois le basculement terminé, la relation d’affinité est brisée, mais Cluster Resource Manager pense que tout fonctionne correctement, jusqu’à ce qu’il remarque que l’enfant ne se trouve pas avec le parent. Ces types de vérifications sont effectuées régulièrement. Vous trouverez plus d’informations sur la façon dont Cluster Resource Manager évalue les contraintes dans [cet article](service-fabric-cluster-resource-manager-management-integration.md#constraint-types), et [celui-ci](service-fabric-cluster-resource-manager-balancing.md) explique comment configurer la cadence à laquelle ces contraintes sont évaluées.   
 
 
 ### <a name="partitioning-support"></a>Prise en charge du partitionnement

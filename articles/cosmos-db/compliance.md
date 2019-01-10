@@ -5,14 +5,14 @@ author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: dharmas-cosmos
+ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: f1f05987bee2931f6863298fc0ef7191fd5dbb87
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: f623411c3e8b13aeacc08a6c47053931742a2e82
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52166735"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034180"
 ---
 # <a name="azure-cosmos-db-compliance"></a>Conformité Azure Cosmos DB
 
@@ -20,11 +20,11 @@ Azure Cosmos DB est disponible dans toutes les régions Azure. Microsoft met cin
 
 * Le cloud **public Azure**, qui est disponible dans le monde entier.
 
-* **Azure - Chine** est disponible grâce à un partenariat unique entre Microsoft et 21Vianet, l’un des fournisseurs Internet les plus importants du pays.
+* **Azure - Chine** est disponible via un partenariat unique entre Microsoft et 21Vianet, l’un des fournisseurs Internet les plus importants du pays.
 
-* **Azure - Allemagne** fournit des services sous un modèle d’administration de données, qui garantit que les données client sont conservées en Allemagne sous le contrôle de T-Systems International GmbH, société Deutsche Telecom responsable de l’administration des données allemandes.
+* **Azure - Allemagne** fournit des services sous un modèle d’administration de données, qui garantit que les données clientes sont conservées en Allemagne sous le contrôle de T-Systems International GmbH, société Deutsche Telecom responsable de l’administration des données allemandes.
 
-* **Azure Government** est disponible dans quatre régions aux États-Unis pour les agences gouvernementales et leurs partenaires. 
+* **Azure Government** est disponible dans quatre régions des États-Unis pour les organismes publics américains et leurs partenaires. 
 
 * **Azure Government pour le Ministère de la défense** est disponible dans deux régions aux États-Unis pour le Ministère de la défense des États-Unis.
 

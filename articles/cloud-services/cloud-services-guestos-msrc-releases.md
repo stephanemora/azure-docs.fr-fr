@@ -11,22 +11,60 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/15/2018
+ms.date: 12/14/2018
 ms.author: raiye
-ms.openlocfilehash: c2ff5d79c59a08c6ed808312027dc69aee910224
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 94cf90dbc41533b8f5d41a0bdb18e5cdcb7be474
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854269"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541028"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
 
-## <a name="november-2018-guest-os"></a>Système d’exploitation invité, novembre 2018
+## <a name="december-2018-guest-os"></a>Système d’exploitation invité, décembre 2018
 
 >[!NOTE]
->Le système d’exploitation invité de novembre est en cours de déploiement sur les machines virtuelles de service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité de novembre. Cette liste est susceptible d’être modifiée.
+>Le système d’exploitation invité de décembre est en cours de déploiement sur les machines virtuelles de service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité de décembre. Cette liste est susceptible d’être modifiée.
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+| Version 12-18 | [4471321] | Sécurité de Windows 10 | 5.26 | 11 décembre 2018 |
+| Version 12-18 | [4471328] | Sécurité Windows   | 2.81 | 11 décembre 2018 |
+| Version 12-18 | [4471326] | Sécurité Windows   | 3.68 | 11 décembre 2018 |
+| Version 12-18 | [4471322] | Sécurité Windows   | 4.61 | 11 décembre 2018 |
+| Version 12-18 | [4470600] | Sécurité .NET 3.x  | 2.81 | 11 décembre 2018 |
+| Version 12-18 | [4470601] | Sécurité .NET 3.x  | 3.68 | 11 décembre 2018|
+| Version 12-18 | [4470602] | Sécurité .NET 3.x  | 4.61 | 11 décembre 2018 |
+| Version 12-18 | [4470493] | Sécurité .NET 4.x  | 2.81 | 11 décembre 2018 |
+| Version 12-18 | [4470492] | Sécurité .NET 4.x  | 3.68 | 11 décembre 2018 |
+| Version 12-18 | [4470491] | Sécurité .NET 4.x  | 4.61| 11 décembre 2018 |
+| Version 12-18 | [4471331] | Clignote  | 3.68, 4.61, 5.26 | 5 décembre 2018  |
+| Version 12-18 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 11 décembre 2018 |
+| N/A | [4468323] | Mise à jour du fuseau horaire    | 2.81, 3.68, 4.61 | 13 décembre 2018 |
+| N/A | [4467107] | Correctif cumulatif de novembre non relatif à la sécurité   | 2.81 | 13 novembre 2018 |
+| N/A | [4467701] | Correctif cumulatif de novembre non relatif à la sécurité     | 3.68 | 13 novembre 2018 |
+| N/A | [4467697] | Correctif cumulatif de novembre non relatif à la sécurité     | 4.61 | 13 novembre 2018 |
+
+[4471321]: http://support.microsoft.com/kb/4471321
+[4471328]: http://support.microsoft.com/kb/4471328
+[4471326]: http://support.microsoft.com/kb/4471326
+[4471322]: http://support.microsoft.com/kb/4471322
+[4470600]: http://support.microsoft.com/kb/4470600
+[4470601]: http://support.microsoft.com/kb/4470601
+[4470602]: http://support.microsoft.com/kb/4470602
+[4470493]: http://support.microsoft.com/kb/4470493
+[4470492]: http://support.microsoft.com/kb/4470492
+[4470491]: http://support.microsoft.com/kb/4470491
+[4471331]: http://support.microsoft.com/kb/4471331
+[4470199]: http://support.microsoft.com/kb/4470199
+[4468323]: http://support.microsoft.com/kb/4468323
+[4467107]: http://support.microsoft.com/kb/4467107
+[4467701]: http://support.microsoft.com/kb/4467701
+[4467697]: http://support.microsoft.com/kb/4467697
+
+## <a name="november-2018-guest-os"></a>Système d’exploitation invité, novembre 2018
 
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
@@ -427,7 +465,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A |  [3212646] |Correctif cumulatif qualitatif mensuel de sécurité de janvier 2017 pour Windows 7 SP1 et Windows Server 2008 R2 SP1 |2.60 |14 mars 2017 |
 | N/A |  [3205409] |Correctif cumulatif qualitatif mensuel de sécurité de décembre 2016 pour Windows Server 2012 |3.47 |14 mars 2017 |
 | N/A |  [3205401] |Correctif cumulatif qualitatif mensuel de sécurité de décembre 2016 pour Windows 8.1 et Windows Server 2012 R2 |4.40 |14 mars 2017 |
-| N/A |  [3211320] |Mise à jour de la pile de maintenance pour Windows 10 version 1607 et Windows Server 2016 : 24 janvier 2017 |5.5 |14 mars 2017 |
+| N/A |  [3211320] |Mise à jour de la pile de maintenance pour Windows 10 Version 1607 et Windows Server 2016 : 24 janvier 2017 |5.5 |14 mars 2017 |
 
 ## <a name="january-2017-guest-os"></a>Système d’exploitation invité, janvier 2017
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
@@ -468,13 +506,13 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A |[3192321] |L’heure d’été cesse d’être appliquée en Turquie |5.3, 4.38, 3.45, 2.57 |8 novembre 2016 |
 | N/A |[3185330] |Correctif qualitatif mensuel de sécurité octobre 2016 pour Windows 7 SP1 et Windows Server 2008 R2 SP1 |2.57 |8 novembre 2016 |
 | N/A |[3192403] |Aperçu du correctif qualitatif mensuel octobre 2016 pour Windows 7 SP1 et Windows Server 2008 R2 SP1 |2.57 |8 novembre 2016 |
-| N/A |[3177467] |Correctif de pile pour Windows 7 SP1 et Windows Server 2008 R2 SP1 : 20 septembre 2016 |2.57 |8 novembre 2016 |
+| N/A |[3177467] |Mise à jour de la pile de maintenance pour Windows 7 SP1 et Windows Server 2008 R2 SP1 : 20 septembre 2016 |2.57 |8 novembre 2016 |
 | N/A |[3185332] |Correctif qualitatif mensuel de sécurité octobre 2016 pour Windows Server 2012 |3.45 |8 novembre 2016 |
 | N/A |[3192406] |Aperçu du correctif qualitatif mensuel octobre 2016 pour Windows Server 2012 |3.45 |8 novembre 2016 |
 | N/A |[3185331] |Correctif qualitatif mensuel de sécurité octobre 2016 pour Windows 8.1 et Windows Server 2012 R2 |4.38 |8 novembre 2016 |
 | N/A |[3192404] |Aperçu du correctif qualitatif mensuel octobre 2016 pour Windows 8.1 et Windows Server 2012 R2 |4.38 |8 novembre 2016 |
-| N/A |[3199986] |Correctif de pile pour Windows 10 version 1607 : 27 octobre 2016 |5.3 |8 novembre 2016 |
-| N/A |[3197954] |Mise à jour cumulative pour Windows 10 Version 1607 et Windows Server 2016 : 27 octobre 2016 |5.3 |8 novembre 2016 |
+| N/A |[3199986] |Mise à jour de la pile de maintenance pour Windows 10 Version 1607 : 27 octobre 2016 |5.3 |8 novembre 2016 |
+| N/A |[3197954] |Mise à jour cumulative pour Windows 10 Version 1607 et Windows Server 2016 : 27 octobre 2016 |5.3 |8 novembre 2016 |
 
 ## <a name="october-2016-guest-os"></a>Système d’exploitation invité, octobre 2016
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
@@ -581,7 +619,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A |[3133977] |BitLocker ne peut pas crypter les lecteurs en raison de défaillances du service dans le processus svchost.exe dans Windows 7 ou Windows Server 2008 R2  |2.51 |10 mai 2016 |
 | N/A |[3133681] |Virtual machines don't respond to your operation in SCVMM in Windows Server 2012 R2 (Les machines virtuelles ne répondent pas à votre opération dans SCVMM dans Windows Server 2012 R2)  |4.32 |10 mai 2016 |
 | N/A |[3123245] |La mise à jour améliore l’identification d’une insuffisance de ports dans Windows Server 2012 R2  |4.32 |10 mai 2016 |
-| N/A |[Désactiver RC4] | Avis de sécurité Microsoft : mise à jour concernant la désactivation de RC4  |4.32, 3.39, 2.51 |10 mai 2016 |
+| N/A |[Désactiver RC4] | Avis de sécurité Microsoft : Mise à jour pour la désactivation de RC4  |4.32, 3.39, 2.51 |10 mai 2016 |
 
 ## <a name="april-2016-guest-os"></a>Système d’exploitation invité, avril 2016
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
@@ -630,7 +668,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | MS16-005 |[3124584] |Mise à jour de sécurité pour Windows Kernel Mode Drivers pour résoudre une exécution de code à distance |4.28, 3.35, 2.47 |12 janvier 2016 |
 | MS16-007 |[3124901] |Mise à jour de sécurité pour Microsoft Windows pour résoudre l’exécution de code à distance |4.28, 3.35, 2.47 |12 janvier 2016 |
 | MS16-008 |[3124605] |Mise à jour de sécurité du noyau pour résoudre une élévation de privilèges |4.28, 3.35, 2.47 |12 janvier 2016 |
-| Révision de l’avis de sécurité Microsoft |[2755801] |Mise à jour pour les vulnérabilités d’Adobe Flash Player dans Internet Explorer (Package de base de connaissances : TBD) - espace réservé de l’avis |4.28, 3.35 |12 janvier 2016 |
+| Révision de l’avis de sécurité Microsoft |[2755801] |Mise à jour pour les vulnérabilités d’Adobe Flash Player dans Internet Explorer (Package de base de connaissances : à déterminer) - Espace réservé de l’avis |4.28, 3.35 |12 janvier 2016 |
 | Avis de sécurité Microsoft |[3109853] |Mise à jour pour l’amélioration de l’interopérabilité de TLS |4.28, 3.35 |12 janvier 2016 |
 | Avis de sécurité Microsoft |[3123479] |Désapprobation de l’algorithme de hachage SHA-1 pour le programme de certificat racine Microsoft |4.28, 3.35, 2.47 |12 janvier 2016 |
 | Avis de sécurité Microsoft |[2736233] |Mises à jour pour les Kill Bits ActiveX |4.28, 3.35, 2.47 |12 janvier 2016 |
@@ -778,7 +816,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | MS15-014 |[3004361] |Une vulnérabilité dans SMB pourrait permettre de contourner la fonctionnalité de sécurité |4.17, 3.24, 2.36 |N/A |
 | MS15-015 |[3031432] |Une vulnérabilité dans Microsoft Windows pourrait permettre une élévation des privilèges |4.17, 3.24, 2.36 |N/A |
 | MS15-016 |[3029944] |Une vulnérabilité dans le composant des graphiques Windows pourrait permettre la divulgation d'informations |4.17, 3.24, 2.36 |N/A |
-| N/A |[3004375] |Mise à jour permettant d’améliorer l’audit de la ligne de commande Windows<p/>**Remarque**: elle est installée, mais la clé de registre permettant de l’activer est désactivée |4.17, 3.24, 2.36 |N/A |
+| N/A |[3004375] |Mise à jour permettant d’améliorer l’audit de la ligne de commande Windows<p/>**Remarque**: Elle est installée, mais la clé de registre permettant de l’activer est désactivée |4.17, 3.24, 2.36 |N/A |
 
 ## <a name="january-2015-guest-os"></a>Système d’exploitation invité, janvier 2015
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |

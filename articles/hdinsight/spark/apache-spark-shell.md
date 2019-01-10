@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: f8c296fddaafb8364cc5e0f07b54d850606322d9
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 3da6260faa87aecb7eb13f16386006e0c856d46b
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581423"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653847"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Exécuter Apache Spark depuis l’interpréteur de commandes Spark
 
-Un interpréteur de commandes [Apache Spark](https://spark.apache.org/) interactif fournit un environnement REPL (boucle de lecture-exécution-impression) pour l’exécution des commandes Spark les unes après les autres et l’affichage des résultats. Ce processus est utile pour le développement et le débogage. Spark fournit un interpréteur de commandes pour chacune des langues qu’il prend en charge : Scala, Python et R.
+Un interpréteur de commandes [Apache Spark](https://spark.apache.org/) interactif fournit un environnement REPL (boucle de lecture-exécution-impression) pour l’exécution des commandes Spark les unes après les autres et l’affichage des résultats. Ce processus est utile pour le développement et le débogage. Spark fournit un interpréteur de commandes pour chacun des langages qu’il prend en charge : Scala, Python et R.
 
 ## <a name="get-to-an-apache-spark-shell-with-ssh"></a>Obtenir un interpréteur de commandes Apache Spark avec SSH
 
@@ -63,7 +63,7 @@ La commande d’interpréteur de commandes Spark (`spark-shell`, `pyspark` ou `s
 | commutateur | description | exemple |
 | --- | --- | --- |
 | --master MASTER_URL | Spécifie l’URL principale. Dans HDInsight, cette valeur est toujours `yarn`. | `--master yarn`|
-| --jars JAR_LIST | Liste séparée par des virgules des fichiers JAR locaux à inclure dans les classpaths du pilote et de l’exécuteur. Dans HDInsight, cette liste est composée de chemins d’accès au système de fichiers par défaut dans Data Lake Store ou le stockage Azure. | `--jars /path/to/examples.jar` |
+| --jars JAR_LIST | Liste séparée par des virgules des fichiers JAR locaux à inclure dans les classpaths du pilote et de l’exécuteur. Dans HDInsight, cette liste est composée de chemins au système de fichiers par défaut dans Data Lake Storage ou Stockage Azure. | `--jars /path/to/examples.jar` |
 | --packages MAVEN_COORDS | Liste séparée par des virgules des coordonnées Maven des fichiers JAR à inclure dans les classpaths du pilote et de l’exécuteur. Recherche dans le référentiel Maven local, puis dans le référentiel Maven central, et enfin dans tout autre référentiel distant spécifié avec `--repositories`. Le format des coordonnées est *groupId*:*artifactId*:*version*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | --py-files LIST | Pour Python uniquement, une liste séparée par des virgules des fichiers .zip, .egg ou .py à placer dans le PYTHONPATH. | `--pyfiles "samples.py"` |
 
@@ -72,4 +72,3 @@ La commande d’interpréteur de commandes Spark (`spark-shell`, `pyspark` ou `s
 - Consultez [Présentation d’Apache Spark sur Azure HDInsight](apache-spark-overview.md) pour obtenir une vue d’ensemble.
 - Consultez [Créer un cluster Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md) pour utiliser des clusters Spark et SparkSQL.
 - Consultez [Vue d’ensemble d’Apache Spark Structured Streaming](apache-spark-streaming-overview.md) pour écrire des applications traitant des données de diffusion en continu avec Spark.
-

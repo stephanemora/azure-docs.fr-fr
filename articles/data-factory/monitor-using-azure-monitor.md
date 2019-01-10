@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 2e8c5b3d9624d3a622f16d770f68bc8614993d36
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 53fcaab5d98dd63579390105f3b62c053208e894
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387480"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020300"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Déclencher des alertes et surveiller les fabriques de données avec Azure Monitor
 Les applications cloud sont complexes, et se composent de nombreux éléments mobiles. L’analyse fournit des données visant à garantir que votre application reste opérationnelle et soit exécutée en toute intégrité. Elle vous permet également de parer à des problèmes potentiels ou de résoudre des problèmes déjà survenus. En outre, vous pouvez utiliser les données d’analyse pour obtenir des informations détaillées sur votre application. Ces connaissances peuvent vous aider à améliorer les performances ou la facilité de gestion de l’application, ou à automatiser des actions qui exigeraient normalement une intervention manuelle.
@@ -31,7 +30,7 @@ La fabrique de données stocke uniquement les données d’exécution du pipelin
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
 
 * Enregistrez-les dans un **compte de stockage** pour l’audit ou l’inspection manuelle. Vous pouvez spécifier la durée de rétention (en jours) via les paramètres de diagnostic.
-* Diffusez-les en continu vers **Event Hubs** pour permettre à un service tiers ou à une solution analytique personnalisée (comme PowerBI) de les ingérer.
+* Envoyez-les à **Event Hubs** pour ingestion par un service tiers ou une solution d’analytique personnalisée comme Power BI.
 * Analysez-les avec **Log Analytics**
 
 Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hub qui ne se trouve pas dans le même abonnement que la ressource émettrice des journaux. L’utilisateur qui configure le paramètre doit disposer d’un accès RBAC (contrôle d’accès en fonction du rôle) approprié aux deux abonnements.
@@ -41,7 +40,7 @@ Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hub qui ne
 ### <a name="diagnostic-settings"></a>Paramètres de diagnostic
 Les journaux de diagnostic pour les ressources non liées au calcul sont configurés à l’aide des paramètres de diagnostic. Les paramètres de diagnostic dans le cas d’un contrôle de ressource sont les suivants :
 
-* Emplacement de destination des journaux de diagnostic (Compte de stockage, Event Hubs et/ou Log Analytics).
+* Emplacement de destination des journaux de diagnostic (Compte de stockage, Event Hubs ou Log Analytics)
 * Les catégories de journal qui sont envoyées
 * La durée pendant laquelle chaque catégorie de journal doit être conservée dans un compte de stockage
 * Une durée de rétention de zéro jour signifie que les journaux sont conservés indéfiniment. La valeur peut également être n’importe quel nombre de jours, compris entre 1 et 2147483647.
@@ -276,7 +275,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Propriété | type | Description | Exemples |
 | --- | --- | --- | --- |
-| Level |Chaîne | Niveau des journaux de diagnostic. Le niveau 4 est toujours celui associé aux journaux d’exécution d’activité. | `4`  |
+| Niveau |Chaîne | Niveau des journaux de diagnostic. Le niveau 4 est toujours celui associé aux journaux d’exécution d’activité. | `4`  |
 | correlationId |Chaîne | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | Chaîne | Heure de l’événement dans l’intervalle de temps, au format UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| Chaîne| ID de l’exécution d’activité | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
@@ -323,7 +322,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Propriété | type | Description | Exemples |
 | --- | --- | --- | --- |
-| Level |Chaîne | Niveau des journaux de diagnostic. Le niveau 4 est celui associé aux journaux d’exécution d’activité. | `4`  |
+| Niveau |Chaîne | Niveau des journaux de diagnostic. Le niveau 4 est celui associé aux journaux d’exécution d’activité. | `4`  |
 | correlationId |Chaîne | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | Chaîne | Heure de l’événement dans l’intervalle de temps, au format UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| Chaîne| ID de l’exécution de pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
@@ -368,7 +367,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Propriété | type | Description | Exemples |
 | --- | --- | --- | --- |
-| Level |Chaîne | Niveau des journaux de diagnostic. Défini au niveau 4 pour les journaux d’exécution d’activité. | `4`  |
+| Niveau |Chaîne | Niveau des journaux de diagnostic. Défini au niveau 4 pour les journaux d’exécution d’activité. | `4`  |
 | correlationId |Chaîne | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | Chaîne | Heure de l’événement dans l’intervalle de temps, au format UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| Chaîne| ID de l’exécution du déclencheur | `08587023010602533858661257311` |
@@ -390,12 +389,12 @@ ADFV2 émet les métriques suivantes :
 
 | **Mesure**           | **Nom d’affichage de la métrique**         | **Unité** | **Type d’agrégation** | **Description**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRun | Métriques d’exécutions de pipeline ayant abouti | Count    | Total                | Nombre total d’exécutions de pipeline ayant abouti en une minute |
-| PipelineFailedRuns   | Métriques d’exécutions de pipeline ayant échoué    | Count    | Total                | Nombre total d’exécutions de pipeline ayant échoué en une minute    |
-| ActivitySucceededRuns | Métriques d’exécutions d’activité ayant abouti | Count    | Total                | Nombre total d’exécutions d’activité ayant abouti en une minute  |
-| ActivityFailedRuns   | Métriques d’exécutions d’activité ayant échoué    | Count    | Total                | Nombre total d’exécutions d’activité ayant échoué en une minute     |
-| TriggerSucceededRuns | Métriques d’exécutions de déclencheur ayant abouti  | Count    | Total                | Nombre total d’exécutions de déclencheur ayant abouti en une minute   |
-| TriggerFailedRuns    | Métriques d’exécutions de déclencheur ayant échoué     | Count    | Total                | Nombre total d’exécutions de déclencheur ayant échoué en une minute      |
+| PipelineSucceededRun | Métriques d’exécutions de pipeline ayant abouti | Nombre    | Total                | Nombre total d’exécutions de pipeline ayant abouti en une minute |
+| PipelineFailedRuns   | Métriques d’exécutions de pipeline ayant échoué    | Nombre    | Total                | Nombre total d’exécutions de pipeline ayant échoué en une minute    |
+| ActivitySucceededRuns | Métriques d’exécutions d’activité ayant abouti | Nombre    | Total                | Nombre total d’exécutions d’activité ayant abouti en une minute  |
+| ActivityFailedRuns   | Métriques d’exécutions d’activité ayant échoué    | Nombre    | Total                | Nombre total d’exécutions d’activité ayant échoué en une minute     |
+| TriggerSucceededRuns | Métriques d’exécutions de déclencheur ayant abouti  | Nombre    | Total                | Nombre total d’exécutions de déclencheur ayant abouti en une minute   |
+| TriggerFailedRuns    | Métriques d’exécutions de déclencheur ayant échoué     | Nombre    | Total                | Nombre total d’exécutions de déclencheur ayant échoué en une minute      |
 
 Pour accéder aux métriques, suivez les instructions de l’article suivant : https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
 
@@ -465,15 +464,7 @@ Vous pouvez visualiser les métriques ci-dessus, consulter les requêtes derriè
 
 ## <a name="alerts"></a>Alertes
 
-Vous pouvez déclencher des alertes sur les métriques prises en charge dans Data Factory. Cliquez sur le bouton **Alertes** dans la page **Surveiller** de Data Factory.
-
-![Options d’alertes](media/monitor-using-azure-monitor/alerts_image1.png)
-
-Ceci vous permet d’accéder à la page **Alertes**.
-
-![Page des alertes](media/monitor-using-azure-monitor/alerts_image2.png)
-
-Vous pouvez également vous connecter au portail Azure et cliquer sur **Surveiller -&gt; Alertes** pour atteindre directement la page **Alertes**.
+Connectez-vous au portail Azure et cliquez sur **Superviser -&gt; Alertes** pour créer des alertes.
 
 ![Alertes dans le menu du portail](media/monitor-using-azure-monitor/alerts_image3.png)
 
@@ -509,4 +500,5 @@ Vous pouvez également vous connecter au portail Azure et cliquer sur **Surveill
     ![Groupe d’actions, écran 4 sur 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez l’article [Surveiller et gérer les pipelines par programmation](monitor-programmatically.md) pour en savoir plus sur la surveillance et la gestion des pipelines en exécutant .
+
+Consultez l’article [Superviser et gérer les pipelines par programmation](monitor-programmatically.md) pour en savoir plus sur la supervision et la gestion des pipelines avec du code.

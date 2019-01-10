@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: ca64c87a0211ae00218493fe7bfddcbbb81a032a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ac72de799ce7cd00e939e9b67f1ef5574ce3eed3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109437"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972564"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory
-> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-create-pipelines.md)
 > * [Version actuelle](concepts-pipelines-activities.md)
 
@@ -55,7 +55,7 @@ Activités de transformation des données | Environnement de calcul
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Diffusion en continu Hadoop](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Activités Machine Learning : exécution de lot et mise à jour de ressource](transform-data-using-machine-learning.md) | Microsoft Azure
+[Activités Machine Learning : exécution par lot et ressource de mise à jour](transform-data-using-machine-learning.md) | Microsoft Azure
 [Procédure stockée](transform-data-using-stored-procedure.md) | SQL Azure, Azure SQL Data Warehouse ou SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Service Analytique Azure Data Lake
 [Code personnalisé](transform-data-using-dotnet-custom-activity.md) | Azure Batch
@@ -97,13 +97,13 @@ Voici comment un pipeline est défini au format JSON :
 
 Tag | Description | type | Obligatoire
 --- | ----------- | ---- | --------
-Nom | Nom du pipeline. Spécifiez un nom qui représente l’action effectuée par le pipeline. <br/><ul><li>Nombre maximal de caractères : 140</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \ »</li></ul> | Chaîne | Oui
+Nom | Nom du pipeline. Spécifiez un nom qui représente l’action effectuée par le pipeline. <br/><ul><li>Nombre maximal de caractères : 140</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \ »</li></ul> | Chaîne | Oui
 description | Spécifiez le texte décrivant la raison motivant l’utilisation du pipeline. | Chaîne | Non 
 activités | La section **Activités** peut contenir une ou plusieurs activités définies. Consultez la section [JSON d’activité](#activity-json) pour plus d’informations sur l’élément JSON des activités. | Tableau | Oui
 parameters | La section **Paramètres** peut comporter un ou plusieurs des paramètres définis dans le pipeline, afin de rendre votre pipeline plus flexible en vue de sa réutilisation. | Liste | Non 
 
 ## <a name="activity-json"></a>Activité JSON
-La section **Activités** peut contenir une ou plusieurs activités définies. Il existe deux principaux types d’activités : l’exécution et les activités de contrôle.
+La section **Activités** peut contenir une ou plusieurs activités définies. Il existe deux principaux types d’activités : les activités d’exécution et de contrôle.
 
 ### <a name="execution-activities"></a>Activités d’exécution
 Les activités d’exécution incluent le [déplacement des données](#data-movement-activities) et la [transformation des données](#data-transformation-activities). Elles possèdent la structure de niveau supérieur suivante :
@@ -130,7 +130,7 @@ Le tableau suivant décrit des propriétés de la définition JSON de l’activi
 
 Tag | Description | Obligatoire
 --- | ----------- | ---------
-Nom | Nom de l’activité. Spécifiez un nom qui représente l’action effectuée par l’activité. <br/><ul><li>Nombre maximal de caractères : 55</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \ » | Oui</li></ul>
+Nom | Nom de l’activité. Spécifiez un nom qui représente l’action effectuée par l’activité. <br/><ul><li>Nombre maximal de caractères : 55</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \ » | Oui</li></ul>
 description | Texte décrivant la raison motivant l’activité ou son utilisation | Oui
 Type | Type de l’activité. Consultez les sections [Activités de déplacement des données](#data-movement-activities), [Activités de transformation des données](#data-transformation-activities) et [Activités de contrôle](#control-activities) pour en savoir plus sur les différents types d’activités. | Oui
 linkedServiceName | Nom du service lié utilisé par l’activité.<br/><br/>Une activité peut nécessiter que vous spécifiiez le service lié à l’environnement de calcul requis. | Oui pour l’activité HDInsight, l’activité de calcul de score du lot Azure Machine Learning et l’activité de procédure stockée. <br/><br/>Non pour toutes les autres
@@ -170,10 +170,10 @@ Les stratégies ont un impact sur le comportement d’exécution d’une activit
 ```
 Nom JSON | Description | Valeurs autorisées | Obligatoire
 --------- | ----------- | -------------- | --------
-timeout | Spécifie le délai d’expiration d’exécution de l’activité. | Timespan | Non. Le délai d’expiration par défaut est de 7 jours.
-retry | Nombre maximal de nouvelles tentatives | Entier  | Non. La valeur par défaut est 0
-retryIntervalInSeconds | Délai en secondes entre chaque nouvelle tentative | Entier  | Non. La valeur par défaut est de 20 secondes
-secureOutput | Lorsqu’elle est définie sur true, la sortie de l’activité est considérée comme sécurisée et ne sera pas consignée pour la surveillance. | Booléen | Non. La valeur par défaut est false.
+timeout | Spécifie le délai d’expiration d’exécution de l’activité. | Timespan |  Non. Le délai d’expiration par défaut est de 7 jours.
+retry | Nombre maximal de nouvelles tentatives | Entier  |  Non. La valeur par défaut est 0
+retryIntervalInSeconds | Délai en secondes entre chaque nouvelle tentative | Entier  |  Non. La valeur par défaut est de 20 secondes
+secureOutput | Lorsqu’elle est définie sur true, la sortie de l’activité est considérée comme sécurisée et ne sera pas consignée pour la surveillance. | Booléen |  Non. La valeur par défaut est false.
 
 ### <a name="control-activity"></a>Activité de contrôle
 Les activités de contrôle ont la structure de niveau supérieur suivante :
@@ -194,7 +194,7 @@ Les activités de contrôle ont la structure de niveau supérieur suivante :
 
 Tag | Description | Obligatoire
 --- | ----------- | --------
-Nom | Nom de l’activité. Spécifiez un nom qui représente l’action effectuée par l’activité.<br/><ul><li>Nombre maximal de caractères : 55</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \ » | Oui</li><ul>
+Nom | Nom de l’activité. Spécifiez un nom qui représente l’action effectuée par l’activité.<br/><ul><li>Nombre maximal de caractères : 55</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \ » | Oui</li><ul>
 description | Texte décrivant la raison motivant l’activité ou son utilisation | Oui
 Type | Type de l’activité. Consultez les sections [Activités de déplacement des données](#data-movement-activities), [Activités de transformation des données](#data-transformation-activities) et [Activités de contrôle](#control-activities) pour en savoir plus sur les différents types d’activités. | Oui
 typeProperties | Les propriétés de la section typeProperties dépendent de chaque type d’activité. Pour afficher les propriétés de type d’une activité, cliquez sur les liens vers l’activité dans la section précédente. | Non 
@@ -203,16 +203,16 @@ dependsOn | Cette propriété est utilisée pour définir la dépendance des act
 ### <a name="activity-dependency"></a>Dépendance des activités
 La dépendance des activités définit la manière dont les activités suivantes dépendent des activités précédentes, et détermine ainsi s’il faut poursuivre l’exécution de la tâche suivante. Une activité peut dépendre d’une ou de plusieurs activités précédentes avec différentes conditions de dépendance.
 
-Les différentes conditions de dépendance sont : Opération réussie, En échec, Ignoré, Terminé.
+Les différentes conditions de dépendance sont : Réussite, Échec, Ignoré, Terminé.
 
 Par exemple, si un pipeline contient Activité A -> Activité B, les différents scénarios qui peuvent se produire sont les suivants :
 
-- Activité B a une condition de dépendance sur Activité A avec **Opération réussie** : Activité B s’exécute uniquement si Activité A présente l’état final Opération réussie
-- Activité B a une condition de dépendance sur Activité A avec **En échec** : Activité B s’exécute uniquement si Activité A présente l’état final En échec
-- Activité B a une condition de dépendance sur Activité A avec **Terminé** : Activité B s’exécute si Activité A présente l’état final Opération réussie ou En échec
-- Activité B a une condition de dépendance sur Activité A avec **Ignoré** : Activité B s’exécute si Activité A présente l’état final Ignoré. Ignoré se produit dans le scénario Activité X -> Activité Y -> Activité Z, où chaque activité s’exécute uniquement si l’activité précédente réussit. Si l’activité X échoue, Activité Y prend l’état « Ignoré », car elle ne s’exécute jamais. De même, Activité Z présente également l’état « Ignoré ».
+- L’Activité B a une condition de dépendance envers l’Activité A avec **Réussite** : L’Activité B s’exécute uniquement si l’Activité A présente l’état final Réussite.
+- L’Activité B a une condition de dépendance envers l’Activité A avec **Échec** : L’Activité B s’exécute uniquement si l’Activité A présente l’état final Échec.
+- L’Activité B a une condition de dépendance envers l’Activité A avec **Terminé** : L’Activité B s’exécute si l’Activité A présente l’état final Réussite ou Échec.
+- L’Activité B a une condition de dépendance envers l’Activité A avec **Ignoré** : L’Activité B s’exécute si l’Activité A présente l’état final Ignoré. Ignoré se produit dans le scénario Activité X -> Activité Y -> Activité Z, où chaque activité s’exécute uniquement si l’activité précédente réussit. Si l’activité X échoue, Activité Y prend l’état « Ignoré », car elle ne s’exécute jamais. De même, Activité Z présente également l’état « Ignoré ».
 
-#### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>Exemple : Activité 2 dépend de la succession d’Activité 1
+#### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>Exemple : L’Activité 2 dépend de la réussite de l’Activité 1
 
 ```json
 {

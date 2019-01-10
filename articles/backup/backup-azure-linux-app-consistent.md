@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/12/2018
 ms.author: anuragm
-ms.openlocfilehash: 027fc4098e7760de276a8548453bb83599ed0521
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a81c0b9c87db85771fcecab87c6b9ac88dcbd472
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605210"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581843"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Sauvegarde cohérente des applications des machines virtuelles Linux Azure
 
@@ -36,10 +36,10 @@ Les pré-scripts appellent les API natives de l’application, qui suspendent le
 
 4. Vérifiez les autorisations suivantes pour ces fichiers :
 
-   - **VMSnapshotScriptPluginConfig.json** : autorisation « 600 ». Par exemple, seul l’utilisateur « racine » doit avoir des autorisations de « lecture » et « d’écriture » pour ce fichier, et aucun utilisateur ne doit disposer des autorisations « d’exécution ».
+   - **VMSnapshotScriptPluginConfig.json** : autorisation « 600 ». Par exemple, seul l’utilisateur « racine » doit avoir des autorisations de « lecture » et « d’écriture » pour ce fichier, et aucun utilisateur ne doit disposer des autorisations « d’exécution ».
 
-   - **Fichier de pré-script** : autorisation « 700 ».  Par exemple, seul l’utilisateur « racine » doit avoir les autorisations de « lecture », « d’écriture » et « d’exécution » pour ce fichier.
-  
+   - **Fichier de pré-script** : autorisation « 700 ».  Par exemple, seul l’utilisateur « racine » doit avoir les autorisations de « lecture », « d’écriture » et « d’exécution » pour ce fichier.
+
    - **Post-script** : autorisation « 700 ». Par exemple, seul l’utilisateur « racine » doit avoir les autorisations de « lecture », « d’écriture » et « d’exécution » pour ce fichier.
 
    > [!Important]
@@ -48,25 +48,25 @@ Les pré-scripts appellent les API natives de l’application, qui suspendent le
    >
 
 5. Configurez **VMSnapshoScriptPluginConfig.json** comme décrit ici :
-    - **pluginName** : laissez ce champ tel quel, sinon vos scripts ne fonctionneront pas comme prévu.
+    - **pluginName** : laissez ce champ tel quel, sinon vos scripts ne fonctionneront pas comme prévu.
 
-    - **preScriptLocation** : fournissez le chemin d’accès complet du pré-script sur la machine virtuelle qui sera sauvegardée.
+    - **preScriptLocation** : fournissez le chemin complet du pré-script sur la machine virtuelle qui sera sauvegardée.
 
-    - **postScriptLocation** : fournissez le chemin d’accès complet du post-script sur la machine virtuelle qui sera sauvegardée.
+    - **postScriptLocation** : fournissez le chemin complet du post-script sur la machine virtuelle qui sera sauvegardée.
 
-    - **preScriptParams** : fournissez les paramètres facultatifs qui doivent être transmis au pré-script. Tous les paramètres doivent être entre guillemets. Si vous utilisez plusieurs paramètres, séparez-les par une virgule.
+    - **preScriptParams** : fournissez les paramètres facultatifs qui doivent être transmis au pré-script. Tous les paramètres doivent être entre guillemets. Si vous utilisez plusieurs paramètres, séparez-les par une virgule.
 
-    - **postScriptParams** : fournissez les paramètres facultatifs qui doivent être transmis au post-script. Tous les paramètres doivent être entre guillemets. Si vous utilisez plusieurs paramètres, séparez-les par une virgule.
+    - **postScriptParams** : fournissez les paramètres facultatifs qui doivent être transmis au post-script. Tous les paramètres doivent être entre guillemets. Si vous utilisez plusieurs paramètres, séparez-les par une virgule.
 
     - **preScriptNoOfRetries** : définissez le nombre de fois où le pré-script doit être traité à nouveau en cas d’erreur avant de terminer. Zéro signifie qu’une seule tentative a lieu et qu’aucune nouvelle tentative n’a lieu en cas d’échec.
 
-    - **postScriptNoOfRetries** : définissez le nombre de fois où le post-script doit être traité à nouveau en cas d’erreur avant de terminer. Zéro signifie qu’une seule tentative a lieu et qu’aucune nouvelle tentative n’a lieu en cas d’échec.
-    
-    - **timeoutInSeconds** : spécifiez des délais d’attente individuels pour le pré-script et le post-script.
+    - **postScriptNoOfRetries** :  définissez le nombre de fois où le post-script doit être traité à nouveau en cas d’erreur avant de terminer. Zéro signifie qu’une seule tentative a lieu et qu’aucune nouvelle tentative n’a lieu en cas d’échec.
 
-    - **continueBackupOnFailure** : définissez cette valeur sur **true** si vous voulez que la sauvegarde Azure effectue une restauration vers une sauvegarde cohérente en cas d’incident/cohérente de système de fichiers en cas d’échec du pré-script ou du post-script. Définir cette valeur sur **false** fait échouer la sauvegarde en cas d’échec du script (sauf en cas de machine virtuelle à un seul disque où la restauration est effectuée vers une sauvegarde cohérente en cas d’incident, indépendamment de ce paramètre).
+    - **timeoutInSeconds** : spécifiez des délais d’attente individuels pour le pré-script et le post-script (la valeur maximale s’élève à 1 800).
 
-    - **fsFreezeEnabled** : spécifiez si fsfreeze Linux doit être appelé pendant la capture instantanée de la machine virtuelle pour garantir la cohérence du système de fichiers. Nous vous recommandons de laisser cette valeur définie sur **true**, sauf si votre application comporte des dépendances sur la désactivation de fsfreeze.
+    - **continueBackupOnFailure** : définissez cette valeur sur **true** si vous voulez que Sauvegarde Azure effectue une restauration vers une sauvegarde cohérente en cas d’incident/cohérente dans le système de fichiers en cas d’échec du pré-script ou du post-script. Définir cette valeur sur **false** fait échouer la sauvegarde en cas d’échec du script (sauf en cas de machine virtuelle à un seul disque où la restauration est effectuée vers une sauvegarde cohérente en cas d’incident, indépendamment de ce paramètre).
+
+    - **fsFreezeEnabled** : spécifiez si fsfreeze Linux doit être appelé pendant la prise d’instantané de la machine virtuelle pour garantir la cohérence du système de fichiers. Nous vous recommandons de laisser cette valeur définie sur **true**, sauf si votre application comporte des dépendances sur la désactivation de fsfreeze.
 
 6. L’infrastructure de script est désormais configurée. Si la sauvegarde de la machine virtuelle est déjà configurée, la sauvegarde suivante appelle les scripts et déclenche la sauvegarde cohérente avec les applications. Si la sauvegarde de machine virtuelle n’est pas configurée, faites-le à l’aide de [Sauvegarde de machines virtuelles Azure dans des coffres Recovery Services.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 

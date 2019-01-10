@@ -15,35 +15,35 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a012798f71b0e3c14ab9982fd41bce6f0fa098e5
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5aa52805afcd50ebf7a9ac0ddcae95f21dd329f1
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257605"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554756"
 ---
 # <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>Réentraîner un service web Azure Machine Learning Studio classique | Microsoft Docs
-Le service web prédictif que vous avez déployé est le point de terminaison de notation par défaut. Les points de terminaison par défaut sont toujours synchronisés avec l’expérience originale d’apprentissage et de notation. Par conséquent, le modèle entraîné du point de terminaison par défaut ne peut pas être remplacé. Pour reformer le service web, vous devez ajouter un nouveau point de terminaison au service web. 
+Le service web prédictif que vous avez déployé est le point de terminaison de notation par défaut. Les points de terminaison par défaut sont toujours synchronisés avec l’expérience originale d’apprentissage et de notation. Par conséquent, le modèle entraîné du point de terminaison par défaut ne peut pas être remplacé. Pour reformer le service web, vous devez ajouter un nouveau point de terminaison au service web.
 
 ## <a name="prerequisites"></a>Prérequis
-Vous devez avoir configuré une expérience de formation et une expérimentation prédictive comme indiqué dans [Reformer des modèles Machine Learning par programme](retrain-models-programmatically.md). 
+Vous devez avoir configuré une expérience de formation et une expérimentation prédictive comme indiqué dans [Reformer des modèles Machine Learning par programme](retrain-models-programmatically.md).
 
 > [!IMPORTANT]
-> L’expérience prédictive doit être déployée comme un service web Machine Learning classique. 
-> 
-> 
+> L’expérience prédictive doit être déployée comme un service web Machine Learning classique.
+>
+>
 
 Pour plus d’informations sur le déploiement de services web, consultez [Déployer un service web Azure Machine Learning](publish-a-machine-learning-web-service.md).
 
 ## <a name="add-a-new-endpoint"></a>Ajouter un point de terminaison
-Le service web prédictif que vous avez déployé contient un point de terminaison de notation par défaut qui est synchronisé avec le modèle formé pour les expériences de formation et de notation d’origine. Pour mettre à jour votre service web avec un nouveau modèle formé, vous devez créer un point de terminaison de notation. 
+Le service web prédictif que vous avez déployé contient un point de terminaison de notation par défaut qui est synchronisé avec le modèle formé pour les expériences de formation et de notation d’origine. Pour mettre à jour votre service web avec un nouveau modèle formé, vous devez créer un point de terminaison de notation.
 
 Pour créer un nouveau point de terminaison de notation, sur le service web prédictif pouvant être mis à jour avec le modèle entraîné :
 
 > [!NOTE]
 > Veillez à ajouter le point de terminaison au service web prédictif et non au service web d’apprentissage. Si vous avez correctement déployé à la fois un service web prédictif et un service web d’apprentissage, vous devez voir deux services web distincts répertoriés. Le service web prédictif doit se terminer par « [exp. prédictive] ».
-> 
-> 
+>
+>
 
 Pour ajouter un point de terminaison à un service web, deux options s’offrent à vous :
 
@@ -51,7 +51,7 @@ Pour ajouter un point de terminaison à un service web, deux options s’offrent
 2. Utilisation du portail de services web Microsoft Azure
 
 ### <a name="programmatically-add-an-endpoint"></a>Ajouter un point de terminaison par programmation
-Vous pouvez ajouter des points de terminaison de notation à l’aide de l’exemple de code fourni dans ce [référentiel GitHub](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
+Vous pouvez ajouter des points de terminaison de notation à l’aide de l’exemple de code fourni dans ce [dépôt GitHub](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
 
 ### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>Utiliser le portail de services web Microsoft Azure pour ajouter un point de terminaison
 1. Dans Machine Learning Studio, dans la colonne de navigation de gauche, cliquez sur Services web.

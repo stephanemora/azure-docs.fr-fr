@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.component: common
-ms.openlocfilehash: 85f93e15cfce1d44567c48c6c6f4b38c42dfb296
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a15c983291d35063884178f7b84e21fe4908b49a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416390"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632312"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Questions fréquemment posées (FAQ) sur la migration de Stockage Azure
 
@@ -37,7 +37,7 @@ Le script d'automatisation est conçu pour le déploiement d'Azure Resource Mana
 
 **Des frais sont-ils facturés pour la copie de données entre deux partages de fichiers sur un même compte de stockage dans la même région ?**
 
-Non. Ce processus n'entraîne aucuns frais.
+ Non. Ce processus n'entraîne aucuns frais.
 
 **Comment sauvegarder la totalité de mon compte de stockage sur un autre compte de stockage ?**
 
@@ -54,10 +54,10 @@ Il n'existe aucune option permettant de sauvegarder directement la totalité d'u
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
 
-    - `/Source` : indiquez l'URI du compte de stockage source (jusqu'au conteneur).  
-    - `/Dest` : indiquez l'URI du compte de stockage cible (jusqu'au conteneur).  
-    - `/SourceKey` : fournissez la clé primaire du compte de stockage source. Vous pouvez copier cette clé à partir du portail Azure en sélectionnant le compte de stockage.  
-    - `/DestKey` : fournissez la clé primaire du compte de stockage cible. Vous pouvez copier cette clé à partir du portail en sélectionnant le compte de stockage.
+    - `/Source`: Indiquez l’URI du compte de stockage source (jusqu’au conteneur).  
+    - `/Dest`: Indiquez l’URI du compte de stockage cible (jusqu’au conteneur).  
+    - `/SourceKey`: Indiquez la clé primaire du compte de stockage source. Vous pouvez copier cette clé à partir du portail Azure en sélectionnant le compte de stockage.  
+    - `/DestKey`: Indiquez la clé primaire du compte de stockage cible. Vous pouvez copier cette clé à partir du portail en sélectionnant le compte de stockage.
 
 Après avoir exécuté cette commande, les fichiers du conteneur sont déplacés vers le compte de stockage cible.
 
@@ -118,6 +118,8 @@ Pour plus d’informations, voir [Transférer des données avec AzCopy sur Windo
 
 **Comment déplacer des disques managés vers un autre compte de stockage ?**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Procédez comme suit :
 
 1.  Arrêtez la machine virtuelle à laquelle le disque managé est attaché.
@@ -125,15 +127,15 @@ Procédez comme suit :
 2.  Copiez le disque dur virtuel managé d'une zone à une autre en exécutant le script Azure PowerShell suivant :
 
     ```
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
-    Select-AzureRmSubscription -SubscriptionId <ID>
+    Select-AzSubscription -SubscriptionId <ID>
 
-    $sas = Grant-AzureRmDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
+    $sas = Grant-AzDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
 
-    $destContext = New-AzureStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
+    $destContext = New-AzStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
 
-    Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
+    Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
     ```
 
 3.  Créez un disque managé en utilisant le fichier VHD dans l'autre région dans laquelle vous avez copié le disque dur virtuel. Pour ce faire, utilisez le script Azure PowerShell suivant :  
@@ -151,9 +153,9 @@ Procédez comme suit :
 
     $storageType = 'StandardLRS'
 
-    $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
+    $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
 
-    $osDisk = New-AzureRmDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
+    $osDisk = New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
     ``` 
 
 Pour plus d'informations sur le déploiement d'une machine virtuelle à partir d'un disque managé, voir [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
@@ -164,7 +166,7 @@ Utilisez AzCopy pour télécharger les données. Pour plus d'informations, voir 
 
 **Comment changer l'emplacement secondaire par une région en Europe pour un compte de stockage ?**
 
-Lorsque vous créez un compte de stockage, vous sélectionnez la région primaire pour le compte. La sélection de la région secondaire dépend de la région primaire et ne peut pas être modifiée. Pour plus d’informations, consultez [Stockage géoredondant (GRS) : réplication inter-régions pour le Stockage Azure](storage-redundancy.md).
+Lorsque vous créez un compte de stockage, vous sélectionnez la région primaire pour le compte. La sélection de la région secondaire dépend de la région primaire et ne peut pas être modifiée. Pour plus d’informations, consultez [Stockage géoredondant (GRS) : réplication interrégion pour le stockage Azure](storage-redundancy.md).
 
 **Où puis-je obtenir plus d'informations sur le chiffrement du service de stockage Azure (SSE) ?**  
   
@@ -191,7 +193,7 @@ Vous pouvez utiliser l['Explorateur de stockage](https://azure.microsoft.com/fea
 
 **Existe-t-il des conditions préalables pour modifier la réplication d'un compte de stockage d'un stockage géoredondant à un stockage localement redondant ?**
 
-Non. 
+ Non. 
 
 **Comment accéder au stockage redondant Azure Files ?**
 
@@ -234,7 +236,7 @@ Si vous utilisez des machines virtuelles, vous devez effectuer des étapes suppl
 
 **Comment passer d'un compte de stockage classique vers un compte de stockage Azure Resource Manager ?**
 
-Vous pouvez utiliser l'applet de commande **Move-AzureStorageAccount**. Cette applet de commande comporte plusieurs étapes (Validate, Prepare, Commit). Vous pouvez valider le déplacement avant de l'effectuer.
+Vous pouvez utiliser l'applet de commande **Move-AzStorageAccount**. Cette applet de commande comporte plusieurs étapes (Validate, Prepare, Commit). Vous pouvez valider le déplacement avant de l'effectuer.
 
 Si vous utilisez des machines virtuelles, vous devez effectuer des étapes supplémentaires avant de migrer les données du compte de stockage. Pour plus d'informations, voir [Migration de ressources IaaS d’un environnement Classic vers Azure Resource Manager à l’aide d’Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 
@@ -274,11 +276,11 @@ Pour autoriser d'autres personnes à accéder aux ressources de stockage :
 
 -   Si vous utilisez un stockage géoredondant avec accès en lecture, vous pouvez accéder à tout moment aux données de la région secondaire. Utilisez l’une des méthodes suivantes :  
       
-    - **AzCopy** : ajoutez **-secondary** au nom du compte de stockage dans l'URL pour accéder au point de terminaison secondaire. Par exemple :   
+    - **AzCopy** : Ajoutez **-secondary** au nom du compte de stockage dans l’URL pour accéder au point de terminaison secondaire. Par exemple :   
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **Jeton SAS** : utilisez un jeton SAS pour accéder aux données du point de terminaison. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](storage-dotnet-shared-access-signature-part-1.md).
+    - **Jeton SAS** : Utilisez un jeton SAS pour accéder aux données du point de terminaison. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](storage-dotnet-shared-access-signature-part-1.md).
 
 **Comment je utiliser un domaine personnalisé HTTPS avec mon compte de stockage ? Par exemple, comment faire en sorte que « https://mystorageaccountname.blob.core.windows.net/images/image.gif » apparaisse sous la forme « https://www.contoso.com/images/image.gif » ?**
 

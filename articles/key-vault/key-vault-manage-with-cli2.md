@@ -1,5 +1,5 @@
 ---
-title: Gestion de Azure Key Vault à l’aide de l’interface de ligne de commande (CLI) | Microsoft Docs
+title: Gérer Azure Key Vault à l’aide de l’interface de ligne de commande (CLI) - Azure Key Vault | Microsoft Docs
 description: Utilisez cet article pour automatiser les tâches courantes dans Key Vault à l’aide de l’interface de ligne de commande Azure
 services: key-vault
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: f3b91e73cbfe9972969f5a061768a2c2bbfa7d1b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 632620bf8140ba855198a9354fbd7e50604e18c3
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256446"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000306"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gérer Key Vault à l’aide de l’interface de ligne de commande Azure 
 
@@ -134,7 +134,7 @@ az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGro
 La sortie de cette commande affiche les propriétés du coffre de clés que vous avez créé. Les deux propriétés les plus importantes sont :
 
 * **name** : dans l’exemple, le nom est ContosoKeyVault. Vous allez utiliser ce nom pour d’autres commandes Key Vault.
-* **vaultUri** : dans l’exemple, il s’agit de https://contosokeyvault.vault.azure.net. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
+* **vaultUri** : dans l’exemple, l’URI est https://contosokeyvault.vault.azure.net. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
 
 Votre compte Azure est pour l’instant le seul autorisé à effectuer des opérations sur ce À l’heure actuelle, personne d’autre n’y est autorisé.
 
@@ -228,18 +228,18 @@ az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec
 
 Utilisez [mise à jour du paramètre keyvault az](/cli/azure/keyvault#az-keyvault-update) pour activer des stratégies avancées pour le coffre de clés. 
 
- Activez Key Vault pour le déploiement : autorise les machines virtuelles à récupérer des certificats stockés en tant que secrets dans le coffre.
+ Activer Key Vault pour le déploiement : autorise les machines virtuelles à récupérer des certificats stockés en tant que secrets dans le coffre.
  ```azurecli
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-deployment 'true'
  ``` 
 
-Activer Key Vault pour le chiffrement de disque : requis lors de l’utilisation du coffre pour le chiffrement du disque Azure.
+Activer Key Vault pour le chiffrement de disque : Obligatoire quand vous utilisez le coffre pour le chiffrement de disque Azure.
 
  ```azurecli
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-disk-encryption 'true'
  ```  
 
-Activer Key Vault pour le déploiement d’un modèle : permet au gestionnaire des ressources de récupérer des secrets dans le coffre.
+Activer Key Vault pour le déploiement d’un modèle : autorise Resource Manager à récupérer des secrets dans le coffre.
  ```azurecli 
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-template-deployment 'true'
  ```

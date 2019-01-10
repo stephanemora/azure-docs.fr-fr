@@ -8,39 +8,61 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 961f82cd4970abfdd11a30b2847a14f8ff1880b0
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 680bf282c2ab269bad19654c6602e4543a6e92ca
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47454553"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53748463"
 ---
-Les tailles de machine virtuelle à stockage optimisé offrent un débit et des E/S de disque élevés, et sont idéales pour les bases de données Big Data, SQL et NoSQL. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement. 
+Les tailles de machines virtuelles à stockage optimisé offrent un débit de disque et d’E/S élevé. Elles sont idéales pour les bases de données Big Data, SQL, NoSQL ainsi que pour l’entreposage de données et les grandes bases de données transactionnelles.  Cassandra, MongoDB, Cloudera et Redis en sont des exemples. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur le débit de stockage local et la bande passante réseau pour chaque taille optimisée.
 
-La série Ls offre jusqu’à 32 processeurs virtuels, grâce à la [Famille de processeurs Intel® Xeon® E5 v3](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Cette série propose les mêmes performances de processeur que celles de la série G/GS, associées à 8 Gio de mémoire par processeur virtuel.  Les machines virtuelles de la série Ls conviennent parfaitement pour les applications nécessitant une faible latence, un débit élevé et un stockage important sur disque local. 
+La série Lsv2 offre un stockage NVMe local directement mappé, à haut débit et faible latence. Elle est dotée du [processeur AMD EPYC<sup>TM</sup> 7551](https://www.amd.com/en/products/epyc-7000-series) disposant d’une augmentation de la fréquence de tous les cœurs de 2,55 GHz et d’une augmentation maximale de 3 GHz. Les machines virtuelles de la série Lsv2 comprennent entre 8 et 80 processeurs virtuels dans une configuration de multithreading simultané.  Il existe 8 Gio de mémoire par processeur virtuel et un périphérique NVMe SSD M.2 de 1,92 To pour 8 processeurs virtuels, avec une limite maximale de 19,2 To (10 x 1,92 To) sur le L80s v2.
 
-Voici des exemples de cas d’usage : bases de données NoSQL (comme Cassandra), MongoDB, Cloudera, Redis, entreposage de données et bases de données transactionnelles volumineuses.
+La série Ls offre jusqu’à 32 processeurs virtuels, grâce à la [Famille de processeurs Intel® Xeon® E5 v3](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Cette série propose les mêmes performances de processeur que celles de la série G/GS, associées à 8 Gio de mémoire par processeur virtuel.
 
 > [!NOTE]
-> La série Ls est optimisée pour utiliser le disque temporaire attaché à la machine virtuelle, plutôt que d’utiliser des disques de données durables. Grâce au débit élevé et à l’IOPS du disque temporaire, la série Ls est parfaite pour les magasins NoSQL (tels que Apache Cassandra et MongoDB), qui répliquent les données sur plusieurs machines virtuelles pour garantir la persistance en cas de défaillance d’une machine virtuelle. La série Ls ne prend pas en charge la création d’un cache local pour augmenter l’IOPS de façon à atteindre les performances des disques de données durables.
+> Les machines virtuelles de la série Lsv2 sont optimisées pour utiliser le disque local du nœud attaché directement à la machine virtuelle au lieu d’utiliser des disques de données durables.  Cela permet d’augmenter les IOPS/le débit de vos charges de travail.  Les séries Lsv2 et Ls ne prennent pas en charge la création d’un cache local pour augmenter le taux d’IOPS pouvant être atteint par les disques de données durables. Le débit élevé et les IOPS du disque local rendent les machines virtuelles des séries Lsv2 et Ls idéales pour les magasins NoSQL tels qu’Apache Cassandra et MongoDB, qui répliquent les données sur plusieurs machines virtuelles pour assurer une persistance en cas de défaillance d’une seule machine virtuelle. 
+
+## <a name="lsv2-series"></a>Série Lsv2
+ACU : 150-175
+
+Premium Storage : Pris en charge
+
+Mise en cache du Stockage Premium : Non pris en charge
+
+| Taille          | Processeurs virtuels | Mémoire (Gio) | Disque temporaire<sup>1</sup> (Gio) | Disques NVMe | Débit de disque NVMe <sup>2</sup> (IOPS lues / Mbits/s) | Taille du cache de l’hôte<sup>3</sup> | Nombre max de disques de données | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) | 
+|---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
+| Standard_L8s_v2   |  8 |  64 |  80 |  1 x 1,92 To  | 340 000 / 2 000 | N/A | 16 | 2 / 3 200  | 
+| Standard_L16s_v2  | 16 | 128 | 160 |  2 x 1,92 To  | 680 000 / 4 500 | N/A | 32 | 4 / 6 400  | 
+| Standard_L32s_v2  | 32 | 256 | 320 |  4 x 1,92 To  | 1,4 M / 9 000    | N/A | 32 | 8 / 12 800 | 
+| Standard_L64s_v2  | 64 | 512 | 640 |  8 x 1,92 To  | 2,7 M / 18 000   | N/A | 32 | 8 / 25 600 |
+| Standard_L80s_v2  | 80 | 640 | 800 | 10 x 1,92 To   | 3,4 M / 22 000   | N/A | 32 | 8 / 32 000 |
+ 
+<sup>1</sup> Les machines virtuelles de la série Lsv2 disposent d’un disque de ressources temporaire SCSI standard pour l’utilisation du fichier d’échange du système d’exploitation (D: sur Windows, /dev/sdb sur Linux). Ce disque offre un stockage de 80 Gio, 4 000 IOPS et un taux de transfert de 80 Mbits/s pour 8 processeurs virtuels (par exemple, Standard_L80s_v2 fournit 800 Gio à 40 000 IOPS et 800 Mbits/s). Ainsi, les lecteurs NVMe peuvent être entièrement dédiés à l’utilisation d’applications.
+
+<sup>2</sup> La technologie Hyper-V NVMe Direct fournit un accès illimité aux disques NVMe mappés de manière sécurisée à l’espace de la machine virtuelle invitée.  Pour atteindre des performances maximales, vous devez utiliser la dernière build WS2019, ou Ubuntu 18.04 ou 16.04, de la Place de marché Azure.  Les performances en écriture varient en fonction de la taille des E/S, de la charge du lecteur et de l’utilisation des fonctionnalités.
+
+<sup>3</sup> Les machines virtuelles de la série Lsv2 ne fournissent pas de cache hôte pour le disque de données, car cela ne profite pas aux charges de travail Lsv2.  Toutefois, les machines virtuelles Lsv2 peuvent prendre en charge l’option de disque de système d’exploitation de machine virtuelle Ephemeral d’Azure (jusqu’à 30 Gio). 
+
+
 
 ## <a name="ls-series"></a>Série Ls
+ACU : 180-240
 
-ACU : 180-240
+Premium Storage :  Pris en charge
 
-Stockage Premium : pris en charge
-
-Mise en cache du Stockage Premium : non pris en charge
+Mise en cache du Stockage Premium :  Non pris en charge
  
-| Taille          | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire max : E/S par seconde / Mbits/s | Débit de disque maximal sans mise en cache : E/S / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) | 
-|---------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
-| Standard_L4s   | 4    | 32   | 678   | 16    | 20,000 / 200   | 5 000 / 125        | 2 / 4,000  | 
-| Standard_L8s   | 8    | 64   | 1,388 | 32   | 40,000 / 400   | 10 000 / 250       | 4 / 8,000  | 
-| Standard_L16s  | 16   | 128  | 2,807 | 64   | 80 000 / 800   | 20 000 / 500       | 8 / 16 000 | 
+| Taille          | Processeurs virtuels | Mémoire (Gio) | Stockage temporaire (Gio) | Disques de données max. | Débit de stockage temporaire maximal (IOPS / Mbits/s) | Débit de disque maximal sans mise en cache (IOPS / Mbits/s) | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) | 
+|----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
+| Standard_L4s   | 4  | 32  | 678   | 16 | 20,000 / 200 | 5 000 / 125  | 2 / 4,000  | 
+| Standard_L8s   | 8  | 64  | 1,388 | 32 | 40,000 / 400 | 10 000 / 250 | 4 / 8,000  | 
+| Standard_L16s  | 16 | 128 | 2,807 | 64 | 80 000 / 800 | 20 000 / 500 | 8 / 16 000 | 
 | Standard_L32s <sup>1</sup> | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 40 000 / 1 000     | 8 / 20,000 | 
  
 
-Le débit de disque maximal possible avec des machines virtuelles de la série Ls peut être limité par le nombre, la taille et la répartition des disques attachés. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md).
+Le débit de disque maximal possible avec des machines virtuelles de la série Ls peut être limité par le nombre, la taille et la répartition des disques attachés. Pour plus d’informations, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md).
 
 <sup>1</sup> L’instance est isolée sur un matériel dédié à un client unique.
 

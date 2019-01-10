@@ -1,5 +1,5 @@
 ---
-title: Charges de travail de conteneur sur Azure Batch | Microsoft Docs
+title: Charges de travail de conteneur - Azure Batch | Microsoft Docs
 description: Découvrez comment exécuter des applications à partir d’images conteneur sur Azure Batch.
 services: batch
 author: dlepow
@@ -10,12 +10,13 @@ ms.topic: article
 ms.workload: na
 ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 1d915482a3a8b1f6416b50ab52de997a9d33294f
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.custom: seodec18
+ms.openlocfilehash: 4d4dc5d01959406e71859fcbde6de1e36b5871aa
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262429"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540994"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Exécuter des applications de conteneur sur Azure Batch
 
@@ -29,16 +30,16 @@ L’utilisation de conteneurs permet de lancer simplement des tâches par lot sa
 
 ## <a name="prerequisites"></a>Prérequis
 
-* **Versions du SDK** : le SDK prend en charge des images conteneur dans les versions suivantes :
+* **Versions du SDK** : Les SDK Batch prennent en charge des images conteneur dans les versions suivantes :
     * API REST (version : 6.0 du 01/09/2017)
     * Kit de développement logiciel Batch .NET SDK (version 8.0.0)
     * Kit de développement logiciel Batch Python (version 4.0)
     * Kit de développement logiciel Batch Java (version 3.0)
     * Kit de développement logiciel Batch Node.js (version 3.0)
 
-* **Comptes** : sur votre abonnement Azure, vous devez créer un compte Batch et, éventuellement, un compte de stockage Azure.
+* **Comptes** : Dans votre abonnement Azure, vous devez créer un compte Batch et, éventuellement, un compte de stockage Azure.
 
-* **Une image de machine virtuelle prise en charge** : les conteneurs sont uniquement pris en charge dans les pools créés lors de la configuration des machines virtuelles à partir d’images détaillées dans la section « Images de machines virtuelles prises en charge ». Si vous fournissez une image personnalisée, consultez les considérations présentées dans la section suivante et la configuration requise dans [Utiliser une image personnalisée managée pour créer un pool de machines virtuelles](batch-custom-images.md). 
+* **Une image de machine virtuelle prise en charge** : Les conteneurs sont uniquement pris en charge dans les pools créés lors de la configuration des machines virtuelles à partir d’images détaillées dans la section « Images de machines virtuelles prises en charge ». Si vous fournissez une image personnalisée, consultez les considérations présentées dans la section suivante et la configuration requise dans [Utiliser une image personnalisée managée pour créer un pool de machines virtuelles](batch-custom-images.md). 
 
 ### <a name="limitations"></a>Limites
 

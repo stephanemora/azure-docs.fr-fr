@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 872e700842ce69ca955035120d4e09ec9facf7ec
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 12/16/2018
+ms.openlocfilehash: 3e807033b109b8281057f6881a315f5c1c783a22
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165549"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536370"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Masquage de données dynamiques dans une base de données SQL
 
@@ -31,7 +31,7 @@ Par exemple, un représentant du centre d’appel peut identifier les appelants 
 Pour définir une stratégie de masquage de données dynamiques sur le Portail Azure, sélectionnez l’opération de masquage des données dynamiques dans votre panneau de configuration ou de paramètres SQL Database.
 
 ### <a name="dynamic-data-masking-permissions"></a>Autorisations du masquage des données dynamiques
-Le masquage des données dynamiques peut être configuré par l’administrateur de base de données Azure, l’administrateur de serveur ou le responsable de la sécurité.
+Le masquage des données dynamiques peut être configuré par les rôles d’administrateur de base de données Azure, d’administrateur de serveur ou [Gestionnaire de la sécurité SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager).
 
 ### <a name="dynamic-data-masking-policy"></a>Stratégie de masquage des données dynamiques
 * **Utilisateurs SQL exclus du masquage** : ensemble d’utilisateurs SQL ou d’identités AAD qui obtiennent des données non masquées dans les résultats de requêtes SQL. Les utilisateurs possédant des privilèges administrateur sont toujours exclus du masquage et voient les données d’origine sans masque.
@@ -40,7 +40,7 @@ Le masquage des données dynamiques peut être configuré par l’administrateur
 
 | Fonction de masquage | Logique de masquage |
 | --- | --- |
-| **Par défaut** |**Masquage complet en fonction des types de données des champs désignés**<br/><br/>• Utilisez XXXX ou moins de X si la taille du champ est inférieure à 4 caractères pour les types de données String (nchar, ntext, nvarchar).<br/>• Utilisez la valeur zéro pour les types de données numériques (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Utilisez 01-01-1900 pour les types de données date/heure (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Pour la variante SQL, la valeur par défaut du type actuel est utilisée.<br/>• Pour XML, le document <masked/> est utilisé.<br/>• Utilisez une valeur vide pour les types de données spéciaux (table timestamp, hierarchyid, GUID, binary, image, varbinary spatial). |
+| **Par défaut** |**Masquage complet en fonction des types de données des champs désignés**<br/><br/>• Utilisez XXXX ou moins de X si la taille du champ est inférieure à 4 caractères pour les types de données String (nchar, ntext, nvarchar).<br/>• Utilisez la valeur zéro pour les types de données numériques (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Utilisez 01-01-1900 pour les types de données date/heure (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Pour la variante SQL, la valeur par défaut du type actuel est utilisé.<br/>• Pour XML, le document <masked/> est utilisé.<br/>• Utilisez une valeur vide pour les types de données spéciaux (table timestamp, hierarchyid, GUID, binary, image, varbinary spatial). |
 | **Carte de crédit** |**Méthode de masquage qui affiche les quatre derniers chiffres des champs de masquage désignés** et ajoute une chaîne constante comme préfixe sous la forme d’une carte de crédit.<br/><br/>XXXX-XXXX-XXXX-1234 |
 | **E-mail** |**Méthode de masquage qui affiche la première lettre et remplace le domaine par XXX.com** avec en préfixe une chaîne constante sous la forme d’une adresse de messagerie.<br/><br/>aXX@XXXX.com |
 | **Nombre aléatoire** |**Méthode de masquage qui génère un nombre aléatoire** selon les limites sélectionnées et les types de données réels. Si les limites désignées sont égales, la fonction de masquage est un nombre constant.<br/><br/>![Volet de navigation](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 4584104e9c9833b5f3f586581dd5a58f420fe0bd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 12f9f55544f46bc9c88cab7234f78ad7ee7de2d2
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165337"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790892"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Traçage et corrélation distribués par le biais de la messagerie Service Bus
 
@@ -45,9 +45,9 @@ L’instrumentation permet le suivi de tous les appels au service de messagerie 
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) fournit des fonctionnalités riches de monitoring des performances, notamment le suivi automagique des requêtes et des dépendances.
 
 En fonction de votre type de projet, installez le SDK Application Insights :
-- [ASP.NET](../application-insights/app-insights-asp-net.md) : installez la version 2.5 (bêta 2) ou ultérieure.
-- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) : installez la version 2.2.0 (bêta 2) ou ultérieure.
-Ces liens fournissent des détails sur l’installation du SDK, la création de ressources et la configuration du SDK (le cas échéant). Pour les applications non-ASP.NET, consultez l’article [Azure Application Insights pour les applications console](../application-insights/application-insights-console.md).
+- [ASP.NET](../azure-monitor/app/asp-net.md) : installez la version 2.5 (bêta 2) ou ultérieure.
+- [ASP.NET Core](../azure-monitor/app/asp-net-core.md) : installez la version 2.2.0 (bêta 2) ou ultérieure.
+Ces liens fournissent des détails sur l’installation du SDK, la création de ressources et la configuration du SDK (le cas échéant). Pour les applications non-ASP.NET, consultez l’article [Azure Application Insights pour les applications console](../azure-monitor/app/console.md).
 
 Si vous utilisez le [modèle du gestionnaire de messages](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) pour traiter les messages, votre travail est terminé : tous les appels Service Bus effectués par votre service sont automatiquement suivis et mis en corrélation avec d’autres éléments de télémétrie. Sinon, passez en revue l’exemple suivant qui illustre le suivi manuel du traitement des messages.
 
@@ -83,7 +83,7 @@ async Task ProcessAsync(Message message)
 Dans cet exemple, `RequestTelemetry` est signalé pour chaque message traité, avec un horodateur, une durée et un résultat (réussite). Les données de télémétrie comprennent également un jeu de propriétés de corrélation.
 Les traces et exceptions imbriquées qui sont signalées durant le traitement des messages sont également horodatées avec des propriétés de corrélation qui les représentent comme des « enfants » de `RequestTelemetry`.
 
-Si vous appelez des composants externes pris en charge durant le traitement des messages, ils sont également suivis et mis en corrélation automatiquement. Pour effectuer manuellement le suivi et la mise en corrélation, consultez [Suivi des opérations personnalisées avec le kit SDK .NET d’Application Insights](../application-insights/application-insights-custom-operations-tracking.md).
+Si vous appelez des composants externes pris en charge durant le traitement des messages, ils sont également suivis et mis en corrélation automatiquement. Pour effectuer manuellement le suivi et la mise en corrélation, consultez [Suivi des opérations personnalisées avec le kit SDK .NET d’Application Insights](../azure-monitor/app/custom-operations-tracking.md).
 
 ### <a name="tracking-without-tracing-system"></a>Suivi sans un système de traçage
 Si votre système de traçage ne prend pas en charge le suivi automatique des appels Service Bus, songez à l’ajouter dans un système de traçage ou dans votre application. Cette section décrit les événements de diagnostic envoyés par Service Bus .NET Client.  
@@ -141,7 +141,7 @@ Dans cet exemple, l’écouteur journalise la durée, le résultat, l’identifi
 
 #### <a name="events"></a>Événements
 
-Pour chaque opération, deux événements sont envoyés : « Start » et « Stop ». Dans la plupart des cas, seuls les événements « Stop » présentent un intérêt. Ceux-ci fournissent le résultat de l’opération, l’heure de début et la durée sous la forme de propriétés Activity.
+Pour chaque opération, deux événements sont envoyés : « Start » et « Stop ». Dans la plupart des cas, seuls les événements « Stop » présentent un intérêt. Ceux-ci fournissent le résultat de l’opération, l’heure de début et la durée sous la forme de propriétés Activity.
 
 La charge utile d’événement, qui fournit un écouteur avec le contexte de l’opération, réplique les paramètres entrants et la valeur de retour de l’API. La charge utile d’événement « Stop » contient toutes les propriétés de la charge utile d’événement « Start ». Vous pouvez donc ignorer l’événement « Start ».
 
@@ -227,6 +227,6 @@ En présence de plusieurs écouteurs `DiagnosticSource` pour la même source, il
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Corrélation dans Application Insights](../application-insights/application-insights-correlation.md)
-* [Monitoring des dépendances Application Insights](../application-insights/app-insights-asp-net-dependencies.md) pour déterminer si REST, SQL ou d’autres ressources externes ralentissent vos opérations.
-* [Suivi des opérations personnalisées avec le kit SDK .NET d’Application Insights](../application-insights/application-insights-custom-operations-tracking.md)
+* [Corrélation dans Application Insights](../azure-monitor/app/correlation.md)
+* [Monitoring des dépendances Application Insights](../azure-monitor/app/asp-net-dependencies.md) pour déterminer si REST, SQL ou d’autres ressources externes ralentissent vos opérations.
+* [Suivi des opérations personnalisées avec le kit SDK .NET d’Application Insights](../azure-monitor/app/custom-operations-tracking.md)

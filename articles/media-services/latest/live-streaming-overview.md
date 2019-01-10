@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/26/2018
 ms.author: juliako
-ms.openlocfilehash: b51f2850a925fcd9daf3a07d8db66193555df0fa
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3a2b3752926a3a4391ae9479ba636694533c97a8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000257"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788206"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
 
@@ -34,7 +34,7 @@ Cet article présente les principaux composants utilisés pour le streaming en d
 
 Pour transmettre des flux en direct ou à la demande avec Media Services, vous devez avoir au moins un point de terminaison de streaming ([StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints)). Quand votre compte Media Services est créé, un StreamingEndpoint **par défaut**, avec l’état **Arrêté**, est ajouté à ce compte. Vous devez démarrer le StreamingEndpoint à partir duquel vous souhaitez transmettre votre contenu à vos clients. Vous pouvez utiliser le **StreamingEndpoint** par défaut, ou créer un autre **StreamingEndpoint** personnalisé avec les paramètres de CDN et de configuration souhaités. Vous pouvez choisir d’activer plusieurs StreamingEndpoint, chacun d’eux ciblant un CDN différent et spécifiant un nom d’hôte unique pour la distribution du contenu. 
 
-Dans Media Services, ce sont les objets [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) qui gèrent l’ingestion et le traitement des flux vidéo en direct. Quand vous créez un objet LiveEvent, un point de terminaison d’entrée est également créé. Vous pouvez utiliser ce point de terminaison pour envoyer un signal en direct à partir d’un encodeur à distance. L’encodeur live à distance envoie le flux de contribution à ce point de terminaison d’entrée par le biais du protocole [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 fragmenté).  
+Dans Media Services, ce sont les objets [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) qui gèrent l’ingestion et le traitement des flux vidéo en direct. Quand vous créez un objet LiveEvent, un point de terminaison d’entrée est également créé. Vous pouvez utiliser ce point de terminaison pour envoyer un signal en direct à partir d’un encodeur à distance. L’encodeur live à distance envoie le flux de contribution à ce point de terminaison d’entrée par le biais du protocole [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 fragmenté). Pour le protocole de réception de diffusion en continu lisse, les schémas d’URL pris en charge sont `http://` ou `https://`. Pour le protocole de réception RTMP, les schémas d’URL pris en charge sont `rtmp://` ou `rtmps://`. Pour plus d’informations, consultez [Encodeurs de vidéos en flux continu recommandés](recommended-on-premises-live-encoders.md).
 
 Une fois que le **LiveEvent** commence à recevoir le flux de contribution, vous pouvez utiliser son point de terminaison d’aperçu (URL d’aperçu) pour prévisualiser et valider le flux en direct que vous recevez avant de continuer la publication. Après avoir vérifié que le flux d’aperçu est correct, vous pouvez utiliser le LiveEvent pour rendre le flux en direct diffusable via un ou plusieurs **StreamingEndpoints** (créés au préalable). Pour cela, vous créez un objet [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) sur le **LiveEvent**. 
 
@@ -44,7 +44,7 @@ Avec Media Services, vous pouvez utiliser l’**empaquetage dynamique**. Cette f
 
 Media Services vous permet de transmettre votre contenu chiffré dynamiquement (**Chiffrement dynamique**) avec la norme Advanced Encryption Standard (AES-128) ou un des trois principaux systèmes de gestion des droits numériques (DRM) : Microsoft PlayReady, Google Widevine et Apple FairPlay. Media Services fournit également un service de distribution de clés AES et de licences DRM aux clients autorisés. Pour plus d’informations sur le chiffrement de votre contenu avec Media Services, consultez [Présentation de la protection du contenu](content-protection-overview.md).
 
-Si vous le souhaitez, vous pouvez également appliquer un filtrage dynamique pour contrôler le nombre de pistes, les formats, les vitesses de transmission et les fenêtres de temps de présentation qui sont envoyés aux lecteurs. 
+Si vous le souhaitez, vous pouvez également appliquer un filtrage dynamique pour contrôler le nombre de pistes, les formats, les vitesses de transmission et les fenêtres de temps de présentation qui sont envoyés aux lecteurs. Pour plus d’informations, consultez [Filtres et manifestes dynamiques](filters-dynamic-manifest-overview.md).
 
 ### <a name="new-capabilities-for-live-streaming-in-v3"></a>Nouvelles fonctionnalités de streaming en direct dans les API v3
 
@@ -57,7 +57,7 @@ Les API v3 de Media Services comportent les nouvelles fonctionnalités suivante
 
 ## <a name="liveevent-types"></a>Types d’événements en temps réel
 
-Un objet [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) peut être de deux types : pass-through et encodage direct. 
+Un objet [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) peut être de deux types : pass-through et à encodage en direct. 
 
 ### <a name="pass-through"></a>Requête directe
 
@@ -77,7 +77,7 @@ Vous pouvez voir un exemple concret dans [MediaV3LiveApp](https://github.com/Azu
 
 ![encodage en temps réel](./media/live-streaming/live-encoding.png)
 
-Quand vous utilisez l’encodage en direct avec Media Services, vous configurez votre encodeur live local pour qu’il génère un flux vidéo à une seule vitesse de transmission et qu’il l’envoie comme flux de contribution au LiveEvent (à l’aide du protocole RTMP ou MP4 fragmenté). Le LiveEvent encode ce flux vidéo à une seule vitesse de transmission en [flux vidéo à plusieurs vitesses de transmission](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), pour rendre sa transmission et sa lecture possibles sur les appareils compatibles avec des protocoles comme MPEG-DASH, HLS et Smooth Streaming. Si vous créez ce type d’objet LiveEvent, spécifiez le type d’encodage **Basic** (LiveEventEncodingType.Basic).
+Quand vous utilisez l’encodage en direct avec Media Services, vous configurez votre encodeur live local pour qu’il génère un flux vidéo à une seule vitesse de transmission et qu’il l’envoie comme flux de contribution au LiveEvent (à l’aide du protocole RTMP ou MP4 fragmenté). Le LiveEvent encode ce flux vidéo à une seule vitesse de transmission en [flux vidéo à plusieurs vitesses de transmission](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), pour rendre sa transmission et sa lecture possibles sur les appareils compatibles avec des protocoles comme MPEG-DASH, HLS et Smooth Streaming. Si vous créez ce type d’objet LiveEvent, spécifiez le type d’encodage **Standard** (LiveEventEncodingType.Standard).
 
 Vous pouvez envoyer le flux de contribution à une résolution jusqu’à 1080p et à une fréquence de 30 images/seconde, avec un codec vidéo H.264/AVC et un codec audio AAC (AAC-LC, HE-AACv1 ou HE-AACv2). Pour plus d’informations, consultez l’article [Comparaison et limitations des types LiveEvent](live-event-types-comparison.md).
 

@@ -9,36 +9,32 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/05/2018
+ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: debb27f49c730df4a8bef42b1f1ef9ec50f1faf0
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1e0d6fe79d23f3d3d0679445f5120a3ec17ddd67
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054056"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013772"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Déplacer des données de MongoDB à l’aide d’Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-on-premises-mongodb-connector.md)
-> * [Version actuelle](connector-mongodb.md)
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données MongoDB. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+
+>[!IMPORTANT]
+>Cette nouvelle version du connecteur MongoDB dans ADF fournit une meilleure prise en charge native de MongoDB. Si vous utilisez le connecteur MongoDB précédent, qui est pris en charge tel quel à des fins de compatibilité descendante, dans votre solution, consultez l’article [Connecteur MongoDB (hérité)](connector-mongodb-legacy.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
 Vous pouvez copier des données d’une base de données MongoDB vers toute banque de données réceptrice prise en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Plus précisément, ce connecteur MongoDB prend en charge :
-
-- MongoDB **versions 2.4, 2.6, 3.0, 3.2, 3.4 et 3.6**.
-- Copie de données en utilisant une authentification **De base** ou **Anonyme**.
+Plus précisément, ce connecteur MongoDB prend en charge les **versions jusqu’à 3.4**.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour copier des données depuis/vers une base de données MongoDB qui n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour plus d’informations, voir l’article [Runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md). Le runtime d’intégration fournit un pilote MongoDB intégré, ce qui évite d’avoir à en installer un manuellement lors de la copie des données issues de MongoDB.
+Pour copier des données depuis/vers une base de données MongoDB qui n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour plus d’informations, voir l’article [Runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md).
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -52,16 +48,9 @@ Les propriétés prises en charge pour le service lié MongoDB sont les suivante
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type |La propriété type doit être définie sur **MongoDb** |OUI |
-| serveur |Nom d’hôte ou adresse IP du serveur MongoDB. |OUI |
-| port |Le port TCP utilisé par le serveur MongoDB pour écouter les connexions clientes. |Non (valeur par défaut est 27017) |
-| databaseName |Nom de la base de données MongoDB à laquelle vous souhaitez accéder. |OUI |
-| authenticationType | Type d'authentification utilisé pour se connecter à la base de données MongoDB.<br/>Valeurs autorisées : **De base** et **Anonyme**. |OUI |
-| username |Compte d’utilisateur pour accéder à MongoDB. |Oui (si l’authentification de base est utilisée). |
-| password |Mot de passe pour l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui (si l’authentification de base est utilisée). |
-| authSource |Nom de la base de données MongoDB que vous souhaitez utiliser pour vérifier vos informations d’identification pour l’authentification. |Non. Par défaut, l’authentification de base utilise le compte d’administrateur et la base de données spécifiés à l’aide de la propriété databaseName. |
-| enableSsl | Indique si les connexions au serveur sont chiffrées suivant le protocole SSL. La valeur par défaut est false.  | Non  |
-| allowSelfSignedServerCert | Indique si les certificats auto-signés provenant du serveur sont autorisés ou non. La valeur par défaut est false.  | Non  |
+| Type |La propriété type doit être définie sur : **MongoDbV2** |Oui |
+| connectionString |Spécifiez la chaîne de connexion MongoDB, par exemple `mongodb://[username:password@]host[:port][/[database][?options]]`. Pour plus d’informations, consultez le [manuel MongoDB sur la chaîne de connexion](https://docs.mongodb.com/manual/reference/connection-string/). <br/><br />Vous pouvez marquer ce champ en tant que type **SecureString** pour le stocker de manière sécurisée dans Data Factory. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
+| database | Nom de la base de données à laquelle vous souhaitez accéder. | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
 **Exemple :**
@@ -70,16 +59,13 @@ Les propriétés prises en charge pour le service lié MongoDB sont les suivante
 {
     "name": "MongoDBLinkedService",
     "properties": {
-        "type": "MongoDb",
+        "type": "MongoDbV2",
         "typeProperties": {
-            "server": "<server name>",
-            "databaseName": "<database name>",
-            "authenticationType": "Basic",
-            "username": "<username>",
-            "password": {
+            "connectionString": {
                 "type": "SecureString",
-                "value": "<password>"
-            }
+                "value": "mongodb://[username:password@]host[:port][/[database][?options]]"
+            },
+            "database": "myDatabase"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -91,14 +77,12 @@ Les propriétés prises en charge pour le service lié MongoDB sont les suivante
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les jeux de données. Cette section fournit la liste des propriétés prises en charge par le jeu de données MongoDB.
-
-Pour copier des données depuis MongoDB, affectez la valeur **MongoDbCollection** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez [Jeux de données et services liés](concepts-datasets-linked-services.md). Les propriétés suivantes sont prises en charge pour le jeu de données MongoDB :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **MongoDbCollection** | OUI |
-| collectionName |Nom de la collection dans la base de données MongoDB. |OUI |
+| Type | La propriété type du jeu de données doit être définie sur : **MongoDbV2Collection** | Oui |
+| collectionName |Nom de la collection dans la base de données MongoDB. |Oui |
 
 **Exemple :**
 
@@ -106,7 +90,7 @@ Pour copier des données depuis MongoDB, affectez la valeur **MongoDbCollection*
 {
      "name":  "MongoDbDataset",
     "properties": {
-        "type": "MongoDbCollection",
+        "type": "MongoDbV2Collection",
         "linkedServiceName": {
             "referenceName": "<MongoDB linked service name>",
             "type": "LinkedServiceReference"
@@ -124,12 +108,20 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="mongodb-as-source"></a>MongoDB en tant que source
 
-Pour copier des données de MongoDB, définissez le type de source dans l’activité de copie sur **MongoDbSource**. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
+Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **MongoDbSource** | OUI |
-| query |Utiliser la requête SQL-92 personnalisée pour lire les données. Par exemple : select * from MyTable. |Non (si « collectionName » est spécifié dans le jeu de données) |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **MongoDbV2Source** | Oui |
+| filter | Spécifie le filtre de sélection à l’aide d’opérateurs de requête. Pour retourner tous les documents dans une collection, omettez ce paramètre ou passez un document vide ({}). | Non  |
+| cursorMethods.project | Spécifie les champs à retourner dans les documents pour la projection. Pour retourner tous les champs dans les documents correspondants, omettez ce paramètre. | Non  |
+| cursorMethods.sort | Spécifie l’ordre dans lequel la requête retourne les documents correspondants. Voir [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Non  |
+| cursorMethods.limit | Spécifie le nombre maximal de documents retournés par le serveur. Voir [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Non  | 
+| cursorMethods.skip | Spécifie le nombre de documents à ignorer, et à partir de quel endroit MongoDB commence à retourner des résultats. Voir [cursor.skip()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | Non  |
+| batchSize | Spécifie le nombre de documents à retourner dans chaque lot de la réponse renvoyée par l’instance MongoDB. Dans la plupart des cas, la modification de la taille de lot n’affectera pas l’utilisateur ou l’application. Cosmos DB limite la taille de chaque lot à 40 Mo, qui est la somme de la taille batchSize du nombre de documents. Par conséquent, diminuez cette valeur si la taille de votre document est trop grande. | Non <br/>(la valeur par défaut est **100**) |
+
+>[!TIP]
+>ADF prend en charge la consommation de document BSON en **mode Strict**. Vérifiez que votre requête de filtre est en mode Strict plutôt qu’en mode Shell. Vous trouverez une description plus détaillée dans le [manuel MongoDB](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
 
 **Exemple :**
 
@@ -152,8 +144,14 @@ Pour copier des données de MongoDB, définissez le type de source dans l’acti
         ],
         "typeProperties": {
             "source": {
-                "type": "MongoDbSource",
-                "query": "SELECT * FROM MyTable"
+                "type": "MongoDbV2Source",
+                "filter": "{datetimeData: {$gte: ISODate(\"2018-12-11T00:00:00.000Z\"),$lt: ISODate(\"2018-12-12T00:00:00.000Z\")}, _id: ObjectId(\"5acd7c3d0000000000000000\") }",
+                "cursorMethods": {
+                    "project": "{ _id : 1, name : 1, age: 1, datetimeData: 1 }",
+                    "sort": "{ age : 1 }",
+                    "skip": 3,
+                    "limit": 3
+                }
             },
             "sink": {
                 "type": "<sink type>"
@@ -163,83 +161,13 @@ Pour copier des données de MongoDB, définissez le type de source dans l’acti
 ]
 ```
 
-> [!TIP]
-> Lorsque vous spécifiez une requête SQL, soyez attentif au format DateTime. Par exemple : `SELECT * FROM Account WHERE LastModifiedDate >= '2018-06-01' AND LastModifiedDate < '2018-06-02'` ou pour utiliser le paramètre `SELECT * FROM Account WHERE LastModifiedDate >= '@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}' AND LastModifiedDate < '@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'`
+## <a name="export-json-documents-as-is"></a>exporter des documents JSON tels quels
 
-## <a name="schema-by-data-factory"></a>Schéma par Data Factory
+Vous pouvez utiliser ce connecteur MongoDB pour exporter des documents JSON tels quels à partir d’une collection MongoDB vers différentes banques basées sur fichiers ou vers Azure Cosmos DB. Pour obtenir une telle copie indépendante du schéma, ignorez la section « structure » (également appelée *schéma*) dans le mappage de schéma et de jeu de données dans l’activité de copie.
 
-Le service Azure Data Factory déduit le schéma à partir d’une collection MongoDB à l’aide des **100 derniers documents** dans la collection. Si ces 100 documents ne contiennent pas de schéma complet, certaines colonnes peuvent être ignorées lors de l’opération de copie.
+## <a name="schema-mapping"></a>Mappage de schéma
 
-## <a name="data-type-mapping-for-mongodb"></a>Mappage de type de données pour MongoDB
-
-Lors de la copie de données de MongoDB, les mappages suivants sont utilisés entre les types de données MongoDB et les types de données intermédiaires d’Azure Data Factory. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, voir [Mappages de schémas et de types de données](copy-activity-schema-and-type-mapping.md).
-
-| Type de données MongoDB | Type de données intermédiaires de Data Factory |
-|:--- |:--- |
-| Binary |Byte[] |
-| Booléen |Booléen |
-| Date |Datetime |
-| NumberDouble |Double |
-| NumberInt |Int32 |
-| NumberLong |Int64 |
-| ObjectID |Chaîne |
-| Chaîne |Chaîne |
-| UUID |Guid |
-| Object |Renormalisé en colonnes aplaties avec « _ » comme séparateur imbriqué |
-
-> [!NOTE]
-> Pour en savoir plus sur la prise en charge des tableaux à l’aide de tables virtuelles, reportez-vous à la section [Prise en charge des types complexes à l’aide de tables virtuelles](#support-for-complex-types-using-virtual-tables).
->
-> Actuellement, les types de données MongoDB suivants ne sont pas pris en charge : DBPointer, JavaScript, clé max./min., expression régulière, symbole, horodatage, non définie.
-
-## <a name="support-for-complex-types-using-virtual-tables"></a>Prise en charge des types complexes à l’aide de tables virtuelles
-
-Azure Data Factory utilise un pilote ODBC intégré pour assurer la connexion à votre base de données MongoDB et copier des données à partir de cette dernière. Pour les types complexes tels que des tableaux ou des objets avec des types différents entre les documents, le pilote normalise de nouveau les données dans les tables virtuelles correspondantes. En particulier, si une table contient de telles colonnes, le pilote génère les tables virtuelles suivantes :
-
-* Une **table de base**, qui contient les mêmes données que la table réelle, à l’exception des colonnes de type complexe. La table de base utilise le même nom que la table réelle qu’elle représente.
-* Une **table virtuelle** pour chaque colonne de type complexe, qui étend les données imbriquées. Le nom des tables virtuelles est composé du nom de la table réelle, d’un séparateur « _ » et du nom du tableau ou de l’objet.
-
-Les tables virtuelles font référence aux données présentées dans la table réelle, de manière à permettre au pilote d’accéder aux données dénormalisées. Vous pouvez accéder au contenu des tableaux MongoDB en interrogeant et en joignant les tables virtuelles.
-
-### <a name="example"></a>Exemples
-
-Par exemple, « ExampleTable » est ici une table MongoDB qui dispose d’une colonne avec un tableau d’objets dans chaque cellule (Factures) et d’une colonne avec un tableau de types scalaires (Évaluations).
-
-| _id | Nom du client | Factures | Niveau de service | Évaluations |
-| --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id:"123", item:"toaster", price:"456", discount:"0.2"}, {invoice_id:"124", item:"oven", price: "1235", discount: "0.2"}] |Silver |[5,6] |
-| 2222 |XYZ |[{invoice_id:"135", item:"fridge", price: "12543", discount: "0.0"}] |Gold |[1,2] |
-
-Le pilote génère plusieurs tables virtuelles pour représenter cette table. La première table virtuelle est la table de base nommée « ExampleTable » présentée dans l’exemple. La table de base contient toutes les données de la table d’origine, mais les données dans les tableaux ont été omises et sont développées dans les tables virtuelles.
-
-| _id | Nom du client | Niveau de service |
-| --- | --- | --- |
-| 1111 |ABC |Silver |
-| 2222 |XYZ |Gold |
-
-Les tables suivantes montrent les tables virtuelles qui représentent les tableaux d’origine dans l’exemple. Ces tables contiennent les éléments suivants :
-
-* Une référence à la colonne de clé primaire d’origine correspondant à la ligne du tableau d’origine (via la colonne _id)
-* Une indication de la position des données dans le tableau d’origine
-* Les données développées pour chaque élément du tableau
-
-**Table « ExampleTable_Invoices » :**
-
-| _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | price | Remise |
-| --- | --- | --- | --- | --- | --- |
-| 1111 |0 |123 |grille-pain |456 |0.2 |
-| 1111 |1 |124 |four |1235 |0.2 |
-| 2222 |0 |135 |réfrigérateur |12543 |0.0 |
-
-**Table « ExampleTable_Ratings » :**
-
-| _id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
-| --- | --- | --- |
-| 1111 |0 |5. |
-| 1111 |1 |6. |
-| 2222 |0 |1 |
-| 2222 |1 |2 |
-
+Pour copier des données de MongoDB vers un récepteur tabulaire, consultez [Mappage de schéma](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).

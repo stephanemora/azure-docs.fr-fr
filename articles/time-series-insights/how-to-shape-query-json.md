@@ -1,5 +1,5 @@
 ---
-title: JSON Azure Time Series Insights - Meilleures pratiques pour la mise en forme de JSON dans des requêtes Azure Time Series Insights | Microsoft Docs
+title: Bonnes pratiques pour la mise en forme de JSON dans les requêtes Azure Time Series Insights | Microsoft Docs
 description: Découvrez comment améliorer l’efficacité de vos requêtes Azure Time Series Insights.
 services: time-series-insights
 author: ashannon7
@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/24/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: 284bbf435c7940658753e7bbf1daff00a79d57a1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: aa09183d1dbb78822b6c46333dada3ed7f54811a
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273848"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554569"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>Guide pratique pour la mise en forme de JSON afin d’optimiser les performances des requêtes 
 
@@ -26,7 +26,7 @@ Cet article fournit des conseils pour la mise en forme de JSON, en vue d’optim
 
 > [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 
 Il est important de réfléchir à la façon dont vous envoyez les événements à Time Series Insights. Vous devez toujours :
 

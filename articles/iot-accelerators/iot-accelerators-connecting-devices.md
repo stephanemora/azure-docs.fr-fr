@@ -1,5 +1,5 @@
 ---
-title: Provisionner des appareils Windows pour la surveillance à distance en C - Azure| Microsoft Docs
+title: Provisionner des appareils Windows pour la supervision à distance en C - Azure | Microsoft Docs
 description: Explique comment connecter un appareil à l’accélérateur de solution de surveillance à distance avec une application écrite en C exécutée sur Windows.
 author: dominicbetts
 manager: timlt
@@ -8,20 +8,22 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: 55c8ff799ba3ff7fe9691d46dc90a00d5182d390
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 729ba19153eeb9767961d099e7a37c10a38b1286
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829408"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634709"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Connecter votre appareil à l’accélérateur de solution de surveillance à distance (Windows)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Ce tutoriel vous montre comment connecter un appareil physique à l’accélérateur de solution Surveillance à distance.
+Ce tutoriel vous montre comment connecter un appareil réel à l’accélérateur de solution Supervision à distance.
 
 Comme avec la plupart des applications embarquées qui s’exécutent sur des appareils limités, le code client pour l’application d’appareil est écrit en C. Dans ce didacticiel, vous générez l’application cliente d’appareil sur une machine exécutant Windows.
+
+Si vous préférez simuler un appareil, consultez [Créer et tester un appareil simulé](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -33,7 +35,7 @@ L’[exemple de code](https://github.com/Azure/azure-iot-sdk-c/tree/master/sampl
 
 ### <a name="download-the-source-code-and-prepare-the-project"></a>Télécharger le code source et préparer le projet
 
-Pour préparer le projet, clonez ou téléchargez le [référentiel de kits de développement logiciel (SDK) Azure IoT C](https://github.com/Azure/azure-iot-sdk-c) à partir de GitHub.
+Pour préparer le projet, [clonez le dépôt de SDK C Azure IoT](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-windows-development-environment) à partir de GitHub.
 
 L’exemple se trouve dans le dossier **samples/solutions/remote_monitoring_client**.
 

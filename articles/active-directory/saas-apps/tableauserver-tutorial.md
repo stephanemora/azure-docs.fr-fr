@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 12/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 84ea1d999a26ce0ce1d548da92549c6a718d5978
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c727cddf41c269c214b541134cd9f688017ee687
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850361"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789719"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Didacticiel : Intégration d’Azure Active Directory dans Tableau Server
 
@@ -86,13 +86,14 @@ Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l
 
 Pour configurer et tester l’authentification unique Azure AD avec Tableau Server, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Création d’un utilisateur de test Tableau Server](#creating-a-tableau-server-test-user)** pour avoir un équivalent de Britta Simon dans Tableau Server qui est lié à la représentation d’utilisateur Azure AD.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Configurer l’authentification unique Tableau Server](#configure-tableau-server-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+4. **[Créer un utilisateur de test Tableau Server](#create-tableau-server-test-user)** pour avoir un équivalent de Britta Simon dans Cisco Umbrella, lié à la représentation Azure AD associée.
+5. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurez l’authentification unique dans votre application Tableau Server.
 
@@ -112,9 +113,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 4. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur et revendications**, configurez le jeton SAML comme sur l’image ci-dessus, puis effectuez les étapes suivantes :
     
-    | Nom de l'attribut | Valeur de l’attribut |
-    | ---------------| --------------- |    
-    | username | user.userprincipalname |
+    | Nom de l'attribut | Valeur de l’attribut | Espace de noms |
+    | ---------------| --------------- | ----------- |   
+    | username | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
@@ -151,33 +152,41 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
 7. Sur la page **Certificat de signature SAML**, accédez à la section **Certificat de signature SAML** et cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération**, puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](./media/tableauserver-tutorial/tutorial-tableauserver-certificate.png) 
+    ![Lien Téléchargement de certificat](./media/tableauserver-tutorial/tutorial-tableauserver-certificate.png)
 
-8. Pour que l’authentification unique soit configurée pour votre application, vous devez vous connecter à votre locataire Tableau Server en tant qu’administrateur.
+### <a name="configure-tableau-server-single-sign-on"></a>Configurer l’authentification unique Tableau Server 
 
-9. Sur la page **Configuration de Tableau Server**, procédez comme suit :
-   
-    ![Configurer l'authentification unique](./media/tableauserver-tutorial/tutorial-tableauserver-001.png)
+1. Pour que l’authentification unique soit configurée pour votre application, vous devez vous connecter à votre locataire Tableau Server en tant qu’administrateur.
 
-    a. Dans Tableau Server configuration (Configuration de Tableau Server), cliquez sur l’onglet **SAML** . 
-  
-    b. Cochez la case **Use SAML for single sign-on**(Utiliser SAML pour l’authentification unique).
-   
+2. Sur l’onglet **CONFIGURATION**, sélectionnez **User Identity & Access** (Identité utilisateur et accès), puis l’onglet de la méthode d’**authentification**.
+
+    ![Configurer l'authentification unique](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
+
+3. Dans la page **CONFIGURATION**, effectuez les étapes suivantes :
+
+    ![Configurer l'authentification unique](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
+
+    a. Pour **Méthode d’authentification**, sélectionnez SAML.
+    
+    b. Cochez la case **Enable SAML Authentication for the server** (Activer l’authentification SAML pour le serveur).
+
     c. Tableau Server return URL (URL de retour Tableau Server) : URL à laquelle accèdent les utilisateurs Tableau Server, telle que http://tableau_server. L’utilisation de http://localhost n’est pas recommandée. L’utilisation d’une URL avec une barre oblique finale (par exemple, http://tableau_server/) n’est pas prise en charge. Copiez l’**URL de renvoi Tableau Server** et collez-la dans la zone de texte **URL de connexion** d’Azure AD, dans la section **Domaine et URL Tableau Server**.
-   
+
     d. SAML entity ID (ID d’entité SAML) : l’ID d’entité identifie de façon unique votre installation Tableau Server auprès du fournisseur d’identité. Vous pouvez à nouveau entrer l’URL Tableau Server ici, si vous le souhaitez, mais ce n’est pas obligatoire. Copiez l’**ID d’entité SAML** et collez-la dans la zone de texte **Identificateur** d’Azure AD, dans la section **Domaine et URL Tableau Server**.
-     
-    e. Cliquez sur **Exporter le fichier de métadonnées** et ouvrez-le dans l’application de l’éditeur de texte. Recherchez l’URL Assertion Consumer Service avec HTTP POST et Index 0, puis copiez l’URL. Collez maintenant cette URL dans la zone de texte **URL de réponse** d’Azure AD, dans la section **Domaine et URL Tableau Server**.
-   
+
+    e. Cliquez sur **Download XML Metadata File** (Télécharger le fichier de métadonnées XML) et ouvrez-le dans l’application de l’éditeur de texte. Recherchez l’URL Assertion Consumer Service avec HTTP POST et Index 0, puis copiez l’URL. Collez maintenant cette URL dans la zone de texte **URL de réponse** d’Azure AD, dans la section **Domaine et URL Tableau Server**.
+
     f. Localisez votre fichier de métadonnées de fédération téléchargé à partir du portail Azure, puis chargez-le dans le **fichier de métadonnées du fournisseur d’identité SAML**.
-   
-    g. Sur la page Configuration de Tableau Server, cliquez sur le bouton **OK**.
-   
+
+    g. Entrez les noms des attributs que le fournisseur d’identité utilise pour accueillir les noms d’utilisateur, noms d’affichage et adresses e-mail.
+
+    h. Cliquez sur **Enregistrer**.
+
     >[!NOTE] 
     >Le client doit charger l’ensemble des certificats dans la configuration SAML SSO de Tableau Server. Les certificats seront ignorés dans le flux SSO.
-    >Si vous avez besoin d’aide pour la configuration de SAML dans Tableau Server, consultez l’article [Configurer SAML](https://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
+    >Si vous avez besoin d’aide pour la configuration de SAML dans Tableau Server, consultez l’article [Configurer SAML](https://onlinehelp.tableau.com/v2018.2/server/en-us/saml_config_steps_tsm_ui.htm).
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
@@ -202,7 +211,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     d. Sélectionnez **Créer**.
   
-### <a name="creating-a-tableau-server-test-user"></a>Création d’un utilisateur de test Tableau Server
+### <a name="create-tableau-server-test-user"></a>Créer un utilisateur de test Tableau Server
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Tableau Server. Vous devez approvisionner tous les utilisateurs dans Tableau Server. 
 
@@ -211,7 +220,7 @@ Le nom de l’utilisateur doit correspondre à la valeur que vous avez configur�
 >[!NOTE]
 >Si vous avez besoin de créer un utilisateur manuellement, vous devez contacter l’administrateur Tableau Server de votre organisation.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Tableau Server.
 
@@ -235,7 +244,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 6. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez le bouton **Attribuer**.
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 12fab05ef7c459419c8aaf319098fddaae1416e6
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 145dd36629286980c0f0e1692df3afb227764285
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241245"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974044"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum Proof-of-Authority Consortium
 
@@ -212,7 +212,7 @@ Créer un réseau ou une connexion à un réseau existant ?|Créer un réseau o
 Adresse de messagerie (facultatif)|Une fois votre déploiement terminé, vous recevrez par courrier électronique une notification contenant des informations sur votre déploiement.|Adresse e-mail valide|N/D
 Nom d’utilisateur de la machine virtuelle|Nom d’utilisateur de l’administrateur de chaque machine virtuelle déployée (caractères alphanumériques uniquement).|1 à 64 caractères|N/D
 Type d'authentification|Méthode d’authentification auprès de la machine virtuelle.|Mot de passe ou clé publique SSH|Mot de passe
-Mot de passe (Type d’authentification = Mot de passe).|Mot de passe du compte administrateur pour chacune des machines virtuelles déployées.  Le mot de passe doit contenir 3 des éléments suivants : une minuscule, une majuscule, un chiffre et un caractère spécial. Initialement, toutes les machines virtuelles ont le même mot de passe, que vous pouvez modifier après le provisionnement.|12 à 72 caractères|N/D
+Mot de passe (Type d’authentification = Mot de passe).|Mot de passe du compte administrateur pour chacune des machines virtuelles déployées.  Le mot de passe doit contenir 3 des éléments suivants : une majuscule, une minuscule, un chiffre et un caractère spécial. Initialement, toutes les machines virtuelles ont le même mot de passe, que vous pouvez modifier après le provisionnement.|12 à 72 caractères|N/D
 Clé SSH (Type d’authentification = Clé publique)|Clé de shell sécurisée utilisée pour la session à distance.||N/D
 Abonnement|Abonnement vers lequel vous déployez le réseau de consortium.||N/D
 Groupe de ressources|Groupe de ressources sur lequel déployez le réseau de consortium.||N/D
@@ -744,7 +744,7 @@ $ truffle migrate --network poa
 
 ### <a name="debug-smart-contract-with-truffle"></a>Déboguer un contrat intelligent avec Truffle
 
-Truffle dispose d’un réseau de développement local qui est disponible pour le débogage du contrat intelligent. Le didacticiel complet est accessible [ici](http://truffleframework.com/tutorials/debugging-a-smart-contract).
+Truffle dispose d’un réseau de développement local qui est disponible pour le débogage du contrat intelligent. Le didacticiel complet est accessible [ici](https://truffleframework.com/tutorials/debugging-a-smart-contract).
 
 ### <a name="webassembly-wasm-support"></a>Prise en charge de WebAssembly (WASM)
 

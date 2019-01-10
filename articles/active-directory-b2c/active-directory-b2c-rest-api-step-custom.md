@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dddb42f53d4bb59113df937799bd4de10d31491c
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5102f2b43819c279d0087754b29a616812e5a5f2
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338777"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556558"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Procédure pas à pas : intégration des échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C comme étape d’orchestration
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Procédure pas à pas : Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C comme étape d’orchestration
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -33,7 +33,7 @@ L’IEF envoie des données dans des revendications et reçoit en retour des don
 
 Vous pouvez utiliser ultérieurement les revendications reçues pour modifier le flux d’exécution.
 
-Vous pouvez aussi concevoir l’interaction comme un profil de validation. Pour plus d’informations, consultez [Intégration des échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur](active-directory-b2c-rest-api-validation-custom.md).
+Vous pouvez aussi concevoir l’interaction comme un profil de validation. Pour plus d’informations, consultez [Procédure pas à pas : Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C comme validation d’une entrée de l’utilisateur](active-directory-b2c-rest-api-validation-custom.md).
 
 Le scénario est le suivant : quand un utilisateur effectue une modification du profil, nous voulons :
 
@@ -45,9 +45,9 @@ Le scénario est le suivant : quand un utilisateur effectue une modification du 
 
 - Un locataire Azure AD B2C configuré pour effectuer une inscription/connexion à un compte local, comme décrit dans [Bien démarrer](active-directory-b2c-get-started-custom.md).
 - Un point de terminaison API REST avec lequel vous allez interargir. Cette procédure pas à pas utilise comme exemple un webhook d’application de fonction Azure simple.
-- *Recommandé* : suivez la procédure pas à pas d’échange de revendications de l’[API REST comme une étape de validation](active-directory-b2c-rest-api-validation-custom.md).
+- *Recommandée* : suivez la [procédure pas à pas des échanges de revendications de l’API REST comme une étape de validation](active-directory-b2c-rest-api-validation-custom.md).
 
-## <a name="step-1-prepare-the-rest-api-function"></a>Étape 1 : préparation de la fonction de l’API REST
+## <a name="step-1-prepare-the-rest-api-function"></a>Étape 1 : Préparer la fonction de l’API REST
 
 > [!NOTE]
 > Cet article ne traite pas de la configuration des fonctions de l’API REST. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) fournit un excellent kit de ressources pour la création de services RESTful dans le cloud.
@@ -79,7 +79,7 @@ return request.CreateResponse<ResponseContent>(
 
 Une application de fonction Azure facilite l’obtention de l’URL de la fonction, qui inclut l’identificateur de la fonction spécifique. Dans ce cas, l’URL est la suivante : https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. Vous pouvez l’utiliser pour les tests.
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Étape 2 : configuration de l’échange de revendications de l’API RESTful comme profil technique dans votre fichier TrustFrameworExtensions.xml
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Étape 2 : Configurer l’échange de revendications de l’API RESTful comme profil technique dans votre fichier TrustFrameworExtensions.xml
 
 Le profil technique est la configuration complète de l’échange souhaité avec le service RESTful. Ouvrez le fichier TrustFrameworkExtensions.xml et ajoutez l’extrait de code XML suivant à l’intérieur de l’élément `<ClaimsProvider>`.
 
@@ -97,6 +97,7 @@ Le profil technique est la configuration complète de l’échange souhaité ave
                 <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==</Item>
                 <Item Key="AuthenticationType">None</Item>
                 <Item Key="SendClaimsIn">Body</Item>
+                <Item Key="AllowInsecureAuthInProduction">true</Item>
             </Metadata>
             <InputClaims>
                 <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
@@ -114,7 +115,7 @@ L’élément `<InputClaims>` définit les revendications qui seront envoyées d
 
 L’élément `<OutputClaims>` définit les revendications que l’IEF doit recevoir du service REST. Quel que soit le nombre de revendications reçues, l’infrastructure d’expérience d’identité utilisera seulement celles qui sont identifiées ici. Dans cet exemple, une revendication reçue en tant que `city` sera mappée à une revendication de l’infrastructure d’expérience d’identité appelée `city`.
 
-## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Étape 3 : ajout d’une nouvelle revendication `city` au schéma de votre fichier TrustFrameworkExtensions.xml
+## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Étape 3 : Ajouter la nouvelle revendication `city` au schéma de votre fichier TrustFrameworkExtensions.xml
 
 La revendication `city` n’est définie pour l’instant nulle part dans notre schéma. Ajoutez donc une définition à l’intérieur de l’élément `<BuildingBlocks>`. Vous pouvez trouver cet élément au début du fichier TrustFrameworkExtensions.xml.
 
@@ -133,7 +134,7 @@ La revendication `city` n’est définie pour l’instant nulle part dans notre 
 </BuildingBlocks>
 ```
 
-## <a name="step-4-include-the-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>Étape 4 : inclusion de l’échange de revendications du service REST en tant qu’étape d’orchestration dans votre parcours utilisateur de modification de profil dans votre fichier TrustFrameworkExtensions.xml
+## <a name="step-4-include-the-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>Étape 4 : Inclure l’échange de revendications du service REST en tant qu’étape d’orchestration dans votre parcours utilisateur de modification de profil dans votre fichier TrustFrameworkExtensions.xml
 
 Ajoutez une étape au parcours utilisateur de modification de profil, une fois que l’utilisateur a été authentifié (étapes d’orchestration 1 à 4 du fichier XML suivant) et qu’il a fourni les informations de profil mises à jour (étape 5).
 
@@ -211,7 +212,7 @@ Le code XML final pour le parcours utilisateur doit ressembler à ceci :
 </UserJourney>
 ```
 
-## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Étape 5 : ajout de la revendication `city` à votre fichier de stratégie de partie de confiance pour que la revendication soit envoyée à votre application
+## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Étape 5 : Ajouter la revendication `city` à votre fichier de stratégie de partie de confiance pour que la revendication soit envoyée à votre application
 
 Ouvrez votre fichier de partie de confiance ProfileEdit.xml et modifiez l’élément `<TechnicalProfile Id="PolicyProfile">` en y ajoutant ceci : `<OutputClaim ClaimTypeReferenceId="city" />`.
 
@@ -228,12 +229,12 @@ Une fois que vous avez ajouté la nouvelle revendication, le profil technique re
 </TechnicalProfile>
 ```
 
-## <a name="step-6-upload-your-changes-and-test"></a>Étape 6 : téléchargement et test de vos modifications
+## <a name="step-6-upload-your-changes-and-test"></a>Étape 6 : Charger et tester vos modifications
 
 Remplacez les versions existantes de la stratégie.
 
-1.  (Facultatif :) Enregistrez la version existante de votre fichier d’extensions (en la téléchargeant) avant de continuer. Nous vous recommandons de ne pas télécharger plusieurs versions du fichier d’extensions afin de ne pas compliquer l’opération.
-2.  (Facultatif :) Renommez la nouvelle version de l’ID de stratégie pour le fichier de modification de stratégie en changeant `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
+1.  (Facultatif :) Enregistrez la version existante de votre fichier d’extensions (en la téléchargeant) avant de continuer. Nous vous recommandons de ne pas télécharger plusieurs versions du fichier d’extensions afin de ne pas compliquer l’opération.
+2.  (Facultatif :) Renommez la nouvelle version de l’ID de stratégie pour le fichier de modification de stratégie en changeant `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
 3.  Chargez le fichier d’extensions.
 4.  Chargez le fichier de partie de confiance de modification de stratégie.
 5.  Utilisez **Exécuter maintenant** pour tester la stratégie. Examinez le jeton retourné par l’infrastructure d’expérience d’identité à l’application.

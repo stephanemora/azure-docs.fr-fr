@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: dc1fe8a3d9a1f0da0a190275b4fbb8bd18fff610
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a6ab4d751be74b66d9e75a37f88bc8d441f9b003
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499141"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653728"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Optimiser des travaux Apache Spark
 
@@ -42,26 +42,26 @@ Spark 1.x utilise des jeux de données RDD (Resilient Distributed Datasets) pour
     * Surcharge de garbage collection élevée
     * Interrompt la génération de code à l’échelle globale
 * **RDD**
-    * Dans Spark 2.x, vous n’avez pas besoin d’utiliser de RDD, sauf si vous devez générer un nouveau RDD personnalisé
+    * Dans Spark 2.x, vous n’avez pas besoin d’utiliser de RDD, sauf si vous devez générer un nouveau RDD personnalisé
     * Aucune optimisation de requête par le biais de Catalyst
     * Aucune génération de code à l’échelle globale
     * Surcharge de garbage collection élevée
-    * Nécessité d’utiliser des API Spark 1.x héritées
+    * Nécessité d’utiliser des API Spark 1.x héritées
 
 ## <a name="use-optimal-data-format"></a>Utiliser le format de données optimal
 
-Spark prend en charge de nombreux formats, tels que csv, json, xml, parquet, orc et avro. Spark peut être étendu pour prendre en charge de nombreux autres formats avec des sources de données externes. Pour plus d’informations, consultez [Packages Spark](https://spark-packages.org).
+Spark prend en charge de nombreux formats, tels que csv, json, xml, parquet, orc et avro. Spark peut être étendu pour prendre en charge de nombreux autres formats avec des sources de données externes. Pour plus d’informations, consultez [Packages Apache Spark](https://spark-packages.org).
 
 Le meilleur format du point de vue des performances est parquet avec *compression Snappy*, qui est l’option par défaut dans Spark 2.x. Parquet stocke les données sous forme de colonnes et il est fortement optimisé dans Spark.
 
 ## <a name="select-default-storage"></a>Sélectionner le stockage par défaut
 
-Quand vous créez un cluster Spark, vous pouvez sélectionner le Stockage Blob Azure ou Azure Data Lake Store comme stockage par défaut de votre cluster. Les deux options offrent l’avantage d’un stockage à long terme pour les clusters temporaires. Ainsi, vos données ne sont pas supprimées automatiquement quand vous supprimez votre cluster. Vous pouvez recréer un cluster temporaire et encore accéder à vos données.
+Quand vous créez un cluster Spark, vous pouvez sélectionner Stockage Blob Azure ou Azure Data Lake Storage comme stockage par défaut de votre cluster. Les deux options offrent l’avantage d’un stockage à long terme pour les clusters temporaires. Ainsi, vos données ne sont pas supprimées automatiquement quand vous supprimez votre cluster. Vous pouvez recréer un cluster temporaire et encore accéder à vos données.
 
 | Type de magasin | Système de fichiers | Vitesse | Temporaire | Cas d'utilisation |
 | --- | --- | --- | --- | --- |
 | un stockage Azure Blob | **wasb:**//url/ | **Standard** | Oui | Cluster temporaire |
-| Azure Data Lake Store | **adl:**//url/ | **Plus rapide** | Oui | Cluster temporaire |
+| Azure Data Lake Storage | **adl:**//url/ | **Plus rapide** | Oui | Cluster temporaire |
 | HDFS local | **hdfs:**//url/ | **Le plus rapide** | Non  | Cluster 24/7 interactif |
 
 ## <a name="use-the-cache"></a>Utiliser le cache
@@ -73,7 +73,7 @@ Spark fournit ses propres mécanismes de mise en cache native, que vous pouvez u
     * Ne fonctionne pas avec le partitionnement, mais ceci peut changer dans les versions ultérieures de Spark
 
 * Mise en cache au niveau du stockage (recommandée)
-    * Peut être implémentée à l’aide de [Alluxio](http://www.alluxio.org/)
+    * Peut être implémentée à l’aide de [Alluxio](https://www.alluxio.org/)
     * Utilise la mise en cache en mémoire et SSD
 
 * HDFS local (recommandé)
@@ -175,8 +175,8 @@ Lors du choix de votre configuration d’exécuteur, n’oubliez pas de prendre 
     1. Réduisez la surcharge de communication entre les exécuteurs.
     2. Réduisez le nombre de connexions ouvertes entre les exécuteurs (N2) sur les clusters de grande taille (> 100 exécuteurs).
     3. Augmentez la taille de segment de mémoire afin de prendre en compte les tâches utilisant beaucoup de mémoire.
-    4. Facultatif : Réduisez la surcharge de mémoire par exécuteur.
-    5. Facultatif : Augmentez l’utilisation et la concurrence en surabonnant l’UC.
+    4. Facultatif : réduisez la surcharge de mémoire par exécuteur.
+    5. Facultatif : augmentez l’utilisation et la concurrence en surabonnant le processeur.
 
 En règle générale, lors de la sélection de la taille d’exécuteur :
     
@@ -202,7 +202,7 @@ Surveillez les performances de vos requêtes afin de détecter les valeurs hors 
 Surveillez régulièrement vos travaux en cours d’exécution afin de détecter tout problème de performances. Si vous avez besoin de plus de détails pour résoudre certains problèmes, utilisez l’un des outils de profilage de performances suivants :
 
 * [Intel PAL Tool](https://github.com/intel-hadoop/PAT) surveille l’utilisation de la bande passante par le réseau, le stockage et l’UC.
-* [Oracle Java 8 Mission Control](http://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) profile le code d’exécuteur et Spark.
+* [Oracle Java 8 Mission Control](https://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) profile le code d’exécuteur et Spark.
 
 Le moteur Tungsten joue un rôle essentiel pour les performances des requêtes Spark 2.x. Il dépend de la génération de code à l’échelle globale. Dans certains cas, la génération de code à l’échelle globale peut être désactivée. Par exemple, si vous utilisez un type non mutable (`string`) dans l’expression d’agrégation, `SortAggregate` s’affiche à la place de `HashAggregate`. Par exemple, pour obtenir de meilleures performances, essayez ce qui suit puis réactivez la génération de code :
 

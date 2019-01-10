@@ -9,22 +9,22 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: e5480e5e071d541d12e96ddd549e496c7f974f81
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f55d3eb67bb9c494a3d055e39d970c9a440dfc67
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271043"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603430"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Recommandations relatives aux performances pour SQL Database
 
 Le service Azure SQL Database apprend avec votre application et s’adapte à cette dernière. Il fournit des recommandations personnalisées qui vous permettent d’optimiser le niveau de performance de vos bases de données SQL. SQL Database évalue et analyse continuellement l’historique de l’utilisation de vos bases de données SQL. Les recommandations fournies reposent sur des modèles de charge de travail propres à une base de données, et contribuent à améliorer le niveau de performance.
 
 > [!TIP]
-> Le [paramétrage automatique](sql-database-automatic-tuning.md) constitue la méthode recommandée pour le réglage des performances. [Intelligent Insights](sql-database-intelligent-insights.md) est la méthode recommandée en matière d’analyse des performances. 
+> Le [réglage automatique](sql-database-automatic-tuning.md) est la méthode recommandée pour régler automatiquement certains problèmes de performances de base de données les plus courants. [Query Performance Insight](sql-database-query-performance.md) est la méthode recommandée pour superviser les performances de base d’Azure SQL Database. [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) est la méthode recommandée pour la supervision avancée des performances de base de données à grande échelle, avec une intelligence intégrée pour résoudre automatiquement les problèmes de performances.
 >
 
 ## <a name="create-index-recommendations"></a>Recommandations relatives à la création d’un index

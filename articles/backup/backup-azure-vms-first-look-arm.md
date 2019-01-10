@@ -1,24 +1,21 @@
 ---
-title: 'Premiers pas : Protéger les machines virtuelles Azure avec un coffre Recovery Services'
-description: Protégez les machines virtuelles Azure avec un coffre Recovery Services. Utilisez les sauvegardes des machines virtuelles déployées à l’aide de Resource Manager, des machines virtuelles déployées à l’aide du modèle Classic et des machines virtuelles, machines virtuelles chiffrées et machines virtuelles sur disques gérés du service de stockage Premium pour protéger vos données. Créez et enregistrez un coffre Recovery Services. Enregistrez des machines virtuelles, créez une stratégie et protégez des machines virtuelles dans Azure.
+title: Sauvegarder des machines virtuelles Azure avec le service Sauvegarde Azure
+description: Découvrez comment sauvegarder des machines virtuelles Azure avec le service Sauvegarde Azure.
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 12/17/2018
 ms.author: raynew
-ms.custom: H1Hack27Feb2017
-keywords: sauvegardes; sauvegarde de machine virtuelle
-ms.openlocfilehash: 2c6b881e5717c0f4600b4e3c2f47c19b5d2dae51
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0c394a92bff3ace210ee0db156f47bb8912bf45d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869926"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631581"
 ---
-# <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
+# <a name="back-up-azure-vms-with-the-azure-backup-service"></a>Sauvegarder des machines virtuelles Azure avec le service Sauvegarde Azure
 
 Cet article explique comment configurer la protection d’une machine virtuelle à partir du menu des opérations sur les machines virtuelles ou du coffre Recovery Services. Les coffres Recovery Services protègent :
 
@@ -32,7 +29,7 @@ Cet article explique comment configurer la protection d’une machine virtuelle 
 
 Pour plus d’informations sur la protection des machines virtuelles Stockage Premium, consultez la section [Sauvegarder et restaurer des machines virtuelles Stockage Premium](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Pour plus d’informations sur la prise en charge des machines virtuelles sur disques gérés, consultez la section [Back up and restore VMs on managed disks](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) (Sauvegarder et restaurer des machines virtuelles sur des disques gérés). Pour plus d’informations sur l’infrastructure pré et post-script pour la sauvegarde de machine virtuelle Linux, consultez l’article [Sauvegarde de machine virtuelle Linux cohérente dans l’application à l’aide de pré/post-scripts](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
-Pour en savoir plus sur ce que vous pouvez et ne pouvez pas sauvegarder, consultez [Préparation de votre environnement pour la sauvegarde des machines virtuelles Azure](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
+Pour en savoir plus sur ce que vous pouvez et ne pouvez pas sauvegarder, consultez [Préparation de votre environnement pour la sauvegarde des machines virtuelles Azure](backup-azure-arm-vms-prepare.md#before-you-start).
 
 > [!NOTE]
 > Le service de sauvegarde crée un groupe de ressources distinct du groupe de ressources de la machine virtuelle afin de stocker la collection de points de restauration. Les clients sont invités à ne pas verrouiller le groupe de ressources créé pour une utilisation par le service de sauvegarde.
@@ -337,7 +334,9 @@ Le service de sauvegarde installe l’extension de sauvegarde, même si la machi
 Si vous rencontrez des problèmes pour accomplir certaines tâches décrites dans cet article, consultez les [instructions pour la résolution des problèmes](backup-azure-vms-troubleshoot.md).
 
 ## <a name="pricing"></a>Tarifs
-Le coût de la sauvegarde des machines virtuelles Azure dépend du nombre d’instances protégées. Pour obtenir une définition d’une instance protégée, voir [Qu’est-ce qu’une instance protégée](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Pour obtenir un exemple de calcul du coût de la sauvegarde d’une machine virtuelle, voir [Mode de calcul des instances protégées](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances). Pour plus d’informations sur la [tarification de la sauvegarde](https://azure.microsoft.com/pricing/details/backup/), voir la page de la tarification de la sauvegarde Azure.
+Le coût de la sauvegarde des machines virtuelles Azure dépend du nombre d’instances protégées. Pour obtenir une définition d’une instance protégée, voir [Qu’est-ce qu’une instance protégée](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Pour plus d’informations sur la [tarification de la sauvegarde](https://azure.microsoft.com/pricing/details/backup/), voir la page de la tarification de la sauvegarde Azure.
 
-## <a name="questions"></a>Des questions ?
-Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](https://aka.ms/azurebackup_feedback).
+## <a name="next-steps"></a>Étapes suivantes
+
+[Gérer](backup-azure-manage-vms.md) vos sauvegardes.
+

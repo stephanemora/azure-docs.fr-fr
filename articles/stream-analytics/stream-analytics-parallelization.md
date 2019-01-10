@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 7a1577e3c352c24983cc3a586c11ad43c416acc4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091041"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000544"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Profiter de la parallélisation de requête dans Azure Stream Analytics
 Cet article explique comment tirer parti de la parallélisation dans Azure Stream Analytics. Vous découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée et en réglant la définition de requête Analytics.
@@ -41,12 +41,13 @@ Quand vous utilisez Stream Analytics, vous pouvez tirer parti du partitionnement
 -   Azure Functions
 -   table Azure
 -   Stockage Blob (possibilité de définir la clé de partition explicitement)
--   CosmosDB (nécessité de définir la clé de partition explicitement)
--   EventHub (nécessité de définir la clé de partition explicitement)
+-   Cosmos DB (définir la clé de partition explicitement)
+-   Event Hubs (définir la clé de partition explicitement)
 -   IoT Hub (nécessité de définir la clé de partition explicitement)
 -   Service Bus
+- SQL et SQL Data Warehouse avec partitionnement facultatif : consultez plus d’informations sur la [page Sortie vers Azure SQL Database](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
 
-Les sorties PowerBI, SQL et SQL Data Warehouse ne prennent pas en charge le partitionnement. Toutefois, vous pouvez toujours partitionner l’entrée comme décrit dans [cette section](#multi-step-query-with-different-partition-by-values) 
+Power BI ne prend pas en charge le partitionnement. Toutefois, vous pouvez toujours partitionner l’entrée comme décrit dans [cette section](#multi-step-query-with-different-partition-by-values) 
 
 Pour plus d’informations sur les partitions, consultez les articles suivants :
 
@@ -115,7 +116,7 @@ Dans ce cas, le type de requête importe peu. Si le nombre de partitions d’ent
 
 ### <a name="query-using-non-partitioned-output"></a>Requête avec une sortie non partitionnée
 * Entrée : concentrateur Event Hub avec 8 partitions
-* Sortie : PowerBI
+* Sortie : Power BI
 
 Pour le moment, la sortie Power BI ne prend pas en charge le partitionnement. Par conséquent, ce scénario n’est pas de type massivement parallèle.
 

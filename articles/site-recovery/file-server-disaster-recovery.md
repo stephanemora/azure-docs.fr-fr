@@ -4,16 +4,16 @@ description: Cet article explique comment protéger un serveur de fichiers avec 
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: dde38f1c27ed808d730699e3c1d68a1c78cf3af5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c6db0b9dda9f383ddc062c41bae0be0b56f7e69d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850480"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794088"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Protéger un serveur de fichiers avec Azure Site Recovery 
 
@@ -37,15 +37,15 @@ Dans le diagramme précédent, plusieurs serveurs de fichiers, appelés membres,
 
 ## <a name="disaster-recovery-recommendations-for-file-servers"></a>Recommandations relatives à la récupération d’urgence pour les serveurs de fichiers
 
-* **Répliquer un serveur de fichiers avec Site Recovery** : les serveurs de fichiers peuvent être répliqués vers Azure à l’aide de Site Recovery. Lorsqu’un ou plusieurs serveurs de fichiers locaux sont inaccessibles, les machines virtuelles de récupération peuvent être mises dans Azure. Les machines virtuelles peuvent ensuite traiter les demandes des clients, localement, à condition qu’il existe une connectivité VPN de site à site et qu’Active Directory soit configuré dans Azure. Vous pouvez utiliser cette méthode dans le cas d’un environnement configuré pour la DFSR ou d’un environnement de serveur de fichiers simple sans DFSR. 
+* **Répliquez un serveur de fichiers local avec Site Recovery** : Les serveurs de fichiers peuvent être répliqués sur Azure avec Site Recovery. Lorsqu’un ou plusieurs serveurs de fichiers locaux sont inaccessibles, les machines virtuelles de récupération peuvent être mises dans Azure. Les machines virtuelles peuvent ensuite traiter les demandes des clients, localement, à condition qu’il existe une connectivité VPN de site à site et qu’Active Directory soit configuré dans Azure. Vous pouvez utiliser cette méthode dans le cas d’un environnement configuré pour la DFSR ou d’un environnement de serveur de fichiers simple sans DFSR. 
 
-* **Étendre la DFSR à une machine virtuelle Azure IaaS** : dans un environnement de serveurs de fichiers en cluster avec la DFSR implémentée, vous pouvez étendre la DFSR locale à Azure. Une machine virtuelle Azure est alors activée pour jouer le rôle de serveur de fichiers. 
+* **Étendez la DFSR à une machine virtuelle Azure IaaS** : Dans un environnement de serveurs de fichiers en cluster avec la DFSR implémentée, vous pouvez étendre la DFSR locale à Azure. Une machine virtuelle Azure est alors activée pour jouer le rôle de serveur de fichiers. 
 
     * Une fois les dépendances de connectivité VPN de site à site et Active Directory traités et la DFSR appliquée, lorsqu’un ou plusieurs des serveurs de fichiers locaux ne sont pas accessibles, les clients peuvent toujours se connecter à la machine virtuelle Azure, qui traitera les demandes.
 
     * Vous pouvez utiliser cette approche si vos machines virtuelles ont des configurations qui ne sont pas prises en charge par Site Recovery. Par exemple, un disque de cluster partagé, parfois couramment utilisé dans des environnements de serveurs de fichiers. La DFSR fonctionne également bien dans des environnements à faible bande passante avec un taux de variation moyen. Vous devez prendre en compte le coût supplémentaire que représente le fait d’avoir une machine virtuelle Azure opérationnelle en permanence. 
 
-* **Utiliser Azure File Sync pour répliquer vos fichiers** : si vous envisagez d’utiliser le cloud ou si vous utilisez déjà une machine virtuelle Azure, vous pouvez utiliser Azure File Sync. Azure File Sync offre la synchronisation de partages de fichiers entièrement managés, accessibles via le protocole de normes industrielles SMB [(Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Les partages de fichiers Azure peuvent ensuite être montés simultanément par des déploiements cloud ou locaux de Windows, Linux et MacOS. 
+* **Utilisez la synchronisation de fichiers pour répliquer vos fichiers** : Si vous prévoyez d’utiliser le cloud ou si vous utilisez déjà une machine virtuelle Azure, vous pouvez utiliser Azure File Sync. Azure File Sync offre la synchronisation de partages de fichiers entièrement managés, accessibles via le protocole de normes industrielles SMB [(Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Les partages de fichiers Azure peuvent ensuite être montés simultanément par des déploiements cloud ou locaux de Windows, Linux et MacOS. 
 
 Le diagramme suivant vous permet de déterminer la stratégie à utiliser pour votre environnement de serveurs de fichiers.
 
@@ -74,9 +74,9 @@ Le diagramme suivant vous permet de déterminer la stratégie à utiliser pour v
 > [!IMPORTANT]
 > Avant de passer à l’une des trois approches suivantes, vérifiez que ces dépendances sont prises en charge.
 
-**Connectivité de site à site** : une connexion directe entre le site local et le réseau Azure doit être établie pour permettre la communication entre les serveurs. Utilisez une connexion VPN de site à site sécurisée vers un réseau virtuel Azure utilisé en tant que site de récupération d’urgence. Pour plus d’informations, consultez [Établir une connexion VPN de site à site entre un site local et un réseau virtuel Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal).
+**Connectivité de site à site** : Une connexion directe entre le site local et le réseau Azure doit être établie pour permettre la communication entre les serveurs. Utilisez une connexion VPN de site à site sécurisée vers un réseau virtuel Azure utilisé en tant que site de récupération d’urgence. Pour plus d’informations, consultez [Établir une connexion VPN de site à site entre un site local et un réseau virtuel Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal).
 
-**Active Directory** : la DFSR dépend d’Active Directory. Cela signifie que la forêt Active Directory avec des contrôleurs de domaine locaux est étendue au site de récupération d’urgence dans Azure. Même si vous n’utilisez pas la DFSR, si les utilisateurs prévus doivent recevoir une autorisation d’accès ou une vérification, vous devez suivre ces étapes. Pour plus d’informations, reportez-vous à [Étendre Active Directory local à Azure](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory).
+**Active Directory** : La DFSR dépend d’Active Directory. Cela signifie que la forêt Active Directory avec des contrôleurs de domaine locaux est étendue au site de récupération d’urgence dans Azure. Même si vous n’utilisez pas la DFSR, si les utilisateurs prévus doivent recevoir une autorisation d’accès ou une vérification, vous devez suivre ces étapes. Pour plus d’informations, reportez-vous à [Étendre Active Directory local à Azure](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory).
 
 ## <a name="disaster-recovery-recommendation-for-azure-iaas-virtual-machines"></a>Recommandations relatives à la récupération d’urgence pour les machines virtuelles Azure IaaS
 

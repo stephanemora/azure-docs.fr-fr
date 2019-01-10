@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 030ec9db16f90430a544ca8715a4e1dea02e2c62
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 71f024c81983fcb9c3e99bdf633a5bde306452b8
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873238"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051235"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Bibliothèque cliente de la base de données élastique avec Entity Framework
 Ce document présente les modifications d'une application Entity Framework requises pour l'intégration avec les [outils des bases de données élastiques](sql-database-elastic-scale-introduction.md). L’objectif est de composer une [gestion de carte de partitions](sql-database-elastic-scale-shard-map-management.md) et un [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) avec l’approche Entity Framework **Code First**. Le didacticiel [Code First pour une nouvelle base de données](https://msdn.microsoft.com/data/jj193542.aspx) pour Entity Framework sert d’exemple tout au long de ce document. L’exemple de code qui accompagne ce document fait partie de l’ensemble d’échantillons des outils de base de données élastique figurant parmi les exemples de code Visual Studio.
@@ -236,13 +236,13 @@ Cet exemple illustre la méthode **RegisterNewShard** qui enregistre la partitio
         } 
 
         // Only static methods are allowed in calls into base class c'tors 
-        private static string SetInitializerForConnection(string connnectionString) 
+        private static string SetInitializerForConnection(string connectionString) 
         { 
             // You want existence checks so that the schema can get deployed 
             Database.SetInitializer<ElasticScaleContext<T>>( 
         new CreateDatabaseIfNotExists<ElasticScaleContext<T>>()); 
 
-            return connnectionString; 
+            return connectionString; 
         } 
 
 Vous avez peut-être utilisé la version du constructeur héritée de la classe de base. Mais le code doit garantir que l'initialiseur par défaut pour Entity Framework est utilisé lors de la connexion. D'où le bref détour par la méthode statique avant l'appel vers le constructeur de classe de base avec la chaîne de connexion. Notez que l'inscription des partitions doit s'exécuter dans un domaine d'application ou un processus différent pour vous assurer que les paramètres de l'initialiseur d'Entity Framework n'entrent pas en conflit. 

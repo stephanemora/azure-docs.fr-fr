@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/6/2018
 ms.author: victorh
-ms.openlocfilehash: 0187ef3d3b6853c1d1225fc9f208f2508372978d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9cb14e5076379e5095ca88dc749a954e9e5d5aa4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425725"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994842"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Forum aux questions pour Azure Application Gateway
 
@@ -49,7 +49,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Quelles sont les ressources actuellement prises en charge dans le pool backend ?
 
-Les pools backend peuvent être composés de cartes d’interface réseau, de groupes de machines virtuelles identiques, d’adresses IP publiques, d’adresses IP internes, de noms de domaine complets et de serveurs principaux multi-locataires comme Azure Web Apps. Les membres du pool backend d’Application Gateway ne sont pas liés à un groupe à haute disponibilité. Les membres des pools backend peuvent être sur des clusters, des centres de données ou en dehors d’Azure tant qu’ils disposent d’une connectivité IP.
+Les pools back-end peuvent être composés de cartes d’interface réseau, de groupes de machines virtuelles identiques, d’adresses IP publiques, d’adresses IP internes, de noms de domaine complets et de serveurs back-end multi-locataires comme Azure App Service. Les membres du pool backend d’Application Gateway ne sont pas liés à un groupe à haute disponibilité. Les membres des pools backend peuvent être sur des clusters, des centres de données ou en dehors d’Azure tant qu’ils disposent d’une connectivité IP.
 
 ### <a name="what-regions-is-the-service-available-in"></a>Dans quelles régions le service est-il disponible ?
 
@@ -88,9 +88,11 @@ Une seule adresse IP publique est prise en charge sur une passerelle d’applica
 Application Gateway utilise une adresse IP privée par instance, ainsi qu’une autre adresse IP privée si une configuration IP frontale privée est configurée. En outre, Azure réserve les quatre premières et dernière adresses IP dans chaque sous-réseau à un usage interne.
 Par exemple, si une passerelle d’application est définie sur trois instances et aucune adresse IP frontale privée, un sous-réseau de taille /29 ou supérieure est nécessaire. Dans ce cas, la passerelle d’application utilise trois adresses IP. Si vous avez trois instances et une adresse IP pour la configuration IP frontale privée, un sous-réseau de taille /28 ou supérieure est nécessaire, car quatre adresses IP sont requises.
 
-### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>Q. Puis-je déployer plusieurs ressources Application Gateway dans un seul sous-réseau ?**
+### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>Q. Puis-je déployer plusieurs ressources Application Gateway dans un seul sous-réseau ?
 
 Oui, en plus d’avoir plusieurs instances d’un déploiement Application Gateway donné, vous pouvez configurer une autre ressource Application Gateway unique dans un sous-réseau existant qui contient une autre ressource Application Gateway.
+
+La combinaison de Standard_v2 et Standard Application Gateway sur le même sous-réseau n’est pas prise en charge. De plus, si la mise à l’échelle automatique est activée, un sous-réseau ne peut avoir qu’une seule passerelle d’application.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway prend-il en charge les en-têtes x-forwarded-for ?
 
@@ -103,6 +105,8 @@ Application Gateway insère également l’en-tête X-Original-Host qui contient
 La configuration des déploiements de nouvelles références SKU v1 d’Application Gateway peut prendre jusqu’à 20 minutes. Les modifications apportées à la taille et au nombre des instances n’entraînent pas d’interruption, et la passerelle reste active pendant ce temps.
 
 L’approvisionnement des déploiements de références SKU V2 peut quant à lui prendre de cinq à six minutes environ.
+
+Application Gateway prend-il en charge les en-têtes x-forwarded-for ?
 
 ## <a name="configuration"></a>Configuration
 
@@ -210,7 +214,7 @@ Oui. Vous pouvez configurer le drainage de connexion afin de modifier des membre
 
 ### <a name="what-are-application-gateway-sizes"></a>Quelles sont les tailles d’Application Gateway ?
 
-Application Gateway est actuellement disponible en 3 tailles : **Petit**, **Moyen** et **Grand**. Les instances de petite taille sont conçues pour les scénarios de développement et de test.
+Application Gateway est actuellement disponible en 3 tailles : **Petit**, **Moyen** et **Grand**. Les instances de petite taille sont conçues pour les scénarios de développement et de test.
 
 Pour obtenir la liste complète des limites de la passerelle Application Gateway, consultez la page [Application Gateway limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits) (Limites de la passerelle Application Gateway).
 
@@ -316,9 +320,9 @@ Le pare-feu d’application web est surveillé via la journalisation des diagnos
 
 Non, le mode de détection journalise uniquement le trafic, ce qui a déclenché une règle de pare-feu d’application web.
 
-### <a name="how-do-i-customize-waf-rules"></a>Comment puis-je personnaliser les règles de pare-feu d’application web ?
+### <a name="can-i-customize-waf-rules"></a>Puis-je personnaliser les règles de pare-feu d’application web ?
 
-Oui. Les règles WAF sont personnalisables. Pour plus d’informations sur la façon de les personnaliser, voir [Personnaliser les règles et groupes de règles WAF](application-gateway-customize-waf-rules-portal.md).
+Oui, les règles de pare-feu d’application web sont personnalisables. Pour plus d’informations, consultez [Personnaliser les règles et groupes de règles WAF](application-gateway-customize-waf-rules-portal.md)
 
 ### <a name="what-rules-are-currently-available"></a>Quelles sont les règles actuellement disponibles ?
 

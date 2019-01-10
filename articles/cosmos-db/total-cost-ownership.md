@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: rimman
-ms.openlocfilehash: a15a704cfba9260daac0cd5edfdf8b4566348628
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 419ad6681af39aee468a23319b773de23619984d
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263444"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555453"
 ---
 # <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Coût total de possession avec Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Le modèle de provisionnement serverless d’Azure Cosmos DB vous évite de devo
 
 * **Rapport qualité/prix optimal :** les partenaires, les clients et les analystes ont confirmé la valeur supérieure de toutes les fonctionnalités offertes par Azure Cosmos DB pour un moindre coût par rapport à ce que les clients peuvent obtenir lorsqu’ils implémentent ces solutions eux-mêmes ou via d’autres fournisseurs. Les fonctionnalités de base de données telles que la distribution mondiale, le multimaître, les modèles de cohérence bien définis et intuitifs et l’indexation automatique sont considérablement simplifiées avec Azure Cosmos DB, sans complexité, surcharge ni temps d’arrêt.
 
-* **Aucune administration devops NoSQL n’est nécessaire :** Avec Azure Cosmos DB, il n’est pas nécessaire de faire appel aux pratiques devops pour gérer les déploiements, effectuer la maintenance, la mise à l’échelle ou appliquer des correctifs. Vous pouvez exécuter toutes les charges de travail de la même manière qu’avec un cluster NoSQL open source hébergé en local ou sur l’infrastructure cloud.
+* **Aucune administration DevOps NoSQL n’est nécessaire :** Avec Azure Cosmos DB, il n’est pas nécessaire de faire appel aux pratiques DevOps pour gérer les déploiements, effectuer la maintenance, la mise à l’échelle ou appliquer des correctifs. Vous pouvez exécuter toutes les charges de travail de la même manière qu’avec un cluster NoSQL open source hébergé en local ou sur l’infrastructure cloud.
 
 ![Coût de possession d’Azure Cosmos DB](./media/total-cost-ownership/tco.png)
 
@@ -59,7 +59,7 @@ Le modèle de provisionnement serverless d’Azure Cosmos DB vous évite de devo
 
 * Pour plus d’informations, consultez [En quoi le modèle de tarification Azure Cosmos DB est rentable pour les clients](total-cost-ownership.md)
 * En savoir plus sur l’[optimisation pour le développement et le test](optimize-dev-test.md)
-* En savoir plus sur l’[optimisation du coût du débit](optimize-cost-throughput.md)
+* En savoir plus sur [l’optimisation du coût du débit](optimize-cost-throughput.md)
 * En savoir plus sur l’[optimisation du coût de stockage](optimize-cost-storage.md)
 * En savoir plus sur l’[optimisation du coût des lectures et écritures](optimize-cost-reads-writes.md)
 * En savoir plus sur l’[optimisation du coût des requêtes](optimize-cost-queries.md)

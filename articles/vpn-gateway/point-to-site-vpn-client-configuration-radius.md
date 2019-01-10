@@ -1,5 +1,5 @@
 ---
-title: 'Create and install VPN client configuration files for P2S RADIUS connections: PowerShell: Azure (Créer et installer des fichiers de configuration du client VPN pour des connexions P2S RADIUS : Azure PowerShell) | Microsoft Docs'
+title: 'Créer et installer les fichiers de configuration du client VPN pour les connexions P2S RADIUS : PowerShell : Azure | Microsoft Docs'
 description: Créer des fichiers de configuration du client VPN Windows, Mac OS X et Linux pour les connexions utilisant l’authentification RADIUS.
 services: vpn-gateway
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
 ms.openlocfilehash: 52c7734c2af80d29433c20191d8b5b7c0ee0fe48
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
+ms.lasthandoff: 12/21/2018
 ms.locfileid: "51252000"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Créer et installer les fichiers de configuration du client VPN pour une authentification P2S RADIUS
@@ -62,9 +62,9 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
  
 L’exécution de la commande renvoie un lien. Copiez et collez ce lien dans un navigateur web pour télécharger **VpnClientConfiguration.zip**. Décompressez le fichier pour afficher les dossiers suivants : 
  
-* **WindowsAmd64** et **WindowsX86** : ces dossiers contiennent les packages de programme d’installation pour Windows 64 bits et Windows 32 bits, respectivement. 
-* **Générique** : les informations générales utilisées pour créer la configuration de votre client VPN se trouvent dans ce dossier. Vous n’avez pas besoin de ce dossier pour les configurations d’authentification par nom d’utilisateur/mot de passe.
-* **Mac** : si vous avez configuré IKEv2 lors de la création de la passerelle du réseau virtuel, un dossier nommé **Mac** s’affiche, dans lequel se trouve un fichier **mobileconfig**. Vous utilisez ce fichier pour configurer les clients Mac.
+* **WindowsAmd64** et **WindowsX86** : Dans ces dossiers se trouvent respectivement les packages de programme d’installation pour Windows 64 bits et Windows 32 bits. 
+* **Generic** : les informations générales utilisées pour créer la configuration de votre client VPN se trouvent dans ce dossier. Vous n’avez pas besoin de ce dossier pour les configurations d’authentification par nom d’utilisateur/mot de passe.
+* **Mac** : si vous avez configuré IKEv2 lors de la création de la passerelle du réseau virtuel, un dossier nommé **Mac** s’affiche, dans lequel se trouve un fichier **mobileconfig**. Vous utilisez ce fichier pour configurer les clients Mac.
 
 Si vous avez déjà créé les fichiers de configuration du client, vous pouvez les récupérer à l’aide de la cmdlet `Get-AzureRmVpnClientConfiguration`. Toutefois, si vous apportez des modifications à votre configuration VPN de point à site, comme le type d’authentification ou de protocole VPN, elle ne se met pas à jour automatiquement. Vous devez exécuter la cmdlet  `New-AzureRmVpnClientConfiguration` pour créer un téléchargement de configuration.
 
@@ -193,8 +193,8 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 
 L’exécution de la commande renvoie un lien. Copiez et collez le lien dans un navigateur web pour télécharger VpnClientConfiguration.zip. Décompressez le fichier pour afficher les dossiers suivants :
 
-* **WindowsAmd64** et **WindowsX86** : ces dossiers contiennent les packages de programme d’installation pour Windows 64 bits et Windows 32 bits, respectivement. 
-* **GenericDevice** : les informations générales utilisées pour créer la configuration de votre client VPN se trouvent dans ce dossier.
+* **WindowsAmd64** et **WindowsX86** : Dans ces dossiers se trouvent respectivement les packages de programme d’installation pour Windows 64 bits et Windows 32 bits. 
+* **GenericDevice** : les informations générales utilisées pour créer la configuration de votre client VPN se trouvent dans ce dossier.
 
 Si vous avez déjà créé les fichiers de configuration du client, vous pouvez les récupérer à l’aide de la cmdlet `Get-AzureRmVpnClientConfiguration`. Toutefois, si vous apportez des modifications à votre configuration VPN de point à site, comme le type d’authentification ou de protocole VPN, elle ne se met pas à jour automatiquement. Vous devez exécuter la cmdlet  `New-AzureRmVpnClientConfiguration` pour créer un téléchargement de configuration.
 
@@ -266,9 +266,9 @@ Pour utiliser un type d’authentification différent (OTP, par exemple) ou un p
  
 3. Le dossier **GenericDevice** contient un fichier XML nommé **VpnSettings**. Ce fichier contient toutes les informations nécessaires :
 
-   * **VpnServer** : le nom de domaine complet de la passerelle VPN Azure. Il s’agit de l’adresse à laquelle le client se connecte.
-   * **VpnType** : le type de tunnel que vous utilisez pour vous connecter.
-   * **Itinéraires** : les itinéraires que vous devez configurer dans votre profil afin que seul le trafic en direction du réseau virtuel Azure passe par le tunnel de point à site.
+   * **VpnServer** : nom de domaine complet de la passerelle VPN Azure. Il s’agit de l’adresse à laquelle le client se connecte.
+   * **VpnType** : type de tunnel que vous utilisez pour vous connecter.
+   * **Routes** : routes que vous devez configurer dans votre profil afin que seul le trafic en direction du réseau virtuel Azure passe par le tunnel P2S.
    
    Le dossier **GenericDevice** contient aussi un fichier .cer nommé **VpnServerRoot**. Ce fichier contient le certificat racine requis pour valider la passerelle VPN Azure lors de la configuration de la connexion de point à site. Installez le certificat sur tous les appareils qui se connecteront au réseau virtuel Azure.
 

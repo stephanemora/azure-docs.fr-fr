@@ -1,17 +1,17 @@
 ---
 title: Optimisation pour le développement et le test dans Azure Cosmos DB
-description: Cet article explique comment Cosmos DB propose plusieurs options pour développer et tester gratuitement le service.
+description: Cet article explique comment Azure Cosmos DB propose plusieurs options pour développer et tester gratuitement le service.
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: rimman
-ms.openlocfilehash: e6ccf70a085950ebd6b520fa4991220981e4f018
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d3ed5c2c13e5a35bcc6cd0e03a6b553691785cdb
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263644"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548661"
 ---
 # <a name="optimizing-for-development-and-testing-in-azure-cosmos-db"></a>Optimisation pour le développement et le test dans Azure Cosmos DB
 
@@ -19,11 +19,11 @@ Cet article décrit les différentes options pour utiliser gratuitement Azure Co
 
 ## <a name="azure-cosmos-db-emulator-locally-downloadable-version"></a>Émulateur Azure Cosmos DB (version téléchargeable localement)
 
-L’[émulateur Azure Cosmos DB](local-emulator.md) est une version téléchargeable en local qui simule le service cloud Azure Cosmos DB. Vous pouvez écrire et tester du code qui utilise les API Azure Cosmos DB même si vous ne disposez d’aucune connexion réseau, et sans frais. L’émulateur Azure Cosmos DB fournit un environnement local qui reproduit de façon fidèle le service Azure Cosmos DB à des fins de développement. Vous pouvez développer et tester votre application localement, sans créer d’abonnement Azure et sans frais. Lorsque vous êtes prêt à déployer votre application dans le cloud, mettez à jour la chaîne de connexion pour vous connecter au point de terminaison Azure Cosmos DB dans le cloud. Aucune autre modification n’est nécessaire. Vous pouvez aussi [configurer un pipeline CI/CD avec la tâche de génération d’émulateur Azure Cosmos DB](tutorial-setup-ci-cd.md) dans Azure DevOps pour effectuer des tests. Pour vous lancer, consultez l’article [Émulateur Cosmos DB](local-emulator.md).
+L’[émulateur Azure Cosmos DB](local-emulator.md) est une version téléchargeable en local qui simule le service cloud Azure Cosmos DB. Vous pouvez écrire et tester du code qui utilise les API Azure Cosmos DB même si vous ne disposez d’aucune connexion réseau, et sans frais. L’émulateur Azure Cosmos DB fournit un environnement local qui reproduit de façon fidèle le service Azure Cosmos DB à des fins de développement. Vous pouvez développer et tester votre application localement, sans créer d’abonnement Azure et sans frais. Lorsque vous êtes prêt à déployer votre application dans le cloud, mettez à jour la chaîne de connexion pour vous connecter au point de terminaison Azure Cosmos DB dans le cloud. Aucune autre modification n’est nécessaire. Vous pouvez aussi [configurer un pipeline CI/CD avec la tâche de génération d’émulateur Azure Cosmos DB](tutorial-setup-ci-cd.md) dans Azure DevOps pour effectuer des tests. Pour vous lancer, consultez l’article [Émulateur Azure Cosmos DB](local-emulator.md).
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Essayez gratuitement Azure Cosmos DB
 
-[Essayez gratuitement Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) : une expérience gratuite qui vous permet de créer des bases de données et des collections et de tester gratuitement Azure Cosmos DB dans le cloud. Vous n’avez pas besoin de vous inscrire sur Azure ni de payer quoi que ce soit. Les comptes d’essai Azure Cosmos DB sont disponibles pour une durée limitée, actuellement de 30 jours. Vous pouvez les renouveler à tout moment. Les comptes d’essai Azure Cosmos DB permettent de facilement évaluer Azure Cosmos DB, de générer et de tester une application avec les démarrages rapides ou les didacticiels. Vous pouvez créer une démonstration ou effectuer des tests sans payer quoi que ce soit. Avec les comptes gratuits Cosmos DB, vous pouvez évaluer les fonctionnalités Premium d’Azure Cosmos DB gratuitement, par exemple la distribution globale, les contrats SLA et les modèles de cohérence. Vous pouvez créer une base de données avec un maximum de 25 conteneurs Azure Cosmos et 10 000 RU/s de débit. Vous pouvez exécuter l’exemple d’application sans abonnement à un compte Azure ou avec votre carte de crédit. Avec l’essai gratuit de Cosmos DB gratuitement, vous pouvez créer un compte Azure Cosmos sur plusieurs régions et exécuter une application en quelques minutes. Pour vous lancer, consultez la page [Essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/).
+[Essayez gratuitement Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) : une expérience gratuite qui vous permet de créer des bases de données et des collections et de tester gratuitement Azure Cosmos DB dans le cloud. Vous n’avez pas besoin de vous inscrire sur Azure ni de payer quoi que ce soit. Les comptes d’essai Azure Cosmos DB sont disponibles pour une durée limitée, actuellement de 30 jours. Vous pouvez les renouveler à tout moment. Les comptes d’essai Azure Cosmos DB permettent de facilement évaluer Azure Cosmos DB, de générer et de tester une application avec les démarrages rapides ou les didacticiels. Vous pouvez créer une démonstration ou effectuer des tests sans payer quoi que ce soit. Avec les comptes gratuits Azure Cosmos DB, vous pouvez évaluer les fonctionnalités Premium d’Azure Cosmos DB gratuitement, par exemple la distribution globale, les contrats SLA et les modèles de cohérence. Vous pouvez créer une base de données avec un maximum de 25 conteneurs Azure Cosmos et 10 000 RU/s de débit. Vous pouvez exécuter l’exemple d’application sans abonnement à un compte Azure ou avec votre carte de crédit. Avec l’essai gratuit d’Azure Cosmos DB, vous pouvez créer un compte Azure Cosmos sur plusieurs régions et exécuter une application en quelques minutes. Pour vous lancer, consultez la page [Essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/).
 
 ## <a name="azure-free-account"></a>Compte gratuit Azure
 

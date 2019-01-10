@@ -11,24 +11,24 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d8d12662552eaf2d566eebd773c69dfb9817d874
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a97da5542395b57fa9a6ca6e4c38dd25e524ec3e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098642"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969418"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>Extraction de données à partir d’intentions et d’entités
 LUIS donne la possibilité d’obtenir des informations à partir des énoncés d’un utilisateur en langage naturel. Les informations sont extraites de façon à pouvoir être utilisées par un programme, une application ou un chatbot de manière exploitable. Dans les sections suivantes, découvrez quelles sont les données retournées à partir des intentions et des entités avec des exemples de JSON.
 
-Les données les plus difficiles à extraire sont les données issues du Machine Learning, car il n’y a pas de correspondance de texte à l’exact. L’extraction de données à partir [d’entités](luis-concept-entity-types.md) issues du Machine Learning doit faire partie du [cycle de création](luis-concept-app-iteration.md) jusqu'à ce que vous ayez la certitude de recevoir les données attendues.
+Les données les plus difficiles à extraire sont les données issues du Machine Learning, car il n’y a pas de correspondance de texte exacte. L’extraction de données à partir [d’entités](luis-concept-entity-types.md) issues du Machine Learning doit faire partie du [cycle de création](luis-concept-app-iteration.md) jusqu’à ce que vous ayez la certitude de recevoir les données attendues.
 
 ## <a name="data-location-and-key-usage"></a>Emplacement des données et utilisation de la clé
 LUIS fournit les données à partir du [point de terminaison](luis-glossary.md#endpoint) publié. La **requête HTTPS** (POST ou GET) contient l’énoncé ainsi que certaines configurations facultatives, comme l’environnement de production ou l’environnement intermédiaire.
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-La valeur `appID` est disponible sur la page **Paramètres** de l’application LUIS ; elle fait également partie de l’URL (après `/apps/`) sur la page de modification de l’application. La clé `subscription-key` est la clé du point de terminaison utilisée pour interroger l’application. Vous pouvez utiliser votre clé gratuite de démarrage/création tant que vous apprenez à vous servir de LUIS, mais il est important de remplacer la clé de point de terminaison par une clé qui prend en charge votre [utilisation attendue de LUIS](luis-boundaries.md#key-limits). L’unité `timezoneOffset` est exprimée en minutes.
+La valeur `appID` est disponible dans la page **Paramètres** de l’application LUIS ; elle fait également partie de l’URL (après `/apps/`) dans la page de modification de l’application. La clé `subscription-key` est la clé du point de terminaison utilisée pour interroger l’application. Vous pouvez utiliser votre clé gratuite de démarrage/création tant que vous apprenez à vous servir de LUIS, mais il est important de remplacer la clé de point de terminaison par une clé qui prend en charge votre [utilisation attendue de LUIS](luis-boundaries.md#key-limits). L’unité `timezoneOffset` est exprimée en minutes.
 
 La **réponse HTTPS** contient toutes les informations que LUIS peut déterminer sur les intentions et les entités à partir du modèle publié à un instant t d’un point de terminaison intermédiaire ou de production. L’URL de point de terminaison se trouve sur le site web [LUIS](luis-reference-regions.md), dans la section **Manage** (Gérer), dans la page **Keys and endpoints** (Clés et points de terminaison).
 
@@ -174,7 +174,7 @@ Le point de terminaison retourne les données suivantes : nom de l’entité, te
 
 ## <a name="hierarchical-entity-data"></a>Données d’entité hiérarchique
 
-Les entités [hiérarchiques](luis-concept-entity-types.md) sont des valeurs issues du Machine Learning. Elles peuvent comporter un mot ou une expression. Les enfants sont identifiés par le contexte. Si vous recherchez une relation parent-enfant avec correspondance de texte à l’exact, utilisez une entité de [liste](#list-entity-data).
+Les entités [hiérarchiques](luis-concept-entity-types.md) sont des valeurs issues du Machine Learning. Elles peuvent comporter un mot ou une expression. Les enfants sont identifiés par le contexte. Si vous recherchez une relation parent-enfant avec correspondance de texte exacte, utilisez une entité de [liste](#list-entity-data).
 
 `book 2 tickets to paris`
 
@@ -425,7 +425,11 @@ Les entités [d’expression régulière](luis-concept-entity-types.md) sont dé
 ```
 
 ## <a name="extracting-names"></a>Extraction de noms
-Il est difficile d’extraire des noms d’un énoncé, car un nom peut être pratiquement n’importe quelle combinaison de lettres et de mots. Les possibilités dépendent du type de nom extrait. Il ne s’agit pas de règles, mais plutôt de recommandations.
+Il est difficile d’extraire des noms d’un énoncé, car un nom peut être pratiquement n’importe quelle combinaison de lettres et de mots. Les possibilités dépendent du type de nom extrait. Les suggestions suivantes ne sont pas des règles, mais plutôt des recommandations.
+
+### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Ajouter des entités PersonName et GeographyV2 prédéfinies
+
+Les entités [PersonName](luis-reference-prebuilt-person.md) et [GeographyV2](luis-reference-prebuilt-geographyV2.md) sont disponibles dans certaines [cultures de langue](luis-reference-prebuilt-entities.md). 
 
 ### <a name="names-of-people"></a>Noms de personnes
 Les noms de personnes peuvent avoir un format légèrement en fonction de la langue et de la culture. Utilisez soit une entité hiérarchique avec comme enfants le prénom et le nom, soit une entité simple avec des rôles de nom et de prénom. Veillez à donner des exemples qui utilisent le prénom et le nom à différents endroits de l’énoncé, dans des énoncés de longueurs différentes et pour toutes les intentions, y compris l’intention None. [Vérifiez](luis-how-to-review-endoint-utt.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
@@ -434,7 +438,7 @@ Les noms de personnes peuvent avoir un format légèrement en fonction de la lan
 Les noms d’endroits sont définis et connus : villes, départements, États, provinces et pays. Si votre application utilise un ensemble connu de lieux, envisagez d’utiliser une entité de liste. Si vous devez rechercher tous les noms de lieux, créez une entité simple et donnez différents exemples. Ajoutez une liste d’expressions de noms de lieux pour renforcer le type de noms de lieux de votre application. [Vérifiez](luis-how-to-review-endoint-utt.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
 
 ### <a name="new-and-emerging-names"></a>Nouveaux noms
-Certaines applications doivent être capables de rechercher les nouveaux noms, comme les produits ou les entreprises. Il s’agit du type le plus difficile d’extraction de données. Commencez par une entité simple et ajoutez une liste d’expressions. [Vérifiez](luis-how-to-review-endoint-utt.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
+Certaines applications doivent être capables de rechercher les nouveaux noms, comme les produits ou les entreprises. Ces types de noms sont les plus difficiles à extraire. Commencez par une entité simple et ajoutez une liste d’expressions. [Vérifiez](luis-how-to-review-endoint-utt.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
 
 ## <a name="pattern-roles-data"></a>Données de rôles de modèle
 Les rôles sont des différences d’entités contextuelles.
@@ -603,6 +607,7 @@ L’entité d’extraction de phrases clés retourne les phrases clés de l’é
 ```
 
 ## <a name="data-matching-multiple-entities"></a>Données correspondant à plusieurs entités
+
 LUIS retourne toutes les entités découvertes dans l’énoncé. Le chatbot devra donc dans certains cas prendre des décisions en fonction des résultats. Un énoncé peut comporter de nombreuses entités :
 
 `book me 2 adult business tickets to paris tomorrow on air france`
@@ -728,6 +733,46 @@ Le point de terminaison LUIS peut découvrir les mêmes données dans différent
           "value": "business"
         }
       ]
+    }
+  ]
+}
+```
+
+## <a name="data-matching-multiple-list-entities"></a>Données correspondant à plusieurs entités de liste
+
+Si un mot ou une phrase correspond à plusieurs entités Liste, la requête du point de terminaison retourne chaque entité Liste.
+
+Pour la requête `when is the best time to go to red rock?`, et si l’application contient le mot `red` dans plusieurs listes, LUIS reconnaît toutes les entités et retourne un tableau d’entités dans le cadre de la réponse du point de terminaison JSON : 
+
+```JSON
+{
+  "query": "when is the best time to go to red rock?",
+  "topScoringIntent": {
+    "intent": "Calendar.Find",
+    "score": 0.06701678
+  },
+  "entities": [
+    {
+      "entity": "red",
+      "type": "Colors",
+      "startIndex": 31,
+      "endIndex": 33,
+      "resolution": {
+        "values": [
+          "Red"
+        ]
+      }
+    },
+    {
+      "entity": "red rock",
+      "type": "Cities",
+      "startIndex": 31,
+      "endIndex": 38,
+      "resolution": {
+        "values": [
+          "Destinations"
+        ]
+      }
     }
   ]
 }

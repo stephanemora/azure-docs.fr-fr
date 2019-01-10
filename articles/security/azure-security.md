@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2dd6ebb9e2f35eccae3b267402a4ef9b0e1b2dbe
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: a00f3d2ea4e191bb7860b88d39ff0ccaa338e0ff
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567160"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714234"
 ---
 # <a name="introduction-to-azure-security"></a>Présentation d’Azure Security
 ## <a name="overview"></a>Vue d’ensemble
@@ -53,7 +53,7 @@ Ce document décrit l’approche de Microsoft en matière de sécurité au sein 
 ## <a name="summary-azure-security-capabilities"></a>Résumé des fonctionnalités de sécurité Azure
 Le tableau suivant contient une brève description des fonctionnalités de sécurité implémentées par Microsoft pour sécuriser l’infrastructure Azure, les données client et applications.
 ### <a name="security-features-implemented-to-secure-the-azure-platform"></a>Fonctionnalités de sécurité implémentées pour sécuriser la plateforme Azure :
-Vous pouvez consulter les fonctionnalités répertoriées ci-après pour vous assurer que la plateforme Azure est gérée de manière sécurisée. Des liens sont indiqués pour permettre d’explorer davantage comment Microsoft traite les questions de confiance des clients dans quatre domaines : plateforme sécurisée, confidentialité et contrôles, conformité et transparence.
+Vous pouvez consulter les fonctionnalités répertoriées ci-après pour vous assurer que la plateforme Azure est gérée de manière sécurisée. Des liens sont fournis pour explorer davantage comment Microsoft traite les questions de confiance des clients dans quatre domaines : plateforme sécurisée, confidentialité et contrôles, conformité et transparence.
 
 
 | [Plateforme sécurisée](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [Confidentialité et contrôles](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[Conformité](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [Transparence](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
@@ -69,7 +69,7 @@ Vous pouvez consulter les fonctionnalités répertoriées ci-après pour vous as
 ### <a name="security-features-offered-by-azure-to-secure-data-and-application"></a>Fonctionnalités de sécurité fournies par Azure pour sécuriser les données et applications
 En fonction du modèle de service cloud, la responsabilité de la personne chargée de la gestion de la sécurité de l’application ou du service varie. La plateforme Azure propose des fonctionnalités pour vous aider à remplir ces tâches via des fonctionnalités intégrées et des solutions pour partenaires qui peuvent être déployées dans un abonnement Azure.
 
-Les fonctionnalités intégrées sont organisées en six (6) zones fonctionnelles : opérations, applications, stockage, mise en réseau, calcul et identité. Des informations supplémentaires sur les fonctionnalités et fonctions disponibles dans ces six (6) zones de la plateforme Azure sont fournies par le biais des informations de synthèse.
+Les fonctionnalités intégrées sont organisées en six (6) zones fonctionnelles : Opérations, Applications, Stockage, Réseau, Calcul et Identité. Des informations supplémentaires sur les fonctionnalités et fonctions disponibles dans ces six (6) zones de la plateforme Azure sont fournies par le biais des informations de synthèse.
 
 ## <a name="operations"></a>Opérations
 Cette section contient des informations supplémentaires sur les fonctionnalités clés des opérations de sécurité et des informations de synthèse sur ces fonctionnalités.
@@ -110,7 +110,7 @@ En outre, Azure Security Center aide aux opérations de sécurité en vous fourn
 Cette section contient des informations supplémentaires sur les fonctionnalités clés de la sécurité des applications et des informations de synthèse sur ces fonctionnalités.
 
 ### <a name="web-application-vulnerability-scanning"></a>Analyse de la vulnérabilité des applications web
-L’une des méthodes les plus simples pour démarrer les tests de vulnérabilité de votre [application App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview) consiste à utiliser [l’intégration à Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) pour effectuer l’analyse des vulnérabilités dans votre application en un clic. Vous pouvez afficher les résultats des tests dans un rapport facile à comprendre et découvrir comment résoudre chaque problème de vulnérabilité grâce à des instructions pas à pas.
+L’une des méthodes les plus simples pour démarrer les tests de vulnérabilité de votre [application App Service](https://docs.microsoft.com/azure/app-service/overview) consiste à utiliser [l’intégration à Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) pour effectuer l’analyse des vulnérabilités dans votre application en un clic. Vous pouvez afficher les résultats des tests dans un rapport facile à comprendre et découvrir comment résoudre chaque problème de vulnérabilité grâce à des instructions pas à pas.
 
 ### <a name="penetration-testing"></a>Test de pénétration
 Si vous préférez effectuer vos propres tests d’intrusion ou utiliser une autre suite logicielle d’analyse ou un autre fournisseur, vous devez suivre le [processus d’approbation de test d’intrusion Azure](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) et obtenir une approbation préalable pour effectuer les tests d’intrusion de votre choix.
@@ -119,13 +119,13 @@ Si vous préférez effectuer vos propres tests d’intrusion ou utiliser une aut
 Le pare-feu d’applications web (WAF) [d’Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) aide à protéger les applications web des attaques basées sur le web courantes comme l’injection de code SQL, les attaques de script de site à site et les piratages de session. Il est préconfiguré avec une protection contre les menaces identifiées par [OWASP (Open Web Application Security Project) comme les 10 vulnérabilités les plus courantes](https://msdn.microsoft.com/library/).
 
 ### <a name="authentication-and-authorization-in-azure-app-service"></a>Authentification et autorisation dans Azure App Service
-[L’authentification/autorisation App Service](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) est une fonctionnalité qui permet à votre application de connecter les utilisateurs. Vous n’êtes ainsi donc pas obligé de modifier le code sur le serveur principal. Elle propose un moyen simple de protéger votre application et fonctionne avec des données par utilisateur.
+[L’authentification/autorisation App Service](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) est une fonctionnalité qui permet à votre application de connecter les utilisateurs. Vous n’êtes ainsi donc pas obligé de modifier le code sur le serveur principal. Elle propose un moyen simple de protéger votre application et fonctionne avec des données par utilisateur.
 
 ### <a name="layered-security-architecture"></a>Architecture de sécurité multiniveau
 Dans la mesure où les [environnements App Service](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-intro) fournissent un environnement d’exécution isolé déployé dans un [réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview), les développeurs peuvent créer une architecture de sécurité multiniveau offrant différents niveaux d’accès réseau pour chaque couche Application. Un souhait commun est de masquer les API principales de l’accès Internet général, et d’autoriser uniquement les API à être appelées par les applications web en amont. Les [groupes de sécurité réseau (NSG)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) peuvent être utilisés sur des sous-réseaux d’un réseau virtuel Azure contenant des environnements App Service pour restreindre l’accès public aux applications API.
 
 ### <a name="web-server-diagnostics-and-application-diagnostics"></a>Diagnostics de serveur web et diagnostics d’application
-Les applications web App Service fournissent des fonctionnalités de diagnostic pour les informations de journalisation provenant du serveur Web et de l'application web. Ces informations sont réparties, en toute logique, en [diagnostics de serveur web](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) et en [diagnostics d’application](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). Le serveur web inclut deux avancées majeures dans le diagnostic des problèmes et leur résolution sur les sites et dans les applications.
+Les applications web App Service fournissent des fonctionnalités de diagnostic pour les informations de journalisation provenant du serveur Web et de l'application web. Ces informations sont réparties, en toute logique, en [diagnostics de serveur web](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs) et en [diagnostics d’application](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). Le serveur web inclut deux avancées majeures dans le diagnostic des problèmes et leur résolution sur les sites et dans les applications.
 
 Pour la première nouvelle fonctionnalité, il s’agit des informations d’état en temps réel sur les pools d’applications, les processus Worker, les sites, les domaines d’application et les demandes en cours d’exécution. Quant à la seconde nouvelle fonctionnalité, il s’agit des événements de suivi détaillés qui effectuent le suivi d’une demande dans le processus complet des demandes/réponses.
 
@@ -141,7 +141,7 @@ Vous pouvez activer ou désactiver les types de journaux suivants :
 -   Journalisation du serveur web : informations sur les transactions HTTP à l’aide du format de fichier journal étendu W3C. Ce rapport se révèle utile pour déterminer les métriques globales d’un site, comme le nombre de demandes traitées ou le nombre de demandes émanant d’une adresse IP spécifique.
 
 #### <a name="application-diagnostics"></a>Diagnostic d'application
-La fonctionnalité [Diagnostic d’application](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) vous permet de capturer des informations générées par une application web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) pour enregistrer des informations dans le journal de diagnostic d'application. Dans Diagnostic d’application, il existe deux types d’événement principaux, ceux qui sont liés aux performances de l’application et ceux qui sont liés à ses erreurs et échecs. Les échecs et les erreurs peuvent être répartis en problèmes de connectivité, sécurité et défaillance. Les problèmes de défaillance sont généralement associés à un problème lié au code d’application.
+La fonctionnalité [Diagnostic d’application](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs) vous permet de capturer des informations générées par une application web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) pour enregistrer des informations dans le journal de diagnostic d'application. Dans Diagnostic d’application, il existe deux types d’événement principaux, ceux qui sont liés aux performances de l’application et ceux qui sont liés à ses erreurs et échecs. Les échecs et les erreurs peuvent être répartis en problèmes de connectivité, sécurité et défaillance. Les problèmes de défaillance sont généralement associés à un problème lié au code d’application.
 
 Dans Diagnostic d’application, vous pouvez afficher les événements regroupés comme suit :
 
@@ -285,11 +285,11 @@ Traffic Manager fournit un large éventail de méthodes de routage du trafic pou
 ### <a name="internal-dns"></a>DNS interne
 Vous pouvez gérer la liste des serveurs DNS utilisés dans un réseau virtuel à partir du portail de gestion ou du fichier de configuration réseau. Le client peut ajouter jusqu’à 12 serveurs DNS par réseau virtuel. Quand vous spécifiez des serveurs DNS, assurez-vous de les indiquer dans l’ordre approprié pour l’environnement du client. Les listes de serveurs DNS ne fonctionnent pas sur le modèle du tourniquet (round-robin). Elles sont utilisées dans l’ordre où elles sont spécifiées. Si le premier serveur DNS de la liste est accessible, le client utilise ce serveur DNS, qu’il fonctionne correctement ou non. Pour modifier l’ordre des serveurs DNS pour le réseau virtuel du client, supprimez-les de la liste et rajoutez-les dans l’ordre souhaité par le client. DNS prend en charge la notion de disponibilité dans la triade relative à la sécurité : confidentialité, intégrité et disponibilité.
 
-### <a name="azure-dns"></a>DNS Azure
+### <a name="azure-dns"></a>Azure DNS
 Le [système DNS (Domain Name System)](https://technet.microsoft.com/library/bb629410.aspx) se charge de traduire (ou résoudre) un nom de site web ou de service en une adresse IP. [DNS Azure](https://docs.microsoft.com/azure/dns/dns-overview) est un service d’hébergement pour les domaines DNS qui offre une résolution de noms à l’aide de l’infrastructure Microsoft Azure. En hébergeant vos domaines dans Azure, vous pouvez gérer vos enregistrements DNS avec les mêmes informations d’identification, les mêmes API, les mêmes outils et la même facturation que vos autres services Azure. DNS prend en charge la notion de disponibilité dans la triade relative à la sécurité : confidentialité, intégrité et disponibilité.
 ### <a name="log-analytics-nsgs"></a>Groupes de sécurité réseau Log Analytics
 Vous pouvez activer les catégories de journaux de diagnostic suivantes pour les groupes de sécurité réseau :
--   Événement : contient les entrées pour lesquelles des règles NSG sont appliquées aux machines virtuelles et aux rôles d’instance en fonction de l’adresse MAC. L’état de ces règles est collecté toutes les 60 secondes.
+-   Événement : Contient les entrées pour lesquelles des règles de groupe de sécurité réseau sont appliquées aux machines virtuelles et aux rôles d’instance en fonction de l’adresse MAC. L’état de ces règles est collecté toutes les 60 secondes.
 
 -   Compteur de règles : contient les entrées correspondant au nombre de fois où chaque règle NSG a été appliquée pour refuser ou autoriser le trafic.
 

@@ -2,24 +2,27 @@
 title: Schéma d’appareil dans la solution de surveillance à distance - Azure | Microsoft Docs
 description: Cet article décrit le schéma JSON qui définit un appareil simulé dans la solution de surveillance à distance.
 author: dominicbetts
-manager: timlt
+manager: philmea
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 01/29/2018
+ms.date: 12/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: f312f29e14c371e7b500f3eee6471151e3544513
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 54e21e0b5f522b226ec1abb71a1c5ab5b245df05
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338853"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635525"
 ---
 # <a name="understand-the-device-model-schema"></a>Comprendre le schéma de modèle d’appareil
 
-Vous pouvez utiliser des appareils simulés dans la solution de surveillance à distance pour en tester le comportement. Quand vous déployez la solution de surveillance à distance, une collection d’appareils simulés est provisionnée automatiquement. Vous pouvez personnaliser les appareils simulés existants ou créer les vôtres.
+Vous pouvez utiliser des appareils simulés dans la solution de surveillance à distance pour en tester le comportement. La solution de supervision à distance inclut un service de simulation d’appareil pour exécuter des appareils simulés. Quand vous déployez la solution de surveillance à distance, une collection d’appareils simulés est provisionnée automatiquement. Vous pouvez personnaliser les appareils simulés existants ou créer les vôtres.
 
 Cet article décrit le schéma de modèle d’appareil qui spécifie les fonctionnalités et le comportement d’un appareil simulé. Le modèle d’appareil est stocké dans un fichier JSON.
+
+> [!NOTE]
+> Ce schéma de modèle d’appareil est destiné uniquement aux appareils simulés hébergés dans le service de simulation d’appareil. Si vous voulez créer un appareil physique, consultez [Connecter votre appareil à l’accélérateur de solution Supervision à distance](iot-accelerators-connecting-devices.md).
 
 Les articles suivants sont associées à l’article en cours :
 

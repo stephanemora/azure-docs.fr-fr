@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: a8b0884486f86f66ae02c7e7a82fecee43d5ffed
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c92a55ec1d56b83457167fc2db0bd7897a447852
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386893"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974843"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combiner ScaleR et SparkR dans HDInsight
 
@@ -21,7 +21,7 @@ Ce document montre comment prévoir des retards d’arrivée de vol à l’aide 
 
 Bien que les deux packages s’exécutent sur le moteur d’exécution de Spark d’Apache Hadoop, le partage des données en mémoire est bloqué pour eux, car ils requièrent chacun leur propre session Spark respective. En attendant que ce problème soit résolu dans une prochaine version de ML Server, la solution de contournement consiste à gérer des sessions Spark qui ne se recouvrent pas et à échanger les données via des fichiers intermédiaires. Les instructions fournies ici montrent que ces exigences sont faciles à obtenir.
 
-Cet exemple a été initialement partagé lors d’une intervention de Mario Inchiosa et Roni Burd dans le cadre de la conférence Strata 2016. Vous pouvez retrouver cette intervention sur la page [Building a Scalable Data Science Platform with R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio) (Création d’une plateforme de science de données évolutive avec R).
+Cet exemple a été initialement partagé lors d’une intervention de Mario Inchiosa et Roni Burd dans le cadre de la conférence Strata 2016. Vous pouvez retrouver cette intervention sur la page [Building a Scalable Data Science Platform with R](https://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio) (Création d’une plateforme de science de données évolutive avec R).
 
 Le code a été écrit à l’origine pour ML Server s’exécutant sur Spark dans un cluster HDInsight sur Azure. Mais le concept de l’utilisation combinée de SparkR et de ScaleR dans un seul script est également valide dans le contexte d’environnements locaux.
 
@@ -29,9 +29,9 @@ La procédure décrite dans ce document suppose que vous disposez d’un niveau 
 
 ## <a name="the-airline-and-weather-datasets"></a>Jeux de données météorologiques et jeux de données des compagnies aériennes
 
-Les données de vol sont disponibles à partir des [archives du gouvernement des États-Unis](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Elles sont également disponibles au format .zip dans [AirOnTimeCSV.zip](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
+Les données de vol sont disponibles à partir des [archives du gouvernement des États-Unis](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Elles sont également disponibles au format .zip dans [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
-Les données météorologiques peuvent être téléchargées tous les mois sous forme de fichiers zip au format brut à partir du [référentiel de la National Oceanic and Atmospheric Administration](http://www.ncdc.noaa.gov/orders/qclcd/). Pour cet exemple, téléchargez les données de mai 2007 à décembre 2012. Utilisez les fichiers de données de toutes les heures et le fichier `YYYYMMMstation.txt` dans tous les zips. 
+Les données météorologiques peuvent être téléchargées tous les mois sous forme de fichiers zip au format brut à partir du [référentiel de la National Oceanic and Atmospheric Administration](https://www.ncdc.noaa.gov/orders/qclcd/). Pour cet exemple, téléchargez les données de mai 2007 à décembre 2012. Utilisez les fichiers de données de toutes les heures et le fichier `YYYYMMMstation.txt` dans tous les zips. 
 
 ## <a name="setting-up-the-spark-environment"></a>Configuration de l’environnement Spark
 
@@ -41,7 +41,7 @@ Utilisez le code suivant pour configurer l’environnement Spark :
 workDir        <- '~'  
 myNameNode     <- 'default' 
 myPort         <- 0
-inputDataDir   <- 'wasb://hdfs@myAzureAcccount.blob.core.windows.net'
+inputDataDir   <- 'wasb://hdfs@myAzureAccount.blob.core.windows.net'
 hdfsFS         <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 
 # create a persistent Spark session to reduce startup times 
@@ -535,7 +535,7 @@ Dans cet article, nous avons indiqué comment il est possible de combiner l’ut
 
 ## <a name="next-steps-and-more-information"></a>Étapes suivantes et informations supplémentaires
 
-- Pour plus d’informations sur l’utilisation de ML Server sur Apache Spark, consultez le [Guide de prise en main](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- Pour plus d’informations sur l’utilisation de ML Server sur Apache Spark, consultez le [Guide de prise en main](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
 
 - Pour obtenir des informations générales sur ML Server, consultez l’article [Bien démarrer avec R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node).
 

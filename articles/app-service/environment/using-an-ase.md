@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: eca6f7996b05e58614c8f15067dacabb13730396
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c332b20650bef2e341a935dacae835403dc56c9b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274715"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630663"
 ---
 # <a name="use-an-app-service-environment"></a>Utilisation d’un environnement App Service #
 
@@ -39,22 +39,22 @@ Azure App Service Environment est un déploiement d’Azure App Service dans un 
 
 Vous pouvez déployer un environnement ASE (ASEv1 et ASEv2) avec une adresse IP virtuelle externe ou interne pour accéder à l’application. Le déploiement avec une adresse IP virtuelle externe est communément appelé ASE externe. La version interne est appelée ASE d’équilibrage de charge interne, car elle utilise un équilibreur de charge interne (ILB). Pour plus d’informations sur l’environnement ASE d’équilibrage de charge interne, consultez [Create and Use an Internal Load Balancer with an App Service Environment][MakeILBASE] (Créer et utiliser un équilibreur de charge interne avec un environnement App Service).
 
-## <a name="create-a-web-app-in-an-ase"></a>Créer une application web dans un environnement ASE ##
+## <a name="create-an-app-in-an-ase"></a>Créer une application dans un ASE ##
 
-Pour créer une application web dans un environnement ASE, vous utilisez le même processus que lorsque vous la créez normalement, mais avec quelques petites différences. Lorsque vous créez un plan App Service :
+Pour créer une application dans un environnement ASE, vous utilisez le même processus que lorsque vous la créez normalement, mais avec quelques petites différences. Lorsque vous créez un plan App Service :
 
 - Au lieu de choisir un emplacement géographique dans lequel déployer votre application, vous choisissez un environnement ASE comme emplacement.
 - Tous les plans App Service créés dans un environnement ASE doivent être dans un niveau tarifaire Isolé.
 
 Si vous ne disposez pas d’un environnement ASE, vous pouvez en créer un en suivant les instructions de l’article [Create an App Service Environment][MakeExternalASE] (Créer un environnement App Service).
 
-Pour créer une application web dans un environnement ASE :
+Pour créer une application dans un ASE :
 
 1. Sélectionnez **Créer une ressource** > **Web + Mobile** > **Application web**.
 
-2. Entrez le nom de l’application web. Si vous avez déjà sélectionné un plan App Service dans un environnement ASE, le nom de domaine pour l’application reflète le nom de domaine de l’environnement ASE.
+2. Entrez un nom pour l’application. Si vous avez déjà sélectionné un plan App Service dans un environnement ASE, le nom de domaine pour l’application reflète le nom de domaine de l’environnement ASE.
 
-    ![Sélection du nom de l’application web][1]
+    ![Sélection du nom de l’application][1]
 
 1. Sélectionnez un abonnement.
 
@@ -80,10 +80,10 @@ Pour créer une application web dans un environnement ASE :
     ![Niveaux tarifaires isolés][2]
 
     > [!NOTE]
-    > Les applications web Linux et les applications web Windows ne peuvent pas se trouver dans le même plan App Service, mais elles peuvent être dans le même environnement ASE. 
+    > Les applications Linux et les applications Windows ne peuvent pas se trouver dans le même plan App Service, mais elles peuvent être dans le même environnement ASE. 
     >
 
-1. Sélectionnez **Créer**.
+2. Sélectionnez **Créer**.
 
 ## <a name="how-scale-works"></a>Fonctionnement de la mise à l’échelle ##
 
@@ -97,7 +97,7 @@ Dans un environnement ASE, vous pouvez monter en puissance jusqu’à 100 insta
 
 ## <a name="ip-addresses"></a>Adresses IP ##
 
-App Service a la possibilité d’allouer une adresse IP dédiée à une application. Cette fonctionnalité est disponible après la configuration d’un certificat SSL basé sur IP, comme indiqué ici : [Lier un certificat SSL existant à des applications web Azure][ConfigureSSL]. Toutefois, dans un environnement ASE, il existe une exception notable. Vous ne pouvez pas ajouter des adresses IP supplémentaires à utiliser pour un SSL basé sur IP dans un environnement ASE d’équilibrage de charge interne (ILB).
+App Service a la possibilité d’allouer une adresse IP dédiée à une application. Cette fonctionnalité est disponible après la configuration d’un certificat SSL basé sur IP, comme indiqué ici : [Lier un certificat SSL personnalisé existant à Azure App Service][ConfigureSSL]. Toutefois, dans un environnement ASE, il existe une exception notable. Vous ne pouvez pas ajouter des adresses IP supplémentaires à utiliser pour un SSL basé sur IP dans un environnement ASE d’équilibrage de charge interne (ILB).
 
 Dans un environnement ASEv1, vous devez allouer les adresses IP en tant que ressources avant de pouvoir les utiliser. Dans un environnement ASEv2, utilisez-les à partir de votre application comme vous le feriez dans l’App Service multilocataire. Il existe toujours une adresse de secours dans un environnement ASEv2, dans la limite de 30 adresses IP. Chaque fois que vous en utilisez une, une autre est ajoutée afin qu’une adresse soit toujours disponible si besoin. Un délai est nécessaire pour allouer une autre adresse IP, ce qui empêche d’ajouter des adresses IP de façon rapprochée.
 
@@ -187,6 +187,6 @@ Pour supprimer un environnement ASE :
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
-[AppDeploy]: ../app-service-deploy-local-git.md
+[AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

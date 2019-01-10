@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 5f85d01b20466fd72b802b4daaf001a7928717c4
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: b298836070a511421f9df25155ff1ee4422e61dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410276"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994366"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Résoudre les problèmes d’un cluster HDInsight défaillant ou lent
 
@@ -88,7 +88,7 @@ Pour ouvrir une liste de vues du service, sélectionnez **Vues Ambari** sur la p
 
 #### <a name="check-for-azure-service-outages"></a>Rechercher les interruptions de service Azure
 
-HDInsight s’appuie sur plusieurs services Azure. Il exécute des serveurs virtuels dans Azure HDInsight, stocke des données et des scripts sur le stockage Blob Azure ou sur Azure DataLake Store, et indexe des fichiers journaux dans le stockage Azure Table. Bien que rares, les perturbations de ces services peuvent entraîner des problèmes dans HDInsight. Si votre cluster subit des ralentissements ou défaillances inattendus, consultez le [Tableau de bord d’état Azure](https://azure.microsoft.com/status/). L’état de chaque service est indiqué par région. Vérifiez la région de votre cluster, mais également les régions de tous les services associés.
+HDInsight s’appuie sur plusieurs services Azure. Il exécute des serveurs virtuels dans Azure HDInsight, stocke des données et des scripts sur le stockage Blob Azure ou sur Azure Data Lake Storage, et indexe des fichiers journaux dans le stockage Table Azure. Bien que rares, les perturbation de ces services peuvent entraîner des problèmes dans HDInsight. Si votre cluster subit des ralentissements ou défaillances inattendus, consultez le [Tableau de bord d’état Azure](https://azure.microsoft.com/status/). L’état de chaque service est indiqué par région. Vérifiez la région de votre cluster, mais également les régions de tous les services associés.
 
 #### <a name="check-azure-service-usage-limits"></a>Rechercher les limites d’utilisation des services Azure
 
@@ -105,7 +105,7 @@ Si votre cluster subit des ralentissements, pensez à redémarrer vos services p
 
 ## <a name="step-3-view-your-clusters-health"></a>Étape 3 : Contrôler l’état d’intégrité de votre cluster
 
-Les clusters HDInsight sont composés de différents types de nœuds en cours d’exécution sur des instances de machine virtuelle. Chaque nœud peut être analysé pour identifier des problèmes de ressources insuffisantes, des problèmes de connectivité réseau et d’autres problèmes susceptibles de ralentir le cluster. Chaque cluster contient deux nœuds principaux et la plupart des types de cluster comportent à la fois des nœuds de travail et des nœuds de périphérie. 
+Les clusters HDInsight sont composées de différents types de nœuds en cours d’exécution sur des instances de machine virtuelle. Chaque nœud peut être analysé pour identifier des problèmes de ressources insuffisantes, des problèmes de connectivité réseau et d’autres problèmes susceptibles de ralentir le cluster. Chaque cluster contient deux nœuds principaux et la plupart des types de cluster comportent à la fois des nœuds de travail et des nœuds de périphérie. 
 
 Vous trouverez une description des différents nœuds utilisés par chaque type de cluster dans la section [Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -218,7 +218,7 @@ De nombreux types de fichiers journaux sont générés à partir des nombreux se
 
 ![Exemple de fichier journal HDInsight](./media/hdinsight-troubleshoot-failed-cluster/logs.png)
 
-* Les clusters HDInsight sont constitués de plusieurs nœuds, dont la plupart sont chargés d’exécuter les travaux soumis. Les travaux s’exécutent simultanément, mais les fichiers journaux peuvent uniquement afficher des résultats de façon linéaire. HDInsight exécute de nouvelles tâches, en mettant d’abord fin à celles qui ne parviennent pas à s’exécuter. Toutes ces activités sont consignées dans les fichiers `stderr` et `syslog`.
+* Les clusters HDInsight sont constitués de plusieurs nœuds, dont la plupart sont chargés d’exécuter les travaux soumis. Les travaux s’exécutent simultanément, mais les fichiers journaux peuvent uniquement afficher des résultats de façon linéaire. HDInsight exécute de nouvelles tâches, en mettant d’abord fin à celles qui ne parviennent pas à s’exécuter. Tous ces activités sont consignées dans les fichiers `stderr` et `syslog`.
 
 * Les fichiers journaux d’actions de script indiquent les erreurs ou les changements de configuration inattendus pendant le processus de création de votre cluster.
 

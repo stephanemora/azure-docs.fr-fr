@@ -1,5 +1,5 @@
 ---
-title: Fonctionnalités des données client d’Azure Key Vault | Microsoft Docs
+title: Fonctionnalités des données client d’Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Découvrez des informations sur les données client dans Key Vault
 services: key-vault
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/22/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: 807b8a17570dfdcefa07a42719b7b0b24e4f31d7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a8d9cecf12242e2ee51c28be4be6b203a433f302
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297160"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002533"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Fonctionnalités des données client d’Azure Key Vault
 

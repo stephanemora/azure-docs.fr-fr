@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 11/28/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 84924900403a4aa2a65143c65a0b26f2c95a1e5b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 00c4d750d0617d36ab476719ce31c8038065511c
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962645"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807208"
 ---
 # <a name="azure-stack-registration"></a>Inscription d’Azure Stack
 Vous pouvez inscrire le Kit de développement Azure Stack auprès d’Azure pour télécharger des éléments de la Place de marché à partir d’Azure et renvoyer des rapports de données commerciales à Microsoft. L’inscription est obligatoire pour prendre en charge les fonctionnalités complètes d’Azure Stack, notamment la syndication de la Place de marché. L’inscription est recommandée, car elle vous permet de tester des fonctionnalités Azure Stack importantes, telles que la syndication de la Place de marché et les rapports d’utilisation. Après avoir inscrit Azure Stack, l’utilisation est signalée à Azure Commerce. Vous pouvez la consulter sous l’abonnement utilisé pour l’inscription. Toutefois, l’utilisation du kit de développement Azure Stack n’est pas facturée à ses utilisateurs.
@@ -201,21 +201,21 @@ Vous pouvez également utiliser l’applet de commande **Get-Content** pour poin
 Une fois l’activation terminée, vous devez voir un message similaire à **Votre environnement a terminé le processus d’inscription et d’activation.**
 
 ## <a name="verify-the-registration-was-successful"></a>Vérifier que l’inscription a abouti
-Suivez ces étapes pour vérifier que l’inscription du kit ASDK auprès d’Azure **dans les environnements connectés** a abouti.
+
+Vous pouvez utiliser la vignette **Gestion des régions** pour vérifier que l’inscription Azure Stack a réussi. Cette vignette est disponible sur le tableau de bord par défaut du portail d’administration.
 
 1. Connectez-vous au [portail d’administration Azure Stack](https://adminportal.local.azurestack.external).
 
-2. Cliquez sur **Gestion de la Place de marché** > **Ajouter à partir d’Azure**.
+2. Dans le tableau de bord, sélectionnez **Gestion des régions**.
 
-    ![](media/asdk-register/2.PNG)
+    [ ![Vignette Gestion des régions](media/asdk-register/admin1sm.png "Vignette Gestion des régions") ](media/asdk-register/admin1.png#lightbox)
 
-3. Si une liste d’éléments disponibles dans Azure s’affiche, l’activation a réussi.
-
-    ![](media/asdk-register/3.PNG)
+3. Sélectionner **Propriétés**. Ce panneau affiche l’état et les détails de votre environnement. L’état peut être **Inscrit** ou **Non inscrit**. S’il est inscrit, il montre également l’ID d’abonnement Azure que vous avez utilisé pour inscrire votre instance Azure Stack ainsi que le groupe de ressources et le nom de l’inscription.
 
 ## <a name="move-a-registration-resource"></a>Déplacer une ressource d’inscription
 Le déplacement d’une ressource d’inscription entre des groupes de ressources sous le même abonnement **est** pris en charge. Pour plus d’informations sur le déplacement de ressources vers un nouveau groupe de ressources, voir [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Ajouter un élément marketplace Azure Stack](../azure-stack-marketplace.md)
+
+- [Ajouter un élément marketplace Azure Stack](../azure-stack-marketplace.md)

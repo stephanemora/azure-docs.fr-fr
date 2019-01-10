@@ -4,14 +4,14 @@ description: Répond aux questions fréquemment posées sur Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: snehaa
-ms.openlocfilehash: ebc4393341341b3b73165a166a650ae1a6f431ff
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 787e3f53cb75b33b03c29b61b319270fdf7a63ca
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257792"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975472"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Forum aux questions
 
@@ -48,12 +48,13 @@ Azure Migrate est un outil de planification de la migration et le planificateur 
 
 ### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Quelles sont les zones géographiques Azure prises en charge par Azure Migrate ?
 
-Azure Migrate prend actuellement en charge les États-Unis et Azure Government en tant que zones géographiques de projet. Même si vous ne pouvez créer des projets de migration que dans ces zones, vous pouvez toujours évaluer vos machines pour [plusieurs emplacements cible](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). La zone géographique du projet est uniquement utilisée pour stocker les métadonnées détectées.
+Azure Migrate prend actuellement en charge l’Europe, les États-Unis et Azure Government comme zones géographiques de projet. Même si vous ne pouvez créer des projets de migration que dans ces zones, vous pouvez toujours évaluer vos machines pour [plusieurs emplacements cible](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). La zone géographique du projet est uniquement utilisée pour stocker les métadonnées détectées.
 
 **Zone géographique** | **Emplacement de stockage des métadonnées**
 --- | ---
-États-Unis | USA Centre-Ouest ou USA Est
 Azure Government | Gouvernement américain - Virginie
+Europe | Europe Nord ou Europe Ouest
+États-Unis | USA Est ou USA Centre-Ouest
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Comment le site local se connecte-t-il à Azure Migrate ?
 

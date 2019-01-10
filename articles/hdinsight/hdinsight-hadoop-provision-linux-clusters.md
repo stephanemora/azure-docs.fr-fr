@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: e760b67c1b971613de6b21102687c8ffeb556ed8
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ce39b431adfd333db1e771913ed28881a193b327
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386874"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790830"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc.
 
@@ -97,7 +97,7 @@ Pour plus d’informations sur la création d’un cluster HDInsight joint au do
 Les clusters HDInsight vous permettent de configurer deux comptes d’utilisateur lors de la création :
 
 * Utilisateur HTTP : Le nom d’utilisateur par défaut est *admin*. Il utilise la configuration de base sur le portail Azure. Parfois, le nom par défaut est « Utilisateur du cluster ».
-* Utilisateur SSH (clusters Linux) : utilisé pour se connecter au cluster via SSH. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Utilisateur SSH (clusters Linux) : sert à se connecter au cluster à l’aide de SSH. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Le package de sécurité d’entreprise vous permet d’intégrer HDInsight à Active Directory et Apache Ranger. Plusieurs utilisateurs peuvent être créés à l’aide du package de sécurité d’entreprise.
 
@@ -107,12 +107,12 @@ Il n’est pas nécessaire de spécifier explicitement l’emplacement du cluste
 
 ## <a name="storage-endpoints-for-clusters"></a>Points de terminaison de stockage pour les clusters
 
-Bien qu’une installation locale de Hadoop utilise le système de fichiers distribués Hadoop (HDFS) pour le stockage sur le cluster, dans le cloud, vous utilisez des points de terminaison de stockage connectés au cluster. Les clusters HDInsight utilisent [Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md) ou des [Blobs dans Azure Storage](hdinsight-hadoop-use-blob-storage.md). L’utilisation du stockage Azure ou de Data Lake Store signifie que vous pouvez supprimer sans risque les clusters HDInsight utilisés pour le calcul tout en conservant vos données. 
+Bien qu’une installation locale de Hadoop utilise le système de fichiers distribués Hadoop (HDFS) pour le stockage sur le cluster, dans le cloud, vous utilisez des points de terminaison de stockage connectés au cluster. Les clusters HDInsight utilisent [Azure Data Lake Storage](hdinsight-hadoop-use-data-lake-store.md) ou des [objets blob dans Stockage Azure](hdinsight-hadoop-use-blob-storage.md). L’utilisation de Stockage Azure ou de Data Lake Storage signifie que vous pouvez supprimer sans risque les clusters HDInsight utilisés pour le calcul tout en conservant vos données. 
 
 > [!WARNING]  
 > L’utilisation d’un compte de stockage supplémentaire dans un autre emplacement que le cluster HDInsight n’est pas prise en charge.
 
-Lors de la configuration, pour le point de terminaison de stockage par défaut, spécifiez un conteneur blob d’un compte de stockage Azure ou d’un Data Lake Store. Le stockage par défaut contient les journaux des applications et du système. Vous pouvez éventuellement spécifier des comptes de stockage Azure supplémentaires et des comptes Data Lake Store auxquels le cluster peut accéder. Le cluster HDInsight et les comptes de stockage dépendants doivent être situés au même emplacement Azure.
+Lors de la configuration, pour le point de terminaison de stockage par défaut, vous spécifiez un conteneur blob d’un compte Stockage Azure ou Data Lake Storage. Le stockage par défaut contient les journaux des applications et du système. Vous pouvez éventuellement spécifier des comptes Stockage Azure supplémentaires et des comptes Data Lake Storage auxquels le cluster peut accéder. Le cluster HDInsight et les comptes de stockage dépendants doivent être situés au même emplacement Azure.
 
 ![Paramètres de stockage du cluster : Points de terminaison de stockage compatibles HDFS](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
 
@@ -247,7 +247,7 @@ Pour voir un exemple d’utilisation de deux types de clusters au sein d’un r�
 
 ## <a name="troubleshoot-access-control-issues"></a>Résoudre les problèmes de contrôle d’accès
 
-Si vous rencontrez des problèmes lors de la création de clusters HDInsight, reportez-vous aux [exigences de contrôle d’accès](hdinsight-administer-use-portal-linux.md#create-clusters).
+Si vous rencontrez des problèmes lors de la création de clusters HDInsight, reportez-vous aux [exigences de contrôle d’accès](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

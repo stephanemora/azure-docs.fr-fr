@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: 58d45036cac6ad985b7b1ffb2736a500fdcb5ce2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1efbd6bfb6f3bc3e5deae058b542f665b3153cdb
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251026"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794352"
 ---
 # <a name="deploy-a-configuration-server"></a>Déployer un serveur de configuration
 
@@ -97,7 +97,7 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 
 ### <a name="configure-settings"></a>Configurer les paramètres
 
-1. Dans l’Assistant Gestion de serveur de configuration, sélectionnez **Configurer la connectivité**, puis la carte d’interface réseau utilisé par le serveur de processus pour recevoir le trafic de réplication des machines virtuelles. Ensuite, sélectionnez **Enregistrer**. Vous ne pourrez pas modifier ce paramètre une fois qu’il aura été configuré.
+1. Dans l’Assistant Gestion de serveur de configuration, sélectionnez **Configurer la connectivité**, puis la carte d’interface réseau utilisé par le serveur de processus pour recevoir le trafic de réplication des machines virtuelles. Ensuite, sélectionnez **Enregistrer**. Vous ne pourrez pas modifier ce paramètre une fois qu’il aura été configuré. Il est fortement conseillé de ne pas modifier l’adresse IP d’un serveur de configuration. Vérifiez que l’adresse IP affectée au serveur de configuration est une adresse IP statique et pas une adresse IP DHCP.
 2. Dans **Sélectionner le coffre Recovery Services**, connectez-vous à Microsoft Azure et sélectionnez votre abonnement Azure ainsi que le groupe de ressources et le coffre souhaités.
 
     > [!NOTE]
@@ -150,7 +150,11 @@ Pour éviter toute interruption d’une réplication continue, assurez-vous que 
     Dans le **coffre Recovery Services**, **Gérer** > **Infrastructure Site Recovery** > **Serveurs de configuration**. Dans Serveurs, sélectionnez **Télécharger une clé d’inscription** pour télécharger le fichier d’informations d’identification du coffre.
 8. Puis-je cloner un serveur de configuration existant et l’utiliser pour l’orchestration de la réplication ?
 
-    **Non**, l’utilisation d’un composant de serveur de configuration cloné n’est pas prise en charge. 
+    **Non**, l’utilisation d’un composant de serveur de configuration cloné n’est pas prise en charge.
+
+9. Puis-je changer l’adresse IP du serveur de configuration ?
+
+    **Non**, il est fortement recommandé de ne pas changer l’adresse IP d’un serveur de configuration. Vérifiez que toutes les adresses IP affectées au serveur de configuration sont des adresses IP statiques et pas des adresses IP DHCP.
 
 ## <a name="troubleshoot-deployment-issues"></a>Résoudre les problèmes de déploiement
 

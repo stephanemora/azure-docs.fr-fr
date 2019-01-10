@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 12/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 4108355415d1230f98db36a4f83497de2fa848f7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2dcc72e0e3b9caef9ab01d9f754671cb0365a358
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185577"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608832"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plateformes et fonctionnalités prises en charge par Azure Security Center
 
@@ -30,7 +30,7 @@ La supervision de l’état de la sécurité et des recommandations sont disponi
 >
 >
 
-## <a name="supported-platforms"></a>Plateformes prises en charge 
+## <a name="platforms-that-support-the-data-collection-agent"></a>Plateformes prenant en charge l’agent de collecte de données 
 
 Cette section liste les plateformes sur lesquelles l’agent Azure Security Center peut s’exécuter et à partir desquelles il peut collecter des données.
 
@@ -43,6 +43,10 @@ Les systèmes d’exploitation Windows suivants sont pris en charge :
 * Windows Server 2012 R2
 * Windows Server 2016
 
+> [!NOTE]
+> L’intégration à Windows Defender ATP prend en charge seulement Windows Server 2012 R2 et Windows Server 2016.
+>
+>
 
 ### <a name="supported-platforms-for-linux-computers-and-vms"></a>Plateformes prises en charge pour les ordinateurs et machines virtuelles Linux
 Les systèmes d’exploitation Linux suivants sont pris en charge :
@@ -55,11 +59,6 @@ Les systèmes d’exploitation Linux suivants sont pris en charge :
 * Oracle Linux versions 5, 6 et 7.
 * Amazon Linux, des versions 2012.09 à 2017.
 * OpenSSL 1.1.0 n’est pris en charge que sur les plateformes x86_64 (64 bits).
-
-> [!NOTE]
-> L’analytique comportementale de machine virtuelle n’est pas encore disponible pour les systèmes d’exploitation Linux.
->
->
 
 ## <a name="vms-and-cloud-services"></a>Machines virtuelles et services cloud
 Les machines virtuelles en cours d’exécution dans un service cloud sont également prises en charge. Seuls les rôles de travail et web des services cloud en cours d’exécution dans des emplacements de production sont surveillés. Pour en savoir plus sur les services cloud, consultez [Vue d’ensemble d’Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).

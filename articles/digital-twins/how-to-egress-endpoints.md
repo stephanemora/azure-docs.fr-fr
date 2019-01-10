@@ -1,25 +1,71 @@
 ---
 title: Sortie et points de terminaison dans Azure Digital Twins | Microsoft Docs
-description: Instructions pour la création de points de terminaison avec Azure Digital Twins
+description: Instructions pour la création de points de terminaison avec Azure Digital Twins.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 12/31/2018
 ms.author: alinast
-ms.openlocfilehash: c94d29f16c011a9ff9951d064d7496d3a87f70ef
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636303"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994815"
 ---
 # <a name="egress-and-endpoints"></a>Sortie et points de terminaison
 
-Azure Digital Twins prend en charge le concept de **points de terminaison**. Chaque point de terminaison représente un répartiteur de message ou d’événement dans l’abonnement Azure. Les événements et les messages peuvent être envoyés aux rubriques Azure Event Hubs, Azure Event Grid et Azure Service Bus.
+Les *points de terminaison* Azure Digital Twins représentent un répartiteur de messages ou d’événements au sein d’un abonnement Azure. Les événements et les messages peuvent être envoyés aux rubriques Azure Event Hubs, Azure Event Grid et Azure Service Bus.
 
-Les événements sont envoyés aux points de terminaison selon les préférences de routage prédéfinies. L’utilisateur peut spécifier quel point de terminaison doit recevoir l’un des événements suivants : 
+Les événements sont routés aux points de terminaison selon les préférences de routage prédéfinies. Les utilisateurs spécifient les *types d’événements* que chaque point de terminaison peut recevoir.
+
+Pour plus d’informations sur les événements, le routage et les types d’événements consultez [Routage des événements et des messages dans Azure Digital Twins](./concepts-events-routing.md).
+
+## <a name="events"></a>Événements
+
+Les événements sont envoyés par des objets IoT (tels que les appareils et capteurs) pour être traités par des répartiteurs de messages et d’événements Azure. Les événements sont définis par la [référence de schéma d’événement Azure Event Grid](../event-grid/event-schema.md) suivante.
+
+```JSON
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "subject": "ExtendedPropertyKey",
+  "data": {
+    "SpacesToNotify": [
+      "3a16d146-ca39-49ee-b803-17a18a12ba36"
+    ],
+    "Id": "00000000-0000-0000-0000-000000000000",
+      "Type": "ExtendedPropertyKey",
+    "AccessType": "Create"
+  },
+  "eventType": "TopologyOperation",
+  "eventTime": "2018-04-17T17:41:54.9400177Z",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
+}
+```
+
+| Attribut | type | Description |
+| --- | --- | --- |
+| id | chaîne | Identificateur unique de l’événement. |
+| subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |
+| données | objet | Données d’événement spécifiques au fournisseur de ressources. |
+| eventType | chaîne | Un des types d’événements inscrits pour cette source d’événement. |
+| eventTime | chaîne | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
+| dataVersion | chaîne | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
+| metadataVersion | chaîne | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
+| rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
+
+Pour plus d’informations sur le schéma d’événement Event Grid :
+
+- Consultez la [référence de schéma d’événement Azure Event Grid](../event-grid/event-schema.md).
+- Lisez la [référence EventGridEvent du Kit de développement logiciel (SDK) Azure EventGrid Node.js](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
+
+## <a name="event-types"></a>Types d’événements
+
+Les types d’événements déterminent la nature de l’événement et sont définis dans le champ **eventType**. Les types d’événements disponibles sont indiqués dans la liste suivante :
 
 - TopologyOperation
 - UdfCustom
@@ -27,15 +73,11 @@ Les événements sont envoyés aux points de terminaison selon les préférences
 - SpaceChange
 - DeviceMessage
 
-Pour connaître les bases du routage d’événements et des types d’événements, reportez-vous à [Routage des événements et des messages](concepts-events-routing.md).
-
-## <a name="event-types-description"></a>Description de types d’événements
-
-Les formats de chaque type d’événement sont décrits dans les sections suivantes.
+Les formats d’événement de chaque type d’événement sont décrits en détail dans les sous-sections suivantes.
 
 ### <a name="topologyoperation"></a>TopologyOperation
 
-**TopologyOperation** s’applique au modifications de graphiques. La propriété **subject** spécifie le type d’objet concerné. Les types d’objets suivants peuvent déclencher cet événement : 
+**TopologyOperation** s’applique au modifications de graphiques. La propriété **subject** spécifie le type d’objet concerné. Les types d’objets suivants peuvent déclencher cet événement :
 
 - Appareil
 - DeviceBlobMetadata
@@ -86,7 +128,7 @@ Les formats de chaque type d’événement sont décrits dans les sections suiva
 
 ### <a name="udfcustom"></a>UdfCustom
 
-**UdfCustom** est un événement envoyé par une fonction définie par l’utilisateur. 
+**UdfCustom** est un événement envoyé par une fonction définie par l’utilisateur.
   
 > [!IMPORTANT]  
 > Cet événement doit être explicitement envoyé par la fonction définie par l’utilisateur.
@@ -195,10 +237,19 @@ Vous pouvez utiliser **DeviceMessage** pour spécifier une connexion **EventHub*
 
 ## <a name="configure-endpoints"></a>Configuration des points de terminaison
 
-La gestion des points de terminaison est effectuée via l’API Points de terminaison. Les exemples suivants illustrent la configuration des différents points de terminaison pris en charge. Faites particulièrement attention au tableau de types d’événements, car il définit le routage du point de terminaison :
+La gestion des points de terminaison est effectuée via l’API Points de terminaison.
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
+Les exemples suivants illustrent la configuration des différents points de terminaison pris en charge.
+
+>[!IMPORTANT]
+> Soyez attentif à l’attribut **eventTypes**. Il définit quels types d’événements sont gérés par le point de terminaison, ce qui détermine leurs routages.
+
+Une requête HTTP POST authentifiée sur
 
 ```plaintext
-POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
+YOUR_MANAGEMENT_API_URL/endpoints
 ```
 
 - Itinéraire vers les types d’événements **SensorChange**, **SpaceChange**, et **TopologyOperation** :

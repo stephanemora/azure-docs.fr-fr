@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 39c4a6108f4a5133e2c77904dcd67bf235801956
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 8b5b56e39e1b9830d5b998ace2a384d6878cd510
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265132"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041813"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Sauvegarde en ligne et restauration de données à la demande dans Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Avec Azure Cosmos DB, vos données et leurs sauvegardes sont rendues hautement r
 Les sauvegardes sont effectuées sans affecter les performances ou la disponibilité de votre application. Azure Cosmos DB effectue la sauvegarde des données en arrière-plan sans consommer de débit (RU) provisionné supplémentaire et sans affecter les performances ou la disponibilité de votre base de données.
 
 Azure Cosmos DB stocke les sauvegardes automatiques dans Stockage Blob Azure, tandis que les données réelles résident localement dans Azure Cosmos DB. Pour garantir une latence faible, la capture instantanée de votre sauvegarde est stockée dans le stockage Blob Azure dans la même région que la région d’écriture actuelle (ou l’une des régions d’écriture, si vous avez une configuration multimaître) de votre compte de base de données Cosmos DB. Pour assurer la résilience contre les sinistres régionaux, chaque capture instantanée de vos données de sauvegarde dans le stockage blob Azure est à nouveau répliqué vers une autre région par le biais du stockage géoredondant (GRS). La région vers laquelle la sauvegarde est répliquée dépend de votre région source et de la paire régionale associée à la région source. Pour plus d’informations, consultez la [liste des paires de régions Azure géoredondantes](../best-practices-availability-paired-regions.md). Vous ne pouvez pas accéder directement à cette sauvegarde. Azure Cosmos DB utilise cette sauvegarde uniquement si une restauration de sauvegarde est lancée.
-L’image suivante montre comment un conteneur Azure Cosmos avec les trois partitions de ressources principales dans la région USA Ouest est sauvegardé dans un compte Stockage Blob Azure distant dans la région USA Ouest, puis répliqué dans la région USA Est :
+L’image suivante montre comment un conteneur Azure Cosmos avec les trois partitions physiques principales dans la région USA Ouest est sauvegardé dans un compte Stockage Blob Azure distant dans la région USA Ouest, puis répliqué dans la région USA Est :
 
 ![Sauvegardes complètes périodiques de toutes les entités Cosmos DB dans Stockage Azure GRS](./media/online-backup-and-restore/automatic-backup.png)
 

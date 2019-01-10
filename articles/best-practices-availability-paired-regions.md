@@ -1,25 +1,25 @@
 ---
-title: 'Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure | Microsoft Docs'
+title: 'Continuité et reprise d’activité : Régions jumelées Azure | Microsoft Docs'
 description: Apprenez-en plus sur les paires régionales d’Azure, afin d’assurer la résilience des applications en cas de défaillance des centres de données.
 author: rayne-wiselman
 ms.service: multiple
 ms.topic: article
-ms.date: 07/03/2018
+ms.date: 12/23/2018
 ms.author: raynew
-ms.openlocfilehash: 983a551da26e08797b2a65f609cff17954a52828
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d27db03977b84002b59d58327af7d14fbdc713c2
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954808"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792311"
 ---
-# <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure
+# <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuité et reprise d’activité : Régions jumelées Azure
 
 ## <a name="what-are-paired-regions"></a>Régions jumelées : définition
 
 Azure fonctionne dans plusieurs zones géographiques à travers le monde. Une zone géographique Azure est une zone définie du monde contenant au moins une région Azure. Une région Azure est une zone géographique contenant un ou plusieurs centres de données.
 
-Chaque région Azure est associée à une autre région au sein de la même région géographique, constituant ainsi des paires régionales. La seule exception est le sud du Brésil qui est associé à une zone en dehors de sa zone géographique. Pour les paires de régions, Azure sérialise les mises à jour de plateforme (maintenance planifiée) pour que les deux régions soient mises à jour l’une après l’autre, et non en même temps. En outre, en cas de panne affectant plusieurs régions, au moins l’une des régions de chaque paire est prioritaire pour la récupération.
+Chaque région Azure est associée à une autre région au sein de la même région géographique, constituant ainsi des paires régionales. La seule exception est le sud du Brésil qui est associé à une zone en dehors de sa zone géographique. Pour les paires de régions, Azure sérialise les mises à jour de plateforme (maintenance planifiée) pour que les deux régions soient mises à jour l’une après l’autre, et non en même temps. En cas de panne affectant plusieurs régions, au moins l’une des régions de chaque paire est prioritaire pour la récupération.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
@@ -30,15 +30,15 @@ Figure 1 – Paires régionales Azure
 | Asie |Est de l'Asie |Asie du Sud-Est |
 | Australie |Est de l’Australie |Australie Sud-Est |
 | Australie |Centre de l’Australie |Centre de l’Australie 2 |
-| Brésil |Sud du Brésil 2 |USA Centre Sud |
+| Brésil |Brésil Sud |USA Centre Sud |
 | Canada |Centre du Canada |Est du Canada |
 | Chine |Chine du Nord |Chine orientale|
-| Chine |Chine du Nord 2 |Chine orientale 2|
+| Chine |Chine Nord 2 |Chine orientale 2|
 | Europe |Europe du Nord |Europe Ouest |
 | France |France Centre|France Sud|
 | Allemagne |Centre de l’Allemagne |Nord-Est de l’Allemagne |
 | Inde |Inde centrale |Inde du Sud |
-| Inde |Inde de l'Ouest (1) |Inde du Sud |
+| Inde |Inde Ouest |Inde Sud |
 | Japon |Est du Japon |Ouest du Japon |
 | Corée du Sud |Centre de la Corée |Corée du Sud |
 | Amérique du Nord |Est des États-Unis |États-Unis de l’Ouest |
@@ -48,15 +48,15 @@ Figure 1 – Paires régionales Azure
 | Royaume-Uni |Ouest du Royaume-Uni |Sud du Royaume-Uni |
 | Ministère de la défense des États-Unis |Est des États-Unis – US DoD |Centre des États-Unis – US DoD |
 | Gouvernement américain |Gouvernement des États-Unis – Arizona |Gouvernement des États-Unis – Texas |
-| Gouvernement américain |Gouvernement des États-Unis – Iowa (3) |Gouvernement américain - Virginie |
-| Gouvernement américain |Gouvernement des États-Unis – Virginie (4) |Gouvernement des États-Unis – Texas |
+| Gouvernement américain |US Gov Iowa |Gouvernement américain - Virginie |
+| Gouvernement américain |Gouvernement américain - Virginie |Gouvernement des États-Unis – Texas |
 
 Tableau 1 - Mise en correspondance des paires régionales Azure
 
-- (1) L’Inde de l’Ouest est différente, car elle est jumelée avec une autre région dans une seule direction. La région secondaire de la région Inde de l’Ouest est Inde du Sud, mais la région secondaire de la région Inde du Sud est Centre de l’Inde.
-- (2) La région Sud du Brésil est unique, car elle est jumelée avec une région située en dehors de sa propre zone géographique. La région secondaire de la région Sud du Brésil est Sud-Centre des États-Unis mais la région secondaire de la région Sud-Centre des États-Unis n’est pas Sud du Brésil.
-- (3) La région secondaire de la région Gouvernement des États-Unis– Iowa est la région Gouvernement des États-Unis – Virginie, mais la région secondaire de la région Gouvernement des États-Unis – Virginie n’est pas la région Gouvernement des États-Unis – Iowa.
-- (4) La région secondaire de la région Gouvernement des États-Unis – Virginie est la région Gouvernement des États-Unis – Texas, mais la région secondaire de la région Gouvernement des États-Unis – Texas n’est pas la région Gouvernement des États-Unis – Virginie.
+- La région Inde Ouest est différente, car elle est jumelée avec une autre région dans une seule direction. La région secondaire de la région Inde de l’Ouest est Inde du Sud, mais la région secondaire de la région Inde du Sud est Centre de l’Inde.
+- La région Brésil Sud est unique, car elle est jumelée avec une région située en dehors de sa propre zone géographique. La région secondaire de la région Brésil Sud est USA Centre Sud mais la région secondaire de la région USA Centre Sud n’est pas Brésil Sud.
+- La région secondaire d’US Gov Iowa est US Gov Virginie, mais la région secondaire d’US Gov Virginie n’est pas US Gov Iowa.
+- La région secondaire d’US Gov Virginie est US Gov Texas, mais la région secondaire d’US Gov Texas n’est pas US Gov Virginie.
 
 
 Nous vous recommandons de configurer la continuité d’activité et reprise d’activité (BCDR) dans les paires régionales pour tirer parti des stratégies d’isolation et de disponibilité Azure. Pour les applications qui prennent en charge plusieurs régions actives, nous vous recommandons d’utiliser les deux régions d’une paire lorsque cela est possible. Cela garantit la disponibilité optimale des applications, ainsi qu’un temps de récupération réduit en cas de sinistre. 
@@ -77,7 +77,7 @@ Conformément à la figure 2.
 
 ![SQL Azure](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – avec la géoréplication dans Azure SQL Database, vous pouvez configurer une réplication asynchrone des transactions vers toute région du monde. En revanche, nous vous recommandons de déployer ces ressources dans une région couplée pour la plupart des scénarios de récupération d’urgence. Pour plus d’informations, consultez la rubrique concernant la [géoréplication dans la base de données SQL Azure](sql-database/sql-database-geo-replication-overview.md).
 
-![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png)**Azure Resource Manager** - Resource Manager offre par nature une isolation logique des composants de gestion de service entre les régions. Cela signifie que des échecs logiques dans une région sont moins susceptibles d’avoir un impact sur une autre.
+![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png)**Azure Resource Manager** - Resource Manager offre par nature une isolation logique des composants entre les régions. Cela signifie que des échecs logiques dans une région sont moins susceptibles d’avoir un impact sur une autre.
 
 ## <a name="benefits-of-paired-regions"></a>Avantages des régions jumelées
 Conformément à la figure 2.  

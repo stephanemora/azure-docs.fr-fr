@@ -1,20 +1,17 @@
 ---
 title: Vue d’ensemble de la continuité d’activité avec Azure Database pour MySQL
 description: Vue d’ensemble de la continuité d’activité avec Azure Database pour MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 8d0a8ac1aedcac26f6ac67e0e1f2a9d265a9b576
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9b9e2362553eb93cbb111b70cf29a1cc1524e77e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714341"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554535"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>Vue d’ensemble de la continuité d’activité avec Azure Database pour MySQL
 
@@ -49,7 +46,7 @@ Vous pouvez attendre que votre serveur redevienne disponible une fois la panne r
 L’autre solution consiste à utiliser la fonctionnalité de géorestauration d’Azure Database pour MySQL qui restaure le serveur à partir de sauvegardes géoredondantes. Ces sauvegardes sont accessibles même en cas de non-connexion de la région dans laquelle votre serveur est hébergé. Vous pouvez effectuer une restauration à partir de ces sauvegardes dans n’importe quelle autre région et remettre votre serveur en ligne.
 
 > [!IMPORTANT]
-> La géorestauration n’est possible que si vous avez provisionné le serveur avec le stockage de sauvegardes géoredondantes. Si vous souhaitez basculer des sauvegardes redondantes localement aux sauvegardes géoredondantes pour un serveur existant, vous devez effectuer une copie de sauvegarde de votre serveur existant en utilisant pg_dump et la restaurer vers un serveur nouvellement créé configuré avec des sauvegardes géoredondantes.
+> La géorestauration n’est possible que si vous avez provisionné le serveur avec le stockage de sauvegardes géoredondantes. Si vous souhaitez basculer des sauvegardes redondantes localement aux sauvegardes géoredondantes pour un serveur existant, vous devez effectuer une image mémoire de votre serveur existant en utilisant mysqldump et la restaurer vers un serveur nouvellement créé configuré avec des sauvegardes géoredondantes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

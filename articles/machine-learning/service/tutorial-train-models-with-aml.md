@@ -11,18 +11,18 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 117934c83d54cb5454f476ffb3b1a1437c0fd30b
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 5008aebfea8fc284b1b85797f0523bc4fb11c7bd
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811475"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075938"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutoriel : Effectuer l’apprentissage d’un modèle de classification d’images avec Azure Machine Learning service
 
 Dans ce tutoriel, vous allez entraîner un modèle Machine Learning à la fois localement et sur des ressources de calcul distantes. Vous utilisez le workflow de déploiement et d’entraînement pour Azure Machine Learning service dans un bloc-notes Jupyter Python. Vous pourrez ensuite utiliser le bloc-notes en tant que modèle pour entraîner votre propre modèle Machine Learning avec vos propres données. Ce tutoriel est le **premier d’une série de deux**.  
 
-Ce tutoriel entraîne une régression logistique simple à l’aide du jeu de données [MNIST](https://yann.lecun.com/exdb/mnist/) et de [scikit-learn](https://scikit-learn.org) avec Azure Machine Learning service. MNIST est un jeu de données populaire composé de 70 000 images en nuances de gris. Chaque image est un chiffre manuscrit de 28 x 28 pixels, représentant un nombre de zéro à neuf. L’objectif est de créer un classifieur multiclasse pour identifier le chiffre représenté par une image donnée. 
+Ce tutoriel entraîne une régression logistique simple à l’aide du jeu de données [MNIST](http://yann.lecun.com/exdb/mnist/) et de [scikit-learn](https://scikit-learn.org) avec Azure Machine Learning service. MNIST est un jeu de données populaire composé de 70 000 images en nuances de gris. Chaque image est un chiffre manuscrit de 28 x 28 pixels, représentant un nombre de zéro à neuf. L’objectif est de créer un classifieur multiclasse pour identifier le chiffre représenté par une image donnée. 
 
 Découvrez comment effectuer les actions suivantes :
 
@@ -247,9 +247,9 @@ Vous pouvez maintenant étendre ce modèle simple en générant un modèle avec 
 
 Pour cette tâche, envoyez le travail au cluster d’entraînement distant défini précédemment. Pour soumettre un travail, vous effectuez les étapes suivantes :
 * Créer un répertoire
-* Créer un script d’entraînement
+* Créez un script d’entraînement.
 * Créer un objet estimateur
-* Envoyer le travail
+* Envoyez le travail.
 
 ### <a name="create-a-directory"></a>Créer un répertoire
 

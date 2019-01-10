@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 2d58a39efca8733902d157083489e59bf22ef161
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a7b91bfdc616e19fde9f74246d05cf14ecbd335e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002278"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117263"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Supervision continue avec Azure Monitor
 
@@ -32,9 +32,9 @@ Cet article décrit les étapes spécifiques de l’utilisation d’Azure Monito
 Afin d’obtenir l’observabilité sur l’ensemble de votre environnement, vous devez activer la supervision sur tous vos services et applications web. Vous pourrez ainsi facilement visualiser les transactions et connexions de bout en bout de tous les composants.
 
 - [Azure DevOps Projects](../devops-project/overview.md) vous offre une expérience simplifiée avec votre code et dépôt Git existants, mais vous pouvez choisir d’utiliser un des exemples d’application pour créer un pipeline d’intégration continue (CI) et de déploiement continu (CD) vers Azure.
-- La [supervision continue dans votre pipeline de mise en production DevOps](../application-insights/app-insights-vsts-continuous-monitoring.md) vous permet de réguler ou de restaurer votre déploiement en fonction des données de supervision.
+- La [supervision continue dans votre pipeline de mise en production DevOps](../azure-monitor/app/continuous-monitoring.md) vous permet de réguler ou de restaurer votre déploiement en fonction des données de supervision.
 - [Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md) vous permet d’instrumenter une application .NET dynamique sur Windows avec Azure Application Insights, sans avoir besoin de modifier ou de redéployer votre code.
-- Si vous avez accès au code de votre application, activez la supervision complète avec [Application Insights](../application-insights/app-insights-overview.md) en installant le kit SDK Azure Monitor Application Insights pour [.NET](../application-insights/quick-monitor-portal.md), [Java ](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md) ou d’[autres langages de programmation](../azure-monitor/app/platforms.md). Vous pouvez alors spécifier des événements, métriques ou vues de page personnalisés qui correspondent à votre application et à votre activité.
+- Si vous avez accès au code de votre application, activez la supervision complète avec [Application Insights](../azure-monitor/app/app-insights-overview.md) en installant le kit SDK Azure Monitor Application Insights pour [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java ](../azure-monitor/learn/java-quick-start.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md) ou d’[autres langages de programmation](../azure-monitor/app/platforms.md). Vous pouvez alors spécifier des événements, métriques ou vues de page personnalisés qui correspondent à votre application et à votre activité.
 
 
 
@@ -64,7 +64,7 @@ L’intégration continue / le déploiement continu vous donne la possibilité d
 
 - Utilisez [Azure Pipelines](/azure/devops/pipelines) pour implémenter un déploiement continu et automatiser votre processus en entier, de la validation de code à la production, selon vos tests CI/CD.
 - Utilisez [Quality Gates](/devops/pipelines/release/approvals/gates) pour intégrer la supervision à votre prédéploiement ou post-déploiement. Vous êtes ainsi assuré de respecter les métriques d’intégrité/de performances clés (KPI) tandis que vos applications passent du développement en production, et qu’aucune différence dans la mise à l’échelle ou l’environnement d’infrastructure n’a d’impact négatif sur vos KPI.
-- [Tenez à jour des instances de supervision distinctes](../application-insights/app-insights-separate-resources.md) entre vos différents environnements de déploiement, tels que le développement, les tests, le contrôle de validité et la production. Les données collectées sont ainsi pertinentes sur l’ensemble de l’infrastructure et des applications associées. Si vous devez mettre en corrélation des données entre différents environnements, vous pouvez utiliser des [graphiques multi-ressources dans Metrics Explorer](../azure-monitor/platform/metrics-charts.md) ou créer des [requêtes inter-ressources dans Log Analytics](log-query/cross-workspace-query.md).
+- [Tenez à jour des instances de supervision distinctes](../azure-monitor/app/separate-resources.md) entre vos différents environnements de déploiement, tels que le développement, les tests, le contrôle de validité et la production. Les données collectées sont ainsi pertinentes sur l’ensemble de l’infrastructure et des applications associées. Si vous devez mettre en corrélation des données entre différents environnements, vous pouvez utiliser des [graphiques multi-ressources dans Metrics Explorer](../azure-monitor/platform/metrics-charts.md) ou créer des [requêtes inter-ressources dans Log Analytics](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Créer des alertes actionnables avec des actions
@@ -79,17 +79,17 @@ Un aspect essentiel de la supervision est la notification des administrateurs à
 ## <a name="prepare-dashboards-and-workbooks"></a>Préparer des tableaux de bord et des classeurs
 Le fait de veiller à ce que votre développement et vos opérations aient accès à la même télémétrie et aux mêmes outils leur permet d’afficher des modèles dans tout votre environnement, et de réduire les temps de détection moyen (MTTD) et temps de restauration moyen (MTTR).
 
-- Préparez des [tableaux de bord personnalisés](../application-insights/app-insights-tutorial-dashboards.md) en fonction des journaux et métriques communs des différents rôles de votre organisation. Les tableaux de bord peuvent combiner des données provenant de toutes les ressources Azure.
-- Préparez des [classeurs](../application-insights/app-insights-usage-workbooks.md) pour garantir le partage des connaissances entre le développement et les opérations. Ils peuvent être organisés sous forme de rapports dynamiques contenant des graphiques de métrique et des requêtes de journal, ou même sous forme de guides de résolution des problèmes, conçus par des développeurs aidant le support technique ou les opérations à régler des problèmes de base.
+- Préparez des [tableaux de bord personnalisés](../azure-monitor/learn/tutorial-app-dashboards.md) en fonction des journaux et métriques communs des différents rôles de votre organisation. Les tableaux de bord peuvent combiner des données provenant de toutes les ressources Azure.
+- Préparez des [classeurs](../azure-monitor/app/usage-workbooks.md) pour garantir le partage des connaissances entre le développement et les opérations. Ils peuvent être organisés sous forme de rapports dynamiques contenant des graphiques de métrique et des requêtes de journal, ou même sous forme de guides de résolution des problèmes, conçus par des développeurs aidant le support technique ou les opérations à régler des problèmes de base.
 
 ## <a name="continuously-optimize"></a>Optimiser en continu
  La supervision est un des aspects fondamentaux de la philosophie très répandue Construire-Mesurer-Apprendre ; elle recommande le suivi en continu des KPI et des métriques de comportement d’utilisateur, pour ensuite s’efforcer de les optimiser par la planification d’itérations. Azure Monitor vous permet de collecter des journaux et des métriques en rapport avec votre activité, et d’ajouter de nouveaux points de données dans le déploiement suivant, en fonction des besoins.
 
-- Utilisez les outils dans Application Insights pour [suivre le comportement et l’engagement des utilisateurs finaux](../application-insights/app-insights-tutorial-users.md).
-- Utilisez [Analyse d’impact](../application-insights/app-insights-usage-impact.md) pour vous aider à classer par ordre de priorité les zones sur lesquelles se concentrer pour mener à d’importants KPI.
+- Utilisez les outils dans Application Insights pour [suivre le comportement et l’engagement des utilisateurs finaux](../azure-monitor/learn/tutorial-users.md).
+- Utilisez [Analyse d’impact](../azure-monitor/app/usage-impact.md) pour vous aider à classer par ordre de priorité les zones sur lesquelles se concentrer pour mener à d’importants KPI.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrir les différents composants d’[Azure Monitor](overview.md).
-- [Ajouter la supervision continue](../application-insights/app-insights-vsts-continuous-monitoring.md) à votre pipeline de mise en production.
+- [Ajouter la supervision continue](../azure-monitor/app/continuous-monitoring.md) à votre pipeline de mise en production.

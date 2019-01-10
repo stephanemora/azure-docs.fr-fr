@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 61cefe762b639dcc58c2e10fc845dd9729cb2cb2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4fcb692d7189c84e32f55995538ffc692cb67dd6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078230"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064710"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Liste de contrôle pour la fonctionnalité de licence Azure Active Directory Premium P2
 
@@ -84,7 +84,7 @@ Ce guide suppose que vous avez des licences Azure AD Premium P2, Enterprise Mobi
 - Gérer le cycle de vie utilisateur de façon globale
    - Azure AD dispose d’une approche pour la gestion du cycle de vie des identités
    - Supprimer les étapes manuelles du cycle de vie des comptes de vos employés, pour vous prémunir contre des accès non autorisés :
-      - Synchronisez des identités depuis votre source fidèle (système HR) vers Azure AD. lien vers les systèmes HR pris en charge)
+      - Synchronisez des identités depuis votre source fidèle (système HR) vers Azure AD.
       - [Utilisez des groupes dynamiques pour affecter automatiquement des utilisateurs à des groupes en fonction de leurs attributs dans HR (ou votre source fidèle), tels que le département, le titre, la région, et autres.](../users-groups-roles/groups-dynamic-membership.md)
       - [Utilisez l’approvisionnement de gestion d’accès basé sur un groupe pour approvisionner automatiquement des utilisateurs pour les applications SaaS.](../manage-apps/what-is-access-management.md)
 

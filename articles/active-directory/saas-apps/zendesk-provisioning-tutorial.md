@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: d8d6df221a8c520cea5e6e938447ffd881e7374c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7df4cb5e988b4037675d5bf1c45ee103d5939568
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322770"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999320"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Didacticiel : Configurer Zendesk pour le provisionnement automatique d’utilisateurs
 
@@ -168,6 +168,7 @@ Pour plus d’informations sur la lecture des journaux d’approvisionnement Azu
 
 ## <a name="connector-limitations"></a>Limitations du connecteur
 * Zendesk prend en charge l’utilisation de groupes pour les utilisateurs avec les rôles Agent uniquement. Pour plus d’informations, consultez la [documentation de Zendesk](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups).
+* Quand un rôle personnalisé est affecté à un utilisateur et/ou groupe, le service de provisionnement automatique d’utilisateurs Azure AD affecte également le rôle par défaut **Agent**. Seuls les **Agents** peuvent recevoir un rôle personnalisé. Pour plus d’informations, reportez-vous à la [documentation sur les API Zendesk](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests).  
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

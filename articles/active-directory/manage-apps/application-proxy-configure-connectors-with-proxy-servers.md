@@ -2,25 +2,21 @@
 title: Travailler avec des serveurs proxy locaux existants et Azure AD | Microsoft Docs
 description: Explique comment travailler avec des serveurs proxy locaux existants.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.custom: it-pro
-ms.openlocfilehash: 06df705aabce06c37f04de3fb5046d822f9f981e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6409b9313aa9b036e24ea50435659b3653ac01e0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404951"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720099"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Travailler avec des serveurs proxy locaux existants
 
@@ -73,7 +69,7 @@ Conséquence de la présence seule de trafic sortant, il est inutile de configur
 >[!NOTE]
 >Le proxy d’application ne prend pas en charge l’authentification auprès d’autres proxys. Les comptes du service réseau de mise à jour/connecteur doivent être en mesure de se connecter au proxy sans avoir à se connecter avec l’authentification.
 
-### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>Étape 1 : Configurer le connecteur et les services liés pour passer par le proxy sortant
+### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>Étape 1 : Configurer le connecteur et les services associés pour passer par le proxy sortant
 
 Si WPAD est activé dans l’environnement et correctement configuré, le connecteur détecte automatiquement le serveur proxy sortant et tente de l’utiliser. Toutefois, vous pouvez configurer explicitement le connecteur pour passer par un proxy sortant.
 
@@ -98,7 +94,7 @@ Pour ce faire, modifiez le fichier C:\Program Files\Microsoft AAD App Proxy Conn
 
 Configurez ensuite le service de mise à jour du connecteur pour utiliser le proxy en apportant une modification similaire au fichier C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
 
-### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>Étape 2 : Configurer le serveur proxy pour autoriser le passage du trafic à partir du connecteur et des services connexes
+### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>Étape 2 : Configurer le serveur proxy pour autoriser le passage du trafic à partir du connecteur et des services associés
 
 Il y a quatre aspects à prendre en compte au niveau du proxy sortant :
 * Règles sortantes du proxy
@@ -107,15 +103,16 @@ Il y a quatre aspects à prendre en compte au niveau du proxy sortant :
 * Inspection SSL
 
 #### <a name="proxy-outbound-rules"></a>Règles sortantes du proxy
-Autorisez l’accès aux points de terminaison suivants pour l’accès au service de connecteur :
+Autorisez l'accès aux URL suivantes :
 
-* * .msappproxy.net
-* *.servicebus.windows.net
+| URL | Utilisation |
+| --- | --- |
+| \*.msappproxy.net<br>\*.servicebus.windows.net | Communication entre le connecteur et le service cloud Proxy d'application |
+| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure utilise ces URL pour vérifier les certificats |
+| login.windows.net<br>login.microsoftonline.com | Le connecteur utilise ces URL lors du processus d'inscription. |
 
-Pour l’inscription initiale, autorisez l’accès aux points de terminaison suivants :
+Si votre pare-feu ou votre proxy autorise la mise en liste verte de DNS, vous pouvez y placer les connexions à \*.msappproxy.net et \*.servicebus.windows.net. Si ce n’est pas le cas, vous devez autoriser l’accès aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653). Ces dernières sont mises à jour chaque semaine.
 
-* login.windows.net
-* login.microsoftonline.com
 
 Si vous ne pouvez pas autoriser la connectivité par le nom de domaine complet et devez spécifier des plages d’adresses IP à la place, utilisez ces options :
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 01/02/2019
 ms.author: yushwang
-ms.openlocfilehash: a232ac111974444848aec82f3c7ab6236f82ac03
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 7545000e0dda959195d3669da877a77c5bedea40
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037092"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002057"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ sur la passerelle VPN
 
@@ -30,6 +30,10 @@ Oui.
 
 Vous pouvez vous connecter à plusieurs sites à l'aide de Windows PowerShell et des API REST Azure. Consultez la rubrique FAQ sur la [Connectivité multisite et de réseau virtuel à réseau virtuel](#V2VMulti) .
 
+### <a name="is-there-an-additional-cost-for-setting-up-a-vpn-gateway-as-active-active"></a>La configuration d’une passerelle VPN en mode actif-actif engendre-t-elle des coûts supplémentaires ?
+
+ Non. 
+
 ### <a name="what-are-my-cross-premises-connection-options"></a>Quelles sont mes options de connexion entre différents locaux ?
 
 Les connexions intersites suivantes sont prises en charge :
@@ -38,7 +42,7 @@ Les connexions intersites suivantes sont prises en charge :
 * Point à site : connexion VPN sur SSTP (Secure Socket Tunneling Protocol) ou IKE v2. Cette connexion ne nécessite pas un périphérique VPN. Pour plus d’informations, consultez [Configuration d’une connexion point à site à un réseau virtuel à l’aide du portail Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * Réseau virtuel à réseau virtuel : ce type de connexion est identique à une configuration site à site. La connexion de réseau virtuel à réseau virtuel est une connexion VPN sur IPsec (IKE v1 et IKE v2). Cette connexion ne nécessite pas un périphérique VPN. Pour plus d’informations, consultez [Configurer une connexion de réseau virtuel à réseau virtuel à l’aide du portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * Multisite : il s’agit d’une variante d’une configuration site à site qui vous permet de connecter plusieurs sites locaux à un réseau virtuel. Pour plus d’informations, consultez [Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
-* ExpressRoute : ExpressRoute est une connexion directe à Azure à partir de votre WAN, pas une connexion VPN qui passe par l’Internet public. Pour plus d’informations, consultez [Vue d’ensemble technique d’ExpressRoute](../expressroute/expressroute-introduction.md) et la [FAQ ExpressRoute](../expressroute/expressroute-faqs.md).
+* ExpressRoute : ExpressRoute est une connexion privée à Azure à partir de votre WAN, pas une connexion VPN qui passe par l’Internet public. Pour plus d’informations, consultez [Vue d’ensemble technique d’ExpressRoute](../expressroute/expressroute-introduction.md) et la [FAQ ExpressRoute](../expressroute/expressroute-faqs.md).
 
 Pour plus d’informations sur les connexions à la passerelle VPN, consultez [À propos de la passerelle VPN](vpn-gateway-about-vpngateways.md).
 
@@ -65,7 +69,7 @@ Les passerelles basées sur des stratégies implémentent des VPN basés sur des
 Les passerelles basées sur des itinéraires implémentent les VPN basés sur des itinéraires. Les VPN basés sur l'itinéraire utilisent des « itinéraires » dans l'adresse IP de transfert ou la table de routage pour acheminer des paquets dans leurs interfaces de tunnel correspondantes. Les interfaces de tunnel chiffrent ou déchiffrent ensuite les paquets se trouvant dans et hors des tunnels. La stratégie ou le sélecteur de trafic pour les VPN basés sur l'itinéraire sont configurés comme universels (ou en caractères génériques).
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Puis-je mettre à jour ma passerelle VPN basée sur une stratégie en passerelle VPN basée sur l’itinéraire ?
-Non. Vous ne pouvez pas modifier le type de passerelle de réseau virtuelle Azure. La passerelle doit être supprimée et recréée. Le processus dure environ 60 minutes. Ni l’adresse IP de la passerelle ni la clé prépartagée (PSK) ne sont conservées.
+ Non. Vous ne pouvez pas modifier le type de passerelle de réseau virtuelle Azure. La passerelle doit être supprimée et recréée. Le processus dure environ 60 minutes. Ni l’adresse IP de la passerelle ni la clé prépartagée (PSK) ne sont conservées.
 1. Supprimez toutes connexions associées à la passerelle que vous comptez supprimer.
 2. Supprimez la passerelle :
 * [Portail Azure](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -81,15 +85,15 @@ Lorsque vous créez le sous-réseau de passerelle, vous spécifiez le nombre d�
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>Puis-je déployer des machines virtuelles ou des instances de rôle vers mon sous-réseau de passerelle ?
 
-Non.
+ Non.
 
 ### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it"></a>Puis-je obtenir mon adresse IP de passerelle VPN avant de la créer ?
 
-Non. Vous devez d’abord créer votre passerelle pour obtenir l'adresse IP. L’adresse IP change si vous supprimez et recréez votre passerelle VPN.
+ Non. Vous devez d’abord créer votre passerelle pour obtenir l'adresse IP. L’adresse IP change si vous supprimez et recréez votre passerelle VPN.
 
 ### <a name="can-i-request-a-static-public-ip-address-for-my-vpn-gateway"></a>Puis-je demander une adresse IP publique statique pour ma passerelle VPN ?
 
-Non. Seule l’affectation d’adresses IP dynamiques est prise en charge. Toutefois, cela ne signifie pas que l’adresse IP change après son affectation à votre passerelle VPN. L’adresse IP de la passerelle VPN change uniquement lorsque la passerelle est supprimée, puis recréée. L’adresse IP publique de la passerelle VPN n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN. 
+ Non. Seule l’affectation d’adresses IP dynamiques est prise en charge. Toutefois, cela ne signifie pas que l’adresse IP change après son affectation à votre passerelle VPN. L’adresse IP de la passerelle VPN change uniquement lorsque la passerelle est supprimée, puis recréée. L’adresse IP publique de la passerelle VPN n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN. 
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>Comment mon tunnel VPN est-il authentifié ?
 
@@ -182,7 +186,7 @@ Cette section s’applique au modèle de déploiement Resource Manager.
 Oui. Pour en savoir plus, voir [BGP](#bgp).
 
 **Modèle de déploiement classique**<br>
-Le transit du trafic via la passerelle VPN Azure est possible à l’aide du modèle de déploiement Classic, mais il s’appuie sur les espaces d’adressage définis de manière statique dans le fichier de configuration réseau. BGP n’est pas encore pris en charge avec les réseaux virtuels Azure et les passerelles VPN à l’aide du modèle de déploiement Classic. Sans BGP, la définition manuelle des espaces d’adressage de transit peut entraîner des erreurs et n’est pas recommandée.
+ Le transit du trafic via la passerelle VPN Azure est possible à l’aide du modèle de déploiement Classic, mais il s’appuie sur les espaces d’adressage définis de manière statique dans le fichier de configuration réseau. BGP n’est pas encore pris en charge avec les réseaux virtuels Azure et les passerelles VPN à l’aide du modèle de déploiement Classic. Sans BGP, la définition manuelle des espaces d’adressage de transit peut entraîner des erreurs et n’est pas recommandée.
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Azure génère-t-il la même clé prépartagée IPsec/IKE pour toutes les connexions VPN d'un même réseau virtuel ?
 
@@ -223,7 +227,7 @@ Vous pouvez également vous connecter à votre machine virtuelle en adresse IP p
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-with-cross-premises-connectivity-does-all-the-traffic-from-my-vm-go-through-that-connection"></a>Si ma machine virtuelle est dans un réseau virtuel avec connectivité entre différents locaux, tout le trafic de ma machine virtuelle passe-t-il par cette connexion ?
 
-Non. Seul le trafic qui possède une IP de destination contenue dans les plages d'adresse IP du réseau local du réseau virtuel que vous avez spécifié passera par la passerelle de réseau virtuel. Le trafic avec une IP de destination qui se trouve dans le réseau virtuel reste dans le réseau virtuel. Tout autre trafic est envoyé par le biais de l'équilibreur de charge aux réseaux publics, ou si le tunneling forcé est utilisé, il est envoyé via la passerelle VPN Azure.
+ Non. Seul le trafic qui possède une IP de destination contenue dans les plages d'adresse IP du réseau local du réseau virtuel que vous avez spécifié passera par la passerelle de réseau virtuel. Le trafic avec une IP de destination qui se trouve dans le réseau virtuel reste dans le réseau virtuel. Tout autre trafic est envoyé par le biais de l'équilibreur de charge aux réseaux publics, ou si le tunneling forcé est utilisé, il est envoyé via la passerelle VPN Azure.
 
 ### <a name="how-do-i-troubleshoot-an-rdp-connection-to-a-vm"></a>Résolution d’une connexion RDP à une machine virtuelle
 

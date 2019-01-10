@@ -1,5 +1,5 @@
 ---
-title: Recherche cognitive pour l’extraction des données et le traitement de l’IA en langage naturel - Recherche Azure
+title: Recherche cognitive, extraction des données, traitement IA en langage naturel - Recherche Azure
 description: Extraction de contenu, traitement en langage naturel et traitement d’images pour créer du contenu pouvant être recherché dans l’indexation Recherche Azure à l’aide de compétences cognitives et d’algorithmes d’IA.
 manager: cgronlun
 author: HeidiSteen
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 62d2e7af40d6abf6f316789051dfe78f73208eb3
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2bb32ccaeb5960fa69dcdc356523abc199fd5f4f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315602"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633791"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Qu’est-ce que la « recherche cognitive » dans Recherche Azure ?
 
@@ -32,9 +32,9 @@ Les compétences cognitives dans Recherche Azure sont basées sur les mêmes alg
 Le traitement en langage naturel et le traitement d’image sont appliqués pendant la phase d’ingestion des données, et les résultats sont intégrés à la composition d’un document sous la forme d’un index consultable dans la Recherche Azure. Les données sont fournies en tant que jeu de données Azure, puis transmises via un pipeline d’indexation à l’aide des [compétences intégrées](cognitive-search-predefined-skills.md) dont vous avez besoin. L’architecture est extensible. Par conséquent, si les compétences intégrées ne sont pas suffisantes, vous pouvez créer et attacher des [compétences personnalisées](cognitive-search-create-custom-skill-example.md) pour intégrer un traitement personnalisé. Par exemple, il peut s’agir d’un module d’entité ou d’un classifieur de documents ciblant un domaine spécifique comme la finance, les publications scientifiques ou la médecine.
 
 > [!NOTE]
-> À compter du 21 décembre 2018, vous pourrez associer une ressource Cognitive Services à un ensemble de qualifications Recherche Azure. Ce jour-là, nous commencerons donc à facturer l’exécution des ensembles de qualifications, mais aussi l’extraction d’images dans le cadre de notre étape de décodage de documents. L’extraction de texte à partir de documents continuera d’être proposée gratuitement.
+> À compter du 21 décembre 2018, vous pourrez associer une ressource Cognitive Services à un ensemble de qualifications Recherche Azure. Cela nous permet de commencer la facturation pour l’exécution des ensembles de qualifications. Ce jour-là, nous commencerons également à facturer l’extraction d’images dans le cadre de notre étape de décodage de documents. L’extraction de texte à partir de documents continuera d’être offerte sans frais supplémentaires.
 >
-> L’exécution de compétences prédéfinies sera facturée au [prix actuel du paiement à l’utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les tarifs de l’extraction d’images sont ceux de la préversion. Ils sont décrits dans la page [Tarification Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400). [En savoir plus](cognitive-search-attach-cognitive-services.md)
+> L’exécution des compétences intégrées sera facturée au prix actuel du [paiement à l’utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les tarifs de l’extraction d’images sont ceux de la préversion. Ils sont décrits dans la page [Tarification de Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400). [En savoir plus](cognitive-search-attach-cognitive-services.md)
 
 ## <a name="components-of-cognitive-search"></a>Composants de la recherche cognitive
 

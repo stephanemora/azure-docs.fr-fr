@@ -1,20 +1,7 @@
 ---
-title: Configurer la récupération d’urgence dans Azure des machines virtuelles Hyper-V locales hébergées dans des clouds VMM, avec Azure Site Recovery | Microsoft Docs
-description: Découvrez comment configurer la récupération d’urgence dans Azure des machines virtuelles Hyper-V locales hébergées dans des clouds System Center VMM, avec le service Azure Site Recovery.
-services: site-recovery
-author: rayne-wiselman
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: raynew
-ms.custom: MVC
-ms.openlocfilehash: c4b5a200780761decfdd98289f7e7332244e5645
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846423"
----
+titre : Configurer la reprise d’activité de machines virtuelles Hyper-V locales dans des clouds VMM avec Azure Site Recovery | Microsoft Docs - description : Découvrez comment configurer la récupération d’urgence dans Azure des machines virtuelles Hyper-V locales hébergées dans des clouds System Center VMM, avec le service Azure Site Recovery.
+services: site-recovery author: rayne-wiselman ms.service: site-recovery ms.topic: conceptual ms.date: 27/12/2018 ms.author: raynew ms.custom: MVC
+
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurer la récupération d’urgence dans Azure de machines virtuelles Hyper-V locales hébergées dans des clouds VMM
 
 Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de récupération d’urgence en gérant et en coordonnant la réplication, le basculement et la restauration automatique des machines locales et des machines virtuelles Azure.

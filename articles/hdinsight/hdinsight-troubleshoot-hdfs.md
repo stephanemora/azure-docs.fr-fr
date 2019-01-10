@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: d3ae15193b5e2d759825e60f880dea4355329837
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: fca763d04cc8cbf22d1578b18d504ec3ce9656d9
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407046"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993023"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Résoudre les problèmes d’Apache Hadoop HDFS avec Azure HDInsight
 
@@ -23,7 +23,7 @@ Découvrez les principaux problèmes rencontrés lors de l’utilisation de char
 
 ### <a name="issue"></a>Problème
 
-Accédez au stockage HDFS local à l’aide de la ligne de commande et du code d’application plutôt qu’à partir du stockage Blob Azure ou Azure Data Lake Store depuis le cluster HDInsight.   
+Accédez au stockage HDFS local à l’aide de la ligne de commande et du code d’application plutôt qu’à partir du Stockage Blob Azure ou d’Azure Data Lake Storage à partir du cluster HDInsight.   
 
 ### <a name="resolution-steps"></a>Étapes de résolution
 

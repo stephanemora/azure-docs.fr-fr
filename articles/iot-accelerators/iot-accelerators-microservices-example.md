@@ -1,5 +1,5 @@
 ---
-title: Modifier et redéployer un microservice | Microsoft Docs
+title: Changer et redéployer un microservice - Azure | Microsoft Docs
 description: Ce tutoriel vous montre comment modifier et redéployer un microservice dans la surveillance à distance
 author: dominicbetts
 ms.author: dobett
@@ -7,16 +7,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 20e86220fffe95fc38b5fa15dd5603db4331203f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 563de3d062b2c49d6b7ba23ae405e75283270815
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315755"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631893"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personnaliser et redéployer un microservice
 
-Ce tutoriel vous montre comment modifier un des [microservices](http://azure.com/microservices) de la solution de surpervision à distance, générer une image de votre microservice, déployer l’image sur votre hub Docker, puis l’utiliser dans une solution de supervision à distance. Pour présenter ce concept, le tutoriel utilise un scénario de base où vous appelez une API de microservice et remplacez le message d’état « Alive and Well » par « New Edits Made Here! »
+Ce tutoriel vous montre comment modifier un des [microservices](https://azure.com/microservices) de la solution de surpervision à distance, générer une image de votre microservice, déployer l’image sur votre hub Docker, puis l’utiliser dans une solution de supervision à distance. Pour présenter ce concept, le tutoriel utilise un scénario de base où vous appelez une API de microservice et remplacez le message d’état « Alive and Well » par « New Edits Made Here! »
 
 La solution de surveillance à distance utilise des microservices qui sont générés à l’aide d’images Docker extraites d’un hub Docker. 
 
@@ -77,7 +77,7 @@ Remplacez maintenant le message d’état du microservice Gestionnaire IoT Hub p
     
     ou sur Windows :
     
-    ```
+    ```cmd
     ./build.cmd
     ```
 

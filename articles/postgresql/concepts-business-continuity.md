@@ -1,20 +1,17 @@
 ---
 title: Vue d’ensemble de la continuité d’activité avec Azure Database pour PostgreSQL
 description: Vue d’ensemble de la continuité d’activité avec Azure Database pour PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: a0ff57037d6639f5778e27d6cf697b90038ab3b3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: c8c62f6a80cf06e3444c4c3efd9979e723dcf488
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717061"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53559040"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Vue d’ensemble de la continuité d’activité avec Azure Database pour PostgreSQL
 
@@ -49,7 +46,7 @@ Vous pouvez attendre que votre serveur redevienne disponible une fois la panne r
 L’autre solution consiste à utiliser la fonctionnalité de géorestauration d’Azure Database pour PostgreSQL qui restaure le serveur à partir de sauvegardes géoredondantes. Ces sauvegardes sont accessibles même si la région dans laquelle votre serveur est hébergé n’est pas disponible. Vous pouvez effectuer une restauration à partir de ces sauvegardes dans n’importe quelle autre région et remettre votre serveur en ligne.
 
 > [!IMPORTANT]
-> La géorestauration n’est possible que si vous avez provisionné le serveur avec le stockage de sauvegardes géoredondantes. Si vous souhaitez basculer des sauvegardes redondantes localement aux sauvegardes géoredondantes pour un serveur existant, vous devez effectuer une copie de sauvegarde de votre serveur existant en utilisant mysqldump et la restaurer avec des sauvegardes géoredondantes vers une configuration nouvellement créée.
+> La géorestauration n’est possible que si vous avez provisionné le serveur avec le stockage de sauvegardes géoredondantes. Si vous voulez passer des sauvegardes redondantes localement à des sauvegardes géoredondantes pour un serveur existant, vous devez prendre une image mémoire de votre serveur existant avec pg_dump et la restaurer sur une configuration nouvellement créée avec des sauvegardes géoredondantes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour plus d’informations sur les sauvegardes automatisées, consultez [Sauvegardes dans Azure Database pour PostgreSQL](concepts-backup.md). 

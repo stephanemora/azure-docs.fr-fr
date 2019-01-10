@@ -9,24 +9,24 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: 23702c12f5ec538da4b980ed42fe2282dea69409
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 0c2fd29990e180283eb25949b806c4ceac58e2f7
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582211"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653626"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Présentation d’Apache Spark Structured Streaming
 
 [Apache Spark](https://spark.apache.org/) Structured Streaming vous permet d’implémenter des applications évolutives, à haut débit et à tolérance de panne pour le traitement de flux de données. Structured Streaming repose sur le moteur Spark SQL et offre des améliorations par rapport aux constructions des trames de données et jeux de données Spark SQL afin de vous permettre d’écrire des requêtes de diffusion en continu selon la même procédure que pour les requêtes par lot.  
 
-Les applications Structured Streaming s’exécutent sur les clusters HDInsight Spark et se connecter aux données de diffusion en continu provenant d’[Apache Kafka](https://kafka.apache.org/), d’un socket TCP (pour le débogage), du Stockage Azure ou d’Azure Data Lake Store. Les deux dernières options, qui reposent sur des services de stockage externes, permettent de surveiller les nouveaux fichiers qui ont été ajoutés dans le stockage et de traiter leur contenu comme s’ils avaient été diffusés en continu. 
+Les applications Structured Streaming s’exécutent sur les clusters HDInsight Spark et se connectent aux données de streaming provenant d’[Apache Kafka](https://kafka.apache.org/), d’un socket TCP (pour le débogage), du stockage Azure ou d’Azure Data Lake Storage. Les deux dernières options, qui reposent sur des services de stockage externes, permettent de surveiller les nouveaux fichiers qui ont été ajoutés dans le stockage et de traiter leur contenu comme s’ils avaient été diffusés en continu. 
 
-Structured Streaming crée une longue requête au cours de laquelle vous appliquez des opérations sur les données d’entrée, par exemple des opérations de sélection, de projection, d’agrégation, de fenêtrage et de jointure de la trame de données de diffusion en continu avec les trames de données de référence. Les résultats sont ensuite transférés au stockage de fichiers (Azure Storage Blobs ou Data Lake Store) ou à n’importe quel magasin de données à l’aide d’un code personnalisé (par exemple, SQL Database ou Power BI). Structured Streaming transmet également des données de sortie à la console à des fins de débogage en local, ainsi qu’à une table en mémoire afin que vous puissiez afficher les données générées pour le débogage dans HDInsight. 
+Structured Streaming crée une longue requête au cours de laquelle vous appliquez des opérations sur les données d’entrée, par exemple des opérations de sélection, de projection, d’agrégation, de fenêtrage et de jointure de la trame de données de diffusion en continu avec les trames de données de référence. Les résultats sont ensuite transférés au stockage de fichiers (objets Blob du stockage Azure ou instance de Data Lake Storage), ou à n’importe quel magasin de données par le biais d’un code personnalisé (par exemple, SQL Database ou Power BI). Structured Streaming transmet également des données de sortie à la console à des fins de débogage en local, ainsi qu’à une table en mémoire afin que vous puissiez afficher les données générées pour le débogage dans HDInsight. 
 
 ![Traitement de flux de données avec HDInsight et Spark Structured Streaming ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Spark Structured Streaming remplace Spark Streaming (DStreams). Structured Streaming bénéficiera d’améliorations et fera l’objet d’une maintenance, contrairement à DStreams qui sera proposé uniquement en mode maintenance. Structured Streaming n’intègre pas pour le moment autant de fonctionnalités que DStreams pour les sources et les récepteurs immédiatement pris en charge. Veillez donc à bien évaluer vos besoins pour choisir l’option de traitement de flux de données Spark qui vous convient le mieux. 
 
 ## <a name="streams-as-tables"></a>Flux de données sous forme de tables
@@ -53,7 +53,7 @@ Lorsque vous utilisez le mode Append, votre requête applique des projections (e
 
 Considérez le même scénario, cette fois en utilisant le mode Complet. En mode Complet, l’intégralité de la table de sortie est actualisée à chaque déclencheur. Autrement dit, la table inclut non seulement les données issues de l’exécution du dernier déclencheur, mais également les données de toutes les autres exécutions. Vous pouvez utiliser le mode Complet pour copier les données non modifiées de la table d’entrée vers la table de résultats. À chaque exécution déclenchée, les nouvelles lignes de résultats s’affichent en même temps que toutes les lignes précédentes. Le tableau de résultats finit par stocker toutes les données collectées depuis le début de la requête, au risque de manquer de mémoire. Le mode Complet est destiné à des requêtes d’agrégation qui, d’une certaine façon, synthétisent les données entrantes. À chaque déclencheur, la table de résultats est donc mise à jour avec un nouveau résumé. 
 
-Supposons que nous avons déjà traité l’équivalent de cinq secondes de données, et qu’il nous faille maintenant traiter les données correspondant à la sixième seconde. La table d’entrée contient des événements pour l’heure 00:01 et l’heure 00:03. L’objectif de cet exemple de requête est de donner la température moyenne de l’appareil toutes les cinq secondes. L’implémentation de cette requête applique un agrégat qui accepte toutes les valeurs qui se trouvent dans chaque fenêtre de 5 secondes, calcule la moyenne de la température et génère une ligne correspondant à la température moyenne sur cet intervalle. À la fin de la première fenêtre de 5 secondes, il existe deux tuples : (00:01, 1, 95) et (00:03, 1, 98). Pour la fenêtre 00:00-00:05, l’agrégation génère donc un tuple avec la température moyenne de 96,5 degrés. Pour la prochaine fenêtre de 5 secondes, on obtient uniquement un point de données à l’heure 00:06, ce qui donne une température moyenne de 98 degrés. À l’heure 00:10, à l’aide du mode Complet, la table de résultats intègre les lignes correspondant aux deux fenêtres (00:00-00:05 et 00:05:00:10), car la requête renvoie toutes les lignes agrégées, et pas seulement les nouvelles. Par conséquent, la table des résultats continue de croître à mesure que de nouvelles fenêtres sont ajoutées.    
+Supposons que nous avons déjà traité l’équivalent de cinq secondes de données, et qu’il nous faille maintenant traiter les données correspondant à la sixième seconde. La table d’entrée contient des événements pour l’heure 00:01 et l’heure 00:03. L’objectif de cet exemple de requête est de donner la température moyenne de l’appareil toutes les cinq secondes. L’implémentation de cette requête applique un agrégat qui accepte toutes les valeurs qui se trouvent dans chaque fenêtre de 5 secondes, calcule la moyenne de la température et génère une ligne correspondant à la température moyenne sur cet intervalle. À la fin de la première fenêtre de 5 secondes, il existe deux tuples : (00:01, 1, 95) et (00:03, 1, 98). Pour la fenêtre 00:00-00:05, l’agrégation génère donc un tuple avec la température moyenne de 96,5 degrés. Pour la prochaine fenêtre de 5 secondes, on obtient uniquement un point de données à l’heure 00:06, ce qui donne une température moyenne de 98 degrés. À l’heure 00:10, à l’aide du mode Complet, la table de résultats intègre les lignes correspondant aux deux fenêtres (00:00-00:05 et 00:05:00:10), car la requête renvoie toutes les lignes agrégées, et pas seulement les nouvelles. Par conséquent, la table des résultats continue de croître à mesure que de nouvelles fenêtres sont ajoutées.    
 
 ![Mode Complet de Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-complete-mode.png)
 
@@ -124,11 +124,11 @@ Cette requête génère des résultats similaires à ce qui suit :
 |{u'start': u'2016-07-26T07:00:00.000Z', u'end'...  |95 |   96.980971 | 99 |
 |{u'start': u'2016-07-26T08:00:00.000Z', u'end'...  |95 |   96.965997 | 99 |  
 
-Pour plus d’informations sur l’API Spark Structured Stream, ainsi que les sources de données d’entrée, les opérations et les récepteurs de sortie qu’elle prend en charge, consultez le [Guide de programmation d’Apache Spark Structured Streaming](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
+Pour plus d’informations sur l’API Spark Structured Stream, ainsi que les sources de données d’entrée, les opérations et les récepteurs de sortie qu’elle prend en charge, consultez le [Guide de programmation d’Apache Spark Structured Streaming](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
 
 ## <a name="checkpointing-and-write-ahead-logs"></a>Points de contrôle et journaux WAL
 
-Pour la résilience et la tolérance de panne, Structured Streaming s’appuie sur les *points de contrôle* pour s’assurer que le traitement de flux de données s’effectue sans interruption, même en cas de défaillances de nœud. Dans HDInsight, Spark crée des points de contrôle pour un stockage durable (Data Lake Store ou stockage Azure). Ces derniers stockent les informations de progression concernant la requête de diffusion en continu. Structured Streaming utilise également un *journal WAL* (write-ahead log). Le journal WAL capture les données ingérées qui ont été reçues, mais qui n’ont pas encore été traitées par une requête. En cas de défaillance et de redémarrage du traitement à partir du journal WAL, aucun des événements reçus de la source ne sera perdu.
+Pour la résilience et la tolérance de panne, Structured Streaming s’appuie sur les *points de contrôle* pour s’assurer que le traitement de flux de données s’effectue sans interruption, même en cas de défaillances de nœud. Dans HDInsight, Spark crée des points de contrôle pour un stockage durable (Data Lake Storage ou le stockage Azure). Ces derniers stockent les informations de progression concernant la requête de diffusion en continu. Structured Streaming utilise également un *journal WAL* (write-ahead log). Le journal WAL capture les données ingérées qui ont été reçues, mais qui n’ont pas encore été traitées par une requête. En cas de défaillance et de redémarrage du traitement à partir du journal WAL, aucun des événements reçus de la source ne sera perdu.
 
 ## <a name="deploying-spark-streaming-applications"></a>Déploiement d’applications Spark Streaming
 
@@ -141,5 +141,5 @@ L’état de toutes les applications peut également être vérifié à l’aide
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer un cluster Apache Spark dans HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Guide de programmation d’Apache Spark Structured Streaming](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
+* [Guide de programmation d’Apache Spark Structured Streaming](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
 * [Lancer les travaux Apache Spark à distance avec Apache LIVY](apache-spark-livy-rest-interface.md)

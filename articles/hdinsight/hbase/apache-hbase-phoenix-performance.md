@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 8a67327497c96cba570d2ddb8c525bf5a60be790
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: da227151dd056dd5e852ae8790b6f20ac3c0c790
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308215"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653303"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Bonnes pratiques pour les performances d’Apache Phoenix
 
-L’aspect le plus important des performances de [Apache Phoenix](https://phoenix.apache.org/) est d’optimiser l’instance [Apache HBase](http://hbase.apache.org/) sous-jacente. Phoenix crée un modèle de données relationnelles sur HBase qui convertit les requêtes SQL en opérations HBase, telles que des analyses. La conception de votre schéma de table, la sélection et le classement des champs dans votre clé primaire et votre utilisation des index affectent les performances de Phoenix.
+L’aspect le plus important des performances de [Apache Phoenix](https://phoenix.apache.org/) est d’optimiser l’instance [Apache HBase](https://hbase.apache.org/) sous-jacente. Phoenix crée un modèle de données relationnelles sur HBase qui convertit les requêtes SQL en opérations HBase, telles que des analyses. La conception de votre schéma de table, la sélection et le classement des champs dans votre clé primaire et votre utilisation des index affectent les performances de Phoenix.
 
 ## <a name="table-schema-design"></a>Conception de schéma de table
 
@@ -225,9 +225,9 @@ Si votre scénario priorise la vitesse d’écriture par rapport à l’intégri
 
     CREATE TABLE CONTACTS (...) DISABLE_WAL=true;
 
-Pour plus d’informations sur cela et d’autres options, consultez [Phoenix Grammar](http://phoenix.apache.org/language/index.html#options).
+Pour en savoir plus sur le sujet et sur d’autres options, consultez [Apache Phoenix Grammar](https://phoenix.apache.org/language/index.html#options).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Guide d’optimisation d’Apache Phoenix](https://phoenix.apache.org/tuning_guide.html)
-* [Index secondaires](http://phoenix.apache.org/secondary_indexing.html)
+* [Index secondaires](https://phoenix.apache.org/secondary_indexing.html)

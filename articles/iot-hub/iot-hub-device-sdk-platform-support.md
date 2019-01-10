@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: ebe039c37eb42b0044fa0acf9361edc7e8cbb828
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 15548e801777a99dfb78de0067abb633a2587ee6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879364"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053191"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Prise en charge des plateformes par les Kits de développement logiciel (SDK) Azure IoT
 
@@ -20,9 +20,9 @@ Les [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md)
 
 Microsoft prend en charge une variété de systèmes d’exploitation/plateformes/infrastructures et peut être étendu à l’aide du Kit de développement logiciel (SDK) C d’Azure IoT. Certains sont officiellement pris en charge par l’équipe, regroupés en niveaux qui représentent le niveau de prise en charge que les utilisateurs peuvent espérer. Les *plateformes entièrement prises en charge* signifient que Microsoft :
 
-    * Génère et teste de bout en bout en permanence ses produits par rapport aux versions maître et LTS prises en charge.  Pour que les tests couvrent différentes versions, nous les effectuons généralement sur la version LTS la plus récente et la version la plus populaire.  Les autres versions de la même plateforme peuvent être prises en charge en fonction de la compatibilité des versions de plateforme.
-    * Fournit des packages ou un guide d’installation, le cas échéant.
-    * Prend entièrement en charge les plateformes sur GitHub.
+- Génère et teste de bout en bout en permanence ses produits par rapport aux versions maître et LTS prises en charge.  Pour que les tests couvrent différentes versions, nous les effectuons généralement sur la version LTS la plus récente et la version la plus populaire.  Les autres versions de la même plateforme peuvent être prises en charge en fonction de la compatibilité des versions de plateforme.
+- Fournit des packages ou un guide d’installation, le cas échéant.
+- Prend entièrement en charge les plateformes sur GitHub.
 
 En outre, une liste de partenaires a porté notre Kit de développement logiciel (SDK) C sur un plus grand nombre de plateformes et ils gèrent la couche d’abstraction de plateforme (PAL). Le [Catalogue d’appareils certifiés Azure pour l’IoT](https://catalog.azureiotsolutions.com/) inclut également une liste de plateformes de système d’exploitation sur lesquelles les différents Kits de développement logiciel (SDK) ont été testés. Les kits SDK s’appuient régulièrement sur les plateformes suivantes, avec un test et une prise en charge limités :
 

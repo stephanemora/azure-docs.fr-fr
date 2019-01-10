@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: bcaf59e1d9b36dfbb17f1e0b8089cd88e626e2b9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ea808609add942c5cac36e7f0306e4a27ac3bb3a
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437127"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743644"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Effectuer la migration d’un cluster HDInsight Windows vers un cluster Linux
 
@@ -119,7 +119,7 @@ Cette section fournit des informations sur les différences dans la création du
 
 ### <a name="ssh-user"></a>Utilisateur SSH
 
-Les clusters HDInsight Linux utilisent le protocole **SSH (Secure Shell)** pour permettre l’accès distant aux nœuds du cluster. Contrairement au Bureau à distance pour les clusters sous Windows, la plupart des clients SSH ne fournissent pas d’expérience utilisateur graphique. Au lieu de cela, les clients SSH fournissent une ligne de commande qui vous permet d’exécuter des commandes sur le cluster. Certains clients (tels que [MobaXterm](http://mobaxterm.mobatek.net/)) fournissent un navigateur de système de fichiers graphiques en plus d’une ligne de commande distante.
+Les clusters HDInsight Linux utilisent le protocole **SSH (Secure Shell)** pour permettre l’accès distant aux nœuds du cluster. Contrairement au Bureau à distance pour les clusters sous Windows, la plupart des clients SSH ne fournissent pas d’expérience utilisateur graphique. Au lieu de cela, les clients SSH fournissent une ligne de commande qui vous permet d’exécuter des commandes sur le cluster. Certains clients (tels que [MobaXterm](https://mobaxterm.mobatek.net/)) fournissent un navigateur de système de fichiers graphiques en plus d’une ligne de commande distante.
 
 Lors de la création du cluster, vous devez fournir un utilisateur SSH et un **mot de passe** ou un **certificat de clé publique** pour l’authentification.
 
@@ -199,7 +199,7 @@ Le tableau suivant fournit des conseils sur la migration de vos charges de trava
 | `set hive.execution.engine=tez;` pour activer Tez |Apache Tez étant le moteur d’exécution par défaut pour les clusters Linux, l’instruction set n’est plus nécessaire. |
 | Fonctions définies par l’utilisateur C# | Pour plus d’informations sur la validation des composants C# avec HDInsight sous Linux, consultez [Migrer les solutions .NET vers HDInsight sous Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | Scripts ou fichiers CMD sur le serveur appelés dans le cadre d’une tâche Hive |Scripts Bash |
-| `hive` à partir du Bureau à distance |Utilisez [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) ou [Apache Hive à partir d’une session SSH](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` à partir du Bureau à distance |Utilisez [Apache Hive Beeline](hadoop/apache-hadoop-use-hive-beeline.md) ou [Apache Hive à partir d’une session SSH](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 
@@ -220,7 +220,7 @@ Le tableau suivant fournit des conseils sur la migration de vos charges de trava
 > [!IMPORTANT]  
 > Si vous utilisez un metastore Oozie externe, sauvegardez le metastore avant de l’utiliser avec HDInsight sous Linux. HDInsight sous Linux est disponible avec les versions plus récentes d’Oozie, qui peut se révéler incompatible avec les metastores créés par les versions antérieures.
 
-Les flux de travail Oozie autorisent les actions de l’interpréteur de commandes. Les actions de l’interpréteur de commandes utilisent l’interpréteur de commandes par défaut pour permettre au système d’exploitation d’exécuter les commandes de la ligne de commande. Si vous avez des flux de travail Oozie qui s’appuient sur l’interpréteur de commandes Windows, vous devez réécrire les flux de travail de manière à ce qu’ils s’appuient sur l’environnement de l’interpréteur de commandes Linux (Bash). Pour plus d’informations sur l’utilisation des actions de l’interpréteur de commandes avec Oozie, consultez [Extension d’action d’interpréteur de commandes Oozie](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html).
+Les flux de travail Oozie autorisent les actions de l’interpréteur de commandes. Les actions de l’interpréteur de commandes utilisent l’interpréteur de commandes par défaut pour permettre au système d’exploitation d’exécuter les commandes de la ligne de commande. Si vous avez des flux de travail Oozie qui s’appuient sur l’interpréteur de commandes Windows, vous devez réécrire les flux de travail de manière à ce qu’ils s’appuient sur l’environnement de l’interpréteur de commandes Linux (Bash). Pour plus d’informations sur l’utilisation des actions de l’interpréteur de commandes avec Oozie, consultez [Extension d’action d’interpréteur de commandes Oozie](https://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html).
 
 Si l’un de vos workflows utilise une application C#, validez ces applications dans un environnement Linux. Pour plus d’informations, consultez la section [Migrer des solutions .NET vers HDInsight sous Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2018
+ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 308ab9d35e07c8376fb183c794fcad77a74a1df9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 39d0813eab49f526842eec171e3355326bd13c44
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295561"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727800"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Définir l’ordre de déploiement des ressources dans les modèles Azure Resource Manager
 Une ressource donnée peut comporter d'autres ressources qui doivent exister avant son déploiement. Par exemple, un serveur SQL doit exister avant une tentative de déploiement d'une base de données SQL. Vous définissez cette relation en marquant une seule ressource comme dépendante de l'autre ressource. Pour définir une dépendance, vous devez utiliser l’élément **dependsOn** ou la fonction **reference**. 
@@ -145,16 +145,7 @@ Vous pouvez utiliser cet élément ou l’élément dependsOn pour spécifier le
 
 Pour plus d’informations, consultez la [fonction de référence](resource-group-template-functions-resource.md#reference).
 
-## <a name="recommendations-for-setting-dependencies"></a>Recommandations pour la définition des dépendances
-
-Lorsque vous décidez des dépendances à définir, appliquez les recommandations suivantes :
-
-* Définissez le moins de dépendances possible.
-* Définissez une ressource enfant comme dépendante de sa ressource parent.
-* Utilisez la fonction **reference** et transmettez le nom de la ressource pour définir les dépendances implicites entre les ressources qui doivent partager une propriété. N’ajoutez pas de dépendance explicite (**dependsOn**) lorsque vous avez déjà défini une dépendance implicite. Cette approche permet de réduire le risque d’avoir des dépendances inutiles. 
-* Définissez une dépendance lorsqu’une ressource ne peut pas être **créée** sans la fonctionnalité d’une autre ressource. Ne définissez pas de dépendance si les ressources interagissent uniquement après le déploiement.
-* Ajoutez les dépendances l’une après l’autre sans les définir explicitement. Par exemple, votre machine virtuelle dépend d’une interface de réseau virtuel, et l’interface de réseau virtuelle dépend d’un réseau virtuel et d’adresses IP publiques. Par conséquent, la machine virtuelle est déployée après les trois ressources. Cependant, ne définissez pas explicitement la machine virtuelle comme dépendante de ces trois ressources. Cette approche permet de clarifier l’ordre des dépendances et de simplifier les modifications ultérieures du modèle.
-* Si une valeur peut être déterminée avant le déploiement, essayez de déployer la ressource sans dépendance. Par exemple, si une valeur de configuration a besoin du nom d’une autre ressource, vous n’avez pas forcément besoin d’une dépendance. Cette recommandation n’est pas toujours applicable, car certaines ressources vérifient l’existence de l’autre ressource. Si vous recevez une erreur, ajoutez une dépendance. 
+## <a name="circular-dependencies"></a>Dépendances circulaires
 
 Resource Manager identifie les dépendances circulaires lors de la validation du modèle. Si vous recevez une erreur indiquant qu’il existe une dépendance circulaire, évaluez votre modèle pour déterminer si certaines dépendances sont inutiles et peuvent être supprimées. Si la suppression de ces dépendances n’a aucun effet, vous pouvez éliminer les dépendances circulaires en déplaçant certaines opérations de déploiement dans les ressources enfants qui sont déployées après les ressources présentant la dépendance circulaire. Par exemple, supposons que vous déployiez deux machines virtuelles, mais que vous deviez définir sur chacune d’elles des propriétés faisant référence les unes aux autres. Vous pouvez les déployer dans l’ordre suivant :
 
@@ -168,6 +159,7 @@ Pour plus d’informations sur l’évaluation de l’ordre de déploiement et l
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour un didacticiel, consultez [Didacticiel : créer des modèles Azure Resource Manager avec des ressources dépendantes](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
+* Pour obtenir des recommandations lors de la définition des dépendances, consultez [Bonnes pratiques relatives aux modèles Azure Resource Manager](template-best-practices.md).
 * Pour en savoir plus sur la résolution des problèmes liés aux dépendances lors du déploiement, consultez [Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Création de modèles](resource-group-authoring-templates.md). 
 * Pour obtenir la liste des fonctions disponibles dans un modèle, consultez [Fonctions de modèle](resource-group-template-functions.md).

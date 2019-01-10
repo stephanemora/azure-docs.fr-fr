@@ -5,14 +5,14 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/17/2018
 ms.author: rajanaki
-ms.openlocfilehash: e965848b0c3c009444762dafdf42acc080b6915e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 06337e205c472d26024289222dc8876d23b4184f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834948"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791875"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Reprotéger et effectuer une reprise automatique des machines vers un site local après le basculement vers Azure
 
@@ -61,8 +61,8 @@ Pour déployer un serveur de processus dans Azure :
 
 Le serveur cible maître reçoit les données de la restauration automatique. Par défaut, le serveur cible maître s’exécute sur le serveur de configuration local. Toutefois, en fonction du volume de trafic restauré automatiquement, vous devrez peut-être créer un serveur cible maître distinct pour procéder à la restauration automatique. Voici comment en créer un :
 
-* [Créez un serveur cible maître Linux](vmware-azure-install-linux-master-target.md) pour la restauration automatique des machines virtuelles Linux. Cela est nécessaire.
-* Vous pouvez éventuellement créer un serveur cible maître distinct pour la restauration automatique de la machine virtuelle Windows. Pour ce faire, réexécutez l’installation unifiée et sélectionnez pour créer un serveur cible maître. [Plus d’informations](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers)
+* [Créez un serveur cible maître Linux](vmware-azure-install-linux-master-target.md) pour la restauration automatique des machines virtuelles Linux. Cela est nécessaire. Notez qu’un serveur cible maître sur une machine virtuelle Linux n’est pas pris en charge.
+* Vous pouvez éventuellement créer un serveur cible maître distinct pour la restauration automatique de la machine virtuelle Windows. Pour ce faire, réexécutez l’installation unifiée et sélectionnez pour créer un serveur cible maître. [Plus d’informations](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers) 
 
 Après avoir créé un serveur cible maître, effectuez les tâches suivantes :
 

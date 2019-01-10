@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 40c69d996721b664fbea5cd539f60ecc6a521d24
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 4796dc50447b94b01d9bb4625ca9a69a73850fcd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457644"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994400"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
 
@@ -29,7 +29,7 @@ Microsoft Azure comprend des outils pour protéger les données en fonction des 
 - Présentation des différents composants impliqués dans la mise en œuvre de la protection des données
 - Examen des avantages et des inconvénients des principales approches de protection de la gestion 
 
-Le chiffrement au repos est une exigence de sécurité courante. Dans Azure, les organisations peuvent réaliser le chiffrement au repos sans devoir supporter les coûts d’implémentation et de gestion, ni le risque d’une solution de gestion des clés personnalisée. Les organisations ont la possibilité de laisser Azure gérer complètement le chiffrement au repos. En outre, les organisations ont différentes options pour gérer étroitement le chiffrement ou les clés de chiffrement.
+Le chiffrement au repos est une exigence de sécurité courante. Dans Azure, les organisations peuvent chiffrer les données au repos, sans assumer les risques et les coûts associés à une solution de gestion des clés personnalisée. Les organisations ont la possibilité de laisser Azure gérer complètement le chiffrement au repos. En outre, les organisations ont différentes options pour gérer étroitement le chiffrement ou les clés de chiffrement.
 
 ## <a name="what-is-encryption-at-rest"></a>Qu’est-ce que le chiffrement au repos ?
 
@@ -38,7 +38,7 @@ Le chiffrement au repos fait référence à l’encodage (chiffrement) des donn�
 - Une clé de chiffrement symétrique est utilisée pour chiffrer les données au fil de leur stockage. 
 - La clé de chiffrement est utilisée pour déchiffrer ces données au fil de leur préparation à une utilisation en mémoire.
 - Les données peuvent être partitionnées, et des clés différentes peuvent être utilisées pour chaque partition.
-- Les clés doivent être stockées à un emplacement sécurisé, avec des stratégies de contrôle d’accès limitant l’accès à certaines identités et journalisant l’utilisation des clés. Les clés de chiffrement de données sont souvent chiffrées avec un chiffrement asymétrique pour limiter davantage l’accès.
+- Les clés doivent être stockées dans un emplacement sécurisé doté du contrôle d’accès basé sur l’identité et de stratégies d’audit. Les clés de chiffrement de données sont souvent chiffrées avec un chiffrement asymétrique pour limiter davantage l’accès.
 
 Dans la pratique, les scénarios de gestion et de contrôle des clés, ainsi que les garanties de scalabilité et de disponibilité, nécessitent des mécanismes supplémentaires. Les concepts et les composants du chiffrement des données au repos de Microsoft Azure sont décrits ci-dessous.
 
@@ -46,13 +46,13 @@ Dans la pratique, les scénarios de gestion et de contrôle des clés, ainsi que
 
 Le chiffrement au repos offre une protection des données pour les données stockées (au repos). Les attaques contre les données au repos sont notamment des tentatives d’obtenir un accès physique au matériel sur lequel les données sont stockées puis de compromettre les données qui y sont contenues. Dans une telle attaque, le disque dur d’un serveur peut avoir fait l’objet d’une mauvaise manipulation lors de la maintenance, permettant à un attaquant de retirer le disque dur. Plus tard, cet attaquant peut placer le disque dur dans un ordinateur qu’il contrôle pour tenter d’accéder aux données. 
 
-Le chiffrement au repos est conçu pour empêcher l’attaquant d’accéder aux données non chiffrées en garantissant que les données sont chiffrées quand elles sont sur le disque. Si un attaquant devait obtenir un disque dur avec des données ainsi chiffrées et sans accès aux clés de chiffrement, il ne pourrait compromettre les données que très difficilement. Dans un tel scénario, un attaquant devrait tenter des attaques sur des données chiffrées, ce qui est bien plus complexe et gourmand en ressources qu’accéder à des données non chiffrées sur un disque dur. Pour cette raison, le chiffrement au repos est fortement recommandé et constitue une exigence de haute priorité pour de nombreuses organisations. 
+Le chiffrement au repos est conçu pour empêcher l’attaquant d’accéder aux données non chiffrées en garantissant que les données sont chiffrées quand elles sont sur le disque. Si un attaquant récupère un disque dur comprenant des données chiffrées, mais qu’il ne dispose pas des clés de chiffrement, il doit résoudre le chiffrement pour lire les données. Ce type d’attaque est beaucoup plus complexe et laborieux comparé aux attaques de données non chiffrées sur un disque dur. Pour cette raison, le chiffrement au repos est fortement recommandé et constitue une exigence de haute priorité pour de nombreuses organisations. 
 
 Le chiffrement au repos peut également être nécessaire pour les besoins de l’organisation en matière de gouvernance et de conformité des données. Les réglementations publiques et de l’industrie, comme HIPAA, PCI et FedRAMP définissent des protections spécifiques quant aux exigences de protection et de chiffrement des données. Le chiffrement au repos est une mesure obligatoire nécessaire à la conformité avec certaines de ces réglementations.
 
-En plus des obligations réglementaires et de conformité, le chiffrement au repos doit être perçu comme une fonctionnalité de défense en profondeur des plateformes. Alors que Microsoft fournit une plateforme conforme pour les services, les applications et les données, une sécurité physique et des équipements complète, et le contrôle et l’audit des accès aux données , il est important de fournir des mesures de sécurité supplémentaires qui se recouvrent en cas d’échec de l’une des mesures de sécurité. Le chiffrement au repos fournit un mécanisme de défense supplémentaire de cet ordre.
+Non seulement le chiffrement au repos répond aux exigences de conformité et aux obligations réglementaires, mais il fournit une défense en profondeur. Microsoft Azure fournit une plateforme conforme destinée aux services, aux applications et aux données. Il fournit également une sécurité complète des équipements et des éléments physiques, un contrôle d’accès aux données et des fonctionnalités d’audit. Toutefois, il est important de mettre en œuvre des mesures de sécurité « superposées » supplémentaires en cas de défaillance de l’une des mesures de sécurité principales. Le chiffrement au repos propose une telle mesure de sécurité.
 
-Microsoft s’efforce d’offrir des options de chiffrement au repos dans les services cloud, et de fournir aux clients une facilité de gestion des clés de chiffrement et l’accès à des journaux montrant quand les clés de chiffrement sont utilisées. En outre, Microsoft travaille à cet objectif que toutes les données des clients soient par défaut chiffrées au repos.
+Microsoft s’engage à fournir des options de chiffrement au repos sur les services cloud et à donner aux clients le contrôle des clés de chiffrement et la journalisation de l’utilisation des clés. En outre, Microsoft s’emploie à mettre en œuvre par défaut le chiffrement au repos de toutes les données des clients.
 
 ## <a name="azure-encryption-at-rest-components"></a>Composants du chiffrement au repos d’Azure
 
@@ -104,7 +104,7 @@ Pour le chiffrement côté client, considérez les éléments suivants :
 - Les clients gèrent et stockent les clés localement (ou dans d’autres magasins sécurisés). Les clés ne sont pas disponibles pour les services Azure
 - Fonctionnalité cloud réduite
 
-Les modèles de chiffrement pris en charge dans Azure se divisent en deux groupes principaux : « Chiffrement client » et « Chiffrement côté serveur », comme indiqué précédemment. Notez que, indépendamment du modèle de chiffrement au repos utilisé, les services Azure recommandent toujours l’utilisation d’un transport sécurisé, comme TLS ou HTTPS. Ainsi, le chiffrement du transport doit être traité par le protocole de transport et il ne doit pas être un facteur majeur pour déterminer le modèle de chiffrement au repos à utiliser.
+Les modèles de chiffrement pris en charge dans Azure se divisent en deux groupes principaux : « Chiffrement client » et « Chiffrement côté serveur », comme mentionné précédemment. Indépendamment du modèle de chiffrement au repos utilisé, les services Azure recommandent toujours l’utilisation d’un transport sécurisé, comme TLS ou HTTPS. Ainsi, le chiffrement du transport doit être traité par le protocole de transport et il ne doit pas être un facteur majeur pour déterminer le modèle de chiffrement au repos à utiliser.
 
 ### <a name="client-encryption-model"></a>Modèle de chiffrement client
 
@@ -128,13 +128,13 @@ Pour de nombreux clients, l’exigence principale est de garantir que les donné
 
 ![géré](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig4.png)
 
-Le chiffrement côté serveur à l’aide de clés gérées le service répond ainsi rapidement au besoin d’avoir un chiffrement au repos avec une charge de travail peu importante au niveau du client. Quand il est disponible, un client ouvre en général le portail Azure pour l’abonnement cible et le fournisseur de ressources, et il coche une case indiquant qu’il veut que les données soient chiffrées. Dans certains gestionnaires de ressources, le chiffrement côté serveur avec des clés gérées par le service est activé par défaut.
+Le chiffrement côté serveur à l’aide de clés gérées par le service répond ainsi rapidement au besoin de chiffrement au repos avec une charge de travail peu importante au niveau du client. Quand il est disponible, un client ouvre en général le portail Azure pour l’abonnement cible et le fournisseur de ressources, et il coche une case indiquant qu’il veut que les données soient chiffrées. Dans certains gestionnaires de ressources, le chiffrement côté serveur avec des clés gérées par le service est activé par défaut.
 
-Le chiffrement côté serveur avec des clés gérées par Microsoft implique que le service ait un accès complet pour stocker et gérer les clés. Si certains clients peuvent souhaiter gérer les clés en pensant qu’ils peuvent assurer une meilleure sécurité, le coût et le risque associés à une solution de stockage de clés personnalisée doivent être considérés lors de l’évaluation de ce modèle. Dans de nombreux cas, une organisation peut déterminer que les contraintes sur les ressources ou les risques d’une solution locale peuvent être supérieurs au risque lié à une gestion dans le cloud des clés de chiffrement au repos.  Cependant, ce modèle peut ne pas suffire pour les organisations qui ont des exigences quant au contrôle de la création ou du cycle de vie des clés de chiffrement, ou qui veulent que les personnes gérant les clés de chiffrement d’un service soient différentes de celles qui gèrent le service (par exemple une séparation entre la gestion des clés et le modèle de gestion global pour le service).
+Le chiffrement côté serveur avec des clés gérées par Microsoft implique que le service dispose d’un accès complet pour le stockage et la gestion des clés. Si certains clients peuvent souhaiter gérer les clés en pensant qu’ils peuvent assurer une meilleure sécurité, le coût et le risque associés à une solution de stockage de clés personnalisée doivent être considérés lors de l’évaluation de ce modèle. Dans de nombreux cas, une organisation peut déterminer que, dans le cadre d’une solution locale, les contraintes liées aux ressources ou les risques peuvent être supérieurs aux risques liés à la gestion des clés de chiffrement au repos dans le cloud.  Cependant, il se peut que ce modèle ne soit pas adapté aux organisations qui doivent répondre à des exigences quant au contrôle de la création ou du cycle de vie des clés de chiffrement, ou encore à celles qui souhaitent que les gestionnaires des clés de chiffrement d’un service ne soient pas les personnes qui gèrent le service (séparer la gestion des clés du modèle de gestion global du service).
 
 ##### <a name="key-access"></a>Accès aux clés
 
-Quand le chiffrement côté serveur avec des clés gérées par le service est utilisé, la création, le stockage et l’accès du service aux clés sont tous gérés par le service. En règle générale, les principaux fournisseurs de ressources Azure stockent les clés de chiffrement des données dans un magasin qui est proche des données, et qui est disponible et accessible rapidement, alors que les clés de chiffrement des clés sont stockées dans un magasin interne sécurisé.
+Quand le chiffrement côté serveur avec des clés gérées par le service est utilisé, la création des clés, leur stockage et l’accès du service à ces clés sont gérés par le service. En règle générale, les principaux fournisseurs de ressources Azure stockent les clés de chiffrement des données dans un magasin qui est proche des données, et qui est disponible et accessible rapidement, alors que les clés de chiffrement des clés sont stockées dans un magasin interne sécurisé.
 
 **Avantages**
 
@@ -149,11 +149,11 @@ Quand le chiffrement côté serveur avec des clés gérées par le service est u
 
 #### <a name="server-side-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement côté serveur à l’aide de clés gérées par le client dans Azure Key Vault 
 
-Pour les scénarios où l’exigence est de chiffrer les données au repos et de contrôler les clés de chiffrement, les clients peuvent utiliser le chiffrement côté serveur à l’aide de clés gérées par le client dans Azure Key Vault. Certains services peuvent stocker seulement la clé de chiffrement des clés racine dans Azure Key Vault et stocker la clé de chiffrement des données chiffrée à un emplacement interne plus proche des données. Dans ce scénario, les clients peuvent apporter leurs propres clés au coffre de clés (BYOK, Bring Your Own Key), ou en générer de nouvelles et les utiliser pour chiffrer les ressources souhaitées. Quand le fournisseur de ressources effectue les opérations de chiffrement et de déchiffrement, il utilise la clé configurée comme clé racine pour toutes les opérations de chiffrement. 
+Dans les scénarios où les données doivent être chiffrées au repos et les clés de chiffrement doivent être contrôlées, les clients peuvent utiliser le chiffrement côté serveur à l’aide de clés gérées par le client dans Azure Key Vault. Certains services peuvent stocker seulement la clé de chiffrement des clés racine dans Azure Key Vault et stocker la clé de chiffrement des données chiffrée à un emplacement interne plus proche des données. Dans ce scénario, les clients peuvent apporter leurs propres clés au coffre de clés (BYOK, Bring Your Own Key), ou en générer de nouvelles et les utiliser pour chiffrer les ressources souhaitées. Quand le fournisseur de ressources effectue les opérations de chiffrement et de déchiffrement, il utilise la clé configurée comme clé racine pour toutes les opérations de chiffrement. 
 
 ##### <a name="key-access"></a>Accès aux clés
 
-Le modèle de chiffrement côté serveur avec des clés gérées par le client dans Azure Key Vault implique que le service accède aux clés pour chiffrer et déchiffrer quand c’est nécessaire. Les clés de chiffrement au repos sont rendues accessibles à un service via une stratégie de contrôle d’accès. Cette stratégie accorde à cette identité de service un accès pour recevoir la clé. Un service Azure s’exécutant pour le compte d’un abonnement associé peut être configuré avec une identité dans cet abonnement. Le service peut effectuer l’authentification Azure Active Directory et recevoir un jeton d’authentification en s’identifiant lui-même comme étant ce service agissant pour le compte de l’abonnement. Ce jeton peut ensuite être présenté au coffre de clés pour obtenir une clé à laquelle l’accès lui a été donné.
+Le modèle de chiffrement côté serveur avec des clés gérées par le client dans Azure Key Vault implique que le service accède aux clés pour chiffrer et déchiffrer lorsque nécessaire. Les clés de chiffrement au repos sont rendues accessibles à un service via une stratégie de contrôle d’accès. Cette stratégie accorde à cette identité de service un accès pour recevoir la clé. Un service Azure s’exécutant pour le compte d’un abonnement associé peut être configuré avec une identité dans cet abonnement. Le service peut effectuer l’authentification Azure Active Directory et recevoir un jeton d’authentification en s’identifiant lui-même comme étant ce service agissant pour le compte de l’abonnement. Ce jeton peut ensuite être présenté au coffre de clés pour obtenir une clé à laquelle l’accès lui a été donné.
 
 Pour les opérations utilisant des clés de chiffrement, une identité de service peut être autorisée à accéder aux opérations suivantes : déchiffrer, chiffrer, unwrapKey, wrapKey, vérifier, signer, obtenir, répertorier, mettre à jour, créer, importer, supprimer, sauvegarder et restaurer.
 
@@ -178,7 +178,7 @@ Pour obtenir une clé à utiliser dans le chiffrement ou le déchiffrement des d
 
 #### <a name="server-side-encryption-using-service-managed-keys-in-customer-controlled-hardware"></a>Chiffrement côté serveur à l’aide de clés gérées par le service sur du matériel contrôlé par le client
 
-Certains services Azure activent le modèle de gestion de clés HYOK (Host Your Own Key). Ce mode de gestion est utile dans les scénarios où il est nécessaire de chiffrer les données au repos et de gérer les clés dans un référentiel propriétaire non contrôlé par Microsoft. Dans ce modèle, le service doit récupérer la clé à partir d’un site externe. Les garanties de disponibilité et de performances sont affectées et la configuration est plus complexe. En outre, comme le service n’a pas accès à la clé de chiffrement des données pendant les opérations de chiffrement et de déchiffrement, les garanties de sécurité globale de ce modèle sont similaires à celle du modèle où les clés sont gérées par le client dans Azure Key Vault.  Par conséquent, ce modèle n’est pas approprié pour la plupart des organisations, sauf si elles ont des exigences spécifiques de gestion des clés. En raison de ces limitations, la plupart des services Azure ne gèrent pas le chiffrement côté serveur à l’aide de clés gérées par le serveur dans le matériel contrôlé par le client.
+Certains services Azure activent le modèle de gestion de clés HYOK (Host Your Own Key). Ce mode de gestion est utile dans les scénarios où il est nécessaire de chiffrer les données au repos et de gérer les clés dans un référentiel propriétaire non contrôlé par Microsoft. Dans ce modèle, le service doit récupérer la clé à partir d’un site externe. Les garanties de disponibilité et de performances sont affectées et la configuration est plus complexe. En outre, comme le service n’a pas accès à la clé de chiffrement des données pendant les opérations de chiffrement et de déchiffrement, les garanties de sécurité globale de ce modèle sont similaires à celles du modèle où les clés sont gérées par le client dans Azure Key Vault.  Par conséquent, ce modèle n’est pas approprié pour la plupart des organisations, sauf si elles ont des exigences spécifiques de gestion des clés. En raison de ces limitations, la plupart des services Azure ne gèrent pas le chiffrement côté serveur à l’aide de clés gérées par le serveur dans le matériel contrôlé par le client.
 
 ##### <a name="key-access"></a>Accès aux clés
 
@@ -201,7 +201,7 @@ Quand le chiffrement côté serveur à l’aide de clés gérées par le service
 
 ## <a name="encryption-at-rest-in-microsoft-cloud-services"></a>Chiffrement au repos dans les services cloud Microsoft
 
-Les services cloud Microsoft sont utilisés dans chacun des trois modèles cloud : IaaS, PaaS, SaaS. Voici des exemples de la façon dont ils s’adaptent sur chaque modèle :
+Les services Microsoft Cloud sont utilisés dans les trois modèles de cloud : IaaS, PaaS, SaaS. Voici des exemples de la façon dont ils s’adaptent sur chaque modèle :
 
 - Services logiciels, appelés SaaS ou Software as a Server, qui ont des applications fournies par le cloud, comme Office 365.
 - Services de plateforme, dont les clients tirent parti sur le cloud dans leurs applications, en utilisant le cloud pour des fonctionnalités comme le stockage, l’analytique et Service Bus.
@@ -209,11 +209,11 @@ Les services cloud Microsoft sont utilisés dans chacun des trois modèles cloud
 
 ### <a name="encryption-at-rest-for-saas-customers"></a>Chiffrement au repos pour les clients SaaS
 
-Les clients SaaS (Software as a Service) ont généralement le chiffrement au repos activé ou disponible dans chaque service. Office 365 propose plusieurs options permettant aux clients de vérifier ou d’activer le chiffrement au repos. Pour plus d’informations sur les services Office 365, consultez Technologies de chiffrement des données pour Office 365.
+Les clients SaaS (Software as a Service) ont généralement le chiffrement au repos activé ou disponible dans chaque service. Office 365 propose plusieurs options permettant aux clients de vérifier ou d’activer le chiffrement au repos. Pour plus d’informations sur les services Office 365, consultez l’article dédié au [chiffrement dans Office 365](https://docs.microsoft.com/office365/securitycompliance/encryption).
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Chiffrement au repos pour les clients PaaS
 
-Les données des clients PaaS (Platform as a Service) se trouvent généralement dans un environnement d’exécution d’applications et un des fournisseurs de ressources Azure est utilisé pour stocker les données du client. Pour voir les options de chiffrement au repos disponibles, consultez le tableau ci-dessous pour les plateformes de stockage et d’applications que vous utilisez. Quand elles sont prises en charge, des liens vers des instructions sur l’activation du chiffrement au repos sont présents pour chaque fournisseur de ressources. 
+Les données des clients PaaS (Platform as a Service) se trouvent généralement dans un environnement d’exécution d’applications et un des fournisseurs de ressources Azure est utilisé pour stocker les données du client. Pour connaître les options de chiffrement au repos disponibles, consultez le tableau ci-dessous pour les plateformes de stockage et d’applications que vous utilisez. Quand elles sont prises en charge, des liens vers des instructions sur l’activation du chiffrement au repos sont présents pour chaque fournisseur de ressources. 
 
 ### <a name="encryption-at-rest-for-iaas-customers"></a>Chiffrement au repos pour les clients IaaS
 
@@ -243,8 +243,8 @@ Tout client utilisant les fonctionnalités IaaS d’Azure peut effectuer le chif
 
 Tous les services Stockage Azure (Stockage Blob, Stockage File d’attente, Stockage Table et Azure Files) prennent en charge le chiffrement au repos côté serveur, et certains services prennent en charge les clés gérées par le client et le chiffrement côté client.  
 
-- Côté serveur : tous les services Stockage Azure permettent par défaut le chiffrement côté serveur à l’aide de clés gérées par le service, une opération transparente pour l’application. Pour plus d’informations, consultez [Azure Storage Service Encryption pour les données au repos](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Stockage Blob Azure et Azure Files prennent également en charge les clés RSA 2048 bits gérées par le client dans Azure Key Vault. Pour plus d’informations, consultez [Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
-- Côté client : Les files d’attente, les Tables et les objets BLOB Windows Azure prennent en charge le chiffrement côté client. Lors de l’utilisation du chiffrement côté client, les clients chiffrent les données et les chargent sous la forme d’un objet blob chiffré. La gestion des clés est effectuée par le client. Pour plus d’informations, consultez [Chiffrement côté client et Azure Key Vault pour le stockage Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
+- Côté serveur : Tous les services Stockage Azure permettent par défaut le chiffrement côté serveur avec des clés gérées par le service, une opération transparente pour l’application. Pour plus d’informations, consultez [Azure Storage Service Encryption pour les données au repos](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Stockage Blob Azure et Azure Files prennent également en charge les clés RSA 2048 bits gérées par le client dans Azure Key Vault. Pour plus d’informations, consultez [Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
+- Côté client : Les objets blob, les tables et les files d’attente Azure prennent en charge le chiffrement côté client. Lors de l’utilisation du chiffrement côté client, les clients chiffrent les données et les chargent sous la forme d’un objet blob chiffré. La gestion des clés est effectuée par le client. Pour plus d’informations, consultez [Chiffrement côté client et Azure Key Vault pour le stockage Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
@@ -255,33 +255,35 @@ La prise en charge du chiffrement côté serveur est actuellement fournie par la
 
 Le chiffrement côté client des données d’Azure SQL Database est pris en charge via la fonctionnalité [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). Always Encrypted utilise une clé qui est créée et stockée par le client. Les clients peuvent stocker la clé principale dans un magasin de certificats Windows, dans Azure Key Vault ou dans un module de sécurité matériel local. Avec SQL Server Management Studio, les utilisateurs SQL choisissent quelle clé ils veulent utiliser pour quelle colonne.
 
-|                                  |                    | **Modèle de chiffrement et gestion des clés** |                   |                    |
-|----------------------------------|--------------------|--------------------|--------------------|--------------------|
-|                                  | **Côté serveur à l’aide d’une clé gérée par le service**     | **Côté serveur à l’aide d’un coffre de clés géré par le client**             |  **Côté serveur à l’aide de locaux gérés par le client**                  | **Client utilisant une gestion par le client**      |
-| **Stockage et bases de données**        |                    |                    |                    |                    |                    |
-| Disque (IaaS)                      | -                  | Oui, RSA 2048 bits  | Oui               | -                  |
-| SQL Server (IaaS)                | Oui                | Oui, RSA 2048 bits  | Oui                | Oui                |
-| Azure SQL (Database/Data Warehouse) | Oui                | Oui, RSA 2048 bits  | -                  | Oui                |
-| Stockage Azure (Objets blob de blocs/pages) | Oui                | Oui, RSA 2048 bits  | -                  | Oui                |
-| Stockage Azure (Fichiers)            | Oui                | Oui, RSA 2048 bits  | -                  | -                  |
-| Stockage Azure (Tables, Files d’attente)   | Oui                | -                  | -                  | Oui                |
-| Cosmos DB (Document DB)          | Oui                | -                  | -                  | -                  |
-| StorSimple                       | Oui                | -                  | -                  | Oui                |
-| Sauvegarde                           | -                  | -                  | -                  | Oui                |
-| **Décisionnel &amp; Analytique**   |                    |                    |                    |                    |
-| Azure Data Factory               | Oui                | -                  | -                  | -                  |
-| Azure Machine Learning           | -                  | Préversion, RSA 2048 bits | -                  | -                  |
-| Azure Stream Analytics           | Oui                | -                  | -                  | -                  |
-| HDInsight (Azure Blob Storage)   | Oui                | -                  | -                  | -                  |
-| HDInsight (Data Lake Storage)    | Oui                | -                  | -                  | -                  |
-| Azure Data Lake Store            | Oui                | Oui, RSA 2048 bits  | -                  | -                  |
-| Azure Data Catalog               | Oui                | -                  | -                  | -                  |
-| Power BI                         | Oui                | -                  | -                  | -                  |
-| **Services IoT**                 |                    |                    |                    |                    |
-| IoT Hub                          | -                  | -                  | -                  | Oui                |
-| Service Bus                      | Oui                | -                  | -                  | Oui                |
-| Event Hubs                       | Oui                | -                  | -                  | -                  |
-| Event Grid                       | Oui                | -                  | -                  | -                  |
+|                                  |                    | **Modèle de chiffrement et gestion des clés** |                    |
+|----------------------------------|--------------------|-----------------------------------------|--------------------|
+|                                  | **Côté serveur à l’aide d’une clé gérée par le service**     | **Côté serveur à l’aide d’un coffre de clés géré par le client**             | **Côté client à l’aide d’une gestion par le client**      |
+| **Stockage et bases de données**        |                    |                    |                    |                    |
+| Disque (IaaS)                      | -                  | Oui, RSA 2048 bits  | -                  |
+| SQL Server (IaaS)                | Oui                | Oui, RSA 2048 bits  | Oui                |
+| Azure SQL (Database/Data Warehouse) | Oui                | Oui, RSA 2048 bits  | Oui                |
+| Azure SQL (Database Managed Instance) | Oui                | Préversion, RSA 2048 bits  | Oui                |
+| Stockage Azure (Objets blob de blocs/pages) | Oui                | Oui, RSA 2048 bits  | Oui                |
+| Stockage Azure (Fichiers)            | Oui                | Oui, RSA 2048 bits  | -                  |
+| Stockage Azure (Tables, Files d’attente)   | Oui                | -                  | Oui                |
+| Cosmos DB (Document DB)          | Oui                | -                  | -                  |
+| StorSimple                       | Oui                | -                  | Oui                |
+| Sauvegarde                           | -                  | -                  | Oui                |
+| **Décisionnel &amp; Analytique**   |                    |                    |                    |
+| Azure Data Factory               | Oui                | -                  | -                  |
+| Azure Machine Learning           | -                  | Préversion, RSA 2048 bits | -                  |
+| Azure Stream Analytics           | Oui                | -                  | -                  |
+| HDInsight (Azure Blob Storage)   | Oui                | -                  | -                  |
+| HDInsight (Data Lake Storage)    | Oui                | -                  | -                  |
+| Apache Kafka pour HDInsight       | Oui                | Préversion, toutes les longueurs RSA | -                  |
+| Azure Data Lake Store            | Oui                | Oui, RSA 2048 bits  | -                  |
+| Azure Data Catalog               | Oui                | -                  | -                  |
+| Power BI                         | Oui                | -                  | -                  |
+| **Services IoT**                 |                    |                    |                    |
+| IoT Hub                          | -                  | -                  | Oui                |
+| Service Bus                      | Oui                | -                  | Oui                |
+| Event Hubs                       | Oui                | -                  | -                  |
+| Event Grid                       | Oui                | -                  | -                  |
 
 
 ## <a name="conclusion"></a>Conclusion

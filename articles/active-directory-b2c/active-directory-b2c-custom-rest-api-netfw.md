@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e3d938c4464fc5141b97f85220bf096920e17d00
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: b8718e02bc0306db1ac8cd4f5b133ebdb17a4ec3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339591"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557279"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur
 
@@ -26,19 +26,19 @@ Avec l’infrastructure d’expérience d’identité, sur laquelle repose Azure
 ## <a name="introduction"></a>Introduction
 Avec Azure AD B2C, vous pouvez ajouter votre propre logique métier à un parcours utilisateur en appelant votre service RESTful. L’infrastructure d’expérience d’identité envoie des données au service RESTful dans une collection *Revendications d’entrée* et reçoit des données de RESTful dans une collection *Revendications de sortie*. Avec l’intégration de service RESTful, vous pouvez :
 
-* **Valider les données d’entrée utilisateur** : cette action empêche que les données mal formées soient rendues persistantes dans Azure AD. Si la valeur de l’utilisateur n’est pas valide, votre service RESTful retourne un message d’erreur qui demande à l’utilisateur de fournir une entrée. Par exemple, vous pouvez vérifier que l’adresse e-mail fournie par l’utilisateur existe dans la base de données de clients.
-* **Remplacer les revendications d’entrée** : par exemple, si un utilisateur entre le prénom en lettres minuscules ou majuscules, vous pouvez mettre en forme le nom en ne mettant que la première lettre en majuscule.
-* **Enrichir les données utilisateur en les intégrant davantage aux applications métier d’entreprise**  : votre service RESTful peut recevoir l’adresse e-mail de l’utilisateur, interroger la base de données de clients et retourner le numéro de fidélité de l’utilisateur à Azure AD B2C. Les revendications retournées peuvent être stockées dans le compte Azure AD de l’utilisateur, évaluées dans les *étapes d’orchestration* suivantes ou incluses dans le jeton d’accès.
-* **Exécuter la logique métier personnalisée**: vous pouvez envoyer des notifications Push, mettre à jour des bases de données d’entreprise, exécuter un processus de migration utilisateur, gérer les autorisations, auditer des bases de données et effectuer d’autres actions.
+* **Valider les données d’entrée utilisateur** : cette action empêche que les données mal formées soient rendues persistantes dans Azure AD. Si la valeur de l’utilisateur n’est pas valide, votre service RESTful retourne un message d’erreur qui demande à l’utilisateur de fournir une entrée. Par exemple, vous pouvez vérifier que l’adresse e-mail fournie par l’utilisateur existe dans la base de données de clients.
+* **Remplacer les revendications d’entrée** : Par exemple, si un utilisateur entre le prénom entier en lettres minuscules ou majuscules, vous pouvez modifier sa mise en forme en utilisant une majuscule uniquement pour la première lettre.
+* **Enrichir les données utilisateur en les intégrant davantage aux applications métier d’entreprise**  : votre service RESTful peut recevoir l’adresse e-mail de l’utilisateur, interroger la base de données de clients et retourner le numéro de fidélité de l’utilisateur à Azure AD B2C. Les revendications retournées peuvent être stockées dans le compte Azure AD de l’utilisateur, évaluées dans les *étapes d’orchestration* suivantes ou incluses dans le jeton d’accès.
+* **Exécuter la logique métier personnalisée** : vous pouvez envoyer des notifications Push, mettre à jour des bases de données d’entreprise, exécuter un processus de migration utilisateur, gérer les autorisations, auditer des bases de données et effectuer d’autres actions.
 
 Vous pouvez concevoir l’intégration aux services RESTful comme suit :
 
-* **Profil technique de validation** : l’appel au service RESTful se produit à l’intérieur du profil technique de validation du profil technique spécifié. Le profil technique de validation valide les données fournies par l’utilisateur avant la suite du parcours utilisateur. Avec le profil technique de validation, vous pouvez :
+* **Profil technique de validation** : l’appel au service RESTful se produit à l’intérieur du profil technique de validation du profil technique spécifié. Le profil technique de validation valide les données fournies par l’utilisateur avant la suite du parcours utilisateur. Avec le profil technique de validation, vous pouvez :
    * Envoyer des revendications d’entrée
    * Valider les revendications d’entrée et générer des messages d’erreur personnalisés
    * Renvoyer des revendications de sortie
 
-* **Échange de revendications** : cette conception est similaire au profil technique de validation, mais elle se produit dans une étape d’orchestration. Cette définition est limitée à :
+* **Échange de revendications** : cette conception est similaire au profil technique de validation, mais elle se produit dans une étape d’orchestration. Cette définition est limitée à :
    * Envoyer des revendications d’entrée
    * Renvoyer des revendications de sortie
 
@@ -56,7 +56,7 @@ Vue d’ensemble :
 ## <a name="prerequisites"></a>Prérequis
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
-## <a name="step-1-create-an-aspnet-web-api"></a>Étape 1 : Créer une API web ASP.NET
+## <a name="step-1-create-an-aspnet-web-api"></a>Étape 1 : Créer une API web ASP.NET
 
 1. Dans Visual Studio, créez un projet en sélectionnant **Fichier** > **Nouveau** > **Projet**.
 
@@ -76,7 +76,7 @@ Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnal
 
 ## <a name="step-2-prepare-the-rest-api-endpoint"></a>Étape 2 : Préparer le point de terminaison de l’API REST
 
-### <a name="step-21-add-data-models"></a>Étape 2.1 : Ajouter des modèles de données
+### <a name="step-21-add-data-models"></a>Étape 2.1 : Ajout de modèles de données
 Les modèles représentent les données des revendications d’entrée et de sortie dans votre service RESTful. Votre code lit les données d’entrée en désérialisant le modèle de revendications d’entrée à partir d’une chaîne JSON vers un objet C# (votre modèle). L’API web ASP.NET désérialise automatiquement le modèle de revendications de sortie dans JSON, puis écrit les données sérialisées dans le corps du message de réponse HTTP. 
 
 Créez un modèle qui représente les revendications d’entrée en effectuant les opérations suivantes :
@@ -133,7 +133,7 @@ Créez un modèle qui représente les revendications d’entrée en effectuant l
     }
     ```
 
-### <a name="step-22-add-a-controller"></a>Étape 2.2 : Ajouter un contrôleur
+### <a name="step-22-add-a-controller"></a>Étape 2.2 : Ajout d'un contrôleur
 Dans l’API web, un _contrôleur_ est un objet qui gère les requêtes HTTP. Le contrôleur retourne les revendications de sortie, ou, si le prénom n’est pas valide, génère un message d’erreur HTTP de conflit.
 
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier **Contrôleurs**, sélectionnez **Ajouter**, puis **Contrôleur**.
@@ -203,7 +203,7 @@ Dans l’API web, un _contrôleur_ est un objet qui gère les requêtes HTTP. Le
     }
     ```
 
-## <a name="step-3-publish-the-project-to-azure"></a>Étape 3 : Publier le projet sur Azure
+## <a name="step-3-publish-the-project-to-azure"></a>Étape 3 : Publication du projet sur Azure
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **Contoso.AADB2C.API**, puis sélectionnez **Publier**.
 
     ![Publier dans Microsoft Azure App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
@@ -241,59 +241,59 @@ La revendication `loyaltyNumber` n’est définie pour l’instant dans notre sc
 </BuildingBlocks>
 ```
 
-## <a name="step-5-add-a-claims-provider"></a>Étape 5 : Ajouter un fournisseur de revendications 
+## <a name="step-5-add-a-claims-provider"></a>Étape 5 : Ajout d’un fournisseur de revendications 
 Chaque fournisseur de revendications doit avoir un ou plusieurs profils techniques qui déterminent les points de terminaison et les protocoles nécessaires pour communiquer avec le fournisseur de revendications. 
 
 Un fournisseur de revendications peut avoir plusieurs profils techniques pour diverses raisons. Par exemple, plusieurs profils techniques peuvent être définis, car le fournisseur de revendications prend en charge plusieurs protocoles, les points de terminaison peuvent avoir des fonctionnalités distinctes ou les publications peuvent contenir des revendications présentant de nombreux niveaux d’assurance. Il peut être acceptable de publier des revendications sensibles dans un parcours utilisateur, mais pas dans un autre. 
 
 L’extrait de code XML suivant contient un nœud de fournisseur de revendications avec deux profils techniques :
 
-* **TechnicalProfile Id="REST-API-SignUp"** : définit votre service RESTful. 
+* **TechnicalProfile Id="REST-API-SignUp"**  : définit votre service RESTful. 
    * `Proprietary` est décrit en tant que protocole pour un fournisseur basé sur RESTful. 
    * `InputClaims` définit les revendications qui seront envoyées depuis Azure AD B2C vers le service REST. 
 
    Dans cet exemple, le contenu de la revendication `givenName` est envoyé au service REST en tant que `firstName`, le contenu de la revendication `surname` est envoyé au service REST en tant que `lastName` et `email` est envoyé tel quel. L’élément `OutputClaims` définit les revendications qui sont récupérées du service RESTful vers Azure AD B2C.
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"** : ajoute un profil technique de validation à un profil technique existant (défini dans la stratégie de base). Pendant le parcours d’inscription, le profil technique de validation appelle le profil technique précédent. Si le service RESTful retourne une erreur HTTP 409 (erreur de conflit), le message d’erreur est affiché à l’utilisateur. 
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**  : ajoute un profil technique de validation à un profil technique existant (défini dans la stratégie de base). Pendant le parcours d’inscription, le profil technique de validation appelle le profil technique précédent. Si le service RESTful retourne une erreur HTTP 409 (erreur de conflit), le message d’erreur est affiché à l’utilisateur. 
 
 Recherchez le nœud `<ClaimsProviders>`, puis ajoutez l’extrait de code XML suivant sous le nœud `<ClaimsProviders>` :
 
 ```xml
 <ClaimsProvider>
-    <DisplayName>REST APIs</DisplayName>
-    <TechnicalProfiles>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
     
     <!-- Custom Restful service -->
     <TechnicalProfile Id="REST-API-SignUp">
-        <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
-        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-        <Metadata>
+      <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
         <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/signup</Item>
         <Item Key="AuthenticationType">None</Item>
         <Item Key="SendClaimsIn">Body</Item>
-        </Metadata>
-        <InputClaims>
+        <Item Key="AllowInsecureAuthInProduction">true</Item>
+      </Metadata>
+      <InputClaims>
         <InputClaim ClaimTypeReferenceId="email" />
         <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
         <InputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
-        </InputClaims>
-        <OutputClaims>
+      </InputClaims>
+      <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="loyaltyNumber" />
-        </OutputClaims>
-        <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+      </OutputClaims>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
     </TechnicalProfile>
 
-<!-- Change LocalAccountSignUpWithLogonEmail technical profile to support your validation technical profile -->
+    <!-- Change LocalAccountSignUpWithLogonEmail technical profile to support your validation technical profile -->
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-        <OutputClaims>
+      <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="loyaltyNumber" />
-        </OutputClaims>
-        <ValidationTechnicalProfiles>
+      </OutputClaims>
+      <ValidationTechnicalProfiles>
         <ValidationTechnicalProfile ReferenceId="REST-API-SignUp" />
-        </ValidationTechnicalProfiles>
+      </ValidationTechnicalProfiles>
     </TechnicalProfile>
-
-    </TechnicalProfiles>
+  </TechnicalProfiles>
 </ClaimsProvider>
 ```
 
@@ -323,7 +323,7 @@ Une fois que vous avez ajouté la nouvelle revendication, le code de partie de c
 </TrustFrameworkPolicy>
 ```
 
-## <a name="step-7-upload-the-policy-to-your-tenant"></a>Étape 7 : Charger la stratégie sur votre locataire
+## <a name="step-7-upload-the-policy-to-your-tenant"></a>Étape 7 : Charger la stratégie sur un client
 
 1. Sur le [portail Azure](https://portal.azure.com), basculez vers le [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md), puis ouvrez **Azure AD B2C**.
 
@@ -339,7 +339,7 @@ Une fois que vous avez ajouté la nouvelle revendication, le code de partie de c
 
 7. Répétez l’étape précédente avec le fichier SignUpOrSignIn.xml.
 
-## <a name="step-8-test-the-custom-policy-by-using-run-now"></a>Étape 8 : Tester la stratégie personnalisée en utilisant Exécuter maintenant
+## <a name="step-8-test-the-custom-policy-by-using-run-now"></a>Étape 8 : Tester la stratégie personnalisée en utilisant Exécuter maintenant
 1. Sélectionnez **Paramètres Azure AD B2C**, puis accédez à **Infrastructure d’expérience d’identité**.
 
     > [!NOTE]

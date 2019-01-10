@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: f9f6d2e43fff9a3e57145f39863f66eed64869b2
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ab9d28212e471a9fe3d59ff30a8225b7440655d7
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048581"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022493"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Copier des données de SAP ECC à l’aide d’Azure Data Factory
 
@@ -54,8 +53,8 @@ Les propriétés prises en charge pour le service lié SAP ECC sont les suivante
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **SapEcc** | OUI |
-| url | URL du service OData SAP ECC. | OUI |
+| Type | La propriété type doit être définie sur : **SapEcc** | Oui |
+| url | URL du service OData SAP ECC. | Oui |
 | username | Nom d’utilisateur utilisé pour se connecter à SAP ECC. | Non  |
 | password | Mot de passe en texte clair utilisé pour se connecter à SAP ECC. | Non  |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
@@ -91,7 +90,7 @@ Pour copier des données de SAP ECC, définissez **SapEccResource** comme propri
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| chemin d’accès | Chemin de l’entité OData SAP ECC. | OUI |
+| chemin d’accès | Chemin de l’entité OData SAP ECC. | Oui |
 
 **Exemple**
 
@@ -121,7 +120,7 @@ Pour copier des données de SAP ECC, définissez **SapEccSource** comme type de 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type de la source d’activité de copie doit être définie sur **SapEccSource**. | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **SapEccSource** | Oui |
 | query | Options de requête OData pour filtrer les données. Exemple : "$select=Name,Description&$top=10".<br/><br/>Le connecteur SAP ECC copie les données à partir de l’URL combinée : (URL spécifiée dans le service lié)/(chemin spécifié dans le jeu de données)?(requête spécifiée dans la source de copie d’activité). Voir [Composants d’URL d’OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Non  |
 
 **Exemple :**

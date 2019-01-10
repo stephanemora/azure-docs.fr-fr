@@ -1,20 +1,17 @@
 ---
 title: Création et gestion d’un serveur Azure Database pour MySQL à l’aide du portail Azure
 description: Cet article explique comment créer rapidement un nouveau serveur Azure Database pour MySQL et gérer le serveur à l’aide du portail Azure.
-services: mysql
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-manager: kfile
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 065eb708a1d80b0eac618bd9039a859db6ef1340
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 39ffe1b71fb002658110c63c825e0515f38e2b9e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265582"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537322"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Création et gestion d’un serveur Azure Database pour MySQL à l’aide du portail Azure
 Cette rubrique explique comment créer rapidement un nouveau serveur Azure Database pour MySQL. Il comprend également des informations sur la gestion du serveur à l’aide du Portail Azure, notamment l’affichage des détails du serveur et des bases de données, la réinitialisation du mot de passe, la mise à l’échelle des ressources et la suppression du serveur.
@@ -44,7 +41,7 @@ Suivez ces étapes pour créer un serveur Azure Database pour MySQL nommé « m
     | *Connexion d’administrateur du serveur* | myadmin (nom du compte administrateur de l’installation) |
     | *Mot de passe* | définissez le mot de passe du compte administrateur |
     | *Confirmer le mot de passe* | confirmez le mot de passe du compte administrateur |
-    | *Emplacement* | Asie du Sud-Est (choisissez entre Europe du Nord et États-Unis de l’Ouest) |
+    | *Lieu* | Asie Sud-Est (choisissez entre Europe Nord et USA Ouest) |
     | *Version* | 5.7 (choisissez la version du serveur Azure Database pour MySQL) |
 
 4. Cliquez sur **Niveau tarifaire** pour spécifier le niveau de service et le niveau de performances de votre nouveau serveur. Sélectionnez l’onglet **Usage général**. *Gen 4*, *2 vCores*, *5 Go* et *7 jours* sont les valeurs par défaut pour **Génération de calcul**, **vCore**, **Stockage** et la **Période de rétention de sauvegarde**. Vous pouvez laisser ces curseurs en l’état. Pour activer les sauvegardes de votre serveur dans le stockage géoredondant, sélectionnez **Géographiquement redondant** dans les **Options de redondance de sauvegarde**.
@@ -113,4 +110,4 @@ Cliquez sur **Propriétés** en dessous de **Paramètres** pour afficher des inf
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Démarrage rapide : création d’un serveur Azure Database pour MySQL à l’aide du portail Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
+[Démarrage rapide : Créer un serveur Azure Database pour MySQL à l’aide du portail Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)

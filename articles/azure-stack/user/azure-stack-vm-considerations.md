@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 12/19/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 9d6bb8d4327b428bb47d1d44422d816e7b20ed87
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8a9fc299f620c7df87544b467cf52535addfe313
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847522"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651501"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considérations relatives à l’utilisation des machines virtuelles dans Azure Stack
 
@@ -39,6 +39,7 @@ Les machines virtuelles Azure Stack fournissent des ressources de calcul scalabl
 | Stockage de machine virtuelle | Prend en charge les [disques managés](../../virtual-machines/windows/managed-disks-overview.md). | Les disques managés sont pris en charge dans Azure Stack avec la version 1808 et les versions ultérieures. |
 | Performances des disques de machines virtuelles | Dépendent de la taille et du type de disque. | Dépendent de la taille de la machine virtuelle à laquelle sont attachés les disques. Pour en savoir plus, consultez l’article [Tailles de machine virtuelle prises en charge dans Azure Stack](azure-stack-vm-sizes.md).
 | Versions d’API | Azure utilise toujours les dernières versions d’API pour toutes les fonctionnalités de machine virtuelle. | Azure Stack prend en charge certains services Azure et des versions d’API spécifiques pour ces services. Pour obtenir la liste des versions d’API prises en charge, consultez la section [Versions d’API](#api-versions) dans cet article. |
+| Service de métadonnées d’instance Azure | Le service de métadonnées d’instance Azure fournit des informations sur les instances de machine virtuelle en cours d’exécution qui peuvent être utilisées pour gérer et configurer vos machines virtuelles.  | Le service de métadonnées d’Instance n’est pas pris en charge sur Azure Stack. |
 |Groupes à haute disponibilité de machines virtuelles|Plusieurs domaines d’erreur (2 ou 3 par région)<br>Plusieurs domaines de mise à jour<br>Prise en charge des disques managés|Plusieurs domaines d’erreur (2 ou 3 par région)<br>Plusieurs domaines de mise à jour (20 max.)<br>Pas de prise en charge des disques managés|
 |Groupes identiques de machines virtuelles |Mise à l’échelle automatique prise en charge|Mise à l’échelle automatique non prise en charge.<br>Pour ajouter d’autres instances à un groupe identique, utilisez le portail, les modèles Resource Manager ou PowerShell.
 

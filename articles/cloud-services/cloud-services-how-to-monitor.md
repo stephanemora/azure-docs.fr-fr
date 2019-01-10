@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: jeconnoc
-ms.openlocfilehash: e9fbe59c40fe55218429a3b479ddbbec7220c66a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42141113"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789464"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introduction à la surveillance des services cloud
 
-Vous pouvez surveiller les principales mesures de performances pour n’importe quel service cloud. Chaque rôle de service cloud collecte des données de base : utilisation du processeur, utilisation du réseau et utilisation du disque. Si le service cloud a l’extension `Microsoft.Azure.Diagnostics` appliquée à un rôle, ce rôle peut collecter des points de données supplémentaires. Cet article vous fournit une présentation d’Azure Diagnostics pour Cloud Services.
+Vous pouvez surveiller les principales mesures de performances pour n’importe quel service cloud. Chaque rôle de service cloud collecte un nombre minimal de données : utilisation du processeur, utilisation du réseau et utilisation du disque. Si le service cloud a l’extension `Microsoft.Azure.Diagnostics` appliquée à un rôle, ce rôle peut collecter des points de données supplémentaires. Cet article vous fournit une présentation d’Azure Diagnostics pour Cloud Services.
 
 Avec la surveillance de base, les données des compteurs de performances des instances de rôle sont échantillonnées et collectées toutes les 3 minutes. Ces données de surveillance de base ne sont pas stockées dans votre compte de stockage et ne représentent aucun coût supplémentaire associé.
 
@@ -93,13 +93,13 @@ Vous disposez probablement de deux fichiers **.cscfg**, un nommé **ServiceConfi
 
 ## <a name="use-application-insights"></a>Utiliser Application Insights
 
-Lorsque vous publiez le service cloud à partir de Visual Studio, vous disposez de la possibilité d’envoyer les données de diagnostic à Application Insights. Vous pouvez créer la ressource Azure Application Insights à ce moment-là ou envoyer les données à une ressource Azure existante. La disponibilité, les performances, les échecs et l’utilisation de votre service cloud peuvent être surveillés par Application Insights. Vous pouvez ajouter des graphiques personnalisés à Application Insights afin d’afficher les données qui vous intéressent le plus. Les données d’instance de rôle peuvent être collectées à l’aide du SDK d’Application Insights dans votre projet de service cloud. Pour plus d’informations sur l’intégration d’Application Insights, consultez [Application Insights avec Cloud Services](../application-insights/app-insights-cloudservices.md).
+Lorsque vous publiez le service cloud à partir de Visual Studio, vous disposez de la possibilité d’envoyer les données de diagnostic à Application Insights. Vous pouvez créer la ressource Azure Application Insights à ce moment-là ou envoyer les données à une ressource Azure existante. La disponibilité, les performances, les échecs et l’utilisation de votre service cloud peuvent être surveillés par Application Insights. Vous pouvez ajouter des graphiques personnalisés à Application Insights afin d’afficher les données qui vous intéressent le plus. Les données d’instance de rôle peuvent être collectées à l’aide du SDK d’Application Insights dans votre projet de service cloud. Pour plus d’informations sur l’intégration d’Application Insights, consultez [Application Insights avec Cloud Services](../azure-monitor/app/cloudservices.md).
 
 Notez que, si vous pouvez utiliser Application Insights pour afficher les compteurs de performances (et les autres paramètres) que vous avez spécifiés via l’extension de diagnostics Microsoft Azure, vous n’obtenez une expérience plus riche qu’en intégrant le Kit de développement logiciel (SDK) Application Insights dans vos rôles web et de travail.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [En savoir plus sur Application Insights avec Cloud Services](../application-insights/app-insights-cloudservices.md)
+- [En savoir plus sur Application Insights avec Cloud Services](../azure-monitor/app/cloudservices.md)
 - [Configurer les compteurs de performances](diagnostics-performance-counters.md)
 

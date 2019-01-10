@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 3b06335019cf15cc296c1814ee1fcf5ce50c3949
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 7cd06bda16200f45d2b6aa9e20a536e62ad2c2d6
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971839"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105475"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurer la récupération d’urgence vers Azure pour des serveurs physiques locaux
 
@@ -27,8 +27,6 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence de s
 > * Configurer les environnements de réplication source et cible
 > * Créer une stratégie de réplication
 > * Activer la réplication pour un serveur
-
-[Examinez l’architecture](concepts-hyper-v-to-azure-architecture.md) de ce scénario de récupération d’urgence.
 
 ## <a name="prerequisites"></a>Prérequis
 

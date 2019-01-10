@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 021ec3919e061010265ff3a2f30fde0ffb59e7b0
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 92221e5aaebbaebb2af17ea211e38a3665a2b04f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632609"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652471"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Utiliser des fonctions définies par l’utilisateur (UDF) Python avec Apache Hive et Apache Pig dans HDInsight
 
@@ -26,7 +26,7 @@ Python 2.7 est installé par défaut sur HDInsight 3.0 et versions ultérieure
 
 HDInsight inclut également Jython, une implémentation de Python écrite en Java. Jython s’exécute directement sur la Machine virtuelle Java et n’utilise pas le streaming. Jython est l’interpréteur Python recommandé lorsque vous utilisez Python avec Pig.
 
-> [!WARNING]
+> [!WARNING]  
 > Les étapes de ce document partent des hypothèses suivantes : 
 >
 > * Vous créez les scripts Python sur votre environnement de développement local.
@@ -38,7 +38,7 @@ HDInsight inclut également Jython, une implémentation de Python écrite en Jav
 > * Utilisez `scp` pour charger les fichiers de l’interpréteur de commandes cloud vers HDInsight.
 > * Utilisez `ssh` à partir de l’interpréteur de commandes pour vous connecter à HDInsight et exécuter les exemples.
 
-## <a name="hivepython"></a>UDF Hive
+## <a name="hivepython"></a>Fonction définie par l’utilisateur Apache Hive
 
 Python peut être utilisé en tant que fonction définie par l'utilisateur à partir de Hive via l'instruction `TRANSFORM` HiveQL. Par exemple, le HiveQL suivant appelle le fichier `hiveudf.py` stocké dans le compte de stockage Azure par défaut du cluster.
 
@@ -66,7 +66,7 @@ FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Dans les clusters HDInsight Windows, la clause `USING` doit spécifier le chemin d’accès complet à python.exe.
 
 Cet exemple effectue ce qui suit :
@@ -111,7 +111,7 @@ La sortie du script est une concaténation des valeurs d’entrée pour `devicem
 
 Pour savoir comment exécuter cet exemple sur votre cluster HDInsight, consultez la rubrique [Exécution des exemples](#running) .
 
-## <a name="pigpython"></a>UDF Pig
+## <a name="pigpython"></a>Fonction définie par l’utilisateur Apache Pig
 
 Un script Python peut être utilisé comme une fonction définie par l'utilisateur à partir de Pig via l'instruction `GENERATE`. Vous pouvez exécuter le script à l’aide de Jython ou de C Python.
 
@@ -123,7 +123,7 @@ Pour spécifier l’interpréteur Python, utilisez `register` lorsque vous réf�
 * **Pour utiliser Jython** : `register '/path/to/pigudf.py' using jython as myfuncs;`
 * **Pour utiliser C Python** : `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Lorsque vous utilisez Jython, le chemin d’accès au fichier pig_jython peut être un chemin d’accès local ou un chemin d’accès WASB://. Toutefois, lorsque vous utilisez C Python, vous devez référencer un fichier sur le système de fichiers local du nœud que vous utilisez pour envoyer le travail Pig.
 
 Une fois l’inscription effectuée, le langage Pig Latin pour cet exemple est le même pour les deux :
@@ -182,7 +182,7 @@ Lorsque les données sont renvoyées à Pig, elles utilisent un schéma cohéren
 
 ## <a name="running"></a>Charger et exécuter les exemples
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Les étapes **SSH** fonctionnent uniquement avec un cluster HDInsight Linux. Les étapes **PowerShell** fonctionnent sur les clusters HDInsight Linux et Windows, mais nécessitent un client Windows.
 
 ### <a name="ssh"></a>SSH
@@ -299,11 +299,11 @@ Après avoir téléchargé les fichiers, procédez comme suit pour exécuter les
 
     Une fois ce travail terminé, le résultat devrait être le même que lorsque vous avez exécuté le script à l’aide de Jython.
 
-### <a name="powershell-upload-the-files"></a>PowerShell : chargement des fichiers
+### <a name="powershell-upload-the-files"></a>PowerShell : Téléchargement des fichiers
 
 Vous pouvez utiliser PowerShell pour charger les fichiers sur le serveur HDInsight. Utilisez le script suivant pour charger les fichiers Python :
 
-> [!IMPORTANT] 
+> [!IMPORTANT]   
 > Les étapes de cette section utilisent Azure PowerShell. Pour plus d’informations sur l’installation d’Azure PowerShell, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=5-41)]
@@ -313,14 +313,14 @@ Vous pouvez utiliser PowerShell pour charger les fichiers sur le serveur HDInsig
 
 Ce script récupère des informations concernant votre cluster HDInsight, puis extrait le compte et la clé pour le compte de stockage par défaut et télécharge les fichiers vers la racine du conteneur.
 
-> [!NOTE]
-> Pour plus d’informations sur le chargement des fichiers, consultez le document [Chargement de données pour les tâches Hadoop dans HDInsight](../hdinsight-upload-data.md).
+> [!NOTE]  
+> Pour plus d’informations sur le chargement des fichiers, consultez le document [Chargement de données pour les tâches Apache Hadoop dans HDInsight](../hdinsight-upload-data.md).
 
-#### <a name="powershell-use-the-hive-udf"></a>PowerShell : utiliser la fonction définie par l’utilisateur Hive
+#### <a name="powershell-use-the-hive-udf"></a>PowerShell : Utiliser la fonction définie par l’utilisateur Hive
 
 PowerShell peut également être utilisé pour exécuter des requêtes Hive à distance. Le script PowerShell suivant permet d’exécuter une requête Hive qui utilise le script **hiveudf.py** :
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Avant de s’exécuter, le script vous invite à fournir les informations de compte HTTPs/Admin pour votre cluster HDInsight.
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=45-94)]
@@ -337,7 +337,7 @@ La sortie du travail **Hive** doit ressembler à l’exemple de sortie suivant :
 
 PowerShell peut également être utilisé pour exécuter des tâches Pig Latin. Pour exécuter une tâche Pig Latin qui utilise le script **pigudf.py**, utilisez le script PowerShell suivant :
 
-> [!NOTE]
+> [!NOTE]  
 > Lors de l’envoi à distance d’un travail à l’aide de PowerShell, il n’est pas possible d’utiliser C Python en tant qu’interpréteur .
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=98-144)]
@@ -383,6 +383,6 @@ Si vous devez charger des modules Python qui ne sont pas fournis par défaut, co
 
 Pour connaître d’autres façons d’utiliser Pig et Hive et pour en savoir plus sur l’utilisation de MapReduce, consultez les documents suivants :
 
-* [Utilisation de Hive avec HDInsight](hdinsight-use-hive.md)
-* [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
+* [Utilisation d’Apache Hive avec HDInsight](hdinsight-use-hive.md)
+* [Utilisation d’Apache Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)

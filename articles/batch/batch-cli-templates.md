@@ -1,22 +1,23 @@
 ---
-title: Exécuter des travaux Azure Batch de bout en bout à l’aide de modèles | Microsoft Docs
+title: Exécuter des travaux de bout en bout à l’aide de modèles - Azure Batch| Microsoft Docs
 description: Créez des pools, travails et tâches Batch avec des modèles de fichier et l’interface de ligne de commande Azure.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 08/02/2018
-ms.author: danlep
-ms.openlocfilehash: 753a36eb6fb7a0c007c62bbab7fe7390e706b1f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/07/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 5e592845f96cb0734daf3c9e07d60005de260386
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964290"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547675"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Utiliser des modèles d’interface de ligne de commande Azure Batch et le transfert de fichiers
 
@@ -37,7 +38,7 @@ Les modèles Batch s’appuient sur la [prise en charge actuelle de Batch dans A
 
 En général, les travaux utilisent des fichiers de données d’entrée et produisent des fichiers de données de sortie. Par défaut, un compte de stockage est associé à chaque compte Batch. Transférez des fichiers vers et depuis ce compte de stockage à l’aide de l’interface CLI, sans codage et sans information d’identification de stockage.
 
-Par exemple, [ffmpeg](http://ffmpeg.org/) est une application courante qui traite les fichiers audio et vidéo. Voici les étapes à suivre pour appeler ffmpeg par l’intermédiaire de l’interface CLI d’Azure Batch et transcoder les fichiers vidéo sources dans différentes résolutions.
+Par exemple, [ffmpeg](https://ffmpeg.org/) est une application courante qui traite les fichiers audio et vidéo. Voici les étapes à suivre pour appeler ffmpeg par l’intermédiaire de l’interface CLI d’Azure Batch et transcoder les fichiers vidéo sources dans différentes résolutions.
 
 -   Créez un modèle de pool. L’utilisateur qui crée le modèle sait comment appeler l’application ffmpeg et connaît les prérequis. Il spécifie le système d’exploitation approprié, la taille de machine virtuelle, la façon dont ffmpeg est installé (à partir d’un package d’application ou à l’aide d’un gestionnaire de package, par exemple) et d’autres valeurs de propriété du pool. Les paramètres sont créés de façon à ce que, lorsque le modèle est utilisé, seul l’ID du pool et le nombre de machines virtuelles doivent être spécifiés.
 

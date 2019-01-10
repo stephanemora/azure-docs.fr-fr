@@ -15,18 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 5b21ec36215dfde964b845a1ee28c02b562e1dd7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4e136d4a0a60838af7d2b1a111982b0c16b06dd2
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340672"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975149"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Intégration d’un réseau virtuel pour les services Azure
 
 L’intégration des services Azure à un réseau virtuel Azure permet un accès privé au service à partir de machines virtuelles ou de ressources de calcul dans le réseau virtuel.
-Vous pouvez intégrer des services Azure dans votre réseau virtuel, grâce aux options suivantes : Déploiement direct d’instances dédiées du service au sein d’un réseau virtuel. Les services sont alors accessibles de manière privée dans le réseau virtuel, et à partir des réseaux locaux.
-En étendant un réseau virtuel au service, à l’aide de points de terminaison de service. Les points de terminaison fournisseur permettent de sécuriser les ressources de service au sein du réseau virtuel.
+Vous pouvez intégrer des services Azure dans votre réseau virtuel, grâce aux options suivantes :
+- Déploiement d’instances dédiées du service au sein d’un réseau virtuel. Les services sont alors accessibles de manière privée dans le réseau virtuel, et à partir des réseaux locaux.
+- Extension d’un réseau virtuel au service à l’aide de points de terminaison de service. Les points de terminaison fournisseur permettent de sécuriser les ressources de service au sein du réseau virtuel.
 
 Pour intégrer plusieurs services Azure à votre réseau virtuel, vous pouvez combiner un ou plusieurs des modèles ci-dessus. Par exemple, vous pouvez déployer HDInsight sur votre réseau virtuel et sécuriser un compte de stockage sur le sous-réseau HDInsight par le biais de points de terminaison de service.
  

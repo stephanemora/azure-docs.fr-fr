@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rimman
-ms.openlocfilehash: 943cd79237290cd91d56cc1c51f5d773cdb16634
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.reviewer: sngun
+ms.openlocfilehash: 41cbb657a4fc83b498c5cc9a6a16397a619aa075
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636388"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034044"
 ---
 # <a name="how-to-use-azure-cosmos-db-change-feed-with-azure-functions"></a>Comment utiliser le flux de modification Azure Cosmos DB avec Azure Functions
 
@@ -61,7 +62,7 @@ Le déclencheur Azure Cosmos DB tire parti de la bibliothèque du processeur de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les flux de modification, consultez les articles suivants :
+Pour plus d’informations sur le flux de modification, consultez les articles suivants :
 
 * [Présentation du flux de modification](change-feed.md)
 * [Manières de lire le flux de modification](read-change-feed.md)

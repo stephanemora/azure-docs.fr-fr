@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: 814c3ebec326ab1c17f4fea7f11b2bacaa6b42d9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2ae8c14b40fa13a1aa8008588fb0efb1b1d2c3f6
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997609"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159415"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Configurer une passerelle d’application avec un arrêt SSL à l’aide du portail Azure
 
@@ -148,7 +148,7 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
 ### <a name="add-backend-servers"></a>Ajouter des serveurs principaux
 
 3. Cliquez sur **Toutes les ressources**, puis sur **myAppGateway**.
-4. Cliquez sur **Pools principaux**. Un pool par défaut a été automatiquement créé avec la passerelle d’application. Cliquez sur **appGateayBackendPool**.
+4. Cliquez sur **Pools principaux**. Un pool par défaut a été automatiquement créé avec la passerelle d’application. Cliquez sur **appGatewayBackendPool**.
 5. Cliquez sur **Ajouter une cible** pour ajouter chaque machine virtuelle que vous avez créée au pool principal.
 
     ![Ajouter des serveurs principaux](./media/create-ssl-portal/application-gateway-backend.png)

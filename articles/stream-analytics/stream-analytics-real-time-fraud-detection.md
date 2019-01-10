@@ -4,19 +4,19 @@ description: Apprenez à créer une solution de détection des fraudes en temps 
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 43202e88482933aed7952f6cc97dcaf1e0dcb5e7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 73fffda6ec0ae0a65af9b5aa8505e3b9551bd3b4
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986030"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558173"
 ---
-# <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Prise en main de l’utilisation d’Azure Stream Analytics : détection des fraudes en temps réel
+# <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Bien démarrer avec Azure Stream Analytics : Détection des fraudes en temps réel
 
 Ce didacticiel illustre de bout en bout l’utilisation d’Azure Stream Analytics. Vous allez apprendre à effectuer les actions suivantes : 
 
@@ -28,7 +28,7 @@ Ce didacticiel illustre de bout en bout l’utilisation d’Azure Stream Analy
 
 Dans ce didacticiel, nous utilisons l’exemple de la détection de fraudes en temps réel sur la base de données d’appels téléphoniques. La technique illustrée convient également à d’autres types de détection de fraude, comme l’usurpation d’identité ou la fraude à la carte de crédit. 
 
-## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>Scénario : détection des fraudes de télécommunication et SIM en temps réel
+## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>Scénario : Détection des fraudes de télécommunication et SIM en temps réel
 
 Une société de télécommunication dispose d’un volume important de données pour les appels entrants. La société souhaite détecter les appels frauduleux en temps réel afin de pouvoir informer ses clients ou arrêter un service à partir d’un nombre donné. Un type de fraude à la carte SIM implique plusieurs appels simultanés provenant d’une même identité, mais à des emplacements géographiquement distincts. Pour détecter ce type de fraude, la société doit examiner les enregistrements téléphoniques entrants et rechercher des modèles spécifiques, dans ce cas précis, des appels passés en même temps dans différents pays. Tous les enregistrements téléphoniques qui s’inscrivent dans cette catégorie sont écrits dans l’espace de stockage en vue d’une analyse ultérieure.
 
@@ -44,7 +44,7 @@ Avant de commencer, veillez à disposer des éléments qui suivent :
     >[!NOTE]
     >Windows peut bloquer le fichier .zip téléchargé. Si vous ne pouvez pas le décompresser, cliquez avec le bouton droit sur le fichier et sélectionnez **Propriétés**. Si le message « Ce fichier provient d’un autre ordinateur et peut éventuellement être bloqué pour protéger cet ordinateur. » est affiché, sélectionnez l’option **Débloquer**, puis cliquez sur **Appliquer**.
 
-Si vous souhaitez examiner les résultats du travail Stream Analytics, vous avez également besoin d’un outil pour afficher le contenu d’un conteneur de stockage Blob Azure. Si vous utilisez Visual Studio, vous pouvez utiliser [Azure Tools pour Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) ou [Visual Studio Cloud Explorer](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer). Vous pouvez également installer des outils autonomes comme [Explorateur de stockage Azure](http://storageexplorer.com/) ou [Explorateur Azure](http://www.cerebrata.com/products/azure-explorer/introduction). 
+Si vous souhaitez examiner les résultats du travail Stream Analytics, vous avez également besoin d’un outil pour afficher le contenu d’un conteneur de stockage Blob Azure. Si vous utilisez Visual Studio, vous pouvez utiliser [Azure Tools pour Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) ou [Visual Studio Cloud Explorer](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer). Vous pouvez également installer des outils autonomes comme l’[Explorateur Stockage Azure](https://storageexplorer.com/) ou [Cerulean](https://www.cerebrata.com/products/cerulean/features/azure-storage). 
 
 ## <a name="create-an-azure-event-hubs-to-ingest-events"></a>Créer un concentrateur Azure Event Hubs pour ingérer les événements
 
@@ -62,7 +62,7 @@ Dans cette procédure, vous allez commencer par créer un espace de noms Event 
     
 3. Sélectionnez un abonnement, créez ou choisissez un groupe de ressources, puis cliquez sur **Créer**.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="Create event hub namespace in Azure portal" width="300px"/>
 
 4. Lorsque le déploiement de l’espace de noms est terminé, recherchez l’espace de noms Event Hub dans la liste de ressources Azure. 
 
@@ -72,7 +72,7 @@ Dans cette procédure, vous allez commencer par créer un espace de noms Event 
  
 6. Nommez le nouveau concentrateur Event Hub `asa-eh-frauddetection-demo`. Vous pouvez utiliser un autre nom. Le cas échéant, prenez-en note, car vous devrez l’utiliser ultérieurement. Pour le moment, vous n’avez pas besoin de définir d’autres options pour le concentrateur Event Hub.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="drawing" width="400px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
  
 7. Cliquez sur **Créer**.
@@ -90,7 +90,7 @@ Pour qu’un processus puisse envoyer des données à un concentrateur Event Hu
 
 3.  Ajoutez la stratégie nommée `sa-policy-manage-demo` et, pour **Revendication**, sélectionnez **Gérer**.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
 4.  Cliquez sur **Créer**.
 
@@ -98,7 +98,7 @@ Pour qu’un processus puisse envoyer des données à un concentrateur Event Hu
 
 6.  Recherchez la zone intitulée **CHAÎNE DE CONNEXION-CLÉ PRIMAIRE**, puis cliquez sur le bouton de copie situé à côté de la chaine de connexion. 
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png" alt="Stream Analytics shared access policy" width="300px"/>
  
 7.  Collez la chaîne de connexion dans un éditeur de texte. Vous aurez besoin de cette chaîne de connexion pour la section suivante, une fois que vous lui aurez apporté quelques légères modifications.
 
@@ -125,7 +125,7 @@ Avant de démarrer l’application TelcoGenerator, vous devez la configurer afin
 
     La section `<appSettings>` doit ressembler à l’exemple qui suit. (Par souci de clarté, les lignes sont incluses dans un wrapper et certains caractères ont été supprimés dans le jeton d’autorisation.)
 
-   ![Fichier de configuration de l’application TelcoGenerator affichant la chaîne de connexion et le nom du concentrateur Event Hub](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
+   ![Fichier config de TelcoGenerator montrant la chaîne de connexion et le nom du hub d’événements](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
  
 4.  Enregistrez le fichier . 
 
@@ -133,12 +133,14 @@ Avant de démarrer l’application TelcoGenerator, vous devez la configurer afin
 1.  Ouvrez une fenêtre Commande et accédez au dossier dans lequel l’application TelcoGenerator est décompressée.
 2.  Entrez la commande suivante :
 
+        ```cmd
         telcodatagen.exe 1000 0.2 2
+        ```
 
     Les paramètres sont les suivants : 
 
     * Nombre d’enregistrements des détails des appels par heure. 
-    * Probabilité de fraude à la carte SIM : fréquence, exprimée en pourcentage de l’ensemble des appels, à laquelle l’application doit simuler un appel frauduleux. La valeur 0,2 signifie qu’environ 20 % des enregistrements d’appels semblent frauduleux.
+    * Probabilité de fraude de carte SIM : Fréquence, exprimée en pourcentage de l’ensemble des appels, à laquelle l’application doit simuler un appel frauduleux. La valeur 0,2 signifie qu’environ 20 % des enregistrements d’appels semblent frauduleux.
     * Durée en heures. Nombre d’heures pendant lesquelles l’application doit s’exécuter. Vous pouvez également arrêter l’application à tout moment en appuyant sur Ctrl+C au niveau de la ligne de commande.
 
     Après quelques secondes, l’application commence à afficher des enregistrements des appels téléphoniques à l’écran à mesure qu’elle les envoie au concentrateur Event Hub.
@@ -167,7 +169,7 @@ Maintenant que vous disposez d’un flux des événements d’appel, vous pouvez
 
     Il est judicieux de placer le travail et le concentrateur Event Hub dans la même région afin d’optimiser les performances. Ce faisant, vous ne payez pas pour transférer des données entre les régions.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="Create Stream Analytics job in portal" width="300px"/>
 
 3. Cliquez sur **Créer**.
 
@@ -190,7 +192,7 @@ Maintenant que vous disposez d’un flux des événements d’appel, vous pouvez
    |Nom de l’Event Hub  | asa-eh-frauddetection-demo | Sélectionnez le nom de votre Event Hub.   |
    |Nom de la stratégie du hub d’événements  | asa-policy-manage-demo | Sélectionnez la stratégie d’accès que vous avez créée précédemment.   |
     </br>
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
 
 4. Cliquez sur **Créer**.
@@ -219,7 +221,7 @@ L’application TelcoGenerator envoie des enregistrements d’appels au concentr
 
 5. Définissez l’option **Minutes** sur 3, puis cliquez sur **OK**. 
     
-   ![Options d’échantillonnage du flux d’entrée, avec la valeur « 3 minutes » sélectionnée.](./media/stream-analytics-real-time-fraud-detection/stream-analytics-input-create-sample-data.png)
+   ![Options d’échantillonnage du flux d’entrée, avec 3 minutes sélectionnées](./media/stream-analytics-real-time-fraud-detection/stream-analytics-input-create-sample-data.png)
 
     À partir du flux d’entrée, Azure échantillonne les données pour une valeur correspondant à une durée de 3 minutes, et vous informe lorsque l’échantillon est prêt. (Cette opération prend quelques instants.) 
 
@@ -232,11 +234,13 @@ Vous pouvez également obtenir un fichier .json qui contient des exemples de don
 Si vous voulez archiver tous les événements, vous pouvez utiliser une requête directe pour lire tous les champs dans la charge utile de l’événement.
 
 1. Dans la fenêtre de requête, entrez la requête suivante :
-
-        SELECT 
-            *
-        FROM 
-            CallStream
+        
+   ```SQL
+   SELECT 
+       *
+   FROM 
+       CallStream
+   ```
 
     >[!NOTE]
     >Comme dans SQL, les mots clés ne respectent pas la casse, et les espaces blancs ne sont pas significatifs.
@@ -257,15 +261,17 @@ Dans de nombreux cas, il n’est pas nécessaire d’insérer toutes les colonne
 
 1. Dans l’éditeur de code, modifiez la requête comme suit :
 
-        SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNum, CalledNum 
-        FROM 
-            CallStream
+   ```SQL
+   SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNum, CalledNum 
+   FROM 
+       CallStream
+   ```
 
 2. Cliquez de nouveau sur **Test**. 
 
-   ![Sortie du travail Stream Analytics pour la projection, affichant 25 enregistrements générés](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-projection.png)
+   ![Sortie du travail Stream Analytics pour la projection avec 25 enregistrements](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-projection.png)
  
-### <a name="count-incoming-calls-by-region-tumbling-window-with-aggregation"></a>Compter les appels entrants par région : fenêtre bascule avec agrégation
+### <a name="count-incoming-calls-by-region-tumbling-window-with-aggregation"></a>Nombre d’appels entrants par région : Fenêtre bascule avec agrégation
 
 Supposons que vous souhaitiez compter le nombre d’appels entrants par région. Dans les données de flux, lorsque vous souhaitez effectuer des fonctions d’agrégation telles que le comptage, vous devez segmenter le flux en unités temporelles (puisque le flux de données proprement dit est en réalité un nombre infini). Pour ce faire, utilisez une [fonction de fenêtre](stream-analytics-window-functions.md) Stream Analytics. Vous pouvez alors utiliser les données contenues dans cette fenêtre comme unité.
 
@@ -273,11 +279,13 @@ Pour cette transformation, vous souhaitez une séquence de fenêtres temporelles
 
 1. Dans l’éditeur de code, modifiez la requête comme suit :
 
+        ```SQL
         SELECT 
             System.Timestamp as WindowEnd, SwitchNum, COUNT(*) as CallCount 
         FROM
             CallStream TIMESTAMP BY CallRecTime 
         GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
+        ```
 
     Cette requête utilise le mot-clé `Timestamp By` dans la clause `FROM` pour spécifier le champ d’horodatage à utiliser dans le flux d’entrée pour définir la fenêtre bascule. Dans ce cas, la fenêtre divise les données en segments en fonction du champ `CallRecTime` dans chaque enregistrement. (Si aucun champ n’est spécifié, l’opération de fenêtrage utilise l’heure d’arrivée de chaque événement dans le concentrateur Event Hub.) Voir « Heure d’arrivée par rapport à l’heure de l’application » dans [Informations de référence sur le langage de requête Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx). 
 
@@ -287,7 +295,7 @@ Pour cette transformation, vous souhaitez une séquence de fenêtres temporelles
 
 2. Cliquez de nouveau sur **Test**. Dans les résultats, notez que les horodatages indiqués sous **WindowEnd** sont exprimés par incréments de 5 secondes.
 
-   ![Sortie du travail Stream Analytics pour l’agrégation, affichant 13 enregistrements générés](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-aggregation.png)
+   ![Sortie du travail Stream Analytics pour l’agrégation, affichant 13 enregistrements](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-aggregation.png)
  
 ### <a name="detect-sim-fraud-using-a-self-join"></a>Détecter une fraude à la carte SIM à l’aide d’une jointure réflexive
 
@@ -299,6 +307,7 @@ Si vous utilisez une jointure avec des données de flux, la jointure doit indiqu
 
 1. Dans l’éditeur de code, modifiez la requête comme suit : 
 
+        ```SQL
         SELECT  System.Timestamp as Time, 
             CS1.CallingIMSI, 
             CS1.CallingNum as CallingNum1, 
@@ -310,6 +319,7 @@ Si vous utilisez une jointure avec des données de flux, la jointure doit indiqu
             ON CS1.CallingIMSI = CS2.CallingIMSI 
             AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5 
         WHERE CS1.SwitchNum != CS2.SwitchNum
+        ```
 
     Cette requête est semblable aux jointures SQL excepté pour la fonction `DATEDIFF` de la jointure. Cette version de `DATEDIFF` est propre à Stream Analytics et doit apparaître dans la clause `ON...BETWEEN`. Les paramètres sont une unité de temps (des secondes dans cet exemple) et les alias des deux sources pour la jointure. Cela diffère de la fonction `DATEDIFF` SQL standard.
 
@@ -321,7 +331,7 @@ Si vous utilisez une jointure avec des données de flux, la jointure doit indiqu
 
 3. Cliquez sur **Enregistrer** pour enregistrer la requête de jointure réflexive dans le cadre du travail Stream Analytics. (Elle n’enregistre pas l’exemple de données.)
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png" alt="Save Stream Analytics query in portal" width="300px"/>
 
 ## <a name="create-an-output-sink-to-store-transformed-data"></a>Créer un récepteur de sortie pour stocker les données transformées
 
@@ -335,7 +345,7 @@ Si vous possédez déjà un compte de stockage d’objets blob, vous pouvez l’
 
 1. Dans le coin supérieur gauche du portail Azure, sélectionnez **Créer une ressource** > **Stockage** > **Compte de stockage**. Dans la page de travail du compte de stockage, définissez le paramètre **Nom** sur « asaehstorage », le paramètre **Emplacement** sur « USA Est », le paramètre **Groupe de ressources** sur « asa-eh-ns-rg » (pour bénéficier de meilleures performances, hébergez le compte de stockage dans le même groupe de ressources que le travail Stream Analytics). Vous pouvez conserver les valeurs par défaut des autres paramètres.  
 
-   ![Créer un compte de stockage](./media/stream-analytics-real-time-fraud-detection/stream-analytics-storage-account-create.png)
+   ![Créer un compte de stockage dans le portail Azure](./media/stream-analytics-real-time-fraud-detection/stream-analytics-storage-account-create.png)
 
 2. Dans le portail Azure, retournez dans le volet du travail Stream Analytics. (Si vous avez fermé le volet, recherchez `asa_frauddetection_job_demo` dans le volet **Toutes les ressources**.)
 
@@ -350,7 +360,7 @@ Si vous possédez déjà un compte de stockage d’objets blob, vous pouvez l’
    |Compte de stockage  |  asaehstorage |  Entrez le nom du compte de stockage que vous avez créé. |
    |Conteneur  | asa-fraudulentcalls-demo | Choisissez Créer et entrez un nom de conteneur. |
     <br/>
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     
 5. Cliquez sur **Enregistrer**. 
 
@@ -371,7 +381,7 @@ Le travail est maintenant configuré. Vous avez spécifié une entrée (le conce
 
 À présent, vous disposez d’un travail Stream Analytics complet. Le travail examine un flux de métadonnées d’appels téléphoniques, recherche les appels frauduleux en temps réel et écrit des informations liées à ces appels frauduleux dans un espace de stockage. 
 
-Pour terminer ce didacticiel, vous souhaiterez peut-être examiner les données capturées par le travail Stream Analytics. Les données sont écrites dans Stockage Blob Azure dans des segments (fichiers). Vous pouvez utiliser n’importe quel outil pour lire Stockage Blob Azure. Comme indiqué dans la section Composants requis, vous pouvez utiliser des extensions Azure dans Visual Studio. Vous pouvez également utiliser un outil comme [Explorateur de stockage Azure](http://storageexplorer.com/) ou [Explorateur Azure](http://www.cerebrata.com/products/azure-explorer/introduction). 
+Pour terminer ce didacticiel, vous souhaiterez peut-être examiner les données capturées par le travail Stream Analytics. Les données sont écrites dans Stockage Blob Azure dans des segments (fichiers). Vous pouvez utiliser n’importe quel outil pour lire Stockage Blob Azure. Comme indiqué dans la section Prérequis, vous pouvez utiliser des extensions Azure dans Visual Studio ou un outil comme l’[Explorateur Stockage Azure](https://storageexplorer.com/) ou [Cerulean](https://www.cerebrata.com/products/cerulean/features/azure-storage). 
 
 Lorsque vous examinez les contenus d’un fichier dans le stockage d’objets blob, ce que vous voyez ressemble à ce qui suit :
 
@@ -399,7 +409,7 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 
 Vous pouvez poursuivre ce didacticiel en lisant l’article suivant :
 
-* [Stream Analytics et Power BI : tableau de bord d’analyse en temps réel pour les données de streaming](stream-analytics-power-bi-dashboard.md). Cet article explique comment envoyer la sortie de l’application TelcoStreaming du travail Stream Analytics à Power BI pour l’analyse et la visualisation en temps réel.
+* [Stream Analytics et Power BI : Tableau de bord d’analytique en temps réel des données de streaming](stream-analytics-power-bi-dashboard.md). Cet article explique comment envoyer la sortie de l’application TelcoStreaming du travail Stream Analytics à Power BI pour l’analyse et la visualisation en temps réel.
 
 Pour plus d’informations sur Stream Analytics en général, consultez les articles suivants :
 

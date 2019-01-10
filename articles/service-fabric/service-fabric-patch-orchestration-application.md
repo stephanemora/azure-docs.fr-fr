@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 3416d257a23e94460199a1ddfe63302ff55ad5a5
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 58e853a3e9df0c3ba78b41f0c62e37bbcc3cdb5a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285048"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754031"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -43,13 +43,13 @@ L’application d’orchestration des correctifs offre les fonctionnalités suiv
 
 L’application d’orchestration des correctifs comprend les sous-composants suivants :
 
-- **Service Coordinateur** : ce service avec état est responsable des aspects suivants :
+- **Service coordinateur** : Ce service avec état est responsable des aspects suivants :
     - coordination de la tâche Windows Update sur le cluster tout entier ;
     - stockage du résultat des opérations Windows Update accomplies.
-- **Service Agent du nœud** : ce service sans état s’exécute sur tous les nœuds de cluster Service Fabric. Les responsabilités du service sont les suivantes :
+- **Service Agent du nœud** : Ce service sans état s’exécute sur tous les nœuds de cluster Service Fabric. Les responsabilités du service sont les suivantes :
     - amorçage du service NT Agent du nœud ;
     - surveillance du service NT Agent du nœud.
-- **service NT Agent du nœud** : ce service Windows NT s’exécute avec un privilège de niveau supérieur (système). À l’opposé, les services Agent du nœud et Coordinateur s’exécutent avec des privilèges inférieurs (service réseau). Le service est chargé de l’exécution sur tous les nœuds de cluster des tâches Windows Update suivantes :
+- **Service NT Agent du nœud** : Ce service Windows NT s’exécute avec un privilège de niveau supérieur (SYSTEM). À l’opposé, les services Agent du nœud et Coordinateur s’exécutent avec des privilèges inférieurs (service réseau). Le service est chargé de l’exécution sur tous les nœuds de cluster des tâches Windows Update suivantes :
     - désactivation des mises à jour automatiques Windows Update sur le nœud ;
     - téléchargement et installation des mises à jour Windows Update en fonction de la stratégie définie par l’utilisateur ;
     - redémarrage de l’ordinateur après installation des mises à jour Windows Update ;
@@ -151,17 +151,17 @@ Vous pouvez configurer le comportement de l’application d’orchestration des 
 |:-|-|-|
 |MaxResultsToCache    |long                              | Nombre maximal de résultats d’exécution de Windows Update à mettre en cache. <br>La valeur par défaut est 3 000, en supposant ce qui suit : <br> - Le nombre de nœuds est 20. <br> - Le nombre de mises à jour par mois effectuées sur un nœud est 5. <br> - Le nombre maximal de résultats par opération est 10. <br> - Les résultats des trois derniers mois doivent être stockés. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indique la stratégie que le service Coordinateur doit utiliser pour installer les mises à jour Windows Update sur les nœuds du cluster Service Fabric.<br>                         Les valeurs autorisées sont les suivantes : <br>                                                           <b>NodeWise</b>. Les mises à jour Windows Update sont installées de façon séquentielle, nœud après nœud. <br>                                                           <b>UpgradeDomainWise</b>. Les mises à jour Windows Update sont installées sur un domaine de mise à niveau à la fois (au maximum, tous les nœuds appartenant à un domaine de mise à niveau peuvent bénéficier de Windows Update).<br> Reportez-vous à la section [FAQ](#frequently-asked-questions) sur la façon de déterminer la stratégie la plus adaptée pour votre cluster.
-|LogsDiskQuotaInMB   |long  <br> (Par défaut : 1024)               |Taille maximale en Mo des journaux de l’application d’orchestration des correctifs qui peuvent être conservés localement sur des nœuds.
+|LogsDiskQuotaInMB   |long  <br> (Par défaut : 1 024               |Taille maximale en Mo des journaux de l’application d’orchestration des correctifs qui peuvent être conservés localement sur des nœuds.
 | WUQuery               | chaîne<br>(Par défaut : « IsInstalled=0 »)                | Requête pour obtenir les mises à jour Windows Update. Pour plus d’informations, voir [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
 | InstallWindowsOSOnlyUpdates | Booléen <br> (Par défaut : True)                 | Cet indicateur permet l’installation des mises à jour du système d’exploitation Windows.            |
 | WUOperationTimeOutInMinutes | Int <br>(Par défaut : 90)                   | Spécifie le délai d’expiration de toute opération de Windows Update (rechercher, télécharger ou installer). Si l’opération n’est pas terminée dans le délai imparti, elle est abandonnée.       |
 | WURescheduleCount     | Int <br> (Par défaut : 5)                  | Nombre maximal de fois que le service replanifie une mise à jour Windows en cas d’échec persistant d’une opération.          |
 | WURescheduleTimeInMinutes | Int <br>(Par défaut : 30) | Intervalle auquel le service replanifie une mise à jour de Windows en cas d’échec persistant. |
-| WUFrequency           | Chaîne de valeurs séparées par des virgules (par défaut : « Hebdomadaire, Mercredi, 7:00:00 »).     | Fréquence d’installation des mises à jour Windows Update. Le format et les valeurs possibles sont les suivants : <br>-   Mensuelle, JJ,HH:MM:SS, par exemple, Mensuelle, 5,12:22:32. <br> -   Hebdomadaire, JOUR, HH:MM:SS, par exemple, Hebdomadaire, mardi, 12:22:32.  <br> -   Quotidienne, HH:MM:SS, par exemple, Quotidienne, 12:22:32.  <br> -  Aucune  indique que les mises à jour Windows Update ne doivent pas être effectuées.  <br><br> Notez que les heures sont exprimées en UTC.|
+| WUFrequency           | Chaîne de valeurs séparées par une virgule (par défaut : « Toutes les semaines, Mercredi, 7:00:00 »)     | Fréquence d’installation des mises à jour Windows Update. Le format et les valeurs possibles sont les suivants : <br>-   Mensuelle, JJ,HH:MM:SS, par exemple, Mensuelle, 5,12:22:32. <br> -   Hebdomadaire, JOUR, HH:MM:SS, par exemple, Hebdomadaire, mardi, 12:22:32.  <br> -   Quotidienne, HH:MM:SS, par exemple, Quotidienne, 12:22:32.  <br> -  Aucune  indique que les mises à jour Windows Update ne doivent pas être effectuées.  <br><br> Notez que les heures sont exprimées en UTC.|
 | AcceptWindowsUpdateEula | Booléen <br>(Par défaut : true) | Lorsque cet indicateur est défini, l’application accepte le contrat de licence utilisateur final de Windows Update pour le compte du propriétaire de l’ordinateur.              |
 
 > [!TIP]
-> Si vous souhaitez qu’une mise à jour Windows Update ait lieu immédiatement, définissez `WUFrequency` par rapport à l’heure de déploiement de l’application. Par exemple, supposons que vous disposez d’un cluster de test de cinq nœuds et que vous prévoyez de déployer l’application vers 17 heures UTC. Si vous estimez que la mise à niveau ou le déploiement de l’application nécessite au maximum 30 minutes, définissez WUFrequency sur « Quotidienne, 17:30:00 ».
+> Si vous souhaitez qu’une mise à jour Windows Update ait lieu immédiatement, définissez `WUFrequency` par rapport à l’heure de déploiement de l’application. Par exemple, supposons que vous disposez d’un cluster de test de cinq nœuds et que vous prévoyez de déployer l’application vers 17 heures UTC. Si vous estimez que la mise à niveau ou le déploiement de l’application nécessite au maximum 30 minutes, définissez WUFrequency sur « Quotidienne, 17:30:00 »
 
 ## <a name="deploy-the-app"></a>Déployer l’application
 
@@ -316,7 +316,7 @@ Si votre cluster peut tolérer l’exécution sur le nombre N-1 de domaines de m
 
 Q. **Combien de temps prend la correction d’un nœud ?**
 
-R. La mise à jour corrective d’un nœud peut prendre de quelques minutes (par exemple, pour les [mises à jour de définitions de Windows Defender](https://www.microsoft.com/wdsi/definitions)) à plusieurs heures (par exemple, pour les [mises à jour cumulatives de Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Le temps nécessaire pour appliquer un correctif à un nœud dépend principalement des éléments suivants : 
+R. La mise à jour corrective d’un nœud peut prendre plusieurs minutes (par exemple : [Mises à jour des définitions de Windows Defender](https://www.microsoft.com/wdsi/definitions)) à plusieurs heures (par exemple : [Mises à jour cumulatives de Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Le temps nécessaire pour appliquer un correctif à un nœud dépend principalement des éléments suivants : 
  - Taille des mises à jour
  - Nombre de mises à jour qui doivent être appliquées dans une fenêtre de mise à jour corrective.
  - Temps nécessaire pour installer les mises à jour, redémarrer le nœud (si nécessaire), puis achever les étapes d’installation après redémarrage.
@@ -327,7 +327,7 @@ Q. **Combien de temps faut-il pour appliquer un correctif à un cluster entier 
 R. Le temps nécessaire pour appliquer un correctif à un cluster entier dépend des facteurs suivants :
 
 - Temps nécessaire pour appliquer un correctif à un nœud.
-- La stratégie du service Coordinateur. - La stratégie par défaut, `NodeWise`, entraîne la mise à jour corrective d’un nœud à la fois, ce qui est plus lent que `UpgradeDomainWise`. Par exemple : si l’application d’un correctif à un nœud prend environ 1 heure, pour appliquer un correctif à un cluster de 20 nœuds (du même type) avec 5 domaines de mise à niveau, contenant 4 nœuds chacun.
+- La stratégie du service Coordinateur. - La stratégie par défaut, `NodeWise`, entraîne la mise à jour corrective d’un nœud à la fois, ce qui est plus lent que `UpgradeDomainWise`. Par exemple :  Si l’application d’un correctif à un nœud prend environ 1 heure, pour appliquer un correctif à un cluster de 20 nœuds (du même type) avec 5 domaines de mise à niveau, contenant 4 nœuds chacun.
     - Il faut environ 20 heures pour appliquer le correctif au cluster entier si la stratégie est `NodeWise`.
     - Il faut environ 5 heures si la stratégie est `UpgradeDomainWise`.
 - Charge du cluster : chaque opération de mise à jour corrective requiert un déplacement de la charge de travail client vers d’autres nœuds disponibles dans le cluster. Pendant ce temps, le nœud auquel est appliqué le correctif est en état de [désactivation](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling). Si le cluster exécute une charge proche du pic, le processus de désactivation prend plus de temps. Par conséquent, le processus de mise à jour corrective global peut sembler lent dans de telles conditions de sollicitation.

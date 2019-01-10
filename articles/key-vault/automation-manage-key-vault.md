@@ -1,5 +1,5 @@
 ---
-title: Gestion d’Azure Key Vault avec Azure Automation | Microsoft Docs
+title: Gérer Azure Key Vault avec Azure Automation - Azure Key Vault | Microsoft Docs
 description: Découvrez comment utiliser le service Azure Automation pour gérer Azure Key Vault.
 services: Key-Vault, automation
 documentationcenter: ''
@@ -10,21 +10,22 @@ ms.assetid: 4e780762-19b6-4ca6-b894-ebb44c538f35
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/29/2016
+ms.date: 01/07/2019
 ms.author: magoedte
-ms.openlocfilehash: be7829c35f299381a5e82621412feb13cc2e8bb2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 85a0c05719ba374ed213212db6f094d75e433183
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299234"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073437"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Gestion d'Azure Key Vault avec Azure Automation
+
 Ce guide vous présente le service Azure Automation et la manière de l'utiliser pour gérer plus simplement vos clés et secrets dans Azure Key Vault.
 
 ## <a name="what-is-azure-automation"></a>Qu'est-ce qu'Azure Automation ?
+
 [Azure Automation](../automation/automation-intro.md) est un service Azure destiné à simplifier la gestion du cloud via l'automatisation des processus et la configuration de l’état souhaité. Il automatise les tâches manuelles, répétitives, fastidieuses et sources d’erreurs pour accroître la fiabilité, l’efficacité et le retour sur investissement de votre organisation.
 
 Azure Automation fournit un moteur d’exécution de workflow à haute fiabilité et à haute disponibilité, qui s’adapte à vos besoins. Dans Azure Automation, les processus peuvent être lancés manuellement, par des systèmes tiers ou à des intervalles planifiés, afin que les tâches interviennent exactement au moment opportun.
@@ -32,6 +33,7 @@ Azure Automation fournit un moteur d’exécution de workflow à haute fiabilit�
 Réduisez les coûts opérationnels et libérez du temps pour que votre équipe d’informaticiens et de développeurs puisse se concentrer sur des tâches qui génèrent une valeur ajoutée pour l’entreprise, en déléguant l’exécution automatique de vos tâches de gestion de Cloud à Azure Automation.
 
 ## <a name="how-can-azure-automation-help-manage-azure-key-vault"></a>Comment Azure Automation peut-il aider à gérer Azure Key Vault ?
+
 Key Vault peut être géré dans Azure Automation à l’aide des [applets de commande AzureRM Key Vault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) et des [applets de commande Azure Classic Key Vault](https://docs.microsoft.com/powershell/module/servicemanagement/azure). Le module Azure pour la gestion de Classic Key Vault est disponible automatiquement dans Azure Automation. Vous pouvez importer le [module AzureRM-KeyVault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) dans Azure Automation pour pouvoir effectuer la plupart de vos tâches de gestion Key Vault dans le service. Dans Azure Automation, vous pouvez également associer ces applets de commande à des applets de commande d'autres services Azure, afin d'automatiser des tâches complexes entre des services Azure et des systèmes tiers.
 
 Les applets de commande Azure Key Vault vous permettent d’effectuer, entre autres, ces tâches : 
@@ -49,6 +51,7 @@ Voici quelques exemples d’utilisation de PowerShell pour Key Vault :
 * [Setting Up and Configuring an Azure Key Vault (Installation et configuration d’Azure Key Vault)](https://www.simple-talk.com/cloud/platform-as-a-service/setting-up-and-configuring-an-azure-key-vault)
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Maintenant que vous connaissez les bases d’Azure Automation et que vous savez l’utiliser pour gérer Azure Key Vault, cliquez sur les liens ci-dessous pour en savoir plus.
 
 * Consultez le [didacticiel de mise en route](../automation/automation-first-runbook-graphical.md)d'Azure Automation.

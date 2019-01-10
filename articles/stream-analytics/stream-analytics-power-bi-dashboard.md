@@ -4,19 +4,19 @@ description: Cet article décrit comment utiliser un tableau de bord Power BI en
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/27/2017
-ms.openlocfilehash: e84903870110091d527e870600d9a67bdc9cc6e5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: d7f67015d4df20ea39c1225d52be36340b8f65d1
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418452"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556974"
 ---
-# <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Didacticiel : Stream Analytics et Power BI : tableau de bord d’analyse en temps réel pour les données de streaming
+# <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Didacticiel : Stream Analytics et Power BI : Tableau de bord d’analytique en temps réel des données de streaming
 Azure Stream Analytics vous permet de tirer parti de [Microsoft Power BI](https://powerbi.com/), l’un des principaux outils d’analyse décisionnelle. Dans cet article, vous allez découvrir comment créer des outils d’analyse décisionnelle en utilisant Power BI comme sortie pour vos travaux Azure Stream Analytics. Vous allez également découvrir comment créer et utiliser un tableau de bord en temps réel.
 
 Cet article est la suite du didacticiel [Détection des fraudes en temps réel](stream-analytics-real-time-fraud-detection.md) de Stream Analytics. Il s’appuie sur le flux de travail créé dans ce didacticiel et ajoute une sortie Power BI afin que vous puissiez visualiser les appels téléphoniques frauduleux qui sont détectés par un travail Stream Analytics. 
@@ -25,7 +25,6 @@ Vous pouvez visionner [une vidéo](https://www.youtube.com/watch?v=SGUpT-a99MA) 
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant de commencer, veillez à disposer des éléments qui suivent :
 
@@ -45,23 +44,23 @@ Dans le didacticiel de détection des fraudes en temps réel, la sortie est envo
 
 4. Dans **Récepteur**, sélectionnez **Power BI**.
 
-   ![Créer une sortie pour Power BI](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut.png)
+   ![Créer une sortie pour Power BI](./media/stream-analytics-power-bi-dashboard/create-power-bi-ouptut.png)
 
 5. Cliquez sur **Autoriser**.
 
     Une fenêtre s’ouvre dans laquelle vous pouvez indiquer vos informations d’identification Azure pour un compte professionnel ou scolaire. 
 
-    ![Entrer les informations d’identification pour accéder à Power BI](./media/stream-analytics-power-bi-dashboard/authorize-area.png)
+    ![Entrer les informations d’identification pour accéder à Power BI](./media/stream-analytics-power-bi-dashboard/power-bi-authorization-credentials.png)
 
 6. Entrez vos informations d’identification. N’oubliez pas que lorsque vous entrez vos informations d’identification, vous autorisez également le travail Stream Analytics à accéder à votre zone Power BI.
 
 7. Lorsque vous retournez dans le panneau **Nouvelle sortie**, entrez les informations suivantes :
 
-    * **Espace de travail de groupe** : sélectionnez un espace de travail dans votre locataire Power BI où vous voulez créer le jeu de données.
-    * **Nom du jeu de données** : entrez `sa-dataset`. Vous pouvez utiliser un autre nom. Le cas échéant, prenez-en note pour l’utiliser ultérieurement.
-    * **Nom de la table** : entrez `fraudulent-calls`. Actuellement, une sortie Power BI des travaux Stream Analytics ne peut avoir qu’une table dans un jeu de données.
+    * **Espace de travail de groupe** : Sélectionnez un espace de travail dans votre locataire Power BI où créer le jeu de données.
+    * **Nom du jeu de données** :  Entrez `sa-dataset`. Vous pouvez utiliser un autre nom. Le cas échéant, prenez-en note pour l’utiliser ultérieurement.
+    * **Nom de la table** : Entrez `fraudulent-calls`. Actuellement, une sortie Power BI des travaux Stream Analytics ne peut avoir qu’une table dans un jeu de données.
 
-    ![Espace de travail PBI](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
+    ![Table et jeu de données de l’espace de travail Power BI](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
 
     > [!WARNING]
     > Si Power BI dispose d’un jeu de données et d’une table portant les mêmes noms que ceux que vous spécifiez dans le travail Stream Analytics, les données existantes sont écrasées.
@@ -72,8 +71,8 @@ Dans le didacticiel de détection des fraudes en temps réel, la sortie est envo
 
 Le jeu de données est créé avec les paramètres suivants :
 
-* **defaultRetentionPolicy : BasicFIFO** : données FIFO avec un maximum de 200 000 lignes.
-* **defaultMode : pushStreaming** : le jeu de données prend en charge les vignettes de diffusion en continu et les éléments visuels basés sur des rapports standard (ou push).
+* **defaultRetentionPolicy : BasicFIFO** : Les données sont de type FIFO, avec un maximum de 200 000 lignes.
+* **defaultMode : pushStreaming** : Le jeu de données prend en charge les vignettes de streaming et les visuels basés sur des rapports standard (ou push).
 
 Pour le moment, vous ne pouvez pas créer de jeux de données avec d’autres indicateurs.
 
@@ -91,6 +90,7 @@ Pour plus d’informations sur les jeux de données Power BI, consultez la réf
     >[!NOTE]
     >Si vous n’avez pas nommé l’entrée `CallStream` dans le didacticiel de détection des fraudes, remplacez votre nom par `CallStream` dans les clauses **FROM** et **JOIN** de la requête.
 
+        ```SQL
         /* Our criteria for fraud:
         Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds */
 
@@ -108,6 +108,7 @@ Pour plus d’informations sur les jeux de données Power BI, consultez la réf
         /* Where the switch location is different */
         WHERE CS1.SwitchNum != CS2.SwitchNum
         GROUP BY TumblingWindow(Duration(second, 1))
+        ```
 
 4. Cliquez sur **Enregistrer**.
 
@@ -121,7 +122,7 @@ Cette étape est facultative, mais recommandée.
     * Accédez au dossier dans lequel se trouvent les fichiers telcogenerator.exe et telcodatagen.exe.config modifiés.
     * Exécutez la commande suivante :
 
-            telcodatagen.exe 1000 .2 2
+       `telcodatagen.exe 1000 .2 2`
 
 2. Dans le panneau **Requête**, cliquez sur les points situés à côté de l’entrée `CallStream`, puis sélectionnez **Exemple de données de l’entrée**.
 
@@ -147,7 +148,7 @@ Le travail Stream Analytics commence par rechercher les appels frauduleux dans 
 
 1. Accédez à [Powerbi.com](https://powerbi.com), puis connectez-vous à l’aide de votre compte professionnel ou scolaire. Si la requête du travail Stream Analytics génère des résultats, vous voyez que votre jeu de données est déjà créé :
 
-    ![Jeu de données de diffusion en continu dans Power BI](./media/stream-analytics-power-bi-dashboard/streaming-dataset.png)
+    ![Emplacement du jeu de données de streaming dans Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-streaming-dataset.png)
 
 2. Dans votre espace de travail, cliquez sur **+&nbsp;Créer**.
 
@@ -159,15 +160,15 @@ Le travail Stream Analytics commence par rechercher les appels frauduleux dans 
 
 4. En haut de la fenêtre, cliquez sur **Ajouter une vignette**, sélectionnez **DONNÉES DE STREAMING PERSONNALISÉES**, puis cliquez sur **Suivant**.
 
-    ![Jeu de données de streaming personnalisé](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
+    ![Vignette de jeu de données de streaming personnalisées dans Power BI](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
 
 5. Sous **VOS JEUX DE DONNÉES**, sélectionnez votre jeu de données, puis cliquez sur **Suivant**.
 
-    ![Votre jeu de données de streaming](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
+    ![Votre jeu de données de streaming dans Power BI](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
 
 6. Sous **Type de visualisation**, sélectionnez **Carte**, puis, dans la liste **Champs**, sélectionnez **fraudulentcalls**.
 
-    ![Détails de la visualisation de la nouvelle vignette](./media/stream-analytics-power-bi-dashboard/add-fraud.png)
+    ![Détails de la visualisation de la nouvelle vignette](./media/stream-analytics-power-bi-dashboard/add-fraudulent-calls-tile.png)
 
 7. Cliquez sur **Suivant**.
 
@@ -179,7 +180,7 @@ Le travail Stream Analytics commence par rechercher les appels frauduleux dans 
 
     Nous avons à présent un compteur de fraudes.
 
-    ![Compteur de fraudes](./media/stream-analytics-power-bi-dashboard/fraud-counter.png)
+    ![Compteur de fraudes dans le tableau de bord Power BI](./media/stream-analytics-power-bi-dashboard/power-bi-fraud-counter-tile.png)
 
 8. Suivez à nouveau les étapes pour ajouter une vignette (à partir de l’étape 4). Cette fois, procédez comme suit :
 
@@ -188,7 +189,7 @@ Le travail Stream Analytics commence par rechercher les appels frauduleux dans 
     * Ajoutez une valeur, puis sélectionnez **fraudulentcalls**.
     * Pour **Fenêtre de temps à afficher**, sélectionnez les 10 dernières minutes.
 
-    ![Créer une vignette pour le graphique en courbes](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
+    ![Créer une vignette pour le graphique en courbes dans Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
 
 9. Cliquez sur **Suivant**, ajoutez un titre et un sous-titre, puis cliquez sur **Appliquer**.
 
@@ -211,7 +212,7 @@ Actuellement, Power BI peut être appelé environ une fois par seconde. Les él
 
 Vous pouvez utiliser l’équation suivante pour calculer la valeur à donner à votre fenêtre en secondes :
 
-![Equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)  
+![Équation pour calculer la valeur à donner à la fenêtre en secondes](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
 
 Par exemple : 
 
@@ -221,10 +222,11 @@ Par exemple :
 
 L’équation est donc la suivante :
 
-![Equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)  
+![Équation en fonction d’exemples de critère](./media/stream-analytics-power-bi-dashboard/power-bi-example-equation.png)  
 
 Étant donné cette configuration, vous pouvez modifier la requête d’origine et la remplacer par ce qui suit :
 
+```SQL
     SELECT
         MAX(hmdt) AS hmdt,
         MAX(temp) AS temp,
@@ -236,7 +238,7 @@ L’équation est donc la suivante :
     GROUP BY
         TUMBLINGWINDOW(ss,4),
         dspl
-
+```
 
 ### <a name="renew-authorization"></a>Renouveler une autorisation
 Si le mot de passe a été modifié depuis la création ou la dernière authentification de votre travail, vous devez réauthentifier votre compte Power BI. Si Azure Multi-Factor Authentication est configuré sur votre client Azure Active Directory (Azure AD), vous devez également renouveler l’autorisation Power BI toutes les deux semaines. Si vous ne la renouvelez pas, vous pouvez observer des symptômes comme un manque de sortie du travail ou une `Authenticate user error` dans les journaux des opérations.

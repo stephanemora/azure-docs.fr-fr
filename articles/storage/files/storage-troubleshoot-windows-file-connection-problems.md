@@ -9,17 +9,42 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0496d9b3fde8b0194ddf57b3bbfec98eb7fda7fe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: caa078aa522e20a0e09d0b4d97461358c1698fc7
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250847"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744230"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
 
 Cet article liste les problèmes courants liés à Microsoft Azure Files en cas de connexion à partir de clients Windows. Il fournit également les causes possibles et les solutions de ces problèmes. En plus des étapes de résolution présentées dans cet article, vous pouvez utiliser [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)  pour vérifier que l’environnement du client Windows est configuré correctement. AzFileDiagnostics détecte automatiquement la plupart des problèmes mentionnés dans cet article et vous aide à configurer votre environnement pour que les performances soient optimales. Vous pouvez également trouver ces informations dans [l’utilitaire de résolution des problèmes de partages Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares), qui vous guide dans les étapes de résolution des problèmes liés à la connexion, au mappage ou au montage de partages Azure Files.
 
+<a id="error5"></a>
+## <a name="error-5-when-you-mount-an-azure-file-share"></a>Error 5 quand vous montez un partage de fichiers Azure
+
+Quand vous essayez de monter un partage de fichiers, vous pouvez recevoir l’erreur suivante :
+
+- Erreur système 5. L’accès est refusé.
+
+### <a name="cause-1-unencrypted-communication-channel"></a>Cause 1 : Canal de communication non chiffré
+
+Pour des raisons de sécurité, les connexions aux partages de fichiers Azure sont bloquées si le canal de communication n’est pas chiffré et si la tentative de connexion n’est pas effectuée depuis le centre de données sur lequel résident les partages de fichiers Azure. Les connexions non chiffrées dans le même centre de données peuvent également être bloquées si le paramètre [Transfert sécurisé requis](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) est activé sur le compte de stockage. Un canal de communication chiffré est fourni uniquement si le système d’exploitation client de l’utilisateur prend en charge le chiffrement SMB.
+
+Windows 8, Windows Server 2012 et les versions ultérieures de chaque demande de négociation système incluant SMB 3.0, prenant en charge le chiffrement.
+
+### <a name="solution-for-cause-1"></a>Solution pour la cause 1
+
+1. Connectez-vous à partir d’un client qui prend en charge le chiffrement SMB (Windows 8, Windows Server 2012 ou versions ultérieures), ou à partir d’une machine virtuelle se trouvant dans le même centre de données que le compte de stockage Azure utilisé pour le partage de fichiers Azure.
+2. Vérifiez que le paramètre [Transfert sécurisé obligatoire](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) est désactivé sur le compte de stockage si le client ne prend pas en charge le chiffrement SMB.
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Cause 2 : Des règles de pare-feu ou de réseau virtuel sont activées sur le compte de stockage 
+
+Si des règles de pare-feu et de réseau virtuel sont configurées sur le compte de stockage, le trafic réseau n’a pas d’accès, sauf si l’adresse IP du client ou un réseau virtuel est autorisé à accéder.
+
+### <a name="solution-for-cause-2"></a>Solution pour la cause 2
+
+Vérifiez que les règles de pare-feu et de réseau virtuel sont configurées correctement sur le compte de stockage. Pour vérifier si des règles de pare-feu ou de réseau virtuel sont à l’origine du problème, définissez temporairement le paramètre du compte de stockage sur **Autoriser l’accès à partir de tous les réseaux**. Pour plus d’informations, consultez [Configurer les pare-feu et les réseaux virtuels dans le Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Les messages « Erreur 53 », « Erreur 67 » ou « Erreur 87 » s’affichent lorsque vous montez ou démontez un partage de fichiers Azure
@@ -30,39 +55,47 @@ Lorsque vous essayez de monter un partage de fichiers depuis un centre de donné
 - Erreur système 67. Le nom du réseau est introuvable.
 - Erreur système 87. Le paramètre est incorrect.
 
-### <a name="cause-1-unencrypted-communication-channel"></a>Cause 1 : Canal de communication non chiffrée
-
-Pour des raisons de sécurité, les connexions aux partages de fichiers Azure sont bloquées si le canal de communication n’est pas chiffré et si la tentative de connexion n’est pas effectuée depuis le centre de données sur lequel résident les partages de fichiers Azure. Les connexions non chiffrées dans le même centre de données peuvent également être bloquées si le paramètre [Transfert sécurisé requis](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) est activé sur le compte de stockage. Le chiffrement du canal de communication n’est fourni que si le système d’exploitation client de l’utilisateur prend en charge le chiffrement SMB.
-
-Windows 8, Windows Server 2012 et les versions ultérieures de chaque demande de négociation système incluant SMB 3.0, prenant en charge le chiffrement.
-
-### <a name="solution-for-cause-1"></a>Solution pour la cause 1
-
-1. Vérifiez que le paramètre [Transfert sécurisé requis](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) est désactivé sur le compte de stockage.
-2. Connectez-vous depuis un client qui :
-
-    - Dispose de la configuration requise de Windows 8 et Windows Server 2012 ou versions ultérieures
-    - Se connecte depuis une machine virtuelle située dans le même centre de données que le compte de stockage Azure utilisé pour le partage de fichiers Azure
-
-### <a name="cause-2-port-445-is-blocked"></a>Cause 2 : Le Port 445 est bloqué
+### <a name="cause-1-port-445-is-blocked"></a>Cause 1 : Le port 445 est bloqué
 
 Une erreur système 53 ou 67 peut se produire si la communication sortante du port 445 vers le centre de données Azure Files est bloquée. Pour afficher le récapitulatif des FAI qui autorisent ou interdisent l’accès depuis le port 445, consultez [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
-Pour comprendre s’il s’agit de la raison pour laquelle le message « Erreur système 53 » s’affiche, vous pouvez utiliser Portqry pour interroger le point de terminaison TCP:445. Si le point de terminaison TCP:445 est affiché comme filtré, le port TCP est bloqué. Voici un exemple de requête :
+Pour vérifier si votre pare-feu ou votre ISP bloque le port 445, utilisez l’outil [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) ou l’applet de commande `Test-NetConnection`. 
 
-  `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+Pour utiliser l’applet de commande `Test-NetConnection`, vous devez avoir installé le module AzureRM PowerShell, consultez [Installer un module Azure PowerShell](/powershell/azure/install-azurerm-ps) pour plus d’informations. N’oubliez pas de remplacer `<your-storage-account-name>` et `<your-resoure-group-name>` avec les noms appropriés de votre compte de stockage.
 
-Si le port TCP 445 est bloqué par une règle sur le chemin d’accès réseau, vous verrez la sortie suivante :
+   
+    $resourceGroupName = "<your-resource-group-name>"
+    $storageAccountName = "<your-storage-account-name>"
 
-  `TCP port 445 (microsoft-ds service): FILTERED`
+    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # already logged in.
+    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
-Pour plus d’informations sur l’utilisation de Portqry, consultez [Description de l’utilitaire de ligne de commande Portqry.exe](https://support.microsoft.com/help/310099).
+    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
+    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
+    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+  
+    
+Si la connexion a réussi, vous devez voir la sortie suivante :
+    
+  
+    ComputerName     : <storage-account-host-name>
+    RemoteAddress    : <storage-account-ip-address>
+    RemotePort       : 445
+    InterfaceAlias   : <your-network-interface>
+    SourceAddress    : <your-ip-address>
+    TcpTestSucceeded : True
+ 
 
-### <a name="solution-for-cause-2"></a>Solution pour la cause 2
+> [!Note]  
+> La commande ci-dessus retourne l’adresse IP actuelle du compte de stockage. Cette adresse IP est susceptible de changer à tout moment. Ne codez pas cette adresse IP en dur dans un script ou dans une configuration de pare-feu.
+
+### <a name="solution-for-cause-1"></a>Solution pour la cause 1
 
 Contactez votre service informatique pour ouvrir le port 445 sortant aux [plages IP Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
-### <a name="cause-3-ntlmv1-is-enabled"></a>Cause 3 : NTLMv1 est activé
+### <a name="cause-2-ntlmv1-is-enabled"></a>Cause 2 : NTLMv1 est activé
 
 Les messages Erreur système 53 ou Erreur système 87 peuvent également s’afficher si la communication NTLMv1 est activée sur le client. Azure Files prend uniquement en charge l’authentification NTLMv2. Le fait d’activer NTLMv1 crée un client moins sécurisé. Par conséquent, les communications sont bloquées pour Azure Files. 
 
@@ -72,7 +105,7 @@ Pour déterminer s’il s’agit de la cause de l’erreur, vérifiez que la sou
 
 Pour plus d’informations, consultez la rubrique [LmCompatibilityLevel](https://technet.microsoft.com/library/cc960646.aspx) sur TechNet.
 
-### <a name="solution-for-cause-3"></a>Solution pour la cause 3
+### <a name="solution-for-cause-2"></a>Solution pour la cause 2
 
 Rétablissez la valeur **LmCompatibilityLevel** à la valeur par défaut 3 dans la sous-clé de Registre suivante :
 
@@ -88,6 +121,27 @@ L’erreur 1816 se produit lorsque vous atteignez la limite autorisée de descri
 ### <a name="solution"></a>Solution
 
 Réduisez le nombre de handles ouverts simultanément en fermant certains d’entre eux, puis réessayez. Pour plus d’informations, consultez [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+
+<a id="accessdeniedportal"></a>
+## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>Erreur « Accès refusé » quand vous accédez à un partage de fichiers Azure dans le portail
+
+Quand vous accédez à un partage de fichiers Azure dans le portail, vous pouvez recevoir l’erreur suivante :
+
+Accès refusé  
+Vous n’avez pas accès  
+Apparemment, vous n’avez pas accès à ce contenu. Pour obtenir l’accès, contactez le propriétaire.  
+
+### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Cause 1 : Votre compte d’utilisateur n’a pas accès au compte de stockage
+
+### <a name="solution-for-cause-1"></a>Solution pour la cause 1
+
+Accédez au compte de stockage où se trouve le partage de fichiers Azure, cliquez sur **Contrôle d’accès (IAM)** et vérifiez que votre compte d’utilisateur a accès au compte de stockage. Pour en savoir plus, consultez [Guide pratique pour sécuriser votre compte de stockage avec le contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Cause 2 : Des règles de pare-feu ou de réseau virtuel sont activées sur le compte de stockage
+
+### <a name="solution-for-cause-2"></a>Solution pour la cause 2
+
+Vérifiez que les règles de pare-feu et de réseau virtuel sont configurées correctement sur le compte de stockage. Pour vérifier si des règles de pare-feu ou de réseau virtuel sont à l’origine du problème, définissez temporairement le paramètre du compte de stockage sur **Autoriser l’accès à partir de tous les réseaux**. Pour plus d’informations, consultez [Configurer les pare-feu et les réseaux virtuels dans le Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Ralentissement des copies de fichiers vers et à partir d’Azure Files sous Windows
@@ -168,12 +222,12 @@ Utilisez l'une des solutions suivantes :
 
   `net use * \\storage-account-name.file.core.windows.net\share`
 
-Après avoir suivi ces instructions, vous pourriez recevoir le message d’erreur suivant en exécutant Net use sur le compte de service réseau ou système : « Erreur système 1312. Une session ouverte spécifiée n’existe pas. Il se peut qu’elle ait été déjà fermée. » Si cela se produit, vérifiez que le nom d’utilisateur transmis à Net use inclut des informations de domaine (par exemple : « [nom du compte de stockage].file.core.windows.net »).
+Après avoir suivi ces instructions, vous pouvez recevoir le message d’erreur suivant en exécutant net use pour le compte de service réseau ou système : « Erreur système 1312. Une session ouverte spécifiée n’existe pas. Il se peut qu’elle ait été déjà fermée. » Si cela se produit, vérifiez que le nom d’utilisateur transmis à Net use inclut des informations de domaine (par exemple : « [nom du compte de stockage].file.core.windows.net »).
 
 <a id="doesnotsupportencryption"></a>
 ## <a name="error-you-are-copying-a-file-to-a-destination-that-does-not-support-encryption"></a>Erreur « Vous copiez un fichier vers une destination qui ne prend pas en charge le chiffrement »
 
-Lorsqu’un fichier est copié sur le réseau, le fichier est déchiffré sur l’ordinateur source, transmis en clair, puis de nouveau chiffré une fois à destination. Toutefois, vous pourriez rencontrer l’erreur suivante en essayant de copier un fichier chiffré : « Vous copiez le fichier vers une destination qui ne prend pas en charge le chiffrement. »
+Lorsqu’un fichier est copié sur le réseau, le fichier est déchiffré sur l’ordinateur source, transmis en clair, puis de nouveau chiffré une fois à destination. Toutefois, vous pouvez voir l’erreur suivante quand vous essayez de copier un fichier chiffré : « Vous copiez le fichier vers une destination qui ne prend pas en charge le chiffrement. »
 
 ### <a name="cause"></a>Cause :
 Ce problème peut se survenir si vous utilisez le système de fichiers EFS (Encrypting File System). Les fichiers chiffrés BitLocker peuvent être copiés vers Azure Files. Toutefois, Azure Files ne prend pas en charge le système de fichiers EFS NTFS.
@@ -200,8 +254,8 @@ Ce problème peut se produire quand il n’y a pas suffisamment de mémoire cach
 
 Pour résoudre ce problème, ajustez la valeur de Registre **DirectoryCacheEntrySizeMax** pour permettre la mise en cache des listes de répertoires plus grands sur la machine cliente :
 
-- Emplacement : HKLM\System\CCS\Services\Lanmanworkstation\Parameters
-- Nom de la valeur : DirectoryCacheEntrySizeMax 
+- Localisation : HKLM\System\CCS\Services\Lanmanworkstation\Parameters
+- Nom de la valeur : DirectoryCacheEntrySizeMax 
 - Type de valeur : DWORD
  
  

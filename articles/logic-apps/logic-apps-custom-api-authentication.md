@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: 7e1f2411db828917d7a3c5e21348b553a5a5a3bb
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: d83a27d87ffadd15a27196a11ae3f69d84232efa
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087506"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719593"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Sécuriser les appels à des API personnalisées à partir d’Azure Logic Apps
 
@@ -24,12 +24,12 @@ Pour sécuriser les appels à vos API, vous pouvez configurer l’authentificati
 
 Vous pouvez sécuriser les appels à votre API personnalisée en appliquant les méthodes suivantes :
 
-* [Aucune modification de code](#no-code) : protégez votre API avec [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) par le biais du Portail Azure, ce qui vous évite de mettre à jour votre code ou de redéployer votre API.
+* [Aucune modification de code](#no-code) : protégez votre API avec [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) par le biais du portail Azure, ce qui vous évite de mettre à jour votre code ou de redéployer votre API.
 
   > [!NOTE]
   > Par défaut, l’authentification Azure AD que vous activez dans le Portail Azure ne fournit pas une autorisation affinée. Par exemple, cette authentification verrouille votre API vis-à-vis d’un locataire spécifique et non d’un utilisateur ou d’une application spécifique. 
 
-* [Mise à jour du code de votre API](#update-code) : protégez votre API en appliquant [l’authentification par certificat](#certificate), [l’authentification de base](#basic) ou [l’authentification Azure AD](#azure-ad-code) par le biais du code.
+* [Mettre à jour le code de votre API](#update-code) : protégez votre API en appliquant [l’authentification par certificat](#certificate), [l’authentification de base](#basic) ou [l’authentification Azure AD](#azure-ad-code) par le biais du code.
 
 <a name="no-code"></a>
 
@@ -43,7 +43,7 @@ Voici les étapes générales de cette méthode :
 
 3. Incluez les ID d’application dans votre définition d’application logique.
 
-#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Partie 1 : Créer une identité d’application Azure AD pour votre application logique
+#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Partie 1 : Créer une identité d’application Azure AD pour votre application logique
 
 Votre application logique utilise cette identité d’application Azure AD pour s’authentifier auprès d’Azure AD. Vous n’avez besoin de configurer cette identité qu’une seule fois pour votre répertoire. Par exemple, vous pouvez choisir d’utiliser la même identité pour toutes vos applications logiques, même si vous pouvez créer des identités uniques pour chaque application logique. Vous pouvez configurer ces identités dans le portail Azure ou à l’aide de [PowerShell](#powershell).
 
@@ -106,7 +106,7 @@ Vous pouvez effectuer cette tâche par le biais d’Azure Resource Manager avec 
 
 Pour plus d’informations, consultez la page [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
-#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>Partie 2 : Créer une identité d’application Azure AD pour votre application web ou votre application API
+#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>Partie 2 : Créer une identité d’application Azure AD pour votre application web ou votre application API
 
 Si votre application web ou votre application API est déjà déployée, vous pouvez activer l’authentification et créer l’identité de l’application dans le Portail Azure. Sinon, vous pouvez [activer l’authentification lorsque vous effectuez un déploiement avec un modèle Azure Resource Manager](#authen-deploy). 
 
@@ -266,7 +266,7 @@ Pour restreindre l’accès des API à votre application logique à l’aide du 
 
 <!-- Going further, to implement this authentication entirely in your own code, 
 and not use the Azure portal, learn how to 
-[authenticate with on-premises Active Directory in your Azure app](../app-service/app-service-authentication-overview.md).
+[authenticate with on-premises Active Directory in your Azure app](../app-service/overview-authentication-authorization.md).
 
 To create an application identity for your logic app and use that identity to call your API, 
 you must follow the previous steps. -->

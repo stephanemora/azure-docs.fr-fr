@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: da8814cfd8fca8da061c27d9c5b69af15bff5007
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 42fd1c19a9cda0aa3d5d62bd265467327250a784
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054402"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606025"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Conseils généraux pour utiliser des exemples d'applications Wingtip Tickets SaaS
 
@@ -57,7 +57,7 @@ La définition de ces valeurs ici vous évite simplement d’avoir à mettre à 
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>Exécuter les scripts en appuyant sur F5
 
-Plusieurs scripts utilisent *$PSScriptRoot* pour parcourir les dossiers, et *$PSScriptRoot* est évalué uniquement lors de l’exécution de scripts en appuyant sur **F5**.  La mise en surbrillance et l’exécution d’une sélection (**F8**) pouvant entraîner des erreurs, nous vous conseillons d’appuyer sur **F5** lors de l’exécution des scripts.
+Plusieurs scripts utilisent *$PSScriptRoot* pour parcourir les dossiers, et *$PSScriptRoot* est évalué uniquement lors de l’exécution de scripts en appuyant sur **F5**.  La mise en surbrillance et l’exécution d’une sélection (**F8**) pouvant entraîner des erreurs, nous vous conseillons d’appuyer sur **F5** lors de l’exécution des scripts.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Parcourir les scripts pour examiner l’implémentation
 
@@ -94,7 +94,7 @@ Pour garantir une connexion de démonstration réussie, tous serveurs ont une [r
 
    ![catalog server](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Les informations d’identification de la démonstration sont : nom d’utilisateur = *developer*, mot de passe = *P@ssword1*.
+3. Les informations d’identification de démonstration sont : Connexion = *developer*, Mot de passe = *P@ssword1*
 
     L'image ci-dessous montre l'ouverture d'une session pour le modèle *Base de données par client*. 
     ![Connexion](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

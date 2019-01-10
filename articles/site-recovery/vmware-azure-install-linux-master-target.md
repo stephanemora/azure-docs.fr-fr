@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: e35a8cf720fffa3a3b4c7d9f1b83c2323041b1c4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 09f4637c24b146394dc0299e60e729c07420150a
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833310"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974364"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
@@ -20,8 +20,9 @@ Si votre machine virtuelle protégée est de type Windows, vous avez besoin d’
 
 > [!IMPORTANT]
 > À partir de la version 9.10.0, le serveur cible maître le plus récent ne peut être installé que sur un serveur Ubuntu 16.04. Les nouvelles installations ne sont pas autorisées sur les serveurs de CentOS6.6. Toutefois, vous pouvez continuer la mise à niveau de vos anciens serveurs cible maître à l’aide de la version 9.10.0.
+> Un serveur cible maître sur une machine virtuelle Linux n’est pas pris en charge.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Cet article fournit la marche à suivre pour installer un serveur cible maître Linux.
 
 Publiez vos commentaires ou vos questions en bas de cet article ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
@@ -59,7 +60,7 @@ Les noyaux Ubuntu suivants sont pris en charge.
 
 Procédez comme suit pour installer le système d’exploitation Ubuntu 16.04.2 64 bits.
 
-1.   Accédez au [lien de téléchargement](https://www.ubuntu.com/download/server/thank-you?version=16.04.2&architecture=amd64) et choisissez le miroir le plus proche à partir duquel télécharger un fichier ISO Ubuntu 16.04.2 Minimal 64 bits.
+1.   Accédez au [lien de téléchargement](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso) et choisissez le miroir le plus proche à partir duquel télécharger un fichier ISO Ubuntu 16.04.2 Minimal 64 bits.
 Conservez le fichier ISO Ubuntu 16.04.2 Minimal 64 bits dans le lecteur DVD et démarrez le système.
 
 1.  Sélectionnez **French** (Français) comme langue par défaut, puis appuyez sur **Entrée**.

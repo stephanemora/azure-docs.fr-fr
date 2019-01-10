@@ -8,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: abb80bb0877f99dfb1623e320078e935f581d833
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 14b634e610fb0da71c5f0d742a250b18cea70dc7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498665"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722921"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Utiliser Apache Ambari pour optimiser les configurations de cluster HDInsight
 
-HDInsight fournit des clusters [Apache Hadoop](https://hadoop.apache.org/) pour les applications de traitement de données à grande échelle. La gestion, la surveillance et l’optimisation de ces clusters complexes à nœuds multiples peuvent être difficiles. [Apache Ambari](http://ambari.apache.org/) est une interface Web qui permet de gérer et de surveiller les clusters Linux HDInsight.  Dans le cas des clusters Windows, utilisez [l’API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
+HDInsight fournit des clusters [Apache Hadoop](https://hadoop.apache.org/) pour les applications de traitement de données à grande échelle. La gestion, la surveillance et l’optimisation de ces clusters complexes à nœuds multiples peuvent être difficiles. [Apache Ambari](https://ambari.apache.org/) est une interface Web qui permet de gérer et de surveiller les clusters Linux HDInsight.  Dans le cas des clusters Windows, utilisez [l’API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 Pour une présentation de l’interface utilisateur web d’Ambari, voir [Gérer des clusters HDInsight avec l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -68,7 +68,7 @@ Les sections suivantes décrivent les options de configuration qui permettent d�
 
 ### <a name="set-the-hive-execution-engine"></a>Définir le moteur d’exécution de Hive
 
-Hive propose deux moteurs d’exécution : [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) et [Apache Tez](https://tez.apache.org/). Tez est plus rapide que MapReduce. Les clusters Linux HDInsight utilisent Tez comme moteur d’exécution par défaut. Pour changer de moteur d’exécution :
+Hive fournit deux moteurs d’exécution : [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) et [Apache TEZ](https://tez.apache.org/). Tez est plus rapide que MapReduce. Les clusters Linux HDInsight utilisent Tez comme moteur d’exécution par défaut. Pour changer de moteur d’exécution :
 
 1. Dans l’onglet **Configs (Configuration)** de Hive, tapez **execution engine** dans la zone de filtrage.
 
@@ -82,8 +82,8 @@ Hive propose deux moteurs d’exécution : [Apache Hadoop MapReduce](https://had
 
 Hadoop tente de fractionner (*mapper*) un fichier en plusieurs fichiers et de traiter ceux-ci en parallèle. Le nombre de mappeurs dépend du nombre de fractionnements. Les deux paramètres de configuration suivants déterminent le nombre de fractionnements pour le moteur d’exécution Tez :
 
-* `tez.grouping.min-size` : limite inférieure de la taille d’un fractionnement groupé, avec une valeur par défaut de 16 Mo (16 777 216 octets).
-* `tez.grouping.max-size` : limite supérieure de la taille d’un fractionnement groupé, avec une valeur par défaut de 1 Go (1 073 741 824 octets).
+* `tez.grouping.min-size`: limite inférieure de la taille d’un fractionnement groupé, avec une valeur par défaut de 16 Mo (16 777 216 octets).
+* `tez.grouping.max-size`: limite supérieure de la taille d’un fractionnement groupé, avec une valeur par défaut de 1 Go (1 073 741 824 octets).
 
 En règle générale, diminuez ces deux paramètres pour améliorer la latence ou augmentez-les pour accroître le débit.
 
@@ -189,7 +189,7 @@ En règle générale, il est important d’avoir une méthode de compression fra
 
     ![Hive compresse les fichiers intermédiaires](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Pour compresser les fichiers intermédiaires, choisissez un codec de compression ayant un coût d’UC faible, même s’il n’a pas une sortie de compression élevée.
 
 1. Pour définir le codec de compression intermédiaire, ajoutez la propriété personnalisée `mapred.map.output.compression.codec` au fichier `hive-site.xml` ou `mapred-site.xml`.
@@ -210,7 +210,7 @@ En règle générale, il est important d’avoir une méthode de compression fra
 
     Cela compresse le fichier intermédiaire avec Snappy. Une fois la propriété ajoutée, elle apparaît dans le volet Custom Hive-site (hive-site personnalisé).
 
-    > [!NOTE]
+    > [!NOTE]  
     > Cette procédure modifie le fichier `$HADOOP_HOME/conf/hive-site.xml`.
 
 ### <a name="compress-final-output"></a>Compresser la sortie finale
@@ -299,12 +299,12 @@ Vous pouvez modifier les propriétés [d’Apache Pig](https://pig.apache.org/) 
 
     ![Propriétés avancées de Pig](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
-> [!NOTE]
+> [!NOTE]  
 > Les paramètres de niveau session ont priorité sur les valeurs des propriétés dans le fichier `pig.properties`.
 
 ### <a name="tune-execution-engine"></a>Paramétrer le moteur d’exécution
 
-Deux moteurs d’exécution sont disponibles pour exécuter des scripts Pig : MapReduce et Tez. Tez est un moteur optimisé, beaucoup plus rapide que MapReduce.
+Deux moteurs d’exécution sont disponibles pour exécuter des scripts Pig : MapReduce et Tez. Tez est un moteur optimisé, beaucoup plus rapide que MapReduce.
 
 1. Pour changer de moteur d’exécution, dans le volet **Advanced pig-properties (Propriétés avancées de Pig)**, recherchez la propriété `exectype`.
 
@@ -333,18 +333,18 @@ Pig copie les fichiers JAR requis par les FDU dans un cache distribué pour les 
 
 Les paramètres de mémoire suivants peuvent aider à optimiser les performances des scripts Pig.
 
-* `pig.cachedbag.memusage` : quantité de mémoire allouée à un conteneur. Un conteneur est une collection de tuples. Un tuple est un ensemble ordonné de champs, et un champ est une donnée. Si les données d’un conteneur dépassent la mémoire allouée, elles sont déversées sur le disque. La valeur par défaut est 0,2, soit 20 % de la mémoire disponible. Cette mémoire est partagée entre tous les conteneurs d’une application.
+* `pig.cachedbag.memusage`: quantité de mémoire allouée à un conteneur. Un conteneur est une collection de tuples. Un tuple est un ensemble ordonné de champs, et un champ est une donnée. Si les données d’un conteneur dépassent la mémoire allouée, elles sont déversées sur le disque. La valeur par défaut est 0,2, soit 20 % de la mémoire disponible. Cette mémoire est partagée entre tous les conteneurs d’une application.
 
-* `pig.spill.size.threshold` : les conteneurs supérieurs à ce seuil de dépassement de capacité (en octets) sont déversés sur le disque. La valeur par défaut est 5 Mo.
+* `pig.spill.size.threshold`: les conteneurs supérieurs à ce seuil de dépassement de capacité (en octets) sont déversés sur le disque. La valeur par défaut est 5 Mo.
 
 
 ### <a name="compress-temporary-files"></a>Compresser les fichiers temporaires
 
 Pig génère des fichiers temporaires lors de l’exécution du travail. La compression des fichiers temporaires entraîne une augmentation des performances lors de la lecture ou de l’écriture de fichiers sur le disque. Les paramètres suivants permettent de compresser les fichiers temporaires.
 
-* `pig.tmpfilecompression` : lorsque ce paramètre a pour valeur true, il active la compression des fichiers temporaires. La valeur par défaut est false.
+* `pig.tmpfilecompression`: quand ce paramètre a la valeur true, il active la compression des fichiers temporaires. La valeur par défaut est false.
 
-* `pig.tmpfilecompression.codec` : codec à utiliser pour compresser les fichiers temporaires. Les codecs de compression recommandés sont [LZO](https://www.oberhumer.com/opensource/lzo/) et Snappy pour leur faible utilisation de l’UC.
+* `pig.tmpfilecompression.codec`: codec à utiliser pour compresser les fichiers temporaires. Les codecs de compression recommandés sont [LZO](https://www.oberhumer.com/opensource/lzo/) et Snappy pour leur faible utilisation de l’UC.
 
 ### <a name="enable-split-combining"></a>Activer la combinaison de fractionnements
 
@@ -395,9 +395,9 @@ Le cache de blocs est le cache de lecture. Sa taille est contrôlée par le para
 
 Toutes les modifications sont stockées dans la mémoire tampon appelée *Memstore*. Cela augmente le volume total de données qui peuvent être écrites sur le disque lors d’une seule opération, et accélère l’accès postérieur aux modifications récentes. La taille de Memstore est définie par les deux paramètres suivants :
 
-* `hbase.regionserver.global.memstore.UpperLimit` : définit le pourcentage maximal du serveur de région que Memstore peut utiliser.
+* `hbase.regionserver.global.memstore.UpperLimit`: définit le pourcentage maximal du serveur de région que Memstore peut utiliser.
 
-* `hbase.regionserver.global.memstore.LowerLimit` : définit le pourcentage minimal du serveur de région que Memstore peut utiliser.
+* `hbase.regionserver.global.memstore.LowerLimit`: définit le pourcentage minimal du serveur de région que Memstore peut utiliser.
 
 Pour optimiser les lectures aléatoires, vous pouvez réduire les limites supérieure et inférieure de Memstore.
 
@@ -408,7 +408,7 @@ Le paramètre `hbase.client.scanner.caching` définit le nombre de lignes lues s
 
 ![Nombre de lignes extraites dans HBase](./media/hdinsight-changing-configs-via-ambari/hbase-num-rows-fetched.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Ne définissez pas une valeur qui rende le délai entre l’appel de la méthode suivante sur un scanneur supérieure au délai du scanneur. La durée d’expiration du scanneur est définie par la propriété `hbase.regionserver.lease.period`.
 
 

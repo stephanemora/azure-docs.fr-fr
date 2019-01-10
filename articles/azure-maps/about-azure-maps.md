@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 4db494de87993a6434eaf5dbf441094578d72ea4
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 9bf168a0f06d662526d172687e54327b55d50bd8
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165962"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104265"
 ---
 # <a name="what-is-azure-maps"></a>Qu’est-ce qu’Azure Maps ?
 
@@ -62,7 +62,7 @@ Search Service fournit également des fonctionnalités avancées telles que la r
 
 ### <a name="time-zone-service"></a>Time Zone Service
 
-Time Zone Service permet d’interroger des informations actuelles, historiques et futures sur un fuseau horaire à l’aide de paires latitude-longitude ou d’un [ID IANA](http://www.iana.org/). Time Zone Service permet aussi de convertir les ID de fuseau horaire Microsoft Windows en fuseaux horaires IANA, de récupérer un décalage de fuseau horaire par rapport à UTC et d’obtenir l’heure actuelle dans un fuseau horaire respectif. Voici un exemple de réponse JSON type à une requête Time Zone Service :
+Time Zone Service permet d’interroger des informations actuelles, historiques et futures sur un fuseau horaire à l’aide de paires latitude-longitude ou d’un [ID IANA](https://www.iana.org/). Time Zone Service permet aussi de convertir les ID de fuseau horaire Microsoft Windows en fuseaux horaires IANA, de récupérer un décalage de fuseau horaire par rapport à UTC et d’obtenir l’heure actuelle dans un fuseau horaire respectif. Voici un exemple de réponse JSON type à une requête Time Zone Service :
 
 ```JSON
 {
@@ -109,7 +109,7 @@ En outre, Azure Maps fournit un [contrôle de carte JavaScript](https://docs.mic
 
 ## <a name="usage"></a>Usage
 
-Vous pouvez accéder aux services Maps via le [Portail Azure](http://portal.azure.com) et en créant un compte Azure Maps.
+Vous pouvez accéder aux services Maps via le [Portail Azure](https://portal.azure.com) et en créant un compte Azure Maps.
 
 Azure Maps utilise un schéma d’authentification basé sur une clé. Votre compte est doté de deux clés prégénérées pour vous. Commencez par intégrer ces fonctionnalités de localisation dans votre application en utilisant l’une des clés et en formulant une requête au service Azure Maps.
 

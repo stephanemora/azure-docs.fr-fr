@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: df45613105c8fb005fc8ba0c796ef768e293c57e
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 360cf92686682e65cf5348ee717bbb80cdc85cb4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052430"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016169"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copier des données de SAP Cloud for Customer (C4C) avec Azure Data Factory
 
@@ -42,9 +41,9 @@ Les propriétés suivantes sont prises en charge pour le service lié SAP Cloud 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **SapCloudForCustomer**. | OUI |
-| url | URL de l’instance SAP C4C OData. | OUI |
-| username | Indiquez le nom d'utilisateur à utiliser pour se connecter à SAP C4C. | OUI |
+| Type | La propriété type doit être définie sur : **SapCloudForCustomer**. | Oui |
+| url | URL de l’instance SAP C4C OData. | Oui |
+| username | Indiquez le nom d'utilisateur à utiliser pour se connecter à SAP C4C. | Oui |
 | password | Indiquez le mot de passe du compte d’utilisateur défini pour username. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour Source, Oui pour Récepteur |
 
@@ -82,8 +81,8 @@ Pour copier des données de SAP Cloud for Customer, affectez la valeur **SapClou
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **SapCloudForCustomerResource**. |OUI |
-| chemin d’accès | Indiquez le chemin d’accès de l’entité SAP C4C OData. |OUI |
+| Type | La propriété type du jeu de données doit être définie sur : **SapCloudForCustomerResource** |Oui |
+| chemin d’accès | Indiquez le chemin d’accès de l’entité SAP C4C OData. |Oui |
 
 **Exemple :**
 
@@ -113,7 +112,7 @@ Pour copier des données de SAP Cloud for Customer, affectez la valeur **SapClou
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **SapCloudForCustomerSource**.  | OUI |
+| Type | La propriété type doit être définie sur : **SapCloudForCustomerSource**  | Oui |
 | query | Indiquez la requête OData personnalisée permettant de lire les données. | Non  |
 
 Exemple de requête permettant d’obtenir des données pour un jour en particulier : `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
@@ -156,9 +155,9 @@ Pour copier des données vers SAP Cloud for Customer, affectez la valeur **SapCl
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **SapCloudForCustomerSink**.  | OUI |
-| writeBehavior | Comportement d’écriture de l’opération. Valeurs possibles : « Insert », « Update ». | Non. Valeur par défaut : « Insert ». |
-| writeBatchSize | Taille de lot de l’opération d’écriture. La taille de lot offrant les meilleures performances peut être différente selon les tables et les serveurs. | Non. Valeur par défaut : 10. |
+| Type | La propriété type doit être définie sur : **SapCloudForCustomerSink**  | Oui |
+| writeBehavior | Comportement d’écriture de l’opération. Valeurs possibles : « Insert », « Update ». |  Non. Valeur par défaut : « Insert ». |
+| writeBatchSize | Taille de lot de l’opération d’écriture. La taille de lot offrant les meilleures performances peut être différente selon les tables et les serveurs. |  Non. Valeur par défaut : 10. |
 
 **Exemple :**
 
@@ -205,14 +204,14 @@ Lors de la copie de données de SAP Cloud for Customer, les mappages suivants so
 
 | Type de données SAP C4C OData | Type de données intermédiaires de Data Factory |
 |:--- |:--- |
-| Edm.Binary | Byte[] |
+| Edm.Binary | Byte[] |
 | Edm.Boolean | Bool |
-| Edm.Byte | Byte[] |
+| Edm.Byte | Byte[] |
 | Edm.DateTime | Datetime |
 | Edm.Decimal | Décimal |
 | Edm.Double | Double |
 | Edm.Single | Single |
-| Edm.Guid | Guid |
+| Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |

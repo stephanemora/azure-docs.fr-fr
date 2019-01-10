@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/02/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 58dfb3f02b338d62fcfb10e4d8c1bc492cdacbda
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 15c86d1d5af3ba4d373f8dfb199d9ea56edb60b4
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890549"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002482"
 ---
 # <a name="register-azure-stack-with-azure"></a>Inscrire Azure Stack auprès d’Azure
 
@@ -300,15 +300,20 @@ Si vous le souhaitez, vous pouvez utiliser l’applet de commande Get-Content po
 
 ## <a name="verify-azure-stack-registration"></a>Vérifier l’inscription Azure Stack
 
-Utilisez ces étapes pour vérifier qu’Azure Stack est bien inscrit auprès d’Azure.
+Vous pouvez utiliser la vignette **Gestion des régions** pour vérifier que l’inscription Azure Stack a réussi. Cette vignette est disponible sur le tableau de bord par défaut du portail d’administration. L’état peut être inscrit ou non. S’il est inscrit, il montre également l’ID d’abonnement Azure que vous avez utilisé pour inscrire votre instance Azure Stack ainsi que le groupe de ressources et le nom de l’inscription.
 
-1. Connectez-vous au [portail d’administration](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal) Azure Stack : https&#58;//adminportal.*&lt;région>.&lt;fqdn>*.
-2. Sélectionnez **Tous les services** et, sous la catégorie **ADMINISTRATION**, sélectionnez **Gestion de la Place de marché** > **Ajouter à partir d’Azure**.
+1. Connectez-vous au [portail d’administration Azure Stack](https://adminportal.local.azurestack.external).
 
-Si une liste d’éléments disponibles dans Azure (tels que WordPress) s’affiche, l’activation a réussi. Toutefois, dans les environnements déconnectés, vous ne verrez pas les éléments de la Place de marché Azure dans Azure Stack Marketplace.
+2. Dans le tableau de bord, sélectionnez **Gestion des régions**.
 
-> [!Note]  
-> Une fois l’inscription terminée, l’avertissement relatif à la non-inscription n’apparaît plus.
+    [ ![Vignette Gestion des régions](media/azure-stack-registration/admin1sm.png "Vignette Gestion des régions") ](media/azure-stack-registration/admin1.png#lightbox)
+
+3. Sélectionner **Propriétés**. Ce panneau affiche l’état et les détails de votre environnement. L’état peut être **Inscrit** ou **Non inscrit**. S’il est inscrit, il montre également l’ID d’abonnement Azure que vous avez utilisé pour inscrire votre instance Azure Stack ainsi que le groupe de ressources et le nom de l’inscription.
+
+Vous pouvez également vérifier si votre inscription a réussi à l’aide de la fonctionnalité Gestion de la Place de marché. Si vous voyez une liste d’éléments de la Place de marché dans le panneau Gestion de la Place de marché, votre inscription a réussi. Toutefois, dans les environnements déconnectés, les éléments de la Place de marché n’apparaissent pas dans Gestion de la Place de marché. Dans ce cas, vous pouvez utiliser l’outil en mode hors connexion pour vérifier l’inscription.
+
+> [!NOTE]
+> Une fois l’inscription terminée, l’avertissement relatif à la non-inscription n’apparaît plus. Dans les scénarios déconnectés, vous recevez un message dans Gestion de la Place de marché vous invitant à inscrire et à activer votre instance Azure Stack, même si l’inscription a déjà été effectuée.
 
 ## <a name="renew-or-change-registration"></a>Renouveler ou modifier l’inscription
 

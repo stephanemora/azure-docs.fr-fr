@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: a6170d51e1a8756020b4f2caa733c388b2ce4060
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 2542364db3a895c060c752beeb0cfabf75834f7d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013814"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970268"
 ---
-# <a name="install-and-run-containers"></a>Installer et exécuter des conteneurs
+# <a name="install-and-run-luis-docker-containers"></a>Installer et exécuter des conteneurs Docker LUIS
  
 Le conteneur LUIS (Language Understanding) charge votre modèle Language Understanding entraîné ou publié, également connu sous le nom d’[application LUIS](https://www.luis.ai), dans un conteneur docker et fournit l’accès aux prédictions de requête à partir des points de terminaison d’API du conteneur. Vous pouvez collecter les journaux de requêtes du conteneur et les charger sur le modèle Azure Language Understanding pour améliorer la précision de prédiction de l’application.
 
@@ -34,7 +34,7 @@ Pour exécuter le conteneur LUIS, vous devez disposer des éléments suivants :
 
 |Obligatoire|Objectif|
 |--|--|
-|Moteur Docker| Pour effectuer cette procédure, vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
+|Moteur Docker| Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
 |Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.| 
 |Ressource LUIS (Language Understanding) et application associée |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>* Une [ressource Azure _Language Understanding_](luis-how-to-azure-subscription.md) ainsi que la clé de point de terminaison et l’URI de point de terminaison associés (utilisé en tant que point de terminaison de facturation).<br>* Une application entraînée ou publiée empaquetée en tant qu’entrée montée dans le conteneur avec son ID d’application associé.<br>* La clé de création pour télécharger le package d’application, si vous effectuez cette opération à partir de l’API.<br><br>Ces prérequis sont utilisés pour passer des arguments de ligne de commande aux variables suivantes :<br><br>**{AUTHORING_KEY}**  : cette clé sert à obtenir l’application empaquetée à partir du service LUIS dans le cloud et à charger les journaux de requêtes vers le cloud. Le format est `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**  : cet ID sert à sélectionner l’application. Le format est `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**  : cette clé sert à démarrer le conteneur. La clé de point de terminaison est disponible à deux endroits. Le premier est le portail Azure, dans la liste de clés de la ressource _Language Understanding_. Elle est également disponible dans le portail LUIS, dans la page Keys and Endpoint settings (Paramètres des clés et du point de terminaison). N’utilisez pas la clé de démarrage.<br><br>**{BILLING_ENDPOINT}**  : la valeur de point de terminaison de facturation est disponible dans la page Vue d’ensemble de Language Understanding du portail Azure. Par exemple `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>La [clé de création et la clé de point de terminaison](luis-boundaries.md#key-limits) ont différentes fonctions. Ne les utilisez pas de manière interchangeable. |
 
@@ -42,15 +42,15 @@ Pour exécuter le conteneur LUIS, vous devez disposer des éléments suivants :
 
 L’**hôte** est l’ordinateur qui exécute le conteneur docker. Il peut s’agir d’un ordinateur local ou d’un service d’hébergement docker dans Azure, notamment :
 
-* [Azure Kubernetes Service](/azure/aks/)
-* [Azure Container Instances](/azure/container-instances/)
-* Cluster [Kubernetes](https://kubernetes.io/) déployé sur [Azure Stack](/azure/azure-stack/). Pour plus d’informations, consultez [Déployer Kubernetes sur Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+* [Azure Kubernetes Service](../../aks/index.yml)
+* [Azure Container Instances](../../container-instances/index.yml)
+* Cluster [Kubernetes](https://kubernetes.io/) déployé sur [Azure Stack](../../azure-stack/index.yml). Pour plus d’informations, consultez [Déployer Kubernetes sur Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 ### <a name="container-requirements-and-recommendations"></a>Exigences et recommandations relatives au conteneur
 
 Ce conteneur prend en charge des valeurs minimales et recommandées pour les paramètres :
 
-|Paramètre| Minimum | Recommandé |
+|Paramètre| Minimale | Recommandé |
 |-----------|---------|-------------|
 |Cœurs<BR>`--cpus`|1 cœur<BR>au moins 2,6 gigahertz (GHz) ou plus rapide|1 cœur|
 |Mémoire<BR>`--memory`|2 Go|4 Go|
@@ -109,7 +109,7 @@ Le répertoire de montage d’entrée peut contenir en même temps les versions 
 
 |Type de package|API de point de terminaison de requête|Disponibilité des requêtes|Format du nom de fichier de package|
 |--|--|--|--|
-|Trained|Get, Post|Conteneur uniquement|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
+|Formé|Get, Post|Conteneur uniquement|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
 |Staging|Get, Post|Azure et conteneur|`{APPLICATION_ID}_STAGING.gz`|
 |Production|Get, Post|Azure et conteneur|`{APPLICATION_ID}_PRODUCTION.gz`|
 
@@ -168,7 +168,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Espace réservé | Valeur |
+| Placeholder | Valeur |
 |-------------|-------|
 |{APPLICATION_ID} | ID d’application de l’application LUIS publiée. |
 |{APPLICATION_ENVIRONMENT} | Environnement de l’application LUIS publiée. Utilisez l’une des valeurs suivantes :<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -218,7 +218,7 @@ En cas de réussite, la réponse est un fichier de package LUIS. Enregistrez le 
 
 Utilisez la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) pour exécuter le conteneur. La commande utilise les paramètres suivants :
 
-| Espace réservé | Valeur |
+| Placeholder | Valeur |
 |-------------|-------|
 |{ENDPOINT_KEY} | cette clé sert à démarrer le conteneur. N’utilisez pas la clé de démarrage. |
 |{BILLING_ENDPOINT} | la valeur de point de terminaison de facturation est disponible dans la page Vue d’ensemble de Language Understanding du portail Azure.|
@@ -244,7 +244,7 @@ Cette commande :
 * Exécute un conteneur à partir de l’image conteneur LUIS.
 * Charge l’application LUIS à partir du montage d’entrée qui se trouve à c:\input sur l’hôte de conteneur.
 * Alloue deux cœurs de processeur et 4 gigaoctets (Go) de mémoire.
-* Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur.
+* Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur
 * Enregistre les journaux LUIS et de conteneur dans le montage de sortie qui se trouve à c:\output sur l’hôte de conteneur.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte. 
 
@@ -263,17 +263,17 @@ Utilisez l’hôte, https://localhost:5000, pour les API de conteneur.
 |Type de package|Méthode|Routage|Paramètres de requête|
 |--|--|--|--|
 |Publié|[Get](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [Post](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>&staging<br>[&timezoneOffset]<br>[&verbose]<br>[&log]<br>|
-|Trained|Get, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[&verbose]<br>[&log]|
+|Formé|Get, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[&verbose]<br>[&log]|
 
 Les paramètres de requête configurent ce qui est retourné dans la réponse de requête, et de quelle manière :
 
-|Paramètre de requête.|Type|Objectif|
+|Paramètre de requête.|type|Objectif|
 |--|--|--|
 |`q`|chaîne|Énoncé de l’utilisateur.|
-|`timezoneOffset`|nombre|timezoneOffset vous permet de [changer le fuseau horaire](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) utilisé par l’entité prédéfinie datetimeV2.|
-|`verbose`|booléen|Retourne toutes les intentions et leurs scores quand la valeur est true. La valeur par défaut est false, ce qui retourne uniquement la première intention.|
-|`staging`|booléen|Retourne une requête à partir des résultats de l’environnement intermédiaire si la valeur est true. |
-|`log`|booléen|Enregistre les requêtes, qui peuvent être utilisées ultérieurement pour l’[apprentissage actif](luis-how-to-review-endoint-utt.md). La valeur par défaut est true.|
+|`timezoneOffset`|number|timezoneOffset vous permet de [changer le fuseau horaire](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) utilisé par l’entité prédéfinie datetimeV2.|
+|`verbose`|booléenne|Retourne toutes les intentions et leurs scores quand la valeur est true. La valeur par défaut est false, ce qui retourne uniquement la première intention.|
+|`staging`|booléenne|Retourne une requête à partir des résultats de l’environnement intermédiaire si la valeur est true. |
+|`log`|booléenne|Enregistre les requêtes, qui peuvent être utilisées ultérieurement pour l’[apprentissage actif](luis-how-to-review-endoint-utt.md). La valeur par défaut est true.|
 
 ### <a name="query-published-app"></a>Interroger une application publiée
 
@@ -363,7 +363,7 @@ Configurations d’application non prises en charge|Détails|
 |Entités non prises en charge pour toutes les cultures|Entité prédéfinie [KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) pour toutes les cultures|
 |Entités non prises en charge pour la culture anglais (en-US)|Entités prédéfinies [GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2)|
 |Préparation vocale|Les dépendances externes ne sont pas prises en charge dans le conteneur.|
-|Analyse de sentiments|Les dépendances externes ne sont pas prises en charge dans le conteneur.|
+|analyse de sentiments|Les dépendances externes ne sont pas prises en charge dans le conteneur.|
 |Vérification orthographique Bing|Les dépendances externes ne sont pas prises en charge dans le conteneur.|
 
 ## <a name="summary"></a>Résumé

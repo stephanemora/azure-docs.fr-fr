@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a841ae168119546e8be32ce6f614656f775709ee
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2fe018139fd99f395ff88eae39ca8836eded5677
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583310"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581519"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété d’un abonnement Azure à un autre compte
 
@@ -31,9 +31,6 @@ Transférez votre abonnement à un autre utilisateur dans le Centre des comptes 
 > [!IMPORTANT]
 > 
 > Si vous transférez un abonnement à un nouveau locataire Azure AD, toutes les attributions de rôle dans [Contrôle de l’accès basé sur les rôles (RBAC)](../role-based-access-control/overview.md) sont définitivement supprimées du locataire source et ne sont pas migrées vers le locataire cible.
-
-> [!div class="nextstepaction"]
-> [Aidez-nous à améliorer les documents de facturation Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transfert de la propriété d’un abonnement Azure
 
@@ -177,4 +174,4 @@ Si vous ne pouvez pas transférer la propriété de l’abonnement, vous pouvez 
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) (Support request).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

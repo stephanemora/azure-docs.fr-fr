@@ -11,20 +11,24 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 5e0358ebf525c39c09df4268971fa71c02457821
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: a92d2cb5f6abc73dc768567d239ec38554e493b4
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094191"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001581"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Surveiller et déboguer une application .NET Azure Batch avec Application Insights
 
 [Application Insights](../application-insights/app-insights-overview.md) est un moyen élégant et puissant permettant aux développeurs de surveiller et de déboguer les applications déployées sur les services Azure. Utilisez Application Insights pour surveiller les compteurs de performances et les exceptions, ainsi que pour instrumenter votre code avec un suivi et des métriques personnalisés. L’intégration d’Application Insights dans votre application Azure Batch vous permet d’obtenir des informations détaillées sur les comportements et d’étudier les problèmes en quasi temps réel.
 
-Cet article explique comment ajouter et configurer la bibliothèque Application Insights dans votre solution .NET Azure Batch et instrumenter le code de votre application. Il montre également comment surveiller votre application à l’aide du portail Azure et créer des tableaux de bord personnalisés. Pour la prise en charge d’Application Insights dans d’autres langages, consultez [Analyse développeur : langages, plateformes et intégrations](../application-insights/app-insights-platforms.md).
+Cet article explique comment ajouter et configurer la bibliothèque Application Insights dans votre solution .NET Azure Batch et instrumenter le code de votre application. Il montre également comment surveiller votre application à l’aide du portail Azure et créer des tableaux de bord personnalisés. Pour la prise en charge d’Application Insights dans d’autres langages, consultez [Analyse développeur : langages, plateformes et intégrations](../azure-monitor/app/platforms.md).
 
 Un exemple de solution C# avec du code pour accompagner cet article est disponible sur [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). Cet exemple ajoute le code d’instrumentation Application Insights dans l’exemple [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords). Si vous n’êtes pas familier avec cet exemple, essayez d’abord de générer et d’exécuter TopNWords. Cela vous aidera à comprendre le flux de traitement Batch d’un ensemble de blobs d’entrée, en parallèle sur plusieurs nœuds de calcul. 
+
+> [!TIP]
+> Vous pouvez également configurer votre solution Batch pour afficher des données Application Insights, comme des compteurs de performances de machines virtuelles dans Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) est un outil client autonome gratuit, doté de nombreuses fonctionnalités aidant à créer, déboguer et surveiller les applications Azure Batch. Téléchargez un [package d’installation](https://azure.github.io/BatchExplorer/) pour Mac, Linux ou Windows. Consultez le [référentiel batch-insights](https://github.com/Azure/batch-insights) pour obtenir les étapes à suivre pour activer les données Application Insights dans Batch Explorer. 
+>
 
 ## <a name="prerequisites"></a>Prérequis
 * [Visual Studio 2017](https://www.visualstudio.com/vs)
@@ -52,14 +56,14 @@ Référencez Application Insights à partir de votre application .NET à l’aid
 
 ## <a name="instrument-your-code"></a>instrumentalisation de votre code
 
-Pour instrumenter votre code, votre solution doit créer un [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient) Application Insights. Dans l’exemple, le TelemetryClient charge sa configuration à partir du fichier [ApplicationInsights.config](../application-insights/app-insights-configuration-with-applicationinsights-config.md). Veillez à mettre à jour ApplicationInsights.config dans les projets suivants avec votre clé d’instrumentation Application Insights : Microsoft.Azure.Batch.Samples.TelemetryStartTask et TopNWordsSample.
+Pour instrumenter votre code, votre solution doit créer un [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient) Application Insights. Dans l’exemple, le TelemetryClient charge sa configuration à partir du fichier [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md). Veillez à mettre à jour ApplicationInsights.config dans les projets suivants avec votre clé d’instrumentation Application Insights : Microsoft.Azure.Batch.Samples.TelemetryStartTask et TopNWordsSample.
 
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
 ```
 Ajoutez également la clé d’instrumentation dans le fichier TopNWords.cs.
 
-L’exemple dans TopNWords.cs utilise les [appels d’instrumentation](../application-insights/app-insights-api-custom-events-metrics.md) suivants de l’API Application Insights :
+L’exemple dans TopNWords.cs utilise les [appels d’instrumentation](../azure-monitor/app/api-custom-events-metrics.md) suivants de l’API Application Insights :
 * `TrackMetric()` : surveille la durée moyenne que prend un nœud de calcul pour télécharger le fichier texte requis.
 * `TrackTrace()` : ajoute des appels de débogage dans votre code.
 * `TrackEvent()` : surveille les événements intéressants à capturer.
@@ -121,7 +125,7 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 ```
 
 ### <a name="azure-batch-telemetry-initializer-helper"></a>Assistance de l’initialiseur de télémétrie Azure Batch
-Lors du signalement des données de télémétrie d’un serveur particulier ou d’une instance donnée, Application Insights utilise le rôle de la machine virtuelle Azure et le nom de la machine virtuelle comme valeurs par défaut. Dans le cadre d’Azure Batch, l’exemple montre comment utiliser le nom du pool et le nom du nœud de calcul à la place. Utilisez un [initialiseur de télémétrie](../application-insights/app-insights-api-filtering-sampling.md#add-properties) pour remplacer les valeurs par défaut. 
+Lors du signalement des données de télémétrie d’un serveur particulier ou d’une instance donnée, Application Insights utilise le rôle de la machine virtuelle Azure et le nom de la machine virtuelle comme valeurs par défaut. Dans le cadre d’Azure Batch, l’exemple montre comment utiliser le nom du pool et le nom du nœud de calcul à la place. Utilisez un [initialiseur de télémétrie](../azure-monitor/app/api-filtering-sampling.md#add-properties) pour remplacer les valeurs par défaut. 
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -340,6 +344,6 @@ En raison de l’envergure des applications Azure Batch exécutées en productio
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur [Application Insights](../application-insights/app-insights-overview.md).
 
-* Pour la prise en charge d’Application Insights dans d’autres langages, consultez [Analyse développeur : langages, plateformes et intégrations](../application-insights/app-insights-platforms.md).
+* Pour la prise en charge d’Application Insights dans d’autres langages, consultez [Analyse développeur : langages, plateformes et intégrations](../azure-monitor/app/platforms.md).
 
 

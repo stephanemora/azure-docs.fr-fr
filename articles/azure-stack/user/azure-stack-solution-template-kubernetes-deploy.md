@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 5573c7f122360b3bd3adeb9dcca1c827a1933f70
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 07cacc4a127c333e4c19c4979b7520226919c14b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959459"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722394"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Déployer Kubernetes sur Azure Stack
 
@@ -101,7 +101,7 @@ Accordez l’accès à votre abonnement au principal de service afin qu’il pui
 
 1. Sélectionnez l’abonnement créé par votre opérateur pour utiliser le cluster Kubernetes.
 
-1. Sélectionnez **Contrôle d’accès (IAM)** > **+ Ajouter**.
+1. Sélectionnez **Contrôle d’accès (IAM)**  > **Ajouter une attribution de rôle**.
 
 1. Sélectionnez le rôle **Contributeur**.
 

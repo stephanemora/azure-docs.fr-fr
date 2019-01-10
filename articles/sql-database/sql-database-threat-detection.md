@@ -1,6 +1,6 @@
 ---
-title: Détection des menaces - Azure SQL Database | Microsoft Docs
-description: La détection des menaces permet de détecter les activités de base de données anormales indiquant la présence potentielle de menaces de sécurité pour une base de données unique ou un pool élastique.
+title: Détection de menaces - Azure SQL Database | Microsoft Docs
+description: Threat Detection permet de détecter les activités de base de données anormales indiquant la présence potentielle de menaces de sécurité pour une base de données unique ou un pool élastique.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,23 +11,24 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 10/25/2018
-ms.openlocfilehash: 91b5fa521b1513f86bb9112138cf10fdb31badca
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.date: 01/03/2019
+ms.openlocfilehash: 3f4a120e2aaf2925805bec26f721d5cfb4194bf1
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997306"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041541"
 ---
 # <a name="azure-sql-database-threat-detection-for-single-database"></a>Détection des menaces Azure SQL Database pour une base de données unique
 
-La [détection des menaces](sql-database-threat-detection-overview.md) Azure SQL Database pour les bases de données uniques [SQL Database](sql-database-technical-overview.md) détecte les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de bases de données. La détection des menaces peut identifier une **injection SQL potentielle**, un **accès à partir d’un emplacement ou d’un centre de données inhabituel**, un **accès à partir d’un principal inconnu ou d’une application potentiellement dangereuse** et des **informations d’identification SQL par force brute**. Pour plus d’informations, consultez [Alertes de détection des menaces](sql-database-threat-detection.md#azure-sql-database-threat-detection-alerts).
+La [détection des menaces](sql-database-threat-detection-overview.md) Azure SQL Database pour les bases de données uniques [SQL Database](sql-database-technical-overview.md) détecte les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de bases de données. La détection des menaces peut identifier une **injection SQL potentielle**, un **accès à partir d’un emplacement ou d’un centre de données inhabituel**, un **accès à partir d’un principal inconnu ou d’une application potentiellement dangereuse** et des **informations d’identification SQL par force brute**. Pour plus d’informations, consultez [Alertes de détection des menaces](sql-database-threat-detection-overview.md#azure-sql-database-threat-detection-alerts).
 
-Vous pouvez recevoir des notifications à propos des menaces détectées par l’intermédiaire de [notifications par e-mail](sql-database-threat-detection.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) ou du [portail Azure](sql-database-threat-detection.md#explore-threat-detection-alerts-for-your-database-in-the-Azure-portal).
+Vous pouvez recevoir des notifications à propos des menaces détectées par l’intermédiaire de [notifications par e-mail](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) ou du [portail Azure](sql-database-threat-detection.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal).
 
-La [détection des menaces](sql-advanced-threat-protection.md) fait partie de l’offre [SQL Advanced Threat Protection](sql-database-threat-detection-overview.md) (ATP), qui est un package unifié de fonctionnalités de sécurité SQL avancées. La détection des menaces est accessible et gérée via le portail SQL ATP central. Le service de détection des menaces est facturé 15 USD par mois et par serveur logique, avec les 30 premiers jours gratuits.
+La [détection des menaces](sql-advanced-threat-protection.md) fait partie de l’offre [SQL Advanced Threat Protection](sql-database-threat-detection-overview.md) (ATP), qui est un package unifié de fonctionnalités de sécurité SQL avancées. Threat Detection peut être accessible et gérée via le portail SQL ATP central. Le service de détection des menaces est facturé 15 USD par mois et par serveur logique, avec les 30 premiers jours gratuits.
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Configurer la détection des menaces pour votre base de données dans le portail Azure
+
 1. Lancez le portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Accédez à la page de configuration du serveur Azure SQL Database que vous voulez protéger. Dans les paramètres de sécurité, sélectionnez **Protection avancée contre les menaces**.
 3. Sur la page de configuration **Protection avancée contre les menaces** :
@@ -43,9 +44,9 @@ Pour obtenir un exemple de script, consultez [Configurer l’audit et la détect
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur la [détection des menaces](sql-database-threat-detection-overview.md).
-* En savoir plus sur la [détection des menaces dans Managed Instance](sql-database-managed-instance-threat-detection.md).  
-* En savoir plus sur [SQL Advanced Threat Protection](sql-advanced-threat-protection.md). 
-* En savoir plus sur [Audit Azure SQL Database](sql-database-auditing.md)
-* En savoir plus sur [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Pour plus d’informations sur la tarification, consultez la [page de tarification SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)  
+- En savoir plus sur la [détection des menaces](sql-database-threat-detection-overview.md).
+- En savoir plus sur la [détection des menaces dans Managed Instance](sql-database-managed-instance-threat-detection.md).  
+- En savoir plus sur [SQL Advanced Threat Protection](sql-advanced-threat-protection.md).
+- En savoir plus sur [Audit Azure SQL Database](sql-database-auditing.md)
+- En savoir plus sur [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Pour plus d’informations sur la tarification, consultez la [page de tarification SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)  

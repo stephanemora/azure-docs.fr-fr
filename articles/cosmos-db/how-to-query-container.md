@@ -1,18 +1,17 @@
 ---
 title: Interroger des conteneurs dans Azure Cosmos DB
 description: Découvrez comment interroger des conteneurs dans Azure Cosmos DB
-services: cosmos-db
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 11c68b61802f6c7b3755da71c176ea777f171e4c
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 647c4dfd6038a04d4d55516ab816bf7701542075
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409834"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040419"
 ---
 # <a name="query-containers-in-azure-cosmos-db"></a>Interroger des conteneurs dans Azure Cosmos DB
 

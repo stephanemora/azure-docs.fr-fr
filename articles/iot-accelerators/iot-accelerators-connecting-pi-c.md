@@ -8,18 +8,20 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: c20b1d5f3a84e950e37a3236272256db620a5985
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 838a33fd390b28fec609c42487dca225ddc6eaa8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831098"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628202"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Connecter votre appareil Raspberry Pi à l’accélérateur de solution Monitoring à distance (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Ce tutoriel vous montre comment connecter un appareil physique à l’accélérateur de solution Surveillance à distance. Comme avec la plupart des applications embarquées qui s’exécutent sur des appareils limités, le code client pour l’application d’appareil Raspberry Pi est écrit en C. Dans ce didacticiel, vous générez l’application sur un appareil Raspberry Pi exécutant le système d’exploitation Raspbian.
+Ce tutoriel vous montre comment connecter un appareil réel à l’accélérateur de solution Supervision à distance. Comme avec la plupart des applications embarquées qui s’exécutent sur des appareils limités, le code client pour l’application d’appareil Raspberry Pi est écrit en C. Dans ce didacticiel, vous générez l’application sur un appareil Raspberry Pi exécutant le système d’exploitation Raspbian.
+
+Si vous préférez simuler un appareil, consultez [Créer et tester un appareil simulé](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ### <a name="required-hardware"></a>Matériel requis
 
@@ -36,7 +38,7 @@ Un ordinateur de bureau permettant de vous connecter à distance à la ligne de 
 
 Vous devez installer le client SSH sur votre ordinateur de bureau afin de pouvoir accéder à distance à la ligne de commande sur le Raspberry Pi.
 
-- Windows n’inclut pas de client SSH. Nous vous recommandons d’utiliser [PuTTY](http://www.putty.org/).
+- Windows n’inclut pas de client SSH. Nous vous recommandons d’utiliser [PuTTY](https://www.putty.org/).
 - La plupart des distributions Linux et Mac OS incluent l’utilitaire de ligne de commande SSH. Pour plus d’informations, consultez [SSH Using Linux or Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md) (Utilisation de SSH avec Linux ou Mac OS).
 
 ### <a name="required-raspberry-pi-software"></a>Logiciels Raspberry Pi requis
@@ -57,11 +59,11 @@ Les étapes suivantes vous montrent comment préparer votre appareil Raspberry P
 
 ## <a name="view-the-code"></a>Afficher le code
 
-L’[exemple de code](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client) utilisé dans ce guide est disponible dans le référentiel GitHub des Kits de développement logiciel (SDK) Azure IoT C.
+L’[exemple de code](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client) utilisé dans ce guide est disponible dans le référentiel GitHub des kits de développement logiciel (SDK) Azure IoT C.
 
 ### <a name="download-the-source-code-and-prepare-the-project"></a>Télécharger le code source et préparer le projet
 
-Pour préparer le projet, clonez ou téléchargez le [référentiel de Kits de développement logiciel (SDK) Azure IoT C](https://github.com/Azure/azure-iot-sdk-c) à partir de GitHub.
+Pour préparer le projet, clonez ou téléchargez le [référentiel de kits de développement logiciel (SDK) Azure IoT C](https://github.com/Azure/azure-iot-sdk-c) à partir de GitHub.
 
 L’exemple se trouve dans le dossier **samples/solutions/remote_monitoring_client**.
 
@@ -71,11 +73,11 @@ Ouvrez le fichier **remote_monitoring.c** dans le dossier **samples/solutions/re
 
 ## <a name="build-and-run-the-application"></a>Génération et exécution de l’application
 
-Les étapes suivantes décrivent comment utiliser *CMake* pour générer votre application cliente. L’application cliente de supervision à distance est générée dans le cadre du processus de génération du Kit de développement logiciel (SDK).
+Les étapes suivantes décrivent comment utiliser *CMake* pour générer votre application cliente. L’application cliente de supervision à distance est générée dans le cadre du processus de génération du kit de développement logiciel (SDK).
 
-1. Modifiez le fichier **remote_monitoring.c** pour remplacer `<connectionstring>` par la chaîne de connexion d’appareil que vous avez notée au début de ce guide pratique lorsque vous avez ajouté un appareil à l’accélérateur de solution.
+1. Dans le fichier **remote_monitoring.c**, remplacez `<connectionstring>` par la chaîne de connexion d’appareil que vous avez notée au début de ce guide pratique lorsque vous avez ajouté un appareil à l’accélérateur de solution.
 
-1. Accédez à la racine de votre copie clonée du [référentiel de Kits de développement logiciel (SDK) Azure IoT C](https://github.com/Azure/azure-iot-sdk-c) et exécutez les commandes suivantes pour générer l’application cliente :
+1. Accédez à la racine de votre copie clonée du [référentiel de kits de développement logiciel (SDK) Azure IoT C](https://github.com/Azure/azure-iot-sdk-c) et exécutez les commandes suivantes pour générer l’application cliente :
 
     ```sh
     mkdir cmake

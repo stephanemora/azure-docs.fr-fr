@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/14/2018
 ms.author: rogarana
 ms.component: cosmosdb-table
-ms.openlocfilehash: 219b5aa3c1f280ce02d2579f3fe2cc7ca7da490d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9aa3431e91196d7c33582d17494ddf0c32fba704
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125783"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634471"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Effectuer des opérations sur Stockage Table Azure avec Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -32,7 +32,9 @@ Cet article sur les procédures décrit les opérations courantes liées à Stoc
 
 Cet article sur les procédures vous montre comment créer un nouveau compte de stockage Azure dans un nouveau groupe de ressources afin que vous puissiez le supprimer facilement quand vous avez terminé. Si vous préférez, vous pouvez utiliser un compte de stockage existant à la place.
 
-Ces exemples nécessitent le module Azure PowerShell version 4.4.0 ou ultérieure. Dans une fenêtre PowerShell, exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si aucune information n’est affichée ou que vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Ces exemples nécessitent le module `AzureRM` Azure PowerShell version 4.4.0 ou ultérieure. Dans une fenêtre PowerShell, exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si aucune information n’est affichée ou que vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
+
+[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
 Une fois Azure PowerShell installé ou mis à jour, vous devez installer le module **AzureRmStorageTable**, qui contient les commandes de gestion des entités. Pour installer ce module, exécutez PowerShell en tant qu’administrateur et utilisez la commande **Install-Module**.
 
@@ -121,7 +123,7 @@ Remove-AzureStorageTable –Name $tableName –Context $ctx
 Get-AzureStorageTable –Context $Ctx | select Name
 ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous avez créé un groupe de ressources et un compte de stockage au début de cet article sur les procédures, vous pouvez supprimer toutes les ressources que vous avez créées dans cet exercice en supprimant le groupe de ressources. Cette commande supprime toutes les ressources contenues dans le groupe de ressources, ainsi que le groupe lui-même.
 

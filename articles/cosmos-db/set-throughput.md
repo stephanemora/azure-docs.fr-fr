@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: e866b205fb5cdd65dc690101503613714271e36c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5b2847914007df414c37397d61632567c277d1b2
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075350"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999422"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Provisionner le débit sur les conteneurs et les bases de données Azure Cosmos
 
@@ -27,9 +27,9 @@ Définir le débit provisionné sur un conteneur correspond à l’option la plu
 
 Il vous est recommandé de configurer le débit au niveau de la granularité du conteneur pour garantir les performances de ce conteneur.
 
-Le débit provisionné sur un conteneur Azure Cosmos est uniformément réparti entre toutes les partitions logiques du conteneur. Dans la mesure où une ou plusieurs partitions logiques d’un conteneur sont hébergées par une partition de ressources, les partitions physiques appartiennent exclusivement au conteneur et prennent en charge le débit provisionné sur ce conteneur. L’illustration suivante montre comment une partition de ressources héberge une ou plusieurs partitions logiques d’un conteneur :
+Le débit provisionné sur un conteneur Azure Cosmos est uniformément réparti entre toutes les partitions logiques du conteneur. Dans la mesure où une ou plusieurs partitions logiques d’un conteneur sont hébergées par une partition physique, les partitions physiques appartiennent exclusivement au conteneur et prennent en charge le débit provisionné sur ce conteneur. L’illustration suivante montre comment une partition physique héberge une ou plusieurs partitions logiques d’un conteneur :
 
-![Partition de ressources](./media/set-throughput/resource-partition.png)
+![Partition physique](./media/set-throughput/resource-partition.png)
 
 ## <a name="setting-throughput-on-a-database"></a>Définir le débit sur une base de données
 
@@ -47,11 +47,11 @@ Il est recommandé de configurer le débit sur une base de données lorsque vous
 
 * Partager le débit provisionné d’une base de données sur un ensemble de conteneurs est utile quand vous migrez une base de données NoSQL (par exemple, MongoDB, Cassandra) hébergée à partir d’un cluster de machines virtuelles ou de serveurs physiques locaux vers Azure Cosmos DB. Vous pouvez considérer le débit provisionné configuré sur votre base de données Azure Cosmos en tant qu’équivalent logique (mais plus rentable et élastique) de la capacité de calcul de votre cluster MongoDB ou Cassandra.  
 
-À un moment donné, le débit alloué à un conteneur au sein d’une base de données est réparti entre toutes les partitions logiques de ce conteneur. En présence de conteneurs partageant un débit provisionné sur une base de données, vous ne pouvez pas appliquer de manière sélective le débit à un conteneur ou une partition logique spécifique. Si la charge de travail d'une partition logique consomme plus que le débit alloué à une partition logique spécifique, vos opérations sont limitées en termes de débit. En cas de limitation, vous pouvez augmenter le débit pour l’intégralité du conteneur ou retenter l’opération. Pour plus d’informations sur le partitionnement, consultez [Partitions logiques](partition-data.md).
+Tous les conteneurs créés à l’intérieur d’une base de données avec un débit provisionné doivent être créés avec une clé de partition. À un moment donné, le débit alloué à un conteneur au sein d’une base de données est réparti entre toutes les partitions logiques de ce conteneur. En présence de conteneurs partageant un débit provisionné sur une base de données, vous ne pouvez pas appliquer de manière sélective le débit à un conteneur ou une partition logique spécifique. Si la charge de travail d'une partition logique consomme plus que le débit alloué à une partition logique spécifique, vos opérations sont limitées en termes de débit. En cas de limitation, vous pouvez augmenter le débit pour l’intégralité du conteneur ou retenter l’opération. Pour plus d’informations sur le partitionnement, consultez [Partitions logiques](partition-data.md).
 
-Plusieurs partitions logiques partageant le débit provisionné sur une base de données peuvent être hébergées sur une partition de ressources unique. Si une seule partition logique appartenant à un conteneur est toujours limitée dans une partition de ressources, les partitions logiques « L » des conteneurs « C » partageant le débit provisionné d'une base de données peuvent être mappées et hébergées sur les partitions physiques « R ». L’illustration suivante montre comment une partition de ressources peut héberger une ou plusieurs partitions logiques appartenant à différents conteneurs au sein d’une base de données :
+Plusieurs partitions logiques partageant le débit provisionné sur une base de données peuvent être hébergées sur une partition physique unique. Si une seule partition logique appartenant à un conteneur est toujours limitée dans une partition physique, les partitions logiques « L » des conteneurs « C » partageant le débit provisionné d’une base de données peuvent être mappées et hébergées sur les partitions physiques « R ». L’illustration suivante montre comment une partition physique peut héberger une ou plusieurs partitions logiques, appartenant à différents conteneurs, au sein d’une base de données :
 
-![Partition de ressources](./media/set-throughput/resource-partition2.png)
+![Partition physique](./media/set-throughput/resource-partition2.png)
 
 ## <a name="setting-throughput-on-a-database-and-a-container"></a>Définir le débit sur une base de données et un conteneur
 

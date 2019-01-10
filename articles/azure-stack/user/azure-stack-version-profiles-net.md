@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: cfebbdb9b88a1de6a05f06e6ed72ebc9cddddcf6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 20e96ad7a99fdb8c90f3b7990965d7225aef8be0
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074449"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555011"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Utiliser des profils de version d’API avec .NET dans Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Le Kit de développement logiciel (SDK) .NET pour Azure Stack Resource Manager fournit des outils pour vous aider à créer et gérer votre infrastructure. Le Kit de développement logiciel (SDK) comporte des fournisseurs de ressources de calcul, de réseau, de stockage, de services d’application et [KeyVault](../../key-vault/key-vault-whatis.md). Le Kit de développement logiciel (SDK) .NET inclut 14 packages NuGet qui doivent être téléchargés dans votre solution de projet chaque fois que les informations de profil sont incorporées. Toutefois, vous pouvez télécharger spécifiquement le fournisseur de ressources que vous utiliserez pour le profil 2018-03-01-hybrid ou 2017-03-09-profile afin d’optimiser la mémoire pour votre application. Chaque package se compose d’un fournisseur de ressources, de la version d’API correspondante et du profil d’API auquel il appartient. Les profils d’API dans le Kit de développement logiciel (SDK) .NET permettent le développement du cloud hybride en vous offrant la possibilité de basculer entre les ressources Azure globales et les ressources sur Azure Stack.
+Le Kit de développement logiciel (SDK) .NET pour Azure Stack Resource Manager fournit des outils pour vous aider à créer et gérer votre infrastructure. Le Kit de développement logiciel (SDK) comporte des fournisseurs de ressources de calcul, de réseau, de stockage, de services d’application et [KeyVault](../../key-vault/key-vault-whatis.md). Le SDK .NET inclut 14 packages NuGet. Ces packages doivent être téléchargés dans votre solution de projet chaque fois que les informations de profil sont incorporées. Toutefois, vous pouvez télécharger spécifiquement le fournisseur de ressources que vous utiliserez pour le profil 2018-03-01-hybrid ou 2017-03-09-profile afin d’optimiser la mémoire pour votre application. Chaque package se compose d’un fournisseur de ressources, de la version d’API correspondante et du profil d’API auquel il appartient. Les profils d’API dans le Kit de développement logiciel (SDK) .NET permettent le développement du cloud hybride en vous offrant la possibilité de basculer entre les ressources Azure globales et les ressources sur Azure Stack.
 
 ## <a name="net-and-api-version-profiles"></a>.NET et les profils de version d’API
 
@@ -44,7 +44,7 @@ Un profil d’API est une combinaison de fournisseurs de ressources et de versio
 
 -   Pour utiliser des versions d’API spécifiques pour un type de ressource dans un fournisseur de ressources donné, utilisez les versions d’API spécifiques définies dans le package.
 
-Notez que vous pouvez combiner toutes les options dans la même application.
+Vous pouvez combiner toutes les options dans la même application.
 
 ## <a name="install-the-azure-net-sdk"></a>Installer le Kit de développement logiciel (SDK) Azure .NET
 
@@ -62,7 +62,7 @@ Notez que vous pouvez combiner toutes les options dans la même application.
 
 5.  Si vous n’en avez pas de disponible, créez un abonnement et enregistrez l’ID d’abonnement pour une utilisation ultérieure. Pour obtenir des instructions pour créer un abonnement, consultez [Créer des abonnements pour des offres dans Azure Stack][].
 
-6.  Créez un principal de service et enregistrez l’ID client, ainsi que la clé secrète client. Pour plus d’informations sur la création d’un principal de service pour Azure Stack, consultez l’article [Fournir l’accès des applications à Azure Stack][]. Notez que l’ID client est également connu en tant qu’ID d’application lors de la création d’un principal de service.
+6.  Créez un principal de service et enregistrez l’ID client, ainsi que la clé secrète client. Pour plus d’informations sur la création d’un principal de service pour Azure Stack, consultez l’article [Fournir l’accès des applications à Azure Stack][]. L’ID client est également connu en tant qu’ID d’application lors de la création d’un principal de service.
 
 7.  Vérifiez que votre principal de service bénéficie du rôle contributeur/propriétaire sur votre abonnement. Pour plus d’informations sur l’assignation d’un rôle au principal de service, consultez l’article [Fournir l’accès des applications à Azure Stack][].
 
@@ -77,6 +77,7 @@ Pour utiliser le Kit de développement logiciel (SDK) .NET Azure avec Azure Stac
 | Identifiant d’abonnement           | AZURE_SUBSCRIPTION_ID | [*L’ID d’abonnement*][] correspond à la façon dont vous accédez à des offres dans Azure Stack.                                                      |
 | Clé secrète client             | AZURE_CLIENT_SECRET   | Le secret d’application du principal de service enregistré lors de la création du principal de service.                                      |
 | Point de terminaison Resource Manager | ARM_ENDPOINT           | Consultez [*Point de terminaison Azure Stack Resource Manager*][].                                                                    |
+| Lieu                  | RESOURCE_LOCATION     | Emplacement pour Azure Stack.
 
 Pour rechercher l’ID de locataire de votre environnement Azure Stack, suivez les instructions fournies [ici](../azure-stack-csp-ref-operations.md). Pour définir vos variables d’environnement, procédez comme suit :
 
@@ -135,148 +136,63 @@ Pour plus d’informations sur les profils d’API et Azure Stack, consultez la 
 
 ## <a name="azure-net-sdk-api-profile-usage"></a>Utilisation du profil d’API du Kit de développement logiciel (SDK) Azure .NET
 
-Le code suivant doit être utilisé pour instancier un client de profil. Ce paramètre est uniquement requis pour Azure Stack ou d’autres clouds privés. Azure global a déjà ces paramètres par défaut.
-
-Le code ci-après est requis pour authentifier le principal de service sur Azure Stack. Il crée un jeton spécifique à Azure Stack à partir de l’ID de locataire et de la base d’authentification.
+Le code suivant doit être utilisé pour instancier un client de gestion des ressources. Un code similaire peut être utilisé pour instancier d’autres clients fournisseurs de ressources (par exemple, pour le calcul, le réseau et le stockage). 
 
 ```csharp
-public class CustomLoginCredentials : ServiceClientCredentials
+var client = new ResourceManagementClient(armEndpoint, credentials)
 {
-    private string clientId;
-    private string clientSecret;
-    private string resourceId;
-    private string tenantId;
-
-    private const string authenticationBase = "https://login.windows.net/{0}";
-
-    public CustomLoginCredentials(string servicePrincipalId, string servicePrincipalSecret, string azureEnvironmentResourceId, string azureEnvironmentTenandId)
-    {
-        clientId = servicePrincipalId;
-        clientSecret = servicePrincipalSecret;
-        resourceId = azureEnvironmentResourceId;
-        tenantId = azureEnvironmentTenandId;
-    }
+    SubscriptionId = subscriptionId
+};
 ```
 
-Ceci vous permet d’utiliser les packages NuGet de profils d’API pour déployer correctement votre application sur Azure Stack.
-
-## <a name="define-azure-stack-environment-setting-functions"></a>Définir des fonctions de définition d’environnement Azure Stack
-
-Pour authentifier le principal de service auprès de l’environnement Azure Stack, utilisez le code suivant :
+Le paramètre `credentials` dans le code ci-dessus est obligatoire pour instancier un client. Le code suivant génère un jeton d’authentification en fonction de l’ID de client et du principal de service.
 
 ```csharp
-private string AuthenticationToken { get; set; }
-public override void InitializeServiceClient<T>(ServiceClient<T> client)
+var azureStackSettings = getActiveDirectoryServiceSettings(armEndpoint);
+var credentials = ApplicationTokenProvider.LoginSilentAsync(tenantId, servicePrincipalId, servicePrincipalSecret, azureStackSettings).GetAwaiter().GetResult();
+```
+L’appel `getActiveDirectoryServiceSettings` dans le code récupère les points de terminaison Azure Stack à partir des points de terminaison de métadonnées. Il indique les variables d’environnement à partir de l’appel qui est effectué : 
+
+```csharp
+public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(string armEndpoint)
 {
-    var authenticationContext = new AuthenticationContext(String.Format(authenticationBase, tenantId));
-    var credential = new ClientCredential(clientId, clientSecret);
-    var result = authenticationContext.AcquireTokenAsync(resource: resourceId,
-    clientCredential: credential).Result;
-    if (result == null)
+    var settings = new ActiveDirectoryServiceSettings();
+    try
     {
-        throw new InvalidOperationException("Failed to obtain the JWT token");
+        var request = (HttpWebRequest)HttpWebRequest.Create(string.Format("{0}/metadata/endpoints?api-version=1.0", armEndpoint));
+        request.Method = "GET";
+        request.UserAgent = ComponentName;
+        request.Accept = "application/xml";
+        using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+        {
+            using (StreamReader sr = new StreamReader(response.GetResponseStream()))
+            {
+                var rawResponse = sr.ReadToEnd();
+                var deserialized = JObject.Parse(rawResponse);
+                var authenticationObj = deserialized.GetValue("authentication").Value<JObject>();
+                var loginEndpoint = authenticationObj.GetValue("loginEndpoint").Value<string>();
+                var audiencesObj = authenticationObj.GetValue("audiences").Value<JArray>();
+                settings.AuthenticationEndpoint = new Uri(loginEndpoint);
+                settings.TokenAudience = new Uri(audiencesObj[0].Value<string>());
+                settings.ValidateAuthority = loginEndpoint.TrimEnd('/').EndsWith("/adfs", StringComparison.OrdinalIgnoreCase) ? false : true;
+            }
+        }
     }
-    AuthenticationToken = result.AccessToken;
+    catch (Exception ex)
+    {
+        Console.WriteLine(String.Format("Could not get AD service settings. Exception: {0}", ex.Message));
+    }
+    return settings;
 }
 ```
-
-Ceci remplace le client d’initialisation de service à authentifier auprès d’Azure Stack.
+Ceci vous permet d’utiliser les packages NuGet de profils d’API pour déployer correctement votre application sur Azure Stack.
 
 ## <a name="samples-using-api-profiles"></a>Exemples à l’aide de profils d’API
 
-Vous pouvez utiliser les exemples suivants se trouvant dans les référentiels GitHub en tant que référence de création de solutions avec des profils d’API .NET et Azure Stack.
-
--   [Projet de test pour une machine virtuelle, un réseau virtuel, des groupes de ressources et un compte de stockage][]
--   Gérer des machines virtuelles avec .NET
-
-### <a name="sample-unit-test-project"></a>Exemple de projet de test unitaire 
-
-1.  Clonez le référentiel à l’aide de la commande suivante :
-
-    ```shell
-    git clone https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm.git
-    ```
-
-2.  Créez un principal de service Azure et assignez un rôle pour accéder à l’abonnement. Pour obtenir des instructions sur la création d’un principal de service, consultez [Utiliser Azure PowerShell pour créer un principal de service avec un certificat][].
-
-3.  Récupérez les valeurs requises suivantes :
-
-    1.  ID client
-    2.  ID client
-    3.  Clé secrète client
-    4.  Identifiant d’abonnement
-    5.  Point de terminaison Resource Manager
-
-4.  Définissez les variables d’environnement ci-après en utilisant les informations que vous avez récupérées à partir du principal de service que vous avez créé à l’aide de l’invite de commandes :
-
-    1.  export AZURE_TENANT_ID={votre id de locataire}
-    2.  export AZURE_CLIENT_ID={votre id de client}
-    3.  export AZURE_CLIENT_SECRET={votre secret de client}
-    4.  export AZURE_SUBSCRIPTION_ID={votre id d’abonnement}
-    5.  export ARM_ENDPOINT={votre URL Azure Stack Resource Manager}
-
-   Sous Windows, utilisez **set** et non **export**.
-
-5.  Assurez-vous que la variable d’emplacement est définie sur votre emplacement Azure Stack. Par exemple, LOCAL = « local ».
-
-6.  Définissez les informations d’identification de connexion personnalisées vous permettant de vous authentifier auprès d’Azure Stack. Notez que cette partie du code est incluse dans le dossier Authorization dans cet exemple.
-
-   ```csharp
-   public class CustomLoginCredentials : ServiceClientCredentials
-   {
-       private string clientId;
-       private string clientSecret;
-       private string resourceId;
-       private string tenantId;
-       private const string authenticationBase = "https://login.windows.net/{0}";
-       public CustomLoginCredentials(string servicePrincipalId, string servicePrincipalSecret, string azureEnvironmentResourceId, string azureEnvironmentTenandId)
-       {
-           clientId = servicePrincipalId;
-           clientSecret = servicePrincipalSecret;
-           resourceId = azureEnvironmentResourceId;
-           tenantId = azureEnvironmentTenandId;
-       }
-   private string AuthenticationToken { get; set; }
-   ```
-
-7.  Ajoutez le code suivant si vous utilisez Azure Stack pour remplacer le client d’initialisation de service pour l’authentification auprès d’Azure Stack. Notez qu’une partie du code est déjà incluse dans le dossier Authorization dans cet exemple.
-
-   ```csharp
-   public override void InitializeServiceClient<T>(ServiceClient<T> client)
-   {
-      var authenticationContext = new AuthenticationContext(String.Format(authenticationBase, tenantId));
-      var credential = new ClientCredential(clientId, clientSecret);
-      var result = authenticationContext.AcquireTokenAsync(resource: resourceId,
-                clientCredential: credential).Result;
-      if (result == null)
-      {
-          throw new InvalidOperationException("Failed to obtain the JWT token");
-      }
-      AuthenticationToken = result.AccessToken;
-   }
-   ```
- 
-8.  À l’aide du gestionnaire de package NuGet, recherchez le profil « 2018-03-01-hybrid » et installez les packages associés à ce profil pour les fournisseurs de ressources de calcul, de réseau, de stockage, KeyVault et App Services.
-
-2.  Dans chaque tâche du fichier .cs, définissez les paramètres nécessaires à l’utilisation d’Azure Stack. Voici un exemple pour la tâche `CreateResourceGroupTest` :
-
-   ```csharp
-   var location = Environment.GetEnvironmentVariable("AZURE_LOCATION");
-   var baseUriString = Environment.GetEnvironmentVariable("AZURE_BASE_URL");
-   var resourceGroupName = Environment.GetEnvironmentVariable("AZURE_RESOURCEGROUP");
-   var servicePrincipalId = Environment.GetEnvironmentVariable("AZURE_CLIENT_ID");
-   var servicePrincipalSecret = Environment.GetEnvironmentVariable("AZURE_CLIENT_SECRET");
-   var azureResourceId = Environment.GetEnvironmentVariable("AZURE_RESOURCE_ID");
-   var tenantId = Environment.GetEnvironmentVariable("AZURE_TENANT_ID");
-   var subscriptionId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");
-   var credentials = new CustomLoginCredentials(servicePrincipalId, servicePrincipalSecret, azureResourceId, tenantId);
-   ```
-
-1.  Cliquez avec le bouton droit sur chaque tâche, puis sélectionnez **Exécuter le test**.
-
-    1.  Les coches vertes dans la fenêtre du volet latéral indiquent que chaque tâche a été créée correctement selon les paramètres fournis. Vérifiez votre abonnement Azure Stack pour vous assurer que les ressources ont été créées correctement.
-
-    2.  Pour plus d’informations sur l’exécution de tests unitaires, consultez l’article [Exécuter des tests unitaires avec l’Explorateur de tests.][]
+Les exemples suivants peuvent servir de références pour la création de solutions avec des profils d’API .NET et Azure Stack.
+- [Gérer des groupes de ressources](https://github.com/Azure-Samples/hybrid-resources-dotnet-manage-resource-group)
+- [Gérer des comptes de stockage](https://github.com/Azure-Samples/hybird-storage-dotnet-manage-storage-accounts)
+- [Gérer une machine virtuelle](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -294,6 +210,6 @@ Pour plus d’informations sur les profils d’API, consultez les articles suiva
   [*ID d’abonnement*]: ../azure-stack-plan-offer-quota-overview.md#subscriptions
   [*Point de terminaison Azure Stack Resource Manager*]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint
   [Résumé des profils d’API]: ../user/azure-stack-version-profiles.md#summary-of-api-profiles
-  [Projet de test pour une machine virtuelle, un réseau virtuel, des groupes de ressources et un compte de stockage]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject
-  [Utiliser Azure PowerShell pour créer un principal de service avec un certificat]: ../azure-stack-create-service-principals.md
-  [Exécuter des tests unitaires avec l’Explorateur de tests.]: /visualstudio/test/run-unit-tests-with-test-explorer?view=vs-2017
+  [Test Project to Virtual Machine, vNet, resource groups, and storage account]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject
+  [Use Azure PowerShell to create a service principal with a certificate]: ../azure-stack-create-service-principals.md
+  [Run unit tests with Test Explorer.]: /visualstudio/test/run-unit-tests-with-test-explorer?view=vs-2017

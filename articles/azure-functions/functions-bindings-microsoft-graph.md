@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 3932ad18ceedb36a4a8c1f9fc78eb8aef27a8a4f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e979930ed504dafe330b774725f4193f1c15ed17
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51301014"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793986"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Liaisons Microsoft Graph pour Azure Functions
 
@@ -63,7 +63,7 @@ Si vous utilisez Visual Studio, vous pouvez obtenir les extensions en installant
 
 ### <a name="configuring-authentication--authorization"></a>Configuration de l'authentification et des autorisations
 
-Une identité est nécessaire pour pouvoir utiliser les liaisons décrites dans cet article. Cela permet à l’élément Microsoft Graph d’appliquer des autorisations et des interactions d’audit. L’identité peut être un utilisateur accédant à votre application ou à l’application proprement dite. Pour configurer cette identité, configurez [Authentification et autorisations App Service](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) avec Azure Active Directory. Vous devez également de demander les autorisations de ressources éventuelles que vos fonctions requièrent.
+Une identité est nécessaire pour pouvoir utiliser les liaisons décrites dans cet article. Cela permet à l’élément Microsoft Graph d’appliquer des autorisations et des interactions d’audit. L’identité peut être un utilisateur accédant à votre application ou à l’application proprement dite. Pour configurer cette identité, configurez [Authentification et autorisations App Service](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) avec Azure Active Directory. Vous devez également de demander les autorisations de ressources éventuelles que vos fonctions requièrent.
 
 > [!Note] 
 > L’extension Microsoft Graph ne prend en charge que l’authentification Azure AD. Les utilisateurs doivent se connecter avec un compte professionnel ou scolaire.
@@ -226,7 +226,8 @@ La liaison elle-même ne nécessite pas d’autorisations Azure AD mais, selon l
 
 Le jeton est toujours présenté au code sous forme de chaîne.
 
-
+> [!Note]
+> Quand vous développez localement avec l’une des options `userFromId`, `userFromToken` ou `userFromRequest`, le jeton requis peut être [obtenu manuellement](https://github.com/Azure/azure-functions-microsoftgraph-extension/issues/54#issuecomment-392865857) et spécifié dans l’en-tête de demande `X-MS-TOKEN-AAD-ID-TOKEN` à partir d’une application cliente appelante.
 
 
 <a name="excel-input"></a>

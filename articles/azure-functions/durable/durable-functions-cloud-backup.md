@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d3dfcb74852f90615af90f9eab3711b1b235c53e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 7bb2a68209e657b1e3ff8c3a61730d42f04a3b8a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341386"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727375"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Scénario fan-out/fan-in dans Fonctions durables - exemple de sauvegarde cloud
 
@@ -172,6 +172,9 @@ Vous pouvez maintenant voir que l’orchestration est terminée et la durée app
 ## <a name="visual-studio-sample-code"></a>Code d’exemple Visual Studio
 
 Voici l’orchestration, présentée sous la forme d’un seul fichier C# dans un projet Visual Studio :
+
+> [!NOTE]
+> Vous devez installer le package Nuget `Microsoft.Azure.WebJobs.Extensions.Storage` pour exécuter l’exemple de code ci-dessous.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs)]
 

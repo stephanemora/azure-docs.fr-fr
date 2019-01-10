@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: d4d730fe6c72b55a01f7c5f1f95cbd94ff145fba
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f8045153482cdd8b9a13c0a6f2ebdb26627d44e4
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873748"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811407"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Conseils sur les performances pour Azure Cosmos DB et .NET
 
@@ -45,7 +45,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
     * TCP
     * HTTPS
 
-    Lorsque vous utilisez le mode Passerelle, Azure Cosmos DB utilise le port 443 et l’API MongoDB utilise les ports 10250, 10255 et 10256. Le port 10250 est mappé par défaut à une instance Mongodb sans géo-réplication et les ports 10255/10256 sont mappés à l’instance Mongodb avec la fonctionnalité de géo-réplication. Lors de l’utilisation de TCP en mode direct, en plus des ports de passerelle, vous devez vérifier que la plage de ports comprise entre 10000 et 20000 est ouverte, car Azure Cosmos DB utilise des ports TCP dynamiques. Si ces ports ne sont pas ouverts et que vous essayez d’utiliser le protocole TCP, vous recevez une erreur de type 503 Service indisponible. Le tableau suivant montre les modes de connexion disponibles pour les différentes API et l’utilisateur de ports de service pour chaque API :
+    Lorsque vous utilisez le mode passerelle, Cosmos DB utilise le port 443, et les ports 10250, 10255 et 10256 lors de l’utilisation de l’API pour MongoDB d’Azure Cosmos DB. Le port 10250 est mappé par défaut à une instance MongoDB sans géo-réplication, et les ports 10255/10256 sont mappés à l’instance MongoDB avec la fonctionnalité de géo-réplication. Lors de l’utilisation de TCP en mode direct, en plus des ports de passerelle, vous devez vérifier que la plage de ports comprise entre 10000 et 20000 est ouverte, car Azure Cosmos DB utilise des ports TCP dynamiques. Si ces ports ne sont pas ouverts et que vous essayez d’utiliser le protocole TCP, vous recevez une erreur de type 503 Service indisponible. Le tableau suivant montre les modes de connexion disponibles pour les différentes API et l’utilisateur de ports de service pour chaque API :
 
     |Mode de connexion  |Protocole pris en charge  |Kits SDK pris en charge  |API/Port de service  |
     |---------|---------|---------|---------|

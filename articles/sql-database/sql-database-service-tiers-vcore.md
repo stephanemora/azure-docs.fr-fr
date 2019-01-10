@@ -11,20 +11,20 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 11/27/2018
-ms.openlocfilehash: 4aaaf2e7a918ab91aebd1e1f1f6d166d6cadf19a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/02/2019
+ms.openlocfilehash: f756f043a7ab3c9086b21b8bdb88a5a6a7ed60df
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437060"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001598"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Niveaux de service vCore, Azure Hybrid Benefit et migration
 
 Le modèle d’achat vCore vous permet de mettre à l’échelle les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances d’une exécution locale et d’optimiser les coûts. Il vous permet également de choisir la génération de matériel :
 
 - Gen 4 : jusqu'à 24 processeurs logiques basés sur le processeur Intel E5-2673 v3 (Haswell) de 2,4 GHz, vCore = 1 PP (cœur physique), 7 Go par cœur, disque SSD attaché
-- Gen 5 : jusqu'à 80 processeurs logiques basés sur le processeur Intel E5-2673 v4 (Broadwell) de 2,3 GHz, vCore = 1 LP (hyper-thread), 5.5. Go par cœur, disque SSD fast eNVM
+- Gen 5 : jusqu’à 80 processeurs logiques basés sur le processeur Intel E5-2673 v4 (Broadwell) de 2,3 GHz, vCore = 1 LP (hyper-thread), 5.1. Go par cœur, disque SSD fast eNVM
 
 Le modèle vCore vous permet également d’utiliser [Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) afin de réduire les coûts.
 
@@ -33,16 +33,16 @@ Le modèle vCore vous permet également d’utiliser [Azure Hybrid Benefit pour 
 
 ## <a name="service-tier-characteristics"></a>Caractéristiques du niveau de service
 
-Le modèle vCore fournit deux niveaux de service, Usage général et Critique pour l’entreprise. Chaque niveau de service se distingue par sa taille de calcul, sa conception de haute disponibilité, son isolation des défaillances, ses types de stockage et sa plage d’E/S. Le client doit configurer séparément le stockage nécessaire et la période de rétention des sauvegardes. Vous devez configurer séparément le stockage nécessaire et la période de rétention des sauvegardes. Dans le portail Azure, accédez à Serveur (pas à la base de données) > Managed Backups (Sauvegardes gérées) > Configurer la stratégie > Configuration de la limite de restauration dans le temps > 7 - 35 jours.
+Le modèle vCore fournit trois niveaux de service, Usage général et Hyperscale et Critique pour l’entreprise. Chaque niveau de service se distingue par sa taille de calcul, sa conception de haute disponibilité, son isolation des défaillances, ses types et tailles de stockage, et sa plage d’E/S. Vous devez configurer séparément le stockage nécessaire et la période de rétention des sauvegardes. Dans le portail Azure, accédez à Serveur (pas à la base de données) > Managed Backups (Sauvegardes gérées) > Configurer la stratégie > Configuration de la limite de restauration dans le temps > 7 - 35 jours.
 
-Le tableau suivant montre les différences entre ces deux niveaux :
+Le tableau suivant montre les différences entre les trois niveaux :
 
 ||**Usage général**|**Critique pour l’entreprise**|**Hyperscale (préversion)**|
 |---|---|---|---|
 |Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques.|Applications métier avec besoins en E/S élevés. Offre la meilleure résilience aux échecs en utilisant plusieurs répliques isolées.|La plupart des charges de travail métier avec des exigences de stockage et d’échelle lecture à haute scalabilité|
 |Calcul|Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore|Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore|Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore|
 |Mémoire|Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur | Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur |Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur|
-|Stockage|Utilise le [Stockage distant Premium](../virtual-machines/windows/premium-storage.md) :<br/>Base de données unique : 5 Go - 4 To<br/>instance managée : 32 Go - 8 To |Utilise le stockage SSD local :<br/>Base de données unique : 5 Go - 1 To<br/>instance managée : 32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage et au-delà. Stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Stockage distant Azure comme magasin de données final à long terme. |
+|Stockage|Utilise le [Stockage distant Premium](../virtual-machines/windows/premium-storage.md) :<br/>Base de données unique : 5 Go - 4 To<br/>instance managée : 32 Go - 8 To |Utilise le stockage SSD local :<br/>Base de données unique : 5 Go - 4 To<br/>instance managée : 32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage et au-delà. Stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Stockage distant Azure comme magasin de données final à long terme. |
 |Débit d’E/S (approximatif)|Base de données unique : 500 IOPS par vCore avec 7000 IOPS au maximum</br>instance managée : dépend de la [taille de fichier](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS par cœur avec 200 000 IOPS au maximum|TBD|
 |Disponibilité|1 réplica, sans échelle lecture|3 réplicas, 1 [réplica avec échelle lecture](sql-database-read-scale-out.md),<br/>Haute disponibilité redondante dans une zone|?|
 |Sauvegardes|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|Sauvegarde basée sur des instantanés dans le stockage distant Azur. Les restaurations utilisent ces instantanés pour une récupération rapide. Les sauvegardes sont instantanées et n’ont aucun impact sur les performances d’E/S du calcul. Les restaurations sont très rapides (elles durent quelques minutes plutôt que quelques heures ou jours).|
@@ -63,7 +63,7 @@ Consultez [SQL Database FAQ](sql-database-faq.md) (FAQ de SQL Database) pour obt
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
-Dans le modèle d’achat basé sur le nombre de vCores, vous pouvez échanger vos licences existantes avec des tarifs réduits sur SQL Database, en utilisant [Azure Hybrid Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Cet avantage Azure vous permet d’utiliser vos licences SQL Server locales pour économiser jusqu’à 30 % sur Azure SQL Database, avec Software Assurance.
+Dans le modèle d’achat basé sur le nombre de vCores, vous pouvez échanger vos licences existantes avec des tarifs réduits sur SQL Database, en utilisant [Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Cet avantage Azure vous permet d’utiliser vos licences SQL Server locales pour économiser jusqu’à 30 % sur Azure SQL Database, avec Software Assurance.
 
 ![Prix](./media/sql-database-service-tiers/pricing.png)
 

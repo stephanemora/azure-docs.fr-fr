@@ -1,6 +1,6 @@
 ---
-title: Utiliser plusieurs clusters HDInsight avec un compte Azure Data Lake Store - Azure
-description: Découvrez comment utiliser plusieurs clusters HDInsight avec un seul compte Data Lake Store
+title: Utiliser plusieurs clusters HDInsight avec un compte Azure Data Lake Storage - Azure
+description: Découvrez comment utiliser plusieurs clusters HDInsight avec un seul compte Data Lake Storage
 keywords: stockage hdinsight, hdfs, données structurées, données non structurées, data lake store
 services: hdinsight,storage
 author: hrasheed-msft
@@ -10,29 +10,29 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6b835dc300808453240dd3b9fe47957bd5feab9b
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 982e92d02e17aaefe0b197562013704636e3065f
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435223"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743700"
 ---
-# <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Utiliser plusieurs clusters HDInsight avec un compte Azure Data Lake Store
+# <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Utiliser plusieurs clusters HDInsight avec un compte Azure Data Lake Storage
 
-À partir de HDInsight version 3.5, vous pouvez créer des clusters HDInsight avec des comptes Azure Data Lake Store en tant que système de fichiers par défaut.
-Data Lake Store prend en charge le stockage illimité qui le rend idéal non seulement pour héberger de grandes quantités de données, mais également pour héberger plusieurs clusters HDInsight qui partagent un même compte Data Lake Store. Pour plus d’informations sur la création d’un cluster HDInsight avec Azure Data Lake Store comme stockage, consultez [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+À partir de HDInsight version 3.5, vous pouvez créer des clusters HDInsight avec des comptes Azure Data Lake Storage comme système de fichiers par défaut.
+Data Lake Storage prend en charge le stockage illimité, ce qui le rend idéal non seulement pour héberger de grandes quantités de données, mais également pour héberger plusieurs clusters HDInsight qui partagent un même compte Data Lake Storage. Pour plus d’informations sur la création d’un cluster HDInsight avec Azure Data Lake Storage comme stockage, consultez [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-Cet article fournit des recommandations à l’administrateur Data Lake Store pour configurer un compte Data Lake Store unique et partagé qui peut être utilisé sur plusieurs clusters HDInsight **actifs**. Ces recommandations s’appliquent à l’hébergement de plusieurs clusters Apache Hadoop sécurisés ou non sécurisés sur un compte Data Lake Store partagé.
+Cet article fournit des recommandations à l’administrateur Data Lake Storage pour configurer un compte Data Lake Storage unique et partagé qui peut être utilisé sur plusieurs clusters HDInsight **actifs**. Ces recommandations s’appliquent à l’hébergement de plusieurs clusters Apache Hadoop sécurisés ou non sécurisés sur un compte Data Lake Storage partagé.
 
 
-## <a name="data-lake-store-file-and-folder-level-acls"></a>ACL de niveau fichier et dossier Data Lake Store
+## <a name="data-lake-storage-file-and-folder-level-acls"></a>Listes ACL de niveau fichier et dossier Data Lake Storage
 
-Le reste de cet article suppose que vous avez une bonne connaissance des ACL de niveau fichier et dossier dans l’application Azure Data Lake Store, qui est décrite en détail dans [Contrôle d’accès dans Azure Data Lake Store](../data-lake-store/data-lake-store-access-control.md).
+Le reste de cet article part du principe que vous avez une bonne connaissance des listes ACL de niveau fichier et dossier dans l’application Azure Data Lake Storage, qui sont décrites en détail dans [Contrôle d’accès dans Azure Data Lake Storage](../data-lake-store/data-lake-store-access-control.md).
 
-## <a name="data-lake-store-setup-for-multiple-hdinsight-clusters"></a>Configuration de Data Lake Store pour plusieurs clusters HDInsight
-Prenons une hiérarchie de dossiers sur deux niveaux pour expliquer les recommandations quant à l’utilisation de plusieurs clusters HDInsight avec un compte Data Lake Store. Supposons que vous possédez un compte Data Lake Store avec la structure de dossiers **/clusters/finance**. Avec cette structure, tous les clusters requis par le service financier peuvent utiliser /clusters/finance comme emplacement de stockage. À l’avenir, si une autre organisation (le service marketing par ex.) souhaite créer des clusters HDInsight avec le même compte Data Lake Store, elle pourrait créer /clusters/marketing. Pour l’instant, nous allons simplement utiliser **/clusters/finance**.
+## <a name="data-lake-storage-setup-for-multiple-hdinsight-clusters"></a>Configuration de Data Lake Storage pour plusieurs clusters HDInsight
+Prenons une hiérarchie de dossiers sur deux niveaux pour expliquer les recommandations quant à l’utilisation de plusieurs clusters HDInsight avec un compte Data Lake Storage. Supposez que vous avez un compte Data Lake Storage avec la structure de dossiers **/clusters/finance**. Avec cette structure, tous les clusters requis par le service financier peuvent utiliser /clusters/finance comme emplacement de stockage. À l’avenir, si une autre organisation (par exemple le service marketing) souhaite créer des clusters HDInsight avec le même compte Data Lake Storage, elle pourrait créer /clusters/marketing. Pour l’instant, nous allons simplement utiliser **/clusters/finance**.
 
-Pour que cette structure de dossiers soit bien utilisée par les clusters HDInsight, l’administrateur Data Lake Store doit attribuer les autorisations appropriées, comme décrit dans le tableau. Les autorisations indiquées dans le tableau correspondent aux ACL d’accès et non aux ACL par défaut. 
+Pour que cette structure de dossiers soit bien utilisée par les clusters HDInsight, l’administrateur Data Lake Storage doit attribuer les autorisations appropriées, comme décrit dans le tableau. Les autorisations indiquées dans le tableau correspondent aux ACL d’accès et non aux ACL par défaut. 
 
 
 |Dossier  |Autorisations  |Utilisateur propriétaire  |groupe propriétaire  | Utilisateur nommé | Autorisations de l’utilisateur nommé | Groupe nommé | Autorisations du groupe nommé |
@@ -43,7 +43,7 @@ Pour que cette structure de dossiers soit bien utilisée par les clusters HDInsi
 
 Dans le tableau,
 
-- **admin** est le créateur et l’administrateur du compte Data Lake Store.
+- **admin** est le créateur et l’administrateur du compte Data Lake Storage.
 - **Principal de service** est le principal de service Azure Active Directory (AAD) associé au compte.
 - **FINGRP** est un groupe d’utilisateurs créé dans AAD qui contient les utilisateurs du service financier.
 
@@ -51,7 +51,7 @@ Pour obtenir des instructions sur la création d’une application AAD (qui cré
 
 Quelques points importants à prendre en compte.
 
-- La structure de dossiers sur deux niveaux (**/clusters/finance/**) doit être créée et configurée avec les autorisations appropriées par l’administrateur Data Lake Store **avant** d’utiliser le compte de stockage pour les clusters. Cette structure n’est pas créée automatiquement lors de la création des clusters.
+- La structure de dossiers sur deux niveaux (**/clusters/finance/**) doit être créée et configurée avec les autorisations appropriées par l’administrateur Data Lake Storage **avant** d’utiliser le compte de stockage pour les clusters. Cette structure n’est pas créée automatiquement lors de la création des clusters.
 - L’exemple ci-dessus recommande de définir le groupe propriétaire de **/clusters/finance** en tant que **FINGRP** et d’octroyer à FINGRP l’accès **r-x** à l’intégralité de la hiérarchie des dossiers à partir de la racine. Cela permet de s’assurer que les membres de FINGRP peuvent accéder à la structure de dossiers à partir de la racine.
 - Dans le cas où plusieurs principaux de service AAD peuvent créer des clusters sous **/clusters/finance**, le sticky-bit (lorsque défini sur le dossier **finance**) permet de s’assurer que les dossiers créés par un principal de service ne peuvent pas être supprimés par les autres.
 - Une fois que la structure de dossiers et les autorisations sont en place, le processus de création de clusters HDInsight crée un emplacement de stockage spécifique aux clusters sous **/clusters/finance/**. Par exemple, l’emplacement de stockage d’un cluster nommé fincluster01 pourrait être **/clusters/finance/fincluster01**. La propriété et les autorisations pour les dossiers créés par le cluster HDInsight sont indiquées dans le tableau présenté ici.
@@ -68,7 +68,7 @@ Nous vous recommandons de stocker les données d’entrée et données de sortie
 
 ## <a name="limit-on-clusters-sharing-a-single-storage-account"></a>Limite sur les clusters partageant un même compte de stockage
 
-La limite du nombre de clusters pouvant partager un même compte Data Lake Store dépend de la charge de travail exécutée sur ces clusters. En cas de nombre trop important de clusters ou de charges de travail très lourdes sur les clusters partageant un compte de stockage, l’entrée ou la sortie du compte de stockage risque d’être limitée.
+La limite du nombre de clusters pouvant partager un même compte Data Lake Storage dépend de la charge de travail exécutée sur ces clusters. En cas de nombre trop important de clusters ou de charges de travail très lourdes sur les clusters partageant un compte de stockage, l’entrée ou la sortie du compte de stockage risque d’être limitée.
 
 ## <a name="support-for-default-acls"></a>Prise en charge des ACL par défaut
 
@@ -76,11 +76,11 @@ Lorsque vous créez un principal de service avec un accès utilisateur nommé (c
 
 ## <a name="known-issues-and-workarounds"></a>Problèmes connus et solutions de contournement
 
-Cette section répertorie les problèmes connus en ce qui concerne l’utilisation de HDInsight avec Data Lake Store, ainsi que leurs solutions de contournement.
+Cette section répertorie les problèmes connus liés à l’utilisation de HDInsight avec Data Lake Storage, ainsi que leurs solutions de contournement.
 
 ### <a name="publicly-visible-localized-apache-hadoop-yarn-resources"></a>Ressources Apache Hadoop YARN localisées visibles publiquement
 
-Lorsqu’un nouveau compte Azure Data Lake Store est créé, le répertoire racine est automatiquement configuré avec les bits d’autorisation des ACL d’accès définis sur 770. L’utilisateur propriétaire du dossier racine est défini sur l’utilisateur qui a créé le compte (l’administrateur Data Lake Store) tandis que le groupe propriétaire est défini sur le groupe principal de l’utilisateur qui a créé le compte. Aucun accès n’est fourni pour les « autres ».
+Quand un compte Azure Data Lake Storage est créé, le répertoire racine est configuré automatiquement avec les bits d’autorisation des listes ACL d’accès définis sur 770. L’utilisateur propriétaire du dossier racine est défini sur l’utilisateur qui a créé le compte (l’administrateur Data Lake Storage), tandis que le groupe propriétaire est défini sur le groupe principal de l’utilisateur qui a créé le compte. Aucun accès n’est fourni pour les « autres ».
 
 Ces paramètres sont connus pour affecter un cas d’usage HDInsight particulier capturé dans [YARN 247](https://hwxmonarch.atlassian.net/browse/YARN-247). L’envoi de tâches peut échouer avec un message d’erreur semblable à celui-ci :
 
@@ -94,5 +94,4 @@ Définissez les autorisations d’exécution en lecture pour les **autres** dans
 ## <a name="see-also"></a>Voir aussi
 
 * [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-
 

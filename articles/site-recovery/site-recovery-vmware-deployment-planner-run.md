@@ -5,14 +5,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 9dec4314bb99b2cb32d62f40b76591ecb03e4d56
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/28/2018
+ms.author: mayg
+ms.openlocfilehash: 5de8bc9acd97016b401bd1c2bcce46f5ab851430
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838740"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811560"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Exécuter le planificateur de déploiement Azure Site Recovery pour la reprise d’activité de VMware sur Azure
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.
@@ -138,6 +138,9 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 ## <a name="generate-report"></a>Générer le rapport
 L’outil génère un fichier Microsoft Excel avec les macros activées (fichier XLSM) en tant que sortie du rapport, qui résume toutes les recommandations de déploiement. Le rapport est intitulé DeploymentPlannerReport_<unique numeric identifier>.xlsm et placé dans le répertoire spécifié.
 
+>[!NOTE]
+>Le rapport nécessite que le symbole décimal soit configuré en « . » pour produire des estimations de coût sur le serveur où vous exécutez le planificateur de déploiement. Si vous avez configuré « , » comme symbole décimal sur une machine Windows, accédez à « Changer les formats de date, d’heure ou de nombre » dans le Panneau de configuration, puis accédez à « Paramètres supplémentaires » pour changer le symbole décimal en « . ».
+
 À l’issue du profilage, vous pouvez exécuter l’outil en mode génération de rapport. Le tableau suivant contient une liste des paramètres obligatoires et facultatifs de l’outil à exécuter en mode génération de rapport.
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
@@ -160,7 +163,7 @@ L’outil génère un fichier Microsoft Excel avec les macros activées (fichier
 | -EndDate | (Facultatif) La date et l’heure de fin au format MM-JJ-AAAA:HH:MM (24 heures). Le paramètre *EndDate* doit être spécifié avec le paramètre *StartDate*. Si le paramètre EndDate est spécifié, le rapport est généré pour les données profilées collectées entre les dates StartDate et EndDate. |
 | -GrowthFactor | (Facultatif) Le facteur de croissance, exprimé en pourcentage. La valeur par défaut est 30 pour cent. |
 | -UseManagedDisks | (Facultatif) UseManagedDisks - Oui/Non. La valeur par défaut est Oui. Le nombre de machines qu’il est possible de placer dans un compte de stockage unique est calculé en fonction de si le basculement/test de basculement des machines virtuelles est effectué sur un disque managé au lieu d’un disque non managé. |
-|-SubscriptionId |(Facultatif) GUID de l’abonnement. Utilisez ce paramètre pour générer le rapport d’estimation des coûts avec le prix le plus récent selon votre abonnement, l’offre associée à votre abonnement et pour votre région cible Azure dans la devise indiquée.|
+|-SubscriptionId |(Facultatif) GUID de l’abonnement. Notez que ce paramètre est nécessaire quand vous devez générer le rapport d’estimation des coûts avec le prix le plus récent en fonction de votre abonnement, de l’offre associée à votre abonnement et de votre région Azure cible dans la **devise spécifiée**.|
 |-TargetRegion|(Facultatif) La région Azure cible de la réplication. Étant donné qu’Azure possède différents coûts par région, utilisez ce paramètre pour générer des rapports avec une région cible Azure spécifique.<br>La valeur par défaut est WestUS2 (Ouest des États-Unis) ou la dernière région cible.<br>Reportez-vous à la liste des [régions cibles prises en charge](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Facultatif) L’offre associée à l’abonnement donné. La valeur par défaut est MS-AZR-0003P (paiement à l’utilisation).|
 |-Currency|(Facultatif) La devise dans laquelle le coût est indiqué dans le rapport généré. La valeur par défaut est le Dollar américain ($) ou la dernière devise utilisée.<br>Reportez-vous à la liste des [devises prises en charge](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
@@ -204,6 +207,8 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 ```
 
 #### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Exemple 7 : Générer un rapport pour la région Azure Inde Sud avec la roupie indienne et l’ID d’offre spécifique
+
+Notez que l’ID d’abonnement est nécessaire pour générer le rapport des coûts dans une devise spécifique.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```

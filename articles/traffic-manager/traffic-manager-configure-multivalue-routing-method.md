@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 521a9dd49abee8fdeaa42b1ea8c13b9a648f1875
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d4a51551fb0f9067929df1fdf074e7286938004b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187363"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187703"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configurer la méthode de routage à valeurs multiples dans Traffic Manager
 
@@ -47,9 +47,9 @@ Créez un profil Traffic Manager qui dirige le trafic utilisateur en l’envoyan
     | Abonnement            | Sélectionnez votre abonnement.                          |
     | Groupe de ressources          | Sélectionnez *myResourceGroupTM1*. |
     | Lieu                | Ce paramètre fait référence à l’emplacement du groupe de ressources et n’a pas d’impact sur le profil Traffic Manager qui sera déployé globalement.                              |
-    
+   |        |           | 
   
-    ![Créer un profil Traffic Manager](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+  ![Créer un profil Traffic Manager](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Ajouter des points de terminaison Traffic Manager
 
@@ -69,7 +69,7 @@ Ajoutez deux adresses IP comme point de terminaison externes au profil Traffic M
 4. Répétez les étapes 2 et 3 pour ajouter un autre point de terminaison appelé *myEndpoint2*. Dans **Nom de domaine complet (FQDN) ou IP**, saisissez l’adresse IP publique du second point de terminaison.
 5.  Lorsque l’ajout de deux points de terminaison est terminé, ceux-ci s’affichent dans **Profil Traffic Manager** avec leur état de surveillance défini sur **En ligne**.
 
-    ![Ajouter un point de terminaison Traffic Manager](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
+   ![Ajouter un point de terminaison Traffic Manager](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  
 ## <a name="next-steps"></a>Étapes suivantes
 

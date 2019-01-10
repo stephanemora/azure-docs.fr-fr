@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/14/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c3e4ab9dc03afe1c4a19e738804e6400b0830291
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b9c8f1af612c220534e45c5c66651f0ad8600826
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634411"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628184"
 ---
 # <a name="analyze-sensor-data-using-the-apache-hive-query-console-on-apache-hadoop-in-hdinsight"></a>Analyse des données de capteur à l’aide de la console de requête Apache Hive sur Apache Hadoop dans HDInsight
 
-Découvrez comment analyser des données de capteur au moyen de la console de requête Hive avec HDInsight (Apache Hadoop), puis visualiser les données dans Microsoft Excel à l’aide de Power View.
+Découvrez comment analyser des données de capteur au moyen de la console de requête Apache Hive avec HDInsight (Apache Hadoop), puis visualiser les données dans Microsoft Excel à l’aide de Power View.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight Windows. HDInsight est uniquement disponible sur Windows pour les versions antérieures à HDInsight 3.4. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
@@ -35,10 +35,10 @@ Dans cet exemple, vous utilisez Hive pour traiter les données historiques et id
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un cluster HDInsight (Hadoop) : consultez la rubrique [Créer des clusters Hadoop dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) pour des informations sur la création d’un cluster.
+* Un cluster HDInsight (Hadoop) : Consultez [Créer des clusters Apache Hadoop dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) pour obtenir des informations sur la création d’un cluster HDInsight.
 * Microsoft Excel 2013
 
-  > [!NOTE]
+  > [!NOTE]  
   > Microsoft Excel est utilisé pour la visualisation des données avec [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US).
 
 * [Pilote ODBC Microsoft Hive](https://www.microsoft.com/download/details.aspx?id=40886)

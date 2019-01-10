@@ -1,5 +1,5 @@
 ---
-title: Exécuter des charges de travail Azure Batch sur des machines virtuelles rentables de faible priorité | Microsoft Docs
+title: Exécuter des charges de travail sur des machines virtuelles rentables de faible priorité - Azure Batch | Microsoft Docs
 description: Apprenez à configurer des machines virtuelles de faible priorité pour réduire le coût des charges de travail Azure Batch.
 services: batch
 author: mscurrell
@@ -11,12 +11,13 @@ ms.topic: article
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: d42cef944c3b971804ef1417a3877bf919784a02
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.custom: seodec18
+ms.openlocfilehash: 17668470be3e997c215aacc4cc2c32c80de2dd81
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093001"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546791"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Utiliser des machines virtuelles de faible priorité avec Batch
 
@@ -42,11 +43,11 @@ Les machines virtuelles de faible priorité sont proposées à un prix considér
 
 Voici des exemples de cas d’utilisation du traitement par lots bien adaptés à l’utilisation des machines virtuelles de faible priorité :
 
--   **Développement et test** : d’importantes économies peuvent être réalisées, en particulier en cas de développement de solutions à grande échelle. Tous les types de tests peuvent tirer parti de l’utilisation de machines virtuelles de faible priorité, mais les tests de charge à grande échelle et les tests de régression sont particulièrement concernés.
+-   **Développement et test** : d’importantes économies peuvent être réalisées, en particulier en cas de développement de solutions à grande échelle. Tous les types de tests peuvent tirer parti de l’utilisation de machines virtuelles de faible priorité, mais les tests de charge à grande échelle et les tests de régression sont particulièrement concernés.
 
--   **Ajout de capacité à la demande** : les machines virtuelles de faible priorité peuvent être utilisées pour venir en complément de machines virtuelles standard dédiées. Quand elles sont disponibles, les travaux peuvent être mis à l’échelle et par conséquent se terminer plus rapidement, pour un coût moindre. Si elles ne sont pas disponibles, les machines virtuelles dédiées de base sont disponibles.
+-   **Ajout de capacité à la demande** : les machines virtuelles de faible priorité peuvent être utilisées pour venir en complément de machines virtuelles standard dédiées. Quand elles sont disponibles, les travaux peuvent être mis à l’échelle et par conséquent se terminer plus rapidement, pour un coût moindre. Si elles ne sont pas disponibles, les machines virtuelles dédiées de base sont disponibles.
 
--   **Durée d’exécution des travaux flexible** : s’il existe une certaine flexibilité dans la durée d’exécution des travaux, des pertes potentielles de capacité peuvent être tolérées ; toutefois, avec l’ajout de machines virtuelles de faible priorité, les travaux sont souvent exécutés plus rapidement et pour un coût moindre.
+-   **Durée d’exécution des travaux flexible** : s’il existe une certaine flexibilité dans la durée d’exécution des travaux, des pertes potentielles de capacité peuvent être tolérées ; toutefois, avec l’ajout de machines virtuelles de faible priorité, les travaux sont souvent exécutés plus rapidement et pour un coût moindre.
 
 Les pools Batch peuvent être configurés de façon à utiliser les machines virtuelles de faible priorité de plusieurs manières, en fonction de la flexibilité de la durée d’exécution des travaux :
 

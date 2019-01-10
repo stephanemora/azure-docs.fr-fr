@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 57dd6fc822e0285b33368987d2af7c690d4f7786
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2807e989436aa80fa812b337340db8cb534b2b28
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337816"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994757"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Utiliser SQL Database Managed Instance avec des réseaux virtuels et une compatibilité de presque 100 %
 
@@ -30,7 +30,7 @@ Le diagramme suivant présente les principales fonctionnalités de Managed Insta
 
 ![fonctionnalités clés](./media/sql-database-managed-instance/key-features.png)
 
-Azure SQL Database Managed Instance est conçu pour les clients cherchant à effectuer une migration d’un grand nombre d’applications locales ou provenant d’environnements IaaS, générés automatiquement ou fournis par un éditeur de logiciels indépendant, afin de gérer complètement un environnement cloud PaaS avec le moins d’efforts de migration possible. Avec le [service de migration des données](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) entièrement automatisé dans Azure, les clients peuvent effectuer une migration « lift-and-shift » de leur serveur SQL Server local vers une instance Managed Instance qui offre une compatibilité avec SQL Server local, et une isolation totale des instances des clients avec une prise en charge native des réseaux virtuels.  Avec Software Assurance, vous pouvez échanger leurs licences existantes avec des tarifs réduits sur une instance SQL Database Managed Instance avec [Azure Hybrid Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance est la meilleure destination de migration dans le cloud pour les instances SQL Server qui nécessitent une sécurité élevée et une surface de programmabilité riche.
+Azure SQL Database Managed Instance est conçu pour les clients cherchant à effectuer une migration d’un grand nombre d’applications locales ou provenant d’environnements IaaS, générés automatiquement ou fournis par un éditeur de logiciels indépendant, afin de gérer complètement un environnement cloud PaaS avec le moins d’efforts de migration possible. Avec le [service de migration des données](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) entièrement automatisé dans Azure, les clients peuvent effectuer une migration « lift-and-shift » de leur serveur SQL Server local vers une instance Managed Instance qui offre une compatibilité avec SQL Server local, et une isolation totale des instances des clients avec une prise en charge native des réseaux virtuels.  Avec Software Assurance, vous pouvez échanger leurs licences existantes avec des tarifs réduits sur une instance SQL Database Managed Instance avec [Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  SQL Database Managed Instance est la meilleure destination de migration dans le cloud pour les instances SQL Server qui nécessitent une sécurité élevée et une surface de programmabilité riche.
 
 En disponibilité générale, Managed Instance a pour but d’offrir une compatibilité de la surface d’exposition proche de 100 % avec la dernière version de SQL Server locale par le biais d’un plan de mise en production intermédiaire.
 
@@ -70,7 +70,7 @@ Les fonctionnalités clés de Managed Instance figurent dans le tableau suivant 
 
 ## <a name="vcore-based-purchasing-model"></a>Modèle d’achat vCore
 
-Le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) dans Managed Instance vous assure flexibilité, contrôle et transparence. Il permet de traduire de manière simple les exigences des charges de travail locales dans le cloud. Ce modèle vous permet de changer la capacité de calcul, la mémoire et le stockage en fonction des besoins de vos charges de travail. Le modèle vCore permet également de réaliser jusqu’à 30 % d’économies avec [Azure Hybrid Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+Le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) dans Managed Instance vous assure flexibilité, contrôle et transparence. Il permet de traduire de manière simple les exigences des charges de travail locales dans le cloud. Ce modèle vous permet de changer la capacité de calcul, la mémoire et le stockage en fonction des besoins de vos charges de travail. Le modèle vCore permet également de réaliser jusqu’à 30 % d’économies avec [Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Dans le modèle vCore, vous pouvez choisir entre différentes générations de matériel.
 
@@ -146,7 +146,7 @@ Azure SQL Database fournit un ensemble de fonctionnalités de sécurité avancé
 - La [sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security) vous permet de contrôler l’accès aux lignes d’une table de base de données en fonction des caractéristiques de l’utilisateur qui exécute une requête (par exemple, appartenance à un groupe ou contexte d’exécution). La sécurité au niveau des lignes (RLS) simplifie la conception et le codage de la sécurité dans votre application. Elle vous permet d’implémenter des restrictions sur l’accès aux lignes de données. Par exemple, en s’assurant que les employés ne peuvent accéder qu’aux lignes de données utiles à leur service, ou en limitant l’accès aux données aux seules données pertinentes.
 - [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) : également appelé chiffrement des données au repos, chiffre les fichiers de données d’Azure SQL Database Managed Instance. TDE effectue le chiffrement et le déchiffrement d’E/S en temps réel des données et des fichiers journaux. Le chiffrement utilise une clé de chiffrement de base de données stockée dans l’enregistrement de démarrage de base de données à des fins de disponibilité lors de la récupération. Vous pouvez protéger toutes vos bases de données dans Managed Instance avec un chiffrement transparent des données. Il s’agit de la technologie de chiffrement au repos éprouvée de SQL Server, qui est requise par de nombreuses normes de conformité comme protection contre le vol d’un support de stockage.
 
-La migration d’une base de données chiffrée vers SQL Managed Instance est prise en charge via Azure Database Migration Service (DMS) ou une restauration native. Si vous envisagez de migrer une base de données chiffrée en utilisant une restauration native, la migration du certificat TDE existant du serveur SQL Server local ou de la machine virtuelle SQL Server vers Managed instance est une étape obligatoire. Pour plus d’informations sur les options de migration, voir [Migration d’une instance SQL Server vers Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
+La migration d’une base de données chiffrée vers SQL Managed Instance est prise en charge via Azure Database Migration Service (DMS) ou une restauration native. Si vous envisagez de migrer une base de données chiffrée en utilisant une restauration native, la migration du certificat TDE existant du serveur SQL local ou de la machine virtuelle SQL Server vers Managed Instance est une étape obligatoire. Pour plus d’informations sur les options de migration, voir [Migration d’une instance SQL Server vers Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
 ## <a name="azure-active-directory-integration"></a>Intégration d'Azure Active Directory
 

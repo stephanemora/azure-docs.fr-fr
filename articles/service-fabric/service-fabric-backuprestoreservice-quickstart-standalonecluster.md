@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 2ff7221a3742f59cdef2c5c7c220cc80148b94d0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b8f7142b2bd8e07e4b92c37b7e06bc4fe09efb73
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721559"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580414"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Sauvegarde et restauration périodiques dans Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -146,6 +146,9 @@ $url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
 
+> [!IMPORTANT]
+> En raison d’un problème dans le runtime, vérifiez que la durée de conservation dans la stratégie de conservation est configurée pour être inférieure à 24 jours, sinon le service de restauration des sauvegardes subit une perte de quorum après le basculement du réplica.
+
 ### <a name="enable-periodic-backup"></a>Activer la sauvegarde périodique
 Après avoir défini la stratégie de sauvegarde pour répondre aux exigences de protection des données de l’application, la stratégie doit être associée à l’application. Selon les besoins, la stratégie de sauvegarde peut être associée à une application, un service ou une partition.
 
@@ -222,9 +225,13 @@ CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
 
+## <a name="known-issues"></a>Problèmes connus
+- Vérifiez que la durée de conservation est configurée pour être inférieure à 24 jours. 
+- Le service de restauration des sauvegardes n’apparaît pas pour les paramètres régionaux où le séparateur décimal est autre que « . »
+- Le service de restauration des sauvegardes n’apparaît pas sur un cluster sécurisé avec une sécurité basée sur gMSA.
+
 ## <a name="limitation-caveats"></a>Limitations/mises en garde
 - Pas d’intégration de Service Fabric aux applets de commande PowerShell.
-- Pas de prise en charge de l’interface CLI Service Fabric.
 - Pas de prise en charge des clusters Service Fabric sur Linux.
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -8,19 +8,60 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: c99f1691618765e8997ef442a506c83b9a7bd4fa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7485ca1e4b1143ed46c9b3bef9ca66af0638b4f8
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088297"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599414"
 ---
 # <a name="release-notes"></a>Notes de publication
 
-## <a name="speech-service-sdk-110"></a>Kit de développement logiciel (SDK) 1.1.0 du service Speech
+## <a name="speech-sdk-120-2018-december-release"></a>SDK Speech 1.2.0 : Version de décembre 2018
+
+**Nouvelles fonctionnalités**
+
+* Python
+  * La version bêta de la prise en charge de Python (3.5 et au-delà) est disponible avec cette version. Pour plus d’informations, [consultez cette page](quickstart-python.md).
+* JavaScript
+  * Le SDK Speech pour JavaScript est open source. Le code source est disponible sur [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
+  * Nous prenons désormais en charge Node.js. Pour plus d’informations, [consultez cette page](quickstart-js-node.md).
+  * La restriction sur la longueur des sessions audio a été supprimée. La reconnexion se produit automatiquement à l’arrière-plan.
+* Objet Connection
+  * Vous pouvez accéder à un objet Connection à partir du module de reconnaissance. Cet objet vous permet de lancer explicitement la connexion au service et de vous abonner à des événements de connexion et de déconnexion.
+    (JavaScript et Python ne proposent pas encore cette fonctionnalité.)
+* Prise en charge d’Ubuntu 18.04.
+* Android
+  * Prise en charge de ProGuard activée durant la génération d’APK.
+
+**Améliorations**
+
+* Améliorations apportées à l’utilisation des threads internes afin de réduire le nombre de threads, de verrous et de mutex.
+* Amélioration des rapports d’erreurs et des informations sur les erreurs. Dans plusieurs cas, des messages d’erreur n’ont pas été entièrement propagés.
+* Mise à jour des dépendances de développement dans JavaScript pour utiliser des modules à jour.
+
+**Résolution des bogues**
+
+* Résolution des fuites de mémoire causés par une incompatibilité de type dans RecognizeAsync.
+* Dans certains cas, des exceptions étaient divulguées.
+* Résolution des fuites de mémoire dans les arguments d’événement de traduction.
+* Résolution d’un problème de verrouillage à la suite d’une reconnexion dans les sessions de longue durée.
+* Résolution d’un problème pouvant entraîner l’absence d’un résultat final en cas d’échec de la traduction.
+* C# : Si une opération asynchrone n’était pas attendue dans le thread principal, le module de reconnaissance pouvait être supprimé avant la fin de la tâche asynchrone.
+* Java : Résolution d’un problème entraînant un blocage de la machine virtuelle Java.
+* Objective-C : Résolution d’un mappage d’enum ; RecognizedIntent était retourné à la place de RecognizingIntent.
+* JavaScript : Définition du format de sortie par défaut « simple » dans SpeechConfig.
+* JavaScript : Suppression d’une incohérence au niveau des propriétés sur l’objet config entre JavaScript et d’autres langages.
+
+**Exemples**
+
+* Mise à jour et résolution de plusieurs exemples (par exemple, voix de sortie pour la traduction, etc.).
+* Ajout d’exemples Node.js dans le [dépôt d’exemples](https://aka.ms/csspeech/samples).
+
+## <a name="speech-sdk-110"></a>SDK Speech 1.1.0
 
 **Nouvelles fonctionnalités**
 
@@ -51,7 +92,7 @@ ms.locfileid: "53088297"
 
 * Ajout d’un exemple C++ et C# pour la diffusion en continu dans l’[exemple de référentiel](https://aka.ms/csspeech/samples).
 
-## <a name="speech-service-sdk-101"></a>Kit de développement logiciel (SDK) 1.0.1 du service Speech
+## <a name="speech-sdk-101"></a>SDK Speech 1.0.1
 
 Améliorations de la fiabilité et résolution des bogues :
 

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 349d3a6eacf22a0ce3f842dd30df19964cdf7f23
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: ed861aa914da999bdb2922bc309f05d1234ef416
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337323"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018481"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copier des données d’une source OData à l’aide d’Azure Data Factory
 
@@ -35,7 +34,7 @@ Vous pouvez copier les données d’une source OData dans tout magasin de donn�
 Plus précisément, ce connecteur OData prend en charge ce qui suit :
 
 - OData version 3.0 et 4.0.
-- Copie de données avec une des authentifications suivantes : **Anonyme**, **De base**, **Windows**, **Principal de service AAD** et **Managed Service Identity**.
+- Copie de données avec une des authentifications suivantes : **Anonyme**, **De base**, **Windows**, **Principal de service AAD** et **Identités managées pour ressources Azure**.
 
 ## <a name="get-started"></a>Prise en main
 
@@ -114,7 +113,7 @@ Les propriétés prises en charge pour le service lié OData sont les suivantes 
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "<endpoint of on-premises OData source>",
+            "url": "<endpoint of OData source>",
             "authenticationType": "Windows",
             "userName": "<domain>\\<user>",
             "password": {
@@ -138,7 +137,7 @@ Les propriétés prises en charge pour le service lié OData sont les suivantes 
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "<endpoint of on-premises OData source>",
+            "url": "<endpoint of OData source>",
             "authenticationType": "AadServicePrincipal",
             "servicePrincipalId": "<service principal id>",
             "aadServicePrincipalCredentialType": "ServicePrincipalKey",
@@ -147,7 +146,7 @@ Les propriétés prises en charge pour le service lié OData sont les suivantes 
                 "value": "<service principal key>"
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
-            "aadResourceId": "<AAD resource>"
+            "aadResourceId": "<AAD resource URL>"
         }
     },
     "connectVia": {
@@ -165,7 +164,7 @@ Les propriétés prises en charge pour le service lié OData sont les suivantes 
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "<endpoint of on-premises OData source>",
+            "url": "<endpoint of OData source>",
             "authenticationType": "AadServicePrincipal",
             "servicePrincipalId": "<service principal id>",
             "aadServicePrincipalCredentialType": "ServicePrincipalCert",

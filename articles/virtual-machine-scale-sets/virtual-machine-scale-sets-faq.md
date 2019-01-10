@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 1bba25d0b7fd6bbe4efeb9c2164fc663b22bed11
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2a33283d735532d4cc4c11bc3910377f15aaa730
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139365"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002686"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -167,48 +167,16 @@ Le code prend en charge Windows et Linux.
 Pour plus d’informations, consultez [Création ou mise à jour d’un groupe de machines virtuelles identiques](https://msdn.microsoft.com/library/mt589035.aspx).
 
 
-### <a name="example-of-self-signed-certificate"></a>Exemple de certificat auto-signé
+### <a name="example-of-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Exemple de certificats auto-signés provisionnés pour les clusters Azure Service Fabric.
+Pour obtenir l’exemple le plus récent, utilisez l’instruction Azure CLI suivante dans l’interpréteur de commandes Azure et lisez la documentation sur l’exemple de module CLI Service Fabrics (imprimée dans stdout) :
 
-1.  Créez un certificat auto-signé dans un coffre de clés.
+```bash
+az sf cluster create -h
+```
 
-    Utilisez les commandes PowerShell suivantes :
+Passez en revue la documentation sur les coffres de clés pour obtenir les dernières opérations sur les certificats prises en charge par l’API dans Azure.
 
-    ```powershell
-    Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
-
-    Connect-AzureRmAccount
-
-    Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
-    ```
-
-    Cette commande vous donne l’entrée du modèle Azure Resource Manager.
-
-    Pour obtenir un exemple de création d’un certificat auto-signé dans un coffre de clés, consultez [Scénarios de sécurité du cluster Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
-
-2.  Modifiez le modèle Resource Manager.
-
-    Ajoutez cette propriété à **virtualMachineProfile** comme composant de la ressource du groupe de machines virtuelles identiques :
-
-    ```json 
-    "osProfile": {
-        "computerNamePrefix": "[variables('namingInfix')]",
-        "adminUsername": "[parameters('adminUsername')]",
-        "adminPassword": "[parameters('adminPassword')]",
-        "secrets": [
-            {
-                "sourceVault": {
-                    "id": "[resourceId('KeyVault', 'Microsoft.KeyVault/vaults', 'MikhegnVault')]"
-                },
-                "vaultCertificates": [
-                    {
-                        "certificateUrl": "https://mikhegnvault.vault.azure.net:443/secrets/VMSSCert/20709ca8faee4abb84bc6f4611b088a4",
-                        "certificateStore": "My"
-                    }
-                ]
-            }
-        ]
-    }
-    ```
+Vous ne pouvez pas utiliser de certificats auto-signés pour une approbation distribuée fournie par une autorité de certification. Vous ne pouvez pas non plus les utiliser avec un cluster Service Fabric destiné à héberger des solutions de production d’entreprise. Pour obtenir de l’aide supplémentaire sur la sécurité dans Service Fabric, passez en revue [Bonnes pratiques pour la sécurité Azure Service Fabric](https://docs.microsoft.com/en-us/azure/security/azure-service-fabric-security-best-practices) et [Scénarios de sécurité d’un cluster Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
   
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Puis-je spécifier une paire de clés SSH à utiliser pour l’authentification SSH avec un groupe de machines virtuelles identiques Linux à partir d’un modèle Resource Manager ?  
@@ -389,7 +357,7 @@ Pour plus d’informations, consultez le [Centre de gestion de la confidentialit
 
 ### <a name="does-managed-identities-for-azure-resourceshttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Les [identités managées pour ressources Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) fonctionnent-elles avec des groupes de machines virtuelles identiques ?
 
-Oui. Vous pouvez voir des exemples de modèles MSI dans les modèles de démarrage rapide Azure. Linux : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
+Oui. Vous pouvez voir des exemples de modèles MSI dans les modèles de démarrage rapide Azure. Linux : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
 
 ## <a name="extensions"></a>Extensions

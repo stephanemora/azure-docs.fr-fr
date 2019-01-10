@@ -1,5 +1,5 @@
 ---
-title: Sécuriser votre coffre de clés Azure | Microsoft Docs
+title: Sécuriser votre coffre de clés Azure - Azure Key Vault | Microsoft Docs
 description: Gérez les autorisations d’accès à Azure Key Vault, aux clés et aux secrets. Couvre le modèle d’authentification et d’autorisation de Key Vault, et explique comment sécuriser votre coffre de clés.
 services: key-vault
 documentationcenter: ''
@@ -12,19 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: 67f24bbccdd2dcf5cca09e09557d7ebebd0a5c2d
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: ff831d117edc708303be1d9665b2c97bc248f6c2
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891076"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999759"
 ---
 # <a name="secure-your-key-vault"></a>Sécuriser votre coffre de clés
+
 Azure Key Vault est un service cloud qui protège les clés et secrets de chiffrement (comme les certificats, les chaînes de connexion et les mots de passe). Comme il s’agit de données sensibles et critiques, vous devez sécuriser l’accès à vos coffres de clés en acceptant seulement les applications et les utilisateurs autorisés. Cet article fournit une vue d’ensemble du modèle d’accès aux coffres de clés. Il décrit l’authentification et l’autorisation, puis explique comment sécuriser l’accès.
 
 ## <a name="overview"></a>Vue d’ensemble
+
 L’accès à un coffre de clés est contrôlé via deux interfaces distinctes : le plan de gestion et le plan de données. 
 Le **plan de gestion** porte sur la gestion du coffre, par exemple la création d’un coffre, sa mise à jour et sa suppression. 
 Le **plan de données** traite des secrets à l’intérieur d’un coffre : créer, mettre à jour, supprimer et lire un secret dans le coffre. Pour ces deux plans, une autorisation et une authentification correctes sont obligatoires avant qu’un appelant (un utilisateur ou une application) puisse accéder au coffre de clés. L’authentification établit l’identité de l’appelant, tandis que l’autorisation détermine les opérations que ce dernier est autorisé à effectuer.
@@ -38,9 +40,11 @@ Voici un aperçu des sujets traités :
 Pour l’authentification, les deux plans utilisent Azure Active Directory (Azure AD). Pour l’autorisation, le plan de gestion utilise le contrôle d’accès en fonction du rôle (RBAC), tandis que le plan de données s’appuie sur la stratégie d’accès à Key Vault.
 
 ## <a name="authenticate-by-using-azure-active-directory"></a>S’authentifier avec Azure Active Directory
-Quand vous créez un coffre de clés dans un abonnement Azure, il est automatiquement associé au locataire Azure Active Directory de cet abonnement. Tous les appelants doivent être inscrits dans ce locataire et doivent s’authentifier pour accéder au coffre de clés. C’est obligatoire pour l’accès au plan de gestion et au plan de données. Dans les deux cas, une application peut accéder à Key Vault de deux manières :
 
-* **Accès de l’utilisateur et de l’application** : utilisé avec les applications qui accèdent à Key Vault pour le compte d’un utilisateur connecté. Azure PowerShell et le portail Azure sont des exemples de ce type d’accès. Vous pouvez accorder l’accès aux utilisateurs de deux manières : 
+Quand vous créez un coffre de clés dans un abonnement Azure, il est automatiquement associé au locataire Azure AD de cet abonnement. Tous les appelants doivent être inscrits dans ce locataire et doivent s’authentifier pour accéder au coffre de clés. C’est obligatoire pour l’accès au plan de gestion et au plan de données. Dans les deux cas, une application peut accéder à Key Vault de deux manières :
+
+* **Accès de l’utilisateur et de l’application** : utilisé avec les applications qui accèdent à Key Vault pour le compte d’un utilisateur connecté. Azure PowerShell et le portail Azure sont des exemples de ce type d’accès. Vous pouvez accorder l’accès aux utilisateurs de deux manières :
+
   - Accès à Key Vault à partir d’une application.
   - Accès à Key Vault seulement quand ils utilisent une application spécifique (appelée « identité composée »).
 
@@ -57,6 +61,7 @@ Avoir un même mécanisme pour l’authentification sur les deux plans présente
 * Les organisations peuvent personnaliser l’authentification à l’aide des options offertes par Azure Active Directory (par exemple en activant l’authentification multifacteur pour renforcer la sécurité).
 
 ## <a name="the-management-plane-and-the-data-plane"></a>Plan de gestion et plan de données
+
 Utilisez le plan de gestion pour gérer le coffre de clés lui-même. Cela inclut des opérations comme la gestion des attributs et la définition de stratégies d’accès du plan de données. Utilisez le plan de données pour ajouter, supprimer, modifier et utiliser les clés, les secrets et les certificats stockés dans le coffre de clés.
 
 Accédez aux interfaces du plan de gestion et du plan de données via les différents points de terminaison listés dans le tableau suivant. La deuxième colonne du tableau indique les noms DNS de ces points de terminaison dans les différents environnements Azure. La troisième colonne décrit les opérations que vous pouvez effectuer depuis chaque plan d’accès. Chaque plan d’accès a également son propre mécanisme de contrôle d’accès. Le contrôle d’accès du plan de gestion est défini en utilisant le contrôle d’accès en fonction du rôle Azure Resource Manager (RBAC). Le contrôle d’accès du plan de données est défini à l’aide d’une stratégie d’accès à Key Vault.
@@ -69,6 +74,7 @@ Accédez aux interfaces du plan de gestion et du plan de données via les diffé
 Les contrôles d’accès au plan de gestion et au plan de données fonctionnent indépendamment. Par exemple, si vous souhaitez accorder un accès à une application pour utiliser des clés dans un coffre de clés, vous devez accorder un accès au plan de données seulement. Vous accordez l’accès via des stratégies d’accès au coffre de clés. À l’inverse, un utilisateur qui a besoin de lire les propriétés et les étiquettes du coffre, mais pas d’accéder aux données (clés, secrets ou certificats), nécessite seulement un accès au plan de gestion. Vous accordez l’accès en attribuant l’accès en lecture à l’utilisateur avec RBAC.
 
 ## <a name="management-plane-access-control"></a>Contrôle d’accès au plan de gestion
+
 Le plan de gestion se compose d’opérations qui affectent le coffre de clés proprement dit, comme :
 
 - Création ou suppression d’un coffre de clés.
@@ -79,6 +85,7 @@ Le plan de gestion se compose d’opérations qui affectent le coffre de clés p
 Le contrôle d’accès au plan de gestion utilise la fonctionnalité RBAC.  
 
 ### <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle
+
 Chaque abonnement Azure a une instance Azure AD. Vous accordez l’accès aux utilisateurs, aux groupes et aux applications de cet annuaire pour gérer les ressources de l’abonnement Azure qui utilisent le modèle de déploiement Azure Resource Manager. Ce type de contrôle d’accès est appelé RBAC. Pour gérer cet accès, vous pouvez utiliser le [Portail Azure](https://portal.azure.com/), les [outils de l’interface de ligne de commande Azure](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) ou les [API REST Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Vous créez un coffre de clés dans un groupe de ressources et vous contrôlez l’accès au plan de gestion avec Azure AD. Par exemple, vous pouvez autoriser des utilisateurs ou un groupe à gérer les coffres de clés d’un groupe de ressources.
@@ -87,16 +94,17 @@ Vous pouvez accorder l’accès aux utilisateurs, groupes et applications d’un
 
 > [!IMPORTANT]
 > Si un utilisateur dispose des autorisations Contributeur pour le plan de gestion d’un coffre de clés, il peut s’accorder à lui-même l’accès au plan de données en définissant une stratégie d’accès au coffre de clés. Par conséquent, vous devez contrôler étroitement qui a un accès Contributeur à vos coffres de clés. Vérifiez que seules les personnes autorisées peuvent accéder à et gérer vos coffres de clés, vos clés, vos secrets et vos certificats.
-> 
-> 
+>
 
 ## <a name="data-plane-access-control"></a>Contrôle d’accès au plan de données
+
 Les opérations du plan de données des coffres de clés s’appliquent aux objets stockés, comme les clés, les secrets et les certificats. Les principales opérations sont : créer, importer, mettre à jour, lister, sauvegarder et restaurer des clés. Les opérations de chiffrement sont : signer, vérifier, chiffrer, déchiffrer, encapsuler (wrap), désencapsuler (unwrap), définir des étiquettes et d’autres attributs pour les clés. De même, les opérations sur les secrets incluent obtenir, définir, lister et supprimer.
 
 Vous accordez l’accès au plan de données en définissant des stratégies d’accès pour un coffre de clés. Un utilisateur, un groupe ou une application doit disposer des autorisations Contributeur pour le plan de gestion d’un coffre de clés afin de pouvoir définir des stratégies d’accès pour ce coffre de clés. Vous accordez l’accès à un utilisateur, un groupe ou une application afin d’effectuer des opérations spécifiques pour les clés ou les secrets d’un coffre de clés. Key Vault prend en charge jusqu’à 1 024 entrées de stratégie d’accès pour un coffre de clés. Pour accorder l’accès au plan de données à plusieurs utilisateurs, créez un groupe de sécurité Azure AD et ajoutez les utilisateurs à ce groupe.
 
 ### <a name="key-vault-access-policies"></a>Stratégies d’accès Key Vault
-Les stratégies d’accès Key Vault accordent des autorisations distinctement aux clés, aux secrets et aux certificats. Par exemple, vous pouvez donner un accès uniquement aux clés à un utilisateur et aucune autorisation pour les secrets. Les autorisations d’accès aux clés, aux secrets ou aux certificats sont définies au niveau du coffre. Une stratégie d’accès Key Vault ne prend pas en charge les autorisations granulaires au niveau des objets, comme une clé, un secret ou un certificat spécifique. Vous pouvez utiliser le [portail Azure](https://portal.azure.com/), les [outils Azure CLI](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) ou les [API REST de gestion de Key Vault](https://msdn.microsoft.com/library/azure/mt620024.aspx) pour définir des stratégies d’accès pour un coffre de clés.
+
+Les stratégies d’accès Key Vault accordent des autorisations distinctement aux clés, aux secrets et aux certificats. Par exemple, vous pouvez donner un accès uniquement aux clés à un utilisateur et aucune autorisation pour les secrets. Les autorisations d’accès aux clés, aux secrets ou aux certificats sont définies au niveau du coffre. Une stratégie d’accès à Key Vault ne prend pas en charge les autorisations granulaires au niveau des objets, comme une clé, un secret ou un certificat spécifique. Vous pouvez utiliser le [portail Azure](https://portal.azure.com/), les [outils Azure CLI](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) ou les [API REST de gestion de Key Vault](https://msdn.microsoft.com/library/azure/mt620024.aspx) pour définir des stratégies d’accès pour un coffre de clés.
 
 > [!IMPORTANT]
 > Les stratégies d’accès Key Vault s’appliquent au niveau du coffre. Par exemple, lorsqu’un utilisateur est autorisé à créer et à supprimer des clés, il peut effectuer ces opérations sur toutes les clés de ce coffre de clés.
@@ -104,9 +112,10 @@ Les stratégies d’accès Key Vault accordent des autorisations distinctement a
 Outre l’utilisation de stratégies d’accès, vous pouvez également limiter les accès au plan de données en utilisant des [points de terminaison de service de réseau virtuel pour Azure Key Vault](key-vault-overview-vnet-service-endpoints.md). Vous configurez [des pare-feux et des règles de réseau virtuel](key-vault-network-security.md) pour une couche supplémentaire de sécurité.
 
 ## <a name="example"></a>Exemples
-Supposons que vous développez une application qui utilise un certificat pour SSL, Stockage Azure pour stocker les données et une clé RSA de 2 048 bits pour les opérations de signature. Supposons que cette application s’exécute sur une machine virtuelle Azure (ou un groupe de machines virtuelles identiques). Vous pouvez utiliser un coffre de clés pour stocker tous les secrets de l’application et stocker le certificat Bootstrap utilisé par l’application pour s’authentifier auprès d’Azure AD.
 
-Voici un résumé des types de clés et de secrets stockés :
+Supposons que vous développez une application qui utilise un certificat pour SSL, le Stockage Azure pour stocker les données et une clé RSA 2 048 bits pour les opérations de signature. Supposons également que cette application s’exécute sur une machine virtuelle Azure (ou un groupe de machines virtuelles identiques). Vous pouvez utiliser un coffre de clés pour stocker tous les secrets de l’application et stocker le certificat Bootstrap utilisé par l’application pour s’authentifier auprès d’Azure AD.
+
+Voici un récapitulatif des types de clés et de secrets stockés :
 
 * **Certificat SSL** : Utilisé pour SSL.
 * **Clé de stockage** : utilisée pour accéder au compte de stockage.
@@ -167,14 +176,14 @@ Les extraits de code PowerShell suivants supposent que :
 
 L’administrateur de l’abonnement attribue d’abord les rôles `key vault Contributor` et `User Access Administrator` à l’équipe de sécurité. Ces rôles permettent à l’équipe de sécurité de gérer l’accès aux autres ressources et de gérer les coffres de clés du groupe de ressources ContosoAppRG.
 
-```
+```PowerShell
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
 Le script suivant montre comment l’équipe de sécurité peut créer un coffre de clés et définir des autorisations d’accès et de journalisation. Pour des détails sur les autorisations des stratégies d’accès Key Vault, consultez [Présentation des clés, des secrets et des certificats Azure Key Vault](about-keys-secrets-and-certificates.md).
 
-```
+```PowerShell
 # Create key vault and enable logging
 $sa = Get-AzureRmStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
 $kv = New-AzureRmKeyVault -Name ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'westus' -EnabledForDeployment
@@ -204,7 +213,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 
 Le rôle personnalisé défini peut être attribué seulement à l’abonnement où le groupe de ressources `ContosoAppRG` a été créé. Si les mêmes rôles personnalisés sont utilisés pour d’autres projets dans d’autres abonnements, des abonnements supplémentaires peuvent être ajoutés.
 
-L’attribution de rôles personnalisés aux développeurs/opérateurs pour l’autorisation « déploiement/action » se limite au groupe de ressources. Ainsi, seules les machines virtuelles créées dans le groupe de ressources `ContosoAppRG` peuvent avoir accès aux secrets (le certificat SSL et le certificat Bootstrap). Les machines virtuelles créées dans un autre groupe de ressources par un membre de l’équipe des développeurs et des opérateurs n’ont pas accès à ces secrets, même s’ils ont les URI des secrets.
+L’attribution de rôles personnalisés aux développeurs/opérateurs pour l’autorisation « déploiement/action » se limite au groupe de ressources. Ainsi, seules les machines virtuelles créées dans le groupe de ressources `ContosoAppRG` peuvent avoir accès aux secrets (le certificat SSL et le certificat Bootstrap). Les machines virtuelles créées dans un autre groupe de ressources par un membre de l’équipe des développeurs et des opérateurs n’ont pas accès à ces secrets, même si elles ont les URI des secrets.
 
 Cet exemple illustre un scénario simple. Dans la pratique, vous pouvez rencontrer des scénarios plus complexes, et vous pouvez ajuster les autorisations sur votre coffre de clés selon vos besoins. Dans notre exemple, nous partons du principe que l’équipe de sécurité fournit les références de clé et de secret (URI et empreintes) que les développeurs/opérateurs doivent référencer dans leurs applications. Les développeurs et les opérateurs n’ont besoin d’aucun accès au plan de données. Cet exemple se concentre sur la sécurisation de votre coffre de clés. Une considération similaire doit être accordée pour sécuriser [vos machines virtuelles](https://azure.microsoft.com/services/virtual-machines/security/), vos [comptes de stockage](../storage/common/storage-security-guide.md) et d’autres ressources Azure.
 
@@ -214,6 +223,7 @@ Cet exemple illustre un scénario simple. Dans la pratique, vous pouvez rencontr
 Il est fortement recommandé de sécuriser l’accès à votre coffre de clés en [configurant des pare-feux et des réseaux virtuels Key Vault](key-vault-network-security.md).
 
 ## <a name="resources"></a>Ressources
+
 * [Contrôle d’accès en fonction du rôle Azure Active Directory](../role-based-access-control/role-assignments-portal.md)
   
 * [Contrôle d’accès en fonction du rôle (RBAC) : rôles intégrés](../role-based-access-control/built-in-roles.md).
@@ -241,6 +251,7 @@ Il est fortement recommandé de sécuriser l’accès à votre coffre de clés e
 * [Définition](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) et [suppression](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Remove-AzureRmKeyVaultAccessPolicy) de la stratégie d’accès Key Vault avec PowerShell
   
 ## <a name="next-steps"></a>Étapes suivantes
+
 [Configurer des pare-feu et des réseaux virtuels Key Vault](key-vault-network-security.md)
 
 Pour un didacticiel de prise en main d’un administrateur, consultez la page [Prise en main d’Azure Key Vault](key-vault-get-started.md).

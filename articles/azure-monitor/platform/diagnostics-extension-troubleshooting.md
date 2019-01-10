@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1ddadcf17a5733767e24505b970b2ac21c8d7fa8
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 8a8883989a731265fb358c119d44fa4243b54a5e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325330"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103942"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Résolution des problèmes de diagnostics Azure
 Cet article contient des informations de dépannage pour les diagnostics Microsoft Azure. Pour plus d’informations sur les diagnostics Microsoft Azure, voir [Vue d’ensemble des diagnostics Azure](diagnostics-extension-overview.md).
@@ -118,7 +118,7 @@ La configuration des diagnostics contient des instructions pour un type bien pr�
 #### <a name="is-the-host-generating-data"></a>L’hôte génère-t-il des données ?
 - **Compteurs de performances** : ouvrez PerfMon et vérifiez le compteur.
 
-- **Journaux des traces** :  accédez à distance à la machine virtuelle, puis ajoutez un élément TextWriterTraceListener dans le fichier de configuration de l’application.  Consultez http://msdn.microsoft.com/library/sk36c28t.aspx pour configurer l’écouteur de texte.  Vérifiez que l’élément `<trace>` a la valeur `<trace autoflush="true">`.<br />
+- **Journaux des traces** :  accédez à distance à la machine virtuelle, puis ajoutez un élément TextWriterTraceListener dans le fichier de configuration de l’application.  Consultez https://msdn.microsoft.com/library/sk36c28t.aspx pour configurer l’écouteur de texte.  Vérifiez que l’élément `<trace>` a la valeur `<trace autoflush="true">`.<br />
 Si aucun journal de suivi n’a été généré, voir [En savoir plus sur les journaux de suivi manquants](#more-about-trace-logs-missing).
 
 - **Traces ETW** : accédez à distance à la machine virtuelle, puis installez PerfView.  Dans PerfView, exécutez **Fichier** > **Commande utilisateur** > **Écouter etwprovder1** > **etwprovider2**, etc. Notez que la commande **Écouter** est sensible à la casse et que les espaces ne sont pas autorisés entre les listes de fournisseurs ETW séparées par des virgules. En cas d’échec de l’exécution de la commande, vous pouvez cliquer sur le bouton **Journal** dans l’angle inférieur droit de l’outil PerfView pour voir l’exécution qui était attendue et le résultat final de celle-ci.  Partons du principe que l’entrée est correcte. Une nouvelle fenêtre s’ouvre alors. En quelques secondes, vous commencer à voir les traces ETW.
@@ -217,9 +217,9 @@ Vous pouvez également activer le Bureau à distance sur la machine, puis regard
 
 Dans les deux cas, recherchez **Microsoft.Azure.Diagnostics**, puis le champ **xmlCfg** ou **WadCfg**.
 
-Dans le cas de la machine virtuelle, si le champ **WadCfg** est présent, cela signifie que la configuration est au format JSON. Si le champ **xmlCfg** est présent, cela signifie que la configuration est au format XML et codée en Base64. Vous devez [la décoder](http://www.bing.com/search?q=base64+decoder) pour afficher le code XML chargé par l’extension Diagnostics.
+Dans le cas de la machine virtuelle, si le champ **WadCfg** est présent, cela signifie que la configuration est au format JSON. Si le champ **xmlCfg** est présent, cela signifie que la configuration est au format XML et codée en Base64. Vous devez [la décoder](https://www.bing.com/search?q=base64+decoder) pour afficher le code XML chargé par l’extension Diagnostics.
 
-Pour le rôle de service cloud, si vous sélectionnez la configuration à partir du disque, les données sont encodées en Base64. Vous devrez donc [les décoder](http://www.bing.com/search?q=base64+decoder) pour afficher le code XML qui a été chargé par Diagnostics.
+Pour le rôle de service cloud, si vous sélectionnez la configuration à partir du disque, les données sont encodées en Base64. Vous devrez donc [les décoder](https://www.bing.com/search?q=base64+decoder) pour afficher le code XML qui a été chargé par Diagnostics.
 
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Codes de sortie du plug-in Azure Diagnostics
 Le plug-in renvoie les codes de sortie suivants :

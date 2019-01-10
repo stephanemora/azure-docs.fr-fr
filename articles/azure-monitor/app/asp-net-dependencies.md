@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7cde9fa0849729ba9db9b604dd0ad26cf362a484
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 48e20df61844d83deb8ac992f783cf227e658aaf
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969860"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119983"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurer Application Insights : Suivi des dépendances
-Un *dépendance* est un composant externe qui est appelé par votre application. Il s’agit habituellement d’un service appelé à l’aide de HTTP, d’une base de données ou d’un système de fichiers. [Application Insights](../../application-insights/app-insights-overview.md) mesure combien de temps votre application attend les dépendances et la fréquence à laquelle un appel de dépendance échoue. Vous pouvez examiner des appels spécifiques et les associer à des demandes et des exceptions.
+Un *dépendance* est un composant externe qui est appelé par votre application. Il s’agit habituellement d’un service appelé à l’aide de HTTP, d’une base de données ou d’un système de fichiers. [Application Insights](../../azure-monitor/app/app-insights-overview.md) mesure combien de temps votre application attend les dépendances et la fréquence à laquelle un appel de dépendance échoue. Vous pouvez examiner des appels spécifiques et les associer à des demandes et des exceptions.
 
 Le moniteur de dépendance prêt à l’emploi signale les appels aux types de dépendances suivants :
 
@@ -121,7 +121,7 @@ Il semble y avoir un long délai après le premier appel de dépendance. Nous de
 
 ### <a name="profile-your-live-site"></a>Profiler votre site en ligne
 
-Vous voulez savoir à quoi tout ce temps a été consacré ? Le [profileur d’Application Insights](../../application-insights/app-insights-profiler.md) effectue le suivi des appels HTTP vers votre site dynamique et vous indique les fonctions de votre code qui ont pris le plus de temps.
+Vous voulez savoir à quoi tout ce temps a été consacré ? Le [profileur d’Application Insights](../../azure-monitor/app/profiler.md) effectue le suivi des appels HTTP vers votre site dynamique et vous indique les fonctions de votre code qui ont pris le plus de temps.
 
 ## <a name="failed-requests"></a>Demandes ayant échoué
 Les échecs de demandes peuvent également être associés à des échecs d’appels de dépendances. Là encore, nous pouvons tout parcourir d’un simple clic pour localiser le problème.

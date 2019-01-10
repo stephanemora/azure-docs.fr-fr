@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 309c7275a1e775ed2bd689520ac39501e8bd6052
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ce88dcaedf32f293fc121cda2a088388c99badee
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857820"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603825"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Vue d’ensemble d’Azure Cloud Services
-Azure Cloud Service est un exemple d’implémentation de [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Tout comme [Azure App Service](../app-service/app-service-web-overview.md), cette technologie est conçue pour prendre en charge des applications évolutives, fiables et dont l’exploitation est peu coûteuse. Comme App Service, Azure Cloud Services est hébergé sur des machines virtuelles. Toutefois, vous avez davantage de contrôle sur les machines virtuelles. Vous pouvez installer votre propre logiciel sur des machines virtuelles utilisant Azure Cloud Services, et y accéder à distance.
+Azure Cloud Service est un exemple d’implémentation de [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Tout comme [Azure App Service](../app-service/overview.md), cette technologie est conçue pour prendre en charge des applications évolutives, fiables et dont l’exploitation est peu coûteuse. Comme App Service, Azure Cloud Services est hébergé sur des machines virtuelles. Toutefois, vous avez davantage de contrôle sur les machines virtuelles. Vous pouvez installer votre propre logiciel sur des machines virtuelles utilisant Azure Cloud Services, et y accéder à distance.
 
 ![Diagramme Azure Cloud Services](./media/cloud-services-choose-me/diagram.png)
 
@@ -29,9 +29,9 @@ Un contrôle supérieur signifie également une convivialité réduite. Si vous 
 
 Il existe deux types de rôles Azure Cloud Services. La seule différence entre eux est le mode d’hébergement de votre rôle sur les machines virtuelles :
 
-* **Rôle web** : déploie et héberge automatiquement votre application via IIS.
+* **Rôle web** : Déploie et héberge automatiquement votre application, via IIS.
 
-* **Rôle de travail** : n’utilise pas IIS et exécute votre application en mode autonome.
+* **Rôle de travail** : Exécute votre application de façon autonome, sans utiliser IIS.
 
 Par exemple, une application simple peut utiliser un rôle web unique, servant un site web. Une application plus complexe pourrait utiliser un rôle web pour traiter les requêtes entrantes des utilisateurs, puis transmettre ces requêtes à un rôle de travail à des fins de traitement (cette communication pourrait utiliser [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) ou [Stockage File d’attente Azure](../storage/common/storage-introduction.md)).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: d670b90404d441876727336fc50a848965082de5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: baa86fe70c394aaea31a6fa775073bb26d062c49
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232492"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002397"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agrégation et collecte d’événements à l’aide des diagnostics Windows Azure
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Une fois que vous avez entrepris d’agréger des événements dans le service S
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Déployer l’extension Diagnostics par le biais d’Azure Resource Manager
 
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Créer un cluster avec l’extension Diagnostics
-Pour créer un cluster à l’aide de Resource Manager, vous devez ajouter le fichier de configuration Diagnostics JSON au modèle Resource Manager complet avant de créer le cluster. Nous fournissons un exemple de modèle Resource Manager de cluster à cinq machines virtuelles avec la configuration Diagnostics ajoutée dans le cadre de nos exemples de modèle Resource Manager. Vous pouvez le voir à cet emplacement dans la galerie d’exemples d’Azure : [cluster à cinq nœuds avec exemple de modèle Diagnostics Resource Manager](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+Pour créer un cluster avec Resource Manager, vous devez ajouter le fichier de configuration JSON Diagnostics au modèle Resource Manager complet. Nous fournissons un exemple de modèle Resource Manager de cluster à cinq machines virtuelles avec la configuration Diagnostics ajoutée dans le cadre de nos exemples de modèle Resource Manager. Vous pouvez le voir à cet emplacement dans la galerie d’exemples Azure : [Cluster à cinq nœuds avec un exemple de modèle Diagnostics Resource Manager](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 Pour voir les paramètres de diagnostic dans le modèle Resource Manager, ouvrez le fichier azuredeploy.json et recherchez **IaaSDiagnostics**. Pour créer un cluster à l’aide de ce modèle, cliquez sur le bouton **Déployer sur Azure**, disponible via le lien précédent.
 
@@ -196,24 +196,24 @@ Après avoir modifié le fichier template.json comme décrit, republiez le modè
 ## <a name="log-collection-configurations"></a>Configurations de la collecte de journaux
 Il est également possible de collecter des journaux provenant d’autres canaux ; voici quelques configurations courantes que vous pouvez appliquer dans le modèle des clusters qui fonctionnent avec Azure.
 
-* Canal opérationnel – Base : activé par défaut ; les opérations de haut niveau effectuées par Service Fabric et le cluster, notamment les événements de mise en ligne d’un nœud, de déploiement d’une nouvelle application ou d’annulation d’une mise à niveau. Pour connaître la liste des événements, consultez la page [Événements du canal opérationnel](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* Canal opérationnel - De base : Activé par défaut, opérations de haut niveau effectuées par Service Fabric et le cluster. Cela comprend les événements pour un nœud mis en ligne, une nouvelle application déployée, l’annulation d’une mise à niveau, etc. Pour connaître la liste des événements, consultez la page [Événements du canal opérationnel](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
   ```
-* Canal opérationnel – Détaillé : les rapports d’intégrité et les décisions d’équilibrage de charge, ainsi que tous les éléments du canal opérationnel de base. Ces événements sont générés par le système ou bien par votre code à l’aide des API de création de rapports d’intégrité ou de charge, par exemple, [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) ou [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Pour afficher ces événements dans la visionneuse d’événements de diagnostic de Visual Studio, ajoutez « Microsoft-ServiceFabric:4:0x4000000000000008 » à la liste des fournisseurs ETW.
+* Canal opérationnel - Détaillé : Ceci inclut des rapports d’intégrité et des décisions d’équilibrage de charge, ainsi que tous les éléments du canal opérationnel de base. Ces événements sont générés par le système ou bien par votre code à l’aide des API de création de rapports d’intégrité ou de charge, par exemple, [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) ou [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Pour afficher ces événements dans la visionneuse d’événements de diagnostic de Visual Studio, ajoutez « Microsoft-ServiceFabric:4:0x4000000000000008 » à la liste des fournisseurs ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387912"
   ```
 
-* Canal de données et de messages – Base : les événements et les journaux critiques générés dans le chemin des messages (pour le moment, seulement le proxy inverse) et des données, ainsi que les journaux du canal opérationnel détaillé. Ces événements correspondent à des échecs de traitement des requêtes et à d’autres problèmes critiques dans le proxy inverse, ainsi qu’aux requêtes traitées. **C’est ce que nous recommandons pour une journalisation complète**. Pour afficher ces événements dans l’observateur d’événements de diagnostic de Visual Studio, ajoutez « Microsoft-ServiceFabric:4:0x4000000000000010 » à la liste des fournisseurs ETW.
+* Canal de données et de messagerie - De base : Événements et journaux critiques générés dans le chemin des messages (pour le moment, seulement le proxy inverse) et des données, ainsi que les journaux détaillés du canal opérationnel. Ces événements correspondent à des échecs de traitement des requêtes et à d’autres problèmes critiques dans le proxy inverse, ainsi qu’aux requêtes traitées. **C’est ce que nous recommandons pour une journalisation complète**. Pour afficher ces événements dans l’observateur d’événements de diagnostic de Visual Studio, ajoutez « Microsoft-ServiceFabric:4:0x4000000000000010 » à la liste des fournisseurs ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387928"
   ```
 
-* Canal de données et de messages – Détaillé : le canal détaillé qui contient tous les journaux non critiques provenant des données et des messages du cluster, ainsi que le canal opérationnel détaillé. Pour résoudre les problèmes liés aux différents événements du proxy inverse, consultez le [guide de diagnostic du proxy inverse](service-fabric-reverse-proxy-diagnostics.md).  Pour afficher ces événements dans l’observateur d’événements de diagnostic de Visual Studio, ajoutez « Microsoft-ServiceFabric:4:0x4000000000000020 » à la liste des fournisseurs ETW.
+* Canal de données et de messagerie - Détaillé : Canal détaillé qui contient tous les journaux non critiques des données et des messages du cluster, ainsi que le canal opérationnel détaillé. Pour résoudre les problèmes liés aux différents événements du proxy inverse, consultez le [guide de diagnostic du proxy inverse](service-fabric-reverse-proxy-diagnostics.md).  Pour afficher ces événements dans l’observateur d’événements de diagnostic de Visual Studio, ajoutez « Microsoft-ServiceFabric:4:0x4000000000000020 » à la liste des fournisseurs ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387944"

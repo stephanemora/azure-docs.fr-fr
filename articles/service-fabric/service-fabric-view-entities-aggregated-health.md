@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: c6d5954ed3547666236130753dfd53d10475df43
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 09696c606fdf57f5ac55fc50eb06c2c5eea55dfe
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308986"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555249"
 ---
 # <a name="view-service-fabric-health-reports"></a>Affichage rapports d’intégrité de Service Fabric
 Azure Service Fabric propose un [modèle d’intégrité](service-fabric-health-introduction.md) avec des entités d’intégrité sur lesquelles les composants système et les agents de surveillance peuvent signaler les conditions locales qu’ils surveillent. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) agrège toutes les données d’intégrité pour déterminer si les entités sont saines.
@@ -46,7 +46,7 @@ Pour illustrer ces options, utilisons un cluster local doté de cinq nœuds et 
 Service Fabric Explorer procure un aperçu visuel du cluster. Dans l’image ci-dessous, vous pouvez constater que :
 
 * L’application **fabric:/WordCount** apparaît en rouge (erreur), car un événement d’erreur a été signalé par **MyWatchdog** pour la propriété **Availability**.
-* L’un de ses services, **fabric:/WordCount/WordCountService** apparaît en jaune (avertissement). Le service est configuré avec sept réplicas et le cluster est doté de cinq nœuds, deux réplicas ne peuvent donc pas être placés. Même si elle n’est pas représentée ici, la partition de service est en jaune, conformément à un rapport système de `System.FM` indiquant que `Partition is below target replica or instance count`. La partition en jaune déclenche le service en jaune.
+* L’un de ses services, **fabric:/WordCount/WordCountService** apparaît en jaune (avertissement). Le service est configuré avec sept réplicas et le cluster a cinq nœuds : deux réplicas ne peuvent donc pas être placés. Même si elle n’est pas représentée ici, la partition de service est en jaune, conformément à un rapport système de `System.FM` indiquant que `Partition is below target replica or instance count`. La partition en jaune déclenche le service en jaune.
 * Le cluster apparaît en rouge en raison de l’application rouge.
 
 L’évaluation utilise les stratégies par défaut du manifeste de cluster et du manifeste de l’application. Il s’agit de stratégies strictes qui ne tolèrent aucun échec.
@@ -464,7 +464,7 @@ Pour obtenir les données d’intégrité de service via l’API, créez un él�
 
 L’exemple suivant permet d’obtenir les données d’intégrité d’un service présentant un nom (URI) spécifique :
 
-```charp
+```csharp
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
@@ -1030,25 +1030,25 @@ Si les requêtes générales renvoient un état d’intégrité inconnu pour une
 
 Les requêtes contenant le paramètre **HealthState** pour les entités sont les suivantes :
 
-* Liste de nœuds : renvoie la liste de nœuds du cluster (paginée).
+* Liste des nœuds : Retourne la liste des nœuds dans le cluster (paginée).
   * API : [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
-  * Powershell : Get-ServiceFabricNode
-* Liste d’applications : renvoie la liste des applications du cluster (paginée).
+  * PowerShell : Get-ServiceFabricNode
+* Liste des applications : Retourne la liste des applications du cluster (paginée).
   * API : [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
-  * Powershell : Get-ServiceFabricApplication
-* Liste de services : renvoie la liste des services d’une application (paginée).
+  * PowerShell : Get-ServiceFabricApplication
+* Liste des services : Retourne la liste des services d’une application (paginée).
   * API : [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
-  * Powershell : Get-ServiceFabricService
-* Liste de partitions : renvoie la liste des partitions d’un service (paginée).
+  * PowerShell : Get-ServiceFabricService
+* Liste des partitions : Retourne la liste des partitions d’un service (paginée).
   * API : [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
   * PowerShell : Get-ServiceFabricPartition
-* Liste de réplicas : renvoie la liste des réplicas d’une partition (paginée).
+* Liste des réplicas : Retourne la liste des réplicas d’une partition (paginée).
   * API : [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
   * PowerShell : Get-ServiceFabricReplica
-* Liste des applications déployées : renvoie la liste des applications déployées sur un nœud.
+* Liste des applications déployées : Retourne la liste des applications déployées sur un nœud.
   * API : [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
   * PowerShell : Get-ServiceFabricDeployedApplication
-* Liste des packages de services déployés : renvoie la liste des packages de services d’une application déployée.
+* Liste des packages de service déployés : Retourne la liste des packages de service d’une application déployée.
   * API : [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
   * PowerShell : Get-ServiceFabricDeployedApplication
 

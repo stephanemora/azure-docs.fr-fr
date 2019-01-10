@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 73a0766baee8da782f0192fbc17fb2898a8360ac
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.reviewer: ''
+ms.openlocfilehash: f6ef1dfdef68136ae129faced7443302e738d5b9
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41946555"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810371"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Vérifier vos modèles pour Azure Stack avec l’outil de validation des modèles
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Vous pouvez utiliser l’outil de validation des modèles pour vérifier si vos [modèles](azure-stack-arm-templates.md) Azure Resource Manager sont prêts à être déployés dans Azure Stack. L’outil de validation des modèles fait partie des outils disponibles avec Azure Stack. Téléchargez les outils Azure Stack en utilisant la procédure décrite dans l’article [Télécharger des outils à partir de GitHub](azure-stack-powershell-download.md).
 
@@ -32,25 +32,25 @@ Vous pouvez utiliser l’outil de validation des modèles pour vérifier si vos 
 
 Pour valider un modèle, vous devez d’abord générer un fichier des fonctionnalités du cloud, puis exécuter l’outil de validation. Vous utilisez les modules PowerShell suivants à partir des outils Azure Stack :
 
-- Dans le dossier **CloudCapabilities** :<br>         AzureRM.CloudCapabilities.psm1 crée un fichier JSON des fonctionnalités du cloud représentant les services et versions présentes dans un cloud Azure Stack.
+- Dans le dossier **CloudCapabilities** :<br>         `AzureRM.CloudCapabilities.psm1` crée un fichier JSON des fonctionnalités du cloud représentant les services et versions présentes dans un cloud Azure Stack.
 - Dans le dossier **TemplateValidator** :<br>
-AzureRM.TemplateValidator.psm1 utilise un fichier JSON des fonctionnalités du cloud pour tester des modèles en vue d’un déploiement dans Azure Stack.
+`AzureRM.TemplateValidator.psm1` utilise un fichier JSON des fonctionnalités du cloud pour tester des modèles en vue d’un déploiement dans Azure Stack.
 
 ## <a name="build-the-cloud-capabilities-file"></a>Générer le fichier des fonctionnalités du cloud
 
-Avant d’utiliser le validateur de modèle, exécutez le module PowerShell AzureRM.CloudCapabilities pour générer un fichier JSON.
+Avant d’utiliser le validateur de modèle, exécutez le module PowerShell **AzureRM.CloudCapabilities** pour générer un fichier JSON.
 
 >[!NOTE]
 >Si vous mettez à jour votre système intégré ou que vous ajoutez de nouveaux services ou de nouvelles extensions virtuelles, vous devez exécuter à nouveau ce module.
 
 1. Vérifiez que vous disposez d’une connectivité à Azure Stack. Cette procédure peut être effectuée à partir de l’hôte du kit de développement Azure Stack, ou vous pouvez utiliser un [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) pour vous connecter à partir de votre station de travail.
-2. Importez le module PowerShell AzureRM.CloudCapabilities :
+2. Importez le module PowerShell **AzureRM.CloudCapabilities** :
 
     ```PowerShell
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. Utilisez l’applet de commande Get-CloudCapabilities pour récupérer des versions de service et créer un fichier JSON de fonctionnalités cloud. Si vous ne spécifiez pas **-OutputPath**, le fichier AzureCloudCapabilities.Json est créé dans le répertoire actif. Utilisez votre emplacement réel :
+3. Utilisez l’applet de commande `Get-CloudCapabilities` pour récupérer des versions de service et créer un fichier JSON de fonctionnalités cloud. Si vous ne spécifiez pas **-OutputPath**, le fichier AzureCloudCapabilities.Json est créé dans le répertoire actif. Utilisez votre emplacement réel :
 
     ```PowerShell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
@@ -58,9 +58,9 @@ Avant d’utiliser le validateur de modèle, exécutez le module PowerShell Azur
 
 ## <a name="validate-templates"></a>Valider des modèles
 
-Utilisez cette procédure pour valider des modèles à l’aide du module PowerShell AzureRM.TemplateValidator. Vous pouvez utiliser vos propres modèles, ou valider les [modèles de démarrage rapide Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates).
+Utilisez cette procédure pour valider des modèles à l’aide du module PowerShell **AzureRM.TemplateValidator**. Vous pouvez utiliser vos propres modèles, ou valider les [modèles de démarrage rapide Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
-1. Importez le module PowerShell AzureRM.TemplateValidator.psm1 :
+1. Importez le module PowerShell **AzureRM.TemplateValidator.psm1** :
 
     ```PowerShell
     cd "c:\AzureStack-Tools-master\TemplateValidator"
@@ -95,13 +95,13 @@ Le validateur de modèle prend en charge les paramètres suivants.
 
 ### <a name="examples"></a>Exemples
 
-Cet exemple valide tous les [modèles de démarrage rapide Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) téléchargés dans le stockage local. L’exemple valide également les tailles et extensions de machine virtuelle par rapport aux fonctionnalités du Kit de développement Azure Stack.
+Cet exemple valide tous les [modèles de démarrage rapide Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) téléchargés dans le stockage local. L’exemple valide également les tailles et extensions de machine virtuelle par rapport aux fonctionnalités du Kit de développement Azure Stack :
 
 ```PowerShell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json `
--TemplatePattern MyStandardTemplateName.json`
--IncludeComputeCapabilities`
+-TemplatePattern MyStandardTemplateName.json `
+-IncludeComputeCapabilities `
 -Report TemplateReport.html
 ```
 

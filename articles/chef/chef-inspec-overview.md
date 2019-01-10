@@ -3,17 +3,17 @@ title: Utiliser InSpec pour automatiser la conformité de votre infrastructure A
 description: Découvrez comment utiliser InSpec pour détecter les problèmes de vos déploiements Azure
 keywords: azure, chef, devops, machines virtuelles, présentation, automate, inspec
 ms.service: virtual-machines-linux
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 4193b7fdb3932cbffa2b56b5d7eee6f3b573bd99
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 9256a4daf6564761553b495e559805a46e4eae32
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259531"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050725"
 ---
 # <a name="use-inspec-for-compliance-automation-of-your-azure-infrastructure"></a>Utiliser InSpec pour automatiser la conformité de votre infrastructure Azure
 [InSpec](https://www.chef.io/inspec/) est un framework open source gratuit qui permet de tester et d’auditer vos applications et votre infrastructure. InSpec compare l’état actuel de votre système avec l’état souhaité, que vous spécifiez sous la forme d’un code InSpec facile à lire et à écrire. InSpec détecte les violations et affiche ce qu’il a trouvé dans un rapport. Toutefois, c’est vous qui contrôlez la résolution de ces violations. Vous pouvez utiliser InSpec pour valider l’état de vos machines virtuelles exécutées dans Azure. Vous pouvez également utiliser InSpec pour analyser et valider l’état des ressources et des groupes de ressources d’un abonnement.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a714cec5ce05473887f9f06d47c75563bf878081
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3c4f5d6888d581cb44702a8d76e1ebbb13845091
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386823"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582913"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Intégration continue et déploiement continu dans Azure IoT Edge
 
@@ -40,7 +40,7 @@ Dans cette section, vous allez créer un exemple de solution IoT Edge contenant 
 
 3. Votre exemple de solution IoT Edge est maintenant prêt. Le module C# par défaut joue le rôle de module de canal de messages. Dans l’élément `deployment.template.json`, vous pouvez voir que cette solution comporte deux modules. Le message sera généré à partir du module `tempSensor`, acheminé directement via `FilterModule`, puis envoyé vers votre IoT hub.
 
-4. Enregistrez ces projets, puis validez dans vos dépôts Azure.
+4. Enregistrez ces projets, puis effectuez la validation dans votre dépôt Azure Repos.
     
 > [!NOTE]
 > Pour plus d’informations sur l’utilisation d’Azure Repos, consultez [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts) (Partager votre code avec Visual Studio et Azure Repos).
@@ -73,7 +73,7 @@ Dans cette section, vous allez créer un pipeline de build configuré pour s’e
     
     ![Configurer le pool d’agents de build](./media/how-to-ci-cd/configure-env.png)
 
-1. Dans le travail d’agent, cliquez sur « + » pour ajouter trois tâches au pipeline de build. Les deux premières sont liées à **Azure IoT Edge**. La troisième est liée à la **publication des artefacts de build**
+1. Dans le travail d’agent, ouvrez l’option « + » pour ajouter trois tâches au pipeline de build. Les deux premières sont liées à **Azure IoT Edge**. La troisième est liée à la **publication des artefacts de build**
     
     ![Ajouter des tâches au pipeline de génération](./media/how-to-ci-cd/add-tasks.png)
 
@@ -93,13 +93,13 @@ Dans cette section, vous allez créer un pipeline de build configuré pour s’e
 
     ![Activer le déclencheur d’intégration continue](./media/how-to-ci-cd/configure-trigger.png)
 
-    Enregistrez le nouveau pipeline de build. Cliquez sur le bouton **Enregistrer** .
+    Enregistrez le nouveau pipeline de build avec le bouton **Enregistrer**.
 
 
 ## <a name="configure-azure-pipelines-for-continuous-deployment"></a>Configurer Azure Pipelines pour le déploiement continu
 Dans cette section, vous allez créer un pipeline de mise en production configuré pour s’exécuter automatiquement quand votre pipeline de build supprime des artefacts. Ce pipeline de build affichera les journaux de déploiement dans Azure Pipelines.
 
-1. Sous l’onglet **Mises en production**, choisissez **+ Nouveau pipeline**. Sinon, si vous avez déjà des pipelines de mise en production, choisissez le bouton **+ Nouveau** et cliquez sur **+ Nouveau pipeline de mise en production**.  
+1. Sous l’onglet **Mises en production**, choisissez **+ Nouveau pipeline**. Sinon, si vous avez déjà des pipelines de mise en production, choisissez le bouton **+ Nouveau**, puis sélectionnez **+ Nouveau pipeline de mise en production**.  
 
     ![Ajouter un pipeline de mise en production](./media/how-to-ci-cd/add-release-pipeline.png)
 
@@ -115,7 +115,7 @@ Dans cette section, vous allez créer un pipeline de mise en production configur
 
     ![Ajouter des artefacts](./media/how-to-ci-cd/add-artifacts.png)  
     
-    Dans la page **Ajouter un artefact**, choisissez le type de source **Build**. Sélectionnez ensuite le projet et le pipeline de build que vous avez créés. Cliquez ensuite sur **Ajouter**.
+    Dans la page **Ajouter un artefact**, choisissez le type de source **Build**. Sélectionnez ensuite le projet et le pipeline de build que vous avez créés. Sélectionnez ensuite **Ajouter**.
 
     ![Ajouter un artefact de build](./media/how-to-ci-cd/add-an-artifact.png)
 
@@ -127,7 +127,7 @@ Dans cette section, vous allez créer un pipeline de mise en production configur
 
     ![Configurer les tâches AQ (assurance qualité)](./media/how-to-ci-cd/view-stage-tasks.png)
 
-   La tâche de déploiement est indépendante de la plateforme, ce qui signifie que vous pouvez choisir **Hosted VS2017** (VS2017 hébergé) ou **Hosted Ubuntu 1604** (Ubuntu 1604 hébergé) dans le **Pool d’agents** (ou tout autre agent géré par vous-même). Cliquez sur « + » et ajoutez une tâche.
+   La tâche de déploiement est indépendante de la plateforme, ce qui signifie que vous pouvez choisir **Hosted VS2017** (VS2017 hébergé) ou **Hosted Ubuntu 1604** (Ubuntu 1604 hébergé) dans le **Pool d’agents** (ou tout autre agent géré par vous-même). Sélectionnez « + », puis ajoutez une tâche.
 
     ![Ajouter des tâches AQ (assurance qualité)](./media/how-to-ci-cd/add-task-qa.png)
 
@@ -135,13 +135,13 @@ Dans cette section, vous allez créer un pipeline de mise en production configur
 
     ![Déployer en AQ (assurance qualité)](./media/how-to-ci-cd/deploy-to-qa.png)
 
-    Enregistrez le nouveau pipeline de mise en production. Cliquez sur le bouton **Enregistrer** . Cliquez ensuite sur **Pipeline** pour revenir au pipeline.
+    Enregistrer le nouveau pipeline de mise en production avec le bouton **Enregistrer**. Sélectionnez ensuite **Pipeline** pour revenir au pipeline.
 
 6. La deuxième phase concerne votre environnement de production. Pour ajouter une nouvelle phase « PROD », clonez la phase « QA » et renommez la phase clonée en **PROD**,
 
     ![Cloner la phase](./media/how-to-ci-cd/clone-stage.png)
 
-7. Configurez les tâches pour votre environnement de production. Supposons que plusieurs appareils IoT Edge aient l’étiquette « prod ». Dans les configurations de tâches, mettez à jour la condition cible sur « prod », puis définissez l’ID de déploiement comme étant « deploy-prod » dans les paramètres avancés. Cliquez sur le bouton **Enregistrer** . Cliquez ensuite sur **Pipeline** pour revenir au pipeline.
+7. Configurez les tâches pour votre environnement de production. Supposons que plusieurs appareils IoT Edge aient l’étiquette « prod ». Dans les configurations de tâches, mettez à jour la condition cible sur « prod », puis définissez l’ID de déploiement comme étant « deploy-prod » dans les paramètres avancés. Enregistrez-le avec le bouton **Enregistrer**. Sélectionnez ensuite **Pipeline** pour revenir au pipeline.
     
     ![Déployer en production](./media/how-to-ci-cd/deploy-to-prod.png)
 
@@ -151,7 +151,7 @@ Dans cette section, vous allez créer un pipeline de mise en production configur
 
         ![Ouvrir les conditions de prédéploiement](./media/how-to-ci-cd/pre-deploy-conditions.png)    
 
-    2. Définissez **Activé** dans **Approbations de prédéploiement**. Renseignez l’entrée **Approbateurs**. Cliquez ensuite sur **Enregistrer**.
+    2. Définissez **Activé** dans **Approbations de prédéploiement**. Renseignez l’entrée **Approbateurs**. Enregistrez-le avec le bouton **Enregistrer**.
     
         ![Définir des conditions](./media/how-to-ci-cd/set-pre-deployment-conditions.png)
 
@@ -165,7 +165,7 @@ Dans cette section, vous allez créer un pipeline de mise en production configur
 
 Dans cette section, vous allez déclencher une build pour faire fonctionner le pipeline CI/CD. Vérifiez ensuite la réussite du déploiement.
 
-1. Pour déclencher un travail de build, envoyez (push) une validation dans le dépôt de code source, ou déclenchez-le manuellement. Vous pouvez déclencher un travail de build dans votre pipeline de build en cliquant sur le bouton **File d’attente**, comme indiqué dans la capture d’écran suivante.
+1. Pour déclencher un travail de build, envoyez (push) une validation dans le dépôt de code source, ou déclenchez-le manuellement. Vous pouvez déclencher un travail de build dans votre pipeline de build en sélectionnant le bouton **File d’attente**, comme indiqué dans la capture d’écran suivante.
 
     ![Déclencheur manuel](./media/how-to-ci-cd/manual-trigger.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: 69127702a7d8e7027e78a8e04a4e8e1bc3e36b65
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d7beab66bdaed312f32adef74ceb4b2944e6853e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956338"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103887"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Utiliser l’API d’authentification de Resource Manager pour accéder aux abonnements
 ## <a name="introduction"></a>Introduction
@@ -156,7 +156,7 @@ L’exemple suivant illustre une demande de jeton d’octroi de code avec les in
 
 Lorsque vous utilisez des informations d’identification de certificat, créez une clé d’authentification web JSON (JWT) et effectuez la signature (RSA SHA256) à l’aide de la clé privée des informations d’identification du certificat de votre application. La génération de ce jeton est indiquée dans le [flux des informations d’identification clientes](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#second-case-access-token-request-with a-certificate).  Consultez également le [code Active Directory Authentication Library (.NET)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) pour la signature des jetons JWT d’assertion de client.
 
-Pour en savoir plus sur l’authentification du client, consultez les [spécifications d’Open ID Connect](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) .
+Pour en savoir plus sur l’authentification du client, consultez les [spécifications d’Open ID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) .
 
 L’exemple suivant illustre une demande de jeton d’octroi de code avec les informations d’identification de certificat :
 

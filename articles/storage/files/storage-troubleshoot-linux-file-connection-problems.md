@@ -9,18 +9,40 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: d5dd2e2943d78291fc9c4903c15fb4d3767edbea
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: b8f77f404a8e5d2d1625a327a1e50c0e169b6135
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442010"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744426"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Résoudre les problèmes liés à Azure Files dans Linux
 
-Cet article répertorie les problèmes courants liés à Microsoft Azure Files quand vous vous connectez à partir de clients Linux. Il fournit également les causes possibles et les solutions de ces problèmes. 
+Cet article liste les problèmes courants liés à Azure Files quand vous vous connectez à partir de clients Linux. Il fournit également les causes possibles et les solutions de ces problèmes. 
 
 En plus des étapes de dépannage présentées dans cet article, vous pouvez utiliser [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) pour vérifier que le client Linux dispose des prérequis. Azfilediagnostics automatise la détection de la plupart des problèmes mentionnés dans cet article. Il vous aide à configurer votre environnement pour obtenir des performances optimales. Vous pouvez également trouver ces informations dans l’[utilitaire de résolution des problèmes de partages Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). L’utilitaire de résolution des problèmes indique les étapes pour vous aider en cas de problèmes de connexion, de mappage et de montage de partages Azure Files.
+
+<a id="mounterror13"></a>
+## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>« Erreur de montage (13) : Autorisation refusée » quand vous montez un partage de fichiers Azure
+
+### <a name="cause-1-unencrypted-communication-channel"></a>Cause 1 : Canal de communication non chiffré
+
+Pour des raisons de sécurité, les connexions aux partages de fichiers Azure sont bloquées si le canal de communication n’est pas chiffré et si la tentative de connexion n’est pas effectuée depuis le centre de données sur lequel résident les partages de fichiers Azure. Les connexions non chiffrées dans le même centre de données peuvent également être bloquées si le paramètre [Transfert sécurisé requis](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) est activé sur le compte de stockage. Un canal de communication chiffré est fourni uniquement si le système d’exploitation client de l’utilisateur prend en charge le chiffrement SMB.
+
+Pour en savoir plus, consultez [Prérequis pour le montage d’un partage de fichiers Azure avec Linux et le package cifs-utils](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-linux#prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package). 
+
+### <a name="solution-for-cause-1"></a>Solution pour la cause 1
+
+1. Connectez-vous à partir d’un client qui prend en charge le chiffrement SMB ou à partir d’une machine virtuelle se trouvant dans le même centre de données que le compte de stockage Azure utilisé pour le partage de fichiers Azure.
+2. Vérifiez que le paramètre [Transfert sécurisé obligatoire](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) est désactivé sur le compte de stockage si le client ne prend pas en charge le chiffrement SMB.
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Cause 2 : Des règles de pare-feu ou de réseau virtuel sont activées sur le compte de stockage 
+
+Si des règles de pare-feu et de réseau virtuel sont configurées sur le compte de stockage, le trafic réseau n’a pas d’accès, sauf si l’adresse IP du client ou un réseau virtuel est autorisé à accéder.
+
+### <a name="solution-for-cause-2"></a>Solution pour la cause 2
+
+Vérifiez que les règles de pare-feu et de réseau virtuel sont configurées correctement sur le compte de stockage. Pour vérifier si des règles de pare-feu ou de réseau virtuel sont à l’origine du problème, définissez temporairement le paramètre du compte de stockage sur **Autoriser l’accès à partir de tous les réseaux**. Pour plus d’informations, consultez [Configurer les pare-feu et les réseaux virtuels dans le Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>« [autorisation refusée] Quota de disque dépassé » lorsque vous essayez d’ouvrir un fichier
@@ -44,10 +66,10 @@ Réduisez le nombre de handles ouverts simultanément en en fermant certains, pu
 - Si vous connaissez la taille finale d’un fichier que vous étendez à l’aide d’écritures, et si votre logiciel ne présente aucun problème de compatibilité lorsqu’une fin non écrite du fichier contient des zéros, définissez la taille du fichier à l’avance pour éviter que chaque écriture ne soit une écriture d’extension.
 - Utilisez la méthode de copie appropriée :
     - Utilisez [AZCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) pour les transferts entre deux partages de fichiers.
-    - Utilisez [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) entre les partages de fichiers sur un ordinateur local.
+    - Utilisez [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) entre des partages de fichiers sur un ordinateur local.
 
 <a id="error112"></a>
-## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>« Erreur de montage (112) : l’hôte est hors service » en raison d’un délai d’expiration de reconnexion
+## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>« Erreur de montage (112) : L’hôte est hors service » en raison de l’expiration du délai de reconnexion
 
 L’erreur de montage 112 se produit sur le client Linux s’il est resté inactif pendant une période prolongée. Après une durée d’inactivité prolongée, le client se déconnecte, et la connexion arrive à expiration.  
 
@@ -64,10 +86,10 @@ Ce problème de reconnexion dans le noyau Linux est maintenant résolu dans le c
 
 - [Résoudre le problème de reconnexion pour ne pas différer la reconnexion de la session SMB3 longtemps après la reconnexion du socket](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
 - [Appeler le service d’écho immédiatement après la reconnexion du socket](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
-- [CIFS : Corriger une éventuelle corruption de la mémoire lors de la reconnexion](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
-- [CIFS: Fix a possible double locking of mutex during reconnect (for kernel v4.9 and later) (CIFS : corriger un éventuel double verrouillage du mutex lors de la reconnexion [pour les noyaux v4.9 et ultérieurs])](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
+- [CIFS : Corriger une éventuelle corruption de la mémoire pendant la reconnexion](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
+- [CIFS : Corriger un éventuel double verrouillage du mutex pendant la reconnexion (pour les noyaux v4.9 et ultérieurs)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
-Toutefois, il se peut que ces modifications n’aient pas encore été appliquées à l’ensemble des distributions Linux. Ce correctif et les autres correctifs de reconnexion sont dans les noyaux Linux courants suivants : 4.4.40, 4.8.16 et 4.9.1. Vous pouvez obtenir ce correctif en procédant à la mise à niveau vers l’une de ces versions du noyau recommandées.
+Toutefois, il se peut que ces modifications n’aient pas encore été appliquées à l’ensemble des distributions Linux. Ce correctif et les autres correctifs de reconnexion sont dans les noyaux Linux courants suivants : 4.4.40, 4.8.16 et 4.9.1. Vous pouvez obtenir ce correctif en procédant à la mise à niveau vers l’une de ces versions du noyau recommandées.
 
 ### <a name="workaround"></a>Solution de contournement
 
@@ -87,6 +109,27 @@ Certaines distributions Linux ne prennent pas encore en charge les fonctionnalit
 La fonctionnalité de chiffrement pour SMB 3.0 pour Linux a été introduite dans le noyau 4.11. Cette fonctionnalité permet le montage du partage d’un fichier Azure en local ou à partir d’une autre région Azure. Quand nous avons publié cet article, cette fonctionnalité a été rétroportée dans Ubuntu 17.04 et Ubuntu 16.10. 
 
 Si votre client SMB Linux ne prend pas en charge le chiffrement, montez Azure Files à l’aide de SMB 2.1 à partir d’une machine virtuelle Azure Linux se trouvant dans le même centre de données que le partage de fichiers. Vérifiez que le paramètre [Transfert sécurisé requis]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) est désactivé sur le compte de stockage. 
+
+<a id="accessdeniedportal"></a>
+## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>Erreur « Accès refusé » quand vous accédez à un partage de fichiers Azure dans le portail
+
+Quand vous accédez à un partage de fichiers Azure dans le portail, vous pouvez recevoir l’erreur suivante :
+
+Accès refusé  
+Vous n’avez pas accès  
+Apparemment, vous n’avez pas accès à ce contenu. Pour obtenir l’accès, contactez le propriétaire.  
+
+### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Cause 1 : Votre compte d’utilisateur n’a pas accès au compte de stockage
+
+### <a name="solution-for-cause-1"></a>Solution pour la cause 1
+
+Accédez au compte de stockage où se trouve le partage de fichiers Azure, cliquez sur **Contrôle d’accès (IAM)** et vérifiez que votre compte d’utilisateur a accès au compte de stockage. Pour en savoir plus, consultez [Guide pratique pour sécuriser votre compte de stockage avec le contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Cause 2 : Des règles de pare-feu ou de réseau virtuel sont activées sur le compte de stockage
+
+### <a name="solution-for-cause-2"></a>Solution pour la cause 2
+
+Vérifiez que les règles de pare-feu et de réseau virtuel sont configurées correctement sur le compte de stockage. Pour vérifier si des règles de pare-feu ou de réseau virtuel sont à l’origine du problème, définissez temporairement le paramètre du compte de stockage sur **Autoriser l’accès à partir de tous les réseaux**. Pour plus d’informations, consultez [Configurer les pare-feu et les réseaux virtuels dans le Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Ralentissement des performances dans un partage de fichiers Azure monté sur une machine virtuelle
@@ -163,11 +206,11 @@ Pour résoudre le problème, utilisez [l’outil de résolution des erreurs de m
 * Il fournit des instructions pour la résolution automatique.
 * Il collecte les suivis des diagnostics.
 
-## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls : impossible d’accéder à '&lt;chemin d’accès&gt;' : erreur d’entrée/sortie
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls : impossible d’accéder à « &lt;chemin&gt; » : Erreur d’entrée/sortie
 
 Quand vous tentez de répertorier les fichiers d’un partage de fichiers Azure à l’aide de la commande ls, cette commande se bloque lors de l’affichage de la liste des fichiers. Vous obtenez l’erreur suivante :
 
-**ls : impossible d’accéder à '&lt;chemin d’accès&gt;' : erreur d’entrée/sortie**
+**ls : impossible d’accéder à « &lt;chemin&gt; » : Erreur d’entrée/sortie**
 
 
 ### <a name="solution"></a>Solution
@@ -178,7 +221,7 @@ Mettez à niveau le noyau Linux vers les versions suivantes qui incluent un corr
 - 4.12.11+
 - Toutes les versions à partir de 4.13
 
-## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Impossible de créer des liens symboliques - Dans : impossible de créer le lien symbolique « t » : Opération non prise en charge
+## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Impossible de créer des liens symboliques - ln : échec de création du lien symbolique « t » : Opération non prise en charge
 
 ### <a name="cause"></a>Cause :
 Par défaut, le montage des partages de fichiers Azure sur Linux à l’aide de CIFS n’active pas la prise en charge des liens symboliques (symlinks). Une erreur comme celle-ci s’affiche :

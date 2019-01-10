@@ -12,20 +12,23 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 12/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: b79206b9d456226d14984e8a1c1002c07c4f626a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3e390763255878384e7a767158210d0515b09958
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208469"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653542"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifestes des services et applications Service Fabric
-Cet article explique comment les services et les applications Service Fabric sont définis et créés dans différentes versions à l’aide des fichiers ApplicationManifest.xml et ServiceManifest.xml.  Le schéma XML pour ces fichiers manifestes est détaillé dans [Documentation relative au schéma ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
+Cet article explique comment les services et les applications Service Fabric sont définis et créés dans différentes versions à l’aide des fichiers ApplicationManifest.xml et ServiceManifest.xml.  Pour plus d’exemples, consultez les [exemples de manifeste de service et d’application](service-fabric-manifest-examples.md).  Le schéma XML pour ces fichiers manifestes est détaillé dans [Documentation relative au schéma ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
+
+> [!WARNING]
+> Le schéma du fichier manifeste XML applique l’ordre correct des éléments enfants.  À tire de solution de contournement partielle, ouvrez « C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd » dans Visual Studio lors de la création ou de la modification des manifestes de Service Fabric. Ceci vous permet de vérifier l’ordre des éléments enfants et fournit la fonctionnalité IntelliSense.
 
 ## <a name="describe-a-service-in-servicemanifestxml"></a>Décrire un service dans ServiceManifest.xml
-Le manifeste de service définit de manière déclarative le type de service et la version. Il spécifie les métadonnées de service telles que le type de service, les propriétés du contrôle d’intégrité, des mesures d’équilibrage de charge, des fichiers binaires de service et des fichiers de configuration.  Autrement dit, il décrit les packages de code, de configuration et de données qui composent un package de service pour prendre en charge un ou plusieurs types de service. Un manifeste de service peut contenir plusieurs packages de code, de configuration et de données pouvant être créés dans différentes versions indépendamment. Voici un manifeste de service pour le service web frontal ASP.NET Core de l’[exemple d’application de vote](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) :
+Le manifeste de service définit de manière déclarative le type de service et la version. Il spécifie les métadonnées de service telles que le type de service, les propriétés du contrôle d’intégrité, des mesures d’équilibrage de charge, des fichiers binaires de service et des fichiers de configuration.  Autrement dit, il décrit les packages de code, de configuration et de données qui composent un package de service pour prendre en charge un ou plusieurs types de service. Un manifeste de service peut contenir plusieurs packages de code, de configuration et de données pouvant être créés dans différentes versions indépendamment. Voici un manifeste de service pour le service web frontal ASP.NET Core de [l’exemple d’application de vote](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (et voici [quelques exemples plus détaillés](service-fabric-manifest-examples.md)) :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -76,7 +79,7 @@ Le fichier exécutable spécifié par **EntryPoint** est généralement l’hôt
 * la configuration et l’initialisation de variables d'environnement dont le fichier exécutable du service a besoin, sans limitation aux seuls exécutables écrits via les modèles de programmation de Service Fabric. Par exemple, npm.exe a besoin de certaines variables d’environnement configurées pour le déploiement d’une application node.js.
 * La configuration d’un contrôle d’accès via l’installation de certificats de sécurité.
 
-Pour plus d’informations sur la façon de configurer **SetupEntryPoint**, consultez [Configurer la stratégie pour un point d’entrée de configuration de service](service-fabric-application-runas-security.md)
+Pour plus d’informations sur la configuration de SetupEntryPoint, consultez [Configurer la stratégie pour un point d’entrée de configuration de service](service-fabric-application-runas-security.md)
 
 **EnvironmentVariables** (non défini dans l’exemple précédent) fournit une liste de variables d’environnement définies pour ce package de code. Les variables d’environnement peuvent être remplacées dans le fichier `ApplicationManifest.xml` en vue de fournir différentes valeurs pour différentes instances de service. 
 
@@ -108,7 +111,7 @@ For more information about other features supported by service manifests, refer 
 ## <a name="describe-an-application-in-applicationmanifestxml"></a>Décrire une application dans ApplicationManifest.xml
 Le manifeste d’application décrit le type et la version de manière déclarative. Il spécifie les métadonnées de composition de service telles que les noms stables, le schéma de partitionnement, le nombre d'instances/facteur de réplication, la stratégie de sécurité/d'isolation, les contraintes de placement, les remplacements de configuration et les types de service constitutifs. Les domaines d'équilibrage de charge dans lesquels l'application est placée sont également décrits.
 
-Ainsi, un manifeste d'application décrit les éléments au niveau de l'application et fait référence à un ou plusieurs des manifestes de service pour composer un type d'application. Voici le manifeste d’application pour l’[exemple d’application de vote](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) :
+Ainsi, un manifeste d'application décrit les éléments au niveau de l'application et fait référence à un ou plusieurs des manifestes de service pour composer un type d'application. Voici le manifeste d’application pour [l’exemple d’application de vote](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (et voici quelques [exemples plus détaillés](service-fabric-manifest-examples.md)) :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

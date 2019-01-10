@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 84462b98e1006cadf34adecf948efd39ad4f69d6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: e120c10468ca95b604ef8f857959607d3a066ea0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313970"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973551"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Résoudre les problèmes de réplication de machine virtuelle Azure vers Azure
 
@@ -278,6 +278,14 @@ Pour activer la réplication sur la machine virtuelle, l’état de provisionnem
 
 Vous pouvez ouvrir la console « Services » et vérifier que « Application système COM+ » et « Cliché instantané de volume » ne sont pas définis sur « Désactivé » pour le « Type de démarrage ».
   ![com-error](./media/azure-to-azure-troubleshoot-errors/com-error.png)
+
+## <a name="unsupported-managed-disk-size-error-code-150172"></a>Taille de disque managé non prise en charge (code d’erreur 150172)
+
+
+**Code d’erreur** | **Causes possibles** | **Recommandations**
+--- | --- | ---
+150172<br></br>**Message** : Impossible d’activer la protection pour la machine virtuelle, car elle a un disque (nom_disque) de taille (taille_disque) inférieure à la valeur minimale prise en charge de 10 Go. | - Le disque a une taille inférieure à la taille prise en charge de 1 024 Mo| Vérifiez que les tailles de disque sont dans la plage des tailles prises en charge et réessayez l’opération. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Répliquer des machines virtuelles Azure](site-recovery-replicate-azure-to-azure.md)

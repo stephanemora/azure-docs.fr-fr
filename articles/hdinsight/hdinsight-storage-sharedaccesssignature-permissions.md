@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 100c9266718d618b8b00a3169c3d88ac7d501791
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c3cb9b7988269f394615b6498bbe7af5bb0ab1e1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409919"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743355"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utilisation des signatures d’accès partagé du stockage Azure pour restreindre l’accès aux données dans HDInsight
 
@@ -183,7 +183,7 @@ Un exemple de création de cluster HDInsight utilisant les SAP est inclus dans l
    > * Il doit contenir au moins 10 caractères.
    > * Il doit contenir au moins un chiffre.
    > * Il doit contenir au moins un caractère non alphanumérique.
-   > * Il doit contenir au moins une lettre minuscule et une lettre majuscule.
+   > * Il doit contenir au moins une lettre minuscule ou une lettre majuscule.
 
 L’exécution de ce script prend un certain temps, environ 15 minutes en général. Lorsque le script se termine sans erreur, le cluster a été créé.
 
@@ -293,7 +293,7 @@ Une fois connecté au cluster, procédez comme suit pour vérifier que vous pouv
 * Il doit contenir au moins 10 caractères.
 * Il doit contenir au moins un chiffre.
 * Il doit contenir au moins un caractère non alphanumérique.
-* Il doit contenir au moins une lettre minuscule et une lettre majuscule.
+* Il doit contenir au moins une lettre minuscule ou une lettre majuscule.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

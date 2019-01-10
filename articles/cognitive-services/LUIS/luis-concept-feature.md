@@ -1,7 +1,7 @@
 ---
 title: Caractéristiques
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Ajoutez des caractéristiques à un modèle de langage afin de fournir des conseils sur la façon de reconnaître les entrées que vous souhaitez étiqueter ou classer.
+description: Ajoutez des fonctionnalités à un modèle de langage afin de fournir des conseils sur la façon de reconnaître les entrées que vous souhaitez étiqueter ou classer.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 62827054a14930cd49f7d80d6c305e60060c0fe6
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2d6f7e2fd332e1687db1564befeb6f531045c5dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271383"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993058"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Caractéristiques de liste d’expressions dans votre application LUIS
 
@@ -29,6 +29,10 @@ Une liste d’expressions inclut un groupe de valeurs (mots ou expressions) qui 
 
 Une liste d’expressions complète le vocabulaire du domaine d’application sous la forme d’un deuxième signal vers LUIS sur ces mots.
 
+## <a name="phrase-lists-help-all-models"></a>Les listes d’expressions aident tous les modèles
+
+Les listes d’expressions ne sont pas liées à une intention ou à une entité spécifique, mais sont ajoutées pour améliorer tous les modèles. Leur objectif est d’améliorer la détection de l’intention et la classification des entités.
+
 ## <a name="how-to-use-phrase-lists"></a>Comment utiliser des listes d’expressions
 Dans le [tutoriel d’entité simple](luis-quickstart-primary-and-secondary-data.md) de l’application de ressources humaines, l’application utilise une liste d’expressions **travail** de types d’emplois tels que programmeur, couvreur et secrétaire. Si vous étiquetez une des valeurs suivantes en tant qu’entité ayant bénéficié du machine-learning, LUIS apprend à reconnaître les autres. 
 
@@ -40,6 +44,7 @@ Une liste d’expressions peut être interchangeable ou non. Une liste d’expre
 |Non-interchangeable|Vocabulaire d’application propre à votre application (généralement plus que d’autres mots dans cette langue).|
 
 Les listes d’expressions facilitent non seulement la détection d’entité, mais également la classification d’intention où le caractère non interchangeable est plus logique, comme par exemple pour l’ajout de mots de vocabulaire qui ne sont pas connus en langue française.
+
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 

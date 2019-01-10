@@ -6,50 +6,83 @@ author: HeidiSteen
 manager: cgronlun
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 12/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9c9af69e45af6a70c5327393a1c10385ba2c2aed
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 55de72b2a82dea3dfe763d786966565beb229042
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316894"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745089"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Comment régénérer un index Recherche Azure
 
-Lorsque vous régénérez un index, vous modifiez sa structure et son expression physique dans votre service Recherche Azure. À l’inverse, lorsque vous actualisez un index, vous mettez uniquement à jour son contenu pour obtenir les dernières modifications à partir d’une source de données externe de contribution. Cet article explique comment mettre à jour les index de manière structurelle et substantielle.
+Cet article explique comment regénerer un index Recherche Azure et les circonstances dans lesquelles les regénérations sont nécessaires, et il contient des recommandations pour atténuer l’impact des regénérations sur les demandes des requêtes en cours.
 
-Les mises à jour d’index requièrent des autorisations en lecture/écriture au niveau du service. Via la programmation, vous pouvez appeler des API REST ou .NET pour effectuer une régénération complète ou une indexation incrémentielle du contenu, avec des paramètres spécifiant les options de mise à jour. 
+Une *regénération* fait référence à la suppression et à la recréation des structures de données physiques associées à un index, notamment tous les index inversés basés sur un champ. Dans Recherche Azure, vous ne pouvez pas supprimer et recréer des champs spécifiques. Pour regénerer un index, la totalité du stockage des champs doit être supprimé, recréé sur la base d’un schéma d’index existant ou révisé, puis à nouveau rempli avec les données envoyées à l’index ou extraites de sources externes. Il est courant de regénerer les index pendant le développement, mais il peut également être nécessaire de regénerer un index au niveau de la production pour prendre en compte des modifications structurelles, comme l’ajout de types complexes.
 
-En règle générale, les mises à jour d’index se font à la demande. Toutefois, pour les index remplis à l’aide [d’indexeurs](search-indexer-overview.md) spécifiques à la source, vous pouvez utiliser un planificateur intégré. Le planificateur prend en charge l’actualisation des documents toutes les 15 minutes minimum, selon l’intervalle et le modèle dont vous avez besoin. Pour actualiser le contenu plus fréquemment, il est nécessaire d’exécuter les mises à jour d’index manuellement, par exemple via une double-écriture au niveau des transactions, afin de mettre à jour simultanément la source de données externe et l’index Recherche Azure.
+Contrairement aux regénérations, qui placent un index hors connexion, *l’actualisation des données* s’exécute comme tâche d’arrière-plan. Vous pouvez ajouter, supprimer et remplacer des documents avec une interruption minimale pour les charges de travail de requêtes, bien que l’exécution des requêtes soit alors généralement plus longue. Pour plus d’informations sur la mise à jour du contenu des index, consultez [Ajouter, mettre à jour ou supprimer des documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
-## <a name="full-rebuilds"></a>Régénérations complètes
+## <a name="rebuild-conditions"></a>Conditions de la recréation
 
-De nombreux types de mises à jour nécessitent une régénération complète. Une régénération complète fait référence à la suppression d’un index, à la fois les données et les métadonnées, suivie d’un nouveau remplissage de l’index à partir de sources de données externes. Via la programmation, vous devez [supprimer](https://docs.microsoft.com/rest/api/searchservice/delete-index), [créer](https://docs.microsoft.com/rest/api/searchservice/create-index), puis [recharger](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) l’index pour le régénérer. 
+| Condition | Description |
+|-----------|-------------|
+| Modification d’une définition de champ | La révision d’un nom, d’un type de données ou d’[attributs d’index](https://docs.microsoft.com/rest/api/searchservice/create-index) spécifiques (interrogeable, filtrable, triable, à choix multiples) nécessite une regénération complète. |
+| Suppression d’un champ | Pour supprimer physiquement toutes les traces d’un champ, vous devez regénerer l’index. Quand une regénération immédiate n’est pas praticable, la plupart des développeurs modifient le code de l’application pour désactiver l’accès au champ « supprimé ». Physiquement, le contenu et la définition du champ restent dans l’index jusqu’à la regénération suivante avec un schéma qui omet le champ en question. |
+| Changement de niveau | Si vous avez besoin de davantage de capacité, il n’y a pas de mise à niveau sur place. Un nouveau service est créé sur le nouveau point de capacité et les index doivent être créés à partir de zéro sur le nouveau service. |
 
-Une fois l’index régénéré, n’oubliez pas que si vous avez testé des modèles de requête et des profils de score, vous pouvez obtenir des résultats différents si le contenu sous-jacent a été modifié.
+Toutes les autres modifications peuvent être effectuées sans impact sur les structures physiques existantes. Plus précisément, les modifications suivantes n’impliquent *pas* une regénération d’index :
 
-## <a name="when-to-rebuild"></a>Quand régénérer un index
++ Ajouter un nouveau champ
++ Définir l’attribut **Récupérable** sur un champ existant
++ Définir un analyseur sur un champ existant
++ Ajouter, mettre à jour ou supprimer des profils de scoring
++ Ajouter, mettre à jour ou supprimer des paramètres CORS
++ Ajouter, mettre à jour ou supprimer des générateurs de suggestions
++ Ajouter, mettre à jour ou supprimer des synonymMaps
 
-Planifiez des régénérations fréquentes et complètes pendant la phase de développement actif, lorsque les schémas d’index sont à l’état de flux.
-
-| Modification | État de la régénération|
-|--------------|---------------|
-| Modifier un type de données,un nom de champ ou ses [attributs d’index](https://docs.microsoft.com/rest/api/searchservice/create-index) | La modification d’une définition de champ entraîne généralement une pénalité de régénération, sauf pour les [attributs d’index](https://docs.microsoft.com/rest/api/searchservice/create-index) suivants : Retrievable, SearchAnalyzer et SynonymMaps. Vous pouvez ajouter les attributs Retrievable, SearchAnalyzer et SynonymMaps à un champ existant sans avoir à régénérer l’index.|
-| Ajouter un champ | Aucune obligation de régénération. Les documents indexés existants reçoivent une valeur null pour le nouveau champ. Lors de la prochaine réindexation, les valeurs des données sources remplaceront les valeurs null ajoutées par le service Recherche Azure. |
-| Supprimer un champ | Vous ne pouvez pas supprimer directement un champ d’un index Recherche Azure. Au lieu de cela, vous devez configurer votre application pour qu’elle ignore le champ « supprimé » et ne l’utilise pas. Physiquement, le contenu et la définition du champ restent dans l’index jusqu’à ce que vous régénériez votre index à l’aide d’un schéma qui omet le champ en question.|
-
-> [!Note]
-> Une régénération est également nécessaire si vous changez de niveau. Si à un moment donné vous décidez d’augmenter la capacité, il n’existe aucune possibilité de mise à niveau sur place. Vous devez créer un nouveau service sur le nouveau point de capacité et régénérer entièrement les index sur le nouveau service. 
+Quand vous ajoutez un nouveau champ, les documents indexés existants reçoivent une valeur null pour le nouveau champ. Lors de l’actualisation suivante des données, les valeurs provenant des données sources externes remplacent les valeurs null ajoutées par Recherche Azure.
 
 ## <a name="partial-or-incremental-indexing"></a>Indexation incrémentielle ou partielle
 
-Une fois qu’un index est en production, orientez-vous vers une indexation incrémentielle, qui se fait généralement sans interruption de service notable. L’indexation partielle ou incrémentielle est une charge de travail portant uniquement sur le contenu qui synchronise le contenu d’un index de recherche pour refléter l’état du contenu dans une source de données de contribution. Un document ajouté ou supprimé dans la source est ajouté ou supprimé dans l’index. Dans le code, appelez l’opération [Ajouter, mettre à jour et supprimer des documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) ou l’équivalent .NET.
+Dans Recherche Azure, vous ne pouvez pas contrôler l’indexation au niveau d’un champ, en choisissant de supprimer ou de recréer des champs spécifiques. De même, il n’existe pas de mécanisme intégré pour [l’indexation de documents en fonction de critères](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents). Toutes vos exigences quant à une indexation pilotée par des critères doivent être satisfaites via du code personnalisé.
 
-> [!Note]
-> Lorsque vous utilisez des indexeurs qui analysent les sources de données externes, l’indexation incrémentielle fait appel à des mécanismes de suivi des modifications au niveau des systèmes sources. Pour le [stockage Blob Azure](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection), un champ `lastModified` est utilisé. Pour le [stockage Table Azure](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection), `timestamp` remplit le même rôle. De même, [l’indexeur Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) et [l’indexeur Azure Cosmos DB](search-howto-index-cosmosdb.md#indexing-changed-documents) contiennent tous deux des champs pour identifier les mises à jour de ligne. Pour en savoir plus sur les indexeurs, consultez l’article [Présentation de l’indexeur](search-indexer-overview.md).
+Une chose facile à faire est cependant d’*actualiser des documents* dans un index. Pour de nombreuses solutions de recherche, les données sources externes sont volatiles, et la synchronisation entre les données sources et un index de recherche est une pratique courante. Dans le code, appelez l’opération [Ajouter, mettre à jour ou supprimer des documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) ou l’[équivalent .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexesoperationsextensions.createorupdate?view=azure-dotnet) pour mettre à jour le contenu de l’index, ou pour ajouter des valeurs pour un nouveau champ.
 
+## <a name="partial-indexing-with-indexers"></a>Indexation partielle avec des indexeurs
+
+Les [indexeurs](search-indexer-overview.md) simplifient la tâche d’actualisation des données. Un indexeur peut indexer seulement une table ou une vue dans la source de données externe. Pour indexer plusieurs tables, l’approche la plus simple est de créer une vue qui joint les tables et projette les colonnes que vous voulez indexer. 
+
+Quand vous utilisez des indexeurs qui analysent des sources de données externes, recherchez une colonne de « limite supérieure » dans la source de données. S’il en existe une, vous pouvez l’utiliser pour la détection des modifications incrémentielles en sélectionnant seulement les lignes avec du contenu nouveau ou modifié. Pour le [stockage Blob Azure](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection), un champ `lastModified` est utilisé. Pour le [stockage Table Azure](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection), `timestamp` remplit le même rôle. De même, [l’indexeur Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) et [l’indexeur Azure Cosmos DB](search-howto-index-cosmosdb.md#indexing-changed-documents) contiennent tous deux des champs pour identifier les mises à jour de ligne. 
+
+Pour plus d’informations sur les indexeurs, consultez [Vue d’ensemble des indexeurs](search-indexer-overview.md) et [Reset Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/reset-indexer).
+
+## <a name="how-to-rebuild-an-index"></a>Comment regénérer un index
+
+Planifiez des régénérations fréquentes et complètes pendant la phase de développement actif, lorsque les schémas d’index sont à l’état de flux. Pour les applications déjà en production, nous recommandons de créer un nouvel index qui s’exécute côte à côte avec un index existant pour éviter des temps d’arrêt dans les requêtes.
+
+Si vous avez des exigences strictes dans le cadre d’un contrat SLA, vous pouvez envisager de provisionner un nouveau service spécifiquement pour ce travail, le développement et l’indexation se produisant dans une isolation complète d’un index de production. Un service distinct s’exécute sur son propre matériel, éliminant toute possibilité de contention des ressources. Une fois le développement terminé, vous laissez le nouvel index en place et vous redirigez les requêtes vers le nouveau point de terminaison et le nouvel index, ou bien vous exécutez le code terminé pour publier un index revu sur votre service Recherche Azure d’origine. Il n’existe actuellement aucun mécanisme pour déplacer un index prêt à l’emploi vers un autre service.
+
+Les mises à jour d’index requièrent des autorisations en lecture/écriture au niveau du service. Par programmation, vous pouvez appeler l’[API REST de mise à jour d’un index](https://docs.microsoft.com/rest/api/searchservice/update-index) ou des API .NET pour une regénération complète. La demande est identique à l’[API REST de création d’index](https://docs.microsoft.com/rest/api/searchservice/create-index), mais elle a un contexte différent.
+
+1. Si vous réutilisez le nom de l’index, [supprimez l’index existant](https://docs.microsoft.com/rest/api/searchservice/delete-index). Toutes les requêtes ciblant cet index sont immédiatement supprimées. La suppression d’un index est irréversible, détruisant le stockage physique pour la collection de champs et d’autres constructions. Veillez à bien comprendre les implications de la suppression d’un index avant de le supprimer. 
+
+2. Fournissez un schéma d’index avec les définitions des champs modifiés. Les spécifications des schémas sont documentées dans [Créer un index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+
+3. Spécifiez une [clé d’administrateur](https://docs.microsoft.com/azure/search/search-security-api-keys) sur la demande.
+
+4. Envoyez une commande de [mise à jour d’index](https://docs.microsoft.com/rest/api/searchservice/update-index) pour regénérer l’expression physique de l’index sur Recherche Azure. Le corps de la demande contient le schéma d’index, ainsi que des constructions pour les profils de scoring, les analyseurs, les générateurs de suggestions et les options CORS.
+
+5. [Chargez l’index avec des documents ](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) d’une source externe. Vous pouvez aussi utiliser cette API si vous actualisez un schéma d’index existant non modifié avec des documents mis à jour.
+
+Quand vous créez l’index, du stockage physique est alloué pour chaque champ dans le schéma d’index, avec un index inversé créé pour chaque champ avec possibilité de recherche. Les champs sans possibilité de recherche peuvent être utilisés dans des filtres ou des expressions, mais ils n’ont pas d’index inversés et la recherche en texte intégral n’y est pas possible. Lors d’une regénération d’index, ces index inversés sont supprimés et recréés sur la base du schéma d’index que vous fournissez.
+
+Quand vous chargez l’index, l’index inversé de chaque champ est rempli avec tous les mots uniques tokenisés de chaque document, avec un mappage aux ID des documents correspondants. Par exemple, lors de l’indexation d’un jeu de données avec des hôtels, un index inversé créé pour un champ Ville peut contenir des termes pour Seattle, Portland, etc. L’ID des documents qui incluent « Seattle » ou « Portland » dans le champ Ville figure à côté du terme. Lors d’une opération [Ajouter, mettre à jour ou supprimer](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), les termes et la liste des ID de document sont mis à jour en conséquence.
+
+## <a name="view-updates"></a>Voir les mises à jour
+
+Vous pouvez commencer à interroger un index dès que le premier document est chargé. Si vous connaissez l’ID d’un document, l’[API REST de recherche de document](https://docs.microsoft.com/rest/api/searchservice/lookup-document) retourne le document spécifique. Pour un test plus large, attendez que l’index soit entièrement chargé, puis utilisez des requêtes pour vérifier le contexte que vous vous attendez à voir.
 
 ## <a name="see-also"></a>Voir aussi
 

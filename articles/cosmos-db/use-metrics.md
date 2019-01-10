@@ -1,18 +1,18 @@
 ---
 title: Superviser et déboguer à l’aide de métriques dans Azure Cosmos DB
 description: Utilisez les métriques d’Azure Cosmos DB pour déboguer les problèmes courants et surveiller la base de données.
-services: cosmos-db
 ms.service: cosmos-db
 author: kanshiG
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.openlocfilehash: 8461797e0c3b8d92466c37c5564df895e494ce74
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: sngun
+ms.openlocfilehash: ff6e0b6084eebf236d01b4dd00a46897687938c2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957587"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034724"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Superviser et déboguer à l’aide de métriques dans Azure Cosmos DB
 
@@ -38,7 +38,7 @@ Une distribution inégale du débit peut aboutir à une *forte utilisation* de c
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>Déterminer la distribution du stockage entre les partitions
 
-Il est essentiel d’avoir une bonne cardinalité de partition pour vos applications évolutives. Pour déterminer la distribution du débit au sein d’un conteneur partitionné, accédez au panneau Métriques dans le [portail Azure](https://portal.azure.com). Sous l’onglet Stockage, la répartition du stockage est affichée dans le graphique Nombre maximal de RU/seconde consommées par chaque partition physique. Le graphique suivant montre une mauvaise distribution des données mise en évidence par l’asymétrie de la partition située à l’extrême gauche.
+Il est essentiel d’avoir une bonne cardinalité de partition pour vos applications évolutives. Pour déterminer la distribution du stockage au sein d’un conteneur partitionné, accédez au panneau Métriques dans le [portail Azure](https://portal.azure.com). Dans l’onglet Stockage, la répartition du stockage est indiquée dans le graphe Stockage de données + d’index consommé par les premières clés de partition. Le graphe suivant montre une mauvaise distribution du stockage des données, mise en évidence par l’asymétrie de la partition située à l’extrême gauche.
 
 ![Exemple de mauvaise distribution des données](media/use-metrics/metrics-07.png)
 

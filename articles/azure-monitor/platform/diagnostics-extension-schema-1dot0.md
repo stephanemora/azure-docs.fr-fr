@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 333fec5b9459979d7735f0dd292d7367d86353fe
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7c5bfa96e7f9ef7812b8487c479b34d926633287
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325355"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105914"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Schéma de configuration Azure Diagnostics 1.0
 > [!NOTE]
@@ -25,7 +25,7 @@ Azure Diagnostics est utilisé avec d’autres produits de diagnostic Microsoft 
 
 Le fichier de configuration Azure Diagnostics définit les valeurs qui sont utilisées pour initialiser le moniteur de diagnostics. Ce fichier est utilisé pour initialiser les paramètres de configuration de diagnostic lorsque le moniteur de diagnostic démarre.  
 
- Par défaut, le fichier de schéma de configuration Azure Diagnostics est installé dans le répertoire `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas`. Remplacez `<version>` par la version installée du [Kit de développement logiciel (SDK) Azure](http://www.windowsazure.com/develop/downloads/).  
+ Par défaut, le fichier de schéma de configuration Azure Diagnostics est installé dans le répertoire `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas`. Remplacez `<version>` par la version installée du [Kit de développement logiciel (SDK) Azure](https://www.windowsazure.com/develop/downloads/).  
 
 > [!NOTE]
 >  Le fichier de configuration de diagnostic est généralement utilisé avec les tâches de démarrage qui requièrent la collecte de données de diagnostic au début du processus de démarrage. Pour plus d’informations sur l’utilisation d’Azure Diagnostics, consultez [Collect Logging Data by Using Azure Diagnostics](assetId:///83a91c23-5ca2-4fc9-8df3-62036c37a3d7) (Collecte de données de journalisation à l’aide d’Azure Diagnostics).  

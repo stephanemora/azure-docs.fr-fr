@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0519bb78b01cd7cab6abaf453efd7a4595101ef4
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c8870fdb0ff0a62c9b1a3b690724aa004e911bb3
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133746"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810880"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Flux de modification dans Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Le flux de modification Azure Cosmos DB vous permet de créer des solutions effi
 
 Cette fonctionnalité est prise en charge par les API et les SDK clients Azure Cosmos DB suivants.
 
-| **Pilotes clients** | **Interface de ligne de commande Azure** | **API SQL** | **API Cassandra** | **API MongoDB** | **API Gremlin**|**API de table** |
+| **Pilotes clients** | **Interface de ligne de commande Azure** | **API SQL** | **API Cassandra** | **API pour MongoDB d’Azure Cosmos DB** | **API Gremlin**|**API de table** |
 | --- | --- | --- | --- | --- | --- | --- |
 | .NET | N/D | Oui | Non  | Non  | Oui | Non  |
 |Java|N/D|Oui|Non |Non |Oui|Non |

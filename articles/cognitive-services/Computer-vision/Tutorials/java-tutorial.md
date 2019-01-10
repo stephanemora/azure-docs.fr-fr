@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Effectuer des opérations sur les images - Java'
+title: 'Tutoriel : Effectuer des opérations sur les images - Java'
 titlesuffix: Azure Cognitive Services
 description: Explorez une application Java Swing de base qui utilise l’API Vision par ordinateur dans Azure Cognitive Services. Effectuez une reconnaissance OCR, créez des miniatures et utilisez des fonctionnalités visuelles dans une image.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.author: kefre
 ms.custom: seodec18
 ms.date: 09/21/2017
-ms.openlocfilehash: f039e85ab3fccfc36b704f06d9fcfa3b4cfed758
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: ef1180a8e8c833648e3b61705abf354cb4dfaed3
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584545"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117484"
 ---
-# <a name="tutorial-computer-vision-api-java"></a>Didacticiel : API Vision par ordinateur avec Java
+# <a name="tutorial-computer-vision-api-java"></a>Tutoriel : API Vision par ordinateur avec Java
 
 Ce tutoriel montre les fonctionnalités de l’API REST Vision par ordinateur dans Azure Cognitive Services.
 
@@ -778,7 +778,7 @@ Copiez et collez la méthode **HandwritingImage** suivante juste en dessous de l
             
             // Check for success.
             if (textResponse.getStatusLine().getStatusCode() != 202) {
-                // An error occured. Return the JSON error message.
+                // An error occurred. Return the JSON error message.
                 HttpEntity entity = textResponse.getEntity();
                 String jsonString = EntityUtils.toString(entity);
                 return new JSONObject(jsonString);

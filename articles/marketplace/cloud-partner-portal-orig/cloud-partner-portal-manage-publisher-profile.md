@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8459866aa192f2364ae52d0d5d68eace693e127e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c73c846db4b22d8c19ccdaa2ec99a3fe7fdadf78
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832681"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076703"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>Gérer un profil d’éditeur « Place de marché Azure » et « AppSource »
 
@@ -51,6 +51,6 @@ Connectez-vous d’abord au portail avec l’adresse e-mail utilisée pour inscr
 >[!NOTE]
 >L’inscription du compte du Centre de développement est obligatoire pour publier des références SKU payées de la Place de marché.
 
-Si vous n’avez pas de [compte du Centre de développement](~/articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md), vous pouvez en créer un. Ajoutez ensuite l’adresse e-mail inscrite en tant que propriétaire dans le portail Microsoft Cloud Partner pour votre offre. Un propriétaire peut uniquement ajouter l’adresse e-mail inscrite dans votre profil d’éditeur à partir de la section **Utilisateur**. Connectez-vous ensuite au portail avec la même adresse e-mail, puis liez votre compte du Centre de développement.
+Si vous n’avez pas de [compte du Centre de développement](./cloud-partner-portal-dev-center-accounts-registration.md), vous pouvez en créer un. Ajoutez ensuite l’adresse e-mail inscrite en tant que propriétaire dans le portail Microsoft Cloud Partner pour votre offre. Un propriétaire peut uniquement ajouter l’adresse e-mail inscrite dans votre profil d’éditeur à partir de la section **Utilisateur**. Connectez-vous ensuite au portail avec la même adresse e-mail, puis liez votre compte du Centre de développement.
 
 ![Détails du profil d’éditeur - Description du profil d’éditeur](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofiledescription.png)

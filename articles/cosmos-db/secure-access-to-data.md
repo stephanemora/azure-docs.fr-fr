@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: 1d1bc011de579588567fac3debe9d0b4af5d29f7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c203334b0ea1b47aa1884155f477e34bd8f2e1db
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878325"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724757"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Sécurisation de l’accès aux données d’Azure Cosmos DB
 Cet article fournit une vue d’ensemble de la sécurisation de l’accès aux données stockées dans [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -188,7 +188,7 @@ Pour ajouter l’accès en lecture aux comptes Azure Cosmos DB à votre compte d
 L’entité peut désormais lire les ressources Azure Cosmos DB.
 
 ## <a name="delete-or-export-user-data"></a>Supprimer ou exporter des données utilisateur
-Azure Cosmos DB vous permet de rechercher, de sélectionner, de modifier et de supprimer des données personnelles, situées dans une base de données ou des collections. Azure Cosmos DB propose des API pour rechercher et supprimer des données personnelles. Toutefois, il vous incombe d’utiliser les API et de définir la logique nécessaire pour effacer les données personnelles. Chaque API multimodèle (API SQL, API MongoDB, API Gremlin, API Cassandra, API Table) fournit différents SDK de langage qui contiennent des méthodes pour rechercher et supprimer les données personnelles. Vous pouvez également activer la fonctionnalité de [durée de vie (TTL)](time-to-live.md) pour supprimer automatiquement les données après une période spécifiée, sans frais supplémentaires.
+Azure Cosmos DB vous permet de rechercher, de sélectionner, de modifier et de supprimer des données personnelles, situées dans une base de données ou des collections. Azure Cosmos DB propose des API pour rechercher et supprimer des données personnelles. Toutefois, il vous incombe d’utiliser les API et de définir la logique nécessaire pour effacer les données personnelles. Chaque API multimodèle (SQL, MongoDB, Gremlin, Cassandra, Table) fournit différents kits SDK de langage qui contiennent des méthodes pour rechercher et supprimer les données personnelles. Vous pouvez également activer la fonctionnalité de [durée de vie (TTL)](time-to-live.md) pour supprimer automatiquement les données après une période spécifiée, sans frais supplémentaires.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

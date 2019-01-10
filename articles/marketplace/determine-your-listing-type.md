@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0ad4fef9dd67ed0bf2bc9a3c66e26fc111526b90
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4abed1718d77c93e864fe5bb1d39aba5e5272f10
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081538"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074468"
 ---
 # <a name="determine-your-publishing-option"></a>Déterminer votre option de publication
 L’option de publication que vous choisissez pour votre offre est directement liée aux conditions d’éligibilité et aux avantages GTM propres à la place de marché. Plus important encore, la sélection de l’option de publication et du type d’offre dans le portail Cloud Partner définit comment les utilisateurs vont interagir avec votre offre sur la place de marché.
@@ -62,7 +62,7 @@ La vitrine où votre offre sera présentée, Place de marché Azure et/ou AppSou
 
 ## <a name="choose-a-publishing-option"></a>Choisir une option de publication
 
-Les options de publication disponibles offrent un engagement client différencié tout en vous donnant accès au partage des prospects et à des [avantages de mise sur le marché](https://partner.microsoft.com/en-US/reach-customers/gtm). Choisissez entre trois options de publication possibles avant d’utiliser le portail Cloud Partner pour créer une offre sur la place de marché. Notez les appels à l’action qui correspondent à l’option de publication :
+Les options de publication disponibles offrent un engagement client différencié tout en vous donnant accès au partage des prospects et à des [avantages de mise sur le marché](https://partner.microsoft.com/reach-customers/gtm). Choisissez entre trois options de publication possibles avant d’utiliser le portail Cloud Partner pour créer une offre sur la place de marché. Notez les appels à l’action qui correspondent à l’option de publication :
 
 | **Option de publication**    | **Description**  |
 | :------------------- | :-------------------|

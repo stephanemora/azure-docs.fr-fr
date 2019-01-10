@@ -9,21 +9,24 @@ ms.devlang: ''
 ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
-ms.reviewer: ''
+ms.reviewer: douglasl
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: fa5ce7264fd003e0a49d6408acae070577879cdd
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: a7289ba5ab1f4e94adc099978591d69cac6ff786
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686617"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721595"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Bonnes pratiques pour SQL Data Sync 
 
 Cet article décrit les bonnes pratiques relatives à Azure SQL Data Sync.
 
 Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync](sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> Azure SQL Data Sync ne prend **pas** en charge Azure SQL Database Managed Instance pour le moment.
 
 ## <a name="security-and-reliability"></a> Sécurité et fiabilité
 
@@ -196,7 +199,7 @@ Dans certaines circonstances, la désinscription d’une base de données auprè
 1. Le groupe de synchronisation A a été créé avec une instance de SQL Database et une base de données SQL Server sur site, qui est associée à l’agent local 1.
 2. La même base de données locale est inscrite auprès de l’agent local 2 (cet agent n’est associé à aucun groupe de synchronisation).
 3. Si vous annulez l’inscription de la base de données sur site auprès de l’agent local 2, cela supprime les tables de suivi et métadonnées pour le groupe de synchronisation A pour la base de données sur site.
-4. Les opérations du groupe de synchronisation A échouent avec l’erreur : « L’opération en cours a échoué, car la base de données n’est pas configurée pour la synchronisation ou vous ne disposez pas des autorisations nécessaires sur les tables de configuration de synchronisation. »
+4. Les opérations du groupe de synchronisation A échouent avec cette erreur : « L’opération en cours a échoué, car la base de données n’est pas provisionnée pour la synchronisation ou vous n’avez pas les autorisations nécessaires sur les tables de configuration de synchronisation. »
 
 #### <a name="solution"></a>Solution
 
@@ -221,7 +224,7 @@ Pour plus d’informations sur SQL Data Sync, consultez :
 
 -   Vue d’ensemble - [Synchroniser des données entre plusieurs bases de données cloud et locales avec Azure SQL Data Sync](sql-database-sync-data.md)
 -   Configurer Data Sync
-    - Sur le portail - [Tutoriel : Configurer SQL Data Sync pour synchroniser les données entre Azure SQL Database et SQL Server en local](sql-database-get-started-sql-data-sync.md)
+    - Sur le portail - [Tutoriel : Configurer SQL Data Sync pour synchroniser les données entre Azure SQL Database et SQL Server en local](sql-database-get-started-sql-data-sync.md)
     - Avec PowerShell
         -  [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Utiliser PowerShell pour la synchronisation entre une base de données SQL Azure et une base de données locale SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)

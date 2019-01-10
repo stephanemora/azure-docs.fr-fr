@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 603aa8d85d42167accd2a5e71c4ab3e5245f5d07
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8e651f516254d408b15ab4aeae718861dfc2b3e6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499257"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608287"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Utiliser le cluster HDInsight Spark pour lire et écrire des données dans une base de données SQL Azure
 
@@ -26,9 +26,9 @@ Découvrez comment connecter un cluster Apache Spark dans Azure HDInsight à une
 
 * **Base de données SQL Azure**. Suivez les instructions indiquées dans [Création d’une base de données SQL Azure](../../sql-database/sql-database-get-started-portal.md). Vérifiez que vous créez une base de données avec l’exemple de schéma et de données **AdventureWorksLT**. En outre, assurez-vous de créer une règle de pare-feu de niveau serveur pour autoriser l’adresse IP de votre client à accéder à la base de données SQL sur le serveur. Les instructions pour ajouter la règle de pare-feu sont disponibles dans le même article. Après avoir créé votre base de données SQL Azure, veillez à garder les valeurs suivantes à portée de main. Vous en avez besoin pour vous connecter à la base de données à partir d’un cluster Spark.
 
-    * Nom du serveur qui héberge la base de données SQL Azure
-    * Nom de la base de données SQL Azure
-    * Nom d’utilisateur et mot de passe de l’administrateur de la base de données SQL Azure
+    * Nom du serveur hébergeant la base de données SQL Azure.
+    * Nom de la base de données SQL Azure.
+    * Nom d’utilisateur et mot de passe de l’administrateur de la base de données SQL Azure.
 
 * **SQL Server Management Studio**. Suivez les instructions indiquées dans [Utilisez SQL Server Management Studio pour vous connecter et exécuter des requêtes](../../sql-database/sql-database-connect-query-ssms.md).
 
@@ -41,12 +41,10 @@ Commencez par créer un bloc-notes [Jupyter Notebook](https://jupyter.org/) deva
 
     ![Bloc-notes Jupyter sur Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Bloc-notes Jupyter sur Spark")
    
-   > [!NOTE]
+   > [!NOTE]  
    > Vous pouvez également accéder au bloc-notes Jupyter sur le cluster Spark en ouvrant l’URL suivante dans votre navigateur. Remplacez **CLUSTERNAME** par le nom de votre cluster.
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   > 
-   > 
 
 1. Dans le bloc-notes Jupyter, à partir de l’angle supérieur droit, cliquez sur **Nouveau**, puis cliquez sur **Spark** pour créer un bloc-notes Scala. Les bloc-notes Jupyter sur le cluster HDInsight Spark fournissent également le noyau **PySpark** pour les applications Python2 et le noyau **PySpark3** pour les applications Python3. Pour cet article, nous créons un bloc-notes Scala.
    
@@ -54,9 +52,8 @@ Commencez par créer un bloc-notes [Jupyter Notebook](https://jupyter.org/) deva
 
     Pour plus d’informations sur les noyaux, consultez [Noyaux de blocs-notes Jupyter avec les clusters Apache Spark dans HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
-   > [!NOTE]
+   > [!NOTE]  
    > Dans cet article, nous utilisons un noyau Spark (Scala), car envoyer des données depuis Spark vers la base de données SQL n’est pris en charge que dans Scala et Java. Bien que la lecture et l’écriture dans la base de données SQL puissent être effectuées à l’aide de Python, par souci de cohérence dans cet article, nous utilisons Scala pour ces trois opérations.
-   >
 
 1. Cette opération ouvre un nouveau bloc-notes, nommé par défaut **Sans titre**. Cliquez sur le nom du bloc-notes, puis entrez le nom de votre choix.
 
@@ -235,6 +232,6 @@ Dans cette section, nous envoyons des données dans la table **hvactable** que v
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Utiliser le cluster HDInsight Spark pour analyser les données dans Data Lake Store](apache-spark-use-with-data-lake-store.md)
+* [Utiliser le cluster HDInsight Spark pour analyser les données dans Data Lake Storage](apache-spark-use-with-data-lake-store.md)
 * [Traiter des événements de streaming structuré à l’aide d’Event Hubs](apache-spark-eventhub-structured-streaming.md)
 * [Utiliser Apache Spark Structured Streaming avec Apache Kafka sur HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)

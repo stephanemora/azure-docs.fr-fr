@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 8882970471b554f6d05a9cf3028e7be572292ef6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 605ce97f786b6b674a4adf8d6b1ee50957ef25fa
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582698"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582743"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Mise à niveau vers la pile de sauvegarde de machine virtuelle Azure V2
 
@@ -147,3 +147,6 @@ Des instantanés incrémentiels sont utilisés pour les disques non managés. Po
 
 ### <a name="how-to-get-standard-ssd-managed-disk-support-for-a-virtual-machine"></a>Comment obtenir la prise en charge des disques managés SSD standard sur une machine virtuelle ?
 Effectuez une mise à niveau vers la pile de sauvegarde de machine virtuelle Azure V2 pour bénéficier du support de sauvegarde Azure pour les [disques managés SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
+
+### <a name="what-happens-if-i-select-retention-period-of-restore-point-tier-2-less-than-snapshot-tier1"></a>Que se passe-t-il si je sélectionne une période de rétention du point de restauration (niveau 2) inférieure à l’instantané (niveau 1) ?
+La pile de sauvegarde des machines virtuelles v2 n’autorise pas la suppression du point de restauration (niveau 2), sauf si l’instantané (niveau 1) est supprimé. Actuellement, nous prenons en charge une période de rétention de 7 jours pour la suppression de l’instantané (niveau 1), donc la période de rétention de moins de 7 jours du point de restauration (niveau 2) n’est pas honorée. Nous vous recommandons de planifier une période de rétention du point de restauration (niveau 2) supérieure à 7 jours.

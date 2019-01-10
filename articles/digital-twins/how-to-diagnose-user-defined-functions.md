@@ -6,18 +6,22 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/27/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 9476db888a4bfae2d43ae4eec340972d4c2eb714
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.custom: seodec18
+ms.openlocfilehash: e373e7c3ca83a0200cd1b6b945c5e4cb43b77a51
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413011"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974860"
 ---
-# <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Guide pratique pour résoudre les problèmes liés aux fonctions définies par l’utilisateur dans Azure Digital Twins
+# <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Guide pratique pour utiliser des fonctions de débogage définies par l’utilisateur dans Azure Digital Twins
 
 Cet article indique brièvement comment diagnostiquer les fonctions définies par l’utilisateur. Ensuite, il identifie certains des scénarios les plus couramment rencontrés quand vous les utilisez.
+
+>[!TIP]
+> Consultez [Guide pratique pour configurer la supervision et la journalisation](./how-to-configure-monitoring.md) pour en savoir plus sur la configuration des outils de débogage dans Azure Digital Twins à l’aide des journaux d’activité, des journaux de diagnostic et d’Azure Monitor.
 
 ## <a name="debug-issues"></a>Résoudre les problèmes
 
@@ -28,9 +32,14 @@ Le fait de savoir comment diagnostiquer un problème qui se produit au sein de v
 Les journaux et les métriques de votre instance Azure Digital Twins sont exposés via Azure Monitor. La documentation suivante suppose que vous avez créé un espace de travail [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) par le biais du [portail Azure](../azure-monitor/learn/quick-create-workspace.md), d’[Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md) ou de [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
-> Le premier envoi d’événements à **Log Analytics** peut prendre 5 minutes.
+> Le premier envoi d’événements à Azure Log Analytics peut prendre 5 minutes.
 
-Consultez l’article [« Collecter et utiliser des données de journaux à partir de vos ressources Azure »](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) afin d’activer les paramètres de diagnostic pour votre instance Azure Digital Twins par le biais du portail, d’Azure CLI ou de PowerShell. Veillez à sélectionner la totalité des catégories de journaux et des métriques, ainsi que votre espace de travail Azure Log Analytics.
+Pour configurer la supervision et la journalisation pour les ressources Azure Digital Twins, consultez [Guide pratique pour configurer la supervision et la journalisation](./how-to-configure-monitoring.md).
+
+Consultez l’article [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md) pour lire une présentation complète des paramètres de journalisation des diagnostics pour votre instance Azure Digital Twins par le biais du portail, d’Azure CLI ou de PowerShell.
+
+>[!IMPORTANT]
+> Veillez à sélectionner la totalité des catégories de journaux et des métriques, ainsi que votre espace de travail Azure Log Analytics.
 
 ### <a name="trace-sensor-telemetry"></a>Tracer les données de télémétrie des capteurs
 
@@ -56,7 +65,7 @@ AzureDiagnostics
 | where Category == 'UserDefinedFunction'
 ```
 
-Pour plus d’informations sur les opérations de requêtes puissantes, consultez [Bien démarrer avec les requêtes](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+Pour plus d’informations sur les opérations de requêtes puissantes, consultez [Bien démarrer avec les requêtes](../azure-monitor/log-query/get-started-queries.md).
 
 ## <a name="identify-common-issues"></a>Identifier les problèmes courants
 
@@ -74,11 +83,11 @@ Vérifiez s’il existe une attribution de rôle pour votre fonction définie pa
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| Paramètre | Remplacer par |
+| Valeur du paramètre | Remplacer par |
 | --- | --- |
-| *YOUR_USER_DEFINED_FUNCTION_ID* | ID de la fonction définie par l’utilisateur pour laquelle récupérer les attributions de rôle|
+| YOUR_USER_DEFINED_FUNCTION_ID | ID de la fonction définie par l’utilisateur pour laquelle récupérer les attributions de rôle|
 
-Si aucune attribution de rôle n’est récupérée, suivez cet article sur la [façon de créer une attribution de rôle pour votre fonction définie par l’utilisateur](./how-to-user-defined-functions.md).
+Consultez cet article sur la [façon de créer une attribution de rôle pour votre fonction définie par l’utilisateur](./how-to-user-defined-functions.md) si aucune attribution de rôle n’existe.
 
 ### <a name="check-if-the-matcher-will-work-for-a-sensors-telemetry"></a>Vérifier si le système de correspondance (« matcher ») fonctionne pour les données de télémétrie d’un capteur
 
@@ -159,7 +168,7 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Space", JSON.stringify(customNotification));
 ```
 
-Dans ce scénario, l’identificateur utilisé fait référence à un capteur alors que le type d’objet de topologie spécifié est « Space » (Espace).
+Dans ce scénario, l’identificateur utilisé fait référence à un capteur alors que le type d’objet de topologie spécifié est `Space`.
 
 Exemple **correct** :
 
@@ -200,4 +209,4 @@ Si vous activez les paramètres de diagnostic, vous pouvez rencontrer ces except
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment activer la [supervision et les journaux](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) dans Azure Digital Twins.
+Découvrez comment activer la [supervision et les journaux](../azure-monitor/platform/activity-logs-overview.md) dans Azure Digital Twins.

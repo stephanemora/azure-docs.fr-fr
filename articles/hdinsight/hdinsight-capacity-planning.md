@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: hrasheed
-ms.openlocfilehash: c8ca936220bf1f4d7f38858c0e09e332cd474077
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7eb18b5560e849796770ce9d24574d7a3d0db262
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193856"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716138"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planification de la capacité pour les clusters HDInsight
 
@@ -38,17 +38,17 @@ HDInsight est disponible dans de nombreuses régions Azure. Pour rechercher la r
 
 ### <a name="location-of-default-storage"></a>Emplacement du stockage par défaut
 
-Le stockage par défaut (soit un compte de stockage Azure, soit Azure Data Lake Store) doit être au même emplacement que votre cluster. Le stockage Azure est disponible à tous les emplacements. Data Lake Store Gen 1 est disponible dans certaines régions. Consultez la disponibilité actuelle de Data Lake Store sous *Stockage* dans [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
+Le stockage par défaut (soit un compte Stockage Azure, soit Azure Data Lake Storage) doit être au même emplacement que votre cluster. Le stockage Azure est disponible à tous les emplacements. Data Lake Storage Gen 1 est disponible dans certaines régions. Consultez la disponibilité actuelle de Data Lake Storage sous *Stockage* dans [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
 
 ### <a name="location-of-existing-data"></a>Emplacement des données existantes
 
-Si vous avez déjà avez un compte de stockage ou un Data Lake Store contenant vos données, et que vous souhaitez utiliser ce stockage comme espace de stockage par défaut pour votre cluster, vous devez déployer votre cluster au même emplacement.
+Si vous avez déjà un compte de stockage ou un Data Lake Storage contenant vos données, et que vous souhaitez utiliser ce stockage comme espace de stockage par défaut pour votre cluster, vous devez déployer votre cluster au même emplacement.
 
 ### <a name="storage-size"></a>Taille de stockage
 
-Après avoir déployé un cluster HDInsight, vous pouvez joindre d’autres comptes de stockage Azure ou accéder à d’autres Data Lake Stores. Tous vos comptes de stockage doivent résider au même emplacement que votre cluster. Un Data Lake Store peut être à un emplacement différent, mais cela risque d’entraîner une latence des données en lecture/écriture.
+Après avoir déployé un cluster HDInsight, vous pouvez joindre d’autres comptes Stockage Azure ou accéder à d’autres Data Lake Storage. Tous vos comptes de stockage doivent résider au même emplacement que votre cluster. Un Data Lake Storage peut être à un emplacement différent, mais cela risque d’entraîner une latence des données en lecture/écriture.
 
-Le service Stockage Azure présente certaines [limites de capacité](../azure-subscription-service-limits.md#storage-limits), tandis que Data Lake Store Gen 1 est quasiment illimité.
+Le service Stockage Azure présente certaines [limites de capacité](../azure-subscription-service-limits.md#storage-limits), tandis que Data Lake Storage Gen 1 est quasiment illimité.
 
 Un cluster peut accéder à une combinaison de différents comptes de stockage. Voici quelques exemples classiques :
 
@@ -75,7 +75,7 @@ La taille et le type de machine virtuelle sont déterminés par la puissance de 
 
 * RAM : la taille de machine virtuelle détermine également la quantité de RAM disponible sur la machine virtuelle. Pour les charges de travail qui stockent des données en mémoire pour le traitement, au lieu de lire à partir du disque, vérifiez que vos nœuds worker disposent de suffisamment de mémoire pour stocker les données.
 
-* Réseau : pour la plupart des types de clusters, les données traitées par le cluster ne sont pas sur le disque local, mais dans un service de stockage externe comme Data Lake Store ou Stockage Azure. Prenez en compte le débit et la bande passante réseau entre la machine virtuelle du nœud et le service de stockage. La bande passante accessible à une machine virtuelle augmente généralement avec la taille. Pour plus d’informations, consultez [Tailles des machines virtuelles Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+* Réseau : pour la plupart des types de clusters, les données traitées par le cluster ne sont pas sur le disque local, mais dans un service de stockage externe comme Data Lake Storage ou Stockage Azure. Prenez en compte le débit et la bande passante réseau entre la machine virtuelle du nœud et le service de stockage. La bande passante accessible à une machine virtuelle augmente généralement avec la taille. Pour plus d’informations, consultez [Tailles des machines virtuelles Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
 ## <a name="choose-the-cluster-scale"></a>Choix de l’échelle du cluster
 
@@ -89,7 +89,7 @@ Vous pouvez faire monter en puissance votre cluster afin de répondre aux pics d
 
 Vous êtes facturé pour la durée de vie d’un cluster. Si vous avez besoin que votre cluster ne soit opérationnel qu’à des horaires spécifiques, vous pouvez [créer des clusters à la demande à l’aide d’Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). Vous pouvez également créer des scripts PowerShell qui approvisionnent et suppriment votre cluster, puis planifier ces scripts à l’aide de [Azure Automation](https://azure.microsoft.com/services/automation/).
 
-> [!NOTE]
+> [!NOTE]  
 > Quand un cluster est supprimé, son metastore Hive par défaut est également supprimé. Si vous souhaitez rendre persistant le metastore pour la recréation du cluster suivant, utilisez un magasin de métadonnées externe tel qu’Azure Database ou [Apache Oozie](https://oozie.apache.org/).
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
@@ -120,7 +120,7 @@ Après avoir déterminé la taille, l’échelle et le type de la machine virtue
 1. Cliquez sur **Suivant : Vérifier + créer**.
 1. Dans la page **Vérifier + créer**, cliquez sur **Créer**.
 
-> [!Note]
+> [!NOTE]  
 > Si vous avez besoin d’augmenter le quota de cœurs d’HDInsight dans une région privée, [envoyez une demande de liste verte](https://aka.ms/canaryintwhitelist).
 
 Vous pouvez [contacter le support technique pour demander une augmentation du quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).

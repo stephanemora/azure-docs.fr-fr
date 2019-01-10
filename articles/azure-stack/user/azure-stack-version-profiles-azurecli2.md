@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2018
+ms.date: 12/06/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 6251a0c7fd43a12dbe02a0013f1530557d142d25
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dacc28c1cfe2ee896597aeaf92a22c7f6e13c306
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969955"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726610"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Utiliser des profils de version des API avec Azure CLI dans Azure Stack
 
@@ -128,7 +128,6 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
         --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
-
    b. Pour inscrire l’environnement *utilisateur*, utilisez :
 
       ```azurecli
@@ -151,9 +150,22 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
         --endpoint-active-directory-resource-id=<URI of the ActiveDirectoryServiceEndpointResourceID> \
         --profile 2018-03-01-hybrid
       ```
+    d. Pour inscrire l’utilisateur dans un environnement AD FS, utilisez :
 
+      ```azurecli
+      az cloud register \
+        -n AzureStack  \
+        --endpoint-resource-manager "https://management.local.azurestack.external" \
+        --suffix-storage-endpoint "local.azurestack.external" \
+        --suffix-keyvault-dns ".vault.local.azurestack.external"\
+        --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" \
+        --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/"\
+        --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/"\
+        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases> \
+        --profile "2018-03-01-hybrid"
+      ```
 1. Définissez l’environnement actif avec les commandes suivantes.
-
+   
    a. Pour l’environnement *administrateur de cloud*, utilisez :
 
       ```azurecli
@@ -180,7 +192,7 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
 
 1. Connectez-vous à votre environnement Azure Stack avec la commande `az login`. Vous pouvez vous connecter à l’environnement Azure Stack en tant qu’utilisateur ou que [principal de service](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
-    * Environnements AAD
+    * Environnements Azure AD
       * Connectez-vous en tant qu’*utilisateur* : vous pouvez spécifier directement le nom d’utilisateur et le mot de passe dans la commande `az login` ou vous authentifier avec un navigateur. Vous devez choisir cette dernière solution si l’authentification multifacteur est activée sur votre compte.
 
       ```azurecli
@@ -194,29 +206,42 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
    
       * Connectez-vous en tant que *principal de service* : avant de vous connecter, [créez un principal de service avec le portail Azure](azure-stack-create-service-principals.md) ou l’interface CLI, et attribuez-lui un rôle. Ensuite, connectez-vous avec la commande suivante :
 
-      ```azurecli
+      ```azurecli  
       az login \
         --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
         --service-principal \
         -u <Application Id of the Service Principal> \
         -p <Key generated for the Service Principal>
       ```
-    * Environnements AD FS
+    * Environnements AD FS
 
-        * Connectez-vous en tant que *principal de service* : 
-          1.    Préparez le fichier .pem à utiliser pour la connexion du principal de service.
-                * Sur l’ordinateur client où le principal a été créé, exportez le certificat du principal de service au format pfx avec la clé privée (située sous cert:\CurrentUser\My ; le certificat porte le même nom que le principal).
+        * Connectez-vous en tant qu’utilisateur à l’aide d’un navigateur web :  
+              ```azurecli  
+              az login
+              ```
+        * Connectez-vous en tant qu’utilisateur à l’aide d’un navigateur web avec un code d’appareil :  
+              ```azurecli  
+              az login --use-device-code
+              ```
+        > [!Note]  
+        >Elle vous donne une URL et un code qui vous permettent de vous authentifier.
 
-                *   Convertissez le fichier pfx au format pem (utilisez l'utilitaire OpenSSL).
+        * Connectez-vous en tant que principal de service :
+        
+          1. Préparez le fichier .pem à utiliser pour la connexion du principal de service.
 
-          1.    Connectez-vous à l’interface de ligne de commande. :
-                ```azurecli
-                az login --service-principal \
-                 -u <Client ID from the Service Principal details> \
-                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
-                 --tenant <Tenant ID> \
-                 --debug 
-                ```
+            * Sur l’ordinateur client où le principal a été créé, exportez le certificat du principal de service au format pfx avec la clé privée (située sous `cert:\CurrentUser\My;` ; le certificat porte le même nom que le principal).
+        
+            * Convertissez le fichier pfx au format pem (utilisez l'utilitaire OpenSSL).
+
+          2.  Connectez-vous à l’interface CLI :
+            ```azurecli  
+            az login --service-principal \
+              -u <Client ID from the Service Principal details> \
+              -p <Certificate's fully qualified name, such as, C:\certs\spn.pem>
+              --tenant <Tenant ID> \
+              --debug 
+            ```
 
 ## <a name="test-the-connectivity"></a>Tester la connectivité
 

@@ -1,6 +1,6 @@
 ---
 title: Se connecter à Azure SQL Data Warehouse sqlcmd | Microsoft Docs
-description: Utilisez l’utilitaire de ligne de commande [sqlcmd][sqlcmd] pour établir la connexion et interroger un entrepôt de données Azure SQL Data Warehouse.
+description: Utilisez l’utilitaire de ligne de commande sqlcmd pour établir la connexion et interroger un entrepôt de données SQL Azure.
 services: sql-data-warehouse
 author: kavithaj
 manager: craigg
@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 94f3955f9ce94fa52e89180fa649c4e412b80109
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 2534d668132db4c66b5e54c33849b76a8f93c348
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247711"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976407"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Se connecter à SQL Data Warehouse avec sqlcmd
 > [!div class="op_single_selector"]
@@ -32,14 +32,14 @@ Utilisez l’utilitaire de ligne de commande [sqlcmd][sqlcmd] pour établir la c
 ## <a name="1-connect"></a>1. Connecter
 Pour commencer à utiliser [sqlcmd][sqlcmd], ouvrez l’invite de commandes et entrez **sqlcmd** suivi de la chaîne de connexion de votre base de données SQL Data Warehouse. La chaîne de connexion requiert les paramètres suivants :
 
-* **Serveur (-S) :** nom du serveur, sous la forme `<`Nom_serveur`>`.database.windows.net
-* **Base de données (-d) :** nom de la base de données.
-* **Activer les identificateurs marqués (-I) :** les identificateurs marqués doivent être activés pour permettre la connexion à une instance SQL Data Warehouse.
+* **Serveur (-S) :** Serveur, sous la forme `<`Nom_serveur`>`.database.windows.net
+* **Base de données (-d) :** Nom de la base de données.
+* **Activer les identificateurs entre guillemets (-I) :** Les identificateurs entre guillemets doivent être activés pour permettre la connexion à une instance SQL Data Warehouse.
 
 Pour utiliser l’authentification SQL Server, vous devez ajouter les paramètres de nom d’utilisateur/mot de passe :
 
-* **Utilisateur (-U) :** utilisateur du serveur sous la forme `<`utilisateur`>`
-* **Mot de passe (-P) :** mot de passe associé à l’utilisateur.
+* **Utilisateur (-U) :** Utilisateur du serveur sous la forme `<`Utilisateur`>`
+* **Mot de passe (-P) :** Mot de passe associé à l’utilisateur.
 
 Par exemple, votre chaîne de connexion peut ressembler à ceci :
 

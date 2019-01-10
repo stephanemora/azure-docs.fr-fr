@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: d38fe1cab27cfade3e6e4d2f6764f455896ac470
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001967"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190836"
 ---
 # <a name="configure-storage"></a>Configurer le stockage
 
@@ -38,7 +38,7 @@ Vous effectuez ces étapes à l’aide du panneau de configuration Avere. Lisez 
 
 ## <a name="create-a-core-filer"></a>Créer un système de stockage principal
 
-« Core filer » est le terme vFXT qui désigne un système de stockage principal. Le stockage peut être une appliance NAS matérielle telle que NetApp ou Isilon, ou peut être un magasin d’objets cloud. Vous trouverez plus d’informations sur les systèmes de stockage principaux dans le [guide des paramètres de cluster Avere](http://library.averesystems.com/ops_guide/4_7/settings_overview.html#managing-core-filers).
+« Core filer » est le terme vFXT qui désigne un système de stockage principal. Le stockage peut être une appliance NAS matérielle telle que NetApp ou Isilon, ou peut être un magasin d’objets cloud. Vous trouverez plus d’informations sur les systèmes de stockage principaux dans le [guide des paramètres de cluster Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
 Pour ajouter un système de stockage principal, choisissez l’un des deux types de système de stockage principal suivants :
 
@@ -70,7 +70,7 @@ Effectuez les étapes suivantes pour ajouter un système de stockage principal N
   
    * Cliquez sur **Next** (Suivant) et choisissez une stratégie de cache. 
    * Cliquez sur **Add Filer** (Ajouter le système de stockage).
-   * Pour plus d’informations, reportez-vous à [Adding a new NAS core filer](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) (Ajout d’un nouveau système de stockage principal NAS) dans le guide des paramètres de cluster Avere.
+   * Pour plus d’informations, reportez-vous à [Adding a new NAS core filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) (Ajout d’un nouveau système de stockage principal NAS) dans le guide des paramètres de cluster Avere.
 
 Ensuite, passez à la section [Créer une jonction](#create-a-junction).  
 
@@ -156,7 +156,7 @@ Pour ajouter le stockage d’objets blob après avoir créé le cluster, effectu
    * Si vous le souhaitez, définissez **Encryption type** (Type de chiffrement) sur **None** (Aucun).  Stockage Azure est chiffré par défaut.
    * Cliquez sur **Add Filer** (Ajouter le système de stockage).
 
-  Pour plus d’informations, consultez [Adding a new cloud core filer](<http://library.averesystems.com/ops_guide/4_7/new_core_filer_cloud.html>) (Ajout d’un nouveau système de stockage principal cloud) dans le guide de configuration des clusters Avere. 
+  Pour plus d’informations, consultez [Adding a new cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) (Ajout d’un nouveau système de stockage principal cloud) dans le guide de configuration des clusters Avere. 
 
 La page est actualisée, ou vous pouvez l’actualiser vous-même : votre nouveau système de stockage principal apparaît alors.
 
@@ -168,7 +168,7 @@ Une jonction est un chemin que vous créez pour les clients. Les clients emprunt
 
 Par exemple, vous pouvez créer `/avere/files` pour établir une correspondance avec l’exportation `/vol0/data` de votre système de stockage principal NetApp et le sous-répertoire `/project/resources`.
 
-Vous trouverez plus d’informations sur les jonctions dans la [section consacrée aux espaces de noms du guide de configuration de clusters Avere](http://library.averesystems.com/ops_guide/4_7/gui_namespace.html).
+Vous trouverez plus d’informations sur les jonctions dans la [section consacrée aux espaces de noms du guide de configuration de clusters Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
 
 Suivez ces étapes dans l’interface des paramètres du Panneau de configuration Avere :
 

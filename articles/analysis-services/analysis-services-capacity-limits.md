@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4c2cebe2225e475ccd40460e7b10a6ba3ed428d5
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: beb0c1f9d6b54c029af48684fd81b38699dd2720
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44723740"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630646"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Limites des objets et ressources Analysis Services
 
@@ -23,7 +23,7 @@ Cet article décrit les limites des ressources et objets de modèles.
 
 ### <a name="developer-tier"></a>Niveau Développeur
 
-Ce niveau est recommandé pour les scénarios d’évaluation, de développement et de test. Un plan inclut les mêmes fonctionnalités que le niveau Standard, mais est limité en termes de puissance de traitement, de nombre d’unités de traitement des requêtes (QPU) et de taille de mémoire. L’évolutivité du réplica de requête *n’est pas disponible* pour ce niveau. Ce niveau ne propose pas de contrat SLA.
+Ce niveau est recommandé pour les scénarios d’évaluation, de développement et de test. Un plan inclut les mêmes fonctionnalités que le niveau Standard, mais est limité en termes de puissance de traitement, de nombre d’unités de traitement des requêtes (QPU) et de taille de mémoire. L'évolutivité du réplica de requête n'est pas disponible pour ce niveau. Ce niveau ne propose pas de contrat SLA.
 
 |Planification  |QPU (unités de traitement des requêtes)  |Mémoire (Go)  |
 |---------|---------|---------|
@@ -32,7 +32,7 @@ Ce niveau est recommandé pour les scénarios d’évaluation, de développement
 
 ### <a name="basic-tier"></a>Niveau de base
 
-Le niveau est recommandé pour les solutions de production avec de petits modèles tabulaires, une simultanéité limitée des utilisateurs et des besoins simples en matière d’actualisation des données. L’évolutivité du réplica de requête *n’est pas disponible* pour ce niveau. Les fonctionnalités de perspectives, de partitions multiples et de modèle tabulaire DirectQuery *ne sont pas prises en charge* dans ce niveau.  
+Le niveau est recommandé pour les solutions de production avec de petits modèles tabulaires, une simultanéité limitée des utilisateurs et des besoins simples en matière d’actualisation des données. L'évolutivité du réplica de requête *n'est pas disponible* pour ce niveau. Les fonctionnalités de perspectives, de partitions multiples et de modèle tabulaire DirectQuery ne sont pas prises en charge dans ce niveau.  
 
 |Planification  |QPU (unités de traitement des requêtes)  |Mémoire (Go)  |
 |---------|---------|---------|
@@ -56,20 +56,20 @@ Ce niveau est destiné aux applications de production stratégiques qui nécessi
 
 ## <a name="object-limits"></a>Limites des objets
 
-Ce sont des limites théoriques. Les performances réelles sont moindres.
+Ces limites sont théoriques. Les performances réelles sont moindres.
 
 |Object|Tailles/Nombres max.|  
 |------------|----------------------------|  
 |Bases de données d’une instance|16 000|  
 |Nombre total de tables et de colonnes d’une base de données|16 000|  
-|Lignes d’une table|Illimité<br /><br /> **Avertissement :** avec la restriction selon laquelle aucune colonne de la table ne peut contenir plus de 1 999 999 997 valeurs distinctes.|  
+|Lignes d’une table|Illimité<br /><br /> **Avertissement :** avec la restriction selon laquelle aucune colonne de la table ne peut contenir plus de 1 999 999 997 valeurs distinctes.|  
 |Hiérarchies d’une table|15 999|  
 |Niveaux d’une hiérarchie|15 999|  
 |Relations|8 000|  
 |Colonnes clés dans toutes les tables|15 999|  
-|Mesures contenues dans une table|2^31-1 = 2 147 483 647|  
+|Mesures contenues dans les tables|2^31-1 = 2 147 483 647|  
 |Cellules retournées par une requête|2^31-1 = 2 147 483 647|  
-|Taille d’enregistrement de la requête source|64 Ko|  
+|Taille d’enregistrement de la requête source|64 K|  
 |Longueur des noms d’objet|512 caractères|  
 
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 12/05/2018
+ms.date: 12/24/2018
 ms.author: juliako
-ms.openlocfilehash: 9de0d8bc389218d3102633b09073b3af323d2ceb
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c5332cd2613bc64e3dda143381f37d27b54aa922
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011992"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789227"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schémas Azure Event Grid pour les événements Media Services
 
@@ -134,7 +134,7 @@ Pour chaque changement d’état de travail non final (par exemple, JobScheduled
     "previousState": "Scheduled",
     "state": "Processing",
     "correlationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -168,7 +168,7 @@ Pour chaque changement d’état de travail final (par exemple, JobFinished, Job
     "previousState": "Processing",
     "state": "Finished",
     "correlationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -205,7 +205,7 @@ L’exemple suivant montre le schéma de l’événement **JobOutputStateChange*
       "state": "Finished"
     },
     "jobCorrelationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -236,7 +236,7 @@ Pour chaque changement d’état de sortie du travail (JobOutput), l’exemple d
       "state": "Processing"
     },
     "jobCorrelationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -258,13 +258,14 @@ L’exemple suivant montre le schéma d’un événement **LiveEventConnectionRe
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "b303db59-d5c1-47eb-927a-3650875fded1",
     "data": { 
-      "StreamId":"Mystream1",
-      "IngestUrl": "http://abc.ingest.isml",
-      "EncoderIp": "118.238.251.xxx",
-      "EncoderPort": 52859,
-      "ResultCode": "MPE_INGEST_CODEC_NOT_SUPPORTED"
+      "streamId":"Mystream1",
+      "ingestUrl": "http://abc.ingest.isml",
+      "encoderIp": "118.238.251.xxx",
+      "encoderPort": 52859,
+      "resultCode": "MPE_INGEST_CODEC_NOT_SUPPORTED"
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -273,11 +274,11 @@ L’objet de données comporte les propriétés suivantes :
 
 | Propriété | type | Description |
 | -------- | ---- | ----------- |
-| StreamId | chaîne | Identificateur du flux de données ou de la connexion. L’encodeur ou le client est chargé d’ajouter cet ID dans l’URL d’ingestion. |  
-| IngestUrl | chaîne | URL d’ingestion fournie par l’événement en direct. |  
-| EncoderIp | chaîne | Adresse IP de l’encodeur. |
-| EncoderPort | chaîne | Port de l’encodeur dont provient ce flux. |
-| ResultCode | chaîne | Motif de rejet de la connexion. Les codes de résultat sont répertoriés dans le tableau suivant. |
+| streamId | chaîne | Identificateur du flux de données ou de la connexion. L’encodeur ou le client est chargé d’ajouter cet ID dans l’URL d’ingestion. |  
+| ingestUrl | chaîne | URL d’ingestion fournie par l’événement en direct. |  
+| encoderIp | chaîne | Adresse IP de l’encodeur. |
+| encoderPort | chaîne | Port de l’encodeur dont provient ce flux. |
+| resultCode | chaîne | Motif de rejet de la connexion. Les codes de résultat sont répertoriés dans le tableau suivant. |
 
 Les codes de résultat sont :
 
@@ -320,10 +321,10 @@ L’objet de données comporte les propriétés suivantes :
 
 | Propriété | type | Description |
 | -------- | ---- | ----------- |
-| StreamId | chaîne | Identificateur du flux de données ou de la connexion. L’encodeur ou le client est chargé d’ajouter cet ID dans l’URL d’ingestion. |
-| IngestUrl | chaîne | URL d’ingestion fournie par l’événement en direct. |
-| EncoderIp | chaîne | Adresse IP de l’encodeur. |
-| EncoderPort | chaîne | Port de l’encodeur dont provient ce flux. |
+| streamId | chaîne | Identificateur du flux de données ou de la connexion. L’encodeur ou le client est chargé d’ajouter cet ID dans l’URL d’ingestion. |
+| ingestUrl | chaîne | URL d’ingestion fournie par l’événement en direct. |
+| encoderIp | chaîne | Adresse IP de l’encodeur. |
+| encoderPort | chaîne | Port de l’encodeur dont provient ce flux. |
 
 ### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
@@ -354,11 +355,11 @@ L’objet de données comporte les propriétés suivantes :
 
 | Propriété | type | Description |
 | -------- | ---- | ----------- |
-| StreamId | chaîne | Identificateur du flux de données ou de la connexion. L’encodeur ou le client est chargé d’ajouter cet ID dans l’URL d’ingestion. |  
-| IngestUrl | chaîne | URL d’ingestion fournie par l’événement en direct. |  
-| EncoderIp | chaîne | Adresse IP de l’encodeur. |
-| EncoderPort | chaîne | Port de l’encodeur dont provient ce flux. |
-| ResultCode | chaîne | Motif de déconnexion de l’encodeur. Il peut s’agir d’une déconnexion normale ou due à une erreur. Les codes de résultat sont répertoriés dans le tableau suivant. |
+| streamId | chaîne | Identificateur du flux de données ou de la connexion. L’encodeur ou le client est chargé d’ajouter cet ID dans l’URL d’ingestion. |  
+| ingestUrl | chaîne | URL d’ingestion fournie par l’événement en direct. |  
+| encoderIp | chaîne | Adresse IP de l’encodeur. |
+| encoderPort | chaîne | Port de l’encodeur dont provient ce flux. |
+| resultCode | chaîne | Motif de déconnexion de l’encodeur. Il peut s’agir d’une déconnexion normale ou due à une erreur. Les codes de résultat sont répertoriés dans le tableau suivant. |
 
 Les codes de résultat d’erreur sont :
 
@@ -394,14 +395,15 @@ L’exemple suivant montre le schéma d’un événement **LiveEventIncomingData
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "03da9c10-fde7-48e1-80d8-49936f2c3e7d",
     "data": { 
-      "TrackType": "Video",
-      "TrackName": "Video",
-      "Bitrate": 300000,
-      "Timestamp": 36656620000,
-      "Timescale": 10000000,
-      "ResultCode": "FragmentDrop_OverlapTimestamp"
+      "trackType": "Video",
+      "trackName": "Video",
+      "bitrate": 300000,
+      "timestamp": 36656620000,
+      "timescale": 10000000,
+      "resultCode": "FragmentDrop_OverlapTimestamp"
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -410,12 +412,12 @@ L’objet de données comporte les propriétés suivantes :
 
 | Propriété | type | Description |
 | -------- | ---- | ----------- |
-| TrackType | chaîne | Type de la piste (Audio/Vidéo). |
-| TrackName | chaîne | Nom de la piste. |
-| Bitrate | integer | Débit binaire de la piste. |
-| Timestamp | chaîne | Timestamp du bloc de données supprimé. |
-| Échelle de temps | chaîne | Échelle de temps du timestamp. |
-| ResultCode | chaîne | Motif de suppression du bloc de données. **FragmentDrop_OverlapTimestamp** ou **FragmentDrop_NonIncreasingTimestamp**. |
+| trackType | chaîne | Type de la piste (Audio/Vidéo). |
+| trackName | chaîne | Nom de la piste. |
+| bitrate | integer | Débit binaire de la piste. |
+|  timestamp | chaîne | Timestamp du bloc de données supprimé. |
+| échelle de temps | chaîne | Échelle de temps du timestamp. |
+| resultCode | chaîne | Motif de suppression du bloc de données. **FragmentDrop_OverlapTimestamp** ou **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
 
@@ -450,14 +452,14 @@ L’objet de données comporte les propriétés suivantes :
 
 | Propriété | type | Description |
 | -------- | ---- | ----------- |
-| TrackType | chaîne | Type de la piste (Audio/Vidéo). |
-| TrackName | chaîne | Nom de la piste (fourni par l’encodeur ou, dans le cas du RTMP, généré par le serveur selon le format *TypePiste_DébitBinaire*). |
-| Bitrate | integer | Débit binaire de la piste. |
-| IngestUrl | chaîne | URL d’ingestion fournie par l’événement en direct. |
-| EncoderIp | chaîne  | Adresse IP de l’encodeur. |
-| EncoderPort | chaîne | Port de l’encodeur dont provient ce flux. |
-| Timestamp | chaîne | Premier timestamp du bloc de données reçu. |
-| Échelle de temps | chaîne | Échelle de temps dans laquelle le timestamp est représenté. |
+| trackType | chaîne | Type de la piste (Audio/Vidéo). |
+| trackName | chaîne | Nom de la piste (fourni par l’encodeur ou, dans le cas du RTMP, généré par le serveur selon le format *TypePiste_DébitBinaire*). |
+| bitrate | integer | Débit binaire de la piste. |
+| ingestUrl | chaîne | URL d’ingestion fournie par l’événement en direct. |
+| encoderIp | chaîne  | Adresse IP de l’encodeur. |
+| encoderPort | chaîne | Port de l’encodeur dont provient ce flux. |
+|  timestamp | chaîne | Premier timestamp du bloc de données reçu. |
+| échelle de temps | chaîne | Échelle de temps dans laquelle le timestamp est représenté. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
@@ -489,12 +491,12 @@ L’objet de données comporte les propriétés suivantes :
 
 | Propriété | type | Description |
 | -------- | ---- | ----------- |
-| MinLastTimestamp | chaîne | Minimum des derniers timestamps parmi toutes les pistes (audio ou vidéo). |
-| TypeOfTrackWithMinLastTimestamp | chaîne | Type de la piste (audio ou vidéo) avec dernier timestamp minimum. |
-| MaxLastTimestamp | chaîne | Maximum de tous les timestamps parmi toutes les pistes (audio ou vidéo). |
-| TypeOfTrackWithMaxLastTimestamp | chaîne | Type de la piste (audio ou vidéo) avec le dernier timestamp maximum. |
-| TimescaleOfMinLastTimestamp| chaîne | Obtient l’échelle de temps dans laquelle « MinLastTimestamp » est représenté.|
-| TimescaleOfMaxLastTimestamp| chaîne | Obtient l’échelle de temps dans laquelle « MaxLastTimestamp » est représenté.|
+| minLastTimestamp | chaîne | Minimum des derniers timestamps parmi toutes les pistes (audio ou vidéo). |
+| typeOfTrackWithMinLastTimestamp | chaîne | Type de la piste (audio ou vidéo) avec dernier timestamp minimum. |
+| maxLastTimestamp | chaîne | Maximum de tous les timestamps parmi toutes les pistes (audio ou vidéo). |
+| typeOfTrackWithMaxLastTimestamp | chaîne | Type de la piste (audio ou vidéo) avec le dernier timestamp maximum. |
+| timescaleOfMinLastTimestamp| chaîne | Obtient l’échelle de temps dans laquelle « MinLastTimestamp » est représenté.|
+| timescaleOfMaxLastTimestamp| chaîne | Obtient l’échelle de temps dans laquelle « MaxLastTimestamp » est représenté.|
 
 ### <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
 
@@ -509,13 +511,14 @@ L’exemple suivant montre le schéma d’un événement **LiveEventIncomingVide
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "6dd4d862-d442-40a0-b9f3-fc14bcf6d750",
     "data": {
-      "FirstTimestamp": "2162058216",
-      "FirstDuration": "2000",
-      "SecondTimestamp": "2162057216",
-      "SecondDuration": "2000",
+      "firstTimestamp": "2162058216",
+      "firstDuration": "2000",
+      "secondTimestamp": "2162057216",
+      "secondDuration": "2000",
       "timescale": "10000000"      
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -524,11 +527,11 @@ L’objet de données comporte les propriétés suivantes :
 
 | Propriété | type | Description |
 | -------- | ---- | ----------- |
-| FirstTimestamp | chaîne | Timestamp reçu pour l’une des pistes/l’un des niveaux de qualité de type vidéo. |
-| FirstDuration | chaîne | Durée du bloc de données avec le premier timestamp. |
-| SecondTimestamp | chaîne  | Timestamp reçu pour une autre piste/un autre niveau de qualité de type vidéo. |
-| SecondDuration | chaîne | Durée du bloc de données avec un deuxième timestamp. |
-| Échelle de temps | chaîne | Échelle de temps des timestamps et de la durée.|
+| firstTimestamp | chaîne | Timestamp reçu pour l’une des pistes/l’un des niveaux de qualité de type vidéo. |
+| firstDuration | chaîne | Durée du bloc de données avec le premier timestamp. |
+| secondTimestamp | chaîne  | Timestamp reçu pour une autre piste/un autre niveau de qualité de type vidéo. |
+| secondDuration | chaîne | Durée du bloc de données avec un deuxième timestamp. |
+| échelle de temps | chaîne | Échelle de temps des timestamps et de la durée.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
@@ -566,18 +569,18 @@ L’objet de données comporte les propriétés suivantes :
 
 | Propriété | type | Description |
 | -------- | ---- | ----------- |
-| TrackType | chaîne | Type de la piste (Audio/Vidéo). |
-| TrackName | chaîne | Nom de la piste (fourni par l’encodeur ou, dans le cas du RTMP, généré par le serveur selon le format *TypePiste_DébitBinaire*). |
-| Bitrate | integer | Débit binaire de la piste. |
-| IncomingBitrate | integer | Débit binaire calculé et basé sur des blocs de données provenant de l’encodeur. |
-| LastTimestamp | chaîne | Timestamp le plus récent reçu pour une piste dans les 20 dernières secondes. |
-| Échelle de temps | chaîne | Échelle de temps dans laquelle les timestamps sont exprimés. |
-| OverlapCount | integer | Nombre de blocs de données avec des timestamps qui se chevauchent au cours des 20 dernières secondes. |
-| DiscontinuityCount | integer | Nombre de discontinuités observées dans les dernières 20 secondes. |
-| NonIncreasingCount | integer | Nombre de blocs de données présentant des timestamps passés dans les dernières 20 secondes. |
-| UnexpectedBitrate | bool | Indique si les débits binaires attendus et réels diffèrent de plus de la valeur maximale autorisée au cours des 20 dernières secondes. Si la valeur est true, et uniquement dans ce cas, >= 2* bitrate OR IncomingBitrate <= bitrate/2 OR IncomingBitrate = 0. |
-| État | chaîne | État de l’événement en direct. |
-| Healthy | bool | Indique si l’ingestion est intègre en fonction des nombres et des indicateurs. Healthy a la valeur true si OverlapCount = 0 && DiscontinuityCount = 0 && NonIncreasingCount = 0 && UnexpectedBitrate = false. |
+| trackType | chaîne | Type de la piste (Audio/Vidéo). |
+| trackName | chaîne | Nom de la piste (fourni par l’encodeur ou, dans le cas du RTMP, généré par le serveur selon le format *TypePiste_DébitBinaire*). |
+| bitrate | integer | Débit binaire de la piste. |
+| incomingBitrate | integer | Débit binaire calculé et basé sur des blocs de données provenant de l’encodeur. |
+| lastTimestamp | chaîne | Timestamp le plus récent reçu pour une piste dans les 20 dernières secondes. |
+| échelle de temps | chaîne | Échelle de temps dans laquelle les timestamps sont exprimés. |
+| overlapCount | integer | Nombre de blocs de données avec des timestamps qui se chevauchent au cours des 20 dernières secondes. |
+| discontinuityCount | integer | Nombre de discontinuités observées dans les dernières 20 secondes. |
+| nonIncreasingCount | integer | Nombre de blocs de données présentant des timestamps passés dans les dernières 20 secondes. |
+| unexpectedBitrate | bool | Indique si les débits binaires attendus et réels diffèrent de plus de la valeur maximale autorisée au cours des 20 dernières secondes. La valeur est true si et seulement si incomingBitrate >= 2* bitrate OR incomingBitrate <= bitrate/2 OR IncomingBitrate = 0. |
+| state | chaîne | État de l’événement en direct. |
+| healthy | bool | Indique si l’ingestion est intègre en fonction des nombres et des indicateurs. Healthy a la valeur true si overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
@@ -610,13 +613,13 @@ L’objet de données comporte les propriétés suivantes :
 
 | Propriété | type | Description |
 | -------- | ---- | ----------- |
-| TrackType | chaîne | Type de la piste (Audio/Vidéo). |
-| TrackName | chaîne | Nom de la piste (fourni par l’encodeur ou, dans le cas du RTMP, généré par le serveur selon le format *TypePiste_DébitBinaire*). |
-| Bitrate | integer | Débit binaire de la piste. |
-| PreviousTimestamp | chaîne | Timestamp du fragment précédent. |
-| NewTimestamp | chaîne | Timestamp du fragment actuel. |
-| DiscontinuityGap | chaîne | Écart entre les deux timestamps ci-dessus. |
-| Échelle de temps | chaîne | Échelle de temps dans laquelle les écarts de timestamp et de discontinuité sont représentés. |
+| trackType | chaîne | Type de la piste (Audio/Vidéo). |
+| trackName | chaîne | Nom de la piste (fourni par l’encodeur ou, dans le cas du RTMP, généré par le serveur selon le format *TypePiste_DébitBinaire*). |
+| bitrate | integer | Débit binaire de la piste. |
+| previousTimestamp | chaîne | Timestamp du fragment précédent. |
+| newTimestamp | chaîne | Timestamp du fragment actuel. |
+| discontinuityGap | chaîne | Écart entre les deux timestamps ci-dessus. |
+| échelle de temps | chaîne | Échelle de temps dans laquelle les écarts de timestamp et de discontinuité sont représentés. |
 
 ### <a name="common-event-properties"></a>Propriétés d’événements courantes
 

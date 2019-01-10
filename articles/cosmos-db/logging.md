@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 7a233a5effb804ec3cc22727b46846509032d214
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: d91c1e99a04f6fdbc6422aa18504625471d0f0d1
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438504"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810489"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Journalisation des diagnostics dans Azure Cosmos DB 
 
@@ -75,13 +75,13 @@ Pour activer la journalisation des diagnostics dans le portail Azure, effectuez 
 
 2. Dans la page **Paramètres de diagnostic**, effectuez les étapes suivantes : 
 
-    * **Nom** : entrez un nom pour les journaux à créer.
+    * **Nom** : Entrez un nom pour les journaux à créer.
 
-    * **Archiver dans un compte de stockage** : pour utiliser cette option, vous avez besoin d’un compte de stockage existant auquel vous connecter. Pour créer un compte de stockage dans le portail, consultez [Créer un compte de stockage](../storage/common/storage-create-storage-account.md) et suivez les instructions pour créer un compte Azure Resource Manager à usage général. Revenez ensuite à cette page dans le portail pour sélectionner votre compte de stockage. L’affichage des comptes de stockage nouvellement créés dans le menu déroulant peut prendre quelques minutes.
+    * **Archiver dans un compte de stockage** : Pour utiliser cette option, vous avez besoin d’un compte de stockage existant auquel vous connecter. Pour créer un compte de stockage dans le portail, consultez [Créer un compte de stockage](../storage/common/storage-create-storage-account.md) et suivez les instructions pour créer un compte Azure Resource Manager à usage général. Revenez ensuite à cette page dans le portail pour sélectionner votre compte de stockage. L’affichage des comptes de stockage nouvellement créés dans le menu déroulant peut prendre quelques minutes.
     * **Diffuser vers un hub d’événements** : pour utiliser cette option, vous avez besoin d’un espace de noms Event Hubs existant et d’un hub d’événements auquel vous connecter. Pour créer un espace de noms Event Hubs, consultez [Créer un espace de noms Event Hubs et un Event Hub à l’aide du portail Azure](../event-hubs/event-hubs-create.md). Revenez ensuite à cette page dans le portail pour sélectionner l’espace de noms Event Hubs et le nom de la stratégie.
     * **Envoyer à Log Analytics** : pour utiliser cette option, utilisez un espace de travail existant ou créez un espace de travail Log Analytics en suivant les étapes permettant de [Créer un espace de travail dans le portail](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace). Pour plus d’informations sur l’affichage de vos journaux dans Log Analytics, consultez la section [Afficher les journaux dans Log Analytics](#view-in-loganalytics).
     * **Journaliser DataPlaneRequests** : sélectionnez cette option pour enregistrer les requêtes de back-end depuis la plateforme distribuée Azure Cosmos DB sous-jacente pour les comptes d’API SQL, Graph, MongoDB, Cassandra et Table. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
-    * **Journaliser MongoRequests** : sélectionnez cette option pour enregistrer les requêtes initiées par l’utilisateur depuis le serveur front-end Azure Cosmos DB pour servir les comptes d’API MongoDB. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
+    * **Journaliser MongoRequests** : sélectionnez cette option pour enregistrer les requêtes initiées par l’utilisateur depuis le serveur front-end Azure Cosmos DB, afin de servir les comptes Cosmos configurés avec l’API pour MongoDB d’Azure Cosmos DB. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
     * **Requêtes de métrique** : sélectionnez cette option pour stocker des données détaillées dans les [métriques Azure](../azure-monitor/platform/metrics-supported.md). Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux sont supprimés automatiquement après l’expiration de la période de rétention.
 
 3. Sélectionnez **Enregistrer**.
@@ -459,7 +459,7 @@ Le tableau suivant décrit le contenu de chaque entrée de journal.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour comprendre comment activer la journalisation, mais aussi les métriques et les catégories de journaux prises en charge par les différents services Azure, consultez les articles [Vue d’ensemble des métriques dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) et [Présentation des journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+- Pour comprendre comment activer la journalisation, mais aussi les métriques et les catégories de journaux prises en charge par les différents services Azure, consultez les articles [Vue d’ensemble des métriques dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) et [Présentation des journaux de diagnostic Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 - Pour en savoir plus sur les concentrateurs d’événements, lisez les articles suivants :
    - [Nouveautés des concentrateurs d’événements Azure ?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Prise en main des hubs d’événements](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

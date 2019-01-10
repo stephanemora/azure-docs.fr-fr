@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: d261fe78bc6902558e2714d9fe4e66d991a7bd09
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 403906a60d16a478dffd313b45aa1ce24e42196a
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004496"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119231"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde
 
-Sondez le cœur de votre application web dynamique en production en utilisant les flux de métriques temps réel depuis [Application Insights](../../application-insights/app-insights-overview.md). Sélectionnez et filtrez les métriques et les compteurs de performances à surveiller en temps réel, sans aucune perturbation de votre service. Inspectez les traces de pile à partir d’échantillons de demandes en échec et d’exceptions. En combinaison avec le [profileur](../../application-insights/app-insights-profiler.md), le [débogueur d’instantané](../../application-insights/app-insights-snapshot-debugger.md) et les [tests de performances](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests), les flux de métriques temps réel constituent un outil de diagnostic puissant et non invasif pour votre site web dynamique.
+Sondez le cœur de votre application web dynamique en production en utilisant les flux de métriques temps réel depuis [Application Insights](../../azure-monitor/app/app-insights-overview.md). Sélectionnez et filtrez les métriques et les compteurs de performances à surveiller en temps réel, sans aucune perturbation de votre service. Inspectez les traces de pile à partir d’échantillons de demandes en échec et d’exceptions. En combinaison avec le [profileur](../../azure-monitor/app/profiler.md), le [débogueur d’instantané](../../azure-monitor/app/snapshot-debugger.md) et les [tests de performances](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests), les flux de métriques temps réel constituent un outil de diagnostic puissant et non invasif pour votre site web dynamique.
 
 Avec les flux de métriques temps réel, vous pouvez :
 
@@ -38,7 +38,7 @@ Avec les flux de métriques temps réel, vous pouvez :
 
 ## <a name="get-started"></a>Prise en main
 
-1. Si vous ne l’avez pas encore fait, [installez Application Insights](../../azure-monitor/app/asp-net.md) dans votre application web ASP.NET ou dans votre [application de serveur Windows](../../application-insights/app-insights-windows-services.md). 
+1. Si vous ne l’avez pas encore fait, [installez Application Insights](../../azure-monitor/app/asp-net.md) dans votre application web ASP.NET ou dans votre [application de serveur Windows](../../azure-monitor/app/windows-services.md). 
 2. **Mettez à jour vers la dernière version** du package Application Insights. Dans Visual Studio, cliquez avec le bouton droit sur votre projet et choisissez **Gérer les packages NuGet**. Ouvrez l’onglet **Mises à jour**, cochez **Inclure la version préliminaire** et sélectionnez tous les packages Microsoft.ApplicationInsights.*.
 
     Redéployez votre application.
@@ -202,7 +202,7 @@ Pas de données ? Si votre application est dans un réseau protégé : Le flux 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Surveillance de l’utilisation avec Application Insights](../../application-insights/app-insights-usage-overview.md)
+* [Surveillance de l’utilisation avec Application Insights](../../azure-monitor/app/usage-overview.md)
 * [Utilisation de Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
-* [Profileur](../../application-insights/app-insights-profiler.md)
-* [Débogueur de capture instantanée](../../application-insights/app-insights-snapshot-debugger.md)
+* [Profileur](../../azure-monitor/app/profiler.md)
+* [Débogueur de capture instantanée](../../azure-monitor/app/snapshot-debugger.md)

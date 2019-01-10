@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 790aab75b311b116e6ca03af016e181c11019e27
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9c66a937ffd9155569820c47c99946d186c55cce
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726644"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052153"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Résoudre les problèmes de baisse de performances d’une application dans Azure App Service
 Cet article vous aide à résoudre les problèmes de baisse de performances d’une application dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -92,7 +92,7 @@ Chaque application d’App Service fournit un point de terminaison de gestion ex
 - Éditeurs de code source tels que [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Des outils de gestion pour les ressources connectées, comme une base de données MySQL connectée à une application.
 
-[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) est une extension de site d’analyse des performances qui est également disponible. Pour utiliser Application Insights, vous régénérez votre code avec un Kit de développement logiciel (SDK). Vous pouvez également installer une extension qui fournit l’accès à des données supplémentaires. Le Kit de développement logiciel (SDK) vous permet d'écrire un code pour surveiller plus en détail l'utilisation et les performances de votre application. Pour plus d’informations, consultez l’article [Analyse des performances dans les applications web](../application-insights/app-insights-web-monitor-performance.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) est une extension de site d’analyse des performances qui est également disponible. Pour utiliser Application Insights, vous régénérez votre code avec un Kit de développement logiciel (SDK). Vous pouvez également installer une extension qui fournit l’accès à des données supplémentaires. Le Kit de développement logiciel (SDK) vous permet d'écrire un code pour surveiller plus en détail l'utilisation et les performances de votre application. Pour plus d’informations, consultez l’article [Analyse des performances dans les applications web](../azure-monitor/app/web-monitor-performance.md).
 
 <a name="collect" />
 
@@ -114,7 +114,7 @@ Vous pouvez activer Application Insights Profiler pour commencer à capturer des
 
 Application Insights Profiler fournit des statistiques sur les temps de réponse de chaque appel web, et des traces qui indiquent la ligne de code responsable des réponses lentes. Parfois, l’application App Service est lente, car un code spécifique n’a pas été écrit de manière performante. Il peut s’agir par exemple d’un code séquentiel exécuté en parallèle et de conflits indésirables de verrouillage de base de données. Pour augmenter les performances de l’application, il faut supprimer ces goulots d’étranglement dans le code. Mais ceux-ci sont difficiles à détecter si vous ne configurez par des journaux et des suivis élaborés. Les traces collectées par Application Insights Profiler permettent d’identifier les lignes de code qui ralentissent l’application, et de résoudre ce problème pour les applications App Service.
 
- Pour plus d’informations, consultez [Profilage d’applications en direct dans Azure App Service avec Application Insights](../application-insights/app-insights-profiler.md).
+ Pour plus d’informations, consultez [Profilage d’applications en direct dans Azure App Service avec Application Insights](../azure-monitor/app/profiler.md).
 
 ##### <a name="use-remote-profiling"></a>Utiliser le profilage distant
 Dans Azure App Service, les applications web, les API, les back ends mobiles et les WebJobs peuvent être profilés à distance. Choisissez cette option si vous avez accès à la ressource d’application et si vous savez comment reproduire le problème, ou si vous connaissez l’intervalle de temps exact auquel le problème de performances se produit.

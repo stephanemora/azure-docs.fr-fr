@@ -1,5 +1,5 @@
 ---
-title: Journalisation d’Azure Key Vault | Microsoft Docs
+title: Journalisation d’Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Utilisez ce didacticiel pour vous aider à vous familiariser avec la journalisation du coffre de clés.
 services: key-vault
 documentationcenter: ''
@@ -12,19 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/16/2017
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: 9790cd7c79efa1b64220f9e128de9a3b8eb902c0
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8e3076f2176739f5b9df5776f27d7483c9fd2692
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426942"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000408"
 ---
 # <a name="azure-key-vault-logging"></a> Journalisation d’Azure Key Vault
+
 Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="introduction"></a>Introduction
+
 Une fois que vous avez créé un ou plusieurs coffres de clés, vous voulez sans doute contrôler qui accède à ces derniers, par quel moyen et quand. Pour ce faire, vous pouvez activer la journalisation du coffre de clés, ce qui permet d’enregistrer les informations dans un compte de stockage Azure que vous fournissez. Un nouveau conteneur nommé **insights-logs-auditevent** est automatiquement créé pour le compte de stockage spécifié, et vous pouvez utiliser ce même compte pour recueillir les journaux de plusieurs coffres de clés.
 
 Vous pouvez accéder aux informations de journalisation au plus 10 minutes après l’opération sur le coffre de clés. Dans la plupart des cas, ce sera plus rapide.  C’est à vous de gérer vos journaux dans votre compte de stockage :
@@ -44,6 +46,7 @@ Utilisez ce didacticiel pour vous familiariser avec Azure Key Vault pour créer 
 Pour plus d’informations générales sur Azure Key Vault, consultez la page [Présentation d’Azure Key Vault](key-vault-whatis.md)
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un coffre de clés existant que vous utilisez déjà.  
@@ -51,19 +54,26 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 * Espace de stockage suffisant sur Azure pour vos journaux de coffre de clés.
 
 ## <a id="connect"></a>Se connecter à vos abonnements
+
 Démarrez une session Azure PowerShell et connectez-vous à votre compte Azure avec la commande suivante :  
 
-    Connect-AzureRmAccount
+```PowerShell
+Connect-AzureRmAccount
+```
 
 Dans la fenêtre contextuelle de votre navigateur, entrez votre nom d’utilisateur et votre mot de passe Azure. Azure PowerShell obtient alors tous les abonnements associés à ce compte et utilise par défaut le premier.
 
 Si vous disposez de plusieurs abonnements, vous devrez peut-être en spécifier un en particulier, celui qui a été utilisé pour créer votre Azure Key Vault. Tapez la commande suivante pour afficher les abonnements de votre compte :
 
+```PowerShell
     Get-AzureRmSubscription
+```
 
 Ensuite, pour spécifier l’abonnement associé au coffre de clés que vous allez consigner, tapez :
 
-    Set-AzureRmContext -SubscriptionId <subscription ID>
+```PowerShell
+Set-AzureRmContext -SubscriptionId <subscription ID>
+```
 
 > [!NOTE]
 > Cette étape est importante et particulièrement utile si plusieurs abonnements sont associés à votre compte. Vous risquez de recevoir une erreur d’inscription de Microsoft.Insights si vous ignorez cette étape.
@@ -73,12 +83,14 @@ Ensuite, pour spécifier l’abonnement associé au coffre de clés que vous all
 Pour plus d’informations sur la configuration d’Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
 ## <a id="storage"></a>Création d’un nouveau compte de stockage pour vos journaux
+
 Bien que vous puissiez utiliser un compte de stockage existant pour vos journaux, nous allons en créer un nouveau qui sera dédié à vos journaux de coffre de clés. Pour plus de commodité, en prévision du moment où vous devrez le spécifier par la suite, nous allons enregistrer les détails dans une variable nommée **sa**.
 
 Pour faciliter encore la gestion, nous allons utiliser le groupe de ressources qui contient votre coffre de clés. Dans le [didacticiel de mise en route](key-vault-get-started.md), ce groupe de ressources se nomme **ContosoResourceGroup** et nous allons continuer d’utiliser l’emplacement Asie Est. Remplacez ces valeurs par les vôtres, selon le cas :
 
-    $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
-
+```PowerShell
+ $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
+```
 
 > [!NOTE]
 > Si vous décidez d’utiliser un compte de stockage existant, vous devez utiliser le même abonnement que pour votre coffre de clés, ainsi que le modèle de déploiement Resource Manager plutôt que le modèle de déploiement Classic.
@@ -86,15 +98,20 @@ Pour faciliter encore la gestion, nous allons utiliser le groupe de ressources q
 >
 
 ## <a id="identify"></a>Identification du coffre de clés pour vos journaux
+
 Dans notre didacticiel de prise en main, le nom de notre coffre de clés était **ContosoKeyVault**, donc nous allons continuer à utiliser ce nom et stocker les détails dans une variable nommée **kv** :
 
-    $kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
-
+```PowerShell
+$kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
+```
 
 ## <a id="enable"></a>Activation de la journalisation
+
 Pour activer la journalisation du coffre de clés, nous allons utiliser l’applet de commande Set-AzureRmDiagnosticSetting, ainsi que les variables que nous avons créées pour notre compte de stockage et notre coffre de clés. Nous allons également définir l’indicateur **-Enabled** sur **$true** et la catégorie sur AuditEvent (la seule catégorie pour la journalisation de Key Vault) :
 
-    Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+```PowerShell
+Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+```
 
 Le résultat de l’opération inclut :
 
@@ -108,12 +125,13 @@ Le résultat de l’opération inclut :
         Enabled : False
         Days    : 0
 
-
 L’activation de la journalisation de votre coffre de clés est à présent activée et les informations sont enregistrées dans votre compte de stockage.
 
 Si vous le souhaitez, vous pouvez également définir une stratégie de rétention pour vos journaux, par exemple la suppression automatique des anciens journaux. Par exemple, définissez une stratégie de rétention en attribuant à l’indicateur **-RetentionEnabled** la valeur **$true** et en définissant le paramètre **-RetentionInDays** sur **90** afin que les journaux antérieurs à 90 jours soient automatiquement supprimés.
 
-    Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent -RetentionEnabled $true -RetentionInDays 90
+```PowerShell
+Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent -RetentionEnabled $true -RetentionInDays 90
+```
 
 Éléments consignés :
 
@@ -123,15 +141,21 @@ Si vous le souhaitez, vous pouvez également définir une stratégie de rétenti
 * les requêtes non authentifiées qui génèrent une réponse 401. Par exemple, les requêtes qui ne possèdent pas de jeton de porteur, qui sont incorrectes, qui ont expiré ou qui comportent un jeton non valide.  
 
 ## <a id="access"></a>Accéder à vos journaux
+
 Les journaux de coffre de clés sont stockés dans le conteneur **insights-logs-auditevent** du compte de stockage que vous avez fourni. Pour répertorier tous les objets blob présents dans ce conteneur, saisissez :
 
 Commencez par créer une variable pour le nom du conteneur. Ce nom sera utilisé dans le reste de cette procédure pas à pas.
 
-    $container = 'insights-logs-auditevent'
+```PowerShell
+$container = 'insights-logs-auditevent'
+```
 
 Pour répertorier tous les objets blob présents dans ce conteneur, saisissez :
 
-    Get-AzureStorageBlob -Container $container -Context $sa.Context
+```PowerShell
+Get-AzureStorageBlob -Container $container -Context $sa.Context
+```
+
 Le résultat ressemble à ce qui suit :
 
 **URI de conteneur :https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
@@ -149,19 +173,25 @@ Comme vous pouvez le voir dans cette sortie, les objets blob suivent une convent
 
 Les valeurs de date et d’heure utilisent UTC.
 
-Le même compte de stockage pouvant être utilisé pour collecter les journaux de plusieurs ressources, l’ID complet de ressource dans le nom de l’objet blob est très utile si vous voulez accéder seulement aux objets blob dont vous avez besoin et les télécharger. Mais avant cela, nous aborderons le téléchargement de tous les objets blob.
+Le même compte de stockage pouvant être utilisé pour collecter les journaux de plusieurs ressources, l’ID de ressource complet dans le nom de l’objet blob est utile si vous voulez uniquement accéder aux objets blob dont vous avez besoin ou les télécharger. Mais avant cela, nous aborderons le téléchargement de tous les objets blob.
 
 Tout d’abord, créez un dossier pour télécharger les objets blob. Par exemple : 
 
-    New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
+```PowerShell 
+New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
+```
 
 Procurez-vous la liste de tous les objets blob :  
 
-    $blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+```PowerShell
+$blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+```
 
 Adressez cette liste via « Get-AzureStorageBlobContent » pour télécharger les objets blob dans notre dossier de destination :
 
-    $blobs | Get-AzureStorageBlobContent -Destination 'C:\Users\username\ContosoKeyVaultLogs'
+```PowerShell
+$blobs | Get-AzureStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
+```
 
 Lorsque vous exécutez cette seconde commande, le délimiteur **/** présent dans les noms d’objet blob crée une structure de dossiers complète sous le dossier de destination, structure qui servira à télécharger et à stocker les objets blob en tant que fichiers.
 
@@ -169,13 +199,21 @@ Pour télécharger les objets blob de façon sélective, utilisez des caractère
 
 * Si vous disposez de plusieurs coffres de clés et souhaitez télécharger les journaux d’un seul d’entre eux nommé CONTOSOKEYVAULT3 :
 
-        Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
+```PowerShell
+Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
+```
+
 * Si vous disposez de plusieurs groupes de ressources et souhaitez télécharger les journaux d’un seul d’entre eux, utilisez `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
-        Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+```PowerShell
+Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+```
+
 * Si vous souhaitez télécharger tous les journaux du mois de janvier 2016, utilisez `-Blob '*/year=2016/m=01/*'`:
 
-        Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
+```PowerShell
+Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
+```
 
 Vous êtes maintenant prêt à commencer les recherches dans le contenu des journaux. Mais avant de passer à cette étape, il peut s’avérer utile de connaître deux autres paramètres de Get-AzureRmDiagnosticSetting :
 
@@ -183,7 +221,14 @@ Vous êtes maintenant prêt à commencer les recherches dans le contenu des jour
 * Pour désactiver la journalisation de votre ressource de coffre de clés : `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
 ## <a id="interpret"></a>Interpréter vos journaux Key Vault
-Les objets blob individuels sont stockés sous forme de texte en tant qu’objet blob JSON. Voici un exemple d’entrée de journal après l’exécution de `Get-AzureRmKeyVault -VaultName 'contosokeyvault'`:
+
+Les objets blob individuels sont stockés sous forme de texte en tant qu’objet blob JSON. Exécution
+
+```PowerShell
+Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
+```
+
+retourne une entrée de journal semblable à celle présentée ci-dessous :
 
     {
         "records":
@@ -206,7 +251,6 @@ Les objets blob individuels sont stockés sous forme de texte en tant qu’objet
         ]
     }
 
-
 Le tableau suivant répertorie les noms de champ et les descriptions.
 
 | Nom du champ | Description |
@@ -223,7 +267,7 @@ Le tableau suivant répertorie les noms de champ et les descriptions.
 | callerIpAddress |Adresse IP du client qui a effectué la demande. |
 | correlationId |GUID facultatif que le client peut transférer pour mettre en corrélation les journaux côté client avec les journaux côté service (Key Vault). |
 | identité |Identité issue du jeton qui a été présenté lors de la création de la demande de l’API REST. Il s’agit généralement d’un « utilisateur », d’« un principal de service » ou d’une combinaison « utilisateur + appId », comme dans le cas d’une demande résultant d’une applet de commande PowerShell Azure. |
-| properties |Ce champ contient des informations différentes en fonction de l’opération (operationName). Dans la plupart des cas, il contient des informations client (chaîne useragent transmise par le client), l’URI de requête API REST exacte et le code d’état HTTP. En outre, lorsqu’un objet est retourné suite à une demande (par exemple, KeyCreate ou VaultGet), il contient également l’URI de clé (sous la forme « id »), l’URI d’archivage ou l’URI de clé secrète. |
+| properties |Ce champ contient des informations différentes en fonction de l’opération (operationName). Dans la plupart des cas, il contient des informations sur le client (chaîne d’agent utilisateur passée par le client), l’URI de requête API REST exacte et le code d’état HTTP. En outre, lorsqu’un objet est retourné suite à une demande (par exemple, KeyCreate ou VaultGet), il contient également l’URI de clé (sous la forme « id »), l’URI d’archivage ou l’URI de clé secrète. |
 
 Les valeurs du champ **operationName** sont au format ObjectVerb. Par exemple : 
 
@@ -268,6 +312,7 @@ Le tableau suivant répertorie les éléments operationName et la commande API R
 Vous pouvez utiliser la solution Azure Key Vault dans Log Analytics pour consulter les journaux AuditEvent d’Azure Key Vault. Pour plus d’informations, notamment sur la configuration, consultez la page [Solution Azure Key Vault dans Log Analytics](../azure-monitor/insights/azure-key-vault.md). Cet article contient également des instructions si vous devez migrer à partir de l’ancienne solution Key Vault qui proposée dans la version préliminaire de Log Analytics, où vous avez d’abord acheminé vos journaux vers un compte de stockage Azure et configuré Log Analytics pour lire à cet emplacement.
 
 ## <a id="next"></a>Étapes suivantes
+
 Pour accéder à un didacticiel utilisant Azure Key Vault dans une application web, consultez l’article [Utilisation d’Azure Key Vault à partir d’une application web](key-vault-use-from-web-application.md).
 
 Pour les références de programmation, consultez le [guide du développeur de coffre de clés Azure](key-vault-developers-guide.md).

@@ -1,5 +1,5 @@
 ---
-title: Fonctionnalités JSON de Base de données SQL Azure | Microsoft Azure
+title: Utilisation de données JSON dans Azure SQL Database | Microsoft Docs
 description: Base de données SQL Azure vous permet d’analyser, d’interroger et de mettre en forme des données dans une notation JavaScript Object Notation (JSON).
 services: sql-database
 ms.service: sql-database
@@ -11,27 +11,20 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: c3f1cb7499be57be94cc387eb40d37c1710f2f75
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/17/2018
+ms.openlocfilehash: bc4e27f45b905e00c1c809a781a5cf034a0da8ca
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230527"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543792"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Prise en main des fonctionnalités JSON dans Base de données SQL Azure
-Base de données SQL Azure vous permet d’analyser et d’interroger des données représentées au format JavaScript Object Notation [(JSON)](http://www.json.org/) , et d’exporter vos données relationnelles en tant que texte JSON.
-
-JSON est un format de données largement répandu, utilisé pour l’échange de données dans des applications mobiles et web modernes. JSON est également utilisé pour stocker des données semi-structurées dans des fichiers journaux ou des bases de données NoSQL, par exemple [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/). De nombreux services web REST retournent des résultats au format de texte JSON, ou acceptent des données au format JSON. La plupart des services Azure tels que [Recherche Azure](https://azure.microsoft.com/services/search/), [Stockage Azure](https://azure.microsoft.com/services/storage/) et [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) ont des points de terminaison REST qui renvoient ou utilisent des données JSON.
-
-Base de données SQL Azure vous permet de travailler facilement avec des données JSON, et d’intégrer votre base de données avec des services modernes.
-
-## <a name="overview"></a>Vue d’ensemble
-Base de données SQL Azure offre les fonctions suivantes pour manipuler des données JSON :
-
-![Fonctions JSON](./media/sql-database-json-features/image_1.png)
-
-Si vous avez du texte JSON, vous pouvez extraire des données de JSON ou vérifier que JSON est correctement formaté à l’aide des fonctions intégrées [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx) et [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx). La fonction [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) permet de mettre à jour la valeur dans le texte JSON. Pour des opérations d’interrogation et d’analyse plus avancées, la fonction [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) peut transformer un tableau d’objets JSON en un ensemble de lignes. Toute requête SQL peut être exécutée sur le jeu de résultats retourné. Enfin, il existe une clause [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) qui vous permet de convertir les données stockées dans vos tables relationnelles au format de texte JSON.
+Base de données SQL Azure vous permet d’analyser et d’interroger des données représentées au format JavaScript Object Notation [(JSON)](http://www.json.org/) , et d’exporter vos données relationnelles en tant que texte JSON. Les scénarios JSON suivants sont disponibles dans Azure SQL Database :
+- [Conversion de données relationnelles au format JSON](#formatting-relational-data-in-json-format) à l’aide de la clause `FOR JSON`.
+- [Utilisation de données JSON](#working-with-json-data)
+- [Interrogation de données JSON](#querying-json-data) à l’aide de fonctions scalaires JSON.
+- [Conversion de JSON au format tabulaire](#transforming-json-into-tabular-format) à l’aide de la fonction `OPENJSON`.
 
 ## <a name="formatting-relational-data-in-json-format"></a>Conversion de données relationnelles au format JSON
 Si vous disposez d’un service web qui prélève des données de la couche de base de données et fournit une réponse au format JSON, ou d’infrastructures ou bibliothèques JavaScript côté client qui acceptent des données au format JSON, vous pouvez convertir le contenu de votre base de données au format JSON directement dans une requête SQL. Vous n’avez plus besoin d’écrire de code d’application qui convertit les résultats de Base de données SQL Azure au format JSON, ou d’inclure une bibliothèque de sérialisation JSON pour convertir des résultats de requête sous forme de tableau, puis sérialiser des objets au format JSON. Au lieu de cela, vous pouvez utiliser la clause FOR JSON pour convertir les résultats de requête SQL au format JSON dans Base de données SQL Azure, et les utiliser directement dans votre application.
@@ -79,7 +72,7 @@ Le résultat de cette requête ressemble à ceci :
 
 Dans cet exemple, nous renvoyons un objet JSON au lieu d’un tableau, en spécifiant l’option [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx). Vous pouvez utiliser cette option si vous savez que vous retournez un objet unique en tant que résultat de requête.
 
-La valeur principale de la clause FOR JSON est qu’elle vous permet de renvoyer des données hiérarchiques complexes à partir de votre base de données sous la forme de tableaux ou d’objets JSON imbriqués. L’exemple suivant montre comment inclure des commandes (Orders) appartenant au client (Customer) en tant que tableau imbriqué de commandes :
+La valeur principale de la clause FOR JSON est qu’elle vous permet de renvoyer des données hiérarchiques complexes à partir de votre base de données sous la forme de tableaux ou d’objets JSON imbriqués. L’exemple suivant montre comment inclure les lignes de la table `Orders` appartenant à `Customer` sous forme d’un tableau imbriqué de `Orders` :
 
 ```
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,

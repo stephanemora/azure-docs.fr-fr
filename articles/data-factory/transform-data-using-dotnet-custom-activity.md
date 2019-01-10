@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 424de36dbbd3b09e635679900110148b9edd0242
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: bfacad5064862f8ff20fc33b2b242c00ec416661
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422880"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000350"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -104,10 +104,12 @@ Le tableau suivant indique les noms et les descriptions des propriétés qui son
 | Type                  | Pour une activité personnalisée, le type d’activité est **Custom**. | Oui      |
 | linkedServiceName     | Service lié sur Azure Batch. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md).  | Oui      |
 | command               | Commande de l’application personnalisée à exécuter. Si l’application est déjà disponible sur le nœud du pool Azure Batch, resourceLinkedService et folderPath peuvent être ignorés. Par exemple, vous pouvez spécifier la commande pour qu’elle soit `cmd /c dir`, ce qui est pris en charge en mode natif par le nœud du pool Windows Batch. | Oui      |
-| resourceLinkedService | Le service lié Stockage Azure sur le compte de stockage où l’application personnalisée est stockée. | Non        |
-| folderPath            | Chemin du dossier de l’application personnalisée et de toutes ses dépendances.<br/><br/>Si vous avez des dépendances stockées dans les sous-dossiers (autrement dit, dans une structure de dossiers hiérarchique sous *folderPath*),-la structure de dossiers est aplatie lorsque les fichiers sont copiés vers Azure Batch. Autrement dit, tous les fichiers sont copiés dans un dossier unique, sans sous-dossier. Pour contourner ce problème, envisagez de compresser les fichiers, de copier le fichier compressé, puis de le décompresser avec du code personnalisé à l’emplacement souhaité. | Non        |
+| resourceLinkedService | Le service lié Stockage Azure sur le compte de stockage où l’application personnalisée est stockée. | No&#42;       |
+| folderPath            | Chemin du dossier de l’application personnalisée et de toutes ses dépendances.<br/><br/>Si vous avez des dépendances stockées dans les sous-dossiers (autrement dit, dans une structure de dossiers hiérarchique sous *folderPath*),-la structure de dossiers est aplatie lorsque les fichiers sont copiés vers Azure Batch. Autrement dit, tous les fichiers sont copiés dans un dossier unique, sans sous-dossier. Pour contourner ce problème, envisagez de compresser les fichiers, de copier le fichier compressé, puis de le décompresser avec du code personnalisé à l’emplacement souhaité. | No&#42;       |
 | referenceObjects      | Tableau des services liés et des jeux de données existants. Les services liés et les jeux de données référencés sont passés à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des ressources de la fabrique de données. | Non        |
 | extendedProperties    | Propriétés définies par l’utilisateur qui peuvent être passées à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des propriétés supplémentaires. | Non        |
+
+&#42; Les propriétés `resourceLinkedService` et `folderPath` doivent être spécifiées ou omises ensemble.
 
 ## <a name="custom-activity-permissions"></a>Autorisations d’activité personnalisée
 
@@ -353,7 +355,7 @@ Vous trouverez un exemple complet de réécriture de l’exemple de DLL et de pi
 ## <a name="auto-scaling-of-azure-batch"></a>Mise à l’échelle automatique d’Azure Batch
 Vous pouvez aussi créer un pool Azure Batch avec la fonctionnalité **autoscale** . Par exemple, vous pouvez créer un pool Azure Batch avec 0 machine virtuelle dédiée et une formule de mise à l’échelle automatique en fonction du nombre de tâches en attente. 
 
-Cet exemple de formule permet d’obtenir le comportement suivant : quand le pool est créé, il commence avec 1 machine virtuelle. La métrique $PendingTasks définit le nombre de tâches dans l’état En cours d’exécution + Actif (en file d’attente).  Cette formule recherche le nombre moyen de tâches en attente au cours des 180 dernières secondes et définit TargetDedicated en conséquence. Elle garantit que TargetDedicated ne va jamais au-delà de 25 machines virtuelles. Par conséquent, à mesure que de nouvelles tâches sont envoyées, le pool s’accroît automatiquement et, au fil de la réalisation des tâches, les machines virtuelles se libèrent une à une et la mise à l’échelle automatique réduit ces machines virtuelles. Vous pouvez ajuster startingNumberOfVMs et maxNumberofVMs selon vos besoins.
+L’exemple de formule fourni ici entraîne le comportement suivant : Lors de sa création, le pool ne contient qu’une seule machine virtuelle. La métrique $PendingTasks définit le nombre de tâches dans l’état En cours d’exécution + Actif (en file d’attente).  Cette formule recherche le nombre moyen de tâches en attente au cours des 180 dernières secondes et définit TargetDedicated en conséquence. Elle garantit que TargetDedicated ne va jamais au-delà de 25 machines virtuelles. Par conséquent, à mesure que de nouvelles tâches sont envoyées, le pool s’accroît automatiquement et, au fil de la réalisation des tâches, les machines virtuelles se libèrent une à une et la mise à l’échelle automatique réduit ces machines virtuelles. Vous pouvez ajuster startingNumberOfVMs et maxNumberofVMs selon vos besoins.
 
 Formule de mise à l’échelle automatique :
 

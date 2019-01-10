@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: c2f68afb685cb04d456e06cadf378bd1c3ebb1fb
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0bca7281c390388bd860219fb6f2eacb96b99df0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384957"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742386"
 ---
 # <a name="http-application-routing"></a>Routage d’applications HTTP
 
@@ -28,10 +28,10 @@ Lorsque ce module complémentaire est activé, il crée une zone DNS dans votre 
 
 Le module complémentaire déploie deux composants : un [contrôleur d’entrée Kubernetes][ingress] et un [contrôleur DNS externe][external-dns].
 
-- **Contrôleur d’entrée** : le contrôleur d’entrée est exposé sur Internet à l’aide d’un service Kubernetes de type LoadBalancer. Le contrôleur d’entrée surveille et implémente des [ressources d’entrée Kubernetes][ingress-resource], ce qui crée des itinéraires vers des points de terminaison d’application.
-- **Contrôleur DNS externe** : surveille les ressources d’entrée Kubernetes et crée des enregistrements DNS A dans la zone DNS spécifique au cluster.
+- **Contrôleur d’entrée** : le contrôleur d’entrée est exposé sur Internet à l’aide d’un service Kubernetes de type LoadBalancer. Le contrôleur d’entrée surveille et implémente des [ressources d’entrée Kubernetes][ingress-resource], ce qui crée des itinéraires vers des points de terminaison d’application.
+- **Contrôleur DNS externe** : surveille les ressources d’entrée Kubernetes et crée des enregistrements DNS A dans la zone DNS spécifique au cluster.
 
-## <a name="deploy-http-routing-cli"></a>Déployer le routage HTTP dans l’interface CLI
+## <a name="deploy-http-routing-cli"></a>Déployer le routage HTTP : Interface de ligne de commande
 
 Le module complémentaire de routage des applications HTTP peut être activé via le l’interface CLI Azure lors du déploiement d’un cluster AKS. Pour ce faire, utilisez la commande [az aks create][az-aks-create] avec l’argument `--enable-addons`.
 
@@ -55,7 +55,7 @@ Result
 9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
 ```
 
-## <a name="deploy-http-routing-portal"></a>Déployer le routage HTTP dans le portail
+## <a name="deploy-http-routing-portal"></a>Déployer le routage HTTP : Portail
 
 Le module complémentaire de routage des applications HTTP peut être activé via le portail Azure lors du déploiement d’un cluster AKS.
 
@@ -174,6 +174,36 @@ La solution de routage HTTP peut être supprimée à l’aide d’Azure CLI. Pou
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
+Quand le module complémentaire de routage d’application HTTP est désactivé, certaines ressources Kubernetes peuvent rester dans le cluster. Ces ressources incluent *configMaps* et *secrets*, et sont créées dans l’espace de noms *kube-system*. Pour maintenir un cluster propre, vous voulez peut-être supprimer ces ressources.
+
+Recherchez les ressources *addon-http-application-routing* à l’aide des commandes [kubectl get][kubectl-get] suivantes :
+
+```console
+kubectl get deployments --namespace kube-system
+kubectl get services --namespace kube-system
+kubectl get configmaps --namespace kube-system
+kubectl get secrets --namespace kube-system
+```
+
+L’exemple de sortie suivant montre configMaps qui doit être supprimée :
+
+```
+$ kubectl get configmaps --namespace kube-system
+
+NAMESPACE     NAME                                                       DATA   AGE
+kube-system   addon-http-application-routing-nginx-configuration         0      9m7s
+kube-system   addon-http-application-routing-tcp-services                0      9m7s
+kube-system   addon-http-application-routing-udp-services                0      9m7s
+```
+
+Pour supprimer des ressources, utilisez la commande [kubectl delete][kubectl-delete]. Spécifiez le type de ressource, le nom de la ressource et l’espace de noms. L’exemple suivant supprime l’une des ressources configMaps précédentes :
+
+```console
+kubectl delete configmaps addon-http-application-routing-nginx-configuration --namespace kube-system
+```
+
+Répétez l’étape `kubectl delete` précédente pour toutes les ressources *addon-http-application-routing* qui sont restées dans votre cluster.
+
 ## <a name="troubleshoot"></a>Résolution des problèmes
 
 Utilisez la commande [kubectl logs][kubectl-logs] pour afficher les journaux d’application de l’application DNS externe. Les journaux doivent confirmer que des enregistrements DNS A et TXT ont bien été créés.
@@ -256,6 +286,7 @@ Pour plus d’informations sur l’installation d’un contrôleur d’entrée s
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [ingress-resource]: https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource

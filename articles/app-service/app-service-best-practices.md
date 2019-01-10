@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: 0a3570e8907369d5cefc1197eef60d682659d0ed
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3d1821ccc3f3bc16bffd8a19d3014b5ea4876768
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261821"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715603"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Meilleures pratiques pour Azure App Service
 Cet article résume les meilleures pratiques dans l’utilisation de [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -39,7 +39,7 @@ Si vous remarquez qu’une application consomme plus de mémoire que prévu, ce 
 ## <a name="CPUresources"></a>Quand les applications consomment plus d’UC que prévu
 Si vous remarquez qu’une application consomme plus d’UC que prévu ou qu’elle provoque des pics de consommation d’UC répétés, ce qui indiqué par des analyses ou des recommandations de service, envisagez de faire monter ou descendre en puissance le plan App Service. Si votre application est « avec état », la seule option possible est la montée en charge. Si l’application est « sans état », l’augmentation de la taille des instances vous confère plus de souplesse et un potentiel de mise à l’échelle plus élevé. 
 
-Pour plus d’informations sur les applications « sans état » et « avec état », regardez la vidéo : [Planification d’une application multiniveau complète et évolutive sur l’application Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Pour plus d’informations sur les options de montée en charge et de mise à l’échelle automatique, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](web-sites-scale.md).  
+Pour plus d’informations sur les applications « sans état » et « avec état », regardez la vidéo : [Planning a Scalable End-to-End Multi-Tier Application on Azure App Service](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Pour plus d’informations sur les options de montée en charge et de mise à l’échelle automatique, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Quand les ressources de socket sont épuisées
 L’utilisation des bibliothèques clientes constitue une raison courante de l’épuisement des connexions TCP sortantes ; ces bibliothèques ne sont pas implémentées pour la réutilisation des connexions TCP ou, lorsqu’un protocole de niveau supérieur tel que HTTP - Keep-Alive n’est pas utilisé. Veuillez consulter la documentation pour chacune des bibliothèques référencées par les applications dans votre plan App Service afin de vous assurer que celles-ci sont configurées ou accessibles dans votre code pour une réutilisation efficace des connexions sortantes. Suivez également les instructions de la documentation des bibliothèques pour une création et une mise en production appropriées ainsi que pour un nettoyage servant à éviter la fuite des connexions. Lorsque les examens des bibliothèques clientes sont en cours d’exécution, leur impact peut être atténué en augmentant la taille des instances.
@@ -68,7 +68,7 @@ pm2 start /home/site/wwwroot/app.js --no-daemon -i 4
 ## <a name="appbackup"></a>La sauvegarde de votre application échoue
 Les deux raisons les plus courantes qui entraînent l'échec de la sauvegarde d'une application sont les suivantes : des paramètres de stockage non valides et une configuration de base de données non valide. Ces échecs se produisent généralement lorsque des modifications ont été appliquées à des ressources de stockage ou de base de données, ou lorsque la méthode d'accès à ces ressources a changé (par ex. en cas de mise à jour des informations d’identification pour accéder à la base de données sélectionnée dans les paramètres de sauvegarde). En général, les sauvegardes s'exécutent de façon planifiée et requièrent l’accès au stockage (pour générer les fichiers sauvegardés) et aux bases de données (pour copier et lire le contenu à inclure dans la sauvegarde). L'incapacité à accéder à l'une de ces ressources entraîne une erreur de sauvegarde permanente. 
 
-Lorsque des échecs de sauvegarde se produisent, veuillez consulter les résultats les plus récents pour comprendre quel type d'échec se produit. Si vous ne parvenez pas à accéder au stockage, examinez et mettez à jour les paramètres de stockage utilisés dans la configuration de la sauvegarde. Si vous ne parvenez pas à accéder à la base de données, examinez et mettez à jour vos chaînes de connexion dans les paramètres de l’application, puis mettez à jour la configuration de votre sauvegarde afin d’inclure correctement les bases de données requises. Pour plus d’informations sur la sauvegarde d’une application, consultez [Sauvegarder une application web dans Azure App Service](web-sites-backup.md).
+Lorsque des échecs de sauvegarde se produisent, veuillez consulter les résultats les plus récents pour comprendre quel type d'échec se produit. Si vous ne parvenez pas à accéder au stockage, examinez et mettez à jour les paramètres de stockage utilisés dans la configuration de la sauvegarde. Si vous ne parvenez pas à accéder à la base de données, examinez et mettez à jour vos chaînes de connexion dans les paramètres de l’application, puis mettez à jour la configuration de votre sauvegarde afin d’inclure correctement les bases de données requises. Pour plus d’informations sur la sauvegarde d’une application, consultez [Sauvegarder une application web dans Azure App Service](manage-backup.md).
 
 ## <a name="nodejs"></a>Lorsque de nouvelles applications Node.js sont déployées sur Azure App Service
 La configuration Azure App Service par défaut pour les applications Node.js vise à mieux répondre aux besoins des applications courantes. Si la configuration de votre application Node.js peut bénéficier d’un paramétrage personnalisé pour améliorer les performances ou optimiser l’utilisation des ressources au niveau processeur/mémoire/réseau, consultez [Meilleures pratiques et guide de dépannage pour les applications Node sur Azure App Service](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). Cet article décrit les paramètres iisnode, que vous devrez peut-être configurer pour votre application Node.js, présente les différents scénarios ou problèmes que votre application peut rencontrer, et indique comment résoudre ces problèmes.

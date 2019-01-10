@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 75a3dcb5aeb3e30da570eb57d0d1495710624e54
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 842a9354cf20648393c3262736c0a1e9654a3c70
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141693"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628338"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gestion du stockage dans les clouds indépendants Azure avec PowerShell
 
@@ -23,6 +23,8 @@ La plupart des gens utilisent le cloud public Azure pour leur déploiement Azure
 * [Cloud Azure de Chine géré par 21Vianet en Chine](http://www.windowsazure.cn/)
 * [Cloud Azure allemand](../../germany/germany-welcome.md)
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="using-an-independent-cloud"></a>Utilisation d’un cloud indépendant 
 
 Pour utiliser le stockage Azure dans l’un des clouds indépendants, vous vous connectez à ce cloud au lieu du cloud Azure public. Pour utiliser l’un des clouds indépendants plutôt que le cloud Azure public :
@@ -31,28 +33,28 @@ Pour utiliser le stockage Azure dans l’un des clouds indépendants, vous vous 
 * Déterminez et utilisez les régions disponibles.
 * Utilisez le suffixe de point de terminaison approprié, qui est différent de celui du cloud Azure public.
 
-Ces exemples nécessitent le module Azure PowerShell version 4.4.0 ou ultérieure. Dans une fenêtre PowerShell, exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si aucune information ne s’affiche, ou si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Ces exemples nécessitent le module Az Azure PowerShell version 0.7 ou ultérieure. Dans une fenêtre PowerShell, exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si aucune information ne s’affiche, ou si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps). 
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Exécutez l’applet de commande [Get-AzureRmEnvironment](/powershell/module/servicemanagement/azurerm.profile/get-azurermenvironment) pour voir les environnements Azure disponibles :
+Exécutez l’applet de commande [Get-AzEnvironment](/powershell/module/az.profile/get-Azenvironment) pour voir les environnements Azure disponibles :
    
 ```powershell
-Get-AzureRmEnvironment
+Get-AzEnvironment
 ```
 
 Connectez-vous à votre compte qui a accès au cloud auquel vous souhaitez vous connecter, puis définissez l’environnement. Cet exemple montre comment se connecter à un compte qui utilise le cloud Azure Government.   
 
 ```powershell
-Connect-AzureRmAccount –Environment AzureUSGovernment
+Connect-AzAccount –Environment AzureUSGovernment
 ```
 
 Pour accéder au cloud de la Chine, utilisez l’environnement **AzureChinaCloud**. Pour accéder au cloud allemand, utilisez **AzureGermanCloud**.
 
-À ce stade, si vous avez besoin de la liste des emplacements pour créer un compte de stockage ou une autre ressource, vous pouvez vérifier les emplacements disponibles pour le cloud sélectionné à l’aide de [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation).
+À ce stade, si vous avez besoin de la liste des emplacements pour créer un compte de stockage ou une autre ressource, vous pouvez interroger les emplacements disponibles pour le cloud sélectionné à l’aide de [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
 ```powershell
-Get-AzureRmLocation | select Location, DisplayName
+Get-AzLocation | select Location, DisplayName
 ```
 
 Le tableau suivant présente les emplacements retournés pour le cloud allemand.
@@ -67,14 +69,14 @@ Le tableau suivant présente les emplacements retournés pour le cloud allemand.
 
 Le suffixe de point de terminaison pour chacun de ces environnements est différent de celui du point de terminaison du cloud Azure public. Par exemple, le suffixe de point de terminaison blob du cloud Azure public est **blob.core.windows.net**. Pour le cloud Government, le suffixe de point de terminaison blob est **blob.core.usgovcloudapi.net**. 
 
-### <a name="get-endpoint-using-get-azurermenvironment"></a>Obtenir le point de terminaison avec Get-AzureRMEnvironment 
+### <a name="get-endpoint-using-get-azenvironment"></a>Obtenir le point de terminaison avec Get-AzEnvironment 
 
-Récupérez le suffixe de point de terminaison à l’aide de [Get-AzureRMEnvironment](/powershell/module/azurerm.profile/get-azurermenvironment). Le point de terminaison est la propriété *StorageEndpointSuffix* de l’environnement. Les extraits de code suivants montrent comment effectuer cette opération. Toutes ces commandes retournent des valeurs similaires à « core.cloudapp.net» ou « core.cloudapi.de», etc. Ajoutez ce suffixe au service de stockage pour accéder à ce dernier. Par exemple, « queue.core.cloudapi.de » accède au service de file d’attente du cloud allemand.
+Récupérez le suffixe de point de terminaison à l’aide de [Get-AzEnvironment](/powershell/module/az.profile/get-azenvironment). Le point de terminaison est la propriété *StorageEndpointSuffix* de l’environnement. Les extraits de code suivants montrent comment effectuer cette opération. Toutes ces commandes retournent des valeurs similaires à « core.cloudapp.net» ou « core.cloudapi.de», etc. Ajoutez ce suffixe au service de stockage pour accéder à ce dernier. Par exemple, « queue.core.cloudapi.de » accède au service de file d’attente du cloud allemand.
 
 L’extrait de code suivant récupère tous les environnements et le suffixe de point de terminaison pour chacun d’eux.
 
 ```powershell
-Get-AzureRmEnvironment | select Name, StorageEndpointSuffix 
+Get-AzEnvironment | select Name, StorageEndpointSuffix 
 ```
 
 Cette commande retourne les résultats suivants.
@@ -86,10 +88,10 @@ Cette commande retourne les résultats suivants.
 | AzureGermanCloud | core.cloudapi.de|
 | AzureUSGovernment | core.usgovcloudapi.net |
 
-Pour récupérer toutes les propriétés de l’environnement spécifié, appelez **Get-AzureRmEnvironment**, puis spécifiez le nom du cloud. L’extrait de code suivant retourne une liste de propriétés. Recherchez **StorageEndpointSuffix** dans cette liste. L’exemple suivant concerne le cloud allemand.
+Pour récupérer toutes les propriétés de l’environnement spécifié, appelez **Get-AzEnvironment**, puis spécifiez le nom du cloud. L’extrait de code suivant retourne une liste de propriétés. Recherchez **StorageEndpointSuffix** dans cette liste. L’exemple suivant concerne le cloud allemand.
 
 ```powershell
-Get-AzureRmEnvironment -Name AzureGermanCloud 
+Get-AzEnvironment -Name AzureGermanCloud 
 ```
 
 Les résultats ressemblent à ce qui suit :
@@ -111,7 +113,7 @@ Les résultats ressemblent à ce qui suit :
 Pour récupérer uniquement la propriété de suffixe de point de terminaison de stockage, récupérez le cloud spécifique, puis demandez juste cette propriété.
 
 ```powershell
-$environment = Get-AzureRmEnvironment -Name AzureGermanCloud
+$environment = Get-AzEnvironment -Name AzureGermanCloud
 Write-Host "Storage EndPoint Suffix = " $environment.StorageEndpointSuffix 
 ```
 
@@ -129,7 +131,7 @@ Vous pouvez également consulter les propriétés d’un compte de stockage pour
 # Get a reference to the storage account.
 $resourceGroup = "myexistingresourcegroup"
 $storageAccountName = "myexistingstorageaccount"
-$storageAccount = Get-AzureRmStorageAccount `
+$storageAccount = Get-AzStorageAccount `
   -ResourceGroupName $resourceGroup `
   -Name $storageAccountName 
   # Output the endpoints.
@@ -152,12 +154,12 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 Pour poursuivre, vous pouvez utiliser le même code PowerShell que celui utilisé pour gérer vos comptes de stockage et accéder au plan de données comme indiqué dans l’article [Utilisation d’Azure PowerShell avec Stockage Azure](storage-powershell-guide-full.md).
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous avez créé un groupe de ressources et un compte de stockage pour cet exercice, vous pouvez supprimer toutes les ressources en supprimant le groupe de ressources. Cette opération supprime également toutes les ressources contenues dans le groupe. Dans le cas présent, le compte de stockage créé et le groupe de ressources sont supprimés.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

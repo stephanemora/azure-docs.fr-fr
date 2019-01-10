@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 11/27/2018
 ms.author: sethm
 ms.reviewer: efemmano
-ms.openlocfilehash: 9a10d4fc90b916b3cb1eda7b9bac99c5d5f9deba
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 80a8414d98eba984f2427f5f746cd0e1061248a4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160781"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726912"
 ---
 # <a name="region-management-in-azure-stack"></a>Gestion des régions dans Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Azure Stack utilise le concept des *régions*, qui sont des entités logiques composées des ressources matérielles qui constituent l’infrastructure Azure Stack. Dans la gestion des régions se trouvent toutes les ressources nécessaires pour utiliser correctement l’infrastructure Azure Stack.
 
@@ -34,11 +34,11 @@ Un déploiement de système intégré (appelé *cloud Azure Stack*) constitue un
 
 Azure Stack dispose d’un ensemble de fonctionnalités de gestion des régions disponibles dans la vignette **Gestion des régions**. Cette vignette est accessible à un opérateur Azure Stack sur le tableau de bord par défaut du portail administrateur. Elle vous permet de surveiller et de mettre à jour votre région Azure Stack et ses composants, qui sont propres à la région.
 
-![Vignette de gestion des régions](media/azure-stack-manage-region/image1.png)
+![Vignette de gestion des régions](media/azure-stack-region-management/image1.png)
 
 Si vous cliquez sur une région dans la vignette **Gestion des régions**, vous pouvez accéder aux informations suivantes :
 
-![Description des volets du panneau Gestion des régions](media/azure-stack-manage-region/image2.png)
+[ ![Description des volets du panneau Gestion des régions](media/azure-stack-region-management/regionssm.png "Panneau Gestion des régions") ](media/azure-stack-region-management/regions.png#lightbox)
 
 1. **Le menu de ressources**. Accédez à des zones de gestion de l’infrastructure spécifiques, puis affichez et gérez des ressources utilisateur telles que des comptes de stockage et des réseaux virtuels.
 
@@ -49,6 +49,8 @@ Si vous cliquez sur une région dans la vignette **Gestion des régions**, vous 
 4. **Fournisseurs de ressources**. Gérez les fonctionnalités utilisateur proposées par les composants nécessaires pour exécuter Azure Stack. Chaque fournisseur de ressources est fourni avec une expérience d’administration. Cette expérience peut inclure des alertes relatives au fournisseur spécifique, aux mesures et à d’autres fonctionnalités de gestion propres au fournisseur de ressources.
 
 5. **Rôles d’infrastructure**. Composants nécessaires à l’exécution d’Azure Stack. Seuls les rôles d’infrastructure qui signalent des alertes sont répertoriés. En sélectionnant un rôle, vous pouvez voir les alertes qui sont associées à ce rôle et aux instances de rôle où il est en cours d’exécution.
+
+6. **Properties**. État de l’inscription et détails de votre environnement dans le panneau Gestion des régions. L’état peut être **Inscrit** ou **Non inscrit**. S’il est inscrit, il montre également l’ID d’abonnement Azure que vous avez utilisé pour inscrire votre instance Azure Stack ainsi que le groupe de ressources et le nom de l’inscription.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: fc2b5a5badcf38f7bc94a876f9f0a21af4f558b7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 7c1f47c9b88bd68b326b3c8923ba5b81d425c3e4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53813201"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015472"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contexte de télémétrie : Modèle de données Application Insights
 
@@ -84,7 +84,7 @@ Longueur maximale : 64
 
 ID d’utilisateur anonyme. Représente l’utilisateur final de l’application. Quand des données de télémétrie sont envoyées à partir d’un service, le contexte d’utilisateur concerne l’utilisateur qui a lancé l’opération dans le service.
 
-[L’échantillonnage](../../application-insights/app-insights-sampling.md) est une des techniques pour réduire la quantité de données de télémétrie collectées. L’algorithme d’échantillonnage tente de prélever des échantillons dans ou en dehors de toute la télémétrie corrélée. L’ID d’utilisateur anonyme est utilisé pour la génération de score d’échantillonnage. L’ID d’utilisateur anonyme doit donc être une valeur suffisamment aléatoire. 
+[L’échantillonnage](../../azure-monitor/app/sampling.md) est une des techniques pour réduire la quantité de données de télémétrie collectées. L’algorithme d’échantillonnage tente de prélever des échantillons dans ou en dehors de toute la télémétrie corrélée. L’ID d’utilisateur anonyme est utilisé pour la génération de score d’échantillonnage. L’ID d’utilisateur anonyme doit donc être une valeur suffisamment aléatoire. 
 
 Utiliser l’ID d’utilisateur anonyme pour stocker un nom d’utilisateur est une utilisation incorrecte du champ. Utilisez un ID d’utilisateur authentifié.
 

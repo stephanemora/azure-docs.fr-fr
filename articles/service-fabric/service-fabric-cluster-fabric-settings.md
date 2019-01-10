@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/13/2018
+ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: 14513e23aafd05796767e1ae08d4d4c14cecdfbc
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: fb3e61b2b43194cb550a7c87c6841e91b4025560
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728308"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002754"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -237,7 +237,6 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 ## <a name="federation"></a>Fédération
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|GlobalTicketLeaseDuration|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(300)|statique|Spécifiez la durée en secondes. Les nœuds du cluster doivent maintenir un bail global avec les votants. Les votants soumettent leurs baux globaux en vue de la propagation dans le cluster pendant cette durée. Une fois le délai écoulé, le bail est perdu. Suite à la perte de quorum des baux, un nœud abandonne le cluster, car il ne reçoit pas les communications du quorum de nœuds pendant cette période.  Cette valeur doit être ajustée en fonction de la taille du cluster. |
 |LeaseDuration |Durée en secondes, la valeur par défaut est 30 |Dynamique|Durée de bail entre un nœud et ses voisins. |
 |LeaseDurationAcrossFaultDomain |Durée en secondes, la valeur par défaut est 30 |Dynamique|Durée de bail entre un nœud et ses voisins dans des domaines d’erreur. |
 
@@ -275,6 +274,8 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |SecondaryAccountType | Chaîne (valeur par défaut : "")|statique| Type de compte secondaire du principal utilisé pour contrôler l’accès aux partages FileStoreService. |
 |SecondaryAccountUserName | Chaîne (valeur par défaut : "")| statique|Nom d’utilisateur du compte secondaire du principal utilisé pour contrôler l’accès aux partages FileStoreService. |
 |SecondaryAccountUserPassword | Valeur SecureString (valeur par défaut : vide) |statique|Mot de passe du compte secondaire du principal utilisé pour contrôler l’accès aux partages FileStoreService. |
+|SecondaryFileCopyRetryDelayMilliseconds|valeur uint, valeur par défaut : 500|Dynamique|Délai de nouvelle tentative de copie de fichier (en millisecondes).|
+|UseChunkContentInTransportMessage|Valeur booléenne, valeur par défaut : TRUE|Dynamique|Indicateur pour l’utilisation de la nouvelle version du protocole de chargement introduite dans v6.4. Cette version du protocole utilise Service Fabric Transport pour charger des fichiers dans le magasin d’images, ce qui offre de meilleures performances que le protocole SMB utilisé dans les versions précédentes. |
 
 ## <a name="healthmanager"></a>HealthManager
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
@@ -305,15 +306,18 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |ApplicationUpgradeTimeout| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(360)|Dynamique| Spécifiez la durée en secondes. Délai de mise à niveau de l’application. Si le délai d’attente est inférieur à "ActivationTimeout", le déploiement échouera. |
 |ContainerServiceArguments|chaîne, valeur par défaut : « -H localhost:2375 -H npipe:// »|statique|Service Fabric (SF) gère le démon Docker (sauf sur les ordinateurs clients Windows comme Win10). Cette configuration permet à l’utilisateur de spécifier des arguments personnalisés qui doivent être passés au démon Docker quand vous le démarrez. Quand des arguments personnalisés sont spécifiés, Service Fabric ne transmet pas d’autres arguments au moteur Docker, à l’exception de l’argument « --pidfile ». Par conséquent, les utilisateurs ne doivent pas spécifier l’argument « --pidfile » dans le cadre de leurs arguments personnalisés. Les arguments personnalisés doivent également vérifier que le démon Docker écoute sur le canal de nom par défaut sur Windows (ou le socket de domaine Unix sur Linux) pour que Service Fabric puisse communiquer avec lui.|
 |ContainerServiceLogFileMaxSizeInKb|entier, valeur par défaut : 32768|statique|Taille maximale du fichier journal généré par les conteneurs Docker.  Windows uniquement.|
+|ContainerImageDownloadTimeout|valeur int, nombre de secondes, valeur par défaut : 1 200 (20 minutes)|Dynamique|Nombre de secondes avant l’expiration du chargement de l’image.|
 |ContainerImagesToSkip|chaîne, noms d’images séparés par le caractère de la ligne verticale, la valeur par défaut est ""|statique|Nom d’une ou plusieurs images de conteneur qui ne doit pas être supprimé.  Utilisé avec le paramètre PruneContainerImages.|
 |ContainerServiceLogFileNamePrefix|chaîne, valeur par défaut : sfcontainerlogs|statique|Préfixe du nom de fichier pour les fichiers journaux générés par les conteneurs Docker.  Windows uniquement.|
 |ContainerServiceLogFileRetentionCount|entier, valeur par défaut : 10|statique|Nombre de fichiers journaux générés par les conteneurs Docker avant le remplacement des fichiers journaux.  Windows uniquement.|
 |CreateFabricRuntimeTimeout|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(120)|Dynamique| Spécifiez la durée en secondes. La valeur du délai d’expiration pour l’appel de synchronisation FabricCreateRuntime |
 |DefaultContainerRepositoryAccountName|Chaîne (valeur par défaut : "")|statique|Informations d’identification par défaut utilisées à la place des informations d’identification spécifiées dans ApplicationManifest.xml |
 |DefaultContainerRepositoryPassword|Chaîne (valeur par défaut : "")|statique|Informations d’identification de mot de passe par défaut utilisées à la place des informations d’identification spécifiées dans ApplicationManifest.xml|
+|DefaultContainerRepositoryPasswordType|Chaîne (valeur par défaut : "")|statique|Quand ce n’est pas une chaîne vide, la valeur peut être « Encrypted » ou « SecretsStoreRef ».|
 |DeploymentMaxFailureCount|entier, valeur par défaut : 20| Dynamique|Le déploiement de l’application sera retenté DeploymentMaxFailureCount fois avant l’échec du déploiement de cette application sur le nœud.| 
 |DeploymentMaxRetryInterval| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(3600)|Dynamique| Spécifiez la durée en secondes. Intervalle maximum avant une nouvelle tentative de déploiement. À chaque échec continu, l’intervalle avant nouvelle tentative est calculé de la manière suivante : Min( DeploymentMaxRetryInterval; Nombre d’échecs continus * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(10)|Dynamique|Spécifiez la durée en secondes. Intervalle de temporisation pour l’échec du déploiement. À chaque échec de déploiement continu, le système retentera le déploiement jusqu'à la valeur MaxDeploymentFailureCount. L’intervalle entre chaque tentative est un produit de l’échec du déploiement continu et de l’intervalle de temporisation de déploiement. |
+|DisableContainers|valeur booléenne, valeur par défaut : FALSE|statique|Configuration pour la désactivation des conteneurs - utilisé à la place de DisableContainerServiceStartOnContainerActivatorOpen qui est un paramètre de configuration déprécié |
 |DisableDockerRequestRetry|valeur booléenne, valeur par défaut : FALSE |Dynamique| Par défaut SF communique avec DD (docker dameon) avec un délai d’expiration « DockerRequestTimeout » pour chaque requête http qui lui est envoyée. Si DD ne répond pas au cours de cette période ; SF renvoie la requête s’il reste du temps dans l’opération de niveau supérieur.  Avec le conteneur Hyper-V ; DD prend parfois beaucoup plus de temps pour afficher le conteneur ou le désactiver. Dans ce cas, DD demande un délai d’expiration à partir de la perspective de SF et SF retente l’opération. Parfois, cela semble ajoute plus de pression sur DD. Cette configuration permet de désactiver cette nouvelle tentative et d’attendre la réponse de DD. |
 |EnableActivateNoWindow| valeur booléenne, valeur par défaut : FALSE|Dynamique| Le processus activé est créé en arrière-plan sans aucune console. |
 |EnableContainerServiceDebugMode|Valeur booléenne, valeur par défaut : TRUE|statique|Activer/désactiver la journalisation pour les conteneurs Docker.  Windows uniquement.|
@@ -323,6 +327,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |FabricContainerAppsEnabled| valeur booléenne, valeur par défaut : FALSE|statique| |
 |FirewallPolicyEnabled|valeur booléenne, valeur par défaut : FALSE|statique| Permet l’ouverture des ports du pare-feu pour les ressources de points de terminaison avec des ports explicites spécifiés dans ServiceManifest |
 |GetCodePackageActivationContextTimeout|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(120)|Dynamique|Spécifiez la durée en secondes. La valeur du délai d’expiration pour les appels CodePackageActivationContext. Ne s’applique pas aux services ad hoc. |
+|GovernOnlyMainMemoryForProcesses|valeur booléenne, valeur par défaut : FALSE|statique|Le comportement par défaut de la gouvernance des ressources consiste à placer la limite spécifiée dans MemoryInMB sur la quantité de mémoire totale (RAM + permutation) utilisée par le processus. Si la limite est dépassée, le processus reçoit l’exception OutOfMemory. Si ce paramètre est défini sur true, la limite est appliquée seulement à la quantité de mémoire RAM utilisée par un processus. Si cette limite est dépassée et si ce paramètre est true, le système d’exploitation permute la mémoire principale sur le disque. |
 |IPProviderEnabled|valeur booléenne, valeur par défaut : FALSE|statique|Permet la gestion des adresses IP. |
 |IsDefaultContainerRepositoryPasswordEncrypted|valeur booléenne, valeur par défaut : FALSE|statique|Indique si DefaultContainerRepositoryPassword est chiffré ou non.|
 |LinuxExternalExecutablePath|chaîne, valeur par défaut : « /usr/bin/ » |statique|Répertoire principal des commandes exécutables externes sur le nœud.|
@@ -345,17 +350,9 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 | --- | --- | --- | --- |
 |ActiveListeners |Valeur Uint (valeur par défaut : 50) |statique| Nombre de lectures à publier dans la file d’attente du serveur HTTP. Ce paramètre contrôle le nombre de requêtes concurrentes que la passerelle HTTP peut satisfaire. |
 |HttpGatewayHealthReportSendInterval |Durée en secondes, la valeur par défaut est 30 |statique|Spécifiez la durée en secondes. Délai à l’issue duquel la passerelle HTTP envoie les rapports d’intégrité cumulés à Health Manager. |
+|HttpStrictTransportSecurityHeader|Valeur de chaîne, par défaut : ""|Dynamique| Spécifiez la valeur d’en-tête STS HTTP à inclure dans chaque réponse envoyée par HttpGateway. Quand la valeur est une chaîne vide, cet en-tête n’est pas inclus dans la réponse de la passerelle.|
 |IsEnabled|Valeur booléenne (valeur par défaut : false) |statique| Active/désactive le paramètre HttpGateway. HttpGateway est désactivé par défaut. |
 |MaxEntityBodySize |Valeur Uint (valeur par défaut : 4194304) |Dynamique|Ce paramètre indique la taille maximum du corps que l’on peut attendre d’une requête HTTP. Valeur par défaut : 4 Mo. Le paramètre httpgateway ne peut pas traiter une requête si son corps a une taille supérieure à cette valeur. La taille minimum du bloc de lectures est de 4096 octets. Cette valeur doit donc être supérieure ou égale à 4096. |
-
-## <a name="imagestoreclient"></a>ImageStoreClient
-| **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
-| --- | --- | --- | --- |
-|ClientCopyTimeout | Durée en secondes (valeur par défaut : 1800) |Dynamique| Spécifiez la durée en secondes. Délai d’expiration de la requête de copie de niveau supérieur dans ImageStoreService. |
-|ClientDefaultTimeout | Durée en secondes (valeur par défaut : 180) |Dynamique| Spécifiez la durée en secondes. Délai d’expiration de toutes les requêtes autres que de chargement/déchargement (existence ou suppression) dans ImageStoreService. |
-|ClientDownloadTimeout | Durée en secondes (valeur par défaut : 1800) |Dynamique| Spécifiez la durée en secondes. Délai d’expiration de la requête de téléchargement de niveau supérieur dans ImageStoreService. |
-|ClientListTimeout | Durée en secondes (valeur par défaut : 600) |Dynamique|Spécifiez la durée en secondes. Délai d’expiration de la requête de liste de niveau supérieur dans ImageStoreService. |
-|ClientUploadTimeout |Durée en secondes (valeur par défaut : 1800) |Dynamique|Spécifiez la durée en secondes. Délai d’expiration de la requête de chargement de niveau supérieur dans ImageStoreService. |
 
 ## <a name="imagestoreservice"></a>ImageStoreService
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
@@ -463,8 +460,8 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 ## <a name="placementandloadbalancing"></a>PlacementAndLoadBalancing
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|AffinityConstraintPriority | Entier (valeur par défaut : 0) | Dynamique|Détermine la priorité de la contrainte d’affinité : 0 : Stricte ; 1 : Souple ; négatif : Ignorer |
-|ApplicationCapacityConstraintPriority | Entier (valeur par défaut : 0) | Dynamique|Détermine la priorité de la contrainte de capacité : 0 : Stricte ; 1 : Souple ; négatif : Ignorer |
+|AffinityConstraintPriority | Entier (valeur par défaut : 0) | Dynamique|Détermine la priorité de la contrainte d’affinité : 0 : Stricte ; 1 : Souple ; valeur négative : Ignorer |
+|ApplicationCapacityConstraintPriority | Entier (valeur par défaut : 0) | Dynamique|Détermine la priorité de la contrainte de capacité : 0 : Stricte ; 1 : Souple ; valeur négative : Ignorer |
 |AutoDetectAvailableResources|Valeur booléenne, valeur par défaut : TRUE|statique|Cette configuration déclenchera la détection automatique des ressources disponibles sur le nœud (processeur et mémoire). Si cette configuration est définie sur true, nous lirons les capacités réelles et les corrigerons si l’utilisateur a spécifié des capacités de nœud incorrectes ou ne les a pas définies du tout. Si cette configuration est définie sur false, nous enverrons un avertissement que l’utilisateur a spécifié des capacités de nœud incorrectes, mais nous ne les corrigerons pas. Ce qui signifie que cet utilisateur souhaite que les capacités spécifiées soient > à celles du nœud ou si les capacités n’ont pas été définies ; cette valeur suppose une capacité illimitée |
 |BalancingDelayAfterNewNode | Durée en secondes (valeur par défaut : 120) |Dynamique|Spécifiez la durée en secondes. Ne démarrez pas l’équilibrage des activités pendant cette période après l’ajout d’un nouveau nœud. |
 |BalancingDelayAfterNodeDown | Durée en secondes (valeur par défaut : 120) |Dynamique|Spécifiez la durée en secondes. Ne démarrez pas l’équilibrage des activités pendant cette période après un événement d’arrêt de nœud. |
@@ -503,6 +500,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |PlacementSearchTimeout | Durée en secondes (valeur par défaut est 0.5) |Dynamique| Spécifiez la durée en secondes. Lors du placement de services, effectuez une recherche au moins aussi longue avant de renvoyer un résultat. |
 |PLBRefreshGap | Durée en secondes (valeur par défaut : 1) |Dynamique| Spécifiez la durée en secondes. Définit le délai minimum à respecter avant que PLB ne réactualise l’état. |
 |PreferredLocationConstraintPriority | Entier (valeur par défaut : 2)| Dynamique|Détermine la priorité de la contrainte d’emplacement préféré : 0 : Stricte ; 1 : Souple ; 2 : optimisation ; valeur négative : Ignorer |
+|PreferUpgradedUDs|Valeur booléenne, valeur par défaut : TRUE|Dynamique|Active ou désactive la logique qui préfère le déplacement vers des UD déjà mis à niveau.|
 |PreventTransientOvercommit | Valeur booléenne (valeur par défaut : false) | Dynamique|Détermine si PLB doit immédiatement compter sur les ressources qui seront libérées par les déplacements initiés. Par défaut, PLB peut initier un mouvement sortant et un mouvement entrant sur le même nœud, ce qui peut créer une survalidation temporaire. Le réglage de ce paramètre sur true empêche ces types de survalidation et désactive la défragmentation à la demande (également appelée placementWithMove). |
 |ScaleoutCountConstraintPriority | Entier (valeur par défaut : 0) |Dynamique| Détermine la priorité de la contrainte de nombre d’opérations de scale-out : 0 : Stricte ; 1 : Souple ; valeur négative : à ignorer. |
 |SwapPrimaryThrottlingAssociatedMetric | Chaîne (valeur par défaut : "")|statique| Nom de la mesure associée à cette limitation. |
@@ -590,6 +588,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |AADTokenEndpointFormat|Chaîne (valeur par défaut : "")|statique|Point de terminaison de jeton AAD, Azure Commercial par défaut, spécifié pour l’environnement autre que par défaut comme Azure Government « https://login.microsoftonline.us/{0} » |
 |AdminClientClaims|Chaîne (valeur par défaut : "")|Dynamique|Toutes les revendications possibles attendues des clients d’administration ; même format que ClientClaims ; cette liste est ajoutée en interne à ClientClaims ; par conséquent, pas besoin d’ajouter également les mêmes entrées à ClientClaims. |
 |AdminClientIdentities|Chaîne (valeur par défaut : "")|Dynamique|Identités Windows des clients de la structure dans le rôle d’administrateur ; utilisé pour autoriser des opérations de structure privilégiées. Il s’agit d’une liste séparée par des virgules ; chaque entrée est un nom de compte de domaine ou nom de groupe. Pour des raisons pratiques ; le compte qui exécute fabric.exe reçoit automatiquement un rôle d’administrateur ; par conséquent, le groupe ServiceFabricAdministrators l’est aussi. |
+|AppRunAsAccountGroupX509Folder|valeur de chaîne, valeur par défaut : /home/sfuser/sfusercerts |statique|Dossier où se trouvent les certificats X509 et les clés privées de AppRunAsAccountGroup |
 |CertificateExpirySafetyMargin|TimeSpan, la valeur par défaut est Common::TimeSpan::FromMinutes(43200)|statique|Spécifiez la durée en secondes. Marge de sécurité pour l’expiration du certificat ; l’état d’intégrité du certificat passe de OK à Warning lorsque le délai d’expiration est plus proche que cette valeur. La valeur par défaut est 30 jours. |
 |CertificateHealthReportingInterval|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(3600 * 8)|statique|Spécifiez la durée en secondes. Spécifiez l’intervalle de génération des rapports d’intégrité de certificats ; la valeur par défaut est 8 heures ; Si défini sur 0, désactive le rapport de contrôle d’intégrité de certificat |
 |ClientCertThumbprints|Chaîne (valeur par défaut : "")|Dynamique|Empreintes de certificats utilisés par les clients pour communiquer avec le cluster ; le cluster utilise ce paramètre pour autoriser la connexion entrante. Il s’agit d’une liste de noms séparés par des virgules. |
@@ -629,7 +628,9 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |CodePackageControl |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour redémarrer des packages de code. |
 |CreateApplication |Chaîne (valeur par défault : "Admin") | Dynamique|Configuration de la sécurité pour la création d’applications. |
 |CreateComposeDeployment|Chaîne (valeur par défault : "Admin")| Dynamique|Crée un déploiement compose décrit par les fichiers compose |
+|CreateGatewayResource|Chaîne (valeur par défault : "Admin")| Dynamique|Créer une ressource de passerelle |
 |CreateName |Chaîne (valeur par défault : "Admin") |Dynamique|Configuration de la sécurité pour la création d’URI d’attribution de noms. |
+|CreateNetwork|Chaîne (valeur par défault : "Admin") |Dynamique|Crée un réseau de conteneurs |
 |CreateService |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour la création de services. |
 |CreateServiceFromTemplate |Chaîne (valeur par défault : "Admin") |Dynamique|Configuration de la sécurité pour la création de services à partir d’un modèle. |
 |CreateVolume|Chaîne (valeur par défault : "Admin")|Dynamique|Crée un volume. |
@@ -638,7 +639,9 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |Supprimer |Chaîne (valeur par défault : "Admin") |Dynamique| Configurations de la sécurité pour l’opération de suppression de clients du magasin d’images (interne). |
 |DeleteApplication |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour la suppression d’applications. |
 |DeleteComposeDeployment|Chaîne (valeur par défault : "Admin")| Dynamique|Supprime le déploiement compose |
+|DeleteGatewayResource|Chaîne (valeur par défault : "Admin")| Dynamique|Supprime une ressource de passerelle |
 |DeleteName |Chaîne (valeur par défault : "Admin") |Dynamique|Configuration de la sécurité pour la suppression d’URI d’attribution de noms. |
+|DeleteNetwork|Chaîne (valeur par défault : "Admin") |Dynamique|Supprime un réseau de conteneurs |
 |DeleteService |Chaîne (valeur par défault : "Admin") |Dynamique|Configuration de la sécurité pour la suppression de services. |
 |DeleteVolume|Chaîne (valeur par défault : "Admin")|Dynamique|Supprime un volume.| 
 |EnumerateProperties |Chaîne, la valeur par défaut est « Admin\|\|User » | Dynamique|Configuration de la sécurité pour l’énumération de propriétés d’attribution de noms. |
@@ -655,6 +658,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |GetPartitionDataLossProgress | Chaîne, la valeur par défaut est « Admin\|\|User » | Dynamique|Récupère l’état d’avancement de l’invocation d’un appel d’API de perte de données. |
 |GetPartitionQuorumLossProgress | Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Récupère l’état d’avancement de l’invocation d’un appel d’API de perte de quorum. |
 |GetPartitionRestartProgress | Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Récupère l’état d’avancement de l’invocation d’un appel d’API de redémarrage de partition. |
+|GetSecrets|Chaîne (valeur par défault : "Admin")|Dynamique|Obtient les valeurs du secret |
 |GetServiceDescription |Chaîne, la valeur par défaut est « Admin\|\|User » |Dynamique| Configuration de la sécurité pour la lecture des descriptions de service et les notifications de sondage de longue durée. |
 |GetStagingLocation |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour récupérer l’emplacement intermédiaire du client du magasin d’images. |
 |GetStoreLocation |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour récupérer l’emplacement du client du magasin d’images. |
@@ -794,7 +798,9 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
 |AutoupgradeEnabled | Valeur booléenne (valeur par défaut : true) |statique| Interrogation automatique et action de mise à niveau basée sur un fichier d’état d’objectif. |
-|MinReplicaSetSize |Entier (valeur par défaut : 0) |statique |Paramètre MinReplicaSetSize pour UpgradeOrchestrationService.
+|AutoupgradeInstallEnabled|Valeur booléenne, valeur par défaut : FALSE|statique|Interrogation automatique, provisionnement et installation de l’action de mise à niveau du code basée sur un fichier d’état d’objectif.|
+|GoalStateExpirationReminderInDays|valeur int, valeur par défaut : 30|statique|Définit le nombre de jours restants après lequel le rappel d’état d’objectif doit être montré.|
+|MinReplicaSetSize |Entier (valeur par défaut : 0) |statique |Paramètre MinReplicaSetSize pour UpgradeOrchestrationService.|
 |PlacementConstraints | Chaîne (valeur par défaut : "") |statique| Paramètre PlacementConstraints pour UpgradeOrchestrationService. |
 |QuorumLossWaitDuration | Durée en secondes (valeur par défaut : MaxValue) |statique| Spécifiez la durée en secondes. Paramètre QuorumLossWaitDuration pour UpgradeOrchestrationService. |
 |ReplicaRestartWaitDuration | Durée en secondes (valeur par défaut : 60 minutes)|statique| Spécifiez la durée en secondes. Paramètre ReplicaRestartWaitDuration pour UpgradeOrchestrationService. |
@@ -811,6 +817,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |MinReplicaSetSize | Entier (valeur par défaut : 2) |Non autorisée| Paramètre MinReplicaSetSize pour UpgradeService. |
 |OnlyBaseUpgrade | Valeur booléenne (valeur par défaut : false) |Dynamique|Paramètre OnlyBaseUpgrade pour UpgradeService. |
 |PlacementConstraints |Chaîne (valeur par défaut : "") |Non autorisée|Paramètre PlacementConstraints pour le service de mise à niveau. |
+|PollIntervalInSeconds|Valeur de type TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(60) |Dynamique|Spécifiez la durée en secondes. Intervalle entre les interrogations d’UpgradeService pour les opérations de gestion ARM. |
 |TargetReplicaSetSize | Entier (valeur par défaut : 3) |Non autorisée| Paramètre TargetReplicaSetSize pour UpgradeService. |
 |TestCabFolder | Chaîne (valeur par défaut : "") |statique| Paramètre TestCabFolder pour UpgradeService. |
 |X509FindType | Chaîne (valeur par défaut : "")|Dynamique| Paramètre X509FindType pour UpgradeService. |

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: e6292c97d3e7bbbe74477188586257b4fbf91218
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: b6264d47c7627d72b8746c79e7e050fd468171de
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582709"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105115"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Surveillance du cache Azure pour Redis
 Le cache Azure pour Redis utilise [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) afin d’offrir plusieurs possibilités de surveillance de vos instances de cache. Vous pouvez afficher les mesures, épingler des graphiques de mesure au Tableau d’accueil, personnaliser la plage de date et d’heure des graphiques de surveillance, ajouter et supprimer des mesures dans les graphiques et définir des alertes lorsque certaines conditions sont remplies. Ces outils vous permettent de surveiller l’intégrité de vos instances de cache Azure pour Redis et vous aident à gérer vos applications de mise en cache.
 
-Les mesures des instances de cache Azure pour Redis sont collectées à l’aide de la commande Redis [INFO](http://redis.io/commands/info) environ deux fois par minute. Ces valeurs sont stockées automatiquement pendant 30 jours (consultez la page [Exporter des mesures de cache](#export-cache-metrics) pour configurer une stratégie de rétention différente) afin d’être affichées dans les graphiques de mesures et évaluées par des règles d’alerte. Pour plus d’informations sur les différentes valeurs INFO utilisées pour chaque mesure de cache, consultez la section [Mesures disponibles et intervalles de création des rapports](#available-metrics-and-reporting-intervals).
+Les mesures des instances de cache Azure pour Redis sont collectées à l’aide de la commande Redis [INFO](https://redis.io/commands/info) environ deux fois par minute. Ces valeurs sont stockées automatiquement pendant 30 jours (consultez la page [Exporter des mesures de cache](#export-cache-metrics) pour configurer une stratégie de rétention différente) afin d’être affichées dans les graphiques de mesures et évaluées par des règles d’alerte. Pour plus d’informations sur les différentes valeurs INFO utilisées pour chaque mesure de cache, consultez la section [Mesures disponibles et intervalles de création des rapports](#available-metrics-and-reporting-intervals).
 
 <a name="view-cache-metrics"></a>
 
@@ -98,7 +98,7 @@ Chaque mesure inclut deux versions. Une première mesure évalue les performance
 
 | Métrique | Description |
 | --- | --- |
-| Présences dans le cache |Nombre de recherches clés réussies au cours de l’intervalle de création des rapports. Celle-ci mappe à [ à partir de la commande Redis ](http://redis.io/commands/info)INFO`keyspace_hits`. |
+| Présences dans le cache |Nombre de recherches clés réussies au cours de l’intervalle de création des rapports. Celle-ci mappe à [ à partir de la commande Redis ](https://redis.io/commands/info)INFO`keyspace_hits`. |
 | Latence du cache (préversion) | Latence du cache calculée à partir de la latence entre les nœuds du cache. Exprimée en microsecondes, cette mesure dispose de trois dimensions : « Avg », « Min » et « Max », qui représentent respectivement les latences moyenne, minimale et maximale du cache pendant l’intervalle de rapport spécifié. |
 | Absences dans le cache |Nombre de recherches clés non réussies au cours de l’intervalle de création des rapports. Cette valeur correspond à la commande Redis INFO `keyspace_misses` . Les absences dans le cache ne signifient pas nécessairement qu’il y a un problème dans le cache. Par exemple, en cas d’utilisation du mode de programmation de type cache-aside, une application recherche d’abord l’élément dans le cache. Si cet élément ne s’y trouve pas (Absence dans le cache), il est récupéré dans la base de données et ajouté au cache pour la prochaine fois. Les absences dans le cache sont un comportement normal pour le mode de programmation de type cache-aside. Si le nombre d’absences dans le cache est plus élevé que prévu, examinez la logique d’application qui remplit le cache et y lit les informations. Si des éléments sont supprimés du cache en raison d’une trop grande sollicitation de la mémoire, des absences dans le cache peuvent se produire, mais `Used Memory` ou `Evicted Keys` sont de meilleures mesures pour surveiller la pression sur la mémoire. |
 | Lecture du cache |Quantité de données lues dans le cache en mégaoctets par seconde (Mo/s) au cours de l’intervalle de création des rapports. Cette valeur est dérivée des cartes réseau qui prennent en charge la machine virtuelle qui héberge le cache. Elle n’est pas spécifique de Redis. **Cette valeur correspond à la bande passante réseau utilisée par ce cache. Si vous souhaitez configurer des alertes pour des limites de bande passante réseau côté serveur, vous pouvez les créer à l’aide de ce compteur `Cache Read`. Pour connaître les limites de bande passante observées pour les différents niveaux de tarification et tailles de cache, voir [ce tableau](cache-faq.md#cache-performance).** |

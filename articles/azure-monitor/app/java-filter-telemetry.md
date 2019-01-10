@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 81bfd5e0354fefea4690e6871dd5e846f41dc6d8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6bd8d0cee01853547efd028feef0a97f9398024e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981775"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015520"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrer la télémétrie dans votre application web Java
 
@@ -31,7 +31,7 @@ Les filtres prêts à l’emploi incluent :
 
 > [!NOTE]
 > Les filtres faussent les mesures de votre application. Par exemple, vous pouvez décider que, pour diagnostiquer les réponses lentes, vous allez définir un filtre permettant d’ignorer les temps de réponse rapides. Toutefois, vous devez être conscient que les temps de réponse moyens signalés par Application Insights seront plus lents que la vitesse réelle, et que le nombre de demandes sera inférieur au nombre réel.
-> Si cela pose problème, utilisez plutôt [l’échantillonnage](../../application-insights/app-insights-sampling.md).
+> Si cela pose problème, utilisez plutôt [l’échantillonnage](../../azure-monitor/app/sampling.md).
 
 ## <a name="setting-filters"></a>Définition de filtres
 
@@ -262,4 +262,4 @@ Dans ApplicationInsights.xml :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Échantillonnage](../../application-insights/app-insights-sampling.md) : envisagez l’échantillonnage comme une possibilité ne faussant pas vos mesures.
+* [Échantillonnage](../../azure-monitor/app/sampling.md) : envisagez l’échantillonnage comme une possibilité ne faussant pas vos mesures.

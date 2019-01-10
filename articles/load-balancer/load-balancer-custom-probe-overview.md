@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2018
 ms.author: kumud
-ms.openlocfilehash: f9ada3518c4354b112e9e288da89ee9659629b1c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 51d781f331bcbc08642dc32c21baa150e9e5eee6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435121"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538683"
 ---
 # <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
@@ -201,7 +201,7 @@ Si vous n’autorisez pas l’[adresse IP source](#probesource) de la sonde dans
 
 Pour que la sonde d’intégrité de l’équilibreur de charge marque positivement votre instance, vous **devez** autoriser cette adresse IP dans tous les [groupes de sécurité réseau](../virtual-network/security-overview.md) Azure et dans les stratégies de pare-feu local.  Par défaut, chaque groupe de sécurité réseau inclut l’[étiquette du service](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer pour autoriser le trafic de la sonde d’intégrité.
 
-Si vous voulez tester une défaillance de la sonde d’intégrité ou marquer négativement une instance individuelle, vous pouvez utiliser un [groupe de sécurité réseau ](../virtual-network/security-overview.md) pour bloquer explicitement la sonde d’intégrité (port de destination ou [adresse IP source](#probesource)) et simuler l’échec d’une sonde.
+Si vous voulez tester une défaillance de la sonde d’intégrité ou marquer négativement une instance individuelle, vous pouvez utiliser un [groupe de sécurité réseau ](../virtual-network/security-overview.md) pour bloquer explicitement la sonde d’intégrité (port de destination ou [adresse IP source](#probesource)) et simuler la défaillance d’une sonde.
 
 Ne configurez pas votre réseau virtuel avec la plage d’adresses IP détenue par Microsoft qui contient 168.63.129.16.  Ces configurations vont entrer en conflit avec l’adresse IP de la sonde d’intégrité et risquent de faire échouer votre scénario.
 

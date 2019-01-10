@@ -1,9 +1,9 @@
 ---
-title: Générer des solutions Batch avec les modèles Visual Studio - Azure | Microsoft Docs
+title: Générer des solutions avec les modèles Visual Studio - Azure Batch | Microsoft Docs
 description: Découvrez comment des modèles de projet Visual Studio peuvent vous aider à implémenter et à exécuter vos charges de travail nécessitant beaucoup de ressources sur Azure Batch.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a44c249a957050afb500decd094183c71d6ca5e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114094"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538121"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Utiliser des modèles de projet Visual Studio pour lancer rapidement des solutions Batch
 
@@ -62,7 +62,7 @@ Voici les composants requis pour utiliser les modèles Batch :
     
     * Le gestionnaire de travaux Azure Batch avec l’outil de fractionnement du travail
     * Le processeur de tâches Azure Batch
-  * Les télécharger à partir de la galerie en ligne pour Visual Studio : [Modèles de projet Microsoft Azure Batch][vs_gallery_templates]
+  * Téléchargez les modèles à partir de la galerie en ligne pour Visual Studio : [Modèles de projet Microsoft Azure Batch][vs_gallery_templates]
 * Si vous prévoyez d’utiliser la fonctionnalité [Packages d’applications](batch-application-packages.md) pour déployer le gestionnaire de travaux et le processeur de tâches sur les nœuds de calcul Batch, vous devez lier un compte de stockage à votre compte Batch.
 
 ## <a name="preparation"></a>Préparation

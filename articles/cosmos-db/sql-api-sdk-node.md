@@ -1,21 +1,19 @@
 ---
 title: 'Azure Cosmos DB : API SQL Node.js, SDK et ressources'
 description: Tout savoir sur l’API et le Kit SDK Node.js SQL, y compris les dates de sortie, les dates de déclassement et les modifications effectuées entre chaque version du kit SDK Node.js Azure Cosmos DB.
-services: cosmos-db
 author: deborahc
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
 ms.date: 09/24/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08e928143e8e54797869a06f4f7b99fd89cdcacc
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.author: dech
+ms.openlocfilehash: 1cb6889305e5f6bce5728039712a1834dc2e9353
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343987"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033585"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel .Node.js Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]

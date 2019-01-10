@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: d4957efa151a0f992d098b2d6355b03f336e3738
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 12/20/2018
+ms.openlocfilehash: 33e0b66541e5ead5f3c05d2310ecc07e8a62324c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438589"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728123"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Utiliser des règles et des points de terminaison de service de réseau virtuel pour Azure SQL Database
 
 Les *règles de réseau virtuel* sont une fonctionnalité de sécurité de pare-feu. Elles permettent de contrôler si votre serveur Azure [SQL Database](sql-database-technical-overview.md) ou [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) doit accepter ou non les communications provenant de sous-réseaux spécifiques dans des réseaux virtuels. Cet article explique pourquoi la fonctionnalité de règle de réseau virtuel est parfois la meilleure solution qui s’offre à vous pour autoriser en toute sécurité les communications à destination de vos instances Azure SQL Database et SQL Data Warehouse.
 
-> [!NOTE]
-> Cette rubrique s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse.
+> [!IMPORTANT]
+> Cette rubrique s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse. Cet article ne s’applique *pas* à **Azure SQL Database Managed Instance**.
 
 Pour créer une règle de réseau virtuel, il doit d’abord exister un [point de terminaison de service de réseau virtuel][vm-virtual-network-service-endpoints-overview-649d] pour la règle à référencer.
 
@@ -36,11 +36,11 @@ Si vous créez uniquement une règle de réseau virtuel, vous pouvez passer dire
 
 ## <a name="terminology-and-description"></a>Terminologie et description
 
-**Réseau virtuel :** vous pouvez associer des réseaux virtuels à votre abonnement Azure.
+**Réseau virtuel :** Vous pouvez avoir des réseaux virtuels associés à votre abonnement Azure.
 
-**Sous-réseau :** un réseau virtuel contient des **sous-réseaux**. Toutes les machines virtuelles Azure que vous avez sont assignées à des sous-réseaux. Un sous-réseau peut contenir plusieurs machines virtuelles ou d’autres nœuds de calcul. Les nœuds de calcul qui se trouvent en dehors de votre réseau virtuel ne peuvent pas accéder à ce dernier, sauf si vous configurez votre sécurité pour leur en donner l’accès.
+**Sous-réseau :** Un réseau virtuel contient des **sous-réseaux**. Toutes les machines virtuelles Azure que vous avez sont assignées à des sous-réseaux. Un sous-réseau peut contenir plusieurs machines virtuelles ou d’autres nœuds de calcul. Les nœuds de calcul qui se trouvent en dehors de votre réseau virtuel ne peuvent pas accéder à ce dernier, sauf si vous configurez votre sécurité pour leur en donner l’accès.
 
-**Point de terminaison de service de réseau virtuel :** un [point de terminaison de service de réseau virtuel][vm-virtual-network-service-endpoints-overview-649d] est un sous-réseau dont les valeurs de propriétés incluent un ou plusieurs noms de type de service Azure formels. Dans cet article, nous nous intéressons au nom de type de **Microsoft.Sql**, qui fait référence au service Azure nommé SQL Database.
+**Point de terminaison de service de réseau virtuel :** Un [point de terminaison de service de réseau virtuel][vm-virtual-network-service-endpoints-overview-649d] est un sous-réseau dont les valeurs de propriétés incluent un ou plusieurs noms de type de service Azure formels. Dans cet article, nous nous intéressons au nom de type de **Microsoft.Sql**, qui fait référence au service Azure nommé SQL Database.
 
 **Règle de réseau virtuel :** une règle de réseau virtuel pour votre serveur SQL Database est un sous-réseau qui figure dans la liste de contrôle d’accès (ACL) de votre serveur SQL Database. Pour figurer dans l’ACL pour le serveur SQL Database, le sous-réseau doit contenir le nom de type **Microsoft.Sql**.
 
@@ -64,9 +64,8 @@ Vous pouvez récupérer l’option IP en obtenant une adresse IP *statique* pour
 
 L’approche des IP statiques peut toutefois devenir difficile à gérer, et elle est coûteuse quand elle est appliquée à grande échelle. Les règles de réseau virtuel sont plus faciles à établir et à gérer.
 
-### <a name="c-cannot-yet-have-sql-database-on-a-subnet"></a>C. SQL Database n’est plus disponible sur un sous-réseau
-
-Si votre serveur Azure SQL Database était un nœud sur un sous-réseau de votre réseau virtuel, tous les nœuds situés dans le réseau virtuel pourraient communiquer avec le serveur SQL Database. Dans ce cas, vos machines virtuelles pourraient communiquer avec le serveur SQL Database sans avoir à utiliser de règles de réseau virtuel ni de règles IP.
+> [!NOTE]
+> Vous ne pouvez pas encore avoir SQL Database dans un sous-réseau. Si votre serveur Azure SQL Database était un nœud sur un sous-réseau de votre réseau virtuel, tous les nœuds situés dans le réseau virtuel pourraient communiquer avec le serveur SQL Database. Dans ce cas, vos machines virtuelles pourraient communiquer avec le serveur SQL Database sans avoir à utiliser de règles de réseau virtuel ni de règles IP.
 
 Mais depuis septembre 2017, le service Azure SQL Database ne figure plus parmi les services pouvant être assignés à un sous-réseau.
 
@@ -92,7 +91,7 @@ Chaque règle de réseau virtuel s’applique à tout le serveur Azure SQL Datab
 
 Il existe une séparation des rôles de sécurité dans l’administration des points de terminaison de service de réseau virtuel. Chacun des rôles suivants doit réaliser une action :
 
-- **Administrateur réseau :** &nbsp; activer le point de terminaison.
+- **Administrateur réseau :** &nbsp; Activez le point de terminaison.
 - **Administrateur de base de données :** &nbsp; mettre à jour la liste de contrôle d’accès (ACL) pour ajouter le sous-réseau donné au serveur SQL Database.
 
 *Alternative RBAC :*

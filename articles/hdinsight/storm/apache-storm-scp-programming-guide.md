@@ -9,15 +9,15 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 420a1c2ee09f84586f99864878e226df59606f2d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9b3fc80d129a42e68e877f4d1210e3ab10e0664a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496864"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631819"
 ---
 # <a name="scp-programming-guide"></a>Guide de programmation SCP
-SCP est une plateforme permettant de développer des applications de traitement de données en temps réel, fiables, cohérentes et aux performances élevées. Elle est basée sur [Apache Storm](http://storm.incubator.apache.org/) , système de traitement par flux conçu par la communauté OSS. Storm est conçu par Nathan Marz et a été diffusé en open source par Twitter. Il exploite [Apache ZooKeeper](http://zookeeper.apache.org/), un autre projet Apache pour fournir une coordination et une gestion d’état très fiables. 
+SCP est une plateforme permettant de développer des applications de traitement de données en temps réel, fiables, cohérentes et aux performances élevées. Elle est basée sur [Apache Storm](https://storm.incubator.apache.org/) , système de traitement par flux conçu par la communauté OSS. Storm est conçu par Nathan Marz et a été diffusé en open source par Twitter. Il exploite [Apache ZooKeeper](https://zookeeper.apache.org/), un autre projet Apache pour fournir une coordination et une gestion d’état très fiables. 
 
 Le projet SCP ne se contente pas de faire migrer Storm sur Windows : il permet également d'étendre et de personnaliser l'écosystème Windows. Ses extensions améliorent l’expérience des développeurs .NET et les bibliothèques, tandis que sa capacité de personnalisation permet un déploiement basé sur Windows. 
 
@@ -124,7 +124,7 @@ Il existe un concept important pour la topologie transactionnelle : `StormTxAtte
 SCP.NET fournit également un ensemble d'objets clés pour les développeurs. Il s’agit des objets **Context**, **StateStore** et **SCPRuntime**. Ils sont présentés dans la suite de cette section.
 
 ### <a name="context"></a>Context
-L'objet Context fournit un environnement d'exécution pour l'application. Chaque instance ISCPPlugin (ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt) dispose d'une instance Context correspondante. La fonctionnalité fournie par un objet Context peut être divisée en deux : (1) une partie statique, qui est disponible dans l’ensemble du processus C\#, (2) une partie dynamique, qui est uniquement disponible pour l’instance Context spécifique.
+L'objet Context fournit un environnement d'exécution pour l'application. Chaque instance ISCPPlugin (ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt) dispose d'une instance Context correspondante. La fonctionnalité fournie par un objet Context peut être divisée en deux : (1) une partie statique, qui est disponible dans l’ensemble du processus C\#, (2) une partie dynamique, qui est uniquement disponible pour l’instance Context spécifique.
 
 ### <a name="static-part"></a>Partie statique
     public static ILogger Logger = null;
@@ -317,7 +317,7 @@ De façon générale, les plug-ins peuvent s'exécuter dans les deux modes suiva
             void WriteMsgQueueToFile(string filepath, bool append = false);  
             void ReadFromFileToMsgQueue(string filepath);                    
         }
-2. Mode ordinaire : dans ce mode, les plug-ins SCP sont démarrés par un processus Java Storm.
+2. Mode ordinaire : dans ce mode, les plug-ins SCP sont démarrés par un processus Java Storm.
    
     Voici un exemple de démarrage de plug-in SCP :
    
@@ -346,7 +346,7 @@ De façon générale, les plug-ins peuvent s'exécuter dans les deux modes suiva
         }
 
 ## <a name="topology-specification-language"></a>Langage de spécification de topologie
-La spécification de topologie SCP est un langage spécifique à un domaine pour décrire et configurer les topologies SCP. Il est basé sur Clojure DSL de Storm (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) et est étendu par SCP.
+La spécification de topologie SCP est un langage spécifique à un domaine pour décrire et configurer les topologies SCP. Il est basé sur Clojure DSL de Storm (<https://storm.incubator.apache.org/documentation/Clojure-DSL.html>) et est étendu par SCP.
 
 Vous pouvez envoyer directement des spécifications de topologie vers le cluster Storm pour les exécuter via la commande ***runspec***.
 
@@ -594,7 +594,7 @@ Dans le spout, si le ack est activé, un dictionnaire est utilisé pour mettre e
     }
 
 ### <a name="helloworldtx"></a>HelloWorldTx
-L’exemple **HelloWorldTx** illustre l’implémentation d’une topologie transactionnelle. Il contient un spout nommé **generator**, un bolt par lots nommé **partial-count** et un bolt de validation nommé **count-sum**. Il contient également trois fichiers txt : **DataSource0.txt**, **DataSource1.txt** et **DataSource2.txt**.
+L’exemple **HelloWorldTx** illustre l’implémentation d’une topologie transactionnelle. Il contient un spout nommé **generator**, un bolt par lots nommé **partial-count** et un bolt de validation nommé **count-sum**. Il existe également trois fichiers txt créés préalablement : **DataSource0.txt**, **DataSource1.txt** et **DataSource2.txt**.
 
 Dans chaque transaction, le spout **generator** sélectionne deux des trois fichiers txt de façon aléatoire, avant de les émettre vers le bolt **partial-count**. Le bolt **partial-count** récupère le nom du fichier à partir du tuple reçu, puis ouvre le fichier et compte le nombre de mots qu’il contient, avant d’émettre ce résultat vers le bolt **count-sum**. Le bolt **count-sum** résume le résultat total.
 

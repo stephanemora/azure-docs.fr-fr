@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/12/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 10ae943711fcd7516b0fdbe982fd5d9e09227bdc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 22032f9d2e60d3c51546c32df8b98f9633c95535
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864976"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726531"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Considérations liées à la planification du déploiement d’Azure Stack
 Avant de déployer le kit de développement Azure Stack (ASDK), vérifiez que l’ordinateur hôte du kit de développement répond à la configuration requise décrite dans cet article.
@@ -30,11 +30,11 @@ Avant de déployer le kit de développement Azure Stack (ASDK), vérifiez que l�
 | Composant | Minimale | Recommandé |
 | --- | --- | --- |
 | Lecteurs de disque : Système d’exploitation |1 disque de système d’exploitation avec un minimum de 200 Go disponibles pour la partition système (SSD ou HDD) |1 disque de système d’exploitation avec un minimum de 200 Go disponibles pour la partition système (SSD ou HDD) |
-| Lecteurs de disque : données générales du kit de développement<sup>*</sup>  |4 disques. Chaque disque doit avoir une capacité d’au moins 140 Go (SSD ou HDD). Tous les disques disponibles sont utilisés. |4 disques. Chaque disque doit avoir une capacité d’au moins 250 Go (SSD ou HDD). Tous les disques disponibles sont utilisés. |
-| Calcul : UC |Double socket : 12 cœurs physiques (total) |Double socket : 16 cœurs physiques (total) |
-| Calcul : Mémoire |96 Go de RAM |128 Go de RAM (minimum nécessaire pour la prise en charge des fournisseurs de ressources PaaS)|
+| Lecteurs de disque : données générales du kit de développement<sup>*</sup>  |4 disques. Chaque disque doit avoir une capacité d’au moins 240 Go (SSD ou HDD). Tous les disques disponibles sont utilisés. |4 disques. Chaque disque doit avoir une capacité d’au moins 400 Go (SSD ou HDD). Tous les disques disponibles sont utilisés. |
+| Calcul : UC |Double socket : 16 cœurs physiques (total) |Double socket : 20 cœurs physiques (total) |
+| Calcul : Mémoire |192 Go de RAM |256 Go de RAM |
 | Calcul : BIOS |Compatible Hyper-V (avec prise en charge de SLAT) |Compatible Hyper-V (avec prise en charge de SLAT) |
-| Réseau : Carte d’interface réseau |Certification Windows Server 2012 R2 nécessaire pour la carte réseau ; pas de fonctionnalités spécialisées requises |Certification Windows Server 2012 R2 nécessaire pour la carte réseau ; pas de fonctionnalités spécialisées requises |
+| Réseau : Carte d’interface réseau |Certification Windows Server 2012 R2. Aucune fonctionnalité spécialisée requise |Certification Windows Server 2012 R2. Aucune fonctionnalité spécialisée requise |
 | Logo de certification du matériel |[Certifié pour Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certifié pour Windows Server 2016](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup> Vous aurez besoin d’une plus grande capacité que celle recommandée si vous prévoyez d’ajouter de nombreux [éléments de la Place de marché](asdk-marketplace-item.md) Azure.

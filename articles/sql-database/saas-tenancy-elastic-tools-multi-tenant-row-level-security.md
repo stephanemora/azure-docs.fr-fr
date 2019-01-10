@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 6d701878886cb1d5cc20a57614a474537f06a728
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5a9f168a0abc28b1decc6f327a62f5eaa4163e6f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242906"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601523"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes
 
@@ -41,7 +41,7 @@ L’objectif est d’utiliser les API de [routage dépendant des données](sql-d
 
 - Exécuter Visual Studio version 2012 ou plus
 - Créer trois bases de données SQL Azure
-- Télécharger un exemple de projet : [Outils de base de données pour base de données SQL Microsoft Azure - Partitions multi-locataires](https://go.microsoft.com/?linkid=9888163)
+- Téléchargez l’exemple de projet : [Outils de base de données élastique pour SQL Azure - Partitions multilocataires](https://go.microsoft.com/?linkid=9888163)
   - Saisissez les informations sur vos bases de données au début du fichier **Program.cs** 
 
 Ce projet étend celui que décrit la section [Outils de base de données pour base de données SQL Microsoft Azure - Intégration d’Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) , en ajoutant la prise en charge des bases de données de partition multi-locataires. Le projet crée une application de console simple pour la création de blogs et de publications. Le projet inclut quatre locataires, ainsi que deux bases de données de partition mutualisée. Cette configuration est illustrée dans le précédent diagramme. 
@@ -54,10 +54,10 @@ Générez et exécutez l'application. Cette exécution démarre le gestionnaire 
 
 Comme la fonction RLS n’a pas encore été activée sur les bases de données de la partition, vous pouvez voir que chacun de ces tests met en lumière un problème : les locataires peuvent afficher des blogs qui ne leur appartiennent pas et l’application est autorisée à insérer un blog associé à un locataire incorrect. Le reste de cet article explique comment résoudre ces problèmes en appliquant l’isolation des locataires avec la fonction RLS. La procédure à suivre implique deux étapes : 
 
-1. **Couche Application** : modifiez le code de l’application en définissant toujours l’élément SESSION\_CONTEXT sur le TenantId actuel après l’ouverture d’une connexion. L’exemple de projet définit déjà le TenantId de cette manière. 
-2. **Couche Données** : créez une stratégie de sécurité SNL dans chaque base de données de partition, afin de filtrer les lignes selon le TenantId stocké dans l’élément SESSION\_CONTEXT. Créez une stratégie pour chaque base de données de partition. Dans le cas contraire, les lignes de partitions mutualisées ne seront pas filtrées. 
+1. **Couche Application** : Modifiez le code de l’application pour toujours définir le TenantId actuel dans SESSION\_CONTEXT après l’ouverture d’une connexion. L’exemple de projet définit déjà le TenantId de cette manière. 
+2. **Couche données** : Créez une stratégie de sécurité SNL dans chaque base de données de partition pour filtrer les lignes selon le TenantId stocké dans SESSION\_CONTEXT. Créez une stratégie pour chaque base de données de partition. Dans le cas contraire, les lignes de partitions mutualisées ne seront pas filtrées. 
 
-## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Couche Application : définition du TenantId dans l’élément SESSION\_CONTEXT
+## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Couche Application : Définir le TenantId dans SESSION\_CONTEXT
 
 Tout d’abord, connectez-vous à une base de données de partition à l’aide des API de routage dépendant des données de la bibliothèque cliente de base de données élastique. L’application doit toujours indiquer à la base de données quel TenantId utilise la connexion. Le TenantId indique à la stratégie de sécurité SNL les lignes qui doivent être éliminées par filtrage car appartenant à d’autres locataires. Stockez le TenantId actuel dans le [SESSION\_CONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) de la connexion.
 
@@ -213,7 +213,7 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 ```
 
-## <a name="2-data-tier-create-row-level-security-policy"></a>2. Couche Données : création d’une stratégie de sécurité au niveau des lignes
+## <a name="2-data-tier-create-row-level-security-policy"></a>2. Couche données : Créer une stratégie de sécurité au niveau des lignes
 
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Créez une stratégie de sécurité pour filtrer les lignes accessibles à chaque client.
 
@@ -341,8 +341,8 @@ GO
 
 ### <a name="maintenance"></a>Maintenance 
 
-- **Ajout de nouvelles partitions** : exécutez le script T-SQL pour activer la sécurité au niveau des lignes sur les nouvelles partitions. Dans le cas contraire, les requêtes portant sur ces partitions ne sont pas filtrées.
-- **Ajout de nouvelles tables** : ajoutez un prédicat FILTER et BLOCK à la stratégie de sécurité sur toutes les partitions chaque fois qu’une table est créée. Dans le cas contraire, les requêtes portant sur la nouvelle table ne sont pas filtrées. Vous pouvez automatiser cet ajout par le biais d’un déclencheur DDL, comme décrit dans l’article [Apply Row-Level Security automatically to newly created tables (Appliquer automatiquement la sécurité au niveau des lignes aux nouvelles tables) (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Ajout de nouvelles partitions** : Exécutez le script T-SQL pour activer SNL sur les nouvelles partitions, sinon, les requêtes portant sur ces partitions ne sont pas filtrées.
+- **Ajout de nouvelles tables** : Ajoutez un prédicat FILTER et BLOCK à la stratégie de sécurité sur toutes les partitions chaque fois qu’une table est créée. Dans le cas contraire, les requêtes portant sur la nouvelle table ne sont pas filtrées. Vous pouvez automatiser cet ajout par le biais d’un déclencheur DDL, comme décrit dans l’article [Apply Row-Level Security automatically to newly created tables (Appliquer automatiquement la sécurité au niveau des lignes aux nouvelles tables) (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Résumé
 

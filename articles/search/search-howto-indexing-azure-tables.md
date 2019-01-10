@@ -1,6 +1,6 @@
 ---
 title: Contenu de l’index du stockage de tables Azure pour la recherche en texte intégral - Recherche Azure
-description: Découvrez comment indexer les données stockées dans le stockage de tables Azure avec la Recherche Azure.
+description: Découvrez comment indexer les données stockées dans Stockage Table Azure avec un indexeur Recherche Azure.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 39455669dd739309ac0201de49b390c2390e0067
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 9532f4331b4dbbc8d687778b29f63179cca6b4d4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317268"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632957"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indexer le stockage de tables Azure avec Azure Search
 Cet article montre comment utiliser Azure Search pour indexer les données stockées dans le stockage de tables Azure.
@@ -111,7 +111,7 @@ Une fois l’index et la source de données créés, vous êtes prêt à créer 
       "schedule" : { "interval" : "PT2H" }
     }
 
-Cet indexeur s’exécute toutes les deux heures. (L’intervalle de planification est défini sur « PT2H ».) Pour exécuter un indexeur toutes les 30 minutes, définissez l’intervalle sur « PT30M ». Le plus court intervalle pris en charge est de 5 minutes. La planification est facultative : en cas d’omission, un indexeur ne s’exécute qu’une seule fois lorsqu’il est créé. Toutefois, vous pouvez à tout moment exécuter un indexeur à la demande.   
+Cet indexeur s’exécute toutes les deux heures. (L’intervalle de planification est définie sur « PT2H ».) Pour exécuter un indexeur toutes les 30 minutes, définissez l’intervalle sur « PT30M ». Le plus court intervalle pris en charge est de 5 minutes. La planification est facultative : en cas d’omission, un indexeur ne s’exécute qu’une seule fois lorsqu’il est créé. Toutefois, vous pouvez à tout moment exécuter un indexeur à la demande.   
 
 Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
@@ -165,4 +165,4 @@ Voici deux approches possibles pour améliorer les performances d’indexation d
 
 
 ## <a name="help-us-make-azure-search-better"></a>Aidez-nous à améliorer Azure Search
-Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas à les proposer sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
+Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas les proposer sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

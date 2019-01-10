@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: a7fe2cf151b79b02f4f8996ad938d8fc262a5f77
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b2733bed4418fdfcaefb20c04683cb6a229134e9
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400271"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594245"
 ---
 # <a name="enable-write-accelerator"></a>Activer l’Accélérateur des écritures
 
@@ -41,7 +41,7 @@ L’activation de l’Accélérateur des écritures sur les disques système n�
 Quand vous utilisez l’Accélérateur des écritures sur un disque/disque dur virtuel Azure, les restrictions suivantes s’appliquent :
 
 - La mise en cache du disque Premium doit être définie sur Aucune ou Lecture seule. Les autres modes de mise en cache ne sont pas pris en charge.
-- Les instantanés sur un disque avec l’Accélérateur des écritures activé ne sont pas pris en charge. Cette restriction empêche le service Sauvegarde Azure d’effectuer un instantané cohérent des applications sur tous les disques de la machine virtuelle.
+- Les instantanés ne sont pas pris en charge pour les disques où l’Accélérateur d’écriture est activé. Durant la sauvegarde, le service Sauvegarde Azure exclut automatiquement les disques avec activation de l’Accélérateur d’écriture, qui sont attachés à la machine virtuelle.
 - Seules les tailles d’E/S plus petites (<=32 Kio) prennent le chemin accéléré. Dans les cas de charge de travail où les données sont chargées en bloc ou les tampons de journal des transactions des différents systèmes de gestion de base de données (SGBD) sont davantage remplis avant d’être conservés dans le stockage, les E/S écrites sur le disque risquent de ne pas prendre le chemin d’accès accéléré.
 
 L’Accélérateur des écritures prend en charge un nombre limité de disques durs virtuels de stockage Azure Premium par machine virtuelle. Les limites actuelles sont :

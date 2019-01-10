@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 514e85fc61240834d8db152ece65a4f9cce9023e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b554dc1fa33519d87aa0c9c5ba9130b47cbea142
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250405"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971748"
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Utilisation de ReportViewer sur un site web hébergé dans Azure
-> [!IMPORTANT] 
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
+> [!IMPORTANT]
+> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 
 Vous pouvez créer un site web Microsoft Azure à l’aide du contrôle Visual Studio ReportViewer qui affiche un rapport stocké sur une machine virtuelle Microsoft Azure. Le contrôle ReportViewer se trouve dans une application web que vous créez à l’aide du modèle d’application web ASP.NET.
 
@@ -42,7 +42,7 @@ Consultez la section « Instructions générales et meilleures pratiques » da
 
 > [!NOTE]
 > Les contrôles ReportViewer sont fournis avec Visual Studio Standard Edition ou une version supérieure. Si vous utilisez Web Developer Express Edition, vous devez installer [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) pour avoir accès aux fonctions d’exécution de ReportViewer.
-> 
+>
 > ReportViewer configuré en mode de traitement local n’est pas pris en charge dans Microsoft Azure.
 
 ## <a name="adding-assemblies-to-the-deployment-package"></a>Ajout d’assemblys au package de déploiement
@@ -50,8 +50,8 @@ Lorsque vous hébergez votre application ASP.NET localement, les assemblys Repor
 
 En mode de traitement à distance, le contrôle ReportViewer utilise les assemblys suivants :
 
-* **Microsoft.ReportViewer.WebForms.dll**: contient le code ReportViewer dont vous avez besoin pour l’utilisation de ReportViewer dans votre page. Une référence pour cet assembly est ajoutée à votre projet lors de la suppression d’un contrôle ReportViewer dans une page ASP.NET de votre projet.
-* **Microsoft.ReportViewer.Common.dll**: contient les classes utilisées par le contrôle ReportViewer au moment de l’exécution. Il n’est pas automatiquement ajouté à votre projet.
+* **Microsoft.ReportViewer.WebForms.dll** : Contient le code ReportViewer dont vous avez besoin pour l’utilisation de ReportViewer dans votre page. Une référence pour cet assembly est ajoutée à votre projet lors de la suppression d’un contrôle ReportViewer dans une page ASP.NET de votre projet.
+* **Microsoft.ReportViewer.Common.dll** : Contient les classes utilisées par le contrôle ReportViewer au moment de l’exécution. Il n’est pas automatiquement ajouté à votre projet.
 
 ### <a name="to-add-a-reference-to-microsoftreportviewercommon"></a>Pour ajouter une référence à Microsoft.ReportViewer.Common
 * Cliquez avec le bouton droit sur le nœud **Références** de votre projet, sélectionnez **Ajouter une référence**, sélectionnez l’assembly dans l’onglet .NET, puis cliquez sur **OK**.
@@ -71,21 +71,21 @@ En mode de traitement à distance, le contrôle ReportViewer utilise les assembl
 
 ### <a name="to-configure-for-localized-reportviewer-control"></a>Pour configurer le contrôle ReportViewer localisé
 1. Téléchargez et installez le package redistribuable Microsoft Report Viewer 2012 Runtime en suivant les instructions ci-dessus.
-2. Créez le dossier <language> dans le projet, puis copiez les fichiers d’assembly de ressources associés dans celui-ci. Les fichiers d’assembly de ressources à copier sont les suivants : **Microsoft.ReportViewer.Webforms.Resources.dll** et **Microsoft.ReportViewer.Common.Resources.dll**. Sélectionnez les fichiers d’assembly de ressources, puis, dans le volet Propriétés, affectez la valeur **Toujours copier** à **Copier dans le répertoire de sortie**.
-3. Définissez la culture et la culture de l’interface utilisateur pour le projet web. Pour plus d’informations sur la définition de la culture et de la culture d’interface utilisateur pour une page web ASP.NET, voir [Définition de la culture et de la culture d’interface utilisateur pour la globalisation de page web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=237461).
+2. Créez le dossier \<language\> dans le projet et copiez-y les fichiers d’assembly de ressource associés. Les fichiers d’assembly de ressource à copier sont : **Microsoft.ReportViewer.Webforms.Resources.dll** et **Microsoft.ReportViewer.Common.Resources.dll**. Sélectionnez les fichiers d’assembly de ressource, puis, dans le volet Propriétés, affectez la valeur **Toujours copier** à **Copier dans le répertoire de sortie**.
+3. Définissez la culture et la culture de l’interface utilisateur pour le projet web. Pour plus d’informations sur la définition de la culture et de la culture d’interface utilisateur pour une page web ASP.NET, consultez [Guide pratique pour définir la culture et la culture d’interface utilisateur pour la globalisation des pages web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=237461).
 
 ## <a name="configuring-authentication-and-authorization"></a>Configuration de l’authentification et de l’autorisation
 ReportViewer doit utiliser les informations d’identification appropriées pour s’authentifier auprès du serveur de rapports, et ces informations d’identification doivent être autorisées par le serveur de rapports pour accéder aux rapports souhaités. Pour plus d’informations sur l’authentification, lisez le livre blanc [Contrôle de visionneuse de rapports Reporting Services et serveurs de rapports basés sur une machine virtuelle Microsoft Azure](https://msdn.microsoft.com/library/azure/dn753698.aspx).
 
 ## <a name="publish-the-aspnet-web-application-to-azure"></a>Publier l’application web ASP.NET sur Azure
-Pour obtenir des instructions sur la publication d’une application web ASP.NET sur Azure, consultez les articles [Procédure : Migration et publication d’une application web vers Azure depuis Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) et [Prise en main de Web Apps et ASP.NET](../../../app-service/app-service-web-get-started-dotnet.md).
+Pour obtenir des instructions sur la publication d’une application web ASP.NET sur Azure, consultez [Guide pratique pour migrer et publier une application web sur Azure à partir de Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) et [Bien démarrer avec Web Apps et ASP.NET](../../../app-service/app-service-web-get-started-dotnet.md).
 
 > [!IMPORTANT]
 > Si la commande permettant d’ajouter un projet de déploiement Azure ou d’ajouter un projet de service cloud Azure n’apparaît pas dans le menu contextuel, vous devez remplacer la version cible de .NET Framework du projet par .NET Framework 4.
-> 
+>
 > Ces deux commandes offrent la même fonctionnalité. L’une ou l’autre des commandes s’affiche dans le menu contextuel en fonction de la version du Kit de développement logiciel (SDK) Microsoft Azure installée.
-> 
-> 
+>
+>
 
 ## <a name="resources"></a>Ressources
 [Rapports Microsoft](https://go.microsoft.com/fwlink/?LinkId=205399)
@@ -93,4 +93,3 @@ Pour obtenir des instructions sur la publication d’une application web ASP.NET
 [Business Intelligence de SQL Server dans les machines virtuelles Azure](../classic/ps-sql-bi.md)
 
 [Utiliser PowerShell pour créer une machine virtuelle Azure avec un serveur de rapports en mode natif](../classic/ps-sql-report.md)
-
