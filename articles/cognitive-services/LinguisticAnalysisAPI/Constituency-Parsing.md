@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 89832f2d936a08df8b6f9e846c3dd4a5665c06a4
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8d6e768e5cf846cb2c34ceb61d269854418e1dc5
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238622"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976594"
 ---
 # <a name="constituency-parsing"></a>Analyse de circonscription
 
@@ -61,7 +61,7 @@ Il est possible de représenter naturellement ces expressions sous forme d’arb
 ![Arborescence](./Images/tree.png)
 
 Dans cette arborescence, les branches avec « GN » sont des groupes nominaux.
-Il y en a plusieurs : *Je*, *un nouveau véhicule hybride*, *Bluetooth* et *un nouveau véhicule hybride avec Bluetooth*.
+Il y en a plusieurs : *Je*, *un nouveau véhicule hybride*, *Bluetooth* et *un nouveau véhicule hybride avec Bluetooth*.
 
 ## <a name="phrase-types"></a>Types d’expressions
 
@@ -97,4 +97,4 @@ Il y en a plusieurs : *Je*, *un nouveau véhicule hybride*, *Bluetooth* et *un n
 
 ## <a name="specification"></a>Caractéristique
 
-Ces arborescences utilisent les expressions en S dans [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).
+Ces arborescences utilisent les expressions en S dans [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42).

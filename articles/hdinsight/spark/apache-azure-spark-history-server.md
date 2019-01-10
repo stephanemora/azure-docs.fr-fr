@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 349298ba30de5540d5c86c81f483a1bd344dba9c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a896c949e1f05a5d9ee179fa475150ad8da34283
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497269"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792779"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utiliser le serveur d’historique Apache Spark étendu pour déboguer et diagnostiquer des applications Apache Spark
 
@@ -26,7 +26,7 @@ Le serveur d’historique Apache Spark est l’interface utilisateur web pour le
 
 ### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>Ouvrir l’interface utilisateur web du serveur d’historique Apache Spark sur le Portail Azure
 
-1. À partir du [portail Azure](https://portal.azure.com/), ouvrez le cluster Spark. Pour plus d’informations, voir [Énumération et affichage des clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+1. À partir du [portail Azure](https://portal.azure.com/), ouvrez le cluster Spark. Pour plus d’informations, voir [Énumération et affichage des clusters](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. Dans **Liens rapides**, cliquez sur **Tableau de bord du cluster**, puis sur **Serveur d’historique Spark**. Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster Spark. 
 
     ![Serveur d’historique Spark](./media/apache-azure-spark-history-server/launch-history-server.png "Serveur d’historique Spark")
@@ -106,11 +106,11 @@ Sélectionnez l’ID tâche, puis cliquez sur **Graphique** dans le menu Outil p
 
 + Lisez le travail en cliquant sur le bouton **Lecture**, et arrêtez quand vous le souhaitez en cliquant sur le bouton Arrêter. La tâche s’affiche dans une couleur indiquant l’état lors de la lecture :
 
-    + Le vert indique une réussite : le travail s’est terminé avec succès.
-    + L’orange indique une nouvelle tentative : le travail a échoué sans que cela affecte son résultat final. Ces tâches comportaient des doublons ou des instances de nouvelle tentative susceptibles de réussir par la suite.
-    + Le bleu indique une exécution en cours : la tâche est en cours d’exécution.
-    + Le blanc indique une tâche en attente ou ignorée : la tâche est en attente d’exécution ou la phase a été ignorée.
-    + Le rouge indique un échec : la tâche a échoué.
+    + Vert pour une opération réussie : Le travail s'est terminé avec succès.
+    + Orange pour une nouvelle tentative : Des tâches ont échoué sans que cela n'affecte le résultat final du travail. Ces tâches comportaient des doublons ou des instances de nouvelle tentative susceptibles de réussir par la suite.
+    + Bleu pour une tâche en cours d'exécution : La tâche est en cours d'exécution.
+    + Blanc pour une tâche en attente ou ignorée : La tâche est en attente d'exécution ou la phase a été ignorée.
+    + Rouge pour un échec : La tâche a échoué.
 
     ![Échantillon de couleur En cours d’exécution du graphique](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
@@ -119,7 +119,7 @@ Sélectionnez l’ID tâche, puis cliquez sur **Graphique** dans le menu Outil p
 
     ![Échantillon de couleur Échec du graphique](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
-    > [!NOTE]
+    > [!NOTE]  
     > La lecture de chaque travail est autorisée. La lecture n’est pas prise en charge pour un travail incomplet.
 
 
@@ -132,8 +132,8 @@ Sélectionnez l’ID tâche, puis cliquez sur **Graphique** dans le menu Outil p
     ![Info-bulle du graphique](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + Dans l’onglet du graphique du travail, une info-bulle et une petite icône sont affichées pour les phases si certaines de leurs tâches répondent aux critères ci-dessous :
-    + Asymétrie des données : taille des lectures de données > taille moyenne des lectures de données de toutes les tâches de cette phase * 2, et taille des lectures de données > 10 Mo
-    + Asymétrie temporelle : durée d’exécution > durée moyenne d’exécution de toutes les tâches de cette phase * 2, et durée d’exécution > 2 minutes
+    + Asymétrie des données : taille des lectures de données > taille moyenne des lectures de données de toutes les tâches de cette phase * 2, et taille des lectures de données > 10 Mo.
+    + Asymétrie temporelle : durée d'exécution > durée moyenne d'exécution de toutes les tâches de cette phase * 2, et durée d'exécution > 2 minutes.
 
     ![Icône de l’asymétrie graphique](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
@@ -147,10 +147,10 @@ Sélectionnez l’ID tâche, puis cliquez sur **Graphique** dans le menu Outil p
     + nombre de lignes : somme des enregistrements d’entrée, des enregistrements de sortie, des enregistrements de lecture aléatoire et des enregistrements d’écriture aléatoire ;
     + progression.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Par défaut, le nœud de graphique du travail affiche les informations de la dernière tentative de chaque phase (à l’exception du délai d’exécution de la phase) ; pendant la lecture cependant, il présente les informations de chaque tentative.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Pour la taille des données de lecture et d’écriture, nous appliquons 1 Mo = 1 000 Ko = 1 000 * 1 000 octets.
 
 + Pour signaler des problèmes, envoyez des commentaires en cliquant sur **Envoyez-nous vos commentaires**.
@@ -168,7 +168,7 @@ Sélectionnez l’ID de tâche, puis cliquez sur **Diagnostic** dans le menu des
 ### <a name="data-skew"></a>Asymétrie des données
 Cliquez sur l’onglet **Asymétrie des données** pour afficher les tâches asymétriques en fonction des paramètres spécifiés. 
 
-+ **Spécifier les paramètres** : la première section affiche les paramètres qui sont utilisés pour détecter l’asymétrie des données. Par défaut, la règle est la suivante : les données des tâches lues sont 3 fois supérieures aux données des tâches lues en moyenne, et les données des tâches lues sont supérieures à 10 Mo. Si vous souhaitez définir votre propre règle pour les tâches asymétriques, vous pouvez choisir vos propres paramètres, et les sections **Phase asymétrique** et **Graphique de l’asymétrie** sont actualisées en conséquence.
++ **Spécifier les paramètres** : la première section affiche les paramètres qui sont utilisés pour détecter l’asymétrie des données. Par défaut, la règle est la suivante : Les données des tâches lues sont 3 fois supérieures aux données des tâches lues en moyenne, et les données des tâches lues sont supérieures à 10 Mo. Si vous souhaitez définir votre propre règle pour les tâches asymétriques, vous pouvez choisir vos propres paramètres, et les sections **Phase asymétrique** et **Graphique de l’asymétrie** sont actualisées en conséquence.
 
 + **Phase asymétrique** : la seconde section affiche les phases comportant des tâches asymétriques qui répondent aux critères spécifiés ci-dessus. Si plusieurs tâches asymétriques cohabitent dans une phase, la table des phases asymétriques affiche uniquement la tâche la plus décalée (par exemple, le plus important volume de données pour l’asymétrie des données).
 
@@ -326,7 +326,7 @@ Si vous souhaitez effectuer une mise à niveau avec un correctif logiciel, utili
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Gérer les ressources d’un cluster Apache Spark dans HDInsight](apache-spark-resource-manager.md)
+* [Gérer les ressources d’un cluster Apache Spark sur HDInsight](apache-spark-resource-manager.md)
 * [Configurer les paramètres d’Apache Spark](apache-spark-settings.md)
 
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 8e152bc96293d5e6e801fd23657d0de303093eb6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c792881b02eba7207b20c4b4807d8afbc1adb87f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166606"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543986"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ relative à la solution Network Performance Monitor
 
@@ -70,6 +70,9 @@ Le script configure uniquement le pare-feu Windows en local. En présence d'un p
 
 ### <a name="how-many-agents-should-i-use"></a>Combien d'agents dois-je utiliser ?
 Vous devez utiliser au moins un agent pour chaque sous-réseau que vous souhaitez surveiller.
+
+### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--you-have-reached-your-configuration-limit"></a>Quel est le nombre maximum d'agents utilisables avant qu'une erreur de type « ... vous avez atteint votre limite de configuration » s'affiche ?
+NPM limite le nombre d'adresses IP à 5 000 par espace de travail. Si un nœud possède une adresse IPv4 et une adresse IPv6, deux adresses IP seront comptabilisées pour ce nœud. Par conséquent, cette limite de 5 000 adresses IP déterminera la limite supérieure du nombre d'agents. Vous pouvez supprimer les agents inactifs de l'onglet Nœuds sous NPM >> Configurer. NPM conserve aussi l'historique de toutes les adresses IP attribuées à la machine virtuelle qui héberge l'agent. Ces adresses sont également comptabilisées en tant qu'adresses IP distinctes contribuant à la limite supérieure de 5 000 adresses IP. Afin de libérer des adresses IP pour votre espace de travail, vous pouvez utiliser la page Nœuds et supprimer les adresses IP inutilisées.
 
 ## <a name="monitoring"></a>Surveillance
 

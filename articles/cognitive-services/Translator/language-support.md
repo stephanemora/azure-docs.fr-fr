@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 0b1187083c14fc7c536f6a32f3a41957f53f299b
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 3d25cfd39b4b4278fedf33e042d394208fd5eafc
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679713"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713177"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Langues et régions prises en charge par l’API de traduction de texte Translator Text
 
@@ -39,9 +39,8 @@ L’**API Translator V3** est neurale par défaut et les systèmes statistiques
 |:-----|:-----:|:-----|:-----|
 |Afrikaans| `af`    |Statistique uniquement|  Neuronale|
 |Arabe|    `ar`    |Neural disponible|  Neuronale|
-|Arabe, levantin| `apc`   |Neural disponible|  Neuronale|
 |Bangla|    `bn`    |Neural disponible|  Neuronale|
-|Bosniaque (latin)|   `bs`    |Statistique uniquement|  Statistique|
+|Bosniaque (latin)|   `bs`    |Neural disponible|  Neuronale|
 |Bulgare| `bg`    |Neural disponible|  Neuronale|
 |Cantonais (traditionnel)|   `yue`   |Statistique uniquement|  Statistique|
 |Catalan|   `ca`    |Statistique uniquement|  Statistique|
@@ -51,12 +50,12 @@ L’**API Translator V3** est neurale par défaut et les systèmes statistiques
 |Tchèque| `cs`    |Neural disponible|  Neuronale|
 |Danois|    `da`    |Neural disponible   |Neuronale|
 |Néerlandais| `nl`    |Neural disponible|  Neuronale|
-|Français|   `en`    |Neural disponible|  Neuronale|
+|Anglais|   `en`    |Neural disponible|  Neuronale|
 |Estonien|  `et`    |Neural disponible|  Neuronale|
 |Fidjien|    `fj`    |Statistique uniquement|  Statistique|
 |Filipino|  `fil`   |Statistique uniquement|  Statistique|
 |Finnois|   `fi`    |Neural disponible|  Neuronale|
-|Français|    `fr`    |Neural disponible|  Neuronale|
+|Anglais|    `fr`    |Neural disponible|  Neuronale|
 |Allemand|    `de`    |Neural disponible|  Neuronale|
 |Grec| `el`    |Neural disponible|  Neuronale|
 |Créole haïtien|    `ht`    |Statistique uniquement   |Statistique|
@@ -109,26 +108,26 @@ La méthode Transliterate prend en charge les langues ci-après. Dans la colonne
 
 | Langage    | Code de langue | Script | Vers/De | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
-| Arabe | ar | Arabe | <--> | Latin |
-|Bangla  | bn | Bengali | <--> | Latin |
-| Chinois (simplifié) | zh-Hans | Chinois simplifié | <--> | Latin |
-| Chinois (simplifié) | zh-Hans | Chinois simplifié | <--> | Chinois traditionnel |
-| Chinois (traditionnel) | zh-Hant | Chinois traditionnel | <--> | Latin |
-| Chinois (traditionnel) | zh-Hant | Chinois traditionnel | <--> | Chinois simplifié |
-| Goudjrati | gu  | Goudjrati | --> | Latin |
-| Hébreu | he | Hébreu | <--> | Latin |
-| Hindi | hi | Dévanâgarî | <--> | Latin |
-| Japonais | ja | Japonais | <--> | Latin |
-| Kannada | kn | Kannada | --> | Latin |
-| Malayalam | ml | Malayalam | --> | Latin |
-| Marathi | mr | Dévanâgarî | --> | Latin |
-| Oriya | or | Oriya | <--> | Latin |
-| Pendjabi | pa | Gurmukhi | <--> | Latin  |
-| Serbe (cyrillique) | sr-Cyrl | Cyrillique  | --> | Latin |
-| Serbe (latin) | sr-Latn | Latin | --> | Cyrillique |
-| Tamoul | ta | Tamoul | --> | Latin |
-| Télougou | te | Télougou | --> | Latin |
-| Thaï | th | Thaï | <--> | Latin |
+| Arabe | `ar` | Arabe `Arab` | <--> | Latin `Latn` |
+|Bangla  | `bn` | Bengali `Beng` | <--> | Latin `Latn` |
+| Chinois (simplifié) | `zh-Hans` | Chinois (simplifié) `Hans`| <--> | Latin `Latn` |
+| Chinois (simplifié) | `zh-Hans` | Chinois (simplifié) `Hans`| <--> | Chinois (traditionnel) `Hant`|
+| Chinois (traditionnel) | `zh-Hant` | Chinois (traditionnel) `Hant`| <--> | Latin `Latn` |
+| Chinois (traditionnel) | `zh-Hant` | Chinois (traditionnel) `Hant`| <--> | Chinois (simplifié) `Hans` |
+| Goudjrati | `gu`  | Goudjrati `Gujr` | --> | Latin `Latn` |
+| Hébreu | `he` | Hébreu `Hebr` | <--> | Latin `Latn` |
+| Hindi | `hi` | Dévanâgarî `Deva` | <--> | Latin `Latn` |
+| Japonais | `ja` | Japonais `Jpan` | <--> | Latin `Latn` |
+| Kannada | `kn` | Kannada `Knda` | --> | Latin `Latn` |
+| Malayalam | `ml` | Malayalam `Mlym` | --> | Latin `Latn` |
+| Marathi | `mr` | Dévanâgarî `Deva` | --> | Latin `Latn` |
+| Oriya | `or` | Oriya `Orya` | <--> | Latin `Latn` |
+| Pendjabi | `pa` | Gurmukhi `Guru`  | <--> | Latin `Latn`  |
+| Serbe (cyrillique) | `sr-Cyrl` | Cyrillique `Cyrl`  | --> | Latin `Latn` |
+| Serbe (latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillique `Cyrl`|
+| Tamoul | `ta` | Tamoul `Taml` | --> | Latin `Latn` |
+| Télougou | `te` | Télougou `Telu` | --> | Latin `Latn` |
+| Thaï | `th` | Thaï `Thai` | <--> | Latin `Latn` |
 
 ## <a name="dictionary"></a>Dictionnaire
 
@@ -149,7 +148,7 @@ Le dictionnaire prend en charge les langues ci-après de ou vers l’anglais à 
 | Néerlandais      | `nl`          |
 | Estonien      | `et`          |
 | Finnois      | `fi`          |
-| Français      | `fr`          |
+| Anglais      | `fr`          |
 | Allemand      | `de`          |
 | Grec      | `el`          |
 | Créole haïtien      | `ht`          |
@@ -187,9 +186,9 @@ Le dictionnaire prend en charge les langues ci-après de ou vers l’anglais à 
 | Vietnamien      | `vi`          |
 | Gallois      | `cy`          |
 
-## <a name="languages-detected-by-the-detect-method"></a>Langues détectées par la méthode Detect
+## <a name="detect"></a>Détection
 
-La méthode Detect peut détecter les langues ci-après. Detect peut détecter des langues que Microsoft Translator ne peut pas traduire.
+La méthode Detect prend en charge les langues suivantes. Detect peut identifier des langues que Microsoft Translator ne peut pas traduire.
 
 | Langage    |
 |:----------- |
@@ -207,11 +206,11 @@ La méthode Detect peut détecter les langues ci-après. Detect peut détecter d
 | Tchèque |
 | Danois |
 | Néerlandais |
-| Français |
+| Anglais |
 | Espéranto |
 | Estonien |
 | Finnois |
-| Français |
+| Anglais |
 | Galicien |
 | Allemand |
 | Grec |
@@ -261,11 +260,55 @@ La méthode Detect peut détecter les langues ci-après. Detect peut détecter d
 | Gallois |
 | Yiddish |
 
-## <a name="access-the-list-programmatically"></a>Accéder à la liste par programme
+## <a name="access-the-translator-text-api-language-list-programmatically"></a>Accéder par programme à la liste de langues de l'API de traduction de texte Translator Text
 
-Vous pouvez accéder à la liste des langues prises en charge par programme en utilisant l’opération Languages de l’API de traduction de texte V3.0. Vous pouvez visualiser la liste par fonctionnalité, par code de langue, ainsi que par le nom de langue en anglais ou dans toute autre langue prise en charge. Cette liste est automatiquement mise à jour par le service Microsoft Translator lorsque de nouvelles langues deviennent disponibles.
+Vous pouvez utiliser la méthode Languages pour récupérer la liste des langues prises en charge pour l'API de traduction de texte Translator Text v3.0. Vous pouvez visualiser la liste par fonctionnalité, par code de langue, ainsi que par le nom de langue en anglais ou dans toute autre langue prise en charge. Cette liste est automatiquement mise à jour par le service Microsoft Translator lorsque de nouvelles langues deviennent disponibles.
 
 [Visualiser la documentation de référence sur l’opération Languages](reference/v3-0-languages.md)
+
+## <a name="customization"></a>Personnalisation
+
+Les langues suivantes sont disponibles pour la personnalisation à l'aide de [Custom Translator](http://aka.ms/CustomTranslator).
+
+| Langage    | Code de langue |
+|:----------- |:-------------:|
+| Arabe       | `ar`          |
+| Bangla      | `bn`          |
+| Bosniaque (latin)      | `bs`          |
+| Bulgare      | `bg`          |
+| Chinois simplifié      | `zh-Hans`          |
+| Croate      | `hr`          |
+| Tchèque      | `cs`          |
+| Danois      | `da`          |
+| Néerlandais      | `nl`          |
+| Anglais    | `en`     |
+| Estonien      | `et`          |
+| Finnois      | `fi`          |
+| Anglais      | `fr`          |
+| Allemand      | `de`          |
+| Grec      | `el`          |
+| Hébreu      | `he`          |
+| Hindi      | `hi`          |
+| Hongrois      | `hu`          |
+| Italien      | `it`          |
+| Japonais      | `ja`          |
+| Coréen      | `ko`          |
+| Letton      | `lv`          |
+| Lituanien      | `lt`          |
+| Norvégien      | `nb`          |
+| Polonais      | `pl`          |
+| Portugais      | `pt`          |
+| Roumain      | `ro`          |
+| Russe      | `ru`          |
+| Serbe (latin)      | `sr-Latn`          |
+| Slovaque     | `sk`          |
+| Slovène      | `sl`          |
+| Espagnol      | `es`          |
+| Suédois      | `sv`          |
+| Thaï      | `th`          |
+| Turc      | `tr`          |
+| Ukrainien      | `uk`          |
+| Vietnamien      | `vi`          |
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Accéder à la liste sur le site web de Microsoft Translator
 

@@ -10,45 +10,44 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: 58472d535be41fdd3e1139756f867f683509d9a3
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 77a1756aba0d8473051cdf335f33ed9ca5a8fb24
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161733"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558326"
 ---
-# <a name="call-your-custom-search"></a>Appeler votre recherche personnalisée
+# <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Appeler votre instance de Recherche personnalisée Bing à partir du portail
 
-Avant d’effectuer votre premier appel à l’API Recherche personnalisée pour obtenir les résultats de recherche de votre instance, vous devez obtenir une clé d’abonnement Cognitive Services. Pour obtenir une clé pour l’API Recherche personnalisée, consultez [Essayer Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+Une fois votre expérience de recherche personnalisée configurée, vous pouvez la tester à partir du [portail](https://customsearch.ai) Recherche personnalisée Bing. 
+
+![capture d'écran du portail Recherche personnalisée Bing](media/portal-search-screen.png)
+## <a name="create-a-search-query"></a>Créer une requête de recherche 
+
+Une fois connecté au [portail](https://customsearch.ai) Recherche personnalisée Bing, sélectionnez votre instance de recherche et cliquez sur l'onglet **Production**. Sous **Points de terminaison**, sélectionnez le point de terminaison d'une API (par exemple, de l'API Web). Les points de terminaison affichés dépendent de votre abonnement.
+
+Pour créer une requête de recherche, entrez les valeurs des paramètres de votre point de terminaison. Notez que les paramètres affichés sur le portail peuvent varier en fonction du point de terminaison choisi. Pour plus d'informations, consultez [Référence sur l'API Recherche personnalisée](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters). 
+
+Les paramètres suivants sont importants :
 
 
-## <a name="try-it-out"></a>Faites un essai
+|Paramètre  |Description  |
+|---------|---------|
+|Requête     | Terme à rechercher. Uniquement disponible pour les points de terminaison Web, Image, Vidéo et Suggestion automatique |
+|ID de configuration personnalisée | L'ID de configuration de l'instance de Recherche personnalisée sélectionnée. Ce champ est en lecture seule. |
+|Marché     | Marché d'où proviendront les résultats. Uniquement disponible pour les points de terminaison Web, Image, Vidéo et Interface utilisateur hébergée.        |
+|Clé d'abonnement | Clé d'abonnement à utiliser pour le test. Vous pouvez sélectionner une clé dans la liste déroulante ou en entrer une manuellement.          |
 
-Une fois que vous avez configuré votre expérience de recherche personnalisée, vous pouvez tester sa configuration depuis le portail de la Recherche personnalisée. 
+Si vous cliquez sur **Paramètres supplémentaires**, les paramètres suivants s’affichent :  
 
-1. Connectez-vous à [Recherche personnalisée](https://customsearch.ai).
-2. Cliquez sur une instance Recherche personnalisée dans votre liste d’instances.
-3. Cliquez sur l’onglet **Production**. 
-4. Sous l’onglet **Points de terminaison**, sélectionnez un point de terminaison (par exemple, API web). Votre abonnement détermine les points de terminaison qui s’affichent (voir les [prix](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) des options d’abonnement). 
-5. Spécifiez les valeurs de paramètre. 
-
-    Les éléments suivants sont les paramètres possibles que vous pouvez définir (la liste varie selon le point de terminaison sélectionné). Pour plus d’informations sur ces paramètres, consultez la référence [API Recherche personnalisée](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters).
-
-    - **Query** (Requête) : le terme de recherche à rechercher. Disponible uniquement pour les points de terminaison Web, Image, Vidéo et Suggestion automatique.
-    - **Custom Configuration ID** (ID de configuration personnalisée) : l’ID de configuration de l’instance Recherche personnalisée sélectionnée. Ce champ est en lecture seule.
-    - **Market** (Marché) : le marché d’où proviennent les résultats. Disponible uniquement pour les points de terminaison Web, Image, Vidéo et Interface utilisateur hébergée.
-    - **Subscription Key** (Clé d’abonnement) : la clé d’abonnement pour le test. Vous pouvez sélectionner une clé dans la liste déroulante ou en entrer une manuellement.  
-      
-    Si vous cliquez sur **Paramètres supplémentaires**, les paramètres suivants s’affichent :  
-      
-    - **Safe Search** (Recherche sécurisée) : un filtre servant à exclure le contenu pour adultes des pages web. Disponible uniquement pour les points de terminaison Web, Image, Vidéo et Interface utilisateur hébergée.
-    - **Langue de l’interface utilisateur** : langue utilisée pour les chaînes de l’interface utilisateur. Par exemple, si vous activez des images et des vidéos dans l’interface utilisateur hébergée, les onglets **Image** et **Vidéo** utilisent la langue spécifiée.
-    - **Count** (Nombre de) : le nombre de résultats de recherche à retourner dans la réponse. Disponible uniquement pour les points de terminaison Web, Image et vidéo.
-    - **Décalage** : Nombre de résultats de recherche à ignorer avant de retourner les résultats. Disponible uniquement pour les points de terminaison Web, Image et vidéo.
-
-6. Après avoir spécifié toutes les options nécessaires, cliquez sur **Appeler** pour voir la réponse JSON dans le volet droit. 
-
-Si vous sélectionnez le point de terminaison Interface utilisateur hébergée, vous pouvez tester l’expérience de recherche dans le volet inférieur.
+|Paramètre  |Description  |
+|---------|---------|
+|Recherche sécurisée     | Filtre servant à exclure le contenu pour adultes des pages web. Uniquement disponible pour les points de terminaison Web, Image, Vidéo et Interface utilisateur hébergée.        |
+|Langue de l'interface utilisateur    | Langue utilisée pour les chaînes de l'interface utilisateur. Par exemple, si vous activez des images et des vidéos dans l’interface utilisateur hébergée, les onglets **Image** et **Vidéo** utilisent la langue spécifiée.        |
+|Nombre     | Nombre de résultats de recherche à renvoyer dans la réponse. Disponible uniquement pour les points de terminaison Web, Image et vidéo.         |
+|Offset    | Nombre de résultats de recherche à ignorer avant de renvoyer les résultats. Disponible uniquement pour les points de terminaison Web, Image et vidéo.        |
+    
+Après avoir spécifié toutes les options nécessaires, cliquez sur **Appeler** pour voir la réponse JSON dans le volet droit. Si vous sélectionnez le point de terminaison Interface utilisateur hébergée, vous pouvez tester l’expérience de recherche dans le volet inférieur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

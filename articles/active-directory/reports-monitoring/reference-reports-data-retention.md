@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: abd64b7d2fa7930f5b6177c7ac037840da34dc18
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 6188b141ec1a514d999f290366cd9ffbafc1d96c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333579"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753130"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Stratégies de rétention des rapports Azure Active Directory
 
@@ -53,17 +53,19 @@ Pour les signaux de sécurité, le processus de collection démarre lorsque vous
 
 **Rapports d’activité**    
 
-| Rapport                 | Azure AD Gratuit | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--                    | :--           | :--                 | :--                 |
-| Audit de répertoire        | 7 jours        | 30 jours             | 30 jours             |
-| Activité de connexion       | N/A           | 30 jours             | 30 jours             |
-| Utilisation d’Azure MFA        | 30 jours       | 30 jours             | 30 jours             |
+| Rapport                 | Azure AD Gratuit | Azure AD Standard | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--                    | :--           | :--            | :--                 | :--                 |
+| Audit de répertoire        | 7 jours        |  7 jours        | 30 jours             | 30 jours             |
+| Activité de connexion       | N/A           |  N/A           | 30 jours             | 30 jours             |
+| Utilisation d’Azure MFA        | 30 jours       |  30 jours       | 30 jours             | 30 jours             |
+
+Vous pouvez conserver les données d'activité d'audit et de connexion au-delà de la période de conservation par défaut décrite ci-dessus en les acheminant vers un compte de stockage Azure à l'aide d'Azure Monitor. Pour plus d'informations, consultez [Archiver des journaux Azure AD sur un compte de stockage Azure](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 **Signaux de sécurité**
 
-| Rapport         | Azure AD Gratuit | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--            | :--           | :--                 | :--                 |
-| Les utilisateurs à risque  | 7 jours        | 30 jours             | 90 jours             |
-| Connexions risquées | 7 jours        | 30 jours             | 90 jours             |
+| Rapport         | Azure AD Gratuit | Azure AD Standard | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--            | :--           | :--            | :--                 | :--                 |
+| Les utilisateurs à risque  | 7 jours        | 7 jours         | 30 jours             | 90 jours             |
+| Connexions risquées | 7 jours        | 7 jours         |  30 jours            | 90 jours             |
 
 ---

@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 12/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 99efd29165f381b9038758c3384774a65da91501
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: af06be520b10184c1e96bdb27d0b8b648cde84a2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649412"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018451"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Paramétrer les services liés dans Azure Data Factory
 
@@ -34,7 +33,7 @@ Pour voir une présentation de sept minutes et la démonstration de cette foncti
 
 ## <a name="supported-data-stores"></a>Magasins de données pris en charge
 
-À ce stade, le paramétrage de service lié est pris en charge dans l’interface utilisateur de Data Factory dans le portail Azure pour les magasins de données suivants. Pour tous les autres magasins de données, vous pouvez paramétrer le service lié en sélectionnant l’icône **Code** dans l’onglet du pipeline et à l’aide de l’éditeur JSON.
+À ce stade, le paramétrage de service lié est pris en charge dans l’interface utilisateur de Data Factory dans le portail Azure pour les magasins de données suivants. Pour tous les autres magasins de données, vous pouvez paramétrer le service lié en sélectionnant l'icône **Code** dans l'onglet **Connexions** et à l'aide de l'éditeur JSON.
 - Azure SQL Database
 - Azure SQL Data Warehouse
 - SQL Server

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 9eed4c4bd8cd6290bd2126c91bcf4e37c1b0fa0b
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4bad339ca704f14f57c120db5e731d0dbfeb8d59
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341947"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793431"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack Managed Disks : Différences et considérations
 Cet article résume les différences connues entre les services Managed Disks d’Azure Stack et Managed Disks pour Azure. Pour en savoir plus sur les principales différences entre Azure Stack et Azure, consultez l’article [Principales considérations](azure-stack-considerations.md).
@@ -61,6 +61,14 @@ Il existe également des différences sur le plan des métriques de stockage :
 ## <a name="api-versions"></a>Versions d’API
 Les service Managed Disks d’Azure Stack prend en charge les versions d’API suivantes :
 - 2017-03-30
+
+## <a name="known-issues"></a>Problèmes connus
+Après avoir appliqué la mise à jour 1809, vous rencontrerez peut-être les problèmes suivants lors du déploiement de machines virtuelles avec le service Managed Disks :
+
+   - Si l’abonnement a été créé avant la mise à jour 1808, le déploiement d’une machine virtuelle avec Managed Disks peut échouer avec un message d’erreur interne. Pour résoudre cette erreur, effectuez les étapes suivantes pour chaque abonnement :
+      1. Dans le portail locataire, accédez à **Abonnements** et recherchez l’abonnement. Cliquez sur **Fournisseurs de ressources**, sur **Microsoft.Compute**, puis sur **Réinscrire**.
+      2. Sous le même abonnement, accédez à **Contrôle d’accès (IAM)** et vérifiez que l’élément **Azure Stack – Managed Disks** est répertorié.
+   - Si vous avez configuré un environnement multilocataire, le déploiement de machines virtuelles dans un abonnement associé à un annuaire invité peut échouer avec un message d’erreur interne. Pour résoudre le problème, effectuez les étapes décrites dans [cet article](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) afin de reconfigurer chacun de vos annuaires invités.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

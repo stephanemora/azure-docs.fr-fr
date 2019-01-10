@@ -5,19 +5,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 01/02/2019
 ms.author: tamram
-ms.openlocfilehash: c898a206322bbc6acb73d582fcb08c8bbba274d0
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: deb91e1b881afe59d47f677fbee1c307da51f4e5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291438"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062211"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Activer l’authentification Azure Active Directory sur SMB pour Azure Files (préversion)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
 Pour avoir une vue d’ensemble de l’authentification Azure AD sur SMB pour Azure Files, consultez [Vue d’ensemble de l’authentification Azure Active Directory sur SMB pour Azure Files (préversion)](storage-files-active-directory-overview.md).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview-of-the-workflow"></a>Vue d’ensemble du workflow
 Avant d’activer Azure AD sur SMB pour Azure Files, vérifiez que vos environnements Azure AD et de stockage Azure sont correctement configurés. Nous vous recommandons de passer en revue les [prérequis](#prerequisites) pour vérifier que vous avez effectué toutes les étapes nécessaires. 
@@ -59,9 +61,6 @@ Avant d’activer Azure AD sur SMB pour Azure Files, assurez-vous de remplir les
 4.  **Sélectionner ou créer un partage de fichiers Azure.**
 
     Sélectionnez un partage de fichiers nouveau ou existant associé au même abonnement que celui de votre locataire Azure AD. Pour plus d’informations sur la création d’un partage de fichiers, consultez [Créer un partage de fichiers dans Azure Files](storage-how-to-create-file-share.md). 
-
-    Le locataire Azure AD doit être déployé dans une région prise en charge pour la préversion d’Azure AD sur SMB. La préversion est disponible dans toutes les régions publiques à l’exception des régions suivantes : USA Ouest, USA Ouest 2, USA Centre Sud, USA Est, USA Est 2, USA Centre, USA Centre Nord, Australie Est, Europe Ouest, Europe Nord.
-
     Pour des performances optimales, Microsoft recommande que votre partage de fichiers soit dans la même région que celle de la machine virtuelle à partir de laquelle vous voulez accéder au partage.
 
 5.  **Vérifier la connectivité d’Azure Files en montant les partages de fichiers Azure à l’aide de votre clé de compte de stockage.**
@@ -88,17 +87,17 @@ L’image suivante montre comment activer l’authentification Azure AD sur SMB 
   
 ### <a name="powershell"></a>PowerShell  
 
-Pour activer l’authentification Azure AD sur SMB à partir d’Azure PowerShell, commencez par installer le module `AzureRM.Storage`, version `6.0.0-preview`, en procédant comme suit. Pour en savoir plus sur l’installation de PowerShell, voir [Installer Azure PowerShell sur Windows avec PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) :
+Pour activer l'authentification Azure AD sur SMB à partir d'Azure PowerShell, commencez par installer une version d'évaluation du module `Az.Storage` avec prise en charge d'Azure AD. Pour en savoir plus sur l’installation de PowerShell, voir [Installer Azure PowerShell sur Windows avec PowerShellGet](https://docs.microsoft.com/powershell/azure/install-Az-ps) :
 
 ```powershell
-Install-Module -Name AzureRM.Storage -RequiredVersion 6.0.0-preview -AllowPrerelease
+Install-Module -Name Az.Storage -AllowPrerelease -Force -AllowClobber
 ```
 
-Ensuite, créez un compte de stockage, appelez [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) et définissez le paramètre **EnableAzureFilesAadIntegrationForSMB** sur **true**. Dans l’exemple ci-dessous, remplacez les valeurs d’espace réservé par vos propres valeurs.
+Créez ensuite un compte de stockage, appelez [Set-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) et définissez le paramètre **EnableAzureFilesAadIntegrationForSMB** sur **true**. Dans l’exemple ci-dessous, remplacez les valeurs d’espace réservé par vos propres valeurs.
 
 ```powershell
 # Create a new storage account
-New-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
+New-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -Name "<storage-account-name>" `
     -Location "<azure-region>" `
     -SkuName Standard_LRS `
@@ -107,7 +106,7 @@ New-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 # Update an existing storage account
 # Supported for storage accounts created after September 24, 2018 only
-Set-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
+Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -Name "<storage-account-name>" `
     -EnableAzureFilesAadIntegrationForSMB $true```
 ```
@@ -152,14 +151,14 @@ Le modèle de rôle personnalisé suivant fournit des autorisations de modificat
   "Name": "<Custom-Role-Name>",
   "Id": null,
   "IsCustom": true,
-  "Description": "Allows for read, write and delete access to Azure File Share",
+  "Description": "Allows for read, write and delete access to Azure File Share over SMB",
   "Actions": [
     "*"
   ],
   "NotActions": [
-      "Microsoft.Authorization/*/Delete",
-    "Microsoft.Authorization/*/Write",
-    "Microsoft.Authorization/elevateAccess/Action"
+    "Microsoft.Authorization/*/Delete",
+        "Microsoft.Authorization/*/Write",
+        "Microsoft.Authorization/elevateAccess/Action"
   ],
   "DataActions": [
     "*"
@@ -178,7 +177,7 @@ Le modèle de rôle personnalisé suivant fournit des autorisations de lecture a
   "Name": "<Custom-Role-Name>",
   "Id": null,
   "IsCustom": true,
-  "Description": "Allows for read access to Azure File Share",
+  "Description": "Allows for read access to Azure File Share over SMB",
   "Actions": [
     "*/read"
   ],
@@ -201,7 +200,7 @@ La commande PowerShell suivante crée un rôle personnalisé basé sur l’un de
 
 ```powershell
 #Create a custom role based on the sample template above
-New-AzureRmRoleDefinition -InputFile "<custom-role-def-json-path>"
+New-AzRoleDefinition -InputFile "<custom-role-def-json-path>"
 ```
 
 #### <a name="cli"></a>Interface de ligne de commande 
@@ -225,11 +224,11 @@ Quand vous exécutez l’exemple de script suivant, n’oubliez pas de remplacer
 
 ```powershell
 #Get the name of the custom role
-$FileShareContributorRole = Get-AzureRmRoleDefinition "<role-name>"
+$FileShareContributorRole = Get-AzRoleDefinition "<role-name>"
 #Constrain the scope to the target file share
 $scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
 #Assign the custom role to the target identity with the specified scope.
-New-AzureRmRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $FileShareContributorRole.Name -Scope $scope
+New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $FileShareContributorRole.Name -Scope $scope
 ```
 
 #### <a name="cli"></a>Interface de ligne de commande

@@ -11,12 +11,12 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 30546d31e96d7d7fa1009f16a50fe8fda12ead67
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 18c9eace306522f9ac9f04e19b9571db67561ae0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105102"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725052"
 ---
 # <a name="configure-containers"></a>Configurer des conteneurs
 
@@ -113,10 +113,10 @@ Le conteneur Visage stocke des données d’objet blob, de cache, de métadonné
   Les quatre types de données sont stockés en mémoire. Ils ne sont ni distribués ni persistants. Si le conteneur Visage est arrêté ou supprimé, toutes les données contenues dans le stockage de ce conteneur sont détruites.  
   Il s’agit du scénario de stockage par défaut du conteneur Visage.
 * Azure  
-  Le conteneur Visage utilise Stockage Azure et Azure Cosmos DB pour répartir ces quatre types de données dans le stockage persistant. Les données d’objet blob et de file d’attente sont gérées par Stockage Azure. Les données de cache et de métadonnées sont gérées par Azure Cosmos DB via l’API MongoDB. Si le conteneur Visage est arrêté ou supprimé, toutes les données se trouvant dans le stockage de ce conteneur restent stockées dans Stockage Azure et Azure Cosmos DB.  
+  Le conteneur Visage utilise Stockage Azure et Azure Cosmos DB pour répartir ces quatre types de données dans le stockage persistant. Les données d’objet blob et de file d’attente sont gérées par Stockage Azure. Les métadonnées et les données de cache sont gérées par Azure Cosmos DB. Si le conteneur Visage est arrêté ou supprimé, toutes les données se trouvant dans le stockage de ce conteneur restent stockées dans Stockage Azure et Azure Cosmos DB.  
   Les ressources utilisées par le scénario de stockage Azure imposent les conditions supplémentaires suivantes :
   * La ressource Stockage Azure doit utiliser le type de compte StorageV2.
-  * La ressource Azure Cosmos DB doit utiliser l’API MongoDB.
+  * La ressource Azure Cosmos DB doit utiliser l'API Azure Cosmos DB pour MongoDB
 
 Les scénarios de stockage et les paramètres de configuration associés sont gérés par l’objet `Storage`, sous la section de configuration `CloudAI`. Les paramètres de configuration suivants sont disponibles dans l’objet `Storage` :
 
@@ -145,7 +145,7 @@ Le paramètre de configuration `Eula` indique que vous avez accepté la licence 
 > [!IMPORTANT]
 > Les paramètres de configuration [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) et [`Eula`](#eula-configuration-setting) sont utilisés conjointement, et vous devez fournir des valeurs valides pour les trois ; à défaut, votre conteneur ne démarrera pas. Pour plus d’informations sur l’instanciation d’un conteneur à l’aide de ces paramètres de configuration, consultez [Facturation](face-how-to-install-containers.md#billing).
 
-Les conteneurs Services cognitifs sont accordés sous licence selon les termes d’[un contrat](https://go.microsoft.com/fwlink/?linkid=2018657) régissant votre utilisation d’Azure. Si vous ne disposez pas d’un contrat existant régissant votre utilisation d’Azure, vous acceptez que votre utilisation d’Azure soit régie par le [Contrat d’abonnement à Microsoft Online](https://go.microsoft.com/fwlink/?linkid=2018755) (qui intègre les [conditions des services en ligne](https://go.microsoft.com/fwlink/?linkid=2018760)). Pour les préversions, vous acceptez également les [conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://go.microsoft.com/fwlink/?linkid=2018815). En utilisant le conteneur, vous acceptez les termes du contrat.
+Les conteneurs Cognitive Services sont accordés sous licence selon les termes d’[un contrat](https://go.microsoft.com/fwlink/?linkid=2018657) qui régit votre utilisation d’Azure. Si vous ne disposez pas d’un contrat existant régissant votre utilisation d’Azure, vous acceptez que celle-ci soit régie par le [Contrat d’abonnement à Microsoft Online](https://go.microsoft.com/fwlink/?linkid=2018755) (qui intègre les [conditions des services en ligne](https://go.microsoft.com/fwlink/?linkid=2018760)). Pour les préversions, vous acceptez également les [conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://go.microsoft.com/fwlink/?linkid=2018815). En utilisant le conteneur, vous acceptez les termes du contrat.
 
 ## <a name="fluentd-configuration-settings"></a>Paramètres de configuration Fluentd
 

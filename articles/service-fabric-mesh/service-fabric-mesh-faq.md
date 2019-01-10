@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 7103557d19b367be0b9f0aa6f4a4642800c14558
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2f9800deedb2e8d55362920fed2493a42290e764
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314827"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555844"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Questions fréquemment posées sur Service Fabric mesh
 
@@ -79,7 +79,7 @@ Pour supprimer le groupe de ressources, utilisez la commande `az group delete <n
 
 ## <a name="supported-container-os-images"></a>Images de système d’exploitation du conteneur prises en charge
 
-Si vous réalisez votre développement sur un ordinateur doté de Windows Fall Creators Update (version 1709), vous pouvez uniquement utiliser des images Docker de la version 1709 de Windows.
+Si vous réalisez votre développement sur un ordinateur doté de Windows Fall Creators Update (version 1709), vous pouvez uniquement utiliser des images de la version 1709 de Windows.
 
 Si vous réalisez votre développement sur un ordinateur doté de la mise à jour d'avril 2018 de Windows 10 (version 1803), vous pouvez utiliser des images Docker de la version 1709 de Windows et de la version 1803 de Windows.
 
@@ -101,7 +101,7 @@ Il se peut que la communication de service à service échoue dans certaines cir
 - Si l’utilisation du nom du service seul ne fonctionne pas, essayez avec le nom qualifié complet : ServiceName.ApplicationName.
 - Dans le fichier Docker pour votre service, ajoutez `EXPOSE <port>`, où « port » correspond au port d’exposition de votre service. Par exemple : 
 
-```
+```DockerFile
 EXPOSE 80
 ```
 
