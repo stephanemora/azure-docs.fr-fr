@@ -1,20 +1,19 @@
 ---
 title: Connecter une application MongoDB à Azure Cosmos DB
 description: Découvrez comment connecter votre application MongoDB à Azure Cosmos DB.
-keywords: chaîne de connexion mongodb
-services: cosmos-db
 author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: rimman
-ms.openlocfilehash: 9a6cbc551704541f3e4ead40567f272205b71325
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.reviewer: sngun
+ms.openlocfilehash: 737e179c2c16937d00bc9b6601f12ebe392c1906
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791385"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040317"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Connecter une application MongoDB à Azure Cosmos DB
 Découvrez comment connecter votre application MongoDB à une instance Azure Cosmos DB à l’aide d’une chaîne de connexion MongoDB. Vous pouvez ensuite utiliser une base de données Azure Cosmos DB en tant que magasin de données pour votre application MongoDB. 
@@ -22,7 +21,7 @@ Découvrez comment connecter votre application MongoDB à une instance Azure Cos
 Ce didacticiel fournit deux façons de récupérer les informations de la chaîne de connexion :
 
 - [Méthode du guide de démarrage rapide](#QuickstartConnection), à utiliser avec les pilotes .NET, Node.js, MongoDB Shell, Java et Python
-- [Méthode de la chaîne de connexion personnalisée](#GetCustomConnection), à utiliser avec d’autres pilotes
+- [Méthode de la chaîne de connexion personnalisée](#GetCustomConnection), à utiliser avec d’autres pilotes.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -71,6 +70,6 @@ Par exemple, observez le compte figurant dans le panneau **Chaîne de connexion*
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [utiliser Studio 3T](mongodb-mongochef.md) avec l’API pour MongoDB d’Azure Cosmos DB.
-- Découvrez comment [utiliser Robo 3T](mongodb-robomongo.md) avec l’API pour MongoDB d’Azure Cosmos DB.
-- Explorez les [exemples](mongodb-samples.md) MongoDB avec l’API pour MongoDB d’Azure Cosmos DB.
+- Découvrez comment [utiliser Studio 3T](mongodb-mongochef.md) avec l’API Azure Cosmos DB pour MongoDB.
+- Découvrez comment [utiliser Robo 3T](mongodb-robomongo.md) avec l’API Azure Cosmos DB pour MongoDB.
+- Explorez les [exemples](mongodb-samples.md) MongoDB avec l’API Azure Cosmos DB pour MongoDB.

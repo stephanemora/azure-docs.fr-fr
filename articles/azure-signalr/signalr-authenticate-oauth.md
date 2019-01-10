@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: be44a233c2b09aa91ec04b5a64b523a2d0b00db1
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bd872e7aa9ada8c46b0af897b4d7ad137b767514
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599857"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103789"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Didacticiel : Authentification par Azure SignalR Service
 
@@ -547,7 +547,7 @@ Pour déployer votre code, exécutez les commandes suivantes dans l’interprét
 
 Pour finir, vous devez mettre à jour l’**URL de la page d’accueil** et l’**URL de rappel d’autorisation** de l’application GitHub OAuth afin de pointer vers la nouvelle application hébergée.
 
-1. Ouvrez [http://github.com](http://github.com) dans un navigateur et dans votre compte, accédez à **Paramètres** > **Paramètres de développeur** > **Oauth Apps (Applications OAuth)**.
+1. Ouvrez [https://github.com](https://github.com) dans un navigateur et dans votre compte, accédez à **Paramètres** > **Paramètres de développeur** > **Oauth Apps (Applications OAuth)**.
 
 2. Cliquez sur votre page d’authentification et mettez à jour l’**URL de la page d’accueil** et l’**URL de rappel d’autorisation** tel que représenté ci-dessous :
 

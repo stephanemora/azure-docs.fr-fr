@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: f733a321470321b5b0f8bce48b4ac7978027fab7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 095ecdccde930db20ee858bfce7fc0811163cdd9
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973466"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038260"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrage et pré-traitement de la télémétrie dans le Kit de développement logiciel (SDK) Application Insights
 
 
 Vous pouvez écrire et configurer des plug-ins pour le Kit de développement logiciel (SDK) Application Insights afin de personnaliser la capture et le traitement des données de télémétrie avant leur envoi au service Application Insights.
 
-* [échantillonnage](../../application-insights/app-insights-sampling.md) réduit le volume des données de télémétrie sans affecter les statistiques. Il maintient ensemble les points de données liés de sorte que vous pouvez naviguer entre eux pour diagnostiquer un problème. Dans le portail, les nombres totaux sont multipliés pour compenser l'échantillonnage.
+* [échantillonnage](../../azure-monitor/app/sampling.md) réduit le volume des données de télémétrie sans affecter les statistiques. Il maintient ensemble les points de données liés de sorte que vous pouvez naviguer entre eux pour diagnostiquer un problème. Dans le portail, les nombres totaux sont multipliés pour compenser l'échantillonnage.
 * Le filtrage avec des processeurs de télémétrie [pour ASP.NET](#filtering) ou [Java](../../azure-monitor/app/java-filter-telemetry.md) vous permet de sélectionner ou de modifier la télémétrie dans le Kit de développement logiciel (SDK) avant l’envoi au serveur. Par exemple, vous pouvez réduire le volume de la télémétrie en excluant les demandes émanant de robots. Mais le filtrage est une approche plus simple que l’échantillonnage pour réduire le trafic. Cela vous permet de mieux contrôler ce qui est transmis, mais vous devez être conscient que cela affecte vos statistiques ; par exemple, si vous filtrez toutes les demandes réussies.
 * [Les initialiseurs de télémétrie ajoutent des propriétés](#add-properties) à n’importe quelle télémétrie envoyée à partir de votre application, notamment les données de télémétrie fournies par les modules standard. Par exemple, vous pouvez ajouter des valeurs calculées ou des numéros de version permettant de filtrer les données dans le portail.
 * [L'API SDK](../../azure-monitor/app/api-custom-events-metrics.md) est utilisée pour envoyer des événements et des mesures personnalisés.
@@ -43,7 +43,7 @@ Pour filtrer la télémétrie, vous écrivez un processeur de télémétrie et l
 > [!WARNING]
 > Filtrer la télémétrie envoyée depuis le Kit de développement logiciel (SDK) à l’aide de processeurs peut fausser les statistiques que vous voyez dans le portail et rendre difficile le suivi des éléments associés.
 >
-> Envisagez plutôt d'utiliser l' [échantillonnage](../../application-insights/app-insights-sampling.md).
+> Envisagez plutôt d'utiliser l' [échantillonnage](../../azure-monitor/app/sampling.md).
 >
 >
 
@@ -371,5 +371,5 @@ Quelle est la différence entre les processeurs de télémétrie et les initiali
 
 ## <a name="next"></a>Étapes suivantes
 * [Recherche d’événements et de journaux](../../azure-monitor/app/diagnostic-search.md)
-* [Échantillonnage](../../application-insights/app-insights-sampling.md)
-* [Dépannage](../../application-insights/app-insights-troubleshoot-faq.md)
+* [Échantillonnage](../../azure-monitor/app/sampling.md)
+* [Dépannage](../../azure-monitor/app/troubleshoot-faq.md)

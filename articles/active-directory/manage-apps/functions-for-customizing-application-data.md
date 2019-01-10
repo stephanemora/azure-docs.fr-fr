@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 058cadec0776e05daf9fddbf715020953478ff58
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 867fdd57df163f37d86572798aaae6d78d43f479
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105153"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973721"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 Quand vous configurez l’approvisionnement pour une application SaaS, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. Dans ce cas, vous devez écrire une expression semblable à un script qui vous permet de transformer les données des utilisateurs dans des formats plus acceptables pour l’application SaaS.
@@ -27,13 +27,13 @@ Quand vous configurez l’approvisionnement pour une application SaaS, l’un de
 La syntaxe des expressions pour les mappages d’attributs rappelle celle des fonctions Visual Basic pour Applications (VBA).
 
 * L’expression entière doit être définie en termes de fonctions, qui sont constituées d’un nom suivi d’arguments entre parenthèses : <br>
-  *NomFonction(<<argument 1>>,<<argument N>>)*
-* Vous pouvez imbriquer des fonctions dans d’autres. Par exemple :  <br> *FonctionUne(FonctionDeux(&lt;<argument1>&gt;))*
+  *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
+* Vous pouvez imbriquer des fonctions dans d’autres. Par exemple :  <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * Vous pouvez passer trois différents types d’arguments dans des fonctions :
   
   1. Des attributs, qui doivent être placés entre crochets. Par exemple : [nom_attribut]
   2. Des constantes de chaîne, qui doivent être placées entre des guillemets doubles. Par exemple :  « États-Unis »
-  3. D’autres fonctions. Par exemple :  FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
+  3. D’autres fonctions. Par exemple :  FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
 * Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\). Par exemple :  « Nom de l’entreprise : \"Contoso\" »
 
 ## <a name="list-of-functions"></a>Liste des fonctions

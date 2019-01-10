@@ -8,20 +8,22 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: dobett
-ms.openlocfilehash: 5faa91f054e62e2b3d9d317efe57f2d3f659cee6
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 91d4eda566c8b534daa10c62637db28ccb01bbb6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829832"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628321"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Connecter votre appareil à l’accélérateur de solution Surveillance à distance (Linux)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Ce tutoriel vous montre comment connecter un appareil physique à l’accélérateur de solution Surveillance à distance.
+Ce tutoriel vous montre comment connecter un appareil réel à l’accélérateur de solution Supervision à distance.
 
 Comme avec la plupart des applications incorporées qui s’exécutent sur des appareils limités, le code client pour l’application d’appareil est écrit en C. Dans ce didacticiel, vous générez l’application sur une machine exécutant Ubuntu (Linux).
+
+Si vous préférez simuler un appareil, consultez [Créer et tester un appareil simulé](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

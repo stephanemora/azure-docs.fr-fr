@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 12/20/2018
 ms.author: alkohli
-ms.openlocfilehash: de47cae219aa457343df292bb91b6af06c4b1186
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5849611ad346fc5ef1f0efd1e262d2ace8097520
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091927"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723450"
 ---
 # <a name="azure-data-box-limits"></a>Limites d’Azure Data Box
 
@@ -22,7 +22,6 @@ Tenez compte de ces limites quand vous déployez et utilisez votre solution Micr
 
 ## <a name="data-box-service-limits"></a>Limites du service Data Box
 
- - Le service Data Box est disponible uniquement aux États-Unis et dans toutes les [régions Azure du cloud public Azure](https://azure.microsoft.com/regions/).
  - Si vous utilisez plusieurs comptes de stockage avec le service Data Box, ils doivent tous appartenir à la même région Azure.
  - Nous vous recommandons de ne pas utiliser plus de trois comptes de stockage. L’utilisation de plus de comptes de stockage peut affecter les performances.
 
@@ -79,5 +78,5 @@ Voici les tailles des objets Azure qui peuvent être écrits. Assurez-vous que t
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Noms de conteneur pour les objets blob de blocs et les objets blob de pages | Doit être un nom DNS valide dont la longueur est comprise entre 3 et 63 caractères. <br>  Doit commencer par une lettre ou un chiffre. <br> Ne peut contenir que des lettres minuscules, des chiffres et le trait d’union (-). <br> Chaque trait d’union (-) doit être immédiatement précédé et suivi d’une lettre ou d’un chiffre. <br> Les traits d’union consécutifs ne sont pas autorisés dans les noms. |
 | Noms de partage pour les fichiers Azure                  | Identique à ce qui précède                                                                                                                                                                                                                                                                                                             |
-| Noms de répertoires et de fichiers pour les fichiers Azure     |<li> Conservent et respectent la casse, et ne doivent pas dépasser 255 caractères. </li><li> Ne peuvent pas se terminer par une barre oblique avant (/). </li><li>Si renseignée, elle sera automatiquement supprimée. </li><li> Les caractères suivants ne sont pas autorisés : `" \ / : | < > * ?`</li><li> Les caractères d’URL réservées doivent être correctement placés dans une séquence d’échappement. </li><li> Les caractères de chemin d’URL illégal ne sont pas autorisés. Les points de code comme \uE000 ne sont pas des caractères Unicode valide. Certains caractères Unicode ou ASCII, comme les caractères de contrôle (0x00 to 0x1F, \u0081, etc.) ne sont pas autorisés. Pour les règles concernant les chaînes Unicode dans HTTP/1.1, consultez RFC 2616, Section 2.2 : Règles de base et RFC 3987. </li><li> Les noms de fichiers suivants ne sont pas autorisés : LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, le point (.) et les deux points (..).</li>|
+| Noms de répertoires et de fichiers pour les fichiers Azure     |<li> Conservent et respectent la casse, et ne doivent pas dépasser 255 caractères. </li><li> Ne peuvent pas se terminer par une barre oblique avant (/). </li><li>Si renseignée, elle sera automatiquement supprimée. </li><li> Les caractères suivants ne sont pas autorisés : `" \ / : | < > * ?`</li><li> Les caractères d’URL réservées doivent être correctement placés dans une séquence d’échappement. </li><li> Les caractères de chemin d’URL illégal ne sont pas autorisés. Les points de code comme \uE000 ne sont pas des caractères Unicode valide. Certains caractères Unicode ou ASCII, comme les caractères de contrôle (0x00 to 0x1F, \u0081, etc.) ne sont pas autorisés. Pour les règles concernant les chaînes Unicode dans HTTP/1.1, consultez RFC 2616, Section 2.2 : Règles de base et RFC 3987. </li><li> Les noms de fichiers suivants ne sont pas autorisés : LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, le point (.) et les deux points (..).</li>|
 | Noms d’objet blob pour les objets blob de blocs et les objets blob de pages      | </li><li>Les noms d’objet blob respectent la casse et peuvent contenir une combinaison de caractères. </li><li>Le nom d’objet blob doit comprendre entre 1 et 1 024 caractères. </li><li>Les caractères d’URL réservées doivent être correctement placés dans une séquence d’échappement. </li><li>Le nombre de segments de ligne comprenant le nom d’objet blob ne peut pas dépasser 254. Un segment de chemin représente la chaîne située entre des caractères délimiteurs consécutifs (par exemple, la barre oblique « / ») qui correspond au nom d’un répertoire virtuel.</li> |

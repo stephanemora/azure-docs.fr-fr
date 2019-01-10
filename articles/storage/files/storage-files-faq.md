@@ -4,15 +4,15 @@ description: Trouvez des réponses aux questions fréquemment posées sur Azure 
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 10/04/2018
+ms.date: 01/02/2019
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 761637a9c44cc490d6633aeb1a9b8d81f8885583
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 70370db841a08ae8ee62bda83bec4b1b9e2e7cf2
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972080"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001530"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -182,7 +182,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 * <a id="ad-support-regions"></a>
 **La préversion d’Azure AD sur SMB pour Azure Files est-elle disponible dans toutes les régions Azure ?**
 
-    La préversion est disponible dans toutes les régions publiques sauf : Europe Nord.
+    La préversion est disponible dans toutes les régions publiques.
 
 * <a id="ad-support-on-premises"></a>
 **L’authentification Azure AD sur SMB pour Azure Files (préversion) prend-elle en charge l’authentification à l’aide d’Azure AD à partir de machines locales ?**

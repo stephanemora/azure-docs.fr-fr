@@ -3,17 +3,17 @@ title: Choisir le bon niveau tarifaire pour Azure Maps | Microsoft Docs
 description: Découvrez les niveaux tarifaires proposés par Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ee277867f449afddeb89c3fd73b5b577a68a4497
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 028a227eefb319d19c9274082626a007bd9161de
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998381"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993958"
 ---
 # <a name="choosing-the-right-pricing-tier-in-azure-maps"></a>Choix du bon niveau tarifaire dans Azure Maps
 
@@ -53,9 +53,8 @@ Pour mieux comprendre les niveaux tarifaires S0 et S1, consultez le tableau **
 
 | Niveau tarifaire  |        Clients ciblés                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
-| S0            |    <p>Le niveau tarifaire S0 convient aux clients qui ont une PME. Il sera adapté si vous ne prévoyez pas d’avoir un nombre élevé d’utilisateurs simultanés et si les principales API géospatiales répondent à vos besoins, comme indiqué dans le tableau ci-dessous. Ce niveau est en disponibilité générale et convient à toutes les phases de production des applications, du développement « preuve de concept » à la phase de test initiale, en passant par les applications en production et les applications déployées.<p>|
+| S0            |    <p>Le niveau tarifaire S0 convient aux clients qui ont une PME. Il sera adapté si vous ne prévoyez pas d’avoir un nombre élevé d’utilisateurs simultanés et si les principales API géospatiales répondent à vos besoins, comme indiqué dans le tableau ci-dessus. Ce niveau est en disponibilité générale et convient à toutes les phases de production des applications, du développement « preuve de concept » à la phase de test initiale, en passant par les applications en production et les applications déployées.<p>|
 | S1            |    <p>Le niveau tarifaire S1 convient aux clients qui ont besoin d’une assistance pour les grandes entreprises, les applications stratégiques ou les gros volumes d’utilisateurs simultanés, ou qui ont besoin de services géospatiaux avancés.</p>|
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

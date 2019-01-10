@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 1865b4fa03f774fb4cbe69a5c8b17b096981ebc8
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 49d49553a9375baa92160d9d9a89936acc7dd461
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632787"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102616"
 ---
 # <a name="azure-stack-servicing-policy"></a>Stratégie de maintenance Azure Stack
 
@@ -30,7 +30,7 @@ Cet article décrit la stratégie de maintenance pour les systèmes intégrés A
 
 Microsoft publie des mises à jour mensuelles complètes ainsi que des correctifs logiciels pour résoudre des problèmes spécifiques. 
 
-Les mises à jour mensuelles sont hébergées dans un point de terminaison Azure sécurisé. Vous pouvez les télécharger manuellement à l’aide de l’[outil de téléchargement des mises à jour Azure Stack](http://aka.ms/azurestackupdatedownload). Si votre unité d’échelle est connectée, la mise à jour s’affiche automatiquement dans le portail d’administration avec la notification **Mise à jour disponible**. Les mises à jour mensuelles complètes sont bien documentées. Pour plus d’informations, cliquez sur l’une des versions listées dans la section [Cadence de publication des mises à jour](#update-package-release-cadence) de cet article.
+Les mises à jour mensuelles sont hébergées dans un point de terminaison Azure sécurisé. Vous pouvez les télécharger manuellement à l’aide de l’[outil de téléchargement des mises à jour Azure Stack](https://aka.ms/azurestackupdatedownload). Si votre unité d’échelle est connectée, la mise à jour s’affiche automatiquement dans le portail d’administration avec la notification **Mise à jour disponible**. Les mises à jour mensuelles complètes sont bien documentées. Pour plus d’informations, cliquez sur l’une des versions listées dans la section [Cadence de publication des mises à jour](#update-package-release-cadence) de cet article.
 
 Les correctifs logiciels sont hébergés dans le même point de terminaison Azure sécurisé. Vous pouvez les télécharger manuellement en cliquant sur les liens incorporés dans chaque article correspondant de la Base de connaissances ; par exemple, [Correctif logiciel Azure Stack 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Comme pour les mises à jour mensuelles complètes, les opérateurs Azure Stack peuvent télécharger les fichiers .xml, .bin et .exe et les importer en suivant la procédure décrite dans [Effectuer des mises à jour dans Azure Stack](azure-stack-apply-updates.md). Pour les opérateurs Azure Stack avec des unités d’échelle connectées, les correctifs logiciels s’affichent automatiquement dans le portail Administrateur avec le message **Mise à jour disponible**.
 

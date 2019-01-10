@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: b98b528d2d78d2285977dec49da18081df47e9d6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 3d029c91debfc8ed3ac24e831224426a2780b763
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166130"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791065"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Guide pratique pour créer un modèle Conversation Learner avec Node.js
 
@@ -112,14 +112,11 @@ Les instructions ci-dessus permettent de démarrer le bot générique vide.  Pou
   npm run demo-password
   npm run demo-pizza
   npm run demo-storage
-  npm run demo-vrapp
   ```
 
 4. Si vous ne l’avez pas déjà fait, basculez sur l’interface utilisateur web Conversation Learner dans Chrome en chargeant http://localhost:5050/home. 
 
-5. Cliquez sur « Import tutorials » (Importer des didacticiels) (cette action n’est nécessaire qu’une seule fois).  Cette opération prend environ une minute et copie les modèles Conversation Learner pour tous les didacticiels dans votre compte Conversation Learner.
-
-6. Cliquez sur le modèle de démonstration dans l’interface utilisateur Conversation Learner qui correspond à la démonstration que vous avez démarrée.
+5. Cliquez sur « Importer des tutoriels » et sélectionnez le modèle de démonstration dans l’interface utilisateur Conversation Learner qui correspond à la démonstration que vous avez démarrée.
 
 Les fichiers sources des démonstrations sont sous `cl-bot-01/src/demos`
 
@@ -181,4 +178,4 @@ Ce projet a adopté le [Code de conduite open source de Microsoft](https://opens
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Hello world](./tutorials/1-hello-world.md)
+> [Hello world](./tutorials/01-hello-world.md)

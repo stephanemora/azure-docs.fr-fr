@@ -1,28 +1,26 @@
 ---
 title: Protection avancée contre les menaces – Azure Database pour MySQL | Microsoft Docs
 description: La protection contre les menaces détecte les activités de base de données anormales qui indiquent la présence potentielle de menaces de sécurité pour la base de données.
-services: mysql
 author: bolzmj
-manager: kfile
-ms.service: mysql
-ms.topic: article
-ms.date: 09/20/2018
 ms.author: mbolz
-ms.openlocfilehash: dfb4d104d3dfdb3e6ae7466fa3776dd5e7155aa7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.service: mysql
+ms.topic: conceptual
+ms.date: 09/20/2018
+ms.openlocfilehash: 12497f6a5173e2e4ea9c919fb6500c34f85749fa
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046149"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53534738"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Protection avancée contre les menaces d’Azure Database pour MySQL
 
 La protection avancée contre les menaces d’Azure Database pour MySQL détecte des activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de vos bases de données.
 
-La protection avancée contre les menaces fait partie de l’offre Advanced Data Security qui est un package unifié de fonctionnalités de sécurité avancées. La protection avancée contre les menaces est accessible et peut être gérée via le [portail Azure](https://portal.azure.com) et est actuellement en préversion.
+La protection avancée contre les menaces fait partie de l’offre Advanced Data Security qui est un package unifié de fonctionnalités de sécurité avancées. La protection avancée contre les menaces peut être accessible et gérée via le [portail Azure](https://portal.azure.com), et est actuellement en préversion.
 
 > [!NOTE]
-> La fonctionnalité de protection avancée contre les menaces **n’est pas** disponible dans les régions Azure Government et de cloud souverain suivantes : US Gov Texas, US Gov Arizona, US Gov Iowa, US Gov Virginie, US DoD Est, US DoD Centre, Allemagne Centre, Allemagne Nord, Chine Est, Chine Est 2. Consultez les [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/) pour connaître la disponibilité générale des produits.
+> La fonctionnalité Advanced Threat Protection **n’est pas** disponible dans les régions administratives et souveraines suivantes du cloud Azure : US Gov Texas, US Gov Arizona, US Gov Iowa, US, Gov Virginie, US DoD Est, US DoD Central, Allemagne Centre, Allemagne Nord, Chine Est, Chine Est 2. Consultez les [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/) pour connaître la disponibilité générale des produits.
 >
 
 ## <a name="set-up-threat-detection"></a>Configurer la détection des menaces

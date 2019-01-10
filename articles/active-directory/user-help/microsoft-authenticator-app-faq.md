@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 8ac6bc3ee042fee9757577dfa0e7ddab0f261645
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 330bc39f3d07786faa0546774fa3c58f27b6dfb3
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498315"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993941"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Forum aux questions sur l’application Microsoft Authenticator
 
 Cet article répond aux questions courantes sur l’application Microsoft Authenticator. Si vous ne trouvez pas la réponse à votre question, consultez le [Forum de l’application Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp).
 
-L’application Microsoft Authenticator a remplacé l’application Azure Authenticator et devient l’application recommandée lorsque vous utilisez l’authentification multifacteur Azure. L’application Microsoft Authenticator est disponible pour [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) et [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
+L’application Microsoft Authenticator a remplacé l’application Azure Authenticator et devient l’application recommandée lorsque vous utilisez l’authentification multifacteur Azure. L’application Microsoft Authenticator est disponible pour [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) et [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 |Question|Solution|

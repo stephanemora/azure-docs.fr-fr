@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/23/2018
 ms.author: cshoe
-ms.openlocfilehash: 74092f57b3531a037aee71d433c33dddf8c2b694
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7a7063b9177774c5207746283dc7cd25e3dd5793
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001797"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721884"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Liaisons de service SignalR pour Azure Functions
 
@@ -62,7 +62,7 @@ public static SignalRConnectionInfo GetSignalRInfo(
 
 #### <a name="authenticated-tokens"></a>Jetons authentifiés
 
-Si la fonction est déclenchée par un client authentifié, vous pouvez ajouter une revendication d’ID d’utilisateur au jeton généré. Vous pouvez facilement ajouter l’authentification à une application de fonction à l’aide de [Authentification App Service] (../app-service/app-service-authentication-overview.md).
+Si la fonction est déclenchée par un client authentifié, vous pouvez ajouter une revendication d’ID d’utilisateur au jeton généré. Vous pouvez facilement ajouter l’authentification à une application de fonction à l’aide de [Authentification App Service] (../app-service/overview-authentication-authorization.md).
 
 L’authentification App Service définit les en-têtes HTTP nommés `x-ms-client-principal-id` et `x-ms-client-principal-name` qui contiennent l’identité principale du client et le nom de l’utilisateur authentifié, respectivement. Vous pouvez définir la propriété `UserId` de la liaison sur la valeur de l’un des en-têtes à l’aide d’une [expression de liaison](functions-triggers-bindings.md#binding-expressions-and-patterns) : `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`. 
 
@@ -108,7 +108,7 @@ module.exports = function (context, req, connectionInfo) {
 
 #### <a name="authenticated-tokens"></a>Jetons authentifiés
 
-Si la fonction est déclenchée par un client authentifié, vous pouvez ajouter une revendication d’ID d’utilisateur au jeton généré. Vous pouvez facilement ajouter l’authentification à une application de fonction à l’aide de [Authentification App Service] (../app-service/app-service-authentication-overview.md).
+Si la fonction est déclenchée par un client authentifié, vous pouvez ajouter une revendication d’ID d’utilisateur au jeton généré. Vous pouvez facilement ajouter l’authentification à une application de fonction à l’aide de [Authentification App Service] (../app-service/overview-authentication-authorization.md).
 
 L’authentification App Service définit les en-têtes HTTP nommés `x-ms-client-principal-id` et `x-ms-client-principal-name` qui contiennent l’identité principale du client et le nom de l’utilisateur authentifié, respectivement. Vous pouvez définir la propriété `userId` de la liaison sur la valeur de l’un des en-têtes à l’aide d’une [expression de liaison](functions-triggers-bindings.md#binding-expressions-and-patterns) : `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`. 
 

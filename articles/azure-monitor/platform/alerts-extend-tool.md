@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 0524e38f155049c630ace7f33805ef230c8dccca
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: bdc3646116dfd5f16c0c039c4fb95d11c6593adf
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344242"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120991"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Étendre des alertes à partir de Log Analytics vers Azure Alerts
 La fonctionnalité des alertes dans Azure Log Analytics est remplacée par Azure Alerts. Dans le cadre de cette transition, les alertes que vous avez configurées à l’origine dans Log Analytics vont être étendues à Azure. Si vous ne souhaitez pas attendre qu’elles soient déplacées automatiquement dans Azure, vous pouvez lancer le processus :
@@ -89,7 +89,7 @@ Si la requête GET aboutit, un code d’état HTTP 200 est retourné, accompagn
                     "webhookActions": [
                         {
                             "name": "Webhook_1",
-                            "serviceUri": "http://test.com"
+                            "serviceUri": "https://test.com"
                         }
                     ],
                     "itsmAction": {}
@@ -186,7 +186,7 @@ Cette réponse indique que les alertes ont été correctement étendues à Azure
                     "webhookActions": [
                         {
                             "name": "Webhook_1",
-                            "serviceUri": "http://test.com"
+                            "serviceUri": "https://test.com"
                         }
                     ],
                     "itsmAction": {}
@@ -263,7 +263,7 @@ catch
 {
 
     $ErrorMessage = $_.Exception.Message
-    "Error occured while fetching/parsing Extend summary: $ErrorMessage"
+    "Error occurred while fetching/parsing Extend summary: $ErrorMessage"
     exit 
 }
 

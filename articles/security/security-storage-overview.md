@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 4ed4e73348db8cfffb6e79afaa9d196e242d7488
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 55686972979c5ac3015802c340cef7dffebdb9bd
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143814"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973126"
 ---
 # <a name="azure-storage-security-overview"></a>Présentation de la sécurité du Stockage Azure
 
@@ -33,6 +33,7 @@ Le service Stockage Azure est la solution de stockage cloud pour les application
 * Utilisez l’analytique pour suivre la méthode d’authentification utilisée par une personne pour l’accès au stockage.
 
 Pour une étude plus détaillée de la sécurité dans le Stockage Azure, consultez le [Guide de sécurité du Stockage Azure](../storage/common/storage-security-guide.md). Ce guide fournit une présentation approfondie des fonctionnalités de sécurité du Stockage Azure. Ces fonctionnalités comprennent les clés de compte de stockage, le chiffrement des données en transit et au repos et l’analyse du stockage.
+
 
 Cet article fournit une vue d’ensemble des fonctionnalités de sécurité Azure pouvant être utilisées avec le Stockage Azure. Les liens vers les articles fournissent des informations complémentaires sur chaque fonctionnalité.
 
@@ -66,11 +67,11 @@ Le chiffrement en transit est un mécanisme de protection des données transmise
 En savoir plus sur le chiffrement côté client :
 
 * [Client-Side Encryption for Microsoft Azure Storage (Chiffrement côté client pour Microsoft Azure Storage)](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
-* [Cloud security controls series: Encrypting Data in Transit (Série consacrée aux contrôles de sécurité dans le cloud : chiffrement des données en transit)](http://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
+* [Cloud security controls series: Encrypting Data in Transit](https://cloudblogs.microsoft.com/microsoftsecure/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
 
 ## <a name="encryption-at-rest"></a>Chiffrement au repos
 
-Pour de nombreuses organisations, le [chiffrement des données au repos](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) est une étape obligatoire du processus de gestion de la confidentialité, de la conformité et de la souveraineté des données. Trois fonctionnalités Azure fournissent un chiffrement des données au repos :
+Pour de nombreuses organisations, le [chiffrement des données au repos](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) est une étape obligatoire du processus de gestion de la confidentialité, de la conformité et de la souveraineté des données. Trois fonctionnalités Azure fournissent un chiffrement des données au repos :
 
 * [Storage Service Encryption](../storage/common/storage-security-guide.md#encryption-at-rest) vous permet de demander que le service de stockage chiffre automatiquement les données lors de leur écriture dans le Stockage Azure.
 * Le [chiffrement côté client](../storage/common/storage-security-guide.md#client-side-encryption) fournit également la fonctionnalité de chiffrement au repos.
@@ -91,13 +92,35 @@ En savoir plus
 
 * [Azure Disk Encryption pour des machines virtuelles IaaS Windows et Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
-## <a name="azure-storage-firewalls-and-virtual-networks"></a>Pare-feux du stockage Azure et réseaux virtuels
+## <a name="firewalls-and-virtual-networks"></a>Pare-feux et réseaux virtuels
 
 Le stockage Azure vous permet d’activer les règles de pare-feu pour vos comptes de stockage. Une fois activé, elles bloquent les demandes de données entrantes, y compris les demandes provenant d’autres services Azure. Vous pouvez configurer des exceptions pour autoriser le trafic. Les règles de pare-feu peuvent être activées sur des comptes de stockage existants ou lors de la création.
 
 Vous devriez utiliser cette fonctionnalité pour sécuriser vos comptes de stockage sur un ensemble spécifique de réseaux autorisés.
 
 Pour plus d’informations sur les pare-feux et les réseaux virtuels de stockage Azure, consultez l’article [Configurer des pare-feux et des réseaux virtuels du stockage Azure](../storage/common/storage-network-security.md)
+
+## <a name="azure-data-box"></a>Azure Data Box
+
+Les appareils Data Box, Data Box Disk et Data Box Heavy vous permettent de transférer de grandes quantités de données vers Azure quand l’utilisation du réseau n’est pas envisageable. Ces appareils de transfert de données hors connexion sont échangés entre votre organisation et le centre de données Azure. Ils utilisent un chiffrement AES pour protéger vos données en transit et font l’objet d’un processus complet d’assainissement après téléchargement, destiné à supprimer vos données.
+
+Data Box Edge et Data Box Gateway sont des produits de transfert de données en ligne, qui font office de passerelles de stockage réseau pour gérer les données transitant entre votre site et Azure. Data Box Edge est un appareil réseau local, qui échange des données avec Azure et utilise le computing en périphérie basé sur l’intelligence artificielle pour traiter les données. Data Box Gateway est une appliance virtuelle dotée de fonctionnalités de passerelle de stockage.
+
+En savoir plus :
+
+* [Azure Data Box](https://azure.microsoft.com/services/storage/databox/)
+* [Azure Data Box Edge](../databox-online/data-box-edge-overview.md)
+* [Azure Data Box Gateway](..//databox-online/data-box-gateway-overview.md)
+
+## <a name="advanced-threat-protection"></a>Protection avancée contre les menaces
+
+Le service Stockage Azure inclut la protection avancée contre les menaces, offrant une couche supplémentaire de sécurité intelligente qui détecte les tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de votre compte de stockage. La protection avancée contre les menaces analyse les journaux de diagnostic de Stockage Azure pour détecter les requêtes suspectes de lecture, d’écriture ou de suppression de données dans le stockage Blob. 
+
+Les alertes de la protection avancée contre les menaces sont consultables dans [Azure Security Center](https://azure.microsoft.com/services/security-center/). Azure Security Center fournit des détails sur chaque activité suspecte détectée et suggère des actions pour examiner et corriger la menace potentielle. 
+
+En savoir plus :
+
+* [Vue d’ensemble de la protection avancée contre les menaces dans le stockage Azure](../storage/common/storage-advanced-threat-protection.md)
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 

@@ -7,46 +7,46 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/24/2018
 ms.author: juliako
-ms.openlocfilehash: ae8634fbfdaa250cbabda6189c6c2eeef8e5e4f1
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 58124ab5938c7bee9f83a8c37ab5c5618b4b7d54
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291823"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789821"
 ---
 # <a name="what-is-video-indexer"></a>Qu’est-ce que Video Indexer ?
 
 Azure Video Indexer est une application cloud créée à l’aide d’Azure Media Analytics, Azure Search et Cognitive Services (par exemple, l’API Visage, Microsoft Translator, l’API Vision par ordinateur et Custom Speech Service). Elle vous permet d’extraire les insights de vos vidéos à l’aide de modèles Video Indexer décrits ci-dessous :
  
-- **Détection de langue automatique** : identifie automatiquement la langue parlée dominante. Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (simplifié), le japonais, le russe et le portugais (brésilien). L’anglais sera utilisé lorsque la langue n’est pas détectée.
-- **Transcription audio** : convertit la parole en texte dans 10 langues et permet les extensions. Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (simplifié), le japonais, l’arabe, le russe et le portugais (brésilien).
-- **Sous-titrage** : crée un sous-titrage dans trois formats : VTT, TTML et SRT.
-- **Traitement en deux canaux** : détecte automatiquement, sépare la transcription et fusionne en une chronologie unique.
-- **Réduction du bruit** : nettoie les enregistrements contenant du bruit ou de l’audio de téléphonie (en fonction des filtres Skype).
-- **Personnalisation de la transcription (CRIS)** : entraîne et exécute des modèles de reconnaissance vocale personnalisés étendus pour créer des transcriptions spécifiques au secteur.
-- **Énumération de l’orateur** : mappe et comprend quel orateur a prononcé tels mots et à quel moment.
-- **Statistiques de l’orateur** : fournit des statistiques pour les ratios de parole des orateurs.
-- **Reconnaissance visuelle du texte (OCR)** : extrait le texte qui s’affiche visuellement dans la vidéo.
-- **Extraction d’images clés** : détecte les images clés stables dans une vidéo.
-- **Analyse des sentiments** : identifie les sentiments positifs, négatifs et neutres à partir de la reconnaissance vocale et visuelle du texte.
-- **Modération du contenu visuel** : détecte les contenus choquants et/ou destinés aux adultes.
-- **Extraction de mots clés** : extrait les mots clés du texte visuel ou vocal.
-- **Identification des étiquettes** : identifie les objets visuels et les actions affichés.
-- **Extraction de marques** : extrait les marques du texte visuel ou vocal.
-- **Détection de visage** : détecte et regroupe les visages qui apparaissent dans la vidéo.
-- **Extraction de miniatures pour les visages (« meilleurs visages »)** : identifie automatiquement le meilleur visage capturé dans chaque groupe de visages (en fonction de la qualité, de la taille et de la position frontale) et l’extrait en tant qu’actif d’image.
-- **Identification de célébrités** : Video Indexer identifie automatiquement plus de 1 million de célébrités : dirigeants, acteurs et actrices, athlètes, chercheurs, dirigeants d’entreprise et spécialistes techniques du monde entier. Les données relatives à ces célébrités figurent également sur plusieurs sites Web connus, par exemple, IMDB et Wikipedia.
+- **Détection de langue automatique** : Identifie automatiquement la langue parlée dominante. Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (simplifié), le japonais, le russe et le portugais (brésilien). L’anglais sera utilisé lorsque la langue n’est pas détectée.
+- **Transcription audio** : Convertit la parole en texte dans 12 langues et autorise les extensions. Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (simplifié), le japonais, l’arabe, le russe, le portugais (brésilien), l’hindi et le coréen.
+- **Sous-titrage** : Crée un sous-titrage dans trois formats : VTT, TTML, SRT.
+- **Traitement en deux canaux** : Détecte automatiquement, sépare la transcription et fusionne en une chronologie unique.
+- **Réduction du bruit** :  Nettoie les enregistrements contenant du bruit ou de l’audio de téléphonie (en fonction des filtres Skype).
+- **Personnalisation de la transcription (CRIS)**  : Entraîne et exécute des modèles de reconnaissance vocale personnalisés étendus pour créer des transcriptions spécifiques au secteur.
+- **Énumération de l’orateur** :  Mappe et comprend quel orateur a prononcé tels mots et à quel moment.
+- **Statistiques de l’orateur** : Fournit des statistiques pour les ratios de parole des orateurs.
+- **Reconnaissance visuelle du texte (OCR)**  : Extrait le texte qui s’affiche visuellement dans la vidéo.
+- **Extraction d’images clés** : Détecte les images clés stables dans une vidéo.
+- **Analyse des sentiments** : Identifie les sentiments positifs, négatifs et neutres à partir de la reconnaissance vocale et visuelle du texte.
+- **Modération du contenu visuel** : Détecte les contenus choquants et/ou destinés aux adultes.
+- **Extraction de mots-clés** : Extrait les mots clés du texte visuel ou vocal.
+- **Identification des étiquettes** : Identifie les objets visuels et les actions affichés.
+- **Extraction de marques** : Extrait les marques du texte visuel ou vocal.
+- **Détection de visage** : Détecte et regroupe les visages qui apparaissent dans la vidéo.
+- **Extraction de miniatures pour les visages (« meilleurs visages »)**  : Identifie automatiquement le meilleur visage capturé dans chaque groupe de visages (en fonction de la qualité, de la taille et de la position frontale) et l’extrait en tant qu’actif d’image.
+- **Identification de célébrités** : Video Indexer identifie automatiquement plus de 1 million de célébrités : dirigeants, acteurs et actrices, athlètes, chercheurs, dirigeants d’entreprise et spécialistes techniques du monde entier. Les données relatives à ces célébrités figurent également sur plusieurs sites Web connus, par exemple, IMDB et Wikipedia.
 - **Identification des visages basée sur le compte** : Video Indexer effectue l’apprentissage d’un modèle pour un compte spécifique. Il reconnaît alors les visages dans la vidéo selon le modèle entraîné en particulier pour les vidéos de ce compte.
-- **Modération du contenu textuel** : détecte le texte explicite dans la transcription audio.
-- **Détection de plan** : détermine le moment où une scène change dans la vidéo.
-- **Détection de cadre noir** : identifie les cadres noirs présents dans la vidéo.
-- **Effets audio** : identifie les effets audio tels que les applaudissements, la parole et le silence.
-- **Inférence de la rubrique** : fait des inférences des principales rubriques à partir de transcriptions. La taxonomie [IPTC](https://iptc.org/standards/media-topics/) de premier niveau est incluse.
-- **Détection d’émotions** : identifie les émotions grâce à des signaux audio et vocaux. L’émotion peut être : le bonheur, la tristesse, la colère ou la peur.
-- **Artefacts** : extrait un ensemble complet d’artefacts d’un « niveau suivant de détails » pour chacun des modèles.
-- **Traduction** : crée des traductions de la transcription audio en 54 langues différentes.
+- **Modération du contenu textuel** : Détecte le texte explicite dans la transcription audio.
+- **Détection de plan** : Détermine le moment où une scène change dans la vidéo.
+- **Détection de cadre noir** : Identifie les cadres noirs présents dans la vidéo.
+- **Effets audio** : Identifie les effets audio tels que les applaudissements, la parole et le silence.
+- **Inférence de la rubrique** : Fait des inférences des principales rubriques à partir de transcriptions. La taxonomie [IPTC](https://iptc.org/standards/media-topics/) de premier niveau est incluse.
+- **Détection d’émotions** : Identifie les émotions grâce à des signaux audio et vocaux. L’émotion peut être : le bonheur, la tristesse, la colère ou la peur.
+- **Artefacts** : Extrait un ensemble complet d’artefacts d’un « niveau suivant de détails » pour chacun des modèles.
+- **Traduction** : Crée des traductions de la transcription audio en 54 langues différentes.
 
 Une fois le traitement et l’analyse terminés par Video Indexer, vous pouvez consulter, organiser, rechercher et publier des aperçus de la vidéo.
 

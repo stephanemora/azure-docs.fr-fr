@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 1627e6bc5290277329633aa086d0fdbbbb12d971
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 5175d768f4aa62365e4151b4c8fed372038f1d95
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821291"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548797"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métriques Azure Service Bus dans Azure Monitor (préversion)
 
@@ -29,7 +29,7 @@ Azure Monitor fournit des interfaces utilisateur unifiées pour la surveillance 
 
 Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez accéder aux métriques via le [portail Azure](https://portal.azure.com), ou bien utiliser les API Azure Monitor (REST et .NET) et des solutions d’analyse comme Log Analytics et Event Hubs. Pour plus d’informations, consultez [Supervision des données collectées par Azure Monitor](../azure-monitor/platform/data-collection.md).
 
-Les métriques sont activées par défaut, et vous pouvez accéder aux 30 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Cette valeur est configurée dans les [paramètres de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) dans Azure Monitor.
+Les métriques sont activées par défaut, et vous pouvez accéder aux 30 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Cette valeur est configurée dans les [paramètres de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) dans Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Accéder aux métriques dans le portail
 
@@ -60,11 +60,11 @@ Compte le nombre de requêtes d’opérations de données et de gestion.
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-| Demandes entrantes (préversion) | Le nombre de requêtes effectuées auprès de Service Bus sur une période spécifiée. <br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|Requêtes ayant réussi (préversion)|Le nombre de requêtes réussies effectuées auprès de Service Bus sur une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|Erreurs du serveur (préversion)|Le nombre de requêtes non traitées en raison d’une erreur sur Service Bus sur une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|Erreurs d’utilisateur (préversion - voir la sous-section suivante)|Le nombre de demandes non traitées en raison d’erreurs utilisateur sur une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|Demandes limitées (préversion)|Le nombre de demandes qui ont été limitées car l’utilisation a été dépassée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
+| Demandes entrantes (préversion) | Le nombre de requêtes effectuées auprès de Service Bus sur une période spécifiée. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Requêtes ayant réussi (préversion)|Le nombre de requêtes réussies effectuées auprès de Service Bus sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Erreurs du serveur (préversion)|Le nombre de requêtes non traitées en raison d’une erreur sur Service Bus sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Erreurs d’utilisateur (préversion - voir la sous-section suivante)|Le nombre de demandes non traitées en raison d’erreurs utilisateur sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Demandes limitées (préversion)|Le nombre de demandes qui ont été limitées car l’utilisation a été dépassée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
 
 ### <a name="user-errors"></a>Erreurs d’utilisateur
 
@@ -78,18 +78,18 @@ Les deux types d’erreurs suivants sont classées dans la catégorie des erreur
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-|Messages entrants (préversion)|Le nombre d’événements ou de messages envoyés à Service Bus sur une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|Messages sortants (préversion)|Le nombre d’événements ou de messages reçus à partir de Service Bus sur une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-| Messages (préversion) | Nombre de messages dans une file d’attente/rubrique. <br/><br/> Unité : nombre <br/> Type d’agrégation : moyenne <br/> Dimension : EntityName |
-| ActiveMessages (préversion) | Nombre de messages actifs dans une file d’attente/rubrique. <br/><br/> Unité : nombre <br/> Type d’agrégation : moyenne <br/> Dimension : EntityName |
+|Messages entrants (préversion)|Le nombre d’événements ou de messages envoyés à Service Bus sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Messages sortants (préversion)|Le nombre d’événements ou de messages reçus à partir de Service Bus sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+| Messages (préversion) | Nombre de messages dans une file d’attente/rubrique. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Dimension : EntityName |
+| ActiveMessages (préversion) | Nombre de messages actifs dans une file d’attente/rubrique. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Dimension : EntityName |
 
 ## <a name="connection-metrics"></a>Métriques de connexion
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-|ActiveConnections (préversion)|Le nombre de connexions actives sur un espace de noms ainsi que sur une entité.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|Ouvertures de connexion (préversion)|Le nombre de connexions ouvertes.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|Connexions fermées (préversion)|Le nombre de connexions fermées.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName |
+|ActiveConnections (préversion)|Le nombre de connexions actives sur un espace de noms ainsi que sur une entité.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Ouvertures de connexion (préversion)|Le nombre de connexions ouvertes.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Connexions fermées (préversion)|Le nombre de connexions fermées.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName |
 
 ## <a name="resource-usage-metrics"></a>Métriques d’utilisation des ressources
 
@@ -98,8 +98,8 @@ Les deux types d’erreurs suivants sont classées dans la catégorie des erreur
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-|Utilisation du processeur par espace de noms (préversion)|Le pourcentage d’utilisation du processeur de l’espace de noms.<br/><br/> Unité : pourcentage <br/> Type d’agrégation : maximale <br/> Dimension : EntityName|
-|Utilisation de la taille mémoire par espace de noms (préversion)|Le pourcentage d’utilisation de mémoire de l’espace de noms.<br/><br/> Unité : pourcentage <br/> Type d’agrégation : maximale <br/> Dimension : EntityName|
+|Utilisation du processeur par espace de noms (préversion)|Le pourcentage d’utilisation du processeur de l’espace de noms.<br/><br/> Unité : Pourcentage <br/> Type d’agrégation : Maximale <br/> Dimension : EntityName|
+|Utilisation de la taille mémoire par espace de noms (préversion)|Le pourcentage d’utilisation de mémoire de l’espace de noms.<br/><br/> Unité : Pourcentage <br/> Type d’agrégation : Maximale <br/> Dimension : EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensions de mesures
 
@@ -123,7 +123,7 @@ Azure Service Bus prend en charge les dimensions suivantes pour les mesures dans
         ![Sélectionnez un espace de noms](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Sélectionnez **Ajouter des critères**, puis effectuez les actions suivantes dans la page **Configurer la logique du signal** :
     1. Sélectionnez **Métriques** comme **Type de signal**. 
-    2. Sélectionnez un signal. Par exemple : **Erreurs de service (préversion)**. 
+    2. Sélectionnez un signal. Par exemple :  **Erreurs du service (préversion)**. 
 
         ![Sélectionnez Erreurs de serveur](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. Sélectionnez **Supérieur à** sous **Condition**.

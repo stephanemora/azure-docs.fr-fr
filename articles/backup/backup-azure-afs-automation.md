@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pullabhk
 ms.assetid: 80da8ece-2cce-40dd-8dce-79960b6ae073
-ms.openlocfilehash: 90623981f67bbed15ade743192525676e58a0a83
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 30fc36f29a7602e2bc3f192b445474bfc50e9434
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318380"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632633"
 ---
 # <a name="use-powershell-to-back-up-and-restore-azure-file-shares"></a>Utiliser PowerShell pour sauvegarder et restaurer des partages de fichiers Azure
 
@@ -34,11 +34,11 @@ Pour voir les informations de référence sur l’applet de commande PowerShell 
 ## <a name="setup-and-registration"></a>Installation et inscription
 
 > [!NOTE]
-> Comme indiqué [ici](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), la prise en charge des nouvelles fonctionnalités du module AzureRM a pris fin en novembre 2018. Par conséquent, la prise en charge de la sauvegarde des partages de fichiers Azure est assurée par le nouveau module PS « Az ». Nous prévoyons également de l'intégrer à la mise à disposition générale du module Az.
+> Comme indiqué [ici](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), la prise en charge des nouvelles fonctionnalités du module AzureRM a pris fin en novembre 2018. Par conséquent, la prise en charge de la sauvegarde des partages de fichiers Azure est assurée par le nouveau module PS « Az » à présent dans GA.
 
 Pour commencer :
 
-1. [Téléchargez la dernière version de PowerShell « Az »](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (version minimale requise : 0.7.0)
+1. [Téléchargez la dernière version de PowerShell « Az »](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (version minimale requise : 1.0.0)
 
 2. Rechercher les applets de commande PowerShell Azure Backup disponibles en tapant la commande suivante :
 
@@ -158,6 +158,8 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 ----                 ------------       -------------------- ----------                ----------
 NewAFSPolicy           AzureFiles            AzureStorage              10/24/2017 1:30:00 AM
 ```
+
+La stratégie « NewAFSPolicy » exploite une sauvegarde quotidienne et la conserve pendant 30 jours.
 
 ### <a name="enable-protection"></a>Activer la protection
 

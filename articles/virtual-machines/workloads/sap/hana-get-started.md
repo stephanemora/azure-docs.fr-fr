@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : installation manuelle d’un système SAP HANA à instance unique sur des machines virtuelles Azure | Microsoft Docs'
+title: 'Démarrage rapide : Installation manuelle d’un système SAP HANA à une instance sur des machines virtuelles Azure | Microsoft Docs'
 description: Guide de démarrage rapide pour l’installation manuelle d’un système SAP HANA à instance unique sur des machines virtuelles Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 6355a7ce203f2bf75b5c93d225502f961deeee43
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c1d9047de814b7a80210fe2502d219921f5829a4
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032074"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976900"
 ---
-# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Démarrage rapide : installation manuelle d’un système SAP HANA à instance unique sur des machines virtuelles Azure
+# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Démarrage rapide : Installation manuelle d’un système SAP HANA à une instance sur des machines virtuelles Azure
 ## <a name="introduction"></a>Introduction
 Ce guide vous aide à configurer un système SAP HANA à instance unique sur des machines virtuelles Azure pendant l’installation manuelle de SAP NetWeaver 7.5 et SAP HANA 1.0 SP12. Ce guide se concentre sur le déploiement de SAP HANA sur Azure. Il ne remplace pas la documentation SAP. 
 
@@ -62,20 +62,20 @@ Pour plus d’informations sur la sauvegarde des bases de données SAP HANA sur 
 Pour plus d’informations sur l’utilisation de la bibliothèque d’appliances cloud SAP pour déployer S/4HANA ou BW/4HANA, consultez [Déploiement de SAP S/4HANA ou BW/4HANA sur Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h).
 
 ### <a name="sap-hana-supported-operating-systems"></a>Systèmes d’exploitation pris en charge par SAP HANA
-Pour plus d’informations sur les systèmes d’exploitation pris en charge par SAP HANA, consultez la [note de support SAP #2235581 - SAP HANA: Supported Operating Systems](https://launchpad.support.sap.com/#/notes/2235581/E) (SAP HANA : Systèmes d’exploitation pris en charge). Les machines virtuelles Azure ne prennent en charge qu’un sous-ensemble de ces systèmes d’exploitation. Les systèmes d’exploitation suivants sont pris en charge pour déployer SAP HANA sur Azure : 
+Pour plus d’informations sur les systèmes d’exploitation pris en charge par SAP HANA, consultez [Note de support SAP #2235581 - SAP HANA : Systèmes d’exploitation pris en charge](https://launchpad.support.sap.com/#/notes/2235581/E). Les machines virtuelles Azure ne prennent en charge qu’un sous-ensemble de ces systèmes d’exploitation. Les systèmes d’exploitation suivants sont pris en charge pour déployer SAP HANA sur Azure : 
 
 * SUSE Linux Enterprise Server 12.x
 * Red Hat Enterprise Linux 7.2
 
 Pour obtenir de la documentation SAP supplémentaire sur SAP HANA et les différents systèmes d’exploitation Linux, consultez :
 
-* [Note de support SAP #171356 relative aux logiciels SAP sur Linux : informations générales](https://launchpad.support.sap.com/#/notes/1984787)
+* [Note de support SAP #171356 - Logiciels SAP sur Linux :  Informations générales](https://launchpad.support.sap.com/#/notes/1984787)
 * [Note de support SAP #1944799 relative aux instructions SAP HANA pour l’installation du système d’exploitation SLES](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
 * [Note de support SAP #2205917 relative aux paramètres de système d’exploitation SAP HANA DB recommandés pour SLES 12 ainsi que les application SAP](https://launchpad.support.sap.com/#/notes/2205917/E)
-* [Note de support SAP #1984787 relative à SUSE Linux Enterprise Server 12 : notes d’installation](https://launchpad.support.sap.com/#/notes/1984787)
+* [Note de support SAP #1984787 - SUSE Linux Enterprise Server 12 :  Notes d’installation](https://launchpad.support.sap.com/#/notes/1984787)
 * [Note de support SAP #1391070 relative aux solutions Linux UUID](https://launchpad.support.sap.com/#/notes/1391070)
 * [Note de support SAP #2009879 - SAP HANA Guidelines for Red Hat Enterprise Linux (RHEL) Operating System](https://launchpad.support.sap.com/#/notes/2009879) (Instructions SAP HANA pour les systèmes d’exploitation Red Hat Enterprise Linux (RHEL))
-* [2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/2292690/E) (SAP HANA DB : Paramètres de système d’exploitation recommandés pour RHEL 7)
+* [2292690 - Base de données SAP HANA : Paramètres de système d’exploitation recommandés pour RHEL 7](https://launchpad.support.sap.com/#/notes/2292690/E)
 
 ### <a name="sap-monitoring-in-azure"></a>Surveillance SAP dans Azure
 Pour plus d’informations sur la surveillance SAP dans Azure, consultez :
@@ -87,7 +87,7 @@ Pour plus d’informations sur la surveillance SAP dans Azure, consultez :
 ### <a name="azure-vm-types"></a>Types de machines virtuelles Azure
 Les types de machines virtuelles Azure et les scénarios de charge de travail pris en charge par SAP utilisés par SAP HANA sont documentés dans [SAP certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html) (plateforme IaaS certifiée SAP). 
 
-Les types de machines virtuelles Azure certifiées par SAP pour SAP NetWeaver ou la couche Application S/4HANA sont documentées dans [Note de support SAP 1928533 - SAP Applications on Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533/E) (Applications SAP sur Azure : produits et types de machines virtuelles pris en charge).
+Les types de machines virtuelles Azure certifiées par SAP pour SAP NetWeaver ou la couche Application S/4HANA sont documentés dans [Note de support SAP 1928533 - Applications SAP sur Azure : Produits et types de machines virtuelles Azure pris en charge](https://launchpad.support.sap.com/#/notes/1928533/E).
 
 >[!Note]
 >L’intégration SAP-Linux-Azure est prise en charge uniquement sur Azure Resource Manager ; le modèle de déploiement classique n’est pas compatible. 
@@ -201,14 +201,14 @@ Vous pouvez ajouter des disques de stockage premium aux machines virtuelles HANA
 
 Pour plus d’informations sur les deux principaux outils utilisés pour configurer l’agrégation par bandes, consultez les articles suivants :
 
-* [Configuration d’un RAID logiciel sur Linux](../../linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Configuration logicielle de RAID sur Linux](../../linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Configurer LVM sur une machine virtuelle Linux dans Azure](../../linux/configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Pour plus d’informations sur la façon de joindre des disques à des machines virtuelles Azure exécutant Linux comme système d’exploitation invité, consultez [Ajouter un disque à une machine virtuelle Linux](../../linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Le stockage Azure Premium vous permet de définir les modes de mise en cache des disques. Pour l’ensemble de disques agrégés contenant /hana/data et /hana/log, la mise en cache des disques doit être désactivée. Pour les autres volumes (disques), le mode de mise en cache doit être défini sur **ReadOnly**.
 
-Pour plus d’informations, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../../windows/premium-storage.md) .
+Pour plus d’informations, consultez [Stockage Premium : Stockage hautes performances pour les charges de travail de machine virtuelle Azure](../../windows/premium-storage.md).
 
 Pour rechercher des exemples de modèles JSON pour la création de machines virtuelles, accédez à [Modèles de démarrage rapide Microsoft Azure](https://github.com/Azure/azure-quickstart-templates).
 Le modèle vm-simple-sles est un modèle de base. Il inclut une section de stockage, avec un disque de données de 100 Go supplémentaires. Ce modèle peut être utilisé comme base. Vous pouvez adapter le modèle à votre propre configuration.
@@ -335,7 +335,7 @@ Un message d’erreur concernant un fichier manquant, à savoir javafx.propertie
 
 Pour plus d’informations sur un problème similaire avec openjdk sur openSUSE, consultez le thread de discussion [SAPGui 7.4 Java for openSUSE 42.1 Leap](https://scn.sap.com/thread/3908306) (SAPGui 7.4 Java pour openSUSE 42.1 Leap).
 
-## <a name="manual-installation-of-sap-hana-swpm"></a>Installation manuelle de SAP HANA : SWPM
+## <a name="manual-installation-of-sap-hana-swpm"></a>Installation manuelle de SAP HANA : SWPM
 La série de captures d’écran de cette section illustre les principales étapes d’installation de SAP NetWeaver 7.5 et SAP HANA SP12 avec SWPM (SAPinst). Lors de l’installation de NW 7.5, SWPM permet également d’installer la base de données HANA en tant qu’instance unique.
 
 Dans un environnement de test, nous avons installé un seul serveur d’application ABAP (Advanced Business Application Programming). Comme illustré dans la capture d’écran suivante, nous avons utilisé l’option **Distributed System** (Système distribué) pour installer l’instance ASCS et l’instance de serveur d’applications principal sur une machine virtuelle Azure, et SAP HANA en tant que système de base de données sur une autre machine virtuelle Azure.
@@ -398,13 +398,13 @@ Pour terminer, vous pourriez vouloir installer d’abord HANA Studio sur la mach
 
 ![Installation de SAP HANA Studio sur la machine virtuelle du serveur d’applications SAP](./media/hana-get-started/image038b.jpg)
 
-## <a name="manual-installation-of-sap-hana-hdblcm"></a>Installation manuelle de SAP HANA : HDBLCM
+## <a name="manual-installation-of-sap-hana-hdblcm"></a>Installation manuelle de SAP HANA : HDBLCM
 Outre l’installation de SAP HANA dans le cadre d’une installation distribuée avec SWPM, vous pouvez installer d’abord HANA de façon autonome, à l’aide de l’outil HDBLCM. Vous pouvez ensuite installer SAP NetWeaver 7.5, par exemple. Les captures d’écran de cette section illustrent le fonctionnement de ce processus.
 
 Pour plus d’informations sur l’outil HANA HDBLCM, consultez :
 
 * [Choosing the Correct SAP HANA HDBLCM for Your Task (Choisir l’outil SAP HANA HDBLCM adapté à votre tâche)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
-* [SAP HANA Lifecycle Management Tools (Outils de gestion du cycle de vie SAP HANA)](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/)
+* [SAP HANA Lifecycle Management Tools (Outils de gestion du cycle de vie SAP HANA)](https://www.tutorialspoint.com/sap_hana_administration/sap_hana_administration_lifecycle_management.htm)
 * [SAP HANA Server Installation and Update Guide (Guide d’installation et de mise à jour du serveur SAP HANA)](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
 Pour empêcher d’éventuels problèmes avec un paramètre d’ID de groupe par défaut pour `\<HANA SID\>adm user` (créé par l’outil HDBLCM), définissez un nouveau groupe appelé `sapsys` avec l’ID de groupe `1001` avant d’installer SAP HANA via l’outil HDBLCM :

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/21/2018
+ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 73d4ecec2665e238236de4a778d6cdd43642c87b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8a680f1c745bed7745691ad337ed887cc4fc05c5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310393"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716614"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Conseils de migration pour le passage de Media Services v2 à Media Services v3
 
@@ -83,11 +83,11 @@ Les API v3 présentent les différences de fonctionnalités suivantes par rappor
     * Superpositions
     * Rognage
     * Sprites de miniatures
-* Les événements LiveEvent avec transcodage ne gèrent pas actuellement l’insertion de séquence en cours de diffusion en continu, les préréglages personnalisés ou l’insertion de marqueur publicitaire via un appel d’API. 
+* Les événements LiveEvent avec transcodage ne gèrent actuellement pas l’insertion d’ardoise à mi-parcours ni l’insertion de marqueur publicitaire par le biais d’un appel d’API. 
 
 > [!NOTE]
 > Veuillez marquer cet article d’un signet afin de pouvoir continuer à suivre les mises à jour.
-
+ 
 ## <a name="code-differences"></a>Différences de code
 
 Le tableau suivant présente les différences de code entre v2 et v3 pour des scénarios courants.
@@ -108,7 +108,7 @@ Le tableau suivant présente les différences de code entre v2 et v3 pour des sc
     * Les canaux et programmes créés avec v2 (qui sont mappés à des événements LiveEvent et des sorties LiveOutput v3) ne sont plus gérables avec v3. Il est recommandé de basculer vers des événements LiveEvent et sorties LiveOutput v3 à un point d’arrêt approprié du canal.<br/>Actuellement, vous ne pouvez pas migrer en continu des canaux en cours d’exécution.  
 
 > [!NOTE]
-> Veuillez marquer cet article d’un signet afin de pouvoir continuer à suivre les mises à jour.
+> Cette page sera actualisée à mesure que l’équipe Media Services apportera des améliorations continues aux API v3, et traitera des différences entre les versions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,16 +9,22 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 4540de7acd89614152c7331b17ba752f4032bf1a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9a16498c527af2d23840c53af11103f7580d80bb
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434764"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582556"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Comprendre les résultats de la vérification de l’agent Windows dans Update Management
 
 De nombreuses raisons peuvent expliquer pourquoi votre machine n’est pas à l’état **Prêt** dans Update Management. Dans la Update Management, vous pouvez vérifier l’intégrité d’un agent worker hybride pour déterminer le problème sous-jacent. Cet article explique comment exécuter l’utilitaire de résolution des problèmes pour les machines Azure du Portail Azure et les machines autres qu’Azure dans le [scénario hors connexion](#troubleshoot-offline).
+
+Voici les trois états de préparation possibles d’une machine :
+
+* **Prête** : l’agent de mise à jour est déployé et a été vu pour la dernière fois il y a moins d’une heure.
+* **Déconnectée** : l’agent de mise à jour est déployé et a été vu pour la dernière fois il y a plus d’une heure.
+* **Non configurée** : l’agent de mise à jour est introuvable ou n’a pas terminé son intégration.
 
 ## <a name="start-the-troubleshooter"></a>Démarrer l’utilitaire de résolution des problèmes
 

@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: a37575e6e6e8902dc2dd89a26011031c2e1419c4
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 6f6e680f7ce613d7a6d9f227765ce599c537e2d3
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557255"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106509"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 Azure Stack Capacity Planner est un tableur utilisé pour la planification de la capacité des ressources Azure Stack. Un planificateur de capacité vous permet de concevoir diverses allocations de ressources de calcul afin de voir comment celles-ci pourraient s’inscrire dans une offre de matériel. Vous trouverez ci-dessous des instructions détaillées pour l’utilisation de la calculatrice Azure Stack.
 
 ## <a name="worksheet-descriptions"></a>Descriptions de feuilles de calcul
-Voici un bref récapitulatif des feuilles de calcul contenues dans le tableur Azure Stack Capacity Planner, que vous pouvez télécharger à partir de la page [http://aka.ms/azstackcapacityplanner](https://aka.ms/azstackcapacityplanner) :
+Voici un bref récapitulatif des feuilles de calcul contenues dans le tableur Azure Stack Capacity Planner, que vous pouvez télécharger à partir de la page [https://aka.ms/azstackcapacityplanner](https://aka.ms/azstackcapacityplanner) :
 
 |Nom de l'onglet|Description|
 |-----|-----|

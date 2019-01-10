@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: fafa680f877060f1e7d96c60f52e3033eeb38553
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d6e4cc585c1239d6a1b81b371f39fc19e3ff37ea
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190633"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157171"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Science des données avec une image Data Science Virtual Machine Linux sur Azure
 Cette procédure pas à pas vous montre comment effectuer plusieurs tâches courantes de science des données avec la machine virtuelle de science des données Linux. La machine virtuelle de science des données Linux est une image de machine virtuelle disponible sur Azure qui est préinstallée avec plusieurs outils couramment utilisés dans le cadre de l’analyse de données et du Machine Learning. Les composants logiciels clés sont détaillés dans la rubrique [Approvisionnement d’une machine virtuelle de science des données Linux](linux-dsvm-intro.md) . L’image de la machine virtuelle facilite la prise en main de la science des données en quelques minutes, sans avoir à installer et à configurer individuellement chacun des outils individuellement. Le cas échéant, vous pouvez facilement faire monter en puissance la machine virtuelle, et l’arrêter lorsqu’elle est inutilisée. Cette ressource est donc flexible et économique.
@@ -101,7 +101,7 @@ La colonne *spam* a été lue comme un entier, mais il s’agit en fait d’une 
 
     data$spam <- as.factor(data$spam)
 
-Pour effectuer une analyse exploratoire, utilisez le package [ggplot2](http://ggplot2.org/) , une bibliothèque de graphiques populaire pour R qui est déjà installée sur la machine virtuelle. Remarque : à partir des données récapitulatives affichées précédemment, nous disposons de statistiques résumées sur la fréquence du point d’exclamation. Nous allons tracer ces fréquences ici avec les commandes suivantes :
+Pour effectuer une analyse exploratoire, utilisez le package [ggplot2](https://ggplot2.tidyverse.org/) , une bibliothèque de graphiques populaire pour R qui est déjà installée sur la machine virtuelle. Remarque : à partir des données récapitulatives affichées précédemment, nous disposons de statistiques résumées sur la fréquence du point d’exclamation. Nous allons tracer ces fréquences ici avec les commandes suivantes :
 
     library(ggplot2)
     ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)

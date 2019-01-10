@@ -1,7 +1,7 @@
 ---
-title: Étiquetage des images - Vision par ordinateur
+title: Application de balises de contenu aux images - Vision par ordinateur
 titleSuffix: Azure Cognitive Services
-description: Concepts liés à l’étiquetage des images à l’aide de l’API Vision par ordinateur.
+description: Découvrez les concepts liés à la fonction de balises d’images de l’API Vision par ordinateur.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 7e9181b6e805a768ca5dd8ed558b8feea45f22d3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: caf4d8a4ee3ccee181d233716e0a645150a201c3
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960905"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582930"
 ---
-# <a name="tagging-images"></a>Étiquetage des images
+# <a name="applying-content-tags-to-images"></a>Application de balises de contenu aux images
 
 Vision par ordinateur retourne des balises basées sur des milliers d’objets, d’êtres vivants, de scènes et d’actions reconnaissables. Lorsque les balises sont ambigües ou inhabituelles, la réponse de l’API fournit des « conseils » pour expliquer la signification de la balise dans le contexte des paramètres connus. Les balises ne sont pas organisées sous forme de taxonomie et aucune hiérarchie d’héritage n’existe. La collection de balises de contenu constitue la « description » essentielle d’une image, qui est affichée sous forme de texte lisible par l’homme (phrases complètes). Notez que, à ce stade, seul l’anglais est pris en charge pour la description d’images.
 
@@ -27,7 +28,7 @@ Après le chargement d’une image ou d’une URL d’image, les algorithmes de 
 
 Les réponses JSON suivantes illustrent ce que renvoie Vision par ordinateur au moment du balisage d’éléments visuels détectés dans l’image en exemple.
 
-![House_Yard](./Images/house_yard.png).
+![Maison bleu et jardin en façade ](./Images/house_yard.png).
 
 ```json
 {

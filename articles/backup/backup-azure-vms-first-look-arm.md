@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: 0c394a92bff3ace210ee0db156f47bb8912bf45d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c1bd92b9c4611465b680f195e4881a447f4bb701
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631581"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044397"
 ---
 # <a name="back-up-azure-vms-with-the-azure-backup-service"></a>Sauvegarder des machines virtuelles Azure avec le service Sauvegarde Azure
 
@@ -290,7 +290,7 @@ Pour exécuter le travail de sauvegarde initial :
   Les notifications de déploiement vous informent que la sauvegarde a été déclenchée et que vous pouvez surveiller la progression du travail sur la page Travaux de sauvegarde. Selon la taille de votre machine virtuelle, la création de la sauvegarde initiale peut prendre un certain temps.
 
   > [!NOTE]
-  > Toutes les données sauvegardées par sauvegarde Azure sont chiffrées au repos par le biais de [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md).
+  > - Toutes les données sauvegardées par sauvegarde Azure sont chiffrées au repos par le biais de [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md).
   >
   >
 
@@ -339,4 +339,3 @@ Le coût de la sauvegarde des machines virtuelles Azure dépend du nombre d’in
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Gérer](backup-azure-manage-vms.md) vos sauvegardes.
-

@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 2542364db3a895c060c752beeb0cfabf75834f7d
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 1398db59199c62e90f8cf5654586bda1c24f2541
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970268"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055045"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installer et exécuter des conteneurs Docker LUIS
  
@@ -66,7 +66,7 @@ Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/co
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
-Pour obtenir une description complète des balises disponibles utilisées dans la commande précédente, telles que `latest`, consultez [LUIS](https://hub.docker.com/r/microsoft/azure-cognitive-services-luis/) sur Docker Hub.
+Pour obtenir une description complète des balises disponibles utilisées dans la commande précédente, telles que `latest`, consultez [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204) sur Docker Hub.
 
 > [!TIP]
 > Vous pouvez utiliser la commande [docker images](https://docs.docker.com/engine/reference/commandline/images/) pour lister vos images conteneurs téléchargées. Par exemple, la commande suivante liste l’ID, le référentiel et la balise de chaque image conteneur téléchargée dans un tableau :

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 7373cc23654e2168963a364e4b4069331bf196c5
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8a0808c0e82ee31a5fd684d449fa30cd331d3dba
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969928"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063864"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copie de données d’Amazon Simple Storage Service à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +31,7 @@ Vous pouvez copier des données d’Amazon S3 dans tous les magasins de données
 Plus spécifiquement, ce connecteur Amazon S3 prend en charge la copie de fichiers en l'état ou l’analyse de fichiers avec les [formats de fichier et codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md).
 
 >[!TIP]
->Vous pouvez utiliser ce connecteur Amazon S3 pour copier des données à partir de **n’importe quel fournisseur de stockage compatible S3**, par exemple [Google Cloud Storage](#copy-from-google-cloud-storage). Spécifiez l’URL du service correspondant dans la configuration de service lié.
+>Vous pouvez utiliser ce connecteur Amazon S3 pour copier des données à partir de **n’importe quel fournisseur de stockage compatible S3**, par exemple [Google Cloud Storage](connector-google-cloud-storage.md). Spécifiez l’URL du service correspondant dans la configuration de service lié.
 
 ## <a name="required-permissions"></a>Autorisations requises
 
@@ -212,35 +212,6 @@ Pour copier des données d’Amazon S3, définissez **FileSystemSource** (qui in
         }
     }
 ]
-```
-
-## <a name="copy-from-google-cloud-storage"></a>Copier à partir de Google Cloud Storage
-
-Google Cloud Storage fournissant une interopérabilité compatible S3, vous pouvez utiliser le connecteur Amazon S3 pour copier des données à partir de Google Cloud Storage vers n’importe quelle [banque de données réceptrice prise en charge](copy-activity-overview.md#supported-data-stores-and-formats). 
-
-Vous pouvez trouver l’entrée Google Cloud Storage spécifique dans la galerie de connecteurs d’IU de création ADF, qui renseigne automatiquement `https://storage.googleapis.com` comme URL du service. Pour trouver la clé d’accès et le secret, accédez à **Google Cloud Storage** > **Paramètres** > **Interopérabilité**. Pour obtenir une présentation détaillée de l’utilisation du connecteur S3 pour copier des données, consultez le début de cet article.
-
-**Exemple de service lié :**
-
-```json
-{
-    "name": "GoogleCloudStorageLinkedService",
-    "properties": {
-        "type": "AmazonS3",
-        "typeProperties": {
-            "accessKeyId": "<access key id>",
-            "secretAccessKey": {
-                "type": "SecureString",
-                "value": "<secret access key>"
-            },
-            "serviceUrl": "https://storage.googleapis.com"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

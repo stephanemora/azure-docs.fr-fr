@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: bcf33538479a18d1849515f00e9a0d02ef77dba2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 5596675d428fcf8403d001a8f807507ab1e42e43
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004484"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117280"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Créer des ressources Application Insights à l’aide de PowerShell
-Cet article explique comment automatiser la création et la mise à jour de ressources [Application Insights](../../application-insights/app-insights-overview.md) à l’aide du service de gestion des ressources Azure. Cette opération peut par exemple avoir lieu dans le cadre du processus de génération. Avec la ressource Application Insights de base, vous pouvez créer des [tests web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md), configurer [des alertes](../../azure-monitor/app/alerts.md) et un [mécanisme de tarification](pricing.md), mais aussi créer d’autres ressources Azure.
+Cet article explique comment automatiser la création et la mise à jour de ressources [Application Insights](../../azure-monitor/app/app-insights-overview.md) à l’aide du service de gestion des ressources Azure. Cette opération peut par exemple avoir lieu dans le cadre du processus de génération. Avec la ressource Application Insights de base, vous pouvez créer des [tests web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md), configurer [des alertes](../../azure-monitor/app/alerts.md) et un [mécanisme de tarification](pricing.md), mais aussi créer d’autres ressources Azure.
 
 Les éléments importants pour la création de ces ressources sont les modèles JSON pour [Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md). En bref, la procédure est la suivante : téléchargez les définitions JSON des ressources existantes, paramétrez certaines valeurs telles que les noms, puis exécutez le modèle chaque fois que vous souhaitez créer une nouvelle ressource. Vous pouvez regrouper plusieurs ressources pour les créer en une fois, par exemple une analyse d’application avec des tests de disponibilité, des alertes et le stockage pour l’exportation continue. Certains paramètres ont des particularités que nous aborderons ici.
 

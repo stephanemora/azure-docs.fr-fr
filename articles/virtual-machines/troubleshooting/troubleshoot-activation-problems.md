@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: b14a98ce22979182ec27ba5dc849f9535fa2b387
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 16876a7831ab374637e28165c44d47e0ab059712
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824300"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976358"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Résoudre des problèmes liés à l’activation de machines virtuelles Windows Azure
 
@@ -37,10 +37,10 @@ Azure utilise différents points de terminaison différents pour l’activation 
 
 Lorsque vous essayez d’activer une machine virtuelle Windows Azure, vous recevez un message d’erreur semblable à l’exemple suivant :
 
-**Erreur 0xC004F074  : le logiciel LicensingService a signalé que l’ordinateur n’a pas pu être activé. Aucun service de gestion des clés (KMS) n’a pu être contacté. Pour obtenir plus d’informations, veuillez consulter le Journal des événements de l’application.**
+**Erreur : 0xC004F074 : le logiciel LicensingService a signalé que l’ordinateur n’a pas pu être activé. Aucun service de gestion des clés (KMS) n’a pu être contacté. Pour obtenir plus d’informations, veuillez consulter le Journal des événements de l’application.**
 
 ## <a name="cause"></a>Cause :
-En règle générale, les problèmes d’activation de machines virtuelles Azure se produisent si la machine virtuelle Windows n’est pas configurée à l’aide de la bonne clé d’installation client KMS. Ces problèmes peuvent également survenir si la machine virtuelle Windows rencontre un problème de connectivité au service Azure KMS (kms.core.windows.net, port 1668). 
+En règle générale, les problèmes d’activation de machines virtuelles Azure se produisent si la machine virtuelle Windows n’est pas configurée à l’aide de la bonne clé d’installation client KMS. Ces problèmes peuvent également survenir si la machine virtuelle Windows rencontre un problème de connectivité au service Azure KMS (kms.core.windows.net, port 1688). 
 
 ## <a name="solution"></a>Solution
 
@@ -86,7 +86,7 @@ Cette étape ne s’applique pas pour Windows 2012 ou Windows 2008 R2. Elle u
     ```
     iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
-    La commande doit renvoyer le message suivant : le nom de machine de KMS a été configuré sur kms.core.windows.net:1688 avec succès.
+    La commande doit renvoyer : Le nom de machine de KMS a été configuré sur kms.core.windows.net:1688 avec succès.
 
 4. Vérifiez à l’aide de Psping que vous avez une connexion au serveur KMS. Basculez vers le dossier où vous avez extrait le téléchargement Pstools.zip, puis exécutez la commande suivante :
   
@@ -94,7 +94,7 @@ Cette étape ne s’applique pas pour Windows 2012 ou Windows 2008 R2. Elle u
     \psping.exe kms.core.windows.net:1688
     ```
   
-  Dans l’avant-dernière ligne de la sortie, assurez-vous que les informations suivantes s’affichent : Envoyé = 4, Reçu = 4, Perdu = 0 (0 % de perte).
+  Dans l’avant-dernière ligne de la sortie, assurez-vous que les informations suivantes s’affichent : Envoyé = 4, Reçu = 4, Perdu = 0 (0 % de perte).
 
   Si la perte est supérieure à 0 (zéro), la machine virtuelle n’a pas de connectivité au serveur KMS. Dans ce cas, si la machine virtuelle se trouve au sein d’un réseau virtuel et a spécifié un serveur DNS personnalisé, vérifiez que le serveur DNS est capable de résoudre kms.core.windows.net. Sinon, passez à un serveur DNS capable de résoudre kms.core.windows.net.
 

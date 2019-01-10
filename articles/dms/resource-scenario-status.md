@@ -4,22 +4,22 @@ description: Obtenez davantage d’informations sur l’état des scénarios de 
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/11/2018
-ms.openlocfilehash: 9eea3c28751ecaec0ffdb27e08f84cad1bf62acd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 12/19/2018
+ms.openlocfilehash: 81bd23f7e4b7065155b708703e52bc0a351696c1
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53267864"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722088"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>État des scénarios de migration pris en charge par Azure Database Migration Service
-Azure Database Migration Service est conçu pour prendre en charge plusieurs scénarios de migration (paires source/cible), aussi bien pour le mode hors connexion (migration ponctuelle) que le mode en ligne (synchronisation continue). Azure Database Migration Service couvre de plus en plus de scénarios au fil du temps. De nouveaux scénarios sont régulièrement ajoutés. Cet article identifie les scénarios de migration qui sont actuellement pris en charge par Azure Database Migration Service et l’état de chaque scénario (préversion privée, préversion publique ou disposition générale).
+Azure Database Migration Service est conçu pour prendre en charge plusieurs scénarios de migration (paires source/cible), aussi bien pour le mode hors connexion (migration ponctuelle) que le mode en ligne (synchronisation continue). Azure Database Migration Service couvre de plus en plus de scénarios au fil du temps. De nouveaux scénarios sont régulièrement ajoutés. Cet article identifie les scénarios de migration qui sont actuellement pris en charge par Azure Database Migration Service et l’état de chaque scénario (préversion privée [ou limitée], préversion publique ou disposition générale).
 
 ## <a name="offline-versus-online-migrations"></a>Migrations hors connexion et en ligne
 Lorsque vous migrez des bases de données vers Azure à l’aide d’Azure Database Migration Service, vous pouvez opter pour une migration hors connexion ou en ligne. Avec les migrations *hors connexion*, les temps d’arrêt de l’application commencent en même temps que la migration. Avec les migrations *en ligne*, les interruptions sont limitées au temps qui est nécessaire pour basculer vers le nouvel environnement une fois la migration terminée. Nous vous recommandons de tester une migration hors connexion pour déterminer si le temps d’arrêt est acceptable ; dans le cas contraire, privilégiez une migration en ligne.

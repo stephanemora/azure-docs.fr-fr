@@ -10,16 +10,15 @@ ms.assetid: e759df6f-0638-43b1-98ed-30b3913f9b82
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 01dacd88bb3be8ff0f05333bfba6711687ea0c74
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: f3c198ab8a17df019f1735a9b62e27f1051f64c5
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002567"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076329"
 ---
 # <a name="what-is-azure-key-vault"></a>Qu’est-ce qu’Azure Key Vault ?
 
@@ -45,7 +44,7 @@ Il existe trois façons de s’authentifier auprès de Key Vault :
 
 Vous trouverez ici quelques mots-clés :
 
-- **Locataire** : un locataire est l’organisation qui possède et gère une instance spécifique de services cloud Microsoft. Il fait souvent référence à l’ensemble des services Azure et Office 365 pour une organisation.
+- **Tenant** : un locataire est l’organisation qui possède et gère une instance spécifique de services cloud Microsoft. Il fait souvent référence à l’ensemble des services Azure et Office 365 pour une organisation.
 - **Propriétaire de coffre** : un propriétaire de coffre peut créer un coffre de clés, et bénéficier d’un accès et d’un contrôle complets à celui-ci. Le propriétaire du coffre peut également configurer l’audit pour consigner qui accède aux secrets et aux clés. Les administrateurs peuvent contrôler le cycle de vie de la clé. Ils peuvent déployer une nouvelle version de la clé, la sauvegarder, et effectuer les tâches associées.
 - **Consommateur de coffre** : un consommateur de coffre peut effectuer des actions sur les ressources à l’intérieur du coffre de clés quand le propriétaire du coffre lui accorde l’accès de consommateur. Les actions disponibles varient selon les autorisations accordées.
 - **Ressource** : une ressource est un élément gérable disponible par le biais d’Azure. Les ressources telles que les machines virtuelles, les comptes de stockage, les applications web, les bases de données et les réseaux virtuels sont courantes, mais il en existe beaucoup d’autres.

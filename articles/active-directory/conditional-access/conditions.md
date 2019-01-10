@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 90b9a1104dd387c857e4955cabfb121773aedcca
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 5f3857480bfe6c4d5c4efe759b11761123fa4441
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410061"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973058"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Que sont les conditions dans l’accès conditionnel Azure Active Directory ? 
 
@@ -74,7 +74,7 @@ Sélectionnez :
 
 - **Toutes les applications cloud** pour que les stratégies de base s’appliquent à toute l’organisation. Procédez ainsi pour les stratégies qui requièrent l’authentification multifacteur lorsqu’un risque à la connexion est détecté sur une application cloud. Une stratégie appliquée à **toutes les applications cloud** concerne l’accès à tous les services et sites web. Ce paramètre n’est pas limité aux applications cloud de la liste **Sélection des applications**. 
 
-- **Sélection des applications** pour cibler des services spécifiques avec votre stratégie. Par exemple, vous pouvez demander aux utilisateurs d’avoir un [Appareil conforme](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) pour accéder à SharePoint Online. Cette stratégie s’applique aussi à d’autres services lorsqu’ils accèdent à des contenus SharePoint. Microsoft Teams en est un exemple. 
+- **Sélectionnez des applications** pour cibler des services spécifiques avec votre stratégie. Par exemple, vous pouvez demander aux utilisateurs d’avoir un [Appareil conforme](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) pour accéder à SharePoint Online. Cette stratégie s’applique aussi à d’autres services lorsqu’ils accèdent à des contenus SharePoint. Microsoft Teams en est un exemple. 
 
 Vous pouvez exclure des applications spécifiques d’une stratégie. Toutefois, ces applications sont toujours soumises aux stratégies appliquées aux services auxquels elles accèdent. 
 

@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 5d0cb6ca751c844846288e8fe26f6ae542e89831
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 90eacdb120603fdb68c0f6c3de3457964ec5fd75
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339490"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579360"
 ---
-# <a name="detecting-color-schemes"></a>Détection des jeux de couleurs
+# <a name="detect-color-schemes-in-images"></a>Détecter les jeux de couleurs dans les images
 
 Vision par ordinateur extrait les couleurs d’une image. Les couleurs sont ensuite analysées dans trois contextes différents : la couleur de premier plan dominante, la couleur d’arrière-plan dominante et les couleurs dominantes de l’image dans sa globalité. Elles sont regroupées en 12 couleurs d’accentuation dominantes. Les couleurs d’accentuation sont les suivantes : noir, bleu, marron, gris, vert, orange, rose, violet, rouge, vert foncé, blanc et jaune. Vision par ordinateur analyse les couleurs extraites à partir d’une image afin de retourner une couleur d’accentuation qui représente la couleur la plus vive de l’image vers les visionneuses, grâce à une combinaison de couleurs dominantes et de saturation. Selon les images, qu’elles soient simplement en noir et blanc ou comportant des couleurs d’accentuation, les couleurs peuvent être renvoyées en codes de couleur hexadécimaux. Vision par ordinateur retourne également une valeur booléenne indiquant si une image est en noir et blanc.
 
@@ -51,8 +52,8 @@ Le tableau suivant décrit les couleurs dominantes de premier plan, d’arrière
 
 | Image | Couleurs dominantes |
 |-------|-----------------|
-|![Analyse Vision fleur](./Images/flower.png)| Premier plan : noir<br/>Arrière-plan : blanc<br/>Couleurs : noir, blanc, vert|
-![Analyse Vision gare ferroviaire](./Images/train_station.png) | Premier plan : noir<br/>Arrière-plan : noir<br/>Couleurs : noir |
+|![Fleur blanche sur arrière-plan de couleur blanche](./Images/flower.png)| Premier plan : Noir<br/>Arrière-plan : Blanc<br/>Couleurs : Noir, blanc, vert|
+![Train traversant une gare](./Images/train_station.png) | Premier plan : Noir<br/>Arrière-plan : Noir<br/>Couleurs : Noir |
 
 ### <a name="accent-color-examples"></a>Exemples de couleur d’accentuation
 
@@ -60,9 +61,9 @@ Le tableau suivant décrit les couleurs dominantes de premier plan, d’arrière
 
 | Image | Couleur d’accentuation |
 |-------|--------------|
-|![Montagne extérieur](./Images/mountain_vista.png) | #BB6D10 |
-|![Analyse Vision fleur](./Images/flower.png) | #C6A205 |
-|![Analyse Vision gare ferroviaire](./Images/train_station.png) | #474A84 |
+|![Personne se tenant sur un rocher montagneux au coucher du soleil](./Images/mountain_vista.png) | #BB6D10 |
+|![Fleur blanche sur arrière-plan de couleur blanche](./Images/flower.png) | #C6A205 |
+|![Train traversant une gare](./Images/train_station.png) | #474A84 |
 
 ### <a name="black--white-detection-examples"></a>Exemples de détection pour le noir et blanc
 
@@ -70,8 +71,8 @@ Le tableau suivant indique si chaque exemple d’image est noir et blanc, selon 
 
 | Image | Noir et blanc ? |
 |-------|----------------|
-|![Analyse Vision bâtiment](./Images/bw_buildings.png) | true |
-|![Analyse Vision jardin maison](./Images/house_yard.png) | false |
+|![Image noir et blanc représentant des immeubles de Manhattan](./Images/bw_buildings.png) | true |
+|![Maison bleu et jardin en façade ](./Images/house_yard.png) | false |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

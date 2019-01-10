@@ -9,40 +9,43 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 11798c3bfd4032ad10c738032a816a2a0488ce67
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e3b1655207f3baba6ea6e3cf2f00e3540a3602ad
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090531"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969367"
 ---
-# <a name="install-and-run-containers"></a>Installer et exécuter des conteneurs
+# <a name="install-and-run-text-analytics-containers"></a>Installer et exécuter les conteneurs Analyse de texte
 
-La mise en conteneur est une méthode de distribution de logiciels dans laquelle une application ou un service est packagé en tant qu’image conteneur. La configuration et les dépendances pour l’application ou le service sont inclus dans l’image conteneur. L’image conteneur peut ensuite être déployée sur un hôte conteneur avec peu ou pas de modifications. Les conteneurs sont isolés les uns des autres et du système d’exploitation sous-jacent, avec une empreinte inférieure à celle d’une machine virtuelle. Vous pouvez instancier les conteneurs à partir d’images conteneur pour les tâches à court terme et les supprimer quand vous n’avez plus besoin.
-
-Le conteneur Analyse de texte fournit l’ensemble suivant de conteneurs Docker, chacun contenant un sous-ensemble de fonctionnalités :
-
-| Conteneur| Description |
-|----------|-------------|
-|Extraction d’expressions clés | Extraire des expressions clés pour identifier les points principaux. Par exemple, pour le texte d’entrée « Le repas était délicieux et le personnel adorable », l’API renvoie les principaux points de discussion : « repas » et « personnel adorable ». |
-|Détection de la langue | Pour jusqu’à 120 langues maximum, détecte et signale la langue dans laquelle le texte d’entrée est rédigé. Le conteneur signale un code de langue unique pour chaque document qui est inclus dans la requête. Le code de langue est associé à un score indiquant la puissance de l’analyse. |
-|Analyse des sentiments | Analyser le texte brut pour obtenir des indices sur un sentiment positif ou négatif. Cette API renvoie un score de sentiment de 0 à 1 pour chaque document, où 1 correspond au sentiment le plus positif. Les modèles d’analyse sont préformés à l’aide d’un corps complet de technologies de texte et de Langage naturel de Microsoft. Pour les [langues sélectionnées](../language-support.md), l’API peut analyser tout texte brut que vous fournissez, lui attribuer un score, et renvoyer directement les résultats à l’application appelante. |
+Les conteneurs Analyse de texte fournissent un traitement en langage naturel avancé sur le texte brut et incluent trois fonctions principales : analyse des sentiments, extraction d’expressions clés et détection de la langue. Entity Linking n’est actuellement pas pris en charge dans un conteneur. 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
+## <a name="prerequisites"></a>Prérequis
+
+Pour exécuter l’un des conteneurs Analyse de texte, vous devez disposer des éléments suivants :
 
 ## <a name="preparation"></a>Préparation
 
 Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs Analyse de texte :
 
-**Moteur Docker** : le moteur Docker doit être installé localement. Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) et [Windows](https://docs.docker.com/docker-for-windows/). Sur Windows, vous devez configurer Docker pour prendre en charge les conteneurs Linux. Les conteneurs Docker peuvent également être déployés directement sur [Azure Kubernetes Service](/azure/aks/), sur [Azure Container Instances](/azure/container-instances/) ou sur un cluster [Kubernetes](https://kubernetes.io/) déployé sur [Azure Stack](/azure/azure-stack/). Pour plus d’informations sur le déploiement de Kubernetes sur Azure Stack, consultez [Déployer Kubernetes sur Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+|Obligatoire|Objectif|
+|--|--|
+|Moteur Docker| Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
+|Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.| 
+|Ressource Analyse de texte |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>Ressource Azure [_Analyse de texte_](text-analytics-how-to-access-key.md) afin d’obtenir la clé de facturation et l’URI du point de terminaison de facturation associés. Les deux valeurs, disponibles dans les pages Vue d’ensemble d’Analyse de texte et Clés du portail Azure, sont nécessaires au démarrage du conteneur.<br><br>**{BILLING_KEY}**  : clé de ressource<br><br>**{BILLING_ENDPOINT_URI}**  : exemple d’UURI de point de terminaison : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
-Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation.
+### <a name="the-host-computer"></a>L’ordinateur hôte
 
-**Connaissance de Microsoft Container Registry et de Docker** : vous devez avoir une compréhension élémentaire des concepts de Microsoft Container Registry et de Docker, notamment les registres, dépôts, conteneurs et images conteneur, ainsi qu’une maîtrise des commandes `docker` de base.  
+L’**hôte** est l’ordinateur qui exécute le conteneur docker. Il peut s’agir d’un ordinateur local ou d’un service d’hébergement docker dans Azure, notamment :
 
-Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).
+* [Azure Kubernetes Service](../../../aks/index.yml)
+* [Azure Container Instances](../../../container-instances/index.yml)
+* Cluster [Kubernetes](https://kubernetes.io/) déployé sur [Azure Stack](../../../azure-stack/index.yml). Pour plus d’informations, consultez [Déployer Kubernetes sur Azure Stack](../../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+
 
 ### <a name="container-requirements-and-recommendations"></a>Exigences et suggestions relatives au conteneur
 
@@ -54,9 +57,11 @@ Le tableau suivant décrit les cœurs de processeur minimum et recommandés, d�
 |Détection de la langue | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |
 |Analyse des sentiments | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |
 
-## <a name="download-container-images-from-microsoft-container-registry"></a>Télécharger des images conteneur à partir de Microsoft Container Registry
+Le nombre de cœurs et la quantité de mémoire correspondent aux paramètres `--cpus` et `--memory` qui sont utilisés dans le cadre de la commande `docker run`.
 
-Images conteneur pour Analyse de texte disponibles à partir de Microsoft Container Registry. Le tableau suivant répertorie les référentiels disponibles à partir de Microsoft Container Registry pour les conteneurs Analyse de texte. Chaque référentiel contient une image conteneur, qui doit être téléchargée pour exécuter le conteneur localement.
+## <a name="get-the-container-image-with-docker-pull"></a>Obtenir l’image conteneur avec `docker pull`
+
+Images conteneur pour Analyse de texte disponibles à partir de Microsoft Container Registry. 
 
 | Conteneur | Référentiel |
 |-----------|------------|
@@ -64,11 +69,7 @@ Images conteneur pour Analyse de texte disponibles à partir de Microsoft Contai
 |Détection de la langue | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Analyse des sentiments | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-Utilisez la commande [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) pour télécharger une image de conteneur à partir d’un référentiel. Par exemple, pour télécharger la dernière image de conteneur Extraction de phrases clés à partir du référentiel, utilisez la commande suivante :
-
-```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
-```
+Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) pour télécharger une image conteneur à partir de Microsoft Container Registry.
 
 Pour obtenir une description complète des balises disponibles pour les conteneurs Analyse de texte, consultez les conteneurs suivants dans le Docker Hub :
 
@@ -76,68 +77,109 @@ Pour obtenir une description complète des balises disponibles pour les conteneu
 * [Détection de la langue](https://go.microsoft.com/fwlink/?linkid=2018759)
 * [Analyse des sentiments](https://go.microsoft.com/fwlink/?linkid=2018654)
 
-> [!TIP]
-> Vous pouvez utiliser la commande [docker images](https://docs.docker.com/engine/reference/commandline/images/) pour répertorier vos images conteneur téléchargées. Par exemple, la commande suivante liste l’ID, le référentiel et la balise de chaque image conteneur téléchargée dans un tableau :
->
->  ```Docker
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->  ```
->
 
-## <a name="instantiate-a-container-from-a-downloaded-container-image"></a>Instancier un conteneur à partir d’une image conteneur téléchargée
-
-Utilisez la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) pour instancier un conteneur à partir d’une image conteneur téléchargée. Par exemple, la commande suivante :
-
-* Instancie un conteneur à partir de l’image conteneur Analyse des sentiments
-* Alloue un cœur de processeur et 8 gigaoctets (Go) de mémoire
-* Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur
-* Supprime automatiquement le conteneur après sa fermeture
+### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Docker pull du conteneur d’extraction de phrases clés
 
 ```Docker
-docker run --rm -it -p 5000:5000 --memory 8g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0 ApiKey=0123456789
-
+docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
 ```
+
+### <a name="docker-pull-for-the-language-detection-container"></a>Docker pull du conteneur de détection de langue
+
+```Docker
+docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
+```
+
+### <a name="docker-pull-for-the-sentiment-container"></a>Docker pull du conteneur de sentiments
+
+```Docker
+docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
+```
+
+### <a name="listing-the-containers"></a>Liste des conteneurs
+
+Vous pouvez utiliser la commande [docker images](https://docs.docker.com/engine/reference/commandline/images/) pour lister vos images conteneurs téléchargées. Par exemple, la commande suivante liste l’ID, le référentiel et la balise de chaque image conteneur téléchargée dans un tableau :
+
+```Docker
+docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
+```
+
+
+## <a name="how-to-use-the-container"></a>Comment utiliser le conteneur
+
+Une fois que le conteneur est sur l’[ordinateur hôte](#the-host-computer), appliquez la procédure suivante pour travailler avec le conteneur.
+
+1. [Exécutez le conteneur](#run-the-container-with-docker-run) avec les paramètres de facturation requis. D’autres [exemples](../text-analytics-resource-container-config.md#example-docker-run-commands) de commande `docker run` sont disponibles. 
+1. [Interrogez le point de terminaison de prédiction du conteneur](#query-the-containers-prediction-endpoint). 
+
+## <a name="run-the-container-with-docker-run"></a>Exécuter le conteneur avec `docker run`
+
+Utilisez la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) pour exécuter l’un des trois conteneurs. La commande utilise les paramètres suivants :
+
+| Placeholder | Valeur |
+|-------------|-------|
+|{BILLING_KEY} | Cette clé, qui permet de démarrer le conteneur, est disponible dans la page Clés d’Analyse de texte sur le portail Azure.  |
+|{BILLING_ENDPOINT_URI} | La valeur de l’URI de point de terminaison de facturation est disponible dans la page Vue d’ensemble d’Analyse de texte du portail Azure.|
+
+Remplacez ces paramètres par vos propres valeurs dans l’exemple de commande `docker run` suivant.
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+mcr.microsoft.com/azure-cognitive-services/keyphrase \
+Eula=accept \
+Billing={BILLING_ENDPOINT_URI} \
+ApiKey={BILLING_KEY}
+```
+
+Cette commande :
+
+* Exécute un conteneur de phrases clés à partir d’une image conteneur
+* Alloue des cœurs à UC unique et 4 gigaoctets (Go) de mémoire
+* Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur
+* Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte. 
+
+D’autres [exemples](../text-analytics-resource-container-config.md#example-docker-run-commands) de commande `docker run` sont disponibles. 
 
 > [!IMPORTANT]
-> Les options de ligne de commande `Eula`, `Billing` et `ApiKey` doivent être spécifiées pour instancier le conteneur ; sinon, le conteneur ne démarre pas.  Pour plus d'informations, consultez [Facturation](#billing).
+> Vous devez spécifier les options `Eula`, `Billing` et `ApiKey` pour exécuter le conteneur, sinon il ne démarrera pas.  Pour plus d'informations, consultez [Facturation](#billing).
 
-Une fois l’instanciation effectuée, vous pouvez appeler des opérations à partir du conteneur à l’aide de l’URI hôte du conteneur. Par exemple, l’URI hôte suivant représente le conteneur Analyse des sentiments qui a été instancié dans l’exemple précédent :
+## <a name="query-the-containers-prediction-endpoint"></a>Interroger le point de terminaison de prédiction du conteneur
 
-```http
-http://localhost:5000/
-```
+Le conteneur fournit des API de point de terminaison de prédiction de requête basées sur REST. 
+
+Utilisez l’hôte, https://localhost:5000, pour les API de conteneur.
+
+## <a name="stop-the-container"></a>Arrêter le conteneur
+
+[!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
+
+## <a name="troubleshooting"></a>Résolution de problèmes
+
+Si vous exécutez le conteneur avec un [montage](../text-analytics-resource-container-config.md#mount-settings) de sortie et la journalisation activée, il génère des fichiers journaux qui sont utiles pour résoudre les problèmes qui se produisent lors du démarrage ou de l’exécution du conteneur. 
+
+## <a name="containers-api-documentation"></a>Documentation sur l’API du conteneur
+
+Le conteneur fournit un ensemble complet de documentation pour les points de terminaison ainsi qu’une fonctionnalité `Try it now`. Cette fonctionnalité vous permet d’entrer vos paramètres dans un formulaire HTML basé sur le web et d’effectuer la requête sans avoir à écrire du code. Une fois la requête retournée, un exemple de commande CURL est fourni pour illustrer le format du corps et des en-têtes HTTP requis. 
 
 > [!TIP]
-> Vous pouvez accéder à la [spécification OpenAPI](https://swagger.io/docs/specification/about/) (ancienne spécification Swagger), qui décrit les opérations prises en charge par un conteneur instancié, à partir de l’URI relatif `/swagger` pour ce conteneur. Par exemple, l’URI suivant permet d’accéder à la spécification OpenAPI pour le conteneur Analyse des sentiments instancié dans l’exemple précédent :
+> Consultez la [spécification OpenAPI](https://swagger.io/docs/specification/about/), qui décrit les opérations d’API prises en charge par le conteneur, à partir de l’URI relatif `/swagger`. Par exemple : 
 >
 >  ```http
 >  http://localhost:5000/swagger
 >  ```
 
-Vous pouvez soit [appeler les opérations d’API REST](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api) disponibles à partir de votre conteneur, soit utiliser la bibliothèque client [SDK Analyse de texte Azure Cognitive Services](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics) pour appeler ces opérations.  
-> [!IMPORTANT]
-> Vous devez disposer du SDK Analyse de texte Azure Cognitive Services, version 2.1.0 ou ultérieure, si vous souhaitez utiliser la bibliothèque client avec votre conteneur.
+## <a name="billing"></a>Facturation
 
-La seule différence entre l’appel d’une opération donnée à partir de votre conteneur et l’appel de cette même opération à partir d’un service correspondant sur Azure est que vous allez utiliser l’URI hôte de votre conteneur au lieu de l’URI hôte d’une région Azure, pour appeler l’opération. Par exemple, si vous souhaitez utiliser une instance Analyse de texte en cours d’exécution dans la région Azure USA Ouest, vous appelez l’opération d’API REST suivante :
+Les conteneurs Analyse de texte envoient des informations de facturation à Azure à l’aide d’une ressource _Analyse de texte_ sur votre compte Azure. 
 
-```http
-POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
-```
+Les conteneurs Cognitives Services ne sont pas concédés sous licence pour s’exécuter sans être connectés à Azure pour le contrôle. Les clients doivent configurer les conteneurs de manière à ce qu’ils communiquent les informations de facturation au service de contrôle à tout moment. Les conteneurs Cognitive Services n’envoient pas de données client à Microsoft. 
 
-Si vous souhaitez utiliser un conteneur Extraction de phrases clés en cours d’exécution sur votre ordinateur local sous sa configuration par défaut, vous appelez l’opération d’API REST suivante :
-
-```http
-POST http://localhost:5000/text/analytics/v2.0/keyPhrases
-```
-
-### <a name="billing"></a>Facturation
-
-Les conteneurs Analyse de texte envoient des informations de facturation à Azure à l’aide d’une ressource Analyse de texte correspondante sur votre compte Azure. Les options de ligne de commande suivantes sont utilisées par les conteneurs Analyse de texte à des fins de facturation :
+La commande `docker run` utilise les arguments suivants lors de la facturation :
 
 | Option | Description |
 |--------|-------------|
-| `ApiKey` | La clé d’API de la ressource Analyse de texte utilisée pour effectuer le suivi des informations de facturation.<br/>La valeur de cette option doit être définie sur une clé API pour la ressource Analyse de texte Azure provisionnée, spécifiée dans `Billing`. |
-| `Billing` | Le point de terminaison de la ressource Analyse de texte utilisée pour effectuer le suivi des informations de facturation.<br/>La valeur de cette option doit être définie sur l’URI de point de terminaison d’une ressource Analyse de texte Azure provisionnée.|
+| `ApiKey` | La clé d’API de la ressource _Analyse de texte_ utilisée pour effectuer le suivi des informations de facturation. |
+| `Billing` | Le point de terminaison de la ressource _Analyse de texte_ utilisée pour effectuer le suivi des informations de facturation.|
 | `Eula` | Indique que vous avez accepté la licence pour le conteneur.<br/>La valeur de cette option doit être `accept`. |
 
 > [!IMPORTANT]
@@ -161,6 +203,5 @@ Dans cet article, vous avez découvert des concepts et le flux de travail pour l
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour obtenir les paramètres de configuration, passez en revue [Configurer des conteneurs](../text-analytics-resource-container-config.md).
-* Consulter [Vue d’ensemble de l’Analyse de texte](../overview.md) pour en savoir plus sur la détection de phrases clés, la détection de la langue et l’analyse des sentiments  
-* Reportez-vous à [l’API Analyse de texte](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) pour plus d’informations sur les méthodes prises en charge par le conteneur.
-* Reportez-vous au [Forum aux questions (FAQ)](../text-analytics-resource-faq.md) pour résoudre les problèmes liés à la fonctionnalité Vision par ordinateur.
+* Reportez-vous à [Forum aux questions (FAQ)](../text-analytics-resource-faq.md) pour résoudre les problèmes liés à la fonctionnalité.
+

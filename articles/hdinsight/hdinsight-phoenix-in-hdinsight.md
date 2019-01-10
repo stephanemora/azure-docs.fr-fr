@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 86b10d65ecaa52055244f3530f91c1cabbe219e0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 833f240572b10e9d07da0ded27f5848822a70f46
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435546"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744332"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix dans HDInsight
 
-[Apache Phoenix](http://phoenix.apache.org/) est une couche de base de données relationnelle massivement parallèle open source basée sur [Apache HBase](hbase/apache-hbase-overview.md). Phoenix vous donne les moyens d’utiliser des requêtes de type SQL sur HBase. Phoenix utilise en dessous des pilotes JDBC pour permettre aux utilisateurs de créer, supprimer et modifier des tables SQL, index, vues et séquences, ainsi que des lignes d’upsert individuellement et en bloc. Phoenix utilise une compilation native noSQL au lieu de MapReduce pour compiler les requêtes, ce qui permet de créer des applications à faible latence sur HBase. Phoenix ajoute des co-processeurs pour prendre en charge le code fourni par le client en cours d’exécution dans l’espace d’adressage du serveur, en exécutant le code colocalisé avec les données. Cette approche réduit le transfert de données client/serveur.
+[Apache Phoenix](https://phoenix.apache.org/) est une couche de base de données relationnelle massivement parallèle open source basée sur [Apache HBase](hbase/apache-hbase-overview.md). Phoenix vous donne les moyens d’utiliser des requêtes de type SQL sur HBase. Phoenix utilise en dessous des pilotes JDBC pour permettre aux utilisateurs de créer, supprimer et modifier des tables SQL, index, vues et séquences, ainsi que des lignes d’upsert individuellement et en bloc. Phoenix utilise une compilation native noSQL au lieu de MapReduce pour compiler les requêtes, ce qui permet de créer des applications à faible latence sur HBase. Phoenix ajoute des co-processeurs pour prendre en charge le code fourni par le client en cours d’exécution dans l’espace d’adressage du serveur, en exécutant le code colocalisé avec les données. Cette approche réduit le transfert de données client/serveur.
 
-Apache Phoenix affiche des requêtes Big Data aux utilisateurs non-développeurs, qui peuvent recourir à une syntaxe de type SQL en lieu et place de la programmation. Phoenix est hautement optimisé pour HBase, contrairement à d’autres outils comme [Hive](hadoop/hdinsight-use-hive.md) et Apache Spark SQL. Cela permet aux développeurs d’écrire des requêtes hautement performantes avec un volume de code bien moindre.
+Apache Phoenix affiche des requêtes Big Data aux utilisateurs non-développeurs, qui peuvent recourir à une syntaxe de type SQL en lieu et place de la programmation. Phoenix est hautement optimisé pour HBase, contrairement à d’autres outils comme [Apache Hive](hadoop/hdinsight-use-hive.md) et Apache Spark SQL. Cela permet aux développeurs d’écrire des requêtes hautement performantes avec un volume de code bien moindre.
 <!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 Quand vous envoyez une requête SQL, Phoenix la compile en appels natifs HBase et exécute l’analyse (ou le plan) en parallèle à des fins d’optimisation. Grâce à cette couche d’abstraction, les développeurs n’ont pas à écrire de tâches MapReduce, et peuvent ainsi se concentrer sur la logique métier et le workflow de leur application vis-à-vis du stockage des Big Data de Phoenix.
@@ -70,17 +70,17 @@ Pour ajouter plus de colonnes ultérieurement, utilisez l’instruction `ALTER V
 
 ### <a name="skip-scan"></a>Analyse d’évitement
 
-Ce type d’analyse utilise une ou plusieurs colonnes d’un index composite pour rechercher des valeurs distinctes. Contrairement à une analyse de plage, l’analyse d’évitement implémente un examen interligne, ce qui génère des [performances améliorées](http://phoenix.apache.org/performance.html#Skip-Scan). Durant l’analyse, la première valeur correspondante est ignorée avec l’index jusqu’à identification de la valeur suivante.
+Ce type d’analyse utilise une ou plusieurs colonnes d’un index composite pour rechercher des valeurs distinctes. Contrairement à une analyse de plage, l’analyse d’évitement implémente un examen interligne, ce qui génère des [performances améliorées](https://phoenix.apache.org/performance.html#Skip-Scan). Durant l’analyse, la première valeur correspondante est ignorée avec l’index jusqu’à identification de la valeur suivante.
 
 Une analyse d’évitement utilise l’énumération `SEEK_NEXT_USING_HINT` du filtre HBase. À l’aide de `SEEK_NEXT_USING_HINT`, l’analyse d’évitement effectue le suivi des ensembles ou des plages de clés recherchés pour chaque colonne. L’analyse d’évitement utilise ensuite une clé qui lui a été passée durant l’évaluation de filtre et détermine s’il s’agit de l’une des combinaisons. Si ce n’est pas le cas, l’analyse d’évitement identifie la clé supérieure suivante à laquelle accéder.
 
 ### <a name="transactions"></a>Transactions
 
-Si HBase fournit des transactions de niveau ligne, Phoenix s’intègre avec [Tephra](http://tephra.io/) pour ajouter une prise en charge des transactions interlignes et inter-tables avec une sémantique [ACID](https://en.wikipedia.org/wiki/ACID) complète.
+Si HBase fournit des transactions de niveau ligne, Phoenix s’intègre avec [Tephra](https://tephra.io/) pour ajouter une prise en charge des transactions interlignes et inter-tables avec une sémantique [ACID](https://en.wikipedia.org/wiki/ACID) complète.
 
 Comme cela se passe avec les transactions SQL traditionnelles, les transactions générées via le gestionnaire de transactions Phoenix vous permettent de garantir qu’une unité atomique des données fait effectivement bien l’objet d’une opération upsert ; vous pouvez ici annuler la transaction si l’opération upsert est mise en échec sur une table de transactions.
 
-Pour activer les transactions Phoenix, consultez la [documentation sur les transactions Apache Phoenix](http://phoenix.apache.org/transactions.html).
+Pour activer les transactions Phoenix, consultez la [documentation sur les transactions Apache Phoenix](https://phoenix.apache.org/transactions.html).
 
 Pour créer une table de transactions, définissez la propriété `TRANSACTIONAL` sur `true` dans une instruction `CREATE` :
 
@@ -94,7 +94,7 @@ Pour modifier une table existante afin qu’elle prenne en charge les transactio
 ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Vous ne pouvez pas modifier une table transactionnelle de manière à ce qu’elle ne prenne plus en charge les transactions.
 
 ### <a name="salted-tables"></a>Tables « salted »

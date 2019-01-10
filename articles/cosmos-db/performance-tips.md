@@ -1,19 +1,17 @@
 ---
 title: Conseils sur les performances Azure Cosmos DB pour .NET
 description: Découvrez les options de configuration clientes pour améliorer les performances de base de données Azure Cosmos DB
-keywords: comment améliorer les performances de base de données
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: f8045153482cdd8b9a13c0a6f2ebdb26627d44e4
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: f05935f73f385b076741d2e856af8316a74e9d2f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811407"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042493"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Conseils sur les performances pour Azure Cosmos DB et .NET
 

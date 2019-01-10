@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/16/2018
 ms.author: srrengar
-ms.openlocfilehash: e91ca12c06a1582b9bb715031a9c379b1a47b04b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 700295c94428021445f6cbbd84175046d57b9147
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713457"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054892"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnostiquer des scénarios courants avec Service Fabric
 
@@ -140,7 +140,7 @@ Consultez ces liens pour obtenir la liste complète des compteurs de performance
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Configurer des alertes dans AI](../azure-monitor/app/alerts.md) pour être averti des changements de performances ou d’utilisation
-* La [détection intelligente dans Application Insights](../application-insights/app-insights-proactive-diagnostics.md) effectue une analyse proactive de la télémétrie envoyée à AI pour vous avertir d’éventuels problèmes de performances
+* La [détection intelligente dans Application Insights](../azure-monitor/app/proactive-diagnostics.md) effectue une analyse proactive de la télémétrie envoyée à AI pour vous avertir d’éventuels problèmes de performances
 * Découvrez plus en détail la [création d’alertes](../log-analytics/log-analytics-alerts.md) dans Log Analytics pour faciliter la détection et les diagnostics.
 * Pour les clusters locaux, Log Analytics propose une passerelle (proxy de transfert HTTP) qui peut être utilisée pour envoyer des données à Log Analytics. Pour plus d’informations à ce sujet, consultez [Connexion d’ordinateurs à Log Analytics sans accès Internet à l’aide de la passerelle Log Analytics](../azure-monitor/platform/gateway.md)
 * Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) offertes dans le cadre de Log Analytics

@@ -1,20 +1,18 @@
 ---
 title: Conseils sur les performances Azure Cosmos DB pour Java asynchrone
 description: Découvrez les options de configuration clientes pour améliorer les performances de base de données Azure Cosmos DB
-keywords: comment améliorer les performances de base de données
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 440dc13e2c6f4d9acc270b644cc549280e6d91be
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 07da7f8905d7b8952db852d3da1dab12884de509
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413572"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041796"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Conseils sur les performances pour Azure Cosmos DB et Java Async
 

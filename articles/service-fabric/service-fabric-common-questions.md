@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 0a78405dc6293a7debd599e0e44754dc59d8af7e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 54ce1d9ab6216f1d757d7076cb95362d55ea9d9c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164636"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537618"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Questions fréquentes sur Service Fabric
 
@@ -64,9 +64,16 @@ Il y a actuellement d’autres problèmes avec les groupes de machines virtuelle
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Quelle est la taille minimale d’un cluster Service Fabric ? Pourquoi ne peut-il pas être plus petit ?
 
-La taille minimale prise en charge pour un cluster Service Fabric exécutant des charges de travail de production est de cinq nœuds. Pour les scénarios de développement/test, nous prenons en charge des clusters à trois nœuds.
+La taille minimale prise en charge pour un cluster Service Fabric exécutant des charges de travail de production est de cinq nœuds. Pour les scénarios de développement, nous prenons en charge un seul nœud (optimisé pour une expérience de développement rapide dans Visual Studio) et les clusters à cinq nœuds.
 
-Ces valeurs minimales existent parce que le cluster Service Fabric exécute un ensemble de services système avec état, dont le service d’affectation de noms et Failover Manager. Ces services, qui suivent les services déployés sur le cluster ainsi que leur emplacement d’hébergement actuel, requièrent une cohérence forte. Cette cohérence forte, quant à elle, dépend de la capacité d’atteindre un *quorum* pour une mise à jour donnée de l’état de ces services, ce quorum représentant une majorité stricte des réplicas (N/2 + 1) pour un service donné.
+Nous demandons qu’un cluster de production comporte au moins 5 nœuds pour les trois raisons suivantes :
+1. Même quand aucun service utilisateur ne s’exécute, un cluster Service Fabric exécute un ensemble de services système avec état, notamment le service de nommage et le service Failover Manager. Ces services système sont essentiels pour que le cluster reste opérationnel.
+2. Nous plaçons toujours un réplica d’un service par nœud : ainsi, la taille du cluster est la limite supérieure pour le nombre de réplicas que peut avoir un service (en fait une partition).
+3. Dans la mesure où une mise à niveau d’un cluster entraîne l’arrêt d’au moins un nœud, nous voulons avoir une réserve d’au moins un nœud : nous voulons donc qu’un cluster de production ait au moins deux nœuds *en plus* du strict minimum. Le strict minimum est la taille du quorum d’un service système, comme expliqué ci-dessous.  
+
+Nous voulons le cluster soit disponible en cas de défaillance simultanée de deux nœuds. Pour qu’un cluster Service Fabric soit disponible, les services système doivent être disponibles. Les services système avec état, comme le service de nommage et le service Failover Manager, qui font le suivi des services déployés sur le cluster ainsi que leur emplacement d’hébergement actuel, nécessitent une cohérence forte. Cette cohérence forte, quant à elle, dépend de la capacité d’atteindre un *quorum* pour une mise à jour donnée de l’état de ces services, ce quorum représentant une majorité stricte des réplicas (N/2 + 1) pour un service donné. Ainsi, si nous voulons assurer la résilience en cas de perte simultanée de deux nœuds (donc de la perte simultanée de deux réplicas d’un service système), nous devons avoir ClusterSize - QuorumSize >= 2, ce qui fait passer la taille minimale à cinq. Pour voir cela, considérez que le cluster a N nœuds et qu’il existe N réplicas d’un service système, un sur chaque nœud. La taille de quorum pour un service système est (N/2 + 1). L’inégalité ci-dessus se présente comme N - (N/2 + 1) >= 2. Il existe deux cas à prendre en compte : quand N est pair et quand il est impair. Si N est pair, disons N = 2\*m, où m >= 1, l’inégalité se présente comme 2\*m - (2\*m/2 + 1) >= 2 ou m >= 3. La valeur minimale pour N est 6, qui est obtenue quand m = 3. En revanche, si N est impair, disons N = 2\*m + 1, où m >= 1, l’inégalité se présente comme 2\*m + 1 - ( (2\*m+1)/2 + 1 ) >= 2 ou 2\*m+1 - (m+1) >= 2 or m >= 2. La valeur minimale pour N est 5, qui est obtenue quand m = 2. Ainsi, parmi toutes les valeurs de N qui satisfont l’inégalité ClusterSize - QuorumSize >= 2, la valeur minimale est 5.
+
+Notez que dans l’argument ci-dessus, nous avons supposé que chaque nœud a un réplica d’un service système : sa taille est donc calculée en fonction du nombre de nœuds du cluster. Cependant, en modifiant *TargetReplicaSetSize*, nous pourrions rendre la taille du quorum inférieure à (N/2+1), ce qui peut donner l’impression que nous pourrions avoir un cluster inférieur à 5 nœuds et avoir néanmoins toujours 2 nœuds au-dessus de la taille du quorum. Par exemple, dans un cluster de 4 nœuds, si nous définissons TargetReplicaSetSize sur 3, la taille du quorum basé sur TargetReplicaSetSize est (3/2 + 1) ou 2 : nous avons donc CluserSize - QuorumSize = 4-2 >= 2. Cependant, nous ne pouvons pas garantir que le service système est au niveau du quorum ou au-delà si nous perdons simultanément une paire de nœuds : il est possible que les deux nœuds que nous avons perdus hébergeaient deux réplicas, et que le service système perde donc le quorum (n’ayant plus qu’un seul réplica), devenant ainsi indisponible.
 
 Dans ce cadre, examinons certaines configurations de cluster possibles :
 
@@ -74,9 +81,13 @@ Dans ce cadre, examinons certaines configurations de cluster possibles :
 
 **Deux nœuds** : le quorum d’un service déployé sur deux nœuds (N = 2) est 2 (2/2 + 1 = 2). En cas de perte d’un réplica, il est impossible d’obtenir un quorum. Comme la mise à niveau d’un serveur requiert la mise hors ligne d’un réplica, cette configuration n’a aucune utilité.
 
-**Trois nœuds** : avec trois nœuds (N = 3), la condition requise pour créer un quorum reste de deux nœuds (3/2 + 1 = 2). Cela signifie que vous pouvez perdre un nœud et conserver le quorum.
+**Trois nœuds** : avec trois nœuds (N = 3), la condition requise pour créer un quorum reste de deux nœuds (3/2 + 1 = 2). Cela signifie que vous pouvez perdre un nœud individuel et néanmoins conserver le quorum, mais que la défaillance simultanée de deux nœuds fait que les services système perdent le quorum, entraînant l’indisponibilité du cluster.
 
-La configuration de cluster à trois nœuds est prise en charge pour le développement/test, car vous pouvez en toute sécurité effectuer des mises à niveau et faire face aux défaillances d’un nœud, tant que ces deux événements ne sont pas simultanés. Pour les charges de travail de production, vous devez être résilient face à une telle défaillance simultanée. Cinq nœuds sont donc nécessaires.
+**Quatre nœuds** : avec quatre nœuds (N=4), la condition nécessaire pour créer un quorum est trois nœuds (4/2 + 1 = 3). Cela signifie que vous pouvez perdre un nœud individuel et néanmoins conserver le quorum, mais que la défaillance simultanée de deux nœuds fait que les services système perdent le quorum, entraînant l’indisponibilité du cluster.
+
+**Cinq nœuds** : avec cinq nœuds (N=5), la condition nécessaire pour créer un quorum reste trois nœuds (5/2 + 1 = 3). Cela signifie que vous pouvez perdre deux nœuds en même temps et néanmoins conserver le quorum pour les services système.
+
+Pour les charges de travail de production, vous devez être résilient face à une défaillance simultanée d’au moins deux nœuds (par exemple une en raison d’une mise à niveau du cluster et une pour d’autres raisons) : ainsi, cinq nœuds sont nécessaires.
 
 ### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>Puis-je désactiver mon cluster la nuit et le week-end pour réduire les coûts ?
 

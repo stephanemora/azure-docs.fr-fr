@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: c6f8a4c24a600eb9a84076d63bed295f646f3fec
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d33d63cc7d13a5c2c6e1923607102c4ddc554650
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251162"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062756"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>Démarrage rapide : Rechercher des images à l’aide de l’API REST Recherche d’images Bing et de Node.js
 
@@ -31,7 +31,7 @@ Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azu
 
 * La dernière version de [Node.js](https://nodejs.org/en/download/).
 
-* La [bibliothèque de requêtes JavaScript](https://github.com/request/request)
+* La [bibliothèque de requêtes JavaScript](https://github.com/request/request).  
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 Consultez également [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).

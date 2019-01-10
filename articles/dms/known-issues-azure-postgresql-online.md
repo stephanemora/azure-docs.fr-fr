@@ -4,19 +4,19 @@ description: Apprenez-en plus sur les problèmes connus/limitations de migration
 services: database-migration
 author: HJToland3
 ms.author: scphang
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: b83c889e72acb320c308c3ad5ee6243e715fd523
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: ec91eec9baba1f337f18e1927a87971bf1499040
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282874"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724134"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure DB pour PostgreSQL
 
@@ -76,32 +76,32 @@ Les sections suivantes décrivent les problèmes connus et limitations associés
 
 ## <a name="datatype-limitations"></a>Limitations relatives au type de données
 
-- **Limitation** : si la base de données PostgreSQL source inclut un type de données ENUM, la migration échoue lors de la synchronisation continue.
+- **Limitation** : Si la base de données PostgreSQL source inclut un type de données ENUM, la migration échoue lors de la synchronisation continue.
 
-    **Solution de contournement** : remplacez le type de données ENUM par un caractère différent dans Azure Database pour PostgreSQL.
+    **Solution de contournement** : Remplacez le type de données ENUM par un caractère différent dans Azure Database pour PostgreSQL.
 
-- **Limitation** : en l’absence de clé primaire sur les tables, la synchronisation continue échouera.
+- **Limitation** : En l’absence de clé primaire sur les tables, la synchronisation continue échouera.
 
-    **Solution de contournement** : définissez temporairement une clé primaire pour la table afin de continuer la migration. Vous pouvez supprimer la clé primaire à l’issue de la migration de données.
+    **Solution de contournement** : Définissez temporairement une clé primaire pour la table afin de continuer la migration. Vous pouvez supprimer la clé primaire à l’issue de la migration de données.
 
 ## <a name="lob-limitations"></a>Limitations relatives aux objets LOB
 Les colonnes LOB (Large Object) peuvent devenir volumineuses. Pour PostgreSQL, les exemples de types de données LOB incluent XML, JSON, IMAGE, TEXTE, etc.
 
-- **Limitation** : si des types de données LOB sont utilisés comme clés primaires, la migration échouera.
+- **Limitation** : Si des types de données LOB sont utilisés comme clés primaires, la migration échouera.
 
-    **Solution de contournement** : remplacez la clé primaire par d’autres types de données ou par des colonnes qui ne sont pas de type LOB.
+    **Solution de contournement** : Remplacez la clé primaire par d’autres types de données ou par des colonnes qui ne sont pas de type LOB.
 
-- **Limitation** : si la longueur de la colonne LOB (Large Object) dépasse 32 Ko, les données peuvent être tronquées au niveau de la cible. Vous pouvez vérifier la longueur de la colonne LOB à l’aide de cette requête :
+- **Limitation** : Si la longueur de la colonne LOB (Large Object) dépasse 32 Ko, les données peuvent être tronquées au niveau de la cible. Vous pouvez vérifier la longueur de la colonne LOB à l’aide de cette requête :
 
     ```
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Solution de contournement** : si vous disposez d’un objet LOB de plus de 32 Ko, contactez l’équipe d’ingénierie à l’adresse [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
+    **Solution de contournement** : Si vous disposez d’un objet LOB de plus de 32 Ko, contactez l’équipe d’ingénierie à l’adresse [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
 
-- **Limitation** : si la table contient des colonnes LOB et si aucune clé primaire n’est définie pour la table, les données de cette table peuvent ne pas être migrées.
+- **Limitation** : Si la table contient des colonnes LOB et si aucune clé primaire n’est définie pour la table, les données de cette table peuvent ne pas être migrées.
 
-    **Solution de contournement** : définissez temporairement une clé primaire pour la table afin de continuer la migration. Vous pouvez supprimer la clé primaire à l’issue de la migration de données.
+    **Solution de contournement** : Définissez temporairement une clé primaire pour la table afin de continuer la migration. Vous pouvez supprimer la clé primaire à l’issue de la migration de données.
 
 ## <a name="postgresql10-workaround"></a>Solution de contournement PostgreSQL10
 PostgreSQL 10.x apporte différentes modifications de noms de dossiers pg_xlog, la migration ne fonctionne donc pas comme prévu. Si vous effectuez une migration depuis PostgreSQL 10.x vers Azure Database pour PostgreSQL 10.3, exécutez le script suivant sur la base de données PostgreSQL source pour créer la fonction wrapper autour des fonctions pg_xlog.

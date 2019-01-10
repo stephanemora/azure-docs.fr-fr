@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: e75758c5a4171adc7af56581026a727db2ef4740
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: bc556991cc304aa8c5edc04dba1d333dc77ad230
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850973"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073405"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Linux dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -150,7 +150,7 @@ Fermez la fenêtre du navigateur, revenez à l’invite SSH, puis appuyez sur la
 
 ## <a name="sudo-and-aad-login"></a>Connexion sudo et AAD
 
-La première fois que vous exécutez sudo, vous devrez vous authentifier une deuxième fois. Si vous ne souhaitez pas devoir vous authentifier à nouveau pour exécuter sudo, vous pouvez modifier votre fichier sudoers `/aad/etc/sudoers.d/aad_admins` et remplacer cette ligne :
+La première fois que vous exécutez sudo, vous devrez vous authentifier une deuxième fois. Si vous ne souhaitez pas devoir vous authentifier à nouveau pour exécuter sudo, vous pouvez modifier votre fichier sudoers `/etc/sudoers.d/aad_admins` et remplacer cette ligne :
 
 ```bash
 %aad_admins ALL=(ALL) ALL

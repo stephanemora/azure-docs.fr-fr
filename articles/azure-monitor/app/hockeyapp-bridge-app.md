@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: 73e1fac5ba9fbb981c92ff8d32064f7d34729ef7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 4115ec5add9ac523852b4c60c4f9d750bc430a37
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53813269"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121445"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Exploration des données HockeyApp dans Application Insights
 
 > [!NOTE]
-> HockeyApp n’est plus disponible pour les nouvelles applications. Les déploiements HockeyApp existants continueront de fonctionner. Visual Studio App Center est désormais le service recommandé de Microsoft pour surveiller les nouvelles applications mobiles. [Découvrez comment configurer vos applications avec App Center et Application Insights](../../application-insights/app-insights-mobile-center-quickstart.md).
+> HockeyApp n’est plus disponible pour les nouvelles applications. Les déploiements HockeyApp existants continueront de fonctionner. Visual Studio App Center est désormais le service recommandé de Microsoft pour surveiller les nouvelles applications mobiles. [Découvrez comment configurer vos applications avec App Center et Application Insights](../../azure-monitor/learn/mobile-center-quickstart.md).
 
-[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) est un service pour la surveillance des applications mobiles et de bureau en production. À partir de HockeyApp, vous pouvez envoyer de la télémétrie de trace et personnalisée pour surveiller l’utilisation et faciliter le diagnostic (en plus de l’obtention de données de panne). Ce flux de données de télémétrie peut être interrogé à l’aide de la puissante fonctionnalité [Analytics](../../azure-monitor/app/analytics.md) [d’Azure Application Insights](../../application-insights/app-insights-overview.md). En outre, vous pouvez [exporter la télémétrie personnalisée et de trace](export-telemetry.md). Pour activer ces fonctionnalités, vous configurez un pont qui relaie les données personnalisée HockeyApp vers Application Insights.
+[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) est un service pour la surveillance des applications mobiles et de bureau en production. À partir de HockeyApp, vous pouvez envoyer de la télémétrie de trace et personnalisée pour surveiller l’utilisation et faciliter le diagnostic (en plus de l’obtention de données de panne). Ce flux de données de télémétrie peut être interrogé à l’aide de la puissante fonctionnalité [Analytics](../../azure-monitor/app/analytics.md) [d’Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). En outre, vous pouvez [exporter la télémétrie personnalisée et de trace](export-telemetry.md). Pour activer ces fonctionnalités, vous configurez un pont qui relaie les données personnalisée HockeyApp vers Application Insights.
 
 ## <a name="the-hockeyapp-bridge-app"></a>Application de pont HockeyApp
 Cette application est la fonctionnalité principale qui vous permet d’accéder à votre télémétrie de trace et personnalisée HockeyApp dans Application Insights via les fonctionnalités d’analyse et d’exportation continue. Les événements de trace et personnalisés collectés par HockeyApp après la création de l’application HockeyApp Bridge seront accessibles à partir de ces fonctionnalités. Nous allons voir comment configurer une de ces applications de pont.
@@ -33,7 +33,7 @@ Dans HockeyApp, ouvrez Paramètres de compte, [Jetons d’API](https://rink.hock
 
 ![Obtenir un jeton d’API HockeyApp](./media/hockeyapp-bridge-app/01.png)
 
-Ouvrez le portail Microsoft Azure et [créez une ressource Application Insights](../../application-insights/app-insights-create-new-resource.md). Définissez la valeur Type d’application sur « Application de pont HockeyApp » :
+Ouvrez le portail Microsoft Azure et [créez une ressource Application Insights](../../azure-monitor/app/create-new-resource.md ). Définissez la valeur Type d’application sur « Application de pont HockeyApp » :
 
 ![Nouvelle ressource Application Insights](./media/hockeyapp-bridge-app/02.png)
 

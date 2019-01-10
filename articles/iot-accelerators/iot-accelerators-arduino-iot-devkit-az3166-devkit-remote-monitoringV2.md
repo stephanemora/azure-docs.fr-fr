@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: b14a36e79488f586173a6f4c8b81a24d8ce24806
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: eb2a6692c0b00dc4419c601228453a8cfc44c02a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727494"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156780"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Connecter un appareil IoT DevKit à l’accélérateur de solution de supervision à distance
 
@@ -122,7 +122,7 @@ Si vous n’avez plus besoin de l’accélérateur de solution, supprimez-le de 
 Si vous rencontrez des problèmes, consultez les [FAQ IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) ou contactez-nous sur les canaux suivants :
 
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Dépassement de capacité de la pile](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

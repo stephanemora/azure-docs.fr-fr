@@ -11,16 +11,16 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: a92d2cb5f6abc73dc768567d239ec38554e493b4
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 986a05dab29226ff492269587ab6c0f49585cef6
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001581"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119905"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Surveiller et déboguer une application .NET Azure Batch avec Application Insights
 
-[Application Insights](../application-insights/app-insights-overview.md) est un moyen élégant et puissant permettant aux développeurs de surveiller et de déboguer les applications déployées sur les services Azure. Utilisez Application Insights pour surveiller les compteurs de performances et les exceptions, ainsi que pour instrumenter votre code avec un suivi et des métriques personnalisés. L’intégration d’Application Insights dans votre application Azure Batch vous permet d’obtenir des informations détaillées sur les comportements et d’étudier les problèmes en quasi temps réel.
+[Application Insights](../azure-monitor/app/app-insights-overview.md) est un moyen élégant et puissant permettant aux développeurs de surveiller et de déboguer les applications déployées sur les services Azure. Utilisez Application Insights pour surveiller les compteurs de performances et les exceptions, ainsi que pour instrumenter votre code avec un suivi et des métriques personnalisés. L’intégration d’Application Insights dans votre application Azure Batch vous permet d’obtenir des informations détaillées sur les comportements et d’étudier les problèmes en quasi temps réel.
 
 Cet article explique comment ajouter et configurer la bibliothèque Application Insights dans votre solution .NET Azure Batch et instrumenter le code de votre application. Il montre également comment surveiller votre application à l’aide du portail Azure et créer des tableaux de bord personnalisés. Pour la prise en charge d’Application Insights dans d’autres langages, consultez [Analyse développeur : langages, plateformes et intégrations](../azure-monitor/app/platforms.md).
 
@@ -35,11 +35,11 @@ Un exemple de solution C# avec du code pour accompagner cet article est disponib
 
 * [Compte Batch et compte de stockage lié](batch-account-create-portal.md)
 
-* [Ressource Application Insights](../application-insights/app-insights-create-new-resource.md)
+* [Ressource Application Insights](../azure-monitor/app/create-new-resource.md )
   
    * Utilisez le portail Azure pour créer une *ressource* Application Insights. Sélectionnez *Général* dans **Type d’application**.
 
-   * Copiez la [clé d’instrumentation](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) à partir du portail. Vous en aurez besoin plus loin dans cet article.
+   * Copiez la [clé d’instrumentation](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) à partir du portail. Vous en aurez besoin plus loin dans cet article.
   
   > [!NOTE]
   > Les données stockées dans Application Insights peuvent faire l’objet d’une [facturation](https://azure.microsoft.com/pricing/details/application-insights/). Cela inclut les données de diagnostic et de surveillance traitées dans cet article.
@@ -338,11 +338,11 @@ pool.StartTask = new StartTask()
 
 ## <a name="throttle-and-sample-data"></a>Limiter et échantillonner les données 
 
-En raison de l’envergure des applications Azure Batch exécutées en production, vous pouvez limiter la quantité de données collectées par Application Insights pour gérer les coûts. Pour plus d’informations sur certains de ces mécanismes, consultez [Échantillonnage dans Application Insights](../application-insights/app-insights-sampling.md).
+En raison de l’envergure des applications Azure Batch exécutées en production, vous pouvez limiter la quantité de données collectées par Application Insights pour gérer les coûts. Pour plus d’informations sur certains de ces mécanismes, consultez [Échantillonnage dans Application Insights](../azure-monitor/app/sampling.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur [Application Insights](../application-insights/app-insights-overview.md).
+* En savoir plus sur [Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 * Pour la prise en charge d’Application Insights dans d’autres langages, consultez [Analyse développeur : langages, plateformes et intégrations](../azure-monitor/app/platforms.md).
 

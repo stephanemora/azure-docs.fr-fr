@@ -1,7 +1,7 @@
 ---
 title: Description d’images - Vision par ordinateur
 titleSuffix: Azure Cognitive Services
-description: Concepts liés à la description d’images à l’aide de l’API Vision par ordinateur.
+description: Concepts liés à la description d’images de l’API Vision par ordinateur.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 423d1be57bc800108a08a81b72587ca2711bbc3d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 5b920e4ce8df131b81a9ef6ce2d66c7082d8f5e4
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342413"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583406"
 ---
-# <a name="describing-images"></a>Description des images
+# <a name="describe-images-with-human-readable-language"></a>Décrire les images dans le langage humain
 
 Les algorithmes de la Vision par ordinateur analysent le contenu d’une image. L’analyse constitue la description essentielle qui est affichée sous forme de texte lisible par l’homme (phrases complètes). La description résume les éléments identifiés dans l’image. Les algorithmes de la Vision par ordinateur génèrent différentes descriptions selon les éléments visuels identifiés dans l’image. Chacune des descriptions est évaluée, et un indice de confiance est généré. Une liste est ensuite renvoyée, classée du score de confiance plus élevé au plus bas.
 
@@ -25,7 +26,7 @@ Les algorithmes de la Vision par ordinateur analysent le contenu d’une image. 
 
 La réponse JSON suivante montre la description de l’image qui est retournée par la Vision par ordinateur, sur la base des éléments visuels qu’elle contient.
 
-![Bâtiments B&W](./Images/bw_buildings.png)
+![Image noir et blanc représentant des immeubles de Manhattan](./Images/bw_buildings.png)
 
 ```json
 {

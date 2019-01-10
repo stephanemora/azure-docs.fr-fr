@@ -7,27 +7,27 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 57832b59d8b43f5aa157b278e67c50b25084c86c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 8b86f79cb5af34105a666613152acc0acfb08f56
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962833"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808925"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Connecter Qlik Sense à Azure Cosmos DB et visualiser vos données
 
 Qlik Sense est un outil de visualisation de données qui regroupe des données provenant de différentes sources dans une même vue. Qlik Sense indexe chaque relation possible dans vos données, ce qui vous permet d’obtenir immédiatement des insights sur les données. Vous pouvez visualiser les données d’Azure Cosmos DB à avec Qlik Sense. Cet article décrit les étapes nécessaires pour connecter Azure Cosmos DB à Qlik Sense et pour visualiser vos données. 
 
 > [!NOTE]
-> La connexion de Qlik Sense à Azure Cosmos DB est prise en charge seulement pour les comptes des API SQL Azure Cosmos DB et MongoDB.
+> La connexion de Qlik Sense à Azure Cosmos DB est prise en charge seulement pour les comptes des API SQL et Azure Cosmos DB pour MongoDB.
 
 Vous pouvez connecter Qlik Sense à Azure Cosmos DB avec :
 
 * L’API SQL de Cosmos DB en utilisant le connecteur ODBC.
 
-* L’API MongoDB de Cosmos DB en utilisant le connecteur Qlik Sense MongoDB (actuellement en préversion).
+* L’API Azure Cosmos DB pour MongoDB en utilisant le connecteur Qlik Sense MongoDB (actuellement en préversion).
 
-* L’API MongoDB et l’API SQL de Cosmos DB en utilisant le connecteur de l’API REST dans Qlik Sense.
+* L’API d’Azure Cosmos DB pour MongoDB et l’API SQL en utilisant le connecteur de l’API REST dans Qlik Sense.
 
 * L’API MongoDB de Cosmos DB en utilisant le connecteur gRPC pour Qlik Core.
 Cet article décrit les détails de la connexion à l’API SQL de Cosmos DB avec le connecteur ODBC.

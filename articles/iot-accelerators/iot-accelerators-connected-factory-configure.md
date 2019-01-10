@@ -1,5 +1,5 @@
 ---
-title: Configurer la topologie d’Usine connectée | Microsoft Docs
+title: Configurer la topologie d’usine connectée - Azure | Microsoft Docs
 description: Cet article explique comment configurer la topologie d’un accélérateur de solution Usine connectée.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 8cb3cae396016545c5d78a2ff7ccde4a053c4cf1
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746977"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602271"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurer l’accélérateur de solution Usine connectée
 
@@ -85,7 +85,7 @@ L’extrait de code suivant montre un plan du fichier de configuration `ContosoT
 }
 ```
 
-Les propriétés communes de `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>`, et `<station_configuration>` sont :
+Les propriétés communes de  `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` et `<station_configuration>` sont :
 
 * **Name** (de type chaîne)
 
@@ -282,7 +282,7 @@ Les valeurs de l’OEE/du KPI relatives à la simulation d’Usine connectée so
 * Les valeurs du nœud OPC UA à inclure dans le calcul.
 * Comment la valeur est calculée à partir des valeurs de télémétrie.
 
-L’Usine connectée utilise les formules OEE publiées par l’OEE Foundation : http://www.oeefoundation.org.
+L’Usine connectée utilise les formules OEE publiées par l’OEE Foundation : https://www.oeefoundation.org.
 
 Les objets du nœud OPC UA des postes activent le balisage pour une utilisation dans le calcul de l’OEE/du KPI. La propriété **Relevance** indique pour quelle valeur d’OEE/de KPI la valeur du nœud OPC UA doit être utilisée. La propriété **OpCode** définit la manière dont la valeur est incluse dans le calcul.
 
@@ -309,7 +309,7 @@ Pour certaines opérations, telles que la visualisation de la dernière valeur o
 
 Pour obtenir plus d’informations sur la façon dont les données de télémétrie sont intégrées à l’Usine connectée avec OPC Publisher, consultez [cette page](https://github.com/Azure/iot-edge-opc-publisher) GitHub.
 
-## <a name="example-how-kpi1-is-calculated"></a>Exemple : mode de calcul de KPI1
+## <a name="example-how-kpi1-is-calculated"></a>Exemple : Mode de calcul de KPI1
 
 La configuration du fichier `ContosoTopologyDescription.json` contrôle la façon dont les valeurs de l’OEE/du KPI sont calculées. L’exemple suivant montre comment les propriétés de ce fichier contrôlent le calcul de KPI1.
 
@@ -330,7 +330,7 @@ Cette configuration permet d’interroger les valeurs de télémétrie de ce nœ
 
 * Le nombre de valeurs.
 * La valeur minimale.
-* La valeur minimale.
+* La valeur maximale.
 * La moyenne de toutes les valeurs.
 * La somme de toutes les valeurs pour toutes les paires **OpcUri** (**ApplicationUri**), **NodeId** uniques d’un intervalle de temps donné.
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
-ms.reviewer: MightyPen
+ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 034fd2434d3b824c4356e640a1c1665dff542de6
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4b2c9f17bc9c6e9bbc280116d074bd0f1e3d3e38
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056589"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606042"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Explorer des analyses SaaS avec Azure SQL Database,SQL Data Warehouse, Data Factory et Power BI
 
@@ -142,11 +142,11 @@ Cette section traite des objets créés dans la fabrique de données. L’illust
 Dans la page Vue d’ensemble, basculez vers l’onglet **Auteur** dans le volet gauche et observez qu’il y a trois [pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) et trois [jeux de données](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) créés.
 ![adf_author](media/saas-tenancy-tenant-analytics/adf_author_tab.JPG)
 
-Les trois pipelines imbriqués sont : SQLDBToDW, DBCopy et TableCopy.
+Les trois pipelines imbriqués sont : SQLDBToDW, DBCopy et TableCopy.
 
 **Pipeline 1 - SQLDBToDW** recherche les noms des bases de données client stockés dans la base de données de catalogue (nom de la table : [__ShardManagement].[ShardsGlobal]) et pour chaque base de données client, exécutez le pipeline **DBCopy**. À l’achèvement, le schéma fourni de la procédure stockée **sp_TransformExtractedData** est exécuté. Cette procédure stockée transforme les données chargées dans les tables de mise en lots et remplit les tables du schéma en étoile.
 
-**Pipeline 2 - DBCopy** recherche les noms des tables et des colonnes sources à partir d’un fichier de configuration stocké dans le stockage d’objets blob.  Le pipeline **TableCopy** est ensuite exécuté pour chacune des quatre tables : TicketFacts, CustomerFacts, EventFacts et VenueFacts. L’activité **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** s’exécute en parallèle pour l’ensemble des 20 bases de données. ADF autorise un maximum de 20 itérations de boucle à exécuter en parallèle. Envisagez de créer plusieurs pipelines pour un plus grand nombre de bases de données.    
+**Pipeline 2 - DBCopy** recherche les noms des tables et des colonnes sources à partir d’un fichier de configuration stocké dans le stockage d’objets blob.  Le pipeline **TableCopy** est ensuite exécuté pour chacune des quatre tables : TicketFacts CustomerFacts, EventFacts et VenueFacts. L’activité **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** s’exécute en parallèle pour l’ensemble des 20 bases de données. ADF autorise un maximum de 20 itérations de boucle à exécuter en parallèle. Envisagez de créer plusieurs pipelines pour un plus grand nombre de bases de données.    
 
 **Pipeline 3 - tableauCopier** utilise les numéros de version des lignes dans SQL Database (_rowversion_) pour identifier les lignes modifiées ou mises à jour. Cette activité recherche la version de la ligne du début et de fin pour extraire des lignes à partir des tables sources. La table **CopyTracker** stockée dans chaque base de données client effectue le suivi de la dernière ligne extraite à partir de chaque table source durant chaque exécution. Les lignes nouvelles ou modifiées sont copiées dans les tables de mise en lots correspondantes dans l’entrepôt de données : **raw_Tickets**, **raw_customers**, **raw_Events** et **raw_Venues**. Enfin, la version de la dernière ligne est enregistrée dans la table **CopyTracker** pour l’utiliser comme version de la ligne initiale lors de la prochaine extraction. 
 

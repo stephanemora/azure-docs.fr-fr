@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5e882bf0a9b7cbc8a3e96c0184cc1ad53893e989
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 15a3073cde3f9e9ec8c70212cc3b1a591e703915
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999218"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052221"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>La gestion des alertes et la supervision unifiées dans Azure Monitor remplace la gestion des alertes et la supervision classiques
 
@@ -51,7 +51,7 @@ Les anciennes supervision et gestion des alertes classiques seront mises hors se
 
 - Les anciennes métriques et alertes (classiques) pour les ressources Azure telles que disponibles par le biais de la [section Alertes (classiques)](../../azure-monitor/platform/alerts-classic.overview.md) du portail Azure et accessibles en tant que ressource [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)
 - Les anciennes métriques personnalisées et de plateforme (classiques) pour Application Insights ainsi que la gestion des alertes définies dessus, telles que disponibles par le biais de la [section Alertes (classiques)](../../azure-monitor/platform/alerts-classic.overview.md) du portail Azure et accessibles en tant que ressource [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)
-- L’ancienne alerte Anomalies d’échecs (classique) actuellement disponible sous forme de [détection intelligente au sein d’Application Insights](../../application-insights/app-insights-proactive-diagnostics.md) sur le portail Azure, avec des alertes configurées affichées dans la [section Alertes (classiques)](../../azure-monitor/platform/alerts-classic.overview.md) du portail Azure
+- L’ancienne alerte Anomalies d’échecs (classique) actuellement disponible sous forme de [détection intelligente au sein d’Application Insights](../../azure-monitor/app/proactive-diagnostics.md) sur le portail Azure, avec des alertes configurées affichées dans la [section Alertes (classiques)](../../azure-monitor/platform/alerts-classic.overview.md) du portail Azure
 
 Tous les systèmes de supervision et de gestion des alertes classiques, dont l’[API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md), [CLI](../../azure-monitor/platform/alerts-classic-portal.md), la [page du portail Azure](../../azure-monitor/platform/alerts-classic-portal.md) et le [modèle de ressource](../../azure-monitor/platform/alerts-enable-template.md) correspondants resteront utilisables jusqu’à fin juin 2019. 
 

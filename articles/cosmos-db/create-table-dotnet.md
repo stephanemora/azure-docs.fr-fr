@@ -1,21 +1,19 @@
 ---
 title: 'Démarrage rapide : API Table avec .NET - Azure Cosmos DB'
 description: Ce guide de démarrage rapide montre comment utiliser l’API Table d’Azure Cosmos DB pour créer une application avec le portail Azure et .NET
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-table
-ms.custom: quickstart connect, mvc
+ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: 22b2f247de97a0bf0b4a145062c7b92fec61ee9a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 453c3ce2d813093e087bea67056036f9125941c6
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074976"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038600"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application d’API Table avec .NET et Azure Cosmos DB 
 

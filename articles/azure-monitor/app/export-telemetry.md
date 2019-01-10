@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c93b23e3b06afe754ea1ca2472806d26c70f4c92
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c2374bd0d67115bdc9fef2b6937f7b087bc581de
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973262"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076771"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exporter la télémétrie depuis Application Insights
 Vous souhaitez conserver votre télémétrie plus longtemps que la période de rétention standard ? Ou la traiter d’une façon spécialisée ? L’exportation continue est idéale dans ce cas. Les événements que vous voyez dans le portail Application Insights peuvent être exportés vers le stockage Microsoft Azure au format JSON. À partir de là, vous pouvez télécharger vos données et écrire le code pour pouvoir les traiter.  
@@ -27,7 +27,7 @@ Avant de configurer l’exportation continue, d’autres options doivent être p
 * Le bouton Exporter en haut d’un panneau de métriques ou de recherche permet de transférer des tables et des graphiques dans une feuille de calcul Excel.
 
 * [Analytics](../../azure-monitor/app/analytics.md) fournit un puissant langage de requête pour la télémétrie et peut également en exporter les résultats.
-* Si vous cherchez à [explorer vos données dans Power BI](../../application-insights/app-insights-export-power-bi.md), vous pouvez le faire sans utiliser l’exportation continue.
+* Si vous cherchez à [explorer vos données dans Power BI](../../azure-monitor/app/export-power-bi.md ), vous pouvez le faire sans utiliser l’exportation continue.
 * [L’API REST d’accès aux données](https://dev.applicationinsights.io/) vous permet d’accéder à vos données de télémétrie par programme.
 * Vous pouvez également configurer [l’exportation continue par le biais de Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 
@@ -71,14 +71,14 @@ Pour arrêter définitivement l’exportation, supprimez-la simplement. Cette op
 ## <a name="analyze"></a> Quels sont les événements que vous obtenez ?
 Les données exportées sont les données de télémétrie brutes que nous recevons de votre application. Toutefois, nous ajoutons les données d’emplacement que nous calculons à partir de l’adresse IP du client.
 
-Les données qui ont été ignorées par l’ [échantillonnage](../../application-insights/app-insights-sampling.md) ne sont pas incluses dans les données exportées.
+Les données qui ont été ignorées par l’ [échantillonnage](../../azure-monitor/app/sampling.md) ne sont pas incluses dans les données exportées.
 
 Les autres mesures calculées ne sont pas incluses. Par exemple, nous n’exportons pas l’utilisation moyenne du processeur, mais nous exportons la télémétrie brute à partir de laquelle la moyenne est calculée.
 
 Les données incluent également les résultats de n’importe quel [test web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md) que vous avez configuré.
 
 > [!NOTE]
-> **Échantillonnage.** Si votre application envoie beaucoup de données, la fonctionnalité d’échantillonnage peut fonctionner et envoyer seulement une partie des données de télémétrie générées. [En savoir plus sur l'échantillonnage.](../../application-insights/app-insights-sampling.md)
+> **Échantillonnage.** Si votre application envoie beaucoup de données, la fonctionnalité d’échantillonnage peut fonctionner et envoyer seulement une partie des données de télémétrie générées. [En savoir plus sur l'échantillonnage.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -194,4 +194,4 @@ L’exportation continue redémarre.
 <!--Link references-->
 
 [exportasa]: ../../azure-monitor/app/code-sample-export-sql-stream-analytics.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md

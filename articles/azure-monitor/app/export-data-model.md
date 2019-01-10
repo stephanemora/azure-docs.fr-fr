@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/21/2016
+ms.date: 01/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2ce302f78de2cd344c82300a808b125c3443179f
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 12025dfb93bbcfc86ae301f8fb63e7ac74697cf2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000034"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119270"
 ---
 # <a name="application-insights-export-data-model"></a>Modèle d’exportation de données Application Insights
-Cette table répertorie les propriétés de télémétrie envoyées à partir des Kits SDK [Application Insights](../../application-insights/app-insights-overview.md) au portail.
+Cette table répertorie les propriétés de télémétrie envoyées à partir des Kits SDK [Application Insights](../../azure-monitor/app/app-insights-overview.md) au portail.
 Vous verrez ces propriétés dans les données issues d’une [exportation continue](export-telemetry.md).
 Elles apparaissent également dans les filtres de propriétés, dans [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) et dans [Recherche de diagnostic](../../azure-monitor/app/diagnostic-search.md).
 
@@ -130,9 +130,11 @@ Tous les types de données de télémétrie sont accompagnés d’une section de
 | context.device.locale |chaîne |en-GB, de-DE, ... |
 | context.device.network |chaîne | |
 | context.device.oemName |chaîne | |
+| context.device.os |chaîne | |
 | context.device.osVersion |chaîne |Système d’exploitation hôte |
 | context.device.roleInstance |chaîne |ID de l’hôte du serveur |
 | context.device.roleName |chaîne | |
+| context.device.screenResolution |chaîne | |
 | context.device.type |chaîne |PC, navigateur... |
 | context.location |objet |Dérivé de clientip. |
 | context.location.city |chaîne |Dérivé de clientip, si connu |
@@ -146,10 +148,13 @@ Tous les types de données de télémétrie sont accompagnés d’une section de
 | context.session.id |chaîne |ID d’un groupe d’opérations de la même source. Une période de 30 minutes sans opération signale la fin d’une session. |
 | context.session.isFirst |booléenne | |
 | context.user.accountAcquisitionDate |chaîne | |
+| context.user.accountId |chaîne | |
 | context.user.anonAcquisitionDate |chaîne | |
 | context.user.anonId |chaîne | |
 | context.user.authAcquisitionDate |chaîne |[Utilisateur authentifié](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
+| context.user.authId |chaîne | |
 | context.user.isAuthenticated |booléenne | |
+| context.user.storeRegion |chaîne | |
 | internal.data.documentVersion |chaîne | |
 | internal.data.id |chaîne | ID unique assigné lorsqu’un élément est ingéré dans Application Insights |
 
@@ -158,7 +163,7 @@ Tous les types de données de télémétrie sont accompagnés d’une section de
 
 | path | type | Notes |
 | --- | --- | --- |
-| event [0] count |integer |100 / (taux d’[échantillonnage](../../application-insights/app-insights-sampling.md) ). Par exemple, 4 =&gt; 25 %. |
+| event [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | event [0] name |chaîne |Nom de l’événement.  Longueur maximale 250. |
 | event [0] url |chaîne | |
 | event [0] urlData.base |chaîne | |
@@ -170,7 +175,7 @@ Signale des [exceptions](../../azure-monitor/app/asp-net-exceptions.md) sur le s
 | path | type | Notes |
 | --- | --- | --- |
 | basicException [0] assembly |chaîne | |
-| basicException [0] count |integer |100 / (taux d’[échantillonnage](../../application-insights/app-insights-sampling.md) ). Par exemple, 4 =&gt; 25 %. |
+| basicException [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | basicException [0] exceptionGroup |chaîne | |
 | basicException [0] exceptionType |chaîne | |
 | basicException [0] failedUserCodeMethod |chaîne | |
@@ -211,7 +216,7 @@ Envoyé par TrackDependency. Utilisé pour consigner les performances et l’uti
 | remoteDependency [0] async |booléenne | |
 | remoteDependency [0] baseName |chaîne | |
 | remoteDependency [0] commandName |chaîne |Par exemple, « home/index » |
-| remoteDependency [0] count |integer |100 / (taux d’[échantillonnage](../../application-insights/app-insights-sampling.md) ). Par exemple, 4 =&gt; 25 %. |
+| remoteDependency [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | remoteDependency [0] dependencyTypeName |chaîne |HTTP, SQL, ... |
 | remoteDependency [0] durationMetric.value |number |Délai de l’appel à la fin de la réponse par la dépendance |
 | remoteDependency [0] id |chaîne | |
@@ -229,7 +234,7 @@ Envoyées par [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.m
 
 | path | type | Notes |
 | --- | --- | --- |
-| request [0] count |integer |100 / (taux d’[échantillonnage](../../application-insights/app-insights-sampling.md) ). Par exemple :  4 =&gt; 25 %. |
+| request [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple :  4 =&gt; 25 %. |
 | request [0] durationMetric.value |number |Délai entre l’arrivée de la requête et la réponse. 1e7 = 1s |
 | request [0] id |chaîne |ID d’opération |
 | request [0] name |chaîne |GET/POST + base d’URL  Longueur maximale 250 |
@@ -264,7 +269,7 @@ Envoyé par trackPageView() ou [stopTrackPage](../../azure-monitor/app/api-custo
 
 | path | type | Notes |
 | --- | --- | --- |
-| view [0] count |integer |100 / (taux d’[échantillonnage](../../application-insights/app-insights-sampling.md) ). Par exemple, 4 =&gt; 25 %. |
+| view [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | view [0] durationMetric.value |integer |Valeur éventuellement définie dans trackPageView() ou par startTrackPage() - stopTrackPage(). Pas identique aux valeurs clientPerformance. |
 | view [0] name |chaîne |Titre de la page.  Longueur maximale 250 |
 | view [0] url |chaîne | |
@@ -279,7 +284,7 @@ Consigne les [tests web de disponibilité](../../azure-monitor/app/monitor-web-a
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |chaîne |Availability |
 | availability [0] availabilityMetric.value |number |1.0 ou 0.0 |
-| availability [0] count |integer |100 / (taux d’[échantillonnage](../../application-insights/app-insights-sampling.md) ). Par exemple, 4 =&gt; 25 %. |
+| availability [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | availability [0] dataSizeMetric.name |chaîne | |
 | availability [0] dataSizeMetric.value |integer | |
 | availability [0] durationMetric.name |chaîne | |
@@ -341,12 +346,12 @@ Les autres champs ont vocation à autoriser l’agrégation des mesures dans le 
 
 Dans les tableaux ci-dessus, nous avons volontairement omis les champs rarement utilisés count, min, max, stdDev et sampledValue.
 
-Au lieu de pré-agréger les mesures, vous pouvez utiliser l’ [échantillonnage](../../application-insights/app-insights-sampling.md) si vous avez besoin de réduire le volume de télémétrie.
+Au lieu de pré-agréger les mesures, vous pouvez utiliser l’ [échantillonnage](../../azure-monitor/app/sampling.md) si vous avez besoin de réduire le volume de télémétrie.
 
 ### <a name="durations"></a>Durées
 Sauf mention contraire, les durées sont indiquées en dixièmes de microseconde. Ainsi, 10000000.0 représente 1s.
 
 ## <a name="see-also"></a>Voir aussi
-* [Application Insights](../../application-insights/app-insights-overview.md)
+* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 * [Exportation continue](export-telemetry.md)
 * [Exemples de code](export-telemetry.md#code-samples)

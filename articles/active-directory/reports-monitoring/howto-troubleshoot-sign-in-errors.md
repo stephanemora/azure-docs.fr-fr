@@ -13,14 +13,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2bba11cd8b0e90f7835872e496c790aa56fcddc8
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 47a89da808e2f53cf8dfc901c64eba3d78842d13
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276898"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652028"
 ---
-# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Guide pratique pour résoudre les erreurs de connexion avec les rapports Azure Active Directory
+# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Activation Résoudre les erreurs de connexion avec les rapports Azure Active Directory
 
 Le [rapport des connexions](concept-sign-ins.md) dans Azure Active Directory (Azure AD) vous permet de trouver les réponses aux questions sur la gestion de l’accès aux applications dans votre organisation, notamment :
 
@@ -35,7 +35,7 @@ En outre, le rapport des connexions peut également vous aider à résoudre les 
 
 Ce dont vous avez besoin :
 
-* Un locataire Azure AD avec une licence Premium (P1/P2). 
+* Un locataire Azure AD avec une licence Premium (P1/P2). Consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) pour mettre à niveau votre édition d’Azure Active Directory.
 * Un utilisateur dans le rôle **Administrateur général**, **Administrateur de la sécurité**, **Lecteur Sécurité** ou **Lecteur de rapport** pour le locataire. De plus, tout utilisateur peut accéder à ses propres connexions. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Résoudre les erreurs de connexion avec le rapport des connexions

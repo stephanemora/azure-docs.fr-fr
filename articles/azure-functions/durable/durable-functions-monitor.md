@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4322841f126e4aa017b4d901cbfb1afd39e5bccf
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f68c3797d5425c496e38c1000cc39e3868d41739
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342570"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727035"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scénario de surveillance dans l’extension Fonctions durables - Exemple d’observateur météo
 
@@ -175,6 +175,9 @@ POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf6
 ## <a name="visual-studio-sample-code"></a>Exemple de code Visual Studio
 
 Voici l’orchestration, présentée sous la forme d’un seul fichier C# dans un projet Visual Studio :
+
+> [!NOTE]
+> Vous devrez installer le package `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget pour exécuter l’exemple de code ci-dessous.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs)]
 

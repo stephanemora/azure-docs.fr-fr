@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 22032f9d2e60d3c51546c32df8b98f9633c95535
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 4bcb71829b2fb5f35398f36dee36d4e98c5a609b
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726531"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106731"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Considérations liées à la planification du déploiement d’Azure Stack
 Avant de déployer le kit de développement Azure Stack (ASDK), vérifiez que l’ordinateur hôte du kit de développement répond à la configuration requise décrite dans cet article.
@@ -82,7 +82,7 @@ Si vous effectuez le déploiement avec l’option AD FS, vous devez redéployer
 ### <a name="azure-active-directory-accounts"></a>Comptes Azure Active Directory
 Pour déployer Azure Stack en utilisant un compte Azure AD, vous devez préparer ce compte avant d’exécuter le script de déploiement PowerShell. Ce compte devient administrateur général pour le locataire Azure AD. Il est utilisé pour provisionner et déléguer des applications et des principaux de service pour tous les services Azure Stack qui interagissent avec Azure Active Directory et l’API Graph. Il est également propriétaire de l’abonnement du fournisseur par défaut (vous pouvez changer ce paramètre ultérieurement). Vous pouvez utiliser ce compte pour vous connecter au portail de l’administrateur de votre système Azure Stack.
 
-1. Créez un compte Azure AD qui est administrateur d’au moins un annuaire Azure AD. Si vous en avez déjà un, vous pouvez l’utiliser. Sinon, vous pouvez en créer un gratuitement à l’adresse [https://azure.microsoft.com/free/](https://azure.microsoft.com/pricing/free/) (pour la Chine, rendez-vous sur le site <http://go.microsoft.com/fwlink/?LinkID=717821>). Si vous prévoyez [d’inscrire Azure Stack auprès d’Azure](asdk-register.md) ultérieurement, vous devez également avoir un abonnement avec ce nouveau compte.
+1. Créez un compte Azure AD qui est administrateur d’au moins un annuaire Azure AD. Si vous en avez déjà un, vous pouvez l’utiliser. Sinon, vous pouvez en créer un gratuitement à l’adresse [https://azure.microsoft.com/free/](https://azure.microsoft.com/pricing/free/) (pour la Chine, rendez-vous sur le site <https://go.microsoft.com/fwlink/?LinkID=717821>). Si vous prévoyez [d’inscrire Azure Stack auprès d’Azure](asdk-register.md) ultérieurement, vous devez également avoir un abonnement avec ce nouveau compte.
    
     Enregistrez ces informations d’identification afin de les utiliser en tant qu’administrateur du service. Vous pouvez utiliser ce compte pour configurer et gérer les clouds de ressources, les comptes d’utilisateur, les plans de locataire, les quotas et les tarifs. Dans le portail, il peut créer des clouds de sites web, des clouds privés de machine virtuelle, des plans et gérer les abonnements des utilisateurs.
 1. Créez au moins un compte d’utilisateur de test dans Azure AD avec lequel vous pouvez vous connecter au kit de développement en tant que locataire.

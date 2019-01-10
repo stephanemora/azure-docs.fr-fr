@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 12/05/2018
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 46618b76f43247199e85c2023a5391c5566f3394
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 711688b5b414e7b9a931190de3f7e6321d97ba3e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978737"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53729337"
 ---
 ## <a name="quickstarts-and-tutorials"></a>Guides de démarrages rapides et tutoriels
 
@@ -39,6 +39,7 @@ Utilisez les guides de démarrage rapide et les didacticiels suivants pour appre
     |------|-----|
     |[Utiliser la référence de modèle](../articles/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)|Utilisez la documentation de référence du modèle pour développer des modèles. Dans ce didacticiel, trouvez le schéma de compte de stockage et utilisez ces informations pour créer un compte de stockage chiffré.|
     |[Créer plusieurs instances](../articles/azure-resource-manager/resource-manager-tutorial-create-multiple-instances.md)|Créez plusieurs instances de ressources Azure. Dans ce didacticiel, vous créez plusieurs instances de compte de stockage.|
+    |[Déplacer des ressources](../articles/azure-resource-manager/resource-manager-tutorial-move-resources.md)|Déplacez des ressources d’un groupe de ressources vers un autre groupe de ressources. Dans le didacticiel, vous exécutez un modèle pour créer deux groupes de ressources et un compte de stockage, puis exécutez un cmdlet Azure PowerShell pour déplacer le compte de stockage vers l’autre groupe de ressources.|
     |[Définir l’ordre de déploiement des ressources](../articles/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources.md)|Définir les dépendances des ressources. Dans ce didacticiel, vous créez un réseau virtuel, une machine virtuelle et les ressources Azure dépendantes. Vous découvrez comment les dépendances sont définies.|
     |[Utiliser des conditions](../articles/azure-resource-manager/resource-manager-tutorial-use-conditions.md)|Déployer des ressources basées sur certaines valeurs de paramètres. Dans ce didacticiel, vous définissez un modèle pour créer un nouveau compte de stockage ou utilisez un compte de stockage existant basé sur la valeur d’un paramètre.|
     |[Intégrer Key Vault](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|Récupérer des données secrètes/mots de passe depuis Azure Key Vault. Dans ce didacticiel, vous créez une machine virtuelle.  Le mot de passe d’administrateur de la machine virtuelle est récupéré depuis un Key Vault.|

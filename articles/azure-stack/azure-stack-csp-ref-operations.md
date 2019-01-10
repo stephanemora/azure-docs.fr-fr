@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 1/08/2019
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 67e1e22bc5569e7d6e20332ee86ffe4c7dd6a354
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 6d28eea434b081602f0e2455b22fcc58022a800e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343841"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117111"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gérer l’inscription des locataires dans Azure Stack
 
@@ -59,7 +59,7 @@ Pour plus d’informations sur Azure Stack et les profils d’API, consultez [G�
 
 ### <a name="powershell"></a>PowerShell
 
-Utilisez la cmdlet New-AzureRmResource pour mettre à jour la ressource de l’inscription. Connectez-vous à Azure (`Add-AzureRmAccount`) avec le compte utilisé lors de l’inscription initiale. Voici un exemple d’ajout d’un locataire :
+Utilisez la cmdlet New-AzureRmResource pour mettre à jour la ressource de l’inscription. Voici un exemple d’ajout d’un locataire :
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -67,10 +67,10 @@ Utilisez la cmdlet New-AzureRmResource pour mettre à jour la ressource de l’i
 
 ### <a name="api-call"></a>Appel d’API
 
-**Opération** : PUT  
+**Opération** : PUT  
 **RequestURI** : `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**Réponse** : 201 a été créé  
+**Réponse**: 201 Créé  
 **Corps de réponse** : Vide  
 
 ## <a name="list-all-registered-tenants"></a>Répertorier tous les locataires inscrits
@@ -100,11 +100,11 @@ Utilisez l’applet de commande Get-AzureRmResource pour répertorier tous les l
 
 Vous pouvez obtenir une liste de tous les mappages de locataires à l’aide de l’opération GET
 
-**Opération** : GET  
+**Opération** : GET  
 **RequestURI** : `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?  
 api-version=2017-06-01 HTTP/1.1`  
-**Réponse** : 200  
+**Réponse**: 200  
 **Corps de réponse** : 
 
 ```JSON  
@@ -149,11 +149,11 @@ Vous pouvez supprimer un locataire qui a été ajouté à une inscription. Si ce
 
 Vous pouvez supprimer des mappages de locataires à l’aide de l’opération DELETE.
 
-**Opération** : DELETE  
+**Opération** : SUPPRIMER  
 **RequestURI** : `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**Réponse**: 204, aucun contenu  
+**Réponse**: 204 Pas de contenu  
 **Corps de réponse** : Vide
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 06981972dbdb95b8597bab5028c2d86e0594caf3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2c8d4486b235534db2bb7d06206d5767c1496fbd
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106037"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754388"
 ---
-# <a name="tutorial-2-batch-test-data-sets"></a>Tutoriel 2 : Tester des jeux de données par lot
+# <a name="tutorial-batch-test-data-sets"></a>Tutoriel : Tester des jeux de données par lot
 
 Ce tutoriel montre comment utiliser des tests par lot pour rechercher et résoudre les problèmes de prédiction d’énoncés dans votre application.  
 
@@ -32,11 +32,11 @@ Exigences des tests de lots :
 
 Si vous utilisez une application autre que ce tutoriel, *n’utilisez pas* les exemples d’énoncés déjà ajoutés à une intention. 
 
-**Dans ce tutoriel, vous allez effectuer les tâches suivantes :**
+**Dans ce tutoriel, vous allez découvrir comment :**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Utiliser l’application de tutoriel existante
+> * Importer l’exemple d’application
 > * Créer un fichier de test par lot 
 > * Exécuter un test par lot
 > * Examiner les résultats du test
@@ -45,13 +45,13 @@ Si vous utilisez une application autre que ce tutoriel, *n’utilisez pas* les e
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Utiliser l’application existante
+## <a name="import-example-app"></a>Importer l’exemple d’application
 
 Continuez avec l’application créée dans le dernier tutoriel, nommée **HumanResources**. 
 
-Si vous n’avez pas l’application HumanResources du tutoriel précédent, effectuez les étapes suivantes :
+Procédez comme suit :
 
-1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
+1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
 
 2. Importez le code JSON dans une nouvelle application.
 
@@ -61,7 +61,7 @@ Si vous n’avez pas l’application HumanResources du tutoriel précédent, eff
 
 ## <a name="batch-file"></a>Fichier de commandes
 
-1. Créez `HumanResources-jobs-batch.json` dans un éditeur de texte ou [téléchargez-le](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json). 
+1. Créez `HumanResources-jobs-batch.json` dans un éditeur de texte ou [téléchargez-le](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json). 
 
 2. Dans le fichier de lot au format JSON, ajoutez des énoncés avec **l’intention** à prédire dans le test. 
 
@@ -177,7 +177,7 @@ Il est préférable de commencer à écrire et à tester des fichiers de lots av
 
 La valeur d’une entité **Job**, fournie dans les énoncés de test, est généralement composée d’un ou deux mots, ou plus dans quelques exemples. Si _votre_ application de ressources humaines comporte en général des noms de postes longs, les exemples d’énoncés étiquetés avec l’entité **Job** dans cette application ne fonctionneront pas correctement.
 
-1. Créez `HumanResources-entities-batch.json` dans un éditeur de texte comme [VSCode](https://code.visualstudio.com/) ou [téléchargez-le](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json).
+1. Créez `HumanResources-entities-batch.json` dans un éditeur de texte comme [VSCode](https://code.visualstudio.com/) ou [téléchargez-le](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json).
 
 
 2. Dans le fichier de lot au format JSON, ajoutez un tableau d’objets comportant des énoncés liés à **l’Intention** à prédire dans le test, ainsi que les emplacements des éventuelles entités de l’énoncé. Dans la mesure où les entités se présentent sous forme de tokens, commencez-les et terminez-les par un caractère et non par un espace, car cela provoquerait une erreur lors de l’importation du fichier de lot.  

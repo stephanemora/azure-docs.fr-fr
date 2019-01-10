@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9ab256526ccba3fa84d4979ba536f6b681a7df89
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c47a4d853ba6360fb7f8017b7ad9a59e10040401
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001666"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120850"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pour Services cloud Azure
 [Les applications de service cloud Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) peuvent être surveillées par [Application Insights][start] pour la disponibilité, les performances, les défaillances et l’utilisation en combinant les données des kits de développement logiciel (SDK) d’Application Insights avec les données [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de vos services cloud. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
@@ -217,7 +217,7 @@ Pour obtenir une vue d’ensemble de votre système, vous pouvez rassembler les 
 
 Si votre système utilise d’autres services Azure tels que Stream Analytics, incluez également leurs graphiques de surveillance. 
 
-Si vous avez une application mobile cliente, utilisez [App Center](../../application-insights/app-insights-mobile-center-quickstart.md). Créez des requêtes dans [Analytics](../../azure-monitor/app/analytics.md) pour afficher le nombre d’événements, et épinglez-les au tableau de bord.
+Si vous avez une application mobile cliente, utilisez [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Créez des requêtes dans [Analytics](../../azure-monitor/app/analytics.md) pour afficher le nombre d’événements, et épinglez-les au tableau de bord.
 
 ## <a name="example"></a>Exemples
 [L'exemple](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) analyse un service qui dispose d’un rôle Web et de deux rôles de travail.
@@ -237,11 +237,11 @@ Avez-vous effectué une génération pour .NET 4.6 ? 4.6 n’est pas automatiq
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[azure]: ../../application-insights/app-insights-overview.md
+[azure]: ../../azure-monitor/app/app-insights-overview.md
 [client]: ../../azure-monitor/app/javascript.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
-[qna]: ../../application-insights/app-insights-troubleshoot-faq.md
+[qna]: ../../azure-monitor/app/troubleshoot-faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../application-insights/app-insights-overview.md 
+[start]: ../../azure-monitor/app/app-insights-overview.md 

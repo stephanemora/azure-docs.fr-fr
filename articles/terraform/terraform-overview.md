@@ -4,17 +4,17 @@ description: Présentation de l’utilisation de Terraform pour le contrôle de 
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, vue d’ensemble, planifier, appliquent, automatiser
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: dd340238f8a70c1dd0cfc172976bef6b1ad282b1
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 29b2478844e8810cf2733e5477f4156942d69425
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665627"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074969"
 ---
 # <a name="terraform-with-azure"></a>Terraform avec Azure
 

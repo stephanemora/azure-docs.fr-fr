@@ -4,19 +4,19 @@ description: Découvrez plus d’informations sur les services et les outils dis
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 12/13/2018
-ms.openlocfilehash: 2eb263c6776453c4cae217168af969221485bfa3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9887860470632c37a586cb3029e2ef7d455a3a9c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386789"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713283"
 ---
 # <a name="services-and-tools-available-for-data-migration-scenarios"></a>Services et outils disponibles pour les scénarios de migration de données
 

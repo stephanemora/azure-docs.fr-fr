@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 9d7266e75d863ab5c024217e137566c109e79f70
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 749b4077b457eff836ec515f21d97e892e663156
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997894"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120663"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Modèle de données de télémétrie d’Application Insights
 
-[Azure Application Insights](../../application-insights/app-insights-overview.md) envoie la télémétrie à partir de votre application web sur le portail Azure afin que vous puissiez analyser les performances et l’utilisation de votre application. Le modèle de télémétrie est normalisé afin qu’il soit possible de créer une plateforme et une surveillance indépendante du langage. 
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envoie la télémétrie à partir de votre application web sur le portail Azure afin que vous puissiez analyser les performances et l’utilisation de votre application. Le modèle de télémétrie est normalisé afin qu’il soit possible de créer une plateforme et une surveillance indépendante du langage. 
 
 Les données collectées par Application Insights modélisent ce schéma standard d’exécution d’application :
 
@@ -55,5 +55,5 @@ Pour signaler des problèmes concernant le modèle de données ou le schéma et 
 
 - [Écrire des données de télémétrie personnalisées](../../azure-monitor/app/api-custom-events-metrics.md)
 - Découvrez comment [étendre et filtrer la télémétrie](../../azure-monitor/app/api-filtering-sampling.md).
-- Utilisez [l’échantillonnage](../../application-insights/app-insights-sampling.md) pour réduire la quantité de données de télémétrie basées sur le modèle de données.
+- Utilisez [l’échantillonnage](../../azure-monitor/app/sampling.md) pour réduire la quantité de données de télémétrie basées sur le modèle de données.
 - Découvrez quelles [plateformes](../../azure-monitor/app/platforms.md) sont prises en charge par Application Insights.

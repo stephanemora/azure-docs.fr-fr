@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for Eclipse : créer des applications Scala pour HDInsight Spark '
+title: 'Azure Toolkit for Eclipse : Créer des applications Scala pour HDInsight Spark '
 description: Utilisez HDInsight Tools dans le kit de ressources Azure pour Eclipse pour développer des applications Spark écrites en Scala et envoyez-les à un cluster HDInsight Spark, directement à partir de l’IDE Eclipse.
 services: hdinsight
 author: hrasheed-msft
@@ -9,22 +9,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: a875e7517870e4a782d3169fd5eb0796c9b0f16a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4370cc5e39b7d1b9a50e8fc8af9f7bfc58f6356a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496587"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602747"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Utiliser Azure Toolkit for Eclipse afin de créer des applications Apache Spark pour un cluster HDInsight
 
 Utilisez HDInsight Tools dans Azure Toolkit for [Eclipse](https://www.eclipse.org/) afin de développer des applications [Apache Spark](https://spark.apache.org/) écrites en [Scala](https://www.scala-lang.org/) et envoyez-les à un cluster Azure HDInsight Spark, directement à partir de l’environnement de développement intégré (IDE) Eclipse. Vous pouvez utiliser le plug-in HDInsight Tools de différentes manières :
 
-* Pour développer une application Spark Scala et l’envoyer à un cluster HDInsight Spark
-* Pour accéder à vos ressources de cluster Azure HDInsight Spark
-* Pour développer et exécuter une application Spark Scala localement
+* Pour développer une application Scala Spark et l’envoyer sur un cluster HDInsight Spark.
+* Pour accéder à vos ressources de cluster Azure HDInsight Spark.
+* Pour développer et exécuter une application Scala Spark localement.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Vous pouvez utiliser cet outil pour créer des applications et les envoyer à un cluster HDInsight Spark sur Linux uniquement.
 > 
 > 
@@ -78,7 +78,7 @@ Vous pouvez lier un cluster normal en utilisant le nom d’utilisateur Ambari ma
    
    ![boîte de dialogue de lien du cluster](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
    
-   > [!NOTE]
+   > [!NOTE]  
    > Nous utilisons la clé de stockage liée, le nom d’utilisateur et le mot de passe si le cluster est à la fois connecté sur un abonnement Azure et lié à un cluster.
    > ![Explorateur de stockage dans Eclipse](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
@@ -207,7 +207,7 @@ Vous pouvez utiliser HDInsight Tools du kit de ressources Azure pour Eclipse po
 ### <a name="prerequisite"></a>Configuration requise
 Quand vous exécutez l’application Spark Scala locale sur un ordinateur Windows, vous pouvez obtenir une exception, comme l’explique le document [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). Cette exception est liée à l’absence du fichier **WinUtils.exe** dans Windows. 
 
-Pour résoudre cette erreur, vous devez [télécharger le fichier exécutable ici](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) vers un emplacement tel que **C:\WinUtils\bin**, puis ajouter une variable d’environnement **HADOOP_HOME** et définir la valeur de la variable sur **C\WinUtils**.
+Pour résoudre cette erreur, vous devez [télécharger le fichier exécutable ici](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) vers un emplacement tel que **C:\WinUtils\bin**, puis ajouter une variable d’environnement **HADOOP_HOME** et définir la valeur de la variable sur **C\WinUtils**.
 
 ### <a name="run-a-local-spark-scala-application"></a>Exécuter une application Spark Scala locale
 1. Démarrez Eclipse et créez un projet. Dans la boîte de dialogue **New Project** (Nouveau projet), choisissez les options suivantes, puis sélectionnez **Next** (Suivant).
@@ -242,13 +242,13 @@ Il existe deux modes pour soumettre les travaux. Si les informations d’identif
 Si vous avez des commentaires, ou que vous rencontrez d’autres problèmes pendant l’utilisation de cet outil, envoyez-nous un e-mail à l’adresse hdivstool@microsoft.com.
 
 ## <a name="seealso"></a>Voir aussi
-* [Vue d’ensemble : Apache Spark sur Azure HDInsight](apache-spark-overview.md)
+* [Présentation : Apache Spark sur Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scénarios
-* [Apache Spark avec BI : Effectuer une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](apache-spark-use-bi-tools.md)
-* [Apache Spark avec Machine Learning : Utiliser Spark dans HDInsight pour analyser la température d’un bâtiment à l’aide de données issues des systèmes de chauffage, de ventilation et de climatisation](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark avec Machine Learning : Utiliser Spark dans HDInsight pour prédire les résultats d’une inspection alimentaire](apache-spark-machine-learning-mllib-ipython.md)
-* [Analyse des journaux de site web avec Apache Spark dans HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark avec BI : effectuer une analyse interactive des données à l’aide de Spark sur HDInsight avec des outils décisionnels](apache-spark-use-bi-tools.md)
+* [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide des données des systèmes HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](apache-spark-machine-learning-mllib-ipython.md)
+* [Analyse des journaux de site web à l’aide d’Apache Spark dans HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>Création et exécution d’applications
 * [Créer une application autonome avec Scala](apache-spark-create-standalone-application.md)

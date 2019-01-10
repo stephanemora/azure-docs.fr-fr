@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 632620bf8140ba855198a9354fbd7e50604e18c3
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 3d97ce7588642462920e98eb90c5c6b5d3748067
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000306"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076361"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gérer Key Vault à l’aide de l’interface de ligne de commande Azure 
 
@@ -133,7 +132,7 @@ az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGro
 
 La sortie de cette commande affiche les propriétés du coffre de clés que vous avez créé. Les deux propriétés les plus importantes sont :
 
-* **name** : dans l’exemple, le nom est ContosoKeyVault. Vous allez utiliser ce nom pour d’autres commandes Key Vault.
+* **nom** : dans l’exemple, le nom est ContosoKeyVault. Vous allez utiliser ce nom pour d’autres commandes Key Vault.
 * **vaultUri** : dans l’exemple, l’URI est https://contosokeyvault.vault.azure.net. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
 
 Votre compte Azure est pour l’instant le seul autorisé à effectuer des opérations sur ce À l’heure actuelle, personne d’autre n’y est autorisé.

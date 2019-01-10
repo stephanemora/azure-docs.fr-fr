@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 266c9df095e9153533dbd89b4cd557d12ddcdc66
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4cd6b375385326889226f6d4284815dfa0f47c49
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408882"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971305"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQ sur la configuration et la gestion de Web Apps dans Azure
 
@@ -39,7 +39,7 @@ Pour les réponses aux questions courantes sur l’utilisation d’un nom de dom
 
 ## <a name="how-do-i-purchase-a-new-custom-domain-for-my-web-app"></a>Comment acheter un domaine personnalisé pour mon application web ?
 
-Pour savoir comment acheter et configurer un domaine personnalisé pour votre application web App Service, voir [Acheter et configurer un nom de domaine personnalisé dans Azure App Service](custom-dns-web-site-buydomains-web-app.md).
+Pour savoir comment acheter et configurer un domaine personnalisé pour votre application web App Service, voir [Acheter et configurer un nom de domaine personnalisé dans Azure App Service](manage-custom-dns-buy-domain.md).
 
 
 ## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>Comment charger et configurer un certificat SSL existant pour mon application web ?
@@ -72,9 +72,11 @@ Pour définir le fuseau horaire du serveur pour votre application web :
     * Value = *Fuseau horaire de votre choix*
 3. Sélectionnez **Enregistrer**.
 
+Pour connaître les valeurs acceptés, consultez la colonne **Fuseaux horaires** dans l’article [Fuseaux horaires par défaut](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones).
+
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Pourquoi mes tâches web continues échouent-elles parfois ?
 
-Par défaut, les applications web sont déchargées si elles sont inactives pendant un certain temps. Cela permet au système d’économiser des ressources. Dans les offres De base et Standard, vous pouvez activer le paramètre **Toujours actif** afin que l’application web reste chargée en permanence. Si votre application web exécute des tâches web en continu, vous devez activer l’option **Toujours actif**, sans quoi les tâches pourraient ne pas s’exécuter de manière fiable. Pour plus d’informations, voir [Création d’une tâche web exécutée en continu](web-sites-create-web-jobs.md#CreateContinuous).
+Par défaut, les applications web sont déchargées si elles sont inactives pendant un certain temps. Cela permet au système d’économiser des ressources. Dans les offres De base et Standard, vous pouvez activer le paramètre **Toujours actif** afin que l’application web reste chargée en permanence. Si votre application web exécute des tâches web en continu, vous devez activer l’option **Toujours actif**, sans quoi les tâches pourraient ne pas s’exécuter de manière fiable. Pour plus d’informations, voir [Création d’une tâche web exécutée en continu](webjobs-create.md#CreateContinuous).
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>Comment obtenir l’adresse IP sortante pour mon application web ?
 
@@ -124,7 +126,7 @@ Pour plus d’informations, voir [Conformité des applications web Microsoft Azu
 
 Dans les plans App Service Standard et Premium, lorsque vous déployez votre application web vers App Service, vous pouvez cibler un emplacement de déploiement distinct de l’emplacement de production par défaut. Les emplacements de déploiement sont des applications web dynamiques qui ont leurs propres noms d’hôte. Les éléments de contenu et de configuration des applications web peuvent être échangés entre deux emplacements de déploiement, y compris l’emplacement de production.
 
-Pour plus d’informations sur l’utilisation des emplacements de déploiement, voir [Configurer des environnements intermédiaires dans Azure App Service](web-sites-staged-publishing.md).
+Pour plus d’informations sur l’utilisation des emplacements de déploiement, voir [Configurer des environnements intermédiaires dans Azure App Service](deploy-staging-slots.md).
 
 ## <a name="how-do-i-access-and-review-webjob-logs"></a>Comment accéder aux journaux de tâche web (WebJob) et les consulter ?
 
@@ -248,7 +250,7 @@ Vous pouvez créer une tâche web planifiée à l’aide d’expressions CRON :
     {month} {day of the week}" }
     ```
 
-Pour plus d’informations sur les tâches web planifiées, voir [Créer une tâche web planifiée à l’aide d’une expression CRON](web-sites-create-web-jobs.md#CreateScheduledCRON).
+Pour plus d’informations sur les tâches web planifiées, voir [Créer une tâche web planifiée à l’aide d’une expression CRON](webjobs-create.md#CreateScheduledCRON).
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>Comment effectuer un test de pénétration pour mon application App Service ?
 

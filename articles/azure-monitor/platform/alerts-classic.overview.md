@@ -5,19 +5,19 @@ author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: f0765e010cb40a89f3f57d143c51bdfba72a4ba0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9a12ca5deeadfb7272532f404cc9cf7c030fb6c0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341930"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994349"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Que sont les alertes classiques dans Microsoft Azure ?
 
 > [!NOTE]
-> Cet article décrit comment créer des alertes de métriques classiques plus anciennes. Azure Monitor prend désormais en charge de [nouvelles alertes de métrique quasi en temps réel et une nouvelle expérience d’alertes](../../azure-monitor/platform/alerts-overview.md). 
+> Cet article décrit comment créer des alertes de métriques classiques plus anciennes. Azure Monitor prend désormais en charge de [nouvelles alertes de métrique quasi en temps réel et une nouvelle expérience d’alertes](../../azure-monitor/platform/alerts-overview.md). La [mise hors service des alertes classiques est planifiée](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/monitoring-classic-retirement).  
 >
 
 Azure vous permet de définir des conditions sur des données et d’être informé quand les dernières données de monitoring répondent à ces conditions.
@@ -39,7 +39,7 @@ La nouvelle expérience utilisateur pour les alertes présente les avantages sui
 -   **Consolidation des alertes intelligentes** et **définition d’état d’alerte** : les alertes plus récentes incluent une fonctionnalité de regroupement automatique qui montre des alertes similaires ensemble pour réduire la surcharge de l’interface utilisateur. 
 
 Les alertes de métrique plus récentes présentent les avantages suivants par rapport aux alertes de métrique classiques :
--   **Latence améliorée** : les dernières alertes métriques peuvent être exécutées toutes les minutes. Les alertes métriques les plus anciennes s’exécutent toujours à une fréquence de 5 minutes. Pour les alertes plus récentes, le délai entre le moment où le problème survient et la notification ou l’action a été raccourci (de 3 à 5 minutes). Pour les alertes plus anciennes, comptez 5 à 15 minutes, en fonction du type.  Le délai des alertes de journal est généralement de 10 à 15 minutes en raison du temps nécessaire pour ingérer les journaux, mais les méthodes de traitement plus récentes permettent de réduire cette durée. 
+-   **Latence améliorée** : les dernières alertes métriques peuvent être exécutées toutes les minutes. Les alertes métriques les plus anciennes s’exécutent toujours à une fréquence de 5 minutes. Pour les alertes plus récentes, le délai entre le moment où le problème survient et la notification ou l’action a été raccourci (de 3 à 5 minutes). Pour les alertes plus anciennes, comptez 5 à 15 minutes, en fonction du type.  Le délai des alertes de journal est généralement de 10 à 15 minutes en raison du temps nécessaire pour ingérer les journaux, mais les méthodes de traitement plus récentes permettent de réduire cette durée. 
 -   **Prise en charge des métriques multidimensionnelles** : vous pouvez définir des alertes sur des métriques dimensionnelles, ce qui vous permet d’analyser un segment intéressant de la métrique.
 -   **Contrôle renforcé des conditions des métriques** : vous pouvez définir des règles d’alerte plus riches. Les alertes plus récentes prennent en charge la surveillance des valeurs maximales, minimales, moyennes et totales des métriques.
 -   **Monitoring combiné de plusieurs métriques** : vous pouvez surveiller plusieurs métriques (actuellement jusqu’à deux) avec une seule règle. Une alerte est déclenchée si les deux métriques violent leurs seuils respectifs durant la période spécifiée.
@@ -50,9 +50,9 @@ Les alertes de métrique plus récentes présentent les avantages suivants par r
 ## <a name="classic-alerts-on-azure-monitor-data"></a>Alertes classiques pour des données Azure Monitor
 Deux types d’alertes classiques sont disponibles : les alertes de métriques et les alertes de journal d’activité.
 
-* **Alertes de métrique classiques** : ces alertes se déclenchent quand la valeur d’une métrique spécifiée dépasse le seuil défini. L’alerte génère une notification quand elle est « activée » (quand le seuil est atteint et que la condition d’alerte est remplie). Elle génère une autre notification quand elle est « résolue » (quand le seuil est de nouveau atteint et que la condition n’est plus remplie).
+* **Alertes de métrique classiques** : ces alertes se déclenchent quand la valeur d’une métrique spécifiée dépasse le seuil défini. L’alerte génère une notification quand le seuil est atteint et que la condition d’alerte est remplie. À ce stade, l’alerte est considérée comme « Activée ». Elle génère une autre notification quand elle est « résolue », c’est-à-dire quand le seuil est de nouveau atteint et que la condition n’est plus remplie.
 
-* **Alertes classiques du journal d’activité** : alertes du journal de streaming qui sont déclenchées lorsqu’un événement du journal d’activité généré répond aux critères de filtre que vous avez définis. Ces alertes ne peuvent être qu’à l’état actif, puisque le moteur d’alerte ne fait qu’appliquer les critères de filtre aux nouveaux événements. Ces alertes peuvent être utilisées pour être informé lorsqu’un nouvel incident d’état du service se produit ou lorsqu’un utilisateur ou une application effectue une opération dans votre abonnement (par exemple, « Supprimer la machine virtuelle »).
+* **Alertes classiques du journal d’activité** : alertes du journal de streaming qui se déclenchent lorsqu’une entrée d’événement du journal d’activité correspond à vos critères de filtre. Ces alertes ne possèdent que l’état « Activé ». Le moteur d’alerte ne fait qu’appliquer les critères de filtre aux nouveaux événements. Il ne recherche pas d’anciennes entrées. Ces alertes peuvent vous informer quand un nouvel incident d’état du service se produit ou quand un utilisateur ou une application effectue une opération dans votre abonnement (par exemple, « Supprimer la machine virtuelle »).
 
 Pour les données du journal de diagnostic disponibles dans Azure Monitor, routez les données dans Log Analytics (anciennement OMS) et utilisez une alerte de requête Log Analytics. Log Analytics utilise maintenant la [nouvelle méthode d’alerte](../../azure-monitor/platform/alerts-overview.md) 
 
@@ -71,12 +71,12 @@ Azure utilise les termes suivants pour décrire les alertes classiques et leurs 
 ## <a name="how-do-i-receive-a-notification-from-an-azure-monitor-classic-alert"></a>Comment recevoir une notification d’une alerte classique Azure Monitor ?
 Auparavant, les alertes Azure des différents services utilisaient leurs propres méthodes de notification intégrées. 
 
-Azure Monitor a créé un regroupement de notifications réutilisable appelé *groupe d’actions*. Les groupes d’actions spécifient un ensemble de destinataires pour une notification, et dès qu’une alerte faisant référence au groupe d’actions est activée, tous les destinataires reçoivent cette notification. Les groupes d’actions vous permettent de réutiliser un groupe de destinataires (par exemple, votre liste d’ingénieurs d’astreinte) pour plusieurs objets d’alerte. Les groupes d’actions prennent en charge les notifications via la publication d’une URL de webhook, en plus des notifications par adresse e-mail, numéro de SMS et plusieurs autres actions.  Pour plus d’informations, consultez [Créer et gérer des groupes d’actions sur le Portail Azure](../../azure-monitor/platform/action-groups.md). 
+Azure Monitor a créé un regroupement de notifications réutilisable appelé *groupe d’actions*. Les groupes d’actions spécifient un ensemble de destinataires pour une notification. Chaque fois qu’une alerte est activée, qui référence le groupe d’actions, tous les destinataires reçoivent la notification. Les groupes d’actions vous permettent de réutiliser un groupe de destinataires (par exemple, votre liste d’ingénieurs d’astreinte) pour plusieurs objets d’alerte. Les groupes d’actions prennent en charge les notifications via la publication d’une URL de webhook, en plus des notifications par adresse e-mail, numéro de SMS et plusieurs autres actions.  Pour plus d’informations, consultez [Créer et gérer des groupes d’actions sur le Portail Azure](../../azure-monitor/platform/action-groups.md). 
 
 Les alertes de journal d’activité classiques plus anciennes utilisent des groupes d’actions.
 
 Toutefois, les anciennes alertes de métrique n’utilisent pas les groupes d’actions. Au lieu de cela, vous pouvez configurer les actions suivantes : 
-- envoyer des notifications par courrier électronique à l’administrateur de service, aux coadministrateurs ou aux adresses e-mail supplémentaires que vous spécifiez ;
+- envoyer des notifications par courrier électronique à l’administrateur de service, aux coadministrateurs ou aux adresses e-mail supplémentaires que vous spécifiez ;
 - appeler un webhook, qui permet de lancer des actions d’automatisation supplémentaires.
 
 Les webhooks autorisent l’automatisation et la correction avec, par exemple :
@@ -93,7 +93,7 @@ Vous pouvez obtenir des informations sur les règles d’alerte et leur configur
 * Configurer les [alertes métriques classiques PowerShell](alerts-classic-portal.md)
 * Configurer [l’interface de ligne de commande (CLI) des alertes métriques classiques](alerts-classic-portal.md)
 * Configurer les [l’API REST Azure Monitor des alertes métriques](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* En savoir plus sur les [journaux d’activité](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+* En savoir plus sur les [journaux d’activité](../../azure-monitor/platform/activity-logs-overview.md)
 * Configurer les [alertes de journal d’activité par le biais du portail Azure](../../azure-monitor/platform/activity-log-alerts.md)
 * Configurer les [alertes de journal d’activité au moyen de Resource Manager](alerts-activity-log.md)
 * Consulter le [schéma de webhook d’alerte de journal d’activité](../../azure-monitor/platform/activity-log-alerts-webhook.md)

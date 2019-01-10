@@ -11,12 +11,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
 ms.custom: seodec2018
-ms.openlocfilehash: 80759394ac920907c74f67cf9ee6dfcb52bfd9a8
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 99f19f6595f2e3105c4b30a7c2e7ef1e296fad6e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311811"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724852"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Connexion de Cosmos DB à Recherche Azure à l’aide d’indexeurs
 
@@ -38,7 +38,7 @@ Dans la vidéo suivante, Andrew Liu, chef de programme Azure Cosmos DB, explique
 <a name="supportedAPIs"></a>
 ## <a name="supported-api-types"></a>Types d’API pris en charge
 
-Bien qu’Azure Cosmos DB prenne en charge un large éventail de modèles de données et d’API, la prise en charge en production de l’indexeur Recherche Azure s’étend seulement à l’API SQL. L’API MongoDB est actuellement prise en charge en préversion publique.  
+Bien qu’Azure Cosmos DB prenne en charge un large éventail de modèles de données et d’API, la prise en charge en production de l’indexeur Recherche Azure s’étend seulement à l’API SQL. La prise en charge d’Azure Cosmos DB pour l’API MongoDB est actuellement en préversion publique.  
 
 La prise en charge d’API supplémentaires arrivera prochainement. Pour nous aider à identifier les API à prendre en charge en priorité, nous vous invitons à voter sur le site web UserVoice :
 

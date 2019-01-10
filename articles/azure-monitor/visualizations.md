@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 862380a35dcc4d50dce8d709bd1dbea1aa38e37a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9b160c011a8a9507698443446ad5fe908b32fb9e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728344"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54049960"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisation des données à partir d’Azure Monitor
 Cet article récapitule les méthodes disponibles pour visualiser les métriques et les données de journal stockées dans Azure Monitor.
@@ -71,7 +71,7 @@ Les [affichages dans Azure Monitor](../log-analytics/log-analytics-view-designer
 
 
 ## <a name="application-insights-workbooks"></a>Classeurs Application Insights
-Les [classeurs](../application-insights/app-insights-usage-workbooks.md) sont des documents interactifs qui fournissent des insights détaillés sur vos données, et favorisent l’investigation et la collaboration au sein de l’équipe. Parmi les exemples typiques d’utilisation des classeurs citons les guides de résolution des problèmes et les bilans d’incidents.
+Les [classeurs](../azure-monitor/app/usage-workbooks.md) sont des documents interactifs qui fournissent des insights détaillés sur vos données, et favorisent l’investigation et la collaboration au sein de l’équipe. Parmi les exemples typiques d’utilisation des classeurs citons les guides de résolution des problèmes et les bilans d’incidents.
 
 ![Classeur](media/visualizations/workbook.png)
 
@@ -140,7 +140,7 @@ Vous pouvez accéder aux données dans les journaux et aux métriques dans Azure
 - Découvrez les [données collectées par Azure Monitor](platform/data-collection.md).
 - Découvrez les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md).
 - Découvrez les [affichages dans Azure Monitor](platform/view-designer.md).
-- Découvrez les [classeurs dans Application Insights](../application-insights/app-insights-usage-workbooks.md).
+- Découvrez les [classeurs dans Application Insights](../azure-monitor/app/usage-workbooks.md).
 - Découvrez [l’importation de données de journal dans Power BI](../azure-monitor/platform/powerbi.md).
 - Découvrez le [plug-in de source de données Azure Monitor pour Grafana](../azure-monitor/platform/grafana-plugin.md).
 

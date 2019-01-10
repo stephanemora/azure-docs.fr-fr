@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: babad23743a0a3c9631c0bcf406de3521174264a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 1902091978233ecaf80f04e3a08c70c20aee42c9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887206"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000017"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Comment résoudre les messages « functions runtime is unreachable »
 
@@ -37,6 +37,7 @@ Nous allons étudier les quatre cas d’erreur les plus courants, et découvrir 
 1. Paramètres d’application du compte de stockage supprimés
 1. Informations d’identification du compte de stockage invalides
 1. Compte de stockage inaccessible
+1. Limite d’exécution quotidienne atteinte
 
 ## <a name="storage-account-deleted"></a>Compte de stockage supprimé
 
@@ -79,18 +80,25 @@ Votre Function App doit être en mesure d’accéder au compte de stockage. Les 
 * Des Function Apps déployées sur les environnements App Service sans les règles de réseau appropriées pour autoriser le trafic vers et depuis le compte de stockage
 * Le pare-feu de compte de stockage est activé et pas configuré pour autoriser le trafic vers et à partir des Functions. [En savoir plus sur la configuration du pare-feu de compte de stockage ici](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
+## <a name="daily-execution-quota-full"></a>Quota d’exécution quotidienne atteint
+
+Si vous avez configuré un quota d’exécution quotidien, votre Function App sera temporairement désactivée et la plupart des contrôles du portail seront indisponibles. 
+
+* Pour vérifier, accédez à Ouvrir les fonctionnalités de la plateforme > Paramètres de Function App dans le portail. Le message suivant s’affiche si vous avez dépassé votre quota
+    * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
+* Supprimer le quota et redémarrez votre application pour résoudre le problème.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que votre Function App est de nouveau opérationnelle, examinons les démarrages rapides et références développeur pour être à nouveau opérationnel !
 
 * [Créer votre première fonction Azure](functions-create-first-azure-function.md)  
-  vous permet de créer votre première fonction à l’aide du démarrage rapide d’Azure Functions. 
+   vous permet de créer votre première fonction à l’aide du démarrage rapide d’Azure Functions. 
 * [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)  
-  fournit des informations techniques supplémentaires sur l’exécution d’Azure Functions, ainsi qu’une référence pour le codage de fonctions et la définition des déclencheurs et des liaisons.
+   fournit des informations techniques supplémentaires sur l’exécution d’Azure Functions, ainsi qu’une référence pour le codage de fonctions et la définition des déclencheurs et des liaisons.
 * [Test d’Azure Functions](functions-test-a-function.md)  
-  décrit plusieurs outils et techniques permettant de tester vos fonctions.
+   décrit plusieurs outils et techniques permettant de tester vos fonctions.
 * [Comment mettre à l’échelle Azure Functions](functions-scale.md)  
   Présente les plans de service disponibles pour Azure Functions, dont le plan d’hébergement de consommation, et explique comment choisir le plan adapté à vos besoins. 
-* [En savoir plus sur Azure App Service](../app-service/app-service-web-overview.md)  
+* [En savoir plus sur Azure App Service](../app-service/overview.md)  
   Azure Functions s’appuie sur Azure App Service pour les fonctionnalités essentielles comme les déploiements, les variables d’environnement et les diagnostics. 

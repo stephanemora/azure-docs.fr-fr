@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 50e252b7dbd20d5330f8117eaa45ccf52303f277
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b98261601f352668fa3cc8d18dc3b1d0d7fe2654
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51678180"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53553529"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage : conception sous le signe de la haute performance
+# <a name="azure-premium-storage-design-for-high-performance"></a>Stockage Premium Azure : Conception pour de hautes performances
 
 Cet article fournit des instructions pour la création d’applications hautes performances avec Azure Premium Storage. Vous pouvez utiliser les instructions fournies dans ce document parallèlement aux bonnes pratiques de performances applicables aux technologies utilisées par votre application. Pour illustrer les instructions, nous avons utilisé comme exemple un SQL Server exécuté sur Premium Storage.
 
@@ -35,7 +35,7 @@ Ces instructions vous sont spécifiquement fournies pour Premium Storage, car le
 > Parfois, ce qui semble être un problème de performances disque est en fait un goulot d’étranglement sur le réseau. Dans ces situations, vous devez optimiser vos [performances réseau](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
 > Si votre machine virtuelle prend en charge la mise en réseau accélérée, vous devez vous assurer qu’elle est activée. Si elle n’est pas activée, vous pouvez l’activer sur les machines virtuelles déjà déployées sur [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) et [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Avant de commencer, si vous ne connaissez pas le Stockage Premium, lisez tout d’abord les articles [Stockage Premium : stockage haute performance pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md) et [Objectifs de performance et évolutivité du Stockage Azure](../articles/storage/common/storage-scalability-targets.md).
+Avant de commencer, si vous ne connaissez pas le Stockage Premium, lisez tout d’abord les articles [Stockage Premium : Stockage haute performance pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md) et [Objectifs de performance et scalabilité du Stockage Azure](../articles/storage/common/storage-scalability-targets.md).
 
 ## <a name="application-performance-indicators"></a>Indicateurs de performances d’une application
 
@@ -66,6 +66,14 @@ Par conséquent, il est important de déterminer les valeurs optimales de débit
 La latence est le temps nécessaire à une application pour recevoir une demande unique, l’envoyer aux disques de stockage et transmettre la réponse au client. Il s’agit d’une mesure critique des performances d’une application, qui s’ajoute à celle des E/S par seconde et du débit. La latence d’un disque de stockage premium correspond au temps nécessaire pour récupérer les informations d’une demande et les retourner à votre application. Premium Storage offre de faibles latences. Si vous activez une mise en cache de l’hôte en lecture seule sur des disques de stockage premium, vous pourrez obtenir une latence de lecture bien plus faible. Nous aborderons la mise en cache du disque plus en détail dans la section *Optimisation des performances applicatives*.
 
 Lorsque vous optimisez votre application pour augmenter le nombre d’E/S par seconde et le débit, la latence de votre application s’en trouve affectée. Après avoir ajusté les performances de votre application, pensez toujours à évaluer la latence de l’application afin d’éviter un comportement de latence élevée inattendu.
+
+Le suivi des opérations de plan de contrôle sur les disques managés peut impliquer le déplacement du disque d’un emplacement de stockage à un autre. Cette opération est effectuée via une copie en arrière-plan des données, qui peut prendre plusieurs heures (généralement moins de 24 heures), selon la quantité de données stockées sur les disques. Pendant ce temps, votre application peut afficher une latence de lecture supérieure à la normale car certaines lectures sont redirigées vers l’emplacement d’origine et prennent donc plus de temps. Il n’y a aucun impact sur la latence d’écriture pendant cette période.  
+
+1.  [Mettre à jour le type de stockage](../articles/virtual-machines/windows/convert-disk-storage.md)
+2.  [Détacher et attacher un disque d’une machine virtuelle à une autre](../articles/virtual-machines/windows/attach-disk-ps.md)
+3.  [Créer un disque managé à partir d’un VHD](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md)
+4.  [Créer un disque managé à partir d’un instantané](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)
+5.  [Convertir des disques non managés en disques managés](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)
 
 ## <a name="gather-application-performance-requirements"></a>Collecte des exigences de performances de l’application
 
@@ -296,7 +304,7 @@ Lorsqu’une machine virtuelle à grande échelle est connectée à plusieurs di
 
 Sous Windows, vous pouvez utiliser les espaces de stockage pour entrelacer les disques. Vous devez configurer une seule colonne pour chaque disque dans un pool. Dans le cas contraire, les performances globales du volume entrelacé peuvent être limitées, en raison d’une distribution inégale du trafic sur les disques.
 
-Important : avec l’interface utilisateur du Gestionnaire de serveurs, vous pouvez définir un nombre maximal de 8 colonnes au total pour un volume entrelacé. Au-delà de 8 disques, utilisez PowerShell pour créer le volume. PowerShell vous permet de définir un nombre de colonnes égal au nombre de disques. Par exemple, s’il existe 16 disques dans un agrégat unique, spécifiez 16 colonnes dans le paramètre *NumberOfColumns* de l’applet de commande *New-VirtualDisk*.
+Important : À l’aide de l’IU du Gestionnaire de serveur, vous pouvez définir un nombre maximal de 8 colonnes au total pour un volume agrégé par bandes. Au-delà de 8 disques, utilisez PowerShell pour créer le volume. PowerShell vous permet de définir un nombre de colonnes égal au nombre de disques. Par exemple, s’il existe 16 disques dans un agrégat unique, spécifiez 16 colonnes dans le paramètre *NumberOfColumns* de l’applet de commande *New-VirtualDisk*.
 
 Sous Linux, utilisez l’utilitaire MDADM pour entrelacer les disques. Pour obtenir des instructions détaillées sur l’entrelacement de disques sous Linux, reportez-vous à [Configuration d’un RAID logiciel sous Linux](../articles/virtual-machines/linux/configure-raid.md).
 
@@ -597,7 +605,7 @@ Pendant l’exécution du test, vous serez en mesure de voir le nombre combiné 
 
 En savoir plus sur Azure Premium Storage :
 
-* [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md)  
+* [Stockage Premium : Stockage hautes performances pour les charges de travail de machine virtuelle Azure](../articles/virtual-machines/windows/premium-storage.md)  
 
 Pour les utilisateurs de SQL Server, consultez les articles relatifs aux meilleures pratiques de performances de SQL Server :
 

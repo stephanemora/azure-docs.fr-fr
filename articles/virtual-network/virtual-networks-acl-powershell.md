@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.openlocfilehash: 1fce5b98d9e12ad373a4ca9d851fb717b3f47045
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1f6c14c15d4930902ced642bd02d1d1833e0b361
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250354"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54154808"
 ---
 # <a name="manage-endpoint-access-control-lists-using-powershell-in-the-classic-deployment-model"></a>Gérer les listes de contrôle d’accès de point de terminaison en utilisant PowerShell dans le modèle de déploiement classique
 Vous pouvez créer et gérer des listes de contrôle d’accès réseau pour les points de terminaison à l’aide d’Azure PowerShell ou du portail de gestion. Dans cette rubrique, vous trouverez des procédures pour les tâches courantes des listes de contrôle d’accès que vous pouvez effectuer à l’aide de PowerShell. Pour obtenir la liste des applets de commande Azure PowerShell, consultez [Applets de commande de gestion Azure](https://go.microsoft.com/fwlink/?LinkId=317721). Pour plus d’informations sur les listes de contrôle d’accès, consultez [Qu’est-ce qu’une liste de contrôle d’accès (ACL) réseau ?](virtual-networks-acl.md). Si vous voulez gérer vos listes de contrôle d’accès à partir du portail de gestion, consultez [Comment configurer des points de terminaison sur une machine virtuelle](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
@@ -58,7 +58,7 @@ L’exemple suivant illustre un moyen de créer une liste ACL contenant des règ
         $acl1 = New-AzureAclConfig
         Set-AzureAclConfig –AddRule –ACL $acl1 –Order 100 `
             –Action permit –RemoteSubnet "10.0.0.0/8" `
-            –Description "Sharepoint ACL config"
+            –Description "SharePoint ACL config"
         Set-AzureAclConfig –AddRule –ACL $acl1 –Order 200 `
             –Action permit –RemoteSubnet "157.0.0.0/8" `
             –Description "web frontend ACL config"

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 3b979a9a7e93992ba593697fa9465fdadc1e58b9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4a272b028e1e3ef2778227f259c0b1b980af885d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240390"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547590"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Réplication avec SQL Database Managed Instance
 
@@ -63,6 +63,8 @@ Le serveur de publication et le serveur de distribution sur Azure SQL Database n
 - La connectivité doit utiliser l’authentification SQL entre les participants de la réplication.
 
 - Un partage de compte de stockage Azure pour le répertoire de travail de réplication.
+
+- Le port 445 (TCP sortant) doit être ouvert dans les règles de sécurité du sous-réseau Managed Instance pour accéder au partage de fichiers Azure
 
 ## <a name="features"></a>Caractéristiques
 

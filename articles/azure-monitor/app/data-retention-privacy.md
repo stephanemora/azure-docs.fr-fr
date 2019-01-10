@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8b2d409ceb6f659a078f48ba71f0f4c72663f6f0
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 812478c13ef39b369471a731c52dc38ba6a4368c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002091"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119745"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -87,7 +87,7 @@ Les points de données brutes (autrement dit, les éléments que vous pouvez int
 
 Les données agrégées (autrement dit, les nombres, moyennes et autres données statistiques que vous voyez dans Metrics Explorer) sont conservées avec une granularité de 1 minute pendant 90 jours.
 
-Les [captures instantanées de débogage](../../application-insights/app-insights-snapshot-debugger.md) sont stockées pendant sept jours. Cette stratégie de rétention est définie application par application. Si vous devez augmenter cette valeur, faites-en la demande en ouvrant une demande de support dans le portail Azure.
+Les [captures instantanées de débogage](../../azure-monitor/app/snapshot-debugger.md) sont stockées pendant sept jours. Cette stratégie de rétention est définie application par application. Si vous devez augmenter cette valeur, faites-en la demande en ouvrant une demande de support dans le portail Azure.
 
 ## <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 Les données sont visibles par vous et, si vous disposez un compte d’organisation, par les membres de votre équipe. 
@@ -202,7 +202,7 @@ Nous ne recommandons pas de configurer explicitement votre application de façon
 |.NET | Pris en charge, la configuration diffère selon la version. | Pour des informations de configuration détaillées pour .NET 4.7 et versions antérieures, reportez-vous à [ces instructions](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
 |Status Monitor | Pris en charge, configuration requise | Status Monitor s’appuie sur [la configuration du système d’exploitation](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [la configuration .NET](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) pour prendre en charge TLS 1.2.
 |Node.js |  Pris en charge, dans v10.5.0, la configuration peut être nécessaire. | Utilisez la [documentation officielle de Node.js TLS/SSL](https://nodejs.org/api/tls.html) pour toute configuration spécifique à une application. |
-|Java | Pris en charge, prise en charge JDK pour TLS 1.2 ajoutée dans [JDK 6 mise à jour 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) et [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 utilise [TLS 1.2 par défaut](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
+|Java | Pris en charge, prise en charge JDK pour TLS 1.2 ajoutée dans [JDK 6 mise à jour 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) et [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 utilise [TLS 1.2 par défaut](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Les distributions de Linux s’appuient généralement sur [OpenSSL](https://www.openssl.org) pour la prise en charge de TLS 1.2.  | Vérifiez [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) pour vous assurer que votre version d’OpenSSL est prise en charge.|
 | Windows 8.0 - 10 | Pris en charge, activé par défaut. | Pour confirmer que vous utilisez toujours les [paramètres par défaut](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
 | Windows Server 2012 - 2016 | Pris en charge, activé par défaut. | Pour confirmer que vous utilisez toujours les [paramètres par défaut](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
@@ -297,5 +297,5 @@ Ce produit contient des données GeoLite2 créées par MaxMind, disponibles sur 
 [platforms]: ../../azure-monitor/app/platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

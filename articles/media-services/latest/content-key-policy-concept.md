@@ -9,23 +9,25 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/20/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 541713677184d93eb78856e3c3373ab432d5f0cf
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f12632b20d516c81e21a50cfdda7e40d4163afc1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141524"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742216"
 ---
 # <a name="content-key-policies"></a>Stratégies de clé de contenu
 
 Vous pouvez utiliser Azure Media Services pour sécuriser votre contenu multimédia du moment où il quitte votre ordinateur jusqu’à la remise, en passant par le stockage et le traitement. Media Services vous permet de transmettre votre contenu dynamique ou à la demande chiffré dynamiquement avec la norme Advanced Encryption Standard (AES-128) ou un des principaux systèmes de gestion des droits numériques (DRM) : Microsoft PlayReady, Google Widevine et Apple FairPlay. Media Services fournit également un service de distribution de clés AES et licences (PlayReady, Widevine et FairPlay) DRM aux clients autorisés.
 
-Dans Azure Media Services v3, les stratégies de clé de contenu vous permettent de spécifier la façon dont la clé de contenu est remise aux clients finaux via le composant de remise de clés Media Services. Pour plus d’informations, consultez [Présentation de la protection du contenu](content-protection-overview.md).
+Dans Azure Media Services v3, une [stratégie de clé de contenu](https://docs.microsoft.com/rest/api/media/contentkeypolicies) vous permet de spécifier la façon dont la clé de contenu est remise aux clients finaux via le composant de remise de clés Media Services. Pour plus d’informations, consultez [Présentation de la protection du contenu](content-protection-overview.md).
 
-## <a name="contentkeypolicies-definition"></a>Définition de stratégies ContentKeyPolicy
+Il est recommandé de réutiliser la même stratégie ContentKeyPolicy pour toutes vos ressources. Les stratégies ContentKeyPolicies peuvent être mises à jour ; si vous voulez effectuer une rotation des clés, vous pouvez ajouter une nouvelle stratégie ContentKeyPolicyOption à la stratégie ContentKeyPolicy existante avec une restriction par jeton avec les nouvelles clés. Vous pouvez également mettre à jour la clé de vérification principale et la liste des clés de vérification alternatives dans la stratégie et l’option existantes. Cela peut prendre jusqu’à 15 minutes pour que les caches de livraison de clés mettent à jour et récupèrent la stratégie mise à jour.
+
+## <a name="contentkeypolicy-definition"></a>Définition de stratégie ContentKeyPolicy
 
 Le tableau suivant présente les propriétés d’une stratégie ContentKeyPolicy et en donne la définition.
 
@@ -37,8 +39,8 @@ Le tableau suivant présente les propriétés d’une stratégie ContentKeyPolic
 |properties.description |Description de la stratégie.|
 |properties.lastModified|Date de la dernière modification de la stratégie.|
 |properties.options |Options de la stratégie de clé.|
-|properties.policyId    |ID de stratégie hérité.|
-|Type   |Type de la ressource.|
+|properties.policyId|ID de stratégie hérité.|
+|Type|Type de la ressource.|
 
 Pour obtenir la définition complète, consultez [Stratégies de clé de contenu](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
 
@@ -62,7 +64,7 @@ Description des opérateurs :
 
 ### <a name="filteringordering"></a>Filtrage/ordonnancement
 
-Le tableau suivant montre comment ces options peuvent être appliquées aux propriétés de StreamingPolicy : 
+Le tableau suivant montre comment ces options peuvent être appliquées aux propriétés de ContentKeyPolicies : 
 
 |NOM|Filtrer|Ordre|
 |---|---|---|
@@ -70,10 +72,10 @@ Le tableau suivant montre comment ces options peuvent être appliquées aux prop
 |Nom|Eq, ne, ge, le, gt, lt|Croissant et décroissant|
 |properties.created |Eq, ne, ge, le, gt, lt|Croissant et décroissant|
 |properties.description |Eq, ne, ge, le, gt, lt||
-|properties.lastModified    |Eq, ne, ge, le, gt, lt|Croissant et décroissant|
+|properties.lastModified|Eq, ne, ge, le, gt, lt|Croissant et décroissant|
 |properties.options |||
-|properties.policyId    |Eq, ne||
-|Type   |||
+|properties.policyId|Eq, ne||
+|Type|||
 
 ### <a name="pagination"></a>Pagination
 
@@ -84,7 +86,7 @@ La pagination est prise en charge pour chacun des quatre ordres de tri activés.
 
 Si une réponse de requête contient un grand nombre d’éléments, le service retourne une propriété « \@odata.nextLink » pour obtenir la page de résultats suivante. Celle-ci peut être utilisés pour parcourir le jeu de résultats entier. Vous ne pouvez pas configurer la taille de page. 
 
-Si des stratégies StreamingPolicy sont créées ou supprimées pendant la pagination de la collection, les changements sont répercutés dans les résultats retournés (si ces changements concernent la partie de la collection qui n’a pas été téléchargée). 
+Si des stratégies ContentKeyPolicies sont créées ou supprimées pendant la pagination dans la collection, les changements sont reflétés dans les résultats retournés (si ces changements concernent la partie de la collection qui n’a pas été téléchargée) 
 
 L’exemple C# suivant montre comment énumérer toutes les stratégies ContentKeyPolicy dans le compte.
 

@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 11/30/2018
+ms.date: 01/05/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 00b096f59e70962b6883a8024744e8c91a5f9ae3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4bc963d09b9d01efdfad65b78ce9ce336798d375
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846893"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065339"
 ---
 # <a name="email-notifications-in-pim"></a>Notifications par e-mail dans PIM
 
@@ -43,16 +43,15 @@ PIM envoie des e-mails quand les événements suivants se produisent pour des r�
 
 - Quand l’activation d’un rôle privilégié est en attente d’approbation
 - Quand une demande d’activation de rôle privilégié est approuvée
-- Quand un rôle privilégié est attribué comme étant éligible
 - Quand Azure AD PIM est activé
 
 Les destinataires de ces e-mails pour les rôles Azure AD varient selon votre rôle, l’événement et le paramètre de notification :
 
-| Utilisateur | Une activation d’un rôle est en attente d’approbation | Une demande d’activation de rôle est terminée | Un rôle est attribué comme étant éligible | PIM est activé |
-| --- | --- | --- | --- | --- |
-| Administrateur de rôle privilégié</br>(Activé/éligible) | Oui</br>(uniquement si aucun approbateur explicite n’est spécifié) | Oui* | Oui | Oui |
-| Security Administrator</br>(Activé/éligible) | Non  | Oui* | Oui | Oui |
-| Administrateur général</br>(Activé/éligible) | Non  | Oui* | Oui | Oui |
+| Utilisateur | Une activation d’un rôle est en attente d’approbation | Une demande d’activation de rôle est terminée | PIM est activé |
+| --- | --- | --- | --- |
+| Administrateur de rôle privilégié</br>(Activé/éligible) | Oui</br>(uniquement si aucun approbateur explicite n’est spécifié) | Oui* | Oui |
+| Security Administrator</br>(Activé/éligible) | Non  | Oui* | Oui |
+| Administrateur général</br>(Activé/éligible) | Non  | Oui* | Oui |
 
 \* Si le paramètre [**Notifications**](pim-how-to-change-default-settings.md#notifications) a la valeur **Activer**.
 

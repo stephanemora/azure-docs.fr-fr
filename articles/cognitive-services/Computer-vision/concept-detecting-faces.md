@@ -1,7 +1,7 @@
 ---
 title: Détection des visages - Vision par ordinateur
 titleSuffix: Azure Cognitive Services
-description: Concepts liés à la détection des visages à l’aide de l’API Vision par ordinateur.
+description: Concepts liés à la fonctionnalité de détection des visages de l’API Vision par ordinateur.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: bf358d1e8f60f989ced8db966bbf0a5179fab25b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 0c6485bff4ad11aab37139cd2aa2d3660bddac0e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342311"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580534"
 ---
-# <a name="detecting-faces"></a>Détection des visages
+# <a name="face-detection-with-computer-vision"></a>Détection des visages avec Vision par ordinateur
 
 Vision par ordinateur détecte les visages au sein d’une image et génère l’âge, le sexe et le rectangle du visage de chaque visage détecté. Il fournit un sous-ensemble de fonctionnalités proposées par le service [Visage](/azure/cognitive-services/face/). Vous pouvez également utiliser le service Visage pour effectuer une analyse plus détaillée, comme l’identification faciale et la détection de la pose.  
 
