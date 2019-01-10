@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5361c8940c8c7dba5338a3f5a0ed18910f7e45a0
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c7d236769d5e9adca0402affc2d0eccdf78a6837
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410327"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107750"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-ad"></a>Migrer de la fédération à l’authentification directe pour Azure AD
 Le document suivant fournit des conseils pour passer des services de fédération Active Directory (AD FS) à l’authentification directe.
@@ -105,7 +105,7 @@ Vous trouverez plus de détails sur ces paramètres ci-dessous.
 
 Même si aucune modification ne sera apportée aux autres parties de confiance de votre batterie AD FS pendant ce processus, nous vous recommandons de vérifier que vous disposez d’une sauvegarde de votre batterie de serveurs AD FS valide et actuelle qui peut être restaurée. Pour ce faire, utilisez l’outil gratuit Microsoft [AD FS Rapid Restore Tool](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool). Cet outil peut être utilisé pour sauvegarder et restaurer AD FS sur une batterie de serveurs existante ou une nouvelle batterie.
 
-Si vous préférez ne pas utiliser l’outil de restauration rapide AD FS, exportez au moins les approbations de partie de confiance de la « plateforme d’identité Microsoft Office 365 » et toutes les règles de revendication personnalisées associées que vous avez ajoutées. Vous pouvez effectuer cette opération en utilisant l’exemple PowerShell suivant.
+Si vous préférez ne pas utiliser l’outil de restauration rapide AD FS, exportez au moins les approbations de partie de confiance de la « plateforme d’identité Microsoft Office 365 » et toutes les règles de revendication personnalisées associées que vous avez ajoutées. Vous pouvez effectuer cette opération en utilisant l’exemple PowerShell suivant
 
 ``` PowerShell
 (Get-AdfsRelyingPartyTrust -Name "Microsoft Office 365 Identity Platform") | Export-CliXML "C:\temp\O365-RelyingPartyTrust.xml"
@@ -121,9 +121,9 @@ Avant de passer d’une authentification fédérée à une authentification mana
 |-|-|
 | Vous comptez conserver les services AD FS pour ces autres applications.| Vous utiliserez AD FS et Azure AD, et vous devrez penser à l’expérience de l’utilisateur final. Dans certains scénarios, les utilisateurs devront peut-être s’authentifier deux fois ; une fois dans Azure AD (où ils passeront ensuite à l’authentification unique dans d’autres applications comme Office 365) et à nouveau dans toutes les applications encore liées à AD FS en tant qu’approbation de partie de confiance. |
 | AD FS est extrêmement personnalisé. Il s’appuie sur des paramètres de personnalisation spécifiques du fichier onload.js, qui ne peuvent pas être dupliqués dans Azure AD (par exemple, vous avez modifié l’expérience de connexion afin que les utilisateurs entrent uniquement un nom d’utilisateur au format SamAccountName et non un UPN, ou bien l’expérience de connexion est hautement personnalisée).| Vous devrez vérifier que vos spécifications de personnalisation actuelles peuvent être respectées par Azure AD avant de continuer. Reportez-vous aux sections relatives à la personnalisation AD FS pour plus d’informations et de conseils.|
-| Vous bloquez les clients avec authentification héritée via AD FS.| Vous pouvez remplacer les contrôles pour bloquer les clients avec authentification héritée qui sont actuellement présents sur AD FS. Pour ce faire, associez des [contrôles d’accès conditionnel pour l’authentification héritée](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) et des [règles d’accès au client Exchange Online](http://aka.ms/EXOCAR). |
+| Vous bloquez les clients avec authentification héritée via AD FS.| Vous pouvez remplacer les contrôles pour bloquer les clients avec authentification héritée qui sont actuellement présents sur AD FS. Pour ce faire, associez des [contrôles d’accès conditionnel pour l’authentification héritée](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) et des [règles d’accès au client Exchange Online](https://aka.ms/EXOCAR). |
 | Vous demandez aux utilisateurs d’effectuer une authentification multifacteur sur une solution de serveur MFA locale pour l’authentification à AD FS.| Vous ne pourrez pas injecter de 2e facteur d’authentification via la solution MFA locale dans le flux d’authentification d’un domaine managé, mais vous pourrez utiliser le service Azure MFA pour ce faire une fois le domaine converti. Si, à l’heure actuelle, les utilisateurs n’utilisent pas Azure MFA, vous devrez préparer une étape d’inscription unique pour l’utilisateur final et la communiquer auprès des utilisateurs finaux. |
-| Vous utilisez actuellement des stratégies de contrôle d’accès (règles AuthZ) dans AD FS pour contrôler l’accès à Office 365.| Vous pouvez les remplacer par les [stratégies d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) et les [règles d’accès au client Exchange Online](http://aka.ms/EXOCAR) d’Azure AD qui sont équivalentes.|
+| Vous utilisez actuellement des stratégies de contrôle d’accès (règles AuthZ) dans AD FS pour contrôler l’accès à Office 365.| Vous pouvez les remplacer par les [stratégies d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) et les [règles d’accès au client Exchange Online](https://aka.ms/EXOCAR) d’Azure AD qui sont équivalentes.|
 
 ### <a name="considerations-for-common-ad-fs-customizations"></a>Considérations relatives aux personnalisations AD FS courantes
 
@@ -147,7 +147,7 @@ Pour plus d’informations sur cette exigence, consultez la page [Comment config
 
 #### <a name="branding"></a>Personnalisation
 
-Il se peut que votre organisation ait [personnalisé les pages de connexion AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization) afin d’afficher des informations plus pertinentes pour elle. Dans ce cas, envisagez d’apporter des [personnalisations similaires à la page de connexion Azure AD](https://docs.microsoft.com/azure/active-directory/customize-branding).
+Votre organisation peut avoir [personnalisé vos pages de connexion ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization) afin qu’elles affichent des informations plus pertinentes pour l’organisation. Dans ce cas, envisagez d’apporter des [personnalisations similaires à la page de connexion Azure AD](https://docs.microsoft.com/azure/active-directory/customize-branding).
 
 S’il est possible d’apporter des personnalisations similaires, il faut s’attendre à certaines modifications visuelles. Vous devrez inclure les modifications prévues dans vos communications aux utilisateurs finaux.
 
@@ -233,7 +233,7 @@ Commencez par modifier la méthode d’authentification :
    5. Dans l’écran Activer l’authentification unique, entrez les informations d’identification du compte d’administrateur de domaine, puis cliquez sur Suivant.  
 
    > [!NOTE]
-   > Vous devez fournir des informations d’identification d’administrateur de domaine pour activer l’authentification unique fluide, car le processus effectue des actions qui nécessitent ces autorisations élevées. Les informations d’identification de l'administrateur de domaine ne sont pas stockées dans Azure AD Connect ni dans Azure AD. Elles sont utilisées uniquement pour activer la fonctionnalité, puis elles sont supprimées une fois l’opération réussie.
+   > Vous devez fournir des informations d’identification d’administrateur de domaine pour activer l’authentification unique fluide, car le processus effectue des actions qui nécessitent ces autorisations élevées. Les informations d’identification de l'administrateur de domaine ne sont pas stockées dans Azure AD Connect ni dans Azure AD. Elles sont utilisées uniquement pour activer la fonctionnalité, puis elles sont supprimées une fois l’opération réussie
    >
    > * Un compte d’ordinateur nommé AZUREADSSOACC (c’est-à-dire Azure AD) est créé dans votre instance Active Directory (AD) locale.
    > * La clé de déchiffrement Kerberos du compte d’ordinateur est partagée en toute sécurité avec Azure AD.
@@ -243,7 +243,7 @@ Commencez par modifier la méthode d’authentification :
    6. Dans l’écran **Prêt à configurer**, vérifiez que la case **Démarrez le processus de synchronisation une fois la configuration terminée** est cochée. Ensuite, sélectionnez **Configurer**.</br>
    ![image](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image8.png)</br>
    7. Ouvrez le **Portail Azure AD**, sélectionnez **Azure Active Directory**, puis **Azure AD Connect**.
-   8. Vérifiez que la **fédération est désactivée** et que **l’authentification unique fluide** et **l’authentification directe** sont **activées**.</br>
+   8. Vérifiez que la **fédération est désactivée** et que l'**authentification unique fluide** et l'**authentification directe** sont **activées**.</br>
    ![image](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)</br>
 
 Ensuite, vous devez déployer les méthodes d’authentification supplémentaires. Ouvrez le **Portail Azure**, accédez à **Azure Active Directory, Azure AD Connect** et cliquez sur **Authentification directe**.
@@ -324,7 +324,7 @@ La conversion est effectuée à l’aide du module Azure AD PowerShell.
  ```
  
    3. Ouvrez le **Portail Azure AD**, sélectionnez **Azure Active Directory**, puis **Azure AD Connect**.  
-   4. Une fois que vous avez converti l’intégralité de vos domaines fédérés, vérifiez que la **fédération est désactivée** et que **l’authentification unique fluide** et **l’authentification directe** sont **activées**.</br>
+   4. Une fois que vous avez converti l'intégralité de vos domaines fédérés, vérifiez que la **fédération est désactivée** et que l'**authentification unique fluide** et l'**authentification directe** sont **activées**.</br>
    ![image](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)</br>
 
 ## <a name="testing-and-next-steps"></a>Tests et étapes suivantes
@@ -333,7 +333,7 @@ La conversion est effectuée à l’aide du module Azure AD PowerShell.
 
 Si votre client utilisait la fédération, les utilisateurs étaient redirigés de la page de connexion Azure AD vers votre environnement AD FS. Maintenant que le client est configuré pour utiliser l’authentification directe au lieu de la fédération, les utilisateurs ne sont plus redirigés vers AD FS, mais se connectent directement via la page de connexion Azure AD.
 
-Ouvrez Internet Explorer en mode privé pour éviter que l’authentification unique fluide ne vous connecte automatiquement, et accédez à la page de connexion d’Office 365 ([http://portal.office.com](http://portal.office.com/)). Saisissez l’**UPN** de votre utilisateur et cliquez sur **Suivant**. Veillez à saisir l’UPN d’un utilisateur hybride ayant été synchronisé à partir de votre Active Directory local et qui utilisait auparavant l’authentification fédérée. L’utilisateur verra un écran lui permettant de saisir son nom d’utilisateur et son mot de passe.
+Ouvrez Internet Explorer en mode privé pour éviter que l’authentification unique fluide ne vous connecte automatiquement, et accédez à la page de connexion d’Office 365 ([https://portal.office.com](https://portal.office.com/)). Saisissez l’**UPN** de votre utilisateur et cliquez sur **Suivant**. Veillez à saisir l’UPN d’un utilisateur hybride ayant été synchronisé à partir de votre Active Directory local et qui utilisait auparavant l’authentification fédérée. L’utilisateur verra un écran lui permettant de saisir son nom d’utilisateur et son mot de passe.
 
 ![Image 18](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image27.png)
 

@@ -1,7 +1,7 @@
 ---
-title: Recherche sur le site, utilisez l'interface utilisateur hébergée Recherche personnalisée Bing
+title: Configurer une interface utilisateur hébergée pour le service Recherche personnalisée Bing | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Explique comment configurer l'interface utilisateur hébergée Recherche personnalisée Bing.
+description: Cet article vous explique comment configurer et intégrer une interface utilisateur hébergée pour le service Recherche personnalisée Bing.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,100 +10,49 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: aahi
-ms.openlocfilehash: c71597cf540cca67b9558ce28d20ce1d21ae0243
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e30c36cbde3bf112b012526e6268dfc4414f64a9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424984"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555470"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurer votre expérience d’interface utilisateur hébergée
 
-Après avoir configuré votre instance de recherche personnalisée, vous pouvez appeler l’API Recherche personnalisée pour obtenir les résultats de la recherche et les afficher dans votre application. Si votre application est une application web, vous pouvez aussi utiliser l’interface utilisateur hébergée qui est fournie par la Recherche personnalisée.   
+Le service Recherche personnalisée Bing fournit une interface utilisateur hébergée que vous pouvez facilement intégrer à vos applications et pages web en tant qu’extrait de code JavaScript. À l’aide du portail Recherche personnalisée Bing, vous pouvez configurer la mise en page, la couleur et les options de recherche de l’interface utilisateur.
 
-## <a name="configure-custom-hosted-ui"></a>Configurer l’IU hébergée personnalisée
 
-Si vous souhaitez configurer une interface utilisateur hébergée pour votre application web, effectuez les étapes suivantes :
 
-1. Connectez-vous au [portail](https://customsearch.ai) de la Recherche personnalisée.  
+## <a name="configure-the-custom-hosted-ui"></a>Configuration de l’interface utilisateur hébergé personnalisée
+
+Pour configurer une interface utilisateur hébergée pour vos applications web, procédez comme suit. Lorsque vous apportez des modifications, le volet de droite vous fournira un aperçu de votre interface utilisateur. Les résultats de recherche qui sont affichés ne sont pas les résultats réels de votre instance.
+
+1. Connectez-vous au [portail](https://customsearch.ai) de la Recherche personnalisée Bing.  
   
-2. Cliquez sur une instance Recherche personnalisée. Pour créer une instance, consultez [Créer votre première instance Recherche personnalisée Bing](quick-start.md).  
+2. Sélectionnez votre instance de Recherche personnalisée Bing.
 
 3. Cliquez sur l’onglet **Hosted UI** (IU hébergée).  
   
 4. Sélectionnez une disposition.
-  
-  - Search bar and results (Barre de recherche et de résultats) - par défaut &mdash; Cette disposition correspond à la page de recherche traditionnelle, avec une zone de recherche et des résultats de la recherche.
-  - Results only (Résultats uniquement) &mdash; Cette disposition affiche uniquement les résultats de recherche. Cette mise en page n’affiche pas de zone de recherche. Vous devez fournir la requête de recherche en ajoutant le paramètre de requête (&q=\<chaîne de requête>) à l’URL de la requête dans l’extrait de code JavaScript ou dans le lien de point de terminaison HTML.
-  - Pop-over (Fenêtre superposée glissante) &mdash; Cette disposition fournit une zone de recherche et affiche les résultats de recherche dans une fenêtre glissante qui vient se superposer à la fenêtre actuelle.
-      
-5. Sélectionnez un thème de couleur. Les thèmes possibles sont les suivants : 
-  
-  - Classique
-  - Foncé
-  - Skyline Blue (Bleu horizon)
 
-  Cliquez sur chacun de ces thèmes pour voir lequel convient le mieux à votre application web. Si vous avez besoin de régler le thème de couleur pour mieux l’intégrer à votre application web, cliquez sur **Customize theme** (Personnaliser le thème). Certaines configurations de couleur ne s’appliquent pas à tous les thèmes de disposition. Pour changer une couleur, entrez la valeur HEX RVB de la couleur (par exemple, #366eb8) dans la zone de texte correspondante. Sinon, cliquez sur le bouton de couleur, puis sur la nuance qui vous convient. 
-  
-  Après avoir modifié une couleur, regardez l’aperçu qui s’affiche sur la droite. Vous pouvez toujours cliquer sur **Rétablir les valeurs par défaut** pour rétablir les couleurs par défaut du thème sélectionné.
+    |  |  |
+    |---------|---------|
+    |Search bar and results (Barre de recherche et de résultats) : par défaut    | Affiche une zone de recherche avec les résultats de la recherche en dessous.         |
+    |Results only (Résultats uniquement)     | Affiche uniquement les résultats de la recherche, sans zone de recherche. Lorsque vous utilisez cette mise en page, vous devez fournir la requête de recherche (`&q=<query string>`). Ajoutez le paramètre de requête à l’URL de requête dans l’extrait de code JavaScript, ou le lien vers le point de terminaison HTML.        |
+    |Pop-over (Fenêtre superposée glissante)     | Fournit une zone de recherche et affiche les résultats de recherche dans une fenêtre glissante qui vient se superposer à la fenêtre actuelle.        |
+    
+5. Sélectionnez un thème de couleur. Vous pouvez personnaliser les couleurs en fonction de votre application en cliquant sur **Customize theme** (Personnaliser le thème). Pour modifier une couleur, entrez la valeur hexadécimale de couleur RVB (par exemple, `#366eb8`), ou cliquez sur l’aperçu de la couleur.
+
+  Vous pouvez consulter un aperçu de vos modifications sur le côté droit du portail. En cliquant sur **Reset to default** (Rétablir les valeurs par défaut), vous rétablissez les couleurs par défaut du thème sélectionné.
 
   > [!NOTE]
-  > Lorsque vous modifiez le thème d’une couleur, prenez en compte l’accessibilité.
+  > Lors du choix des couleurs, pensez à l’accessibilité.
 
-5. Sous **Additional Configurations** (Configurations supplémentaires), fournissez des valeurs en fonction de votre application. Ces paramètres sont facultatifs. Pour voir l’effet de leur application ou de leur suppression, regardez le volet de visualisation situé à droite. Voici les options de configuration disponibles :  
-  
-  - Configurations de la recherche web :
-    - Web results enabled (Résultats web activés) &mdash; Détermine si la recherche sur le Web est activée (si c’est le cas, vous voyez l’onglet Web en haut de la page).
-    - Enable autosuggest (Activer la suggestion automatique) &mdash; Détermine si la suggestion automatique personnalisée est activée (voir les [Tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) pour connaître les frais supplémentaires).
-    - Web results per page (Résultats web par page) &mdash; Nombre de résultats à afficher pour une recherche sur le Web (le maximum est de 50 résultats par page).
-    - Image caption (Légende de l’image) &mdash; Détermine si des images sont affichées avec les résultats de la recherche
-  
-    Les configurations suivantes sont affichées si vous cliquez sur **Show advanced configurations** (Afficher les configurations avancées).  
-  
-    - Highlight words (Mettre les mots en gras) &mdash; Détermine si les termes de recherche apparaissent en gras dans les résultats de recherche. 
-    - Link target (Cible du lien) &mdash; Détermine si la page web s’ouvre dans un nouvel onglet de navigateur (vide) ou dans le même onglet de navigateur lorsque l’utilisateur clique sur un résultat de recherche. 
+6. Sous **Additional Configurations** (Configurations supplémentaires), fournissez des valeurs en fonction de votre application. Ces paramètres sont facultatifs. Pour voir l’effet de leur application ou de leur suppression, regardez le volet de visualisation situé à droite. Voici les options de configuration disponibles :  
 
-  - Configurations de la recherche d’images :
-    - Image results enabled (Résultats d’images activés) &mdash; Détermine si la recherche d’images est activée (si c’est le cas, vous voyez l’onglet Images en haut de la page).   
-    - Image results per page (Résultats d’images par page) &mdash; Nombre de résultats à afficher pour une recherche d’images (le maximum est de 150 résultats par page).  
-  
-    La configuration suivante est affichée si vous cliquez sur **Show advanced configurations** (Afficher les configurations avancées).  
-  
-    - Enable filters (Activer les filtres) &mdash; Ajoute des filtres dont l’utilisateur peut se servir pour filtrer les images retournées par Bing. Par exemple, l’utilisateur peut filtrer les résultats pour n’afficher que des fichiers GIF animés.
+7. Entrez la clé d’abonnement de la recherche, ou sélectionnez-en une dans la liste déroulante. La liste déroulante est remplie avec les clés des abonnements de votre compte Azure. Consultez [Compte d'API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
 
-  - Configurations pour la recherche de vidéos:
-    - Video results enabled (Résultats vidéos activés) &mdash; Détermine si la recherche de vidéos est activée (si c’est le cas, vous voyez l’onglet Vidéos en haut de la page).  
-    - Video results per page (Résultats vidéos par page) &mdash; Nombre de résultats à afficher pour une recherche de vidéo (le maximum est de 150 résultats par page).
-  
-    La configuration suivante est affichée si vous cliquez sur **Show advanced configurations** (Afficher les configurations avancées).  
-  
-    - Enable filters (Activer les filtres) &mdash; Ajoute des filtres dont l’utilisateur peut se servir pour filtrer les vidéos retournées par Bing. Par exemple, l’utilisateur peut filtrer les résultats pour n’afficher que les vidéos ayant une résolution spécifique ou les vidéos découvertes au cours des dernières 24 heures.
-
-  - Configurations diverses :
-    - Page title (Titre de la page) &mdash; Texte affiché dans la zone de titre de la page des résultats de recherche (ne s’applique pas à la disposition de fenêtre superposée glissante).
-    - Toolbar theme (Thème de la barre d’outils) &mdash; Détermine la couleur d’arrière-plan de la zone de titre de la page des résultats de recherche.  
-  
-    Les configurations suivantes sont affichées si vous cliquez sur **Show advanced configurations** (Afficher les configurations avancées).  
-  
-    - Search box text placeholder (Espace réservé au texte de la zone de recherche) &mdash; Texte affiché dans la zone de recherche avant l’entrée de texte.
-    - Title link URL (URL du lien vers le titre) &mdash; Cible du lien vers le titre.
-    - Logo URL (URL du logo) &mdash; Image affichée à côté du titre. 
-    - Favicon URL (URL d’icône favorite) &mdash; Icône affichée dans la barre de titre du navigateur.  
-
-    Les configurations suivantes s’appliquent uniquement si vous utilisez l’interface utilisateur hébergée via le point de terminaison HTML (elles ne s’appliquent pas si vous utilisez l’extrait de code JavaScript).
-    
-    - Titre de la page
-    - Thème de la barre d’outils
-    - URL du lien de titre
-    - URL du logo
-    - URL d’icône favorite  
-  
-6. Entrez la clé d’abonnement de la recherche, ou sélectionnez-en une dans la liste déroulante. La liste déroulante est remplie avec les clés des abonnements de votre compte Azure. Consultez [Compte d'API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
-
-7. Si vous avez activé la suggestion automatique, entrez la clé d’abonnement de la suggestion automatique, ou sélectionnez-en une dans la liste déroulante. La liste déroulante est remplie avec les clés des abonnements de votre compte Azure. La Suggestion automatique personnalisée nécessite un niveau d’abonnement spécifique. Pour plus d’informations, consultez les [Tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
-
-> [!NOTE]
-> À mesure que vous apportez des modifications à la configuration de l’interface utilisateur hébergée personnalisée, le volet de droite donne une représentation visuelle des modifications effectuées. Les résultats de recherche qui sont affichés ne sont pas les résultats réels de votre instance.
+8. Si vous avez activé la suggestion automatique, entrez la clé d’abonnement de la suggestion automatique, ou sélectionnez-en une dans la liste déroulante. La liste déroulante est remplie avec les clés des abonnements de votre compte Azure. La Suggestion automatique personnalisée nécessite un niveau d’abonnement spécifique. Pour plus d’informations, consultez les [Tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
 [!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
@@ -140,6 +89,79 @@ Pour consommer l’IU hébergée, soit vous :
   > La page ne peut pas afficher votre déclaration de confidentialité, ou d’autres mentions et conditions. L’adéquation à votre utilisation peut varier.  
 
 Pour obtenir plus d’informations, y compris votre ID de configuration personnalisée, accédez à **Endpoints** (Points de terminaison) sous l’onglet **Production** (Production).
+
+## <a name="configuration-options"></a>Options de configuration
+
+Vous pouvez configurer le comportement de votre interface utilisateur hébergée en cliquant sur **Configurations supplémentaires**et en fournissant les valeurs de votre choix. Ces paramètres sont facultatifs. Pour voir l’effet de leur application ou de leur suppression, regardez le volet de visualisation situé à droite. 
+
+### <a name="web-search-configurations"></a>Configurations de la recherche web :
+
+|  |  |
+|---------|---------|
+|Web results enabled (Résultats web activés)    | Détermine si la recherche sur le Web est activée (si c’est le cas, vous voyez l’onglet Web en haut de la page).        |
+|Enable autosuggest (Activer la suggestion automatique)     | Détermine si la suggestion automatique personnalisée est activée (voir les [Tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) pour connaître les frais supplémentaires).        |
+|Web results per page (Résultats web par page)    | Nombre de résultats à afficher pour une recherche sur le Web (le maximum est de 50 résultats par page).        |
+|Image caption (Légende d’image)   | Détermine si des images sont affichées avec les résultats de la recherche|
+
+
+Les configurations suivantes sont affichées si vous cliquez sur **Show advanced configurations** (Afficher les configurations avancées).
+
+
+|  | |
+|---------|---------|
+|Highlight words (Mettre les mots en gras)     | Détermine si les résultats sont affichés avec les termes de la recherche en gras.         |
+|Link target (Cible du lien)    |  Détermine si la page web s’ouvre dans un nouvel onglet de navigateur (vide) ou dans le même onglet de navigateur lorsque l’utilisateur clique sur un résultat de recherche.        |
+
+### <a name="image-search-configurations"></a>Configurations de la recherche d’images
+
+| | |
+|---------|---------|
+|Image results enabled (Résultats d’images activés)     | Détermine si la recherche d’images est activée (si c’est le cas, vous voyez l’onglet Images en haut de la page).            |
+|Image results per page (Résultats d’images par page)     | Nombre de résultats à afficher pour une recherche d’images (le maximum est de 150 résultats par page).          |
+
+La configuration suivante est affichée si vous cliquez sur **Show advanced configurations** (Afficher les configurations avancées).  
+  
+| | |
+|---------|---------|
+| Enable filters (Activer les filtres)     | Ajoute des filtres dont l’utilisateur peut se servir pour filtrer les images retournées par Bing. Par exemple, l’utilisateur peut filtrer les résultats pour n’afficher que des fichiers GIF animés.|
+
+### <a name="video-search-configurations"></a>Configurations pour la recherche de vidéos
+
+|  | |
+|---------|---------|
+|Video results enabled (Résultats vidéos activés)     | Détermine si la recherche de vidéos est activée (si c’est le cas, vous voyez l’onglet Vidéos en haut de la page).           |
+|Video results per page (Résultats vidéos par page)   | Nombre de résultats à afficher pour une recherche de vidéo (le maximum est de 150 résultats par page).        |
+
+La configuration suivante est affichée si vous cliquez sur **Show advanced configurations** (Afficher les configurations avancées).  
+  
+|  | |
+|---------|---------|
+|Enable filters (Activer les filtres)    | Ajoute des filtres dont l’utilisateur peut se servir pour filtrer les vidéos retournées par Bing. Par exemple, l’utilisateur peut filtrer les résultats pour n’afficher que les vidéos ayant une résolution spécifique ou les vidéos découvertes au cours des dernières 24 heures.          |
+
+### <a name="miscellaneous-configurations"></a>Configurations diverses
+
+
+| |  |
+|---------|---------|
+|Titre de la page   | Texte affiché dans la zone de titre de la page des résultats de recherche (ne s’applique pas à la disposition de fenêtre superposée glissante).        |
+|Thème de la barre d’outils    | Détermine la couleur d’arrière-plan de la zone de titre de la page des résultats de recherche. |
+
+Les configurations suivantes sont affichées si vous cliquez sur **Show advanced configurations** (Afficher les configurations avancées).  
+
+|Colonne1  |Colonne2  |
+|---------|---------|
+|Search box text placeholder (Espace réservé au texte de la zone de recherche)   | Texte affiché dans la zone de recherche avant l’entrée de texte.        |
+|Title link url (URL du lien de titre)    |Cible du lien vers le titre.         |
+|URL du logo     | Image affichée à côté du titre.         |
+|Favicon (Icône favorite)    | Icône affichée dans la barre de titre du navigateur.          |
+
+Les configurations suivantes s’appliquent uniquement si vous utilisez l’interface utilisateur hébergée via le point de terminaison HTML (elles ne s’appliquent pas si vous utilisez l’extrait de code JavaScript).
+
+- Titre de la page
+- Thème de la barre d’outils
+- URL du lien de titre
+- URL du logo
+- URL d’icône favorite  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
