@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 70f9ccbbe737bad4d6f88365e804d4421c418d28
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: edd5da35d33aa7e79fc3e972f3ea1cfe2ef40973
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164005"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631411"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implémenter le comportement de modèle d’appareil
 
@@ -21,6 +21,9 @@ L’article [Comprendre le schéma de modèle d’appareil](iot-accelerators-rem
 
 - Les fichiers JavaScript d’**état**, qui s’exécutent à intervalle régulier pour mettre à jour l’état interne de l’appareil.
 - Les fichiers JavaScript de **méthode**, qui s’exécutent lorsque la solution appelle une méthode sur l’appareil.
+
+> [!NOTE]
+> Les comportements de modèle d’appareil sont destinés uniquement aux appareils simulés hébergés dans le service de simulation d’appareil. Si vous voulez créer un appareil physique, consultez [Connecter votre appareil à l’accélérateur de solution Supervision à distance](iot-accelerators-connecting-devices.md).
 
 Dans cet article, vous apprendrez comment :
 

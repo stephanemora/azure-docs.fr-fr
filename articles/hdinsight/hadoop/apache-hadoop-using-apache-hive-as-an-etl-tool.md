@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: c26b4700f32ce4e0bd8327e862d31df8fea2439d
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f8fb036eaca35e41d89b0a9610ebcd68e65f40f9
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632541"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630256"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Utiliser Apache Hive comme un outil d’extraction, de transformation et de chargement (ETL)
 
-En règle générale, vous devez nettoyer et transformer les données entrantes avant de les charger dans une destination appropriée à des fins d’analytique. Les opérations d’extraction, de transformation et de chargement (ETL) sont utilisées pour préparer les données et les charger dans une destination de données.  Apache Hive sur HDInsight peut lire les données non structurées, traiter les données en fonction des besoins, puis charger les données dans un entrepôt de données relationnelles pour les systèmes de support de décision (DSS). Dans cette approche, les données sont extraites de la source et stockées dans un stockage scalable, tel que des objets blob Stockage Azure ou Azure Data Lake Store. Les données sont ensuite transformées à l’aide d’une séquence de requêtes Hive. Elles sont enfin mises en lots dans Hive en préparation du chargement en masse dans le magasin de données de destination.
+En règle générale, vous devez nettoyer et transformer les données entrantes avant de les charger dans une destination appropriée à des fins d’analytique. Les opérations d’extraction, de transformation et de chargement (ETL) sont utilisées pour préparer les données et les charger dans une destination de données.  Apache Hive sur HDInsight peut lire les données non structurées, traiter les données en fonction des besoins, puis charger les données dans un entrepôt de données relationnelles pour les systèmes de support de décision (DSS). Dans cette approche, les données sont extraites de la source et stockées dans un stockage scalable, tel que des objets blob Stockage Azure ou Azure Data Lake Storage. Les données sont ensuite transformées à l’aide d’une séquence de requêtes Hive. Elles sont enfin mises en lots dans Hive en préparation du chargement en masse dans le magasin de données de destination.
 
 ## <a name="use-case-and-model-overview"></a>Cas d’usage et vue d’ensemble du modèle
 
@@ -30,7 +30,7 @@ Hadoop est généralement utilisé dans les processus ETL qui importent un nombr
 
 Voici les étapes classiques lors de l’utilisation de Hive dans le cadre des processus ETL :
 
-1. Chargez des données dans Azure Data Lake Store ou Stockage Blob Azure.
+1. Chargez des données dans Azure Data Lake Storage ou Stockage Blob Azure.
 2. Créez une base de données du magasin de métadonnées (à l’aide d’Azure SQL Database) pour une utilisation par Hive lors du stockage de vos schémas.
 3. Créez un cluster HDInsight et connectez le magasin de données.
 4. Définissez le schéma à appliquer au moment de la lecture des données dans le magasin de données :
@@ -51,7 +51,7 @@ Voici les étapes classiques lors de l’utilisation de Hive dans le cadre des p
 
 5. Transformez les données et chargez-les dans la destination.  Il existe plusieurs manières d’utiliser Hive lors de la transformation et du chargement :
 
-    * Interrogez et préparez des données à l’aide de Hive et enregistrez-les au format CSV dans Azure Data Lake Store ou Stockage Blob Azure.  Utilisez ensuite un outil tel que SSIS (SQL Server Integration Services) pour acquérir ces fichiers CSV et charger les données dans une base de données relationnelle de destination telle que SQL Server.
+    * Interrogez et préparez des données à l’aide de Hive et enregistrez-les au format CSV dans Azure Data Lake Storage ou Stockage Blob Azure.  Utilisez ensuite un outil tel que SSIS (SQL Server Integration Services) pour acquérir ces fichiers CSV et charger les données dans une base de données relationnelle de destination telle que SQL Server.
     * Interrogez les données directement à partir d’Excel ou C# à l’aide du pilote ODBC Hive.
     * Utilisez [Apache Sqoop](apache-hadoop-use-sqoop-mac-linux.md) pour lire les fichiers CSV plats préparés et les charger dans la base de données relationnelle de destination.
 

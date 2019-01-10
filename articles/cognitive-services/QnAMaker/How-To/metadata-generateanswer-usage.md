@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 12/18/2018
 ms.author: tulasim88
-ms.openlocfilehash: 97fb59a9a483753c6c2b5a4ae027bb358f7050e1
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 004f09eb77d1bc32e44e1940186e8a631c45846d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166589"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608475"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Utiliser des métadonnées et l’API GenerateAnswer
 
@@ -51,12 +51,12 @@ Vous pouvez également obtenir les détails de votre point de terminaison à par
 
 Vous appelez GenerateAnswer à l’aide d’une requête HTTP POST. Pour obtenir un exemple de code qui montre comment appeler GenerateAnswer, consultez les [guides de démarrage rapide](../quickstarts/csharp.md).
 
-- **URL de la requête** : https://{QnA Maker endpoint}/knowledgebases/{knowledge base ID}/generateAnswer
+- **URL de la requête** : https://{point de terminaison QnA Maker}/knowledgebases/{ID de la base de connaissances}/generateAnswer
 
 - **Paramètres de la requête** : 
     - **Knowledge base ID** (chaîne) : GUID de votre base de connaissances.
     - **QnAMaker endpoint** (chaîne) : nom d’hôte du point de terminaison déployé dans votre abonnement Azure.
-- **En-têtes de la requête**
+- **En-têtes de requête**
     - **Content-Type** (chaîne) : type de média du corps envoyé à l’API.
     - **Authorization** (chaîne) : clé de votre point de terminaison (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
 - **Corps de la demande**
@@ -113,11 +113,11 @@ Vous appelez GenerateAnswer à l’aide d’une requête HTTP POST. Pour obtenir
 
 ## <a name="metadata-example"></a>Exemple de métadonnées
 
-Examinez les données FAQ ci-dessous, relatives aux restaurants situés à Hyderabad. Ajoutez des métadonnées à votre base de connaissances en cliquant sur l’icône d’engrenage.
+Tenez compte des informations fournies dans le forum aux questions ci-dessous. Ajoutez des métadonnées à votre base de connaissances en cliquant sur l’icône des métadonnées.
 
 ![ajouter des métadonnées](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
-### <a name="filter-results-with-strictfilters"></a>Filtrer les résultats avec strictFilters
+### <a name="filter-results-with-strictfilters-for-metadata-tags"></a>Filtrer les résultats avec strictFilters pour les balises de métadonnées
 
 Prenez la question de l’utilisateur « Quand cet hôtel ferme-t-il ? » où l’intention est implicite pour le restaurant « Paradise ».
 

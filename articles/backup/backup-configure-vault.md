@@ -4,17 +4,16 @@ description: Utilisez l’agent Microsoft Azure Backup pour sauvegarder vos fich
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keywords: coffre de sauvegarde ; sauvegarder un serveur Windows ; sauvegarder windows ;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: 4e138311b58d56f3a188347d43ed12287d43e1bd
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ff1aaadd77df9cb7678ad71141d15c96f2f12dc0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874003"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788393"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Sauvegarder un client Windows ou un serveur Windows Server dans Azure et le modèle de déploiement Resource Manager
 Cet article explique comment sauvegarder vos fichiers et dossiers Windows Server (ou d’un client Windows) sur Azure avec Azure Backup et le modèle de déploiement Resource Manager.
@@ -183,6 +182,8 @@ Si votre ordinateur/proxy a un accès à Internet limité, assurez-vous que les 
 La stratégie de sauvegarde couvre a planification d’exécution des points de récupération et la durée de rétention de ces points de récupération. Utilisez l’agent Microsoft Azure Backup pour créer la stratégie de sauvegarde de vos fichiers et dossiers.
 
 ### <a name="to-create-a-backup-schedule"></a>Pour créer une planification de sauvegarde
+
+Définissez la planification de sauvegarde sur la machine à sauvegarder. Notez que l’heure définie pour la sauvegarde peut différer de celle de l’ordinateur local, car Sauvegarde Azure ne tient pas compte de l’heure d’été. 
 1. Ouvrez l’agent Microsoft Azure Backup. Vous pouvez le trouver en recherchant **Microsoft Azure Backup**sur votre ordinateur.
 
     ![Démarrer l’agent Azure Backup](./media/backup-configure-vault/snap-in-search.png)

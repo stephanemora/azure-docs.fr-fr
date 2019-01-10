@@ -1,18 +1,19 @@
 ---
-title: Rendu Azure - architectures de référence
+title: Architectures de référence de rendu Azure - Azure Batch
 description: Architectures pour utiliser Azure Batch et d’autres services Azure afin d’étendre un groupe de rendus local en évoluant vers le cloud
 services: batch
 author: davefellows
 manager: jeconnoc
-ms.author: danlep
+ms.author: lahugh
 ms.date: 08/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0fe101ee6eb88094034b90c4d39f06ba509c9512
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.custom: seodec18
+ms.openlocfilehash: d5102ba94e2b7808a457df00a87b35ef7022c454
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099647"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543493"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Architectures de référence pour le rendu Azure
 
@@ -24,9 +25,9 @@ Le diagramme suivant présente un scénario hybride qui inclut les services Azur
 
 * **Calcul** : pool Azure Batch ou groupe de machines virtuelles identiques.
 
-* **Réseau** : local : Azure ExpressRoute ou VPN. Azure : réseau virtuel Azure.
+* **Réseau** - local : Azure ExpressRoute ou VPN. Azure : Azure VNet.
 
-* **Stockage**: fichiers d’entrée et de sortie : NFS ou CFS à l’aide de machines virtuelles Azure, synchronisées avec le stockage local via Azure File Sync ou RSync.
+* **Stockage** - Fichiers d’entrée et de sortie : NFS ou CFS à l’aide de machines virtuelles Azure, synchronisées avec le stockage local via Azure File Sync ou RSync.
 
   ![« Cloud Bursting » - Hybride avec NFS ou CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs.png)
 
@@ -36,9 +37,9 @@ Le diagramme suivant présente un scénario hybride qui inclut les services Azur
 
 * **Calcul** : pool Azure Batch ou groupe de machines virtuelles identiques.
 
-* **Réseau** : local : Azure ExpressRoute ou VPN. Azure : réseau virtuel Azure.
+* **Réseau** - local : Azure ExpressRoute ou VPN. Azure : Azure VNet.
 
-* **Stockage** : fichiers d’entrée et de sortie : stockage d’objets blob, monté pour calculer des ressources via Azure Blobfuse.
+* **Stockage** - Fichiers d’entrée et de sortie : stockage d’objets blob, monté pour calculer des ressources via Azure Blobfuse.
 
   ![« Cloud Bursting » - Hybride avec Blobfuse](./media/batch-rendering-architectures/hybrid-blob-fuse.png)
 
@@ -48,9 +49,9 @@ Le diagramme suivant présente un scénario hybride entièrement connecté pour 
 
 * **Calcul** : pool Azure Batch ou groupe de machines virtuelles identiques.
 
-* **Réseau** : local : Azure ExpressRoute ou VPN. Azure : réseau virtuel Azure.
+* **Réseau** - local : Azure ExpressRoute ou VPN. Azure : Azure VNet.
 
-* **Stockage** : entre locaux : Avere vFXT. Archivage facultatif de fichiers locaux via Azure Data Box vers le stockage d’objets blob.
+* **Stockage** : entre locaux : Avere vFXT. Archivage facultatif de fichiers locaux via Azure Data Box vers le stockage d’objets blob.
 
   ![« Cloud Bursting » - calcul et stockage hybrides](./media/batch-rendering-architectures/hybrid-compute-storage.png)
 

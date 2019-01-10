@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: victorh
-ms.openlocfilehash: b0bde770e33a08832e7d3a93a745bbba44b04f87
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 99a4dd25539db754a893ddda7480c64e5a13a5bd
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353337"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631513"
 ---
-# <a name="configure-app-service-web-apps-with-application-gateway"></a>Configurer App Service Web Apps avec Application Gateway
+# <a name="configure-app-service-with-application-gateway"></a>Configurer App Service avec Application Gateway
 
-Application Gateway vous permet d’avoir une application web Azure ou autre service multilocataire en tant que membre d’un pool de serveurs principaux. Dans cet article, vous allez apprendre à configurer une application web Azure avec Application Gateway. Le premier exemple montre comment configurer une passerelle d’application existante pour qu’elle utilise une application web en tant que membre d’un pool de serveurs principaux. Le deuxième exemple montre comment créer une passerelle d’application avec une application web en tant que membre d’un pool de serveurs principaux.
+Application Gateway vous permet d’avoir une application App Service ou un autre service multilocataire en tant que membre du pool back-end. Dans cet article, vous allez apprendre à configurer une application App Service avec Application Gateway. Le premier exemple montre comment configurer une passerelle d’application existante pour qu’elle utilise une application web en tant que membre d’un pool de serveurs principaux. Le deuxième exemple montre comment créer une passerelle d’application avec une application web en tant que membre d’un pool de serveurs principaux.
 
 ## <a name="configure-a-web-app-behind-an-existing-application-gateway"></a>Configurer une application web derrière une passerelle d’application existante
 
@@ -155,7 +155,7 @@ DnsSettings              : {
                             }
 ```
 
-## <a name="restrict-access"></a>Restreindre l’accès
+## <a name="restrict-access"></a>Restriction de l’accès
 
 Les applications web déployées dans ces exemples utilisent des adresses IP publiques qui sont accessibles directement à partir d’Internet. La résolution des problèmes s’en trouve facilitée quand vous découvrez une nouvelle fonctionnalité et essayez de nouvelles choses. Mais si vous prévoyez de déployer une fonctionnalité sur l’environnement de production, l’ajout de restrictions peut vous sembler approprié.
 
@@ -163,4 +163,4 @@ Une façon de restreindre l’accès à vos applications web consiste à utilise
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment configurer la redirection en consultant : [Configurer la redirection sur Application Gateway avec PowerShell](redirect-overview.md).
+Découvrez comment configurer la redirection en consultant : [Configurer la redirection sur Application Gateway avec PowerShell](redirect-overview.md).

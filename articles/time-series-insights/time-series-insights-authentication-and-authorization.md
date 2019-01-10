@@ -1,5 +1,5 @@
 ---
-title: Authentification Azure Time Series Insights - Comment procéder à l’authentification et à l’autorisation à l’aide d’une API dans Azure Time Series Insights | Microsoft Docs
+title: Guide pratique pour authentifier et autoriser par API dans Azure Time Series Insights | Microsoft Docs
 description: Cet article décrit comment configurer l’authentification et l’autorisation pour une application personnalisée qui appelle l’API Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: e42a29152f3abb762e6c95833e8e2e5eddd6929b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 17ca5430a0fdba0bf11d7c2caecd19ec0a402c0e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273542"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556694"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 

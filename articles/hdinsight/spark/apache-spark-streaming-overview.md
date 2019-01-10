@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 86d64ef0e9abab4368569c2f7c5ccd633660085c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 796cbcfc7ab905c54b878a5ccc866efbf9242fb6
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583211"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652079"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Vue d’ensemble d’Apache Spark Streaming
 
@@ -203,7 +203,7 @@ Les fonctions de fenêtre glissante disponibles dans l’API Spark Streaming inc
 
 ## <a name="checkpointing"></a>Points de contrôle
 
-Pour la résilience et la tolérance de panne, Spark Streaming s’appuie sur les points de contrôle pour s’assurer que le traitement de flux de données s’effectue sans interruption, même en cas de défaillances de nœud. Dans HDInsight, Spark crée des points de contrôle pour un stockage durable (Data Lake Store ou stockage Azure). Ces points de contrôle stockent les métadonnées concernant l’application de diffusion en continu, telles que la configuration, les opérations définies par l’application et tout lot mis en file d’attente et n’ayant pas encore été traité. Dans certains cas, les points de contrôle incluent également l’enregistrement des données dans les RDD pour régénérer plus rapidement l’état des données à partir de ce qui existe dans les RDD gérés par Spark.
+Pour la résilience et la tolérance de panne, Spark Streaming s’appuie sur les points de contrôle pour s’assurer que le traitement de flux de données s’effectue sans interruption, même en cas de défaillances de nœud. Dans HDInsight, Spark crée des points de contrôle pour un stockage durable (stockage Azure ou Data Lake Storage). Ces points de contrôle stockent les métadonnées concernant l’application de diffusion en continu, telles que la configuration, les opérations définies par l’application et tout lot mis en file d’attente et n’ayant pas encore été traité. Dans certains cas, les points de contrôle incluent également l’enregistrement des données dans les RDD pour régénérer plus rapidement l’état des données à partir de ce qui existe dans les RDD gérés par Spark.
 
 ## <a name="deploying-spark-streaming-applications"></a>Déploiement d’applications Spark Streaming
 

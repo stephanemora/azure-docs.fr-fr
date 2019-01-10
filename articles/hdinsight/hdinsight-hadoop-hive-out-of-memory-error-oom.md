@@ -10,18 +10,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3b49959d167dbb735ebb9be9c75e91ef257c6a70
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9aff828dcb9dfea6d5f35ad92bb09ba7cd802fea
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383831"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53711854"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Corriger une erreur de mémoire insuffisante Apache Hive dans Azure HDInsight
 
 Découvrez comment résoudre une erreur de mémoire insuffisante (OOM) dans Apache Hive lors du traitement de tables volumineuses en configurant les paramètres de mémoire Hive.
 
-## <a name="run-hive-query-against-large-tables"></a>Exécuter une requête Hive sur des tables de grande taille
+## <a name="run-apache-hive-query-against-large-tables"></a>Exécuter une requête Apache Hive sur des tables de grande taille
 
 Un client exécute une requête Hive :
 

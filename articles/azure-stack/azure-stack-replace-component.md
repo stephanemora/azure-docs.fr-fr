@@ -11,14 +11,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: df9470813f3f9c3bff58882879c06e7b7b0fc15b
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 9657fd448f6fb98eec87a5999af100d4d08594e5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379602"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717719"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Remplacer un composant matériel sur un nœud d’unité d’échelle Azure Stack
 
@@ -44,7 +44,7 @@ L’organigramme suivant illustre le processus FRU général de remplacement d�
 
 * Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
 
-\*\*Votre fournisseur de matériel OEM peut ou non échanger le composant et mettre à jour le microprogramme. Cela dépend de votre contrat de support.
+** Votre fournisseur de matériel OEM peut ou non échanger le composant et mettre à jour le microprogramme. Cela dépend de votre contrat de support.
 
 ## <a name="review-alert-information"></a>Examiner les informations sur l’alerte
 
@@ -54,21 +54,23 @@ Le système de contrôle de l’intégrité et de surveillance d’Azure Stack s
 
 Les étapes suivantes fournissent une vue d’ensemble du processus de remplacement de composant. Ne suivez pas ces étapes sans vous référer à la documentation FRU fournie par le fabricant OEM.
 
-1. Utilisez l’action [Drainer](azure-stack-node-actions.md#scale-unit-node-actions) pour mettre le nœud d’unité d’échelle en mode maintenance. Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
+1. Utilisez l’action Arrêter pour arrêter normalement le nœud d’unité d’échelle. Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
 
-   > [!NOTE]
-   > Dans tous les cas, un seul nœud peut être purgé et mis hors tension en même temps sans endommager l’espace de stockage direct S2D.
+2. Dans le cas peu probable où l’action d’arrêt ne fonctionnerait pas, utilisez l’action [Vider](azure-stack-node-actions.md#drain) pour placer le nœud d’unité d’échelle en mode maintenance. Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
 
-2. Une fois le nœud d’unité d’échelle en mode maintenance, utilisez l’action [Mettre hors tension](azure-stack-node-actions.md#scale-unit-node-actions). Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
+   > [!NOTE]  
+   > Dans tous les cas, un seul nœud peut être désactivé et mis hors tension en même temps sans endommager les espaces de stockage direct (S2D).
 
-   > [!NOTE]
+3. Une fois le nœud d’unité d’échelle en mode maintenance, utilisez l’action [Mettre hors tension](azure-stack-node-actions.md#scale-unit-node-actions). Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
+
+   > [!NOTE]  
    > Dans le cas peu probable où la mise hors tension ne fonctionnerait pas, utilisez l’interface web du contrôleur de gestion de la carte de base (BMC).
 
-3. Remplacez le composant matériel endommagé. Votre fournisseur de matériel OEM peut ou non échanger le composant. Cela dépend de votre contrat de support technique.  
-4. Mettez à jour le microprogramme. Suivez le processus de mise à jour du microprogramme spécifique de votre fournisseur à l’aide de l’hôte de cycle de vie du matériel pour vous assurer que le niveau de microprogramme approuvé est appliqué au composant matériel remplacé. Votre fournisseur de matériel OEM peut ou non effectuer cette opération. Cela dépend de votre contrat de support technique.  
-5. Utilisez l’action [Réparation](azure-stack-node-actions.md#scale-unit-node-actions) afin de ramener le nœud d’unité d’échelle dans l’unité d’échelle.
-6. Utilisez le point de terminaison privilégié pour [vérifier l’état de réparation du disque virtuel](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Avec de nouveaux lecteurs de données, une opération de réparation de stockage complète peut prendre plusieurs heures en fonction de la charge du système et de l’espace utilisé.
-7. Une fois la réparation terminée, vérifiez que toutes les alertes actives ont été automatiquement fermées.
+4. Remplacez le composant matériel endommagé. Votre fournisseur de matériel OEM peut ou non échanger le composant. Cela dépend de votre contrat de support technique.  
+5. Mettez à jour le microprogramme. Suivez le processus de mise à jour du microprogramme spécifique de votre fournisseur à l’aide de l’hôte de cycle de vie du matériel pour vous assurer que le niveau de microprogramme approuvé est appliqué au composant matériel remplacé. Votre fournisseur de matériel OEM peut ou non effectuer cette opération. Cela dépend de votre contrat de support technique.  
+6. Utilisez l’action [Réparation](azure-stack-node-actions.md#scale-unit-node-actions) afin de ramener le nœud d’unité d’échelle dans l’unité d’échelle.
+7. Utilisez le point de terminaison privilégié pour [vérifier l’état de réparation du disque virtuel](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Avec de nouveaux lecteurs de données, une opération de réparation de stockage complète peut prendre plusieurs heures en fonction de la charge du système et de l’espace utilisé.
+8. Une fois la réparation terminée, vérifiez que toutes les alertes actives ont été automatiquement fermées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

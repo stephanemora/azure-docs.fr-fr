@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 568d63f984980e91b4dc059211dcf0eaceb73820
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d7be248e49baf4e7fd10d6b37df1473e92ccfce7
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164226"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651722"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurer la sauvegarde et la réplication pour Apache HBase et Apache Phoenix sur HDInsight
 
@@ -26,7 +26,7 @@ Apache HBase prend en charge plusieurs approches pour la protection contre les p
 * Instantanés
 * Réplication
 
-> [!NOTE]
+> [!NOTE]  
 > Apache Phoenix stocke ses métadonnées dans les tables HBase, ceci pour que les données soient sauvegardées lors de la sauvegarde des tables de catalogue de système HBase.
 
 Les sections suivantes décrivent le scénario d’utilisation de chacune de ces approches.
@@ -35,7 +35,7 @@ Les sections suivantes décrivent le scénario d’utilisation de chacune de ces
 
 Avec cette approche, vous copiez l’ensemble des données HBase, sans pouvoir sélectionner de sous-ensemble de tables ou de familles de colonnes. Les approches suivantes procurent un contrôle supérieur.
 
-HBase dans HDInsight a recours au stockage par défaut sélectionné lors de la création du cluster, qu’il s’agisse d’objets blob Stockage Azure ou d’une instance Azure Data Lake Store. Dans les deux cas, HBase stocke ses données et ses fichiers de métadonnées sous le chemin d’accès suivant :
+HBase dans HDInsight a recours au stockage par défaut sélectionné lors de la création du cluster, qu’il s’agisse d’objets blob du stockage Azure ou d’une instance Azure Data Lake Storage. Dans les deux cas, HBase stocke ses données et ses fichiers de métadonnées sous le chemin d’accès suivant :
 
     /hbase
 
@@ -45,7 +45,7 @@ HBase dans HDInsight a recours au stockage par défaut sélectionné lors de la 
     wasbs://<containername>@<accountname>.blob.core.windows.net/hbase
     ```
 
-* Dans Azure Data Lake Store, le dossier`hbase` est hébergé sous le chemin d’accès racine spécifié lors de la configuration du cluster. Ce chemin d’accès racine comporte généralement un dossier `clusters`, avec un sous-dossier portant le nom de votre cluster HDInsight :
+* Dans Azure Data Lake Storage, le dossier `hbase` est hébergé sous le chemin racine spécifié lors du provisionnement du cluster. Ce chemin d’accès racine comporte généralement un dossier `clusters`, avec un sous-dossier portant le nom de votre cluster HDInsight :
 
     ```
     /clusters/<clusterName>/hbase
@@ -57,7 +57,7 @@ Une fois que vous avez supprimé le cluster, vous pouvez laisser les données te
 
 * Créez une nouvelle instance HDInsight pointant vers l’emplacement actuel de stockage. La nouvelle instance est créée avec l’ensemble des données existantes.
 
-* Copiez le dossier `hbase` vers un conteneurs d’objets blob Azure Stockage ou un emplacement Data Lake Store différents, puis démarrer un nouveau cluster avec ces données. Pour Azure Stockage, utilisez [AzCopy](../../storage/common/storage-use-azcopy.md) et pour Data Lake Store, utilisez [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
+* Copiez à un autre emplacement le dossier `hbase` dans un conteneur d’objets blob du stockage Azure ou dans une instance Data Lake Storage, puis démarrez un nouveau cluster avec ces données. Pour le stockage Azure, utilisez [AzCopy](../../storage/common/storage-use-azcopy.md), et pour Data Lake Storage, utilisez [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
 
 ## <a name="export-then-import"></a>Exporter puis importer
 
@@ -75,7 +75,7 @@ Spécifiez le chemin d’accès complet d’exportation sur le stockage par déf
 
     wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
 
-Dans Azure Data Lake Store, la syntaxe est la suivante :
+Dans Azure Data Lake Storage, la syntaxe est la suivante :
 
     adl://<accountName>.azuredatalakestore.net:443/<path>
 
@@ -117,7 +117,7 @@ L’utilitaire de copie de table prend également en charge les paramètres spé
 
 L’utilitaire analyse l’intégralité du contenu de la table source à copier sur la table de destination. Durant l’exécution de l’utilitaire, les performances de votre cluster HBase peuvent être réduites.
 
-> [!NOTE]
+> [!NOTE]  
 > Pour automatiser la copie des données entre les tables, consultez le script `hdi_copy_table.sh` dans le référentiel [Azure HBase Utils](https://github.com/Azure/hbase-utils/tree/master/replication) sur GitHub.
 
 ### <a name="manually-collect-the-apache-zookeeper-quorum-list"></a>Collecter manuellement la liste du quorum Apache ZooKeeper

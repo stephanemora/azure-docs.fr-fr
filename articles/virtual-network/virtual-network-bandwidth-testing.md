@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 45efaebb9539c4c0e2542966df6ab890b64d12ee
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: fa0adef58ae1eda8604cefc9c3d7e3a4c32d63d0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023819"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793537"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Test de bande passante/débit (NTTTCP)
 
@@ -29,13 +29,14 @@ Copiez l’outil sur deux machines virtuelles Azure de la même taille. Une mach
 
 #### <a name="deploying-vms-for-testing"></a>Déploiement de machines virtuelles pour le test
 Dans le cadre de ce test, les deux machines virtuelles doivent être dans le même service cloud ou le même groupe à haute disponibilité afin de pouvoir utiliser leurs adresses IP internes et exclure les équilibrages de charge du test. Il est possible de tester avec l’adresse IP virtuelle, mais ce type de test n’est pas couvert par ce document.
- 
+
 Prenez note de l’adresse IP du récepteur. Appelons cette IP « a.b.c.r »
 
-Notez le nombre de cœurs de la machine virtuelle. Nous l’appelons « \#num\_cores »  
+Notez le nombre de cœurs de la machine virtuelle. Nous l’appelons «\#num\_cores »
+
 Exécutez le test NTTTCP pendant 300 secondes (5 minutes) les machines virtuelles d’expédition et de réception.
 
-Conseil : Lorsque vous configurez ce test pour la première fois, vous pouvez essayer une période d’essai plus courte pour obtenir des résultats plus tôt. Une fois que l’outil fonctionne comme prévu, étendez la période d’essai à 300 secondes pour des résultats plus précis.
+Conseil : Quand vous configurez ce test pour la première fois, vous pouvez essayer une période d’essai plus courte pour obtenir des résultats plus tôt. Une fois que l’outil fonctionne comme prévu, étendez la période d’essai à 300 secondes pour des résultats plus précis.
 
 > [!NOTE]
 > L’expéditeur **et** le récepteur doivent spécifier **le même** paramètre de durée de test (-t).

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 74d6acb03f9ba984d35caf1f5c7963f686cda5a7
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 47ce2b39f1733c99ef8c15926d42aa62e1fcd44c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219254"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634556"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configurer un nom de domaine personnalisé pour votre compte de Stockage Azure
 
@@ -176,12 +176,14 @@ Pour supprimer une inscription de domaine personnalisé, utilisez la commande d�
 
 ### <a name="powershell"></a>PowerShell
 
-Pour supprimer une inscription de domaine personnalisé, utilisez l’applet de commande PowerShell [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount), puis spécifiez une chaîne vide (`""`) pour la valeur d’argument `-CustomDomainName`.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Pour supprimer une inscription de domaine personnalisé, utilisez l’applet de commande PowerShell [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount), puis spécifiez une chaîne vide (`""`) pour la valeur d’argument `-CustomDomainName`.
 
 * Format de commande :
 
   ```powershell
-  Set-AzureRmStorageAccount `
+  Set-AzStorageAccount `
       -ResourceGroupName "<resource-group-name>" `
       -AccountName "<storage-account-name>" `
       -CustomDomainName ""
@@ -190,7 +192,7 @@ Pour supprimer une inscription de domaine personnalisé, utilisez l’applet de 
 * Exemple de commande :
 
   ```powershell
-  Set-AzureRmStorageAccount `
+  Set-AzStorageAccount `
       -ResourceGroupName "myresourcegroup" `
       -AccountName "mystorageaccount" `
       -CustomDomainName ""

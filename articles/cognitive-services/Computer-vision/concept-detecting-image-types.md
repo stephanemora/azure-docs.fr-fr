@@ -1,7 +1,7 @@
 ---
 title: Détection des types d’images - Vision par ordinateur
 titleSuffix: Azure Cognitive Services
-description: Concepts liés à la détection des types d’images à l’aide de l’API Vision par ordinateur.
+description: Concepts liés à la fonctionnalité de détection du type d’image de l'API Vision par ordinateur.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: ecdbdd60af41ee14070f2f45dfe50875e38ac3b3
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 04062d5625126712c5f14c41d610d55caf4c28b5
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341997"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583100"
 ---
-# <a name="detecting-image-types"></a>Détection des types d’images
+# <a name="detecting-image-types-with-computer-vision"></a>Détection des types d’images avec Vision par ordinateur
 
 Vision par ordinateur analyse le type de contenu des images, indique si une image est de type clipart, puis évalue la probabilité qu’il s’agisse d’un dessin à l’échelle ou d’un dessin au trait.
 
@@ -36,7 +37,7 @@ Vision par ordinateur analyse une image et évalue sa probabilité d’être une
 
 Les réponses JSON suivantes illustrent ce que renvoie Vision par ordinateur au moment d’évaluer la probabilité pour des images d’être des images clipart.
 
-![Analyse Vision clipart fromage](./Images/cheese_clipart.png)
+![Image clipart d’une tranche de fromage](./Images/cheese_clipart.png)
 
 ```json
 {
@@ -53,7 +54,7 @@ Les réponses JSON suivantes illustrent ce que renvoie Vision par ordinateur au 
 }
 ```
 
-![Analyse Vision jardin maison](./Images/house_yard.png)
+![Maison bleue et jardin en façade](./Images/house_yard.png)
 
 ```json
 {
@@ -78,7 +79,7 @@ Vision par ordinateur analyse une image et renvoie une valeur booléenne indiqua
 
 Les réponses JSON suivantes illustrent ce que Vision par ordinateur renvoie si les images fournies à titre d’exemple sont des dessins au trait.
 
-![Analyse Vision dessin lion](./Images/lion_drawing.png)
+![Image de dessin au trait d’un lion](./Images/lion_drawing.png)
 
 ```json
 {
@@ -95,7 +96,7 @@ Les réponses JSON suivantes illustrent ce que Vision par ordinateur renvoie si 
 }
 ```
 
-![Analyse Vision fleur](./Images/flower.png)
+![Fleur blanche sur fond vert](./Images/flower.png)
 
 ```json
 {

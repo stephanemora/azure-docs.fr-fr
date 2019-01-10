@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 04588d0af0f85a9e69f44e82d01294c2a4440abc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 70f07b3925eb91d91dfbd623f8f1611ac31a1b6f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961142"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542507"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs
 
@@ -264,7 +264,7 @@ Chaque connexion doit initialiser son propre le lien de contrôle pour être en 
 
 #### <a name="starting-a-transaction"></a>Démarrage d’une transaction
 
-Pour commencer le travail transactionnel, le contrôleur doit obtenir un `txn-id` à partir du coordinateur. Pour cela, il envoie un message de type `declare`. Si la déclaration réussit, le coordinateur répond avec un résultat de disposition, qui porte le `txn-id` assigné.
+Pour commencer le travail transactionnel, le contrôleur doit obtenir un `txn-id` à partir du coordinateur. Pour cela, il envoie un message de type `declare`. Si la déclaration réussit, le coordinateur répond avec un résultat de disposition, qui porte le `txn-id` affecté.
 
 | Client (contrôleur) | | Service Bus (coordinateur) |
 | --- | --- | --- |

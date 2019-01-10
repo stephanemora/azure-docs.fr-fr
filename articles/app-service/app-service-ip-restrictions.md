@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a152efb3979b4ffe3402ed668c0f683f5e9cc651
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 337d71c84ace7f44c2668cf2344d9083c4a85bee
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337153"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651060"
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Restrictions d’adresse IP statique avec Azure App Service #
 
 Les restrictions d’adresse IP permettent de définir la liste des adresses IP qui sont autorisées à accéder à votre application. Dans cette liste, les adresses IP sont classées par ordre de priorité (Autoriser/Refuser). Les adresses autorisées peuvent inclure des adresses IPv4 et IPv6. Lorsqu’il y a une ou plusieurs entrées, il existe une règle implicite « Tout refuser » qui se trouve à la fin de la liste. 
 
-La fonctionnalité Restrictions d’adresse IP peut être utilisée avec toutes les charges de travail hébergées par App Service, notamment les applications web, les applications API, les applications Linux, les applications de conteneur Linux et Functions. 
+La fonctionnalité Restrictions d’adresse IP peut être utilisée avec toutes les charges de travail hébergées par App Service, notamment les applications web, les applications API, les applications Linux, les applications de conteneur Linux et Functions. 
 
 Lorsqu’une demande est envoyée à votre application, l’adresse IP dont provient la demande est vérifiée par rapport à la liste de restriction des adresses IP. Si l’adresse n’est pas autorisée à y accéder selon les règles définies dans la liste, le service répond avec le code d’état [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403).
 

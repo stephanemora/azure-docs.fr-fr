@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: d2aeb41c2fcc11c37ec56707932eabcf63e026a0
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4be346163fd54c0c5f962d15bc2433c7fab49e0b
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497210"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650941"
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>Installer une application publiée - H2O Sparkling Water
 
-Cet article explique comment installer et exécuter l’application [Apache Hadoop](https://hadoop.apache.org/) publiée [H2O Sparkling Water](http://www.h2o.ai/) sur Azure HDInsight. Pour obtenir une vue d’ensemble de la plateforme d’application HDInsight et la liste des applications publiées d’éditeurs de logiciels indépendants (ISV), consultez [Installer des applications Hadoop tierces sur Azure HDInsight](hdinsight-apps-install-applications.md). Pour des instructions d’installation de votre propre application, consultez la page [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md).
+Cet article explique comment installer et exécuter l’application [Apache Hadoop](https://hadoop.apache.org/) publiée [H2O Sparkling Water](https://www.h2o.ai/) sur Azure HDInsight. Pour obtenir une vue d’ensemble de la plateforme d’application HDInsight et la liste des applications publiées d’éditeurs de logiciels indépendants (ISV), consultez [Installer des applications Hadoop tierces sur Azure HDInsight](hdinsight-apps-install-applications.md). Pour des instructions d’installation de votre propre application, consultez la page [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-h2o-sparkling-water"></a>À propos de H2O Sparkling Water
 
@@ -34,7 +34,7 @@ Avantages de H2O Sparkling Water :
 ### <a name="resource-links"></a>Liens de ressources
 
 * [Feuille de route de l’ingénierie H2O.ai](http://jira.h2o.ai/)
-* [Accueil H2O.ai](http://www.h2o.ai/)
+* [Accueil H2O.ai](https://www.h2o.ai/)
 * [H2O.ai Documentation](http://docs.h2o.ai/)
 * [Assistance H2O.ai](https://support.h2o.ai/)
 * [Codebase open source H2O.ai](https://github.com/h2oai/)
@@ -43,19 +43,19 @@ Avantages de H2O Sparkling Water :
 
 Pour installer cette application sur un cluster existant ou sur un nouveau cluster HDInsight, la configuration suivante est nécessaire :
 
-* Niveau(x) de cluster : Standard ou Premium
-* Type de cluster : Spark
-* Version(s) de cluster : 3.5 ou 3.6
+* Niveau(x) du cluster : Standard ou Premium
+* Type de cluster : Spark
+* Version(s) de cluster : 3.5 ou 3.6
 
 ## <a name="install-the-h2o-sparkling-water-published-application"></a>Installer l’application publiée H2O Sparkling Water
 
-Pour obtenir des instructions détaillées sur l’installation de cette application et d’autres applications ISV disponibles, voir [Installer des applications Apache Hadoop tierces](hdinsight-apps-install-applications.md).
+Pour obtenir des instructions détaillées sur l’installation de cette application et d’autres applications ISV disponibles, consultez [Installer des applications Apache Hadoop tierces](hdinsight-apps-install-applications.md).
 
 ## <a name="launch-h2o-sparkling-water"></a>Lancer H2O Sparkling Water
 
 1. Après l’installation, vous pouvez commencer à utiliser H2O Sparkling Water (h2o-sparklingwater) à partir de votre cluster sur le Portail Azure en ouvrant [Jupyter Notebook](https://jupyter.org/) (`https://<ClusterName>.azurehdinsight.net/jupyter`). Vous pouvez également accéder à Jupyter en sélectionnant **Tableau de bord du cluster** à partir du volet de votre cluster dans le portail, puis en sélectionnant **Bloc-notes Jupyter**. Vous êtes invité à entrer vos informations d’identification. Entrez les informations d’identification Hadoop du cluster comme indiqué à la création du cluster.
 
-2. Jupyter comporte trois dossiers : H2O-PySparkling-Examples, PySpark Examples et Scala Examples. Sélectionnez le dossier **H2O-PySparkling-Examples**.
+2. Dans Jupyter figurent trois dossiers : H2O-PySparkling-Examples, PySpark Examples et Scala Examples. Sélectionnez le dossier **H2O-PySparkling-Examples**.
 
     ![Accueil Bloc-notes Jupyter](./media/hdinsight-apps-install-h2o/jupyter-home.png)
 
@@ -69,7 +69,7 @@ Pour obtenir des instructions détaillées sur l’installation de cette applica
 
 5. Une fois le cluster H2O en cours d’exécution, ouvrez H2O Flow en accédant à **`https://<ClusterName>-h2o.apps.azurehdinsight.net:443`**.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Si vous ne parvenez pas à ouvrir H2O Flow, essayez de vider le cache de votre navigateur. Si vous ne parvenez toujours pas à atteindre H20 Flow, votre cluster ne dispose probablement pas de ressources suffisantes. Essayez d’augmenter le nombre de nœuds de travail sous l’option **Mettre à l’échelle le cluster** dans le volet de votre cluster.
 
     ![Tableau de bord H2O Flow](./media/hdinsight-apps-install-h2o/h2o-flow.png)
@@ -95,8 +95,8 @@ Et voilà ! Vous avez en quelques minutes maîtrisé l’intelligence artificie
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Documentation H2O](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/index.html)
-* [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md) : découvrez comment déployer des applications HDInsight inédites vers HDInsight.
-* [Publier des applications HDInsight dans la Place de marché Azure](hdinsight-apps-publish-applications.md): découvrez comment publier vos applications HDInsight personnalisées sur la Place de marché Azure.
-* [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN : installer une application HDInsight) : découvrez comment définir des applications HDInsight.
-* [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md) : apprenez à utiliser l’action de script pour installer des applications supplémentaires.
-* [Utiliser les nœuds de périphérie vides sur les clusters Hadoop dans HDInsight](hdinsight-apps-use-edge-node.md) : apprenez à utiliser un nœud de périphérie vide pour accéder aux clusters HDInsight, ainsi que pour tester et héberger des applications HDInsight.
+* [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md) : découvrez comment déployer des applications HDInsight inédites sur HDInsight.
+* [Publier des applications HDInsight](hdinsight-apps-publish-applications.md) : découvrez comment publier vos applications HDInsight personnalisées sur la Place de marché Azure.
+* [MSDN : Installer une application HDInsight](https://msdn.microsoft.com/library/mt706515.aspx) : découvrez comment définir les applications HDInsight.
+* [Personnaliser des clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md) : découvrez comment installer des applications supplémentaires avec une action de script.
+* [Utiliser des nœuds de périphérie vides dans HDInsight](hdinsight-apps-use-edge-node.md) : découvrez comment utiliser un nœud de périphérie vide pour accéder aux clusters HDInsight, ainsi que pour tester et héberger des applications HDInsight.

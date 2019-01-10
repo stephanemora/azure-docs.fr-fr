@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: b55c5bc6096186e338d6960190169d5f4acc777d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dcedf27f6105dcc1ea6e43feb32d254b491842c7
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955128"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974435"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flux de travail de la sauvegarde hors connexion dans la sauvegarde Azure
 La sauvegarde Azure offre plusieurs fonctionnalités intégrées pour réduire les coûts de stockage et de réseau pendant les sauvegardes complètes initiales des données dans Azure. Les sauvegardes complètes initiales transfèrent généralement de grandes quantités de données et requièrent davantage de bande passante, en comparaison avec les sauvegardes suivantes qui transfèrent uniquement les données deltas/incrémentielles. Via le processus d’amorçage hors connexion, la sauvegarde Azure peut utiliser des disques pour charger les données de sauvegarde hors connexion dans Azure.
@@ -75,11 +75,11 @@ Cette section décrit le flux de travail de sauvegarde hors connexion qui permet
 
   Les champs sont décrits ci-dessous :
 
-    * **Emplacement intermédiaire**: l’emplacement de stockage temporaire dans lequel la copie de sauvegarde initiale est écrite. L’emplacement intermédiaire peut être sur un partage réseau ou un ordinateur local. Si l’ordinateur de copie et l’ordinateur source sont différents, nous vous recommandons de spécifier le chemin d’accès réseau complet de l’emplacement intermédiaire.
-    * **Compte de stockage Azure Resource Manager** : nom du compte de stockage de type Resource Manager dans n’importe quel abonnement Azure.
-    * **Conteneur de stockage Azure** : nom de l’objet blob de stockage cible dans le compte de stockage Azure où les données de sauvegarde sont importées avant d’être copiées dans le coffre Recovery Services.
-    * **ID d’abonnement Azure** : ID de l’abonnement Azure dans lequel le compte de stockage Azure est créé.
-    * **Nom de la tâche d’importation Azure**: le nom unique utilisé par le service Azure Import et la sauvegarde Azure pour effectuer le suivi du transfert des données envoyées dans Azure à l’aide de disques. 
+    * **Emplacement intermédiaire** : Emplacement de stockage temporaire dans lequel la copie de sauvegarde initiale est écrite. L’emplacement intermédiaire peut être sur un partage réseau ou un ordinateur local. Si l’ordinateur de copie et l’ordinateur source sont différents, nous vous recommandons de spécifier le chemin d’accès réseau complet de l’emplacement intermédiaire.
+    * **Compte de stockage Azure Resource Manager** : Nom du compte de stockage de type Resource Manager dans un abonnement Azure.
+    * **Conteneur de stockage Azure** : Nom de l’objet blob de stockage cible dans le compte de stockage Azure où les données de sauvegarde sont importées avant d’être copiées dans le coffre Recovery Services.
+    * **ID d’abonnement Azure** : ID de l’abonnement Azure dans lequel le compte de stockage Azure est créé.
+    * **Nom de la tâche d’importation Azure** : Nom unique utilisé par le service Azure Import et Sauvegarde Azure pour effectuer le suivi du transfert des données envoyées dans Azure à l’aide de disques. 
   
   Renseignez les champs à l’écran et cliquez sur **Suivant**. Enregistrez *l’emplacement intermédiaire* fourni et le *Nom de la tâche d’importation Azure*. Ces informations sont nécessaires pour la préparation des disques.
 

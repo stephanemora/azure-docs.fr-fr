@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5068f0277726b7c468aa24d0629c4350b60b78b5
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: a30311f8b171d80e036b4e554b2f1026b43c8a67
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287606"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604769"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Déployer localement l’accélérateur de solution de surveillance à distance - Visual Studio
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Cet article montre comment déployer l’accélérateur de solution de surveillance à distance sur votre ordinateur local à des fins de test et de développement. Vous apprendrez à exécuter les microservices dans Visual Studio. Les déploiements de microservices locaux utilisent les services de cloud suivants : IoT Hub, Cosmos DB, Azure Stream Analytics et Azure Time Series Insights dans le cloud.
+Cet article montre comment déployer l’accélérateur de solution de surveillance à distance sur votre ordinateur local à des fins de test et de développement. Vous apprendrez à exécuter les microservices dans Visual Studio. Un déploiement de microservices local utilise les services cloud suivants : IoT Hub, Cosmos DB, Azure Stream Analytics et Azure Time Series Insights dans le cloud.
 
 Si vous souhaitez exécuter l’accélérateur de solution de surveillance à distance dans un Docker sur votre ordinateur local, consultez [Déployer localement l’accélérateur de solution de surveillance à distance - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
@@ -36,7 +36,7 @@ Pour terminer le déploiement local, vous devez avoir installé les outils suiva
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
 * [Visual Studio](https://visualstudio.microsoft.com/)
-* [Nginx](http://nginx.org/en/download.html)
+* [Nginx](https://nginx.org/en/download.html)
 * [Node.js v8](https://nodejs.org/) : Ce logiciel est un prérequis pour l’interface de ligne de commande PCS que les scripts utilisent pour créer des ressources Azure. N’utilisez pas Node.js v10.
 
 > [!NOTE]
@@ -101,7 +101,7 @@ Configurer un serveur proxy inverse pour lier l’application web et les microse
 * Copiez le fichier **nginx.conf** du dossier **webui\scripts\localhost** vers le répertoire d’installation **nginx\conf**.
 * Exécutez **nginx**.
 
-Pour plus d’informations sur l’exécution de **nginx**, consultez [nginx pour Windows](http://nginx.org/en/docs/windows.html).
+Pour plus d’informations sur l’exécution de **nginx**, consultez [nginx pour Windows](https://nginx.org/en/docs/windows.html).
 
 ### <a name="connect-to-the-dashboard"></a>Connexion au tableau de bord
 

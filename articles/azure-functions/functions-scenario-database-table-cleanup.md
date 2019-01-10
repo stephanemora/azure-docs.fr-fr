@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: e59c0b6994a64972b1458c0f295f24d0a615d871
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740108"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608577"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utiliser Azure Functions pour se connecter à une base de données Azure SQL Database
 
@@ -46,7 +46,7 @@ Vous devez obtenir la chaîne de connexion pour la base de données que vous ave
 
 ## <a name="set-the-connection-string"></a>Définir la chaîne de connexion
 
-Une application de fonction héberge l’exécution de vos fonctions dans Azure. En guise de bonne pratique, stockez les chaînes de connexion et autres secrets dans vos paramètres de conteneur de fonctions. L’utilisation de paramètres d’application empêche la divulgation accidentelle de la chaîne de connexion avec votre code. Vous pouvez accéder aux paramètres de votre application de fonction directement à partir de Visual Studio.
+Une Function App héberge l’exécution de vos fonctions dans Azure. En guise de bonne pratique, stockez les chaînes de connexion et autres secrets dans vos paramètres de conteneur de fonctions. L’utilisation de paramètres d’application empêche la divulgation accidentelle de la chaîne de connexion avec votre code. Vous pouvez accéder aux paramètres de votre application de fonction directement à partir de Visual Studio.
 
 Vous devez avoir publié votre application sur Azure. Si ce n’est déjà fait, [publiez votre application de fonction sur Azure](functions-develop-vs.md#publish-to-azure).
 
@@ -70,7 +70,7 @@ Vous devez ajouter le package NuGet qui contient la bibliothèque SqlClient. Cet
 
 1. Dans l’onglet **Parcourir**, recherchez l’élément ```System.Data.SqlClient``` et, une fois que vous l’avez trouvé, sélectionnez-le.
 
-1. Sur la page **System.Data.SqlClient**, cliquez sur **Installer**.
+1. Dans la page **System.Data.SqlClient**, sélectionnez la version `4.5.1` et cliquez sur **Installer**.
 
 1. Une fois l’installation terminée, passez en revue les modifications, puis cliquez sur **OK** pour fermer la fenêtre **Aperçu**.
 
@@ -139,6 +139,6 @@ Si vous envisagez de [publier cette fonction](functions-develop-vs.md#publish-to
 Pour plus d’informations sur Functions, consultez les articles suivants :
 
 + [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)  
-  Référence du programmeur pour le codage de fonctions et la définition de déclencheurs et de liaisons.
+   Référence du programmeur pour le codage de fonctions et la définition de déclencheurs et de liaisons.
 + [Test d’Azure Functions](functions-test-a-function.md)  
-  décrit plusieurs outils et techniques permettant de tester vos fonctions.  
+   décrit plusieurs outils et techniques permettant de tester vos fonctions.  

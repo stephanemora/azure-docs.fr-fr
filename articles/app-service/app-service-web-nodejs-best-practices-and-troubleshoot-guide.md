@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 5a8760bc67125f857998f23ca33733a62a0d8fb5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: db412d3fd0af84d528ad0c83d86cc5d055359914
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315721"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632685"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Bonnes pratiques et guide de résolution des problèmes pour les applications Node sur Azure App Service
 
-Cet article présente des bonnes pratiques et des procédures de dépannage pour les [applications node](app-service-web-get-started-nodejs.md) exécutées dans Azure Web Apps (avec [iisnode](https://github.com/azure/iisnode)).
+Cet article présente des bonnes pratiques et des procédures de dépannage pour les [applications node](app-service-web-get-started-nodejs.md) exécutées sur Azure App Service (avec [iisnode](https://github.com/azure/iisnode)).
 
 > [!WARNING]
 > Soyez vigilant lorsque vous appliquez ces étapes de dépannage sur votre site de production. Il est recommandé de résoudre les problèmes de votre application sur une installation hors production (par exemple, votre emplacement intermédiaire) et, une fois le problème résolu, de remplacer votre emplacement intermédiaire par votre emplacement de production.
@@ -44,18 +44,18 @@ Ce paramètre contrôle le chemin d’accès à node.exe. Vous pouvez définir c
 
 ### <a name="maxconcurrentrequestsperprocess"></a>maxConcurrentRequestsPerProcess
 
-Ce paramètre contrôle le nombre maximal de demandes simultanées envoyées par iisnode pour chaque node.exe. Dans Azure Web Apps, la valeur par défaut est « Infinite ». Lorsque l’hébergement s’effectue en dehors d’Azure Web Apps, la valeur par défaut est 1024. Vous pouvez configurer cette valeur en fonction du nombre de requêtes dirigées vers votre application et de la vitesse à laquelle votre application traite chaque requête.
+Ce paramètre contrôle le nombre maximal de demandes simultanées envoyées par iisnode pour chaque node.exe. Sur Azure App Service, la valeur par défaut est « Infinite ». Vous pouvez configurer cette valeur en fonction du nombre de requêtes dirigées vers votre application et de la vitesse à laquelle votre application traite chaque requête.
 
 ### <a name="maxnamedpipeconnectionretry"></a>maxNamedPipeConnectionRetry
 
-Ce paramètre contrôle le nombre maximal de nouvelles tentatives de connexion effectuées par iisnode sur le canal nommé pour envoyer la requête à node.exe. Ce paramètre, utilisé parallèlement au paramètre namedPipeConnectionRetryDelay, permet de déterminer le délai d’attente total de chaque requête dans iisnode. La valeur par défaut est 200 sur Azure Web Apps. Délai total d’expiration en secondes = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1 000
+Ce paramètre contrôle le nombre maximal de nouvelles tentatives de connexion effectuées par iisnode sur le canal nommé pour envoyer la requête à node.exe. Ce paramètre, utilisé parallèlement au paramètre namedPipeConnectionRetryDelay, permet de déterminer le délai d’attente total de chaque requête dans iisnode. La valeur par défaut est 200 sur Azure App Service. Délai total d’expiration en secondes = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1 000
 
 ### <a name="namedpipeconnectionretrydelay"></a>namedPipeConnectionRetryDelay
 
 Ce paramètre contrôle la durée (en ms) d’attente que respecte iisnode entre chaque tentative d’envoi de la requête à node.exe via le canal nommé. La valeur par défaut est 250 ms.
 Délai total d’expiration en secondes = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1 000
 
-Sur Azure Web Apps, le délai total d’expiration dans iisnode est de 200 \* 250 ms = 50 secondes par défaut.
+Sur Azure App Service, le délai total d’expiration dans iisnode est de 200 \* 250 ms = 50 secondes par défaut.
 
 ### <a name="logdirectory"></a>logDirectory
 
@@ -128,7 +128,7 @@ Lisez [Debug node.js applications on Windows](https://tomasz.janczuk.org/2011/11
 
 La plupart des applications cherchent à établir des connexions sortantes dans le cadre de leur fonctionnement normal. Par exemple, à l’arrivée d’une requête, votre application node va chercher à contacter une API REST à un autre emplacement et à obtenir des informations afin de traiter cette requête. Vous pouvez utiliser un agent keep alive lors des appels http ou https. Vous pouvez utiliser le module agentkeepalive en tant qu’agent keep alive lors de l’exécution de ces appels sortants.
 
-Le module agentkeepalive garantit que les sockets sont réutilisés sur la machine virtuelle de votre application web Azure. La création d’un nouveau socket sur chaque demande sortante ajoute une surcharge à votre application. Le fait que votre application puisse réutiliser des sockets pour les demandes sortantes permet de garantir que votre application ne dépasse pas la limite maxSockets allouée par machine virtuelle. Sur Azure Web Apps, il est recommandé de définir la valeur maxSockets du module agentKeepAlive sur un total de (4 instances de node.exe \* 40 maxSockets/instance) 160 sockets par machine virtuelle.
+Le module agentkeepalive garantit que les sockets sont réutilisés sur la machine virtuelle de votre application web Azure. La création d’un nouveau socket sur chaque demande sortante ajoute une surcharge à votre application. Le fait que votre application puisse réutiliser des sockets pour les demandes sortantes permet de garantir que votre application ne dépasse pas la limite maxSockets allouée par machine virtuelle. Sur Azure App Service, il est recommandé de définir la valeur maxSockets du module agentKeepAlive sur un total de (4 instances de node.exe \* 40 maxSockets/instance) 160 sockets par machine virtuelle.
 
 Exemple de configuration [d’agentKeepALive](https://www.npmjs.com/package/agentkeepalive) :
 
@@ -147,10 +147,10 @@ var keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>Mon application node consomme trop de ressources processeur
 
-Azure Web Apps vous enverra peut-être une recommandation sur votre portail concernant le niveau de consommation processeur considéré comme élevé. Vous pouvez également configurer des analyses pour surveiller certaines [métriques](web-sites-monitor.md). Pendant la vérification de l’utilisation du processeur sur le [tableau de bord du Portail Azure](../application-insights/app-insights-web-monitor-performance.md), vérifiez les valeurs MAX de processeur afin d’éviter de passer à côté des pics de valeur.
+Azure App Service vous enverra peut-être une recommandation sur votre portail concernant le niveau de consommation processeur considéré comme élevé. Vous pouvez également configurer des analyses pour surveiller certaines [métriques](web-sites-monitor.md). Pendant la vérification de l’utilisation du processeur sur le [tableau de bord du Portail Azure](../application-insights/app-insights-web-monitor-performance.md), vérifiez les valeurs MAX de processeur afin d’éviter de passer à côté des pics de valeur.
 Si vous pensez que votre application node consomme trop de ressources processeur, et que vous ne savez pas pourquoi, vous pouvez en rechercher la cause en la profilant.
 
-#### <a name="profiling-your-node-application-on-azure-web-apps-with-v8-profiler"></a>Profilage de votre application node sur Azure Web Apps à l’aide de V8-Profiler
+#### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Profilage de votre application node sur Azure App Service à l’aide de V8-Profiler
 
 Par exemple, supposons que vous disposez d’une application hello world que vous souhaitez profiler comme suit :
 
@@ -220,7 +220,7 @@ Vous pouvez voir que 95 % du temps a été consommé par la fonction WriteConsol
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>Mon application node consomme trop de mémoire
 
-Si votre application consomme trop de mémoire, votre portail affiche une notification d’Azure Web Apps indiquant une consommation de mémoire élevée. Vous pouvez configurer des analyses pour surveiller certaines [métriques](web-sites-monitor.md). Pendant la vérification de l’utilisation de mémoire sur le [tableau de bord du Portail Azure](../application-insights/app-insights-web-monitor-performance.md), vérifiez les valeurs MAX de la mémoire afin d’éviter de passer à côté des pics de valeur.
+Si votre application consomme trop de mémoire, votre portail affiche une notification d’Azure App Service indiquant une consommation de mémoire élevée. Vous pouvez configurer des analyses pour surveiller certaines [métriques](web-sites-monitor.md). Pendant la vérification de l’utilisation de mémoire sur le [tableau de bord du Portail Azure](../application-insights/app-insights-web-monitor-performance.md), vérifiez les valeurs MAX de la mémoire afin d’éviter de passer à côté des pics de valeur.
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Détection des fuites et procédure de Heap Diff pour node.js
 
@@ -249,12 +249,12 @@ Votre application lève des exceptions non interceptées ; consultez le fichier 
 
 ### <a name="my-node-application-takes-too-much-time-to-start-cold-start"></a>Mon application node prend trop de temps au démarrage (démarrage à froid)
 
-La lenteur de démarrage de l’application provient souvent d’une trop grande quantité de fichiers dans le dossier node\_modules. L’application tente de charger la plupart de ces fichiers au démarrage. Par défaut, puisque vos fichiers sont stockés sur le partage réseau dans Azure Web Apps, le chargement d’un grand nombre de fichiers peut prendre du temps.
+La lenteur de démarrage de l’application provient souvent d’une trop grande quantité de fichiers dans le dossier node\_modules. L’application tente de charger la plupart de ces fichiers au démarrage. Par défaut, puisque vos fichiers sont stockés sur le partage réseau sur Azure App Service, le chargement d’un grand nombre de fichiers peut prendre du temps.
 Voici quelques solutions qui pourront vous aider à accélérer le processus :
 
 1. Utilisez npm3 pour installer vos modules de manière à avoir une structure de dépendances plate et à éviter toute dépendance en double.
 2. Essayez de charger progressivement votre node\_modules plutôt que de charger tous les modules au démarrage de l’application. Pour charger progressivement les modules, l’appel à require(‘module’) doit être effectué lorsque vous avez réellement besoin du module au sein de la fonction avant la première exécution du code du module.
-3. Azure Web Apps offre une fonctionnalité dite de « cache local ». Cette fonctionnalité copie le contenu du partage réseau sur le disque local de la machine virtuelle. Étant donné que les fichiers sont en local, le temps de chargement du node\_modules est beaucoup plus rapide.
+3. Azure App Service offre une fonctionnalité dite de « cache local ». Cette fonctionnalité copie le contenu du partage réseau sur le disque local de la machine virtuelle. Étant donné que les fichiers sont en local, le temps de chargement du node\_modules est beaucoup plus rapide.
 
 ## <a name="iisnode-http-status-and-substatus"></a>État et sous-état http IISNODE
 
@@ -274,7 +274,7 @@ Activez FREB pour votre application afin de voir le code d’erreur win32 (pour 
 | 503 |1002 |Vérifiez le code d’erreur win32 pour connaître la raison : impossible de distribuer la requête à un node.exe. |
 | 503 |1003 |Le canal nommé est trop occupé : vérifiez si node.exe consomme trop de ressources processeur |
 
-NODE.exe possède un paramètre appelé `NODE_PENDING_PIPE_INSTANCES`. Par défaut, lorsque le déploiement ne se fait pas sur Azure Web Apps, cette valeur est de 4. Cela signifie que node.exe ne peut accepter que quatre requêtes à la fois sur le canal nommé. Sur Azure Web Apps, cette valeur est définie sur 5000. Elle doit être suffisante pour la plupart des applications node exécutées sur Azure Web Apps. Vous ne devriez pas rencontrer l’état 503.1003 sur Azure Web Apps en raison de la valeur élevée de `NODE_PENDING_PIPE_INSTANCES`.
+NODE.exe possède un paramètre appelé `NODE_PENDING_PIPE_INSTANCES`. Sur Azure App Service, cette valeur est 5000. Cela signifie que node.exe peut accepter 5 000 requêtes à la fois sur le canal nommé. Cette valeur doit être suffisante pour la plupart des applications node exécutées sur Azure App Service. Vous ne devriez pas rencontrer l’état 503.1003 sur Azure App Service en raison de la valeur élevée de `NODE_PENDING_PIPE_INSTANCES`
 
 ## <a name="more-resources"></a>Autres ressources
 

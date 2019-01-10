@@ -8,20 +8,20 @@ ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 78d18bfe0f47517067fbb053a2d7e076b15761a7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 194e6091180fa1dd0eaaf999e970c0248ea99db9
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580998"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651773"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Créer des tâches Apache Spark Streaming avec traitement unique des événements
 
 Les applications de traitement de flux adoptent différentes approches quant à la façon dont elles gèrent le retraitement des messages après une panne dans le système :
 
-* Au moins une fois : chaque message est traité, mais il peut l’être plusieurs fois.
-* Au plus une fois : chaque message peut être traité ou non. Si un message est traité, il ne l’est qu’une seule fois.
-* Une seule fois : chaque message est traité, mais une seule fois.
+* Au moins une fois : chaque message est incontestablement traité, mais il peut l’être plusieurs fois.
+* Au plus une fois : chaque message peut être traité ou non. Si un message est traité, il ne l’est qu’une seule fois.
+* Une seule fois : chaque message est incontestablement traité, mais qu’une seule fois.
 
 Cet article explique comment configurer Spark Streaming afin de traiter les événements une seule fois.
 
@@ -29,11 +29,11 @@ Cet article explique comment configurer Spark Streaming afin de traiter les év�
 
 Commencez par analyser comment tous les points de défaillance du système redémarrent après un problème et comment vous pouvez éviter une perte de données. Une application Spark Streaming a :
 
-* Une source d’entrée
-* Un ou plusieurs processus récepteur qui extraient des données de la source d’entrée
-* Des tâches qui traitent les données
-* Un récepteur de sortie
-* Un processus pilote qui gère le travail à long terme
+* Une source d’entrée.
+* Un ou plusieurs processus récepteur qui extraient des données de la source d’entrée.
+* Des tâches qui traitent les données.
+* Un récepteur de sortie.
+* Un processus pilote qui gère le travail à long terme.
 
 La sémantique du traitement unique nécessite qu’aucune donnée ne soit perdue à aucun point, et que le traitement des messages puisse être redémarré, quel que soit l’endroit où la défaillance se produit.
 
@@ -41,7 +41,7 @@ La sémantique du traitement unique nécessite qu’aucune donnée ne soit perdu
 
 La source à partir de laquelle votre application Spark Streaming lit vos événements doit *pouvoir être relue*. Cela signifie que si le message est récupéré, mais qu’ensuite le système connait une défaillance avant d’avoir pu conserver ou traiter le message, la source doit refournir le même message.
 
-Dans Azure, Azure Event Hubs et [Apache Kafka](https://kafka.apache.org/) sur HDInsight fournissent des sources pouvant être relues. Parmi les autres sources pouvant être relues figurent les systèmes de fichiers à tolérance de panne comme [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), les objets Blob Stockage Azure ou Azure Data Lake Store, où toutes les données sont conservées indéfiniment, et où vous pouvez relire les données dans leur intégralité à tout moment.
+Dans Azure, Azure Event Hubs et [Apache Kafka](https://kafka.apache.org/) sur HDInsight fournissent des sources pouvant être relues. Parmi les autres sources pouvant être relues figurent les systèmes de fichiers à tolérance de panne, comme [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), les objets Blob du stockage Azure ou Azure Data Lake Storage, où toutes les données sont conservées indéfiniment, et où vous pouvez relire ces données dans leur intégralité, à tout moment.
 
 ### <a name="reliable-receivers"></a>Récepteurs fiables
 
@@ -49,7 +49,7 @@ Dans Spark Streaming, des sources telles qu’Event Hubs et Kafka ont des *réce
 
 ### <a name="use-the-write-ahead-log"></a>Utiliser le journal WAL (write-ahead log)
 
-Spark Streaming prend en charge l’utilisation d’un journal WAL (write-ahead log), où chaque événement reçu est écrit dans le répertoire des points de contrôle de Spark dans un stockage à tolérance de panne, puis stocké dans un jeu de données distribué résilient (RDD). Dans Azure, le stockage à tolérance de panne est HDFS, et repose sur Stockage Azure ou Azure Data Lake Store. Dans votre application Spark Streaming, vous pouvez activer le journal WAL (write-ahead log) pour tous les récepteurs en définissant le paramètre de configuration `spark.streaming.receiver.writeAheadLog.enable` sur `true`. Le journal WAL (write-ahead log) fournit une tolérance de panne pour les échecs du pilote et des Exécuteurs.
+Spark Streaming prend en charge l’utilisation d’un journal WAL (write-ahead log), où chaque événement reçu est écrit dans le répertoire des points de contrôle de Spark dans un stockage à tolérance de panne, puis stocké dans un jeu de données distribué résilient (RDD). Dans Azure, le stockage à tolérance de panne est HDFS, il repose sur le stockage Azure ou Azure Data Lake Storage. Dans votre application Spark Streaming, vous pouvez activer le journal WAL (write-ahead log) pour tous les récepteurs en définissant le paramètre de configuration `spark.streaming.receiver.writeAheadLog.enable` sur `true`. Le journal WAL (write-ahead log) fournit une tolérance de panne pour les échecs du pilote et des Exécuteurs.
 
 Pour les Workers exécutant des tâches sur les données d’événement, chaque RDD est par définition à la fois répliqué et distribué sur plusieurs Workers. Si une tâche échoue en raison d’une panne du Worker en cours d’exécution, elle est redémarrée sur un autre Worker qui a un réplica des données d’événement ; ainsi, l’événement n’est pas perdu.
 
@@ -66,7 +66,7 @@ Vous activez les points de contrôle dans Spark Streaming en deux étapes.
     ssc.checkpoint("/path/to/checkpoints")
     ```
 
-    Dans HDInsight, ces points de contrôle doivent être enregistrés dans le stockage par défaut associé à votre cluster (Stockage Azure ou Azure Data Lake Store).
+    Dans HDInsight, ces points de contrôle doivent être enregistrés dans le stockage par défaut associé à votre cluster (Stockage Azure ou Azure Data Lake Storage).
 
 2. Ensuite, spécifiez un intervalle de point de contrôle (en secondes) sur le flux discrétisé. À chaque intervalle, les données d’état dérivées de l’événement d’entrée sont rendues persistantes dans le stockage. Les données d’état persistantes peuvent réduire le calcul nécessaire à la regénération de l’état à partir de l’événement source.
 
@@ -85,7 +85,7 @@ Vous pouvez créer des récepteurs idempotents en implémentant une logique qui 
 
 Par exemple, vous pouvez utiliser une procédure stockée avec Azure SQL Database qui insère des événements dans une table. Cette procédure stockée recherche l’événement à partir de champs clés, puis n’insère l’enregistrement dans la table que si elle ne trouve aucun événement correspondant.
 
-Un autre exemple consiste à utiliser un système de fichiers partitionné comme les objets BLOB Stockage Azure ou Azure Data Lake store. Dans ce cas, votre logique de récepteur n’a pas besoin de vérifier l’existence d’un fichier. Si le fichier représentant l’événement existe, il est simplement remplacé par les mêmes données. Sinon, un fichier est créé dans le chemin calculé.
+Un autre exemple consiste à utiliser un système de fichiers partitionné, comme les objets blob du stockage Azure ou Azure Data Lake Storage. Dans ce cas, votre logique de récepteur n’a pas besoin de vérifier l’existence d’un fichier. Si le fichier représentant l’événement existe, il est simplement remplacé par les mêmes données. Sinon, un fichier est créé dans le chemin calculé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

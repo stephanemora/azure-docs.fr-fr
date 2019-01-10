@@ -10,13 +10,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/05/2018
-ms.openlocfilehash: ea7b4def23f766e6cda1e1e8e1d4e8dc7be302fe
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.date: 12/16/2018
+ms.openlocfilehash: 40f6b6effa509fd2cfa40ecfc758ac37e0a66778
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997603"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538612"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Protection avancée contre les menaces pour Azure SQL Database
 
@@ -30,7 +30,7 @@ Protection avancée contre les menaces SQL fournit un ensemble de fonctionnalit�
 - La fonctionnalité [Évaluation des vulnérabilités](sql-vulnerability-assessment.md) est un service simple à configurer, qui vous permet de découvrir, suivre et de corriger des vulnérabilités de base de données potentielles. Elle offre une visibilité sur votre état de sécurité et inclut des mesures pratiques pour résoudre les problèmes de sécurité et améliorer la protection de votre base de données.
 - La fonctionnalité [Détection des menaces](sql-database-threat-detection-overview.md) détecte les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de votre base de données. Elle surveille en permanence votre base de données pour détecter des activités suspectes et envoie immédiatement des alertes de sécurité en cas de vulnérabilités éventuelles, d’attaques par injection de code SQL et de modèles d’accès anormaux à la base de données. Les alertes générées par la fonctionnalité Détection des menaces fournissent des informations sur les activités suspectes et recommandent l’action à entreprendre pour analyser et atténuer la menace.
 
-Il vous suffit d’activer Protection avancée contre les menaces SQL une seule fois pour activer toutes ces fonctionnalités. En un clic, vous pouvez activer Protection avancée contre les menaces sur l’ensemble de votre serveur de base de données, en l’appliquant à toutes les bases de données sur le serveur. 
+Il vous suffit d’activer Protection avancée contre les menaces SQL une seule fois pour activer toutes ces fonctionnalités. En un clic, vous pouvez activer Protection avancée contre les menaces sur l’ensemble de votre serveur de base de données, en l’appliquant à toutes les bases de données sur le serveur. L’activation ou la gestion des paramètres ATP nécessite d’appartenir au rôle [Gestionnaire de sécurité SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager), au rôle d’administrateur de base de données SQL ou au rôle d’administrateur de serveur SQL. 
 
 La tarification Protection avancée contre les menaces reflète celle du niveau Standard d’Azure Security Center, où chaque serveur SQL Database protégé correspond à un seul nœud. Les ressources nouvellement protégées se qualifient pour un essai gratuit du niveau Standard de Security Center. Pour plus d’informations, consultez la [page de tarification d’Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 

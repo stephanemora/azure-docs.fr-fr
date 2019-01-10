@@ -7,22 +7,22 @@ ms.subservice: performance
 ms.custom: ''
 ms.topic: conceptual
 author: danimir
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/26/2018
-ms.author: v-daljep
-ms.openlocfilehash: bf2cbdb57276fccd31af61f2df1b76eeba816e66
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 12/17/2018
+ms.openlocfilehash: f12aed12138b1b16fcce90401ea0d65bd083675f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341624"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546712"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Superviser Azure SQL Database avec Azure SQL Analytics (préversion)
 
 ![Symbole Azure SQL Analytics](./media/azure-sql/azure-sql-symbol.png)
 
-Azure SQL Analytics est une solution cloud permettant de superviser à grande échelle les performances des bases de données SQL Azure, des pools élastiques et des bases de données Managed Instance dans plusieurs abonnements depuis un tableau de bord unique. Cette solution collecte et visualise des métriques importantes de performances Azure SQL Database avec une intelligence intégrée pour résoudre les problèmes.
+Azure SQL Analytics est une solution cloud avancée permettant de superviser à grande échelle les performances des bases de données SQL Azure, des pools élastiques et des bases de données Managed Instance dans plusieurs abonnements depuis un tableau de bord unique. Cette solution collecte et visualise des métriques importantes de performances Azure SQL Database avec une intelligence intégrée pour résoudre les problèmes.
 
 En vous appuyant sur les mesures collectées avec la solution, vous êtes en mesure de créer des règles et des alertes de surveillance personnalisées. La solution vous aide à identifier les problèmes sur chacune des couches de votre pile applicative. Elle utilise des métriques de diagnostic Azure avec des vues Log Analytics pour présenter les données de l’ensemble de vos bases de données SQL Azure, de vos pools élastiques et de vos bases de données dans des instances gérées dans un espace de travail Log Analytics unique. Log Analytics prend en charge la collecte, la mise en correspondance et l’affichage des données structurées et non structurées.
 

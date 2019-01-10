@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 12/17/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 5bc94b6fe69a9ffec11fcbab952a6f8aa3e2259a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 295b7eeebf8d9815aef0b862ee2b3cccbee15ed6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569003"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546740"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Ajouter Google comme fournisseur d’identité pour les utilisateurs invités B2B
 
 En configurant la fédération avec Google, vous pouvez autoriser des utilisateurs invités à se connecter à vos applications et ressources partagées avec leurs propres comptes Google, sans devoir créer de comptes Microsoft (MSA) ou Azure AD.  
 > [!NOTE]
-> Vos utilisateurs invités de Google doivent se connecter à l’aide d’un lien vers le contexte client, par exemple `https://myapps.microsoft.com/?tenantid=<tenant id>`. Liens directs aux applications et ressources fonctionnent également tant qu’ils incluent le contexte client. Les utilisateurs invités ne peuvent actuellement pas se connecter à l’aide de points de terminaison qui n’ont aucun contexte locataire. Par exemple, l’utilisation de `https://myapps.microsoft.com`, de `https://portal.azure.com` ou du point de terminaison commun des équipes entraînera une erreur.
+> Vos utilisateurs invités de Google doivent se connecter à l’aide d’un lien vers le contexte client, par exemple `https://myapps.microsoft.com/<tenant id>`. Liens directs aux applications et ressources fonctionnent également tant qu’ils incluent le contexte client. Les utilisateurs invités ne peuvent actuellement pas se connecter à l’aide de points de terminaison qui n’ont aucun contexte locataire. Par exemple, l’utilisation de `https://myapps.microsoft.com`, de `https://portal.azure.com` ou du point de terminaison commun des équipes entraînera une erreur.
  
 ## <a name="what-is-the-experience-for-the-google-user"></a>Quelle est l’expérience de l’utilisateur Google ?
 Lorsque vous envoyez une invitation à un utilisateur de Google Gmail, l’utilisateur invité doit accéder à vos applications ou ressources partagées à l’aide d’un lien qui inclut le contexte locataire. Son expérience varie selon qu’il est ou non déjà connecté à Google :
@@ -32,10 +32,10 @@ Si l’utilisateur invité voit une erreur « en-tête trop long », il peut e
 
 ![Se connecter avec Google](media/google-federation/google-sign-in.png)
 
-## <a name="step-1-configure-a-google-developer-project"></a>Étape 1 : configurer un projet de développeur Google
+## <a name="step-1-configure-a-google-developer-project"></a>Étape 1 : Configurer un projet de développeur Google
 Commencez par créer un projet dans la console des développeurs Google pour obtenir un ID client et une clé secrète client que vous pourrez ajouter plus tard à Azure AD. 
 1. Accédez aux API Google à l’adresse https://console.developers.google.com et connectez-vous avec votre compte Google. Nous vous recommandons d’utiliser un compte Google d’équipe partagé.
-2. Créer un projet : sur le tableau de bord, sélectionnez **Créer un projet**, puis **Créer**. À la page Nouveau projet, entrez un **Nom de projet**, puis sélectionnez **Créer**.
+2. Créer un projet : Sur le tableau de bord, sélectionnez **Créer un projet**, puis **Créer**. À la page Nouveau projet, entrez un **Nom de projet**, puis sélectionnez **Créer**.
    
    ![Nouveau projet Google](media/google-federation/google-new-project.png)
 
@@ -70,7 +70,7 @@ Commencez par créer un projet dans la console des développeurs Google pour obt
 
    ![ID client OAuth et clé secrète client](media/google-federation/google-auth-client-id-secret.png)
 
-## <a name="step-2-configure-google-federation-in-azure-ad"></a>Étape 2 : configurer la fédération de Google dans Azure AD 
+## <a name="step-2-configure-google-federation-in-azure-ad"></a>Étape 2 : Configurer la fédération de Google dans Azure AD 
 Maintenant vous définirez l’ID client Google et la clé secrète client, soit en les entrant dans le portail Azure AD, soit à l’aide de PowerShell. Pensez à tester votre configuration de fédération de Google en invitant vous-même à l’aide d’une adresse Gmail et en essayant d’utiliser l’invitation avec votre compte d’invité Google. 
 
 #### <a name="to-configure-google-federation-in-the-azure-ad-portal"></a>Pour configurer la fédération de Google dans le portail Azure AD 
@@ -90,7 +90,7 @@ Maintenant vous définirez l’ID client Google et la clé secrète client, soit
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > Utilisez l’ID client et la clé secrète client à partir de l’application créée à l’« étape 1 : configurer un projet de développeur Google. » Pour plus d’informations, consultez l’article [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview). 
+   > Utilisez l’ID client et la clé secrète client à partir de l’application créée à l’« étape 1 : Configurer un projet de développeur Google ». Pour plus d’informations, consultez l’article [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview). 
  
 ## <a name="how-do-i-remove-google-federation"></a>Comment supprimer la fédération de Google ?
 Vous pouvez supprimer votre configuration de fédération de Google. Dans ce cas, les utilisateurs invités de Google ayant déjà utilisé leur invitation ne pourront pas se connecter, mais vous pourrez leur redonner accès à vos ressources en les supprimant du répertoire, puis en les invitant à nouveau. 

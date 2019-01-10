@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: reference
-ms.date: 06/25/2018
+ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6c648a9cb6b8d8dbfb60f1a5a6ebc386c57460b0
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: b4aec7ff560b0695175a18c9c7e429a8ab733345
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887244"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633706"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gérer Azure Analysis Services avec PowerShell
 
@@ -50,11 +50,11 @@ Module - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azu
 |[Add-AzureAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-azureanalysisservicesaccount)|Ajoute un compte authentifié à utiliser pour les demandes d’applet de commande du serveur Azure Analysis Services.| 
 |[Export-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|Exporte un journal à partir d’une instance du serveur Analysis Services dans l’environnement actuellement connecté, spécifié dans la commande Add-AzureAnalysisServicesAccount.|  
 |[Restart-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Redémarre une instance du serveur Analysis Services dans l’environnement actuellement connecté ; spécifié dans la commande Add-AzureAnalysisServicesAccount.|  
-|[Sync-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Synchronise une base de données spécifiée sur l’instance donnée du serveur Analysis Services avec toutes les instances de requête avec montée en puissance parallèle au sein de l’environnement actuellement connecté comme spécifié dans la commande Add-AzureAnalysisServicesAccount.|  
+|[Sync-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Synchronise une base de données spécifiée sur l’instance donnée du serveur Analysis Services avec toutes les instances de scale-out de requête au sein de l’environnement actuellement connecté comme spécifié dans la commande Add-AzureAnalysisServicesAccount|  
 
 ## <a name="database-operations"></a>Opérations de base de données
 
-Les opérations de bases de données Azure Analysis Services utilisent le même [module SqlServer](https://www.powershellgallery.com/packages/SqlServer) que SQL Server Analysis Services. Toutefois, certaines applets de commande ne sont pas prises en charge par Azure Analysis Services. Pour en savoir plus, [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell).
+Les opérations de bases de données Azure Analysis Services utilisent le même [module SqlServer](https://www.powershellgallery.com/packages/SqlServer) que SQL Server Analysis Services. Toutefois, certaines applets de commande ne sont pas prises en charge par Azure Analysis Services. Pour en savoir plus, consultez [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell).
 
 Le module SqlServer fournit des applets de commande de gestion de base de données spécifiques à chaque tâche, ainsi que l’applet de commande Invoke-ASCmd à usage général, qui accepte un script ou une requête utilisant le langage de script de modèle tabulaire (TMSL). Les applets de commande suivantes du module SqlServer sont prises en charge par Azure Analysis Services.
 

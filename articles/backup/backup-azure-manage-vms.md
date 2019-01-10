@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: trinadhk
-ms.openlocfilehash: 4d45db6ba6354f85c3ed67561751720b6f6f4b77
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0e599c95f40e62a4bb01a7ab698fe0ce1f738e49
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38465718"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635763"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gestion des sauvegardes de machines virtuelles Azure
 
-Cet article fournit des conseils sur la gestion des sauvegardes de machines virtuelles et décrit les données d’alertes de sauvegarde disponibles dans le tableau de bord du portail. Les instructions contenues dans cet article s’appliquent à l’utilisation de machines virtuelles avec des coffres Recovery Services. Cet article ne couvre pas la création des machines virtuelles et n’explique pas comment protéger les machines virtuelles. Pour une introduction à la protection des machines virtuelles déployées via Azure Resource Manager dans Azure à l’aide d’un coffre Recovery Services, consultez la page [Premier aperçu : sauvegarder les machines virtuelles ARM dans un archivage de Recovery Services](backup-azure-vms-first-look-arm.md).
+Cet article fournit des conseils sur la gestion des sauvegardes de machines virtuelles et décrit les données d’alertes de sauvegarde disponibles dans le tableau de bord du portail. Les instructions contenues dans cet article s’appliquent à l’utilisation de machines virtuelles avec des coffres Recovery Services. Cet article ne couvre pas la création des machines virtuelles et n’explique pas comment protéger les machines virtuelles. Pour une introduction à la protection des machines virtuelles déployées via Azure Resource Manager dans Azure à l’aide d’un coffre Recovery Services, consultez [Premier aperçu : Sauvegarder les machines virtuelles dans un coffre Recovery Services](backup-azure-vms-first-look-arm.md).
 
 ## <a name="manage-vaults-and-protected-virtual-machines"></a>Gérer les coffres et les machines virtuelles protégées
 Dans le portail Azure, le tableau de bord Coffre Recovery Services permet d’accéder à des informations concernant le coffre, notamment :
@@ -77,7 +77,7 @@ Dans la procédure précédente, vous avez ouvert le tableau de bord du coffre. 
 
     ![Tableau de bord Éléments de sauvegarde avec panneau Paramètres](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-    Le tableau de bord de l’élément du coffre vous permet d’accomplir plusieurs tâches de gestion essentielles, par exemple :
+    Le tableau de bord de l’élément du coffre vous permet d’accomplir plusieurs tâches essentielles, par exemple :
 
    * Modifier des stratégies ou créer une stratégie de sauvegarde
    * Affichage des points de restauration et vérification de leur état de cohérence
@@ -85,7 +85,7 @@ Dans la procédure précédente, vous avez ouvert le tableau de bord du coffre. 
    * Arrêt de la protection des machines virtuelles
    * Reprendre la protection d’une machine virtuelle
    * Suppression des données de sauvegarde (ou d’un point de récupération)
-   * [Restauration des disques de sauvegarde](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
+   * [Restauration des disques de sauvegarde](backup-azure-arm-restore-vms.md#create-new-restore-disks)
 
 Pour les procédures suivantes, nous allons travailler à partir du tableau de bord de l’élément du coffre.
 
@@ -214,4 +214,4 @@ Pour supprimer les données de sauvegarde d’une machine virtuelle avec l’opt
     Un message de notification vous informe que les données de sauvegarde ont été supprimées.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur la manière de recréer une machine virtuelle à partir d’un point de récupération, consultez [Restauration de machines virtuelles Azure](backup-azure-arm-restore-vms.md). Pour plus d’informations sur la protection de vos machines virtuelles, consultez [Premier aperçu : sauvegarder les machines virtuelles ARM dans un archivage de Recovery Services](backup-azure-vms-first-look-arm.md). Pour plus d’informations sur la surveillance des événements, consultez [Monitor alerts for Azure virtual machine backups](backup-azure-monitor-vms.md)(Surveiller les alertes des sauvegardes de machines virtuelles Azure).
+Pour plus d’informations sur la manière de recréer une machine virtuelle à partir d’un point de récupération, consultez [Restauration de machines virtuelles Azure](backup-azure-arm-restore-vms.md). Pour plus d’informations sur la protection de vos machines virtuelles, consultez [Premier aperçu : Sauvegarder les machines virtuelles dans un coffre Recovery Services](backup-azure-vms-first-look-arm.md). Pour plus d’informations sur la surveillance des événements, consultez [Monitor alerts for Azure virtual machine backups](backup-azure-monitor-vms.md)(Surveiller les alertes des sauvegardes de machines virtuelles Azure).

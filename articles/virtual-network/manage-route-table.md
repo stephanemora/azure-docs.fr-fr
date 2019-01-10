@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 790d327be27dae0c963c37e6e55f1721bf571c80
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7c3c4eea80eb0ceddc48d30fd51cf23524df5640
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222112"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540756"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Créer, modifier ou supprimer une table de routage
 
@@ -48,7 +48,7 @@ Le nombre de tables de routage que vous pouvez créer par abonnement et par empl
 **Commandes**
 
 - Azure CLI : [az network route-table create](/cli/azure/network/route-table/route#az_network_route_table_create)
-- PowerShell : [New-AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable)
+- PowerShell : [New-AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable)
 
 ## <a name="view-route-tables"></a>Afficher les tables de routage
 
@@ -57,14 +57,14 @@ Dans la zone de recherche située en haut du portail, entrez *tables de routage*
 **Commandes**
 
 - Azure CLI : [az network route-table list](/cli/azure/network/route-table/route#az_network_route_table_list)
-- PowerShell : [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
+- PowerShell : [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
 
 ## <a name="view-details-of-a-route-table"></a>Afficher les détails d’une table de routage
 
 1. Dans la zone de recherche située en haut du portail, entrez *tables de routage*. Quand la mention **Tables de routage** apparaît dans les résultats de la recherche, sélectionnez-la.
 2. Dans la liste, sélectionnez la table de routage dont vous souhaitez afficher les détails. Sous **PARAMÈTRES**, vous pouvez afficher les **Itinéraires** de la table de routage et les **Sous-réseaux** auxquels elle est associée.
 3. Pour en savoir plus sur les paramètres Azure communs, consultez les informations suivantes :
-    *   [Journal d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+    *   [Journal d’activité](../azure-monitor/platform/activity-logs-overview.md)
     *   [Contrôle d’accès (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
     *   [Balises](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Verrous](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -73,7 +73,7 @@ Dans la zone de recherche située en haut du portail, entrez *tables de routage*
 **Commandes**
 
 - Azure CLI : [az network route-table show](/cli/azure/network/route-table/route#az_network_route_table_show)
-- PowerShell : [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
+- PowerShell : [Get-AzureRmRouteTable](/powershell/module/azurerm.network/get-azurermroutetable)
 
 ## <a name="change-a-route-table"></a>Modifier une table de routage
 
@@ -83,7 +83,7 @@ Dans la zone de recherche située en haut du portail, entrez *tables de routage*
 **Commandes**
 
 - Azure CLI : [az network route-table update](/cli/azure/network/route-table/route#az_network_route_table_update)
-- PowerShell : [Set-AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable)
+- PowerShell : [Set-AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable)
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associer une table de routage à un sous-réseau
 
@@ -100,7 +100,7 @@ Si votre réseau virtuel est connecté à une passerelle VPN Azure, n’associez
 **Commandes**
 
 - Azure CLI : [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update)
-- PowerShell : [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
+- PowerShell : [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
 
 ## <a name="dissociate-a-route-table-from-a-subnet"></a>Dissocier une table de routage d’un sous-réseau
 
@@ -115,7 +115,7 @@ Quand vous dissociez une table de routage d’un sous-réseau, Azure achemine le
 **Commandes**
 
 - Azure CLI : [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update)
-- PowerShell : [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) 
+- PowerShell : [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) 
 
 ## <a name="delete-a-route-table"></a>Supprimer une table de routage
 
@@ -147,7 +147,7 @@ Le nombre d’itinéraires par table de routage que vous pouvez créer par abonn
 **Commandes**
 
 - Azure CLI : [az network route-table route create](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create)
-- PowerShell : [New-AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
+- PowerShell : [New-AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
 
 ## <a name="view-routes"></a>Afficher des itinéraires
 
@@ -160,7 +160,7 @@ Une table de routage peut contenir plusieurs ou aucun itinéraire. Pour en savoi
 **Commandes**
 
 - Azure CLI : [az network route-table route list](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_list)
-- PowerShell : [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
+- PowerShell : [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
 
 ## <a name="view-details-of-a-route"></a>Afficher les détails d’un itinéraire
 
@@ -172,7 +172,7 @@ Une table de routage peut contenir plusieurs ou aucun itinéraire. Pour en savoi
 **Commandes**
 
 - Azure CLI : [az network route-table route show](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_show)
-- PowerShell : [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
+- PowerShell : [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
 
 ## <a name="change-a-route"></a>Modifier un itinéraire
 
@@ -185,7 +185,7 @@ Une table de routage peut contenir plusieurs ou aucun itinéraire. Pour en savoi
 **Commandes**
 
 - Azure CLI : [az network route-table route update](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_update)
-- PowerShell : [Set-AzureRmRouteConfig](/powershell/module/azurerm.network/set-azurermrouteconfig)
+- PowerShell : [Set-AzureRmRouteConfig](/powershell/module/azurerm.network/set-azurermrouteconfig)
 
 ## <a name="delete-a-route"></a>Supprimer un itinéraire
 
@@ -198,7 +198,7 @@ Une table de routage peut contenir plusieurs ou aucun itinéraire. Pour en savoi
 **Commandes**
 
 - Azure CLI : [az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_delete)
-- PowerShell : [Remove-AzureRmRouteConfig](/powershell/module/azurerm.network/remove-azurermrouteconfig)
+- PowerShell : [Remove-AzureRmRouteConfig](/powershell/module/azurerm.network/remove-azurermrouteconfig)
 
 ## <a name="view-effective-routes"></a>Afficher les itinéraires effectifs
 
@@ -213,7 +213,7 @@ Les itinéraires effectifs de chaque interface réseau attachée à une machine 
 **Commandes**
 
 - Azure CLI : [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
-- PowerShell : [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
+- PowerShell : [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
 
 ## <a name="validate-routing-between-two-endpoints"></a>Valider le routage entre deux points de terminaison
 
@@ -230,7 +230,7 @@ Vous pouvez déterminer le type de tronçon suivant entre une machine virtuelle 
 **Commandes**
 
 - Azure CLI : [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_show_next_hop)
-- PowerShell : [Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) 
+- PowerShell : [Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) 
 
 ## <a name="permissions"></a>Autorisations
 

@@ -1,5 +1,5 @@
 ---
-title: Intégrer la solution de surveillance à distance à Azure Data Lake Store | Microsoft Docs
+title: Intégrer la solution Supervision à distance à Data Lake Store - Azure | Microsoft Docs
 description: Découvrez comment intégrer la solution de surveillance à distance à Azure Data Lake Store à l’aide d’une tâche Azure Stream Analytics.
 author: philmea
 manager: timlt
@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: a918866ff5e206ea4d2dedde2711424924a478fe
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188062"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603927"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Intégrer la solution de surveillance à distance à Azure Data Lake Store
 
@@ -63,7 +63,7 @@ Créez une tâche Azure Stream Analytics pour transmettre les données du hub Io
 
 1. Entrez un nom de tâche et sélectionnez le groupe de ressources ainsi que l’abonnement appropriés.
 
-1. Sélectionnez un emplacement proche ou dans la même région que Data Lake Store. Nous utilisons ici Est des États-Unis.
+1. Sélectionnez un emplacement proche ou dans la même région que Data Lake Store. Nous utilisons ici USA Est.
 
 1. Veillez à conserver l’environnement d’hébergement **Cloud** par défaut.
 
