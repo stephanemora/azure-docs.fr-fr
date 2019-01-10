@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 04566009ba7b71b48cf3dfc7d51cbbdcd596dc0e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 953f0d2652c328b32d9cc7bac239901075ff6c1b
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186530"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104707"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Solution Wire Data 2.0 (préversion) dans Log Analytics
 
@@ -33,7 +33,7 @@ Outre l’agent Log Analytics, la solution Wire Data utilise des agents Microsof
 
 Par défaut, Log Analytics journalise les données pour l’UC, la mémoire, le disque et les données de performances du réseau à partir de compteurs intégrés à Windows et à Linux, ainsi que d’autres compteurs de performances que vous pouvez spécifier. La collecte des données réseau et autres est effectuée en temps réel pour chaque agent, notamment les sous-réseaux et les protocoles de niveau application utilisés par l’ordinateur.  Wire Data examine les données réseau au niveau de l’application, pas au niveau de la couche de transport TCP.  La solution n’examine pas les données ACK et SYN individuelles.  Une fois la connexion effectuée, elle est considérée comme une connexion active et marquée en tant que Connecté. Cette connexion reste active tant que les deux côtés acceptent que le socket est ouvert et que des données peuvent être transférées dans les deux sens.  Si l’un des deux côtés ferme la connexion, celle-ci est marquée en tant que Déconnecté.  Par conséquent, elle ne compte que la bande passante des paquets terminés avec succès et ne signale pas les renvois ou les paquets ayant échoué.
 
-Si vous avez déjà utilisé [sFlow](http://www.sflow.org/) ou d’autres logiciels respectant le [protocole NetFlow de Cisco](http://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), les statistiques et les données fournies par les données de communication vous seront familières.
+Si vous avez déjà utilisé [sFlow](http://www.sflow.org/) ou d’autres logiciels respectant le [protocole NetFlow de Cisco](https://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), les statistiques et les données fournies par les données de communication vous seront familières.
 
 Voici quelques types de requêtes de recherche de journal intégrés :
 
