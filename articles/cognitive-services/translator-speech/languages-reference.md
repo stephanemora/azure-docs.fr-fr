@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: 73c65aa5c95887c8b1f6eb5e4cf91e19815eba15
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: ac8de247f09ba3b4e38cabb565fe332eba909ccc
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53741876"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118130"
 ---
 # <a name="translator-speech-api-languages"></a>API de traduction de conversation Translator Speech : Langues
 
@@ -150,5 +150,5 @@ X-RequestId|Valeur générée par le serveur pour identifier la demande, et util
 |:--|:--|
 |400|Demande incorrecte. Vérifiez les paramètres d’entrée pour vous assurer qu’ils sont valides. L’objet de la réponse inclut une description plus détaillée de l’erreur.|
 |429|Trop grand nombre de requêtes.|
-|500|Une erreur s’est produite. Si l’erreur persiste, veuillez la signaler avec l’identificateur de trace client (X-ClientTraceId) ou l’identificateur (ID requête X) de demande.|
+|500|Une erreur est survenue. Si l’erreur persiste, veuillez la signaler avec l’identificateur de trace client (X-ClientTraceId) ou l’identificateur (ID requête X) de demande.|
 |503|Serveur temporairement indisponible. Relancez la requête. Si l’erreur persiste, veuillez la signaler avec l’identificateur de trace client (X-ClientTraceId) ou l’identificateur (ID requête X) de demande.|

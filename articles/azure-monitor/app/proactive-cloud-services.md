@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
 ms.author: mbullwin
-ms.openlocfilehash: c71ace039c8b8b7ec89c5a38ef203399f5af82aa
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 219ba632d7688f1a428378309828b689698d2fe5
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004424"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019472"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Alertes en cas de problèmes dans Azure Cloud Services à l’aide de l’intégration Azure Diagnostics avec Azure Application Insights
 
@@ -120,7 +120,7 @@ Une fois que vous avez défini le groupe d’actions, confirmez vos modification
 
 En savoir plus sur la détection automatique :
 
-[Défaillances](../../application-insights/app-insights-proactive-failure-diagnostics.md)
-[Fuites de mémoire](../../application-insights/app-insights-proactive-potential-memory-leak.md)
-[Anomalies de performance](../../application-insights/app-insights-proactive-performance-diagnostics.md)
+[Défaillances](../../azure-monitor/app/proactive-failure-diagnostics.md)
+[Fuites de mémoire](../../azure-monitor/app/proactive-potential-memory-leak.md)
+[Anomalies de performance](../../azure-monitor/app/proactive-performance-diagnostics.md)
 

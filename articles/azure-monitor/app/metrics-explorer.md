@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: aaa34d27e73c1691e69ea2f6860226639217f0c6
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 752f28eed3a6be5f7f136999c66e405bf7785a42
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004442"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120969"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Exploration des mesures dans Application Insights
 Les mesures dans [Application Insights][start] sont des mesures et le nombre des événements envoyés par la télémétrie de votre application. Elles vous permettent de détecter les problèmes de performances et de constater les tendances dans l'utilisation de votre application. Il existe un large éventail de mesures standard et vous pouvez également créer vos propres mesures personnalisées et vos propres événements personnalisés.
@@ -193,18 +193,18 @@ Dans un graphique de mesures, vous pouvez cliquer sur l’icône Analyse pour ac
 
     Si vous souhaitez définir des filtres différents sur différents graphiques, créez-les dans des panneaux différents, enregistrez-les sous forme de favoris distincts. Si vous le souhaitez, vous pouvez les épingler au tableau de bord afin de les afficher parallèlement.
 * Si vous regroupez un graphique en fonction d’une propriété qui n’est pas définie dans la mesure, alors il n’y aura rien à afficher sur le graphique. Essayez de désélectionner l’option « regrouper par » ou choisissez une propriété de regroupement différente.
-* Les données de performances (UC, taux d’E/S, etc.) sont disponibles pour les services web Java, les applications de bureau Windows, les [services et applications web IIS si vous installez le moniteur d’état](../../azure-monitor/app/monitor-performance-live-website-now.md) (Status monitor) et [Azure Cloud Services](../../application-insights/app-insights-overview.md). Ces données ne sont pas disponibles pour les sites web Azure.
+* Les données de performances (UC, taux d’E/S, etc.) sont disponibles pour les services web Java, les applications de bureau Windows, les [services et applications web IIS si vous installez le moniteur d’état](../../azure-monitor/app/monitor-performance-live-website-now.md) (Status monitor) et [Azure Cloud Services](../../azure-monitor/app/app-insights-overview.md). Ces données ne sont pas disponibles pour les sites web Azure.
 
 ## <a name="video"></a>Vidéo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Surveillance de l’utilisation avec Application Insights](../../application-insights/app-insights-usage-overview.md)
+* [Surveillance de l’utilisation avec Application Insights](../../azure-monitor/app/usage-overview.md)
 * [Utilisation de Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
 
 <!--Link references-->
 
 [alerts]: ../../azure-monitor/app/alerts.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 [track]: ../../azure-monitor/app/api-custom-events-metrics.md

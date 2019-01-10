@@ -11,18 +11,18 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: a5abc90f5a40911538b6516622203f595adfed5c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 140fc870500054d0652b48bc602706398371fa8e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091813"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039049"
 ---
 # <a name="create-your-first-python-function-in-azure-preview"></a>Créer votre première fonction Python dans Azure (préversion)
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
-Ce guide de démarrage rapide décrit comment utiliser Azure CLI pour créer votre première application de fonction Python [serverless](https://azure.microsoft.com/overview/serverless-computing/) exécutée sur Linux. Le code de fonction est créé en local, puis déployé sur Azure à l’aide d’[Azure Functions Core Tools](functions-run-local.md). Pour en savoir plus sur les considérations de préversion concernant l’exécution de vos applications de fonction sur Linux, consultez [cet article sur les fonctions sur Linux ](https://aka.ms/funclinux).
+Ce guide de démarrage rapide décrit comment utiliser Azure CLI pour créer votre première application de fonction Python [serverless](https://azure.com/serverless) exécutée sur Linux. Le code de fonction est créé en local, puis déployé sur Azure à l’aide d’[Azure Functions Core Tools](functions-run-local.md). Pour en savoir plus sur les considérations de préversion concernant l’exécution de vos applications de fonction sur Linux, consultez [cet article sur les fonctions sur Linux ](https://aka.ms/funclinux).
 
 Les étapes suivantes sont prises en charge sur un ordinateur Mac, Windows ou Linux.
 

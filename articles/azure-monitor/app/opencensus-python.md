@@ -9,12 +9,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aa71d171bbb2125a61cc6fec6b07639a5c340796
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 885f4da5ec9b360605a3e46ee8be8d338a638ede
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004429"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102667"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Collecter les traces distribuées à partir de Python (préversion)
 
@@ -204,4 +204,4 @@ Nous n’avons traité ici que les principes fondamentaux de la liaison d’Open
 
 * [Guide d’utilisation Python et OpenCensus](https://opencensus.io/api/python/trace/usage.html)
 * [Plan de l’application](./../../azure-monitor/app/app-map.md)
-* [Analyse des performances de bout en bout](./../../application-insights/app-insights-tutorial-performance.md)
+* [Analyse des performances de bout en bout](./../../azure-monitor/learn/tutorial-performance.md)

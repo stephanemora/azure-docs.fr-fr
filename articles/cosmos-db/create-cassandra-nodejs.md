@@ -1,21 +1,19 @@
 ---
 title: 'Démarrage rapide : API Cassandra avec Node.js - Azure Cosmos DB'
 description: Ce guide de démarrage rapide montre comment utiliser l’API Cassandra Azure Cosmos DB pour créer une application de profil avec Node.js
-services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: e1015331af3b31fa34170db6c1729b8e38bcbd04
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e6128a9bbdba058068057c202595508cef69fbb3
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251048"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037903"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application Cassandra avec Node.js et Azure Cosmos DB
 
@@ -46,7 +44,7 @@ Pour pouvoir créer une base de données de documents, vous devez créer un comp
 
 ## <a name="clone-the-sample-application"></a>Clonage de l’exemple d’application
 
-Nous allons maintenant cloner une application API Cassandra à partir de GitHub, configurer la chaîne de connexion et l'exécuter. Vous pouvez constater à quel point il est facile de travailler par programmation avec des données. 
+Nous allons maintenant cloner une application API Cassandra à partir de GitHub, configurer la chaîne de connexion et l’exécuter. Vous pouvez constater à quel point il est facile de travailler par programmation avec des données. 
 
 1. Ouvrez une invite de commandes. Créez un dossier nommé `git-samples`. Ensuite, fermez l’invite de commandes.
 

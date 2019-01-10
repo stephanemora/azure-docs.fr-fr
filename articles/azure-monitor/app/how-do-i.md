@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: c8ff6abe72a55be24b35b254a4bfc2a446b13c0b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999679"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074204"
 ---
 # <a name="how-do-i--in-application-insights"></a>Comment ... dans Application Insights ?
 ## <a name="get-an-email-when-"></a>Recevoir un message électronique quand...
@@ -83,18 +83,18 @@ Vous recevrez des messages électroniques quand la métrique est supérieure et 
 ## <a name="separate-telemetry-from-different-versions"></a>Télémétrie distincte des différentes versions
 
 * Plusieurs rôles dans une application : utilisez une seule ressource Application Insights et filtrez sur [cloud_Rolename](../../azure-monitor/app/app-map.md).
-* Séparation des versions de développement, de test et de mise en production : utilisez différentes ressources Application Insights. Sélectionnez les clés d’instrumentation à partir de web.config. [En savoir plus](../../application-insights/app-insights-separate-resources.md)
-* Génération de rapports sur les versions : ajoutez une propriété à l’aide d’un initialiseur de télémétrie. [En savoir plus](../../application-insights/app-insights-separate-resources.md)
+* Séparation des versions de développement, de test et de mise en production : utilisez différentes ressources Application Insights. Sélectionnez les clés d’instrumentation à partir de web.config. [En savoir plus](../../azure-monitor/app/separate-resources.md)
+* Génération de rapports sur les versions : ajoutez une propriété à l’aide d’un initialiseur de télémétrie. [En savoir plus](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Surveiller les serveurs principaux et les applications de bureau
-[Utilisez le module du Kit de développement logiciel (SDK) Windows Server](../../application-insights/app-insights-windows-desktop.md).
+[Utilisez le module du Kit de développement logiciel (SDK) Windows Server](../../azure-monitor/app/windows-desktop.md).
 
 ## <a name="visualize-data"></a>Visualiser les données
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>Tableau de bord avec des métriques de plusieurs applications
 * Dans [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md), personnalisez votre graphique et enregistrez-le en tant que favori. Épinglez-le au tableau de bord Azure.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Tableau de bord avec des données provenant d’autres sources et d’Application Insights
-* [Exportez la télémétrie dans Power BI](../../application-insights/app-insights-export-power-bi.md).
+* [Exportez la télémétrie dans Power BI](../../azure-monitor/app/export-power-bi.md ).
 
 Ou
 

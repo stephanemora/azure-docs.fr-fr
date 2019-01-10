@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: a9c9ac9ada6dfab051deda14cddb4ba6c07f48df
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998895"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119168"
 ---
 # <a name="using-search-in-application-insights"></a>Utilisation de la recherche dans Application Insights
-Recherche (Search) est la fonctionnalité [d’Application Insights](../../application-insights/app-insights-overview.md) qui vous permet de rechercher et d’explorer les éléments de télémétrie, par exemple des pages vues, des exceptions ou des requêtes web. Vous pouvez également afficher le suivi et les événements de journal que vous avez codés.
+Recherche (Search) est la fonctionnalité [d’Application Insights](../../azure-monitor/app/app-insights-overview.md) qui vous permet de rechercher et d’explorer les éléments de télémétrie, par exemple des pages vues, des exceptions ou des requêtes web. Vous pouvez également afficher le suivi et les événements de journal que vous avez codés.
 
 (Pour les requêtes plus complexes sur vos données, utilisez [Analytics](../../azure-monitor/log-query/get-started-portal.md).)
 
@@ -129,7 +129,7 @@ Expressions de recherche utilisables :
 ## <a name="sampling"></a>échantillonnage
 Si votre application génère un volume important de télémétrie (et si vous utilisez le Kit SDK ASP.NET version 2.0.0-beta3 ou ultérieure), le module d'échantillonnage adaptatif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Cependant, les événements liés à la même demande sont activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes. 
 
-[En savoir plus sur l'échantillonnage](../../application-insights/app-insights-sampling.md).
+[En savoir plus sur l'échantillonnage](../../azure-monitor/app/sampling.md).
 
 ## <a name="create-work-item"></a>Création d’un élément de travail
 Vous pouvez créer un bogue dans GitHub ou Azure DevOps avec les détails d’un élément de télémétrie. 
@@ -166,4 +166,4 @@ Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez ut
 * [Écrire des requêtes complexes dans Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Envoi des journaux et de la télémétrie personnalisée à Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Configuration des tests de disponibilité et de réactivité](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Dépannage](../../application-insights/app-insights-troubleshoot-faq.md)
+* [Dépannage](../../azure-monitor/app/troubleshoot-faq.md)

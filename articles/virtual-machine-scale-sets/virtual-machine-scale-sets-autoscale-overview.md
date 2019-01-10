@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18be454c93c32e0902a55a08748045c26d649ce7
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: a5386e56bffd9a9789fe431aae8ed13df8ffae13
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322037"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117433"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Vue d’ensemble de la mise à l’échelle automatique avec des groupes de machines virtuelles identiques Azure
 Un groupe de machines virtuelles identiques Azure peut augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle qui exécutent votre application. Ce comportement élastique et automatisé réduit la charge de gestion pour analyser et optimiser les performances de votre application. Vous créez des règles qui définissent les performances acceptables pour une expérience utilisateur positive. Lorsque les seuils définis sont respectés, les règles de mise à l’échelle automatique prennent des mesures pour ajuster la capacité de votre groupe identique. Vous pouvez également planifier des événements qui augmentent ou diminuent automatiquement la capacité de votre groupe identique à des moments donnés. Cet article fournit une vue d’ensemble des mesures de performance disponibles et des actions réalisables par la mise à l’échelle automatique.
@@ -122,7 +122,7 @@ Pour en savoir plus, consultez les articles sur l’activation de l’extension 
 ## <a name="application-level-metrics-with-app-insights"></a>Mesures au niveau de l’application avec Application Insights
 Pour gagner en visibilité dans les performances de vos applications, vous pouvez utiliser Application Insights. Vous installez un petit package d’instrumentation dans votre application qui surveille l’application et envoie des données de télémétrie à Azure. Vous pouvez surveiller des mesures, telles que les temps de réponse de votre application, les performances de chargement des pages et le nombres de sessions. Ces mesures de l’application peuvent être utilisées pour créer des règles de mise à l’échelle automatique à un niveau granulaire et incorporé lors du déclenchement de règles basées sur des informations exploitables qui peuvent avoir un impact sur l’expérience utilisateur.
 
-Pour plus d’informations sur App Insights, consultez [Présentation d’Application Insights](../application-insights/app-insights-overview.md).
+Pour plus d’informations sur App Insights, consultez [Présentation d’Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 
 ## <a name="scheduled-autoscale"></a>Mise à l’échelle automatique planifiée

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bbb338d2b1d359d8e141b18a2beacd8b7faafe9c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 7d1f75df9318c53a6d9e38c4d7b68587cf9a0d4b
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53326553"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54057377"
 ---
 **Disques durs managés standard de machine virtuelle**
 
@@ -25,11 +25,11 @@ ms.locfileid: "53326553"
 
 **Disques SSD managés standard de machine virtuelle**
 
-| Type de disque SSD Standard  | E10               | E15               | E20             | E30 | E40              | E50              | E60 *             | E70 *             | E80 *             |
-|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| Taille du disque (Gio)           | 128             | 256             | 512            | 1 024  | 2 048            | 4 095     | 8 192     | 16 384     | 32 767    |
-| IOPS par disque       | Jusqu’à 500              | Jusqu’à 500              | Jusqu’à 500              | Jusqu’à 500 | Jusqu’à 500              | Jusqu’à 500              | Jusqu’à 500             | Jusqu’à 500              | Jusqu’à 1 300              | Jusqu’à 2 000              | Jusqu’à 2 000              |
-| Débit par disque | Jusqu’à 60 Mo/s | Jusqu’à 60 Mo/s | Jusqu’à 60 Mo/s | Jusqu’à 60 Mo/s | Jusqu’à 60 Mo/s | Jusqu’à 60 Mo/s | Jusqu’à 60 Mo/s | Jusqu’à 60 Mo/s| Jusqu’à 300 Mio/s |  Jusqu’à 500 Mio/s | Jusqu’à 500 Mio/s |
+| Type de disque SSD Standard  | E10               | E15               | E20             | E30              | E40              | E50              | E60 *             | E70 *             | E80 *             |
+|---------------------|---------------------|---------------------|-----------------|------------------|------------------|------------------|-------------------|-------------------|-------------------|
+| Taille du disque (Gio)    | 128                 | 256                 | 512             | 1 024            | 2 048            | 4 095            | 8 192             | 16 384            | 32 767            |
+| IOPS par disque       | Jusqu’à 500           | Jusqu’à 500           | Jusqu’à 500       | Jusqu’à 500        | Jusqu’à 500        | Jusqu’à 500        | Jusqu’à 1 300       | Jusqu’à 2 000       | Jusqu’à 2 000       |
+| Débit par disque | Jusqu’à 60 Mo/s     | Jusqu’à 60 Mo/s     | Jusqu’à 60 Mo/s | Jusqu’à 60 Mo/s  | Jusqu’à 60 Mo/s  | Jusqu’à 60 Mo/s  | Jusqu’à 300 Mio/s | Jusqu’à 500 Mio/s | Jusqu’à 500 Mio/s |
 
 **Disques de machine virtuelle gérés Premium : par limites de disques**
 

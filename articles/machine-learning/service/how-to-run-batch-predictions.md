@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7b0e3bc14c97c874b9d5936c025f4534665a461e
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: adac498b2f1e3331497c08f41558575c06b5823c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752620"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102939"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Exécuter des prédictions par lots sur de grands jeux de données avec Azure Machine Learning service
 
@@ -185,7 +185,7 @@ model = Model.register(
 ## <a name="write-your-scoring-script"></a>Écrire votre script de scoring
 
 >[!Warning]
->Le code suivant constitue uniquement un échantillon du contenu du fichier [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/batch_score.py) utilisé par l’[exemple de bloc-notes](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-batch-scoring.ipynb). Vous devez créer votre propre script de scoring pour votre scénario.
+>Le code suivant constitue uniquement un échantillon du contenu du fichier [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/batch_scoring.py) utilisé par l’[exemple de bloc-notes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/pipeline-batch-scoring.ipynb). Vous devez créer votre propre script de scoring pour votre scénario.
 
 Le script `batch_score.py` récupère les images d’entrée dans  *dataset_path*, les modèles préformés dans  *model_dir* et envoie les sorties *results-label.txt*  vers  *output_dir*.
 

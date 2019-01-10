@@ -3,17 +3,17 @@ title: Créer un serveur Jenkins sur Azure
 description: Installez Jenkins sur une machine virtuelle Linux Azure à partir du modèle de solution Jenkins et générez un exemple d’application Java.
 ms.service: jenkins
 keywords: jenkins, azure, devops, portal, virtual machine, solution template
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 6/7/2017
-ms.openlocfilehash: 92a0583ad01c4dc9263988f6ef48c95c380c9289
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 69ab376e9c4924babcb249a1d80f6f0d0a846f20
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43086572"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079015"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Créer un serveur Jenkins sur une machine virtuelle Linux Azure à partir du portail Azure
 

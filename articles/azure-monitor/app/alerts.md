@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3ed4039ae17828959f00de27c839454b63a7be6d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: fe63813220d526536a31efb48b6ec29b6ae383e8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998266"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121139"
 ---
 # <a name="set-alerts-in-application-insights"></a>Configuration d’alertes dans Application Insights
 [Azure Application Insights][start] peut vous signaler les modifications des métriques de performances ou d’utilisation de votre application web. 
@@ -29,7 +29,7 @@ Il existe trois types d’alertes :
 
 * Les **alertes de métrique** indiquent quand une métrique dépasse une valeur seuil pendant une certaine période, comme les temps de réponse, le nombre d’exceptions, l’utilisation du processeur ou les affichages de page. 
 * Les [**tests web**][availability] indiquent quand votre site est indisponible sur Internet ou répond lentement. [En savoir plus][availability].
-* Les [**diagnostics proactifs**](../../application-insights/app-insights-proactive-diagnostics.md) sont configurés automatiquement pour vous informer des modèles de performances exceptionnelles.
+* Les [**diagnostics proactifs**](../../azure-monitor/app/proactive-diagnostics.md) sont configurés automatiquement pour vous informer des modèles de performances exceptionnelles.
 
 Dans cet article, nous allons nous concentrer sur les alertes métriques.
 
@@ -41,7 +41,7 @@ Ouvrez le panneau des règles d’alerte, puis utilisez le bouton Ajouter.
 * Définissez la ressource avant les autres propriétés. **Choisissez la ressource « (composants) »** si vous souhaitez définir des alertes sur les mesures de performances ou d'utilisation.
 * Le nom que vous donnez à l’alerte doit être unique dans le groupe de ressources (pas uniquement dans votre application).
 * Veillez à noter les unités dans lesquelles vous êtes invité à entrer la valeur seuil.
-* Si vous cochez la case « Envoyer des e-mails aux propriétaires… », les alertes sont envoyées par e-mail à toutes les personnes ayant accès à ce groupe de ressources. Pour étendre cet ensemble de personnes, ajoutez-le au [groupe de ressources ou à l’abonnement](../../application-insights/app-insights-resources-roles-access-control.md) (pas à la ressource).
+* Si vous cochez la case « Envoyer des e-mails aux propriétaires… », les alertes sont envoyées par e-mail à toutes les personnes ayant accès à ce groupe de ressources. Pour étendre cet ensemble de personnes, ajoutez-le au [groupe de ressources ou à l’abonnement](../../azure-monitor/app/resources-roles-access-control.md) (pas à la ressource).
 * Si vous spécifiez « E-mails supplémentaires », les alertes sont envoyées à ces personnes ou groupes (que vous ayez ou non coché la case « Envoyer des e-mails aux propriétaires… »). 
 * Définissez une [adresse de webhook](../../azure-monitor/platform/alerts-webhooks.md) si vous avez configuré une application web qui répondra aux alertes. Elle est appelée lorsque l’alerte est Activée ou Résolue. (Mais notez qu’à l’heure actuelle, les paramètres de requête ne sont pas transmis en tant que propriétés webhook.)
 * Vous pouvez désactiver ou activer l'alerte avec les boutons en haut du panneau.
@@ -51,7 +51,7 @@ Ouvrez le panneau des règles d’alerte, puis utilisez le bouton Ajouter.
 * Utilisez-vous un compte professionnel ? Vous pouvez définir des alertes si vous avez un accès propriétaire ou collaborateur à cette ressource d’application. Consultez le panneau Access Control. [En savoir plus sur le contrôle d’accès][roles].
 
 > [!NOTE]
-> Dans le panneau Alertes, vous pouvez constater qu’une alerte est déjà configurée : [Diagnostics proactifs](../../application-insights/app-insights-proactive-failure-diagnostics.md). Cette alerte automatique surveille une métrique spécifique : le taux d’échec des demandes. Sauf si vous décidez de désactiver l’alerte proactive, vous n’avez pas besoin de définir votre propre alerte pour les taux d’échec des demandes. 
+> Dans le panneau Alertes, vous pouvez constater qu’une alerte est déjà configurée : [Diagnostics proactifs](../../azure-monitor/app/proactive-failure-diagnostics.md). Cette alerte automatique surveille une métrique spécifique : le taux d’échec des demandes. Sauf si vous décidez de désactiver l’alerte proactive, vous n’avez pas besoin de définir votre propre alerte pour les taux d’échec des demandes. 
 > 
 > 
 
@@ -89,7 +89,7 @@ Les alertes les plus appréciées sont les suivantes :
 * Le **temps de réponse de serveur** pour le côté serveur des applications web. Outre la définition des alertes, gardez un œil sur cette métrique pour voir si elle varie de façon importante avec un taux de demandes élevé. Une telle variation peut indiquer que votre application manque de ressources. 
 * **Exceptions du serveur** - pour les afficher, vous devrez peut-être effectuer une [installation supplémentaire](../../azure-monitor/app/asp-net-exceptions.md).
 
-N’oubliez pas que les [diagnostics de taux d’échec proactifs](../../application-insights/app-insights-proactive-failure-diagnostics.md) analysent automatiquement le taux selon lequel votre application répond aux demandes avec des codes d’échec. 
+N’oubliez pas que les [diagnostics de taux d’échec proactifs](../../azure-monitor/app/proactive-failure-diagnostics.md) analysent automatiquement le taux selon lequel votre application répond aux demandes avec des codes d’échec. 
 
 ## <a name="automation"></a>Automatisation
 * [Utiliser PowerShell pour automatiser la configuration d’alertes](../../azure-monitor/app/powershell-alerts.md)
@@ -102,13 +102,13 @@ N’oubliez pas que les [diagnostics de taux d’échec proactifs](../../applica
 ## <a name="see-also"></a>Voir aussi
 * [Tests web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Automatiser la configuration d’alertes](../../azure-monitor/app/powershell-alerts.md)
-* [Diagnostics proactifs](../../application-insights/app-insights-proactive-diagnostics.md) 
+* [Diagnostics proactifs](../../azure-monitor/app/proactive-diagnostics.md) 
 
 <!--Link references-->
 
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [client]: ../../azure-monitor/app/javascript.md
 [platforms]: ../../azure-monitor/app/platforms.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
-[start]: ../../application-insights/app-insights-overview.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

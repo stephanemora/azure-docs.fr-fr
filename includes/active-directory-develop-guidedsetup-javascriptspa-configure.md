@@ -14,28 +14,14 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 2e65c5f0d6c2d493abcd61bea4077cbdd8ff95fa
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 135ee9f6b833165cd393b9c5ca582e0ee9499e0f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52330974"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54057374"
 ---
 ## <a name="register-your-application"></a>Inscrivez votre application
-
-Il existe plusieurs moyens d’inscrire une application. Sélectionnez l’option qui répond le mieux à vos besoins :
-* [Mode Express : utilisez le démarrage rapide SPA pour configurer l’application](#option-1-register-your-application-express-mode)
-* [Mode Avancé : configurez manuellement les paramètres de l’application](#option-2-register-your-application-advanced-mode)
-
-### <a name="option-1-register-your-application-express-mode"></a>Option 1 : Inscrire votre application (mode Express)
-
-1. Connectez-vous à l’[inscription des applications du portail Azure (préversion)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) pour inscrire une application.
-1. Sur la page **Inscrire une application**, entrez un nom pour votre application.
-1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
-1. Lorsque vous avez terminé, sélectionnez **Inscrire**.
-1. Suivez les instructions du démarrage rapide pour télécharger et configurer automatiquement votre nouvelle application pour vous en un seul clic.
-
-### <a name="option-2-register-your-application-advanced-mode"></a>Option 2 : Inscrire votre application (mode Avancé)
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) pour inscrire une application.
 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.

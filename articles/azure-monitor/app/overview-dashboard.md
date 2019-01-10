@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4bc1d72cd08d47e9699acf8c20b03307dbda97af
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 47c83e6bc700f972e6dff83e4d067e61218c04bd
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004503"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035251"
 ---
 # <a name="application-insights-overview-dashboard"></a>Tableau de bord de vue d’ensemble d’Application Insights
 
@@ -62,7 +62,7 @@ Pour revenir à l’expérience de vue d’ensemble, sélectionnez simplement :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Entonnoirs](../../application-insights/usage-funnels.md)
-- [Rétention](../../application-insights/app-insights-usage-retention.md)
-- [Flux d’utilisateurs](../../application-insights/app-insights-usage-flows.md)
+- [Entonnoirs](../../azure-monitor/app/usage-funnels.md)
+- [Rétention](../../azure-monitor/app/usage-retention.md)
+- [Flux d’utilisateurs](../../azure-monitor/app/usage-flows.md)
 - [Tableaux de bord](../../azure-monitor/app/app-insights-dashboards.md)

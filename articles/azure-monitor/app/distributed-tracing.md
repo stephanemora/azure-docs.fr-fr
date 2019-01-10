@@ -10,16 +10,16 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e68e236c54083862bbe1524ec2f7fc3ee6c52ef2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7bc04748f2a5b8caa8f589140dd46f0650b7b390
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002210"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102973"
 ---
 # <a name="what-is-distributed-tracing"></a>Présentation du traçage distribué
 
-L’avènement du cloud moderne et des architectures de [microservices](http://azure.com/microservices) a donné naissance à des services simples qui peuvent être déployés de façon indépendante et qui participent à réduire les coûts, tout en améliorant la disponibilité et le débit. Bien que ces mouvements aient facilité la compréhension des services individuels, ils rendent les systèmes globaux plus difficiles à analyser et à déboguer.
+L’avènement du cloud moderne et des architectures de [microservices](https://azure.com/microservices) a donné naissance à des services simples qui peuvent être déployés de façon indépendante et qui participent à réduire les coûts, tout en améliorant la disponibilité et le débit. Bien que ces mouvements aient facilité la compréhension des services individuels, ils rendent les systèmes globaux plus difficiles à analyser et à déboguer.
 
 Dans les architectures monolithiques, nous sommes habitués à résoudre les problèmes à l’aide de piles des appels. Les piles des appels sont des outils parfaits pour afficher le flux d’exécution (la méthode A a appelé la méthode B, qui a appelé la méthode C) ainsi que les détails et paramètres de chacun de ces appels. Cette méthodologie est tout à fait adaptée aux monolithes ou aux services qui s’exécutent sur un processus unique. Mais comment déboguer lorsque l’appel se trouve à la limite d’un processus, et qu’il n’est pas simplement une référence sur la pile locale ? 
 
@@ -59,4 +59,4 @@ Le site web OpenCensus fournit de la documentation de référence sur l’API po
 
 * [Guide d’utilisation Python et OpenCensus](https://opencensus.io/api/python/trace/usage.html)
 * [Plan de l’application](./../../azure-monitor/app/app-map.md)
-* [Analyse des performances de bout en bout](./../../application-insights/app-insights-tutorial-performance.md)
+* [Analyse des performances de bout en bout](./../../azure-monitor/learn/tutorial-performance.md)

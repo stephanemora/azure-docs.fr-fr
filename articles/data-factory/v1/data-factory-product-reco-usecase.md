@@ -9,20 +9,19 @@ ms.assetid: 6f1523c7-46c3-4b8d-9ed6-b847ae5ec4ae
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3328a7c80a05a48b3c04ad5492a7eafe62059681
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8ff100cd3fc1c9def10b4e585119414281b90d92
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622463"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017376"
 ---
 # <a name="use-case---product-recommendations"></a>Cas d’utilisation - Recommandations de produits
-Azure Data Factory est l’un des nombreux services permettant d’implémenter la solution d’accélérateurs Cortana Intelligence Suite.  Consultez la page [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) pour plus de détails. Dans ce document, nous décrivons un cas d’utilisation courant que les utilisateurs Azure ont déjà résolu et implémenté à l’aide d’Azure Data Factory et d’autres services Cortana Intelligence.
+Azure Data Factory est l’un des nombreux services permettant d’implémenter la solution d’accélérateurs Cortana Intelligence Suite.  Consultez la page [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) pour plus de détails. Dans ce document, nous décrivons un cas d’utilisation courant que les utilisateurs Azure ont déjà résolu et implémenté à l’aide d’Azure Data Factory et d’autres services Cortana Intelligence.
 
 ## <a name="scenario"></a>Scénario
 Les détaillants en ligne souhaitent généralement inciter leurs clients à acheter des produits en leur présentant les articles qu’ils sont les plus susceptibles d’apprécier et par conséquent d’acheter. Pour ce faire, les détaillants en ligne doivent personnaliser l’expérience en ligne des utilisateurs à l’aide des recommandations de produits personnalisées pour chaque utilisateur particulier. Ces recommandations personnalisées portent sur leurs données de comportement d’achat historiques et actuelles, les informations produit, les marques récemment ajoutées, et les données de segmentation produit et utilisateur.  En outre, les détaillants peuvent fournir des recommandations de produits basées sur l'analyse des habitudes d'utilisation globale de tous leurs utilisateurs.

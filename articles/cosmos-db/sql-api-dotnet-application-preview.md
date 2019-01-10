@@ -3,17 +3,17 @@ title: Tutoriel pour développer une application web ASP.NET MVC avec Azure Cosm
 description: Ce tutoriel décrit la création d’une application web ASP.NET MVC avec Azure Cosmos DB. Vous allez stocker et accéder aux données JSON à partir d’une application todo hébergée sur Azure.
 author: deborahc
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.author: dech
-ms.openlocfilehash: c0b1ed5aff7f22000a179983396239c24d21a311
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e3ad852246b4b78d5ed7ac938348e59e9b7e6ce0
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101328"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037121"
 ---
 # <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>Tutoriel : Développer une application web ASP.NET MVC avec Azure Cosmos DB à l’aide du Kit de développement logiciel (SDK) .Net (préversion) 
 

@@ -5,21 +5,22 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 657800c6f96560c68e690ccbd1dfb166c5034812
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 51a0f560a0e4b6ff791d5ed3f9f221eb2eeb9b4d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430134"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191341"
 ---
 # <a name="analysis-services-high-availability"></a>Haute disponibilité Analysis Services
+
 Cet article décrit la garantie d’une haute disponibilité pour les serveurs Azure Analysis Services. 
 
-
 ## <a name="assuring-high-availability-during-a-service-disruption"></a>Garantissez une haute disponibilité au cours d’une interruption de service
+
 Bien que le fait soit rare, un centre de données Azure peut subir une panne. En cas de panne, il entraîne une interruption de service qui peut durer de quelques minutes à plusieurs heures. La haute disponibilité est souvent obtenue grâce à la redondance des serveurs. Avec Azure Analysis Services, vous pouvez obtenir une redondance en créant des serveurs secondaires supplémentaires dans une ou plusieurs régions. Lorsque vous créez des serveurs redondants pour garantir la synchronisation des données et des métadonnées sur ces serveurs avec le serveur d’une région hors connexion, vous pouvez :
 
 * Déployer des modèles sur des serveurs redondants dans d’autres régions. Cette méthode requiert le traitement des données sur votre serveur principal et sur les serveurs redondants en parallèle, garantissant ainsi la synchronisation de tous les serveurs.
@@ -31,6 +32,7 @@ Dans les deux cas, si votre serveur principal subit une panne, vous devez modifi
 Pour éviter de devoir modifier les chaînes de connexion sur les clients de création de rapports, vous pouvez créer un [alias](analysis-services-server-alias.md) de serveur pour votre serveur principal. Si le serveur principal tombe en panne, vous pouvez modifier l’alias pour qu’il pointe vers un serveur redondant dans une autre région. Vous pouvez automatiser un alias à un nom de serveur en codant un contrôle d’intégrité de point de terminaison sur le serveur principal. Si le contrôle d’intégrité échoue, le même point de terminaison peut diriger vers un serveur redondant dans une autre région. 
 
 ## <a name="related-information"></a>Informations connexes
+
 [Sauvegarde et restauration](analysis-services-backup.md)   
 [Gérer Analysis Services](analysis-services-manage.md)   
 [Alias de noms de serveurs](analysis-services-server-alias.md) 

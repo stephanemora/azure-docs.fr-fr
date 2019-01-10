@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 684fa85749bc131b21ef12070055841ff7d3d169
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6b725d7912fa4b0d6b46acb35eda80ae66e4a38c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726216"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121411"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solution de gestion Application Insights Connector (préversion)
 
@@ -27,7 +27,7 @@ ms.locfileid: "53726216"
 >[!NOTE]
 > Grâce à la prise en charge des [requêtes inter-ressources](../../azure-monitor/log-query/cross-workspace-query.md), la solution de gestion du connecteur Application Insights n’est plus nécessaire et sera déconseillée. À partir du mois de juillet, vous ne pourrez plus lier de nouvelles ressources Application Insights aux espaces de travail Log Analytics. Les liens et les tableaux de bord existants continueront de fonctionner jusqu’en novembre 2018. Pour plus d’informations, consultez la page [Migration du portail OMS vers Azure](../../azure-monitor/platform/oms-portal-transition.md).
 
-La solution Application Insights Connector vous aide à diagnostiquer les problèmes de performances et à comprendre ce que les utilisateurs font avec votre application lorsqu’[Application Insights](../../application-insights/app-insights-overview.md) les surveille. Dans Log Analytics, vous pouvez voir les mêmes données de télémétrie que les développeurs voient dans Application Insights. Toutefois, lorsque vous intégrez vos applications Application Insights à Log Analytics, la visibilité de vos applications augmente lorsque les données de fonctionnement et d’application se trouvent au même emplacement. Avoir les mêmes vues vous aide à collaborer avec vos développeurs d’applications. Les vues communes peuvent aider à réduire le temps nécessaire à la détection et à la résolution des problèmes d’application et de plateforme.
+La solution Application Insights Connector vous aide à diagnostiquer les problèmes de performances et à comprendre ce que les utilisateurs font avec votre application lorsqu’[Application Insights](../../azure-monitor/app/app-insights-overview.md) les surveille. Dans Log Analytics, vous pouvez voir les mêmes données de télémétrie que les développeurs voient dans Application Insights. Toutefois, lorsque vous intégrez vos applications Application Insights à Log Analytics, la visibilité de vos applications augmente lorsque les données de fonctionnement et d’application se trouvent au même emplacement. Avoir les mêmes vues vous aide à collaborer avec vos développeurs d’applications. Les vues communes peuvent aider à réduire le temps nécessaire à la détection et à la résolution des problèmes d’application et de plateforme.
 
 Lorsque vous utilisez la solution, vous pouvez :
 
@@ -142,7 +142,7 @@ Pour ouvrir l’application, cliquez sur l’ellipse (**...**) qui apparaît à 
 
 ### <a name="sample-corrected-data"></a>Données corrigées par l’exemple
 
-Application Insights fournit une *[correction par échantillonnage](../../application-insights/app-insights-sampling.md)* pour aider à réduire le trafic de données de télémétrie. Lorsque vous activez l’échantillonnage sur votre application Application Insights, vous obtenez un nombre limité d’entrées stockées à la fois dans Application Insights et dans Log Analytics. La cohérence des données est conservée sur la page **Application Insights Connector** et dans les perspectives, mais vous devez corriger manuellement les données échantillonnées pour vos requêtes personnalisées.
+Application Insights fournit une *[correction par échantillonnage](../../azure-monitor/app/sampling.md)* pour aider à réduire le trafic de données de télémétrie. Lorsque vous activez l’échantillonnage sur votre application Application Insights, vous obtenez un nombre limité d’entrées stockées à la fois dans Application Insights et dans Log Analytics. La cohérence des données est conservée sur la page **Application Insights Connector** et dans les perspectives, mais vous devez corriger manuellement les données échantillonnées pour vos requêtes personnalisées.
 
 Voici un exemple de correction par échantillonnage dans une requête de recherche dans les journaux :
 

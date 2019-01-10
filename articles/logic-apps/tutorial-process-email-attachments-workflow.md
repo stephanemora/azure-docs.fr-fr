@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: cc3a2e96222e06324500e2203d870c06d0f3e8c0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 93894f9c45ac8b2cfcec23cf6a9ccd4d8e6f6824
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140504"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121719"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Didacticiel : Automatiser la gestion des e-mails et des pièces jointes avec Azure Logic Apps
 
@@ -145,7 +145,7 @@ Utilisez l’extrait de code fourni par ces étapes pour créer une fonction Azu
    | **Plan d’hébergement** | Plan de consommation | Ce paramètre détermine l’affectation et la mise à l’échelle des ressources, telles que la puissance de calcul, pour l’exécution de votre application de fonction. Voir [Comparaison des plans d’hébergement](../azure-functions/functions-scale.md). | 
    | **Lieu** | USA Ouest | Région que vous avez utilisée précédemment. | 
    | **Stockage** | cleantextfunctionstorageacct | Créez un compte de stockage pour votre application de fonction. Utilisez uniquement des lettres minuscules et des chiffres. <p>**Remarque :** Ce compte de stockage contient vos applications de fonction et diffère du compte de stockage créé précédemment pour les pièces jointes. | 
-   | **Application Insights** | Off | Active la surveillance des applications avec [Application Insights](../application-insights/app-insights-overview.md), mais pour ce didacticiel, choisissez le paramètre **Désactivé**. | 
+   | **Application Insights** | Off | Active la surveillance des applications avec [Application Insights](../azure-monitor/app/app-insights-overview.md), mais pour ce didacticiel, choisissez le paramètre **Désactivé**. | 
    |||| 
 
    Si votre application de fonction ne s’ouvre pas automatiquement après le déploiement, recherchez-la dans le <a href="https://portal.azure.com" target="_blank">portail Azure</a>. Dans le menu principal Azure, sélectionnez **Applications de fonctions**, puis sélectionnez votre application de fonction. 
