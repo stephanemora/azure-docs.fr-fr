@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 65c89e337d62ccb7ce58a1ea4e7414527bf9af19
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 27b952fb1a901ff716f25cc7d512f860f639fb02
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342088"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632616"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Prise en charge de la région et de la langue pour l’API du service de reconnaissance vocale
 
@@ -26,7 +26,7 @@ Les langues prises en charge varient selon les fonctions des services Speech. Le
 
 L’API de reconnaissance vocale Microsoft prend en charge les langues suivantes. Différents niveaux de personnalisation sont disponibles pour chaque langue.
 
-  Code | Langue | [Adaptation acoustique](how-to-customize-acoustic-models.md) | [Adaptation de langage](how-to-customize-language-model.md) | [Adaptation de prononciation](how-to-customize-pronunciation.md)
+  Code | Langage | [Adaptation acoustique](how-to-customize-acoustic-models.md) | [Adaptation de langage](how-to-customize-language-model.md) | [Adaptation de prononciation](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
  ar-EG | Arabe (Égypte), standard moderne | Non  | Oui | Non 
  ca-ES | Catalan (Espagne) | Non  | Non  | Non 
@@ -72,7 +72,7 @@ Les voix neuronales peuvent être utilisées pour rendre les interactions avec l
 
 Pour obtenir la liste complète des voix neuronales et la disponibilité régionale, consultez [régions](regions.md#neural-voices).
 
-| Paramètres régionaux | Langue | Sexe | Mappage du nom du service|
+| Paramètres régionaux | Langage | Sexe | Mappage du nom du service|
 |--------|----------|---------|--------------------|
 | en-US | Anglais (US) | Masculin | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (en-US, GuyNeural) » |
 | en-US | Anglais (US) | Féminin | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (en-US, JessaNeural) » |
@@ -81,7 +81,7 @@ Pour obtenir la liste complète des voix neuronales et la disponibilité région
 
 Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètres régionaux, ce qui vous permet de convertir le texte en parole synthétisée. Pour plus d’informations sur la disponibilité régionale, consultez [régions](regions.md#standard-voices).
 
-Paramètres régionaux | Langue | Sexe | Mappage du nom du service
+Paramètres régionaux | Langage | Sexe | Mappage du nom du service
 -------|----------|---------|--------------------
 ar-EG\* | Arabe (Égypte) | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ar-EG, Hoda) »
 ar-SA | Arabe (Arabie saoudite) | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ar-SA, Naayf) »
@@ -176,22 +176,7 @@ La personnalisation vocale est disponible pour l’anglais américain (en-US), l
 
 ## <a name="speech-translation"></a>Traduction vocale
 
-L’API **Traduction vocale** prend en charge différentes langues pour la traduction de parole en parole et de parole en texte. La langue source doit toujours figurer dans le tableau des langues vocales suivant. Les langues cibles disponibles dépendent selon que cible de la traduction est de la parole ou du texte. Vous pouvez traduire les conversations entrantes dans plus de [60 langues](https://www.microsoft.com/translator/business/languages/). Un sous-ensemble de ces langues est disponible pour la [synthèse vocale](language-support.md#text-languages).
-
-### <a name="speech-languages"></a>Langues de synthèse vocale
-
-| Langue de synthèse vocale   | Code de langue |
-|:----------- |-|
-| Arabe (standard moderne)      | `ar` |
-| Chinois (mandarin)      | `zh` |
-| Français      | `en` |
-| Français      | `fr` |
-| Allemand      | `de` |
-| Italien      | `it` |
-| Japonais      | `jp` |
-| Portugais (Brésil)     | `pt` |
-| Russe      | `ru` |
-| Espagnol      |  `es` |
+L’API **Traduction vocale** prend en charge différentes langues pour la traduction de parole en parole et de parole en texte. La langue source doit toujours provenir du tableau des langues de reconnaissance vocale. Les langues cibles disponibles dépendent selon que cible de la traduction est de la parole ou du texte. Vous pouvez traduire les conversations entrantes dans plus de [60 langues](https://www.microsoft.com/translator/business/languages/). Un sous-ensemble de ces langues est disponible pour la [synthèse vocale](language-support.md#text-languages).
 
 ### <a name="text-languages"></a>Langues de texte
 
@@ -210,12 +195,12 @@ L’API **Traduction vocale** prend en charge différentes langues pour la tradu
 | Tchèque      | `cs`          |
 | Danois      | `da`          |
 | Néerlandais      | `nl`          |
-| Français      | `en`          |
+| Anglais      | `en`          |
 | Estonien      | `et`          |
 | Fidjien      | `fj`          |
 | Filipino      | `fil`          |
 | Finnois      | `fi`          |
-| Français      | `fr`          |
+| Anglais      | `fr`          |
 | Allemand      | `de`          |
 | Grec      | `el`          |
 | Créole haïtien      | `ht`          |

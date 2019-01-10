@@ -8,16 +8,19 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/28/2018
 ms.topic: conceptual
-ms.openlocfilehash: d741677252ba6787701b9ee9da84ebd38528d70e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 06909c06087219cdfa6edccbfed70ea1694e5a03
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432152"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633723"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Créer et tester un appareil simulé
 
 L’accélérateur de solution Surveillance à distance vous permet de définir vos propres appareils simulés. Cet article montre comment définir un nouvel appareil Ampoule simulé, et le tester localement. L’accélérateur de solution inclut des appareils simulés tels que des réfrigérateurs et des camions. Vous pouvez cependant définir vos propres appareils simulés pour tester vos solutions IoT avant de déployer des appareils réels.
+
+> [!NOTE]
+> Cet article décrit comment utiliser des appareils simulés hébergés dans le service de simulation d’appareil. Si vous voulez créer un appareil physique, consultez [Connecter votre appareil à l’accélérateur de solution Supervision à distance](iot-accelerators-connecting-devices.md).
 
 Ce guide montre comment personnaliser le microservice de simulation d’appareil. Ce microservice fait partie de l’accélérateur de solution Surveillance à distance. Pour illustrer les capacités de simulation d’appareil, ce guide pratique utilise deux scénarios dans l’application IoT Contoso :
 

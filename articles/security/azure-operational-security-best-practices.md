@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 14c21db9e1da23e97815953937f434fe7f25e354
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7c6d373fd294645605815d8a8d380259982d90e7
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725318"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118181"
 ---
 # <a name="azure-operational-security-best-practices"></a>Bonnes pratiques pour Azure Operational Security
 La sécurité opérationnelle Azure fait référence aux services, contrôles et fonctionnalités auxquels les utilisateurs ont accès pour protéger leurs données, leurs applications et d’autres ressources dans Azure. La sécurité opérationnelle Azure repose sur un framework qui intègre les connaissances acquises via des fonctionnalités propres à Microsoft, notamment [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl), le programme [Centre de réponse aux problèmes de sécurité Microsoft](https://www.microsoft.com/msrc?rtc=1) et une connaissance approfondie du paysage des cybermenaces.
@@ -87,7 +87,7 @@ Vous pouvez utiliser [Azure Resource Manager](https://azure.microsoft.com/docume
 - Garantir que votre application peut gérer le trafic de votre prochaine campagne de lancement ou marketing.
 
 **Bonne pratique** : Surveillez les performances des applications.  
-**Détail** : [Azure Application Insights](../application-insights/app-insights-overview.md) est un service extensible de gestion des performances des applications destiné aux développeurs web sur de multiples plateformes. Utilisez Application Insights pour superviser votre application web en direct. Il détecte automatiquement les problèmes de performances. Il intègre des outils d’analyse pour vous aider à diagnostiquer les problèmes et à comprendre ce que font les utilisateurs avec votre application. Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité.
+**Détail** : [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) est un service extensible de gestion des performances des applications destiné aux développeurs web sur de multiples plateformes. Utilisez Application Insights pour superviser votre application web en direct. Il détecte automatiquement les problèmes de performances. Il intègre des outils d’analyse pour vous aider à diagnostiquer les problèmes et à comprendre ce que font les utilisateurs avec votre application. Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité.
 
 ## <a name="mitigate-and-protect-against-ddos"></a>Prévenir les attaques DDoS et s’en protéger
 DDoS (Distributed Denial of Service, déni de service distribué) est un type d’attaque qui tente d’épuiser les ressources d’une application. Son objectif est d’affecter la disponibilité de l’application et sa capacité à gérer des demandes légitimes. Ces attaques de plus en plus sophistiquées gagnent en importance et en impact. Elles peuvent être ciblées sur n’importe quel point de terminaison qui est publiquement accessible via Internet.
@@ -102,7 +102,7 @@ Voici les bonnes pratiques relatives à la création de services résistants aux
 Il est extrêmement important que vous conceviez une application suffisamment résiliente pour surmonter une attaque ciblée par déni de service. La plateforme Azure intègre des fonctionnalités de sécurité et de confidentialité, à commencer par [SDL (Security Development Lifecycle)](https://www.microsoft.com/en-us/sdl). SDL tient compte de la sécurité à chaque phase de développement et vérifie qu’Azure est continuellement mis à jour pour le rendre encore plus sécurisé.
 
 **Bonne pratique** : Concevez vos applications de sorte qu’elles puissent être [mises à l’échelle horizontalement](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) pour répondre à la demande d’une charge amplifiée, en particulier dans le cadre d’une attaque DDoS. Si votre application repose sur une seule instance unique d’un service, cela crée un point de défaillance unique. L’approvisionnement de plusieurs instances rend votre système plus résilient et plus évolutif.  
-**Détail** : Pour [Azure App Service](../app-service/app-service-value-prop-what-is.md), sélectionnez un [plan App Service](../app-service/overview-hosting-plans.md) qui offre plusieurs instances.
+**Détail** : Pour Azure App Service, sélectionnez un [plan App Service](../app-service/overview-hosting-plans.md) qui offre plusieurs instances.
 
 Pour les Azure Cloud Services, configurez chacun de vos rôles de manière à utiliser [plusieurs instances](../cloud-services/cloud-services-choose-me.md).
 

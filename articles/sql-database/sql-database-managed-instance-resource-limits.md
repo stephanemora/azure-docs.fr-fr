@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 7af15e2e2ca6698f9d8ba1629f13804ce6457b8d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: f6191ba2f6ca86e07842030c0fca0a65b8c9d09a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315636"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584494"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Database Managed Instance
 
@@ -48,16 +48,20 @@ Managed Instance propose deux niveaux de service : Usage général et Critique 
 | **Fonctionnalité** | **Usage général** | **Critique pour l’entreprise** |
 | --- | --- | --- |
 | Nombre de vCores\* | Gen4 : 8, 16, 24<br/>Gen5 : 8, 16, 24, 32, 40, 64, 80 | Gen4 : 8, 16, 24, 32 <br/> Gen5 : 8, 16, 24, 32, 40, 64, 80 |
-| Mémoire | Gen4 : 56 Go - 156 Go<br/>Gen5 : 44 Go - 440 Go<br/>\*Proportionnel au nombre de vCores | Gen4 : 56 Go - 156 Go <br/> Gen5 : 44 Go - 440 Go<br/>\*Proportionnel au nombre de vCores |
+| Mémoire | Gen4 : 56 Go - 156 Go<br/>Gen5 : 44 Go - 440 Go<br/>\*Proportionnel au nombre de vCores | Gen4 : 56 Go - 156 Go <br/> Gen5 : 41 Go – 408 Go<br/>\*Proportionnel au nombre de vCores |
 | Taille de stockage maximale | 8 To | Gen 4 : 1 To <br/> Gen 5 : <br/>- 1 To pour 8, 16 vCores<br/>- 2 To pour 24 vCores<br/>- 4 To pour 32, 40, 64, 80 vCores |
 | Espace de stockage maximal par base de données | Déterminé par la taille de stockage maximale par instance | Déterminé par la taille de stockage maximale par instance |
 | Nombre maximal de bases de données par instance | 100 | 100 |
 | Nombre maximal de fichiers de base de données par instance | Jusqu’à 280 | 32 767 fichiers par base de données |
-| Nombre (approximatif) d’E/S par seconde | 500 - 7 500 par fichier<br/>\*[Dépend de la taille du fichier](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11 K - 110 K (1 375 par vCore) |
-| Latence (approximative) des E/S | 5 - 10 ms | 1 - 2 ms |
-| Taille maximale de tempDB | 192 - 1 920 Go (24 Go par vCore) | Déterminé par la taille de stockage maximale par instance |
+| IOPS de données/journal (approximatives) | 500 - 7 500 par fichier<br/>\*[Dépend de la taille du fichier](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11 K - 110 K (1 375 par vCore) |
+| Débit du journal d’instance | 22 Mo/s par instance | 3 Mo/s par vCore<br/>Maximum 48 Mo/s |
+| Débit de données (approximatif) | 100-250 Mo/s par fichier<br/>\*[Dépend de la taille du fichier](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24-48 Mo/s par vCore |
+| Latence d’E/S (approximative) | 5 - 10 ms | 1 - 2 ms |
+| Taille maximale de tempDB | 192 - 1 920 Go (24 Go par vCore) | Aucune contrainte – limité par la taille de stockage maximale d’instance |
 
-- Les bases de données utilisateur et système sont comprises dans la taille de stockage d’instance qui est comparée à la limite de taille de stockage maximale. Utilisez la vue système <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> pour déterminer l’espace total utilisé par les bases de données. Les journaux d’erreurs ne sont ni conservés ni compris dans la taille. Les sauvegardes ne sont pas comprises dans la taille de stockage.
+**Remarques**:
+- Les tailles des données et des fichiers journaux dans les bases de données utilisateur et système sont comprises dans la taille de stockage d’instance qui est comparée à la limite de taille de stockage maximale. Utilisez la vue système <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> pour déterminer l’espace total utilisé par les bases de données. Les journaux d’erreurs ne sont ni conservés ni compris dans la taille. Les sauvegardes ne sont pas comprises dans la taille de stockage.
+- Le débit et les IOPS dépendent également de la taille de page qui n’est pas explicitement limitée par Managed Instance.
 
 ## <a name="supported-regions"></a>Régions prises en charge
 

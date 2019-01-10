@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6c1b9fabe89d254524006a21e3a422221791022d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4bca7ed2f10ce6b0231a260a9cf5b7468476343f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625264"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652147"
 ---
 # <a name="azure-active-directory-risk-events"></a>Événements à risque dans Azure Active Directory
 
@@ -31,7 +31,9 @@ Il existe deux emplacements dans lesquels vous pouvez passer en revue les évén
  - **Génération de rapports Azure AD** : les événements à risque font partie des rapports de sécurité d’Azure AD. Pour plus d’informations, consultez [Rapport sur la sécurité des utilisateurs courant un risque](concept-user-at-risk.md) et [Rapport de connexions risquées](concept-risky-sign-ins.md).
 
  - **Azure AD Identity Protection** : les événements à risque font également partie des fonctionnalités de création de rapports [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
-    
+
+De plus, vous pouvez utiliser l’[API Identity Protection relative aux événements à risque](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) pour accéder par programme aux détections de sécurité à l’aide de Microsoft Graph. Pour plus d’informations, consultez [Prise en main d’Azure Active Directory Identity Protection et de Microsoft Graph](../identity-protection/graph-get-started.md). 
+
 À l’heure actuelle, Azure Active Directory détecte six types d’événements à risque :
 
 - [Utilisateurs dont les informations d’identification ont fait l’objet d’une fuite](#leaked-credentials) 
@@ -125,11 +127,11 @@ Le niveau de gravité de l’événement à risque signalé représente la proba
 
 Par exemple, 
 
-* **Élevé**: probabilité élevée et gravité élevée de l’événement à risque. Ces événements donnent une indication forte que l’identité de l’utilisateur a été compromise et les comptes d’utilisateurs concernés doivent immédiatement faire l’objet de mesures de correction.
+* **Haute** : probabilité élevée et gravité élevée de l’événement à risque. Ces événements donnent une indication forte que l’identité de l’utilisateur a été compromise et les comptes d’utilisateurs concernés doivent immédiatement faire l’objet de mesures de correction.
 
-* **Moyen**: sévérité élevée, mais probabilité moindre de l’événement à risque, ou inversement. Ces événements présentent des risques potentiels et les comptes d’utilisateurs concernés doivent faire l’objet de mesures de correction.
+* **Moyenne** : gravité élevée, mais probabilité moindre de l’événement à risque, ou inversement. Ces événements présentent des risques potentiels et les comptes d’utilisateurs concernés doivent faire l’objet de mesures de correction.
 
-* **Faible**: probabilité faible et gravité limitée de l’événement à risque. Cet événement peut ne pas nécessiter une action immédiate, mais l’association à d’autres événements à risque peut donner une indication forte que l’identité a été compromise.
+* **Faible** : probabilité faible et gravité limitée de l’événement à risque. Cet événement peut ne pas nécessiter une action immédiate, mais l’association à d’autres événements à risque peut donner une indication forte que l’identité a été compromise.
 
 ![Niveau de risque](./media/concept-risk-events/01.png)
 

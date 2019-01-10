@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: c050c8ed338a019b34302e87a53d4a40306f9a22
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b0b2c8d0e3484538ca5c988a7fad56fb82b97902
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133144"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993160"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Tests par lot avec 1000 énoncés dans le portail de LUIS
 
@@ -48,7 +48,7 @@ Toutes les entités personnalisées de ce modèle s’affichent dans le filtre d
 
 Le fichier de traitement par lot est constitué d’énoncés. Chaque énoncé doit avoir une prédiction d’intention attendue ainsi que toute [entité d’apprentissage automatique](luis-concept-entity-types.md#types-of-entities) censée être détectée. 
 
-## <a name="batch-syntax-template"></a>Modèle de syntaxe de lot
+## <a name="batch-syntax-template-for-intents-with-entities"></a>Modèle de syntaxe de lot pour les intentions avec des entités
 
 Utilisez le modèle suivant pour démarrer votre fichier de commandes :
 
@@ -75,6 +75,22 @@ Utilisez le modèle suivant pour démarrer votre fichier de commandes :
 ```
 
 Le fichier de commandes utilise les propriétés **startPos** et **endPos** pour noter le début et la fin d’une entité. Les valeurs commencent à zéro ; elles ne doivent ni commencer ni se terminer par un espace. Les journaux de requêtes, eux, utilisent les propriétés startIndex et endIndex. 
+
+## <a name="batch-syntax-template-for-intents-without-entities"></a>Modèle de syntaxe de lot pour les intentions sans entité
+
+Utilisez le modèle suivant pour démarrer votre fichier de commandes sans entité :
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": []
+  }
+]
+```
+
+Si vous ne souhaitez pas tester d’entités, incluez la propriété `entities` et définissez la valeur en tant que tableau vide, `[]`.
 
 
 ## <a name="common-errors-importing-a-batch"></a>Erreurs courantes d’importation de lot

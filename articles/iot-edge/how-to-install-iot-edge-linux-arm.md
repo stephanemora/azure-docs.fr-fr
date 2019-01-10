@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 12/10/2018
 ms.author: kgremban
-ms.openlocfilehash: ccd38dd7570dc451a1a5b87163bfdd7aea51dad5
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: dbe9f18f5a38284e2b263d636656c88b1743d7ea
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567432"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555640"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Installer le runtime Azure IoT Edge sur Linux (ARM32v7/armhf)
 
@@ -175,6 +175,39 @@ Sur les appareils aux ressources limitées, il est vivement recommandé d’affe
 
 Si votre réseau comporte un serveur proxy, effectuez les étapes décrites dans [Configurer votre appareil IoT Edge pour communiquer via un serveur proxy](how-to-configure-proxy-support.md).
 
+## <a name="uninstall-iot-edge"></a>Désinstaller IoT Edge
+
+Si vous souhaitez supprimer l’installation d’IoT Edge de votre appareil Linux, utilisez les commandes suivantes à partir de la ligne de commande. 
+
+Supprimez le runtime IoT Edge. 
+
+```bash
+sudo apt-get remove --purge iotedge
+```
+
+Lorsque le runtime IoT Edge est supprimé, les conteneurs qu’il a créés sont arrêtés, mais existent toujours sur votre appareil. Affichez tous les conteneurs pour voir ceux qui restent. 
+
+```bash
+sudo docker ps -a
+```
+
+Supprimez les conteneurs de votre appareil, dont les deux conteneurs de runtime. 
+
+```bash
+sudo docker rm -f <container name>
+```
+
+Enfin, supprimez le runtime du conteneur de votre appareil. 
+
+```bash 
+sudo apt-get remove --purge moby-cli
+sudo apt-get remove --purge moby-engine
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
+Maintenant que vous disposez d’un appareil IoT Edge approvisionné avec le runtime installé, vous pouvez [déployer des modules IoT Edge](how-to-deploy-modules-portal.md).
+
 Si vous ne parvenez pas à installer correctement le runtime Edge, consultez la page de [dépannage](troubleshoot.md#stability-issues-on-resource-constrained-devices).
+
+Pour mettre à jour une installation existante vers la dernière version d’IoT Edge, voir [Mettre à jour le runtime et le démon de sécurité IoT Edge](how-to-update-iot-edge.md).

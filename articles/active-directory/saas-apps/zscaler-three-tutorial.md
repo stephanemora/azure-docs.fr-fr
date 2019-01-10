@@ -1,10 +1,11 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Zscaler Three | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Zscaler Three | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Zscaler Three.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: f352e00d-68d3-4a77-bb92-717d055da56f
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -12,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 12/12/2018
 ms.author: jeedes
-ms.openlocfilehash: b148967af0882993d8ab113bdf0fd3ad3835296f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 442d7478669a206f04cb799cb86b807cfe7b0624
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092608"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790152"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Tutoriel : Intégration d’Azure Active Directory à Zscaler Three
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Tutoriel : Intégration d’Azure Active Directory avec Zscaler Three
 
 L’objectif de ce tutoriel est de montrer comment intégrer Zscaler Three à Azure Active Directory (Azure AD).
 
@@ -29,9 +30,9 @@ L’intégration de Zscaler Three à Azure AD vous offre les avantages suivants�
 
 - Dans Azure AD, vous pouvez contrôler l’accès à Zscaler Three.
 - Vous pouvez autoriser les utilisateurs à être automatiquement connectés à Zscaler Three (via l’authentification unique) avec leurs comptes Azure AD.
-- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
+- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique auprès d’Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -46,12 +47,11 @@ Pour configurer l’intégration d’Azure AD à Zscaler Three, vous avez besoin
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois ici : [offre d’essai](https://azure.microsoft.com/pricing/free-trial/).
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
 
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test.
-Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajouter Zscaler Three à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -62,23 +62,23 @@ Pour configurer l’intégration de Zscaler Three à Azure AD, vous devez ajoute
 
 **Pour ajouter Zscaler Three à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
-    ![Active Directory][1]
+    ![Bouton Azure Active Directory][1]
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![APPLICATIONS][2]
+    ![Panneau Applications d’entreprise][2]
 
-3. Cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![APPLICATIONS][3]
+    ![Bouton Nouvelle application][3]
 
-4. Dans le panneau de résultats, sélectionnez **Zscaler Three**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Zscaler Three**, sélectionnez **Zscaler Three** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![Création d’un utilisateur de test Azure AD](./media/zscaler-three-tutorial/tutorial_zscalerthree_addfromgallery.png)
+    ![Zscaler Three dans la liste des résultats](./media/zscaler-three-tutorial/tutorial_zscalerthree_addfromgallery.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Zscaler Three grâce à un utilisateur de test appelé « Britta Simon ».
 
@@ -86,14 +86,14 @@ Pour que l’authentification unique fonctionne, Azure AD doit connaître l’ut
 
 Pour configurer et tester l’authentification unique Azure AD avec Zscaler Three, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configuration des paramètres de proxy](#configuring-proxy-settings)** pour configurer les paramètres de proxy dans Internet Explorer
-3. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Création d’un utilisateur de test Zscaler Three](#creating-a-zscaler-three-test-user)** pour avoir un équivalent de Britta Simon dans Zscaler Three qui est lié à la représentation de l’utilisateur Azure AD.
-5. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
-6. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Configurer l’authentification unique Zscaler Three](#configure-zscaler-three-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+4. **[Créer un utilisateur de test Zscaler Three](#create-zscaler-three-test-user)** pour avoir un équivalent de Britta Simon dans Cisco Umbrella, lié à la représentation Azure AD associée.
+5. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Zscaler Three.
 
@@ -101,95 +101,123 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **Zscaler Three**, cliquez sur **Authentification unique**.
 
-    ![Configurer l'authentification unique][4]
+    ![Lien Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, cliquez sur **Sélectionner** pour le mode **SAML** afin d’activer l’authentification unique.
 
-    ![Configurer l'authentification unique](./media/zscaler-three-tutorial/tutorial_general_301.png)
+    ![Configurer l'authentification unique](common/tutorial_general_301.png)
 
-3. Pour activer le mode **SAML** au détriment d’un autre mode, cliquez sur **Modifier le mode d’authentification unique** en haut de l’écran.
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
-    ![Configurer l'authentification unique](./media/zscaler-three-tutorial/tutorial_general_300.png)
+    ![Configurer l'authentification unique](common/editconfigure.png)
 
-4. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    ![Configurer l'authentification unique](./media/zscaler-three-tutorial/tutorial_general_302.png)
+    ![Informations d’authentification unique dans Domaine et URL Zscaler Three](./media/zscaler-three-tutorial/tutorial_zscalerthree_url.png)
 
-5. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
+    Dans la zone de texte **URL d’authentification**, tapez l’URL `https://login.zscalerthree.net/sfc_sso`
 
-    ![Configurer l'authentification unique](./media/zscaler-three-tutorial/tutorial_zscalerthree_url.png)
+5. L’application Zscaler Three attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur et revendications** dans la page d’intégration des applications. Sur la page **Configurer l'authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur et revendications**.
 
-    Dans la zone de texte URL de connexion, entrez l’URL : `https://login.zscalerthree.net/sfc_sso`
+    ![Le lien Attribut](./media/zscaler-three-tutorial/tutorial_zscalerthree_attribute.png)
 
-6. Dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **certificat (Base64)**, puis enregistrez le fichier du certificat sur votre ordinateur.
+6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
-    ![Configurer l'authentification unique](./media/zscaler-three-tutorial/tutorial_zscalerthree_certificate.png)
+    | NOM  | Attribut source  |
+    | ---------| ------------ |
+    | memberOf     | user.assignedroles |
 
-8. Dans la section **Configurer Zscaler Three**, copiez l’**URL de connexion**.
+    a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
-    ![Configurer l'authentification unique](./media/zscaler-three-tutorial/tutorial_zscalerthree_configure.png)
+    ![image](./common/new_save_attribute.png)
+    
+    ![image](./common/new_attribute_details.png)
+
+    b. Dans la liste **Attribut de la source**, sélectionnez la valeur de l’attribut.
+
+    c. Cliquez sur **OK**.
+
+    d. Cliquez sur **Enregistrer**.
+
+    > [!NOTE]
+    > Cliquez [ici](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) pour savoir comment configurer un rôle dans Azure AD.
+
+7. Dans la page **Certificat de signature SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)**, puis enregistrez le fichier de certificat sur votre ordinateur.
+
+    ![Lien Téléchargement de certificat](./media/zscaler-three-tutorial/tutorial_zscalerthree_certificate.png) 
+
+8. Dans la section **Configurer Zscaler Three**, copiez l’URL appropriée en fonction de vos besoins.
+
+    a. URL de connexion
+
+    b. Identificateur Azure AD
+
+    c. URL de déconnexion
+
+    ![Configuration de Zscaler Three](common/configuresection.png)
+
+### <a name="configure-zscaler-three-single-sign-on"></a>Configurer l’authentification unique de Zscaler Three
 
 9. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Zscaler Three en tant qu’administrateur.
 
-10. Dans le menu situé dans la partie supérieure, cliquez sur **Administration**.
-
+10. Sélectionnez **Administration > Authentification > Paramètres d'authentification** et procédez comme suit :
+   
     ![Administration](./media/zscaler-three-tutorial/ic800206.png "Administration")
 
-9. Sous **Manage Administrators & Roles**, cliquez sur **Manage Users & Authentication**.
+    a. Sous Type d'authentification, choisissez **SAML**.
 
-    ![Gérer les utilisateurs et l’authentification](./media/zscaler-three-tutorial/ic800207.png "Gérer les utilisateurs et l’authentification")
+    b. Cliquez sur **Configure SAML**.
 
-10. Dans la section **Choose Authentication Options for your Organization** , procédez comme suit :
+11. Dans la fenêtre **Modifier les paramètres SAML**, procédez comme suit, puis cliquez sur Enregistrer.  
+            
+    ![Gérer les utilisateurs et l’authentification](./media/zscaler-three-tutorial/ic800208.png "Gérer les utilisateurs et l’authentification")
+    
+    a. Dans la zone de texte **URL du portail SAML**, collez l'**URL de connexion** que vous avez copiée sur le portail Azure.
 
-    ![Authentication](./media/zscaler-three-tutorial/ic800208.png "Authentication")
+    b. Dans la zone de texte **Attribut de l'ID de connexion**, entrez **NameID**.
 
-    a. Sélectionnez **Authenticate using SAML Single Sign-On**.
+    c. Cliquez sur **Charger** pour charger le certificat de signature SAML Azure que vous avez téléchargé depuis le portail Azure dans le **Certificat SSL public**.
 
-    b. Cliquez sur **Configure SAML Single Sign-On Parameters**.
+    d. Activez/désactivez **Activer l'approvisionnement automatique SAML**.
 
-11. Sur la page de dialogue **Configurer les paramètres d’authentification unique SAML**, procédez comme suit, puis cliquez sur **Terminé**
+    e. Dans la zone de texte **Attribut du nom d'affichage de l'utilisateur**, entrez **displayName** si vous souhaitez activer l'approvisionnement automatique SAML pour les attributs displayName.
 
-    ![Authentification unique](./media/zscaler-three-tutorial/ic800209.png "Authentification unique")
+    f. Dans la zone de texte **Attribut du nom de groupe**, entrez **memberOf** si vous souhaitez activer l'approvisionnement automatique SAML pour les attributs memberOf.
 
-    a. Collez **l’URL de connexion** que vous avez copiée à partir du portail Azure dans la zone de texte **URL of the SAML Portal to which users are sent for authentication** (URL du portail SAML vers lequel les utilisateurs sont redirigés afin de s’authentifier).
+    g. Dans **Attribut du nom du service**, entrez **department** si vous souhaitez activer l'approvisionnement automatique SAML pour les attributs department.
 
-    b. Dans la zone de texte **Attribute containing Login Name**, tapez **NameID**.
-
-    c. Pour charger le certificat téléchargé, cliquez sur **Zscaler pem**.
-
-    d. Sélectionnez **Enable SAML Auto-Provisioning**.
+    i. Cliquez sur **Enregistrer**.
 
 12. Dans la page **Configure User Authentication** , procédez comme suit :
 
-    ![Administration](./media/zscaler-three-tutorial/ic800210.png "Administration")
+    ![Administration](./media/zscaler-three-tutorial/ic800207.png)
 
-    a. Cliquez sur **Enregistrer**.
+    a. Passez la souris sur le menu **Activation** en bas à gauche.
 
-    b. Cliquez sur **Activate Now**.
+    b. Cliquez sur **Activer**.
 
 ## <a name="configuring-proxy-settings"></a>Configuration des paramètres de proxy
-
 ### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Pour configurer les paramètres de proxy dans Internet Explorer
 
 1. Démarrez **Internet Explorer**.
 
-2. Pour ouvrir la boîte de dialogue **Options Internet**, sélectionnez **Options Internet** dans le menu **Outils**.
-
+1. Pour ouvrir la boîte de dialogue **Options Internet**, sélectionnez **Options Internet** dans le menu **Outils**.   
+    
      ![Options Internet](./media/zscaler-three-tutorial/ic769492.png "Options Internet")
 
-3. Cliquez sur l’onglet **Connexions** .
+1. Cliquez sur l’onglet **Connexions** .   
   
      ![Connexions](./media/zscaler-three-tutorial/ic769493.png "Connexions")
 
-4. Cliquez sur **Paramètres réseau** pour ouvrir la boîte de dialogue **Paramètres réseau**.
+1. Cliquez sur **Paramètres réseau** pour ouvrir la boîte de dialogue **Paramètres réseau**.
 
-5. Dans la section Serveur proxy, procédez comme suit :
-
+1. Dans la section Serveur proxy, procédez comme suit :   
+   
     ![Serveur proxy](./media/zscaler-three-tutorial/ic769494.png "Serveur proxy")
 
     a. Sélectionnez **Utiliser un serveur proxy pour le réseau local**.
 
-    b. Dans la zone de texte Address, tapez **gateway.zscalerthree.net**.
+    b. Dans la zone de texte Adresse, tapez **gateway.Zscaler Three.net**.
 
     c. Dans la zone de texte Port, tapez **80**.
 
@@ -197,9 +225,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     e. Cliquez sur **OK** pour fermer la boîte de dialogue **Paramètres du réseau local**.
 
-6. Cliquez sur **OK** pour fermer la boîte de dialogue **Options Internet**.
+1. Cliquez sur **OK** pour fermer la boîte de dialogue **Options Internet**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
@@ -209,11 +237,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 
-    ![Création d’un utilisateur de test Azure AD](./media/zscaler-three-tutorial/create_aaduser_01.png) 
+    ![Création d’un utilisateur de test Azure AD](common/create_aaduser_01.png) 
 
 3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
-    ![Création d’un utilisateur de test Azure AD](./media/zscaler-three-tutorial/create_aaduser_02.png)
+    ![Création d’un utilisateur de test Azure AD](common/create_aaduser_02.png)
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
@@ -222,40 +250,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
-    d. Cliquez sur **Créer**.
+    d. Sélectionnez **Créer**.
 
-### <a name="creating-a-zscaler-three-test-user"></a>Création d’un utilisateur de test Zscaler Three
+### <a name="create-zscaler-three-test-user"></a>Créer un utilisateur de test Zscaler Three
 
-Pour se connecter à Zscaler Three, les utilisateurs d’Azure AD doivent être attribués dans Zscaler Three. Dans le cas de Zscaler Three, le provisionnement est une tâche manuelle.
+L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Zscaler Three. Zscaler Three prend en charge l’approvisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à Zscaler Three s’il n’existe pas encore.
+>[!Note]
+>Si vous avez besoin de créer un utilisateur manuellement, contactez l’ [équipe de support technique Zscaler Three](https://www.zscaler.com/company/contact).
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
-
-1. Connectez-vous au locataire **Zscaler Three**.
-
-2. Cliquez sur **Administration**.
-
-    ![Administration](./media/zscaler-three-tutorial/ic781035.png "Administration")
-
-3. Cliquez sur **User Management**.
-
-     ![Ajouter](./media/zscaler-three-tutorial/ic781036.png "Ajouter")
-
-4. Sous l’onglet **Utilisateurs**, cliquez sur **Ajouter**.
-
-    ![Ajouter](./media/zscaler-three-tutorial/ic781037.png "Ajouter")
-
-5. Dans la section Add User, procédez comme suit :
-
-    ![Ajouter un utilisateur](./media/zscaler-three-tutorial/ic781038.png "Ajouter un utilisateur")
-
-    a. Renseignez les zones de texte **UserID** (ID d’utilisateur), **User Display Name** (Nom d’affichage de l’utilisateur), **Password** (Mot de passe) et **Confirm Password** (Confirmer le mot de passe), puis sélectionnez **Groups** (Groupes), ainsi que l’attribut **Department** (Département) d’un compte Azure AD valide que vous souhaitez approvisionner.
-
-    b. Cliquez sur **Enregistrer**.
-
-> [!NOTE]
-> Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Zscaler Three pour provisionner des comptes d’utilisateur Azure AD.
-
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Zscaler Three.
 
@@ -271,15 +274,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][202]
 
-4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+4. Cliquez sur le bouton **Ajouter**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Affecter des utilisateurs][203]
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez l’utilisateur tel que **Britta Simon** dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-6. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
 
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+6. Dans la boîte de dialogue **Sélectionner un rôle**, choisissez le rôle d’utilisateur approprié dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
+
+7. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez le bouton **Attribuer**.
+
+    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
+
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
@@ -293,14 +304,13 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 
 <!--Image references-->
 
-[1]: ./media/zscaler-three-tutorial/tutorial_general_01.png
-[2]: ./media/zscaler-three-tutorial/tutorial_general_02.png
-[3]: ./media/zscaler-three-tutorial/tutorial_general_03.png
-[4]: ./media/zscaler-three-tutorial/tutorial_general_04.png
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
 
-[100]: ./media/zscaler-three-tutorial/tutorial_general_100.png
+[100]: common/tutorial_general_100.png
 
-[200]: ./media/zscaler-three-tutorial/tutorial_general_200.png
-[201]: ./media/zscaler-three-tutorial/tutorial_general_201.png
-[202]: ./media/zscaler-three-tutorial/tutorial_general_202.png
-[203]: ./media/zscaler-three-tutorial/tutorial_general_203.png
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png

@@ -1,46 +1,37 @@
 ---
-title: 'Tutoriel : Créer une application web à page unique - Recherche visuelle Bing'
+title: " Créer une application web d’une seule page – Recherche visuelle Bing"
 titleSuffix: Azure Cognitive Services
-description: Montre comment utiliser l’API Recherche visuelle Bing dans une application web à page unique.
+description: Découvrez comment intégrer l’API Recherche visuelle Bing dans une application web d’une seule page.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: tutorial
+ms.topic: article
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: fe7159e88bd70ba8af23909559264fa5f210ef10
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8ff5e36e6189c522e00c7cdd126c26b1cef92912
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443889"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745140"
 ---
-# <a name="tutorial-visual-search-single-page-web-app"></a>Tutoriel : application web à page unique Recherche visuelle
+# <a name="create-a-visual-search-single-page-web-app"></a>Créer une application Recherche visuelle d’une seule page 
 
 L’API Recherche visuelle de Bing fournit une expérience similaire aux détails de l’image illustrés sur Bing.com/images. Avec la Recherche visuelle, vous pouvez spécifier une image et obtenir des insights sur celle-ci, comme des images visuellement similaires, des sources d’achat, des pages web qui incluent l’image, et bien plus encore. 
 
-Pour ce tutoriel, vous devez démarrer un abonnement au niveau tarifaire S9 comme indiqué dans [Tarification Cognitive Services - API Recherche Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+Cet article explique comment étendre une application web d’une seule page pour l’API Recherche d’images Bing. Pour afficher ce didacticiel ou obtenir le code source utilisé ici, voir [Didacticiel : Créer une application d’une seule page pour l’API Recherche d’images Bing](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md). 
 
-Pour démarrer un abonnement dans le portail Azure :
-1. Entrez « BingSearchV7 » dans la zone de texte en haut du portail Azure indiquant `Search resources, services, and docs`.  
-2. Sous Place de marché dans la liste déroulante, sélectionnez `Bing Search v7`.
-3. Entrez `Name` pour la nouvelle ressource.
-4. Sélectionnez l’abonnement `Pay-As-You-Go`.
-5. Sélectionnez le niveau tarifaire `S9`.
-6. Cliquez sur `Enable` pour démarrer l’abonnement.
+Le code source complet pour cette application (après son extension pour utiliser l’API Recherche visuelle Bing) est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
 
-Ce tutoriel étend l’application web à page unique du tutoriel Recherche d’images Bing (consultez [Application web à page unique](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)). Pour le code source complet permettant de démarrer ce tutoriel, consultez [Application web à page unique (code source)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md). Pour le code source final de ce tutoriel, consultez [Application web à page unique Recherche visuelle](tutorial-bing-visual-search-single-page-app-source.md).
+## <a name="prerequisites"></a>Prérequis
 
-Les tâches traitées sont les suivantes :
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-> [!div class="checklist"]
-> * Appeler l’API Recherche visuelle Bing avec un jeton d’insights d’image
-> * Afficher des images similaires
+## <a name="call-the-bing-visual-search-api-and-handle-the-response"></a>Appeler l’API Recherche visuelle Bing et gérer la réponse
 
-## <a name="call-bing-visual-search"></a>Appeler la Recherche visuelle Bing
-Modifiez le tutoriel Recherche d’images Bing et ajoutez le code suivant à la fin de l’élément de script à la ligne 409. Ce code appelle l’API Recherche visuelle Bing et affiche les résultats.
+Modifiez le didacticiel Recherche d’images Bing et ajoutez le code suivant à la fin de l’élément `<script>` (et devant la balise `</script>` de fermeture). Le code suivant gère une réponse de recherche visuelle à partir de l’API, effectue une itération dans les résultats, et affiche ceux-ci.
 
 ``` javascript
 function handleVisualSearchResponse(){
@@ -70,7 +61,12 @@ function handleVisualSearchResponse(){
         }
     }
 }
+```
 
+Le code suivant envoie une demande de recherche à l’API, en utilisant un détecteur d’événements pour appeler `handleVisualSearchResponse()`.
+
+
+```javascript
 function bingVisualSearch(insightsToken){
     let visualSearchBaseURL = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch',
         boundary = 'boundary_ABC123DEF456',
@@ -105,13 +101,15 @@ function bingVisualSearch(insightsToken){
 ```
 
 ## <a name="capture-insights-token"></a>Capturer le jeton d’insights
-Ajoutez le code suivant à l’objet `searchItemsRenderer` à la ligne 151. Ce code ajoute un lien **Rechercher semblables** qui appelle la fonction `bingVisualSearch` quand vous cliquez dessus. La fonction reçoit imageInsightsToken en tant qu’argument.
+
+Ajoutez le code suivant à l’objet `searchItemsRenderer`. Ce code ajoute un lien **Rechercher semblables** qui appelle la fonction `bingVisualSearch` quand vous cliquez dessus. La fonction reçoit imageInsightsToken en tant qu’argument.
 
 ``` javascript
 html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + "\");'>find similar</a><br>");
 ```
 
 ## <a name="display-similar-images"></a>Afficher des images similaires
+
 Ajoutez le code HTML suivant à la ligne 601. Ce code de balisage ajoute un élément utilisé pour afficher les résultats de l’appel de l’API Recherche visuelle Bing.
 
 ``` html
@@ -126,5 +124,4 @@ Avec l’ensemble du nouveau code JavaScript et des nouveaux éléments HTML en 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Source d’application web à page unique Recherche visuelle](tutorial-bing-visual-search-single-page-app-source.md)
-> [Référence de l’API Recherche visuelle Bing](https://aka.ms/bingvisualsearchreferencedoc)
+> [Rogner et charger une image](tutorial-visual-search-crop-area-results.md)

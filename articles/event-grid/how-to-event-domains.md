@@ -6,13 +6,13 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 11/08/2018
-ms.openlocfilehash: ad23599d1df5d07e912f634435f8b44b441d87e6
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 12/17/2018
+ms.openlocfilehash: 08faef2eaf5c9cd09172d455c464531e293d5f3e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298527"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554586"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gérer des rubriques et publier des événements à l’aide de domaines de l’événement
 
@@ -139,7 +139,7 @@ Les autorisations définies pour une rubrique sont stockées dans Azure Active D
 
 ## <a name="publish-events-to-an-event-grid-domain"></a>Publier des événements sur un domaine Event Grid
 
-La publication d’événements sur un domaine est similaire à la [publication sur une rubrique personnalisée](./post-to-custom-topic.md). La seule différence est que vous devez spécifier la rubrique à laquelle vous souhaitez destiner chaque événement. Dans le tableau d’événements suivant, l’événement avec `"id": "1111"` est destiné à la rubrique `foo`, alors que l’événement avec `"id": "2222"` est destiné à la rubrique `bar` :
+La publication d’événements sur un domaine est similaire à la [publication sur une rubrique personnalisée](./post-to-custom-topic.md). Toutefois, au lieu de publier dans la rubrique personnalisée, vous publiez tous les événements sur le point de terminaison de domaine. Dans les données d’événement JSON, vous spécifiez la rubrique dans laquelle placer les événements. Dans le tableau d’événements suivant, l’événement avec `"id": "1111"` est destiné à la rubrique `demotopic1`, alors que l’événement avec `"id": "2222"` est destiné à la rubrique `demotopic2` :
 
 ```json
 [{
@@ -168,7 +168,15 @@ La publication d’événements sur un domaine est similaire à la [publication 
 }]
 ```
 
-Pour obtenir les clés d’un domaine avec Azure CLI, utilisez :
+Pour obtenir le point de terminaison de domaine avec Azure CLI, utilisez
+
+```azurecli-interactive
+az eventgrid domain show \
+  -g <my-resource-group> \
+  -n <my-domain>
+```
+
+Pour obtenir les clés d’un domaine, utilisez :
 
 ```azurecli-interactive
 az eventgrid domain key list \
@@ -176,7 +184,15 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
-Pour PowerShell, utilisez la commande suivante :
+Pour obtenir le point de terminaison de domaine avec PowerShell, utilisez
+
+```azurepowershell-interactive
+Get-AzureRmEventGridDomain `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain>
+```
+
+Pour obtenir les clés d’un domaine, utilisez :
 
 ```azurepowershell-interactive
 Get-AzureRmEventGridDomainKey `

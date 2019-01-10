@@ -11,14 +11,15 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 478727a4d3628fbe6a385e3beb28201c228f9e2d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8ea180131ce2f9e1288c3ffb928170be55a77de7
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078231"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598448"
 ---
-# <a name="luis-api-http-response-codes"></a>Codes de réponse HTTP des API LUIS
+# <a name="common-api-response-codes-and-their-meaning"></a>Codes de réponse d’API courants et leur signification
+
 Les API de [création](https://aka.ms/luis-authoring-apis) et de [point de terminaison](https://aka.ms/luis-endpoint-apis) retournent des codes de réponse HTTP. Bien que les messages de réponse contiennent des informations propres à une requête, le code d’état de réponse HTTP est général. 
 
 ## <a name="common-status-codes"></a>Codes d’état courants
@@ -38,3 +39,7 @@ Le tableau suivant liste certains des codes d’état de réponse HTTP les plus 
 |410|Point de terminaison|L’application doit être ré-entraînée et republiée|
 |414|Point de terminaison|La requête dépasse la limite maximale du nombre de caractères|
 |429|Création, Point de terminaison|Le débit maximal est dépassé (requêtes/seconde)|
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* Documentation sur la [création](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) et le [point de terminaison](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) d’API REST

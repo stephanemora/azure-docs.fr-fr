@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 43f9d7d39cfcdd7b670aca6184533def0b6966f5
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f22e5159acc93d9632c8cd268e24e8f972cbd7dd
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211381"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580142"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur
 GRUB est l’acronyme du programme d’amorçage GRand Unified Bootloader. Un GRUB vous permet de modifier votre configuration d’amorçage, notamment pour démarrer en mode mono-utilisateur.
@@ -28,10 +28,10 @@ Le mode mono-utilisateur est un environnement minimal comportant des fonctionnal
 
 Le mode mono-utilisateur est également utile dans les situations où votre machine virtuelle ne peut être configurée que pour accepter des clés SSH pour la connexion. Dans ce cas, il se peut que vous puissiez utiliser le mode mono-utilisateur pour créer un compte avec authentification par mot de passe.
 
-Pour passer en mode mono-utilisateur, vous devrez entrer un GRUB lors de du démarrage de votre machine virtuelle, puis modifier la configuration d’amorçage dans le GRUB. Vous pouvez faire cela avec la console série de machine virtuelle. 
+Pour passer en mode mono-utilisateur, vous devrez entrer un GRUB lors de du démarrage de votre machine virtuelle, puis modifier la configuration d’amorçage dans le GRUB. Vous pouvez faire cela avec la console série de machine virtuelle.
 
 ## <a name="general-grub-access"></a>Accès général au GRUB
-Pour accéder au GRUB, vous devez redémarrer votre machine virtuelle en laissant ouvert le panneau de la console série. Certaines distributions nécessitent une entrée au clavier pour afficher le GRUB. D’autres l’affichent automatiquement pendant quelques secondes afin de permettre à l’utilisateur d’effectuer une entrée au clavier pour annuler le délai d’expiration. 
+Pour accéder au GRUB, vous devez redémarrer votre machine virtuelle en laissant ouvert le panneau de la console série. Certaines distributions nécessitent une entrée au clavier pour afficher le GRUB. D’autres l’affichent automatiquement pendant quelques secondes afin de permettre à l’utilisateur d’effectuer une entrée au clavier pour annuler le délai d’expiration.
 
 Vous devez vous assurer que le GRUB est activé sur votre machine virtuelle afin de pouvoir accéder au mode mono-utilisateur. En fonction de votre distribution, vous devrez peut-être procéder à une configuration spécifique pour vous assurer que le GRUB est activé. Des informations spécifiques sur la distribution sont disponibles ci-dessous et en suivant [ce lien](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
 
@@ -56,18 +56,18 @@ RHEL vous amène directement en mode mono-utilisateur s’il ne peut pas démarr
 ### <a name="grub-access-in-rhel"></a>Accès au GRUB dans RHEL
 RHEL est fourni avec le GRUB activé par défaut. Pour entrer dans le GRUB, redémarrez votre machine virtuelle avec `sudo reboot` et appuyez sur n’importe quelle touche. Vous verrez apparaître l’écran GRUB.
 
-> Remarque : Red Hat fournit également la documentation de démarrage en mode de récupération, mode d’urgence et mode de débogage, ainsi que la documentation de réinitialisation du mot de passe racine. [Cliquez ici pour y accéder](https://aka.ms/rhel7grubterminal).
+> Remarque : Red Hat fournit également la documentation de démarrage en mode de récupération, mode d’urgence et mode de débogage, ainsi que la documentation de réinitialisation du mot de passe racine. [Cliquez ici pour y accéder](https://aka.ms/rhel7grubterminal).
 
 ### <a name="set-up-root-access-for-single-user-mode-in-rhel"></a>Configurer l’accès racine pour le mode mono-utilisateur dans RHEL
 Dans RHEL, le mode mono-utilisateur nécessite l’activation d’un utilisateur racine, qui est désactivé par défaut. Si vous avez besoin d’activer le mode d’utilisateur unique, appliquez les instructions suivantes :
 
 1. Connectez-vous au système Red Hat via SSH
 1. Basculer vers la racine
-1. Activez le mot de passe pour l’utilisateur racine 
+1. Activez le mot de passe pour l’utilisateur racine
     * `passwd root` (définissez un mot de passe racine fort)
 1. Assurez-vous que l’utilisateur racine peut se connecter uniquement via ttyS0
     * `edit /etc/ssh/sshd_config` et veillez à ce que la connexion PermitRootLogIn soit désactivée
-    * `edit /etc/securetty file` pour autoriser uniquement la connexion via ttyS0 
+    * `edit /etc/securetty file` pour autoriser uniquement la connexion via ttyS0
 
 Désormais, si le système démarre en mode d’utilisateur unique, vous pouvez vous connecter uniquement à l’aide du mot de passe racine.
 
@@ -83,14 +83,14 @@ Si vous avez configuré le GRUB et l’accès racine conformément aux instructi
 1. Ajoutez le code suivant à la fin de la ligne : `systemd.unit=rescue.target`
     * Cela vous permet de démarrer en mode mono-utilisateur. Si vous souhaitez utiliser le mode d’urgence, ajoutez `systemd.unit=emergency.target` à la fin de la ligne au lieu de `systemd.unit=rescue.target`
 1. Appuyez sur Ctrl + X pour quitter et redémarrer votre ordinateur avec les paramètres appliqués
-1. Vous serez invité à indiquer le mot de passe administrateur avant de pouvoir entrer en mode mono-utilisateur : il s’agit du mot de passe que vous avez créé en suivant les instructions ci-dessus    
+1. Vous serez invité à indiquer le mot de passe administrateur avant de pouvoir entrer en mode mono-utilisateur : il s’agit du mot de passe que vous avez créé en suivant les instructions ci-dessus
 
     ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Entrez en mode mono-utilisateur unique sans compte racine activé dans RHEL
 Si vous n’avez pas suivi les étapes ci-dessus pour activer l’utilisateur racine, vous pouvez toujours réinitialiser votre mot de passe racine. Suivez ces instructions :
 
-> Remarque : si vous utilisez SELinux, vérifiez que vous avez suivi les étapes supplémentaires décrites dans la documentation Red Hat [ici](https://aka.ms/rhel7grubterminal) lors de la réinitialisation de mot de passe racine.
+> Remarque : si vous utilisez SELinux, vérifiez que vous avez suivi les étapes supplémentaires décrites dans la documentation Red Hat [ici](https://aka.ms/rhel7grubterminal) lors de la réinitialisation de mot de passe racine.
 
 1. Appuyez sur « Échap » lors du redémarrage de la machine virtuelle pour entrer dans le GRUB
 1. Dans le GRUB, appuyez sur « e » pour modifier le système d’exploitation sélectionné dans lequel que vous voulez démarrer (généralement la première ligne)
@@ -104,11 +104,11 @@ Si vous n’avez pas suivi les étapes ci-dessus pour activer l’utilisateur ra
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
-> Remarque : les instructions ci-dessus vous amènent dans l’interpréteur de commandes d’urgence, ce qui vous permet d’effectuer des tâches telles que la modification de `fstab`. Toutefois, il est généralement conseillé de réinitialiser votre mot de passe racine et de l’utiliser pour entrer en mode mono-utilisateur. 
+> Remarque : les instructions ci-dessus vous amènent dans l’interpréteur de commandes d’urgence, ce qui vous permet d’effectuer des tâches telles que la modification de `fstab`. Toutefois, il est généralement conseillé de réinitialiser votre mot de passe racine et de l’utiliser pour entrer en mode mono-utilisateur.
 
 
 ## <a name="access-for-centos"></a>Accès CentOS
-Un peu comme Red Hat Enterprise Linux, le mode mono-utilisateur dans CentOS nécessite l’activation du GRUB et de l’utilisateur racine. 
+Un peu comme Red Hat Enterprise Linux, le mode mono-utilisateur dans CentOS nécessite l’activation du GRUB et de l’utilisateur racine.
 
 ### <a name="grub-access-in-centos"></a>Accès au GRUB dans CentOS
 CentOS est fourni avec le GRUB activé par défaut. Pour entrer dans le GRUB, redémarrez votre machine virtuelle avec `sudo reboot` et appuyez sur n’importe quelle touche. Vous verrez apparaître l’écran GRUB.
@@ -116,8 +116,8 @@ CentOS est fourni avec le GRUB activé par défaut. Pour entrer dans le GRUB, re
 ### <a name="single-user-mode-in-centos"></a>Mode mono-utilisateur dans CentOS
 Suivez les instructions pour RHEL ci-dessus afin d’activer le mode mono-utilisateur dans CentOS.
 
-## <a name="access-for-ubuntu"></a>Accès Ubuntu 
-Les images Ubuntu ne nécessitent pas de mot de passe racine. Si le système démarre en mode mono-utilisateur, vous pouvez l’utiliser sans informations d’identification supplémentaires. 
+## <a name="access-for-ubuntu"></a>Accès Ubuntu
+Les images Ubuntu ne nécessitent pas de mot de passe racine. Si le système démarre en mode mono-utilisateur, vous pouvez l’utiliser sans informations d’identification supplémentaires.
 
 ### <a name="grub-access-in-ubuntu"></a>Accès au GRUB dans Ubuntu
 Pour accéder au GRUB, maintenez la touche « Échap » enfoncée pendant le démarrage de la machine virtuelle.
@@ -137,8 +137,17 @@ Ubuntu vous amène directement en mode mono-utilisateur s’il ne peut pas déma
 1. Ajoutez `single` après `ro`, tout en vous assurant de la présence d’un espace avant et après `single`
 1. Appuyez sur Ctrl + X pour redémarrer avec ces paramètres, puis entrez en mode mono-utilisateur
 
+### <a name="using-grub-to-invoke-bash-in-ubuntu"></a>Utilisation de GRUB pour appeler Bash dans Ubuntu
+Il peut arriver (par exemple, en cas d’oubli d’un mot de passe racine) que vous ne puissiez pas accéder au mode mono-utilisateur dans votre machine virtuelle Ubuntu après avoir tenté d’appliquer les instructions ci-dessus. Vous pouvez également indiquer le noyau pour exécuter /bin/bash en tant qu’initialisation, plutôt que l’initialisation système, ce qui vous donne un shell bash et permet la maintenance du système. Suivez ces instructions :
+
+1. À partir du GRUB, appuyez sur « e » pour modifier votre entrée de démarrage (entrée Ubuntu)
+1. Recherchez la ligne qui commence par `linux`, puis recherchez `ro`
+1. Remplacer `ro` par `rw init=/bin/bash`
+    - Cela a pour effet de monter votre système de fichiers en lecture-écriture et d’utiliser /bin/bash en tant que processus d’initialisation
+1. Appuyez sur Ctrl + X pour redémarrer avec ces paramètres
+
 ## <a name="access-for-coreos"></a>Accès CoreOS
-Le mode mono-utilisateur dans CoreOS nécessite l’activation du GRUB. 
+Le mode mono-utilisateur dans CoreOS nécessite l’activation du GRUB.
 
 ### <a name="grub-access-in-coreos"></a>Accès au GRUB dans CoreOS
 Pour accéder au GRUB, appuyez sur n’importe quelle touche lors du démarrage de votre machine virtuelle.
@@ -151,13 +160,13 @@ CoreOS vous amène directement en mode mono-utilisateur s’il ne peut pas déma
 1. Appuyez sur Ctrl + X pour redémarrer avec ces paramètres, puis entrez en mode mono-utilisateur
 
 ## <a name="access-for-suse-sles"></a>Accès SUSE SLES
-Les images plus récentes de SLES 12 SP3+ autorisent l’accès par le biais de la console en série dans les situations où le système démarre en mode d’urgence. 
+Les images plus récentes de SLES 12 SP3+ autorisent l’accès par le biais de la console en série dans les situations où le système démarre en mode d’urgence.
 
 ### <a name="grub-access-in-suse-sles"></a>Accès au GRUB dans SUSE SLES
 L’accès au GRUB dans SLES requiert une configuration de chargeur de démarrage par le biais de YaST. Pour ce faire, procédez comme suit :
 
-1. Connectez-vous avec SSH à votre machine virtuelle SLES et exécutez `sudo yast bootloader`. Utilisez la touche `tab`, la touche `enter` et les touches de direction pour naviguer dans le menu. 
-1. Accédez à `Kernel Parameters`, puis sélectionnez `Use serial console`. 
+1. Connectez-vous avec SSH à votre machine virtuelle SLES et exécutez `sudo yast bootloader`. Utilisez la touche `tab`, la touche `enter` et les touches de direction pour naviguer dans le menu.
+1. Accédez à `Kernel Parameters`, puis sélectionnez `Use serial console`.
 1. Ajouter `serial --unit=0 --speed=9600 --parity=no` aux arguments de la console
 
 1. Appuyez sur F10 pour enregistrer vos paramètres et quitter l’écran
@@ -176,7 +185,7 @@ Vous êtes automatiquement amené dans l’interpréteur de commandes d’urgenc
 > Vous êtes amené dans l’interpréteur de commandes d’urgence avec un système de fichiers _en lecture seule_. Pour apporter des modifications à l’un des fichiers, vous devez remonter le système de fichiers avec des autorisations en lecture-écriture. Pour ce faire, entrez `mount -o remount,rw /` dans l’interpréteur de commandes
 
 ## <a name="access-for-oracle-linux"></a>Accès Oracle Linux
-Un peu comme Red Hat Enterprise Linux, le mode mono-utilisateur dans Oracle Linux nécessite l’activation du GRUB et de l’utilisateur racine. 
+Un peu comme Red Hat Enterprise Linux, le mode mono-utilisateur dans Oracle Linux nécessite l’activation du GRUB et de l’utilisateur racine.
 
 ### <a name="grub-access-in-oracle-linux"></a>Accès au GRUB dans Oracle Linux
 Oracle Linux est fourni avec le GRUB activé par défaut. Pour entrer dans le GRUB, redémarrez votre machine virtuelle avec `sudo reboot` et appuyez sur « Échap ». Vous verrez apparaître l’écran GRUB.

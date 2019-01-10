@@ -1,24 +1,24 @@
 ---
-title: Configurer des conteneurs
-titlesuffix: Computer Vision - Azure Cognitive Services
-description: Paramètres de configuration des conteneurs dans Vision par ordinateur.
+title: Configurer des conteneurs – Vision par ordinateur
+titlesuffix: Azure Cognitive Services
+description: Configurer des paramètres différents pour les conteneurs Reconnaître le texte dans Vision par ordinateur.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: f71cbe965e70dfce1b29cf0e5f9ea44faf0a4e27
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18
+ms.openlocfilehash: 48d3bc7ecdd66565372be8347897202cae3ec158
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077016"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579785"
 ---
-# <a name="configure-containers"></a>Configurer des conteneurs
+# <a name="configure-recognize-text-containers"></a>Configurer des conteneurs Reconnaître le texte
 
 Vision par ordinateur fournit le conteneur Reconnaître le texte avec un framework de configuration commun pour vous permettre de configurer et de gérer facilement les paramètres de stockage, de journalisation, de télémétrie et de sécurité pour vos conteneurs.
 
@@ -41,7 +41,7 @@ Les valeurs de variable d’environnement remplacent les valeurs d’argument de
 
 ### <a name="configuration-settings-as-environment-variables"></a>Paramètres de configuration comme variables d’environnement
 
-Vous pouvez utiliser la [syntaxe des variables d’environnement ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment) pour spécifier des paramètres de configuration.
+Vous pouvez utiliser la [syntaxe des variables d’environnement ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#environment-variables-configuration-provider) pour spécifier des paramètres de configuration.
 
 Le conteneur lit les variables d’environnement utilisateur au moment où le conteneur est instancié. S’il existe une variable d’environnement, sa valeur remplace la valeur par défaut du paramètre de configuration spécifié. L’avantage d’utiliser des variables d’environnement est que cela permet de définir plusieurs paramètres de configuration avant d’instancier des conteneurs, et le même ensemble de paramètres de configuration peut être utilisé automatiquement par plusieurs conteneurs.
 
@@ -133,7 +133,7 @@ Les paramètres de configuration `Logging` gèrent la prise en charge de la jour
   | `Format` | Chaîne | Format de sortie des fichiers journaux.<br/> **Remarque :** Cette valeur doit être `json` pour activer le fournisseur de journalisation. Si cette valeur est spécifiée sans que le montage de sortie soit aussi spécifié pendant l’instanciation d’un conteneur, une erreur se produit. |
   | `MaxFileSize` | Entier  | Taille maximale, en mégaoctets (Mo), d’un fichier journal. Dès que la taille du fichier journal actif atteint ou dépasse cette valeur, un nouveau fichier journal est commencé par le fournisseur de journalisation. Si la valeur -1 est spécifiée, la taille du fichier journal est limitée uniquement par la taille de fichier maximale, le cas échéant, pour le montage de sortie. La valeur par défaut est 1. |
 
-Pour plus d’informations sur la configuration de la prise en charge de la journalisation ASP.NET Core, consultez [Configuration d’un fichier de paramètres](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
+Pour plus d’informations sur la configuration de la prise en charge de la journalisation ASP.NET Core, voir [Journalisation ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#configuration).
 
 ## <a name="mounts-configuration-settings"></a>Paramètres de configuration Mounts
 

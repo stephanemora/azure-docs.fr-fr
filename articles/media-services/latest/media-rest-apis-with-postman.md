@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: b110a57526d6e23ba53afce0a91d735fad6d247c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 06ecdf31c2627eda5bf651667703ddcf39c9d307
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215887"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604097"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurer Postman pour les appels d’API REST Media Services
 
@@ -30,7 +30,7 @@ Ce tutoriel vous montre comment configurer **Postman** afin de l’utiliser pour
 - Obtenir les informations nécessaires pour [accéder aux API](access-api-cli-how-to.md)
 - Installez le client REST [Postman](https://www.getpostman.com/) pour exécuter les API REST indiquées dans certains des didacticiels REST AMS. 
 
-    Nous utilisons **Postman** mais n’importe quel outil REST serait approprié. Les autres solutions sont : **Visual Studio Code** avec le plug-in REST ou **Telerik Fiddler**. 
+    Nous utilisons **Postman** mais n’importe quel outil REST serait approprié. Les autres solutions possibles sont : **Visual Studio Code** avec le plug-in REST ou **Telerik Fiddler**. 
 
 ## <a name="download-postman-files"></a>Télécharger les fichiers Postman
 
@@ -75,7 +75,7 @@ Cette section configure le Postman.
 
 Avant de commencer à manipuler des ressources AMS v3, vous devez obtenir et définir le jeton Azure AD pour l’authentification de principal du service.
 
-1. Dans la fenêtre de gauche de Postman, sélectionnez « étape 1 : obtenir un jeton d’authentification AAD ».
+1. Dans la fenêtre de gauche de Postman, sélectionnez « Étape 1 : Obtenir le jeton d’authentification AAD ».
 2. Ensuite, sélectionnez « obtenir un jeton Azure AD pour l’authentification du principal du service ».
 3. Appuyez sur **Envoyer**.
 
@@ -85,7 +85,7 @@ Avant de commencer à manipuler des ressources AMS v3, vous devez obtenir et dé
     https://login.microsoftonline.com/:tenantId/oauth2/token
     ```
 
-4. La réponse inclut le jeton et définit la variable d’environnement « AccessToken » sur la valeur du jeton. Pour afficher le code qui définit « AccessToken », cliquez sur l’onglet **Tests**. 
+4. La réponse inclut le jeton et définit la variable d’environnement « AccessToken » sur la valeur du jeton.  
 
     ![Obtenir le jeton AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
 

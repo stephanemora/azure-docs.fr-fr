@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: danlep
-ms.openlocfilehash: e03a35b31c9089abe973c7e4388b508f668a3970
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 172ddd11cb956ab6d74e1ce870e2378205dd1613
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619841"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993284"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Déployer des instance de conteneur dans un réseau virtuel Azure
 
@@ -47,6 +47,7 @@ Régions **prises en charge** :
 * Europe Nord (Europe du Nord)
 * Europe Ouest (Europe occidentale)
 * USA Ouest (ouest des USA)
+* USA Est (eastus)
 
 Ressources réseau **non prises en charge** :
 
@@ -183,11 +184,11 @@ La sortie du journal doit montrer que `wget` a réussie à se connecter le fichi
 
 Vous pouvez également déployer un groupe de conteneurs dans un réseau virtuel existant, en utilisant un fichier YAML. Pour déployer dans un sous-réseau d’un réseau virtuel, spécifiez plusieurs propriétés supplémentaires dans le fichier YAML :
 
-* `ipAddress` : paramètres d’adresse IP du groupe de conteneurs.
-  * `ports` : ports à ouvrir, le cas échéant.
-  * `protocol` : protocole (TCP ou UDP) du port ouvert.
-* `networkProfile` : spécifie les paramètres réseau tels que le réseau virtuel et le sous-réseau d’une ressource Azure.
-  * `id` : ID complet de ressource Resource Manager complet du `networkProfile`.
+* `ipAddress`: paramètres d’adresse IP du groupe de conteneurs.
+  * `ports`: ports à ouvrir, le cas échéant.
+  * `protocol`: protocole (TCP ou UDP) du port ouvert.
+* `networkProfile`: spécifie les paramètres réseau tels que le réseau virtuel et le sous-réseau d’une ressource Azure.
+  * `id`: ID complet de ressource Resource Manager du `networkProfile`.
 
 Pour déployer un groupe de conteneurs dans un réseau virtuel avec un fichier YAML, vous devez d’abord obtenir l’ID du profil réseau. Exécutez la commande [az network profile list][az-network-profile-list], en spécifiant le nom du groupe de ressources qui contient votre réseau virtuel et le sous-réseau délégué.
 
