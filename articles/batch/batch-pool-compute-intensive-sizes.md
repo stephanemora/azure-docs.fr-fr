@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 4663cb467d7d1d864425f4899c829b6618b9547c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3c3d534392431e79feabe37fe940ea87f586c660
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584460"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051694"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utiliser des instances RDMA ou GPU dans des pools Batch
 
@@ -100,7 +100,7 @@ Pour configurer une taille de machine virtuelle spécialisée pour votre pool Ba
 
 Pour exécuter des applications CUDA sur un pool de nœuds de contrôleur de réseau Windows, vous devez installer des pilotes NVDIA GPU. Les exemples d’étapes suivants utilisent un package d’application pour installer les pilotes NVIDIA GPU. Vous pouvez choisir cette option si votre charge de travail dépend d’une version de pilote GPU spécifique.
 
-1. Téléchargez un package d’installation pour les pilotes GPU sur Windows Server 2016 à partir du [site web NVIDIA](http://us.download.nvidia.com/Windows/), par exemple, la [version 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Enregistrez le fichier localement en utilisant un nom court, comme *GPUDriverSetup.exe*.
+1. Téléchargez un package d’installation pour les pilotes GPU sur Windows Server 2016 à partir du [site web NVIDIA](https://www.nvidia.com/Download/index.aspx), par exemple, la [version 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Enregistrez le fichier localement en utilisant un nom court, comme *GPUDriverSetup.exe*.
 2. Créez un fichier zip du package.
 3. Chargez le package sur votre compte Batch. Pour connaître les étapes nécessaires, consultez les instructions relatives aux [packages d’applications](batch-application-packages.md). Spécifiez un ID d’application (par exemple, *GPUDriver*) et une version (par exemple, *411.82*).
 1. À l’aide des API Batch ou du portail Azure, créez un pool dans la configuration de machine virtuelle avec le nombre de nœuds et l’échelle souhaités. Le tableau suivant présente des exemples de paramètres pour installer les pilotes NVIDIA GPU en mode silencieux à l’aide d’une tâche de démarrage :

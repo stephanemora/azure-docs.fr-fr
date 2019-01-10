@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: fc23efb206496bd36922da39adc0ff32abb78907
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 05a0e0d88f09853274d6bc6b65f66cf66369f77d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608669"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044193"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Éléments de Place de Marché Azure disponibles pour Azure Stack
 
@@ -236,6 +236,7 @@ Microsoft Azure Stack prend en charge les machines virtuelles et les modèles de
 | ![EventTracker SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [EventTracker SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM est une plateforme de sécurité complète qui offre des outils de sécurité avancés avec des fonctionnalités de conformité prêtes pour l’audit. | EventTracker |
 | ![Exivity - Solution de facturation cloud hybride](media/azure-stack-marketplace-azure-items/exivity.png) | [Exivity - Solution de facturation cloud hybride](https://azuremarketplace.microsoft.com/marketplace/apps/exivity.exivity-vm)  | Outil de facturation capable de satisfaire les exigences de pratiquement n’importe quel modèle de remise de service informatique, qu’il soit déployé au niveau local, dans le cloud public ou dans des environnements hybrides. | Exivity |
 | ![f5](media/azure-stack-marketplace-azure-items/f5.png) | [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Équilibrage de charge avancé, GSLB, pare-feu réseau, DNS, WAF et accès à l’application. | F5 Networks |
+| ![Pare-feu Fortigate de nouvelle génération](media/azure-stack-marketplace-azure-items/fortinetsquare.png) | [Pare-feu Fortigate de nouvelle génération](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-fortigate-singlevm) | Technologie de pare-feu qui assure une protection totale du contenu et du réseau grâce à une suite complète de puissantes fonctionnalités de sécurité. Le contrôle d’application, l’antivirus, l’IPS, le filtrage web et le VPN avec des fonctionnalités avancées telles que la gestion des vulnérabilités fonctionnent de concert pour identifier et atténuer les menaces de sécurité complexes les plus récentes. | Fortinet |
 | ![Bac à sable Hortonworks Data Platform (HDP)](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Alimenté par la technologie de plateforme 100 % Open Source HDP 2.5 pour Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Kaspersky Hybrid Cloud Security permet de concevoir un écosystème de cybersécurité parfaitement orchestré et adaptatif. | Kaspersky Lab |
 | ![Commutateur de contenu ADC Load Balancer KEMP LoadMaster](media/azure-stack-marketplace-azure-items/kemp.png) | [Commutateur de contenu ADC Load Balancer KEMP LoadMaster](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Équilibrage de charge ADC (Application Delivery Controller) de couche 4-7, commutateur de services de contenu et gestionnaire de trafic. | KEMP Technologies Inc. |

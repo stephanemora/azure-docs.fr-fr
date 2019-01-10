@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: e5e1a415ce5c5bd14a8afef41e506259555d79f6
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 5c809153b3b86a5460bd2c235d9f6226fb50a024
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970251"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118793"
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Exploration des journaux .NET dans Application Insights
 Si vous utilisez NLog, log4Net ou System.Diagnostics.Trace pour le suivi de diagnostic dans votre application ASP.NET, les journaux peuvent être envoyés à [Azure Application Insights][start], où vous pouvez les explorer et les rechercher. Les journaux sont fusionnés avec la télémétrie provenant de votre application, afin que vous puissiez identifier les traces associées au traitement des demandes de l’utilisateur et les mettre en corrélation avec d’autres événements et des rapports d’exception.
@@ -160,7 +160,7 @@ Vous pouvez par exemple :
 * Enregistrer la configuration de cette page en tant que favori
 
 > [!NOTE]
-> **Échantillonnage.**  Si votre application envoie des données en grand nombre et si vous utilisez le Kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l'échantillonnage.](../../application-insights/app-insights-sampling.md)
+> **Échantillonnage.**  Si votre application envoie des données en grand nombre et si vous utilisez le Kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l'échantillonnage.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -194,7 +194,7 @@ Le passage des événements et des demandes dans le pipeline peut prendre un cer
 Plusieurs facteurs affectent la quantité de données conservées. Consultez la section [Limites](../../azure-monitor/app/api-custom-events-metrics.md#limits) de la page sur les métriques d’événement client pour plus d’informations. 
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>Certaines entrées du journal ne sont pas affichées
- Si votre application envoie des données en grand nombre et si vous utilisez le Kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l'échantillonnage.](../../application-insights/app-insights-sampling.md)
+ Si votre application envoie des données en grand nombre et si vous utilisez le Kit de développement logiciel Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité d’échantillonnage adaptatif peut fonctionner et transmettre uniquement un pourcentage de vos données de télémétrie. [En savoir plus sur l'échantillonnage.](../../azure-monitor/app/sampling.md)
 
 ## <a name="add"></a>Étapes suivantes
 * [Configuration des tests de disponibilité et de réactivité][availability]
@@ -206,5 +206,5 @@ Plusieurs facteurs affectent la quantité de données conservées. Consultez la 
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
-[qna]: ../../application-insights/app-insights-troubleshoot-faq.md
-[start]: ../../application-insights/app-insights-overview.md
+[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[start]: ../../azure-monitor/app/app-insights-overview.md

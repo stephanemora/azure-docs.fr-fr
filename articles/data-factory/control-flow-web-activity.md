@@ -9,48 +9,47 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: adfb30b73bbc9929bbfe3b07bd830d3f278bcc27
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d42b6b857f04c191ebdfb1687c8ee2adcad95d26
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723686"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054281"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Activité Web dans Azure Data Factory
-Une activité web peut être utilisée pour appeler un point de terminaison REST personnalisé à partir d’un pipeline Data Factory. Vous pouvez transmettre des jeux de données et des services liés que l’activité peut utiliser et auxquels elle peut accéder. 
+Une activité web peut être utilisée pour appeler un point de terminaison REST personnalisé à partir d’un pipeline Data Factory. Vous pouvez transmettre des jeux de données et des services liés que l’activité peut utiliser et auxquels elle peut accéder.
 
 ## <a name="syntax"></a>Syntaxe
 
 ```json
-{  
+{
    "name":"MyWebActivity",
    "type":"WebActivity",
-   "typeProperties":{  
+   "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
-      "headers":{  
+      "headers":{
          "Content-Type":"application/json"
       },
-      "authentication":{  
-         "type":"ClientCertificate",  
+      "authentication":{
+         "type":"ClientCertificate",
          "pfx":"****",
          "password":"****"
       },
-      "datasets":[  
-         {  
+      "datasets":[
+         {
             "referenceName":"<ConsumedDatasetName>",
             "type":"DatasetReference",
-            "parameters":{  
+            "parameters":{
                ...
             }
          }
       ],
-      "linkedServices":[  
-         {  
+      "linkedServices":[
+         {
             "referenceName":"<ConsumedLinkedServiceName>",
             "type":"LinkedServiceReference"
          }
@@ -93,10 +92,10 @@ Le tableau suivant affiche la configuration requise pour le contenu JSON :
 Si l’authentification n’est pas requise, n’incluez pas la propriété « authentication ».
 
 ### <a name="basic"></a>De base
-Spécifiez le nom d’utilisateur et le mot de passe à utiliser avec l’authentification de base. 
+Spécifiez le nom d’utilisateur et le mot de passe à utiliser avec l’authentification de base.
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"Basic",
    "username":"****",
    "password":"****"
@@ -104,12 +103,12 @@ Spécifiez le nom d’utilisateur et le mot de passe à utiliser avec l’authen
 ```
 
 ### <a name="client-certificate"></a>Certificat client
-Spécifiez le contenu encodé en Base64 d’un fichier PFX et le mot de passe. 
+Spécifiez le contenu encodé en Base64 d’un fichier PFX et le mot de passe.
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"ClientCertificate",
-   "pfx":"****",   
+   "pfx":"****",
    "password":"****"
 }
 ```
@@ -126,7 +125,7 @@ Spécifiez l’uri de ressource pour lequel le jeton d’accès sera demandé à
 ```
 
 ## <a name="request-payload-schema"></a>Schéma de charge utile de demande
-Lorsque vous utilisez la méthode POST/PUT, la propriété body représente la charge utile envoyée au point de terminaison. Vous pouvez transmettre des services liés et des jeux de données dans la charge utile. Voici le schéma de la charge utile : 
+Lorsque vous utilisez la méthode POST/PUT, la propriété body représente la charge utile envoyée au point de terminaison. Vous pouvez transmettre des services liés et des jeux de données dans la charge utile. Voici le schéma de la charge utile :
 
 ```json
 {
@@ -145,11 +144,11 @@ Lorsque vous utilisez la méthode POST/PUT, la propriété body représente la c
             }
         }]
     }
-} 
+}
 ```
 
 ## <a name="example"></a>Exemples
-Dans cet exemple, l’activité web dans le pipeline appelle un point de terminaison REST. Elle transmet un service lié Azure SQL et un jeu de données Azure SQL au point de terminaison. Le point de terminaison REST utilise la chaîne de connexion Azure SQL pour se connecter au serveur Azure SQL et retourne le nom de l’instance du serveur SQL. 
+Dans cet exemple, l’activité web dans le pipeline appelle un point de terminaison REST. Elle transmet un service lié Azure SQL et un jeu de données Azure SQL au point de terminaison. Le point de terminaison REST utilise la chaîne de connexion Azure SQL pour se connecter au serveur Azure SQL et retourne le nom de l’instance du serveur SQL.
 
 ### <a name="pipeline-definition"></a>Définition de pipeline
 
@@ -243,7 +242,7 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
+Consultez les autres activités de flux de contrôle prises en charge par Data Factory :
 
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)
 - [Pour chaque activité](control-flow-for-each-activity.md)

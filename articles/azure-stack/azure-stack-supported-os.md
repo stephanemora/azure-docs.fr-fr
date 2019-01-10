@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: be4d9b3ea7e5715d7c3a4df11b7e8bab4d1d4ca5
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 056c44de4f89b04149c275b1508c7ea8f397d6e6
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405595"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810777"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Systèmes d’exploitation invités pris en charge par Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a> Windows
 
 Azure Stack prend en charge les systèmes d’exploitation invités Windows répertoriés dans le tableau suivant :
 
@@ -71,11 +71,11 @@ Les distributions Linux répertoriées comme disponibles sur la Place de marché
 | Ubuntu 16.04-LTS | 64 bits | Canonical | OUI |
 | Ubuntu 18.04-LTS | 64 bits | Canonical | Oui |
 
-Pour plus d’informations sur le support de Red Hat Enterprise Linux, consultez l’article [Red Hat and Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531) (Red Hat et Azure Stack : Forum aux Questions).
+Pour plus d’informations sur la prise en charge Red Hat Enterprise Linux, consultez [Red Hat and Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531) (Red Hat et Azure Stack : forum aux questions).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la Place de marché Azure Stack, consultez les articles suivants :
 
-[Télécharger des éléments de la Place de marché](azure-stack-download-azure-marketplace-item.md)  
-[Créer et publier un élément de Place de Marché](azure-stack-create-and-publish-marketplace-item.md)
+- [Télécharger des éléments de la Place de marché](azure-stack-download-azure-marketplace-item.md)  
+- [Créer et publier un élément de Place de Marché](azure-stack-create-and-publish-marketplace-item.md)
