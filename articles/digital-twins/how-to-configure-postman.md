@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/18/2018
 ms.author: adgera
-ms.openlocfilehash: b22bf34a06966f917cdcdd07c28ead2d042061c1
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 92ff8cb732c7c10c525d8a8ec76180cb435bd466
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163994"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975007"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Guide pratique pour configurer Postman pour Azure Digital Twins
 
@@ -31,7 +31,7 @@ Configurez votre application Azure AD pour qu’elle utilise le flux d’octroi 
 
 1. Suivez les étapes décrites dans [ce démarrage rapide](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) pour créer une application Azure AD de type natif. Vous pouvez aussi réutiliser une inscription d’application native existante.
 
-1. Sous **Autorisations requises**, entrez `Azure Digital Twins` et sélectionnez **Autorisations déléguées**. Sélectionnez ensuite **Accorder des autorisations**.
+1. Sous **Autorisations requises**, sélectionnez **Ajouter**, puis entrez **Azure Digital Twins** sous **Ajouter un accès d’API**. Si votre recherche ne trouve pas cette API, sélectionnez **Azure Smart Spaces** à la place. Ensuite, sélectionnez **Accorder des autorisations > Autorisations déléguées**, puis **Terminé**.
 
     ![Inscriptions d’applications Azure AD – Ajout d’API](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
 
@@ -56,7 +56,7 @@ Ensuite, configurez Postman pour obtenir un jeton Azure AD. Après quoi, adresse
     https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
-    | Nom  | Remplacer par | Exemples |
+    | NOM  | Remplacer par | Exemples |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | Nom de votre locataire ou organisation | `microsoft` |
 
@@ -65,7 +65,7 @@ Ensuite, configurez Postman pour obtenir un jeton Azure AD. Après quoi, adresse
     | Champ  | Valeur |
     |---------|---------|
     | Type d’autorisation | `Implicit` |
-    | URL de rappel | [`https://www.getpostman.com/oauth2/callback`](https://www.getpostman.com/oauth2/callback) |
+    | URL de rappel | `https://www.getpostman.com/oauth2/callback` |
     | URL d’authentification | Utilisez l’**URL d’autorisation** de l’étape 2 ci-dessus |
     | ID client | Utilisez l’**ID d’application** de l’application Azure AD qui a été créée ou réaffectée dans la section précédente |
     | Étendue | Laisser vide |

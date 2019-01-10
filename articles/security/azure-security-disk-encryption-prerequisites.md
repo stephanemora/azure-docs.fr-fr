@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/13/2018
+ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 116f1f0a93c09ed751f0720ae74a2c24df7541eb
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: efb8c885daf78ad279a229257492a34c6dbf1c6a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342508"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156508"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Prérequis pour Azure Disk Encryption
 
@@ -21,8 +21,9 @@ ms.locfileid: "53342508"
 
 Avant d’activer Azure Disk Encryption sur les machines virtuelles IaaS Azure pour les scénarios pris en charge dans l’article de [présentation d’Azure Disk Encryption](azure-security-disk-encryption-overview.md), assurez-vous que tous les prérequis sont respectés. 
 
-> [!NOTE]
-> Certaines recommandations peuvent entraîner une augmentation de l’utilisation des données, des réseaux ou des ressources de calcul débouchant sur des coûts de licence ou d’abonnement supplémentaires. Vous devez disposer d’un abonnement Azure actif valide pour créer des ressources dans Azure dans les régions prises en charge.
+> [!WARNING]
+> - Si vous avez déjà utilisé [Azure Disk Encryption avec une application Azure AD](azure-security-disk-encryption-prerequisites-aad.md) pour chiffrer cette machine virtuelle, vous devrez continuer à utiliser cette option. Vous ne pouvez pas utiliser [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) sur cette machine virtuelle chiffrée car un tel scénario n’est pas pris en charge. Autrement dit, l’utilisation d’une autre application que l’application AAD pour cette machine virtuelle n’est pas encore prise en charge.
+> - Certaines recommandations peuvent entraîner une augmentation de l’utilisation des données, des réseaux ou des ressources de calcul débouchant sur des coûts de licence ou d’abonnement supplémentaires. Vous devez disposer d’un abonnement Azure actif valide pour créer des ressources dans Azure dans les régions prises en charge.
 
 
 ## <a name="bkmk_OSs"></a> Systèmes d’exploitation pris en charge
@@ -66,12 +67,10 @@ Vous trouverez un exemple des commandes permettant de monter les disques de donn
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Installez Azure PowerShell afin de l’utiliser sur votre ordinateur local (facultatif) : 
 1. Suivez les instructions accessibles par le biais des liens correspondant à votre système d’exploitation, puis poursuivez en exécutant la procédure ci-après.      
-    - [Installez et configurez Azure PowerShell pour Windows](/powershell/azure/install-azurerm-ps). 
+    - [Installez et configurez Azure PowerShell pour Windows](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0). 
         - Installez PowerShellGet, Azure PowerShell, puis chargez le module AzureRM. 
-    - [Installez et configurez Azure PowerShell sur macOS et Linux](/powershell/azure/install-azurermps-maclinux).
-        -  Installez PowerShell Core, Azure PowerShell pour .NET Core, puis chargez le module Az.
 
-2. Vérifiez les versions installées du module AzureRM. Si nécessaire, [mettez à jour du module Azure PowerShell](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
+2. Vérifiez les versions installées du module AzureRM. Si nécessaire, [mettez à jour du module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0#update-the-azure-powershell-module).
     -  La version du module AzureRM doit être 6.0.0 ou une version ultérieure.
     - Il est recommandé d’utiliser la dernière version du module AzureRM.
 

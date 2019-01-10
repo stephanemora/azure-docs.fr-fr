@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 97352cdc89aabe312bf500901347acaf5238e871
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b05b3fee5c49f69979f5e778f897d4be863a3715
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436991"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809877"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect : Configurer les autorisations du compte de connecteur AD DS 
 
@@ -219,7 +219,7 @@ Cette applet de commande définit les autorisations suivantes :
 |-----|-----|-----|-----| 
 |AUTORISER |Compte de connecteur AD DS |Lecture/Écriture générique |Objets groupe descendants| 
 |AUTORISER |Compte de connecteur AD DS |Création/Suppression de l’objet enfant |Cet objet et tous les objets descendants| 
-|AUTORISER |Compte de connecteur AD DS |Suppression/Suppression d’un objet et de tous ses enfants |Cet objet et tous les objets descendants|
+|AUTORISER |Compte de connecteur AD DS |Création/Suppression d’un objet et de tous ses enfants |Cet objet et tous les objets descendants|
 
 ### <a name="permissions-for-exchange-hybrid-deployment"></a>Autorisations pour le déploiement Exchange hybride 
 Pour définir les autorisations du compte de connecteur AD DS quand le déploiement Exchange hybride est activé, exécutez : 

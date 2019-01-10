@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pafarley
-ms.openlocfilehash: 7d914f394ecfcf02ed26f41cd8fe2ef799cf6103
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 371fa639b2edc300e44cc495393e89c9fce9c4bf
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966736"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580856"
 ---
-# <a name="generating-thumbnails"></a>Génération de miniatures
+# <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Génération de miniatures rognées intelligemment avec Vision par ordinateur
 
 Une miniature est une représentation à taille réduite d’une image. Les miniatures sont utilisées pour représenter des images et d’autres données de manière plus économique et plus pratique au niveau disposition. L’API Vision par ordinateur utilise le rognage intelligent, en plus du redimensionnement d’image, afin de créer des miniatures intuitives pour une image donnée.
 
@@ -42,9 +43,9 @@ Le tableau suivant montre les miniatures standard générées par l’API Vision
 
 | Image | Miniature |
 |-------|-----------|
-|![Montagne extérieur](./Images/mountain_vista.png) | ![Miniature Montagne extérieur](./Images/mountain_vista_thumbnail.png) |
-|![Analyse Vision fleur](./Images/flower.png) | ![Miniature Analyse Vision fleur](./Images/flower_thumbnail.png) |
-|![Toit femme](./Images/woman_roof.png) | ![Miniature Toit femme](./Images/woman_roof_thumbnail.png) |
+|![Personne se tenant sur un rocher montagneux au coucher du soleil](./Images/mountain_vista.png) | ![Miniature Montagne extérieur](./Images/mountain_vista_thumbnail.png) |
+|![Fleur blanche sur fond vert](./Images/flower.png) | ![Miniature Analyse Vision fleur](./Images/flower_thumbnail.png) |
+|![Femme sur le toit d’un immeuble d’appartements](./Images/woman_roof.png) | ![Miniature Toit femme](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

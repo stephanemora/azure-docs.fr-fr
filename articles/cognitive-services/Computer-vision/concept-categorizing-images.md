@@ -1,7 +1,7 @@
 ---
 title: Classement des images - Vision par ordinateur
 titleSuffix: Azure Cognitive Services
-description: Concepts liés au classement des images à l’aide de l’API Vision par ordinateur.
+description: Découvrez les concepts liés à la fonction de catégorisation d’images de l’API Vision par ordinateur.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 7062d98d40c15f4e9e873038fc12fc1b104c996d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 40873b13407066920caec5c04751b65c01d7e209
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333477"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579496"
 ---
-# <a name="categorizing-images"></a>Classement des images
+# <a name="image-categorization-with-computer-vision"></a>Catégorisation d’image avec Vision par ordinateur
 
 Outre le balisage et les descriptions, l’API Vision par ordinateur renvoie des catégories basées sur la taxonomie telles que définies dans les versions précédentes. Ces catégories sont classées au sein d’une taxonomie comprenant des hiérarchies héréditaire parent/enfant. Toutes les catégories sont en anglais. Les catégories peuvent être utilisées en tant que telles ou avec nos nouveaux modèles de balisage.
 
@@ -25,13 +26,13 @@ Outre le balisage et les descriptions, l’API Vision par ordinateur renvoie des
 
 Selon une liste de 86 concepts (voir le diagramme ci-dessous), une image peut être classée, qu’elle soit générale ou spécifique. Pour consulter la taxonomie complète au format texte, consultez [Taxonomie des catégories](category-taxonomy.md).
 
-![listes groupées de toutes les catégories de la taxonomie des catégories](./Images/analyze_categories-v2.png)
+![Listes groupées de toutes les catégories de la taxonomie des catégories](./Images/analyze_categories-v2.png)
 
 ## <a name="image-categorization-examples"></a>Exemples de classement d’images
 
 Les réponses JSON suivantes illustrent ce que renvoie Vision par ordinateur au moment de classer l’image fournie à titre d’exemple d’après ses fonctionnalités visuelles.
 
-![Toit femme](./Images/woman_roof.png)
+![Femme sur le toit d’un immeuble d’appartements](./Images/woman_roof.png)
 
 ```json
 {
@@ -54,10 +55,10 @@ Le tableau suivant illustre un ensemble d’images type et la catégorie renvoy�
 
 | Image | Catégorie |
 |-------|----------|
-| ![Photo de famille](./Images/family_photo.png) | people_group |
-| ![Chien mignon](./Images/cute_dog.png) | animal_dog |
-| ![Montagne extérieur](./Images/mountain_vista.png) | outdoor_mountain |
-| ![Analyse Vision aliment pain](./Images/bread.png) | food_bread |
+| ![Quatre personnes réunies comme une famille](./Images/family_photo.png) | people_group |
+| ![Chiot assis dans un champ herbeux](./Images/cute_dog.png) | animal_dog |
+| ![Personne se tenant sur un rocher montagneux au coucher du soleil](./Images/mountain_vista.png) | outdoor_mountain |
+| ![Pile de petits pains sur une table](./Images/bread.png) | food_bread |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

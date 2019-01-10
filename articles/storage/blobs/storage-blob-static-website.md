@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 36b4fbac13e012de2fbef137c6637fd7e2daea8f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 933fcbfc21c69d02f1093e0ea2519d76f4130b29
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161291"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598888"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hébergement de sites web statiques dans le service Stockage Azure
 Les comptes GPv2 du service Stockage Azure vous permettent de distribuer du contenu statique (fichiers HTML, CSS, JavaScript et image) directement à partir d’un conteneur de stockage nommé *$web*. La fonctionnalité d’hébergement dans Stockage Azure vous permet d’utiliser des architectures serverless, notamment [Azure Functions](/azure/azure-functions/functions-overview) et d’autres services PaaS.
 
-Contrairement aux sites web statiques, les sites dynamiques qui dépendent du code côté serveur sont hébergés de manière plus efficace à l’aide [d’Azure Web Apps](/azure/app-service/app-service-web-overview).
+Contrairement aux sites web statiques, les sites dynamiques qui dépendent du code côté serveur sont hébergés de manière plus efficace à l’aide d’[Azure App Service](/azure/app-service/overview).
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 Lorsque vous activez l’hébergement de sites web statiques sur votre compte de stockage, vous sélectionnez le nom de votre fichier par défaut, et si vous le souhaitez, vous fournissez un chemin d’accès à une page 404 personnalisée. Lorsque cette fonctionnalité est activée, un conteneur nommé *$web* est créé s’il n’existe pas déjà. 
@@ -161,6 +161,6 @@ Oui, le point de terminaison web respecte la casse, tout comme le point de termi
 * [Utilisation d’Azure CDN pour accéder aux objets blob avec des domaines personnalisés via HTTPS](storage-https-custom-domain-cdn.md)
 * [Configurer un nom de domaine personnalisé pour le point de terminaison de votre objet blob ou web](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
-* [Azure Web Apps](/azure/app-service/app-service-web-overview)
+* [Azure App Service](/azure/app-service/overview)
 * [Générer votre première application web sans serveur](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Didacticiel : héberger votre domaine dans Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)
+* [Tutoriel : Héberger votre domaine dans Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

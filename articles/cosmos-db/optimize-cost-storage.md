@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 78c840efebd2e451747e2490fc4d2f363afa9a09
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6a6f8b47044d36d767721e2d3503d11518dbf5a6
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263254"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036118"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Optimiser les coûts de stockage dans Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Dans Azure Cosmos DB, l’élément doit avoir une taille de 2 Mo tout au plus p
 
 ## <a name="optimize-cost-with-indexing"></a>Optimiser les coûts avec l’indexation
 
-Par défaut, les données sont automatiquement indexées, ce qui peut augmenter le stockage total consommé. Toutefois, vous pouvez appliquer des stratégies d’index personnalisées pour réduire cette surcharge. L’indexation automatique qui n’a pas été réglée via la stratégie représente environ 10 à 20 % de la taille de l’élément. En supprimant ou en personnalisant les stratégies d’index, vous ne payez pas de frais supplémentaires pour les écritures et aucune capacité de débit supplémentaire n’est requise. Consultez [Indexation dans Cosmos DB](indexing-policies.md) pour configurer des stratégies d’indexation personnalisées. Si vous avez travaillé avec des bases de données relationnelles avant, vous pourriez penser que « tout indexer » équivaut à doubler la capacité de stockage voire plus. Toutefois, dans Azure Cosmos DB, dans le cas médian, cela représente une augmentation beaucoup plus faible. Dans Azure Cosmos DB, la surcharge de stockage que représente l’index est généralement faible (10-20 %) même avec l’indexation automatique, car il est conçu pour un encombrement de stockage faible. En gérant la stratégie d’indexation, vous pouvez contrôler le compromis entre les performances de requête et l’encombrement des index de manière plus précise.
+Par défaut, les données sont automatiquement indexées, ce qui peut augmenter le stockage total consommé. Toutefois, vous pouvez appliquer des stratégies d’index personnalisées pour réduire cette surcharge. L’indexation automatique qui n’a pas été réglée via la stratégie représente environ 10 à 20 % de la taille de l’élément. En supprimant ou en personnalisant les stratégies d’index, vous ne payez pas de frais supplémentaires pour les écritures et aucune capacité de débit supplémentaire n’est requise. Consultez [Indexation dans Azure Cosmos DB](indexing-policies.md) pour configurer des stratégies d’indexation personnalisées. Si vous avez travaillé avec des bases de données relationnelles avant, vous pourriez penser que « tout indexer » équivaut à doubler la capacité de stockage voire plus. Toutefois, dans Azure Cosmos DB, dans le cas médian, cela représente une augmentation beaucoup plus faible. Dans Azure Cosmos DB, la surcharge de stockage que représente l’index est généralement faible (10-20 %) même avec l’indexation automatique, car il est conçu pour un encombrement de stockage faible. En gérant la stratégie d’indexation, vous pouvez contrôler le compromis entre les performances de requête et l’encombrement des index de manière plus précise.
 
 ## <a name="optimize-cost-with-time-to-live-and-change-feed"></a>Optimiser les coûts avec la durée de vie et le flux de modification
 
@@ -52,7 +52,7 @@ Console.WriteLine("Item size quota: {0}, usage: {1}", collectionInfo.DocumentQuo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour approfondir vos connaissances sur l’optimisation des coûts dans Azure Cosmos DB, consultez les articles suivants :
+Pour continuer à développer vos connaissances sur l’optimisation des coûts dans Azure Cosmos DB, consultez les articles suivants :
 
 * En savoir plus sur l’[optimisation pour le développement et le test](optimize-dev-test.md)
 * En savoir plus sur les [factures Azure Cosmos DB](understand-your-bill.md)

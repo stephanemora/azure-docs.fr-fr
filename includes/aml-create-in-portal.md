@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: edcb2ecb74255ddbb8d601cb69565fb401b756d2
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6f73b15ed16cfe26bf14e60a5206568e1a1564fd
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52886201"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594317"
 ---
 Connectez-vous au [portail Azure](https://portal.azure.com/) avec les informations d’identification de l’abonnement Azure que vous utilisez. 
 
@@ -38,16 +38,16 @@ Dans le volet **Espace de travail ML**, configurez votre espace de travail.
 
    Champ|Description
    ---|---
-   Nom de l’espace de travail |Entrez un nom unique qui identifie votre espace de travail. Ici, nous utilisons docs-ws. Dans le groupe de ressources, les noms doivent être uniques. Utilisez un nom dont il est facile de se rappeler et que vous pouvez facilement différencier des autres espaces de travail.  
+   Nom de l’espace de travail |Entrez un nom unique qui identifie votre espace de travail. Dans cet exemple, nous allons utiliser **docs-ws**. Dans le groupe de ressources, les noms doivent être uniques. Utilisez un nom dont il est facile de se rappeler et que vous pouvez facilement différencier des autres espaces de travail.  
    Abonnement |Sélectionnez l’abonnement Azure que vous souhaitez utiliser.
-   Groupe de ressources | Utilisez un groupe de ressources existant dans votre abonnement, ou entrez un nom pour créer un groupe de ressources. Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Ici, nous utilisons docs-aml. 
+   Groupe de ressources | Utilisez un groupe de ressources existant dans votre abonnement, ou entrez un nom pour créer un groupe de ressources. Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Dans cet exemple, nous allons utiliser **docs-aml**. 
    Lieu | Sélectionnez l’emplacement le plus proche de vos utilisateurs et des ressources de données. C’est là que l’espace de travail est créé.
 
    ![Créer un espace de travail](./media/aml-create-in-portal/workspace-create.png)
 
 Pour démarrer le processus de création, sélectionnez **Créer**. La création de l’espace de travail peut prendre quelques instants.
 
-Pour vérifier l’état du déploiement, sélectionnez l’icône Notifications, représentée par une cloche dans la barre d’outils.
+Pour vérifier l’état du déploiement, sélectionnez l’icône Notifications, représentée par une **cloche**, dans la barre d’outils.
 
    ![État de création de l’espace de travail](./media/aml-create-in-portal/notifications.png)
 

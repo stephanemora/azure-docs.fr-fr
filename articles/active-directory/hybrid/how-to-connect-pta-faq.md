@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : authentification directe - Forum aux questions | Documents Microsoft'
+title: 'Azure AD Connect : Authentification directe – Forum aux questions | Microsoft Docs'
 description: Réponses au forum aux questions sur l’authentification directe d’Azure Active Directory
 services: active-directory
 keywords: Authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 77872ab809f4375523a91f4ebc9b24f8606e6c94
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: fdb316f5f5c1f67dbb92fe8847c0ffacce46ae07
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619813"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789090"
 ---
-# <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : forum aux questions
+# <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : Questions fréquentes (FAQ)
 
 Cet article présente les réponses aux questions fréquemment posées sur l’authentification directe d’Azure Active Directory (Azure AD). N'hésitez pas à le consulter pour vous tenir au courant des mises à jour.
 
@@ -74,7 +74,7 @@ Si la réécriture du mot de passe n’est pas configurée pour un utilisateur s
 - Les agents d’authentification établissent des requêtes HTTP sur le port 80 pour télécharger des listes de révocations de certificats SSL (CRL).
 
      >[!NOTE]
-     >Dans les mises à jour récentes, le nombre de ports requis par la fonctionnalité a été diminué. Si vous disposez de versions antérieures d’Azure AD Connect ou de l’agent d’authentification, laissez ces ports également ouverts : 5671, 8080, 9090, 9091, 9350, 9352 et 10100 à 10120.
+     >Dans les mises à jour récentes, le nombre de ports requis par la fonctionnalité a été diminué. Si vous disposez de versions antérieures d’Azure AD Connect ou de l’agent d’authentification, laissez ces ports également ouverts : 5671, 8080, 9090, 9091, 9350, 9352 et 10100-10120.
 
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>Les agents d’authentification directe peuvent-ils communiquer sur un serveur proxy web sortant ?
 
@@ -83,7 +83,7 @@ Oui. Si Web Proxy Auto-Discovery (WPAD) est activé dans votre environnement sur
 Si vous ne disposez pas de WPAD dans votre environnement, vous pouvez ajouter des informations de proxy (comme indiqué ci-dessous) pour permettre à un agent d'authentification directe de communiquer avec Azure AD :
 - Configurez les informations de proxy dans Internet Explorer avant d'installer l'agent d'authentification directe sur le serveur. Cela vous permettra de terminer l'installation de l'agent d’authentification, mais celui-ci apparaîtra toujours comme **Inactif** sur le portail d'administration.
 - Sur le serveur, accédez à « C:\Program Files\Microsoft Azure AD Connect Authentication Agent ».
-- Modifiez le fichier de configuration « AzureADConnectAuthenticationAgentService » et ajoutez les lignes suivantes (remplacez « http://contosoproxy.com:8080 » par votre adresse proxy réelle) :
+- Modifiez le fichier de configuration « AzureADConnectAuthenticationAgentService » et ajoutez les lignes suivantes (remplacez « http\://contosoproxy.com:8080 » par votre adresse proxy réelle) :
 
 ```
    <system.net>
@@ -156,7 +156,7 @@ La désinstallation d’un agent d’authentification directe à partir d’un s
 
 ## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>J’ai un ancien locataire qui a été configuré à l’origine avec AD FS.  Bien que nous ayons récemment migré vers PTA, nos modifications de nom d’utilisateur principal (UPN) ne se synchronisent pas avec Azure AD.  Pourquoi la synchronisation n’a-t-elle pas lieu ?
 
-R : Il peut arriver que les modifications de noms UPN locaux ne se synchronisent pas dans les circonstances suivantes :
+R : Il peut arriver que les modifications de noms UPN locaux ne se synchronisent pas dans les circonstances suivantes :
 
 - Votre client Azure AD a été créé avant le 15 juin 2015.
 - Vous étiez à l’origine fédéré avec votre client Azure AD par le biais d’AD FS pour l’authentification.
@@ -171,13 +171,13 @@ Les locataires créés après le 15 juin 2015 ont le comportement par défaut, c
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Limitations actuelles](how-to-connect-pta-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
+- [Limitations actuelles](how-to-connect-pta-current-limitations.md) : Découvrez les scénarios pris en charge et ceux qui ne le sont pas.
 - [Démarrage rapide](how-to-connect-pta-quick-start.md) : soyez opérationnel sur l’authentification directe Azure AD.
 - [Migrer à partir d’AD FS vers l’authentification directe](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) : guide détaillé de la migration d’AD FS (ou d’autres technologies de fédération) vers l’authentification directe.
-- [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : guide pratique pour configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
-- [Présentation technique approfondie](how-to-connect-pta-how-it-works.md) : découvrez comment fonctionne l'authentification directe.
-- [Résoudre les problèmes](tshoot-connect-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants liés à la fonctionnalité d’authentification directe.
-- [Présentation approfondie de sécurité](how-to-connect-pta-security-deep-dive.md) : obtenez des informations techniques approfondies sur l’authentification directe.
-- [Authentification unique transparente Azure AD](how-to-connect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
+- [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : apprenez à configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d'utilisateur.
+- [Présentation technique approfondie](how-to-connect-pta-how-it-works.md) : découvrez comment fonctionne la fonctionnalité d'authentification directe.
+- [Résoudre les problèmes](tshoot-connect-pass-through-authentication.md) : apprenez à résoudre les problèmes courants liés à la fonctionnalité d'authentification directe.
+- [Présentation approfondie de sécurité](how-to-connect-pta-security-deep-dive.md) : obtenez des informations techniques détaillées sur la fonctionnalité d’authentification directe.
+- [Authentification unique fluide Azure AD](how-to-connect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : utilisez le Forum Azure Active Directory pour consigner de nouvelles demandes de fonctionnalités.
 

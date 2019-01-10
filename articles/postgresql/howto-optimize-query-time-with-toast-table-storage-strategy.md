@@ -3,16 +3,15 @@ title: Optimiser les délais des requêtes dans Azure Database pour serveur Pos
 description: Cet article décrit comment optimiser les délais des requêtes en utilisant la stratégie de stockage de table toast dans une base de données Azure pour un serveur PostgreSQL.
 author: dianaputnam
 ms.author: dianas
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: dee8aaaef4b1998a7234a88d07ad5efbc79d050b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 1fb818a65e26f969f72131b0f5265f3efdd36bb6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628439"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542198"
 ---
 # <a name="optimizing-query-time-with-toast-table-storage-strategy"></a>Optimisation des délais des requêtes en utilisant la stratégie de stockage de table TOAST 
 Cet article décrit comment optimiser les délais des requêtes en utilisant la stratégie de stockage de table TOAST.
@@ -32,4 +31,4 @@ Si l’une de vos charges de travail utilise un schéma contenant de larges tabl
 ## <a name="next-steps"></a>Étapes suivantes
 Examinez les caractéristiques précédentes de votre charge de travail. 
 
-Consultez la documentation suivante, consacrée à PostgreSQL : [Chapitre 68, Stockage physique de base de données](https://www.postgresql.org/docs/current/storage-toast.html) 
+Passez en revue la documentation PostgreSQL suivante : [Chapitre 68, Stockage physique de base de données](https://www.postgresql.org/docs/current/storage-toast.html) 

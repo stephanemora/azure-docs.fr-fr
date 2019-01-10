@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d810b8be496bbfd1c5bd88d8221e77dd5b76c889
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 16026adc2eb0179cd2b42f449494cbbc6547b946
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622962"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651450"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Utilisation du pack de contenu Power BI Azure Active Directory
 
@@ -32,7 +32,7 @@ Le pack de contenu Power BI pour Azure Active Directory (Azure AD) contient des 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous avez besoin d’une licence Azure AD premium (P1/P2) pour utiliser le pack de contenu. 
+Vous avez besoin d’une licence Azure AD premium (P1/P2) pour utiliser le pack de contenu. Consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) pour mettre à niveau votre édition d’Azure Active Directory.
 
 ## <a name="install-the-content-pack"></a>Installer le pack de contenu
 
@@ -42,7 +42,7 @@ Consultez le [démarrage rapide](quickstart-install-power-bi-content-pack.md) po
 
 Les rapports suivants sont inclus dans le pack de contenu Power BI Azure AD. Les rapports contiennent les données des **30 derniers jours**.
 
-**Rapport sur l’utilisation des applications et les tendances** : ce rapport vous donne des informations sur les applications utilisées dans votre organisation. Vous pouvez obtenir la liste des applications les plus populaires, ou comprendre comment une application récemment déployée dans votre organisation est utilisée. Cela vous permet de suivre et d’améliorer l’utilisation au fil du temps.
+**Rapport sur l’utilisation des applications et les tendances** :  ce rapport vous donne des informations sur les applications utilisées dans votre organisation. Vous pouvez obtenir la liste des applications les plus populaires, ou comprendre comment une application récemment déployée dans votre organisation est utilisée. Cela vous permet de suivre et d’améliorer l’utilisation au fil du temps.
 
 **Connexions par emplacement et utilisateurs** : ce rapport fournit des données sur toutes les connexions effectuées à l’aide d’Azure Identity. Ce rapport permet d’examiner de manière plus approfondie les connexions individuelles et de répondre aux questions telles que :
 
@@ -52,7 +52,7 @@ Les rapports suivants sont inclus dans le pack de contenu Power BI Azure AD. Les
  
 Vous pouvez également filtrer les résultats en sélectionnant une date ou un emplacement spécifique.
 
-**Utilisateurs uniques par application** : ce rapport fournit une vue de l’ensemble des utilisateurs uniques utilisant une application donnée. Il comprend uniquement les utilisateurs qui se sont connectés « *avec succès* » à une application.
+**Utilisateurs uniques par application** :  ce rapport fournit une vue de l’ensemble des utilisateurs uniques utilisant une application donnée. Il comprend uniquement les utilisateurs qui se sont connectés « *avec succès* » à une application.
 
 **Connexions d’appareil** : ce rapport vous permet de comprendre les différents profils d’appareils utilisés au sein de votre organisation et de déterminer les stratégies d’appareils en fonction de ce qui est utilisé. Il fournit des données autour du type de systèmes d’exploitation et de navigateurs utilisés pour la connexion aux applications, ainsi que des informations détaillées sur les utilisateurs, notamment :
 
@@ -65,17 +65,17 @@ Vous pouvez également filtrer les résultats en sélectionnant une date ou un e
 
 ## <a name="customize-azure-ad-activity-content-pack"></a>Personnalisation du pack de contenu d’activité Azure AD
 
-**Modifier la visualisation** : vous pouvez modifier une visualisation des rapports en cliquant sur **Modifier le rapport** et sélectionner la visualisation que vous souhaitez.
+**Modifier la visualisation** :  vous pouvez modifier une visualisation des rapports en cliquant sur **Modifier le rapport** et sélectionner la visualisation que vous souhaitez.
  
 ![Pack de contenu Power BI Azure Active Directory](./media/howto-power-bi-content-pack/09.png) 
  
 ![Pack de contenu Power BI Azure Active Directory](./media/howto-power-bi-content-pack/10.png) 
 
-**Inclure des champs supplémentaires** : vous pouvez ajouter un champ au rapport ou le supprimer en sélectionnant l’élément visuel auquel vous souhaitez ajouter/supprimer le champ. Par exemple, vous pouvez ajouter le champ « État de la connexion » à la vue de table, comme indiqué ci-dessous. 
+**Inclure des champs supplémentaires** :  vous pouvez ajouter un champ au rapport ou le supprimer en sélectionnant l’élément visuel auquel vous souhaitez ajouter/supprimer le champ. Par exemple, vous pouvez ajouter le champ « État de la connexion » à la vue de table, comme indiqué ci-dessous. 
  
 ![Pack de contenu Power BI Azure Active Directory](./media/howto-power-bi-content-pack/11.png) 
 
-**Épingler des visualisations au tableau de bord** : vous pouvez personnaliser votre tableau de bord et inclure vos propres visualisations au rapport et l’épingler sur le tableau de bord. 
+**Épingler des visualisations au tableau de bord** :  vous pouvez personnaliser votre tableau de bord et inclure vos propres visualisations au rapport et l’épingler sur le tableau de bord. 
 
 ![Pack de contenu Power BI Azure Active Directory](./media/howto-power-bi-content-pack/13.png) 
  

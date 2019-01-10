@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: d5e10e04ea9567e2656f592407855a53a70d7b0f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: b4c873e319dd611221c81deb948db3a64062631e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263354"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54032599"
 ---
 # <a name="optimize-the-cost-for-multi-region-deployments-in-azure-cosmos-db"></a>Optimiser le coût des déploiements multirégions dans Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Vous pouvez ajouter et supprimer des régions dans votre compte Azure Cosmos à 
 
 1. `T x (N+1) RU/s` si votre compte Azure Cosmos est configuré de telle sorte que toutes les régions peuvent traiter les écritures. 
 
-Le débit approvisionné avec une seule région d’écriture coûte 0,008 $/heure pour 100 RU/seconde et le débit approvisionné avec plusieurs régions accessibles en écriture coûte 0,016 $/heure pour 100 RU/seconde. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/) Cosmos DB.
+Le débit approvisionné avec une seule région d’écriture coûte 0,008 $/heure pour 100 RU/seconde et le débit approvisionné avec plusieurs régions accessibles en écriture coûte 0,016 $/heure pour 100 RU/seconde. Pour en savoir plus, voir la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/) d’Azure Cosmos DB.
 
 ## <a name="costs-for-multiple-write-regions"></a>Coûts pour plusieurs régions d’écriture
 
@@ -51,7 +51,7 @@ Si vous avez une utilisation inefficace, par exemple, une ou plusieurs régions 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour approfondir vos connaissances sur l’optimisation des coûts dans Azure Cosmos DB, consultez les articles suivants :
+Pour continuer à développer vos connaissances sur l’optimisation des coûts dans Azure Cosmos DB, consultez les articles suivants :
 
 * En savoir plus sur l’[optimisation pour le développement et le test](optimize-dev-test.md)
 * En savoir plus sur les [factures Azure Cosmos DB](understand-your-bill.md)

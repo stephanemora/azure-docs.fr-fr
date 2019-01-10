@@ -105,17 +105,19 @@ items:
     - name: Key Vault
       items:
       - name: Vue d’ensemble
-        href: azure-stack-kv-intro.md
+        href: azure-stack-key-vault-intro.md
       - name: Gérer avec le portail
-        href: azure-stack-kv-manage-portal.md
+        href: azure-stack-key-vault-manage-portal.md
       - name: Gérer avec PowerShell
-        href: azure-stack-kv-manage-powershell.md
+        href: azure-stack-key-vault-manage-powershell.md
       - name: Créer une machine virtuelle avec un secret
-        href: azure-stack-kv-deploy-vm-with-secret.md
+        href: azure-stack-key-vault-deploy-vm-with-secret.md
       - name: Créer une machine virtuelle avec un certificat
-        href: azure-stack-kv-push-secret-into-vm.md
+        href: azure-stack-key-vault-push-secret-into-vm.md
+      - name: Stocker les informations d’identification dans le coffre de clés
+        href: azure-stack-key-vault-store-credentials.md
       - name: Exemple d’application Key Vault
-        href: azure-stack-kv-sample-app.md
+        href: azure-stack-key-vault-sample-app.md
     - name: Azure Monitor
       href: azure-stack-metrics-azure-data.md
       items:
@@ -218,9 +220,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Formation et certification
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 2ee94296c840c2ec9eca1e954139bb7da47819c2
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 16ad9c79aedad01cf6bd1c83740938f23b592b6a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049535"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189896"

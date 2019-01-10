@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights - Modèle de série chronologique | Microsoft Docs
+title: Modèle de série chronologique dans Azure Time Series Insights en préversion | Microsoft Docs
 description: Comprendre le modèle de série chronologique d’Azure Time Series Insights.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2ead7a9a71c0afe72736bef8796107cae42009f1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a6eb142cf607c286ccce1282bb5c67a30c040c62
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278183"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716580"
 ---
 # <a name="time-series-model"></a>Modèle de série chronologique
 
@@ -136,7 +136,7 @@ Prenons l’exemple de la hiérarchie H1 suivante, dont la définition contient 
  H1 = [“building”, “floor”, “room”]
 ```
 
-Selon les *champs d’instance*, les attributs et les valeurs de la hiérarchie s’affichent comme indiqué dans le tableau suivant : 
+Selon les *champs d’instance*, les attributs et les valeurs de la hiérarchie s’affichent comme indiqué dans le tableau suivant :
 
 | ID de série chronologique | Champs d'instance |
 | --- | --- |
@@ -144,9 +144,9 @@ Selon les *champs d’instance*, les attributs et les valeurs de la hiérarchie 
 | ID2 | “building” = “1000”, “room” = “55” |
 | ID3 | “floor” = “10” |
 | ID4 | “building” = “1000”, “floor” = “10”  |
-| ID5 | |
+| ID5 | Aucune des valeurs “building”, “floor” ou “room” n’est définie |
 
-Dans l’exemple précédent, ID1 fait partie de la hiérarchie H1 dans l’interface/expérience utilisateur, et les autres attributs sont classés sous *Instances non apparentées* car ils ne correspondent pas à la hiérarchie de données spécifiée.
+Dans l’exemple précédent, ID1 et ID4 font partie de la hiérarchie H1 dans l’explorateur Azure Time Series Insights, et les autres attributs sont classés sous *Instances non apparentées* car ils ne correspondent pas à la hiérarchie de données spécifiée.
 
 ## <a name="time-series-model-instances"></a>Instances de modèle de série chronologique
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
+ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: cb70c99d56cb1d09e561a44a90fd6c007ea9b59f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f05c0469dffa074501a301802412901ead3d1e69
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964115"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720813"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Gagner en visibilité au niveau locataire dans Azure Security Center
 Cet article vous aide à démarrer en effectuant plusieurs actions qui optimisent les avantages qu’offre Azure Security Center. En effet, en effectuant ces actions, vous obtenez une meilleure visibilité de tous les abonnements Azure qui sont liés à votre locataire Azure Active Directory et vous gérez efficacement la sécurité de votre organisation à grande échelle en appliquant des stratégies de sécurité sur plusieurs abonnements en même temps.
@@ -71,19 +71,19 @@ Les administrateurs de locataires Azure Active Directory n’ont pas d’accès 
 
    ![Propriétés Azure AD - capture d’écran](./media/security-center-management-groups/aad-properties.png)
 
-3. Sous **L’administrateur général peut gérer des abonnements et des groupes d’administration Azure**, positionnez le commutateur sur **Oui**.
+3. Sous **Gestion des accès aux ressources Azure**, définissez le commutateur sur **Oui**.
 
    ![L’administrateur général peut gérer des abonnements et des groupes d’administration Azure - capture d’écran](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
-   - Lorsque vous positionnez le commutateur sur **Oui**, votre compte d’administrateur général (utilisateur actuellement connecté) est ajouté au rôle Administrateur de l’accès utilisateur dans RBAC Azure dans l’étendue racine (`/`), ce qui vous donne accès à tous les abonnements Azure associés à votre client Azure AD pour les consulter et générer des rapports à leur sujet.
+   - Quand vous définissez le commutateur sur Oui, le rôle Administrateur de l’accès utilisateur vous est attribué dans Azure RBAC au niveau de l’étendue racine (/). Ceci vous accorde l’autorisation d’attribuer des rôles dans tous les abonnements et groupes d’administration Azure associés à cet annuaire Azure AD. Ce commutateur est disponible seulement pour les utilisateurs auxquels le rôle Administrateur général a été attribué dans Azure AD.
 
-   - Lorsque vous positionnez le commutateur sur **Non**, votre compte d’administrateur général (utilisateur actuellement connecté) est supprimé du rôle Administrateur de l’accès utilisateur dans RBAC Azure. Vous ne pouvez pas voir tous les abonnements Azure associés au client Azure AD, et ne pouvez afficher et gérer que les abonnements Azure auxquels vous avez été autorisé à accéder.
+  - Quand vous définissez le commutateur sur Non, le rôle Administrateur de l’accès utilisateur dans Azure RBAC est supprimé de votre compte d’utilisateur. Vous ne pouvez plus attribuer des rôles dans tous les abonnements et groupes d’administration Azure associés à cet annuaire Azure AD. Vous pouvez voir et gérer seulement les abonnements et groupes d’administration Azure auxquels l’accès vous a été accordé.
 
 4. Cliquez sur **Enregistrer** pour enregistrer votre paramètre.
 
     - Ce paramètre n’est pas une propriété globale et s’applique uniquement à l’utilisateur actuellement connecté.
 
-5. Effectuez les tâches que vous devez accomplir via un accès élevé. Lorsque vous avez terminé, repositionnez le commutateur sur **Non**.
+5. Effectuez les tâches que vous devez accomplir via un accès avec élévation de privilèges. Lorsque vous avez terminé, repositionnez le commutateur sur **Non**.
 
 
 ### <a name="assign-rbac-roles-to-users"></a>Attribuer des rôles RBAC aux utilisateurs

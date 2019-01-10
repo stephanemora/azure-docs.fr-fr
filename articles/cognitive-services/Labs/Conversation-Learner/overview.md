@@ -10,20 +10,20 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9cbf0e60382ef17d68aab47cf5f24ea9b8434f13
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0d2cca335206ee59b922a31ed3cf3ba24ef4ecd7
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369581"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790773"
 ---
 # <a name="what-is-conversation-learner"></a>Qu’est-ce que l’Apprenant de conversation ?
 
 L’Apprenant de conversation vous permet de générer des interfaces conversationnelles qui apprennent des exemples d’interaction. 
 
-Contrairement aux approches traditionnelles, l’Apprenant de conversation tient compte du contexte d’un dialogue de bout en bout pour améliorer les réponses et créer des expériences utilisateur plus attrayantes. L’Apprenant de conversation couvre un large éventail de cas d’usage orientés sur les tâches et applique le Machine Learning en arrière-plan pour que les bots et les agents intelligents soient moins susceptibles de frustrer les utilisateurs et d’entraîner des frais de service client supplémentaires, ainsi que pour permettre d’interagir de manière plus intuitive avec eux.
+Contrairement aux approches traditionnelles, l’Apprenant de conversation tient compte du contexte d’un dialogue de bout en bout pour améliorer les réponses et créer des expériences utilisateur plus attrayantes. Conversation Learner couvre un vaste éventail de cas d’utilisation orientés sur les tâches et applique le Machine Learning en arrière-plan pour que les bots et les agents intelligents soient moins susceptibles de frustrer les utilisateurs et d’entraîner des frais de service client supplémentaires, ainsi que pour stimuler des interactions plus intuitives.
 
-Pour commencer, le développeur entre des prototypes de dialogues qu’il souhaite imiter. À mesure que des dialogues supplémentaires sont entrés, le modèle est actualisé en permanence, et le développeur peut voir dans quelle mesure le modèle se généralise. Une fois que le modèle fonctionne bien, le bot peut être déployé pour les utilisateurs finaux. L’Apprenant de conversation enregistre les conversations avec les utilisateurs, et le développeur peut les réviser. Si des erreurs sont repérées, le développeur peut apporter une correction sur place. Le modèle est reformé et peut être utilisé immédiatement.
+Les développeurs commencent par entrer des prototypes de dialogues qu’il souhaitent imiter. Le modèle apprend à mesure que davantage de dialogues sont entrés. Une fois que le modèle fonctionne bien, le bot peut être déployé pour les utilisateurs finaux. L’Apprenant de conversation enregistre les conversations avec les utilisateurs, et le développeur peut les réviser. Si des erreurs sont repérées, le développeur peut apporter une correction sur place. Le modèle est reformé et peut être utilisé immédiatement.
 
 Cette approche réduit le codage manuel de la logique de contrôle du dialogue et permet aux propriétaires de l’entreprise ou aux experts de domaine de contribuer à une interface conversationnelle sans connaissances préalables de Machine Learning. Qu’il soit déployé en tant que bot, appareil intelligent ou agent intelligent, l’Apprenant de conversation peut rapidement répéter des compétences ou des comportements nouveaux et améliorer leur qualité. 
 

@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 6bcea43fb21cae6f000f3522b498dfc6c0f6d9a7
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 4d14569219c8db503fc91f52a6867de85373aa05
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166215"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724383"
 ---
-# <a name="find-endpoint-region-with-nodejs"></a>Rechercher la région de point de terminaison avec Node.js
+# <a name="programmatically-find-endpoint-region-with-nodejs"></a>Rechercher par programme la région de point de terminaison avec Node.js
 Si vous disposez d’un ID d’application LUIS et d’un ID d’abonnement LUIS, vous pouvez rechercher la région à utiliser pour les requêtes de point de terminaison.
 
 > [!NOTE] 
-> La solution Node.js complète est disponible dans le dépôt GitHub [**LUIS-Samples**](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/nodejs/).
+> La solution Node.js complète est disponible dans le dépôt GitHub [**Azure-Samples**](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/find-region/nodejs/).
 
 ## <a name="luis-endpoint-query-strategy"></a>Stratégie de requête de point de terminaison LUIS
 Chaque requête de point de terminaison LUIS nécessite :

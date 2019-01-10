@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 8285632d8dea76763c65dd06e8be2d7494a47188
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 02e6d6407a515314d99ea747dac3646d665c47ae
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838988"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976577"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Répliquer des machines virtuelles Azure Stack dans Azure
 
@@ -33,7 +33,7 @@ Dans cet article, vous apprendrez comment :
 > * **Étape 1 : Préparer des machines virtuelles Azure Stack pour la réplication**. Vérifier que les machines virtuelles sont conformes aux exigences de Site Recovery, et préparer l’installation du service Mobilité Azure Site Recovery. Ce service est installé sur chaque machine à répliquer.
 > * **Étape 2 : Configurer un coffre Recovery Services**. Configurer un coffre pour Site Recovery, et spécifier ce que vous souhaitez répliquer. Les actions et composants de Site Recovery sont configurés et gérés dans le coffre.
 > * **Étape 3 : Configurer l’environnement de réplication source**. Configurer un serveur de configuration Site Recovery. Le serveur de configuration est une machine virtuelle Azure Stack qui s’exécute tous les composants dont Site Recovery a besoin. Après avoir configuré le serveur de configuration, vous l’inscrivez dans le coffre.
-> * **Étape 4 : Configurer l’environnement de réplication cible**. Sélectionnez votre compte Azure, le compte Stockage Azure et le réseau que vous souhaitez utiliser. Lors de la réplication, les données des machines virtuelles sont copiées dans Stockage Azure. Après le basculement, les machines virtuelles Azure sont jointes au réseau spécifié.
+> * **Étape 4 : Configurer l’environnement de réplication cible**. Sélectionnez votre compte Azure, ainsi que le compte de stockage Azure et le réseau que vous souhaitez utiliser. Lors de la réplication, les données des machines virtuelles sont copiées dans Stockage Azure. Après le basculement, les machines virtuelles Azure sont jointes au réseau spécifié.
 > * **Étape 5 : Activer la réplication**. Configurer les paramètres de réplication et activer la réplication à partir des machines virtuelles. Le service Mobilité est installé sur une machine virtuelle lors de l’activation de la réplication. Site Recovery effectue une réplication initiale de la machine virtuelle, puis la réplication continue commence.
 > * **Étape 6 : Exécuter une simulation de reprise d’activité** : Une fois la réplication opérationnelle, vous vérifiez que le basculement fonctionne comme prévu en exécutant une simulation. Pour lancer la simulation, exécutez un test de basculement dans Site Recovery. Le test de basculement n’affecte pas votre environnement de production.
 
@@ -237,7 +237,7 @@ Vérifiez que vous avez accompli toutes les tâches décrites dans [Étape 1 :
 6. Sélectionnez le compte de stockage Azure dans lequel vous souhaitez stocker les données répliquées.
 7. Sélectionnez le sous-réseau et le réseau Azure auxquels les machines virtuelles Azure se connectent lorsqu’elles sont créées après le basculement.
 8. Sélectionnez **Effectuez maintenant la configuration pour les machines sélectionnées** pour appliquer le paramètre réseau à l’ensemble des machines que vous sélectionnez à des fins de protection. Sélectionnez **Configurer ultérieurement** si vous souhaitez sélectionner le réseau Azure séparément pour chaque machine.
-9. Dans **Machines physiques**, cliquez sur **+Machines physiques**. Spécifiez le nom de l’adresse IP de chaque machine, et le système d’exploitation que vous souhaitez répliquer.
+9. Dans **Machines physiques**, cliquez sur **+Machines physiques**. Spécifiez le nom, l’adresse IP et le type de système d’exploitation de chaque machine à répliquer.
 
     - Utilisez l’adresse IP interne de la machine.
     - Si vous spécifiez l’adresse IP publique, il se peut que la réplication ne fonctionne pas comme prévu.
@@ -279,8 +279,8 @@ Quand vous effectuez un test de basculement, voici ce qui se produit :
 1. Une vérification des prérequis est effectuée pour garantir que toutes les conditions nécessaires pour le basculement sont en place.
 2. Le basculement traite les données en utilisant le point de récupération spécifié :
     - **Dernier point traité** : la machine bascule vers le dernier point de récupération traité par Site Recovery. L’horodatage est affiché. Cette option, avec laquelle aucun temps n’est passé à traiter les données, offre un objectif de délai de récupération faible.
-    - **Dernier point de cohérence des applications** : la machine virtuelle bascule vers le dernier point de récupération de cohérence des applications.
-    - **Personnalisez**. Sélectionnez le point de récupération utilisé pour le basculement.
+    - **Dernier point de cohérence des applications** : La machine virtuelle bascule vers le dernier point de récupération de cohérence des applications.
+    - **Personnalisé** : Sélectionnez le point de récupération utilisé pour le basculement.
 
 3. Une machine virtuelle Azure est créée à l’aide des données traitées.
 4. Un test de basculement peut nettoyer automatiquement les machines virtuelles Azure créées durant la simulation.

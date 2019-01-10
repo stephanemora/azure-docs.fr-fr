@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4d86bcf99d5b4cf2b04980e72a2bd0a422233dc3
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: db801acbed649c4baa039858ce1d097237c8e227
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622872"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971373"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Référence sur l’activité d’audit Azure AD
 
@@ -515,10 +515,10 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 |Gestion des groupes|Examiner la demande d’approbation de demande|
 |Gestion des groupes|Mettre à jour une révision d’accès|
 |Gestion des groupes|Mettre à jour les paramètres de notification par e-mail pour la révision d’accès|
-|Gestion des groupes|Mettre à jour le paramètre du nombre de récurrences pour la révision d’accès|
-|Gestion des groupes|Mettre à jour le paramètre de durée en jour de la récurrence pour la révision d’accès|
-|User Management|Mettre à jour le paramètre de type de fin de la récurrence pour la révision d’accès|
-|User Management|Mettre à jour le paramètre de type de récurrence pour la révision d’accès|
+|Gestion des groupes|Mettre à jour le paramètre de nombre de la périodicité de révision de l’accès|
+|Gestion des groupes|Mettre à jour le paramètre de durée de la périodicité de révision de l’accès en jours|
+|User Management|Mettre à jour le paramètre de type de fin de la périodicité de révision de l’accès|
+|User Management|Mettre à jour le paramètre de type de la périodicité de révision de l’accès|
 
 
 
@@ -593,4 +593,4 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 
 - [Vue d’ensemble des rapports Azure AD](overview-reports.md).
 - [Rapport de journaux d’audit](concept-audit-logs.md) 
-- [Accès par programme aux rapports Azure AD](concept-reporting-api.md)
+- [Accès par programmation aux rapports Azure AD](concept-reporting-api.md)

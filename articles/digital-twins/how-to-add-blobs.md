@@ -1,19 +1,20 @@
 ---
-title: Ajouter des objets blob à des objets dans Azure Digital Twins | Microsoft Docs
-description: Comprendre comment ajouter des objets blob à des objets dans Azure Digital Twins
+title: Guide pratique pour ajouter des objets blobs à des objets dans Azure Digital Twins | Microsoft Docs
+description: Découvrez comment ajouter des objets blob à des objets dans Azure Digital Twins.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/28/2018
 ms.author: adgera
-ms.openlocfilehash: 8a68ba35ddf7caacbf2339d87c5aeef80f470ba4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.custom: seodec18
+ms.openlocfilehash: 604093dcec048b0991bbc9beac3ef998cc47e351
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725622"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974509"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Ajouter des objets blob à des objets dans Azure Digital Twins
 
@@ -21,10 +22,7 @@ Les objets blob sont des représentations non structurées de types de fichier c
 
 Azure Digital Twins prend en charge l’attachement d’objets blob à des appareils, des espaces et des utilisateurs. Les objets blob peuvent représenter une image de profil pour un utilisateur, une photo de l’appareil, une vidéo, une carte ou un journal.
 
-> [!NOTE]
-> Cet article suppose :
-> * que votre instance est correctement configurée pour recevoir des demandes de l’API de gestion ;
-> * Que vous vous êtes correctement authentifié à l’aide du client REST de votre choix.
+[!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
 ## <a name="uploading-blobs-an-overview"></a>Téléchargement d’objets blob : une vue d’ensemble
 
@@ -93,9 +91,9 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Valeur du paramètre | Remplacer par |
+| Valeur | Remplacer par |
 | --- | --- |
-| *USER_DEFINED_BOUNDARY* | Nom de la limite de contenu en plusieurs parties |
+| USER_DEFINED_BOUNDARY | Nom de la limite de contenu en plusieurs parties |
 
 Le code suivant est une implémentation .NET du même chargement d’objet blob mais en utilisant la classe [MultipartFormDataContent](https://docs.microsoft.com/dotnet/api/system.net.http.multipartformdatacontent) :
 
@@ -116,7 +114,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 ## <a name="api-endpoints"></a>Points de terminaison d’API
 
-Les sections suivantes vous guident dans les points de terminaison principaux et leurs fonctionnalités.
+Les sections suivantes décrivent les points de terminaison d’API principaux liés à l’objet blob et leurs fonctionnalités.
 
 ### <a name="devices"></a>Appareils
 

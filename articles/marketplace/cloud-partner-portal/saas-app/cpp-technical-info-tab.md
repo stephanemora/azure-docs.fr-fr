@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e247cedb732bb1290631ada4c6d423f1b3ed0dbd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: da67213b708b3ff26fe1ddd926c5cb0bba33458d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196119"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788547"
 ---
 # <a name="saas-application-technical-info-tab"></a>Onglet des informations techniques de l’application SaaS
 
@@ -54,7 +54,7 @@ Le tableau suivant décrit les champs requis pour la vente via Microsoft.
 |     Instructions de prise en main              |   Instructions à transmettre à vos clients pour les aider à se connecter à votre application SaaS. Les balises HTML de base sont autorisées, par exemple : &lt;p&gt;, &lt;h1&gt;, &lt;li&gt;, etc.                |
 |    URL de la page d’accueil  |   L’URL du site vers lequel vous allez rediriger vos clients après avoir effectué l’achat sur le portail Azure. Cette URL sera également le point de terminaison qui recevra les API de connexion afin de faciliter le commerce avec Microsoft.                |
 |  Webhook de connexion    |  Pour tous les événements asynchrones que Microsoft doit vous envoyer au nom du client (exemple : un abonnement Azure devenu non valide), nous vous demandons de nous fournir un webhook de connexion. Si vous ne disposez pas d’un système de webhook, la configuration la plus simple consiste à disposer d’une application de logique de point de terminaison HTTP qui écoute les événements qui sont publiés et les traite de façon appropriée. Pour plus d’informations, consultez <a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">Appeler, déclencher ou imbriquer des workflows via des points de terminaison HTTP dans des applications logiques</a>                |
-|  ID d’abonné Azure AD et ID d’application      |   Dans le portail Azure, vous devez créer une application Active Directory afin que nous puissions confirmer que la connexion entre nos deux services se fait bien dans le cadre d’une communication authentifiée. Pour ces champs, créez une application AD et collez l’ID d’abonné et l’ID d’application nécessaires.               |
+|  ID d’abonné Azure AD et ID d’application      |   Dans le portail Azure, vous devez créer une application Active Directory afin que nous puissions confirmer que la connexion entre nos deux services se fait bien dans le cadre d’une communication authentifiée. Pour ces champs, créez une application AD et collez l’ID d’abonné et l’ID d’application nécessaires. Notez que l’id d’application est associé à votre publisherID. Par conséquent, assurez-vous qu’il s’agit du même ID d’application, comme dans toutes les offres.             |
 
 
 Enfin, si vous sélectionnez **Vendre via Microsoft**, il existe un autre onglet Nouvelle offre nommé **Plans**. 

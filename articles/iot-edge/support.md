@@ -4,17 +4,17 @@ description: Découvrez quels systèmes d’exploitation peuvent exécuter le ru
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/07/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c75f50e40f83a4dc6765ae422fbb2458f40d770
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6443260de0a8bd8531edb303fa581d281034fef3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100177"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555606"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Systèmes pris en charge Azure IoT Edge
 
@@ -41,12 +41,14 @@ Mise à la disposition générale
 | Ubuntu Server 16.04 | Oui | Non  |
 | Ubuntu Server 18.04 | Oui | Non  |
 
-Version préliminaire publique
+Préversion publique
 | Système d’exploitation | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Windows 10 IoT Standard (mise à jour d’avril 2018) | Oui | Non  |
-| Windows 10 IoT Entreprise (mise à jour d’avril 2018) | Oui | Non  |
-| Windows 10 Server 1803 | Oui | Non  |
+| Windows 10 IoT Core build 17763 | Oui | Non  |
+| Windows 10 build 17763 pour conteneurs Windows<br><br>Windows 10 build 14393 ou version plus récente pour conteneurs Linux\* | Oui | Non  |
+| Windows Server 2019 pour conteneurs Windows<br><br>Windows Server 2016 ou version plus récente pour conteneurs Linux\* | Oui | Non  |
+
+\* Microsoft fournit des packages d’installation pour conteneurs Linux sur des appareils Windows exclusivement à des fins de développement et de test. Cette configuration n’est pas pris en charge pour une utilisation en production. 
 
 ### <a name="tier-2"></a>Niveau 2
 Les systèmes de niveau 2 peuvent être considérés comme étant compatibles avec Azure IoT Edge et peuvent être utilisés relativement facilement. Cela signifie que :

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d10ca5d704892ae0a1494d729b46abf0fc06aa64
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5debc14a6a20c42b62b9a7b2c524e36e94302221
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092250"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792864"
 ---
 # <a name="azure-data-box-disk-system-requirements-preview"></a>Configuration système exigée Azure Data Box Disk (Préversion)
 
@@ -32,7 +32,7 @@ Voici une liste des systèmes d’exploitation pris en charge pour le déverroui
 | **Système d’exploitation** | **Versions testées** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
-| Windows |7, 8, 10 |
+|  Windows |7, 8, 10 |
 |Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
 
 ## <a name="other-required-software-for-windows-clients"></a>Autres logiciels requis pour les clients Windows
@@ -61,6 +61,9 @@ Voici une liste des types de stockage pris en charge pour le disque Data Box.
 | --- | --- |
 | Classique | standard |
 | Usage général  |Standard ; V1 et V2 sont pris en charge. Les niveaux chaud et froid sont tous les deux pris en charge. |
+
+>[!NOTE]
+> Les comptes Azure Data Lake Storage Gen 2 ne sont pas pris en charge.
 
 
 ## <a name="supported-storage-types"></a>Types de stockage pris en charge

@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 964f91f412645e141ca003d511480f6f6eb438a3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: e69f6869911555730fe723b340e224c0d5a1e4bb
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343286"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536047"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Architecture de la connectivité d’Azure SQL Database Managed Instance
 
@@ -113,7 +113,10 @@ Vous pouvez déployer Managed Instance dans un sous-réseau dédié (sous-résea
 
   > [!Note]
   > Bien que les règles de sécurité de trafic entrant obligatoires autorisent le trafic à partir de _n’importe quelle_ source vers les ports 9000, 9003, 1438, 1440 et 1452, ces ports sont protégés par un pare-feu intégré. Cet [article](sql-database-managed-instance-find-management-endpoint-ip-address.md) explique comment détecter l’adresse IP de point de terminaison de gestion et comment vérifier les règles de pare-feu. 
-
+  
+  > [!Note]
+  > Si vous utilisez une réplication transactionnelle dans Managed Instance et qu’une base de données quelconque dans Managed Instance est utilisée en tant que serveur de publication ou de distribution, le port 445 (TCP sortant) doit également être ouvert dans les règles de sécurité du sous-réseau pour accéder au partage de fichiers Azure.
+  
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour obtenir une vue d’ensemble, consultez  [Présentation de Managed Instance](sql-database-managed-instance.md)

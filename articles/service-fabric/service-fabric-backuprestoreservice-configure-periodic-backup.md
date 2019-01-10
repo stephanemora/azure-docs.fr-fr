@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 1a9034d7cbc276f35c5f01b06f6973553222d1c4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f2a1cd79a99e16460c96d28ebeb0a2bd68975361
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722375"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794241"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Compréhension de la configuration de la sauvegarde périodique dans Azure Service Fabric
 
@@ -138,6 +138,9 @@ Une stratégie de sauvegarde se compose des configurations suivantes :
         }
         ```
 
+> [!IMPORTANT]
+> En raison d’un problème dans le runtime, vérifiez que la durée de rétention dans la stratégie de rétention est configurée pour être inférieure à 24 jours. Autrement, le service de restauration des sauvegardes subira une perte de quorum après le basculement du réplica.
+
 ## <a name="enable-periodic-backup"></a>Activer la sauvegarde périodique
 Après définition d’une stratégie de sauvegarde répondant aux exigences de sauvegarde de données, cette stratégie doit être correctement associée à une _application_, à un _service_ ou à une _partition_.
 
@@ -214,6 +217,11 @@ Une fois la nécessité de suspension passée, la sauvegarde périodique des don
 * Si une suspension a été appliquée au niveau d’un _service_, elle doit être reprise à l’aide l’API [Reprendre la sauvegarde du service](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup).
 
 * Si une suspension a été appliquée au niveau d’une _partition_, elle doit être reprise à l’aide l’API [Reprendre la sauvegarde de la partition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup).
+
+### <a name="difference-between-suspend-and-disable-backups"></a>Différence entre la suspension et la désactivation des sauvegardes
+Vous ne devriez désactiver les sauvegardes que lorsqu’elles ne sont plus nécessaires pour une application, un service ou une partition spécifiques. Il est en fait possible de demander une désactivation de sauvegarde avec le paramètre de nettoyage des sauvegardes, ce qui a pour effet de supprimer également toutes les sauvegardes existantes. Il convient cependant de recourir à une suspension quand on souhaite désactiver temporairement les sauvegardes, par exemple, quand le disque local est saturé ou lorsque le chargement de la sauvegarde échoue en raison d’un problème réseau connu. 
+
+Si une désactivation peut être demandée uniquement à un niveau précédemment activé explicitement pour la sauvegarde, une suspension peut être appliquée à tout niveau actuellement activé pour la sauvegarde, directement ou par voie d’héritage ou de hiérarchie. Par exemple, si la sauvegarde est activée au niveau d’une application, il est possible de demander la désactivation uniquement au niveau de l’application. En revanche, la suspension peut être demandée au niveau d’une application, d’un service ou d’une partition sous cette application. 
 
 ## <a name="auto-restore-on-data-loss"></a>Restauration automatique en cas de perte de données
 Une partition de service peut perdre des données en raison de défaillances inattendues. Par exemple, le disque de deux réplicas sur trois pour une partition (y compris le réplica principal) est endommagé ou effacé.

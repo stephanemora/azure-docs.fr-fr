@@ -9,20 +9,26 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 491f60b55843957bf9ec904f7310ef67219ba3c5
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: dff24fb28a4129aa7f29d5f9ed1db10d533d005e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438640"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53578850"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Comprendre les résultats de la vérification de l’agent Linux dans Update Management
 
-De nombreuses raisons peuvent expliquer pourquoi votre machine n’est pas dans l’état **Prêt** dans Update Management. Dans la Update Management, vous pouvez vérifier l’intégrité d’un agent worker hybride pour déterminer le problème sous-jacent. Cet article explique comment exécuter l’utilitaire de résolution des problèmes pour les ordinateurs Azure du portail Azure et les ordinateurs non-Azure dans le [scénario hors connexion](#troubleshoot-offline).
+De nombreuses raisons peuvent expliquer pourquoi votre machine n’est pas dans l’état **Prêt** dans Update Management. Dans la Update Management, vous pouvez vérifier l’intégrité d’un agent worker hybride pour déterminer le problème sous-jacent. Cet article explique comment exécuter l’utilitaire de résolution des problèmes pour les machines Azure du Portail Azure et les machines autres qu’Azure dans le [scénario hors connexion](#troubleshoot-offline).
+
+Voici les trois états de préparation possibles d’une machine :
+
+* **Prête** : l’agent de mise à jour est déployé et a été vu pour la dernière fois il y a moins d’une heure.
+* **Déconnecté** : l’agent de mise à jour est déployé et a été vu pour la dernière fois il y a plus d’une heure.
+* **Non configuré** : l’agent de mise à jour est introuvable ou n’a pas terminé son intégration.
 
 ## <a name="start-the-troubleshooter"></a>Démarrer l’utilitaire de résolution des problèmes
 
-Pour les ordinateurs Azure, cliquez sur le lien **Résolution des problèmes** sous la colonne **Préparation de l’agent de mise à jour** dans le portail pour ouvrir la page **Résoudre les problèmes de l’agent de mise à jour**. Pour les ordinateurs non-Azure, le lien vous dirige vers cet article. Consultez les [instructions hors connexion](#offline) pour résoudre les problèmes d’un ordinateur non-Azure.
+Pour les machines Azure, cliquez sur le lien **Résolution des problèmes** sous la colonne **Préparation de l’agent de mise à jour** dans le portail pour ouvrir la page **Résoudre les problèmes de l’Agent de mise à jour**. Pour les machines autres qu’Azure, le lien vous dirige vers cet article. Consultez les [instructions hors connexion](#offline) pour résoudre les problèmes d’un ordinateur non-Azure.
 
 ![vm list page](../media/update-agent-issues-linux/vm-list.png)
 
@@ -45,7 +51,7 @@ La vérification du système d’exploitation vérifie si le Runbook Worker hybr
 
 |Système d’exploitation  |Notes  |
 |---------|---------|
-|CentOS 6 (x86/x64) et 7 (x64)      | Les agents Linux doivent avoir accès à un référentiel de mise à jour. La mise à jour corrective basée sur la classification nécessite que 'yum' renvoie les données de sécurité que CentOS n’a pas directement.         |
+|CentOS 6 (x86/x64) et 7 (x64)      | Les agents Linux doivent avoir accès à un référentiel de mise à jour. La mise à jour corrective basée sur la classification nécessite que 'yum' retourne les données de sécurité que CentOS n’a pas directement.         |
 |Red Hat Enterprise 6 (x86/x64) et 7 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) et 12 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
 |Ubuntu 14.04 LTS, 16.04 LTS et 18.04 LTS (x86/x64)      |Les agents Linux doivent avoir accès à un référentiel de mise à jour.         |

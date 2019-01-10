@@ -1,19 +1,20 @@
 ---
 title: Guide pratique pour configurer la supervision dans Azure Digital Twins | Microsoft Docs
-description: Guide pratique pour configurer la supervision dans Azure Digital Twins
+description: Guide pratique pour configurer la supervision dans Azure Digital Twins.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 12/26/2018
 ms.author: adgera
-ms.openlocfilehash: 1c8f1931a29ae9769f7d8ad57a184e3240105a1a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.custom: seodec18
+ms.openlocfilehash: 2749a5c6c4e6003c51523d83c46b48d3b55b3d45
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945811"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807582"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Guide pratique pour configurer la supervision dans Azure Digital Twins
 
@@ -23,7 +24,7 @@ Cet article récapitule les options de journalisation et de supervision, puis ex
 
 ## <a name="review-activity-logs"></a>Examiner les journaux d’activité
 
-Les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) Azure fournissent des insights rapides sur les historiques des événements et des opérations de niveau abonnement pour chaque instance du service Azure.
+Les [journaux d’activité](../azure-monitor/platform/activity-logs-overview.md) Azure fournissent des insights rapides sur les historiques des événements et des opérations de niveau abonnement pour chaque instance du service Azure.
 
 Les événements de niveau abonnement sont les suivants :
 
@@ -54,7 +55,7 @@ Pour la journalisation de l’activité avancée :
 
 ## <a name="enable-customer-diagnostic-logs"></a>Activer les journaux de diagnostic des clients
 
-Vous pouvez définir des [paramètres de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) Azure pour chaque instance Azure afin de compléter la journalisation de l’activité. Bien que les journaux d’activité se rapportent aux événements de niveau abonnement, la journalisation des diagnostics fournit des insights sur l’historique opérationnel des ressources elles-mêmes.
+Vous pouvez définir des [paramètres de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md) Azure pour chaque instance Azure afin de compléter la journalisation de l’activité. Bien que les journaux d’activité se rapportent aux événements de niveau abonnement, la journalisation des diagnostics fournit des insights sur l’historique opérationnel des ressources elles-mêmes.
 
 Voici quelques exemples de journalisation des diagnostics :
 
@@ -74,7 +75,7 @@ Pour activer les journaux de diagnostic pour une instance :
 
     ![Paramètres de diagnostic (2)][5]
 
-    Les journaux de diagnostic sont souvent enregistrés à l’aide de [Stockage Fichier Azure](https://docs.microsoft.com/azure/storage/files/storage-files-deployment-guide) et partagés avec [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal). Les deux options peuvent être sélectionnées.
+    Les journaux de diagnostic sont souvent enregistrés à l’aide de [Stockage Fichier Azure](../storage/files/storage-files-deployment-guide.md) et partagés avec [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md). Les deux options peuvent être sélectionnées.
 
 >[!TIP]
 >Utilisez des **journaux de diagnostic** pour connaître les opérations de ressource.
@@ -91,7 +92,7 @@ Voici quelques exemples d’utilisation :
 * Visualisation des journaux relatifs à plusieurs fonctions définies par l’utilisateur
 * Affichage des journaux relatifs à deux ou plusieurs services dans un intervalle de temps spécifique
 
-[Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries) prend en charge l’interrogation complète des journaux. Pour configurer ces fonctionnalités puissantes :
+[Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) prend en charge l’interrogation complète des journaux. Pour configurer ces fonctionnalités puissantes :
 
 1. Recherchez **Log Analytics** dans le portail Azure.
 1. Vos instances **Log Analytics** disponibles apparaissent. Choisissez-en une et sélectionnez les **Journaux** à interroger :
@@ -106,7 +107,7 @@ Une fois votre instance **Log Analytics** provisionnée, vous pouvez utiliser de
 
    ![Gestion du journal][8]
 
-Pour plus d’informations sur les opérations de requêtes puissantes, consultez [Bien démarrer avec les requêtes](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+Pour plus d’informations sur les opérations de requêtes puissantes, consultez [Bien démarrer avec les requêtes](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
 > Le premier envoi d’événements à **Log Analytics** peut prendre 5 minutes.
@@ -120,15 +121,15 @@ Azure Log Analytics fournit également des services de notification d’erreur e
 
 ## <a name="other-options"></a>Autres options
 
-Azure Digital Twins prend également en charge la journalisation et l’audit de sécurité spécifiques à une application. Pour une présentation complète de toutes les options de journalisation Azure disponibles pour votre instance Azure Digital Twins, consultez l’article [Journalisation et audit Azure](https://docs.microsoft.com/azure/security/azure-log-audit).
+Azure Digital Twins prend également en charge la journalisation et l’audit de sécurité spécifiques à une application. Pour une présentation complète de toutes les options de journalisation Azure disponibles pour votre instance Azure Digital Twins, consultez l’article [Journalisation et audit Azure](../security/azure-log-audit.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez-en plus sur les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) Azure.
+- Découvrez-en plus sur les [journaux d’activité](../azure-monitor/platform/activity-logs-overview.md) Azure.
 
-Approfondissez votre connaissance des paramètres de diagnostic Azure en lisant une [présentation des journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Approfondissez votre connaissance des paramètres de diagnostic Azure en lisant une [présentation des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-Découvrez-en plus sur [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal).
+- Découvrez-en plus sur [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md).
 
 <!-- Images -->
 [1]: media/how-to-configure-monitoring/activity-log.png

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer une application de traitement d’image - C#'
+title: 'Didacticiel : Créer une application de traitement d’image – C#'
 titleSuffix: Computer Vision - Cognitive Services - Azure
 description: Explorez une application Windows de base qui utilise l’API Vision par ordinateur dans Microsoft Cognitive Services. Effectuez une reconnaissance OCR, créez des miniatures et utilisez des fonctionnalités visuelles dans une image.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: d1fa468874cdc51bad3421f700a69f3ffb268635
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 8640d89c5fb9e38fc6c982e21147361ad690964a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342651"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584443"
 ---
-# <a name="tutorial-build-an-image-processing-app---c35"></a>Didacticiel : Créer une application de traitement d’image - C#
+# <a name="tutorial-build-an-image-processing-app---c35"></a>Didacticiel : Créer une application de traitement d’image – C&#35;
 
 Explorez une application Windows de base qui utilise l’API Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent, mais aussi détecter, classer, baliser et décrire des caractéristiques visuelles, y compris les visages, dans une image. L’exemple ci-dessous vous permet d’envoyer une URL d’image ou un fichier stocké localement. Vous pouvez utiliser cet exemple open source comme modèle afin de générer votre propre application pour Windows avec l’API Vision par ordinateur et Windows Presentation Foundation (WPF), qui fait partie du .NET Framework.
 
@@ -101,7 +102,7 @@ Vous pouvez exécuter l’exemple d’application pour vérifier son interaction
    > Microsoft reçoit les images que vous chargez et peut les utiliser pour améliorer l’API Vision par ordinateur et les services associés. En envoyant une image, vous confirmez que vous avez respecté notre [Code de conduite du développeur](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 
    La capture d’écran suivante illustre la page fournie pour le scénario Analyser l’image, après l’analyse d’un exemple d’image.
-   ![Page du scénario Analyser l’image](../Images/Analyze_Image_Example.PNG)
+   ![Capture d’écran de la page Analyser l’image](../Images/Analyze_Image_Example.PNG)
 
 ## <a name="explore-the-sample-app"></a>Explorer l’exemple d’application
 

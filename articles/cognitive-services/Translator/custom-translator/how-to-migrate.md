@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 6572a9b72554691441cb258a87a5db4ba7845087
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a02be1ba29ad43b90c99a5d1e275b96b3b4023d6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077118"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718722"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrer un espace de travail et des projets Microsoft Hub vers Custom Translator
 
@@ -27,7 +27,7 @@ Les actions suivantes sont effectuées pendant la migration :
 * Vous pouvez à tout moment accéder au score BLEU migré à partir de l’entraînement Hub dans la page TrainingDetails du modèle sous le titre « Bleu score in MT Hub ».
 
 >[!Note]
->Pour un entraînement réussi, Custom Translator nécessite au moins 10 000 phrases extraites. Si le nombre de phrases extraites est inférieur au [minimum suggéré](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences), Custom Translator ne peut pas effectuer d’entraînement.
+>Pour une formation réussie, Custom Translator nécessite au moins 10 000 phrases extraites. Si le nombre de phrases extraites est inférieur au [minimum suggéré](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences), Custom Translator ne peut pas effectuer l'apprentissage.
 
 ## <a name="enable-account-migration"></a>Activer la migration de compte 
 
@@ -130,7 +130,7 @@ Si vous souhaitez obtenir un rapport plus détaillé sur la migration de vos pro
 * Vous ne pouvez migrer un projet qu’une seule fois.  Si vous avez besoin de répéter la migration d’un projet, contactez-nous.
 * Custom Translator prend actuellement en charge 36 langues, traduites de et vers l’anglais, et nous travaillons d’arrache-pied pour en ajouter d’autres.  Hub ne nécessite pas de modèles de base et prend donc en charge plusieurs milliers de langues.  Vous pouvez migrer une paire de langues non prise en charge, mais nous migrons uniquement les documents et définitions de projet.  Nous ne pouvons pas entraîner le nouveau modèle.  Par ailleurs, ces documents et projets apparaissent comme inactifs pour indiquer que vous ne pouvez pas les utiliser. Si ces projets et/ou documents sont un jour pris en charge, ils deviennent actifs et peuvent être entraînés.
 * Actuellement, Custom Translator ne gère pas les données d’entraînement monolingues.  Vous pouvez, au même titre que les paires de langues non prises en charge, migrer des documents monolingues. Toutefois, ils apparaissent comme inactifs jusqu’à ce que les données monolingues soient pris en charge.  
-* L’entraînement de Custom Translator nécessite 10 000 phrases parallèles.  Microsoft Hub peut s’entraîner sur un plus petit jeu de données.  Si un entraînement ne respectant pas cette condition est migré, la procédure d’entraînement est effectuée.
+* L’entraînement de Custom Translator nécessite 10 000 phrases parallèles.  Microsoft Hub peut s’entraîner sur un plus petit jeu de données. Si un entraînement ne respectant pas cette condition est migré, la procédure d’entraînement n’est pas effectuée.
 
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator ou hub

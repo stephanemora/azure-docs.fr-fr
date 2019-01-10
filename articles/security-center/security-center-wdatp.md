@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 12/13/2018
 ms.author: barclayn
-ms.openlocfilehash: 1109e72d00ccddd6fc0f120ee71c88adaae72fed
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b73bf3e542801e58fbda6232eb063305785ce643
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337595"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536268"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection avec Azure Security Center
 
@@ -29,7 +29,7 @@ Les clients Azure Security Center peuvent désormais utiliser les fonctionnalit�
 
 - **Capteurs de détection des violations nouvelle génération** : les capteurs Windows Defender ATP pour serveurs Windows collectent un vaste tableau de signaux de comportement.
 
-- **Détection des violations basée sur des analyses dans le cloud** : Windows Defender ATP s'adapte rapidement aux menaces changeantes. Elle utilise l’analytique avancée et le Big Data. Windows Defender ATP est amplifié par la puissance d’Intelligent Security Graph avec des signaux à travers Windows, Azure et Office pour détecter les menaces inconnues. Il fournit des alertes exploitables et vous permet de réagir rapidement.
+- **Détection des violations basée sur des analyses dans le cloud** : Windows Defender ATP s'adapte rapidement aux menaces changeantes. Elle utilise l’analytique avancée et le Big Data. Windows Defender ATP est amplifié par la puissance d’Intelligent Security Graph avec des signaux à travers Windows, Azure et Office pour détecter les menaces inconnues. Il fournit des alertes actionnables et vous permet de réagir rapidement.
 
 - **Informations sur les menaces** : Windows Defender ATP identifie les outils, les techniques et les procédures de l’attaquant. Lorsqu’il les détecte ces, il génère des alertes. Il utilise les données générées par les chasseurs de menaces de Microsoft et les équipes de sécurité, complétées par les renseignements fournis par les partenaires.
 
@@ -57,7 +57,21 @@ Cette fonctionnalité prend en charge la détection sur Windows Server 2012 R2 e
 
 Seuls les serveurs des abonnements pour le niveau de service standard sont pris en charge.
 
-## <a name="onboarding-instructions"></a>Instructions d'intégration
+## <a name="onboarding-servers-to-security-center"></a>Intégration de serveurs à Security Center 
+
+Pour intégrer des serveurs à Security Center, cliquez sur **Accéder à Azure Security Center pour intégrer des serveurs** dans la page d’intégration de serveur Windows Defender ATP.
+
+1. Dans le panneau **Intégration**, sélectionnez ou créez un espace de travail dans lequel stocker les données. <br>
+2. Si vous ne voyez pas tous vos espaces de travail, cela peut être dû à un manque d’autorisations. Vérifiez que votre espace de travail est défini sur le niveau Standard d’Azure Security Center. Pour plus d’informations, voir [Passer au niveau tarifaire Standard de Security Center pour une sécurité renforcée](security-center-pricing.md).
+    
+3.  Sélectionnez **Ajouter des serveurs** pour afficher des instructions sur la façon d’installer Microsoft Monitoring Agent. 
+
+4.  Après l’intégration, vous pouvez surveiller les machines sous **Compute et applications**.
+
+  ![Intégrer des ordinateurs](media/security-center-wdatp/onboard-computers.png)
+
+
+## <a name="enable-windows-defender-atp-integration"></a>Activer l’intégration avec Windows Defender ATP
 
 Pour afficher si l’intégration de Windows Defender ATP est activée, sélectionnez **Security Center** > **Stratégie de sécurité** > **Abonnement**  >  **Modifier les paramètres**.
 

@@ -9,21 +9,21 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/22/2018
 ms.author: juliako
-ms.openlocfilehash: c5f441fef95989e5c82586d96fc6c10e00a9627c
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: d74ce913a2189dd1062b30f9def919cbbabe7b64
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085493"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742522"
 ---
 # <a name="streaming-policies"></a>Stratégies de diffusion en continu
 
-Dans Azure Media Services v3, les stratégies de streaming vous permettent de définir les protocoles de streaming et les options de chiffrement pour vos StreamingLocators. Vous pouvez spécifier le nom de la stratégie de streaming que vous avez créée ou utiliser l’une des stratégies de streaming prédéfinies. Les stratégies de streaming prédéfinies actuellement disponibles sont les suivantes : « Predefined_DownloadOnly », « Predefined_ClearStreamingOnly », « Predefined_DownloadAndClearStreaming », « Predefined_ClearKey », 'Predefined_MultiDrmCencStreaming » et « Predefined_ MultiDrmStreaming ».
+Dans Azure Media Services v3, les stratégies de streaming vous permettent de définir les protocoles de streaming et les options de chiffrement pour vos StreamingLocators. Vous pouvez spécifier le nom de la stratégie de streaming que vous avez créée ou utiliser l’une des stratégies de streaming prédéfinies. Les stratégies de streaming prédéfinies actuellement disponibles sont les suivantes : « Predefined_DownloadOnly », « Predefined_ClearStreamingOnly », « Predefined_DownloadAndClearStreaming », « Predefined_ClearKey », ’Predefined_MultiDrmCencStreaming » et « Predefined_ MultiDrmStreaming ».
 
 > [!IMPORTANT]
-> Lorsque vous utilisez une stratégie [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personnalisée, vous devez concevoir un ensemble limité de ces stratégies pour votre compte Media Services et les réutiliser pour vos éléments StreamingLocators chaque fois que les mêmes protocoles et options de chiffrement sont nécessaires. Votre compte Media Services a un quota en matière de nombre d’entrées de stratégie StreamingPolicy. Vous ne devez pas créer une stratégie StreamingPolicy pour chaque élément StreamingLocator.
+> Lorsque vous utilisez une stratégie [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personnalisée, vous devez concevoir un ensemble limité de ces stratégies pour votre compte Media Services et les réutiliser pour vos éléments StreamingLocators chaque fois que les mêmes protocoles et options de chiffrement sont nécessaires. Votre compte Media Services a un quota en matière de nombre d’entrées de stratégie de streaming. Vous ne devez pas créer une stratégie de streaming pour chaque localisateur de streaming.
 
 ## <a name="streamingpolicy-definition"></a>Définition d’une stratégie StreamingPolicy
 

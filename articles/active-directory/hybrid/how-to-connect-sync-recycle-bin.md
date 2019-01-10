@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect Sync : Activer la Corbeille AD | Microsoft Docs'
+title: 'Synchronisation d’Azure AD Connect : Activer la Corbeille AD | Microsoft Docs'
 description: Cette rubrique recommande l’utilisation de la fonctionnalité Corbeille d’AD avec Azure AD Connect.
 services: active-directory
 keywords: Corbeille AD, suppression accidentelle, ancre source
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 12/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 378e1d3aab992e9b4e6f2263c26ea4268a43d678
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d1a09c077adbc3c9176740bce69bf051a912bc22
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306158"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555572"
 ---
-# <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Azure AD Connect Sync : Activer la Corbeille AD
+# <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Synchronisation d’Azure AD Connect : Activer la Corbeille Active Directory
 Il est recommandé d’activer la fonctionnalité Corbeille d’AD pour vos annuaires Active Directory locaux, qui sont synchronisés avec Azure AD. 
 
 Si vous avez supprimé accidentellement un objet utilisateur AD local et le restaurez à l’aide de cette fonctionnalité, Azure AD restaure l’objet utilisateur Azure AD correspondant.  Pour plus d’informations sur la fonctionnalité Corbeille d’AD, reportez-vous à l’article [Présentation du scénario pour la restauration d’objets Active Directory supprimés](https://technet.microsoft.com/library/dd379542.aspx).
@@ -33,18 +33,19 @@ Cette fonctionnalité vous aide à restaurer des objets utilisateur Azure AD en 
 
 * Si vous avez supprimé accidentellement un objet utilisateur AD local, l’objet utilisateur Azure AD correspondant sera supprimé lors du prochain cycle de synchronisation. Par défaut, Azure AD conserve les objets utilisateur Azure AD supprimés en état de suppression temporaire pendant 30 jours.
 
-* Si vous avez activé la fonctionnalité Corbeille d’AD locale, vous pouvez restaurer l’objet utilisateur supprimé localement sans modifier sa valeur d’ancre source. Lorsque l’objet utilisateur AD local récupéré est synchronisé avec Azure AD, Azure AD est restaure l’objet utilisateur Azure AD supprimé temporairement correspondant. Pour plus d’informations sur l’attribut d’ancre source, reportez-vous à l’article [Azure Connect AD : Principes de conception](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#sourceanchor).
+* Si vous avez activé la fonctionnalité Corbeille d’AD locale, vous pouvez restaurer l’objet utilisateur supprimé localement sans modifier sa valeur d’ancre source. Lorsque l’objet utilisateur AD local récupéré est synchronisé avec Azure AD, Azure AD est restaure l’objet utilisateur Azure AD supprimé temporairement correspondant. Pour plus d’informations sur l’attribut d’ancre source, voir l’article [Azure Connect AD : Principes de conception](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#sourceanchor).
 
 * Si vous n’avez pas activé la fonctionnalité Corbeille d’AD locale, vous pourriez avoir à créer un objet d’utilisateur AD pour remplacer l’objet supprimé. Si le service de synchronisation Azure AD Connect est configuré pour utiliser un attribut AD généré par le système (comme ObjectGuid) comme attribut d’ancre source, l’objet utilisateur AD nouvellement créé n’aura pas la même valeur d’ancre source que l’objet utilisateur AD supprimé. Lorsque l’objet utilisateur AD nouvellement créé est synchronisé avec Azure AD, Azure AD crée un nouvel objet d’utilisateur Azure AD au lieu de restaurer l’objet utilisateur Azure AD supprimé temporairement.
 
 > [!NOTE]
 > Par défaut, AD Azure conserve les objets d’utilisateur Azure AD dans un état supprimé temporairement pendant 30 jours avant suppression définitive. Toutefois, les administrateurs peuvent accélérer la suppression de ces objets. Une fois que les objets sont définitivement supprimés, ils ne peuvent plus être restaurés, même si la fonctionnalité Corbeille AD locale est activée.
 
-
+>[!NOTE]
+>Précédemment quand un utilisateur était retiré de l’étendue de synchronisation locale et supprimé dans le cloud, l’état DirSyncEnabled du compte était erronément défini sur « False ». Si, par la suite, cet utilisateur était restauré manuellement à partir de la Corbeille Azure AD, il présentait un état incorrect de compte « Cloud uniquement ». Ce problème est désormais résolu et la valeur de l’état DirSyncEnabled est toujours « True » quand un utilisateur est retiré de l’étendue de synchronisation, puis supprimé de manière réversible et restauré manuellement à partir de la Corbeille Azure AD.
 
 ## <a name="next-steps"></a>Étapes suivantes
 **Rubriques de présentation**
 
-* [Azure AD Connect Sync - Présentation et personnalisation des options de synchronisation](how-to-connect-sync-whatis.md)
+* [Synchronisation Azure AD Connect : Comprendre et personnaliser la synchronisation](how-to-connect-sync-whatis.md)
 
 * [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)

@@ -1,22 +1,21 @@
 ---
 title: Magasin des requêtes dans Azure Database pour PostgreSQL
 description: Cet article décrit la fonctionnalité Magasin des requêtes dans Azure Database pour PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 5b760c9148e26421c0df1ffe936365aae4971543
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 86b6c4284cccb183ac9f19911abd4b6cb1d308e5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379159"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546910"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Superviser les performances avec le Magasin des requêtes
 
-**S’applique à :** Azure Database pour PostgreSQL 9.6 et 10
+**S’applique à :** Azure Database pour PostgreSQL 9.6 et 10
 
 > [!IMPORTANT]
 > La fonctionnalité Magasin des requêtes est en préversion publique.
@@ -109,53 +108,53 @@ Les requêtes sont normalisées en examinant leur structure après la suppressio
 ### <a name="querystoreqsview"></a>query_store.qs_view
 Cette vue retourne toutes les données du Magasin des requêtes. Il existe une ligne pour chaque ID de base de données distinct, ID d’utilisateur et ID de requête. 
 
-|**Name**   |**Type** | **Informations de référence**  | **Description**|
+|**Nom**   |**Type** | **Informations de référence**  | **Description**|
 |---|---|---|---|
 |runtime_stats_entry_id |bigint | | ID de la table runtime_stats_entries|
 |user_id    |oid    |pg_authid.oid  |OID de l’utilisateur qui a exécuté l’instruction|
 |db_id  |oid    |pg_database.oid    |OID de la base de données dans laquelle l’instruction a été exécutée|
-|query_id   |bigint  || Code de hachage interne, calculé à partir de l’arborescence d’analyse de l’instruction|
-|query_sql_text |Varchar(10000)  || Texte d’une instruction représentative. Différentes requêtes ayant la même structure sont regroupées en clusters ; ce texte est le texte de la première des requêtes du cluster.|
+|query_id   |bigint  || Code de hachage interne, calculé à partir de l’arborescence d’analyse de l’instruction|
+|query_sql_text |Varchar(10000)  || Texte d’une instruction représentative. Différentes requêtes ayant la même structure sont regroupées en clusters ; ce texte est le texte de la première des requêtes du cluster.|
 |plan_id    |bigint |   |ID du plan correspondant à cette requête, pas encore disponible|
-|start_time |timestamp  ||  Les requêtes sont agrégées par intervalle de planification : la durée d’un compartiment est de 15 minutes par défaut. Il s’agit de l’heure de début correspondant à l’intervalle de planification pour cette entrée.|
-|end_time   |timestamp  ||  Heure de fin correspondant à l’intervalle de planification pour cette entrée.|
-|calls  |bigint  || Nombre de fois où la requête s’est exécutée|
-|total_time |double précision   ||  Durée totale d’exécution de la requête, en millisecondes|
+|start_time | timestamp  ||  Les requêtes sont agrégées par intervalle de planification : la durée d’un compartiment est de 15 minutes par défaut. Il s’agit de l’heure de début correspondant à l’intervalle de planification pour cette entrée.|
+|end_time   | timestamp  ||  Heure de fin correspondant à l’intervalle de planification pour cette entrée.|
+|calls  |bigint  || Nombre de fois où la requête s’est exécutée|
+|total_time |double précision   ||  Durée totale d’exécution de la requête, en millisecondes|
 |min_time   |double précision   ||  Durée minimale d’exécution de la requête, en millisecondes|
 |max_time   |double précision   ||  Durée maximale d’exécution de la requête, en millisecondes|
 |mean_time  |double précision   ||  Durée moyenne d’exécution de la requête, en millisecondes|
 |stddev_time|   double précision    ||  Écart type de la durée d’exécution de la requête, en millisecondes |
-|rows   |bigint ||  Nombre total de lignes récupérées ou affectées par l’instruction|
-|shared_blks_hit|   bigint  ||  Nombre total d’accès au cache de blocs partagés par l’instruction|
+|rows   |bigint ||  Nombre total de lignes récupérées ou affectées par l’instruction|
+|shared_blks_hit|   bigint  ||  Nombre total d’accès au cache de blocs partagés par l’instruction|
 |shared_blks_read|  bigint  ||  Nombre total de blocs partagés lus par l’instruction|
-|shared_blks_dirtied|   bigint   || Nombre total de blocs partagés modifiés par l’instruction |
-|shared_blks_written|   bigint  ||  Nombre total de blocs partagés écrits par l’instruction|
+|shared_blks_dirtied|   bigint   || Nombre total de blocs partagés modifiés par l’instruction |
+|shared_blks_written|   bigint  ||  Nombre total de blocs partagés écrits par l’instruction|
 |local_blks_hit|    bigint ||   Nombre total d’accès au cache de blocs locaux par l’instruction|
-|local_blks_read|   bigint   || Nombre total de blocs locaux lus par l’instruction|
-|local_blks_dirtied|    bigint  ||  Nombre total de blocs locaux modifiés par l’instruction|
-|local_blks_written|    bigint  ||  Nombre total de blocs locaux écrits par l’instruction|
-|temp_blks_read |bigint  || Nombre total de blocs temporaires lus par l’instruction|
-|temp_blks_written| bigint   || Nombre total de blocs temporaires écrits par l’instruction|
-|blk_read_time  |double précision    || Durée totale passée par l’instruction à lire des blocs, en millisecondes (si track_io_timing est activé ; sinon, zéro)|
-|blk_write_time |double précision    || Durée totale passée par l’instruction à écrire des blocs, en millisecondes (si track_io_timing est activé ; sinon, zéro)|
+|local_blks_read|   bigint   || Nombre total de blocs locaux lus par l’instruction|
+|local_blks_dirtied|    bigint  ||  Nombre total de blocs locaux modifiés par l’instruction|
+|local_blks_written|    bigint  ||  Nombre total de blocs locaux écrits par l’instruction|
+|temp_blks_read |bigint  || Nombre total de blocs temporaires lus par l’instruction|
+|temp_blks_written| bigint   || Nombre total de blocs temporaires écrits par l’instruction|
+|blk_read_time  |double précision    || Durée totale passée par l’instruction à lire des blocs, en millisecondes (si track_io_timing est activé ; sinon, zéro)|
+|blk_write_time |double précision    || Durée totale passée par l’instruction à écrire des blocs, en millisecondes (si track_io_timing est activé ; sinon, zéro)|
     
 ### <a name="querystorequerytextsview"></a>query_store.query_texts_view
 Cette vue retourne les données du texte des requêtes du Magasin des requêtes. Il existe une ligne pour chaque valeur query_text distincte.
 
-|**Name**|  **Type**|   **Description**|
+|**Nom**|  **Type**|   **Description**|
 |---|---|---|
 |query_text_id  |bigint     |ID de la table query_texts|
-|query_sql_text |Varchar(10000)     |Texte d’une instruction représentative. Différentes requêtes ayant la même structure sont regroupées en clusters ; ce texte est le texte de la première des requêtes du cluster.|
+|query_sql_text |Varchar(10000)     |Texte d’une instruction représentative. Différentes requêtes ayant la même structure sont regroupées en clusters ; ce texte est le texte de la première des requêtes du cluster.|
 
 ### <a name="querystorepgmswaitsamplingview"></a>query_store.pgms_wait_sampling_view
 Cette vue retourne les données des événements d’attente du Magasin des requêtes. Il existe une ligne pour chaque ID de base de données, ID d’utilisateur, ID de requête et événement distinct.
 
-|**Name**|  **Type**|   **Informations de référence**| **Description**|
+|**Nom**|  **Type**|   **Informations de référence**| **Description**|
 |---|---|---|---|
 |user_id    |oid    |pg_authid.oid  |OID de l’utilisateur qui a exécuté l’instruction|
 |db_id  |oid    |pg_database.oid    |OID de la base de données dans laquelle l’instruction a été exécutée|
-|query_id   |bigint     ||Code de hachage interne, calculé à partir de l’arborescence d’analyse de l’instruction|
-|event_type |texte       ||Type d’événement pour lequel le backend est en attente|
+|query_id   |bigint     ||Code de hachage interne, calculé à partir de l’arborescence d’analyse de l’instruction|
+|event_type |texte       ||Type d’événement pour lequel le backend est en attente|
 |événement  |texte       ||Nom de l’événement d’attente si le backend est actuellement en attente|
 |calls  |Entier         ||Nombre du même événement capturé|
 
@@ -163,11 +162,11 @@ Cette vue retourne les données des événements d’attente du Magasin des requ
 ### <a name="functions"></a>Fonctions
 Query_store.qs_reset() retourne void
 
-`qs_reset` ignore toutes les statistiques collectées jusqu’à présent par le Magasin des requêtes. Cette fonction peut uniquement être exécutée par le rôle d’administrateur de serveur.
+`qs_reset` ignore toutes les statistiques collectées jusqu’à présent par le Magasin des requêtes. Cette fonction peut uniquement être exécutée par le rôle d’administrateur de serveur.
 
 Query_store.staging_data_reset() retourne void
 
-`staging_data_reset` ignore toutes les statistiques collectées en mémoire par le Magasin des requêtes (autrement dit, les données en mémoire qui n’ont pas encore été vidées dans la base de données). Cette fonction peut uniquement être exécutée par le rôle d’administrateur de serveur.
+`staging_data_reset` ignore toutes les statistiques collectées en mémoire par le Magasin des requêtes (autrement dit, les données en mémoire qui n’ont pas encore été vidées dans la base de données). Cette fonction peut uniquement être exécutée par le rôle d’administrateur de serveur.
 
 ## <a name="limitations-and-known-issues"></a>Limitations et problèmes connus
 - Si un serveur PostgreSQL a le paramètre default_transaction_read_only activé, le Magasin des requêtes ne peut pas capturer les données.

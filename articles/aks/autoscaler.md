@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 0f376d6b1108b784af37b5e50dab9edba63e5f76
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 0b2e49bb0e269c91ed6a1bf7294565a729082db3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713093"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975132"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Autoscaler de cluster sur Azure Kubernetes Service (AKS) - Préversion
 
@@ -398,7 +398,7 @@ L’état de l’autoscaler de cluster vous donne des informations à deux nivea
     * Un candidat à la descente en puissance est un nœud qui, selon l’autoscaler de cluster, peut être supprimé sans affecter la capacité du cluster à gérer sa charge de travail. 
     * Les heures fournies indiquent la dernière évaluation du cluster pour déterminer s’il contenait des candidats à la descente en puissance et l’heure de la dernière transition.
 
-Enfin, sous Events, vous pouvez voir les événements de montée ou de descente en puissance effectués par l’autoscaler de cluster, ayant échoué ou réussi, ainsi que les heures correspondantes.
+Enfin, sous Events, vous pouvez voir tous les événements de montée ou de descente en puissance effectués par l’autoscaler de cluster, ayant échoué ou réussi, ainsi que les heures correspondantes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

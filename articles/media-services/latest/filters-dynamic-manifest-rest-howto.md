@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/17/2018
 ms.author: juliako
-ms.openlocfilehash: 5cc670a94958b123ac71b49cbf25661d567e4629
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 32b9664d12d6fe3a44329665c730dbc8709430f2
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083409"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650839"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Créer des filtres avec l’API REST Media Services
 
@@ -31,12 +31,13 @@ Cette rubrique explique comment définir un filtre pour un élément multimédia
 Pour suivre les étapes décrites dans cette rubrique, vous devez :
 
 - Lire [Filtres et manifestes dynamiques](filters-dynamic-manifest-overview.md).
-- [Créer un compte Media Services](create-account-cli-how-to.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services. 
 - [Configurer Postman pour les appels d’API REST Azure Media Services](media-rest-apis-with-postman.md).
+
+    Veillez à suivre la dernière étape de la rubrique [Obtenir un jeton Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
 ## <a name="define-a-filter"></a>Définir un filtre  
 
-L’exemple de **Corps de la demande** suivant définit les conditions de sélection de piste qui sont ajoutées au manifeste. Ce filtre inclut toutes les pistes audio en anglais contenant EC-3 et toutes les pistes vidéo dont la vitesse de transmission est comprise entre 0 et 1 000 000.
+L’exemple de **Corps de la demande** suivant définit les conditions de sélection de piste qui sont ajoutées au manifeste. Ce filtre inclut toutes les pistes audio EC-3 et toutes les pistes vidéo dont la vitesse de transmission est comprise entre 0 et 1 000 000.
 
 ```json
 {
@@ -50,14 +51,9 @@ L’exemple de **Corps de la demande** suivant définit les conditions de sélec
                         "operation": "Equal"
                     },
                     {
-                        "property": "Language",
-                        "value": "en",
-                        "operation": "Equal"
-                    },
-                    {
                         "property": "FourCC",
                         "value": "EC-3",
-                        "operation": "NotEqual"
+                        "operation": "Equal"
                     }
                 ]
             },
@@ -86,7 +82,9 @@ Dans la collection Postman que vous avez téléchargée, sélectionnez **Filtres
 
 La méthode de requête HTTP **PUT** se présente ainsi :
 
+```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/accountFilters/{filterName}?api-version=2018-07-01
+```
 
 Sélectionnez l’onglet **Corps** et collez le code JSON que vous avez [défini tout à l’heure](#define-a-filter).
 
@@ -98,11 +96,13 @@ Pour plus d’informations, voir [Créer ou mettre à jour](https://docs.microso
 
 ## <a name="create-asset-filters"></a>Créer des filtres d’élément multimédia  
 
-Dans la collection Postman « Media Services v3 » que vous avez téléchargée, sélectionnez **Éléments**->**Créer ou mettre à jour un filtre d’élément multimédia.
+Dans la collection Postman « Media Services v3 » que vous avez téléchargée, sélectionnez **Éléments**->**Créer ou mettre à jour un filtre d’élément multimédia**.
 
 La méthode de requête HTTP **PUT** se présente ainsi :
 
+```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/assets/{assetName}/assetFilters/{filterName}?api-version=2018-07-01
+```
 
 Sélectionnez l’onglet **Corps** et collez le code JSON que vous avez [défini tout à l’heure](#define-a-filter).
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 3da4d6ffe8660c490d39f223dff105ed126fa10b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 01/03/2019
+ms.openlocfilehash: 958dcb8113f58409d413b5471c96d2e0ba83c361
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283115"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033806"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 
@@ -175,7 +175,7 @@ Si votre application utilise Managed Instance comme couche de données, suivez c
 
   Lorsqu’une nouvelle instance est créée, un ID unique est automatiquement généré pour la zone DNS et inclus dans le nom DNS de l’instance. Un certificat multidomaine (SAN) est provisionné pour cette instance. Le champ SAN se présente au format `zone_id.database.windows.net`. Ce certificat peut être utilisé pour authentifier les connexions client à une instance dans la même zone DNS. Pour garantir une connectivité ininterrompue à l’instance principale après le basculement automatique, les instances principale et secondaire doivent se trouver dans la même zone DNS. Lorsque votre application est prête pour le déploiement en production, créez une instance secondaire dans une autre région et assurez-vous qu’elle partage la même zone DNS que l’instance principale. Pour cela, spécifiez un paramètre `DNS Zone Partner` facultatif à l’aide du Portail Azure, de PowerShell ou de l’API REST.
 
-  Pour plus d’informations sur la création de l’instance secondaire dans la même zone DNS que l’instance principale, consultez [Gestion des groupes de basculement avec des instances managées (préversion)](#managing-failover-groups-with-managed-instances-preview).
+  Pour plus d’informations sur la création de l’instance secondaire dans la même zone DNS que l’instance principale, consultez [Gestion des groupes de basculement avec des instances managées (préversion)](#powershell-managing-failover-groups-with-managed-instances-preview).
 
 - **Activer le trafic de réplication entre deux instances**
 
@@ -203,7 +203,7 @@ Si votre application utilise Managed Instance comme couche de données, suivez c
 
 - **Se préparer à une dégradation des performances**
 
-  La décision de basculement de SQL est indépendante du reste de l’application ou des autres services utilisés. L’application peut être mélangée à certains composants dans une région et d’autres composants dans une région différente. Afin d’éviter la dégradation, assurez le déploiement redondant d’applications dans la région de récupération d’urgence et suivez ces [instructions sur la sécurité réseau](#Failover groups-and-network-security).
+  La décision de basculement de SQL est indépendante du reste de l’application ou des autres services utilisés. L’application peut être mélangée à certains composants dans une région et d’autres composants dans une région différente. Afin d’éviter la dégradation, assurez le déploiement redondant d’applications dans la région de récupération d’urgence et suivez ces [instructions sur la sécurité réseau](#failover-groups-and-network-security).
 
 - **Se préparer à une perte de données**
 
@@ -306,17 +306,17 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 
 #### <a name="install-the-newest-pre-release-version-of-powershell"></a>Installer la préversion la plus récente de PowerShell
 
-1. Mettez à jour le module powershellget vers la version 1.6.5 (ou la préversion la plus récente). Consultez le [site de la préversion de PowerShell](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
+1. Mettez à jour le module PowerShellGet vers la version 1.6.5 (ou la préversion la plus récente). Consultez le [site de la préversion de PowerShell](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
    ```Powershell
-      install-module powershellget -MinimumVersion 1.6.5 -force
+      install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. Dans une nouvelle fenêtre PowerShell, exécutez les commandes suivantes :
 
    ```Powershell
-      import-module powershellget
-      get-module powershellget #verify version is 1.6.5 (or newer)
+      import-module PowerShellGet
+      get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
       import-module azurerm.sql
    ```
@@ -349,7 +349,7 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 | API | Description |
 | --- | --- |
 | [Créer ou mettre à jour un groupe de basculement](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Crée ou met à jour un groupe de basculement |
-| [Supprimer un groupe de basculement](https://docs.microsoft.com/rest/api/instancefailovergroups/delete) | Supprime un groupe de basculement du serveur |
+| [Supprimer un groupe de basculement](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Supprime un groupe de basculement du serveur |
 | [Basculement (planifié)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Bascule du serveur principal actuel vers ce serveur. |
 | [Forcer le basculement et autoriser la perte de données](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) |Bascule du serveur principal actuel vers ce serveur. Cette opération peut entraîner une perte de données. |
 | [Get Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) (Obtenir un groupe de basculement) | Obtient un groupe de basculement. |

@@ -57,7 +57,7 @@ items:
         href: quickstart-python-detect.md
       - name: Ruby, REST
         href: quickstart-ruby-detect.md
-    - name: Obtenir des traductions alternatives
+    - name: Rechercher des traductions de mots
       items:
       - name: C#, REST
         href: quickstart-csharp-dictionary.md
@@ -105,7 +105,7 @@ items:
         href: quickstart-python-sentences.md
       - name: Ruby, REST
         href: quickstart-ruby-sentences.md
-  - name: Tutoriels
+  - name: Didacticiels
     items:
     - name: Créer une application WPF pour l’API de traduction de texte Translator Text
       href: tutorial-wpf-translation-csharp.md
@@ -138,9 +138,9 @@ items:
       items:
       - name: Langues
         href: reference/v3-0-languages.md
-      - name: Traduire
+      - name: Translate
         href: reference/v3-0-translate.md
-      - name: Translittérer
+      - name: Transliterate
         href: reference/v3-0-transliterate.md
       - name: Détection
         href: reference/v3-0-detect.md
@@ -175,7 +175,7 @@ items:
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Limites de requête
       href: request-limits.md
-    - name: Stack Overflow
+    - name: Dépassement de capacité de la pile
       href: https://stackoverflow.com/questions/tagged/microsoft-translator
     - name: UserVoice
       href: https://cognitive.uservoice.com/forums/558796-translator
@@ -237,13 +237,13 @@ items:
       href: custom-translator/faq.md
     - name: Tarifs
       href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
-    - name: Stack Overflow
+    - name: Dépassement de capacité de la pile
       href: https://stackoverflow.com/questions/tagged/microsoft-translator
     - name: UserVoice
       href: https://cognitive.uservoice.com/knowledgebase/articles/1855897-custom-translator-preview-resource-guide
-ms.openlocfilehash: 7f4e3db91030f42e6b7f08a5709cdc262a00c1bc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d1e1ed12b863f37a2a0d8e5ebefd456131509737
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598853"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159976"

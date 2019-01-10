@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8951680ca9488dabffd02ee084e3f6827122276e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a51efa18672b81ef3e23e292abbe2b34c1936205
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957450"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994740"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Gérer la connectivité et la messagerie fiable à l’aide des kits SDK d’appareil Azure IoT Hub
 
@@ -62,13 +62,13 @@ Les étapes suivantes décrivent le processus de nouvelle tentative lors de la d
 1. Le kit SDK détecte l’erreur et l’erreur associée dans le réseau, le protocole ou l’application.
 1. Le kit SDK utilise le filtre d’erreur pour déterminer le type d’erreur et décider si une nouvelle tentative est nécessaire.
 1. Si le kit SDK identifie une **erreur irrécupérable**, les opérations telles que la connexion, l’envoi et la réception sont arrêtées. Le kit SDK en informe l’utilisateur. Une erreur d’authentification et une erreur de point de terminaison défectueux sont des exemples d’erreurs irrécupérables.
-1. Si le kit SDK identifie une **erreur irrécupérable**, il effectue une nouvelle tentative en fonction de la stratégie de nouvelles tentatives spécifiée jusqu’à l’expiration du délai donné.
+1. Si le kit SDK identifie une **erreur irrécupérable**, il effectue une nouvelle tentative en fonction de la stratégie de nouvelles tentatives spécifiée jusqu’à l’expiration du délai donné.  Notez que le Kit de développement logiciel (SDK) utilise par défaut une stratégie de nouvelles tentatives de type **interruption exponentielle avec instabilité**.
 1. Quand le délai imparti expire, le kit SDK arrête d’essayer d’établir la connexion ou l’envoi. Il en informe l’utilisateur.
 1. Le kit SDK permet à l’utilisateur de joindre un rappel pour recevoir les modifications de l’état de la connexion.
 
 Les kits SDK fournissent trois stratégies de nouvelles tentatives :
 
-- **Interruption exponentielle avec instabilité** : cette stratégie de nouvelles tentatives par défaut a tendance à être agressive au début, puis ralentit progressivement avant d’atteindre un délai maximal. La conception est basée sur le [Guide sur les nouvelles tentatives fourni dans le Centre des architectures Azure](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific).
+- **Interruption exponentielle avec instabilité** : cette stratégie de nouvelles tentatives par défaut a tendance à être agressive au début, puis ralentit progressivement avant d’atteindre un délai maximal. La conception est basée sur le [Guide sur les nouvelles tentatives fourni dans le Centre des architectures Azure](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific). 
 - **Nouvelle tentative personnalisée** : pour certains langages de SDK, vous pouvez concevoir une stratégie de nouvelles tentatives personnalisée qui est mieux adaptée à votre scénario, puis l’injecter dans la stratégie de nouvelles tentatives. Nouvelle tentative personnalisée n’est pas disponible dans le kit SDK C.
 - **Aucune nouvelle tentative** : vous pouvez définir la stratégie de nouvelles tentatives sur « aucune nouvelle tentative », ce qui désactive la logique de nouvelle tentative. Le kit SDK tente de se connecter une fois et d’envoyer un message une fois, en supposant que la connexion est établie. Cette stratégie est généralement utilisée dans des scénarios avec des problèmes de bande passante ou de coût. Si vous choisissez cette option, les messages qui ne peuvent pas être envoyés sont perdus et ne peuvent pas être récupérés.
 

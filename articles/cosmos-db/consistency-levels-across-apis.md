@@ -1,19 +1,18 @@
 ---
 title: Niveaux de cohérence et API Azure Cosmos DB
 description: Comprendre les niveaux de cohérence entre les API dans Azure Cosmos DB.
-keywords: cohérence, azure cosmos db, azure, modèles, mongodb, cassandra, graphe, table, Microsoft azure
-services: cosmos-db
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.openlocfilehash: 277a064d93e2ebcea82f3909b3fd16328a775105
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: 76ebbc8cc8dbea4b7f8f8226cf1d8570a421e8cf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832494"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034333"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Niveaux de cohérence et API Azure Cosmos DB
 
@@ -50,5 +49,5 @@ Le tableau ci-dessous montre le mappage des « problèmes de lecture » entre 
 Apprenez-en davantage sur les niveaux de cohérence et la compatibilité entre les API Cosmos DB et les API open source. Consultez les articles suivants :
 
 * [Compromis entre disponibilité et performance pour différents niveaux de cohérence](consistency-levels-tradeoffs.md)
-* [Fonctionnalités MongoDB prises en charge par l’API MongoDB pour Azure Cosmos DB](mongodb-feature-support.md)
+* [Fonctionnalités MongoDB prises en charge par l’API d’Azure Cosmos DB pour MongoDB](mongodb-feature-support.md)
 * [Fonctionnalités Apache Cassandra prises en charge par l’API Cassandra pour Azure Cosmos DB](cassandra-support.md)
