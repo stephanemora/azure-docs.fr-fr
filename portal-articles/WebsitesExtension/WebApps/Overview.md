@@ -8,18 +8,18 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 50e6b714bc28ce383f06580d0e35b0b0e4066835
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: be918ecef3a9fb346d9aa441bef9b4c3991009d6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432221"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606467"
 ---
 # <a name="app-service-documentation"></a>Documentation App Service
 Azure App Service vous permet de créer et d’héberger des applications web dans le langage de programmation de votre choix sans gérer l’infrastructure, ni le langage ou le runtime de l’infrastructure web. Il offre une mise à l’échelle automatique et une haute disponibilité, prend en charge à la fois Windows et Linux et permet des déploiements automatisés à partir de GitHub, Azure DevOps Services ou n’importe quel référentiel Git. Découvrez comment utiliser Azure App Service avec nos démarrages rapides, nos didacticiels et nos exemples.
 
 ## <a name="windows-linux-and-docker"></a>Windows, Linux et Docker
-[Web Apps](/app-service/app-service-web-overview) est l’offre principale d’App Service pour créer et héberger des applications web à l’aide d’environnements Windows. Les développeurs qui préfèrent un environnement Linux peuvent choisir [App Service sur Linux](/app-service/containers/app-service-linux-intro). Les développeurs peuvent également déployer des images Docker directement dans App Service sur Linux pour déployer des runtimes/infrastructures personnalisés.
+[Web Apps](/app-service/overview) est l’offre principale d’App Service pour créer et héberger des applications web à l’aide d’environnements Windows. Les développeurs qui préfèrent un environnement Linux peuvent choisir [App Service sur Linux](/app-service/containers/app-service-linux-intro). Les développeurs peuvent également déployer des images Docker directement dans App Service sur Linux pour déployer des runtimes/infrastructures personnalisés.
 
 ## <a name="5-minute-quickstarts"></a>Démarrages en 5 minutes
 
@@ -53,8 +53,8 @@ Découvrez comment déployer, gérer et surveiller des applications web sécuris
 
 Trouvez des scripts pour gérer les tâches courantes.
 
-- [interface de ligne de commande Azure](/azure/app-service/app-service-cli-sample)
-- [Azure PowerShell](/azure/app-service/app-service-powershell-samples)
+- [Interface de ligne de commande Azure](/azure/app-service/app-service-cli-sample)
+- [Azure PowerShell](/azure/app-service/samples-powershell)
 
 ## <a name="more"></a>En savoir plus
 
