@@ -122,8 +122,8 @@ items:
         href: backup-azure-vms-encryption.md
       - name: Activer la sauvegarde de machines virtuelles lors de leur création
         href: backup-during-vm-creation.md
-      - name: Mise à niveau vers la pile de sauvegarde de machine virtuelle V2
-        href: backup-upgrade-to-vm-backup-stack-v2.md
+      - name: Fonctionnalité de restauration instantanée
+        href: backup-instant-restore-capability.md
     - name: Gestion et surveillance des machines virtuelles
       items:
       - name: Gérer les sauvegardes de machines Virtuelles Azure dans le portail Azure
@@ -240,6 +240,8 @@ items:
     href: /rest/api/backup/
   - name: REST - Coffre Recovery Services
     href: /rest/api/recoveryservices/
+  - name: Modèle Resource Manager
+    href: /azure/templates/microsoft.recoveryservices/allversions
 - name: Ressources
   items:
   - name: Feuille de route Azure
@@ -254,9 +256,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: vidéos
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: dfa3bca01fc237aa62cc893e707aa08b9055dd7d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 44ab1f24ba3bcae8902d8fa953b09f48630e7822
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104810"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199247"
