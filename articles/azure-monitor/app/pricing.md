@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: f15a0670932a9017c079ff0cf1e7cb4ad598a9c4
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 326f0e21582c1aee03c8a44adcd709f3ddf59b0b
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004528"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119626"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gérer l’utilisation et les coûts pour Application Insights
 
@@ -53,10 +53,10 @@ Application Insights vous permet de comprendre facilement à combien vont s’é
 
 ![Choisir les tarifs](./media/pricing/pricing-001.png)
 
-R. Consultez votre volume de données pour le mois. Cela inclut toutes les données reçues et conservées (après tous les [échantillonnages](../../application-insights/app-insights-sampling.md)) provenant de votre serveur, de vos applications clientes et des tests de disponibilité.  
+R. Consultez votre volume de données pour le mois. Cela inclut toutes les données reçues et conservées (après tous les [échantillonnages](../../azure-monitor/app/sampling.md)) provenant de votre serveur, de vos applications clientes et des tests de disponibilité.  
 B. Les [tests web multiétapes](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) font l’objet d’une facturation distincte. (Cela n’inclut pas les tests de disponibilité simples, qui sont compris dans les frais de volume de données.)  
 C. Affichez les tendances des volumes de données pour le mois antérieur.  
-D. Utilisez [l’échantillonnage](../../application-insights/app-insights-sampling.md) d’ingestion des données.   
+D. Utilisez [l’échantillonnage](../../azure-monitor/app/sampling.md) d’ingestion des données.   
 E. Définissez la limite quotidienne de volume de données.  
 
 Pour étudier votre utilisation d’Application Insights de façon plus approfondie, ouvrez la page **Métriques**, ajoutez la métrique nommée « Volume de point de données », puis sélectionnez l’option *Appliquer la division* pour répartir les données selon le « type de l’élément de télémétrie ». 
@@ -68,7 +68,7 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 ## <a name="data-rate"></a>Débit de données
 Le volume de données que vous envoyez est limité de trois façons :
 
-* **Échantillonnage** : vous pouvez effectuer un échantillonnage pour réduire la quantité de données de télémétrie envoyées à partir de votre serveur et de vos applications clientes, avec une distorsion minimale des métriques. L’échantillonnage est le principal outil dont vous disposez pour ajuster la quantité de données que vous envoyez. Découvrez plus en détail les [fonctionnalités d’échantillonnage](../../application-insights/app-insights-sampling.md). 
+* **Échantillonnage** : vous pouvez effectuer un échantillonnage pour réduire la quantité de données de télémétrie envoyées à partir de votre serveur et de vos applications clientes, avec une distorsion minimale des métriques. L’échantillonnage est le principal outil dont vous disposez pour ajuster la quantité de données que vous envoyez. Découvrez plus en détail les [fonctionnalités d’échantillonnage](../../azure-monitor/app/sampling.md). 
 * **Limite quotidienne** : au moment où vous créez une ressource Application Insights dans le Portail Azure, la limite quotidienne est définie à 100 Go/jour. Quand vous créez une ressource Application Insights dans Visual Studio, la valeur par défaut est faible (seulement 32,3 Mo/jour). La valeur par défaut de la limite quotidienne est définie pour faciliter les tests. L’idée est que l’utilisateur augmente la limite quotidienne avant de déployer l’application en production. 
 
     La limite maximale est de 1 000 Go/jour, à moins que vous en demandiez une plus élevée pour les besoins d’une application à fort trafic. 
@@ -91,7 +91,7 @@ Vous pouvez utiliser une des options suivantes pour voir la quantité de donnée
 ## <a name="reduce-your-data-rate"></a>Réduire le débit de données
 Voici quelques opérations possibles pour réduire le volume de données :
 
-* Utilisez l’ [échantillonnage](../../application-insights/app-insights-sampling.md). Cette technologie permet de réduire votre débit de données sans entraîner de distorsion de vos métriques. Vous gardez la possibilité de naviguer entre les éléments associés dans la recherche. Dans les applications serveurs, l’échantillonnage s’applique automatiquement.
+* Utilisez l’ [échantillonnage](../../azure-monitor/app/sampling.md). Cette technologie permet de réduire votre débit de données sans entraîner de distorsion de vos métriques. Vous gardez la possibilité de naviguer entre les éléments associés dans la recherche. Dans les applications serveurs, l’échantillonnage s’applique automatiquement.
 * [Limitez le nombre d’appels Ajax qui peuvent être signalés](../../azure-monitor/app/javascript.md#detailed-configuration) dans chaque affichage de page, ou désactivez les rapports Ajax.
 * [Modifiez ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) pour désactiver les modules de collecte dont vous n’avez pas besoin. Par exemple, vous pouvez décider que les compteurs de performances ou les données de dépendance ne sont pas essentiels.
 * Répartissez vos données de télémétrie entre les clés d’instrumentation. 
@@ -101,20 +101,20 @@ Voici quelques opérations possibles pour réduire le volume de données :
 
 Vous pouvez utiliser la limite quotidienne de volume pour limiter les données collectées. Toutefois, si la limite est atteinte, toutes les données de télémétrie envoyées à partir de votre application sont perdues pour le reste de la journée. Il est *déconseillé* que votre application atteigne la limite quotidienne. Vous ne pouvez pas suivre l’intégrité et les performances de votre application une fois qu’elle a atteint la limite quotidienne.
 
-Au lieu d’utiliser la limite quotidienne de volume, utilisez [l’échantillonnage](../../application-insights/app-insights-sampling.md) pour régler le volume de données sur le niveau souhaité. Ensuite, n’utilisez la limite quotidienne qu’en « dernier recours », au cas où votre application commencerait soudainement à envoyer des volumes de données de télémétrie beaucoup plus élevés.
+Au lieu d’utiliser la limite quotidienne de volume, utilisez [l’échantillonnage](../../azure-monitor/app/sampling.md) pour régler le volume de données sur le niveau souhaité. Ensuite, n’utilisez la limite quotidienne qu’en « dernier recours », au cas où votre application commencerait soudainement à envoyer des volumes de données de télémétrie beaucoup plus élevés.
 
 Pour changer la limite quotidienne, accédez à la section **Configurer** de votre ressource Application Insights dans le volet **Utilisation et estimation des coûts**, puis sélectionnez **Limite quotidienne**.
 
 ![Ajuster la limite du volume quotidien des données de télémétrie](./media/pricing/pricing-003.png)
 
 ## <a name="sampling"></a>échantillonnage
-[L’échantillonnage](../../application-insights/app-insights-sampling.md) est une méthode vous permettant de réduire la fréquence d’envoi des données de télémétrie à votre application, tout en conservant la capacité à trouver des événements connexes pendant les recherches de diagnostic. Vous conservez également le décompte des événements corrects.
+[L’échantillonnage](../../azure-monitor/app/sampling.md) est une méthode vous permettant de réduire la fréquence d’envoi des données de télémétrie à votre application, tout en conservant la capacité à trouver des événements connexes pendant les recherches de diagnostic. Vous conservez également le décompte des événements corrects.
 
 L’échantillonnage est un moyen efficace de réduire les coûts et de respecter votre quota mensuel. L’algorithme d’échantillonnage conserve les éléments associés à la télémétrie ; ainsi, quand vous utilisez la recherche par exemple, vous pouvez trouver la demande liée à une exception spécifique. L’algorithme conserve également le décompte correct. Cela vous permet de voir les valeurs correctes des taux de demandes, des taux d’exception et des autres compteurs dans Metric Explorer.
 
 Il existe plusieurs formes d’échantillonnage.
 
-* [L’échantillonnage adaptatif](../../application-insights/app-insights-sampling.md) est la méthode par défaut pour le SDK ASP.NET. L’échantillonnage adaptatif s’ajuste automatiquement au volume de données de télémétrie envoyées par votre application. Il fonctionne automatiquement dans le SDK de votre application web, afin de réduire le trafic de télémétrie sur le réseau. 
+* [L’échantillonnage adaptatif](../../azure-monitor/app/sampling.md) est la méthode par défaut pour le SDK ASP.NET. L’échantillonnage adaptatif s’ajuste automatiquement au volume de données de télémétrie envoyées par votre application. Il fonctionne automatiquement dans le SDK de votre application web, afin de réduire le trafic de télémétrie sur le réseau. 
 * *échantillonnage d’ingestion* est une méthode alternative qui fonctionne au niveau où les données de télémétrie issues de votre application entrent dans le service Application Insights. L’échantillonnage d’ingestion n’affecte pas le volume de télémétrie envoyé depuis votre application, mais il réduit le volume conservé par le service. Vous pouvez utiliser l’échantillonnage d’ingestion pour réduire le quota utilisé par les données de télémétrie provenant des navigateurs et d’autres SDK.
 
 Pour définir l’échantillonnage d’ingestion, accédez au volet **Tarification** :
@@ -196,9 +196,9 @@ Ce plan ne s’appliquant qu’aux clients détenant un abonnement Operations Ma
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Échantillonnage](../../application-insights/app-insights-sampling.md)
+* [Échantillonnage](../../azure-monitor/app/sampling.md)
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
-[start]: ../../application-insights/app-insights-overview.md
-[pricing]: http://azure.microsoft.com/pricing/details/application-insights/
+[start]: ../../azure-monitor/app/app-insights-overview.md
+[pricing]: https://azure.microsoft.com/pricing/details/application-insights/

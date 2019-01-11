@@ -7,81 +7,85 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: c20f2cc03565ce861dfc6317be8459fdafeef0bf
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: fd3d1c464c6f2d4cbecd715db0689581ca141769
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384103"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53654068"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
-Quand vous créez ou gérez des clusters AKS, vous pouvez parfois rencontrer des problèmes. Cet article décrit en détail certains problèmes courants et indique la façon de les résoudre.
 
-### <a name="in-general-where-do-i-find-information-about-debugging-kubernetes-issues"></a>En règle générale, où puis-je trouver des informations sur le débogage des problèmes liés à Kubernetes ?
+Lorsque vous créez ou gérez des clusters Azure Kubernetes Service (AKS), vous pouvez occasionnellement rencontrer des problèmes. Cet article décrit en détail certains problèmes courants, et indique comment les résoudre.
 
-[Voici](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/) un lien officiel indiquant comment résoudre les problèmes liés aux clusters kubernetes.
-[Voici](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md) un lien vers un guide de résolution des problèmes publié par un ingénieur Microsoft, portant sur la résolution des problèmes liés aux pods, nœuds, clusters, etc.
+## <a name="in-general-where-do-i-find-information-about-debugging-kubernetes-problems"></a>En règle générale, où trouver des informations sur le débogage de problèmes liés à Kubernetes ?
 
-### <a name="i-am-getting-a-quota-exceeded-error-during-create-or-upgrade-what-should-i-do"></a>J’obtiens une erreur de dépassement de quota pendant une opération de création ou de mise à niveau. Que dois-je faire ? 
+Essayez de vous référer au [guide officiel de résolution des problèmes de clusters Kubernetes](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/).
+Il existe également un [guide de résolution des problèmes](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md) publié par un ingénieur Microsoft, portant sur le dépannage de pods, nœuds, clusters et autres fonctionnalités.
 
-Vous devez demander des cœurs [ici](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>J’obtiens une erreur de dépassement de quota pendant une opération de création ou de mise à niveau. Que dois-je faire ? 
 
-### <a name="what-is-the-max-pods-per-node-setting-for-aks"></a>Quel est le nombre maximal de pods par nœud pour AKS ?
+Vous devez [demander des cœurs](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-Le nombre maximal de pods par nœud est défini sur 30 par défaut si vous déployez un cluster AKS dans le portail Azure.
-Le nombre maximal de pods par nœud est défini sur 110 par défaut si vous déployez un cluster AKS dans l’interface de ligne de commande Azure. (Vérifiez que vous utilisez bien la dernière version de l’interface de ligne de commande Azure). Vous pouvez changer ce paramètre par défaut en utilisant l’indicateur –max-nodes-per-pod dans la commande az aks create.
+## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Quel est le nombre maximal de pods par nœud pour AKS ?
 
-### <a name="i-am-getting-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>J’obtiens l’erreur « insufficientSubnetSize » quand je déploie un cluster AKS avec des fonctionnalités réseau avancées. Que dois-je faire ?
+Le nombre maximal de pods par nœud est défini 30 par défaut si vous déployez un cluster AKS dans le portail Microsoft Azure.
+Le nombre maximal de pods par nœud est 110 par défaut si vous déployez un cluster AKS dans Azure CLI. (assurez-vous que vous disposez de la version la plus récente d’Azure CLI). Ce paramètre par défaut peut être modifié à l’aide de l’indicateur `–-max-pods` dans la commande `az aks create`.
 
-Dans l’option de réseau virtuel personnalisé sélectionnée pour la mise en réseau pendant l’opération de création AKS, Azure CNI est utilisé pour IPAM. Le nombre de nœuds dans un cluster AKS peut être compris entre 1 et 100. La taille du sous-réseau doit être supérieure au produit du nombre de nœuds par le nombre maximal de pods par nœud.
+## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>J’obtiens un erreur insufficientSubnetSize quand je déploie un cluster AKS avec des fonctionnalités réseau avancées. Que dois-je faire ?
 
-### <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Mon pod est bloqué en mode « CrashLoopBackOff ». Que dois-je faire ?
+Dans l’option Réseau virtuel Azure personnalisée pour la mise en réseau lors de la création d’AKS, l’Interface de réseau de conteneur (CNI) Azure est utilisée pour la gestion des adresses IP (IPAM). Le nombre de nœuds dans un cluster AKS peut être compris entre 1 et 100. Sur la base de la section précédente, la taille de sous-réseau devrait être supérieure au produit du nombre de nœuds et du nombre maximal de pods par nœud. La relation peut être exprimée comme suit : taille de sous-réseau > nombre de nœuds du cluster * nombre maximal de pods par nœud.
 
-Il peut y avoir diverses raisons pour que le pod soit bloqué dans ce mode. Vous pouvez explorer 
-* Le pod lui-même à l’aide de `kubectl describe pod <pod-name>`
-* Les journaux à l’aide de `kubectl log <pod-name>`
+## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Mon pod est bloqué en mode CrashLoopBackOff. Que dois-je faire ?
 
-### <a name="i-am-trying-to-enable-rbac-on-an-existing-cluster-can-you-tell-me-how-i-can-do-that"></a>J’essaie d’activer RBAC sur un cluster existant. Pouvez-vous me dire comment effectuer cette opération ?
+Il peut y avoir diverses raisons pour que le pod soit bloqué dans ce mode. Vous pourriez examiner :
 
-Malheureusement, l’activation de RBAC sur des clusters existants n’est pas prise en charge pour l’instant. Vous devez créer des clusters explicitement. Si vous utilisez l’interface CLI, RBAC est activé par défaut, tandis qu’un bouton bascule pour l’activer est disponible dans le flux de travail de création du portail AKS.
+* Le pod lui-même, en utilisant `kubectl describe pod <pod-name>`.
+* Les journaux en utilisant `kubectl log <pod-name>`.
 
-### <a name="i-created-a-cluster-using-the-azure-cli-with-defaults-or-the-azure-portal-with-rbac-enabled-and-numerous-warnings-in-the-kubernetes-dashboard-the-dashboard-used-to-work-before-without-any-warnings-what-should-i-do"></a>J’ai créé un cluster à l’aide de l’interface de ligne de commande Azure en utilisant les valeurs par défaut ou le portail Azure avec RBAC activé et de nombreux avertissements apparaissent dans le tableau de bord kubernetes. Auparavant, le tableau de bord n’affichait aucun avertissement. Que dois-je faire ?
+Pour plus d’informations sur la façon de résoudre les problèmes de pod, voir [Déboguer des applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
-Le tableau de bord affiche des avertissements parce qu’il est maintenant activé par le biais de RBAC et que son accès a été désactivé par défaut. En règle générale, cette approche est considérée comme une bonne pratique dans la mesure où l’exposition par défaut du tableau de bord à tous les utilisateurs du cluster peut entraîner des menaces de sécurité. Si vous souhaitez quand même activer le tableau de bord, suivez ce [blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/) pour l’activer.
+## <a name="im-trying-to-enable-rbac-on-an-existing-cluster-how-can-i-do-that"></a>J’essaie d’activer le contrôle d’accès en fonction du rôle (RBAC) sur un cluster existant. Comment procéder ?
 
-### <a name="i-cant-seem-to-connect-to-the-dashboard-what-should-i-do"></a>Je ne parviens pas à me connecter au tableau de bord. Que dois-je faire ?
+Malheureusement, l’activation du contrôle d’accès en fonction du rôle (RBAC) sur des clusters existants n’est pas prise en charge actuellement. Vous devez créer explicitement de nouveaux clusters. Si vous utilisez l’interface CLI, le contrôle d’accès en fonction du rôle (RBAC) est activé par défaut. Si vous utilisez le portail AKS, un bouton bascule pour activer le contrôle d’accès en fonction du rôle (RBAC) est disponible dans le flux de travail de création.
 
-La façon la plus simple d’accéder à votre service à l’extérieur du cluster consiste à exécuter la commande kubectl proxy, qui redirige les demandes via proxy à votre port localhost 8001 sur le serveur d’API Kubernetes. À partir de là, le serveur d’API peut effectuer une redirection via proxy vers votre service : http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default
+## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>J’ai créé un cluster avec le contrôle d’accès en fonction du rôle (RBAC) activé à l’aide d’Azure CLI avec les valeurs par défaut ou du portail Microsoft Azure, et je vois maintenant de nombreux avertissements sur le tableau de bord Kubernetes. Le tableau de bord n’affichait généralement aucun avertissement. Que dois-je faire ?
 
-Si vous ne voyez pas le tableau de bord kubernetes, vérifiez si le pod kube-proxy est en cours d’exécution dans l’espace de noms kube-system. S’il n’est pas en cours d’exécution, supprimez-le afin qu’il redémarre.
+Les avertissements sur le tableau de bord s’expliquent par le fait que le cluster est désormais activé avec le contrôle d’accès en fonction du rôle (RBAC) et que son accès a été désactivé par défaut. En règle générale, cette approche est une bonne pratique parce que l’exposition par défaut du tableau de bord à tous les utilisateurs du cluster peut entraîner des menaces de sécurité. Si vous souhaitez quand même activer le tableau de bord, procédez de la manière décrite dans ce [billet de blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
-### <a name="i-could-not-get-logs-using-kubectl-logs-or-cannot-connect-to-the-api-server-getting-the-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Je n’ai pas pu obtenir de journaux à l’aide de la commande kubectl logs ou ne peux pas me connecter au serveur d’API ; j’obtiens une erreur serveur d’accès au backend (« Error from server: error dialing backend: dial tcp... »). Que dois-je faire ?
+## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Je ne parviens pas à me connecter au tableau de bord. Que dois-je faire ?
 
-Vérifiez que le groupe de sécurité réseau par défaut n’est pas modifié et que le port 22 est ouvert pour la connexion au serveur d’API. Vérifiez si le pod tunnelfront s’exécute dans l’espace de noms kube-system. Si ce n’est pas le cas, forcez sa suppression afin qu’il redémarre.
+La façon la plus simple d’accéder à votre service à l’extérieur du cluster consiste à exécuter `kubectl proxy`, qui redirige les demandes adressées via proxy à votre port localhost 8001 vers le serveur d’API Kubernetes. À partir de là, le serveur d’API peut réacheminer par proxy vers votre service : `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
 
-### <a name="i-am-trying-to-upgrade-or-scale-and-am-getting-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-issue"></a>J’essaie d’effectuer une mise à niveau ou une mise à l’échelle et j’obtiens l’erreur suivante : « Changing property 'imageReference' is not allowed » (La modification de la propriété 'imageReference' n’est pas autorisée). .  Comment résoudre ce problème ?
+Si vous ne voyez pas le tableau de bord Kubernetes, vérifiez si le pod `kube-proxy` est en cours d’exécution dans l’espace de noms `kube-system`. S’il n’est pas en cours d’exécution, supprimez-le afin qu’il redémarre.
 
-Cette erreur est peut-être due au fait que vous avez modifié les balises dans les nœuds d’agent à l’intérieur du cluster AKS. La modification et la suppression de balises et d’autres propriétés de ressources dans le groupe de ressources MC_ peuvent entraîner des résultats inattendus. La modification des ressources sous MC_* dans le cluster AKS interrompt le SLO.
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Je ne parviens pas à obtenir les journaux à l’aide des journaux de kubectl, ou à me connecter au serveur API. J’obtiens le message « Error from server: error dialing backend: dial tcp… » Que dois-je faire ?
 
-### <a name="how-do-i-renew-the-service-principal-secret-on-my-aks-cluster"></a>Comment renouveler la clé secrète du principal du service sur mon cluster AKS ?
+Assurez-vous que le groupe de sécurité de réseau (NSG) par défaut n’est pas modifié et que le port 22 est ouvert pour la connexion au serveur d’API. Vérifiez si le pod `tunnelfront` est en cours d’exécution dans l’espace de noms `kube-system`. Si ce n’est pas le cas, forcez la suppression du pod pour qu’il redémarre.
 
-Par défaut, les clusters AKS sont créés avec un principal du service qui a un délai d’expiration d’un an. À mesure que vous approchez de la date d’expiration de l’année en question, vous pouvez réinitialiser les informations d’identification afin d’étendre le principal du service pour une durée supplémentaire.
+## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-problem"></a>Lorsque j’essaie d’effectuer une mise à niveau ou une mise à l’échelle, j’obtiens l’erreur « Changing property ’imageReference’ is not allowed ».   Comment résoudre ce problème ?
 
-L’exemple suivant effectue les étapes suivantes :
+Cette erreur s’affiche peut-être parce que vous avez modifié les balises dans les nœuds d’agent à l’intérieur du cluster AKS. La modification et la suppression de balises et d’autres propriétés de ressources dans le groupe de ressources MC_ peuvent entraîner des résultats inattendus. La modification des ressources du groupe MC_ * dans le cluster AKS empêche d’atteindre l’objectif de niveau de service (SLO).
 
-1. Obtient l’ID du principal de service de votre cluster à l’aide de la commande [az aks show](/cli/azure/aks#az-aks-show).
-1. Répertorie la clé secrète client du principal du service à l’aide de la commande [az ad sp credential list](/cli/azure/ad/sp/credential#az-ad-sp-credential-list)
-1. Étend le principal du service pour une année supplémentaire en utilisant la commande [az ad sp credential-reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset). La clé secrète du client du principal du service doit rester la même pour que le cluster AKS puisse s’exécuter correctement.
+## <a name="how-do-i-renew-the-service-principal-secret-on-my-aks-cluster"></a>Comment renouveler la clé secrète du principal du service sur mon cluster AKS ?
+
+Par défaut, les clusters AKS sont créés avec un principal de service dont le délai d’expiration est d’un an. À mesure que vous approchez de la date d’expiration, vous pouvez réinitialiser les informations d’identification afin de prolonger le délai d’expiration du principal de service.
+
+Cet exemple effectue les étapes suivantes :
+
+1. Obtient l’ID du principal de service de votre cluster en utilisant la commande [az aks show](/cli/azure/aks#az-aks-show).
+1. Répertorie le secret du client du principal de service en utilisant la commande [az ad sp credential list](/cli/azure/ad/sp/credential#az-ad-sp-credential-list).
+1. Prolonge d’un an le délai d’expiration du principal de service en utilisant la commande [az ad sp credential-reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset). La clé secrète du client du principal du service doit rester la même pour que le cluster AKS puisse s’exécuter correctement.
 
 ```azurecli
-# Get the service principal ID of your AKS cluster
+# Get the service principal ID of your AKS cluster.
 sp_id=$(az aks show -g myResourceGroup -n myAKSCluster \
     --query servicePrincipalProfile.clientId -o tsv)
 
-# Get the existing service principal client secret
+# Get the existing service principal client secret.
 key_secret=$(az ad sp credential list --id $sp_id --query [].keyId -o tsv)
 
-# Reset the credentials for your AKS service principal and extend for 1 year
+# Reset the credentials for your AKS service principal and extend for one year.
 az ad sp credential reset \
     --name $sp_id \
     --password $key_secret \
