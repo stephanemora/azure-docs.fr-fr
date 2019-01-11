@@ -1,5 +1,5 @@
 ---
-title: Configuration d’Azure Key Vault avec une rotation des clés et un audit de bout en bout | Microsoft Docs
+title: Configurer Azure Key Vault avec un audit et une rotation des clés de bout en bout - Azure Key Vault | Microsoft Docs
 description: Utilisez cette procédure pour configurer la rotation des clés et la surveillance des journaux de Key Vault.
 services: key-vault
 documentationcenter: ''
@@ -10,16 +10,15 @@ ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: bf3aba431e7b417b2213bc3410fd7722d7888d15
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4dbfd993a8464c569d30f11e305d4bae000a778f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302015"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077706"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurer Azure Key Vault avec une rotation des clés et un audit
 
@@ -88,7 +87,7 @@ Get-AzureKeyVaultSecret –VaultName <vaultName>
 Maintenant que vous disposez d’une clé secrète stockée, vous pouvez utiliser le code pour la récupérer et l’utiliser. Quelques étapes sont nécessaires pour y parvenir. La première et la plus importante d’entre elles consiste à enregistrer votre application dans Azure Active Directory et à fournir à Key Vault des informations sur votre application afin qu’il autorise les requêtes provenant de votre application.
 
 > [!NOTE]
-> Votre application doit être créée sur le même locataire Azure Active Directory que votre coffre de clés.
+> Votre application doit être créée sur le même client Azure Active Directory que votre coffre de clés.
 >
 >
 
@@ -270,7 +269,7 @@ Ensuite, [créez une fonction Azure](../azure-functions/functions-create-first-a
 
 Pour créer une fonction Azure, choisissez **Créer une ressource**, recherchez _Function App_ sur la Place de Marché, puis cliquez sur **Créer**. Lors de la création, vous pouvez utiliser un plan d’hébergement existant ou en créer un nouveau. Vous pouvez également opter pour un hébergement dynamique. Vous trouverez plus d’informations sur les options d’hébergement de fonction dans la rubrique [Mise à l’échelle d’Azure Functions](../azure-functions/functions-scale.md).
 
-Une fois la fonction Azure créée, accédez-y, choisissez une fonction de minuteur et C\#. Cliquez ensuite sur **Créer cette fonction**.
+Une fois la fonction Azure créée, accédez-y, choisissez une fonction de minuteur et C\#. Cliquez ensuite sur **Créer cette fonction.
 
 ![Panneau d’accueil d’Azure Functions](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 
@@ -414,7 +413,7 @@ Et ajoutez un fichier appelé project.json avec le contenu suivant :
 
 Lorsque vous cliquez sur **Enregistrer**, Azure Functions télécharge les fichiers binaires nécessaires.
 
-Basculez vers l’onglet **Intégration** et donnez un nom explicite au paramètre du minuteur à utiliser dans la fonction. Dans le code précédent, le minuteur est appelé *myTimer*. Spécifiez une [expression CRON](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON) comme suit : 0 \* \* \* \* \* pour le minuteur qui activera l’exécution de la fonction une fois par minute.
+Basculez vers l’onglet **Intégration** et donnez un nom explicite au paramètre du minuteur à utiliser dans la fonction. Dans le code précédent, le minuteur est appelé *myTimer*. Spécifiez une [expression CRON](../app-service/webjobs-create.md#CreateScheduledCRON) comme suit : 0 \* \* \* \* \* pour le minuteur qui activera l’exécution de la fonction une fois par minute.
 
 Dans ce même onglet **Intégration**, ajoutez une entrée de type **Stockage Blob Azure**. Elle pointera vers le fichier sync.txt contenant l’horodatage du dernier événement examiné par la fonction. Elle sera disponible dans la fonction en tant que nom de paramètre. Dans le code précédent, l’entrée Azure Blob Storage attend le nom de paramètre *inputBlob*. Choisissez le compte de stockage dans lequel se trouvera le fichier sync.txt (il peut s’agir du même compte de stockage ou d’un autre). Dans le champ Chemin d’accès, indiquez le chemin d’accès au fichier au le format {container-name}/path/to/sync.txt.
 
