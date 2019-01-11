@@ -1,7 +1,7 @@
 # [Documentation Scheduler](index.md)
 
 # Vue d’ensemble
-## [Qu’est-ce que Azure Scheduler ?](scheduler-intro.md)
+## [Présentation d’Azure Scheduler](scheduler-intro.md)
 
 # Prise en main
 ## [Créer et gérer des tâches : portail](scheduler-get-started-portal.md)
@@ -26,6 +26,7 @@
 # Informations de référence
 ## [Azure PowerShell](/powershell/module/azurerm.scheduler)
 ## [API REST](/rest/api/scheduler)
+## [modèle Azure Resource Manager](/azure/templates/microsoft.scheduler/allversions)
 
 # Ressources
 ## [Feuille de route Azure Scheduler](https://azure.microsoft.com/updates/?product=scheduler)
