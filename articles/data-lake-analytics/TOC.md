@@ -74,6 +74,7 @@
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python)
 ## [REST](/rest/api/datalakeanalytics/)
+## [modèle Azure Resource Manager](/azure/templates/microsoft.datalakeanalytics/allversions)
 ## [INTERFACE DE LIGNE DE COMMANDE](https://docs.microsoft.com/cli/azure/dla)
 
 # Ressources
