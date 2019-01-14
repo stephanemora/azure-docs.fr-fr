@@ -21,7 +21,7 @@ ms.lasthandoff: 08/17/2018
 ms.locfileid: "42140067"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copier des données de DB2 à l’aide d’Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez:"]
 > * [Version 1](v1/data-factory-onprem-db2-connector.md)
 > * [Version actuelle](connector-db2.md)
 
