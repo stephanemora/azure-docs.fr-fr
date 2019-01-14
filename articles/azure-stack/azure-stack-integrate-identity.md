@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 01/08/19
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 9d9e97d81e33487a5f23197912eba3802e83a32e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ff7fb909e3f6e26846114c4b7bfdddccd07526ec
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257374"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188894"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Intégration au centre de données Azure Stack - Identité
 Vous pouvez déployer Azure Stack en utilisant Azure Active Directory (Azure AD) ou Active Directory Federation Services (AD FS) en tant que fournisseur d’identité. Vous devez faire le choix avant de déployer Azure Stack. Le déploiement à l’aide d’AD FS est également appelé déploiement d’Azure Stack en mode déconnecté.
@@ -27,7 +27,7 @@ Le tableau suivant montre les différences entre ces deux choix d’identité :
 |Facturation|Doit être une capacité<br> Contrat Entreprise (EA) uniquement|Selon la capacité ou paiement à l’utilisation<br>EA ou fournisseur de solutions cloud (CSP)|
 |Identité|Doit être AD FS|Azure AD ou AD FS|
 |Marketplace |Pris en charge<br>Licences BYOL|Pris en charge<br>Licences BYOL|
-|Inscription|Recommandé, nécessite un support amovible<br> et un appareil connecté distinct.|Automatisé|
+|Inscription|Requis, nécessite un support amovible<br> et un appareil connecté distinct.|Automatisé|
 |Correctifs et mises à jour|Requis, nécessite un support amovible<br> et un appareil connecté distinct.|Un package de mise à jour peut être téléchargé directement<br> depuis Internet dans Azure Stack.|
 
 > [!IMPORTANT]
@@ -278,7 +278,7 @@ Si vous décidez d’exécuter manuellement les commandes, procédez comme suit�
    > [!IMPORTANT]  
    > Vous devez utiliser le composant logiciel enfichable MMC AD FS pour configurer les règles d’autorisation d’émission si vous utilisez AD FS sous Windows Server 2012 ou 2012 R2.
 
-4. Si vous utilisez Internet Explorer ou Edge pour accéder à Azure Stack, vous devez ignorer les liaisons de jeton. Sinon, les tentatives de connexion échouent. Sur votre instance AD FS ou membre de la batterie de serveurs, exécutez la commande suivante :
+4. Si vous utilisez Internet Explorer ou Microsoft Edge pour accéder à Azure Stack, vous devez ignorer les liaisons de jeton. Sinon, les tentatives de connexion échouent. Sur votre instance AD FS ou membre de la batterie de serveurs, exécutez la commande suivante :
 
    > [!note]  
    > Cette étape n’est pas disponible si vous exécutez Windows Server 2012 ou 2012 R2 AD FS. Il est plus sûr d’ignorer cette commande et de poursuivre l’intégration.

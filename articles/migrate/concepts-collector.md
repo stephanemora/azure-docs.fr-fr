@@ -4,15 +4,15 @@ description: Fournit des informations sur l’appliance Collector dans Azure Mig
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/08/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 255f5b34e53ddfb1a503130f0bccbac16a420f9a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6f843fedafd68d4e04d181af2c6d7542baaf0144
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255973"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104206"
 ---
 # <a name="about-the-collector-appliance"></a>À propos de l’appliance Collector
 
@@ -36,9 +36,9 @@ L’appliance collecteur est connectée en continu au projet Azure Migrate et el
 
 L’appliance collecte uniquement les données de performances en continu. Elle ne détecte pas les changements de configuration dans l’environnement local (par exemple, ajout ou suppression de machine virtuelle, ajout de disque, etc.). En cas de modification de configuration de l’environnement local, vous pouvez procéder aux opérations suivantes pour refléter les modifications dans le portail :
 
-- Ajout d’éléments (machines virtuelles, disques, cœurs, etc.) : pour refléter ces modifications sur le Portail Azure, vous pouvez arrêter la détection de l’appliance, puis la redémarrer. Cela garantit que les modifications sont mises à jour dans le projet Azure Migrate.
+- Ajout d’éléments (machines virtuelles, disques, cœurs, etc.) : pour refléter ces modifications dans le portail Azure, vous pouvez arrêter la détection de l’appliance, puis la redémarrer. Cela garantit que les modifications sont mises à jour dans le projet Azure Migrate.
 
-- Suppression de machines virtuelles : en raison de la façon dont l’appliance est conçue, la suppression de machines virtuelles n’apparaît pas, même si vous arrêtez et redémarrez la détection. Cela est dû au fait que les données de détections ultérieures sont ajoutées, et non pas remplacées, aux détections plus anciennes. Dans ce cas, vous pouvez simplement ignorer la machine virtuelle dans le portail en la supprimant de votre groupe et en recalculant l’évaluation.
+- Suppression de machines virtuelles : en raison de la façon dont l’appliance est conçue, la suppression de machines virtuelles n’apparaît pas, même si vous arrêtez et redémarrez la détection. Cela est dû au fait que les données de détections ultérieures sont ajoutées, et non pas remplacées, aux détections plus anciennes. Dans ce cas, vous pouvez simplement ignorer la machine virtuelle dans le portail en la supprimant de votre groupe et en recalculant l’évaluation.
 
 > [!NOTE]
 > L’appliance de découverte unique est désormais dépréciée, car son utilisation dépend des paramètres de statistiques vCenter Server concernant la disponibilité des points de données de performances, et nécessite la collecte des données de compteurs de performance moyenne, ce qui a comme résultat d’attribuer une taille insuffisante aux machines virtuelles pour la migration vers Azure.
@@ -63,7 +63,7 @@ Vous devez effectuer quelques vérifications de prérequis pour vous assurer que
     - Sélectionnez Azure Global si vous envisagez d’effectuer une migration vers le cloud Azure commercial.
     - En fonction du cloud spécifié ici, l’appliance envoie les métadonnées détectées aux points de terminaison respectifs.
 - **Vérifier la connexion Internet** : le collecteur peut se connecter à Internet directement ou par le biais d’un proxy.
-    - La vérification de prérequis vérifie la connectivité aux [URL requises et facultatives](#connect-to-urls).
+    - La vérification de prérequis vérifie la connectivité aux [URL requises et facultatives](#urls-for-connectivity).
     - Si vous avez une connexion directe à Internet, aucune action spécifique n’est nécessaire à part vérifier que le collecteur peut atteindre les URL requises.
     - Si vous vous connectez via un proxy, notez les [exigences ci-dessous](#connect-via-a-proxy).
 - **Vérifier la synchronisation de l’heure** : le collecteur doit être synchronisé avec le serveur de temps Internet pour que les requêtes envoyées au service soient authentifiées.
@@ -105,7 +105,7 @@ Vous devez effectuer quelques vérifications de prérequis pour vous assurer que
 
 
 
-### <a name="connect-to-urls"></a>Se connecter aux URL
+### <a name="urls-for-connectivity"></a>Adresses URL de connectivité
 
 Vous validez la vérification de la connectivité en vous connectant à une liste d’URL.
 
@@ -219,7 +219,7 @@ L’appliance collecteur détecte les métadonnées de configuration suivantes p
 
 #### <a name="performance-counters"></a>Compteurs de performances
 
- L’appliance collecteur collecte les compteurs de performances suivants pour chaque machine virtuelle à partir de l’hôte ESXi, et ce, à des intervalles de 20 secondes. Ce sont des compteurs vCenter et, bien que la terminologie indique le terme « moyenne », les exemples de 20 secondes sont des compteurs en temps réel. Les données de performances pour les machines virtuelles commencent à être disponibles sur le portail deux heures après le lancement de la détection. Il est vivement recommandé d’attendre au moins un jour avant de créer des évaluations basées sur les performances pour obtenir des recommandations de dimensionnement fiables. Si vous souhaitez des résultats instantanés, vous pouvez créer des évaluations avec un critère de dimensionnement, tel que *localement*, qui ne prend pas en compte les données de performances pour le dimensionnement.
+ L’appliance collecteur collecte les compteurs de performances suivants pour chaque machine virtuelle à partir de l’hôte ESXi, et ce, à des intervalles de 20 secondes. Ce sont des compteurs vCenter et, bien que la terminologie indique le terme « moyenne », les exemples de 20 secondes sont des compteurs en temps réel. Les données de performances pour les machines virtuelles commencent à être disponibles sur le portail deux heures après le lancement de la détection. Il est vivement recommandé d’attendre au moins un jour avant de créer des évaluations basées sur les performances pour obtenir des recommandations de right-sizing fiables. Si vous souhaitez des résultats instantanés, vous pouvez créer des évaluations avec un critère de dimensionnement, tel que *localement*, qui ne prend pas en compte les données de performances pour le right-sizing.
 
 **Compteur** |  **Impact sur l’évaluation**
 --- | ---

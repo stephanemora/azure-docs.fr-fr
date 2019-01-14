@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 87d2ebcf6a12f51775b15e906ea7813962e3630f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5dc39d2f64aa2cd895cbf57d95100d831a6f4432
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965374"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159789"
 ---
 # <a name="api-management-transformation-policies"></a>Stratégies de transformation de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -318,7 +318,7 @@ Dans cet exemple, la stratégie permet d’acheminer la requête vers un serveur
 </set-body>
 ```
 
-#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Exemple d’accès au corps sous forme de JObject. Notez que puisque nous ne conservons pas le corps de la demande d’origine, une tentative pour y accéder ultérieurement dans le pipeline entraîne une exception.
+#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accessing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Exemple d’accès au corps sous forme de JObject. Notez que puisque nous ne conservons pas le corps de la requête d’origine, une tentative pour y accéder ultérieurement dans le pipeline entraîne une exception.
 
 ```xml
 <set-body> 

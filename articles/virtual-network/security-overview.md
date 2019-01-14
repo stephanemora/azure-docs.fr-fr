@@ -1,22 +1,23 @@
 ---
-title: Vue d’ensemble des groupes de sécurité Azure | Microsoft Docs
+title: Vue d’ensemble des groupes de sécurité Azure
+titlesuffix: Azure Virtual Network
 description: En savoir plus sur les groupes de sécurité réseau et d’application. Les groupes de sécurité vous permettent de filtrer le trafic réseau entre les ressources Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: ad5205bcf063cd3375e68ef609c71ced2f551b61
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 52cac856fbec79842cc4661f38342cb972ea40df
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311760"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159058"
 ---
 # <a name="security-groups"></a>Groupes de sécurité
 <a name="network-security-groups"></a>
@@ -70,15 +71,18 @@ Les règles de sécurité augmentée simplifient la définition de la sécurité
 * **MicrosoftContainerRegistry** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Microsoft Container Registry. Si vous spécifiez *MicrosoftContainerRegistry* comme valeur, le trafic vers MicrosoftContainerRegistry est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à MicrosoftContainerRegistry dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : MicrosoftContainerRegistry.[nom_région]. 
 * **AzureContainerRegistry** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure Container Registry. Si vous spécifiez *AzureContainerRegistry* comme valeur, le trafic vers AzureContainerRegistry est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à AzureContainerRegistry dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : AzureContainerRegistry.[nom_région]. 
 * **AppService** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure AppService. Si vous spécifiez *AppService* comme valeur, le trafic vers AppService est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à AppService dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : AppService.[nom_région]. 
-* **AppServiceManagement** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure AppService Management. Si vous spécifiez *AppServiceManagement* comme valeur, le trafic vers AppServiceManagement est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à AppServiceManagement dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : AppServiceManagement.[nom_région]. 
-* **ApiManagement** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Gestion des API Azure. Si vous spécifiez *ApiManagement* comme valeur, le trafic vers ApiManagement est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à ApiManagement dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : ApiManagement.[nom_région]. 
+* **AppServiceManagement** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure AppService Management. Si vous spécifiez *AppServiceManagement* comme valeur, le trafic vers AppServiceManagement est autorisé ou refusé. 
+* **ApiManagement** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Gestion des API Azure. Si vous spécifiez *ApiManagement* comme valeur, le trafic vers ApiManagement est autorisé ou refusé.  
 * **AzureConnectors** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure Connectors. Si vous spécifiez *AzureConnectors* comme valeur, le trafic vers AzureConnectors est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à AzureConnectors dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : AzureConnectors.[nom_région]. 
-* **GatewayManager** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure Gateway Manager. Si vous spécifiez *GatewayManager* comme valeur, le trafic vers GatewayManager est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à GatewayManager dans une [région](https://azure.microsoft.com/regions) spécifique, vous pouvez spécifier la région au format suivant : GatewayManager.[nom_région]. 
+* **GatewayManager** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure Gateway Manager. Si vous spécifiez *GatewayManager* comme valeur, le trafic vers GatewayManager est autorisé ou refusé.  
 * **AzureDataLake** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service Azure Data Lake. Si vous spécifiez *AzureDataLake* comme valeur, le trafic vers AzureDataLake est autorisé ou refusé. 
 * **AzureActiveDirectory** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service AzureActiveDirectory. Si vous spécifiez *AzureActiveDirectory* comme valeur, le trafic vers AzureActiveDirectory est autorisé ou refusé.  
+* **AzureMonitor** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service AzureMonitor. Si vous spécifiez *AzureMonitor* comme valeur, le trafic vers AzureMonitor est autorisé ou refusé. 
+* **ServiceFabric** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service ServiceFabric. Si vous spécifiez *ServiceFabric* comme valeur, le trafic vers ServiceFabric est autorisé ou refusé. 
+* **AzureMachineLearning** (Resource Manager uniquement) : Cette balise désigne les préfixes d’adresse du service AzureMachineLearning. Si vous spécifiez *AzureMachineLearning* comme valeur, le trafic est autorisé ou refusé à AzureMachineLearning. 
 
 > [!NOTE]
-> Les balises des services Azure indiquent les préfixes d’adresse du cloud spécifique utilisé. Les balises de service régionales ne sont pas prises en charge sur les clouds nationaux, qui ne prennent en charge que le format global. Par exemple, *Storage* et *Sql*.
+> Les balises des services Azure indiquent les préfixes d’adresse du cloud spécifique utilisé. 
 
 > [!NOTE]
 > Si vous implémentez un [point de terminaison de service de réseau virtuel](virtual-network-service-endpoints-overview.md) pour un service, par exemple Stockage Azure ou Azure SQL Database, Azure ajoute un [itinéraire](virtual-networks-udr-overview.md#optional-default-routes) vers un sous-réseau de réseau virtuel pour le service. Les préfixes d’adresse de l’itinéraire sont les mêmes préfixes d’adresse ou plages CIDR que pour la balise de service correspondante.

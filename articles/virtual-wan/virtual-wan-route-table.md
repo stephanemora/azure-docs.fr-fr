@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 821aecf5549548365d95ef83ea1fcdeb017a4a21
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7d5cd8aab0f368ffec636e6dfcacf127c910dafc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321441"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190168"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Créer une table d’itinéraires de hub virtuel pour diriger le trafic vers une appliance réseau virtuelle
 
@@ -21,7 +21,7 @@ Dans cet article, découvrez comment diriger le trafic à partir d’un hub virt
 
 ![Diagramme WAN virtuel](./media/virtual-wan-route-table/vwanroute.png)
 
-Cet article porte sur les points suivants :
+Dans cet article, vous apprendrez comment :
 
 * Créer un WAN
 * Créer un hub
@@ -43,7 +43,7 @@ Vérifiez que vous respectez les critères suivants :
 
 ## <a name="signin"></a>1. Se connecter
 
-Assurez-vous d’avoir installé la dernière version des cmdlets PowerShell de Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). Ceci est important, car les versions antérieures des cmdlets ne contiennent pas les valeurs actuelles dont vous avez besoin pour cet exercice.
+Assurez-vous d’avoir installé la dernière version des cmdlets PowerShell de Resource Manager. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/azurerm/overview). Ceci est important, car les versions antérieures des cmdlets ne contiennent pas les valeurs actuelles dont vous avez besoin pour cet exercice. Dans les exemples suivants, les modules suivants concernent Azure RM. Cet article sera mis à jour pour Azure Az dans le futur.
 
 1. Ouvrez la console PowerShell avec des privilèges élevés, puis connectez-vous à votre compte Azure. Ce cmdlet vous invite à entrer vos informations d’identification. Une fois que vous êtes connecté, vos paramètres de compte sont téléchargés afin de les mettre à disposition d’Azure PowerShell.
 

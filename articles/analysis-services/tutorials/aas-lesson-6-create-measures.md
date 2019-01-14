@@ -1,19 +1,19 @@
 ---
-title: 'Leçon 6 du didacticiel Azure Analysis Services : Créer des mesures | Microsoft Docs'
+title: 'Leçon 6 du didacticiel Azure Analysis Services : Créer des mesures | Microsoft Docs'
 description: Explique comment créer des mesures dans le projet du didacticiel Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ce38cac7a0b175004fbb670069ddbeefb53e96e7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0e9f798917b557d99259ece4773cce0853b15237
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428570"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191681"
 ---
 # <a name="create-measures"></a>Créer des mesures
 
@@ -28,7 +28,7 @@ Dans cette leçon, vous allez créer des mesures en entrant une formule DAX dan
 Durée estimée pour suivre cette leçon : **30 minutes**  
   
 ## <a name="prerequisites"></a>Prérequis  
-Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 5 : Créer des colonnes calculées](../tutorials/aas-lesson-5-create-calculated-columns.md).  
+Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 5 : Créer des colonnes calculées](../tutorials/aas-lesson-5-create-calculated-columns.md).  
   
 ## <a name="create-measures"></a>Créer des mesures  
   
@@ -84,7 +84,7 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
 
     |des colonnes|Nom de la mesure|Somme automatique (∑)|Formule|  
     |----------------|----------|-----------------|-----------|  
-    |SalesOrderLineNumber|InternetOrderLinesCount|Count|=COUNTA([SalesOrderLineNumber])|  
+    |SalesOrderLineNumber|InternetOrderLinesCount|Nombre|=COUNTA([SalesOrderLineNumber])|  
     |OrderQuantity|InternetTotalUnits|Somme|=SUM([OrderQuantity])|  
     |DiscountAmount|InternetTotalDiscountAmount|Somme|=SUM([DiscountAmount])|  
     |TotalProductCost|InternetTotalProductCost|Somme|=SUM([TotalProductCost])|  
@@ -122,6 +122,6 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
 Les mesures créées pour la table FactInternetSales peuvent être utilisées pour analyser les données financières critiques telles que les ventes, les coûts et les profits, pour les éléments définis par le filtre sélectionné par l’utilisateur.  
   
 ## <a name="whats-next"></a>Et ensuite ?
-[Leçon 7 : Afficher les indicateurs de performance clés](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
+[Leçon 7 : Créer des indicateurs de performance clés (KPI)](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
 
   

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a020f0f22f16d8aaa959c41a912ca5839be05312
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 308623b4643724d95777d7e21d1138f808e9c1c9
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055898"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190423"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Résoudre les problèmes d’authentification unique transparente Azure Active Directory
 
@@ -27,7 +27,7 @@ Cet article fournit des informations sur les problèmes courants liés à l’au
 
 - Dans certains cas, l’activation de l’authentification unique transparente peut prendre jusqu’à 30 minutes.
 - Si vous désactivez et réactivez l’authentification unique transparente sur votre client, les utilisateurs ne recevront pas l’expérience d’authentification unique jusqu'à ce que leurs tickets Kerberos, généralement valides pour 10 heures, expirent.
-- La prise en charge du navigateur Edge n’est pas disponible.
+- La prise en charge du navigateur Microsoft Edge n’est pas disponible.
 - Si l’authentification unique transparente réussit, l’utilisateur n’a pas la possibilité de choisir l’option **Maintenir la connexion**. En raison de ce comportement, [les scénarios de mappage SharePoint et OneDrive](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) ne fonctionnent pas.
 - Les clients Win32 Office 365 (Outlook, Word, Excel, etc.) dotés des versions 16.0.8730.xxxx et ultérieures sont pris en charge au moyen d’un flux non interactif. Les autres versions ne sont pas prises en charge ; dans ces versions, les utilisateurs entrent leur nom d’utilisateur, mais pas les mots de passe, pour se connecter. En ce qui concerne OneDrive, vous devez activer la [fonctionnalité de configuration silencieuse OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) pour une utilisation de l’authentification sans assistance.
 - L’authentification unique transparente ne fonctionne pas en mode Navigation privée sur Firefox.
@@ -36,23 +36,23 @@ Cet article fournit des informations sur les problèmes courants liés à l’au
 - Si un utilisateur fait partie de trop de groupes dans Active Directory, son ticket Kerberos sera probablement trop volumineux pour être traité, ce qui provoquera l’échec de l’authentification unique transparente. Les requêtes HTTPS Azure AD peuvent comporter des en-têtes dont la taille ne dépasse pas 50 Ko ; les tickets Kerberos doivent être plus petits pour laisser la place à d’autres artefacts d’Azure AD (en général, 2 à 5 Ko), comme les cookies. Nous vous recommandons de réduire les appartenances de l’utilisateur à des groupes, puis de réessayer.
 - Si vous synchronisez 30 forêts Active Directory ou plus, vous ne pouvez pas activer l’authentification unique transparente via Azure AD Connect. En guise de solution de contournement, vous pouvez [activer manuellement](#manual-reset-of-the-feature) la fonctionnalité pour votre locataire.
 - L’ajout de l’URL du service Azure AD (https://autologon.microsoftazuread-sso.com) à la zone Sites de confiance, plutôt que la zone Intranet local, *empêche les utilisateurs de se connecter*.
-- L’authentification unique transparente utilise le type de chiffrement **RC4_HMAC_MD5** pour Kerberos. La désactivation de l’utilisation du type de chiffrement **RC4_HMAC_MD5** dans vos paramètres Active Directory empêche l’authentification unique transparente. Dans l’outil Éditeur de gestion des stratégies de groupe, vérifiez que la valeur de la stratégie pour **RC4_HMAC_MD5** sous **Configuration ordinateur -> Paramètres Windows -> Paramètres de sécurité -> Stratégies locales -> Options de sécurité -> « Sécurité réseau : Configurer les types de chiffrement autorisés pour Kerberos »** est définie sur **activé**. En outre, l’authentification unique transparente ne peut pas utiliser d’autres types de chiffrement ; pensez à vérifier qu’ils sont donc définis sur **désactivé**.
+- L’authentification unique transparente utilise le type de chiffrement **RC4_HMAC_MD5** pour Kerberos. La désactivation de l’utilisation du type de chiffrement **RC4_HMAC_MD5** dans vos paramètres Active Directory empêche l’authentification unique transparente. Dans l’outil Éditeur de gestion des stratégies de groupe, vérifiez que la valeur de la stratégie pour **RC4_HMAC_MD5** sous **Configuration ordinateur -> Paramètres Windows -> Paramètres de sécurité -> Stratégies locales -> Options de sécurité -> « Sécurité réseau : Configurer les types de chiffrement autorisés pour Kerberos »** est définie sur **activé**. En outre, l’authentification unique transparente ne peut pas utiliser d’autres types de chiffrement ; pensez à vérifier qu’ils sont donc définis sur **désactivé**.
 
 ## <a name="check-status-of-feature"></a>Vérifier l’état de la fonctionnalité
 
 Assurez-vous que la fonctionnalité Authentification unique transparente est toujours **activée** sur votre client. Vous pouvez vérifier l’état en accédant au volet **Azure AD Connect** dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/).
 
-![Centre d’administration Azure Active Directory : volet Azure AD Connect](./media/tshoot-connect-sso/sso10.png)
+![Centre d'administration Azure Active Directory : Volet Azure AD Connect](./media/tshoot-connect-sso/sso10.png)
 
 Cliquez pour afficher toutes les forêts Active Directory dans lesquelles l’authentification unique transparente est activée.
 
-![Centre d’administration Azure Active Directory : volet Authentification unique transparente](./media/tshoot-connect-sso/sso13.png)
+![Centre d'administration Azure Active Directory : Volet Authentification unique fluide](./media/tshoot-connect-sso/sso13.png)
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Raisons des échecs de connexion dans le Centre d’administration Azure Active Directory (licence Premium requise)
 
 Si votre locataire dispose d’une licence Azure AD Premium, vous pouvez également consulter le [rapport d’activité de connexion](../reports-monitoring/concept-sign-ins.md) dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/).
 
-![Centre d’administration Azure Active Directory : rapport de connexions](./media/tshoot-connect-sso/sso9.png)
+![Centre d'administration Azure Active Directory : Rapport de connexions](./media/tshoot-connect-sso/sso9.png)
 
 Accédez à **Azure Active Directory** > **Connexions** dans le [Centre d’administration Azure Active Directory](https://aad.portal.azure.com/), puis sélectionnez une activité de connexion. Recherchez le champ **Code d’erreur de connexion**. Notez la valeur de ce champ et cherchez dans le tableau suivant la raison de l’échec et la solution à appliquer :
 
@@ -104,18 +104,18 @@ Si vous activez l’audit des réussites sur votre contrôleur de domaine, chaqu
 
 Si vous n’avez pas réussi à résoudre le problème, vous pouvez réinitialiser manuellement la fonctionnalité pour votre locataire. Procédez comme suit sur le serveur sur site où vous exécutez Azure AD Connect.
 
-### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Étape 1 : Importer le module PowerShell Authentification unique (SSO) transparente
+### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Étape 1 : Importer le module PowerShell Authentification unique (SSO) transparente
 
 1. Commencez par télécharger et installer [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
 2. Accédez au dossier `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. Importez le module PowerShell Authentification unique (SSO) transparente à l’aide de la commande suivante : `Import-Module .\AzureADSSO.psd1`.
 
-### <a name="step-2-get-the-list-of-active-directory-forests-on-which-seamless-sso-has-been-enabled"></a>Étape 2 : Obtenir la liste des forêts Azure Directory dans lesquelles l’authentification unique (SSO) transparente a été activée
+### <a name="step-2-get-the-list-of-active-directory-forests-on-which-seamless-sso-has-been-enabled"></a>Étape 2 : Obtenir la liste des forêts Azure Directory dans lesquelles l’authentification unique (SSO) transparente a été activée
 
 1. Exécutez PowerShell ISE en tant qu’administrateur. Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Lorsque vous y êtes invité, fournissez les informations d’identification de l’administrateur général de votre locataire.
 2. Appelez `Get-AzureADSSOStatus`. Cette commande vous fournit la liste des forêts Azure Directory (examinez la liste « Domaines ») dans lesquelles cette fonctionnalité a été activée.
 
-### <a name="step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature"></a>Étape 3 : Désactiver l'authentification unique (Seamless SSO) pour chaque forêt Azure Directory dans laquelle vous avez configuré la fonctionnalité
+### <a name="step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature"></a>Étape 3 : Désactiver l’authentification unique (Seamless SSO) pour chaque forêt Azure Directory dans laquelle vous avez configuré la fonctionnalité
 
 1. Appelez `$creds = Get-Credential`. Quand vous y êtes invité, entrez les informations d’identification d’administrateur de domaine pour la forêt Azure Directory souhaitée.
 
@@ -125,7 +125,7 @@ Si vous n’avez pas réussi à résoudre le problème, vous pouvez réinitialis
 2. Appelez `Disable-AzureADSSOForest -OnPremCredentials $creds`. Cette commande supprime le compte d’ordinateur `AZUREADSSOACCT` du contrôleur de domaine sur site pour cette forêt Azure Directory spécifique.
 3. Répétez les étapes précédentes pour chaque forêt Azure Directory dans laquelle vous avez configuré la fonctionnalité.
 
-### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Étape 4 : Activer l’authentification unique (SSO) transparente pour chaque forêt Azure Directory
+### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Étape 4 : Activer l’authentification unique (SSO) transparente pour chaque forêt Azure Directory
 
 1. Appelez `Enable-AzureADSSOForest`. Quand vous y êtes invité, entrez les informations d’identification d’administrateur de domaine pour la forêt Azure Directory souhaitée.
 

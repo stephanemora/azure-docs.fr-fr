@@ -1,28 +1,28 @@
 ---
-title: 'Leçon 10 du didacticiel Azure Analysis Services : Créer des partitions | Microsoft Docs'
+title: 'Leçon 10 du didacticiel Azure Analysis Services : Créer des partitions | Microsoft Docs'
 description: Explique comment créer des partitions dans le projet du didacticiel Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5aaaee6f9a69f9cb619935f18f614d7572a755d7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 11be6d10589d981335d1f63d06933dba5265348a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429683"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191834"
 ---
 # <a name="create-partitions"></a>Créer des partitions
 
 Dans cette leçon, vous allez créer des partitions pour diviser la table FactInternetSales en sous-parties logiques qui peuvent être traitées (actualisées) indépendamment des autres partitions. Par défaut, chaque table que vous incluez dans votre modèle comporte une partition, qui comprend toutes les colonnes et les lignes de la table. Pour la table FactInternetSales, nous allons diviser les données en fonction des années, en attribuant une partition pour chaque cinq années. Chaque partition peut ensuite être traitée indépendamment. Pour plus d’informations, consultez [Partitions](https://docs.microsoft.com/sql/analysis-services/tabular-models/partitions-ssas-tabular). 
   
-Durée estimée pour suivre cette leçon : **15 minutes**  
+Durée estimée pour suivre cette leçon : **15 minutes**  
   
 ## <a name="prerequisites"></a>Prérequis  
-Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 9 : Créer des hiérarchies](../tutorials/aas-lesson-9-create-hierarchies.md).  
+Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 9 : Créer des hiérarchies](../tutorials/aas-lesson-9-create-hierarchies.md).  
   
 ## <a name="create-partitions"></a>Créer des partitions  
   
@@ -40,7 +40,7 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
 
     ![aas-lesson10-query-editor](../tutorials/media/aas-lesson10-query-editor.png)
 
-6.  Dans la boîte de dialogue Filtrer les lignes, dans **Afficher les lignes où : OrderDate**, conservez **postérieur ou égal à**, puis, dans le champ de date, entrez **1/1/2010**. Laissez l’opérateur **And** sélectionné, sélectionnez **avant**, puis, dans le champ de date, entrez **1/1/2011** et cliquez sur **OK**.
+6.  Dans la boîte de dialogue Filtrer les lignes, dans **Afficher les lignes où : OrderDate**, conservez **postérieur ou égal à**, puis, dans le champ de date, entrez **1/1/2010**. Laissez l’opérateur **And** sélectionné, sélectionnez **avant**, puis, dans le champ de date, entrez **1/1/2011** et cliquez sur **OK**.
 
     ![aas-lesson10-filter-rows](../tutorials/media/aas-lesson10-filter-rows.png)
     
@@ -109,4 +109,4 @@ Dans le Gestionnaire de partition, notez que la colonne **Dernier traitement** d
     ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
   
  ## <a name="whats-next"></a>Et ensuite ?
-Accédez à la leçon suivante : [Leçon 11 : Créer des rôles](../tutorials/aas-lesson-11-create-roles.md). 
+Accédez à la leçon suivante : [Leçon 11 : Créer des rôles](../tutorials/aas-lesson-11-create-roles.md). 

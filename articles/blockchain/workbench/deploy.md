@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 12/4/2018
+ms.date: 1/8/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 5f2f262d5ec4b9e8884e47c6c064927da2af4790
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2c5e3664a9ef26319eb8a51d03ddef6a5392ffa9
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876147"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102990"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Déployer Azure Blockchain Workbench
 
@@ -101,7 +101,7 @@ Une fois que les étapes préalables requises ont été exécutées, vous êtes 
     | Paramètre | Description  |
     |---------|--------------|
     | Surveillance | Indiquer si vous souhaitez autoriser Azure Monitor à surveiller votre réseau blockchain |
-    | Paramètres Azure Active Directory | Choisissez **Ajouter ultérieurement**.</br>Remarque : Si vous avez choisi de [préconfigurer Azure AD](#azure-ad-configuration), ou si vous redéployez, optez pour *Ajouter maintenant*. |
+    | Paramètres Azure Active Directory | Choisissez **Ajouter ultérieurement**.</br>Remarque : Si vous avez choisi de [préconfigurer Azure AD](#azure-ad-configuration) ou si vous redéployez, optez pour *Ajouter maintenant*. |
     | Sélection de machine virtuelle | Choisissez la taille de machine virtuelle préférée pour votre réseau blockchain. Choisissez une plus petite taille de machine virtuelle, comme *Standard DS1 v2*, si vous êtes sur un abonnement doté de limites de service faibles, tel que l’abonnement gratuit d’Azure. |
 
     Pour **Utiliser l’existant** :
@@ -119,7 +119,7 @@ Une fois que les étapes préalables requises ont été exécutées, vous êtes 
 
     | Paramètre | Description  |
     |---------|--------------|
-    | Point de terminaison Ethereum RPC | Indiquez le point de terminaison RPC d’un réseau blockchain PoA existant. Le point de terminaison commence par https:// ou http:// et se termine par un numéro de port. Par exemple, `https://network.westus.cloudapp.com:8540` |
+    | Point de terminaison Ethereum RPC | Indiquez le point de terminaison RPC d’un réseau blockchain PoA existant. Le point de terminaison commence par https:// ou http:// et se termine par un numéro de port. Par exemple, `http<s>://<network-url>:<port>` |
     | Paramètres Azure Active Directory | Choisissez **Ajouter ultérieurement**.</br>Remarque : Si vous avez choisi de [préconfigurer Azure AD](#azure-ad-configuration) ou si vous redéployez, optez pour *Ajouter maintenant*. |
     | Sélection de machine virtuelle | Choisissez la taille de machine virtuelle préférée pour votre réseau blockchain. |
 

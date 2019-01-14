@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: f460c063ded489c8ec0ef23b35ab304c62943a98
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 73c94b79bb315c317d39ade704e2ee70a241a348
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337068"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187743"
 ---
-# <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application
+# <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles (préversion) dans le but de comprendre les composants d’application
 Lorsque vous visualisez les composants d’application détectés sur des machines virtuelles Windows et Linux s’exécutant dans Azure, vous pouvez observer votre environnement de deux manières avec Azure Monitor pour machines virtuelles : directement à partir d’une machine virtuelle ou à l’échelle des groupes de machines virtuelles à partir d’Azure Monitor. 
 
 Cet article vous aide à comprendre l’expérience selon les deux perspectives et à utiliser la fonctionnalité Map. Pour plus d’informations sur la configuration d’Azure Monitor pour les machines virtuelles, consultez [Enable Azure Monitor for VMs ](vminsights-onboard.md)(Activer Azure Monitor pour les machines virtuelles).

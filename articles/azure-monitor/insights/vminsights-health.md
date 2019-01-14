@@ -1,5 +1,5 @@
 ---
-title: Superviser l’intégrité des machines virtuelles avec Azure Monitor pour machines virtuelles | Microsoft Docs
+title: Superviser l’intégrité des machines virtuelles avec Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
 description: Cet article décrit comment comprendre l’intégrité de la machine virtuelle et le système d’exploitation sous-jacent grâce à Azure Monitor pour les machines virtuelles.
 services: azure-monitor
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: a2f654043146536ecf543ae2a0aa49537c2223e1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 737e05f3d936481e06acfc0604ff739b9f01d5db
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344024"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191647"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Comprendre l’intégrité de vos machines virtuelles Azure grâce à Azure Monitor pour machines virtuelles (préversion)
 Azure comprend plusieurs services qui effectuent individuellement un rôle spécifique ou une tâche dans l’espace de supervision, mais en fournissant une perspective approfondie de l’intégrité du système d’exploitation hébergé sur les machines virtuelles Azure qui n’était pas disponible auparavant.  Bien que vous puissiez surveiller différentes conditions à l’aide de Log Analytics ou d’Azure Monitor, ils n’ont pas été conçus pour modéliser et représenter l’intégrité des composants de base ou l’intégrité globale de la machine virtuelle.  La fonctionnalité de contrôle d’intégrité Azure Monitor pour les machines virtuelles surveille proactivement la disponibilité et les performances du système d'exploitation invité Windows ou Linux avec un modèle qui représente les composants clés et leurs relations (critères spécifiant comment mesurer l’intégrité de ces composants) et vous avertit lorsqu’un problème d’intégrité est détecté.  

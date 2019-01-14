@@ -1,19 +1,19 @@
 ---
-title: 'Leçon 9 du didacticiel Azure Analysis Services : Créer des hiérarchies | Microsoft Docs'
+title: 'Leçon 9 du didacticiel Azure Analysis Services : Créer des hiérarchies | Microsoft Docs'
 description: Décrit comment créer des hiérarchies dans un modèle tabulaire.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2e6591dc25ab498b496f6abff1041e448240896d
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: f34b2fd2ba5f6e3e1433fb8dac04d931a36920d0
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426045"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188961"
 ---
 # <a name="create-hierarchies"></a>Créer des hiérarchies
 
@@ -21,10 +21,10 @@ Dans cette leçon, vous allez créer des hiérarchies. Les hiérarchies sont des
   
 Pour créer des hiérarchies, utilisez le Générateur de modèles disponible dans la *Vue de diagramme*. La création et la gestion des hiérarchies ne sont pas prises en charge dans la vue de données.  
   
-Durée estimée pour suivre cette leçon : **20 minutes**  
+Durée estimée pour suivre cette leçon : **20 minutes**  
   
 ## <a name="prerequisites"></a>Prérequis  
-Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 8 : Créer des perspectives](../tutorials/aas-lesson-8-create-perspectives.md).  
+Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 8 : Créer des perspectives](../tutorials/aas-lesson-8-create-perspectives.md).  
   
 ## <a name="create-hierarchies"></a>Créer des hiérarchies  
   
@@ -73,6 +73,6 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
     *  DayNumberOfWeek
   
  ## <a name="whats-next"></a>Et ensuite ?
-[Leçon 10 : Créer des partitions](../tutorials/aas-lesson-10-create-partitions.md). 
+[Leçon 10 : Créer des partitions](../tutorials/aas-lesson-10-create-partitions.md). 
   
   

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: ac80cd5ee1c530736666338e8bc3763b110c688c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 07912dab52cb0569428d070282551eebbdb1c7bc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388251"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191443"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>FAQ sur les technologies open source pour Azure Web Apps
 
@@ -46,7 +46,7 @@ Pour activer la journalisation PHP :
 11. Remplacez le texte par le code suivant :
    ```php
    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
+   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
    ```
 12. Dans le portail Azure, dans le menu de l’application web, redémarrez votre application web.
 
@@ -219,4 +219,4 @@ Après vous être assuré que MySQL dans l’application est en cours d’exécu
 
 ## <a name="i-get-an-http-403-error-when-i-try-to-import-or-export-my-mysql-in-app-database-by-using-phpmyadmin-how-do-i-resolve-this"></a>J’obtiens une erreur HTTP 403 lorsque j’essaie d’importer ou d’exporter ma base de données MySQL dans l’application à l’aide de PHPMyadmin. Comment résoudre ce problème ?
 
-Si vous utilisez une version antérieure de Chrome, vous rencontrez sans doute un bogue connu. Pour résoudre ce problème, mettez à niveau vers une version plus récente de Chrome. Essayez également d’utiliser un autre navigateur, comme Internet Explorer ou Edge, dans lequel le problème ne se produit pas.
+Si vous utilisez une version antérieure de Chrome, vous rencontrez sans doute un bogue connu. Pour résoudre ce problème, mettez à niveau vers une version plus récente de Chrome. Essayez également d’utiliser un autre navigateur, comme Internet Explorer ou Microsoft Edge, dans lequel le problème ne se produit pas.

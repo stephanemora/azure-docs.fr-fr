@@ -9,17 +9,16 @@ ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 843b92c20b2ec930ce67659802a4287328a08650
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 77c55657f57af655b5b8154dbcf58472434396a6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618867"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015490"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide du portail Azure et de PowerShell
 > [!div class="op_single_selector"]
@@ -162,7 +161,7 @@ Quand vous avez déployé une fabrique de données et que la période d’activa
 
 ![Schéma d'état](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-Le flux de transition d’états des jeux de données de la fabrique de données est le suivant : En attente -> En cours/En cours (Validation) -> Prête/Échec.
+Le flux de transition d’état de l’ensemble de données est le suivant dans la fabrique de données : En attente -> En cours/en cours (validation) -> Prêt/Échec.
 
 Au départ, la tranche a l’état **En attente**, en attente des conditions requises à respecter avant l’exécution. Ensuite, l’exécution de l’activité commence, et la tranche passe à l’état **En cours**. L’exécution de l’activité peut réussir ou échouer. Selon le résultat de l’exécution, l’état de la tranche est **Prête** ou **Échec**.
 

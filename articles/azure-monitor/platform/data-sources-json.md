@@ -1,6 +1,6 @@
 ---
 title: Collecte des données JSON personnalisées dans Azure Monitor | Microsoft Docs
-description: Les sources de données JSON personnalisées peuvent être collectées dans Azure Monitor à l’aide de l’agent Log Analytics pour Linux.  Ces sources de données personnalisées peuvent être de simples scripts qui renvoient JSON en tant que cURL ou l’un des 300 plug-ins de FluentD. Cet article décrit la configuration requise pour cette collecte de données.
+description: Les sources de données JSON personnalisées peuvent être collectées dans Log Analytics à l’aide de l’agent Log Analytics pour Linux.  Ces sources de données personnalisées peuvent être de simples scripts qui renvoient JSON en tant que cURL ou l’un des 300 plug-ins de FluentD. Cet article décrit la configuration requise pour cette collecte de données.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 64f1d7b1437ea018a25db18e5f92bffaac8f7099
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 36f914109d8d3879d23511cb37055d20db4d670c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438453"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105217"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Collecte des sources de données JSON personnalisées à l’aide de l’agent Log Analytics pour Linux dans Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-Les sources de données JSON personnalisées peuvent être collectées dans les [journaux Azure Monitor](data-collection.md) à l’aide de l’agent Log Analytics pour Linux.  Ces sources de données personnalisées peuvent être des scripts simples qui renvoient JSON en tant que [cURL](https://curl.haxx.se/) ou l’un des [300 plug-ins de FluentD](http://www.fluentd.org/plugins/all). Cet article décrit la configuration requise pour cette collecte de données.
+
+Les sources de données JSON personnalisées peuvent être collectées dans [Log Analytics](data-collection.md) à l’aide de l’agent Log Analytics pour Linux.  Ces sources de données personnalisées peuvent être des scripts simples qui renvoient JSON en tant que [cURL](https://curl.haxx.se/) ou l’un des [300 plug-ins de FluentD](http://www.fluentd.org/plugins/all). Cet article décrit la configuration requise pour cette collecte de données.
+
 
 > [!NOTE]
 > L’agent Log Analytics pour Linux v1.1.0-217 et ultérieur est requis pour les données JSON personnalisées.
@@ -31,7 +33,7 @@ Les sources de données JSON personnalisées peuvent être collectées dans les 
 
 ### <a name="configure-input-plugin"></a>Configuration du plug-in d’entrée
 
-Pour collecter des données JSON dans Azure Monitor, ajoutez `oms.api.` au début d’une balise FluentD dans un plug-in d’entrée.
+Pour collecter des données JSON dans Log Analytics, ajoutez `oms.api.` au début d’une balise FluentD dans un plug-in d’entrée.
 
 Par exemple, ceci est un fichier de configuration distinct `exec-json.conf` dans `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  Cet exemple utilise le plug-in FluentD `exec` pour exécuter une commande cURL toutes les 30 secondes.  La sortie de cette commande est collectée par le plug-in de sortie JSON.
 
@@ -85,9 +87,9 @@ Redémarrez l’agent Log Analytics pour le service Linux à l’aide de la comm
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## <a name="output"></a>Sortie
-Les données sont collectées dans les journaux Azure Monitor avec un enregistrement de type `<FLUENTD_TAG>_CL`.
+Les données seront collectées dans Log Analytics avec un enregistrement de type `<FLUENTD_TAG>_CL`.
 
-Par exemple, la balise personnalisée `tag oms.api.tomcat` dans Azure Monitor avec un enregistrement de type `tomcat_CL`.  Vous pouvez extraire tous les enregistrements de ce type avec la requête de journal suivante.
+Par exemple, la balise personnalisée `tag oms.api.tomcat` dans Log Analytics avec un enregistrement de type `tomcat_CL`.  Vous pouvez extraire tous les enregistrements de ce type avec la requête de journal suivante.
 
     Type=tomcat_CL
 

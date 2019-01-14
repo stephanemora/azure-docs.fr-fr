@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d716a27cc2b4879451a8d5edbca46ca1bbfeaf40
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 96b0c44ff36dac3832e518deeed7f07b11e78c16
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968985"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160044"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurations et opérations de l’infrastructure SAP HANA sur Azure
 Ce document fournit des instructions pour la configuration des infrastructures Azure et le fonctionnement des systèmes SAP HANA qui sont déployés sur des machines virtuelles Azure natives. Le document inclut également des informations de configuration pour le scale-out de SAP HANA sur la référence SKU de machine virtuelle M128s. Ce document n’a pas pour but de remplacer la documentation SAP standard, qui propose le contenu suivant :
@@ -317,7 +317,7 @@ Concernant la carte réseau virtuelle d’une machine virtuelle de scale-out HAN
 - Enfin, pour le trafic vers **/hana/shared**, déployez un troisième sous-réseau dans le réseau virtuel où vous déployez la configuration de scale-out SAP HANA et assignez une troisième carte réseau virtuelle hébergée dans ce sous-réseau. Utilisez la troisième carte réseau virtuelle et l’adresse IP associée pour le trafic vers le partage NFS. Vous pouvez ensuite appliquer des accès et des règles de routage spécifiques.
 
 >[!IMPORTANT]
->Le trafic réseau entre les machines virtuelles qui déploient SAP HANA en scale-out et un NFS à haute disponibilité ne peut en aucun cas être routé via une [NVA](https://azure.microsoft.com/solutions/network-appliances/) ou des appliances virtuelles similaires, tandis que les groupes de sécurité réseau Azure ne contiennent pas ces appareils. Vérifiez vos règles de routage pour vous assurer que les appliances virtuelles réseau ou appliances virtuelles similaires sont contournées lors de l’accès au partage NFS à haute disponibilité depuis les machines virtuelles SAP HANA en cours d’exécution.
+>Le trafic réseau entre les machines virtuelles qui déploient SAP HANA en scale-out et un NFS à haute disponibilité ne peut en aucun cas être routé via une [NVA](https://azure.microsoft.com/solutions/network-appliances/) ou des appliances virtuelles similaires, tandis que les groupes de sécurité réseau Azure ne contiennent pas ces appareils. Vérifiez vos règles d’acheminement pour vous assurer que les appliances virtuelles réseau ou appliances virtuelles similaires sont contournées lors de l’accès au partage NFS à haute disponibilité depuis les machines virtuelles SAP HANA en cours d’exécution.
 > 
 
 Si vous souhaitez partager le cluster NFS à haute disponibilité entre les configurations de SAP HANA, déplacez toutes ces configurations HANA dans le même réseau virtuel. 

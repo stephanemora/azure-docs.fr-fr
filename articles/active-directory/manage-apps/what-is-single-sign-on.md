@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 627bd114504de20517abcd05f45dc6c58fe80117
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: b7e75753f8d7a9316dd1cc644dc22c42ef284736
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322702"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190062"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory
 Découvrez comment choisir la méthode d’authentification unique la plus appropriée lors de la configuration d’applications dans Azure Active Directory (Azure AD). 
@@ -79,7 +79,7 @@ Utilisez l’authentification unique par mot de passe quand :
 L’authentification unique par mot de passe est prise en charge pour toutes les applications cloud qui ont une page de connexion HTML. L’utilisateur peut utiliser un des navigateurs suivants :
 
 - Internet Explorer 11 sur Windows 7 ou ultérieur
-- Edge sur Windows 10 Édition anniversaire ou version ultérieure 
+- Microsoft Edge sur Windows 10 Édition anniversaire ou version ultérieure 
 - Chrome sur Windows 7 ou version ultérieure, et sur Mac OS X ou version ultérieure
 - Firefox 26.0 ou version ultérieure sur Windows XP SP2 ou version ultérieure, et sur Mac OS X 10.6 ou version ultérieure
 

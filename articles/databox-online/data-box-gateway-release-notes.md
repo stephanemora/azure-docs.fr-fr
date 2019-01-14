@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 01/07/2019
 ms.author: alkohli
-ms.openlocfilehash: f5e19d59dfddc3be849700f3678519179b5b39ba
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 31bcc5ed447b32f4474ecef6a8a9f79377061975
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49164567"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078981"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Notes de publication de préversion d’Azure Data Box Gateway
 
@@ -29,28 +29,28 @@ La préversion correspond à la version du logiciel **Data Box Gateway préversi
 
 Le tableau suivant récapitule les problèmes corrigés dans cette version.
 
-| Non. | Problème |
+|  Non. | Problème |
 | --- | --- |
-| 1 | Dans cette version, lorsqu’un fichier chargé par un autre outil (AzCopy) est actualisé puis mis à jour d’une manière qui augmente/étend la taille du fichier, l’erreur suivante est observée : *Erreur 400 : InvalidBlobOrBlock (L’objet blob spécifié ou le contenu du bloc n’est pas valide.)*|
+| **1.** | Dans cette version, lorsqu’un fichier chargé par un autre outil (AzCopy) est actualisé puis mis à jour d’une manière qui augmente/étend la taille du fichier, l’erreur suivante est observée : *Erreur 400 : InvalidBlobOrBlock (L’objet blob spécifié ou le contenu du bloc n’est pas valide.)*|
+| **2.** |En raison d’un bogue dans cette version, vous pouvez voir des instances du code d’erreur 110 dans *error.xml* avec des noms d’éléments non reconnaissables. | 
+| **3.** |En raison d’un bogue dans cette version, vous pouvez voir des instances du code d’erreur 2003 lors du chargement de fichiers spécifiques. | 
+| **4.** |Dans cette version, vous ne pouvez actualiser qu’un seul partage à la fois. | 
 
 
 ## <a name="known-issues-in-preview-release"></a>Problèmes connus dans la préversion
 
 Le tableau suivant résume les problèmes connus pour Data Box Gateway exécutant la préversion.
 
-| Non. | Fonctionnalité | Problème | Solution de contournement/commentaires |
+|  Non. | Fonctionnalité | Problème | Solution de contournement/commentaires |
 | --- | --- | --- | --- |
 | **1.** |Mises à jour |Les appareils Data Box Gateway créés dans les préversions antérieures ne peuvent pas être mis à jour vers cette version. |Téléchargez les images de disque virtuel de la nouvelle version, puis configurez et déployez de nouveaux appareils. Pour plus d’informations, consultez [Tutorial: Prepare to deploy Azure Data Box Gateway (Preview)](data-box-gateway-deploy-prep.md) (Didacticiel : Préparation du déploiement d’Azure Data Box Gateway (préversion)). |
 | **2.** |Disque de données configuré |Une fois que vous avez provisionné un disque de données d’une certaine taille spécifiée et créé le Data Box Gateway correspondant, vous ne devez pas réduire ce disque de données. Toute tentative de réduction du disque entraîne la perte de toutes les données locales sur l’appareil. | |
-| **3.** |Actualiser |Dans cette version, vous ne pouvez actualiser qu’un seul partage à la fois. | |
-| **4.** |Renommer |Le changement de nom d’objets n’est pas pris en charge. |Contactez le Support Microsoft si cette fonctionnalité est essentielle pour votre flux de travail. |
-| **5.** |Copier| Si un fichier en lecture seule est copié sur l’appareil, la propriété de lecture seule n’est pas conservée. | |
-| **6.** |Journaux| En raison d’un bogue dans cette version, vous pouvez voir des instances du code d’erreur 110 dans *error.xml* avec des noms d’éléments non reconnaissables. | |
-| **7.** |Télécharger | En raison d’un bogue dans cette version, vous pouvez voir des instances du code d’erreur 2003 lors du chargement de fichiers spécifiques. | |
-| **8.** |Types de fichier | Les types de fichiers Linux suivants ne sont pas pris en charge : fichiers de caractères, fichiers de blocs, sockets, pipes et liens symboliques.  |La copie de ces fichiers entraîne la création de fichiers de longueur nulle sur le partage NFS. Ces fichiers restent dans un état d’erreur et sont également signalés dans le fichier *error.xml*. |
-| **9.** |Suppression | En raison d’un bogue dans cette version, si un partage NFS est supprimé, le partage peut ne pas être supprimé. L’état du partage indique *Suppression*.  |Cela ne se produit que lorsque le partage utilise un nom de fichier non pris en charge. |
-| **10.** |Actualiser | Les autorisations et les listes de contrôle d’accès (ACL) ne sont pas conservées lors d’une opération d’actualisation.  | |
-| **11.** |Aide en ligne |Les liens d’aide dans le portail Azure peuvent ne pas diriger vers la documentation.|Les liens d’aide fonctionneront dans la version en disponibilité générale. |
+| **3.** |Renommer |Le changement de nom d’objets n’est pas pris en charge. |Contactez le Support Microsoft si cette fonctionnalité est essentielle pour votre flux de travail. |
+| **4.** |Copier| Si un fichier en lecture seule est copié sur l’appareil, la propriété de lecture seule n’est pas conservée. | |
+| **5.** |Types de fichier | Les types de fichiers Linux suivants ne sont pas pris en charge : fichiers de caractères, fichiers de blocs, sockets, pipes et liens symboliques.  |La copie de ces fichiers entraîne la création de fichiers de longueur nulle sur le partage NFS. Ces fichiers restent dans un état d’erreur et sont également signalés dans le fichier *error.xml*. |
+| **6.** |Suppression | En raison d’un bogue dans cette version, si un partage NFS est supprimé, le partage peut ne pas être supprimé. L’état du partage indique *Suppression*.  |Cela ne se produit que lorsque le partage utilise un nom de fichier non pris en charge. |
+| **7.** |Actualiser | Les autorisations et les listes de contrôle d’accès (ACL) ne sont pas conservées lors d’une opération d’actualisation.  | |
+| **8.** |Aide en ligne |Les liens d’aide dans le portail Azure peuvent ne pas diriger vers la documentation.|Les liens d’aide fonctionneront dans la version en disponibilité générale. |
 
 
 

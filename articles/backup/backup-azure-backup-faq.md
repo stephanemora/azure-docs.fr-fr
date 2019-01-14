@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 647ed64d405424431419da1e693abea2bdf07ace
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: dd8e0950de6aae71dd123d21b59c6de591bd7f29
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262263"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107712"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 Cet article répond aux questions courantes sur le service Sauvegarde Azure.
@@ -21,10 +21,10 @@ Cet article répond aux questions courantes sur le service Sauvegarde Azure.
 ## <a name="recovery-services-vault"></a>Coffre Recovery Services
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription"></a>Le nombre de coffres pouvant être créés dans chaque abonnement Azure est-il limité ?
-Oui. Vous pouvez créer jusqu’à 500 coffres Recovery Services par région de sauvegarde Azure prise en charge et par abonnement. Au-delà, créez un autre abonnement.
+Oui. Vous pouvez créer jusqu’à 500 coffres Recovery Services par région de Sauvegarde Microsoft Azure prise en charge et par abonnement. Au-delà, créez un autre abonnement.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Le nombre de serveurs/ordinateurs pouvant être inscrits dans chaque coffre est-il limité ?
-Vous pouvez inscrire jusqu’à 1000 machines virtuelles Azure par coffre. Si vous utilisez l’agent MAB, vous pouvez inscrire jusqu’à 50 agents MAB par coffre. Et vous pouvez inscrire 50 serveurs MAB/DPM dans un coffre.
+Vous pouvez inscrire jusqu’à 1 000 machines virtuelles Azure par coffre. Si vous utilisez l’agent Microsoft Azure Backup, vous pouvez inscrire jusqu’à 50 agents MAB par coffre. Et vous pouvez inscrire 50 serveurs MAB/DPM dans un coffre.
 
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>Si mon organisation possède un coffre, comment isoler les données de différents serveurs lors de la restauration des données ?

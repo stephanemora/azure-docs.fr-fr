@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 7b3f6410e65e9a43578d50d6aacaec0ea4ec4684
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 3e9909de5ec05710214279357134112804ab4ceb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753487"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191239"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Concevoir un système de protection de contenu multi-DRM avec contrôle d’accès 
 
@@ -51,7 +51,7 @@ Le tableau suivant récapitule la prise en charge des systèmes DRM natifs sur 
 | **Plateforme cliente** | **DRM natif** | **EME** |
 | --- | --- | --- | --- |
 | **Téléviseurs connectés, décodeurs** | PlayReady, Widevine et/ou autres | EME/Navigateur incorporé pour PlayReady et/ou Widevine|
-| **Windows 10** | PlayReady | MS Edge/IE11 pour PlayReady|
+| **Windows 10** | PlayReady | Microsoft Edge/IE11 pour PlayReady|
 | **Appareils Android (téléphone, tablette, TV)** |Widevine |Chrome pour Widevine |
 | **iOS** | FairPlay | Safari pour FairPlay (à partir d’iOS 11.2) |
 | **macOS** | FairPlay | Safari pour FairPlay (à partir de Safari 9+ sur Mac OS X 10.11+ El Capitan)|

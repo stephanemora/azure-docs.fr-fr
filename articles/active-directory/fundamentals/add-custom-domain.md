@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 14035fe9061af98b10b822c3b7b9213cdda3fbbd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3fdbbd1d3cf27172ed9ba5c5087ffc331e01ccf9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098292"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076805"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Ajouter votre nom de domaine personnalisé à l’aide du Portail Azure Active Directory
 Chaque nouveau locataire Azure AD est fourni avec un nom de domaine initial au format *nom_de_domaine*.onmicrosoft.com. Vous ne pouvez pas modifier ni supprimer le nom de domaine initial, mais vous pouvez ajouter des noms de votre organisation à la liste. L’ajout de noms de domaine personnalisés vous permet de créer des noms d’utilisateur qui sont familiers à vos utilisateurs, par exemple *alain@contoso.com*.
@@ -63,7 +63,7 @@ Après avoir créé votre annuaire, vous pouvez ajouter votre nom de domaine per
 ## <a name="add-your-dns-information-to-the-domain-registrar"></a>Ajouter vos informations DNS au bureau d’enregistrement de domaines
 Après avoir ajouté votre nom de domaine personnalisé à Azure AD, vous devez revenir à votre bureau d’enregistrement de domaines et ajouter les informations DNS d’Azure AD de votre fichier TXT copié. La création de cet enregistrement TXT pour votre domaine entraîne la « vérification » de la propriété de votre nom de domaine.
 
--  Revenez à votre bureau d’enregistrement de domaines, créez un enregistrement TXT pour votre domaine en fonction de vos informations DNS copiées, définissez la valeur **TTL** (durée de vie) à 60 minutes, puis enregistrez les informations.
+-  Revenez à votre bureau d’enregistrement de domaines, créez un enregistrement TXT pour votre domaine en fonction de vos informations DNS copiées, définissez la valeur **TTL** (durée de vie) à 3 600 secondes (60 minutes), puis enregistrez les informations.
 
     >[!Important]
     >Vous pouvez enregistrer autant de noms de domaine que vous le souhaitez. Toutefois, chaque domaine obtient son propre enregistrement TXT à partir d’Azure AD. Soyez prudent lorsque vous entrez les informations de votre fichier TXT sur le bureau d’enregistrement de domaines. Si vous entrez des informations incorrectes ou dupliquées par erreur, vous devez attendre l’expiration de la durée de vie (60 minutes) avant d’essayer de nouveau.

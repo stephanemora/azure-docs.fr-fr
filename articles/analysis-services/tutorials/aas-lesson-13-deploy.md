@@ -1,28 +1,28 @@
 ---
-title: 'Leçon 13 du didacticiel Azure Analysis Services : Déployer | Microsoft Docs'
+title: 'Leçon 13 du didacticiel Azure Analysis Services : Déployer | Microsoft Docs'
 description: Explique comment déployer le projet du didacticiel Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f0528af5f3a6b7309d81c36ca5bc7a3faccfa293
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 780853644125c8fa6d5edcef642cfad724516ef2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427108"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188383"
 ---
 # <a name="deploy"></a>Déployer
 
 Dans cette leçon, vous allez configurer les propriétés de déploiement en spécifiant un serveur Azure Analysis Services sur lequel procéder au déploiement et en indiquant le nom du modèle. Ensuite, vous allez déployer le modèle sur cette instance. Une fois votre modèle déployé, les utilisateurs peuvent s’y connecter à l’aide d’une application cliente de création de rapports. Pour en savoir plus, voir [Déployer sur Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy).  
   
-Durée estimée pour suivre cette leçon : **5 minutes**  
+Durée estimée pour suivre cette leçon : **5 minutes**  
   
 ## <a name="prerequisites"></a>Prérequis  
-Cet article fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 12 : Analyser dans Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
+Cet article fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 12 : Analyser dans Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
 > [!IMPORTANT]  
 > Vous devez disposer des [autorisations d’administrateur](../analysis-services-server-admins.md) sur le serveur Analysis Services distant afin pouvoir procéder au déploiement.  

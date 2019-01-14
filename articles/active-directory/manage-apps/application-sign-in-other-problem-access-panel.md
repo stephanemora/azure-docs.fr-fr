@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 830fc1d96825e28aad41aac9afee499b9bc1f7ae
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 02aa4eb37437861d428c6f361b3ff21def56b49b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355188"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189828"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problèmes de connexion à une application à partir du volet d’accès
 
@@ -68,7 +68,7 @@ Pour l’authentification unique par mot de passe, les navigateurs de l’utilis
 
 -   Internet Explorer 8, 9, 10, 11 -- sur Windows 7 ou version ultérieure
 
--   Edge sur Windows 10 Édition anniversaire ou version ultérieure
+-   Microsoft Edge sur Windows 10 Édition anniversaire ou version ultérieure
 
 -   Chrome -- sur Windows 7 ou ultérieur, et sur Mac OS X ou ultérieur
 
@@ -92,11 +92,11 @@ Pour installer l’extension de navigateur du volet d’accès, effectuez les é
 
 7.  Connectez-vous au volet d’accès et essayez de **lancer** vos applications à authentification unique par mot de passe.
 
-Vous pouvez également télécharger l’extension pour Chrome et Edge à partir des liens directs ci-dessous :
+Vous pouvez également télécharger l’extension pour Chrome et Microsoft Edge à partir des liens directs ci-dessous :
 
 -   [Extension du volet d’accès pour Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Extension du volet d’accès pour Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+-   [Extension du volet d’accès pour Microsoft Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
 ## <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Comment configurer l’authentification unique fédérée pour une application de la galerie Azure AD
 
@@ -285,7 +285,7 @@ Pour configurer l’authentification unique pour une application qui n’est pas
 
   1. Pour configurer l’application en tant qu’application à authentification unique lancée par le fournisseur d’identité, entrez l’URL de réponse et l’identificateur.
 
-  2. **Facultatif** : pour configurer l’application comme une application à authentification unique initiée par le fournisseur de services, l’URL de connexion est obligatoire.
+  2. **Facultatif :** Pour configurer l’application en tant qu’application à authentification unique lancée par le fournisseur de services, l’URL de connexion est obligatoire.
 
 12. Dans **Attributs d’utilisateur**, sélectionnez l’identificateur unique de vos utilisateurs dans la liste déroulante **Identificateur de l’utilisateur**.
 
@@ -500,7 +500,7 @@ Pour affecter un ou plusieurs utilisateurs directement à une application, effec
 
 11. Pointez sur **l’utilisateur** dans la liste pour afficher une **case à cocher**. Cliquez sur la case à cocher en regard de la photo de profil ou du logo de l’utilisateur pour ajouter ce dernier à la liste **Sélectionné**.
 
-12. **Facultatif :** si vous souhaitez **ajouter plusieurs utilisateurs**, entrez un autre **nom complet** ou une autre **adresse de messagerie** dans la zone de recherche **Rechercher par nom ou adresse de messagerie**, puis cliquez sur la case à cocher pour ajouter cet utilisateur à la liste **Sélectionné**.
+12. **Facultatif** : Si vous souhaitez **ajouter plusieurs utilisateurs**, entrez un autre **nom complet** ou une autre **adresse de messagerie** dans la zone de recherche **Rechercher par nom ou adresse de messagerie**, puis cochez la case pour ajouter cet utilisateur à la liste **Sélectionné**.
 
 13. Après avoir sélectionné les utilisateurs, cliquez sur le bouton **Sélectionner** pour les ajouter à la liste des utilisateurs et des groupes à affecter à l’application.
 

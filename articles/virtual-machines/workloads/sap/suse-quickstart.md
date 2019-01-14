@@ -3,8 +3,8 @@ title: Test de SAP NetWeaver sur les machines virtuelles Microsoft Azure SUSE Li
 description: Test de SAP NetWeaver sur les machines virtuelles Microsoft Azure SUSE Linux
 services: virtual-machines-linux
 documentationcenter: ''
-author: hermanndms
-manager: jeconnoc
+author: msjuergent
+manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,17 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
-ms.author: hermannd
-ms.openlocfilehash: 8a16fa9f639a6a4a17d6904d6bc9a0e31f774e0c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: juergent
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 032ab2a221f64d01af25056a4eff3ee3384de0c3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950044"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157222"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Exécution de SAP NetWeaver sur des machines virtuelles Microsoft Azure SUSE Linux
 Cet article décrit les divers éléments à prendre en compte lorsque vous exécutez SAP NetWeaver sur des machines virtuelles Microsoft Azure SUSE Linux. À compter du 19 mai 2016, SAP NetWeaver est officiellement pris en charge sur les machines virtuelles SUSE Linux dans Azure. Vous trouverez tous les détails concernant les versions de Linux et les versions du noyau SAP, ainsi que d’autres prérequis, dans la note SAP 1928533 « SAP Applications on Azure: Supported Products and Azure VM types » (Applications SAP sur Azure : produits et types de machines virtuelles pris en charge).
-Vous trouverez une documentation supplémentaire concernant SAP sur des machines virtuelles Linux ici : [Utilisation de SAP sur des machines virtuelles Linux](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Vous trouverez une documentation supplémentaire concernant SAP sur des machines virtuelles Linux ici : [Utilisation de SAP sur des machines virtuelles Linux](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Les informations suivantes devraient vous aider à éviter certains pièges potentiels.
 
@@ -125,7 +126,7 @@ Pour plus d’informations sur Azure Classic CLI et Azure Resource Manager, cons
 Pour la certification SAP-Azure officielle, un nouveau mécanisme a été introduit afin de calculer la clé matérielle SAP utilisée pour la licence SAP. Le noyau SAP a dû être adapté pour utiliser le nouvel algorithme. Les anciennes versions du noyau SAP pour Linux n’incluent pas cette modification du code. Ainsi, dans certaines situations (par exemple, en cas de redimensionnement de machine virtuelle Azure), la clé matérielle SAP est modifiée, et la licence SAP risque de ne plus être valide. Une solution est fournie avec les derniers noyaux SAP Linux.  Les correctifs des noyaux SAP détaillés sont documentés dans la note SAP 1928533.
 
 ## <a name="suse-sapconf-package--tuned-adm"></a>Package sapconf SUSE / tuned-adm
-SUSE fournit un package appelé « sapconf » qui gère un ensemble de paramètres propres à SAP. Pour plus d’informations sur le rôle, l’installation et l’utilisation de ce package, consultez [Using sapconf to prepare a SUSE Linux Enterprise Server to run SAP systems](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) et [What is sapconf or how to prepare a SUSE Linux Enterprise Server for running SAP systems?](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems).
+SUSE fournit un package appelé « sapconf » qui gère un ensemble de paramètres propres à SAP. Pour en savoir plus sur le rôle, l’installation et l’utilisation de ce package, consultez :  [Using sapconf to prepare a SUSE Linux Enterprise Server to run SAP systems (Utilisation de sapconf pour préparer un serveur SUSE Linux Enterprise Server à l’exécution de systèmes SAP)](https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) et [What is sapconf or how to prepare a SUSE Linux Enterprise Server for running SAP systems? (Qu’est-ce que sapconf et comment préparer un serveur SUSE Linux Enterprise Server à l’exécution de systèmes SAP ?)](http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems).
 
 En attendant, il existe un nouvel outil qui remplace sapconf - tuned-adm. Des informations supplémentaires sur cet outil sont disponibles en suivant les deux liens ci-dessous :
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e5bf7cc199fc8a439b5071faa89cce2e3ed47a75
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e115db18770ef304d823ff9c35d7d2cf302d5ccf
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724313"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187760"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personnalisation de la langue dans Azure Active Directory B2C
 
@@ -175,7 +175,7 @@ Microsoft n’assure actuellement pas la prise en charge des langues s’écriva
 ### <a name="social-identity-provider-translations"></a>Traductions des fournisseurs d’identité de réseaux sociaux
 Microsoft fournit le paramètre OIDC `ui_locales` pour les connexions aux réseaux sociaux. Mais certains fournisseurs d’identité de réseaux sociaux, notamment Facebook et Google, ne les respectent pas. 
 ### <a name="browser-behavior"></a>Comportement du navigateur
-Chrome et Firefox nécessitent la langue qui a été définie. S’il s’agit d’une langue prise en charge, elle s’affiche avant la langue par défaut. Actuellement, Edge n’exige pas de langue particulière et affiche directement la langue par défaut.
+Chrome et Firefox nécessitent la langue qui a été définie. S’il s’agit d’une langue prise en charge, elle s’affiche avant la langue par défaut. Actuellement, Microsoft Edge n’exige pas de langue particulière et affiche directement la langue par défaut.
 
 ### <a name="supported-languages"></a>Langues prises en charge
 
@@ -189,7 +189,7 @@ Chrome et Firefox nécessitent la langue qui a été définie. S’il s’agit d
 | Français               | en            |
 | Espagnol               | es            |
 | Finnois               | fi            |
-| Français                | fr            |
+| Anglais                | fr            |
 | Goudjrati              | gu            |
 | Hindi                 | hi            |
 | Croate              | hr            |

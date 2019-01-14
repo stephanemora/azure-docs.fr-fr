@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: d7dbb808205c78b53277c6d916f5166a41c7e93d
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: d2940e1d8328ffaea799ddff4afc9669aaa85a2f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638424"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065628"
 ---
 # <a name="azure-storage-account-overview"></a>Vue d’ensemble des comptes de stockage Azure
 
@@ -23,33 +23,13 @@ Pour plus d’informations sur la création d’un compte de stockage Azure, con
 
 ## <a name="types-of-storage-accounts"></a>Types de compte de stockage
 
-Le stockage Azure fournit trois types de comptes de stockage. Chaque type prend en charge différentes fonctionnalités et a son propre modèle tarifaire. Avant de créer un compte de stockage, tenez compte de ces différences pour déterminer l’option qui convient le mieux à vos applications. Les types de comptes de stockage proposés sont les suivants :
-
-* **[Comptes v2 universels](#general-purpose-v2-accounts)** (recommandés pour la plupart des scénarios)
-* **[Comptes v1 universels](#general-purpose-v1-accounts)**
-* **[Comptes de stockage d’objets blob](#blob-storage-accounts)** 
-
-Le tableau suivant répertorie les types de comptes de stockage disponibles et leurs fonctionnalités :
-
-| Type de compte de stockage | Services pris en charge                       | Niveaux de performances pris en charge | Niveaux d’accès pris en charge               | Options de réplication                                                | Modèle de déploiement<sup>1</sup>  | Chiffrement<sup>2</sup> |
-|----------------------|------------------------------------------|-----------------------------|--------------------------------------|--------------------------------------------------------------------|-------------------|------------|
-| Universel v2   | Objets blob, fichiers, files d’attente, tables et disques       | Standard, Premium           | Chaud, froid, archive<sup>3</sup> | LRS, ZRS<sup>4</sup>, GRS, RA-GRS | Gestionnaire de ressources | Chiffré  |
-| Universel v1   | Objets blob, fichiers, files d’attente, tables et disques       | Standard, Premium           | N/A                                  | LRS, GRS, RA-GRS                                                   | Resource Manager, Classic  | Chiffré  |
-| Stockage d'objets blob         | Objets blob (objets blob de blocs et objets blob d’ajout uniquement) | standard                    | Chaud, froid, archive<sup>3</sup>                            | LRS, GRS, RA-GRS                                                   | Gestionnaire de ressources  | Chiffré  |
-
-<sup>1</sup>L’utilisation du modèle de déploiement Azure Resource Manager est recommandée. Les comptes de stockage qui utilisent le modèle de déploiement classique peuvent toujours être créés à certains emplacements, et les comptes classiques existants continuent d’être pris en charge. Pour plus d’informations, consultez [Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources](../../azure-resource-manager/resource-manager-deployment-model.md).
-
-<sup>2</sup>Dans tous les comptes de stockage, les données au repos sont chiffrées à l’aide de Storage Service Encryption (SSE). Pour plus d’informations, consultez [Azure Storage Service Encryption pour les données au repos](storage-service-encryption.md).
-
-<sup>3</sup>L’archivage est disponible uniquement au niveau de chaque objet blob, et n’est pas disponible au niveau du compte de stockage. Seuls les objets blob de blocs et d’ajout peuvent être archivés. Pour plus d’informations, consultez l’article [Stockage Blob Azure : niveaux de stockage chaud, froid et archive](../blobs/storage-blob-storage-tiers.md).
-
-<sup>4</sup>Le stockage redondant dans une zone (ZRS) est disponible uniquement pour les comptes de stockage universels v2 standard. Pour plus d’informations sur le stockage ZRS, consultez [Stockage redondant dans une zone (ZRS) : applications de stockage Azure hautement disponibles](storage-redundancy-zrs.md). Pour plus d’informations sur les autres options de réplication, consultez [Réplication de Stockage Azure](storage-redundancy.md).
+[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
 ### <a name="general-purpose-v2-accounts"></a>Les comptes de stockage à usage général v2
 
 Les comptes de stockage v2 à usage général prennent en charge les dernières fonctionnalités du Stockage Azure, et intègrent toutes les fonctionnalités des comptes de stockage v1 à usage général et des comptes de stockage d’objets blob. Pour le stockage Azure, ce sont les comptes universels v2 qui offrent les tarifs de capacité par gigaoctet les plus bas. En outre, le prix des transactions est l’un des plus compétitifs du secteur. Les comptes de stockage universels v2 prennent en charge les services de stockage Azure suivants :
 
-- Objets blob (tous les types : de blocs, d’ajout et de pages)
+- Objets blob (tous les types : Block, Append, Page)
 - Fichiers
 - Disques
 - Files d’attente
@@ -98,7 +78,7 @@ Gardez les règles suivantes à l’esprit lorsque vous nommez votre compte de s
 Les comptes de stockage universels peuvent être configurés avec l’un des niveaux de performances suivants :
 
 * Un niveau de performances Standard pour le stockage des objets blob, des fichiers, des tables, des files d’attente et des disques de machine virtuelle Azure
-* Un niveau de performances Premium pour stocker uniquement les disques de machine virtuelle Azure Pour une présentation détaillée de Premium Storage, consultez [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../../virtual-machines/windows/premium-storage.md) .
+* Un niveau de performances Premium pour stocker uniquement les disques de machine virtuelle Azure Consultez [Stockage Premium : Stockage hautes performances pour les charges de travail des machines virtuelles Azure](../../virtual-machines/windows/premium-storage.md) pour une présentation détaillée de Premium Storage.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Niveaux d’accès pour les données d’objets blob de blocs
 
@@ -107,14 +87,14 @@ Le stockage Azure propose différentes options permettant d’accéder aux donn�
 Les niveaux d’accès disponibles sont les suivants :
 
 > [!NOTE]
-> Le [niveau d’accès Premium](../blobs/storage-blob-storage-tiers.md#premium-access-tier) est disponible en préversion limitée sous la forme d’un compte de stockage localement redondant (LRS) dans les régions Europe Nord, USA Est 2, USA Centre et USA Ouest. Pour savoir comment s’inscrire à la préversion, consultez [Introducing Azure Premium Blob Storage](http://aka.ms/premiumblob).
+> Le [niveau d’accès Premium](../blobs/storage-blob-storage-tiers.md#premium-access-tier) est disponible en préversion limitée sous la forme d’un compte de stockage localement redondant (LRS) dans les régions Europe Nord, USA Est 2, USA Centre et USA Ouest. Pour savoir comment s’inscrire à la préversion, consultez [Introducing Azure Premium Blob Storage](https://aka.ms/premiumblob).
 
 * Le niveau d’accès **Chaud**, qui est optimisé pour les accès fréquents aux objets du compte de stockage. L’accès aux données de niveau Chaud est le plus économique. Les coûts de stockage sont toutefois un peu plus élevés. Par défaut, les nouveaux comptes de stockage sont créés au niveau Chaud.
 * Le niveau d’accès **Froid**, qui est optimisé pour le stockage d’une grande quantité de données rarement sollicitées et stockées depuis au moins 30 jours. Le stockage des données au niveau Froid est plus économique. Toutefois, l’accès à ces données peut être un peu plus onéreux que celui du niveau Chaud.
 * Le niveau **Archive**, qui est disponible uniquement pour chaque objet blob de blocs. Le niveau Archive est optimisé pour les données qui peuvent tolérer plusieurs heures de latence de récupération et qui restent dans le niveau Archive pendant au moins 180 jours. Le niveau Archive est l’option de stockage la plus économique. Toutefois, l’accès à ces données peut être un peu plus onéreux que celui du niveau Chaud ou Froid. 
 
 
-En cas de changement de votre modèle d’utilisation des données, vous pouvez basculer d’un niveau d’accès à l’autre à tout moment. Pour plus d’informations sur les niveaux d’accès, consultez [Stockage Blob Azure : niveaux de stockage Premium (préversion), Chaud, Froid et Archive](../blobs/storage-blob-storage-tiers.md).
+En cas de changement de votre modèle d’utilisation des données, vous pouvez basculer d’un niveau d’accès à l’autre à tout moment. Pour plus d’informations sur les niveaux d’accès, consultez [Stockage Blob Azure : niveaux de stockage Premium (préversion), chaud, froid et archive](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
 > Le changement du niveau d’accès pour un compte de stockage ou un objet blob existant peut entraîner des frais supplémentaires. Pour plus d’informations, consultez la section [Facturation du compte de stockage](#storage-account-billing).
@@ -157,9 +137,9 @@ Chaque requête envoyée à votre compte de stockage doit en avoir l’autorisat
 
 Vous pouvez accorder l’accès aux données de votre compte de stockage à l’aide de l’une des méthodes suivantes :
 
-- **Azure Active Directory :** utilisez les informations d’identification Azure Active Directory (Azure AD) afin d’authentifier un utilisateur, un groupe ou une autre identité, pour l’accès aux données d’objets blob et de files d’attente (préversion). Si l’authentification d’une identité réussit, Azure AD retourne un jeton qui doit être utilisé pour autoriser la requête dans le stockage Blob ou File d’attente d’Azure. Pour plus d’informations, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory (préversion)](storage-auth-aad.md).
-- **Autorisation par clé partagée :** utilisez la clé d’accès de votre compte de stockage pour construire une chaîne de connexion que votre application utilisera lors de l’exécution afin d’accéder au stockage Azure. Les valeurs de la chaîne de connexion sont utilisées pour construire l’en-tête *d’autorisation* qui est passé au stockage Azure. Pour plus d’informations, consultez [Configuration des chaînes de connexion Stockage Azure](storage-configure-connection-string.md).
-- **Signature d’accès partagé :** utilisez une signature d’accès partagé pour déléguer l’accès aux ressources de votre compte de stockage, si vous n’utilisez pas l’authentification Azure AD. Une signature d’accès partagé est un jeton qui encapsule toutes les informations nécessaires à l’autorisation d’une requête envoyée au stockage Azure via l’URL. Dans le cadre de la signature d’accès partagé, vous pouvez spécifier la ressource de stockage, les autorisations accordées et l’intervalle pendant lequel les autorisations sont valides. Pour plus d’informations, consultez la page [Utiliser des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md).
+- **Azure Active Directory :** Utilisez les informations d’identification Azure Active Directory (Azure AD) afin d’authentifier un utilisateur, un groupe ou une autre identité, pour l’accès aux données d’objets blob et de files d’attente (préversion). Si l’authentification d’une identité réussit, Azure AD retourne un jeton qui doit être utilisé pour autoriser la requête dans le stockage Blob ou File d’attente d’Azure. Pour plus d’informations, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory (préversion)](storage-auth-aad.md).
+- **Autorisation par clé partagée :** Utilisez la clé d’accès de votre compte de stockage pour construire une chaîne de connexion que votre application utilisera lors de l’exécution afin d’accéder au stockage Azure. Les valeurs de la chaîne de connexion sont utilisées pour construire l’en-tête *d’autorisation* qui est passé au stockage Azure. Pour plus d’informations, consultez [Configuration des chaînes de connexion Stockage Azure](storage-configure-connection-string.md).
+- **Signature d’accès partagé :** Utilisez une signature d’accès partagé pour déléguer l’accès aux ressources de votre compte de stockage, si vous n’utilisez pas l’authentification Azure AD. Une signature d’accès partagé est un jeton qui encapsule toutes les informations nécessaires à l’autorisation d’une requête envoyée au stockage Azure via l’URL. Dans le cadre de la signature d’accès partagé, vous pouvez spécifier la ressource de stockage, les autorisations accordées et l’intervalle pendant lequel les autorisations sont valides. Pour plus d’informations, consultez la page [Utiliser des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
 > L’authentification des utilisateurs et des applications à l’aide des informations d’identification Azure AD est plus sécurisée et plus facile à utiliser que les autres modes d’autorisation. Même si vous pouvez continuer à utiliser l’autorisation de clé partagée avec vos applications, avec Azure AD, vous n’avez plus besoin de stocker votre clé d’accès de compte avec votre code. Vous pouvez également continuer à utiliser des signatures d’accès partagé (SAP) pour accorder un accès affiné aux ressources de votre compte de stockage. Toutefois, Azure AD offre des fonctionnalités similaires sans nécessiter de gestion des jetons SAP, ni de révocation des SAP compromises. 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: 29c0a1a15db7670d83ff384a1ba0f37499389ef7
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a476af9ceb1b664a458f7f07a5a7b3945b1ad881
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741877"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036560"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>En savoir plus sur les modèles de groupes de machines virtuelles identiques
 Les [modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) constituent un excellent moyen de déployer des groupes de ressources liées. Cette série de didacticiels montre comment créer un modèle de jeu de mise à l’échelle viable minimal et comment modifier ce modèle pour l’adapter à différents scénarios. Tous les exemples proviennent de ce [référentiel GitHub](https://github.com/gatneil/mvss). 
@@ -70,7 +70,7 @@ Passons ensuite à la section des ressources du modèle. Vous définissez ici ce
    "resources": [
 ```
 
-Toutes les ressources nécessitent les propriétés `type`, `name`, `apiVersion` et `location`. La première ressource de cet exemple est de type `Microsft.Network/virtualNetwork`, avec le nom `myVnet` et apiVersion `2016-03-30`. (Pour trouver la dernière version de l’API pour un type de ressource, reportez-vous à la [Documentation de l’API REST Azure](https://docs.microsoft.com/rest/api/).)
+Toutes les ressources nécessitent les propriétés `type`, `name`, `apiVersion` et `location`. La première ressource de cet exemple est de type [Microsft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), avec le nom `myVnet` et apiVersion `2016-03-30`. (Pour trouver la dernière version de l’API pour un type de ressource, reportez-vous à la [documentation de référence des modèles Azure Resource Manager](/azure/templates/).)
 
 ```json
      {
@@ -124,7 +124,7 @@ Dans ce cas, la liste ne contient qu’un seul élément, le réseau virtuel iss
        ],
 ```
 ## <a name="specify-scale-set-properties"></a>Spécifier les propriétés du groupe identique
-Les groupes identiques disposent de nombreuses propriétés pour personnaliser les machines virtuelles dans le groupe identique. Pour obtenir une liste complète de ces propriétés, consultez la [Documentation de l’API REST](https://docs.microsoft.com/rest/api/virtualmachinescalesets/create-or-update-a-set). Pour ce didacticiel, seules quelques propriétés couramment utilisées sont définies.
+Les groupes identiques disposent de nombreuses propriétés pour personnaliser les machines virtuelles dans le groupe identique. Pour obtenir une liste complète de ces propriétés, consultez la [documentation de référence des modèles](/azure/templates/microsoft.compute/virtualmachinescalesets). Pour ce didacticiel, seules quelques propriétés couramment utilisées sont définies.
 ### <a name="supply-vm-size-and-capacity"></a>Fournir la capacité et la taille de machine virtuelle
 Le groupe identique doit connaître la taille de machine virtuelle à créer (le « nom de la référence (SKU) ») et le nombre de ces machines virtuelles à créer (la « capacité de la référence (SKU) »). Pour voir les tailles de machines virtuelles disponibles, consultez la [documentation sur les tailles de machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
 

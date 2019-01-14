@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync : Référence aux fonctions | Microsoft Docs'
+title: 'Synchronisation d’Azure AD Connect : Informations de référence sur les fonctions | Microsoft Docs'
 description: Référence d’expressions d’approvisionnement déclaratif dans Azure AD Connect Sync.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb6f74a1de3e91868d7b20563a790352486862ee
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: db427d0c171e164cb03d7280103fa85e5add4dd1
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425691"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157477"
 ---
-# <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync : Référence aux fonctions
+# <a name="azure-ad-connect-sync-functions-reference"></a>Synchronisation d’Azure AD Connect : Référence des fonctions
 Dans Azure AD Connect, les fonctions servent à manipuler une valeur d’attribut pendant la synchronisation.  
 La syntaxe des fonctions s’exprime selon le format suivant :   
 `<output type> FunctionName(<input type> <position name>, ..)`
@@ -146,7 +146,7 @@ Retourne True si les attributs ont la même valeur.
 **Syntaxe :**  
 `dt CDate(str value)`
 
-* Valeur : chaîne comportant une date, une heure, et éventuellement, un fuseau horaire
+* Valeur : Chaîne comportant une date, une heure, et éventuellement, un fuseau horaire
 
 **Remarques :**  
  La chaîne renvoyée est toujours au format UTC.
@@ -166,7 +166,7 @@ Retourne les valeurs OID de toutes les extensions critiques d’un objet certifi
 
 **Syntaxe :**  
 `mvstr CertExtensionOids(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="certformat"></a>CertFormat
@@ -175,7 +175,7 @@ Retourne le nom du format de ce certificat X.509v3.
 
 **Syntaxe :**  
 `str CertFormat(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="certfriendlyname"></a>CertFriendlyName
@@ -184,7 +184,7 @@ Retourne l’alias associé à un certificat.
 
 **Syntaxe :**  
 `str CertFriendlyName(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="certhashstring"></a>CertHashString
@@ -193,7 +193,7 @@ Retourne la valeur de hachage SHA1 du certificat x.509v.3 sous forme de chaîne 
 
 **Syntaxe :**  
 `str CertHashString(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="certissuer"></a>CertIssuer
@@ -202,7 +202,7 @@ Retourne le nom de l’autorité de certification qui a émis le certificat x.50
 
 **Syntaxe :**  
 `str CertIssuer(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="certissuerdn"></a>CertIssuerDN
@@ -211,7 +211,7 @@ Retourne le nom unique de l’émetteur de certificat.
 
 **Syntaxe :**  
 `str CertIssuerDN(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="certissueroid"></a>CertIssuerOid
@@ -220,7 +220,7 @@ Retourne l’OID de l’émetteur de certificat.
 
 **Syntaxe :**  
 `str CertIssuerOid(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="certkeyalgorithm"></a>CertKeyAlgorithm
@@ -229,7 +229,7 @@ Retourne les informations d’algorithme de clé du certificat x.509v.3 sous for
 
 **Syntaxe :**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="certkeyalgorithmparams"></a>CertKeyAlgorithmParams
@@ -238,7 +238,7 @@ Retourne les paramètres d’algorithme de clé du certificat x.509v.3 sous form
 
 **Syntaxe :**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="certnameinfo"></a>CertNameInfo
@@ -247,8 +247,8 @@ Retourne le nom du sujet et de l’émetteur d’un certificat.
 
 **Syntaxe :**  
 `str CertNameInfo(binary certificateRawData, str x509NameType, bool includesIssuerName)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
-*   X509NameType : valeur X509NameType du sujet.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   X509NameType : Valeur X509NameType du sujet.
 *   includesIssuerName : true pour inclure le nom de l’émetteur ; sinon, false.
 
 - - -
@@ -258,7 +258,7 @@ Retourne la date en heure locale après laquelle un certificat n’est plus vali
 
 **Syntaxe :**  
 `dt CertNotAfter(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="certnotbefore"></a>CertNotBefore
@@ -267,7 +267,7 @@ Retourne la date en heure locale à partir de laquelle un certificat devient val
 
 **Syntaxe :**  
 `dt CertNotBefore(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="certpublickeyoid"></a>CertPublicKeyOid
@@ -276,7 +276,7 @@ Retourne l’OID de la clé publique du certificat x.509v.3.
 
 **Syntaxe :**  
 `str CertKeyAlgorithm(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="certpublickeyparametersoid"></a>CertPublicKeyParametersOid
@@ -285,7 +285,7 @@ Retourne l’OID des paramètres de clé publique du certificat x.509v.3.
 
 **Syntaxe :**  
 `str CertPublicKeyParametersOid(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="certserialnumber"></a>CertSerialNumber
@@ -294,7 +294,7 @@ Retourne le numéro de série du certificat X.509v3.
 
 **Syntaxe :**  
 `str CertSerialNumber(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="certsignaturealgorithmoid"></a>CertSignatureAlgorithmOid
@@ -303,7 +303,7 @@ Retourne l’OID de l’algorithme utilisé pour créer la signature d’un cert
 
 **Syntaxe :**  
 `str CertSignatureAlgorithmOid(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="certsubject"></a>CertSubject
@@ -312,7 +312,7 @@ Obtient le nom unique du sujet du certificat.
 
 **Syntaxe :**  
 `str CertSubject(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="certsubjectnamedn"></a>CertSubjectNameDN
@@ -321,7 +321,7 @@ Retourne le nom unique du sujet du certificat.
 
 **Syntaxe :**  
 `str CertSubjectNameDN(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="certsubjectnameoid"></a>CertSubjectNameOid
@@ -330,7 +330,7 @@ Retourne l’OID du nom du sujet d’un certificat.
 
 **Syntaxe :**  
 `str CertSubjectNameOid(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="certthumbprint"></a>CertThumbprint
@@ -339,7 +339,7 @@ Retourne l’empreinte d’un certificat.
 
 **Syntaxe :**  
 `str CertThumbprint(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="certversion"></a>CertVersion
@@ -348,7 +348,7 @@ Retourne la version de format X.509 d’un certificat.
 
 **Syntaxe :**  
 `str CertThumbprint(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 
 - - -
 ### <a name="cguid"></a>CGuid
@@ -372,7 +372,7 @@ Retourne la version de format X.509 d’un certificat.
 
 * attribut : attribut à valeurs multiples à rechercher.
 * recherche : chaîne à rechercher dans l’attribut.
-* Casetype : CaseInsensitive ou CaseSensitive.
+* Casetype : CaseInsensitive ou CaseSensitive.
 
 Renvoie l’indice dans l’attribut à plusieurs valeurs où la chaîne a été trouvée. Si la chaîne est introuvable, la valeur renvoyée est 0.
 
@@ -393,8 +393,8 @@ Si l’attribut proxyAddresses a une adresse de messagerie principale (indiquée
 `str ConvertFromBase64(str source)` - part du principe que l’encodage utilisé est Unicode  
 `str ConvertFromBase64(str source, enum Encoding)`
 
-* source : chaîne encodée Base64  
-* En codage : Unicode, ASCII, UTF8
+* source : Chaîne encodée Base64  
+* Encodage : Unicode, ASCII, UTF8
 
 **Exemple**  
 `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`  
@@ -410,7 +410,7 @@ Les deux exemples renvoient «*Hello world!*»
 **Syntaxe :**  
 `str ConvertFromUTF8Hex(str source)`
 
-* source : chaîne encodée sur 2 octets UTF8
+* source : Chaîne encodée sur 2 octets UTF8
 
 **Remarques :**  
 La différence entre cette fonction et ConvertFromBase64(,UTF8) est que le résultat est convivial pour l’attribut DN.  
@@ -485,7 +485,7 @@ Convertit la valeur d’un tableau d’entiers en sa représentation sous forme 
 `str CStr(ref value)`  
 `str CStr(bool value)`  
 
-* valeur : peut être une valeur numérique, un attribut de référence ou une valeur booléenne.
+* value : Peut être une valeur numérique, un attribut de référence ou une valeur booléenne.
 
 **Exemple :**  
 `CStr([dn])`  
@@ -499,7 +499,7 @@ Convertit la valeur d’un tableau d’entiers en sa représentation sous forme 
 **Syntaxe :**  
 `dt DateAdd(str interval, num value, dt date)`
 
-* intervalle : expression de chaîne correspondant l’intervalle de temps que vous souhaitez ajouter. La chaîne doit avoir une des valeurs suivantes :
+* intervalle : Expression de chaîne correspondant l’intervalle de temps que vous souhaitez ajouter. La chaîne doit avoir une des valeurs suivantes :
   * yyyy Année
   * q Trimestre
   * m Mois
@@ -510,8 +510,8 @@ Convertit la valeur d’un tableau d’entiers en sa représentation sous forme 
   * h Heure
   * n Minute
   * s Seconde
-* valeur : nombre d’unités que vous souhaitez ajouter. Elle peut être positive (pour obtenir des dates dans le futur) ou négative (pour obtenir des dates dans le passé).
-* date : DateTime représentant la date à laquelle l’intervalle est ajouté.
+* value : Nombre d’unités que vous souhaitez ajouter. Elle peut être positive (pour obtenir des dates dans le futur) ou négative (pour obtenir des dates dans le passé).
+* date : DateTime représentant la date à laquelle l’intervalle est ajouté.
 
 **Exemple :**  
 `DateAdd("m", 3, CDate("2001-01-01"))`  
@@ -539,7 +539,7 @@ Convertit la valeur d’un tableau d’entiers en sa représentation sous forme 
 `str DNComponent(ref dn, num ComponentNumber)`
 
 * dn : attribut de référence à interpréter
-* ComponentNumber : composant du nom de domaine à renvoyer
+* ComponentNumber : Composant du nom de domaine à retourner
 
 **Exemple :**  
 `DNComponent(CRef([dn]),1)`  
@@ -556,7 +556,7 @@ Convertit la valeur d’un tableau d’entiers en sa représentation sous forme 
 
 * dn : attribut de référence à interpréter
 * ComponentNumber - composant du nom de domaine à retourner
-* Options : contrôleur de domaine – ignorer tous les composants avec « dc = »
+* Options : Contrôleur de domaine – ignorer tous les composants avec « dc = »
 
 **Exemple :**  
 Si le nom de domaine est « cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com », alors  
@@ -600,7 +600,7 @@ Si le nom de domaine est « cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com »,
 * format : chaîne représentant le format à convertir.
 
 **Remarques :**  
-Vous trouverez les valeurs de format possibles ici : [Formats de date/heure définis par l’utilisateur (fonction Format)](https://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
+Vous trouverez ici les valeurs possibles pour le format : [Formats de date et heure pour la fonction FORMAT](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
 
 **Exemple :**  
 
@@ -627,8 +627,8 @@ La fonction Guid génère un nouveau GUID aléatoire.
 `var IIF(exp condition, var valueIfTrue, var valueIfFalse)`
 
 * condition : toute valeur ou expression qui peut être évaluée à true ou false.
-* valueIfTrue : la valeur renvoyée si la condition prend la valeur true.
-* valueIfFalse : la valeur renvoyée si la condition prend la valeur false.
+* valueIfTrue : La valeur renvoyée si la condition prend la valeur true.
+* valueIfFalse : La valeur renvoyée si la condition prend la valeur false.
 
 **Exemple :**  
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
@@ -714,7 +714,7 @@ Retourne la valeur true si les données brutes peuvent être sérialisées en un
 
 **Syntaxe :**  
 `bool CertThumbprint(binary certificateRawData)`  
-*   certificateRawData : représentation en tableau d’octets d’un certificat X.509. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
+*   certificateRawData : Représentation en tableau d’octets d’un certificat X.509.Byte array representation of an X.509 certificate. Le tableau d’octets peut contenir des données X.509 codées en binaire (DER) ou en Base64.
 - - -
 ### <a name="isempty"></a>IsEmpty
 **Description :**  
@@ -852,8 +852,8 @@ Renvoie une valeur Null si l’index est hors limites.
 `str Join(mvstr attribute)`  
 `str Join(mvstr attribute, str Delimiter)`
 
-* attribute : attribut à valeurs multiples contenant des chaînes à joindre.
-* délimiter : toute chaîne utilisée pour séparer les sous-chaînes dans la chaîne renvoyée. En cas d’omission, le caractère espace (" ") est utilisé. Si le délimiteur est une chaîne de longueur nulle ("") ou Nothing, tous les éléments de la liste sont concaténés sans délimiteurs.
+*  : Attribut à valeurs multiples contenant des chaînes à joindre.
+* delimiter : Toute chaîne utilisée pour séparer les sous-chaînes dans la chaîne renvoyée. En cas d’omission, le caractère espace (" ") est utilisé. Si le délimiteur est une chaîne de longueur nulle ("") ou Nothing, tous les éléments de la liste sont concaténés sans délimiteurs.
 
 **Remarques**  
  Il existe une parité entre les fonctions Join et Split. La fonction Join prend un tableau de chaînes et les joint à l’aide d’une chaîne de délimiteur, pour renvoyer une chaîne unique. La fonction Split accepte une chaîne et la sépare au niveau du délimiteur, pour renvoyer un tableau de chaînes. Toutefois, la principale différence est que Join peut concaténer des chaînes avec n’importe quelle chaîne de délimiteur, Split peut uniquement séparer des chaînes à l’aide d’un délimiteur de caractère unique.
@@ -982,8 +982,8 @@ S’il ne reste pas numChars caractères dans la chaîne à partir de la positio
 `str PadLeft(str string, num length, str padCharacter)`
 
 * string : chaîne à remplir.
-* length : entier représentant la longueur de chaîne souhaitée.
-* padCharacter : chaîne constituée d’un seul caractère à utiliser comme caractère de remplissage
+* length : Entier représentant la longueur de chaîne souhaitée.
+* padCharacter : Chaîne constituée d’un seul caractère à utiliser comme caractère de remplissage
 
 **Remarques :**
 
@@ -1007,8 +1007,8 @@ S’il ne reste pas numChars caractères dans la chaîne à partir de la positio
 `str PadRight(str string, num length, str padCharacter)`
 
 * string : chaîne à remplir.
-* length : entier représentant la longueur de chaîne souhaitée.
-* padCharacter : chaîne constituée d’un seul caractère à utiliser comme caractère de remplissage
+* length : Entier représentant la longueur de chaîne souhaitée.
+* padCharacter : Chaîne constituée d’un seul caractère à utiliser comme caractère de remplissage
 
 **Remarques :**
 
@@ -1077,9 +1077,9 @@ S’il ne reste pas numChars caractères dans la chaîne à partir de la positio
 **Syntaxe :**  
 `str Replace(str string, str OldValue, str NewValue)`
 
-* string : chaîne dans laquelle les caractères sont remplacés.
-* OldValue : chaîne à rechercher et remplacer.
-* NewValue : chaîne de remplacement.
+* string : Chaîne dans laquelle les caractères sont remplacés.
+* OldValue : Chaîne à rechercher et remplacer.
+* NewValue : Chaîne de remplacement.
 
 **Remarques :**  
  La fonction reconnaît les monikers spéciaux suivants :
@@ -1100,7 +1100,7 @@ S’il ne reste pas numChars caractères dans la chaîne à partir de la positio
 **Syntaxe :**  
 `str ReplaceChars(str string, str ReplacePattern)`
 
-* string : chaîne dans laquelle les caractères sont remplacés.
+* string : Chaîne dans laquelle les caractères sont remplacés.
 * ReplacePattern : chaîne contenant un dictionnaire avec des caractères à remplacer.
 
 Le format est {source1}: {target1}, {source2}: {target2}, {sourceN}, {targetN}, source étant le caractère à rechercher et la cible, la chaîne à remplacer.
@@ -1172,7 +1172,7 @@ Traite toutes les valeurs d’un attribut à valeurs multiples (ou la sortie d�
 `mvattr Select(variable item, mvattr attribute, func function)`  
 `mvattr Select(variable item, exp expression, func function)`
 
-* item : représente un élément de l’attribut à valeurs multiples
+* item : Représente un élément de l’attribut à valeurs multiples
 * attribute : l’attribut à valeurs multiples
 * expression : expression qui retourne une collection de valeurs
 * condition : toute fonction pouvant traiter un élément de l’attribut
@@ -1222,8 +1222,8 @@ Retourne toutes les valeurs de l’attribut à valeurs multiples otherPhone apr�
 **Syntaxe :**  
 `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
-* expr : expression de variante à évaluer.
-* value : valeur à retourner si l’expression correspondante a la valeur True.
+* expr : Expression de variante à évaluer.
+* value : Valeur à retourner si l’expression correspondante a la valeur True.
 
 **Remarques :**  
  La liste d’arguments de la fonction Switch se compose de paires d’expressions et de valeurs. Les expressions sont évaluées de gauche à droite et la valeur associée à la première expression à évoluer à True est renvoyée. Si les parties ne sont pas correctement couplées, une erreur d’exécution se produit.
@@ -1279,7 +1279,7 @@ Retourne un sous-ensemble de valeurs d’un attribut à valeurs multiples (ou la
 **Syntaxe :**  
 `mvattr Where(variable item, mvattr attribute, exp condition)`  
 `mvattr Where(variable item, exp expression, exp condition)`  
-* item : représente un élément de l’attribut à valeurs multiples
+* item : Représente un élément de l’attribut à valeurs multiples
 * attribute : l’attribut à valeurs multiples
 * condition : toute expression pouvant avoir la valeur true ou false
 * expression : expression qui retourne une collection de valeurs
@@ -1295,9 +1295,9 @@ La fonction With permet de simplifier une expression complexe en utilisant une v
 
 **Syntaxe**
 `With(var variable, exp subExpression, exp complexExpression)` :  
-* variable : représente la sous-expression.
+* variable : Représente la sous-expression.
 * subExpression : sous-expression représentée par une variable.
-* complexExpression : expression complexe.
+* complexExpression : Expression complexe.
 
 **Exemple :**  
 `With($unExpiredCerts,Where($item,[userCertificate],CertNotAfter($item)>Now()),IIF(Count($unExpiredCerts)>0,$unExpiredCerts,NULL))`  
@@ -1335,5 +1335,5 @@ Si la chaîne contient moins de mots ou ne contient pas les mots identifiés par
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Comprendre les expressions d’approvisionnement déclaratif](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
-* [Azure AD Connect Sync : personnalisation des options de synchronisation](how-to-connect-sync-whatis.md)
-* [Intégration de vos identités locales avec Azure Active Directory](whatis-hybrid-identity.md)
+* [Synchronisation Azure AD Connect : personnaliser les options de synchronisation](how-to-connect-sync-whatis.md)
+* [Intégration des identités locales dans Azure Active Directory](whatis-hybrid-identity.md)
