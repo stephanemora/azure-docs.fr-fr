@@ -64,7 +64,7 @@ Azure DNS offre les fonctionnalités suivantes :
 Azure DNS est soumis aux restrictions suivantes :
 
 * Un seul réseau virtuel d’inscription est autorisé par zone privée.
-* Jusqu’à 10 réseaux virtuels d’inscription sont autorisés par zone privée.
+* Jusqu’à 10 réseaux virtuels de résolution sont autorisés par zone privée.
 * Un réseau virtuel donné ne peut être lié qu’à une seule zone privée en tant que réseau virtuel d’inscription.
 * Un réseau virtuel donné peut être lié à un maximum de 10 zones privées en tant que réseau virtuel de résolution.
 * Si vous spécifiez un réseau virtuel d’inscription, les enregistrements DNS pour les machines virtuelles de ce réseau virtuel qui sont inscrits dans la zone privée ne seront pas visibles ou récupérables à partir des API Azure Powershell et Azure CLI. Les enregistrements de machine virtuelle sont tout de même enregistrés et résolus avec succès.
