@@ -1,19 +1,19 @@
 ---
-title: 'Leçon 12 du didacticiel Azure Analysis Services : Analyser dans Excel | Microsoft Docs'
+title: 'Leçon 12 du didacticiel Azure Analysis Services : Analyser dans Excel | Microsoft Docs'
 description: Explique comment utiliser la fonctionnalité Analyser dans Excel dans le projet du didacticiel Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 425c3a351c75c63cb07df66d6122f4d900b4932e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e5ac04c7bd8174f823cacc67401af8a98b3d8170
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429760"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186479"
 ---
 # <a name="analyze-in-excel"></a>Analyser dans Excel
 
@@ -21,10 +21,10 @@ Dans cette leçon, vous utilisez la fonctionnalité Analyser dans Excel pour ouv
   
 Pour que vous puissiez suivre cette leçon, Excel doit être installé sur le même ordinateur que Visual Studio.
   
-Durée estimée pour suivre cette leçon : **5 minutes**  
+Durée estimée pour suivre cette leçon : **Cinq minutes**  
   
 ## <a name="prerequisites"></a>Prérequis  
-Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir suivi la leçon précédente : [Leçon 11 : Créer des rôles](../tutorials/aas-lesson-11-create-roles.md).  
+Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 11 : Créer des rôles](../tutorials/aas-lesson-11-create-roles.md).  
   
 ## <a name="browse-using-the-default-and-internet-sales-perspectives"></a>Parcourir des données à l’aide des perspectives par défaut et Internet Sales  
 Dans ces premières tâches, vous aller parcourir votre modèle en utilisant à la fois la perspective par défaut, qui inclut tous les objets du modèle, et la perspective Internet Sales créée précédemment. La perspective Internet Sales exclut l’objet table Customer.  

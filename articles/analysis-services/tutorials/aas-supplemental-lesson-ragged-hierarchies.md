@@ -1,19 +1,19 @@
 ---
-title: 'Leçon supplémentaire du didacticiel Azure Analysis Services : Hiérarchies déséquilibrées | Microsoft Docs'
+title: 'Leçon supplémentaire du didacticiel Azure Analysis Services : Hiérarchies déséquilibrées | Microsoft Docs'
 description: Décrit comment corriger les hiérarchies déséquilibrées dans le didacticiel Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f5bd679c11139b7ac439247df81a7adb0b02b0fe
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 50926b7c8b06668770d9a00b8342d209fdb94649
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426326"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191103"
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Leçon supplémentaire – Hiérarchies déséquilibrées
 
@@ -87,7 +87,7 @@ Si vous avez créé le projet de ventes sur Internet AW dans le cadre du didacti
     =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],5,1)) 
     ```
 
-6.  Dans la table **DimEmployee**, créez une [hiérarchie](../tutorials/aas-lesson-9-create-hierarchies.md) nommée **Organization**. Ajoutez les colonnes suivantes, dans l’ordre : **Level1**, **Level2**, **Level3**, **Level4**, **Level5**.
+6.  Dans la table **DimEmployee**, créez une [hiérarchie](../tutorials/aas-lesson-9-create-hierarchies.md) nommée **Organization**. Ajoutez les colonnes suivantes, dans cet ordre : **Level1**, **Level2**, **Level3**, **Level4**, **Level5**.
 
 7.  Dans la table **FactResellerSales**, créez la [mesure](../tutorials/aas-lesson-6-create-measures.md) suivante :
 
@@ -118,6 +118,6 @@ Si vous avez créé le projet de ventes sur Internet AW dans le cadre du didacti
     Voilà qui est beaucoup mieux !
 
 ## <a name="see-also"></a>Voir aussi   
-[Leçon 9 : Créer des hiérarchies](../tutorials/aas-lesson-9-create-hierarchies.md)  
+[Leçon 9 : Créer des hiérarchies](../tutorials/aas-lesson-9-create-hierarchies.md)  
 [Leçon supplémentaire – Sécurité dynamique](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Leçon supplémentaire – Lignes de détails](../tutorials/aas-supplemental-lesson-detail-rows.md)  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: fdb3c5cbd3acee90386352c6f180a71aa81f54fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c2ebcfc376456f63896ebae8331136aff0cdb99
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23127157"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119439"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Exemple 3 : créer un réseau de périmètre DMZ pour protéger les réseaux avec un pare-feu, un réseau défini sur l’utilisateur et un groupe de réseau
 [Revenir à la page Meilleures pratiques relatives aux frontières de sécurité][HOME]
@@ -32,7 +32,7 @@ Cet exemple va créer un réseau de périmètre avec un pare-feu, quatre serveur
 Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
 
 * Trois services cloud : « SecSvc001 », « FrontEnd001 » et « BackEnd001 »
-* Un réseau virtuel « CorpNetwork », avec trois sous-réseaux : « SecNet », « FrontEnd » et « BackEnd »
+* Un réseau virtuel « CorpNetwork », avec trois sous-réseaux : « SecNet », « FrontEnd » et « BackEnd »
 * Une appliance virtuelle du réseau, dans cet exemple un pare-feu, connecté au sous-réseau SecNet
 * un serveur Windows Server représentant un serveur web d’application (« IIS01 »),
 * Deux serveurs Windows Server qui représentent les serveurs principaux d’applications (« AppVM01 », « AppVM02 »)
@@ -46,11 +46,11 @@ Pour créer l’environnement :
 2. Mettre à jour les variables de l’utilisateur dans le script pour qu’elles correspondent à l’environnement dans lequel le script est exécuté (abonnements, noms de service, etc.)
 3. Exécuter le script dans PowerShell
 
-**Remarque**: la région indiquée dans le script PowerShell doit correspondre à la région indiquée dans le fichier xml de configuration réseau.
+**Remarque**: La région indiquée dans le script PowerShell doit correspondre à la région indiquée dans le fichier xml de configuration réseau.
 
 Une fois que le script s’exécute correctement, les opérations de post-script qui suivent doivent être exécutées :
 
-1. Configurer les règles de pare-feu. Ce sujet est traité dans la section ci-dessous intitulée Description de règles de pare-feu.
+1. Configurer les règles de pare-feu. Ce sujet est traité dans la section ci-dessous intitulée : Description de la règle de pare-feu.
 2. Dans la section Références, il existe deux scripts pour configurer le serveur web et le serveur d’application avec une application web simple permettant le test avec cette configuration réseau de périmètre.
 
 Une fois que le script s’exécute correctement, il faut terminer les règles de pare-feu. Ce sujet est traité dans la section intitulée : Règles de pare-feu.
@@ -199,17 +199,17 @@ Dans le diagramme logique ci-dessus, le sous-réseau de sécurité n’est pas a
 Dans cet exemple, nous avons besoin de 7 types de règles, qui se présentent comme suit :
 
 * Règles externes (pour le trafic entrant) :
-  1. Règle de gestion de pare-feu : cette règle de redirection de l’application autorise le trafic à traverser les ports de gestion de l’appliance virtuelle du réseau.
-  2. Règles de RDP (pour chaque serveur Windows) : ces quatre réseaux (une pour chaque serveur) permettront la gestion des serveurs individuels via RDP. Ces éléments pourraient être regroupés en une règle, en fonction de la capacité de l’appliance virtuelle réseau utilisée.
-  3. Règles de trafic d’application : elles sont au nombre de deux, la première correspondant au trafic web frontal, et la seconde, pour le trafic de l’ordinateur principal (par exemple, serveur web vers couche de données). La configuration de ces règles dépend de l’architecture réseau (sur lequel sont placés vos serveurs) et les flux de trafic (direction du flux de trafic et ports utilisés).
+  1. Règle de gestion de pare-feu : Cette règle de redirection de l’application autorise le trafic à traverser les ports de gestion de l’appliance virtuelle du réseau.
+  2. Règles de RDP (pour chaque serveur Windows) : Ces quatre règles (une pour chaque serveur) permettront la gestion des serveurs individuels via RDP. Ces éléments pourraient être regroupés en une règle, en fonction de la capacité de l’appliance virtuelle réseau utilisée.
+  3. Règles de trafic d’application : Elles sont au nombre de deux, la première correspondant au trafic web frontal, et la seconde, pour le trafic de l’ordinateur principal (par exemple, serveur web vers couche de données). La configuration de ces règles dépend de l’architecture réseau (sur lequel sont placés vos serveurs) et les flux de trafic (direction du flux de trafic et ports utilisés).
      * La première règle permet au trafic d’application réel de parvenir au serveur d’applications. Les autres règles concernent la sécurité, la gestion, etc., les règles d’application sont celles qui permettent aux utilisateurs externes ou aux services d’accéder aux applications. Pour cet exemple, il existe un serveur web sur le port 80, et donc une seule règle d’application redirige le trafic entrant vers l’adresse IP externe, vers l’adresse IP interne des serveurs web. L’adresse réseau de la session de trafic redirigée sera traduite vers le serveur interne.
      * La seconde règle de trafic d’application est la règle du serveur principal qui permet au serveur web de communiquer avec le serveur AppVM01 (et non AppVM02) via n’importe quel port.
 * Règles internes (pour le trafic réseau virtuel interne)
-  1. Sortie vers règle Internet : cette règle autorise le transfert du trafic en provenance de n’importe quel réseau vers les réseaux sélectionnés. Cette règle est généralement une règle par défaut déjà présente sur le pare-feu, mais à l’état désactivé. Pour cet exemple, cette règle doit être activée.
-  2. Règle DNS : cette règle autorise uniquement le trafic DNS (port 53) vers le serveur DNS. Pour cet environnement, la majeure partie du trafic du serveur frontal vers le serveur principal est bloquée. Cette règle autorise spécifiquement DNS à partir de n’importe quel sous-réseau local.
-  3. Règle sous-réseau à sous-réseau : cette règle permet à n’importe quel serveur principal du sous-réseau de se connecter à n’importe quel serveur du sous-réseau du serveur frontal (mais pas l’inverse).
+  1. Sortie vers règle Internet : Cette règle autorise le transfert du trafic en provenance de n’importe quel réseau vers les réseaux sélectionnés. Cette règle est généralement une règle par défaut déjà présente sur le pare-feu, mais à l’état désactivé. Pour cet exemple, cette règle doit être activée.
+  2. Règle DNS : Cette règle autorise uniquement le trafic DNS (port 53) vers le serveur DNS. Pour cet environnement, la majeure partie du trafic du serveur frontal vers le serveur principal est bloquée. Cette règle autorise spécifiquement DNS à partir de n’importe quel sous-réseau local.
+  3. Règle sous-réseau à sous-réseau : Cette règle permet à n’importe quel serveur principal du sous-réseau de se connecter à n’importe quel serveur du sous-réseau du serveur frontal (mais pas l’inverse).
 * Règle de prévention de défaillance (pour le trafic ne répondant à aucun des éléments ci-dessus) :
-  1. Refuser toutes les règles de trafic : il doit toujours s’agir de la dernière règle (en termes de priorité) et par conséquent, si un trafic ne correspond à aucune des règles qui précèdent, il sera abandonné par cette règle. Il s’agit d’une règle par défaut qui est en général activée, et en général, aucune modification n’est nécessaire.
+  1. Refuser toutes les règles de trafic : Il doit toujours s’agir de la dernière règle (en termes de priorité) et par conséquent si un trafic ne correspond à aucune des règles qui précèdent, il sera abandonné par cette règle. Il s’agit d’une règle par défaut qui est en général activée, et en général, aucune modification n’est nécessaire.
 
 > [!TIP]
 > Sur la deuxième règle de trafic de l’application, n’importe quel port est autorisé pour simplifier cet exemple. Dans un scénario réel, le port le plus spécifique et les plages d’adresses doivent être utilisés pour réduire la surface d’attaque de cette règle.
@@ -275,11 +275,11 @@ Ce processus doit être répété pour créer des Services RDP pour les serveurs
 ### <a name="firewall-rules-creation"></a>Création de règles de pare-feu
 Il existe trois types de règles de pare-feu utilisées dans cet exemple, et elles sont toutes représentées par des icônes distinctes :
 
-La règle de redirection d’application : ![Icône de redirection d’application][7]
+Icône de redirection d’application :  ![Icône de redirection d’application][7]
 
-La règle NAT de destination : ![Icône NAT de destination][8]
+Règle NAT de destination :  ![Icône NAT de destination][8]
 
-La règle Pass : ![Icône de réussite][9]
+Règle Pass :  ![Icône de réussite][9]
 
 Vous trouverez d’autres informations sur ces règles sur le site web de Barracuda.
 
@@ -289,7 +289,7 @@ Une fois que vos règles sont créées et/ou modifiées, elles doivent être tra
 
 Les caractéristiques de chaque règle nécessaire pour compléter cet exemple sont décrites comme suit :
 
-* **Règle de gestion de pare-feu**: cette règle de redirection de l’application autorise le trafic à franchir les ports de gestion de l’appliance virtuelle du réseau (dans cet exemple, un pare-feu Barracuda NextGen). Les ports de gestion sont 801, 807 et éventuellement, 22. Les ports interne et externe sont identiques (pas de transfert de port). Cette règle, SETUP-MGMT-ACCESS, est une règle par défaut et elle est activée par défaut (dans la version 6.1 du pare-feu Barracuda NextGen Firewall).
+* **Règle de gestion de pare-feu** : Cette règle de redirection de l’application autorise le trafic à franchir les ports de gestion de l’appliance virtuelle du réseau (dans cet exemple, un pare-feu Barracuda NextGen). Les ports de gestion sont 801, 807 et éventuellement, 22. Les ports interne et externe sont identiques (pas de transfert de port). Cette règle, SETUP-MGMT-ACCESS, est une règle par défaut et elle est activée par défaut (dans la version 6.1 du pare-feu Barracuda NextGen Firewall).
   
     ![Règle de gestion de pare-feu][10]
 
@@ -298,7 +298,7 @@ Les caractéristiques de chaque règle nécessaire pour compléter cet exemple s
 > 
 > 
 
-* **Règles RDP** : ces règles NAT de destination permettent la gestion des serveurs individuels via RDP.
+* **Règles RDP** :  Ces règles NAT de destination permettent la gestion des serveurs individuels via RDP.
   Il existe quatre champs critiques nécessaires à la création de cette règle :
   
   1. Source : pour permettre l’exécution de RDP depuis n’importe quel endroit, la référence « Tout » est utilisée dans le champ Source.
@@ -322,7 +322,7 @@ Les caractéristiques de chaque règle nécessaire pour compléter cet exemple s
 > 
 > 
 
-* **Règles de trafic d’application**: elles sont au nombre de deux, la première correspondant au trafic web frontal, et la seconde, pour le trafic de l’ordinateur principal (par exemple, serveur web vers couche de données). La configuration de ces règles dépend de l’architecture du réseau sur lequel sont placés vos serveurs et des flux de trafic (sens du flux de trafic et les ports utilisés).
+* **Règles de trafic d’application** : Elles sont au nombre de deux, la première correspondant au trafic web frontal, et la seconde, pour le trafic de l’ordinateur principal (par exemple, serveur web vers couche de données). La configuration de ces règles dépend de l’architecture du réseau sur lequel sont placés vos serveurs et des flux de trafic (sens du flux de trafic et les ports utilisés).
   
     Le premier concerne la règle frontale de trafic web :
   
@@ -342,7 +342,7 @@ Les caractéristiques de chaque règle nécessaire pour compléter cet exemple s
   
     Avec cette règle Pass, aucune traduction n’est nécessaire, car il s’agit de trafic interne et donc, la méthode de connexion peut être définie sur « Non SNAT ».
   
-    **Remarque**: le réseau Source de cette règle correspond à n’importe quelle ressource du sous-réseau du serveur frontal s’il n’y en a qu’un, ou s’il s’agit d’un nombre spécifique de serveurs web, une ressource d’objet réseau peut être créée pour préciser ces adresses IP exactes et non l’ensemble du sous-réseau du serveur frontal.
+    **Remarque**: Le réseau Source de cette règle correspond à n’importe quelle ressource du sous-réseau du serveur frontal s’il n’y en a qu’un, ou s’il s’agit d’un nombre spécifique de serveurs web, une ressource d’objet réseau peut être créée pour préciser ces adresses IP exactes et non l’ensemble du sous-réseau du serveur frontal.
 
 > [!TIP]
 > Cette règle utilise le service « Any » pour faciliter l’installation et l’utilisation. Cela permet d’exécuter une commande ICMPv4 (ping) dans une seule règle. Toutefois, cela n’est pas recommandé. Les ports et protocoles (« Services ») doivent être réduits au minimum, tout en permettant le fonctionnement de l’application, et ce, afin de réduire la surface d’attaque au-delà de cette limite.
@@ -356,20 +356,20 @@ Les caractéristiques de chaque règle nécessaire pour compléter cet exemple s
 > 
 > 
 
-* **Règle de sortie vers Internet**: cette règle Pass autorise le transfert du trafic en provenance de n’importe quel réseau vers les réseaux de destination sélectionnés. Cette règle est généralement une règle par défaut déjà présente sur le pare-feu Barracuda NextGen Firewall, mais à l’état désactivé. Un clic droit sur cette règle peut permettre d’accéder à la commande Activer la règle. La règle affichée ici a été modifiée pour y ajouter les deux sous-réseaux locaux créés en tant que références dans la section Configuration requise de ce document à l’attribut Source de cette règle.
+* **Règle de sortie vers Internet** : Cette règle Pass autorise le transfert du trafic en provenance de n’importe quel réseau vers les réseaux de destination sélectionnés. Cette règle est généralement une règle par défaut déjà présente sur le pare-feu Barracuda NextGen Firewall, mais à l’état désactivé. Un clic droit sur cette règle peut permettre d’accéder à la commande Activer la règle. La règle affichée ici a été modifiée pour y ajouter les deux sous-réseaux locaux créés en tant que références dans la section Configuration requise de ce document à l’attribut Source de cette règle.
   
     ![Règle de trafic sortant de pare-feu][14]
-* **Règle DNS** : cette règle autorise uniquement le transfert du trafic DNS (port 53) vers le serveur DNS. Pour cet environnement, la majeure partie du trafic du serveur frontal vers le serveur principal est bloquée. Cette règle autorise spécifiquement DNS.
+* **Règle DNS** : Cette règle autorise uniquement le transfert du trafic DNS (port 53) vers le serveur DNS. Pour cet environnement, la majeure partie du trafic du serveur frontal vers le serveur principal est bloquée. Cette règle autorise spécifiquement DNS.
   
     ![Règle DNS de pare-feu][15]
   
-    **Remarque** : dans cette capture d’écran, la méthode de connexion est incluse. Cette règle concernant le trafic d’adresse IP pour le trafic des adresses IP interne, aucune traduction n’est requise. La méthode de connexion est définie sur « No SNAT » pour cette règle de test.
-* **Règle sous-réseau à sous-réseau**: la règle Pass est une règle par défaut qui a été activée et modifiée pour permettre à n’importe quel serveur du sous-réseau du serveur principal de se connecter à n’importe quel sous-réseau du serveur frontal. Cette règle concerne l’ensemble du trafic interne, et la méthode de connexion peut être définie sur No SNAT.
+    **Remarque**: Dans cette capture d’écran, la méthode de connexion est incluse. Cette règle concernant le trafic d’adresse IP pour le trafic des adresses IP interne, aucune traduction n’est requise. La méthode de connexion est définie sur « No SNAT » pour cette règle de test.
+* **Règle sous-réseau à sous-réseau** : La règle Pass est une règle par défaut qui a été activée et modifiée pour permettre à n’importe quel serveur du sous-réseau du serveur principal de se connecter à n’importe quel sous-réseau du serveur frontal. Cette règle concerne l’ensemble du trafic interne, et la méthode de connexion peut être définie sur No SNAT.
   
     ![Règle Intra-réseau virtuel de pare-feu][16]
   
-    **Remarque** : la case bidirectionnelle n’est pas cochée (et ne l’est pas dans la plupart des règles). Ceci est important dans le sens où cette règle est alors « unidirectionnelle ». Une connexion peut donc être initiée du sous-réseau principal vers le réseau frontal, mais l’opération inverse est impossible. Si cette case à cocher est activée, cette règle permet le trafic bidirectionnel, ce qui n’est pas souhaitable pour notre diagramme logique.
-* **Refuser toutes les règles de trafic**: il doit toujours s’agir de la dernière règle (en termes de priorité) et par conséquent si un trafic ne correspond à aucune des règles qui précèdent, il sera abandonné par cette règle. Il s’agit d’une règle par défaut qui est en général activée, et en général, aucune modification n’est nécessaire. 
+    **Remarque**: La case bidirectionnelle n’est pas cochée (et ne l’est pas dans la plupart des règles). Ceci est important dans le sens où cette règle est alors « unidirectionnelle ». Une connexion peut donc être initiée du sous-réseau principal vers le réseau frontal, mais l’opération inverse est impossible. Si cette case à cocher est activée, cette règle permet le trafic bidirectionnel, ce qui n’est pas souhaitable pour notre diagramme logique.
+* **Refuser toutes les règles de trafic** : Il doit toujours s’agir de la dernière règle (en termes de priorité) et par conséquent si un trafic ne correspond à aucune des règles qui précèdent, il sera abandonné par cette règle. Il s’agit d’une règle par défaut qui est en général activée, et en général, aucune modification n’est nécessaire. 
   
     ![Règle de refus de pare-feu][17]
 
@@ -419,7 +419,7 @@ Rappelez-vous également que les groupes de sécurité réseau sont en place pou
 5. Le pare-feu commence le traitement de la règle :
    1. La règle de pare-feu 1 (Gestion de pare-feu) ne s’applique pas. Passer à la règle suivante.
    2. Les règles de pare-feu 2 à 5 (règles RDP) ne s’appliquent pas, passer à la règle suivante
-   3. La règle de pare-feu 6 (application: web) s’applique. Le trafic est autorisé, le pare-feu exécute la traduction NAT sur 10.0.1.4 (IIS01)
+   3. Règle de pare-feu 6 (Application : web) s’applique. Le trafic est autorisé, le pare-feu exécute la traduction NAT sur 10.0.1.4 (IIS01)
 6. Le sous-réseau du serveur frontal commence le traitement des règles du trafic entrant :
    1. La règle NSG 1 (blocage Internet) ne s’applique pas (le pare-feu a exécuté la traduction d’adresse NAT sur le pare-feu, donc l’adresse source se trouve désormais le pare-feu du sous-réseau de sécurité et est considérée par le sous-réseau du serveur frontal NSG comme « locale » et est donc autorisée). Passer à la règle suivante
    2. Les règles par défaut NSG autorisent le trafic de sous-réseau vers sous-réseau. Le trafic est autorisé, arrête le traitement des règles NSG
@@ -430,8 +430,8 @@ Rappelez-vous également que les groupes de sécurité réseau sont en place pou
 11. Le pare-feu commence le traitement de la règle :
     1. La règle de pare-feu 1 (Gestion de pare-feu) ne s’applique pas. Passer à la règle suivante.
     2. Les règles de pare-feu 2 à 5 (règles RDP) ne s’appliquent pas. Passer à la règle suivante
-    3. La règle de pare-feu 6 (Aplication:Web) ne s’applique pas. Passer à la règle suivante.
-    4. La règle de pare-feu 7 (application: principal) s’applique, le trafic est autorisé, le pare-feu transfère le trafic vers 10.0.2.5 (AppVM01)
+    3. Règle de pare-feu 6 (Application : web) ne s’applique pas. Passer à la règle suivante.
+    4. Règle de pare-feu 7 (Application : principal) s’applique, le trafic est autorisé, le pare-feu transfère le trafic vers 10.0.2.5 (AppVM01)
 12. Le sous-réseau du serveur principal commence le traitement de la règle de trafic entrant :
     1. La règle NSG 1 (Blocage Internet) ne s’applique pas. Passer à la règle suivante.
     2. Les règles par défaut NSG autorisent le trafic de sous-réseau vers sous-réseau. Le trafic est autorisé, arrête le traitement des règles NSG
@@ -782,7 +782,7 @@ Ce script PowerShell doit être exécuté localement sur un PC ou un serveur con
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 
     If ($FatalError) {
-        Write-Host "A fatal error has occured, please see the above messages for more information." -ForegroundColor Red
+        Write-Host "A fatal error has occurred, please see the above messages for more information." -ForegroundColor Red
         Return}
     Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
 

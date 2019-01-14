@@ -3,20 +3,20 @@ title: Gérer des applications logiques avec Visual Studio - Azure Logic Apps | 
 description: Gestion d’applications logiques et d’autres ressources à l’aide de Visual Studio Cloud Explorer
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d4de75238e48b8eb955095b5a3823f2fed799fae
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: dbb38336f0521f8f8e526ad3f5e13829075e7cca
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445641"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158143"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gérer des applications logiques avec Visual Studio
 
@@ -28,7 +28,6 @@ Même si vous pouvez créer, modifier, gérer et déployer des applications logi
 <a name="requirements"></a>
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
 
@@ -173,6 +172,13 @@ Pour supprimer votre application logique à partir du portail Azure, dans Cloud 
 
 > [!NOTE]
 > Lorsque vous supprimez une application logique, aucune nouvelle exécution n’est instanciée. Toutes les exécutions en cours et en attente sont annulées. Si vous avez des milliers d’exécutions, l’annulation peut prendre beaucoup de temps. 
+
+## <a name="troubleshooting"></a>Résolution de problèmes
+
+Lorsque vous ouvrez votre projet d’application logique dans le Concepteur d’applications logiques, il se peut que vous n’ayez pas la possibilité de sélectionner votre abonnement Azure. Au lieu de cela, votre application logique s’ouvre avec un abonnement Azure qui n’est pas celui que vous souhaitez utiliser. Ce comportement se produit car, après que vous ouvrez le fichier.json d’une application logique, Visual Studio met en cache le premier abonnement sélectionné pour une utilisation ultérieure. Pour résoudre ce problème, essayez l’une des opérations suivantes :
+
+* Renommez le fichier .json de l’application logique. Le cache de l’abonnement varie selon le nom de fichier. 
+* Pour supprimer les abonnements précédemment sélectionnés pour *toutes* les applications logiques dans votre solution, supprimez le dossier .vs *masqué* dans le répertoire de votre solution. Cet emplacement stocke vos informations d’abonnement. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
