@@ -750,6 +750,8 @@ items:
         items:
         - name: Configurer des alertes sur une requête d’analytique
           href: platform/alerts-log.md
+        - name: Requêtes d’alerte de journal
+          href: platform/alerts-log-query.md
         - name: Actions Webhook pour les alertes de journal
           href: platform/alerts-log-webhook.md
         - name: Résolution des alertes de journal
@@ -1003,13 +1005,13 @@ items:
     href: https://azure.microsoft.com/resources/videos/index/?services=monitor
   - name: Modèles de démarrage rapide
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemples de code
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 18a79275cc100cddce1687451168946d2cb2b85e
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: ab0a3de001a775480f46f5a434a313f62e82623d
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215233"
+ms.locfileid: "54231051"

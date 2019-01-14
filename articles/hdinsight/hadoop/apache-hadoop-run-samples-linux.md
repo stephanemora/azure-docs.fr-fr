@@ -47,7 +47,7 @@ Découvrez comment exécuter les exemples MapReduce inclus à Apache Hadoop dan
 * `join`: Travail qui effectue une jointure sur des jeux de données triés, à partition égale.
 * `multifilewc`: Travail qui compte les mots de plusieurs fichiers.
 * `pentomino`: Programme mapreduce de disposition de vignettes permettant de trouver des solutions aux problèmes de pentomino.
-* `pi`: Programme mapreduce qui estime la valeur de Pi à l’aide de la méthode quasi Monte Carlo.
+* `pi`: Programme mapreduce qui estime la valeur de Pi à l’aide de la méthode quasi Monte-Carlo.
 * `randomtextwriter`: Programme mapreduce qui écrit 10 Go de données textuelles aléatoires par nœud.
 * `randomwriter`: Programme mapreduce qui écrit 10 Go de données aléatoires par nœud.
 * `secondarysort`: Exemple définissant un tri secondaire lors de la phase de réduction.

@@ -617,6 +617,8 @@ items:
     href: /sql/t-sql/language-reference
   - name: REST
     href: /rest/api/sql/
+  - name: Modèles Resource Manager pour SQL
+    href: /azure/templates/microsoft.sql/allversions
   - name: Outils SQL Server
     href: /sql/tools/overview-sql-tools
   - name: SQL Server Management Studio (SSMS)
@@ -656,7 +658,7 @@ items:
     href: https://azure.microsoft.com/pricing/details/sql-database/
   - name: Forum MSDN
     href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/sql-azure
   - name: vidéos
     href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
@@ -680,9 +682,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Désinstaller une tâche élastique (déconseillé)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 501f10b734fe3d7fbd576ba2131b84a5b04681d0
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 500fd22c19e0aab2cbecf0267329d5a86a5ccda2
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077723"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230900"

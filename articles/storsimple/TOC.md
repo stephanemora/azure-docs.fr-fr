@@ -61,6 +61,7 @@
 
 ## Vue d’ensemble
 ### [Quelle est la solution ?](storsimple-overview.md)
+### [Comparer les options de transfert de données](storsimple-8000-choose-storage-solution.md)
 ### [Carte d’apprentissage StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Sécurité](storsimple-8000-security.md)
 ### [Disponibilité des régions](storsimple-regions.md)
@@ -108,7 +109,7 @@
 ##### [Gestion des comptes de stockage](storsimple-8000-manage-storage-accounts.md)
 ##### [Gestion de conteneurs de volume](storsimple-8000-manage-volume-containers.md)
 ##### [Gérer les volumes - en cours](storsimple-8000-manage-volumes-u2.md)
-###### [Forum aux Questions : volumes épinglés localement](storsimple-8000-local-volume-faq.md)
+###### [Questions fréquentes (FAQ) : Volumes épinglés localement](storsimple-8000-local-volume-faq.md)
 ##### [Contrôle d’accès en fonction du rôle](storsimple-8000-role-based-access-control.md)
 ##### [Gérer les ACR](storsimple-8000-manage-acrs.md)
 ##### [Modèles de bande passante](storsimple-8000-manage-bandwidth-templates.md)
@@ -183,7 +184,7 @@
 #### [À partir d’appareils de la série 5000/7000](storsimple-8000-migration-options.md)
 ##### [Vers les appareils StorSimple série 8000](storsimple-8000-migrate-from-5000-7000.md)
 ##### [Vers Azure File Sync](storsimple-5000-7000-afs-migration.md)
-#### [À partir d’autres appareils de stockage](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+#### [À partir d’autres appareils de stockage](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Mettre à jour
 #### [Installer Update 5 - en cours](storsimple-8000-install-update-5.md)
@@ -208,7 +209,7 @@
 ## Informations de référence
 ### [API REST](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell pour les applets de commande StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
-
+### [modèle Azure Resource Manager](/azure/templates/microsoft.storsimple/allversions)
 
 # StorSimple Data Manager
 
@@ -234,7 +235,7 @@
 ## Notes de publication
 ### [Notes de publication de StorSimple](https://aka.ms/storsimple-virtual-array-latest-relnote)
 ### [Notes de publication pour les fournisseurs de solutions Cloud](https://partner.microsoft.com/Support/whats-new)
-### [StorSimple pour les fournisseurs de solutions Cloud : Forum Aux Questions](storsimple-partner-csp-faq.md)
+### [StorSimple pour les fournisseurs de solutions cloud : Questions fréquentes (FAQ)](storsimple-partner-csp-faq.md)
 
 # Rubriques connexes
 ## [Gamme StorSimple 5000-7000](http://onlinehelp.storsimple.com)
@@ -248,8 +249,8 @@
 ## [Tarification](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Mises à jour de service](https://azure.microsoft.com/updates/?product=storsimple)
-## [Blog sur le support technique](http://blogs.msdn.com/b/storsimple/)
-## [Mentions tierces](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [Blog sur le support technique](https://blogs.msdn.com/b/storsimple/)
+## [Mentions tierces](https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 ## [Vidéos](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 

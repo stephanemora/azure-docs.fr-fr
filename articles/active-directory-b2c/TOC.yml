@@ -19,7 +19,13 @@ items:
   items:
   - name: 1 - Créer un locataire B2C
     href: tutorial-create-tenant.md
-  - name: 2 - Authentifier des comptes
+  - name: 2 - Inscrire des applications
+    href: tutorial-register-applications.md
+  - name: 3 - Créer des flux d’utilisateur
+    href: tutorial-create-user-flows.md
+  - name: 4 - Personnaliser l’interface utilisateur
+    href: tutorial-customize-ui.md
+  - name: Authentifier des comptes
     items:
     - name: ASP.NET
       href: active-directory-b2c-tutorials-web-app.md
@@ -27,7 +33,7 @@ items:
       href: active-directory-b2c-tutorials-desktop-app.md
     - name: Page unique
       href: active-directory-b2c-tutorials-spa.md
-  - name: 3 - Accorder l’accès d’API
+  - name: Accorder un accès à l’API
     items:
     - name: ASP.NET
       href: active-directory-b2c-tutorials-web-api.md
@@ -35,8 +41,6 @@ items:
       href: active-directory-b2c-tutorials-desktop-app-webapi.md
     - name: Page unique
       href: active-directory-b2c-tutorials-spa-webapi.md
-  - name: Personnaliser l’interface utilisateur
-    href: tutorial-customize-ui.md
 - name: Exemples
   href: code-samples.md
 - name: Concepts
@@ -45,16 +49,12 @@ items:
     href: active-directory-b2c-apps.md
   - name: Protocoles d’authentification
     href: active-directory-b2c-reference-protocols.md
-  - name: Flux d’utilisateurs
-    href: active-directory-b2c-reference-policies.md
   - name: Identity Experience Framework (Infrastructure d’expérience d’identité)
     items:
     - name: Stratégies personnalisées
       href: active-directory-b2c-overview-custom.md
     - name: Accès utilisateur
       href: manage-user-access.md
-    - name: Données utilisateur
-      href: manage-user-data.md
   - name: OAuth 2.0
     href: active-directory-b2c-reference-oauth-code.md
   - name: OpenID Connect
@@ -65,6 +65,10 @@ items:
     href: active-directory-b2c-reference-tokens.md
   - name: Comptes d'utilisateurs
     href: user-overview.md
+  - name: Données utilisateur
+    href: manage-user-data.md
+  - name: Flux d’utilisateurs
+    href: active-directory-b2c-reference-policies.md
   - name: Personnalisation de l’interface utilisateur
     href: customize-ui-overview.md
 - name: Procédures
@@ -264,8 +268,6 @@ items:
     href: active-directory-b2c-access-tokens.md
   - name: Passer le jeton d’accès
     href: idp-pass-through-user-flow.md
-  - name: Inscrivez votre application
-    href: active-directory-b2c-app-registration.md
   - name: Utilisation des rapports
     href: active-directory-b2c-reference-usage-reporting-api.md
   - name: Informations d’identification de mot de passe du propriétaire de ressource
@@ -310,15 +312,15 @@ items:
     href: https://azure.microsoft.com/updates/?product=active-directory-b2c
   - name: Solutions et formation
     href: solution-articles.md
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
   - name: Support
     href: active-directory-b2c-support.md
   - name: vidéos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: b8a8db0dc15877cc772efbb1e9656c12f27f426a
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c7f7036e52c5c9d0f9d7c51a882474028ba63aef
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788279"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244390"

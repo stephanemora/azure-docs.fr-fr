@@ -77,6 +77,8 @@ items:
       items:
       - name: Choix d’un fournisseur d’identité
         href: azure-stack-integrate-identity.md
+      - name: Créer un rôle d’inscription
+        href: azure-stack-registration-role.md
       - name: Valider l’identité Azure
         href: azure-stack-validate-identity.md
       - name: Valider l’intégration d’ADFS
@@ -401,13 +403,13 @@ items:
     href: https://feedback.azure.com/forums/344565-azure-stack?category_id=160275
   - name: Informations sur la tarification
     href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Formation et certification
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: d485829d98dcd5969c0acd02ad6e0c0255647d5c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 8f1c083f59808852f0bcd2130e023fbf74bccbe6
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118331"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230966"

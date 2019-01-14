@@ -23,7 +23,7 @@ Un ensemble d’exemples est fourni pour vous aider à démarrer l’exécution 
 
 * [**Nombre de mots**][hdinsight-sample-wordcount] : compte le nombre d’occurrences de mots dans un fichier texte.
 * [**Nombre de mots - Streaming C#**][hdinsight-sample-csharp-streaming] : compte le nombre d’occurrences de mots dans un fichier texte avec l’interface de streaming Hadoop.
-* [**Estimateur de la valeur de PI**][hdinsight-sample-pi-estimator] : utilise une méthode statistique (quasi-Monte Carlo) pour estimer la valeur de Pi.
+* [**Estimateur de la valeur de PI**][hdinsight-sample-pi-estimator] : utilise une méthode statistique (quasi-Monte-Carlo) pour estimer la valeur de Pi.
 * [**GraySort 10 Go**][hdinsight-sample-10gb-graysort] : exécute un programme GraySort à usage général sur un fichier de 10 Go avec HDInsight. Trois tâches doivent être effectuées : Teragen pour générer les données, Terasort pour trier les données et Teravalidate pour vérifier que les données ont été correctement triées.
 
 > [!NOTE]  
