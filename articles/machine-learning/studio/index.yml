@@ -1,24 +1,24 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 73b8b8c0224382d0959203a1060868ad91cb4239
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 542bd4f23c32d4d59b11875ef96f8e1f261605ba
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546162"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302270"
 documentType: LandingData
 title: Documentation Azure Machine Learning Studio
 metadata:
-  title: Documentation Azure Machine Learning Studio
-  description: Apprendre à utiliser Azure Machine Learning Studio.
+  title: Documentation - Tutoriels Azure Machine Learning Studio, informations de référence | Microsoft Docs
+  description: Azure Machine Learning Studio est un outil collaboratif fonctionnant par glisser-déplacer qui vous permet de générer, tester et déployer des solutions d’analyse prédictive à partir de vos données. Des didacticiels, des vidéos et des exemples de modèle vous montrent comment utiliser Studio pour créer et déployer des modèles Machine Learning.
   services: machine-learning
-  author: j-martens
   ms.service: machine-learning
   ms.component: studio
+  ms.topic: landing-page
+  author: j-martens
+  ms.author: jmartens
   ms.tgt_pltfrm: na
   ms.devlang: na
-  ms.topic: landing-page
   ms.date: 09/24/2018
-  ms.author: jmartens
 abstract:
   description: Azure Machine Learning Studio est un outil collaboratif fonctionnant par glisser-déplacer qui vous permet de générer, tester et déployer des solutions d’analyse prédictive à partir de vos données. Des didacticiels, des vidéos et des exemples de modèle vous montrent comment utiliser Studio pour créer et déployer des modèles Machine Learning.
 sections:

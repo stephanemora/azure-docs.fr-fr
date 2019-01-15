@@ -1,24 +1,26 @@
 ---
-title: Procéder à un déploiement sur Azure Analysis Services à l’aide de SSDT | Microsoft Docs
+title: Déployer un modèle sur Azure Analysis Services à l'aide de Visual Studio (SSDT) | Microsoft Docs
 description: Découvrez comment déployer un modèle tabulaire sur un serveur Azure Analysis Services à l’aide de SSDT.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5f56ee65cd2ec5dfb39929f6985c26ebc339953e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: a9f3dfba4c79b2369e99b95c13557557ed930c24
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429046"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188587"
 ---
-# <a name="deploy-a-model-from-ssdt"></a>Déployer un modèle à partir de SSDT
+# <a name="deploy-a-model-from-visual-studio"></a>Déployer un modèle à partir de Visual Studio
+
 Une fois que vous avez créé un serveur dans votre abonnement Azure, vous êtes prêt à déployer une base de données de modèle tabulaire sur celui-ci. Vous pouvez utiliser SQL Server Data Tools (SSDT) pour créer et déployer un projet de modèle tabulaire sur lequel vous travaillez. 
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour commencer, vous avez besoin des éléments suivants :
 
 * **Serveur Analysis Services** dans Azure. Pour plus d’informations, consultez l’article [Création d’un serveur Azure Analysis Services dans le portail Azure](analysis-services-create-server.md).
@@ -53,10 +55,12 @@ C’est tout !
 
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
+
 Si le déploiement échoue lors du déploiement de métadonnées, il est probable que SSDT n’ait pas pu se connecter à votre serveur. Vérifiez que vous pouvez vous connecter à votre serveur à l’aide de SSMS. Vérifiez ensuite que la propriété Serveur de déploiement du projet est correcte.
 
 Si le déploiement échoue sur une table, il est probable que votre serveur n’ait pas pu se connecter à une source de données. Si votre source de données est locale dans le réseau de votre entreprise, veillez à installer une [Passerelle de données locale](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Maintenant que votre modèle tabulaire est déployé sur votre serveur, vous êtes prêt à vous connecter à celui-ci. Vous pouvez vous [connecter à celui-ci avec SSMS](analysis-services-manage.md) pour le gérer. Vous pouvez également vous [connecter à celui-ci à l’aide d’un outil client](analysis-services-connect.md) tel que Power BI, Power BI Desktop ou Excel, et commencer à créer des rapports.
 

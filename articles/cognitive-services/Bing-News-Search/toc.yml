@@ -3,43 +3,39 @@ items:
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: Qu’est-ce que Recherche d’actualités Bing ?
+  - name: Qu’est-ce que l’API Recherche d’actualités Bing ?
     href: search-the-web.md
-- name: Démarrages rapides de l’API REST
-  items:
-  - name: Prise en main
-    href: quickstart.md
-  - name: C#
-    href: csharp.md
-  - name: Java
-    href: java.md
-  - name: Node.js
-    href: nodejs.md
-  - name: PHP
-    href: php.md
-  - name: Python
-    href: python.md
-  - name: Ruby
-    href: ruby.md
   expanded: true
-- name: Démarrages rapides du kit de développement logiciel (SDK)
+- name: Démarrages rapides
   items:
-  - name: Vue d’ensemble des exemples de kit de développement logiciel (SDK)
-    href: sdk.md
-  - name: Démarrage rapide C# du SDK Recherche d’actualités
-    href: news-search-sdk-quickstart.md
-  - name: Démarrage rapide Node.js du SDK Recherche d’actualités
-    href: news-search-sdk-node-quickstart.md
-  - name: Démarrage rapide Python du SDK Recherche d’actualités
-    href: news-sdk-python-quickstart.md
-  - name: Démarrage rapide Java du SDK Recherche d’actualités
-    href: news-sdk-java-quickstart.md
+  - name: API REST
+    items:
+    - name: Utilisation de C#
+      href: csharp.md
+    - name: Utilisation de Java
+      href: java.md
+    - name: Utilisation de Node.js
+      href: nodejs.md
+    - name: Utilisation de PHP
+      href: php.md
+    - name: Utilisation de Python
+      href: python.md
+    - name: Utilisation de Ruby
+      href: ruby.md
+  - name: Foundation
+    items:
+    - name: Utilisation de C#
+      href: news-search-sdk-quickstart.md
+    - name: Utilisation de Node.js
+      href: news-search-sdk-node-quickstart.md
+    - name: Utilisation de Python
+      href: news-sdk-python-quickstart.md
+    - name: Utilisation de Java
+      href: news-sdk-java-quickstart.md
 - name: Didacticiels
   items:
-  - name: Application web à page unique
+  - name: Créer une application web monopage
     href: tutorial-bing-news-search-single-page-app.md
-  - name: Application web à page unique (code source)
-    href: tutorial-bing-news-search-single-page-app-source.md
 - name: Exemples
   items:
   - name: Exemples de code
@@ -54,12 +50,18 @@ items:
     href: paging-news.md
   - name: Redimensionner et rogner les miniatures
     href: resize-and-crop-thumbnails.md
-  - name: Mettre à niveau de v5 vers v7
+  - name: Mettre à niveau l’API de v5 vers v7
     href: bing-news-upgrade-guide-v5-to-v7.md
   - name: Interroger Azure SQL Data Warehouse (sqlcmd) (Visual Studio)
     items:
     - name: Utiliser le service connecté Recherche d’actualités Bing
       href: vs-bing-news-search-connected-service.md
+- name: Concepts
+  items:
+  - name: Envoi de requêtes de recherche
+    href: concepts/send-search-queries.md
+  - name: Recherche d’actualités
+    href: concepts/search-for-news.md
 - name: Informations de référence
   items:
   - name: API Recherche d’actualités Bing v7
@@ -84,7 +86,7 @@ items:
     href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/news/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/911449-bing-news-search-api
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/search?q=bing+news+search
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/global-infrastructure/services/
@@ -102,9 +104,9 @@ items:
     href: language-support.md
   - name: Analytique pour l’API Recherche d’actualités Bing
     href: bing-news-stats.md
-ms.openlocfilehash: 9f702884dba94169eae71f98253a3ae1a94d8510
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: ed425db68d5c617f6442e9757531f02b0ab1cd38
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790536"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266210"

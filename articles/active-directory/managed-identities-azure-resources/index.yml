@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1aa295f52540b765eda1d02a9d85fea195c0854a
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: eb2c62758f115617e971b4bd9b814456c7bc3331
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820124"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262148"
 documentType: LandingData
-title: Identités gérées Azure AD pour la documentation de ressources Azure
+title: Documentation sur les identités managées Azure AD pour les ressources Azure
 metadata:
   document_id: 
-  title: Identités gérées Azure AD pour la documentation de ressources Azure
-  description: Découvrez comment utiliser les identités gérées pour les ressources Azure pour s’authentifier en toute sécurité aux services cloud Azure sans devoir conserver les informations d’identification dans votre code source.
+  title: Documentation sur les identités managées Azure AD pour les ressources Azure
+  description: Découvrez comment utiliser les identités managées pour les ressources Azure pour s’authentifier en toute sécurité aux services cloud Azure sans devoir conserver les informations d’identification dans votre code source.
   services: active-directory
   ms.component: msi
   author: daveba
@@ -22,21 +22,21 @@ metadata:
   ms.date: 03/16/2018
   ms.author: daveba
 abstract:
-  description: Les identités gérées pour les ressources Azure fournissent des services Azure avec une identité gérée automatiquement dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code.  Découvrez comment créer et gérer des identités gérées pour les ressources Azure avec nos tutoriels et démarrages rapides.
+  description: Les identités managées pour les ressources Azure fournissent des services Azure avec une identité managée automatiquement dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code.  Découvrez comment créer et gérer des identités managées pour les ressources Azure avec nos tutoriels et guides de démarrage rapide.
   aside:
     image:
       alt: 
       height: 112
       src: media/index/video-thumb-landing-page.png
       width: 200
-    title: Présentation des identités gérées pour les ressources Azure
+    title: Présentation des identités managées pour les ressources Azure
     href: https://www.youtube.com/embed/bBi1bll2928
     width: 200
 sections:
 - title: Démarrages rapides en 5 minutes
   items:
   - type: paragraph
-    text: Découvrez comment utiliser les identités gérées pour les ressources Azure pour accéder à l’API Azure Resource Manager
+    text: Découvrez comment utiliser les identités managées pour les ressources Azure pour accéder à l’API Azure Resource Manager
   - type: list
     style: unordered
     items:
@@ -45,7 +45,7 @@ sections:
 - title: Didacticiels pas à pas
   items:
   - type: paragraph
-    text: Découvrez comment utiliser les identités gérées pour les ressources Azure pour accéder de manière sécurisée aux ressources Azure
+    text: Découvrez comment utiliser les identités managées pour les ressources Azure pour accéder de manière sécurisée aux ressources Azure
   - type: paragraph
     text: Machine virtuelle/groupe de machines virtuelles identiques Windows
   - type: list

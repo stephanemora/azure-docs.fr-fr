@@ -28,7 +28,7 @@ items:
   items:
   - name: Classification d’images (données MNIST)
     items:
-    - name: 1. Entraîner un modèle
+    - name: 1. Effectuer l’apprentissage d’un modèle
       displayName: build modeling
       href: tutorial-train-models-with-aml.md
     - name: 2. Déployer un modèle
@@ -112,14 +112,14 @@ items:
       href: how-to-build-deploy-onnx.md
   - name: Déployer des modèles
     items:
-    - name: Où déployer les modèles
+    - name: Où et comment déployer
       displayName: publish azure kubernetes azure container instances
       href: how-to-deploy-and-where.md
     - name: FPGA
       href: how-to-deploy-fpga-web-service.md
     - name: Résolution des problèmes
       href: how-to-troubleshoot-deployment.md
-    - name: Sécuriser avec SSL
+    - name: Sécuriser des services web avec SSL
       href: how-to-secure-web-service.md
   - name: Utiliser des services web
     items:
@@ -139,7 +139,7 @@ items:
   - name: Gérer les quotas de ressources
     displayName: limits
     href: how-to-manage-quotas.md
-  - name: Utiliser avec les réseaux virtuels
+  - name: Sécuriser avec les réseaux virtuels
     displayName: vnet
     href: how-to-enable-virtual-network.md
   - name: Utiliser l’interface CLI Machine Learning
@@ -174,9 +174,9 @@ items:
     href: support-for-aml-services.md
   - name: Comparer les produits ML de Microsoft
     href: overview-more-machine-learning.md
-ms.openlocfilehash: 84f4c2ec1d9f361cdf030b724860aea89f5c9cc3
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 098c8a9f9bc8d0458490adf4d80e2eaf69dd9f7f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247365"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266074"
