@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 2126871472b044f9b8c0df99c7cb14df348eab0e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5e83eb46a4d62c6aaf0862d4bb1aa046c5d64dde
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166744"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120511"
 ---
-# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Didacticiel : Se connecter à Azure Data Box Gateway, le configurer et l’activer (préversion) 
+# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Tutoriel : Se connecter à Azure Data Box Gateway, le configurer et l’activer (préversion) 
 
 ## <a name="introduction"></a>Introduction
 
@@ -84,7 +84,10 @@ Vous vous trouvez maintenant au niveau du **tableau de bord** de votre appareil.
     - Si le protocole DHCP est activé dans votre environnement, les interfaces réseau sont configurées automatiquement. Par conséquent, une adresse IP, un sous-réseau, une passerelle et un DNS sont automatiquement attribués.
     - Si le protocole DHCP n’est pas activé, vous pouvez attribuer des adresses IP statiques si nécessaire.
     - Vous pouvez configurer votre interface réseau sur IPv4.
-   
+
+    >[!NOTE] 
+    > Nous vous recommandons de ne pas changer de statique en DHCP l’adresse IP locale de l’interface réseau, sauf si vous avez une autre adresse IP pour vous connecter à l’appareil. Si vous utilisez une seule interface réseau et que vous passez à DHCP, il n’y a aucun moyen de déterminer l’adresse DHCP. Si vous voulez passer à une adresse DHCP, attendez que l’appareil se soit inscrit auprès du service, puis faites la modification. Vous pouvez ensuite voir les adresses IP de tous les adaptateurs dans les **propriétés de l’appareil** dans le portail Azure pour votre service.
+
 4. (Facultatif) Configurez votre serveur proxy web. Bien que la configuration du proxy web soit facultative, si vous en utilisez un, vous pouvez uniquement le configurer ici.
    
    ![](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)

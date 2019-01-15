@@ -3,7 +3,7 @@ title: Prérequis non techniques pour créer une offre pour Azure Marketplace | 
 description: Découvrez la configuration requise pour créer et déployer une offre dans Azure Marketplace que d’autres utilisateurs peuvent acheter.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 3dae463b-8f48-4f52-8fa8-4e3975f09f43
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: hascipio
-ms.openlocfilehash: 4f86d444a2f2b97fd8605d480db358813bc39fd3
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4b925522186d2d9ae537431c1d96d39b107ad967
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714187"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073167"
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Conditions préalables générales pour créer une offre pour Azure Marketplace
 Découvrez les conditions préalables générales centrées sur le processus d’entreprise qui sont nécessaires dans les étapes de création de l’offre.
@@ -27,10 +28,10 @@ Découvrez les conditions préalables générales centrées sur le processus d�
 ## <a name="ensure-that-you-are-registered-as-a-seller-with-microsoft"></a>S’inscrire en tant que vendeur auprès de Microsoft
 Pour obtenir des instructions détaillées sur l’inscription d’un compte de vendeur auprès de Microsoft, accédez à [Création et inscription de comptes](marketplace-publishing-accounts-creation-registration.md).
 
-* **Si votre entreprise est déjà enregistrée en tant que vendeur dans le centre de développement et que vous souhaitez créer une offre,** connectez-vous au portail de publication portail avec le même ID de messagerie que celui utilisé pour l’inscription sur le centre de développement. Cette étape est requise afin que le portail de publication et le centre de développement soient liés entre eux.
-* **Si votre entreprise est déjà enregistrée en tant que vendeur dans le centre de développement et que vous souhaitez modifier une offre existante,** connectez-vous au portail de publication avec le compte administrateur ou avec un compte qui a été ajouté comme coadministrateur dans le portail de publication. Les étapes pour ajouter un compte coadministrateur sont détaillées ci-dessous.
+* Si votre entreprise est déjà enregistrée en tant que vendeur dans le centre de développement et que vous souhaitez créer une offre, connectez-vous au portail de publication portail avec le même ID de messagerie que celui utilisé pour l’inscription sur le centre de développement. Cette étape est requise afin que le portail de publication et le centre de développement soient liés entre eux.
+* Si votre entreprise est déjà enregistrée en tant que vendeur dans le centre de développement et que vous souhaitez modifier une offre existante, connectez-vous au portail de publication avec le compte administrateur ou avec un compte qui a été ajouté comme coadministrateur dans le portail de publication. Les étapes pour ajouter un compte coadministrateur sont détaillées ci-dessous.
 
-## <a name="steps-to-add-a-co-admin-in-the-publishing-portal"></a>Étapes pour ajouter un coadministrateur dans le portail de publication
+## <a name="steps-to-add-a-coadmin-in-the-publishing-portal"></a>Étapes pour ajouter un coadministrateur dans le portail de publication
 Les administrateurs du portal de publication ajouter les autres membres de l’entreprise, qui travaillent sur l’application, comme coadministrateurs dans le portail de publication. **En supposant que vous êtes l’administrateur,** voici les étapes pour ajouter un coadministrateur.
 
 > [!NOTE]
@@ -41,15 +42,15 @@ Les administrateurs du portal de publication ajouter les autres membres de l’e
 1. Assurez-vous que l’ID de messagerie du coadministrateur est un compte Microsoft (MSA). Si ce n’est pas le cas, enregistrez-le comme MSA à l’aide de ce [lien](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
 2. Vérifiez qu’il existe au moins une application sous le compte administrateur avant d’essayer d’ajouter un coadministrateur.
 3. Une fois les étapes ci-dessus effectuées, connectez-vous au portail de publication avec l’ID de messagerie du coadministrateur et déconnectez-vous.
-4. Maintenant, connectez-vous au portail de publication avec l’ID de messagerie du coadministrateur.
+4. Connectez-vous à présent au portail de publication avec l’ID de messagerie du coadministrateur.
 5. Accédez à Éditeurs->Sélectionnez votre compte->Administrateurs->Ajouter le compte (voir capture d’écran ci-dessous)
    
     ![drawing](media/marketplace-publishing-pre-requisites/imgAddAdmin_05.png)
 6. Assurez-vous que les ID de messagerie fournis aux divers stades du processus de publication (par ex. centre de développement, portail de publication) sont surveillés pour toutes les communications de Microsoft.
-7. Pour l’inscription au centre de développement, évitez d’utiliser un compte associé à une seule personne. Cela est conseillé pour éviter la dépendance à un seul individu.
+7. Pour l’inscription au centre de développement, évitez d’utiliser un compte associé à une seule personne. Cette suggestion supprime la dépendance pour un seul individu.
 8. Si vous rencontrez des problèmes durant l’inscription sur le centre de développement, envoyez un ticket à l’aide de ce [lien](https://developer.microsoft.com/en-us/windows/support).
 
-## <a name="steps-to-delete-a-co-admin-in-the-publishing-portal"></a>Étapes pour supprimer un coadministrateur dans le portail de publication
+## <a name="steps-to-delete-a-coadmin-in-the-publishing-portal"></a>Étapes pour supprimer un coadministrateur dans le portail de publication
 **En supposant que vous êtes l’administrateur,** voici les étapes pour supprimer un coadministrateur.
 
 1. Connectez-vous au portail de publication avec l’ID de messagerie du coadministrateur.
@@ -66,11 +67,11 @@ Les administrateurs du portal de publication ajouter les autres membres de l’e
 > 
 
 ## <a name="acquire-an-azure-pay-as-you-go-subscription"></a>Acquisition d’un abonnement Azure avec « paiement à l’utilisation »
-C’est l’abonnement que vous utilisez pour créer vos images de machine virtuelle et les transférer dans [Azure Marketplace](https://azure.microsoft.com/marketplace/). Si vous ne disposez pas d’un abonnement existant, veuillez vous inscrire sur https://account.windowsazure.com/signup?offer=ms-azr-0003p.
+Cette valeur est l’abonnement que vous utilisez pour créer vos images de machine virtuelle et les transférer dans [Azure Marketplace](https://azure.microsoft.com/marketplace/). Si vous ne disposez pas d’un abonnement existant, inscrivez-vous sur https://account.windowsazure.com/signup?offer=ms-azr-0003p.
 
 ## <a name="sell-from-countries"></a>Pays à partir duquel vous vendez
 > [!WARNING]
-> Avant de pouvoir vendre vos services dans Azure Marketplace, assurez-vous que l’entité inscrite réside dans l’un des pays autorisés. Cette restriction s’applique pour des raisons de revenus et de taxes. Nous cherchons activement à étendre cette liste de pays dans un avenir proche, donc restez connecté. Pour obtenir la liste complète, consultez la Section 1b des [Politiques concernant la participation à Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+> Avant de pouvoir vendre vos services dans Azure Marketplace, assurez-vous que l’entité inscrite réside dans l’un des pays autorisés. Cette restriction s’applique pour des raisons de revenus et de taxes. Nous cherchons activement à étendre cette liste de pays dans un avenir proche, donc restez connecté. Pour obtenir la liste complète, consultez la Section 1b des [Politiques concernant la participation à Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833).
 > 
 > 
 
@@ -81,5 +82,5 @@ Une fois que les conditions préalables non techniques requises sont remplies, v
 * [Conditions préalables techniques des modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md)
 
 ## <a name="see-also"></a>Voir aussi
-* [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Prise en main : Comment publier une offre dans la Place de marché Microsoft Azure](marketplace-publishing-getting-started.md)
 

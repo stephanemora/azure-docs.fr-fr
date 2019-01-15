@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : authentification unique transparente - Questions fréquentes | Microsoft Docs'
+title: 'Azure AD Connect : Authentification unique transparente - Questions fréquentes | Microsoft Docs'
 description: Réponse à des questions fréquentes sur l’authentification unique transparente Azure Active Directory.
 services: active-directory
 keywords: Qu’est-ce qu’Azure AD Connect, Installation d’Active Directory, Composants requis pour Azure AD, SSO, Authentification unique
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e47dcda90682bd1f83dbb5fdc6a106f80853d2d0
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0672fc06130ce58ae3155672c66ac06ae96bc7b9
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424831"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190632"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Authentification unique transparente Azure Active Directory : questions fréquentes
+# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Authentification unique transparente Azure Active Directory : Questions fréquentes (FAQ)
 
 Dans cet article, nous répondons au forum aux questions sur l’authentification unique et transparente Azure Active Directory. N’hésitez pas à le consulter régulièrement, du contenu nouveau y est fréquemment ajouté.
 
@@ -65,7 +65,7 @@ Oui. L’authentification unique transparente prend en charge `Alternate ID` com
 
 ## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>Quelle est la différence entre l’expérience d’authentification unique fournie par [Azure AD Join](../active-directory-azureadjoin-overview.md) et l’authentification unique transparente ?
 
-[Azure AD Join](../active-directory-azureadjoin-overview.md) fournit l’authentification unique aux utilisateurs si leurs appareils sont inscrits auprès d’Azure AD. Ces appareils ne doivent pas nécessairement être joints au domaine. L’authentification unique est fournie à l’aide de *jetons d’actualisation principaux* ou *PRTs*, et non Kerberos. L’expérience utilisateur est optimale sur des appareils Windows 10. L’authentification unique s’effectue automatiquement sur le navigateur Edge. Elle fonctionne également sur Chrome avec une extension de navigateur.
+[Azure AD Join](../active-directory-azureadjoin-overview.md) fournit l’authentification unique aux utilisateurs si leurs appareils sont inscrits auprès d’Azure AD. Ces appareils ne doivent pas nécessairement être joints au domaine. L’authentification unique est fournie à l’aide de *jetons d’actualisation principaux* ou *PRTs*, et non Kerberos. L’expérience utilisateur est optimale sur des appareils Windows 10. L’authentification unique s’effectue automatiquement sur le navigateur Microsoft Edge. Elle fonctionne également sur Chrome avec une extension de navigateur.
 
 Vous pouvez utiliser Azure AD Join et l’authentification unique transparente sur votre client. Ces deux fonctionnalités sont complémentaires. Si les deux fonctionnalités sont activées, l’authentification unique à partir d’Azure AD Join est prioritaire sur l’authentification unique transparente.
 
@@ -118,7 +118,7 @@ Procédez comme suit sur le serveur local où vous exécutez Azure AD Connect :
 
 Pour terminer le processus de nettoyage, suivez les étapes 2 et 3 sur le serveur local où vous exécutez Azure AD Connect.
 
-#### <a name="option-b-disable-using-powershell"></a>Option B : Désactiver à l’aide de PowerShell
+#### <a name="option-b-disable-using-powershell"></a>Option B : Désactiver à l’aide de PowerShell
 
 Exécutez les étapes suivantes sur le serveur local où vous exécutez Azure AD Connect :
 

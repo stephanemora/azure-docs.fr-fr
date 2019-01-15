@@ -1,19 +1,19 @@
 ---
-title: 'Leçon 5 du didacticiel Azure Analysis Services : Créer des colonnes calculées | Microsoft Docs'
+title: 'Leçon 5 du didacticiel Azure Analysis Services : Créer des colonnes calculées | Microsoft Docs'
 description: Explique comment créer des colonnes calculées dans le projet du didacticiel Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2d92edd0bda15ecd57a5a29375adae3a51c661c2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bb0a17d4b7e11dd83439d943abf0bdd34ef915ae
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428128"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187448"
 ---
 # <a name="create-calculated-columns"></a>Créer des colonnes calculées
 
@@ -23,10 +23,10 @@ Vous créez cinq colonnes calculées dans trois tables différentes. La procédu
 
 Cette leçon vous permet également d’utiliser pour la première fois le langage DAX (Data Analysis Expressions). DAX est un langage spécial permettant de créer des expressions de formule hautement personnalisables pour les modèles tabulaires. Dans le cadre de ce didacticiel, vous utilisez DAX pour créer des colonnes calculées, des mesures et des filtres de rôle. Pour en savoir plus, consultez [DAX dans les modèles tabulaires](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular). 
   
-Durée estimée pour suivre cette leçon : **15 minutes**  
+Durée estimée pour suivre cette leçon : **15 minutes**  
   
 ## <a name="prerequisites"></a>Prérequis  
-Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir suivi la leçon précédente : [Leçon 4 : Créer des relations](../tutorials/aas-lesson-4-create-relationships.md). 
+Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 4 : Créer des relations](../tutorials/aas-lesson-4-create-relationships.md). 
   
 ## <a name="create-calculated-columns"></a>Créer des colonnes calculées  
   
@@ -42,7 +42,7 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
   
     Une nouvelle colonne nommée **Calculated Column 1** est insérée à gauche de la colonne **Calendar Quarter**.  
   
-4.  Dans la barre de formule située au-dessus de la table, tapez la formule DAX ci-après. La saisie semi-automatique vous aide à taper les noms complets des colonnes et des tables, et répertorie les fonctions disponibles.  
+4.  Dans la barre de formule située au-dessus de la table, tapez la formule DAX suivante : La saisie semi-automatique vous aide à taper les noms complets de colonnes et de tables, et répertorie les fonctions disponibles.  
   
     ```  
     =RIGHT(" " & FORMAT([MonthNumberOfYear],"#0"), 2) & " - " & [EnglishMonthName]  
@@ -125,7 +125,7 @@ La colonne calculée ProductCategoryName est utilisée pour créer une hiérarch
     La colonne calculée Margin est utilisée pour analyser les marges pour chaque vente.  
   
 ## <a name="whats-next"></a>Et ensuite ?
-[Leçon 6 : Créer des mesures](../tutorials/aas-lesson-6-create-measures.md).
+[Leçon 6 : Créer des mesures](../tutorials/aas-lesson-6-create-measures.md).
   
   
   

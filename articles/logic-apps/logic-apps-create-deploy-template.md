@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: c953d4635ce43ee05fe7c507076c5bd11e9d8c81
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 8714c91079d087b16a62af4af8b381edf6871f8b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000561"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065730"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Créer des modèles Azure Resource Manager pour déployer des applications logiques
 
@@ -34,7 +34,7 @@ Dans la ressource d’application logique, vous pouvez trouver cette définition
 * **Connexions** : Ressources distinctes qui permettent de stocker les métadonnées en toute sécurité autour de n’importe quelle connexion de connecteur (par exemple, une chaîne de connexion et un jeton d’accès).
 Dans la ressource d’application logique, votre application logique fait référence à ces ressources dans la section `parameters`.
 
-Vous pouvez afficher tous ces éléments pour les applications logiques existantes en utilisant un outil tel que [l’Explorateur de ressources Azure](http://resources.azure.com).
+Vous pouvez afficher tous ces éléments pour les applications logiques existantes en utilisant un outil tel que [l’Explorateur de ressources Azure](http://resources.azure.com). Pour plus d’informations sur la syntaxe JSON et les propriétés, consultez [Types de ressources Microsoft.Logic](/azure/templates/microsoft.logic/allversions).
 
 Pour créer un modèle pour une application logique pouvant être utilisée avec les déploiements de groupes de ressources, vous devez définir les ressources et les paramétrer selon vos besoins.
 Par exemple, si vous effectuez un déploiement dans un environnement de développement, de test et de production, vous préférez sans doute utiliser différentes chaînes de connexion à une base de données SQL dans chaque environnement.

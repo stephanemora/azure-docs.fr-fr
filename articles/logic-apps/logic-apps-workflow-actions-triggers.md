@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 4b124b79eeacf0df5f1b9dff798ebeea20d82090
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 27c074b12d2b151015e6946c483302387726dfc5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044771"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190819"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Référence des types d’actions et de déclencheurs pour le langage de définition de workflow dans Azure Logic Apps
 
@@ -55,7 +55,7 @@ Les déclencheurs ont les éléments principaux suivants, bien que certains soie
 | <*trigger-type*> | Chaîne | Type de déclencheur, tel que « Http » ou « ApiConnection » | 
 | <*trigger-inputs*> | Objet JSON | Entrées qui définissent le comportement du déclencheur | 
 | <*time-unit*> | Chaîne | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
-| <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>- Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
+| <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Month : - 1-16 mois </br>- Day : 1-500 jours </br>- Hour : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
 |||| 
 
 *Facultatif*
@@ -133,10 +133,10 @@ Ce déclencheur vérifie ou *interroge* un point de terminaison à l’aide d’
 |-------|------|-------------| 
 | <*APIConnection_trigger_name*> | Chaîne | Nom du déclencheur | 
 | <*connection-name*> | Chaîne | Nom de la connexion à l’API managée utilisée par le workflow | 
-| <*method-type*> | Chaîne | Méthode HTTP pour communiquer avec l’API managée : « GET », « PUT », « POST », « PATCH », « DELETE », « HEAD » | 
+| <*method-type*> | Chaîne | Méthode HTTP pour communiquer avec l’API managée : « GET », « PUT », « POST », « PATCH », « DELETE » | 
 | <*api-operation*> | Chaîne | Opération d’API à appeler | 
 | <*time-unit*> | Chaîne | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
-| <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>- Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
+| <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Month : - 1-16 mois </br>- Day : 1-500 jours </br>- Hour : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
 |||| 
 
 *Facultatif*
@@ -304,10 +304,10 @@ Ce déclencheur vérifie ou interroge le point de terminaison spécifié d’apr
 
 | Valeur | type | Description | 
 |-------|------|-------------| 
-| <*method-type*> | Chaîne | Méthode HTTP à utiliser pour interroger le point de terminaison spécifié : « GET », « PUT », « POST », « PATCH », « DELETE », « HEAD » | 
-| <*endpoint-URL*> | Chaîne | URL HTTP ou HTTPS pour interroger le point de terminaison <p>Taille de chaîne maximale : 2 Ko | 
+| <*method-type*> | Chaîne | Méthode HTTP à utiliser pour interroger le point de terminaison spécifié : « GET », « PUT », « POST », « PATCH », « DELETE » | 
+| <*endpoint-URL*> | Chaîne | URL HTTP ou HTTPS pour interroger le point de terminaison <p>Taille de chaîne maximale : 2 Ko | 
 | <*time-unit*> | Chaîne | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
-| <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>- Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
+| <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Month : - 1-16 mois </br>- Day : 1-500 jours </br>- Hour : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
 |||| 
 
 *Facultatif*
@@ -409,7 +409,7 @@ Certaines valeurs, telles que <*-method-type*>, sont disponibles pour les objets
 
 | Valeur | type | Description | 
 |-------|------|-------------| 
-| <*method-type*> | Chaîne | Méthode HTTP à utiliser pour la requête d’annulation : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
+| <*method-type*> | Chaîne | Méthode HTTP utilisée pour la requête d’annulation : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
 | <*endpoint-unsubscribe-URL*> | Chaîne | URL du point de terminaison où envoyer la requête d’annulation | 
 | <*body-content*> | Chaîne | Tout contenu de message à envoyer dans la requête d’abonnement ou d’annulation | 
 | <*authentication-method*> | Objet JSON | Méthode utilisée par la requête pour l’authentification. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
@@ -496,18 +496,18 @@ Ce déclencheur s’active en fonction de la planification de périodicité que 
 | Valeur | type | Description | 
 |-------|------|-------------| 
 | <*time-unit*> | Chaîne | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
-| <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>- Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
+| <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Month : - 1-16 mois </br>- Day : 1-500 jours </br>- Hour : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
 |||| 
 
 *Facultatif*
 
 | Valeur | type | Description | 
 |-------|------|-------------| 
-| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | Chaîne | Date et heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous spécifiez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne spécifiez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h, spécifiez « 2017-09-18T14:00:00 » et spécifiez un fuseau horaire tel que « Pacific Standard Time » (Heure standard du Pacifique), ou spécifiez « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** cette heure de début doit être conforme à la [spécification date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne spécifiez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin, sans espace. Ce « Z » fait référence au [temps nautique](https://en.wikipedia.org/wiki/Nautical_time) équivalent. <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que pour les planifications complexes, le déclencheur ne se déclenche pas avant l’heure de début. Pour plus d’informations sur les dates et heures de début, consultez [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md) (Créer et planifier des tâches à exécution régulière). | 
+| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | Chaîne | Date et heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous spécifiez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne spécifiez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h, spécifiez « 2017-09-18T14:00:00 » et spécifiez un fuseau horaire tel que « Pacific Standard Time » (Heure standard du Pacifique), ou spécifiez « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** Cette heure de début doit être conforme à la [spécification date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne spécifiez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin, sans espace. Ce « Z » fait référence au [temps nautique](https://en.wikipedia.org/wiki/Nautical_time) équivalent. <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que pour les planifications complexes, le déclencheur ne se déclenche pas avant l’heure de début. Pour plus d’informations sur les dates et heures de début, consultez [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md) (Créer et planifier des tâches à exécution régulière). | 
 | <*time-zone*> | Chaîne | S’applique uniquement quand vous spécifiez une heure de début, car ce déclencheur n’accepte pas le [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Spécifiez le fuseau horaire à appliquer. | 
 | <*one-or-more-hour-marks*> | Entier ou tableau d’entiers | Si vous spécifiez « Jour » ou « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs entiers compris entre 0 et 23, séparés par des virgules, pour les heures de la journée durant lesquelles exécuter le workflow. <p>Par exemple, si vous spécifiez « 10 », « 12 » et « 14 », vous obtenez 10h00, 12h00 et 14h00 comme marques horaires. | 
 | <*one-or-more-minute-marks*> | Entier ou tableau d’entiers | Si vous spécifiez « Jour » ou « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs entiers compris entre 0 et 59, séparés par des virgules, pour les minutes de l’heure durant lesquelles exécuter le workflow. <p>Par exemple, vous pouvez spécifier « 30 » pour les minutes et à l’aide de l’exemple précédent des heures de la journée, vous obtenez 10h30, 12h30 et 14h30. | 
-| weekDays | Chaîne ou tableau de chaînes | Si vous spécifiez « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs jours, séparés par des virgules, pour exécuter le workflow : « Lundi », « Mardi », « Mercredi », « Jeudi », « Vendredi », « Samedi » et « Dimanche » | 
+| weekDays | Chaîne ou tableau de chaînes | Si vous spécifiez « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs jours, séparés par des virgules, pour exécuter le workflow : « Monday », « Tuesday », « Wednesday », « Thursday », « Friday », « Saturday » et « Sunday » | 
 | <*max-runs*> | Entier  | Par défaut, les instances de workflows d’applications logiques s’exécutent en même temps, ou en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Entier  | Quand votre application logique exécute déjà le nombre maximal d’instances, que vous pouvez changer en fonction de la propriété `runtimeConfiguration.concurrency.runs`, les nouvelles exécutions sont placées dans cette file d’attente jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | 
 | <*operation-option*> | Chaîne | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
@@ -892,7 +892,7 @@ Cette action envoie une requête HTTP à une [API managée par Microsoft](../con
 |-------|------|-------------| 
 | <*action-name*> | Chaîne | Nom de l’action fournie par le connecteur | 
 | <*api-name*> | Chaîne | Nom de l’API managée par Microsoft qui est utilisée pour la connexion | 
-| <*method-type*> | Chaîne | Méthode HTTP pour appeler l’API : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
+| <*method-type*> | Chaîne | Méthode HTTP d’appel de l’API : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
 | <*api-operation*> | Chaîne | Opération d’API à appeler | 
 |||| 
 
@@ -1143,7 +1143,7 @@ Cette action envoie une requête au point de terminaison spécifique et vérifie
 | Valeur | type | Description | 
 |-------|------|-------------| 
 | <*method-type*> | Chaîne | Méthode à utiliser pour envoyer la requête : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
-| <*HTTP-or-HTTPS-endpoint-URL*> | Chaîne | Point de terminaison HTTP ou HTTPS à appeler. Taille de chaîne maximale : 2 Ko | 
+| <*HTTP-or-HTTPS-endpoint-URL*> | Chaîne | Point de terminaison HTTP ou HTTPS à appeler. Taille de chaîne maximale : 2 Ko | 
 |||| 
 
 *Facultatif*
@@ -1238,7 +1238,7 @@ Cette action crée des *jetons* ou champs conviviaux à partir des propriétés 
 | Valeur | type | Description | 
 |-------|------|-------------| 
 | <*JSON-source*> | Objet JSON | Contenu JSON que vous souhaitez analyser | 
-| <*JSON-schema*> | Objet JSON | Schéma JSON qui décrit le contenu JSON sous-jacent, utilisé par l’action pour analyser le contenu JSON source. <p>**Conseil** : Dans le Concepteur d’applications logiques, vous pouvez fournir le schéma ou fournir un exemple de charge utile afin que l’action puisse générer le schéma. | 
+| <*JSON-schema*> | Objet JSON | Schéma JSON qui décrit le contenu JSON sous-jacent, utilisé par l’action pour analyser le contenu JSON source. <p>**Conseil** : Dans le Concepteur d’applications logiques, vous pouvez fournir le schéma ou fournir un exemple de charge utile afin que l’action puisse générer le schéma. | 
 |||| 
 
 *Exemple*
@@ -1340,7 +1340,7 @@ Cette action crée un tableau à partir des éléments d’un autre tableau en f
 | Valeur | type | Description | 
 |-------|------|-------------| 
 | <*array*> | Tableau | Tableau ou expression qui fournit les éléments sources. Si vous spécifiez une expression, placez l’expression entre guillemets doubles. |
-| <*condition-or-filter*> | Chaîne | Condition utilisée pour le filtrage des éléments dans le tableau source <p>**Remarque** : Si aucune valeur ne remplit la condition, l’action crée un tableau vide. |
+| <*condition-or-filter*> | Chaîne | Condition utilisée pour le filtrage des éléments dans le tableau source <p>**Remarque**: Si aucune valeur ne remplit la condition, l’action crée un tableau vide. |
 |||| 
 
 *Exemple*
@@ -1666,7 +1666,7 @@ Cette action arrête l’exécution de l’instance de workflow d’application 
 
 | Valeur | type | Description | 
 |-------|------|-------------| 
-| <*status*> | Chaîne | État à retourner pour l’exécution : « Failed », « Cancelled » ou « Succeeded » |
+| <*status*> | Chaîne | État à retourner pour l’exécution : « Démarré », « Échec » ou « Réussi » |
 |||| 
 
 *Facultatif*
@@ -1737,7 +1737,7 @@ Cette action interrompt l’exécution du workflow pendant l’intervalle spéci
 | Valeur | type | Description | 
 |-------|------|-------------| 
 | <*number-of-units*> | Entier  | Pour l’action **Delay**, il s’agit du nombre d’unités pendant lesquelles attendre | 
-| <*interval*> | Chaîne | Pour l’action **Delay**, il s’agit de l’intervalle d’attente : « Second », « Minute », « Hour », « Day », « Week », « Month » | 
+| <*interval*> | Chaîne | Pour l’action **Delay**, il s’agit de l’intervalle d’attente : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
 | <*date-time-stamp*> | Chaîne | Pour l’action **Delay**, il s’agit de la date et de l’heure de reprise de l’exécution. Cette valeur doit utiliser le [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
 |||| 
 
@@ -2350,9 +2350,9 @@ Voici un exemple qui limite les exécutions simultanées à 10 instances :
 
 1. Dans l’angle supérieur droit du déclencheur, sélectionnez le bouton représentant des points de suspension (...), puis **Paramètres**.
 
-2. Sous **Contrôle d’accès concurrentiel**, affectez la valeur **Activ** à **Remplacer les valeurs par défaut**. 
+2. Sous **Contrôle d’accès concurrentiel**, définissez **Limite** sur **Activé**. 
 
-3. Positionnez le curseur **Degré de parallélisme** sur la valeur souhaitée. 
+3. Positionnez le curseur **Degré de parallélisme** sur la valeur souhaitée. Pour exécuter votre application logique séquentiellement, faites glisser le curseur vers la valeur **1**.
 
 <a name="change-for-each-concurrency"></a>
 
@@ -2387,9 +2387,9 @@ Voici un exemple qui limite les exécutions simultanées à 10 itérations :
 
 1. Dans l’angle supérieur droit de l’action **For each**, choisissez le bouton représentant des points de suspension (...), puis **Paramètres**.
 
-2. Sous **Contrôle d’accès concurrentiel**, affectez la valeur **Activ** à **Remplacer les valeurs par défaut**. 
+2. Sous **Contrôle d’accès concurrentiel**, définissez **Contrôle d’accès concurrentiel** sur **Activé**. 
 
-3. Positionnez le curseur **Degré de parallélisme** sur la valeur souhaitée. 
+3. Positionnez le curseur **Degré de parallélisme** sur la valeur souhaitée. Pour exécuter votre application logique séquentiellement, faites glisser le curseur vers la valeur **1**.
 
 <a name="change-waiting-runs"></a>
 
@@ -2465,7 +2465,7 @@ Affectez la valeur `SingleInstance` à la propriété `operationOptions` :
 
 1. Dans l’angle supérieur droit du déclencheur, sélectionnez le bouton représentant des points de suspension (...), puis **Paramètres**.
 
-2. Sous **Contrôle d’accès concurrentiel**, affectez la valeur **Activ** à **Remplacer les valeurs par défaut**. 
+2. Sous **Contrôle d’accès concurrentiel**, définissez **Limite** sur **Activé**. 
 
 3. Positionnez le curseur **Degré de parallélisme** sur le chiffre `1`. 
 
@@ -2516,7 +2516,7 @@ Affectez la valeur `Sequential` à la propriété `operationOptions` :
 
 1. Dans l’angle supérieur droit de l’action **For each**, choisissez le bouton représentant des points de suspension (...), puis **Paramètres**.
 
-2. Sous **Contrôle d’accès concurrentiel**, affectez la valeur **Activ** à **Remplacer les valeurs par défaut**. 
+2. Sous **Contrôle d’accès concurrentiel**, définissez **Contrôle d’accès concurrentiel** sur **Activé**. 
 
 3. Positionnez le curseur **Degré de parallélisme** sur le chiffre `1`. 
 
@@ -2644,7 +2644,7 @@ Pour ce type d’authentification, votre définition de déclencheur ou d’acti
 | **secret** | Oui, uniquement pour le type d’informations d’identification "Secret" | <*secret pour l’authentification*> | Secret encodé en base64 que le client utilise pour la demande d’autorisation |
 ||||| 
 
-Par exemple, voici le format pour l’objet `authentication` quand votre définition de déclencheur ou d’action utilise le type d’informations d’identification « Secret ». Pour plus d’informations sur la sécurisation des paramètres, consultez [Sécuriser les informations sensibles](#secure-info). 
+Par exemple, voici le format pour l’objet `authentication` quand votre définition de déclencheur ou d’action utilise le type d’informations d’identification « Secret » : Pour plus d’informations sur la sécurisation des paramètres, consultez [Sécuriser les informations sensibles](#secure-info). 
 
 ```javascript
 "authentication": {
@@ -2706,7 +2706,7 @@ Dans la section `parameters` de la définition de votre application logique, dé
 },
 ```
 
-Si vous créez ou utilisez un modèle de déploiement Azure Resource Manager, vous devez également inclure une section `parameters` externe pour votre définition de modèle. Pour plus d’informations sur la sécurisation des paramètres, consultez [Sécuriser l’accès à vos applications logiques](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow). 
+Si vous créez ou utilisez un modèle de déploiement Azure Resource Manager, vous devez également inclure une section `parameters` externe pour votre définition de modèle. Pour plus d’informations sur la sécurisation des paramètres, consultez [Sécuriser l’accès à vos applications logiques](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
