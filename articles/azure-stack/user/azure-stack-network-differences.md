@@ -10,22 +10,22 @@ ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: de98387b0c7d5eb3c5ca99f9aa31619397e2aadf
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 4aa62319ee37b2f82455d1a3c7ad2d224988d93e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944577"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160061"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Considérations relatives à la mise en réseau Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 La gestion réseau Azure Stack dispose d’un grand nombre des fonctionnalités fournies par la gestion réseau Azure. Toutefois, il existe des différences fondamentales que vous devez connaître avant de déployer un réseau Azure Stack.
 
 Cet article fournit une vue d’ensemble de considérations propres à la gestion réseau Azure Stack et ses fonctionnalités. Pour en savoir plus sur les principales différences entre Azure Stack et Azure, consultez l’article [Principales considérations](azure-stack-considerations.md).
 
-## <a name="cheat-sheet-networking-differences"></a>Aide-mémoire : différences de mise en réseau
+## <a name="cheat-sheet-networking-differences"></a>Aide-mémoire : Différences de mise en réseau
 
 | de diffusion en continu | Fonctionnalité | Azure (global) | Azure Stack |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -54,7 +54,6 @@ Cet article fournit une vue d’ensemble de considérations propres à la gestio
 |  | Site de passerelle par défaut | Azure prend en charge la configuration d’un site par défaut pour le tunneling forcé. | Pas encore pris en charge. |
 |  | Redimensionnement de passerelle | Azure prend en charge le redimensionnement de la passerelle après le déploiement. | Redimensionnement non pris en charge. |
 |  | Configuration active/active | Pris en charge | Pas encore pris en charge. |
-|  | Stratégies IKE/IPSec | Azure prend en charge les configurations de stratégie IPSec personnalisées. | Pas encore pris en charge. |
 |  | UsePolicyBasedTrafficSelectors | Azure prend en charge les sélecteurs de trafic basés sur la stratégie (Policy-based) avec des connexions de passerelle basées sur l’itinéraire (Route-based). | Pas encore pris en charge. |
 | Équilibrage de charge | SKU | Les équilibreurs de charge de base et standard sont pris en charge | Seul l’équilibreur de charge de base est pris en charge.  Cette propriété de référence SKU n'est pas prise en charge. |
 |  | Zones | Les zones de disponibilité sont prises en charge. | Pas encore pris en charge |
@@ -65,12 +64,10 @@ Cet article fournit une vue d’ensemble de considérations propres à la gestio
 |  | Obtenir les ACL effectives | Pris en charge | Pas encore pris en charge. |
 |  | Activer la mise en réseau accélérée | Pris en charge | Pas encore pris en charge. |
 |  | transfert IP | Désactivé par défaut.  Peut être activé. | La modification de ce paramètre n’est pas prise en charge.  Activé par défaut. |
-|  | Plusieurs configurations IP par interface | Pris en charge | Pas encore pris en charge. |
 |  | Groupes de sécurité d’application | Pris en charge | Pas encore pris en charge. |
 |  | Étiquette du nom DNS interne | Pris en charge | Pas encore pris en charge. |
 |  | Version d’adresse IP privée | Les adresses IPv6 et IPv4 sont prises en charge. | Seul le protocole IPv4 est pris en charge. |
-|  | Configuration IP principale | Pris en charge. Identifie la configuration IP principale sur l’interface. | Pas encore pris en charge. |
-| Network Watcher | Fonctionnalités de surveillance réseau de locataire Network Watcher | Pris en charge | Pas encore pris en charge. |
+| Network Watcher | Fonctionnalités de surveillance réseau de locataire Network Watcher | Pris en charge | Pas encore pris en charge. |
 | CDN | Profils de réseau de distribution de contenu (CDN) | Pris en charge | Pas encore pris en charge. |
 | passerelle d’application | Équilibrage de charge de couche 7 | Pris en charge | Pas encore pris en charge. |
 | Traffic Manager | Routage du trafic entrant pour une fiabilité et des performances d’application optimales. | Pris en charge | Pas encore pris en charge. |

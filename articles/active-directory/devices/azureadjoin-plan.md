@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 3154d5401389d46eb1b9fad335aa18362c5f21f7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: cb604bec1860da25e18c1c3a56a012882e5ea58e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310366"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189511"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Activation Planifier votre implémentation de la jointure d’Azure AD
 
@@ -113,7 +113,7 @@ Si vous créez des utilisateurs dans :
 
 - **Azure AD** : aucune configuration supplémentaire n’est nécessaire.
 
-Les [ID de connexion alternatifs](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) ne sont pas pris en charge sur les appareils joints à Azure AD. Si vos utilisateurs utilisent un ID de connexion alternatif, vous devez prévoir d’utiliser leur nom d’utilisateur principal dans Azure AD.
+Les UPN locaux qui sont différents dans les UPN Azure AD ne sont pas pris en charge sur les appareils joints à Azure AD. Si vos utilisateurs utilisent un nom d’utilisateur principal local, vous devez prévoir d’utiliser leur nom d’utilisateur principal dans Azure AD.
 
 
 
@@ -167,7 +167,7 @@ Les sections suivantes listent les considérations à prendre en compte pour dif
 
 ### <a name="cloud-based-applications"></a>Applications cloud
 
-Si une application est ajoutée à la galerie d’applications Azure AD, les utilisateurs bénéficient de l’authentification unique via les appareils joints à Azure AD. Aucune configuration supplémentaire n’est nécessaire. Les utilisateurs bénéficient de l’authentification unique sur les navigateurs Edge et Chrome. Pour Chrome, vous devez déployer l’[extension Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
+Si une application est ajoutée à la galerie d’applications Azure AD, les utilisateurs bénéficient de l’authentification unique via les appareils joints à Azure AD. Aucune configuration supplémentaire n’est nécessaire. Les utilisateurs bénéficient de l’authentification unique sur les navigateurs Microsoft Edge et Chrome. Pour Chrome, vous devez déployer l’[extension Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
 
 Toutes les applications Win32 qui :
 

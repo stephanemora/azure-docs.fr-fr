@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 1e5782ce3421cc5f0d2e0e51484d4bbe6b9eb6ab
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: d9f3ba642a5d00594aa6bdef597d5db43c2fc121
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978636"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188978"
 ---
-# <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Préversion : surveillance, rapports et résolution des problèmes dans la protection de mot de passe Azure AD
+# <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Aperçu : Surveillance, rapports et résolution des problèmes dans la protection de mot de passe Azure AD
 
 |     |
 | --- |
-| La protection par mot de passe Azure AD est une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| La protection par mot de passe Azure AD est une fonctionnalité de préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 Après le déploiement de la protection de mot de passe Azure AD, la surveillance et la génération de rapports sont des tâches essentielles. Cet article détaillé vous aide à comprendre où chaque service journalise les informations et comment créer un rapport sur l’utilisation de la protection de mot de passe Azure AD.
@@ -274,7 +274,7 @@ Si vous décidez de désinstaller le logiciel de la version préliminaire publiq
 
    ```Powershell
    $passwordProtectonConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
-   Remove-ADObject $passwordProtectonConfigContainer
+   Remove-ADObject -Recursive $passwordProtectonConfigContainer
    ```
 
 6. Supprimez tous les états sysvol manuellement en supprimant manuellement le dossier suivant et tout son contenu :

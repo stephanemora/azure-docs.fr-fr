@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 4ebd6eb860a6b102d1a3b12642510c429c18baa7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9a6b40aa86d4d81482d9c3724f0e230e0b811276
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259152"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189494"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Résoudre les problèmes d’Azure Migrate
 
@@ -136,7 +136,7 @@ Le collecteur Azure Migrate télécharge PowerCLI et l’installe sur l’applia
 2. Accédez au répertoire C:\ProgramFiles\ProfilerService\VMWare\Scripts\.
 3. Exécutez le script InstallPowerCLI.ps1.
 
-### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Une erreur interne UnhandledException s’est produite : System.IO.FileNotFoundException
+### <a name="error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception"></a>Une erreur interne UnhandledException s’est produite : System.IO.FileNotFoundException
 
 Ce problème peut être lié à l’installation de VMware PowerCLI. Suivez les étapes ci-dessous pour le résoudre :
 
@@ -245,14 +245,14 @@ Pour collecter le suivi d'événements pour Windows, procédez comme suit :
 2. Appuyez sur F12 pour démarrer les outils de développement. Si nécessaire, désactivez le paramètre **Effacer les entrées lors de la navigation**.
 3. Cliquez sur l'onglet **Réseau**, puis commencez la capture du trafic réseau :
  - Dans Chrome, sélectionnez **Conserver le journal**. L'enregistrement devrait commencer automatiquement. Un cercle rouge indique que le trafic est en cours de capture. Si ce n'est pas le cas, cliquez sur le cercle noir pour commencer
- - Dans Edge/Internet Explorer, l'enregistrement devrait commencer automatiquement. Si ce n'est pas le cas, cliquez sur le bouton de lecture vert.
+ - Dans Microsoft Edge/Internet Explorer, l'enregistrement devrait commencer automatiquement. Si ce n'est pas le cas, cliquez sur le bouton de lecture vert.
 4. Essayez de reproduire l'erreur.
 5. Après avoir rencontré l'erreur pendant l'enregistrement, arrêtez l'enregistrement et enregistrez une copie de l'activité enregistrée :
  - Dans Chrome, cliquez avec le bouton droit et sélectionnez **Enregistrer comme HAR avec du contenu**. Cette opération compresse et exporte les journaux en tant que fichier .har.
- - Dans Edge/Internet Explorer, cliquez sur l'icône **Exporter le trafic capturé**. Cette opération compresse et exporte les journaux.
+ - Dans Microsoft Edge/Internet Explorer, cliquez sur l'icône **Exporter le trafic capturé**. Cette opération compresse et exporte les journaux.
 6. Accédez à l'onglet **Console** pour vérifier la présence d'avertissements ou d'erreurs. Pour enregistrer le journal de la console :
  - Dans Chrome, cliquez avec le bouton droit n'importe où dans le journal de la console. Sélectionnez **Enregistrer sous** pour exporter et compresser le journal.
- - Dans Edge/Internet Explorer, cliquez avec le bouton droit sur les erreurs, puis sélectionnez **Tout copier**.
+ - Dans Microsoft Edge/Internet Explorer, cliquez avec le bouton droit sur les erreurs, puis sélectionnez **Tout copier**.
 7. Fermez les outils de développement.
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Codes d’erreur du collecteur et actions recommandées

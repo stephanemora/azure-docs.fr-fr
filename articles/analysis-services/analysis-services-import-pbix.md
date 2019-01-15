@@ -5,25 +5,24 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3adf0c9c2e2b264904e66b82716447d634aaeee7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 47223f22c797d892bc7cbdc0086439ee9cae9fcb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209647"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187720"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importer un fichier Power BI Desktop
 
-Vous pouvez importer un modèle de données dans un fichier Power BI Desktop (pbix) dans Azure Analysis Services Les connexions de sources de données, les données en cache et les métadonnées de modèle sont importées. Les rapports et les visualisations ne sont pas importés. Les modèles de donnée importés depuis Power BI Desktop ne sont qu’au niveau de compatibilité 1400.
+Vous pouvez importer un modèle de données dans un fichier Power BI Desktop (pbix) dans Azure Analysis Services Les connexions de sources de données, les données en cache et les métadonnées de modèle sont importées. Les rapports et les visualisations ne sont pas importés. Les modèles de donnée importés depuis Power BI Desktop ne sont qu’au niveau de compatibilité 1400 et 1465.
 
 > [!IMPORTANT]
 > Cette fonctionnalité est dépréciée. Elle peut être supprimée ou grandement remaniée dans une prochaine mise à jour. Il est recommandé d’interrompre l’utilisation de cette fonctionnalité dans les projets existants ou nouveaux, afin d’assurer la compatibilité avec les futures mises à jour. Pour un développement et un test de modèles plus avancés, utilisez plutôt Visual Studio (SSDT) et SQL Server Management Studio (SSMS).
 
-**Restrictions**   
-
+## <a name="restrictions"></a>Restrictions  
 
 - Si votre modèle de données est créé dans la mise à jour de Power BI Desktop de juillet 2018 (2.60.5169.3201) ou ultérieure, vérifiez qu’aucune fonctionnalité en préversion n’est activée. Les fonctionnalités en préversion ne sont pas encore prises en charge dans Azure Analysis Services. Si vous recevez l’erreur suivante lors de l’importation, c’est que le fichier pbix a des fonctionnalités en préversion activées qui ne sont pas encore prises en charge dans Azure Analysis Services.
 

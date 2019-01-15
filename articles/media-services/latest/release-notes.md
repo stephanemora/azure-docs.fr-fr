@@ -1,5 +1,5 @@
 ---
-title: Notes de publication Azure Media Services v3 | Microsoft Docs
+title: Nouveautés Notes de publication - Azure Media Services v3 | Microsoft Docs
 description: Pour vous informer des développements les plus récents, cet article détaille les toutes dernières mises à jour concernant Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -7,18 +7,18 @@ author: Juliako
 manager: femila
 editor: ''
 ms.service: media-services
-ms.workload: ''
+ms.workload: na
 ms.topic: article
 ms.date: 11/21/2018
 ms.author: juliako
-ms.openlocfilehash: 598587a0fe726ccf65f062833f84b352ca03c077
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4db84deb344921d329e81e0f0c9c3a97923430f3
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315526"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156491"
 ---
-# <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3 
+# <a name="whats-new-in-azure-media-services-v3"></a>Nouveautés d’Azure Media Services v3
 
 Pour vous informer des développements les plus récents, cet article détaille les thèmes suivants :
 
@@ -26,7 +26,6 @@ Pour vous informer des développements les plus récents, cet article détaille 
 * Problèmes connus
 * Résolution des bogues
 * Fonctionnalités dépréciées
-* Modifications planifiées
 
 ## <a name="known-issues"></a>Problèmes connus
 

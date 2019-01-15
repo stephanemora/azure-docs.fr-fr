@@ -85,8 +85,6 @@ items:
       href: gallery-collections.md
     - name: Modules personnalisés
       href: gallery-custom-modules.md
-    - name: Afficher et supprimer des données de compte
-      href: ai-gallery-control-personal-data-dsr.md
 - name: Concepts
   items:
   - name: Gestion des modèles
@@ -214,18 +212,20 @@ items:
       href: consume-web-service-with-web-app-template.md
     - name: Utliser un pool Batch
       href: dedicated-capacity-for-bes-jobs.md
+  - name: Afficher et supprimer des données de compte
+    href: ai-gallery-control-personal-data-dsr.md
 - name: Informations de référence
   items:
+  - name: Algorithmes et informations de référence sur les modules
+    href: https://msdn.microsoft.com/library/azure/dn905974.aspx
   - name: Module Azure PowerShell (nouveau)
     href: https://docs.microsoft.com/powershell/module/azurerm.machinelearning
   - name: Module Azure PowerShell (classique)
     href: powershell-module.md
-  - name: Algorithmes et informations de référence sur les modules
-    href: https://msdn.microsoft.com/library/azure/dn905974.aspx
-  - name: API de gestion REST
-    href: /rest/api/machinelearning
   - name: Codes d’erreur de service web
     href: web-service-error-codes.md
+  - name: API de gestion REST
+    href: /rest/api/machinelearning
 - name: Ressources
   items:
   - name: Tarifs
@@ -240,9 +240,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-machine-learning
   - name: Guide du développeur R
     href: ../r-developers-guide.md
-ms.openlocfilehash: 16c610345c063be9149d841c71d27f73e22d143d
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c7b407e7db087992a2b667162aaf4572d657f380
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974113"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303495"

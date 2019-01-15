@@ -1,8 +1,7 @@
 ---
-title: Azure Traffic Manager - Méthodes de routage du trafic | Microsoft Docs
+title: Méthodes de routage du trafic Azure Traffic Manager
 description: Cet article va vous aider à comprendre les différentes méthodes de routage du trafic utilisées par Traffic Manager.
 services: traffic-manager
-documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 57ae9f3a747ef3fde1a21de8a56ec4059becf392
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3cabfeda458011c5d3006642085f78dc74f3451e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139332"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054722"
 ---
 # <a name="traffic-manager-routing-methods"></a>Méthodes de routage de Traffic Manager
 
@@ -24,12 +23,12 @@ Azure Traffic Manager prend en charge six méthodes de routage du trafic pour d�
 
 Les méthodes de routage du trafic suivantes sont disponibles dans Traffic Manager :
 
-* **[Priorité ](#priority):** sélectionnez **Priority** (Priorité) si vous souhaitez utiliser un point de terminaison de service principal pour tout le trafic et disposer de sauvegardes au cas où les points de terminaison principaux ou de sauvegarde ne sont pas disponibles.
-* **[Pondération ](#weighted):** sélectionnez **Weighted** (Pondéré) si vous souhaitez distribuer le trafic entrant sur un ensemble de points de terminaison, soit uniformément, soit en fonction du poids que vous définissez.
-* **[Performances ](#performance):** sélectionnez **Performance** quand vos points de terminaison se trouvent sur des emplacements géographiques différents et que vous souhaitez que les utilisateurs finaux utilisent le point de terminaison « le plus proche » en termes de latence réseau la plus faible.
-* **[Géographique ](#geographic):** sélectionnez **Geographic** (Géographique) pour diriger les utilisateurs vers des points de terminaison spécifiques (Azure, externes ou imbriqués) selon l’emplacement géographique dont leur requête DNS provient. Cette option permet aux clients Traffic Manager de mettre en œuvre des scénarios où il est important de connaître la région géographique des utilisateurs et de router leur trafic en fonction de celle-ci. Exemples : respect des obligations en matière de souveraineté des données, localisation de contenu et d’expérience utilisateur, mesure du trafic en provenance de différentes régions.
-* **[Valeurs multiples](#multivalue) :** sélectionnez **Valeurs multiples** pour les profils Traffic Manager qui ne peuvent avoir que des adresses IPv4/IPv6 en tant que points de terminaison. Quand une demande est reçue pour ce profil, tous les points de terminaison intègres sont retournés.
-* **[Sous-réseau](#subnet) :** sélectionnez la méthode de routage du trafic **Sous-réseau** pour mapper des ensembles de plages d’adresses IP d’utilisateur final à un point de terminaison spécifique au sein d’un profil Traffic Manager. Quand une demande est reçue, le point de terminaison retourné est celui qui est mappé pour l’adresse IP source de cette demande. 
+* **[Priority](#priority):** Sélectionnez **Priority** si vous souhaitez utiliser un point de terminaison de service principal pour tout le trafic et disposer de sauvegardes au cas où les points de terminaison principaux ou de sauvegarde ne sont pas disponibles.
+* **[Weighted](#weighted):** Sélectionnez **Weighted** (Pondéré) si vous souhaitez distribuer le trafic entrant sur un ensemble de points de terminaison, soit uniformément, soit en fonction du poids que vous définissez.
+* **[Performance](#performance):** Sélectionnez **Performance** (Performances) quand vos points de terminaison se trouvent sur des emplacements géographiques différents et que vous souhaitez que les utilisateurs finaux utilisent le point de terminaison « le plus proche » en termes de latence réseau la plus faible.
+* **[Geographic](#geographic):** Sélectionnez l’option **Geographic** (Géographique) pour diriger les utilisateurs vers des points de terminaison spécifiques (Azure, externes ou imbriqués) selon l’emplacement géographique dont leur requête DNS provient. Cette option permet aux clients Traffic Manager de mettre en œuvre des scénarios où il est important de connaître la région géographique des utilisateurs et de router leur trafic en fonction de celle-ci. Exemples : respect des obligations en matière de souveraineté des données, localisation de contenu et d’expérience utilisateur, mesure du trafic en provenance de différentes régions.
+* **[Multivalue](#multivalue):** Sélectionnez **Multivalue** (Valeurs multiples) pour les profils Traffic Manager qui ne peuvent avoir que des adresses IPv4/IPv6 en tant que points de terminaison. Quand une demande est reçue pour ce profil, tous les points de terminaison intègres sont retournés.
+* **[Subnet](#subnet):** Sélectionnez la méthode de routage du trafic **Subnet** (Sous-réseau) pour mapper des ensembles de plages d’adresses IP d’utilisateur final à un point de terminaison spécifique au sein d’un profil Traffic Manager. Quand une demande est reçue, le point de terminaison retourné est celui qui est mappé pour l’adresse IP source de cette demande. 
 
 
 Tous les profils Traffic Manager incluent une surveillance de l’intégrité des points de terminaison et un basculement de point de terminaison automatique. (pour plus d’informations, voir la rubrique relative à la [surveillance des points de terminaison avec Traffic Manager](traffic-manager-monitoring.md)) ; Un profil Traffic Manager donné ne peut utiliser qu’une seule méthode de routage du trafic. Vous pouvez sélectionner une méthode de routage du trafic différente pour votre profil à tout moment. Les modifications sont appliquées dans la minute, sans aucun temps d’arrêt. Les méthodes de routage du trafic peuvent être combinées dans des profils Traffic Manager imbriqués. Une imbrication permet de créer des configurations de routage du trafic sophistiquées et flexibles répondant aux besoins d’applications complexes plus importantes. Pour plus d’informations, consultez [Profils Traffic Manager imbriqués](traffic-manager-nested-profiles.md).
@@ -57,9 +56,9 @@ Pour chaque requête DNS reçue, Traffic Manager choisit au hasard un point de t
 
 La méthode pondérée permet des scénarios utiles :
 
-* Mise à niveau progressive d’une application : allouez un pourcentage de trafic à acheminer vers un nouveau point de terminaison, puis augmentez progressivement le trafic au fil du temps jusqu’à 100 %.
-* Migration d’application vers Azure : créez un profil avec des points de terminaison Azure et externes. Ajustez la pondération des points de terminaison pour privilégier les nouveaux points de terminaison.
-* Extension du cloud pour une capacité supplémentaire : étendez rapidement un déploiement local dans le cloud en le plaçant derrière un profil Traffic Manager. Quand vous avez besoin d'une capacité supplémentaire dans le cloud, vous pouvez ajouter ou activer des points de terminaison supplémentaires et spécifier quelle partie du trafic est destinée à chaque point de terminaison.
+* Mise à niveau progressive d’une application : Allouez un pourcentage de trafic à acheminer vers un nouveau point de terminaison, puis augmentez progressivement le trafic au fil du temps jusqu’à 100 %.
+* Migration d’application vers Azure : Créez un profil avec des points de terminaison Azure et externes. Ajustez la pondération des points de terminaison pour privilégier les nouveaux points de terminaison.
+* Extension du cloud pour une capacité supplémentaire : Étendez rapidement un déploiement local dans le cloud en le plaçant derrière un profil Traffic Manager. Quand vous avez besoin d'une capacité supplémentaire dans le cloud, vous pouvez ajouter ou activer des points de terminaison supplémentaires et spécifier quelle partie du trafic est destinée à chaque point de terminaison.
 
 En plus de l’utilisation du portail Azure, vous pouvez configurer des pondérations à l’aide d’Azure PowerShell, d’Azure CLI et d’API REST.
 

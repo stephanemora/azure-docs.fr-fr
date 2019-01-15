@@ -1,5 +1,6 @@
-# Vue d'ensemble
-## [À propos des machines virtuelles](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+# Vue d’ensemble
+## [Extensions de machine virtuelle](agents-and-extensions-classic.md)
+## [Availability](configure-availability-classic.md)
 ## [FORUM AUX QUESTIONS](faq-classic.md)
 
 # Prise en main
@@ -9,7 +10,7 @@
 # Procédures
 ## Utiliser le stockage
 ### [Association d’un disque de données](attach-disk-classic.md)
-### [Détachement d’un disque de données](detach-disk-classic.md)
+### [Détachement d'un disque de données](detach-disk-classic.md)
 
 ## Réseau
 ### [Configuration des points de terminaison](setup-endpoints.md)
@@ -29,20 +30,17 @@
 ### [Maintenance](planned-maintenance-schedule-classic.md)
 
 ## gérer
-### [Migration à partir de déploiements classiques vers des déploiements Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+### [Migration à partir de déploiements classiques vers des déploiements Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-deep-dive)
 ### [Gérer vos machines virtuelles à l'aide d'Azure PowerShell](manage-psh-classic.md)
 ### [À propos de l’agent et des extensions de machine virtuelle](agents-and-extensions-classic.md)
 ### [Gérer les extensions de machine virtuelle](manage-extensions-classic.md)
 
 ## Gérer des charges de travail
-### [HPC (High-Performance Computing, calcul haute performance)](../../virtual-machines-windows-hpcpack-cluster-options.md)
+### HPC (High-Performance Computing, calcul haute performance)
 #### [Mettre à l’échelle automatiquement des ressources](hpcpack-cluster-node-autogrowshrink.md)
 #### [Gérer des nœuds de calcul](hpcpack-cluster-node-manage.md)
 #### [Créer un cluster](hpcpack-cluster-powershell-script.md)
 #### [Configurer un cluster pour exécuter des applications MPI](hpcpack-rdma-cluster.md)
-#### [Exécuter des charges de travail Excel et SOA](../../virtual-machines-windows-excel-cluster-hpcpack.md)
-#### [Créer le nœud principal avec une image de Place de marché](../../virtual-machines-windows-hpcpack-cluster-headnode.md)
-#### [Soumettre des travaux locaux vers Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MySQL](mysql-2008r2.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
 
@@ -54,10 +52,9 @@
 
 # Informations de référence
 ## [Azure PowerShell](/powershell/azure/overview)
-## [interface de ligne de commande Azure](/cli/azure/vm)
+## [Interface de ligne de commande Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
-## [Créer des modèles Resource Manager](../../../resource-group-authoring-templates.md)
 ## [Modèles fournis par la communauté](https://azure.microsoft.com/documentation/templates)
 ## [REST Compute](https://msdn.microsoft.com/library/jj157206.aspx)
 ## [REST Réseau](https://msdn.microsoft.com/library/jj157182.aspx)
