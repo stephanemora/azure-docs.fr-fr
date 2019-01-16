@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 2f9800deedb2e8d55362920fed2493a42290e764
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 8d6dcdd4de8fb56935d2f66bfff045b2115d4004
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555844"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063571"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Questions fréquemment posées sur Service Fabric mesh
 
@@ -93,9 +93,9 @@ Lors du déploiement des services, vous pouvez utiliser les images de système d
 
 ## <a name="developer-experience-issues"></a>Problèmes relatifs à l’expérience de développement
 
-### <a name="dns-resolution-from-an-outbound-container-doesnt-work"></a>La résolution DNS d’un conteneur sortant ne fonctionne pas
+### <a name="dns-resolution-from-a-container-doesnt-work"></a>Un résolution DNS d’un conteneur ne fonctionne pas
 
-Il se peut que la communication de service à service échoue dans certaines circonstances. Ce problème est en cours d’examen. Solution de contournement :
+Les requêtes DNS sortantes d’un conteneur vers le service DNS Service Fabric peut échouer dans certaines circonstances. Ce problème est en cours d’examen. Solution de contournement :
 
 - Utilisez Windows Fall Creators Update (version 1709) ou une version ultérieure en tant qu’image de conteneur de base.
 - Si l’utilisation du nom du service seul ne fonctionne pas, essayez avec le nom qualifié complet : ServiceName.ApplicationName.

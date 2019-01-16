@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/20/2018
-ms.openlocfilehash: 62e4171a6895f2f425d67b9d1143fe9d3999a9b9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/03/2019
+ms.openlocfilehash: 38b7c478e3b90347086c2dd005630d239db7fd89
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715900"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038209"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architecture de la connectivité Azure SQL
 
@@ -26,18 +26,17 @@ Cet article décrit l'architecture de la connectivité Azure SQL Database et SQL
 > [!IMPORTANT]
 > **[Changement à venir] Pour les connexions des points de terminaison de service avec les serveurs Azure SQL, le comportement de connectivité `Default` est remplacé par `Redirect`.**
 >
-> Ce changement est déjà effectif depuis le 10 novembre 2018 pour les régions Brésil Sud et Europe Ouest. Pour toutes les autres régions, il entrera en vigueur le 2 janvier 2019.
+> La modification est effective pour toutes les régions au 2 janvier 2019.
 >
 > Pour éviter que ce changement n'entraîne une interruption lorsque la connectivité s'effectue via un point de terminaison de service dans les environnements existants, nous utilisons la télémétrie suivante :
 > - Pour les serveurs détectés auxquels on accédait auparavant par l'intermédiaire de points de terminaison de service, nous passons au type de connexion `Proxy`.
 > - Pour tous les autres serveurs, nous passons au type de connexion `Redirect`.
 >
-> Les utilisateurs des points de terminaison de service peuvent encore être affectés dans les scénarios suivants : 
-> - L'application se connecte rarement à un serveur existant, de sorte que notre télémétrie n'a pas capturé les informations relatives à cette application. 
-> - La logique de déploiement automatisé crée un serveur logique en supposant que le comportement par défaut des connexions aux points de terminaison de service est `Proxy`. 
+> Les utilisateurs des points de terminaison de service peuvent encore être affectés dans les scénarios suivants :
+> - L'application se connecte rarement à un serveur existant, de sorte que notre télémétrie n'a pas capturé les informations relatives à cette application.
+> - La logique de déploiement automatisé crée un serveur logique en supposant que le comportement par défaut des connexions aux points de terminaison de service est `Proxy`.
 >
 > Si les connexions des points de terminaison de service n'ont pas pu être établies avec Azure SQL Server et que vous pensez être affecté par ce changement, vérifiez que le type de connexion est explicitement défini sur `Redirect`. Si tel est le cas, vous devez ouvrir les règles de pare-feu VM et les groupes de sécurité réseau (NSG) à toutes les adresses IP Azure de la région qui appartiennent à la [balise de service​​](../virtual-network/security-overview.md#service-tags) SQL pour les ports 11000-12000. Si cette option ne vous convient pas, basculez explicitement le serveur vers `Proxy`.
-
 > [!NOTE]
 > Cette rubrique s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse.
 
@@ -131,7 +130,6 @@ Pour modifier la stratégie de connexion Azure SQL Database pour un serveur Azur
 
 > [!IMPORTANT]
 > Ce script nécessite le [module Azure PowerShell](/powershell/azure/install-azurerm-ps).
->
 
 Le script PowerShell suivant montre comment modifier la stratégie de connexion.
 

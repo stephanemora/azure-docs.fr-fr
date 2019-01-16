@@ -8,13 +8,13 @@ ms.author: maxluk
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.openlocfilehash: a6ab4d751be74b66d9e75a37f88bc8d441f9b003
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/08/2019
+ms.openlocfilehash: d1eeedfd91dfe1d4a174a3cbed2c0db826a8d5ab
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653728"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117858"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Optimiser des travaux Apache Spark
 
@@ -24,7 +24,7 @@ Les sections suivantes décrivent des recommandations et des optimisations coura
 
 ## <a name="choose-the-data-abstraction"></a>Choisir l’abstraction des données
 
-Spark 1.x utilise des jeux de données RDD (Resilient Distributed Datasets) pour effectuer l’abstraction des données. Quant à Spark 2.x, il a introduit les DataFrames et les DataSets. Voici leurs avantages relatifs respectifs :
+Les versions antérieures de Spark utilisent des RDD pour abstraire des données. Spark 1.3 et Spark 1.6 ont introduit respectivement les DataFrames et les DataSets. Voici leurs avantages relatifs respectifs :
 
 * **DataFrames**
     * Meilleur choix dans la plupart des cas
@@ -42,7 +42,7 @@ Spark 1.x utilise des jeux de données RDD (Resilient Distributed Datasets) pour
     * Surcharge de garbage collection élevée
     * Interrompt la génération de code à l’échelle globale
 * **RDD**
-    * Dans Spark 2.x, vous n’avez pas besoin d’utiliser de RDD, sauf si vous devez générer un nouveau RDD personnalisé
+    * Vous n’avez pas besoin d’utiliser de RDD, sauf si vous devez générer un nouvel RDD personnalisé.
     * Aucune optimisation de requête par le biais de Catalyst
     * Aucune génération de code à l’échelle globale
     * Surcharge de garbage collection élevée

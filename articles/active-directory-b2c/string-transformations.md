@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ce2ad3e699b930f801ad47083d6cfcf6a7937a5c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: f2823ec32b6658aa22c38294c09c9738c9121c39
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433444"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121581"
 ---
 # <a name="string-claims-transformations"></a>Transformations de revendications de chaînes
 
@@ -27,11 +27,11 @@ Cet article fournit des exemples pour l’utilisation de transformations de reve
 
 Compare deux revendications et lève une exception si elles ne sont pas égales en fonction des éléments de comparaison inputClaim1, inputClaim2 et stringComparison spécifiés.
 
-| Élément | TransformationClaimType | Type de données | Notes |
+| Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim1 | chaîne | Type de la première revendication qui doit être comparée. |
 | inputClaim | inputClaim2 | chaîne | Type de la deuxième revendication qui doit être comparée. |
-| InputParameter | stringComparison | chaîne | comparaison de chaîne, l’une des valeurs de suivantes : Ordinal, OrdinalIgnoreCase. |
+| InputParameter | stringComparison | chaîne | comparaison de chaînes, une des valeurs suivantes : Ordinal, OrdinalIgnoreCase. |
 
 La transformation de revendication **AssertStringClaimsAreEqual** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md). Les métadonnées de profil technique autodéclaré **UserMessageIfClaimsTransformationStringsAreNotEqual** contrôlent le message d’erreur présenté à l’utilisateur.
 
@@ -88,7 +88,7 @@ Le profil technique autodéclaré appelle le profil technique de validation **lo
 
 Modifie la casse de la revendication fournie (minuscules ou majuscules) en fonction de l’opérateur.
 
-| Élément | TransformationClaimType | Type de données | Notes |
+| Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | chaîne | ClaimType à modifier. |
 | InputParameter | toCase | chaîne | L’une des valeurs suivantes : `LOWER` ou `UPPER`. |
@@ -114,8 +114,8 @@ Utilisez cette transformation de revendication pour mettre un ClaimType en majus
 
 - Revendications d’entrée :
     - **email** : SomeOne@contoso.com
-- Paramètres d’entrée :
-    - **toCase**: LOWER
+- Paramètres d’entrée :
+    - **toCase** : LOWER
 - Revendications de sortie :
     - **email** : someone@contoso.com
 
@@ -123,7 +123,7 @@ Utilisez cette transformation de revendication pour mettre un ClaimType en majus
 
 Crée une revendication de chaîne à partir du paramètre d’entrée fourni dans la stratégie.
 
-| Élément | TransformationClaimType | Type de données | Notes |
+| Item | TransformationClaimType | Type de données | Notes |
 |----- | ----------------------- | --------- | ----- |
 | InputParameter | value | chaîne | Chaîne à définir |
 | OutputClaim | createdClaim | chaîne | ClaimType généré après que cette transformation de revendication a été appelée, avec la valeur spécifiée dans le paramètre d’entrée. |
@@ -141,7 +141,7 @@ Utilisez cette transformation de revendication pour définir une chaîne de vale
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 - Paramètre d’entrée :
     - **value** : Contoso terms of service...
@@ -183,8 +183,8 @@ Utilisez cette transformation de revendication pour vérifier si une revendicati
 - Revendications d’entrée :
     - **inputClaim1** : someone@contoso.com
     - **inputClaim2** : someone@outlook.com
-- Paramètres d’entrée :
-    - **operator** :  NOT EQUAL
+- Paramètres d’entrée :
+    - **operator** :  NON ÉGAL À
     - **ignoreCase** : true
 - Revendications de sortie :
     - **outputClaim** : true
@@ -197,7 +197,7 @@ Détermine si une valeur de revendication est égale à la valeur du paramètre 
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim1 | chaîne | Type de la revendication à comparer. |
 | InputParameter | operator | chaîne | Valeurs possibles : `EQUAL` ou `NOT EQUAL`. |
-| InputParameter | compareTo | chaîne | comparaison de chaîne, l’une des valeurs de suivantes : Ordinal, OrdinalIgnoreCase. |
+| InputParameter | compareTo | chaîne | comparaison de chaînes, une des valeurs suivantes : Ordinal, OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | booléenne | Spécifie si cette comparaison doit ignorer la casse des chaînes comparées. |
 | OutputClaim | outputClaim | booléenne | ClaimType généré après que cette transformation de revendication a été appelée. |
 
@@ -222,7 +222,7 @@ Vous pouvez utiliser cette transformation de revendication pour vérifier si une
 ### <a name="example"></a>Exemples
 - Revendications d’entrée :
     - **inputClaim1** : v1
-- Paramètres d’entrée :
+- Paramètres d’entrée :
     - **compareTo** : V1
     - **operator** : EQUAL 
     - **ignoreCase** : true
@@ -256,7 +256,7 @@ L’exemple suivant génère un ID unique global. Cette transformation de revend
 ```
 ### <a name="example"></a>Exemples
 
-- Paramètres d’entrée :
+- Paramètres d’entrée :
     - **randomGeneratorType** : GUID
 - Revendications de sortie : 
     - **outputClaim** : bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
@@ -279,9 +279,9 @@ L’exemple suivant génère une valeur entière aléatoire comprise entre 0 et 
 
 ### <a name="example"></a>Exemples
 
-- Paramètres d’entrée :
+- Paramètres d’entrée :
     - **randomGeneratorType** : INTEGER
-    - **maximumNumber** : 1000
+    - **maximumNumber** : 1 000
     - **stringFormat** : OTP_{0}
     - **base64** : false
 - Revendications de sortie : 
@@ -318,7 +318,7 @@ Utilisez cette transformation de revendication pour mettre en forme une chaîne 
 
 - Revendications d’entrée :
     - **inputClaim** : 5164db16-3eee-4629-bfda-dcc3326790e9
-- Paramètres d’entrée :
+- Paramètres d’entrée :
     - **stringFormat** :  cpim_{0}@{RelyingPartyTenantId}
 - Revendications de sortie :
     - **outputClaim** : cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
@@ -356,7 +356,7 @@ Utilisez cette transformation de revendication pour mettre en forme une chaîne 
 - Revendications d’entrée :
     - **inputClaim1** : Joe
     - **inputClaim2** : Fernando
-- Paramètres d’entrée :
+- Paramètres d’entrée :
     - **stringFormat** : {0} {1}
 - Revendications de sortie :
     - **outputClaim** : Joe Fernando
@@ -392,7 +392,7 @@ La transformation de revendication recherche le texte de l’élément et retour
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />         
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />         
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -415,7 +415,7 @@ Recherche une valeur de revendication dans une liste de valeurs en fonction de l
 | InputParameter | errorOnFailedLookup | booléenne | Contrôle si une erreur est retournée en l’absence de correspondance. |
 | OutputClaim | inputParameterId | chaîne | ClaimType généré après que cette transformation de revendication a été appelée. Valeur de l’ID correspondant. |
 
-L’exemple suivant recherche le nom de domaine dans l’une des collections inpuParameters. La transformation de revendication recherche le nom de domaine dans l’identificateur et retourne sa valeur (un ID d’application).
+L’exemple suivant recherche le nom de domaine dans l’une des collections inputParameters. La transformation de revendication recherche le nom de domaine dans l’identificateur et retourne sa valeur (un ID d’application).
 
 ```XML
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
@@ -438,7 +438,7 @@ L’exemple suivant recherche le nom de domaine dans l’une des collections inp
 
 - Revendications d’entrée :
     - **inputParameterId** : test.com
-- Paramètres d’entrée :
+- Paramètres d’entrée :
     - **contoso.com** : 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
     - **microsoft.com** : 0213308f-17cb-4398-b97e-01da7bd4804e
     - **test.com** : c7026f88-4299-4cdb-965d-3f166464b8a9
@@ -537,11 +537,11 @@ Vous pouvez utiliser cette transformation de revendication pour vérifier si une
 
 - Revendications d’entrée :
     - **inputClaim** : v1
-- Paramètres d’entrée :
+- Paramètres d’entrée :
     - **matchTo** : V1
     - **stringComparison** : ordinalIgnoreCase 
-    - **stringMatchMsg** : B2C_V1_90005
-    - **stringMatchMsgCode** : The TOS is upgraded to v2
+    - **stringMatchMsg** :  B2C_V1_90005
+    - **stringMatchMsgCode** :  The TOS is upgraded to v2
 - Revendications de sortie :
     - **outputClaim1** : B2C_V1_90005
     - **outputClaim2** : The TOS is upgraded to v2
@@ -582,11 +582,11 @@ Par exemple, la transformation de revendication suivante vérifie si la valeur d
 ### <a name="example"></a>Exemples
 
 - Revendications d’entrée :
-    - **claimToMatch** : Minor
-- Paramètres d’entrée :
-    - **matchTo** : Minor
+    - **claimToMatch** : Secondaire
+- Paramètres d’entrée :
+    - **matchTo** : Secondaire
     - **stringComparison** : ordinalIgnoreCase 
-    - **outputClaimIfMatched** : B2C_V1_90001
+    - **outputClaimIfMatched** :  B2C_V1_90001
 - Revendications de sortie :
     - **isMinorResponseCode** : B2C_V1_90001
     - **isMinor** : true

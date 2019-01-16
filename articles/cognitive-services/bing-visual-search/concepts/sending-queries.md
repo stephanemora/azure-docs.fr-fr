@@ -3,25 +3,25 @@ title: Envoi de requêtes de recherche à l’API Recherche visuelle Bing
 titlesuffix: Azure Cognitive Services
 description: Apprenez-en davantage sur les paramètres de l’API REST utilisés dans l’API Recherche visuelle Bing.
 services: cognitive-services
-author: aahi
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
 ms.topic: article
 ms.date: 12/18/2018
-ms.author: aahill
-ms.openlocfilehash: 073570b428ffed395d90ee1cd6a734f66a1b0908
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.author: aahi
+ms.openlocfilehash: 4f1f52c7954b4985d0da24f51eb199e2cbeac3a6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745427"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063588"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envoi de requêtes de recherche à l’API Recherche visuelle Bing
 
 Cet article décrit les paramètres et attributs des requêtes envoyées à l’API Recherche visuelle Bing, ainsi que l’objet de réponse.
 
-Vous pouvez obtenir des informations sur une image de trois façons différentes : 
+Vous pouvez obtenir des insights sur une image de trois façons différentes : 
 
 - Envoi d’un jeton Insights que vous obtenez à partir d’une image dans un appel précédent à l’un des points de terminaison de l’[API Recherche d’images Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
 - Envoi de l’URL d’une image.

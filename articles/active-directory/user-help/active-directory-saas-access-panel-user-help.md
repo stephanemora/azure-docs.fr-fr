@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: b4229ca7ff96a9806ac82cf9452de496d858f6b4
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: a761e6a42e478aafca75709689a022edec2a64db
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705682"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191033"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Résoudre des problèmes liés à l’accès au portail MyApps et à son utilisation
 
@@ -49,7 +49,7 @@ L’accès au portail MyApps nécessite de disposer d’un navigateur qui prend 
 
 Vérifiez que vous respectez les exigences de navigateur suivantes :
 
-- **Edge** : sur Windows 10 Édition anniversaire ou version ultérieure.
+- **Microsoft Edge** : sur Windows 10 Édition anniversaire ou version ultérieure.
 - **Chrome** : sur Windows 7 ou version ultérieure, et sur Mac OS X ou version ultérieure.
 - **Firefox 26.0 ou version ultérieure** : sur Windows XP SP2 ou version ultérieure, et sur Mac OS X 10.6 ou version ultérieure.
 - **Internet Explorer 11** : sur Windows 7 ou version ultérieure (prise en charge limitée).
@@ -90,7 +90,7 @@ Si vous avez installé l’extension et que vous rencontrez toujours des problè
        Les trois dernières applications que vous avez utilisées sont affichées dans la liste de raccourcis **Récemment utilisé**.
 
 > [!NOTE]
-> Ces options sont disponibles uniquement pour Edge, Chrome et Firefox.
+> Les options sont disponibles uniquement pour Microsoft Edge, Chrome et Firefox.
 
 ## <a name="how-do-i-add-a-new-app"></a>Comment ajouter une nouvelle application ?
 

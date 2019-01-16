@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 9f0a4369d794eda047185844d5fafa49bc8a2e0d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 24644faab85305f18fe4b657d3e982a306a41c16
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337918"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157070"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Guide du développeur pour l’accès conditionnel à Azure Active Directory
 
@@ -92,11 +92,11 @@ Les sections suivantes décrivent des scénarios courants plus complexes. Le pri
 
 ## <a name="scenario-app-accessing-microsoft-graph"></a>Scénario : application qui accède à Microsoft Graph
 
-Dans ce scénario, découvrez comment une application web demande l’accès à Microsoft Graph. Dans ce cas, la stratégie d’accès conditionnel peut être attribuée à SharePoint, Exchange ou à un autre service accessible en tant que charge de travail via Microsoft Graph. Dans cet exemple, supposons qu’il existe une stratégie d’accès conditionnel sur Sharepoint Online.
+Dans ce scénario, découvrez comment une application web demande l’accès à Microsoft Graph. Dans ce cas, la stratégie d’accès conditionnel peut être attribuée à SharePoint, Exchange ou à un autre service accessible en tant que charge de travail via Microsoft Graph. Dans cet exemple, supposons qu’il existe une stratégie d’accès conditionnel sur SharePoint Online.
 
 ![Applications ayant accès au diagramme de flux Microsoft Graph](./media/conditional-access-dev-guide/app-accessing-microsoft-graph-scenario.png)
 
-L’application demande tout d’abord une autorisation à Microsoft Graph qui nécessite l’accès à une charge de travail en aval sans accès conditionnel. La demande réussit sans appeler de stratégie et l’application reçoit les jetons pour Microsoft Graph. À ce stade, l’application peut utiliser le jeton d’accès dans une demande du porteur pour le point de terminaison demandé. À présent, l’application doit accéder à un point de terminaison Sharepoint Online de Microsoft Graph, par exemple : `https://graph.microsoft.com/v1.0/me/mySite`
+L’application demande tout d’abord une autorisation à Microsoft Graph qui nécessite l’accès à une charge de travail en aval sans accès conditionnel. La demande réussit sans appeler de stratégie et l’application reçoit les jetons pour Microsoft Graph. À ce stade, l’application peut utiliser le jeton d’accès dans une demande du porteur pour le point de terminaison demandé. À présent, l’application doit accéder à un point de terminaison SharePoint Online de Microsoft Graph, par exemple : `https://graph.microsoft.com/v1.0/me/mySite`
 
 L’application a déjà un jeton valide pour Microsoft Graph, afin d’exécuter la nouvelle demande sans émettre de nouveau jeton. Cette demande échoue et un défi de revendications est émis depuis Microsoft Graph sous la forme d’un HTTP 403 Interdit avec un défi ```WWW-Authenticate```.
 
@@ -108,7 +108,7 @@ error=insufficient_claims
 www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/common/oauth2/authorize", client_id="<GUID>", error=insufficient_claims, claims={"access_token":{"polids":{"essential":true,"values":["<GUID>"]}}}"
 ```
 
-Le défi de revendications se trouve dans l’en-tête ```WWW-Authenticate``` qui peut être analysée pour extraire le paramètre des revendications pour la demande suivante. Une fois qu’il est ajouté à la nouvelle demande, Azure AD sait évaluer la stratégie d’accès conditionnel pour se connecter à l’utilisateur et l’application est maintenant conforme à la stratégie d’accès conditionnel. La répétition de la demande au point de terminaison Sharepoint Online réussit.
+Le défi de revendications se trouve dans l’en-tête ```WWW-Authenticate``` qui peut être analysée pour extraire le paramètre des revendications pour la demande suivante. Une fois qu’il est ajouté à la nouvelle demande, Azure AD sait évaluer la stratégie d’accès conditionnel pour se connecter à l’utilisateur et l’application est maintenant conforme à la stratégie d’accès conditionnel. La répétition de la demande au point de terminaison SharePoint Online réussit.
 
 L’en-tête ```WWW-Authenticate``` possède une structure unique et il n’est pas sans importance de l’analyser afin d’extraire des valeurs. Voici une courte méthode pour aider.
 

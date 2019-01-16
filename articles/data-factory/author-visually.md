@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 01/09/2019
 ms.author: shlo
-ms.openlocfilehash: 3db32dfe2d7b65535f7d30f76241b33ecca96c15
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 323d22363ee52ff6ccf7575b00c6b8b31a0fa156
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957953"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188492"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Création visuelle dans Azure Data Factory
 L’expérience utilisateur Azure Data Factory vous permet de créer et de déployer visuellement des ressources dans votre fabrique de données sans avoir à écrire du code. Vous pouvez glisser-déposer des activités sur le canevas d’un pipeline, effectuer des séries de tests, déboguer de manière itérative, mais aussi déployer et surveiller les exécutions de votre pipeline. Vous pouvez utiliser l’expérience utilisateur pour la création visuelle de deux manières :
@@ -47,7 +46,7 @@ La création visuelle avec l’intégration Azure Repos Git prend en charge le c
 ### <a name="configure-an-azure-repos-git-repository-with-azure-data-factory"></a>Configurer un dépôt Azure Repos Git avec Azure Data Factory
 Vous pouvez configurer un dépôt Azure Repos Git avec une fabrique de données via deux méthodes.
 
-#### <a name="method1"></a> Méthode de configuration 1 (dépôt Azure Repos Git) : page Let’s get started (Prise en main)
+#### <a name="method1"></a> Méthode de configuration 1 (référentiel Azure Repos Git) : Page Prise en main
 
 Dans Azure Data Factory, accédez à la page **Let’s get started** (Prise en main). Sélectionnez **Configure Code Repository** (Configurer le référentiel de code) :
 
@@ -61,7 +60,7 @@ Le volet affiche les paramètres du dépôt de code Azure Repos suivants :
 
 | Paramètre | Description | Valeur |
 |:--- |:--- |:--- |
-| **Type de référentiel** | Type du dépôt de code Azure Repos.<br/>**Remarque** : GitHub n’est actuellement pas pris en charge. | Azure Repos Git |
+| **Type de référentiel** | Type du dépôt de code Azure Repos.<br/>**Remarque**: GitHub n’est actuellement pas pris en charge. | Azure Repos Git |
 | **Azure Active Directory** | Le nom de votre abonné Azure AD. | <your tenant name> |
 | **Organisation Azure Repos** | Nom de votre organisation Azure Repos. Vous trouverez le nom de votre organisation Azure Repos sur `https://{organization name}.visualstudio.com`. Vous pouvez vous [connecter à votre organisation Azure Repos](https://www.visualstudio.com/team-services/git/) pour accéder à votre profil Visual Studio et visualiser vos dépôts et projets. | <your organization name> |
 | **Nom du projet** | Nom de votre projet Azure Repos. Vous trouverez le nom de votre projet Azure Repos sur `https://{organization name}.visualstudio.com/{project name}`. | <your Azure Repos project name> |
@@ -70,18 +69,18 @@ Le volet affiche les paramètres du dépôt de code Azure Repos suivants :
 | **Dossier racine** | Votre dossier racine de votre branche de collaboration Azure Repos. | <your root folder name> |
 | **Import existing Data Factory resources to repository** (Importer des ressources Data Factory existantes dans le référentiel) | Indique s’il convient d’importer des ressources de fabrique de données existantes à partir du **canevas de création** de l’expérience utilisateur dans un dépôt Azure Repos Git. Activez la case pour importer vos ressources de fabrique de données dans le référentiel Git associé au format JSON. Cette action exporte chaque ressource individuellement (autrement dit, les services et jeux de données liés sont exportés dans des fichiers JSON distincts). Lorsque cette case n’est pas activée, les ressources existantes ne sont pas importées. | Activée (par défaut) |
 
-#### <a name="configuration-method-2-azure-repos-git-repo-ux-authoring-canvas"></a>Méthode de configuration 2 (dépôt Azure Repos Git) : canevas de création de l’expérience utilisateur
+#### <a name="configuration-method-2-azure-repos-git-repo-ux-authoring-canvas"></a>Méthode de configuration 2 (référentiel Azure Repos Git) : Canevas de création de l’expérience utilisateur
 Dans l’expérience utilisateur Azure Data Factory **Canevas de création**, recherchez votre fabrique de données. Sélectionnez le menu déroulant **Fabrique de données** et cliquez sur **Configure code repository** (Configurer le référentiel de code)à.
 
 Un volet de configuration apparaît. Pour plus d’informations sur les paramètres de configuration, consultez les descriptions dans <a href="#method1">Méthode de configuration 1</a>.
 
 ![Configurer les paramètres du référentiel de code pour la création de l’expérience utilisateur](media/author-visually/configure-repo-2.png)
 
-## <a name="use-a-different-azure-active-directory-tenant"></a>Utiliser un autre locataire Azure Active Directory
+### <a name="use-a-different-azure-active-directory-tenant"></a>Utiliser un autre locataire Azure Active Directory
 
 Vous pouvez créer un dépôt Azure Repos Git dans un autre locataire Azure Active Directory. Pour définir un autre locataire Azure AD, vous devez disposer des droits d’administrateur pour l’abonnement Azure que vous utilisez.
 
-## <a name="use-your-personal-microsoft-account"></a>Ajouter votre compte Microsoft personnel
+### <a name="use-your-personal-microsoft-account"></a>Ajouter votre compte Microsoft personnel
 
 Pour utiliser un compte Microsoft personnel à des fins d'intégration de Git, vous pouvez lier votre référentiel Azure personnel au répertoire Active Directory de votre organisation.
 
@@ -95,7 +94,7 @@ Au terme de cette procédure de configuration, votre référentiel personnel est
 
 Pour plus d’informations sur la connexion de référentiels Azure au répertoire Active Directory de votre organisation, voir [Connecter votre organisation Azure DevOps à Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
-## <a name="switch-to-a-different-git-repo"></a>Passer à un autre dépôt Git
+### <a name="switch-to-a-different-git-repo"></a>Passer à un autre dépôt Git
 
 Pour passer à un autre dépôt Git, recherchez l’icône dans le coin supérieur droit de la page Vue d’ensemble de Data Factory, comme le montre la capture d’écran suivante. Si vous ne voyez pas l’icône, effacez le cache de votre navigateur local. Sélectionnez l’icône pour supprimer l’association au dépôt actuel.
 
@@ -103,7 +102,7 @@ Après avoir supprimé l’association avec le dépôt actuel, vous pouvez confi
 
 ![Supprimer l’association au référentiel Git actuel](media/author-visually/remove-repo.png)
 
-## <a name="use-version-control"></a>Utiliser le contrôle de version
+### <a name="use-version-control"></a>Utiliser le contrôle de version
 Les systèmes de contrôle de version (également appelé _contrôle du code source_) permettent aux développeurs de collaborer sur le code et de suivre les modifications apportées à la base de code. Le contrôle du code source est un outil essentiel pour les projets impliquant plusieurs développeurs.
 
 Chaque dépôt Azure Repos Git associé à une fabrique de données comporte une branche de collaboration. (`master` est la branche de collaboration par défaut). Les utilisateurs peuvent également créer des branches de fonctionnalités en cliquant sur **+ Nouvelle branche** et en procédant à un développement dans les branches de fonctionnalités.
@@ -114,7 +113,7 @@ Lorsque vous êtes prêt pour le développement des fonctionnalités dans votre 
 
 ![Créer une nouvelle demande de tirage (pull request)](media/author-visually/create-pull-request.png)
 
-## <a name="configure-publishing-settings"></a>Configurer les paramètres de publication
+### <a name="configure-publishing-settings"></a>Configurer les paramètres de publication
 
 Pour configurer la branche de publication, autrement dit la branche où les modèles Resource Manager sont enregistrés, ajoutez un fichier `publish_config.json` au dossier racine dans la branche de collaboration. Data Factory lit ce fichier, recherche le champ `publishBranch` et crée une branche (si elle n’existe pas déjà) avec la valeur fournie. Il enregistre ensuite tous les modèles Resource Manager à l’emplacement spécifié. Par exemple : 
 
@@ -132,7 +131,7 @@ Quand vous spécifiez une nouvelle branche de publication, Data Factory ne suppr
 
 Data Factory lit uniquement le fichier `publish_config.json` lors du chargement de la fabrique. Si la fabrique est déjà chargée sur le portail, actualisez le navigateur pour que vos modifications prennent effet.
 
-## <a name="publish-code-changes"></a>Publier les modifications de code
+### <a name="publish-code-changes"></a>Publier les modifications de code
 Après avoir fusionné des modifications dans la branche de collaboration (`master` est la valeur par défaut), sélectionnez **Publier** pour publier manuellement les modifications de votre code dans la branche principale pour le service Data Factory.
 
 ![Publier les modifications apportées au service Data Factory](media/author-visually/publish-changes.png)
@@ -140,9 +139,37 @@ Après avoir fusionné des modifications dans la branche de collaboration (`mast
 > [!IMPORTANT]
 > La branche principale n’est pas représentative de ce qui est déployé dans le service Data Factory. La branche principale *doit* être publiée manuellement sur le service Data Factory.
 
+### <a name="advantages-of-git-integration"></a>Avantages de l’intégration Git
+
+-   **Contrôle du code source**. Lorsque vos charges de travail de fabrique de données sont cruciales, vous pouvez intégrer votre fabrique avec Git bénéficier de plusieurs avantages de contrôle source tels que les suivants :
+    -   Possibilité de suivre/auditer les modifications.
+    -   Possibilité d’annuler les modifications qui ont introduit de bogues.
+-   **Sauvegardes partielles**. Si vous apportez de nombreuses modifications à votre fabrique, vous constaterez qu’en mode LIVE classique, il vous est impossible d'enregistrer vos modifications en tant que brouillon, car vous n’êtes pas prêt ou ne souhaitez pas perdre vos modifications en cas de panne de votre ordinateur. Avec l’intégration Git, vous pouvez continuer d'enregistrer vos modifications de façon incrémentielle et publier dans la fabrique lorsque vous êtes prêt uniquement. Git sert d'emplacement intermédiaire à votre travail pour vous permettre de bien tester vos modifications.
+-   **Collaboration et contrôle**. Si plusieurs membres de votre équipe participent à la même fabrique, vous pouvez leur permettre de collaborer via un processus de vérification du code. Vous pouvez également configurer votre fabrique de manière à ce qu'aucun contributeur ne soit autorisé à y effectuer un déploiement. Certains membres de l’équipe seront uniquement autorisés à apporter des modifications via Git, et d'autres à « publier » les modifications dans la fabrique.
+-   **Affichage des différences**. En mode Git, vous pouvez constater une différence de la charge utile sur le point d'être publiée dans la fabrique. Cette différence correspond à toutes les ressources/entités modifiées/ajoutées/supprimées depuis la dernière publication dans la fabrique. En fonction de cette différence, vous pouvez continuer de publier ou revenir en arrière et vérifier vos modifications, puis y revenir plus tard.
+-   **Intégration continue/Déploiement continu améliorés**. En mode Git, vous pouvez configurer le déclenchement automatique de votre pipeline de mise en production dès que des modifications sont apportées à la fabrique de développement. Vous pouvez également personnaliser les propriétés de votre fabrique disponibles en tant que paramètres dans le modèle Resource Manager. Cela permet de ne conserver que les propriétés requises en tant que paramètres, et de coder en dur tout le reste.
+-   **Meilleures performances**. Une fabrique moyenne se charge 10 fois plus vite en mode Git qu’en mode LIVE classique, car les ressources sont téléchargées via Git.
+
+### <a name="best-practices-for-git-integration"></a>Meilleures pratiques d'intégration Git
+
+-   **Autorisations**. En règle générale, vous ne souhaitez pas autoriser tous les membres de l'équipe à mettre à jour la fabrique.
+    -   Tous les membres de l’équipe doivent disposer d'autorisations de lecture dans la fabrique de données.
+    -   Seules quelques personnes doivent être autorisées à publier dans la fabrique et pour ce faire, elles doivent avoir un rôle de « Contributeur de fabrique de données ».
+    -   En matière de contrôle de code source, il est également conseillé de ne pas autoriser les archivages directs dans la branche de collaboration. Cela permet d'éviter les bogues, car chaque archivage est soumis à un processus de demande de tirage (pull request).
+-   **Changement de mode**.
+    -    Lorsque vous êtes en mode Git, nous vous déconseillons de basculer vers le mode LIVE, car les modifications apportées en mode LIVE ne s'afficheront pas lorsque vous rebasculerez en mode Git. Essayez d’apporter les modifications en mode Git, puis publiez-les via l’interface utilisateur.
+    -   De même, n’utilisez pas les cmdlets de fabrique de données PowerShell, car elles ont le même effet et appliquent directement les modifications à la fabrique.
+-   **Utilisez des mots de passe à partir d'Azure Key Vault**.
+    -   Nous recommandons vivement d’utiliser AzureKeyVault pour stocker les chaînes de connexion ou mots de passe des services liés DataFactory.
+    -   Nous ne stockons pas ces informations secrètes dans Git (pour des raisons de sécurité) et dès lors, les modifications apportées aux services liés sont directement publiées dans la fabrique. Cette publication immédiate n'est pas toujours souhaitable, car les modifications peuvent ne pas avoir été testées, ce qui annule l’effet de Git.
+    -   Dès lors, toutes ces informations secrètes doivent être extraites des services liés qui utilisent Azure Key Vault.
+    -   Key Vault présente aussi l'avantage de faciliter l'intégration et le déploiement continus, en vous évitant de devoir fournir ces informations secrètes lors du déploiement d'un modèle Resource Manager.
+
 ## <a name="author-with-github-integration"></a>Créer avec l’intégration de GitHub
 
-La création avec l’intégration de GitHub prend en charge le contrôle du code source et la collaboration pendant l’utilisation de vos pipelines de fabrique de données. Vous pouvez associer une fabrique de données à un référentiel de compte GitHub pour le contrôle du code source, la collaboration et la gestion des versions. Un compte GitHub peut avoir plusieurs référentiels, mais un référentiel GitHub ne peut être associé qu’à une seule fabrique de données. Si vous n’avez pas un compte ou un référentiel GitHub, suivez [ces instructions](https://github.com/join) pour créer vos ressources. L’intégration de GitHub avec Data Factory prend en charge aussi bien le GitHub public que GitHub Enterprise.
+La création avec l’intégration de GitHub prend en charge le contrôle du code source et la collaboration pendant l’utilisation de vos pipelines de fabrique de données. Vous pouvez associer une fabrique de données à un référentiel de compte GitHub pour le contrôle du code source, la collaboration et la gestion des versions. Un compte GitHub peut avoir plusieurs référentiels, mais un référentiel GitHub ne peut être associé qu’à une seule fabrique de données. Si vous n’avez pas de compte ou de référentiel GitHub, suivez  [ces instructions](https://github.com/join)  pour créer vos ressources.
+
+L’intégration de GitHub à Data Factory prend à la fois en charge le service GitHub public ([https://github.com](https://github.com)) que GitHub Enterprise. Vous pouvez utiliser des référentiels GitHub publics et privés avec Data Factory à condition de disposer des autorisations de lecture et d'écriture pour ceux-ci dans GitHub.
 
 Pour configurer un référentiel GitHub, vous devez disposer des droits d’administrateur pour l’abonnement Azure que vous utilisez.
 
@@ -162,13 +189,13 @@ Pour une présentation de neuf minutes et la démonstration de cette fonctionnal
 
 Vous pouvez configurer un référentiel GitHub avec une fabrique de données via deux méthodes.
 
-**Méthode de configuration 1 (référentiel public) : page Let’s get started (Prise en main)**
+**Méthode de configuration 1 (référentiel public) : Page Prise en main**
 
-Dans Azure Data Factory, accédez à la page **Let’s get started** (Prise en main). Sélectionnez **Configure Code Repository** (Configurer le référentiel de code) :
+Dans Azure Data Factory, accédez à la page  **Let's get started**  (Prise en main). Sélectionnez  **Configurer le référentiel de code** :
 
 ![Page de prise en main de Data Factory](media/author-visually/github-integration-image1.png)
 
-Le volet de configuration **Paramètres du référentiel** apparaît :
+Le volet de configuration  **Paramètres du référentiel**  apparaît :
 
 ![Paramètres du référentiel GitHub](media/author-visually/github-integration-image2.png)
 
@@ -181,26 +208,26 @@ Le volet affiche les paramètres du dépôt de code Azure Repos suivants :
 | **RepositoryName**                                       | Le nom de votre référentiel de code GitHub. Les comptes GitHub contiennent des référentiels Git pour gérer votre code source. Vous pouvez créer un nouveau référentiel ou utiliser un référentiel existant déjà présent dans le compte.                                                                                                                                                                                                                              |                    |
 | **Branche de collaboration**                                 | Votre branche de collaboration GitHub utilisée pour la publication. Maître par défaut. Modifiez ce paramètre au cas où vous souhaitez publier des ressources à partir d’une autre branche.                                                                                                                                                                                                                                                               |                    |
 | **Dossier racine**                                          | Votre dossier racine de votre branche de collaboration GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |
-| **Import existing Data Factory resources to repository** (Importer des ressources Data Factory existantes dans le référentiel) | Permet de spécifier s’il faut importer des ressources de fabrique de données existantes à partir de l’expérience utilisateur **Canevas de création** dans un référentiel GitHub. Activez la case pour importer vos ressources de fabrique de données dans le référentiel Git associé au format JSON. Cette action exporte chaque ressource individuellement (autrement dit, les services et jeux de données liés sont exportés dans des fichiers JSON distincts). Lorsque cette case n’est pas activée, les ressources existantes ne sont pas importées. | Activée (par défaut) |
+| **Import existing Data Factory resources to repository** (Importer des ressources Data Factory existantes dans le référentiel) | Permet de spécifier s’il faut importer des ressources de fabrique de données existantes à partir de l’expérience utilisateur  **Canevas de création**  dans un référentiel GitHub. Activez la case pour importer vos ressources de fabrique de données dans le référentiel Git associé au format JSON. Cette action exporte chaque ressource individuellement (autrement dit, les services et jeux de données liés sont exportés dans des fichiers JSON distincts). Lorsque cette case n’est pas activée, les ressources existantes ne sont pas importées. | Activée (par défaut) |
 | **Branche sur laquelle importer la ressource**                        | Indique dans quelle branche les ressources de la fabrique de données (pipelines, ensembles de données, services liés, etc.) sont importées. Vous pouvez importer des ressources dans l’une des branches suivantes : a. Collaboration b. Créer c. Utiliser l’existant                                                                                                                                                                                                     |                    |
 
-#### <a name="configuration-method-2-public-repo-ux-authoring-canvas"></a>Méthode de configuration 2 (référentiel public) : canevas de création de l’expérience utilisateur
+#### <a name="configuration-method-2-public-repo-ux-authoring-canvas"></a>Méthode de configuration 2 (référentiel public) : Canevas de création de l’expérience utilisateur
 
-Dans l’expérience utilisateur Azure Data Factory **Canevas de création**, recherchez votre fabrique de données. Sélectionnez le menu déroulant **Fabrique de données** et cliquez sur **Configure code repository** (Configurer le référentiel de code)à.
+Dans l’expérience utilisateur Azure Data Factory  **Canevas de création**, recherchez votre fabrique de données. Sélectionnez le menu déroulant  **Fabrique de données**  et cliquez sur  **Configurer le référentiel de code**.
 
-Un volet de configuration apparaît. Pour plus d’informations sur les paramètres de configuration, consultez les descriptions dans *Méthode de configuration 1* ci-dessus.
+Un volet de configuration apparaît. Pour plus d’informations sur les paramètres de configuration, consultez les descriptions dans  *Méthode de configuration 1* ci-dessus.
 
 ### <a name="configure-a-github-enterprise-repository-with-azure-data-factory"></a>Configurer un référentiel GitHub Enterprise avec Azure Data Factory
 
 Vous pouvez configurer un référentiel GitHub Enterprise avec une fabrique de données via deux méthodes.
 
- #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Méthode de configuration 1 (référentiel Entreprise) : page Let’s get started (Prise en main)
+ #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Méthode de configuration 1 (référentiel Entreprise) : Page Prise en main
 
-Dans Azure Data Factory, accédez à la page **Let’s get started** (Prise en main). Sélectionnez **Configure Code Repository** (Configurer le référentiel de code) :
+Dans Azure Data Factory, accédez à la page  **Let's get started**  (Prise en main). Sélectionnez  **Configurer le référentiel de code** :
 
 ![Page de prise en main de Data Factory](media/author-visually/github-integration-image1.png)
 
-Le volet de configuration **Paramètres du référentiel** apparaît :
+Le volet de configuration  **Paramètres du référentiel**  apparaît :
 
 ![Paramètres du référentiel GitHub](media/author-visually/github-integration-image3.png)
 
@@ -215,14 +242,14 @@ Le volet affiche les paramètres du dépôt de code Azure Repos suivants :
 | **RepositoryName**                                       | Le nom de votre référentiel de code GitHub. Les comptes GitHub contiennent des référentiels Git pour gérer votre code source. Vous pouvez créer un nouveau référentiel ou utiliser un référentiel existant déjà présent dans le compte.                                                                                                                                                                                                                              |                    |
 | **Branche de collaboration**                                 | Votre branche de collaboration GitHub utilisée pour la publication. Maître par défaut. Modifiez ce paramètre au cas où vous souhaitez publier des ressources à partir d’une autre branche.                                                                                                                                                                                                                                                               |                    |
 | **Dossier racine**                                          | Votre dossier racine de votre branche de collaboration GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |
-| **Import existing Data Factory resources to repository** (Importer des ressources Data Factory existantes dans le référentiel) | Permet de spécifier s’il faut importer des ressources de fabrique de données existantes à partir de l’expérience utilisateur **Canevas de création** dans un référentiel GitHub. Activez la case pour importer vos ressources de fabrique de données dans le référentiel Git associé au format JSON. Cette action exporte chaque ressource individuellement (autrement dit, les services et jeux de données liés sont exportés dans des fichiers JSON distincts). Lorsque cette case n’est pas activée, les ressources existantes ne sont pas importées. | Activée (par défaut) |
+| **Import existing Data Factory resources to repository** (Importer des ressources Data Factory existantes dans le référentiel) | Permet de spécifier s’il faut importer des ressources de fabrique de données existantes à partir de l’expérience utilisateur  **Canevas de création**  dans un référentiel GitHub. Activez la case pour importer vos ressources de fabrique de données dans le référentiel Git associé au format JSON. Cette action exporte chaque ressource individuellement (autrement dit, les services et jeux de données liés sont exportés dans des fichiers JSON distincts). Lorsque cette case n’est pas activée, les ressources existantes ne sont pas importées. | Activée (par défaut) |
 | **Branche sur laquelle importer la ressource**                        | Indique dans quelle branche les ressources de la fabrique de données (pipelines, ensembles de données, services liés, etc.) sont importées. Vous pouvez importer des ressources dans l’une des branches suivantes : a. Collaboration b. Créer c. Utiliser l’existant                                                                                                                                                                                                     |                    |
 
-#### <a name="configuration-method-2-enterprise-repo-ux-authoring-canvas"></a>Méthode de configuration 2 (référentiel Entreprise) : canevas de création de l’expérience utilisateur
+#### <a name="configuration-method-2-enterprise-repo-ux-authoring-canvas"></a>Méthode de configuration 2 (référentiel Entreprise) : Canevas de création de l’expérience utilisateur
 
-Dans l’expérience utilisateur Azure Data Factory **Canevas de création**, recherchez votre fabrique de données. Sélectionnez le menu déroulant **Fabrique de données** et cliquez sur **Configure code repository** (Configurer le référentiel de code)à.
+Dans l’expérience utilisateur Azure Data Factory  **Canevas de création**, recherchez votre fabrique de données. Sélectionnez le menu déroulant  **Fabrique de données**  et cliquez sur  **Configurer le référentiel de code**.
 
-Un volet de configuration apparaît. Pour plus d’informations sur les paramètres de configuration, consultez les descriptions dans *Méthode de configuration 1* ci-dessus.
+Un volet de configuration apparaît. Pour plus d’informations sur les paramètres de configuration, consultez les descriptions dans  *Méthode de configuration 1* ci-dessus.
 
 ## <a name="use-the-expression-language"></a>Utiliser le langage d’expression
 Vous pouvez spécifier des expressions pour les valeurs de propriété en utilisant le langage d’expression pris en charge par Azure Data Factory.

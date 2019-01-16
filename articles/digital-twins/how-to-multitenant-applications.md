@@ -1,60 +1,76 @@
 ---
 title: Applications multilocataires avec Azure Digital Twins | Microsoft Docs
-description: Présentation de l’inscription des locataires Azure Active Directory de vos clients avec Azure Digital Twins
+description: Comment configurer des applications Azure Active Directory mutualisées pour Azure Digital Twins.
 author: mavoge
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 01/03/2019
 ms.author: mavoge
-ms.openlocfilehash: a2d9ece119003c341f49ee03d735d5636b179a32
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2b4f9bf87122f047e496dca1dbd425db8ad7c16c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259885"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119966"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Applications multilocataires avec Azure Digital Twins
 
-Les développeurs qui utilisent Azure Digital Twins souhaitent probablement créer des applications multilocataires. Une *application multilocataires* est une instance approvisionnée qui prend en charge plusieurs locataires. Chaque client possède ses propres données et privilèges.
+Les développeurs de solutions qui créent sur Azure Digital Twins peuvent vouloir prendre en charge plusieurs clients avec un service ou une solution uniques. En fait, les applications *mutualisées* font partie des configurations Azure Digital Twins les plus courantes.
 
-Ce document explique en détail comment créer une application multilocataire Azure Digital Twins prenant en charge plusieurs locataires et clients Azure Active Directory (Azure AD).
+Ce document décrit comment configurer une application Azure Digital Twins pour prendre en charge plusieurs locataires et clients Azure Active Directory.
 
-## <a name="scenario-summary"></a>Résumé du scénario
+## <a name="multitenancy"></a>Mutualisation
 
-Dans ce scénario, vous avez un développeur D et un client C :
+Une ressource *mutualisée* est une instance approvisionnée qui prend en charge plusieurs clients. Chaque client possède ses propres données et privilèges. L’expérience de chaque client est isolée de celles des autres de sorte que l’« affichage » de son application est distinct.
 
-- Le développeur D dispose d’un abonnement Azure avec un locataire Azure AD.
-- Le développeur D a déployé une instance Azure Digital Twins dans son abonnement Azure.
-- Les utilisateurs du locataire AD Azure du développeur D peuvent obtenir des jetons auprès du service Azure Digital Twins, puisqu’Azure AD a créé un principal de service dans le locataire Azure AD du développeur D.
-- Le développeur D crée une application mobile qui s’intègre directement à l’API de gestion d’Azure Digital Twins.
-- Le développeur D autorise le client C à utiliser l’application mobile.
-- Le client C doit être autorisé à utiliser l’API de gestion Azure Digital Twins dans l’application du développeur D.
+Pour en savoir plus sur la mutualisation, voir [Applications mutualisées dans Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications).
 
-  > [!IMPORTANT]
-  > - Lorsque le client C se connecte à l’application du développeur D, celle-ci ne peut plus acquérir de jetons permettant aux utilisateurs du client C de communiquer avec l’API de gestion.
-  > - Azure AD génère une erreur indiquant qu’Azure Digital Twins na pas été reconnu dans l’annuaire du client C.
+## <a name="problem-scenario"></a>Scénario du problème
 
-## <a name="solution"></a>Solution
+Dans ce scénario, imaginez un développeur qui crée une solution Azure Digital Twins (**DÉVELOPPEUR**) et un client qui utilise cette solution (**CLIENT**) :
 
-Pour le scénario précédent, les actions suivantes doivent être effectuées afin de créer un principal de service Azure Digital Twins dans le locataire Azure AD du client C :
+- **DÉVELOPPEUR** dispose d’un abonnement Azure avec un locataire Azure Active Directory.
+- **DÉVELOPPEUR** déploie une instance Azure Digital Twins dans son abonnement Azure. Azure Active Directory a créé automatiquement un principal du service dans le locataire Azure Active Directory de **DÉVELOPPEUR**.
+- Les utilisateurs au sein du locataire Azure Active Directory de **DÉVELOPPEUR** peuvent ensuite [acquérir des jetons OAuth 2.0](./security-authenticating-apis.md) à partir du service Azure Digital Twins.
+- **DÉVELOPPEUR** crée à présent une application mobile qui s’intègre directement avec les API de gestion d’Azure Digital Twins.
+- **DÉVELOPPEUR** autorise **CLIENT** à utiliser l’application mobile.
+- **CLIENT** doit être autorisé à utiliser l’API de gestion Azure Digital Twins au sein de l’application de **DÉVELOPPEUR**.
 
-- Si le client C n’a pas encore d’abonnement Azure dans le locataire Azure AD :
+Problème :
 
-  - L’administrateur de locataires Azure AD du client C doit acquérir un [abonnement Azure avec paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/).
-  - L’administrateur de locataires Azure AD du client C doit ensuite [lier son locataire au nouvel abonnement](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
+- Lorsque **CLIENT** se connecte à l’application de **DÉVELOPPEUR**, l’application ne peut pas acquérir de jetons permettant aux utilisateurs de **CLIENT** de s’authentifier auprès des API de gestion d’Azure Digital Twins.
+- Une exception est levée dans Azure Active Directory, indiquant qu’Azure Digital Twins n’est pas reconnu l’annuaire de **CLIENT**.
 
-- Dans le [portail Azure](https://portal.azure.com), l’administrateur de locataires Azure AD du client C doit ensuite :
+## <a name="problem-solution"></a>Solution au problème
+
+Pour résoudre le scénario de problème précédent, les actions suivantes sont nécessaires pour créer un principal du service Azure Digital Twins dans le locataire Azure Active Directory de **CLIENT** :
+
+- Si **CLIENT** n’a pas encore d’abonnement Azure avec un locataire Azure Active Directory :
+
+  - L’administrateur de locataires Azure Active Directory de **CLIENT** doit acquérir un [abonnement Azure avec paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/).
+  - L’administrateur de locataires Azure Active Directory de **CLIENT** doit ensuite [lier son locataire au nouvel abonnement](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity).
+
+- Dans le [portail Azure](https://portal.azure.com), l’administrateur de locataires Azure Active Directory de **CLIENT** effectue ensuite les opérations suivantes :
 
   1. Ouvrir **Abonnements**
-  1. Sélectionner l’abonnement qui comprend le locataire Azure AD à utiliser dans l’application du développeur D.
+  1. Sélectionner l’abonnement qui comprend le locataire Azure Active Directory à utiliser dans l’application de **DÉVELOPPEUR**.
+
+     ![Abonnements Azure Active Directory][1]
+
   1. Sélectionner les **Fournisseurs de ressources**
   1. Rechercher **Microsoft.IoTSpaces**
   1. Sélectionnez **Inscription**.
+
+     ![Fournisseurs de ressources Azure Active Directory][2]
   
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’utilisation de fonctions définies par l’utilisateur avec Azure Digital Twins, consultez [Fonctions définies par l’utilisateur Azure Digital Twins](how-to-user-defined-functions.md).
+- Pour plus d’informations sur l’utilisation de fonctions définies par l’utilisateur avec Azure Digital Twins, voir [Guide pratique pour créer des fonctions définies par l’utilisateur dans Azure Digital Twins](./how-to-user-defined-functions.md).
 
-Pour savoir comment utiliser le contrôle d’accès en fonction du rôle dans le but de renforcer la sécurité de l’application avec des attributions de rôles, consultez [Contrôle d’accès en fonction du rôle Azure Digital Twins](security-create-manage-role-assignments.md).
+- Pour savoir comment utiliser le contrôle d’accès en fonction du rôle dans le but de renforcer la sécurité de l’application avec des attributions de rôles, voir [Créer et gérer des attributions de rôle dans Azure Digital Twins](./security-create-manage-role-assignments.md).
+
+<!-- Images -->
+[1]: media/multitenant/ad-subscriptions.png
+[2]: media/multitenant/ad-resource-providers.png

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 8bb964308e11d238def4eed3f194ffc9ef8ab086
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: abaad7eabf92b6f3f53d7807af132959533552b9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840161"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076958"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Gestion des prospects pour la Place de marché cloud
 
@@ -87,11 +87,11 @@ Une fois les paramètres techniques configurés, vous devez incorporer ces prosp
 
 **Impossible d’enregistrer le prospect dans Dynamics CRM en utilisant AAD. Exception:: Erreur de validation des informations d’identification. Le secret client fourni n’est pas valide.** 
 
-> Résolution : connectez-vous au portail Azure, vérifiez si la clé d’application correspond à celle indiquée dans le portail Cloud Partner. Générez un mot de passe en suivant les instructions fournies à l’étape 10 (sous Azure Active Directory, à partir d’[ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
+> Résolution : Connectez-vous au portail Azure, vérifiez si la clé d’application correspond à celle indiquée dans le portail Cloud Partner. Générez un mot de passe en suivant les instructions fournies à l’étape 10 (sous Azure Active Directory, à partir d’[ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
 **Impossible d’enregistrer le prospect dans Dynamics CRM. LastCRMError : Le canal de demande a dépassé le délai de réponse après 00:02:00. Augmentez la valeur de délai d’attente passée à l’appel de Request ou augmentez la valeur de SendTimeout de la liaison. Le temps alloué à cette opération fait peut-être partie d’un délai d’attente plus long.**  
 
-> Résolution : connectez-vous au portail Cloud Partner puis, dans Détails de la vitrine >> Destination des prospects >> URL, vérifiez s’il s’agit d’une instance Dynamics CRM valide
+> Résolution : Connectez-vous au portail Cloud Partner puis, dans Détails de la vitrine >> Destination des prospects >> URL, vérifiez s’il s’agit d’une instance Dynamics CRM valide
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/13/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8cfbc72e239a7a5b38cee6752803e79735e2adc9
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 775de554f39df8359c3852a2d7fa876fd12199d2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321272"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190824"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Montée en charge d’Azure Analysis Services
 
@@ -74,15 +74,19 @@ Dans **Vue d’ensemble** > Modèle > **Synchroniser le modèle**.
 ![Curseur de montée en charge](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>API REST
+
 Utilisez l’opération de **synchronisation**.
 
 #### <a name="synchronize-a-model"></a>Synchroniser un modèle   
+
 `POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 #### <a name="get-sync-status"></a>Obtenir l’état de la synchronisation  
+
 `GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
+
 Avant d’utiliser PowerShell, [installez ou mettez à jour le dernier module AzureRM](https://github.com/Azure/azure-powershell/releases). 
 
 Pour définir le nombre de réplicas de la requête, utilisez [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Spécifiez le paramètre `-ReadonlyReplicaCount` facultatif.
@@ -103,7 +107,7 @@ Pour SSMS, SSDT et les chaînes de connexion dans PowerShell, les applications d
 
 **Problème :** les utilisateurs obtiennent l’erreur **Cannot find server ’\<Name of the server>’ instance in connection mode ’ReadOnly’** (Impossible de trouver l’instance de serveur ’<Nom du serveur>’ en mode de connexion ’Lecture seule’).
 
-**Solution :** lors de la sélection de l’option **Separate the processing server from the querying pool** (Séparer le serveur de traitement du pool de requêtes), les connexions client utilisant la chaîne de connexion par défaut (sans :rw) sont redirigées vers des réplicas de pool de requêtes. Si les réplicas du pool de requêtes ne sont pas encore en ligne, car la synchronisation n’est pas terminée, les connexions client redirigées peuvent échouer. Pour empêcher l’échec des connexions, choisissez de ne pas séparer le serveur de traitement du pool de requêtes jusqu’à ce qu’un Scale-out et une opération de synchronisation soient terminés. Vous pouvez utiliser les métriques Mémoire et QPU pour surveiller l’état de synchronisation.
+**Solution :** lors de la sélection de l’option **Separate the processing server from the querying pool** (Séparer le serveur de traitement du pool de requêtes), les connexions client utilisant la chaîne de connexion par défaut (sans :rw) sont redirigées vers des réplicas de pool de requêtes. Si les réplicas du pool de requêtes ne sont pas encore en ligne, car la synchronisation n’est pas terminée, les connexions client redirigées peuvent échouer. Pour empêcher l’échec des connexions, choisissez de ne pas séparer le serveur de traitement du pool de requêtes jusqu’à ce qu’un Scale-out et une opération de synchronisation soient terminés. Vous pouvez utiliser les métriques Mémoire et QPU pour surveiller l’état de synchronisation.
 
 ## <a name="related-information"></a>Informations connexes
 

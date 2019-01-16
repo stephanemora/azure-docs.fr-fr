@@ -5,17 +5,18 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e797f1faf249a1ad1eebbd46984829de5f087936
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f10bae780ebb05d3450f4dab7e53fa87fe25b022
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958667"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189551"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualisation asynchrone avec l’API REST
+
 À l’aide de n’importe quel langage de programmation qui prend en charge les appels REST, vous pouvez effectuer des opérations d’actualisation des données asynchrones sur vos modèles tabulaires Azure Analysis Services. Cela inclut la synchronisation des réplicas en lecture seule pour la montée en puissance des requêtes. 
 
 Les opérations d’actualisation des données peuvent prendre un certain temps en fonction de plusieurs facteurs, notamment le volume de données, le niveau d’optimisation à l’aide de partitions, etc. Ces opérations sont généralement appelées avec des méthodes existantes, telles que [TOM](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (modèle d’objet tabulaire),les cmdlets [PowerShell](https://docs.microsoft.com/sql/analysis-services/powershell/analysis-services-powershell-reference) ou [TMSL](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) (langage de script de modèle tabulaire). Toutefois, ces méthodes requièrent souvent des connexions HTTP non fiables à longue durée d’exécution.
@@ -94,6 +95,7 @@ Le corps doit ressembler à ceci :
 ```
 
 ### <a name="parameters"></a>parameters
+
 La spécification des paramètres n’est pas nécessaire. La valeur par défaut est appliquée.
 
 |NOM  |type  |Description  |Default  |
@@ -184,11 +186,11 @@ Pour vérifier l’état d’une opération de synchronisation, utilisez le verb
 
 Valeurs possibles de `syncstate` :
 
-- 0 : réplication. Les fichiers de base de données sont en cours de réplication vers un dossier cible.
-- 1 : réalimentation. La base de données est en cours réalimentation sur une ou plusieurs instances de serveur en lecture seule.
-- 2 : terminé. L’opération de synchronisation est terminée.
-- 3 : échec. L’opération de synchronisation a échoué.
-- 4 : finalisation. L’opération de synchronisation est terminée, mais des étapes de nettoyage sont en cours.
+- 0 : Réplication. Les fichiers de base de données sont en cours de réplication vers un dossier cible.
+- 1: Réalimentation. La base de données est en cours réalimentation sur une ou plusieurs instances de serveur en lecture seule.
+- 2 : Terminé. L’opération de synchronisation est terminée.
+- 3 : Échec. L’opération de synchronisation a échoué.
+- 4 : Finalisation. L’opération de synchronisation est terminée, mais des étapes de nettoyage sont en cours.
 
 ## <a name="code-sample"></a>Exemple de code
 

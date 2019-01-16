@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: ad711fe998a3c250775c5d4f4d76305ffb7cf860
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a5943c1d2e6b04564e1de732b8f3924a67393753
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244591"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065679"
 ---
 # <a name="azure-network-security-overview"></a>Vue d’ensemble de la sécurité du réseau Azure
 
@@ -104,7 +104,7 @@ Par exemple, vous pouvez disposer d’une appliance de sécurité de réseau vir
 
 Le [tunneling forcé](https://www.petri.com/azure-forced-tunneling) est un mécanisme que vous pouvez utiliser pour empêcher vos services de se connecter aux appareils sur Internet. Par contre, cela n’empêche pas les services d’accepter des connexions entrantes ni d’y répondre. Les serveurs web frontaux doivent pouvoir répondre aux demandes provenant d’hôtes Interne, ce qui explique pourquoi le trafic Internet est autorisé à entrer sur ces serveurs web et pourquoi les serveurs web sont autorisés à y répondre.
 
-Un serveur web frontal ne devrait par contre pas pouvoir initier une requête sortante. Une telle requête pourrait représenter un risque de sécurité car ces connexions peuvent être utilisées pour télécharger des programmes malveillants. Même si vous voulez autoriser ces serveurs frontaux à initier des requêtes sortantes vers Internet, vous pourriez les obliger à passer par les serveurs proxy web locaux. Ainsi, vous pouvez utiliser les fonctionnalités de journalisation et de filtrage des URL.
+Un serveur web frontal ne doit par contre pas pouvoir initier une requête sortante. Une telle requête pourrait représenter un risque de sécurité car ces connexions peuvent être utilisées pour télécharger des programmes malveillants. Même si vous voulez autoriser ces serveurs frontaux à initier des requêtes sortantes vers Internet, vous pourriez les obliger à passer par les serveurs proxy web locaux. Ainsi, vous pouvez utiliser les fonctionnalités de journalisation et de filtrage des URL.
 
 Pour éviter ce problème, vous pouvez donc utiliser le tunneling forcé. Lorsque vous activez le tunneling forcé, toutes les connexions à Internet passent obligatoirement par votre passerelle locale. Vous pouvez configurer le tunneling forcé en utilisant les UDR.
 
@@ -127,7 +127,7 @@ Vos besoins en matière de sécurité peuvent inclure :
 * Un contrôle d’accès aux applications
 * Une protection DDoS supplémentaire (en supplément de la protection DDoS assurée par la structure Azure)
 
-Ces fonctionnalités avancées de sécurité réseau peuvent être mises en œuvre via une solution de partenaire Azure. Pour connaître les dernières solutions de sécurité réseau des partenaires Azure, rendez-vous sur la [Place de marché Azure](https://azure.microsoft.com/marketplace/) et recherchez les mots clés « sécurité » et « sécurité réseau ».
+Ces fonctionnalités avancées de sécurité réseau peuvent être mises en œuvre via une solution de partenaire Azure. Pour connaître les dernières solutions de sécurité réseau des partenaires Azure, rendez-vous sur la [Place de marché Azure](https://azure.microsoft.com/marketplace/) et effectuez une recherche sur les mots clés « sécurité » et « sécurité réseau ».
 
 ## <a name="azure-firewall"></a>Pare-feu Azure
 
@@ -171,7 +171,7 @@ En savoir plus :
 
 ### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-vpn"></a>Connecter votre réseau local à un réseau virtuel à l’aide d’un VPN
 
-Imaginons que vous souhaitiez connecter l’ensemble ou une partie de votre réseau d’entreprise à un réseau virtuel. Il s’agit d’un scénario d’informatique hybride courant dans lequel les organisations [étendent leur centre de données local dans Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). Dans de nombreux cas, les organisations hébergent une partie du service dans Azure et une partie en local, par exemple lorsque la solution comprend des serveurs web frontaux dans Azure et des bases de données principales locales. Ces types de connexions « intersite » offrent une gestion plus sécurisée des ressources hébergées dans Azure et prend en charge des scénarios tels que l’extension des contrôleurs de domaine Active Directory dans Azure.
+Imaginons que vous souhaitiez connecter l’ensemble ou une partie de votre réseau d’entreprise à un réseau virtuel. Il s’agit d’un scénario d’informatique hybride courant dans lequel les organisations [étendent leur centre de données local dans Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). Dans de nombreux cas, les organisations hébergent une partie du service dans Azure et une partie en local, par exemple lorsque la solution comprend des serveurs web frontaux dans Azure et des bases de données principales locales. Ces types de connexions « intersite » offrent une gestion plus sécurisée des ressources hébergées dans Azure et prennent en charge des scénarios tels que l’extension des contrôleurs de domaine Active Directory dans Azure.
 
 Pour ce faire, vous pouvez utiliser un [VPN de site à site](https://www.techopedia.com/definition/30747/site-to-site-vpn). La différence entre un VPN de site à site et un VPN de point à site est que ce dernier connecte un seul appareil à un réseau virtuel. Un VPN de site à site connecte un réseau entier (par exemple, votre réseau local) à un réseau virtuel. Une connexion VPN de site à site vers un réseau virtuel utilise le protocole VPN hautement sécurisé en mode de tunneling IPsec.
 
@@ -256,7 +256,7 @@ En savoir plus :
 
 ### <a name="global-load-balancing"></a>Équilibrage de charge global
 
-Certaines organisations souhaitent bénéficier du plus haut niveau de disponibilité possible. Pour y parvenir, une option consiste à héberger les applications dans des centres de données répartis dans le monde entier. Lorsqu’une application est hébergée dans des centres de données répartis dans le monde entier, celle-ci restera opérationnelle même si une région géopolitique entière devient indisponible.
+Certaines organisations souhaitent bénéficier du plus haut niveau de disponibilité possible. Pour y parvenir, une option consiste à héberger les applications dans des centres de données répartis dans le monde entier. Lorsqu’une application est hébergée dans des centres de données répartis dans le monde entier, celle-ci reste opérationnelle même si une région géopolitique entière devient indisponible.
 
 Cette stratégie d’équilibrage de charge peut également contribuer à améliorer les performances. Vous pouvez diriger les demandes du service vers le centre de données le plus proche de l’appareil effectuant la requête.
 
@@ -316,16 +316,16 @@ En savoir plus :
 Les attaques par déni de service distribué (DDoS) représentent certains des problèmes de disponibilité et de sécurité majeurs auxquels sont confrontés les clients qui déplacent leurs applications vers le cloud. Une attaque DDoS tente d’épuiser les ressources d’une application afin de la rendre indisponible aux utilisateurs légitimes. Les attaques DDoS peuvent être ciblées sur n’importe quel point de terminaison qui est publiquement accessible via Internet.
 Microsoft offre une protection DDoS **De base** dans le cadre de la plateforme Azure. Elle est gratuite et comprend la surveillance Always On et l’atténuation en temps réel des attaques courantes au niveau du réseau. Outre les protections incluses avec la protection DDoS **De base**, vous pouvez activer l’option **Standard**. Les fonctionnalités du service Protection DDos Standard sont les suivantes :
 
-* **Intégration à la plateforme native :** intégré en mode natif à Azure. Inclut la configuration par le biais du portail Azure. Le service Protection DDos Standard comprend vos ressources et leur configuration.
-* **Protection clés en main :** la configuration simplifiée protège immédiatement toutes les ressources situées sur un réseau virtuel dès que le service Protection DDos Standard est activé. Aucune définition ou intervention de l’utilisateur n’est nécessaire. Le service Protection DDoS Standard atténue de façon instantanée et automatique l’attaque une fois que celle-ci est détectée.
-* **Surveillance permanente du trafic :** vos modèles de trafic d’application sont analysés 24h/24 et 7j/7, à la recherche d’indicateurs DDoS. L’atténuation est effectuée en cas de dépassement des stratégies de protection.
+* **Intégration de la plateforme native :** Intégré en natif dans Azure. Inclut la configuration par le biais du portail Azure. Le service Protection DDos Standard comprend vos ressources et leur configuration.
+* **Protection clés en main :** La configuration simplifiée protège immédiatement toutes les ressources situées sur un réseau virtuel dès que DDoS Protection Standard est activé. Aucune définition ou intervention de l’utilisateur n’est nécessaire. Le service Protection DDoS Standard atténue de façon instantanée et automatique l’attaque une fois que celle-ci est détectée.
+* **Surveillance permanente du trafic :** Vos modèles de trafic d’application sont surveillés 24h/24 et 7j/7, à la recherche d’indicateurs d’attaques DDoS. L’atténuation est effectuée en cas de dépassement des stratégies de protection.
 * **Rapports de prévention des attaques** : utilisent des données de flux réseau agrégées pour fournir des informations détaillées sur les attaques ciblant vos ressources.
 * **Journaux de flux de prévention des attaques** : permettent de passer en revue le trafic abandonné, le trafic transféré et d’autres données d’attaque en temps quasi réel pendant une attaque DDoS active.
-* **Réglage adaptatif :** le profilage intelligent du trafic étudie le trafic de votre application au fil du temps pour sélectionner et mettre à jour le profil le plus adapté pour votre service. Le profil s’ajuste en fonction des modifications du trafic au fil du temps. Protection des couches 3 à 7 : offre une protection DDoS de pile complète, quand elle est utilisée avec un pare-feu d’application web.
-* **Échelle d’atténuation étendue :** plus de 60 types d’attaques différents peuvent être atténués avec une protection globale contre les attaques DDoS les plus connues.
-* **Métriques d’attaque :** des métriques récapitulatives de chaque attaque sont accessibles via Azure Monitor.
-* **Alerte d’attaque :** vous pouvez configurer des alertes au début et à l’arrêt d’une attaque, ainsi que pendant sa durée, à l’aide de métriques d’attaque intégrées. Les alertes s’intègrent à vos logiciels opérationnels tel que Microsoft Azure Log Analytics, Splunk, Stockage Azure, votre messagerie électronique et le portail Azure.
-* **Maîtrise des coûts :** si vous documentez les attaques DDoS, vous bénéficiez en retour de crédits pour les services de scale-out et de montée en charge des applications.
+* **Optimisation adaptative :** Le profilage intelligent du trafic étudie le trafic de votre application au fil du temps pour sélectionner et mettre à jour le profil le plus adapté pour votre service. Le profil s’ajuste en fonction des modifications du trafic au fil du temps. Protection des couches 3 à 7 : Offre une protection DDoS de pile complète, quand elle est utilisée avec un pare-feu d’application web.
+* **Échelle de prévention étendue :** Plus de 60 types d’attaques différents peuvent être contrées, avec une protection globale contre les attaques DDoS les plus connues.
+* **Métriques des attaques :** Des métriques récapitulatives de chaque attaque sont accessibles via Azure Monitor.
+* **Alerte d’attaque :** Vous pouvez configurer des alertes pour le début et la fin d’une attaque, ainsi que pendant qu’elle se produit, avec des métriques d’attaque intégrées. Les alertes s’intègrent à vos logiciels opérationnels tel que Microsoft Azure Log Analytics, Splunk, Stockage Azure, votre messagerie électronique et le portail Azure.
+* **Maîtrise des coûts :**  Si vous documentez les attaques DDoS, vous bénéficiez en retour de crédits pour les services de scale-out d’application et de transfert de données.
 * **DDoS Rapid Response** : les clients du service Protection DDoS standard peuvent désormais contacter l’équipe du service Rapid Response pendant une attaque active. Le service DRR peut aider en enquêtant sur l’attaque, en personnalisant les atténuations des risques pendant une attaque et en publiant une analyse de cette dernière.
 
 
@@ -394,7 +394,7 @@ En savoir plus :
 
 La journalisation au niveau du réseau est un élément clé de tout scénario de sécurité réseau. Dans Azure, vous pouvez consigner les informations obtenues pour les NSG afin de collecter les données de journalisation au niveau du réseau. La journalisation des groupes de sécurité réseau vous permet de consigner les données des journaux suivants :
 
-* [Journaux d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Utilisez ces journaux pour consulter toutes les opérations envoyées à vos abonnements Azure. Ces journaux sont activés par défaut et peuvent être affichés dans le portail Azure. Ils étaient auparavant nommés « Journaux d’audit » ou « Journaux des opérations ».
+* [Journaux d’activité](../azure-monitor/platform/activity-logs-overview.md). Utilisez ces journaux pour consulter toutes les opérations envoyées à vos abonnements Azure. Ces journaux sont activés par défaut et peuvent être affichés dans le portail Azure. Ils étaient auparavant nommés « Journaux d’audit » ou « Journaux des opérations ».
 * Journaux d’événements. Ces journaux permettent de savoir quelles règles de groupe de sécurité réseau (NSG) ont été appliquées.
 * Journaux des compteurs. Ces journaux affichent le nombre de fois où chaque règle NSG a été appliquée pour refuser ou autoriser le trafic.
 

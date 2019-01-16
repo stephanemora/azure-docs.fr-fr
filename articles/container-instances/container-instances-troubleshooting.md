@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 01/08/2019
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 062308622e3170a4eb8f75a96300f04f683a90e7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 609d52f9f2c5dce1bbfd668e94db25aca3d52f69
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820356"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119048"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Résoudre les problèmes courants dans Azure Container Instances
 
@@ -48,7 +48,7 @@ Si l’image spécifiée n’est pas prise en charge par Azure Container Instanc
 
 Cette erreur se produit généralement lorsque vous déployez des images Windows qui sont basées sur une version du canal semi-annuel (SAC). Par exemple, les versions Windows 1709 et 1803 sont des versions du SAC et génèrent cette erreur lors du déploiement.
 
-Azure Container Instances prend en charge les images Windows basées sur des versions du canal de maintenance à long terme (LTSC). Pour résoudre ce problème lorsque vous déployez les conteneurs Windows, déployez toujours les images basées sur LTSC.
+Actuellement, Azure Container Instances prend en charge les images Windows basées sur la version du **canal de maintenance à long terme (LTSC) Windows Server 2016**. Pour résoudre ce problème lorsque vous déployez les conteneurs Windows, déployez toujours les images basées sur Windows Server 2016 (LTSC). Les images basées sur Windows Server 2019 (LTSC) ne sont pas prises en charge.
 
 Pour plus d’informations sur les versions de LTSC et du SAC Windows, consultez [Vue d’ensemble du canal semi-annuel du serveur Windows][windows-sac-overview].
 

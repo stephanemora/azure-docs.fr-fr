@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/02/2019
-ms.openlocfilehash: f756f043a7ab3c9086b21b8bdb88a5a6a7ed60df
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.date: 01/08/2019
+ms.openlocfilehash: 9d5a1493316fbfa9a703655f37a40276ee3ffaf7
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001598"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156814"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Niveaux de service vCore, Azure Hybrid Benefit et migration
 
@@ -66,6 +66,29 @@ Consultez [SQL Database FAQ](sql-database-faq.md) (FAQ de SQL Database) pour obt
 Dans le modèle d’achat basé sur le nombre de vCores, vous pouvez échanger vos licences existantes avec des tarifs réduits sur SQL Database, en utilisant [Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Cet avantage Azure vous permet d’utiliser vos licences SQL Server locales pour économiser jusqu’à 30 % sur Azure SQL Database, avec Software Assurance.
 
 ![Prix](./media/sql-database-service-tiers/pricing.png)
+
+Azure Hybrid Benefit vous permet de choisir de payer uniquement pour l’infrastructure Azure sous-jacente utilisant votre licence SQL Server existante pour le moteur de base de données SQL (**BasePrice**) ou de payer à la fois pour l’infrastructure sous-jacente et pour la licence de SQL Server (**LicenseIncluded**). Vous pouvez choisir ou modifier votre modèle de licence en utilisant le portail Azure ou l’une des API suivantes.
+
+- Pour définir ou mettre à jour le type de licence en utilisant PowerShell :
+
+  - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase):
+  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql)
+  - [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
+  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql)
+
+- Pour définir ou mettre à jour le type de licence en utilisant Azure CLI :
+
+  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
+  - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
+  - [az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
+  - [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
+
+- Pour définir ou mettre à jour le type de licence en utilisant l’API REST :
+
+  - [Bases de données : Create ou Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
+  - [Bases de données - Mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/update)
+  - [Instances managées - Créer ou Mettre à jour](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
+  - [Instances managées - Mettre à jour](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
 
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>Migration du modèle DTU vers le modèle vCore
 

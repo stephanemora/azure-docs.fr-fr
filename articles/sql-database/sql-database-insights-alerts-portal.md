@@ -1,28 +1,31 @@
 ---
-title: Utiliser le portail Azure pour créer des alertes SQL Database | Microsoft Docs
+title: Configurer des alertes et des notifications à l’aide du portail Azure | Microsoft Docs
 description: Utilisez le portail Azure pour créer des alertes SQL Database permettant de déclencher des notifications ou Automation lorsque les conditions spécifiées sont remplies.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: ddd704b41e6d1463bc635f13135cc9a388e677fe
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 64e743010b3ae615817639d9b2531b2f99979498
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634607"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156900"
 ---
-# <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Utiliser le portail Azure pour créer des alertes pour Azure SQL Database et Data Warehouse
+# <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Créer des alertes pour Azure SQL Database et Data Warehouse à l'aide du portail Azure
 
 ## <a name="overview"></a>Vue d’ensemble
-Cet article explique comment configurer des alertes Azure SQL Database et Data Warehouse à l’aide du portail Azure. Il présente également les meilleures pratiques à adopter pour définir les périodes d’alerte.    
+Cet article explique comment configurer des alertes Azure SQL Database et Data Warehouse à l’aide du portail Azure. Les alertes peuvent vous envoyer un e-mail ou appeler un webhook lorsqu'une métrique (taille de la base de données ou utilisation du processeur, par exemple) atteint le seuil. Il présente également les meilleures pratiques à adopter pour définir les périodes d’alerte.    
+
+> [!IMPORTANT]
+> Cette fonctionnalité n’est pas encore disponible dans Managed Instance. En guise d'alternative, vous pouvez utiliser l’Agent SQL pour envoyer des alertes par e-mail pour certaines métriques en fonction des [vues de gestion dynamique](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 Vous pouvez recevoir une alerte en fonction de métriques de surveillance pour vos services Azure ou d'événements sur ces derniers.
 

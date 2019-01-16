@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 790d05201550461b095cfefd32f0330f37697e0b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4a7e3e9ff414c8f7ba1c49924f1d8659d72ae3e2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970329"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158208"
 ---
 # <a name="azure-api-management-template-resources"></a>Ressources du modèle Gestion des API Azure
 La Gestion des API Azure fournit les types de ressources suivants, utilisables dans les modèles du portail des développeurs.  
@@ -108,7 +108,7 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Voulez-vous vraiment supprimer l’application ?|  
 |WebDevelopersAppNotPublished|Non publié.|  
-|WebDevelopersAppNotSubminted|Non soumis.|  
+|WebDevelopersAppNotSubmitted|Non soumis.|  
 |WebDevelopersAppTableCategoryHeader|Catégorie|  
 |WebDevelopersAppTableNameHeader|NOM|  
 |WebDevelopersAppTableStateHeader|État|  
@@ -287,7 +287,7 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 |OAuth2SendingMethod_QueryParam|Paramètre de requête.|  
 |OAuth2AuthorizationServerGeneralException|Une erreur s’est produite pendant l’autorisation d’accès via {0}|  
 |OAuth2AuthorizationServerCommunicationException|Impossible d’établir une connexion HTTP au serveur d’autorisation ou connexion fermée de façon inattendue.|  
-|WebDocumentationOAuth2GeneralErrorMessage|Une erreur inattendue s’est produite.|  
+|WebDocumentationOAuth2GeneralErrorMessage|Une erreur inattendue s'est produite.|  
 |AuthorizationServerCommunicationException|Une exception de communication du serveur d’autorisation s’est produite. Contactez l’administrateur.|  
 |TextblockSubscriptionKeyHeaderDescription|Clé d’abonnement qui fournit l’accès à cette API. Trouvée dans votre <a href='/developer'\>profil</a\>.|  
 |TextblockOAuthHeaderDescription|Jeton d’accès OAuth 2.0 obtenu de <i\>{0}</i\>. Types d’autorisation pris en charge : <i\>{1}</i\>.|  
@@ -361,7 +361,7 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 |WebProductsUsageLimitsHeader|Limites d’utilisation|  
 |WebProductsYouAreNotSubscribed|Vous êtes abonné à ce produit.|  
 |WebProductsYouRequestedSubscription|Vous avez demandé l’abonnement à ce produit.|  
-|ErrorYouNeedtoAgreeWithLegalTerms|Vous devez accepter les conditions d’utilisation pour pouvoir continuer.|  
+|ErrorYouNeedToAgreeWithLegalTerms|Vous devez accepter les conditions d’utilisation pour pouvoir continuer.|  
 |ButtonLabelAddSubscription|Ajouter un abonnement|  
 |LinkLabelChangeSubscriptionName|Modifier|  
 |ButtonLabelConfirm|Confirmer|  
@@ -517,7 +517,7 @@ La Gestion des API Azure fournit les types de ressources suivants, utilisables d
 |WebDevelopersSecondaryKey|Clé secondaire|  
 |ButtonLabelShowKey|Afficher|  
 |ButtonLabelRenewSubscription|Renouveler|  
-|WebDevelopersSubscriptionReqested|Demandé sur {0}|  
+|WebDevelopersSubscriptionRequested|Demandé sur {0}|  
 |WebDevelopersSubscriptionRequestedState|Demandé|  
 |WebDevelopersSubscriptionTableNameHeader|NOM|  
 |WebDevelopersSubscriptionTableStateHeader|État|  

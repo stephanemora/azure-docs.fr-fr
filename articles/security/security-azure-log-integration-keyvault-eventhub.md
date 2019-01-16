@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: b91d405b8ada1446a477dc10a116b5dfdf349131
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b03c3627d476ec83fda402545c7a7d73346385f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440044"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063911"
 ---
-# <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Didacticiel sur l’intégration des journaux Azure : traiter les événements Azure Key Vault à l’aide d’Event Hubs
+# <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutoriel Azure Log Integration : Traiter les événements Azure Key Vault avec Event Hubs
 
 >[!IMPORTANT]
 > La fonctionnalité d’intégration des journaux Azure sera déconseillée à partir du 01/06/2019. Les téléchargements AzLog seront désactivés le 27 juin 2018. Pour obtenir des conseils pour évoluer, consultez la publication [Utiliser Azure Monitor pour intégrer avec des outils SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). 
 
 Vous pouvez utiliser la solution d’intégration des journaux Azure pour récupérer des événements journalisés et les rendre accessibles à votre système de gestion des événements et des informations de sécurité (SIEM, Security Information and Event Management). Ce didacticiel montre comment utiliser Azure Log Integration pour traiter les fichiers journaux qui sont acquis par le service Azure Event Hubs.
 
-La méthode recommandée pour intégrer les journaux Azure consiste à utiliser le connecteur Azure Monitor de votre fournisseur SIEM et à suivre les [instructions](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) ci-après. Toutefois, si votre fournisseur SIEM ne propose pas de connecteur pour Azure Monitor, vous pouvez utiliser le service Azure Log Integration de façon temporaire (s’il prend en charge votre système SIEM) jusqu’à ce qu’un tel connecteur soit disponible.
+La méthode recommandée pour intégrer des journaux Azure consiste à utiliser le connecteur Azure Monitor de votre fournisseur SIEM et à suivre les [instructions](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) ci-après. Toutefois, si votre fournisseur SIEM ne propose pas de connecteur pour Azure Monitor, vous pouvez utiliser le service Azure Log Integration de façon temporaire (s’il prend en charge votre système SIEM) jusqu’à ce qu’un tel connecteur soit disponible.
 
  
 Ce didacticiel aide à mieux comprendre comment Azure Log Integration et Event Hubs peuvent être utilisés conjointement, et explique chacune des étapes impliquées. Vous pouvez ensuite vous appuyer sur ce que vous avez appris ici pour répondre aux besoins spécifiques de votre entreprise.
@@ -43,7 +43,7 @@ Les informations fournies tout au long de la procédure vous expliquent la final
 
 Pour plus d’informations sur les services mentionnés par ce didacticiel, consultez les articles suivants : 
 
-- [Azure Key Vault](../key-vault/key-vault-whatis.md)
+- [Azure Key Vault](../key-vault/key-vault-whatis.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Intégration des journaux Azure](security-azure-log-integration-overview.md)
 
@@ -80,7 +80,7 @@ Pour exécuter la procédure décrite dans cet article, vous devez disposer des 
 ## <a name="create-supporting-infrastructure-elements"></a>Créer les éléments d’infrastructure sous-jacents
 
 1. Ouvrez une fenêtre PowerShell avec élévation de privilèges et accédez à **C:\Program Files\Microsoft Azure Log Integration**.
-1. Importez les applets de commande AzLog en exécutant le script LoadAzLogModule.ps1. Entrez la commande `.\LoadAzLogModule.ps1`. (Notez la présence des caractères « .\ » dans cette commande.) Le résultat suivant devrait s'afficher :</br>
+1. Importez les applets de commande AzLog en exécutant le script LoadAzLogModule.ps1. Entrez la commande `.\LoadAzLogModule.ps1`. (Notez la présence du caractère « .\" dans cette commande.) Le résultat suivant devrait s'afficher :</br>
 
    ![Liste des modules chargés](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
@@ -93,7 +93,7 @@ Pour exécuter la procédure décrite dans cet article, vous devez disposer des 
 
    ![Fenêtre PowerShell](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 1. Créez des variables pour stocker les valeurs qui seront utilisées par la suite. Entrez chacune des lignes PowerShell suivantes. Vous devrez peut-être ajuster les valeurs pour les faire correspondre à votre environnement.
-    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Votre nom d’abonnement peut être différent. Vous pouvez le voir apparaître dans la sortie de la commande précédente.)
+    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (Votre nom d’abonnement peut être différent. Vous pouvez le voir apparaître dans la sortie de la commande précédente.)
     - ```$location = 'West US'``` (Cette variable est utilisée pour transmettre l’emplacement où les ressources doivent être créées. Vous pouvez redéfinir cette variable sur tout autre emplacement de votre choix.)
     - ```$random = Get-Random```
     - ``` $name = 'azlogtest' + $random``` (Le nom peut correspondre à une chaîne quelconque, mais doit uniquement inclure des lettres minuscules et des chiffres.)
@@ -129,7 +129,7 @@ Pour exécuter la procédure décrite dans cet article, vous devez disposer des 
     
     ```Add-AzureRmLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
     
-    Pour plus d’informations sur le profil de journal Azure, consultez l’article [Présentation du journal d’activité Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+    Pour plus d’informations sur le profil de journal Azure, consultez l’article [Présentation du journal d’activité Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 > [!NOTE]
 > Il est possible que vous obteniez un message d’erreur lorsque vous essayez de créer un profil de journal. Vous pouvez alors consulter la documentation des commandes Get-AzureRmLogProfile et Remove-AzureRmLogProfile. Si vous exécutez Get-AzureRmLogProfile, vous obtenez des informations sur le profil de journal. Vous pouvez supprimer le profil de journal existant en entrant la commande ```Remove-AzureRmLogProfile -name 'Log Profile Name' ```.

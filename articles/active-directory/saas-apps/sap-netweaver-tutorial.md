@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à SAP NetWeaver | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory avec SAP NetWeaver | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SAP NetWeaver.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: fac22508e679c1e1c93ec62a5b120ba9c7c52317
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 607d05818966e62407795640d223f1aed2f59bbb
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162346"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156746"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Didacticiel : Intégration d’Azure Active Directory à SAP NetWeaver
+# <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Tutoriel : Intégration d’Azure Active Directory avec SAP NetWeaver
 
 Dans ce didacticiel, vous allez apprendre à intégrer SAP NetWeaver à Azure Active Directory (Azure AD).
 
@@ -142,7 +142,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Téléchargement de certificat](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
 
-6. Dans **Provider Name** (nom du fournisseur), remplacez T01122 par **http://T01122**, puis cliquez sur **Save** (Enregistrer).
+6. Dans **Provider Name** (nom du fournisseur), remplacez T01122 par `http://T01122`, puis cliquez sur **Save** (Enregistrer).
 
     > [!NOTE]
     > Par défaut, le nom du fournisseur est au format <sid><client>, mais Azure AD attend le nom au format <protocol>://<name>. Il est donc recommandé de conserver le nom du fournisseur au format https://<sid><client> pour autoriser la configuration de plusieurs moteurs ABAP SAP NetWeaver dans Azure AD.
@@ -275,7 +275,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 29. Notez que les valeurs **user ID Source** (source d’identifiant utilisateur) et **user id mapping mode** (mode mappage d’identifiant utilisateur) déterminent le lien entre l’utilisateur SAP et la revendication Azure AD.  
 
-    ####<a name="scenario-sap-user-to-azure-ad-user-mapping"></a>Scénario : Mappage d’un utilisateur SAP à un utilisateur Azure AD
+    ####<a name="scenario-sap-user-to-azure-ad-user-mapping"></a>Scénario : Mappage d’un utilisateur SAP à un utilisateur Azure AD.
 
     a. Capture d’écran des détails de NameID à partir de SAP.
 
@@ -285,7 +285,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/claimsaad1.png)
 
-    ####<a name="scenario-select-sap-user-id-based-on-configured-email-address-in-su01-in-this-case-email-id-should-be-configured-in-su01-for-each-user-who-requires-sso"></a>Scénario : Sélectionner un identifiant utilisateur SAP en fonction de l’adresse e-mail configurée dans SU01. Dans ce cas, l’ID de l’adresse e-mail doit être configurée dans su01 pour chaque utilisateur nécessitant l’authentification unique.
+    ####<a name="scenario-select-sap-user-id-based-on-configured-email-address-in-su01-in-this-case-email-id-should-be-configured-in-su01-for-each-user-who-requires-sso"></a>Scénario : Sélection un identifiant utilisateur SAP en fonction de l’adresse e-mail configurée dans SU01. Dans ce cas, l’ID de l’adresse e-mail doit être configurée dans su01 pour chaque utilisateur nécessitant l’authentification unique.
 
     a.  Capture d’écran des détails de NameID à partir de SAP.
 

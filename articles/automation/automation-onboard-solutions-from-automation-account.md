@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 6ee89f3d57ded382b4d4519e4054448c144b10c5
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7d79e7aca0e8aa506abba174668c60fcd2fd4bc2
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632685"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065441"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Intégrer les solutions Update Management, Change Tracking et Inventory
 
@@ -31,6 +31,24 @@ Accédez à votre compte Automation et sélectionnez **Inventory** ou **Change T
 Choisissez l’espace de travail Log Analytics et un compte Automation, puis cliquez sur **Activer** pour activer la solution. L’activation de la solution prend jusqu’à 15 minutes.
 
 ![Intégrer la solution Inventory](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
+
+Lorsque vous activez des solutions, seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation.
+
+Le tableau suivant renseigne sur les mappages pris en charge :
+
+|**Région de l’espace de travail Log Analytics**|**Région Azure Automation**|
+|---|---|
+|AustralieSudEst|AustralieSudEst|
+|CanadaCentral|CanadaCentral|
+|CentralIndia|CentralIndia|
+|USAEst|USAEst2|
+|JaponEst|JaponEst|
+|AsieSudEst|AsieSudEst|
+|USACentreOuest|USACentreOuest|
+|WestEurope|WestEurope|
+|RoyaumeUniSud|RoyaumeUniSud|
+|USGovVirginie|USGovVirginie|
+|USAEst2EUAP|USACentreEUAP|
 
 La solution Change Tracking et Inventory fournit la possibilité de [suivre les changements](automation-vm-change-tracking.md) et de [faire l’inventaire](automation-vm-inventory.md) de vos machines virtuelles. Dans cette étape, vous activez la solution sur une machine virtuelle.
 

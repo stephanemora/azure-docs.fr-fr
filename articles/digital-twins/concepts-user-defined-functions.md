@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
-ms.openlocfilehash: 915c57033209ff982946163c408cf8557515e2f5
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 897a350c345e6e284f30040c0d4fcf07d5a6f466
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999198"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106839"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Traitement des données et fonctions définies par l’utilisateur
 
@@ -102,6 +102,15 @@ Les fonctions définies par l’utilisateur peuvent être rédigées en JavaScri
 - Attacher des métadonnées de graphe aux données du capteur avant d’envoyer une notification
 
 Pour en savoir plus, consultez [Utilisation des fonctions définies par l’utilisateur](./how-to-user-defined-functions.md).
+
+
+#### <a name="examples"></a>Exemples
+
+Le [dépôt GitHub pour l’exemple en C# Digital Twins](https://github.com/Azure-Samples/digital-twins-samples-csharp/) contient quelques exemples de fonctions définies par l’utilisateur :
+- [Cette fonction](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) recherche des valeurs de dioxyde de carbone, de mouvement et de température pour déterminer si un espace est disponible avec ces valeurs dans la plage. Les [didacticiels pour Digital Twins](tutorial-facilities-udf.md) explorent cette fonction de façon plus détaillée. 
+- [Cette fonction](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js) recherche des données provenant de plusieurs capteurs de mouvement, et détermine que l’espace est disponible si aucun d'eux ne détecte de mouvement. Vous pouvez facilement remplacer la fonction définie par l’utilisateur utilisée dans le [guide de démarrage rapide](quickstart-view-occupancy-dotnet.md) ou dans les [didacticiels](tutorial-facilities-setup.md), en apportant les modifications mentionnées dans la section comments du fichier. 
+
+
 
 ### <a name="role-assignment"></a>Attribution de rôle
 

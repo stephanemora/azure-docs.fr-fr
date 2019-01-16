@@ -5,20 +5,22 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fa089db385995f6c44ea2238c91a3ac59946daae
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 01af5052d8b092d10609769f211d6ffcde03cf8e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407654"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190372"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installer et configurer une passerelle de données locale
+
 Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs Azure Analysis Services de la même région se connectent aux sources de données locales. Pour en savoir plus sur la passerelle, consultez la page [Passerelle de données locale](analysis-services-gateway.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 **Configuration minimale requise :**
 
 * .NET Framework 4.5
@@ -44,6 +46,7 @@ Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs 
 
 
 ## <a name="download"></a>Télécharger
+
  [Télécharger la passerelle](https://aka.ms/azureasgateway)
 
 ## <a name="install"></a>Installer
@@ -62,6 +65,7 @@ Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs 
    > Si vous vous connectez avec un compte de domaine, ce compte sera mappé à votre compte professionnel dans Azure AD. Votre compte professionnel sert de compte d’administrateur de passerelle.
 
 ## <a name="register"></a>S’inscrire
+
 Pour créer une ressource de passerelle dans Azure, vous devez inscrire l’instance locale que vous avez installée auprès du service cloud de passerelle. 
 
 1.  Sélectionnez **Inscrivez une nouvelle passerelle sur cet ordinateur**.
@@ -77,6 +81,7 @@ Pour créer une ressource de passerelle dans Azure, vous devez inscrire l’inst
 
 
 ## <a name="create-resource"></a>Créer une ressource de passerelle Azure
+
 Une fois que vous avez installé et inscrit votre passerelle, vous devez créer une ressource de passerelle dans votre abonnement Azure. Connectez-vous à Azure avec le même compte que celui utilisé lors de l’inscription de la passerelle.
 
 1. Dans le portail Azure, cliquez sur **Créer une ressource** > **Intégration** > **Passerelle de données locale**.
@@ -85,17 +90,17 @@ Une fois que vous avez installé et inscrit votre passerelle, vous devez créer 
 
 2. Dans **Créer une passerelle connexion**, entrez les paramètres suivants:
 
-    * **Nom** : entrez un nom pour votre ressource de passerelle. 
+    * **Nom** : entrez un nom pour votre ressource de passerelle. 
 
-    * **Abonnement** : sélectionnez l’abonnement Azure à associer à votre ressource de passerelle. 
+    * **Abonnement**: sélectionnez l’abonnement Azure à associer à votre ressource de passerelle. 
    
       L’abonnement par défaut est basé sur le compte Azure que vous avez utilisé pour vous connecter.
 
-    * **Groupe de ressources** : créez un groupe de ressources ou sélectionnez-en un.
+    * **Groupe de ressources** : Sélectionnez un groupe de ressources existant ou créez-en un.
 
     * **Emplacement** : sélectionnez la région dans laquelle vous avez inscrit votre passerelle.
 
-    * **Nom de l’installation** : si votre installation de passerelle n’est pas encore sélectionnée, sélectionnez la passerelle que vous avez inscrite. 
+    * **Nom de l’installation** : si votre installation de passerelle n’est pas encore sélectionnée, sélectionnez la passerelle que vous avez inscrite. 
 
     Une fois ces opérations effectuées, cliquez sur **Créer**.
 
@@ -115,6 +120,7 @@ Une fois que vous avez installé et inscrit votre passerelle, vous devez créer 
 Vous avez terminé. Si vous devez ouvrir des ports ou effectuer des opérations de dépannage, veillez à consulter la page [Passerelle de données locale](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Gérer Analysis Services](analysis-services-manage.md)   
 * [Obtenir les données d’Azure Analysis Services](analysis-services-connect.md)   
 * [Utiliser la passerelle pour les sources de données sur un réseau virtuel Azure](analysis-services-vnet-gateway.md)

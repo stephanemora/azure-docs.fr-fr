@@ -3,7 +3,7 @@ title: Testez votre offre de machine virtuelle pour Marketplace | Microsoft Docs
 description: Découvrez comment tester votre offre de machine virtuelle pour Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 7a41c3c6-625c-4478-b804-e124dee89040
@@ -14,22 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: hascipio
-ms.openlocfilehash: bf41953300c3042853118c815dbf64e4474106fa
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ROBOTS: NOINDEX
+ms.openlocfilehash: b90353dbbc5d019897735cfc05caa3ee094dfedc
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194111"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078811"
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Test de votre offre de machine virtuelle pour Azure Marketplace en mode intermédiaire
-Dans le cadre du déploiement dans un environnement intermédiaire, vous déployez votre référence SKU dans un « bac à sable » (sandbox) privé dans lequel vous pouvez tester et vérifier ses fonctionnalités avant son déploiement dans Marketplace. La référence apparaît avec le statut Intermédiaire, comme pour un client l’ayant déployée. Votre image de machine virtuelle doit être certifiée pour passer en mode Intermédiaire.
+Dans le cadre du déploiement dans un environnement intermédiaire, vous déployez votre référence SKU dans un « bac à sable » (sandbox) privé dans lequel vous pouvez tester et vérifier ses fonctionnalités avant son déploiement dans Marketplace. La référence apparaît avec le statut Intermédiaire, comme pour un client l’ayant déployée. Vous devez certifier votre image de machine virtuelle avant son déploiement dans un environnement intermédiaire.
 
-## <a name="step-1-push-your-offer-to-staging"></a>Étape 1 : Déployer votre offre dans un environnement intermédiaire
+## <a name="step-1-push-your-offer-to-staging"></a>Étape 1 : Déployer votre offre dans un environnement intermédiaire
 1. Dans l'onglet **Publish**, cliquez sur **Push to Staging**.
    
     ![drawing](media/marketplace-publishing-vm-image-test-in-staging/vm-image-push-to-staging.png)
 2. Si le portail de publication vous signale des erreurs, corrigez-les.
-3. Dans la boîte de dialogue **Who can access your staged offer?** , saisissez la liste des abonnements Azure que vous allez utiliser pour afficher un aperçu de votre offre dans le [portail Azure en version préliminaire](https://portal.azure.com).
+3. Dans la boîte de dialogue **Who can access your staged offer?** , saisissez la liste des abonnements Azure que vous allez utiliser pour afficher un aperçu de votre offre dans le [portail Azure](https://portal.azure.com).
    
    > [!NOTE]
    > Dans le cas de machines virtuelles et de modèles de solutions, veuillez **ne pas** mettre sur liste approuvée des abonnements de type CSP, DreamSpark ou Azure dans Open.
@@ -42,7 +43,7 @@ Dans le cadre du déploiement dans un environnement intermédiaire, vous déploy
    > - Une fois la certification terminée, la réplication de l’offre commence sur tous les centres de données Azure. En règle générale, il faut 24 à 48 heures pour que la réplication soit complète, mais elle peut prendre jusqu’à une semaine selon la taille du disque dur virtuel. Toutefois, si votre demande ne contient que des modifications d’ordre marketing, la réplication est plus rapide.
    > - Une fois la réplication terminée, l’offre sera répertoriée sur le [portail Azure](http:/portal.azure.com). À ce stade, l’état devient EN MODE INTERMÉDIAIRE dans le portail de publication. Une offre en mode intermédiaire est visible dans le [portail Azure](http:/portal.azure.com) en utilisant uniquement le(s) identifiant(s) de messagerie associé(s) à l’abonnement avec lequel l’offre est mise en mode intermédiaire.
 
-1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com) à l'aide de l'un des abonnements Azure répertoriés dans l'étape précédente.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) à l'aide de l'un des abonnements Azure répertoriés dans l'étape précédente.
 2. Recherchez votre offre et validez vos points d'image de machine virtuelle :
    
    * Assurez-vous que le contenu marketing s’affiche correctement sur Marketplace.

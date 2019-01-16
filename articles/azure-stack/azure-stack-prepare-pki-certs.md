@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 7a4c0d62fd1ea675c6569840c26ed1fb8e388850
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5f31d995ba4390eb5a893c3ebde49ee4e96e8023
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631479"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021133"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Préparer des certificats PKI Azure Stack à utiliser dans le cadre du déploiement ou de la rotation
 Les fichiers de certificat [obtenus auprès de l’autorité de certification de votre choix](azure-stack-get-pki-certs.md) doivent être importés et exportés avec des propriétés correspondant aux exigences de certificat d’Azure Stack.
@@ -73,7 +73,14 @@ Ouvrez la console MMC du Gestionnaire de certificats et connectez-vous au magasi
 
 1. Sélectionnez **Oui, exporter la clé privée**, puis cliquez sur **Suivant**.
 
-1. Dans la section Format de fichier d’exportation, sélectionnez **Exporter toutes les propriétés étendues**, puis cliquez sur **Suivant**.
+1. Dans la section Format du fichier d’exportation :
+    
+    - Sélectionnez **Inclure tous les certificats dans le certificat si possible**.  
+    - Sélectionnez **Exporter toutes les propriétés étendues**.  
+    - Sélectionnez **Activer la confidentialité de certificat**.  
+    - Cliquez sur **Suivant**.  
+    
+    ![Assistant Exportation du certificat avec options sélectionnées](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
 1. Sélectionnez **Mot de passe** et indiquez un mot de passe pour les certificats. N’oubliez pas ce mot de passe car il sera utilisé comme paramètre de déploiement. Sélectionnez **Suivant**.
 
@@ -82,4 +89,5 @@ Ouvrez la console MMC du Gestionnaire de certificats et connectez-vous au magasi
 1. Sélectionnez **Terminer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 [Validate PKI certificates](azure-stack-validate-pki-certs.md) (Valider des certificats d’infrastructure à clé publique)

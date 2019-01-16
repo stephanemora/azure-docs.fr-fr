@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services : synchronisation étendue | Microsoft Docs'
+title: 'Azure Active Directory Domain Services : Synchronisation étendue | Microsoft Docs'
 description: Configurer la synchronisation étendue depuis Azure AD vers vos domaines managés
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1df9b07d5a0a9e5018fc024038e65723c606ef71
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ae51151bd20d2c715d868e916f7bc633040efa40
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442979"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121528"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Configurer la synchronisation étendue depuis Azure AD vers votre domaine managé
 Cet article vous montre comment configurer uniquement des comptes utilisateurs spécifiques à synchroniser depuis votre annuaire Azure AD vers votre domaine managé Azure AD Domain Services.
@@ -58,12 +58,12 @@ Utilisez PowerShell pour cette procédure. Consultez les instructions pour [acti
 Procédez comme suit pour configurer la synchronisation étendue basée sur les groupes pour votre domaine managé :
 
 1. Effectuez les tâches suivantes :
-  * [Tâche 1 : installer les modules PowerShell nécessaires](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
-  * [Tâche 2 : créer le principal du service requis dans votre annuaire Azure AD](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
-  * [Tâche 3 : créer et configurer le groupe « AAD DC Administrators »](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
-  * [Tâche 4 : inscrire le fournisseur de ressources Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
-  * [Tâche 5 : créer un groupe de ressources](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
-  * [Tâche 6 : créer et configurer le réseau virtuel](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network).
+  * [Tâche 1 : Installer les modules PowerShell nécessaires](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
+  * [Tâche 2 : Créer le principal du service requis dans votre annuaire Azure AD](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
+  * [Tâche 3 : Créer et configurer le groupe « AAD DC Administrators »](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
+  * [Tâche 4 : Inscrire le fournisseur de ressources Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
+  * [Tâche 5 : Créer un groupe de ressources](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
+  * [Tâche 6 : Créer et configurer le réseau virtuel](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network).
 
 2. Sélectionnez les groupes que vous souhaitez synchroniser et fournissez le nom d’affichage des groupes que vous souhaitez synchroniser à votre domaine managé.
 
@@ -79,7 +79,7 @@ Procédez comme suit pour configurer la synchronisation étendue basée sur les 
   > Vous devez inclure le groupe « AAD DC Administrators » dans la liste des groupes configurés pour la synchronisation étendue. Si vous n’incluez pas de ce groupe, le domaine managé sera inutilisable.
   >
 
-4. Créez ensuite le domaine managé et activez la synchronisation étendue basée sur les groupes pour le domaine managé. Incluez la propriété ```"filteredSync" = "Enabled"``` dans le paramètre ```Properties```. Par exemple, consultez le fragment de script suivant, copié à partir de [Tâche 7 : provisionner le domaine managé Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
+4. Créez ensuite le domaine managé et activez la synchronisation étendue basée sur les groupes pour le domaine managé. Incluez la propriété ```"filteredSync" = "Enabled"``` dans le paramètre ```Properties```. Par exemple, consultez le fragment de script suivant, copié à partir de [Tâche 7 : Provisionner un domaine managé par Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
 
   ```powershell
   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
@@ -173,7 +173,7 @@ foreach ($id in $newGroupIds)
     }
     catch
     {
-        Write-Error "Exception occured assigning Object-ID: $id. Exception: $($_.Exception)."
+        Write-Error "Exception occurred assigning Object-ID: $id. Exception: $($_.Exception)."
     }
 }
 

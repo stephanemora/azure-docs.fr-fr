@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 6750276cf31d0c804b38cdf3ea6e41a4505c93f1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ccdfbc38cb39f2c0aa839dc56022192e9e389d95
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971816"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187415"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Réécrire des en-têtes HTTP dans Azure Application Gateway (préversion publique)
 
 Les en-têtes HTTP permettent au client et au serveur de passer des informations supplémentaires avec la requête ou la réponse. La réécriture de ces en-têtes HTTP permet de prendre en charge plusieurs scénarios importants, notamment l’ajout de champs d’en-tête liés à la sécurité comme HSTS/ X-XSS-Protection ou la suppression de champs d’en-tête de réponse pouvant révéler des informations sensibles comme le nom du serveur principal.
 
-Application Gateway permet désormais de réécrire des en-têtes de requêtes HTTP entrantes et de réponses HTTP sortantes. Vous pouvez ajouter, supprimer ou mettre à jour les en-têtes de requête et de réponse HTTP pendant le déplacement des paquets de requête/réponse entre les pools client et principal. Vous pouvez réécrire les champs d’en-tête standard (définis dans la [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) et non standard.
+Application Gateway permet désormais de réécrire des en-têtes de requêtes HTTP entrantes et de réponses HTTP sortantes. Vous pouvez ajouter, supprimer ou mettre à jour les en-têtes de requête et de réponse HTTP pendant le déplacement des paquets de requête/réponse entre les pools client et principal. Vous pouvez réécrire les champs d’en-tête standard et non standard.
 
 > [!NOTE] 
 >
@@ -84,7 +84,11 @@ Vous pouvez réécrire la valeur dans les en-têtes pour :
 
 - Combinaison des éléments ci-dessus.
 
-Les variables de serveur mentionnées ci-dessus sont les variables qui fournissent des informations sur le serveur, la connexion avec le client et la requête en cours sur la connexion. Cette fonctionnalité prend en charge la réécriture d’en-têtes dans les variables de serveur suivantes :
+## <a name="server-variables"></a>Variables de serveur
+
+Les variables de serveur stockent des informations utiles sur un serveur web. Ces variables fournissent des informations sur le serveur, la connexion avec le client et la requête en cours sur la connexion, par exemple l’adresse IP du client ou le type de navigateur web. Elles changent de manière dynamique, par exemple lorsqu’une nouvelle page est chargée ou qu’un formulaire est publié.  En utilisant ces variables, les utilisateurs peuvent définir des en-têtes de demande, ainsi que des en-têtes de réponse. 
+
+Cette fonctionnalité prend en charge la réécriture d’en-têtes dans les variables de serveur suivantes :
 
 | Variables de serveur prises en charge | Description                                                  |
 | -------------------------- | :----------------------------------------------------------- |
@@ -100,7 +104,7 @@ Les variables de serveur mentionnées ci-dessus sont les variables qui fournisse
 | HTTP_STATUS                | état de session, par exemple : 200, 400, 403, etc.                       |
 | http_version               | protocole de demande, généralement « HTTP/1.0 », « HTTP/1.1 » ou « HTTP/2.0 » |
 | query_string               | liste de paires variable-valeur qui suivent le « ? » dans l’URL demandée. |
-| received_byte              | longueur de la demande (incluant la ligne de demande, l’en-tête et le corps de la demande) |
+| received_bytes             | longueur de la demande (incluant la ligne de demande, l’en-tête et le corps de la demande) |
 | request_query              | arguments dans la ligne de demande                                |
 | request_scheme             | schéma de demande, « http » ou « https »                            |
 | request_uri                | URI complète de la demande d’origine (avec arguments)                   |

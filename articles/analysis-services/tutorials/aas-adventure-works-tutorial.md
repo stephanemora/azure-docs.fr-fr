@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 146467ef50c605f730fe6f65c349fc8a3a1fd045
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 92bab3e6dcea0b6b234d361a346698be15088fc0
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426241"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191511"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Didacticiel Adventure Works
 
@@ -45,7 +45,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 -   [Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) avec **l’exemple de base de données AdventureWorksDW**, ou SQL Server Data Warehouse avec [l’exemple de base de données Adventure Works](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks).
 
-    **Important** : Si vous installez l’exemple de base de données sur un SQL Server Data Warehouse local et que vous déployez votre modèle sur un serveur Azure Analysis Services, une [passerelle de données locale](../analysis-services-gateway.md) est nécessaire.
+    **Important :** Si vous installez l’exemple de base de données sur un SQL Server Data Warehouse local et que vous déployez votre modèle sur un serveur Azure Analysis Services, une [passerelle de données locale](../analysis-services-gateway.md) est nécessaire.
 
 -   La dernière version de [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) pour Visual Studio.
 
@@ -93,7 +93,7 @@ Il n’est pas obligatoire de suivre ces leçons pour terminer le didacticiel, m
 
   
 ## <a name="next-steps"></a>Étapes suivantes  
-Pour commencer, consultez [Leçon 1 : Créer un projet de modèle tabulaire](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
+Pour commencer, consultez [Leçon 1 : Créer un nouveau projet de modèle tabulaire](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
   
   

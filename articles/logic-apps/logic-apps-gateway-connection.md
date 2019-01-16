@@ -1,25 +1,27 @@
 ---
-title: Accéder à des sources de données locales pour Azure Logic Apps | Documents Microsoft
-description: Créer et configurer la passerelle de données locale pour pouvoir accéder à des sources de données locales à partir d’applications logiques
+title: Accéder à des sources de données locales à partir d’Azure Logic Apps | Microsoft Docs
+description: Se connecter à des sources de données locales à partir d’applications logiques en créant une passerelle de données locale
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/20/2018
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
-ms.openlocfilehash: 65c7e03b349314ad61fa5f1ea8322f4d1352b8e6
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.date: 10/01/2018
+ms.openlocfilehash: 2b9e1c153c3fa9b17145eb6c3c8f3ed02e3bf40f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145687"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064064"
 ---
-# <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>Se connecter à des sources de données locales à partir d’Azure Logic Apps sur la passerelle de données locale
+# <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Se connecter à des sources de données locales à partir d’Azure Logic Apps
 
-Pour accéder à des sources de données locales à partir de vos applications logiques, vous pouvez créer une ressource de passerelle de données dans Azure afin que vos applications logiques puissent utiliser les [connecteurs locaux](../logic-apps/logic-apps-gateway-install.md#supported-connections). Cet article explique comment créer votre ressource de passerelle Azure*après* avoir [téléchargé et installé la passerelle sur votre ordinateur local](../logic-apps/logic-apps-gateway-install.md). 
+Pour accéder à des sources de données locales à partir de vos applications logiques, créez une ressource de passerelle de données locales dans le portail Azure. Vos applications logiques peuvent ensuite utiliser les [connecteurs locaux](../logic-apps/logic-apps-gateway-install.md#supported-connections). Cet article explique comment créer votre ressource de passerelle Azure*après* avoir [téléchargé et installé la passerelle sur votre ordinateur local](../logic-apps/logic-apps-gateway-install.md). 
+
+> [!TIP]
+> Pour vous connecter à des réseaux virtuels Azure, envisagez de créer un [*environnement de service d’intégration*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) à la place. 
 
 Pour plus d’informations sur l’utilisation de la passerelle avec d’autres services, consultez les articles suivants :
 
@@ -34,18 +36,17 @@ Pour plus d’informations sur l’utilisation de la passerelle avec d’autres 
 
 * L’installation de votre passerelle n’est pas encore associée à la ressource de la passerelle Azure. Vous pouvez lier votre installation de passerelle uniquement à une ressource de passerelle, ce qui se produit lorsque vous créez la ressource de passerelle et que vous sélectionnez votre installation de passerelle. Cette liaison rend l’installation de la passerelle indisponible pour d’autres ressources.
 
-* Lorsque vous vous connectez sur le portail Azure et créez votre ressource de passerelle, vous devez utiliser le même compte de connexion qui a été précédemment utilisé pour [installer la passerelle de données locale](../logic-apps/logic-apps-gateway-install.md#requirements).
-Vous devez également utiliser le même [abonnement Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) que celui utilisé pour installer la passerelle. Si vous n’avez pas encore d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
+* Lorsque vous vous connectez au portail Azure et que vous créez votre ressource de passerelle, vous devez utiliser le compte de connexion qui a été utilisé pour [installer la passerelle de données locale](../logic-apps/logic-apps-gateway-install.md#requirements), ainsi que le même [abonnement Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) qui a été utilisé pour installer la passerelle. Si vous n’avez pas encore d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
 
-* Pour créer et gérer les ressources de la passerelle dans le portail Azure, votre [compte de service Windows](../logic-apps/logic-apps-gateway-install.md#windows-service-account) doit avoir au moins les autorisations de **Contributeur**. La passerelle de données locale fonctionne comme un service Windows et elle est configurée pour utiliser `NT SERVICE\PBIEgwService` comme informations d’identification pour la connexion au service Windows. 
+* Pour créer et gérer les ressources de la passerelle dans le portail Azure, votre [compte de service Windows](../logic-apps/logic-apps-gateway-install.md#windows-service-account) doit disposer au moins des autorisations de **Contributeur**. La passerelle de données locale fonctionne comme un service Windows et elle est configurée pour utiliser `NT SERVICE\PBIEgwService` comme informations d’identification pour la connexion au service Windows. 
 
   > [!NOTE]
   > Le compte de service Windows diffère du compte utilisé pour la connexion à des sources de données locales, et du compte professionnel ou scolaire Azure utilisé pour se connecter aux services cloud.
 
 ## <a name="download-and-install-gateway"></a>Télécharger et installer la passerelle
 
-Avant de continuer avec les étapes décrites dans cet article, vous devez disposer de la passerelle déjà installée sur un ordinateur local.
-Si ce n’est pas déjà fait, suivez les étapes pour [télécharger et installer la passerelle de données locale](../logic-apps/logic-apps-gateway-install.md). 
+Avant de continuer avec les étapes décrites dans cet article, vérifiez qu’une passerelle est déjà installée sur l’ordinateur local.
+Si ce n’est déjà fait, suivez les étapes pour [télécharger et installer la passerelle de données locale](../logic-apps/logic-apps-gateway-install.md). 
 
 <a name="create-gateway-resource"></a>
 
@@ -64,10 +65,10 @@ Après avoir installé la passerelle sur un ordinateur local, vous devez ensuite
 
    | Propriété | Description | 
    |----------|-------------|
-   | **Name** | Le nom pour votre ressource de passerelle | 
+   | **Nom** | Le nom pour votre ressource de passerelle | 
    | **Abonnement** | Le nom de votre abonnement Azure, qui doit être le même que celui de votre application logique. L’abonnement par défaut est basé sur le compte Azure que vous avez utilisé pour vous connecter. | 
    | **Groupe de ressources** | Le nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) pour organiser les ressources connexes | 
-   | **Lieu** | Azure limite cet emplacement à la région sélectionnée pour le service cloud de la passerelle pendant [l’installation de la passerelle](../logic-apps/logic-apps-gateway-install.md). <p>**Remarque** : Assurez-vous que l’emplacement de la ressource de la passerelle correspond à l’emplacement du service cloud de celle-ci. Autrement, votre installation de passerelle pourrait ne pas figurer dans la liste des passerelles installées dans laquelle vous allez opérer une sélection à l’étape suivante. Vous pouvez utiliser des régions différentes pour votre ressource de passerelle et votre application logique. | 
+   | **Lieu** | Azure limite cet emplacement à la région sélectionnée pour le service cloud de la passerelle pendant [l’installation de la passerelle](../logic-apps/logic-apps-gateway-install.md). <p>**Remarque**: Assurez-vous que l’emplacement de la ressource de passerelle correspond à l’emplacement du service cloud de celle-ci. Autrement, votre installation de passerelle pourrait ne pas figurer dans la liste des passerelles installées dans laquelle vous allez opérer une sélection à l’étape suivante. Vous pouvez utiliser des régions différentes pour votre ressource de passerelle et votre application logique. | 
    | **Nom de l’installation** | Si l’installation de votre passerelle n’est pas encore sélectionnée, sélectionnez la passerelle que vous avez installée précédemment. | 
    | | | 
 
@@ -155,7 +156,7 @@ Pour créer une autre ressource de passerelle, associer votre passerelle à une 
 ## <a name="get-support"></a>Obtenir de l’aide
 
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
+* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

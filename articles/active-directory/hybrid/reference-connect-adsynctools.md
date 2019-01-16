@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : Référence PowerShell ADSyncTools | Microsoft Docs'
+title: 'Azure AD Connect : Documentation de référence concernant ADSyncTools PowerShell | Microsoft Docs'
 description: Ce document fournit des informations de référence sur le module ADSyncTools.psm1 PowerShell.
 author: billmath
 manager: mtillman
@@ -8,14 +8,14 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 586f3c81fad79f49b3506b0bd84a4f7b218d8605
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 54d23bca29c38f258334d7b641b8c1f480da55e1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426483"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054960"
 ---
-# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect : Référence PowerShell ADSyncTools
+# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect :  Documentation de référence concernant ADSyncTools PowerShell
 La documentation suivante fournit des informations de référence sur le module ADSyncTools.psm1 PowerShell inclus avec Azure AD Connect.
 
 ## <a name="clear-adsynctoolsconsistencyguid"></a>Clear-ADSyncToolsConsistencyGuid
@@ -338,7 +338,7 @@ Get-ADSyncToolsADuser [-User] <Object> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>Description
-Retourne un objet AD à faire : prise en charge de plusieurs forêts
+Retourne un objet Active Directory TO DO : Prise en charge de plusieurs forêts
 
 ### <a name="examples"></a>EXEMPLES
 
@@ -719,7 +719,7 @@ Remove-ADSyncToolsExpiredCertificates [-TargetOU] <String> [[-BackupOnly] <Boole
 Ce script prend tous les objets d’une unité d’organisation cible dans votre domaine Active Directory, filtrés selon la classe d’objet (utilisateur/ordinateur), et supprime tous les certificats arrivés à expiration présents dans l’attribut UserCertificate.
 Par défaut (en mode BackupOnly), il sauvegarde uniquement les certificats arrivés à expiration dans un fichier et n’apporte aucune modification dans Active Directory.
 Si vous utilisez la valeur $false BackupOnly, alors tous les certificats expirés présents dans l’attribut UserCertificate de ces objets seront retirés de AD après avoir été copiés dans le fichier.
-Chaque certificat est sauvegardé avec un nom de fichier différent : ObjectClass_ObjectGUID_CertThumprint.cer. Le script crée également un fichier journal au format CSV affichant tous les utilisateurs avec des certificats valides ou expirés, y compris l’action réelle effectuée (Ignoré/Exporté/Supprimé).
+Chaque certificat est sauvegardé sous un nom de fichier distinct : ObjectClass_ObjectGUID_CertThumprint.cer. Le script crée également un fichier journal au format CSV affichant tous les utilisateurs avec des certificats valides ou expirés, ainsi que l’action réelle effectuée (Ignoré/Exporté/Supprimé).
 
 ### <a name="examples"></a>EXEMPLES
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: juliako
-ms.openlocfilehash: f9ad7fcf414e90acc40ee5cd42e322a3b9e47f17
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 93222129b80592ef5b4e1ed2e1420d975fe9f108
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380666"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190723"
 ---
 # <a name="generate-a-thumbnail-sprite"></a>Générer un sprite de miniatures 
 
@@ -70,7 +70,7 @@ Voici un exemple :
 
 1.  Il n’est pas possible de générer une image sprite avec une seule ligne d’images (SpriteColumn = 1 produit une image avec une seule colonne).
 2.  La segmentation des images sprite en images JPEG de taille modérée n’est pas encore prise en charge. Vous devez donc veiller à limiter le nombre de miniatures et leur taille, afin que le sprite de miniatures en panorama résultant soit de 8 mégapixels ou moins.
-3.  Azure Media Player prend en charge les sprites sur les navigateurs Edge, Chrome et Firefox. L’analyse des fichiers VTT n’est pas prise en charge dans IE11.
+3.  Le lecteur multimédia Azure prend en charge les sprites sur les navigateurs Microsoft Edge, Chrome et Firefox. L’analyse des fichiers VTT n’est pas prise en charge dans IE11.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

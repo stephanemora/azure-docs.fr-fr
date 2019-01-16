@@ -11,16 +11,23 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8a67a20beff306cd23b08e1d651ab5dc4c779fd2
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 157591897adb7495382b540dc1517c4c652a2632
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742760"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190722"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notes de publication du service Azure Machine Learning
 
 Dans cet article, découvrez les versions du service Azure Machine Learning. 
+
+### <a name="azure-machine-learning-data-prep-sdk-v106"></a>SDK de préparation de données Azure Machine Learning v1.0.6
+
++ **Documents de référence sur le SDK** : https://aka.ms/data-prep-sdk
+
++ **Résolution des bogues**
+  + Correction du bogue lors de la lecture à partir de conteneurs Blob Azure publics lisibles sur Spark
 
 ## <a name="2018-12-20"></a>2018-12-20 : 
 
@@ -271,85 +278,7 @@ La [version 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) inclut les
 
 Nouvelle version d’Azure Machine Learning actualisée : découvrez-en plus sur cette version : https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
-## <a name="older-notes-sept-2017---jun-2018"></a>Notes de publication plus anciennes : Septembre 2017 - juin 2018
-### <a name="2018-05-sprint-5"></a>2018-05 (Sprint 5)
-
-Avec cette version d’Azure Machine Learning, vous pouvez effectuer les opérations suivantes :
-+ Caractériser des images à l’aide d’une version quantifiée de ResNet 50, former un classifieur en fonction de ces caractéristiques et [déployer ce modèle sur un FPGA dans Azure](../service/how-to-deploy-fpga-web-service.md) pour une inférence de très faible latence.
-
-+ Rapidement créer et déployer des modèles d’apprentissage automatique et d’apprentissage profond (deep learning) extrêmement précis à l’aide de [packages Azure Machine Learning personnalisés](../desktop-workbench/reference-python-package-overview.md)
-
-### <a name="2018-03-sprint-4"></a>2018-03 (Sprint 4)
-**Numéro de version** : 0.1.1801.24353  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([recherchez votre version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-La plupart des mises à jour suivantes sont les résultats directs de vos commentaires. Continuez à en envoyer !
-
-**Nouvelles fonctionnalités et modifications notables**
-
-- La prise en charge de l’exécution de vos scripts sur des machines virtuelles Ubuntu à distance en mode natif sur votre propre environnement, en plus de l’exécution basée sur un docker à distance.
-- Une nouvelle expérience d’environnement dans l’application Workbench vous permet de créer des cibles de calcul et d’exécuter des configurations en plus de notre expérience basée sur l’interface CLI.
-![Onglet des environnements](media/azure-machine-learning-release-notes/environment-page.png)
-- Rapports personnalisables d’historique des exécutions ![Image des nouveaux rapports d’historique des exécutions](media/azure-machine-learning-release-notes/new-run-history-reports.png)
-
-**Mises à jour détaillées**
-
-Vous trouverez ci-dessous une liste des mises à jour détaillées de chaque zone de composant d’Azure Machine Learning dans ce sprint.
-
-#### <a name="workbench-ui"></a>IU de Workbench
-- Rapports personnalisables d’historique des exécutions
-  - Configuration de graphique améliorée pour les rapports d’historique des exécutions
-    - Les points d’entrée utilisés peuvent être modifiés
-    - Les filtres de niveau supérieur peuvent être ajoutés ou modifiés ![Ajouter des filtres](media/azure-machine-learning-release-notes/add-filters.jpg)
-    - Les graphiques et les statistiques peuvent être ajoutés ou modifiés (et réorganisés par glisser-déposer).
-    ![Création de nouveaux graphiques](media/azure-machine-learning-release-notes/configure-charts.png)
-
-  - CRUD pour les rapports d’historique des exécutions
-  - Déplacement de tous les fichiers de configuration d’affichage de liste des historiques des exécutions vers un rapport côté serveur, qui joue le rôle de pipelines sur les exécutions à partir des points d’entrée sélectionnés.
-
-- Onglets des environnements
-  - Ajouter facilement une nouvelle cible de calcul et exécuter des fichiers de configuration à votre projet ![Nouvelle cible de calcul](media/azure-machine-learning-release-notes/add-new-environments.png)
-  - Gérer et mettre à jour vos fichiers de configuration à l’aide d’une expérience d’utilisateur simple et basée sur le formulaire
-  - Nouveau bouton pour préparer l’exécution de vos environnements
-
-- Améliorations des performances pour la liste des fichiers dans la barre latérale
-
-#### <a name="data-preparation"></a>Préparation des données 
-- Azure Machine Learning Workbench vous permet désormais de rechercher une colonne à l’aide du nom d’une colonne connue.
-
-
-#### <a name="experimentation"></a>Expérimentation
-- Azure Machine Learning Workbench prend désormais en charge l’exécution de vos scripts en mode natif sur votre propre environnement python ou pyspark. Pour cette fonctionnalité, l’utilisateur crée et gère son propre environnement sur la machine virtuelle distante, et il utilise Azure Machine Learning Workbench pour exécuter ses scripts sur cette cible. Consultez [Configuration du service Expérimentation Azure Machine Learning](../desktop-workbench/experimentation-service-configuration.md) 
-
-#### <a name="model-management"></a>Gestion des modèles
-- Prise en charge de la personnalisation des conteneurs déployés : permet de personnaliser l’image du conteneur en permettant l’installation des bibliothèques externes à l’aide de get-apt, etc. Elle n’est plus limitée aux bibliothèques installables avec pip. Pour plus d’informations, consultez la [documentation](../desktop-workbench/model-management-custom-container.md).
-  - Utilisez le masque et le nom de fichier `--docker-file myDockerStepsFilename` avec le manifeste, l’image ou les commandes de création de service.
-  - L’image de base est Ubuntu et ne peut pas être modifiée.
-  - Exemple de commande : 
-  
-    ```shell
-    $ az ml image create -n myimage -m mymodel.pkl -f score.py --docker-file mydockerstepsfile
-    ```
-
-### <a name="2018-01-sprint-3"></a>2018-01 (Sprint 3) 
-**Numéro de version** : 0.1.1712.18263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([recherchez votre version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Voici les mises à jour et les améliorations de cette version sprint. La plupart de ces mises à jour sont les résultats directs des commentaires des utilisateurs. 
-
-### <a name="2017-12-sprint-2"></a>2017-12 (Sprint 2)
-**Numéro de version** : 0.1.1711.15263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([recherchez votre version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Cette mise en production est la troisième mise à jour d’Azure Machine Learning. Cette mise à jour inclut des améliorations dans l’application Workbench, l’interface de ligne de commande (CLI) et les services principaux. Merci beaucoup pour les sourires et les smileys mécontents que vous envoyez. La plupart des mises à jour suivantes sont les résultats directs de vos commentaires. 
-
-### <a name="2017-11-sprint-1"></a>2017-11 (Sprint 1) 
-**Numéro de version** : 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([recherchez votre version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Dans cette version, nous avons amélioré la sécurité, la stabilité et la maintenabilité de l’application Workbench, de l’interface CLI et de la couche des services backend. 
-
-### <a name="2017-10-sprint-0"></a>2017-10 (Sprint 0) 
-**Numéro de version** : 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([recherchez votre version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
-
-Cette version est la première mise à jour d’Azure Machine Learning Workbench. Celle-ci fait suite à la préversion publique dévoilée lors de la conférence Microsoft Ignite 2017. La mise à jour regroupe principalement des correctifs visant à améliorer la fiabilité et la stabilité. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez la vue d’ensemble [d’Azure Machine Learning](../service/overview-what-is-azure-ml.md).
+Consultez la présentation [d’Azure Machine Learning service](../service/overview-what-is-azure-ml.md).

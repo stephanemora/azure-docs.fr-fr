@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e92e86f59058f1f226c67f873530cd9c06b5d5fc
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c26da5d047a1e904510f96b44d81632b6e98689e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428332"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190967"
 ---
 # <a name="create-perspectives"></a>Créer des perspectives
 
@@ -23,10 +23,10 @@ La perspective Ventes sur Internet que vous créez dans cette leçon exclut l’
   
 L’objectif de cette leçon est de décrire comment créer des perspectives et de vous familiariser avec les outils de création de modèles tabulaires. Si vous décidez plus tard d’ajouter des tables à ce modèle, vous pourrez créer des perspectives supplémentaires pour définir les différents points de vue du modèle, tels que l’inventaire et les ventes.  
   
-Durée estimée pour suivre cette leçon : **5 minutes**  
+Durée estimée pour suivre cette leçon : **Cinq minutes**  
   
 ## <a name="prerequisites"></a>Prérequis  
-Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 7 : Créer des indicateurs de performance clés](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
+Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 7 : Créer des indicateurs de performance clés (KPI)](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
   
 ## <a name="create-perspectives"></a>Créer des perspectives  
   
@@ -45,7 +45,7 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
     Dans une leçon ultérieure, vous allez utiliser la fonctionnalité Analyser dans Excel pour tester cette perspective. La liste de champs du tableau croisé dynamique Excel inclut toutes les tables, à l’exception de la table DimCustomer.  
 
 ## <a name="whats-next"></a>Et ensuite ?
-[Leçon 9 : Créer des hiérarchies](../tutorials/aas-lesson-9-create-hierarchies.md).
+[Leçon 9 : Créer des hiérarchies](../tutorials/aas-lesson-9-create-hierarchies.md).
   
   
   

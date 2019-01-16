@@ -9,19 +9,19 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 91f6254fe756f256a2c88429fb4d96156867ef4a
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d39ec71315bec98c35ac7fb76ed9a88a094817ca
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001904"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117144"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Télémétrie des demandes : Modèle de données Application Insights
 
-Un élément de télémétrie de demande (dans [Application Insights](../../application-insights/app-insights-overview.md)) représente la séquence logique d’exécution déclenchée par une demande externe à votre application. Chaque exécution de requête est identifiée par un `ID` et une `url` uniques contenant tous les paramètres d’exécution. Vous pouvez regrouper des requêtes par `name` logique et définir la `source` de cette requête. L’exécution du code peut donner `success` ou `duration` et a une certain durée (`fail`). Les échecs et les réussites d’exécution peuvent être regroupés par `resultCode`. L’heure de début de la télémétrie des requêtes est définie sur le niveau enveloppe.
+Un élément de télémétrie de demande (dans [Application Insights](../../azure-monitor/app/app-insights-overview.md)) représente la séquence logique d’exécution déclenchée par une demande externe à votre application. Chaque exécution de requête est identifiée par un `ID` et une `url` uniques contenant tous les paramètres d’exécution. Vous pouvez regrouper des requêtes par `name` logique et définir la `source` de cette requête. L’exécution du code peut donner `success` ou `duration` et a une certain durée (`fail`). Les échecs et les réussites d’exécution peuvent être regroupés par `resultCode`. L’heure de début de la télémétrie des requêtes est définie sur le niveau enveloppe.
 
 La télémétrie des requêtes prend en charge le modèle d’extensibilité standard en utilisant des propriétés (`properties`) et des mesures (`measurements`) personnalisées.
 
@@ -63,9 +63,9 @@ Longueur maximale : 1 024 caractères
 
 ## <a name="success"></a>Succès
 
-Indication de la réussite ou non d’un appel. Ce champ est obligatoire. Lorsqu’il n’est pas défini explicitement sur `false`, la requête est considérée comme ayant réussi. Définissez cette valeur sur `false` si l’opération a été interrompue par une exception ou a retourné un code de résultat d’erreur.
+Indication de la réussite ou non d’un appel. Ce champ est obligatoire. Lorsqu’il n’est pas défini explicitement sur `false`, une requête est considérée comme ayant réussi. Définissez cette valeur sur `false` si l’opération a été interrompue par une exception ou a retourné un code de résultat d’erreur.
 
-Pour les applications Web, Application Insights définit les requêtes comme ayant échoué lorsque le code de réponse est inférieur à `400` ou égal à `401`. Toutefois, il arrive que ce mappage par défaut ne corresponde pas à la sémantique de l’application. Le code de réponse `404` peut indiquer « aucun enregistrement », qui peut faire partie d’un flux régulier. Il peut également indiquer un lien rompu. Pour les liens rompus, vous pouvez même implémenter une logique plus avancée. Vous ne pouvez marquer les liens rompus en tant qu’échecs que lorsque ces liens sont situés sur le même site en analysant le point d’accès de l’URL. Ou bien vous pouvez les marquer en tant qu’échecs lors de l’accès à partir de l’application mobile de l’entreprise. De même `301` et `302` indiquent un échec lors de l’accès à partir du client qui ne prend pas en charge la redirection.
+Pour les applications Web, Application Insights définit les requêtes comme ayant réussi lorsque le code de réponse est inférieur à `400` ou égal à `401`. Toutefois, il arrive que ce mappage par défaut ne corresponde pas à la sémantique de l’application. Le code de réponse `404` peut indiquer « aucun enregistrement », qui peut faire partie d’un flux régulier. Il peut également indiquer un lien rompu. Pour les liens rompus, vous pouvez même implémenter une logique plus avancée. Vous ne pouvez marquer les liens rompus en tant qu’échecs que lorsque ces liens sont situés sur le même site en analysant le point d’accès de l’URL. Ou bien vous pouvez les marquer en tant qu’échecs lors de l’accès à partir de l’application mobile de l’entreprise. De même `301` et `302` indiquent un échec lors de l’accès à partir du client qui ne prend pas en charge la redirection.
 
 Un contenu partiellement accepté `206` peut indiquer l’échec d’une requête globale. Par exemple, le point de terminaison d’Application Insights reçoit un lot d’éléments de télémétrie sous la forme d’une seule requête. Il retourne `206` lorsque certains éléments du lot n'ont pas été traités avec succès. La fréquence croissante de `206` indique un problème qui doit être examiné. Une logique similaire s’applique au code multi-état `207` où la réussite peut être le pire des codes de réponse distincts.
 

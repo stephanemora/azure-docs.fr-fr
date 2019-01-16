@@ -9,15 +9,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 8c3eac208a4e1b0fd55e56956035b3fb5a23fc00
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1431ba658a6eb898553804f0c81b3babb23f4fe2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729999"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015200"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Aide au déploiement d’applications web avec des modèles Azure Resource Manager
 
@@ -138,3 +138,4 @@ Pour un exemple de modèle, consultez [Deploy a Web App certificate from Key Vau
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour suivre un tutoriel sur le déploiement d’applications web avec un modèle, consultez [Provisionner et déployer des microservices de manière prévisible dans Azure](deploy-complex-application-predictably.md).
+* Pour découvrir la syntaxe et les propriétés JSON pour les types de ressources dans les modèles, voir la [Documentation de référence concernant le modèle Azure Resource Manager](/azure/templates/).

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 4cd6b375385326889226f6d4284815dfa0f47c49
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 14f74c26822ac1dc9e781ada82809bf3a4166f18
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971305"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190899"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQ sur la configuration et la gestion de Web Apps dans Azure
 
@@ -188,7 +188,7 @@ Pour capturer une trace F12, vous disposez de deux options :
 3. Vérifiez que l’onglet **Réseau** est activé, puis sélectionnez le bouton vert **Lecture**.
 4. Effectuez les étapes reproduisant le problème.
 5. Sélectionnez le bouton rouge **Arrêt**.
-6. Sélectionnez le bouton **Enregistrer** (icône de disque), puis, dans Internet Explorer et Edge, enregistrez le fichier HAR *ou*, dans Chrome, cliquez avec le bouton droit sur celui-ci, puis sélectionnez **Save as HAR with content** (Sauvegarder le contenu au format HAR).
+6. Sélectionnez le bouton **Enregistrer** (icône de disque), puis, dans Internet Explorer ou Microsoft Edge, enregistrez le fichier HAR *ou*, dans Chrome, cliquez avec le bouton droit sur celui-ci, puis sélectionnez **Save as HAR with content** (Sauvegarder le contenu au format HAR).
 
 ### <a name="f12-console-output"></a>Sortie de la console F12
 

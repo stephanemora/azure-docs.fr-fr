@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: 950336db215bbca76f20c15527397212c6fe5ffd
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 23114a1d2fff081c802ddedc7bf5430938c45b3b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554926"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191783"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Intégration et livraison continues (CI/CD) dans Azure Data Factory
 
@@ -184,7 +183,7 @@ Le déploiement peut échouer si vous tentez de mettre à jour les déclencheurs
 Vous pouvez suivre des étapes similaires et utiliser un code similaire (avec la fonction `Start-AzureRmDataFactoryV2Trigger`) pour redémarrer les déclencheurs après le déploiement.
 
 > [!IMPORTANT]
-> Dans les scénarios de déploiement et d’intégration continus, le type de runtime d’intégration doit être le même dans tous les environnements. Par exemple, si vous avez un runtime d’intégration *auto-hébergé* dans l’environnement de développement, les autres environnements (test, production) doivent également avoir un runtime d’intégration *auto-hébergé*. De même, si plusieurs étapes partagent un même runtime d’intégration, vous devez configurer ce runtime d’intégration comme étant *lié et auto-hébergé* dans tous les environnements (développement, test, production).
+> Dans les scénarios de déploiement et d’intégration continus, le type de runtime d’intégration doit être le même dans tous les environnements. Par exemple, si vous avez un runtime d’intégration *auto-hébergé* dans l’environnement de développement, les autres environnements (test, production) doivent également avoir un runtime d’intégration *auto-hébergé*. De même, si vous partagez des runtimes d’intégration à plusieurs stades, vous devez les configurer comme étant *liés et auto-hébergés* dans tous les environnements (développement, test, production).
 
 ## <a name="sample-deployment-template"></a>Exemple de modèle de déploiement
 
@@ -854,7 +853,7 @@ Vous pouvez définir des paramètres personnalisés pour le modèle Resource Man
 
 Voici quelques recommandations à suivre lors de la création du fichier de paramètres personnalisés. Pour consulter des exemples de syntaxe, consultez la section [Exemple de fichier de paramètres personnalisés](#sample).
 
-1. Lorsque vous spécifiez un tableau spécifique dans le fichier de définition, vous indiquez que la propriété correspondante dans le modèle correspond à un tableau. Data Factory itère au sein de tous les objets du tableau en utilisant la définition spécifiée dans le premier objet du tableau. Le second objet, une chaîne, correspond alors au nom de la propriété et sert de nom au paramètre pour chaque itération.
+1. Lorsque vous spécifiez un tableau spécifique dans le fichier de définition, vous indiquez que la propriété correspondante dans le modèle correspond à un tableau. Data Factory itère dans tous les objets du tableau en utilisant la définition spécifiée dans le premier objet du tableau. Le second objet, une chaîne, correspond alors au nom de la propriété et sert de nom au paramètre pour chaque itération.
 
     ```json
     ...
@@ -989,3 +988,23 @@ Les modèles Resource Manager liés ont généralement un modèle maître et un 
 N’oubliez pas d’ajouter les scripts Data Factory dans votre pipeline CI/CD avant et après la tâche de déploiement.
 
 Si vous n’avez pas configuré Git, les modèles liés sont accessibles par le biais du mouvement **Exporter un modèle ARM**.
+
+## <a name="best-practices-for-cicd"></a>Meilleures pratiques pour CI/CD
+
+Si vous utilisez une intégration Git avec votre fabrique de données, et disposez d’un pipeline CI/CD qui déplace vos modifications du développement vers le test, puis la production, nous vous recommandons les meilleures pratiques suivantes :
+
+-   **Intégration Git**. Vous devez uniquement configurer votre fabrique de données de développement avec une intégration Git. Les modifications au niveau du test et de la production sont déployées par le biais de CI/CD, et n’ont pas besoin d’intégration Git.
+
+-   **Script CI/CD Data Factory**. Avant l’étape de déploiement de Resource Manager dans CI/CD, vous devez veiller à des aspect tels que l’arrêt des déclencheurs et différents types de nettoyages de fabrique. Nous vous recommandons d’utiliser [ce script](#sample-script-to-stop-and-restart-triggers-and-clean-up) qui se charge de tout cela. Exécutez le script une fois avant le déploiement et une fois après, en utilisant les indicateurs appropriés.
+
+-   **Runtimes d’intégration et partage**. Les runtimes d’intégration figurent parmi les composants d’infrastructure dans votre fabrique de données, qui subissent des modifications moins fréquentes, et sont similaires à toutes les stades de votre CI/CD. Par conséquent, Data Factory s’attend à trouver le même nom et le même type de runtimes d’intégration à tous les stades de CI/CD. Si vous souhaitez partager des runtimes d’intégration à tous les stades (par exemple, des runtimes d’intégration auto-hébergés), une façon de procéder consiste à héberger les runtimes d’intégration auto-hébergés dans une fabrique ternaire, simplement pour contenir les runtimes d’intégration partagés. Vous pouvez ensuite les utiliser en Développement/Test/Production en tant que type de runtime d’intégration lié.
+
+-   **Key Vault**. Lorsque vous utilisez les services liés recommandés basés sur l’architecture Azure Key Vault, vous pouvez en profiter encore davantage en conservant éventuellement des coffres de clés distincts à des fins de Développement/Test/production. Vous pouvez également configurer des niveaux d’autorisation distincts pour chacun d’eux. Vous ne souhaitez peut-être pas les membres de votre équipe disposent d’autorisations sur les secrets de production. Nous vous recommandons également de conserver les mêmes noms de secrets à tous les stades. Si vous conservez les mêmes noms, vous ne devez pas modifier vos modèles Resource Manager en CI/CD, car la seule chose à changer est le nom du coffre de clés, qui est l’un des paramètres du modèle Resource Manager.
+
+## <a name="unsupported-features"></a>Fonctionnalités non prises en charge
+
+-   Vous ne pouvez pas publier de ressources individuelles parce que des entités de fabrique de données sont interdépendantes. Par exemple, des déclencheurs dépendent de pipelines, des pipelines de jeux de données et d’autres pipelines, etc. Il est difficile de suivre les changements de dépendances. S’il était possible de sélectionner manuellement les ressources à publier, il serait possible de ne choisir qu’un sous-ensemble de l’ensemble des modifications, ce qui entraînerait un comportement inattendu après publication.
+
+-   Vous ne pouvez pas publier à partir de branches privées.
+
+-   Vous ne pouvez pas héberger de projets sur Bitbucket.

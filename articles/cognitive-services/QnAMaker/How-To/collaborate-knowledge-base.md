@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/08/2018
 ms.author: tulasim
-ms.openlocfilehash: bb074b1f256275c26889a30435dff28c86060a7b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ec26e7ab535084fa5d8f52c11c671212eeab0f13
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035230"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119830"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>Collaborer sur votre base de connaissances
 
@@ -35,7 +35,7 @@ Effectuez les étapes suivantes pour partager votre service QnA Maker avec une q
 
     ![Ajoutez IAM à QnA Maker](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.PNG)
 
-4. Sélectionnez le rôle de **propriétaire** ou de **contributeur**.
+4. Sélectionnez le rôle de **propriétaire** ou de **contributeur**. Vous ne pouvez pas accorder un accès en lecture seule via le contrôle d’accès en fonction du rôle. Les rôles Propriétaire et Contributeur disposent d'un accès en lecture-écriture au service QnA Maker.
 
     ![Ajoutez un rôle IAM à QnA Maker](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-role.PNG)
 

@@ -1,5 +1,5 @@
 ---
-title: Collecte des performances d’application Linux dans Azure Monitor| Microsoft Docs
+title: Collecte des performances d’application Linux dans Log Analytics | Microsoft Docs
 description: Cet article fournit des détails sur la configuration de l’agent Log Analytics pour Linux pour la collecte des compteurs de performances pour MySQL et Apache HTTP Server.
 services: log-analytics
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 824d3f2402861ed8a54a29c9571654cc581e4c5e
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: bf14e06f52f1b5a32ea3922083cc1f9bdbfb2aae
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434628"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104843"
 ---
-# <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Collecte des compteurs de performances pour les applications Linux dans Azure Monitor 
+# <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Collecte des compteurs de performances pour les applications Linux dans Log Analytics 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-Cet article fournit des détails sur la configuration de l’[agent Log Analytics pour Linux](https://github.com/Microsoft/OMS-Agent-for-Linux), afin de collecter des compteurs de performances pour des applications spécifiques dans les journaux Azure Monitor.  Les applications incluses dans cet article sont :  
+Cet article fournit des détails sur la configuration de l’[agent Log Analytics pour Linux](https://github.com/Microsoft/OMS-Agent-for-Linux), afin de collecter des compteurs de performances pour des applications spécifiques dans Log Analytics.  Les applications incluses dans cet article sont :  
 
 - [MySQL](#MySQL)
 - [Apache HTTP Server](#apache-http-server)
@@ -114,7 +114,7 @@ Ces privilèges peuvent être accordés à l’aide des commandes Grant suivante
 
 ### <a name="define-performance-counters"></a>Définition des compteurs de performances
 
-Une fois l’agent Log Analytics pour Linux configuré pour envoyer des données vers Azure Monitor, vous devez configurer les compteurs de performances à collecter.  Utilisez la procédure décrite dans [Sources de données de performances Windows et Linux dans Azure Monitor](data-sources-performance-counters.md) avec les compteurs du tableau suivant.
+Une fois l’agent Log Analytics pour Linux configuré pour envoyer des données vers Log Analytics, vous devez configurer les compteurs de performances à collecter.  Utilisez la procédure décrite dans [Sources de données de performances Windows et Linux dans Log Analytics](data-sources-performance-counters.md) avec les compteurs de le tableau suivant.
 
 | Nom d’objet | Nom de compteur |
 |:--|:--|
@@ -150,7 +150,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>Définition des compteurs de performances
 
-Une fois l’agent Log Analytics pour Linux configuré pour envoyer des données vers Azure Monitor, vous devez configurer les compteurs de performances à collecter.  Utilisez la procédure décrite dans [Sources de données de performances Windows et Linux dans Azure Monitor](data-sources-performance-counters.md) avec les compteurs du tableau suivant.
+Une fois l’agent Log Analytics pour Linux configuré pour envoyer des données vers Log Analytics, vous devez configurer les compteurs de performances à collecter.  Utilisez la procédure décrite dans [Sources de données de performances Windows et Linux dans Log Analytics](data-sources-performance-counters.md) avec les compteurs de le tableau suivant.
 
 | Nom d’objet | Nom de compteur |
 |:--|:--|

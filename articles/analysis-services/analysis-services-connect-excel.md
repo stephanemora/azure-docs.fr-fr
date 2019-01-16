@@ -5,30 +5,29 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 14453a1603eb414441008ef1381800009f4268e4
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5c46d4e4d23744cf07ccf7857a33990bf405a6a1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994435"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189012"
 ---
 # <a name="connect-with-excel"></a>Connexion avec Excel
 
 Une fois que vous avez créé un serveur et que vous y avez déployé un modèle tabulaire, les clients peuvent s’y connecter et commencer à explorer les données. 
 
 ## <a name="before-you-begin"></a>Avant de commencer
+
 Le compte avec lequel vous vous connectez doit appartenir à un rôle de base de données model disposant au moins d’autorisations de lecture. Pour en savoir plus, consultez [Authentification et autorisations utilisateur](analysis-services-manage-users.md). 
 
 ## <a name="connect-in-excel"></a>Se connecter dans Excel
 
-La connexion à un serveur dans Excel est prise en charge grâce à la fonction Obtenir les données dans Excel 2016. La connexion à l’aide de l’Assistant d’importation de table dans Power Pivot n’est pas prise en charge. 
+La connexion à un serveur dans Excel est prise en charge à l’aide de la fonction Obtenir des données dans Excel 2016 et versions ultérieures. La connexion à l’aide de l’Assistant d’importation de table dans Power Pivot n’est pas prise en charge. 
 
-**Se connecter dans Excel 2016**
-
-1. Dans Excel 2016, sur le ruban **Données**, cliquez sur **Obtenir les données externes** > **À partir d’autres sources** > **À partir d’Analysis Services**.
+1. Dans Excel, sur le ruban **Données**, cliquez sur **Obtenir les données externes** > **À partir d’autres sources** > **À partir d’Analysis Services**.
 
 2. Dans l’Assistant de connexion de données, dans **Nom du serveur**, entrez le nom du serveur avec le protocole et l’URI. Par exemple, asazure://westcentralus.asazure.windows.net/advworks. Ensuite, dans **Informations d’identification d’ouverture de session**, sélectionnez **Utiliser le nom d’utilisateur et le mot de passe suivants**, puis tapez le nom d’utilisateur professionnel, par exemple nancy@adventureworks.com, et le mot de passe.
 
@@ -43,6 +42,7 @@ La connexion à un serveur dans Excel est prise en charge grâce à la fonction 
 
 
 ## <a name="see-also"></a>Voir aussi
+
 [Bibliothèques clientes](analysis-services-data-providers.md)   
 [Gérer votre serveur](analysis-services-manage.md)     
 

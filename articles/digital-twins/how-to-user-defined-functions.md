@@ -1,20 +1,20 @@
 ---
 title: Guide pratique pour créer des fonctions définies par l’utilisateur dans Azure Digital Twins | Microsoft Docs
-description: Recommandations relatives à la création de fonctions définies par l’utilisateur, de matchers et d’attributions de rôles avec Azure Digital Twins.
+description: Guide pratique pour créer des fonctions définies par l’utilisateur, des matchers et des attributions de rôles dans Azure Digital Twins.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 01/02/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 91c0b5700fbc648f1fcd1355a438694cecc07a04
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 7208f96d99127247b51510e0c43c1733bb327dfb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993399"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076244"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Guide pratique pour créer des fonctions définies par l’utilisateur dans Azure Digital Twins
 
@@ -73,21 +73,17 @@ Avec le corps JSON :
 
 ## <a name="create-a-user-defined-function"></a>Création d’une fonction définie par l’utilisateur
 
-Une fois les matchers créés, chargez l’extrait de fonction avec la requête HTTP **POST** authentifiée suivante :
+La création d’une fonction définie par l’utilisateur implique qu’une requête HTTP en plusieurs parties soit envoyée aux API de gestion Azure Digital Twins.
+
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
+
+Une fois les matchers créés, chargez l’extrait de fonction avec la requête HTTP POST en plusieurs parties authentifiée suivante dans :
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
-> [!IMPORTANT]
-> - Vérifiez que les en-têtes incluent : `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
-> - Le corps fourni comprend plusieurs parties :
->   - La première partie contient les métadonnées requises de la fonction UDF.
->   - La deuxième partie contient la logique de calcul JavaScript.
-> - Dans la section **USER_DEFINED_BOUNDARY**, remplacez les valeurs de **spaceId** (`YOUR_SPACE_IDENTIFIER`) et **matchers**(`YOUR_MATCHER_IDENTIFIER`).
-> - Notez la fonction UDF JavaScript fournie en tant que `Content-Type: text/javascript`.
-
-Utilisez le corps JSON suivant :
+Utilisez le corps suivant :
 
 ```plaintext
 --USER_DEFINED_BOUNDARY
@@ -116,6 +112,15 @@ function process(telemetry, executionContext) {
 | USER_DEFINED_BOUNDARY | Nom de la limite de contenu en plusieurs parties |
 | YOUR_SPACE_IDENTIFIER | Identificateur d’espace  |
 | YOUR_MATCHER_IDENTIFIER | ID du matcher à utiliser |
+
+1. Vérifiez que les en-têtes incluent : `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
+1. Vérifiez que le corps comprend plusieurs parties :
+
+   - La première partie contient les métadonnées requises de la fonction définie par l’utilisateur.
+   - La deuxième partie contient la logique de calcul JavaScript.
+
+1. Dans la section **USER_DEFINED_BOUNDARY**, remplacez les valeurs de **spaceId** (`YOUR_SPACE_IDENTIFIER`) et **matchers** (`YOUR_MATCHER_IDENTIFIER`).
+1. Vérifiez que la fonction JavaScript définie par l’utilisateur est fournie comme suit  : `Content-Type: text/javascript`.
 
 ### <a name="example-functions"></a>Exemples de fonctions
 
@@ -190,9 +195,9 @@ Le guide [Démarrage rapide de recherche de salles disponibles](https://github.c
 
 ## <a name="create-a-role-assignment"></a>Création d'une affectation de rôle
 
-Créez une attribution de rôle permettant à la fonction définie par l’utilisateur de s’exécuter. Si aucune attribution de rôle n’existe pour la fonction définie par l’utilisateur, elle n’aura pas les autorisations appropriées pour interagir avec l’API Management ou n’aura pas accès pour effectuer des actions sur les objets graphiques. Les actions qu’une fonction définie par l’utilisateur peut exécuter sont spécifiées et définies via le contrôle d’accès en fonction du rôle dans les API Management d’Azure Digital Twins. Par exemple, les fonctions définies par l’utilisateur peuvent avoir une étendue limitée en spécifiant certains rôles ou certains chemins de contrôle d’accès. Pour plus d’informations, consultez la documentation sur le [contrôle d’accès en fonction du rôle (RBAC)](./security-role-based-access-control.md).
+Créez une attribution de rôle permettant à la fonction définie par l’utilisateur de s’exécuter. Si aucune attribution de rôle n’existe pour la fonction définie par l’utilisateur, cette dernière n’a pas les autorisations appropriées pour interagir avec l’API de gestion ou avoir l’accès permettant d’effectuer des actions sur les objets de graphe. Les actions susceptibles d’être effectuées par la fonction définie par l’utilisateur sont spécifiées et définies via le contrôle d’accès en fonction du rôle (RBAC) au sein des API de gestion Azure Digital Twins. Par exemple, les fonctions définies par l’utilisateur peuvent avoir une étendue limitée en spécifiant certains rôles ou certains chemins de contrôle d’accès. Pour plus d’informations, consultez la documentation sur le [contrôle d’accès en fonction du rôle (RBAC)](./security-role-based-access-control.md).
 
-1. [Interrogez l’API System](./security-create-manage-role-assignments.md#all) pour tous les rôles afin d’obtenir l’ID de rôle que vous souhaitez affecter à votre fonction UDF. Exécutez une requête HTTP GET authentifiée sur :
+1. [Interrogez l’API System](./security-create-manage-role-assignments.md#all) pour tous les rôles afin d’obtenir l’ID de rôle que vous souhaitez affecter à votre fonction définie par l’utilisateur. Exécutez une requête HTTP GET authentifiée sur :
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles
@@ -211,7 +216,7 @@ Créez une attribution de rôle permettant à la fonction définie par l’utili
     | --- | --- |
     | YOUR_SPACE_NAME | Nom de l’espace à utiliser |
 
-1. Collez la valeur retournée `spacePaths` dans  **Chemin** pour créer une attribution de rôle de fonction UDF en envoyant une requête HTTP POST authentifiée :
+1. Collez la valeur `spacePaths` retournée dans **path** pour créer une attribution de rôle de fonction définie par l’utilisateur en envoyant une requête HTTP POST authentifiée vers :
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/roleassignments
@@ -230,12 +235,12 @@ Créez une attribution de rôle permettant à la fonction définie par l’utili
     | Valeur | Remplacer par |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | Identificateur pour le rôle souhaité |
-    | YOUR_USER_DEFINED_FUNCTION_ID | ID de la fonction définie par l’utilisateur à utiliser |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | ID spécifiant le type de fonction UDF |
+    | YOUR_USER_DEFINED_FUNCTION_ID | ID de la fonction définie par l’utilisateur que vous souhaitez utiliser |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | ID spécifiant le type de la fonction définie par l’utilisateur |
     | YOUR_ACCESS_CONTROL_PATH | Chemin du contrôle d’accès |
 
 >[!TIP]
-> Lisez l’article [Créer et gérer des attributions de rôles](./security-create-manage-role-assignments.md) pour plus d’informations sur les opérations et les points de terminaison de l’API Management qui concernent les fonctions UDF.
+> Lisez l’article [Créer et gérer des attributions de rôles](./security-create-manage-role-assignments.md) pour plus d’informations sur les opérations et les points de terminaison de l’API Management qui concernent les fonctions définies par l’utilisateur.
 
 ## <a name="send-telemetry-to-be-processed"></a>Envoyer les données de télémétrie à traiter
 

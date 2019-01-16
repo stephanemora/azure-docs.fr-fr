@@ -1,18 +1,18 @@
 ---
 title: Utilisation des bases de données, des conteneurs et des éléments Azure Cosmos DB
 description: Cet article explique comment créer et utiliser des bases de données, des conteneurs et des éléments Azure Cosmos DB.
-author: dharmas
+author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 6757f887376e1b399d6af18f114e203991c16a67
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d5714e43c9ba58cdec33ca5fd1eae31eb6a88f51
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807684"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107733"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Utilisation des bases de données, des conteneurs et des éléments Azure Cosmos
 
@@ -45,7 +45,7 @@ Vous pouvez interagir avec une base de données Azure Cosmos à l’aide des API
 
 ## <a name="azure-cosmos-containers"></a>Conteneurs Cosmos Azure
 
-Un conteneur Azure Cosmos correspond à l’unité de scalabilité des éléments de débit et de stockage provisionnés. Un conteneur est partitionné horizontalement, puis répliqué dans plusieurs régions. Les éléments que vous ajoutez au conteneur, et le débit que vous provisionnez pour celui-ci, sont automatiquement distribués sur un ensemble de partitions logiques basées sur la clé de partition. Pour plus d’informations sur le partitionnement et la clé de partition, consultez l’article [Partitions logiques](partition-data.md). 
+Un conteneur Azure Cosmos correspond à l’unité de scalabilité des éléments de débit et de stockage provisionnés. Un conteneur est partitionné horizontalement, puis répliqué dans plusieurs régions. Les éléments que vous ajoutez au conteneur, et le débit que vous approvisionnez pour celui-ci, sont automatiquement distribués sur un ensemble de partitions logiques en fonction de la clé de partition. Pour plus d’informations sur le partitionnement et la clé de partition, consultez l’article [Partitions logiques](partition-data.md). 
 
 Lorsque vous créez un conteneur Azure Cosmos, vous configurez le débit avec l’un des modes suivants :
 
@@ -77,10 +77,10 @@ Un conteneur Azure Cosmos comprend un ensemble de propriétés définies par le 
 
 | **Propriété définie par le système** | **Générée par le système ou paramétrable par l’utilisateur** | **Objectif** | **API SQL** | **API Cassandra** | **API pour MongoDB d’Azure Cosmos DB** | **API Gremlin** | **API de table** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|__rid | Générée par le système | Identificateur unique du conteneur | Oui | Non  | Non  | Non  | Non  |
-|__etag | Générée par le système | Étiquette d’entité utilisée pour le contrôle de l’accès concurrentiel optimiste | Oui | Non  | Non  | Non  | Non  |
-|__ts | Générée par le système | Dernière mise à jour de l’horodatage du conteneur | Oui | Non  | Non  | Non  | Non  |
-|__self | Générée par le système | URI adressable du conteneur | Oui | Non  | Non  | Non  | Non  |
+|_rid | Générée par le système | Identificateur unique du conteneur | Oui | Non  | Non  | Non  | Non  |
+|_etag | Générée par le système | Étiquette d’entité utilisée pour le contrôle de l’accès concurrentiel optimiste | Oui | Non  | Non  | Non  | Non  |
+|_ts | Générée par le système | Dernière mise à jour de l’horodatage du conteneur | Oui | Non  | Non  | Non  | Non  |
+|_self | Générée par le système | URI adressable du conteneur | Oui | Non  | Non  | Non  | Non  |
 |id | Configurable par l’utilisateur | Nom unique du conteneur défini par l’utilisateur | Oui | OUI | OUI | OUI | Oui |
 |indexingPolicy | Configurable par l’utilisateur | Permet de modifier le chemin de l’index, sa précision et son modèle de cohérence. | Oui | Non  | Non  | Non  | Oui |
 |TimeToLive | Configurable par l’utilisateur | Permet de supprimer automatiquement les éléments d’un conteneur après une période déterminée. Pour plus d’informations, consultez l’article [Durée de vie](time-to-live.md). | Oui | Non  | Non  | Non  | Oui |
@@ -113,10 +113,10 @@ Chaque élément Azure Cosmos comprend des propriétés définies par le systèm
 
 |**Propriété définie par le système** | **Générée par le système ou paramétrable par l’utilisateur**| **Objectif** | **API SQL** | **API Cassandra** | **API pour MongoDB d’Azure Cosmos DB** | **API Gremlin** | **API de table** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|__id | Générée par le système | Identificateur unique d’un élément | Oui | Non  | Non  | Non  | Non  |
-|__etag | Générée par le système | Étiquette d’entité utilisée pour le contrôle de l’accès concurrentiel optimiste | Oui | Non  | Non  | Non  | Non  |
-|__ts | Générée par le système | Dernière mise à jour de l’horodatage de l’élément | Oui | Non  | Non  | Non  | Non  |
-|__self | Générée par le système | URI adressable de l’élément | Oui | Non  | Non  | Non  | Non  |
+|_id | Générée par le système | Identificateur unique d’un élément | Oui | Non  | Non  | Non  | Non  |
+|_etag | Générée par le système | Étiquette d’entité utilisée pour le contrôle de l’accès concurrentiel optimiste | Oui | Non  | Non  | Non  | Non  |
+|_ts | Générée par le système | Dernière mise à jour de l’horodatage de l’élément | Oui | Non  | Non  | Non  | Non  |
+|_self | Générée par le système | URI adressable de l’élément | Oui | Non  | Non  | Non  | Non  |
 |id | Vous pouvez soit utiliser | Nom unique défini par l’utilisateur au sein d’une partition logique. Si l’utilisateur ne spécifie pas d’ID, le système en génère un automatiquement. | Oui | OUI | OUI | OUI | Oui |
 |Propriétés arbitraires définies par l’utilisateur | Défini par l’utilisateur | Propriétés définies par l’utilisateur représentées sous forme d’API native (JSON, BSON, CQL, etc.) | Oui | OUI | OUI | OUI | Oui |
 

@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 23cbdb4d72a6b88563d9d2c2bd0e4e3c8223377f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c86fd2affa08999ae574f55315c6a0b32fa58fca
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723669"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076788"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utiliser les Azure HDInsight Tools pour Visual Studio Code
 
@@ -127,7 +127,7 @@ Vous pouvez lier un cluster normal à l’aide d’un nom d’utilisateur [Apach
 
 1. Ouvrez la palette de commandes en appuyant sur **Ctrl+Maj+P**, puis entrez **HDInsight : Lier un cluster**.
 2. Sélectionnez **Generic Livy Endpoint** (point de terminaison Livy générique).
-3. Entrez le point de terminaison Livy générique, par exemple : http://10.172.41.42:18080.
+3. Entrez le point de terminaison Livy générique, par exemple : http\://10.172.41.42:18080.
 4. Sélectionnez **Basic** (De base) si avez besoin d’une autorisation pour le point de terminaison Livy générique. Autrement, sélectionnez **None** (Aucune).
 5. Entrez le nom d’utilisateur si vous avez sélectionné **Basic** (De base) à l’étape 4.
 6. Entrez le mot de passe si vous avez sélectionné **Basic** (De base) à l’étape 4.

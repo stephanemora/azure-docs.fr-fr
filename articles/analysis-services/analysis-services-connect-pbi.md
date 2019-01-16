@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 707bc41a2a66782d9540d95606c41685908e9848
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: cb93c29ae4cb8d365cd128c52ee726c10c94bc19
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429688"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189335"
 ---
 # <a name="connect-with-power-bi"></a>Se connecter avec Power BI
 
@@ -45,9 +45,7 @@ Une fois que vous avez créé un serveur dans Azure avant d’y déployer un mod
 ## <a name="connect-in-power-bi-service"></a>Se connecter à Power BI Desktop (service)
 
 1. Créez un fichier Power BI Desktop qui inclut une connexion active à votre modèle sur votre serveur.
-2. Dans [Power BI](https://powerbi.microsoft.com), cliquez sur **Obtenir les données** > **Fichiers**, trouvez et sélectionnez votre fichier .pbix.
-
-
+2. Dans [Power BI](https://powerbi.microsoft.com), cliquez sur **Obtenir les données** > **Fichiers**, puis trouvez et sélectionnez votre fichier .pbix.
 
 ## <a name="see-also"></a>Voir aussi
 [Connect to an Azure Analysis Services server](analysis-services-connect.md)  (Se connecter à un serveur Azure Analysis Services)  

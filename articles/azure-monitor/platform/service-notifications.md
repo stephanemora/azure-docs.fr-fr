@@ -5,15 +5,15 @@ author: dkamstra
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 4/12/2017
+ms.date: 4/12/2018
 ms.author: dukek
 ms.component: logs
-ms.openlocfilehash: 8603ccf4643d7b1abd977cc372cde3fe24f98e07
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2dec2b1f9bdca8c83669b753d424204218f7a9ae
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724854"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190695"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Afficher les notifications Service Health dans le portail Azure
 
@@ -58,43 +58,27 @@ Properties.stage | Les valeurs possibles pour **Incident** et **Security** sont 
 Properties.communicationId | Communication associée à cet événement.
 
 ### <a name="details-on-service-health-level-information"></a>Détails sur les informations au niveau de l’intégrité du service
-  <ul>
-    <li><b>Action Required</b> (properties.incidentType == ActionRequired) <dl>
-            <dt>Informational</dt>
-            <dd>Action de l’administrateur nécessaire pour éviter un impact sur les services existants</dd>
-        </dl>
-    </li>
-    <li><b>Maintenance</b> (properties.incidentType == Maintenance) <dl>
-            <dt>Warning</dt>
-            <dd>Maintenance d’urgence<dd>
-            <dt>Informational</dt>
-            <dd>Maintenance planifiée de façon standard</dd>
-        </dl>
-    </li>
-    <li><b>Information</b> (properties.incidentType == Information) <dl>
-            <dt>Informational</dt>
-            <dd>L’administrateur peut être nécessaire pour éviter un impact sur les services existants</dd>
-        </dl>
-    </li>
-    <li><b>Sécurité</b> (properties.incidentType == Security) <dl>
-            <dt>Error</dt>
-            <dd>Problèmes étendus sur plusieurs services dans plusieurs régions affectant un large éventail de clients.</dd>
-            <dt>Warning</dt>
-            <dd>Problèmes sur des services et/ou des régions spécifiques affectant un sous-ensemble de clients.</dd>
-            <dt>Informational</dt>
-            <dd>Problèmes ayant un impact sur les opérations de gestion et/ou la latence, sans affecter la disponibilité du service.</dd>
-        </dl>
-    </li>
-    <li><b>Problèmes liés aux services</b> (properties.incidentType == Incident) <dl>
-            <dt>Error</dt>
-            <dd>Problèmes étendus sur plusieurs services dans plusieurs régions affectant un large éventail de clients.</dd>
-            <dt>Warning</dt>
-            <dd>Problèmes sur des services et/ou des régions spécifiques affectant un sous-ensemble de clients.</dd>
-            <dt>Informational</dt>
-            <dd>Problèmes ayant un impact sur les opérations de gestion et/ou la latence, sans affecter la disponibilité du service.</dd>
-        </dl>
-    </li>
-  </ul>
+
+**Action Required** (properties.incidentType == ActionRequired)
+    - Information - Action de l’administrateur nécessaire pour éviter un impact sur les services existants
+    
+**Maintenance** (properties.incidentType == Maintenance)
+    - Avertissement - Maintenance d’urgence
+    - Information - Maintenance planifiée de façon standard
+
+**Information** (properties.incidentType == Information)
+    - Information - L'intervention de l’administrateur peut être nécessaire pour éviter un impact sur les services existants
+
+**Sécurité** (properties.incidentType == Security)
+    - Erreur - Problèmes étendus sur plusieurs services dans plusieurs régions affectant un large éventail de clients.
+    - Avertissement - Problèmes sur des services et/ou des régions spécifiques affectant un sous-ensemble de clients.
+    - Information - Problèmes ayant un impact sur les opérations de gestion et/ou la latence, sans affecter la disponibilité du service.
+
+**Problèmes liés aux services** (properties.incidentType == Incident)
+    - Erreur - Problèmes étendus sur plusieurs services dans plusieurs régions affectant un large éventail de clients.
+    - Avertissement - Problèmes sur des services et/ou des régions spécifiques affectant un sous-ensemble de clients.
+    - Information - Problèmes ayant un impact sur les opérations de gestion et/ou la latence, sans affecter la disponibilité du service.
+
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Afficher vos notifications Service Health dans le portail Azure
 1.  Dans le [portail Azure](https://portal.azure.com), sélectionnez **Moniteur**.

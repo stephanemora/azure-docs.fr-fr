@@ -1,6 +1,6 @@
 ---
 title: Surveiller une application web ASP.NET active avec Azure Application Insights | Microsoft Docs
-description: Analysez les performances d'un site web sans le redéployer. Fonctionne avec les applications web ASP.NET hébergées localement, dans des machines virtuelles ou sur Azure.
+description: Analysez les performances d'un site web sans le redéployer. Fonctionne avec les applications web ASP.NET hébergées localement ou dans des machines virtuelles.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,16 +12,23 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2eacff55197e203e79043ed225a4495eb85988a0
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 1558d8e8392ff49e2661e9f8bc41e41c5bbc6dd5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999796"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189846"
 ---
-# <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumenter des applications web lors de l’exécution avec Application Insights
+# <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumenter des applications web lors de l’exécution avec Application Insights Status Monitor
 
-Vous pouvez instrumenter une application web dynamique avec Azure Application Insights, sans avoir à modifier ou à redéployer votre code. Si vos applications sont hébergées sur un serveur IIS local, installez Status Monitor. S’il s’agit d’applications web Azure ou d’applications qui s’exécutent dans une machine virtuelle Azure, vous pouvez activer l’analyse Application Insights à partir du panneau de configuration Azure. (Des articles distincts sont également consacrés à l’instrumentation des [applications web J2EE actives](../../azure-monitor/app/java-live.md) et [d’Azure Cloud Services](../../azure-monitor/app/cloudservices.md).) Cette opération nécessite un abonnement [Microsoft Azure](https://azure.com) .
+Vous pouvez instrumenter une application web dynamique avec Azure Application Insights, sans avoir à modifier ou à redéployer votre code. Cette opération nécessite un abonnement [Microsoft Azure](https://azure.com) .
+
+Status Monitor est utilisé pour instrumenter une application .NET hébergée dans IIS localement ou dans une machine virtuelle.
+
+- Si votre application est déployée dans Azure App Services, suivez [les instructions ci-dessous](azure-web-apps.md).
+- Si votre application est déployé dans une machine virtuelle Azure, vous pouvez activer l’analyse Application Insights à partir du panneau de configuration Azure.
+- (Des articles distincts sont également consacrés à l’instrumentation des [applications web J2EE actives](java-live.md) et [d’Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
+
 
 ![Capture d’écran des graphiques de vue d’ensemble App Insights qui contiennent des informations sur les demandes ayant échoué, le temps de réponse du serveur et les requêtes serveur](./media/monitor-performance-live-website-now/overview-graphs.png)
 
@@ -45,39 +52,13 @@ Voici un résumé de ce que vous apporte chaque méthode :
 | Nécessité de régénérer le code |Oui | Non  |
 
 
-## <a name="monitor-a-live-azure-web-app"></a>Surveiller une application web Azure active
-
-Si votre application s’exécute en tant que service web Azure, voici comment activer la surveillance :
-
-* Sélectionnez Application Insights sur le panneau de configuration de l’application dans Azure.
-
-    ![Configurer Application Insights pour une application web Azure](./media/monitor-performance-live-website-now/azure-web-setup.png)
-* Lorsque la page de résumé d’Application Insights s’ouvre, cliquez sur le lien en bas pour ouvrir la ressource Application Insights complète.
-
-    ![Cliquer pour accéder à Application Insights](./media/monitor-performance-live-website-now/azure-web-view-more.png)
-
-[Surveillance des applications de machine virtuelle et cloud](../../application-insights/app-insights-overview.md).
-
-### <a name="enable-client-side-monitoring-in-azure"></a>Activation de la surveillance côté client dans Azure
-
-Si vous avez activé Application Insights dans Azure, vous pouvez ajouter la consultation de page et la télémétrie de l’utilisateur.
-
-1. Cliquez sur Paramètres > Paramètres de l’application.
-2.  Sous Paramètres de l’application, ajoutez une nouvelle paire clé/valeur : 
-   
-    Clé :`APPINSIGHTS_JAVASCRIPT_ENABLED` 
-    
-    Valeur: `true`
-3. **Enregistrez** les paramètres et **Redémarrez** votre application.
-
-Le Kit de développement logiciel (SDK) JavaScript Application Insights est maintenant injecté dans chaque page web.
 
 ## <a name="monitor-a-live-iis-web-app"></a>Surveiller une application web IIS active
 
 Si votre application est hébergée sur un serveur IIS, activez Application Insights à l’aide de Status Monitor.
 
 1. Sur votre serveur web IIS, connectez-vous avec vos informations d’identification d’administrateur.
-2. Si Application Insights Status Monitor n’est pas encore installé, téléchargez et exécutez le [programme d’installation Status Monitor](https://go.microsoft.com/fwlink/?LinkId=506648) (ou exécutez [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) et recherchez-y Application Insights Status Monitor).
+2. Si Application Insights Status Monitor n’est pas encore installé, téléchargez et exécutez le [programme d’installation](#download).
 3. Dans Status Monitor, sélectionnez l’application web installée ou le site Web à surveiller. Connectez-vous avec vos informations d’identification Azure.
 
     Configurez la ressource où vous souhaitez afficher les résultats dans le portail Application Insights. (En règle générale, il est préférable de créer une ressource. Sélectionnez une ressource existante si vous avez déjà configuré des [tests web][availability] ou une [Surveillance du client][client] pour cette application.) 
@@ -106,21 +87,90 @@ Si vous souhaitez procéder à la republication sans ajouter Application Insight
 4. Rétablissez les éventuelles modifications que vous avez effectuées dans le fichier .config.
 
 
-## <a name="troubleshooting-runtime-configuration-of-application-insights"></a>Résolution des problèmes de configuration d’exécution d’Application Insights
+## <a name="troubleshoot"></a>Résolution des problèmes
+
+### <a name="confirm-a-valid-installation"></a>Vérifier la validité d'une installation 
+
+Voici quelques étapes à suivre pour vérifier que votre installation a réussi.
+
+- Vérifiez que le fichier applicationinsights.config est présent dans le répertoire de l'application cible et contient votre iKey.
+
+- Si vous pensez que des données sont manquantes, vous pouvez exécuter une requête simple dans [Analytics](../log-query/get-started-portal.md) afin de répertorier tous les rôles de cloud qui envoient des données de télémétrie.
+
+```Kusto
+union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+```
+
+- Si vous devez vérifier qu'Application Insights est correctement attaché, vous pouvez exécuter [Sysinternals Handle](https://docs.microsoft.com/sysinternals/downloads/handle) dans une commande de fenêtre afin de vous assurer que applicationinsights.dll a été chargé par IIS.
+
+`handle.exe /p w3wp.exe`
+
 
 ### <a name="cant-connect-no-telemetry"></a>Vous n’arrivez pas à vous connecter ? Vous n’obtenez aucune donnée de télémétrie ?
 
 * Ouvrez [les ports sortants requis](../../azure-monitor/app/ip-addresses.md#outgoing-ports) dans le pare-feu de votre serveur pour permettre à Status Monitor de fonctionner.
 
+### <a name="unable-to-login"></a>Impossible d'établir une connexion
+
+* Si Status Monitor ne parvient pas à se connecter, procédez à une installation par ligne de commande. Status Monitor tente de se connecter pour récupérer votre iKey, mais vous pouvez la lui fournir manuellement à l'aide de la commande : 
+```
+Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll
+Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000
+```
+
+### <a name="could-not-load-file-or-assembly-systemdiagnosticsdiagnosticsource"></a>Could not load file or assembly 'System.Diagnostics.DiagnosticSource'
+
+Cette erreur peut s'afficher après avoir activé Application Insights. Elle est dû au fait que le programme d'installation remplace ce dll dans votre répertoire bin.
+Pour y remédier, mettez à jour votre fichier web.config :
+
+```
+<dependentAssembly>
+    <assemblyIdentity name="System.Diagnostics.DiagnosticSource" publicKeyToken="cc7b13ffcd2ddd51"/>
+    <bindingRedirect oldVersion="0.0.0.0-4.*.*.*" newVersion="4.0.2.1"/>
+</dependentAssembly>
+```
+
+Ce problème est suivi [ici](https://github.com/Microsoft/ApplicationInsights-Home/issues/301).
+
+
+### <a name="application-diagnostic-messages"></a>Messages de diagnostic d’application
+
 * Ouvrez Status Monitor et sélectionnez votre application dans le volet gauche. Vérifiez la présence de messages de diagnostic pour cette application dans la section « Notifications de configuration » :
 
   ![Ouvrez le panneau des performances pour afficher la demande, le temps de réponse, la dépendance et d’autres données.](./media/monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
+  
+### <a name="detailed-logs"></a>Journaux détaillés
+
+* Par défaut, Status Monitor génère des journaux de diagnostic dans : `C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`
+
+* Pour disposer de journaux détaillés, modifiez le fichier de configuration : `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` et ajoutez `<add key="TraceLevel" value="All" />` au `appsettings`.
+Redémarrez ensuite Status Monitor.
+
+### <a name="insufficient-permissions"></a>Autorisations insuffisantes
+  
 * Si un message relatif à des « autorisations insuffisantes » s’affiche sur le serveur, procédez comme suit :
   * Dans le Gestionnaire des services Internet, sélectionnez votre pool d’applications, ouvrez **Paramètres avancés** puis, sous **Modèle de processus**, notez l’identité.
   * Dans le panneau de configuration relatif à la gestion de l’ordinateur, ajoutez cette identité au groupe Utilisateurs de l’Analyseur de performances.
+
+### <a name="conflict-with-systems-center-operations-manager"></a>Conflit avec Systems Center Operations Manager
+
 * Si des services MMA/SCOM (Systems Center Operations Manager) sont installés sur votre serveur, certaines versions peuvent entrer en conflit. Désinstallez à la fois SCOM et Moniteur d’état, puis réinstallez des versions les plus récentes.
-* Les journaux Status Monitor se trouvent par défaut à l’emplacement suivant : C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log
-* Consultez la rubrique [Résolution des problèmes][qna].
+
+### <a name="failed-or-incomplete-installation"></a>Installation incomplète ou échec d'installation
+
+En cas d'échec de Status Monitor lors d'une installation, cette dernière risque de ne pas aboutir, sans que Status Monitor puisse y remédier. Une réinitialisation manuelle est alors nécessaire.
+
+Supprimez ces fichiers dans le répertoire de l’application :
+- Tous les fichiers DLL de votre répertoire bin commençant par « Microsoft.AI ». ou « Microsoft.ApplicationInsights. »
+- Ce fichier DLL de votre répertoire bin « Microsoft.Web.Infrastructure.dll »
+- Ce fichier DLL de votre répertoire bin « System.Diagnostics.DiagnosticSource.dll »
+- Dans le répertoire de l’application, supprimez « App_Data\packages »
+- Dans le répertoire de l’application, supprimez « applicationinsights.config »
+
+
+### <a name="additional-troubleshooting"></a>Résolution de problèmes supplémentaires
+
+* Consultez [Résolution de problèmes supplémentaires][qna].
 
 ## <a name="system-requirements"></a>Configuration requise
 Prise en charge du système d’exploitation pour Application Insights Status Monitor sur le serveur :
@@ -252,6 +302,11 @@ Pour les applications déjà instrumentées au moment de la compilation :
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
+## <a name="download"></a>Télécharger Status Monitor
+
+- Téléchargez et exécutez le [programme d’installation Status Monitor](https://go.microsoft.com/fwlink/?LinkId=506648).
+- Ou exécutez [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) et recherchez-y Application Insights Status Monitor.
+
 ## <a name="next"></a>Étapes suivantes
 
 Affichez vos données de télémétrie :
@@ -274,6 +329,6 @@ Ajoutez des données de télémétrie :
 [client]: ../../azure-monitor/app/javascript.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
-[qna]: ../../application-insights/app-insights-troubleshoot-faq.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md
 [usage]: ../../azure-monitor/app/javascript.md

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 21f6331276155ec926b47a5db8310486835cb3ae
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 0be1ddea4d5eaa253850ae640152b2538b39d0ca
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001275"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035421"
 ---
 # <a name="automated-backups"></a>Sauvegardes automatisées
 
@@ -42,7 +42,7 @@ Vous pouvez utiliser ces sauvegardes aux fins suivantes :
 
 ## <a name="how-long-are-backups-kept"></a>Quelle est la durée de conservation des sauvegardes ?
 
-Chaque base de données SQL a une période de conservation de sauvegarde par défaut comprise entre 7 et 35 jours qui dépend du [modèle d’achat et du niveau de service](#pitr-retention-period). Vous pouvez mettre à jour la période de conservation des sauvegardes pour une base de données sur le serveur logique Azure. Consultez [Modification de la période de conservation](#how-to-change-the-pitr-backup-retention-period) pour plus d’informations.
+Chaque base de données SQL Database a une période de rétention de sauvegarde par défaut comprise entre 7 et 35 jours qui dépend du modèle d’achat et du niveau de service. Vous pouvez mettre à jour la période de rétention des sauvegardes pour une base de données sur le serveur logique Azure. Consultez [Modification de la période de conservation](#how-to-change-the-pitr-backup-retention-period) pour plus d’informations.
 
 Si vous supprimez une base de données, SQL Database conserve les sauvegardes de la même façon que s’il s’agissait d’une base de données en ligne. Par exemple, si vous supprimez une base de données De base dont la période de conservation est de sept jours, une sauvegarde datant de quatre jours est enregistrée pendant encore trois jours.
 
@@ -109,7 +109,7 @@ Vous pouvez modifier la période de conservation des sauvegardes PITR par défau
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Modifier la période de conservation des sauvegardes PITR à l’aide du Portail Azure
 
-Pour changer la période de conservation des sauvegardes PITR dans le portail Azure, accédez à l’objet serveur dont vous souhaitez changer la période de conservation dans le portail, puis sélectionnez l’option appropriée selon l’objet serveur que vous modifiez. 
+Pour changer la période de conservation des sauvegardes PITR dans le portail Azure, accédez à l’objet serveur dont vous souhaitez changer la période de conservation dans le portail, puis sélectionnez l’option appropriée selon l’objet serveur que vous modifiez.
 
 #### <a name="change-pitr-for-a-logical-server"></a>Changer la valeur PITR d’un serveur logique
 

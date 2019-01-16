@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 172ddd11cb956ab6d74e1ce870e2378205dd1613
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993284"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077469"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Déployer des instance de conteneur dans un réseau virtuel Azure
 
@@ -33,26 +33,28 @@ Les groupes de conteneurs déployés dans un réseau virtuel Azure autorisent le
 
 Certaines limitations s’appliquent lorsque vous déployez des groupes de conteneurs dans un réseau virtuel.
 
-* Les conteneurs Windows ne sont pas pris en charge
 * Pour déployer des groupes de conteneurs dans un sous-réseau, le sous-réseau ne peut pas contenir d’autres types de ressources. Supprimez toutes les ressources d’un sous-réseau avant de déployer des groupes de conteneurs dans celui-ci, ou créez un sous-réseau.
 * Les groupes de conteneurs déployés dans un réseau virtuel ne prennent pas en charge les adresses IP publiques ou les étiquettes de nom DNS.
 * En raison des ressources réseau supplémentaires impliquées, le déploiement d’un groupe de conteneurs dans un réseau virtuel est généralement un peu plus lent que celui d’une instance de conteneur standard.
 
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
 
-Cette fonctionnalité est en préversion, mais les limitations suivantes s’appliquent lors du déploiement d’instances de conteneur dans un réseau virtuel.
+Cette fonctionnalité est en préversion, mais les limitations suivantes s’appliquent lors du déploiement d’instances de conteneur dans un réseau virtuel. 
 
-Régions **prises en charge** :
+**Régions prises en charge et limites de ressources**
 
-* Europe Nord (Europe du Nord)
-* Europe Ouest (Europe occidentale)
-* USA Ouest (ouest des USA)
-* USA Est (eastus)
+| Lieu | SE | UC | Mémoire (Go) |
+| -------- | :---: | :---: | :-----------: |
+| Europe Ouest | Linux | 4 | 14 |
+| USA Est, USA Ouest | Linux | 2 | 3,5 |
+| Australie Est, Europe Nord | Linux | 1 | 1.5 |
 
-Ressources réseau **non prises en charge** :
+Les limites des ressources de conteneur peuvent différer des limites des instances de conteneur non connectées au réseau dans ces régions. Les conteneurs Linux sont actuellement les seuls pris en charge pour cette fonctionnalité. La prise en charge de Windows est prévue.
 
-* Groupe de sécurité réseau
+**Fonctionnalités et ressources réseau non prises en charge**
+
 * Azure Load Balancer
+* Homologation de réseaux virtuels
 
 La **suppression de ressources réseau** requiert des [étapes supplémentaires](#delete-network-resources) après le déploiement de groupes de conteneurs dans le réseau virtuel.
 

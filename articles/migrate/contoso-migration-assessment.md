@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 6b4b1b74ace534517157edc20c33236d516205c5
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c2afd1c5a85ec393acfb0f754dd4ca9d77162061
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635014"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065492"
 ---
-# <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migration de Contoso : évaluer facilement vos charges de travail locales en vue d’une migration vers Azure
+# <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migration de Contoso : Évaluer facilement vos charges de travail locales en vue d’une migration vers Azure
 
 Dans cet article, Contoso évalue son application SmartHotel360 locale en vue de sa migration vers Azure.
 
@@ -23,19 +23,19 @@ Cet article fait partie d’une série décrivant comment la société fictive C
 
 Article | Détails | Statut
 --- | --- | ---
-[Article 1 : vue d’ensemble](contoso-migration-overview.md) | Vue d’ensemble de la série d’articles, de la stratégie de migration de Contoso et des exemples d’application utilisés dans la série. | Disponible
+[Article 1 : Vue d’ensemble](contoso-migration-overview.md) | Vue d’ensemble de la série d’articles, de la stratégie de migration de Contoso et des exemples d’applications utilisés dans la série. | Disponible
 [Article 2 : Déployer une infrastructure Azure](contoso-migration-infrastructure.md) | Contoso prépare son infrastructure locale et son infrastructure Azure pour la migration. La même infrastructure est utilisée pour tous les articles de migration de la série. | Disponible
-Scénario 3 : Évaluer les ressources locales à migrer vers Azure | Contoso évalue son application locale SmartHotel360 qui s’exécute sur VMware. Contoso évalue les machines virtuelles de l’application à l’aide du service Azure Migrate et la base de données SQL Server de l’application à l’aide de l’Assistant Migration de données. | Cet article
+Article 3 : Évaluer les ressources locales à migrer vers Azure | Contoso évalue son application locale SmartHotel360 qui s’exécute sur VMware. Contoso évalue les machines virtuelles de l’application à l’aide du service Azure Migrate et la base de données SQL Server de l’application à l’aide de l’Assistant Migration de données. | Cet article
 [Article 4 : Réhéberger une application sur une machine virtuelle Azure et SQL Database Managed Instance](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso exécute une migration lift-and-shift vers Azure pour son application SmartHotel360 locale. Il migre le serveur frontal de l’application à l’aide du service Azure Site Recovery. Il migre la base de données de l’application vers Azure SQL Database Managed Instance à l’aide d’Azure Database Migration Service. | Disponible
 [Article 5 : Réhéberger une application sur des machines virtuelles Azure](contoso-migration-rehost-vm.md) | Contoso migre les machines virtuelles de son application SmartHotel360 vers des machines virtuelles Azure avec le service Site Recovery. | Disponible
-[Article 6 : Réhéberger une application sur des machines virtuelles Azure et dans un groupe de disponibilité SQL Server AlwaysOn](contoso-migration-rehost-vm-sql-ag.md) | Contoso migre l’application SmartHotel360 en utilisant Site Recovery pour migrer les machines virtuelles de l’application, et en utilisant Database Migration Service pour migrer la base de données de l’application vers un cluster SQL Server qui est protégé par un groupe de disponibilité AlwaysOn. | Disponible
-[Article 7 : ré-héberger une application Linux sur des machines virtuelles Azure](contoso-migration-rehost-linux-vm.md) | Contoso effectue une migration lift-and-shift de son application osTicket Linux sur des machines virtuelles Azure à l’aide du service Site Recovery. | Disponible
+[Article 6 : Réhéberger une application sur des machines virtuelles Azure et dans un groupe de disponibilité SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Contoso migre l’application SmartHotel360 en utilisant Site Recovery pour migrer les machines virtuelles de l’application, et en utilisant Database Migration Service pour migrer la base de données de l’application vers un cluster SQL Server qui est protégé par un groupe de disponibilité AlwaysOn. | Disponible
+[Article 7 : Réhéberger une application Linux sur des machines virtuelles Azure](contoso-migration-rehost-linux-vm.md) | Contoso effectue une migration lift-and-shift de son application osTicket Linux sur des machines virtuelles Azure à l’aide du service Site Recovery. | Disponible
 [Article 8 : Réhéberger une application Linux sur des machines virtuelles Azure et Azure Database pour MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migre son application osTicket Linux vers des machines virtuelles Azure à l’aide de Site Recovery. La société migre la base de données d’application vers Azure Database pour MySQL à l’aide de MySQL Workbench. | Disponible
 [Article 9 : Refactoriser une application vers une application web Azure et Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migre son application SmartHotel360 vers une application web Azure, et la base de données de l’application vers une instance Azure SQL Server avec l’Assistant Migration de données. | Disponible
 [Article 10 : Refactoriser une application Linux vers une application web Azure et Azure Database pour MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migre son application osTicket Linux vers Azure Web App dans plusieurs régions Azure à l’aide d’Azure Traffic Manager, intégré à GitHub de façon à assurer une livraison continue. Contoso migre la base de données d’application vers une instance d’Azure Database pour MySQL. | Disponible
-[Article 11 : Refactoriser Team Foundation Server sur Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migre son déploiement local de Team Foundation Server vers Azure DevOps Services dans Azure. | Disponible
+[Article 11 : Refactoriser Team Foundation Server sur Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migre son déploiement local de Team Foundation Server vers Azure DevOps Services dans Azure. | Disponible
 [Article 12 : Réarchitecturer une application dans des conteneurs Azure et Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migre son application SmartHotel vers Azure. Ensuite, l’entreprise restructure la couche web de l’application comme un conteneur Windows s’exécutant dans Azure Service Fabric, et la base de données avec Azure SQL Database. | Disponible
-[Article 13 : Regénérer une application dans Azure](contoso-migration-rebuild.md) | Contoso regénère son application SmartHotel à l’aide d’une série de fonctionnalités et services Azure, notamment Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services et Azure Cosmos DB. | Disponible
+[Article 13 : Regénérer une application dans Azure](contoso-migration-rebuild.md) | Contoso régénère son application SmartHotel à l’aide d’une série de fonctionnalités et services Azure, notamment Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services et Azure Cosmos DB. | Disponible
 [Article 14 : Mettre à l’échelle une migration vers Azure](contoso-migration-scale.md) | Après des essais de différentes combinaisons de migration, Contoso se prépare à une migration complète vers Azure. | Disponible
 
 
@@ -68,10 +68,10 @@ Le diagramme suivant montre l’infrastructure locale actuelle de Contoso :
 
 L’équipe informatique de Contoso a travaillé en étroite collaboration avec ses partenaires commerciaux pour comprendre le résultat que l’entreprise souhaite obtenir avec cette migration :
 
-- **Répondre à la croissance de l’entreprise** : Contoso se développe. Il en découle une pression accrue sur l’infrastructure et les systèmes locaux et de l’entreprise.
+- **Répondre à la croissance de l’entreprise** : Contoso se développe. Il en découle une pression accrue sur l’infrastructure et les systèmes locaux et de l’entreprise.
 - **Augmenter l’efficacité** : Contoso doit supprimer les procédures inutiles et rationaliser les processus pour ses développeurs et ses utilisateurs. L’entreprise a besoin d’une informatique rapide et doit éviter les pertes de temps ou d’argent afin de répondre plus rapidement aux exigences des clients.
-- **Augmenter l’agilité** : l’informatique de Contoso doit être plus réactive aux besoins de l’entreprise. Elle doit être en mesure de réagir plus rapidement que l’évolution du marché pour réussir dans une économie mondiale. L’informatique chez Contoso ne doit pas devenir une entrave à l’activité.
-- **Mise à l’échelle** : à mesure que l’entreprise croît, l’informatique de Contoso doit fournir des systèmes capables de croître au même rythme.
+- **Accroître l’agilité** :  le service informatique de Contoso doit être plus réactif face aux besoins de l’entreprise. Elle doit être en mesure de réagir plus rapidement que l’évolution du marché pour réussir dans une économie mondiale. L’informatique chez Contoso ne doit pas devenir une entrave à l’activité.
+- **Mise à l’échelle** : à mesure que l’entreprise croît, l’informatique de Contoso doit fournir des systèmes capables de croître au même rythme.
 
 ## <a name="assessment-goals"></a>Objectifs d’évaluation
 
@@ -135,14 +135,14 @@ Contoso et les autres utilisateurs doivent respecter les prérequis suivants pou
 Voici comment Contoso effectue son évaluation :
 
 > [!div class="checklist"]
-> * **Étape 1 : Télécharger et installer l’Assistant Migration de données** : Contoso prépare l’Assistant Migration de données pour l’évaluation de la base de données SQL Server locale.
-> * **Étape 2 : Évaluer la base de données à l’aide de l’Assistant Migration de données** : Contoso effectue l’évaluation de la base de données et analyse les résultats.
-> * **Étape 3 : Préparer l’évaluation de la machine virtuelle avec Azure Migrate** : Contoso configure les comptes locaux et ajuste les paramètres VMware.
-> * **Étape 4 : Découvrir les machines virtuelles locales avec Azure Migrate** : Contoso crée une machine virtuelle collecteur Azure Migrate. Ensuite, Contoso exécute le collecteur pour découvrir les machines virtuelles dans le cadre de l’évaluation.
-> * **Étape 5 : Préparer l’analyse des dépendances avec Azure Migrate** : Contoso installe les agents Azure Migrate sur les machines virtuelles, afin de voir le mappage des dépendances entre les machines virtuelles.
-> * **Étape 6 : Évaluer les machines virtuelles à l’aide d’Azure Migrate** : Contoso vérifie les dépendances, regroupe les machines virtuelles et lance l’évaluation. Une fois l’évaluation effectuée, Contoso analyse les résultats en vue de préparer la migration.
+> * **Étape 1 : Télécharger et installer l’Assistant Migration de données** : Contoso prépare l’Assistant Migration de données pour l’évaluation de la base de données SQL Server locale.
+> * **Étape 2 : Évaluer la base de données à l’aide de l’Assistant Migration des données** : Contoso effectue l'évaluation de la base de données et analyse les résultats.
+> * **Étape 3 : Préparer l’évaluation de la machine virtuelle avec Azure Migrate** : Contoso configure les comptes locaux et ajuste les paramètres VMware.
+> * **Étape 4 : Découvrir les machines virtuelles locales avec Azure Migrate** : Contoso crée une machine virtuelle collecteur Azure Migrate. Ensuite, Contoso exécute le collecteur pour découvrir les machines virtuelles dans le cadre de l’évaluation.
+> * **Étape 5 : Préparer l’analyse des dépendances avec Azure Migrate** : Contoso installe les agents Azure Migrate sur les machines virtuelles, afin de voir le mappage des dépendances entre les machines virtuelles.
+> * **Étape 6 : Évaluer les machines virtuelles à l’aide d’Azure Migrate** : Contoso vérifie les dépendances, regroupe les machines virtuelles et lance l’évaluation. Une fois l’évaluation effectuée, Contoso analyse les résultats en vue de préparer la migration.
 
-## <a name="step-1-download-and-install-data-migration-assistant"></a>Étape 1 : Télécharger et installer l’Assistant Migration de données
+## <a name="step-1-download-and-install-data-migration-assistant"></a>Étape 1 : Télécharger et installer l’Assistant Migration de données
 
 1. Contoso télécharge l’Assistant Migration de données à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=53595).
     - Vous pouvez installer l’Assistant Migration de données sur toutes les machines pouvant se connecter à l’instance SQL Server. Contoso n’a pas besoin de l’exécuter sur la machine SQL Server.
@@ -186,11 +186,11 @@ Les résultats s’affichent dès qu’elles sont disponibles. Si Contoso a corr
 
 1. Dans le rapport **Problèmes de compatibilité**, Contoso vérifie la présence éventuelle de problèmes à chaque niveau de compatibilité. Vous trouverez ci-dessous le mappage des niveaux de compatibilité aux versions SQL Server :
 
-    - 100 : SQL Server 2008/Azure SQL Database
-    - 110 : SQL Server 2012/Azure SQL Database
-    - 120 : SQL Server 2014/Azure SQL Database
-    - 130 : SQL Server 2016/Azure SQL Database
-    - 140 : SQL Server 2017/Azure SQL Database
+    - 100 : SQL Server 2008/Azure SQL Database
+    - 110 : SQL Server 2012/Azure SQL Database
+    - 120 : SQL Server 2014/Azure SQL Database
+    - 130 : SQL Server 2016/Azure SQL Database
+    - 140 : SQL Server 2017/Azure SQL Database
 
     ![Assistant Migration de données - Rapport Problèmes de compatibilité](./media/contoso-migration-assessment/dma-assessment-5.png)
 
@@ -217,8 +217,8 @@ Contoso doit créer un compte VMware qu’Azure Migrate pourra utiliser pour dé
 
 La découverte des machines virtuelles nécessite un compte en lecture seule dans vCenter Server, avec les propriétés suivantes :
 
-- **Type d’utilisateur** : au moins un utilisateur en lecture seule.
-- **Autorisations** : pour l’objet centre de données, cochez la case **Propagate to Child Objects** (Propager aux objets enfants). Pour **Rôle**, sélectionnez **En lecture seule**.
+- **Type d’utilisateur** : Au moins un utilisateur en lecture seule.
+- **Autorisations** : pour l’objet centre de données, cochez la case **Propager vers les objets enfants**. Pour **Rôle**, sélectionnez **En lecture seule**.
 - **Détails** : l’utilisateur est affecté au niveau du centre de données et a donc accès à tous les objets du centre de données.
 - Pour restreindre l’accès, attribuez le rôle **Aucun accès** avec l’objet **Propager vers l’objet enfant** défini sur les objets enfants (hôtes vSphere, banques de données, machines virtuelles et réseaux).
 
@@ -251,7 +251,7 @@ Pour définir le niveau :
 
     ![Niveau de statistiques vCenter Server](./media/contoso-migration-assessment/vcenter-statistics-level.png)
 
-## <a name="step-4-discover-vms"></a>Étape 4 : détecter les machines virtuelles
+## <a name="step-4-discover-vms"></a>Étape 4 : Détection des machines virtuelles
 
 Pour détecter les machines virtuelles, Contoso crée un projet Azure Migrate. Contoso télécharge et configure la machine virtuelle collecteur. Ensuite, Contoso exécute le collecteur pour découvrir ses machines virtuelles locales.
 
@@ -351,7 +351,7 @@ Une fois la collecte terminée, Contoso vérifie que les machines virtuelles app
 
     ![Azure Migrate - Installation de l’agent nécessaire](./media/contoso-migration-assessment/machines-no-agent.png)
 
-## <a name="step-5-prepare-for-dependency-analysis"></a>Étape 5 : préparer l’analyse des dépendances
+## <a name="step-5-prepare-for-dependency-analysis"></a>Étape 5 : Préparer l’analyse des dépendances
 
 Pour voir les dépendances qui existent entre les machines virtuelles à évaluer, Contoso télécharge et installe des agents sur les machines virtuelles de l’application. Contoso installe les agents sur toutes les machines virtuelles pour ses applications (Windows et Linux).
 
@@ -430,7 +430,7 @@ Une fois Microsoft Monitoring Agent installé, Contoso installe Dependency Agent
     wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin && sudo sh InstallDependencyAgent-Linux64.bin -s
     ```
 
-## <a name="step-6-run-and-analyze-the-vm-assessment"></a>Étape 6 : exécuter et analyser l’évaluation de la machine virtuelle
+## <a name="step-6-run-and-analyze-the-vm-assessment"></a>Étape 6 : Exécuter et analyser l’évaluation de la machine virtuelle
 
 Contoso peut à présent vérifier les dépendances de machine et créer un groupe. Ensuite, Contoso effectue l’évaluation pour le groupe.
 

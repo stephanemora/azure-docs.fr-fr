@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: da481a2b6a20b5b5dbd75a23aafffc0bc0a8fef9
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 15f358f76504436dd6a3cf6a39b10531a9e1b376
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752756"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055164"
 ---
 # <a name="azure-stack-1811-update"></a>Mise à jour 1811 d’Azure Stack
 
@@ -292,7 +292,7 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
    - Si vous mettez à jour la valeur de quota à 0, cela équivalut à la valeur par défaut de 2 048 Gio. En guise de solution de contournement, définissez la valeur de quota sur 1.
 
 <!-- TBD - IS ASDK --> 
-- Après avoir appliqué la mise à jour 1811, il se peut que vous rencontriez les problèmes suivants lors du déploiement de machines virtuelles avec le service Managed Disks :
+- Après avoir appliqué la mise à jour 1811, il se peut que vous rencontriez les problèmes suivants lors du déploiement de machines virtuelles avec Managed Disks :
 
    - Si l’abonnement a été créé avant la mise à jour 1808, le déploiement d’une machine virtuelle avec Managed Disks peut échouer avec un message d’erreur interne. Pour résoudre cette erreur, effectuez les étapes suivantes pour chaque abonnement :
       1. Dans le portail locataire, accédez à **Abonnements** et recherchez l’abonnement. Sélectionnez **Fournisseurs de ressources**, **Microsoft.Compute**, puis **Réinscrire**.

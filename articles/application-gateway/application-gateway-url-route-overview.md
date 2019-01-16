@@ -1,25 +1,17 @@
 ---
-title: Présentation du routage de contenu basé sur URL | Microsoft Docs
-description: Cette page fournit une présentation du routage de contenu basé sur l’URL Application Gateway, de la configuration de l’élément UrlPathMap et de la règle PathBasedRouting.
-documentationcenter: na
+title: Vue d’ensemble du routage de contenu basé sur l’URL de Azure Application Gateway
+description: Cette page fournit une présentation du routage de contenu basé sur l’URL Azure Application Gateway, de la configuration de l’élément UrlPathMap et de la règle PathBasedRouting.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: ''
-ms.assetid: 4409159b-e22d-4c9a-a103-f5d32465d163
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2017
+ms.date: 1/8/2019
 ms.author: victorh
-ms.openlocfilehash: f6108b5ac628b8bc2c1d74dcc871f96115094859
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 1ada74f5c85ef327957ec4981e83f68bcafea858
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770336"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188757"
 ---
 # <a name="url-path-based-routing-overview"></a>Présentation du routage basé sur le chemin d’accès de l’URL
 
@@ -69,8 +61,37 @@ L’élément urlPathMap est utilisé pour spécifier les modèles de chemin d�
 }]
 ```
 
-> [!NOTE]
-> PathPattern : ce paramètre est une liste de modèles de chemin d’accès à utiliser pour la correspondance. Chaque modèle doit commencer par le signe « / », et le seul emplacement autorisé pour un astérisque (« * ») est à la fin après un signe « / ». La chaîne transmise à l’outil de correspondance de chemin d’accès n’inclut pas de texte après le premier signe ? ou #. De plus, ces caractères ne sont pas autorisés ici.
+### <a name="pathpattern"></a>PathPattern
+
+PathPattern est une liste de modèles de chemin à utiliser pour la correspondance. Chaque modèle doit commencer par le signe « / », et le seul emplacement autorisé pour un astérisque (« * ») est à la fin après un signe « / ». La chaîne transmise à l’outil de correspondance de chemin n’inclut pas de texte après le premier signe « ? » ou « # ». De plus, ces caractères ne sont pas autorisés. Sinon, tous les caractères autorisés dans une URL sont autorisés dans PathPattern.
+
+Les modèles pris en charge varient selon la version d'Application Gateway déployée, à savoir v1 ou v2 :
+
+#### <a name="v1"></a>v1
+
+Les règles de chemin ne respectent pas la casse.
+
+|Modèle de chemin d’accès v1  |Prise en charge ?  |
+|---------|---------|
+|`/images/*`     |Oui|
+|`/images*`     |no|
+|`/images/*.jpg`     |no|
+|`/*.jpg`     |no|
+|`/Repos/*/Comments/*`     |no|
+|`/CurrentUser/Comments/*`     |Oui|
+
+#### <a name="v2"></a>v2
+
+Les règles de chemin respectent la casse.
+
+|Modèle de chemin d’accès v2  |Prise en charge ?  |
+|---------|---------|
+|`/images/*`     |Oui|
+|`/images*`     |Oui|
+|`/images/*.jpg`     |no|
+|`/*.jpg`     |no|
+|`/Repos/*/Comments/*`     |no|
+|`/CurrentUser/Comments/*`     |Oui|
 
 Pour plus d’informations, vous pouvez consulter un [modèle Resource Manager utilisant le routage basé sur URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) .
 

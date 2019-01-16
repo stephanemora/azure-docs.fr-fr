@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 18de5ce2f47b6593d4c8556af045f14ade957fb9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 164fc42d905c9354a58ea6f66a739ea05f12e601
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979231"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157766"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Jetons d’accès Azure Active Directory
 
@@ -38,7 +38,7 @@ Consultez les sections suivantes pour savoir comment une ressource peut valider 
 
 ## <a name="sample-tokens"></a>Exemples de jeton
 
-Les jetons v1.0 et v2.0 se ressemblent beaucoup et un grand nombre de leurs revendications sont identiques. Vous trouverez ici un exemple de chacun d’eux.
+Les jetons v1.0 et v2.0 se ressemblent et un grand nombre de leurs revendications sont identiques. Vous trouverez ici un exemple de chacun d’eux.
 
 ### <a name="v10"></a>v1.0
 
@@ -79,7 +79,7 @@ Les revendications ne sont présentes que lorsqu’elles sont renseignées par u
 | `nonce` | Chaîne | Identificateur unique utilisé pour se protéger contre les attaques par relecture de jetons. Votre ressource peut enregistrer cette valeur pour se protéger contre les relectures. |
 | `alg` | Chaîne | Indique l’algorithme utilisé pour signer le jeton, par exemple « RS256 » |
 | `kid` | Chaîne | Indique l’empreinte de la clé publique utilisée pour signer le jeton. Émis dans les jetons d’accès v1.0 et v2.0. |
-| `x5t` | Chaîne | Fonctions identiques (en utilisation et en valeur) à `kid`. Il s’agit d’une ancienne revendication émise uniquement dans les jetons d’accès v1.0 à des fins de compatibilité. |
+| `x5t` | Chaîne | Fonctions identiques (en utilisation et en valeur) à `kid`. `x5t` est une revendication héritée émise uniquement dans les jetons d’accès v1.0 à des fins de compatibilité. |
 
 ### <a name="payload-claims"></a>Revendications de la charge utile
 
@@ -121,7 +121,7 @@ Les revendications suivantes sont incluses dans les jetons v1.0, le cas échéan
 | Revendication | Format | Description |
 |-----|--------|-------------|
 | `ipaddr`| Chaîne | Adresse IP à partir de laquelle l’utilisateur s’est authentifié. |
-| `onprem_sid`| Chaîne, au format [SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Lorsque l’utilisateur dispose d’une authentification locale, cette revendication fournit son SID. Cela peut être utilisé pour l’autorisation dans les anciennes applications. |
+| `onprem_sid`| Chaîne, au format [SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Lorsque l’utilisateur dispose d’une authentification locale, cette revendication fournit son SID. Vous pouvez utiliser `onprem_sid` pour l’autorisation dans des applications héritées. |
 | `pwd_exp`| int, horodatage UNIX | Indique la date d’expiration du mot de passe de l’utilisateur. |
 | `pwd_url`| Chaîne | URL vers laquelle les utilisateurs peuvent être redirigés pour réinitialiser leur mot de passe. |
 | `in_corp`|booléenne | Indique si le client se connecte à partir du réseau d’entreprise. Si ce n’est pas le cas, la revendication n’est pas incluse. |
@@ -200,7 +200,7 @@ Cette étape est déterminée par la logique métier de votre application, certa
 * Validez l’état d’authentification du client appelant à l’aide de `appidacr`. Si les clients publics ne sont pas autorisés à appeler votre API, sa valeur doit être différente de 0.
 * Vérifiez par rapport à une liste de revendications `nonce` passées pour savoir si le jeton n’est pas en relecture.
 * Vérifiez que `tid` correspond à un client autorisé à appeler votre API.
-* Utilisez la revendication `acr` pour vérifier que l’utilisateur a effectué la MFA. Notez que ceci doit être exécuté à l’aide de l’[accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+* Utilisez la revendication `acr` pour vérifier que l’utilisateur a effectué la MFA. Cela doit être exécuté à l’aide d’un [accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * Si vous avez demandé les revendications `roles` ou `groups` dans le jeton d’accès, vérifiez que l’utilisateur fait bien partie du groupe autorisé à effectuer cette action.
   * Pour les jetons récupérés à l’aide du flux implicite, vous devrez probablement interroger le [Microsoft Graph](https://developer.microsoft.com/graph/) de ces données, car il est souvent trop grand pour être contenu dans le jeton. 
 
@@ -225,7 +225,7 @@ Les jetons d’actualisation peuvent être rendus non valides ou révoqués à t
 
 ### <a name="revocation"></a>Révocation
 
-|   | Cookie basé sur mot de passe | Jeton basé sur mot de passe | Cookie non basé sur mot de passe | Jeton non basé sur mot de passe | Jeton client confidentiel| 
+|   | Cookie basé sur un mot de passe | Jeton basé sur un mot de passe | Cookie non basé sur un mot de passe | Jeton non basé sur un mots de passe | Jeton client confidentiel| 
 |---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
 | Le mot de passe expire | Reste actif| Reste actif | Reste actif | Reste actif | Reste actif |
 | Mot de passe modifié par l’utilisateur | Révoqué | Révoqué | Reste actif | Reste actif | Reste actif |

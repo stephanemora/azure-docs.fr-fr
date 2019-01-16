@@ -6,21 +6,21 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 01/02/2019
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 604093dcec048b0991bbc9beac3ef998cc47e351
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 36f4caac38f2f4891af6f61b78b55c7eff15eae4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974509"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54116736"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Ajouter des objets blob à des objets dans Azure Digital Twins
 
-Les objets blob sont des représentations non structurées de types de fichier courants, comme les images et les journaux. Les objets blob assurent le suivi du type de données qu’ils représentent à l’aide d’un type MIME (par exemple : « image/jpeg ») et de métadonnées (nom, description, type, etc.).
+Les objets blob sont des représentations non structurées de types de fichier courants, comme les images et les journaux. Les blobs assurent le suivi du type de données qu’ils représentent à l’aide d’un type MIME (par exemple : « image/jpeg ») et de métadonnées (nom, description, type, etc.).
 
-Azure Digital Twins prend en charge l’attachement d’objets blob à des appareils, des espaces et des utilisateurs. Les objets blob peuvent représenter une image de profil pour un utilisateur, une photo de l’appareil, une vidéo, une carte ou un journal.
+Azure Digital Twins prend en charge l’attachement d’objets blob à des appareils, des espaces et des utilisateurs. Les blobs peuvent représenter une image de profil pour un utilisateur, une photo de l’appareil, une vidéo, une carte, un zip de microprogramme, des données JSON, un journal, etc.
 
 [!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
@@ -28,27 +28,11 @@ Azure Digital Twins prend en charge l’attachement d’objets blob à des appar
 
 Vous pouvez utiliser des demandes en plusieurs parties pour charger des objets blob vers des points de terminaison spécifiques et leurs fonctionnalités respectives.
 
-> [!IMPORTANT]
-> Les demandes en plusieurs parties nécessitent trois informations essentielles :
-> * Un en-tête **Content-Type** :
->   * `application/json; charset=utf-8`
->   * `multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`
-> * Un élément **Content-Disposition** : `form-data; name="metadata"`
-> * Le contenu du fichier à charger
->
-> Les informations **Content-Type** et **Content-Disposition** peuvent varier en fonction du scénario d’utilisation.
-
-Les demandes en plusieurs parties faites aux API de gestion Azure Digital Twins comprennent deux parties :
-
-* Des métadonnées blob, par exemple, un type MIME associé, comme indiqué dans les informations **Content-Type** et **Content-Disposition**
-
-* Contenu blob (le contenu non structuré du fichier)  
-
-Aucune des deux parties n’est obligatoire pour les demandes **PATCH**. Les deux sont requises pour **POST** ou pour créer des opérations.
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
 ### <a name="blob-metadata"></a>Métadonnées d'objet blob
 
-En plus de **Content-Type** et **Content-Disposition**, les demandes en plusieurs parties doivent également spécifier le corps JSON approprié. Le corps JSON à envoyer varie selon le type d’opération de requête HTTP effectuée.
+En plus de **Content-Type** et **Content-Disposition**, les demandes en plusieurs parties Azure Digital Twins doivent également spécifier le corps JSON approprié. Le corps JSON à envoyer varie selon le type d’opération de requête HTTP effectuée.
 
 Les quatre principaux schémas JSON sont :
 
@@ -64,12 +48,15 @@ Découvrez plus d’informations sur l’utilisation de la documentation de réf
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-Pour effectuer une demande **POST** qui charge un fichier texte sous forme d’objet blob et l’associe à un espace :
+Pour charger un fichier texte sous forme de blob et l’associer à un espace, envoyez une requête HTTP POST authentifiée à :
 
 ```plaintext
-POST YOUR_MANAGEMENT_API_URL/spaces/blobs HTTP/1.1
-Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
+YOUR_MANAGEMENT_API_URL/spaces/blobs
+```
 
+Avec le corps suivant :
+
+```plaintext
 --USER_DEFINED_BOUNDARY
 Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
@@ -112,6 +99,16 @@ multipartContent.Add(fileContents, "contents");
 var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 ```
 
+Dans les deux exemples :
+
+1. Vérifiez que les en-têtes incluent : `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
+1. Vérifiez que le corps comprend plusieurs parties :
+
+   - La première partie contient les métadonnées requises de la fonction définie par l’utilisateur.
+   - La deuxième partie contient le fichier texte.
+
+1. Vérifiez que le fichier texte est fourni en tant que `Content-Type: text/plain`.
+
 ## <a name="api-endpoints"></a>Points de terminaison d’API
 
 Les sections suivantes décrivent les points de terminaison d’API principaux liés à l’objet blob et leurs fonctionnalités.
@@ -122,7 +119,7 @@ Vous pouvez attacher des objets blob à des appareils. L’illustration suivante
 
 ![Objets blob d’appareil][2]
 
-Par exemple, pour mettre à jour ou créer un objet blob, et l’attacher à un appareil, envoyez une demande **PATCH** à :
+Par exemple, pour mettre à jour ou créer un blob, et l’attacher à un appareil, envoyez une requête HTTP PATCH authentifiée à :
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
@@ -148,7 +145,7 @@ Vous pouvez également attacher des objets blob à des espaces. L’image suivan
 
 ![Objets blob d’espace][3]
 
-Par exemple, pour retourner un objet blob attaché à un espace, envoyez une demande **GET** à :
+Par exemple, pour retourner un blob attaché à un espace, envoyez une requête HTTP GET authentifiée à :
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
@@ -158,7 +155,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | ID d’objet blob souhaité |
 
-Quand vous envoyez une demande **PATCH** au même point de terminaison, vous pouvez mettre à jour une description de métadonnées et créer une version de l’objet blob. La requête HTTP est envoyée à l’aide de la méthode **PATCH** ainsi que des métadonnées et des données de formulaire en plusieurs parties nécessaires.
+Une demande PATCH au même point de terminaison met à jour la description de métadonnées et crée une version du blob. La requête HTTP est envoyée à l’aide de la méthode PATCH ainsi que des métadonnées et des données de formulaire en plusieurs parties nécessaires.
 
 Les opérations réussies retournent un objet **SpaceBlob** qui est conforme au schéma suivant. Vous pouvez l’utiliser pour consommer les données retournées.
 
@@ -173,7 +170,7 @@ Vous pouvez attacher des objets blob aux modèles utilisateur (par exemple, pour
 
 ![Objets blob d’utilisateur][4]
 
-Par exemple, pour extraire un objet blob attaché à un utilisateur, envoyez une demande **GET** avec les données de formulaire nécessaires à :
+Par exemple, pour extraire un blob attaché à un utilisateur, envoyez une requête HTTP GET authentifiée avec les données de formulaire nécessaires à :
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
@@ -205,7 +202,7 @@ Une erreur courante est de ne pas inclure pas les informations d’en-tête appr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur la documentation de référence Swagger pour Azure Digital Twins, lisez [Utiliser Azure Digital Twins Swagger](how-to-use-swagger.md).
+- Pour en savoir plus sur la documentation de référence Swagger pour Azure Digital Twins, lisez [Utiliser Azure Digital Twins Swagger](how-to-use-swagger.md).
 
 <!-- Images -->
 [1]: media/how-to-add-blobs/blob-models.PNG

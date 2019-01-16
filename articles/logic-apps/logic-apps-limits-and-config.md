@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: 62235c0c06621169997cc4ad16816c0a4d638e78
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: e5c5d1a3e0316c96a6df7e01e6d6796d6a72506a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853827"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159024"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -85,10 +85,10 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 
 | NOM | Limite | Notes | 
 | ---- | ----- | ----- | 
-| Déclencheur simultané | 50 | La limite par défaut est définie sur 20. Cette limite décrit le nombre maximal d’instances d’application logique pouvant être lancées en même temps ou en parallèle. <p><p>Pour modifier la limite par défaut pour une valeur comprise entre 1 et 50, consultez [Changer le déclencheur simultané](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Déclencher des instances séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
-| Exécutions en attente maximale | 100 | La limite par défaut est définie sur 10. Cette limite décrit le nombre maximal d’instances d’application logique pouvant attendre de s’exécuter quand le nombre maximal d’instances simultanées sont déjà en cours d’exécution. <p><p>Pour modifier la limite par défaut pour une valeur comprise entre 0 et 100 (inclus), consultez [Modifier les limites d’exécutions en attente](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
-| Éléments ForEach | 100 000 | Cette limite décrit le nombre maximal d’éléments de table qu’une boucle « for each » peut traiter. <p><p>Pour filtrer des tables plus grandes, vous pouvez utiliser l’[action de requête](../connectors/connectors-native-query.md). | 
-| Itérations ForEach | 50 | La limite par défaut est définie sur 20. Cette limite décrit le nombre maximal d’itérations de boucles « for each » qui peuvent s’exécuter en même temps ou en parallèle. <p><p>Pour changer la limite par défaut pour une valeur comprise entre 1 et 50, consultez [Changer la simultanéité « for each »](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Exécuter des boucles « for each » séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
+| Déclencheur simultané | 50 lorsque vous limitez le déclencheur simultané | Lorsque vous activez le contrôle d’accès concurrentiel pour un déclencheur, la limite par défaut est 25. Cette limite décrit le nombre maximal d’instances d’application logique pouvant être lancées en même temps ou en parallèle. <p><p>Pour modifier la limite par défaut pour une valeur comprise entre 1 et 50, consultez [Modifier la limite du déclencheur simultané](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Déclencher des instances séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Exécutions en attente maximale | 100 lorsque vous limitez le déclencheur simultané | Lorsque vous activez le contrôle d’accès concurrentiel pour un déclencheur, la limite par défaut est 10. Cette limite décrit le nombre maximal d’instances d’application logique pouvant attendre de s’exécuter quand le nombre maximal d’instances simultanées sont déjà en cours d’exécution. <p><p>Pour modifier la limite par défaut pour une valeur comprise entre 0 et 100 (inclus), consultez [Modifier les limites d’exécutions en attente](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Éléments du tableau Foreach | 100 000 | Cette limite décrit le nombre maximal d’éléments de table qu’une boucle « for each » peut traiter. <p><p>Pour filtrer des tables plus grandes, vous pouvez utiliser l’[action de requête](../connectors/connectors-native-query.md). | 
+| Accès concurrentiel Foreach | 50 lorsque vous limitez le déclencheur simultané | Lorsque vous activez le contrôle d’accès concurrentiel pour cette boucle, la limite par défaut est 20. Cette limite décrit le nombre maximal d’itérations de boucles « for each » qui peuvent s’exécuter en même temps ou en parallèle. <p><p>Pour changer la limite par défaut pour une valeur comprise entre 1 et 50, consultez [Changer la limite de simultanéité « for each »](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Exécuter des boucles « for each » séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
 | Éléments SplitOn | 100 000 | | 
 | Itérations Until | 5 000 | | 
 |||| 
@@ -101,11 +101,11 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 
 | NOM | Limite | Notes | 
 | ---- | ----- | ----- | 
-| Action : Exécutions par tranche de 5 minutes | 300 000 | La limite par défaut est définie sur 100 000. Pour modifier la limite par défaut, consultez [exécuter votre application logique en mode de « débit élevé »](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), disponible dans la préversion. Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. | 
-| Action : Appels sortants simultanés | ~2,500 | Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. | 
-| Point de terminaison du runtime : appels entrants simultanés | ~1,000 | Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. | 
-| Point de terminaison du runtime : appels de lecture toutes les cinq minutes  | 60 000 | Vous pouvez répartir une charge de travail entre plusieurs applications si nécessaire. | 
-| Point de terminaison du runtime : appels d’invocation toutes les cinq minutes | 45,000 | Vous pouvez répartir une charge de travail entre plusieurs applications si nécessaire. | 
+| Action : Exécutions par tranche de 5 minutes | 300 000 | La limite par défaut est définie sur 100 000. Pour modifier la limite par défaut, consultez [exécuter votre application logique en mode de « débit élevé »](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), disponible dans la préversion. Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. | 
+| Action : Appels sortants simultanés | ~2,500 | Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. | 
+| Point de terminaison du runtime : appels entrants simultanés | ~1,000 | Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. | 
+| Point de terminaison du runtime : appels de lecture toutes les cinq minutes  | 60 000 | Vous pouvez répartir une charge de travail entre plusieurs applications si nécessaire. | 
+| Point de terminaison du runtime : appels d’invocation toutes les cinq minutes | 45,000 | Vous pouvez répartir une charge de travail entre plusieurs applications si nécessaire. | 
 | Débit de contenu par tranche de 5 minutes | 600 Mo | Vous pouvez répartir une charge de travail entre plusieurs applications si nécessaire. | 
 |||| 
 
@@ -119,9 +119,9 @@ Pour dépasser ces limites dans le cadre d’un traitement normal ou exécuter d
 
 | NOM | Limite | Notes |
 |------|-------|-------|
-| FTP | 50 Mo | Pour contourner cette limite, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. | 
-| SFTP | 50 Mo | Pour contourner cette limite, utilisez le [connecteur SFTP-SSH](../connectors/connectors-sftp-ssh.md) ou consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. | 
-| SFTP-SSH | 1 Go | Pour contourner cette limite, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. | 
+| FTP | 50 Mo | Pour dépasser cette limite, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. | 
+| SFTP | 50 Mo | Pour dépasser cette limite, utilisez le [connecteur SFTP-SSH](../connectors/connectors-sftp-ssh.md) ou consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. | 
+| SFTP-SSH | 1 Go | Pour dépasser cette limite, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. | 
 |||| 
 
 <a name="request-limits"></a>
@@ -238,10 +238,10 @@ Utilisez le niveau gratuit uniquement pour les scénarios exploratoires, pas pou
 | ---- | ----- | ----- | 
 | Schéma | 8 Mo | Pour charger des fichiers supérieurs à 2 Mo, utilisez [l’URI d’objet blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
 | Mappage (fichier XSLT) | 2 Mo | | 
-| Point de terminaison du runtime : appels de lecture toutes les cinq minutes | 60 000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. | 
-| Point de terminaison du runtime : appels d’invocation toutes les cinq minutes | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. | 
-| Point de terminaison du runtime : appels de suivi toutes les cinq minutes | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. | 
-| Point de terminaison du runtime : appels simultanés de blocage | ~1,000 | Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. | 
+| Point de terminaison du runtime : appels de lecture toutes les cinq minutes | 60 000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. | 
+| Point de terminaison du runtime : appels d’invocation toutes les cinq minutes | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. | 
+| Point de terminaison du runtime : appels de suivi toutes les cinq minutes | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. | 
+| Point de terminaison du runtime : appels simultanés de blocage | ~1,000 | Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>
@@ -259,7 +259,7 @@ Les limites qui s’appliquent aux protocoles B2B sont les suivantes :
 
 <a name="configuration"></a>
 
-## <a name="configuration-ip-addresses"></a>Configuration : adresses IP
+## <a name="configuration-ip-addresses"></a>Configuration : Adresses IP
 
 ### <a name="azure-logic-apps-service"></a>Service Azure Logic Apps
 

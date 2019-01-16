@@ -1,17 +1,17 @@
 ---
 title: Partitionnement et mise à l’échelle horizontale dans Azure Cosmos DB
 description: Découvrez comment le partitionnement fonctionne dans Azure Cosmos DB, comment configurer le partitionnement et les clés de partition, et comment choisir la clé de partition appropriée pour votre application.
-author: aliuy
+ms.author: mjbrown
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.author: andrl
-ms.openlocfilehash: 38f587fc24478beff3ab236207de3ed8a892c915
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dd62e0f4ff110ec8454031f1b66b56025328c33c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998946"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101477"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partitionnement et mise à l’échelle horizontale dans Azure Cosmos DB
 
@@ -23,13 +23,11 @@ Une partition logique est constituée d'un ensemble d'éléments dotés de la m�
 
 Dans Azure Cosmos DB, un conteneur est l’unité d’extensibilité de base. Les données ajoutées au conteneur et le débit que vous provisionnez sur celui-ci sont automatiquement partitionnés (horizontalement) sur un ensemble de partitions logiques. Elles sont partitionnées en fonction de la clé de partition que vous spécifiez pour le conteneur Cosmos. Pour plus d’informations, consultez l'article [Comment spécifier la clé de partition de votre conteneur Cosmos](how-to-create-container.md).
 
-Une partition logique définit la portée des transactions de base de données. Vous pouvez mettre à jour les éléments d’une partition logique via une transaction avec isolement de capture instantanée.
-
-Lorsque de nouveaux éléments sont ajoutés au conteneur ou que le débit provisionné sur celui-ci est augmenté, de nouvelles partitions logiques sont créées de manière transparente par le système.
+Une partition logique définit la portée des transactions de base de données. Vous pouvez mettre à jour les éléments d’une partition logique via une transaction avec isolement de capture instantanée. Lorsque de nouveaux éléments sont ajoutés au conteneur, de nouvelles partitions logiques sont créées de façon transparente par le système.
 
 ## <a name="physical-partitions"></a>Partitions physiques
 
-Un conteneur Cosmos est mis à l’échelle en répartissant les données et le débit sur un grand nombre de partitions logiques. En interne, une ou plusieurs partitions logiques sont mappées sur une **partition physique** composée d’un ensemble de réplicas, également appelé un jeu de réplicas. Chaque jeu de réplicas héberge une instance du moteur de base de données Cosmos. Grâce au jeu de réplicas, les données stockées dans la partition physique sont durables, hautement disponibles et cohérentes. Une partition physique prend en charge un volume maximal fixe de stockage et d’unités de requête. Chaque réplica constituant la partition physique hérite du quota de stockage. Et tous les réplicas d’une partition physique prennent collectivement en charge le débit alloué à la partition physique. L’illustration suivante montre comment les partitions logiques sont mappées sur des partitions physiques mondialement distribuées :
+Un conteneur Cosmos est mis à l’échelle en répartissant les données et le débit sur un grand nombre de partitions logiques. En interne, une ou plusieurs partitions logiques sont mappées sur une **partition physique** composée d’un ensemble de réplicas, également appelé un jeu de réplicas. Chaque jeu de réplicas héberge une instance du moteur de base de données Azure Cosmos. Grâce au jeu de réplicas, les données stockées dans la partition physique sont durables, hautement disponibles et cohérentes. Une partition physique prend en charge un volume maximal fixe de stockage et d’unités de requête. Chaque réplica constituant la partition physique hérite du quota de stockage. Et tous les réplicas d’une partition physique prennent collectivement en charge le débit alloué à la partition physique. L’illustration suivante montre comment les partitions logiques sont mappées sur des partitions physiques mondialement distribuées :
 
 ![Partitionnement dans Azure Cosmos DB](./media/partition-data/logical-partitions.png)
 

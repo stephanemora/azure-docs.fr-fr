@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 933fcbfc21c69d02f1093e0ea2519d76f4130b29
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 2bae07643407e8672ef26fb59da588661eb9f0d1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598888"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191817"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hébergement de sites web statiques dans le service Stockage Azure
 Les comptes GPv2 du service Stockage Azure vous permettent de distribuer du contenu statique (fichiers HTML, CSS, JavaScript et image) directement à partir d’un conteneur de stockage nommé *$web*. La fonctionnalité d’hébergement dans Stockage Azure vous permet d’utiliser des architectures serverless, notamment [Azure Functions](/azure/azure-functions/functions-overview) et d’autres services PaaS.
@@ -21,16 +21,16 @@ Les comptes GPv2 du service Stockage Azure vous permettent de distribuer du cont
 Contrairement aux sites web statiques, les sites dynamiques qui dépendent du code côté serveur sont hébergés de manière plus efficace à l’aide d’[Azure App Service](/azure/app-service/overview).
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
-Lorsque vous activez l’hébergement de sites web statiques sur votre compte de stockage, vous sélectionnez le nom de votre fichier par défaut, et si vous le souhaitez, vous fournissez un chemin d’accès à une page 404 personnalisée. Lorsque cette fonctionnalité est activée, un conteneur nommé *$web* est créé s’il n’existe pas déjà. 
+Lorsque vous activez l’hébergement de sites web statiques sur votre compte de stockage, vous sélectionnez le nom de votre fichier par défaut, et si vous le souhaitez, vous fournissez un chemin d’accès à une page 404 personnalisée. Lorsque cette fonctionnalité est activée, un conteneur nommé *$web* est créé s’il n’existe pas déjà.
 
 Les fichiers présents dans le conteneur *$web* sont :
 
 - traités par le biais de requêtes d’accès anonyme ;
 - uniquement disponibles par l’intermédiaire d’opérations de lecture d’objet ;
 - respecte la casse
-- accessibles au web public suivant ce modèle : 
+- accessibles au web public suivant ce modèle :
     - `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
-- disponibles par le biais d’un point de terminaison de stockage Blob suivant ce modèle : 
+- disponibles par le biais d’un point de terminaison de stockage Blob suivant ce modèle :
     - `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/<FILE_NAME>`
 
 Vous utilisez le point de terminaison de stockage Blob pour charger les fichiers. Par exemple, le fichier chargé à l’emplacement suivant :
@@ -97,10 +97,10 @@ Interrogez l’URL de point de terminaison web :
 az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEndpoints.web" --output tsv
 ```
 
-Chargez des objets dans le conteneur *$web* à partir d’un répertoire source :
+Chargez des objets dans le conteneur *$web* à partir d’un répertoire source. Veillez à désactiver correctement la référence au conteneur *$web* dans la commande. Par exemple, si vous utilisez Azure CLI à partir de CloudShell dans le portail Azure, désactivez le conteneur *$web* comme indiqué :
 
 ```azurecli-interactive
-az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NAME>
+az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_NAME>
 ```
 
 ## <a name="deployment"></a>Déploiement
@@ -120,7 +120,7 @@ Pour activer les métriques sur vos pages de site web statique, cliquez sur **Pa
 
 Les données de métriques sont générées par raccordement aux différentes API de métriques. Le portail affiche uniquement les membres d’API utilisés dans un délai d’exécution donné afin de se focaliser exclusivement sur les membres qui renvoient des données. Pour garantir votre capacité à sélectionner le membre d’API nécessaire, la première étape consiste à étendre le délai d’exécution.
 
-Cliquez sur le bouton de délai d’exécution, sélectionnez **Dernières 24 heures**, puis cliquez sur **Appliquer**. 
+Cliquez sur le bouton de délai d’exécution, sélectionnez **Dernières 24 heures**, puis cliquez sur **Appliquer**.
 
 ![Intervalle de temps des métriques de sites web statiques dans Stockage Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 

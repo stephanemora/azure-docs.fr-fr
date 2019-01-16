@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: 850919f8ca8bb68af544ae528a779e16068424b1
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 0dbdf2261b851b303a0c606e5de70354578c6d2e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752535"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078777"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>S’authentifier auprès d’Azure Container Registry à partir d’Azure Kubernetes Service
 
@@ -44,7 +44,7 @@ az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 
 ## <a name="access-with-kubernetes-secret"></a>Accès à l’aide d’une clé secrète Kubernetes
 
-Dans certains cas, vous ne pourrez peut-être pas assigner le rôle requis au principal du service AKS généré automatiquement lui accordant l’accès à ACR. Par exemple, en raison du modèle de sécurité de votre organisation, vous ne disposez peut-être pas d’autorisations suffisantes dans votre annuaire Azure AD pour assigner un rôle au principal du service généré par AKS. Dans ce cas, vous pouvez créer un nouveau principal du service, puis lui accorder l’accès au registre de conteneurs à l’aide d’un secret de tirage (pull) d’image Kubernetes.
+Dans certains cas, vous ne pourrez peut-être pas assigner le rôle requis au principal du service AKS généré automatiquement lui accordant l’accès à ACR. Par exemple, en raison du modèle de sécurité de votre organisation, vous ne disposez peut-être pas d’autorisations suffisantes dans votre Azure AD pour assigner un rôle au principal du service généré par AKS. L’assignation d’un rôle à un principal du service nécessite que votre compte Azure AD dispose d’une autorisation en écriture sur votre locataire Azure AD. Si vous n’avez pas d’autorisation, vous pouvez créer un principal du service, puis lui accorder l’accès au registre de conteneurs à l’aide d’un secret de tirage (pull) d’image Kubernetes.
 
 Utilisez le script suivant pour créer un nouveau principal du service (vous allez utiliser ses informations d’identification pour le secret de tirage (pull) d’image Kubernetes). Modifiez la variable `ACR_NAME` de votre environnement avant d’exécuter le script.
 

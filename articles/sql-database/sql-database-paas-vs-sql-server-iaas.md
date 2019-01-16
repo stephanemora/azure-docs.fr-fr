@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/02/2019
-ms.openlocfilehash: e9f322198cf94232dd2d87aa1f27dbbd6a282b72
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/03/2019
+ms.openlocfilehash: c1ef32256569d1718f6848a968585216f43f333a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994995"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033449"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure---paas-or-iaas"></a>Choisissez l’option SQL Server appropriée dans Azure - PaaS ou IaaS
 
@@ -87,10 +87,11 @@ Le tableau suivant résume les principales caractéristiques de SQL Database et 
 ## <a name="business-motivations-for-choosing-azure-sql-database-or-sql-server-on-azure-vms"></a>Critères pour choisir entre Azure SQL Database et SQL Server sur les machines virtuelles Azure
 
 Plusieurs facteurs peuvent influencer votre décision dans le choix de PaaS ou IaaS pour héberger vos bases de données SQL :
+
 - [Coût](#cost) : Les options PaaS et IaaS incluent toutes les deux un prix de base qui couvrent l’infrastructure sous-jacente et les licences. Toutefois, avec l’option IaaS, vous devez consacrer plus de temps et de ressources à la gestion de votre base de données, alors que dans PaaS, ces fonctionnalités d’administration sont incluses dans le prix. L’option IaaS vous permet d’arrêter vos ressources quand vous ne les utilisez pas afin de réduire le coût, alors que la version PaaS est toujours exécutée, sauf si vous supprimez et recréez vos ressources quand vous en avez besoin.
 - [Administration](#administration) : Les options PaaS réduisent le temps que vous devez investir pour administrer la base de données. Toutefois, elles vous empêchent également d’effectuer certaines tâches d’administration personnalisées qui pourraient améliorer les performances de votre charge de travail.
 - [Contrat de niveau de service](#service-level-agreement-sla) : IaaS et PaaS fournissent un contrat SLA élevé répondant au standard du secteur. L’option PaaS garantit un contrat SLA de 99,99 %, alors que IaaS garantit un contrat SLA de 99,95 % pour l’infrastructure, ce qui signifie que vous devez implémenter des mécanismes supplémentaires pour garantir la disponibilité de vos bases de données. Dans les cas extrêmes, si vous voulez implémenter une solution de haute disponibilité correspondant à PaaS, vous devrez créer un serveur SQL supplémentaire dans une machine virtuelle et configurer des groupes de disponibilité AlwaysOn, ce qui peut doubler le coût de votre base de données.
-- [Durée de déplacement dans le cloud](#time-to-move-to-cloud) : SQL Server dans une machine virtuelle Azure est la correspondance exacte de votre environnement, la migration du système local vers une machine virtuelle SQL Azure n’est donc pas différente du déplacement des bases de données d’un serveur local vers un autre. Managed Instance facilite également beaucoup la migration. Toutefois, vous devez peut-être appliquer certains changements avant de migrer vers Managed Instance.
+- [Durée de déplacement vers Azure](#market) : SQL Server dans une machine virtuelle Azure est la correspondance exacte de votre environnement. La migration du système local vers une machine virtuelle SQL Azure n’est donc pas différente du déplacement des bases de données d’un serveur local vers un autre. Managed Instance facilite également beaucoup la migration. Toutefois, vous devez peut-être appliquer certains changements avant de migrer vers Managed Instance.
 
 Ces facteurs sont abordés plus en détail dans les sections suivantes.
 
@@ -102,10 +103,8 @@ Que vous soyez une start-up à court de liquidités ou une équipe dans une soci
 
 **SQL Database** propose plusieurs niveaux de service à des prix différents selon les ressources, et qui sont tous facturés à un tarif horaire fixe en fonction du niveau de service et de la taille de calcul choisis.
 Avec la base de données unique SQL, vous pouvez choisir un niveau de service adapté à vos besoins dans une large gamme de prix à partir de 5 USD par mois pour le niveau de base.
-Avec Azure SQL Database Managed Instance, vous pouvez utiliser votre propre licence. Pour plus d’informations sur l’utilisation de votre propre licence, consultez [Mobilité de licence à travers la Software Assurance sur Azure](https://azure.microsoft.com/pricing/license-mobility/) ou utilisez la [calculatrice Azure Hybrid Benefit](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/#sql-database) pour voir comment **économiser jusqu’à 40 %**.
+Avec Azure SQL Database Managed Instance, vous pouvez utiliser votre propre licence. Pour plus d’informations sur l’utilisation de votre propre licence, consultez [Mobilité de licence à travers la Software Assurance sur Azure](https://azure.microsoft.com/pricing/license-mobility/) ou utilisez la [calculatrice Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) pour voir comment **économiser jusqu’à 40 %**.
 Par ailleurs, vous êtes facturé pour le trafic internet sortant aux [tarifs de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/)standard. Vous pouvez ajuster les niveaux de service et les tailles de calcul de manière dynamique pour répondre aux besoins de débit variés de votre application. Pour obtenir les dernières informations sur les niveaux de service actuels pris en charge, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md). Vous pouvez également créer des [pools élastiques](sql-database-elastic-pool.md) pour partager des ressources entre des instances de base de données pour réduire les coûts et vous adapter aux pics d’utilisation.
-
-
 
 Avec **SQL Database**, Microsoft configure, corrige et met à niveau automatiquement le logiciel de base de données, ce qui réduit vos coûts d’administration. En outre, ses fonctionnalités de [sauvegarde intégrée](sql-database-automated-backups.md) vous permettent de réaliser d’importantes économies, notamment si vous avez un grand nombre de bases de données.
 

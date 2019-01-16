@@ -6,15 +6,15 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: yshoukry, LADocs
+ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/20/2018
-ms.openlocfilehash: 5fc4ccacaaedfc3fe6c77fa9a0ad693530bdde93
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 10/01/2018
+ms.openlocfilehash: 91d1369b9197f6ef941d981aa9cf7539b4554d0c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855423"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065798"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installer une passerelle de données locale pour Azure Logic Apps
 
@@ -60,10 +60,12 @@ Pour plus d’informations sur l’utilisation de la passerelle avec d’autres 
 * Voici la configuration requise pour votre ordinateur local :
 
   **Configuration minimale requise**
+
   * .NET Framework 4.5.2
   * Version 64 bits de Windows 7 ou Windows Server 2008 R2 (ou version ultérieure)
 
   **Configuration recommandée**
+
   * Processeur 8 cœurs
   * 8 Go de mémoire
   * Version 64 bits de Windows Server 2012 R2 (ou version ultérieure)
@@ -75,11 +77,11 @@ Pour plus d’informations sur l’utilisation de la passerelle avec d’autres 
     > [!TIP]
     > Pour réduire la latence, vous pouvez installer la passerelle le plus près possible de votre source de données, ou sur le même ordinateur, en supposant que vous disposiez des autorisations nécessaires.
 
-  * Installez la passerelle sur un ordinateur connecté à Internet, toujours allumé et qui ne se met *pas* en veille. Sinon, la passerelle ne peut pas s’exécuter. Par ailleurs, les performances peuvent être réduites sur un réseau sans fil.
+  * Installez la passerelle sur un ordinateur connecté à Internet, toujours allumé et qui ne se met *pas* en veille. Sinon, la passerelle ne peut pas s’exécuter. 
+  Par ailleurs, les performances peuvent être réduites sur un réseau sans fil.
 
-  * Pendant l’installation, vous devez vous connecter avec un [compte professionnel ou scolaire](../active-directory/sign-up-organization.md) géré par Azure Active Directory (Azure AD), et non par un compte Microsoft. 
-  En outre, assurez-vous que ce compte n’est pas un compte (invité) B2B Azure. 
-  Vous devez également utiliser le même compte d’identification pour le portail Azure lorsque vous identifiez l’installation de votre passerelle en créant une ressource Azure pour cette passerelle. 
+  * Pendant l’installation, vous pouvez uniquement vous connecter avec un [compte professionnel ou scolaire](../active-directory/sign-up-organization.md) géré par Azure Active Directory (Azure AD), par exemple @contoso.onmicrosoft.com, et non par un compte Azure B2B (invité) ou un compte Microsoft personnel, tel que @hotmail.com ou @outlook.com. 
+  Veillez à utiliser le même compte de connexion lorsque vous inscrivez votre installation de passerelle dans le portail Azure en créant une ressource de passerelle. 
   Vous sélectionnerez ensuite cette ressource de passerelle lors de la création de la connexion entre votre application logique et la source de données locale. 
   [Pourquoi dois-je utiliser un compte professionnel ou scolaire Azure AD ?](#why-azure-work-school-account)
 
@@ -96,6 +98,19 @@ Pour plus d’informations sur l’utilisation de la passerelle avec d’autres 
   * Si vous disposez d’une passerelle existante que vous configurez avec un programme d’installation antérieur à la version 14.16.6317.4, vous ne pouvez pas modifier l’emplacement de votre passerelle en exécutant le programme d’installation le plus récent. Toutefois, vous pouvez utiliser le programme d’installation le plus récent pour configurer une nouvelle passerelle avec l’emplacement que vous désirez à la place.
   
     Si vous possédez un programme d’installation de passerelle antérieur à la version 14.16.6317.4, mais vous n’avez pas encore installé votre passerelle, vous pouvez télécharger et utiliser le programme d’installation le plus récent.
+
+## <a name="high-availability-support"></a>Prise en charge de la haute disponibilité
+
+La passerelle de données locale prend en charge la haute disponibilité lorsque vous avez plusieurs installations de passerelle et que vous les configurez en tant que clusters. Si vous avez une passerelle existante alors que vous êtes sur le point de créer une nouvelle passerelle, vous pouvez créer en option des clusters à haute disponibilité. Ces clusters regroupent les passerelles en groupes, ce qui peut permettre d’éviter les points de défaillance uniques. En outre, tous les connecteurs de passerelle de données locale prennent désormais en charge la haute disponibilité.
+
+Pour utiliser la passerelle de données locale, prenez connaissance de ce qui suit :
+
+* Vous devez déjà disposer d’au moins une passerelle d’installation dans le même abonnement Azure servant de passerelle principale et de clé de récupération pour cette installation. 
+
+* Votre passerelle principale doit fonctionner sous la mise à jour de passerelle datant de novembre 2017 ou une version plus récente.
+
+Une fois ces exigences satisfaites, lorsque vous créez votre nouvelle passerelle, sélectionnez **Ajouter à un cluster de passerelle existant**, sélectionnez la passerelle principale pour votre cluster, et fournissez la clé de récupération de cette passerelle principale.
+Pour plus d’informations, consultez [Clusters à haute disponibilité pour la passerelle de données locale](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
 <a name="install-gateway"></a>
 
@@ -160,19 +175,6 @@ Pour plus d’informations sur l’utilisation de la passerelle avec d’autres 
    ![Passerelle terminée](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
 10. Enregistrez à présent votre passerelle dans Azure en [créant une ressource Azure pour votre programme d’installation de passerelle](../logic-apps/logic-apps-gateway-connection.md). 
-
-## <a name="enable-high-availability"></a>Activer la haute disponibilité
-
-La passerelle de données locale prend en charge la haute disponibilité lorsque vous avez plusieurs installations de passerelle et que vous les configurez en tant que clusters. Si vous avez une passerelle existante alors que vous êtes sur le point de créer une nouvelle passerelle, vous pouvez créer en option des clusters à haute disponibilité. Ces clusters regroupent les passerelles en groupes, ce qui peut permettre d’éviter les points de défaillance uniques. Pour utiliser cette fonctionnalité, consultez ces exigences et considérations :
-
-* Seuls certains connecteurs prennent en charge la haute disponibilité, comme par exemple le connecteur de systèmes de fichiers, et d’autres. 
-     
-* Vous devez déjà disposer d’au moins une passerelle d’installation dans le même abonnement Azure servant de passerelle principale et de clé de récupération pour cette installation. 
-
-* Votre passerelle principale doit fonctionner sous la mise à jour de passerelle datant de novembre 2017 ou une version plus récente.
-
-Une fois ces exigences satisfaites, lorsque vous créez votre nouvelle passerelle, sélectionnez **Ajouter à un cluster de passerelle existant**, sélectionnez la passerelle principale pour votre cluster, et fournissez la clé de récupération de cette passerelle principale.
-Pour plus d’informations, consultez [Clusters à haute disponibilité pour la passerelle de données locale](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
 <a name="update-gateway-installation"></a>
 
@@ -260,7 +262,7 @@ Vous pouvez forcer la passerelle à communiquer avec Azure Service Bus à l’ai
 
    Sinon, pour rechercher l’emplacement du client, ouvrez la console Services sur le même ordinateur, recherchez le **Service de passerelle de données locale** et affichez la propriété **Chemin d’accès au fichier exécutable**.
 
-2. Ouvrez ce fichier de *configuration* : **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
+2. Ouvrez ce fichier de *configuration* : **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
 
 3. Modifiez la valeur **ServiceBusSystemConnectivityModeString** de **AutoDetect** à **Https** :
 
@@ -274,10 +276,9 @@ Vous pouvez forcer la passerelle à communiquer avec Azure Service Bus à l’ai
 
 ## <a name="windows-service-account"></a>Compte de service Windows
 
-La passerelle de données locale s’exécute comme un service Windows nommé « Service de passerelle de données locale », mais utilise « NT SERVICE\PBIEgwService » pour ses informations d’identification de compte « Ouvrir une session en tant que ». La passerelle de données locale possède par défaut des autorisations pour « Ouvrir une session en tant que service » pour l’ordinateur sur lequel vous installez la passerelle. Pour créer et gérer la passerelle sur le Portail Azure, le compte de service Windows doit avoir au moins les autorisations **Collaborateur**. 
+Sur l’ordinateur où vous installez la passerelle de données locale, la passerelle s’exécute en tant que compte de service Windows nommé « Service de passerelle de données locale ». Toutefois, la passerelle utilise le nom « NT SERVICE\PBIEgwService » pour ses informations d’identification de compte « Se connecter en tant que ». Par défaut, la passerelle dispose des autorisations nécessaires pour « Se connecter en tant que service » sur l’ordinateur où vous installez la passerelle. Le compte de service Windows pour la passerelle diffère généralement du compte que vous utilisez pour la connexion aux sources de données locales, ainsi que du compte professionnel ou scolaire que vous utilisez pour vous connecter aux services cloud.
 
-> [!NOTE]
-> Le compte de service Windows diffère du compte utilisé pour la connexion à des sources de données locales, et du compte professionnel ou scolaire Azure utilisé pour se connecter aux services cloud.
+Pour créer et gérer la passerelle sur le Portail Azure, ce compte de service Windows doit disposer au moins des autorisations **Contributeur**. Pour en savoir plus sur ces autorisations, voir [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../role-based-access-control/role-assignments-portal.md). 
 
 <a name="restart-gateway"></a>
 
@@ -327,58 +328,58 @@ Ces étapes décrivent ce qu’il se produit lorsqu’un utilisateur dans le clo
 
 ### <a name="general"></a>Généralités
 
-**Q**: Ai-je besoin d’une passerelle pour les sources de données dans le cloud, par exemple Azure SQL Database ? <br/>
-**R** : Non, une passerelle se connecte uniquement aux sources de données locales.
+**Q** : Ai-je besoin d’une passerelle pour les sources de données dans le cloud, par exemple Azure SQL Database ? <br/>
+**R** : Non, une passerelle se connecte uniquement aux sources de données locales.
 
 **Q** : La passerelle doit-elle être installée sur le même ordinateur que la source de données ? <br/>
-**R** : Non, la passerelle se connecte à la source de données en utilisant les informations de connexion fournies. En ce sens, considérez la passerelle comme une application cliente. La passerelle doit juste être en mesure de se connecter au nom du serveur qui a été fourni.
+**R** : Non, la passerelle se connecte à la source de données en utilisant les informations de connexion fournies. En ce sens, considérez la passerelle comme une application cliente. La passerelle doit juste être en mesure de se connecter au nom du serveur qui a été fourni.
 
 <a name="why-azure-work-school-account"></a>
 
-**Q** : Pourquoi dois-je utiliser un compte professionnel ou scolaire Azure pour me connecter ? <br/>
-**R** : Lorsque vous installez la passerelle de données locale, vous pouvez uniquement utiliser un compte professionnel ou scolaire. Votre compte de connexion est stocké dans un client géré par Azure Active Directory (Azure AD). En règle générale, le nom d’utilisateur principal (UPN) de votre compte Azure AD correspond à l’adresse de messagerie.
+**Q** : Pourquoi dois-je utiliser un compte professionnel ou scolaire pour me connecter ? <br/>
+**R** : Lorsque vous installez la passerelle de données locale, vous pouvez uniquement utiliser un compte professionnel ou scolaire. Votre compte de connexion est stocké dans un client géré par Azure Active Directory (Azure AD). En règle générale, le nom d’utilisateur principal (UPN) de votre compte Azure AD correspond à l’adresse de messagerie.
 
-**Q** : où mes informations d’identification sont-elles stockées ? <br/>
-**R** : Les informations d’identification que vous entrez pour une source de données sont chiffrées et stockées dans le service cloud de passerelle. Les informations d’identification sont déchiffrées au niveau de la passerelle de données locale.
+**Q** : Où mes informations d’identification sont-elles stockées ? <br/>
+**R** : Les informations d’identification que vous entrez pour une source de données sont chiffrées et stockées dans le service cloud de passerelle. Les informations d’identification sont déchiffrées au niveau de la passerelle de données locale.
 
 **Q** : Existe-t-il des exigences concernant la bande passante réseau ? <br/>
-**R** : Nous vous recommandons de vérifier que la connexion de votre réseau offre un bon débit. Chaque environnement est différent, et la quantité de données envoyées peut affecter les résultats. Pour garantir un bon niveau de débit entre votre source de données locale et les centres de données Azure, essayez [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Pour aider à mesurer votre débit, essayez un outil externe tel qu’Azure Speed Test.
+**R** : Nous vous recommandons de vérifier que votre connexion réseau offre un bon débit. Chaque environnement est différent, et la quantité de données envoyées peut affecter les résultats. Pour garantir un bon niveau de débit entre votre source de données locale et les centres de données Azure, essayez [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Pour aider à mesurer votre débit, essayez un outil externe tel qu’Azure Speed Test.
 
 **Q** : Quelle est la latence d’exécution des requêtes adressées à une source de données à partir de la passerelle ? Quelle est la meilleure architecture ? <br/>
-**R** : Pour réduire la latence du réseau, installez la passerelle le plus près possible de la source de données. Si vous pouvez installer la passerelle sur la source de données réelle, cette proximité réduit le temps de latence. En outre, tenez compte de la proximité avec les centres de données Azure. Par exemple, si votre service utilise le centre de données de l’Ouest des États-Unis, et que vous hébergez SQL Server sur une machine virtuelle Azure, alors vous pouvez également souhaiter que votre machine virtuelle Azure se situe dans l’Ouest des États-Unis. Cette proximité réduit la latence et évite des frais d’acheminement sur la machine virtuelle Azure.
+**R** : Pour réduire la latence du réseau, installez la passerelle le plus près possible de la source de données. Si vous pouvez installer la passerelle sur la source de données réelle, cette proximité réduit le temps de latence. En outre, tenez compte de la proximité avec les centres de données Azure. Par exemple, si votre service utilise le centre de données de l’Ouest des États-Unis, et que vous hébergez SQL Server sur une machine virtuelle Azure, alors vous pouvez également souhaiter que votre machine virtuelle Azure se situe dans l’Ouest des États-Unis. Cette proximité réduit la latence et évite des frais d’acheminement sur la machine virtuelle Azure.
 
 **Q** : Comment les résultats sont-ils renvoyés vers le cloud ? <br/>
-**R**: Les résultats sont envoyés via Azure Service Bus.
+**R** : Les résultats sont envoyés via Azure Service Bus.
 
-**Q** : existe-t-il des connexions entrantes vers la passerelle à partir du cloud ? <br/>
-**R** : Non, la passerelle utilise des connexions sortantes vers Azure Service Bus.
+**Q** : Existe-t-il des connexions entrantes vers la passerelle à partir du cloud ? <br/>
+**R** : Non, la passerelle utilise des connexions sortantes vers Azure Service Bus.
 
 **Q** : Que se passe-t-il si je bloque les connexions sortantes ? Que dois-je ouvrir ? <br/>
 **R** : Vérifiez les ports et les hôtes que la passerelle utilise.
 
 **Q** : Comment s’appelle le service Windows réel ? <br/>
-**R**: Dans l’onglet Services du gestionnaire des tâches, le nom du service est « PBIEgwService », or Power BI Enterprise Gateway Service. Dans la console Services, le nom du service est « Service de passerelle de données locale ». Le service Windows utilise « NT SERVICE\PBIEgwService » en tant que Service SID (SSID).
+**R** : Sous l’onglet Services du Gestionnaire des tâches, le nom du service est « PBIEgwService », soit le service Power BI Enterprise Gateway Service. Dans la console Services, le nom du service est « Service de passerelle de données locale ». Le service Windows utilise « NT SERVICE\PBIEgwService » en tant que Service SID (SSID).
 
 **Q** : Le service Windows de passerelle peut-il s’exécuter avec un compte Azure Active Directory ? <br/>
-**R** : Non, le service Windows doit avoir un compte Windows valide.
+**R** : Non, le service Windows doit avoir un compte Windows valide.
 
 ### <a name="disaster-recovery"></a>Récupération d'urgence
 
-**Q** : Quelles sont les options de récupération d’urgence disponibles ? <br/>
-**R**: Vous pouvez utiliser la clé de récupération pour restaurer ou déplacer une passerelle. Lorsque vous installez la passerelle, spécifiez la clé de récupération.
+**Q** : Quelles sont les options de reprise d’activité disponibles ? <br/>
+**R** : Vous pouvez utiliser la clé de récupération pour restaurer ou déplacer une passerelle. Lorsque vous installez la passerelle, spécifiez la clé de récupération.
 
-**Q** : Quel avantage la clé de récupération offre-t-elle ? <br/>
+**Q** : Quel avantage offre la clé de récupération ? <br/>
 **R** : La clé de récupération permet de migrer ou de récupérer les paramètres de votre passerelle en cas de récupération d’urgence.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
 Cette section traite de certains problèmes courants que vous pouvez rencontrer lors de la configuration et de l’utilisation de la passerelle de données locale.
 
-**Q**: Pourquoi mon installation de la passerelle a-t-elle échoué ? <br/>
-**R** : Ce problème peut survenir si le logiciel antivirus sur l’ordinateur cible est obsolète. Vous pouvez mettre à jour le logiciel antivirus ou le désactiver, mais uniquement lors de l’installation de la passerelle, puis vous pouvez réactiver le logiciel de nouveau.
+**Q** : Pourquoi mon installation de passerelle a-t-elle échoué ? <br/>
+**R** : Ce problème peut survenir si le logiciel antivirus sur l’ordinateur cible est obsolète. Vous pouvez mettre à jour le logiciel antivirus ou le désactiver, mais uniquement lors de l’installation de la passerelle, puis vous pouvez réactiver le logiciel de nouveau.
 
-**Q** : Pourquoi ne puis-je pas voir mon installation de la passerelle lorsque je crée la ressource de passerelle dans Azure ? <br/>
-**R** : Ce problème peut se produire pour les raisons suivantes :
+**Q** : Pourquoi ne puis-je pas voir mon installation de la passerelle lorsque je crée la ressource de passerelle dans Azure ? <br/>
+**R** : Ce problème peut se produire pour les raisons suivantes :
 
 * L’installation de votre passerelle est déjà enregistrée et revendiquée par une autre ressource de passerelle dans Azure. Les installations de passerelle ne s’affichent pas dans la liste des instances après la création de ressources de passerelle pour elles.
 Pour vérifier vos inscriptions de passerelle dans le portail Azure, passez en revue toutes vos ressources Azure avec le type de **Passerelles de données locales** pour *tous* les abonnements Azure. 
@@ -388,9 +389,9 @@ Pour vérifier vos inscriptions de passerelle dans le portail Azure, passez en r
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
 **Q** : Où se situent les journaux de la passerelle ? <br/>
-**R** : Consultez la [ section**Journaux**](#logs) disponible plus loin dans cet article.
+**R** : Voir la [section **Journaux**](#logs) plus loin dans cet article.
 
-**Q** : Comment puis-je voir les requêtes qui sont envoyées à la source de données locale ? <br/>
+**Q** : Comment voir les requêtes qui sont envoyées à la source de données locale ? <br/>
 **R** : Vous pouvez activer le traçage de requête qui inclut les requêtes envoyées. N’oubliez pas de rétablir la valeur d’origine du traçage des requêtes une fois les problèmes résolus. Le fait de laisser activé le traçage des requêtes contribue à augmenter la taille des journaux.
 
 Vous pouvez également utiliser les outils de suivi des requêtes proposés par votre source de données. Par exemple, vous pouvez utiliser Extended Events ou SQL Profiler for SQL Server et Analysis Services.
@@ -399,7 +400,7 @@ Vous pouvez également utiliser les outils de suivi des requêtes proposés par 
 
 Beaucoup de problèmes peuvent survenir si la version de la passerelle est obsolète. En règle générale, veillez toujours à utiliser la version la plus récente. Si vous n’avez pas mis à jour la passerelle depuis un mois ou plus, vous pouvez installer la dernière version de la passerelle pour vérifier si le problème se reproduit.
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Erreur : Impossible d’ajouter l’utilisateur au groupe. (-2147463168 PBIEgwService Performance Log Users)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Error: Impossible d’ajouter l’utilisateur au groupe. (-2147463168 PBIEgwService Performance Log Users)
 
 Cette erreur peut apparaître si vous essayez d’installer la passerelle sur un contrôleur de domaine qui n’est pas pris en charge. Veillez à déployer la passerelle sur un ordinateur qui n’est pas un contrôleur de domaine.
 
@@ -442,7 +443,7 @@ Pour une surveillance et un dépannage supplémentaires, vous pouvez activer et 
 
    Sinon, pour rechercher l’emplacement du client, ouvrez la console Services sur le même ordinateur, recherchez le **Service de passerelle de données locale** et affichez la propriété **Chemin d’accès au fichier exécutable**.
 
-2. Ouvrez ce fichier de *configuration* : **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
+2. Ouvrez ce fichier de *configuration* : **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
 
 3. Modifiez le paramètre **SendTelemetry** sur **true** :
 

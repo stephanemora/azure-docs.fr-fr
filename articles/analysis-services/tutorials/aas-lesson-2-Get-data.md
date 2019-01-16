@@ -1,33 +1,33 @@
 ---
-title: 'Leçon 2 du didacticiel Azure Analysis Services : Obtenir des données | Microsoft Docs'
+title: 'Leçon 2 du didacticiel Azure Analysis Services : Obtenir des données | Microsoft Docs'
 description: Explique comment obtenir et importer des données dans le projet du didacticiel Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b7aaadb6237a3b16d166d3bc931fddc70fb4a792
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6643d0851be1ad9d2827f51af3662a469020654c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427618"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189318"
 ---
-# <a name="get-data"></a>Obtention des données
+# <a name="get-data"></a>Obtenir des données
 
 Dans cette leçon, vous allez utiliser l’option Obtenir des données de SSDT pour vous connecter à l’exemple de base de données AdventureWorks, sélectionner des données, filtrer et afficher un aperçu des données, puis les importer dans votre espace de travail de modèle.  
   
-L’option Obtenir des données vous permet d’importer des données à partir d’une grande variété de sources : Azure SQL Database, Oracle, Sybase, flux OData, bases de données Teradata, fichiers, entre autres. Les données peuvent également être interrogées à l’aide d’une expression de formule M Power Query.
+L’option Obtenir des données vous permet d’importer des données à partir de diverses sources : Azure SQL Database, Oracle, Sybase, Flux OData, Teradata, fichiers et bien plus encore. Les données peuvent également être interrogées à l’aide d’une expression de formule M Power Query.
 
 > [!NOTE]
 > Les tâches et images de ce didacticiel montrent la connexion à une base de données AdventureWorksDW2014 sur un serveur local. Une base de données AdventureWorks peut être différente sur Azure.
   
-Durée estimée pour suivre cette leçon : **10 minutes**  
+Durée estimée pour suivre cette leçon : **10 minutes**  
   
 ## <a name="prerequisites"></a>Prérequis  
-Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 1 : Créer un projet de modèle tabulaire](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
+Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 1 : Créer un projet de modèle tabulaire](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
 ## <a name="create-a-connection"></a>Créer une connexion  
   
@@ -52,7 +52,7 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
   
 5.  Dans le navigateur, sélectionnez la base de données **AdventureWorksDW2014**, puis cliquez sur **OK**. Cela crée la connexion à la base de données. 
   
-6.  Dans le navigateur, cochez la case correspondant aux tables suivantes : **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** et **FactInternetSales**. Cliquez ensuite sur **Modifier**.
+6.  Dans le navigateur, activez les cases à cocher correspondant aux tables suivantes : **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**,  **DimProductSubcategory** et **FactInternetSales**. Cliquez ensuite sur **Modifier**.
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   
@@ -151,7 +151,7 @@ Il est important de sauvegarder fréquemment votre projet de modèle.
 -   Cliquez sur **Fichier** > **Enregistrer tout**.  
   
 ## <a name="whats-next"></a>Et ensuite ?
-[Leçon 3 : Marquer en tant que Table de dates](../tutorials/aas-lesson-3-mark-as-date-table.md).
+[Leçon 3 : Marquer comme table de dates](../tutorials/aas-lesson-3-mark-as-date-table.md).
 
   
   

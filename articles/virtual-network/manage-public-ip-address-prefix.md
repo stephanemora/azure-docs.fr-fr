@@ -1,13 +1,10 @@
 ---
-title: Créer, changer ou supprimer un préfixe d’adresse IP publique Azure | Microsoft Docs
+title: Créer, changer ou supprimer un préfixe d’adresse IP publique Azure
+titlesuffix: Azure Virtual Network
 description: Découvrez comment créer, changer ou supprimer un préfixe d’adresse IP publique.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: a0ae1f3fbf9189068cae4b18ac92f0bea0498f67
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 4207698c57b907cf60fd860bc409c8f8d5a4c565
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427571"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015285"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Créer, changer ou supprimer un préfixe d’adresse IP publique
 
@@ -29,7 +26,7 @@ Découvrez les préfixes d’adresse IP publique et comment en créer, changer e
 ## <a name="before-you-begin"></a>Avant de commencer
 
 > [!IMPORTANT]
-> Le préfixe d’adresse IP publique est en préversion publique dans un nombre limité de régions. Vous pouvez [découvrir ce que signifie l’état de préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Le préfixe d’adresse IP publique est actuellement disponible dans les régions : USA Centre-Ouest, USA Ouest, USA Ouest 2, USA Centre, Europe Nord, Europe Ouest et Asie Sud-Est. Pour obtenir la liste actualisée des régions, visitez [Mises à jour Azure](https://azure.microsoft.com/updates/?product=virtual-network).
+> Le préfixe d’adresse IP publique est en préversion publique dans un nombre limité de régions. Vous pouvez [découvrir ce que signifie l’état de préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Le préfixe d'adresse IP publique est actuellement disponible dans les régions suivantes : USA Centre-Ouest, USA Ouest, USA Ouest 2, USA Centre, Europe Nord, Europe Ouest et Asie Sud-Est. Pour obtenir la liste actualisée des régions, visitez [Mises à jour Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 Avant de suivre les étapes décrites dans les sections de cet article, accomplissez les tâches suivantes :
 
@@ -84,7 +81,7 @@ Une fois que vous avez créé un préfixe, vous devez créer des adresses IP sta
 1. Dans la zone qui contient le texte *Rechercher des ressources* en haut du portail Azure, tapez *préfixe d’adresse ip publique*. Quand **Préfixes d’adresse IP publique** s’affiche dans les résultats de recherche, sélectionnez-le.
 2. Sélectionnez le nom du préfixe d’adresse IP publique que vous voulez voir, dont vous voulez changer les paramètres ou que vous voulez supprimer de la liste.
 3. Choisissez l’une des options suivantes, selon que vous voulez voir le préfixe d’adresse IP publique, le supprimer ou le changer.
-    - **Voir** : La section **Vue d’ensemble** montre les paramètres principaux du préfixe d’adresse IP publique, comme le préfixe.
+    - **Afficher** : La section **Vue d’ensemble** montre les paramètres principaux du préfixe d’adresse IP publique, comme le préfixe.
     - **Supprimer** : Pour supprimer le préfixe d’adresse IP publique, sélectionnez **Supprimer** dans la section **Vue d’ensemble**. Si les adresses dans le préfixe sont associées à des ressources d’adresse IP publique, vous devez d’abord supprimer les ressources d’adresse IP publique. Consultez [Supprimer une adresse IP publique](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
 
 **Commandes**

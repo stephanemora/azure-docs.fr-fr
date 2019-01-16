@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour interroger des journaux à partir d’Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
+title: Comment interroger des journaux des requête à partir d’Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
 description: La solution Azure Monitor pour les machines virtuelles transfère des métriques et des données de journal à Log Analytics. Cet article décrit les enregistrements correspondants et inclut des exemples de requêtes.
 services: azure-monitor
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 676baa6947eaf8b3842b0100657f42a1e6438061
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e9e00dd9d05ff7339a6b5fd93e86bae61fbbf5ee
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184880"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188424"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Comment interroger des journaux à partir d’Azure Monitor pour machines virtuelles (préversion)
+# <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Comment interroger des journaux des requête à partir d’Azure Monitor pour machines virtuelles (préversion)
 Azure Monitor pour les machines virtuelles collecte des métriques de performances et de connexion, les données d’inventaire des ordinateurs et processus et des informations concernant l’état d’intégrité, puis les transfère au magasin de données Log Analytics dans Azure Monitor.  Ces données peuvent faire l’objet de [recherches](../../azure-monitor/log-query/log-query-overview.md) dans Log Analytics. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
 
 ## <a name="map-records"></a>Mapper des enregistrements

@@ -8,21 +8,22 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 7152b1d09a11d5860d52b5f73ae601422bd0f722
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 179cc133e755a317c70b84acc95aafc61f4e0e68
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654452"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078165"
 ---
 # <a name="analyze-data-using-jupyter-notebook-and-kqlmagic"></a>Analyser les données à l’aide de Jupyter Notebook et Kqlmagic
+
 Jupyter Notebook est une application web open source qui vous permet de créer et de partager des documents contenant du code en temps réel, des équations, des visualisations et du texte narratif. L’utilisation inclut le nettoyage des données et la transformation, la simulation numérique, la modélisation statistique, la visualisation des données et le machine learning.
-[Jupyter Notebook](https://jupyter.org/) offre des fonctions magiques qui étendent les fonctionnalités du noyau par la prise en charge de commandes supplémentaires. Kqlmagic est une fonction qui étend les fonctionnalités du noyau Python dans Jupyter Notebook pour que vous puissiez exécuter des requêtes de langage de requête Kusto en mode natif. Vous pouvez facilement combiner Python et le langage de requête Kusto pour interroger et visualiser des données à l’aide de la bibliothèque Plot.ly enrichie intégrée avec les commandes `render`. Les sources de données pour l’exécution de requêtes sont prises en charge. Ces sources de données incluent Azure Data Explorer, un service d’exploration de données rapide et hautement évolutif pour les données de journal et de télémétrie, ainsi que pour Log Analytics et Application Insights.
+[Jupyter Notebook](https://jupyter.org/) offre des fonctions magiques qui étendent les fonctionnalités du noyau par la prise en charge de commandes supplémentaires. Kqlmagic est une commande qui étend les fonctionnalités du noyau Python dans Jupyter Notebook pour que vous puissiez exécuter des requêtes en langage Kusto en mode natif. Vous pouvez facilement combiner Python et le langage de requête Kusto pour interroger et visualiser des données à l’aide de la bibliothèque Plot.ly enrichie intégrée avec les commandes `render`. Les sources de données pour l’exécution de requêtes sont prises en charge. Ces sources de données incluent Azure Data Explorer, un service d’exploration de données rapide et hautement évolutif pour les données de journal et de télémétrie, ainsi que pour Log Analytics et Application Insights. Kqlmagic fonctionne également avec Azure Notebooks, Jupyter Lab et l’extension Jupyter de Visual Studio Code.
 
 ## <a name="prerequisites"></a>Prérequis
+
 - Un compte e-mail professionnel qui est membre d’Azure Active Directory (AAD).
 - Jupyter Notebook installé sur votre ordinateur local ou utilisation d’Azure Notebooks et clonage de l’exemple d’[Azure Notebook](https://kustomagicsamples-manojraheja.notebooks.azure.com/j/notebooks/Getting%20Started%20with%20kqlmagic%20on%20Azure%20Data%20Explorer.ipynb)
-
 
 ## <a name="install-kqlmagic-library"></a>Installer la bibliothèque Kqlmagic
 
@@ -31,8 +32,10 @@ Jupyter Notebook est une application web open source qui vous permet de créer e
     ```python
     !pip install Kqlmagic --no-cache-dir  --upgrade
     ```
+    > [!NOTE]
+    > Lorsque vous utilisez Azure Notebooks, cette étape n’est pas requise.
 
-2. Charger Kqlmagic :
+1. Charger Kqlmagic :
 
     ```python
     reload_ext Kqlmagic
@@ -41,7 +44,6 @@ Jupyter Notebook est une application web open source qui vous permet de créer e
 ## <a name="connect-to-the-azure-data-explorer-help-cluster"></a>Se connecter au cluster d’aide d’Azure Data Explorer
 
 Utilisez la commande suivante pour vous connecter aux *exemples* de base de données hébergés sur le cluster d’*aide*. Pour les utilisateurs non-Microsoft AAD, remplacez le nom du locataire `Microsoft.com` par votre locataire AAD.
-
 
 ```python
 %kql AzureDataExplorer://tenant="Microsoft.com";code;cluster='help';database='Samples'
@@ -54,8 +56,8 @@ Interrogez les données à l’aide de l’[opérateur de rendu](/azure/kusto/qu
 ### <a name="query-and-render-piechart"></a>Interroger et afficher un graphique en secteurs
 
 ```python
-%%kql 
-StormEvents 
+%%kql
+StormEvents
 | summarize statecount=count() by State
 | sort by statecount 
 | limit 10
@@ -75,6 +77,7 @@ StormEvents
 > Ces graphiques sont interactifs. Sélectionnez un intervalle de temps pour zoomer sur une durée spécifique.
 
 ### <a name="customize-the-chart-colors"></a>Personnaliser les couleurs du graphique
+
 Si vous n’aimez pas la palette de couleurs par défaut, personnalisez les graphiques à l’aide des options de palette. Les palettes disponibles sont les suivantes : [Choisissez la palette de couleurs pour les résultats de votre graphique de requête Kqlmagic](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)
 
 1. Pour obtenir la liste des palettes :
@@ -87,16 +90,16 @@ Si vous n’aimez pas la palette de couleurs par défaut, personnalisez les grap
 
     ```python
     %%kql -palette_name "cool"
-    StormEvents 
+    StormEvents
     | summarize statecount=count() by State
-    | sort by statecount 
+    | sort by statecount
     | limit 10
     | render piechart title="My Pie Chart by State"
     ```
 
-## <a name="parametrize-a-query-with-python"></a>Paramétrer une requête avec Python
+## <a name="parameterize-a-query-with-python"></a>Paramétrer une requête avec Python
 
-Kqlmagic permet l’échange simple entre le langage de requête Kusto et Python. Pour en savoir plus : [Paramétrer votre requête Kqlmagic avec Python](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
+Kqlmagic permet l’échange simple entre le langage de requête Kusto et Python. Pour en savoir plus : [Paramétrer votre requête Kqlmagic avec Python](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb)
 
 ### <a name="use-a-python-variable-in-your-kql-query"></a>Utiliser une variable Python dans votre requête KQL
 
@@ -115,7 +118,7 @@ StormEvents
 | render timechart title = "Trend"
 ```
 
-### <a name="convert-query-results-to-pandas-dataframe"></a>Convertir les résultats de la requête en tramedonnées Pandas 
+### <a name="convert-query-results-to-pandas-dataframe"></a>Convertir les résultats de la requête en tramedonnées Pandas
 
 Vous pouvez accéder aux résultats d’une requête KQL dans les tramedonnées Pandas. Pour accéder aux résultats de la dernière requête exécutée par la variable `_kql_raw_result_` et convertir facilement les résultats en tramedonnées Pandas, procédez comme suit :
 
@@ -124,7 +127,7 @@ df = _kql_raw_result_.to_dataframe()
 df.head(10)
 ```
 
-### <a name="example"></a>Exemples 
+### <a name="example"></a>Exemples
 
 Dans de nombreux scénarios d’analyse, vous souhaitez créer des notebooks réutilisables qui contiennent de nombreuses requêtes et alimentent les résultats d’une requête dans les requêtes suivantes. L’exemple ci-dessous utilise la variable Python `statefilter` pour filtrer les données.
 
@@ -132,7 +135,7 @@ Dans de nombreux scénarios d’analyse, vous souhaitez créer des notebooks ré
 
     ```python
     %%kql
-    StormEvents 
+    StormEvents
     | summarize max(DamageProperty) by State
     | order by max_DamageProperty desc
     | limit 10
@@ -152,25 +155,22 @@ Dans de nombreux scénarios d’analyse, vous souhaitez créer des notebooks ré
     %%kql
     let _state = statefilter;
     StormEvents 
-    | where State in (_state) 
+    | where State in (_state)
     | summarize statecount=count() by bin(StartTime,1d), State
     | render timechart title = "Trend"
     ```
 
-1. Exécuter la commande d’aide : 
+1. Exécuter la commande d’aide :
 
     ```python
     %kql --help "help"
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-    
+
 Exécutez la commande d’aide pour explorer les exemples de notebooks suivants qui contiennent toutes les fonctionnalités prises en charge :
 - [Prise en main de Kqlmagic pour Azure Data Explorer](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) 
 - [Prise en main de Kqlmagic pour Application Insights](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) 
 - [Prise en main de Kqlmagic pour Log Analytics](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
 - [Paramétrer votre requête Kqlmagic avec Python](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
 - [Choisissez la palette de couleurs pour les résultats de votre graphique de requête Kqlmagic](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)
-
-
-

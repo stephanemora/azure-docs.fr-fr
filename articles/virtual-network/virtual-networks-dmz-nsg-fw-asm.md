@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fdc4885c079a3659d394517f0a10394eff0720c8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23126927"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119151"
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Exemple 2 : Créer une zone démilitarisée (DMZ) pour protéger les applications avec un pare-feu et des groupes de sécurité réseau
 [Revenir à la page Meilleures pratiques relatives aux frontières de sécurité][HOME]
@@ -31,8 +31,8 @@ Cet exemple crée une zone DMZ avec un pare-feu, quatre serveurs Windows et des 
 ## <a name="environment-description"></a>Description de l’environnement
 Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
 
-* deux services cloud : « FrontEnd001 », « BackEnd001 »,
-* Un réseau virtuel « CorpNetwork » avec deux sous-réseaux : « FrontEnd » et « BackEnd »
+* Deux services cloud : « FrontEnd001 » et « BackEnd001 »
+* Un réseau virtuel « CorpNetwork », avec deux sous-réseaux : « FrontEnd » et « BackEnd »
 * Un groupe de sécurité réseau unique qui est appliqué aux deux sous-réseaux
 * Une appliance virtuelle du réseau, dans cet exemple un pare-feu Barracuda NextGen Firewall, connectée au sous-réseau Frontend
 * un serveur Windows Server représentant un serveur web d’application (« IIS01 »),
@@ -52,12 +52,12 @@ Pour créer l’environnement :
 2. Mettre à jour les variables de l’utilisateur dans le script pour qu’elles correspondent à l’environnement dans lequel le script est exécuté (abonnements, noms de service, etc.)
 3. Exécuter le script dans PowerShell
 
-**Remarque**: la région indiquée dans le script PowerShell doit correspondre à la région indiquée dans le fichier xml de configuration réseau.
+**Remarque**: La région indiquée dans le script PowerShell doit correspondre à la région indiquée dans le fichier xml de configuration réseau.
 
 Une fois que le script s’exécute correctement, les opérations de post-script qui suivent doivent être exécutées :
 
-1. Configurer les règles de pare-feu. Ce sujet est traité dans la section ci-dessous, intitulée Règles de pare-feu.
-2. Dans la section Références, il existe deux scripts pour configurer le serveur web et le serveur d’application avec une application web simple permettant le test avec cette configuration DMZ.
+1. Configurer les règles de pare-feu. Ce sujet est traité dans la section ci-dessous intitulée : Règles de pare-feu.
+2. Dans la section Références, il existe deux scripts pour configurer le serveur web et le serveur d’application avec une application web simple permettant le test avec cette configuration réseau de périmètre.
 
 La section suivante explique la plupart des instructions de scripts relatives aux groupes de sécurité réseau.
 
@@ -87,15 +87,15 @@ Les règles NSG abordées ci-dessus sont très similaires aux règles NSG décri
 ## <a name="firewall-rules"></a>Règles de pare-feu
 Un client de gestion devra être installé sur un ordinateur pour gérer le pare-feu et créer les configurations nécessaires. Consultez la documentation du fournisseur de votre pare-feu (ou autre NVA) sur la façon de gérer l’appareil. Le reste de cette section décrit la configuration du pare-feu lui-même par le biais du client de gestion des fournisseurs (et non par le portail Azure ou PowerShell).
 
-Les instructions de téléchargement client et de connexion à Barracuda utilisées dans cet exemple se trouvent ici : [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
+Les instructions pour le téléchargement client et la connexion à Barracuda utilisé dans cet exemple se trouvent ici : [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
 
-Sur le pare-feu, vous devrez créer des règles de transfert. Étant donné que cet exemple achemine uniquement le trafic Internet entrant vers le pare-feu, puis vers le serveur web, seule une règle NAT de transfert est requise. Sur le pare-feu Barracuda NextGen Firewall utilisé dans cet exemple, la règle serait une règle NAT de destination (« Dst NAT ») pour autoriser ce trafic.
+Sur le pare-feu, vous devrez créer les règles de transfert. Étant donné que cet exemple achemine uniquement le trafic Internet entrant vers le pare-feu, puis vers le serveur web, seule une règle NAT de transfert est requise. Sur le pare-feu Barracuda NextGen Firewall utilisé dans cet exemple, la règle serait une règle NAT de destination (« Dst NAT ») pour autoriser ce trafic.
 
 Pour créer la règle suivante (ou vérifier les règles par défaut existantes), sur le tableau de bord du client administrateur de Barracuda NG, accédez à l’onglet Configuration. Dans la section Configuration opérationnelle, cliquez sur Ensemble de règles. Une grille nommée « Règles principales » affiche les règles actives et désactivées sur le pare-feu. Dans le coin supérieur droit de cette grille se trouve un petit bouton « + » vert. Cliquez dessus pour créer une nouvelle règle (Remarque : votre pare-feu peut être « verrouillé » contre les modifications. Si vous voyez un bouton marqué « Verrouiller » et que vous ne pouvez pas créer ou modifier les règles, cliquez dessus pour « déverrouiller » l’ensemble de règles et autoriser la modification). Si vous souhaitez modifier une règle existante, sélectionnez cette règle, cliquez avec le bouton droit et sélectionnez Modifier la règle.
 
 Créez une nouvelle règle et indiquez un nom, par exemple « WebTraffic ». 
 
-L'icône de la règle NAT de destination se présente ainsi : ![Icône NAT de destination][2]
+L'icône de la règle NAT de destination se présente ainsi :  ![Icône NAT de destination][2]
 
 La règle proprement dite se présente ainsi :
 
@@ -427,7 +427,7 @@ Ce script PowerShell doit être exécuté localement sur un PC ou un serveur con
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 
     If ($FatalError) {
-        Write-Host "A fatal error has occured, please see the above messages for more information." -ForegroundColor Red
+        Write-Host "A fatal error has occurred, please see the above messages for more information." -ForegroundColor Red
         Return}
     Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
 
@@ -568,7 +568,7 @@ Enregistrer ce fichier XML avec l’emplacement mis à jour et ajouter le lien v
     </NetworkConfiguration>
 
 #### <a name="sample-application-scripts"></a>Exemples de scripts d’application
-Si vous souhaitez installer un exemple d’application et d’autres exemples de zone DMZ, vous en trouverez à l’adresse suivante : [Exemple de script d’application][SampleApp]
+Si vous souhaitez installer un exemple d’application et d’autres exemples de zone DMZ, vous en trouverez à l’adresse suivante : [Exemple de script d’application][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-asm/example2design.png "Zone DMZ avec groupe de sécurité réseau (NSG)"

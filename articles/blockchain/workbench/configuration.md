@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/4/2018
+ms.date: 1/8/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: caaee4cb155fc05b78bc47f1e53c79ecb0597183
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f93bfcb076bfae5c50c751ac664a145e1b375f23
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341937"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107767"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Référence de configuration Azure Blockchain Workbench
 
@@ -53,17 +53,17 @@ Pour obtenir un exemple, consultez l’[exemple de fichier de configuration](#co
 
 La logique métier d’une application peut être modélisée comme une machine à états dans laquelle la réalisation d’une action entraîne le transfert du flux de logique métier d’un état à un autre. Un workflow est une collection de ces états et actions. Chaque workflow se compose d’un ou plusieurs contrats intelligents, qui représentent la logique métier dans les fichiers de code. Un contrat exécutable est une instance de workflow.
 
-| Champ | Description | Obligatoire |
-|-------|-------------|:--------:|
-| NOM | Nom unique du workflow. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la classe de contrat applicable. | Oui |
-| DisplayName | Nom d’affichage convivial du workflow. | Oui |
-| Description | Description du workflow. | Non  |
-| Initiateurs | Collection d’[ApplicationRoles](#application-roles). Rôles attribués aux utilisateurs qui sont autorisés à créer des contrats dans le workflow. | Oui |
-| StartState | Nom de l’état initial du workflow. | Oui |
-| properties | Collection d’[identificateurs](#identifiers). Représente des données qui peuvent être lues hors de la chaîne ou visualisées dans un outil d’expérience utilisateur. | Oui |
-| Constructeur | Définit les paramètres d’entrée pour la création d’une instance du workflow. | Oui |
-| Fonctions | Collection de [fonctions](#functions) qui peut être exécutée dans le workflow. | Oui |
-| États | Collection d’[états](#states) de workflow. | Oui |
+| Champ | Description | Obligatoire | Longueur maximale |
+|-------|-------------|:--------:|-----------:|
+| NOM | Nom unique du workflow. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la classe de contrat applicable. | Oui | 50 |
+| DisplayName | Nom d’affichage convivial du workflow. | Oui | 255 |
+| Description | Description du workflow. | Non  | 255 |
+| Initiateurs | Collection d’[ApplicationRoles](#application-roles). Rôles attribués aux utilisateurs qui sont autorisés à créer des contrats dans le workflow. | Oui | |
+| StartState | Nom de l’état initial du workflow. | Oui | |
+| properties | Collection d’[identificateurs](#identifiers). Représente des données qui peuvent être lues hors de la chaîne ou visualisées dans un outil d’expérience utilisateur. | Oui | |
+| Constructeur | Définit les paramètres d’entrée pour la création d’une instance du workflow. | Oui | |
+| Fonctions | Collection de [fonctions](#functions) qui peut être exécutée dans le workflow. | Oui | |
+| États | Collection d’[états](#states) de workflow. | Oui | |
 
 Pour obtenir un exemple, consultez l’[exemple de fichier de configuration](#configuration-file-example).
 
@@ -81,7 +81,7 @@ Types de données pris en charge.
 | int      | Type de données Integer. |
 | money    | Type de données Money. |
 | state    | État du workflow. |
-| string  | Type de données String. 4 000 caractères au maximum. Consultez [l’exemple de configuration](#example-configuration-of-type-string). |
+| chaîne  | Type de données String. 4 000 caractères au maximum. Consultez [l’exemple de configuration](#example-configuration-of-type-string). |
 | user     | Adresse de type user. |
 | time     | Type de données Time. |
 |`[ Application Role Name ]`| N’importe quel nom spécifié dans le rôle d’application. Limite les utilisateurs à ce type de rôle. |
@@ -207,12 +207,12 @@ Définit les paramètres d’entrée pour une instance de workflow.
 
 Définit les fonctions qui peuvent être exécutées dans le workflow.
 
-| Champ | Description | Obligatoire |
-|-------|-------------|:--------:|
-| NOM | Nom unique de la fonction. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la fonction applicable. | Oui |
-| DisplayName | Nom d’affichage convivial de la fonction. | Oui |
-| Description | Description de la fonction | Non  |
-| parameters | Collection d’[identificateurs](#identifiers) correspondant aux paramètres de la fonction. | Oui |
+| Champ | Description | Obligatoire | Longueur maximale |
+|-------|-------------|:--------:|-----------:|
+| NOM | Nom unique de la fonction. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la fonction applicable. | Oui | 50 |
+| DisplayName | Nom d’affichage convivial de la fonction. | Oui | 255 |
+| Description | Description de la fonction | Non  | 255 |
+| parameters | Collection d’[identificateurs](#identifiers) correspondant aux paramètres de la fonction. | Oui | |
 
 ### <a name="functions-example"></a>Exemples de fonctions
 
@@ -255,14 +255,14 @@ Définit les fonctions qui peuvent être exécutées dans le workflow.
 
 Collection d’états uniques au sein d’un workflow. Chaque état capture une étape dans le workflow de la logique métier. 
 
-| Champ | Description | Obligatoire |
-|-------|-------------|:--------:|
-| NOM | Nom unique de l’état. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour l’état applicable. | Oui |
-| DisplayName | Nom d’affichage convivial de l’état. | Oui |
-| Description | Description de l’état. | Non  |
-| PercentComplete | Valeur entière qui apparaît dans l’interface utilisateur Blockchain Workbench pour afficher la progression dans le flux de contrôle de logique métier. | Oui |
-| Style | Indicateur visuel qui indique si l’état représente un état de réussite ou d’échec. Il existe deux valeurs valides : `Success` ou `Failure`. | Oui |
-| Transitions | Collection de [transitions](#transitions) disponibles de l’état actuel vers l’ensemble d’états suivant. | Non  |
+| Champ | Description | Obligatoire | Longueur maximale |
+|-------|-------------|:--------:|-----------:|
+| NOM | Nom unique de l’état. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour l’état applicable. | Oui | 50 |
+| DisplayName | Nom d’affichage convivial de l’état. | Oui | 255 |
+| Description | Description de l’état. | Non  | 255 |
+| PercentComplete | Valeur entière qui apparaît dans l’interface utilisateur Blockchain Workbench pour afficher la progression dans le flux de contrôle de logique métier. | Oui | |
+| Style | Indicateur visuel qui indique si l’état représente un état de réussite ou d’échec. Il existe deux valeurs valides : `Success` ou `Failure`. | Oui | |
+| Transitions | Collection de [transitions](#transitions) disponibles de l’état actuel vers l’ensemble d’états suivant. | Non  | |
 
 ### <a name="states-example"></a>Exemple d’états
 
@@ -369,10 +369,10 @@ Actions disponibles à l’état suivant. Un ou plusieurs rôles d’utilisateur
 
 Les rôles d’application définissent un ensemble de rôles qui peuvent être assignés aux utilisateurs souhaitant agir ou participer au sein de l’application. Les rôles d’application peuvent servir à limiter les actions et la participation dans l’application blockchain et les workflows correspondants. 
 
-| Champ | Description | Obligatoire |
-|-------|-------------|:--------:|
-| NOM | Nom unique du rôle d’application. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour le rôle applicable. Les noms de type de base sont réservés. Vous ne pouvez pas nommer un rôle d’application de la même manière que [Type](#type)| Oui |
-| Description | Description du rôle d’application. | Non  |
+| Champ | Description | Obligatoire | Longueur maximale |
+|-------|-------------|:--------:|-----------:|
+| NOM | Nom unique du rôle d’application. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour le rôle applicable. Les noms de type de base sont réservés. Vous ne pouvez pas nommer un rôle d’application de la même manière que [Type](#type)| Oui | 50 |
+| Description | Description du rôle d’application. | Non  | 255 |
 
 ### <a name="application-roles-example"></a>Exemple de rôles d’application
 
@@ -392,11 +392,11 @@ Les rôles d’application définissent un ensemble de rôles qui peuvent être 
 
 Les identificateurs représentent une collection d’informations utilisées pour décrire les propriétés de workflow, le constructeur et les paramètres de fonction. 
 
-| Champ | Description | Obligatoire |
-|-------|-------------|:--------:|
-| NOM | Nom unique de la propriété ou du paramètre. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la propriété ou le paramètre applicable. | Oui |
-| DisplayName | Nom d’affichage convivial pour la propriété ou le paramètre. | Oui |
-| Description | Description de la propriété ou du paramètre. | Non  |
+| Champ | Description | Obligatoire | Longueur maximale |
+|-------|-------------|:--------:|-----------:|
+| NOM | Nom unique de la propriété ou du paramètre. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la propriété ou le paramètre applicable. | Oui | 50 |
+| DisplayName | Nom d’affichage convivial pour la propriété ou le paramètre. | Oui | 255 |
+| Description | Description de la propriété ou du paramètre. | Non  | 255 |
 
 ### <a name="identifiers-example"></a>Exemple d’identificateurs
 
@@ -423,7 +423,7 @@ Les identificateurs représentent une collection d’informations utilisées pou
 
 ## <a name="configuration-file-example"></a>Exemple de fichier de configuration
 
-Le transfert de ressources est un scénario de contrat intelligent pour l’achat et la vente de ressources très précieuses, pour lequel un inspecteur et un expert sont nécessaires. Les vendeurs peuvent répertorier leurs ressources en instanciant un contrat intelligent de transfert de ressources. Les acheteurs peuvent faire des offres en effectuant une action sur le contrat intelligent, et d’autres parties peuvent effectuer des actions pour inspecter ou estimer la ressource. Quand la ressource est marquée comme inspectée et estimée, l’acheteur et le vendeur confirmeront une nouvelle fois la vente avant que le contrat ne soit défini sur l’état Terminé. À chaque étape du processus, l’ensemble des participants peuvent connaître l’état du contrat dès qu’il est mis à jour. 
+Le transfert de ressources est un scénario de contrat intelligent pour l’achat et la vente de ressources très précieuses, pour lequel un inspecteur et un expert sont nécessaires. Les vendeurs peuvent répertorier leurs ressources en instanciant un contrat intelligent de transfert de ressources. Les acheteurs peuvent faire des offres en effectuant une action sur le contrat intelligent, et d’autres parties peuvent effectuer des actions pour inspecter ou estimer la ressource. Quand la ressource est marquée comme inspectée et estimée, l’acheteur et le vendeur confirmeront une nouvelle fois la vente avant que le contrat ne soit défini sur l’état Terminé. À chaque étape du processus, l’ensemble des participants peuvent connaître l’état du contrat dès qu’il est mis à jour. 
 
 Pour obtenir plus d’informations, y compris les fichiers de code, consultez [l’exemple de transfert de ressources pour Azure Blockchain Workbench](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer)
 

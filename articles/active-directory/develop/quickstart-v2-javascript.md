@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d044b1ad18df6eee1235e881038bbb9734a999ff
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 99ea7e7db9d0cc80bfd37a256fc1be388feaa530
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317345"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043887"
 ---
-# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Démarrage rapide : Connecter des utilisateurs et acquérir un jeton d’accès à partir d’une application JavaScript
+# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Démarrage rapide : Connecter des utilisateurs et acquérir un jeton d’accès à partir d’une application JavaScript
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -31,9 +31,20 @@ Dans ce démarrage rapide, vous allez apprendre à utiliser un exemple de code q
 ![Fonctionnement de l’exemple d’application généré par ce démarrage rapide](media/quickstart-v2-javascript/javascriptspa-intro.png)
 
 > [!div renderon="docs"]
-> ## <a name="register-your-application-and-download-your-quickstart-app"></a>Inscrivez votre application et téléchargez votre application de démarrage rapide
+> ## <a name="register-and-download-your-quickstart-application"></a>Inscrire et télécharger votre application de démarrage rapide
+> Vous disposez de deux options pour démarrer votre application de démarrage rapide :
+> * [Express] [Option 1 : Inscrire et configurer automatiquement votre application, puis télécharger votre exemple de code](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Manuel] [Option 2 : Inscrire et configurer manuellement vos application et exemple de code](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrire votre application
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Option 1 : Inscrire et configurer automatiquement votre application, puis télécharger votre exemple de code
+>
+> 1. Accédez au [portail Azure - Inscription d’applications (préversion)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
+> 1. Saisissez un nom pour votre application et cliquez sur **Inscrire**.
+> 1. Suivez les instructions pour télécharger et configurer automatiquement votre nouvelle application pour vous en un seul clic.
+>
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Option 2 : Inscrire et configurer manuellement vos application et exemple de code
+>
+> #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 >
 > 1. Connectez-vous au [portail Azure](https://portal.azure.com/) pour inscrire une application.
 > 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
@@ -55,7 +66,7 @@ Dans ce démarrage rapide, vous allez apprendre à utiliser un exemple de code q
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Déjà configuré](media/quickstart-v2-javascript/green-check.png) Votre application est configurée avec ces attributs.
 
-#### <a name="step-2-download-the-project"></a>Étape 2 : Télécharger le projet
+#### <a name="step-2-download-the-project"></a>Étape 2 : Téléchargez le projet
 
 Vous pouvez choisir l’une de ces options en fonction de leur adéquation avec votre environnement de développement.
 * [Télécharger les principaux fichiers de projet pour un serveur web, tel que Node.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
@@ -63,7 +74,7 @@ Vous pouvez choisir l’une de ces options en fonction de leur adéquation avec 
 
 Extrayez le fichier zip dans un dossier local, par exemple **C:\Azure-Samples**.
 
-#### <a name="step-3-configure-your-javascript-app"></a>Étape 3 : configurez une application JavaScript
+#### <a name="step-3-configure-your-javascript-app"></a>Étape 3 : Configurer une application JavaScript
 
 > [!div renderon="docs"]
 > Modifiez `index.html`, et définissez les valeurs de `clientID` et de `authority` sous `applicationConfig`.
@@ -95,7 +106,7 @@ var applicationConfig = {
 > Le serveur est configuré pour écouter sur le port 30662 dans le fichier *server.js* du projet [Node.js](https://nodejs.org/en/download/) et dans le fichier *.csproj* du projet [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 >
 
-#### <a name="step-4-run-the-project"></a>Étape 4 : exécutez le projet
+#### <a name="step-4-run-the-project"></a>Étape 4 : Exécuter le projet
 
 * Si vous utilisez Node.js :
 

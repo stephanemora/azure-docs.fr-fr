@@ -1,19 +1,19 @@
 ---
-title: 'Leçon supplémentaire du didacticiel Azure Analysis Services : Sécurité dynamique | Microsoft Docs'
+title: 'Leçon supplémentaire du didacticiel Azure Analysis Services : Sécurité dynamique | Microsoft Docs'
 description: Explique comment utiliser la sécurité dynamique à l’aide de filtres de lignes dans le didacticiel Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6a0c4158b85a6bc6c9276eff19466fb742c6f442
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1908d655064a4a320191695c048271246951c29c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235919"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187482"
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Leçon supplémentaire – Sécurité dynamique
 
@@ -21,7 +21,7 @@ Dans cette leçon supplémentaire, vous allez créer un rôle supplémentaire qu
   
 Pour implémenter la sécurité dynamique, vous ajoutez à votre modèle une table contenant les noms des utilisateurs qui peuvent se connecter au modèle et parcourir les données et objets du modèle. Le modèle que vous créez à l’aide de ce didacticiel est dans le contexte d’Adventure Works. Toutefois, pour suivre cette leçon, vous devez ajouter une table contenant les utilisateurs de votre propre domaine. Vous n’avez pas besoin des mots de passe correspondant aux noms d’utilisateur qui sont ajoutés. Pour créer une table EmployeeSecurity, avec un petit échantillon d’utilisateurs de votre propre domaine, vous utilisez la fonctionnalité Coller pour coller les données des employés d’une feuille de calcul Excel. Dans la vraie vie, la table contenant les noms d’utilisateur serait généralement une table d’une vraie base de données comme source de données ; par exemple, une vraie table DimEmployee.  
   
-Pour implémenter la sécurité dynamique, vous utilisez deux fonctions DAX :la [fonction USERNAME (DAX)](https://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) et la [fonction LOOKUPVALUE (DAX)](https://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab). Ces fonctions, appliquées dans une formule de filtre de lignes, sont définies dans un nouveau rôle. En utilisant la fonction LOOKUPVALUE, la formule spécifie une valeur à partir de la table EmployeeSecurity. Puis la formule transmet cette valeur à la fonction USERNAME, qui spécifie que le nom de l’utilisateur connecté appartient à ce rôle. L’utilisateur peut alors parcourir uniquement les données spécifiées par les filtres de lignes du rôle. Dans ce scénario, vous spécifiez que les représentants commerciaux peuvent parcourir uniquement les données des ventes sur Internet pour les secteurs de ventes dont ils sont membres.  
+Pour implémenter une sécurité dynamique, vous utilisez deux fonctions DAX : la [fonction USERNAME (DAX)](https://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) et la [fonction LOOKUPVALUE (DAX)](https://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab). Ces fonctions, appliquées dans une formule de filtre de lignes, sont définies dans un nouveau rôle. En utilisant la fonction LOOKUPVALUE, la formule spécifie une valeur à partir de la table EmployeeSecurity. Puis la formule transmet cette valeur à la fonction USERNAME, qui spécifie que le nom de l’utilisateur connecté appartient à ce rôle. L’utilisateur peut alors parcourir uniquement les données spécifiées par les filtres de lignes du rôle. Dans ce scénario, vous spécifiez que les représentants commerciaux peuvent parcourir uniquement les données des ventes sur Internet pour les secteurs de ventes dont ils sont membres.  
   
 Les tâches qui sont propres à ce scénario de modèle tabulaire Adventure Works, mais qui ne s’appliqueraient pas nécessairement dans la vraie vie, sont identifiées comme telles. Chaque tâche inclut des informations supplémentaires décrivant son objectif.  
   
@@ -37,7 +37,7 @@ Pour implémenter la sécurité dynamique dans ce scénario Adventure Works, vou
   
 1.  Dans l’Explorateur de modèles tabulaires > **Sources de données**, cliquez avec le bouton droit sur votre connexion, puis cliquez sur **Importer de nouvelles tables**.  
 
-    Si la boîte de dialogue Informations d’identification s’affiche, tapez les informations d’emprunt d’identification que vous avez utilisé dans la leçon 2 : Ajouter des données.
+    Si la boîte de dialogue Informations d’identification s’affiche, tapez les informations d’emprunt d’identification que vous avez utilisées dans la leçon 2 : Ajouter des données.
   
 2.  Dans le navigateur, sélectionnez la table **DimSalesTerritory**, puis cliquez sur **OK**.    
   
