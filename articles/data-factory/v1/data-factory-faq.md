@@ -9,17 +9,16 @@ ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 414a6042d064a1dece7025dc277533d40ef2aa64
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 81c7c98f29c2e507e165a3943395e36a453cbf06
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781911"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024040"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Forum aux Questions
 > [!NOTE]
@@ -55,10 +54,10 @@ Vous pouvez créer des fabriques de données en utilisant un des outils/SDK suiv
 * **Azure PowerShell** : consultez [Créer et surveiller Azure Data Factory à l’aide d’Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) pour obtenir un didacticiel/une procédure pas à pas pour créer une fabrique de données à l’aide de PowerShell. Consultez [Informations de référence sur les applets de commande Data Factory][adf-powershell-reference] dans la bibliothèque MSDN pour obtenir une documentation complète sur les applets de commande Data Factory.
 * **Bibliothèque de classes .NET** Vous pouvez créer par programmation des fabriques de données à l'aide du Kit de développement logiciel (SDK) Data Factory .NET. Consultez [Créer, surveiller et gérer des fabriques de données à l'aide du Kit de développement logiciel (SDK) .NET](data-factory-create-data-factories-programmatically.md) pour découvrir comment créer une fabrique de données à l'aide du Kit de développement logiciel (SDK) .NET. Consultez [Informations de référence sur la bibliothèque de classes Data Factory][msdn-class-library-reference] pour obtenir une documentation complète sur le Kit de développement logiciel (SDK) Data Factory .NET.
 * **API REST** Vous pouvez également utiliser l'API REST exposée par le service Azure Data Factory pour créer et déployer des fabriques de données. Consultez [Informations de référence sur l’API REST Data Factory][msdn-rest-api-reference] pour obtenir une documentation complète de l’API REST Data Factory.
-* **Modèle Azure Resource Manager** Consultez [Didacticiel : concevoir votre première fabrique de données Azure à l’aide du modèle Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) pour plus d’informations.
+* **Modèle Azure Resource Manager** Voir [Tutoriel : Concevoir votre première fabrique de données Azure à l’aide du modèle Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) pour plus de détails.
 
 ### <a name="can-i-rename-a-data-factory"></a>Puis-je renommer une fabrique de données ?
-Non. Tout comme les autres ressources Azure, le nom d'une fabrique de données Azure ne peut pas être modifié.
+ Non. Tout comme les autres ressources Azure, le nom d'une fabrique de données Azure ne peut pas être modifié.
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>Puis-je déplacer une fabrique de données d’un abonnement Azure à un autre ?
 Oui. Utilisez le bouton **Déplacer** sur le panneau de votre fabrique de données comme indiqué dans le graphique ci-dessous :
@@ -72,12 +71,12 @@ Le tableau suivant fournit une liste d’environnements de calcul pris en charge
 | --- | --- |
 | [Cluster HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) ou [votre propre cluster HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Activités Machine Learning : exécution de lot et mise à jour de ressource](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Activités Machine Learning : exécution par lot et ressource de mise à jour](data-factory-azure-ml-batch-execution-activity.md) |
 | [Service Analytique Azure Data Lake](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Langage U-SQL du service Analytique Data Lake](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procédure stockée](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Comparaison d’Azure Data Factory avec SQL Server Integration Services (SSIS) 
-Consultez la présentation [Azure Data Factory et SSIS](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) faite par un de nos MVP (Most Valued Professional), Reza Rad. Certains des changements récents Data Factory peuvent ne pas figurer dans le jeu de diapositives. Nous ajoutons continuellement des fonctionnalités à Azure Data Factory. Nous ajoutons continuellement des fonctionnalités à Azure Data Factory. Nous intégrerons ces mises à jour dans la comparaison des technologies d’intégration de données de Microsoft un peu plus tard cette année.   
+Consultez la présentation [Azure Data Factory et SSIS](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) faite par l’un de nos MVP (Most Valued Professional), Reza Rad. Certains des changements récents Data Factory peuvent ne pas figurer dans le jeu de diapositives. Nous ajoutons continuellement des fonctionnalités à Azure Data Factory. Nous ajoutons continuellement des fonctionnalités à Azure Data Factory. Nous intégrerons ces mises à jour dans la comparaison des technologies d’intégration de données de Microsoft un peu plus tard cette année.   
 
 ## <a name="activities---faq"></a>Activités - Forum Aux Questions
 ### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>Quels sont les différents types d’activités que vous pouvez utiliser dans un pipeline Data Factory ?

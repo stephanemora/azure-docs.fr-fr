@@ -1,13 +1,10 @@
 ---
-title: 'Didacticiel : Acheminer le trafic pour améliorer la réponse d’un site web à l’aide d’Azure Traffic Manager | Microsoft Docs'
+title: Tutoriel - Router le trafic pour améliorer la réponse d’un site web à l’aide d’Azure Traffic Manager
 description: Cet article de didacticiel explique comment créer un profil Traffic Manager pour développer un site web très réactif.
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: jeconnoc
-editor: ''
 Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -15,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
-ms.openlocfilehash: 087dcda5826d96ad064c472fc897be7e61133387
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: fcbacb14ae1cf0d8fa31d84e281c96fab5e3b0d3
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392503"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052085"
 ---
-# <a name="tutorial-improve-website-response-using-traffic-manager"></a>Didacticiel : Améliorer la réponse d’un site web à l’aide de Traffic Manager 
+# <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutoriel : Améliorer la réponse d’un site web à l’aide de Traffic Manager 
 
 Ce didacticiel explique comment utiliser Traffic Manager pour créer un site web très réactif en dirigeant le trafic utilisateur vers le site web avec la latence la plus faible. En règle générale, le centre de données dont la latence est la plus faible est géographiquement le plus proche.
 

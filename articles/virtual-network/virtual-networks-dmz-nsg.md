@@ -5,8 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 2f399b5084ab65736adfebb5cf0a77ccfbc972e8
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 680b47fd65cfde1fe01dfff9b74ddd42d1a73c1f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457287"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052391"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Exemple 1 – Créer une zone DMZ simple à l’aide de groupes de sécurité réseau avec un modèle Azure Resource Manager
 [Revenir à la page Meilleures pratiques relatives aux frontières de sécurité][HOME]
@@ -51,8 +49,8 @@ La section Références comporte un lien vers un modèle Azure Resource Manager 
 
 **Pour créer cet environnement** (des instructions détaillées figurent dans la section Références de ce document) ;
 
-1. Déployez le modèle Resource Manager dans : [Modèles de démarrage rapide Azure][Template]
-2. Installez l’exemple d’application dans : [Exemple de script d'application][SampleApp]
+1. Déployez le modèle Azure Resource Manager : [Modèles du guide de démarrage rapide Azure][Template]
+2. Installez l’exemple d’application : [Exemple de script d’application][SampleApp]
 
 >[!NOTE]
 >Pour établir une connexion RDP à des serveurs principaux dans cette instance, le serveur IIS est utilisé comme une « jump box ». Établissez d'abord une connexion RDP au serveur IIS, puis au serveur principal à partir d'une connexion IIS Server. Une adresse IP publique peut être associée à chaque carte réseau du serveur pour faciliter la connexion RDP.
@@ -350,7 +348,7 @@ Pour déployer le modèle qui génère cet exemple à partir de GitHub et du por
 Pour supprimer ce déploiement, supprimez le groupe de ressources (toutes les ressources enfants seront également supprimées).
 
 #### <a name="sample-application-scripts"></a>Exemples de scripts d’application
-Une fois le modèle correctement exécuté, vous pouvez configurer le serveur web et le serveur d’application avec une application web simple permettant le test avec cette configuration DMZ. Pour installer un exemple d’application et d’autres exemples de zone DMZ, vous en trouverez à l’adresse suivante : [Exemple de script d’application][SampleApp]
+Une fois le modèle correctement exécuté, vous pouvez configurer le serveur web et le serveur d’application avec une application web simple permettant le test avec cette configuration DMZ. Si vous souhaitez installer un exemple d’application et d’autres exemples de zone DMZ, vous en trouverez via le lien suivant : [Exemple de script d’application][SampleApp]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

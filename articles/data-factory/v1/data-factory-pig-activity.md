@@ -9,17 +9,16 @@ ms.assetid: 5af07a1a-2087-455e-a67b-a79841b4ada5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5abd0b07037559b14158a3c314b6ca6ce30ab655
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 48cbd33d4cbaff5d362731d67bbd3d4041e26f89
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045114"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025639"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Pig dans Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -41,7 +40,7 @@ ms.locfileid: "37045114"
 L’activité Pig de HDInsight d’un [pipeline](data-factory-create-pipelines.md) Data Factory exécute des requêtes Pig sur [votre propre](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) cluster ou le cluster [à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight sous Windows ou Linux. Cet article s'appuie sur l'article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
 
 > [!NOTE] 
-> Si vous découvrez Azure Data Factory, lisez la [Présentation d’Azure Data Factory](data-factory-introduction.md) et suivez le didacticiel : [Générer votre premier pipeline de données](data-factory-build-your-first-pipeline.md) avant de lire cet article. 
+> Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Factory](data-factory-introduction.md) et suivez le tutoriel : [Générer votre premier pipeline de données](data-factory-build-your-first-pipeline.md) avant de lire cet article. 
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -84,12 +83,12 @@ L’activité Pig de HDInsight d’un [pipeline](data-factory-create-pipelines.m
 ## <a name="syntax-details"></a>Détails de la syntaxe
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Nom |Nom de l’activité |OUI |
+| Nom |Nom de l’activité |Oui |
 | description |Texte décrivant la raison motivant l’activité. |Non  |
-| Type |HDinsightPig |OUI |
+| Type |HDinsightPig |Oui |
 | inputs |Une ou plusieurs entrées utilisées par l'activité pig |Non  |
-| outputs |Une ou plusieurs sorties produites par l’activité pig |OUI |
-| linkedServiceName |Référence au cluster HDInsight enregistré comme un service lié dans Data Factory |OUI |
+| outputs |Une ou plusieurs sorties produites par l’activité pig |Oui |
+| linkedServiceName |Référence au cluster HDInsight enregistré comme un service lié dans Data Factory |Oui |
 | script |Spécifier le script en ligne pig |Non  |
 | chemin d'accès du script |Stockez le script pig dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Le nom de fichier respecte la casse. |Non  |
 | defines |Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script pig |Non  |

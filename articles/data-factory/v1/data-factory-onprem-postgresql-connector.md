@@ -9,22 +9,21 @@ ms.assetid: 888d9ebc-2500-4071-b6d1-0f6bd1b5997c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 189adf27795172bb08b52af1a9e3428d854a50a0
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2f964ac77ade69f14692a337f17011e93f85f68c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046728"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025706"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Déplacer des données depuis PostgreSQL à l’aide d’Azure Data Factory
-> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez:"]
-> * [Version 1](data-factory-onprem-postgresql-connector.md)
-> * [Version 2 (version actuelle)](../connector-postgresql.md)
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1](data-factory-onprem-postgresql-connector.md)
+> * [Version 2 (version actuelle)](../connector-postgresql.md)
 
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez le [Connecteur PostgreSQL dans V2](../connector-postgresql.md).
@@ -44,19 +43,19 @@ Une passerelle est requise même si la base de données PostgreSQL est hébergé
 > Consultez [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) pour obtenir des conseils sur la résolution des problèmes de connexion/passerelle.
 
 ## <a name="supported-versions-and-installation"></a>Versions prises en charge et installation
-Pour que la passerelle de gestion des données puisse se connecter à la base de données PostgreSQL, installez le [fournisseur de données Ngpsql pour PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) de version comprise entre 2.0.12 et 3.1.9 sur le même système que la passerelle de gestion des données. PostgreSQL version 7.4 et ultérieures est pris en charge.
+Pour que la passerelle de gestion des données puisse se connecter à la base de données PostgreSQL, installez le [fournisseur de données Ngpsql pour PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) de version comprise entre 2.0.12 et 3.1.9 sur le même système que la passerelle de gestion des données. PostgreSQL version 7.4 et ultérieures est pris en charge.
 
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’un magasin de données PostgreSQL local à l’aide de différents outils/API. 
 
-- Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données. 
+- Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données. 
 - Vous pouvez également utiliser les outils suivants pour créer un pipeline : 
     - Portail Azure
     - Visual Studio
     - Azure PowerShell
     - Modèle Azure Resource Manager
     - API .NET
-    - de l’API REST
+    - API REST
 
      Consultez le [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie. 
 
@@ -66,7 +65,7 @@ Que vous utilisiez des outils ou des API, la création d’un pipeline qui dépl
 2. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie. 
 3. Création d’un **pipeline** avec une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. 
 
-Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory à l’aide du format JSON.  Pour consulter un exemple contenant des définitions JSON pour les entités Data Factory utilisées pour copier des données d’un magasin de données PostgreSQL local, consultez la section [Exemple JSON : copier des données depuis PostgreSQL vers Blob Azure](#json-example-copy-data-from-postgresql-to-azure-blob) de cet article. 
+Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour un exemple contenant des définitions JSON pour les entités Data Factory servant à copier des données à partir d’un magasin de données PostgreSQL local, consultez la section [Exemple JSON : copier des données de PostgreSQL vers Blob Azure](#json-example-copy-data-from-postgresql-to-azure-blob) de cet article. 
 
 Les sections suivantes offrent des informations détaillées sur les propriétés JSON utilisées pour définir les entités Data Factory propres à Azure Data Lake Store :
 
@@ -75,14 +74,14 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |Le type de propriété doit être défini sur : **OnPremisesPostgreSql** |OUI |
-| serveur |Nom du serveur PostgreSQL. |OUI |
-| database |Nom de la base de données PostgreSQL. |OUI |
+| Type |La propriété type doit être définie sur : **OnPremisesPostgreSql** |Oui |
+| serveur |Nom du serveur PostgreSQL. |Oui |
+| database |Nom de la base de données PostgreSQL. |Oui |
 | schema |Nom du schéma dans la base de données. Le nom du schéma respecte la casse. |Non  |
-| authenticationType |Type d'authentification utilisé pour se connecter à la base de données PostgreSQL. Les valeurs possibles sont : Anonyme, De base et Windows. |OUI |
+| authenticationType |Type d'authentification utilisé pour se connecter à la base de données PostgreSQL. Les valeurs possibles sont les suivantes : Anonymous, Basic et Windows. |Oui |
 | username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non  |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non  |
-| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données PostgreSQL locale. |OUI |
+| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données PostgreSQL locale. |Oui |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données.
@@ -111,7 +110,7 @@ Lorsque la source est de type **RelationalSource** (ce qui inclut PostgreSQL), l
 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
-## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>Exemple JSON : copier des données depuis PostgreSQL vers Blob Azure
+## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>Exemple JSON : copier des données de PostgreSQL vers Stockage Blob Azure
 Cet exemple présente des exemples de définition JSON que vous pouvez utiliser pour créer un pipeline à l’aide du [portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données depuis une base de données PostgreSQL vers Azure Blob Storage. Toutefois, les données peuvent être copiées vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie d’Azure Data Factory.   
 
 > [!IMPORTANT]
@@ -346,7 +345,7 @@ Lors du déplacement de données vers PostgreSQL, les mappages suivants sont uti
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| text | |Chaîne |&nbsp;
+| texte | |Chaîne |&nbsp;
 
 ## <a name="map-source-to-sink-columns"></a>Mapper les colonnes source aux colonnes du récepteur
 Pour en savoir plus sur le mappage de colonnes du jeu de données source à des colonnes du jeu de données récepteur, voir [Mappage des colonnes d’un jeu de données dans Azure Data Factory](data-factory-map-columns.md).

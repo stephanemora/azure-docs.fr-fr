@@ -4,12 +4,12 @@ ms.service: backup
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: raynew
-ms.openlocfilehash: e62771096bc59bc05879ce7b7e2da19f050b27b0
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: b589c88e5b5c5991db43a9f3c10003e17094b2e1
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279607"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54057375"
 ---
 ## <a name="defining-a-backup-policy"></a>Définition d’une stratégie de sauvegarde
 Une stratégie de sauvegarde définit quand les instantanés de données sont pris ainsi que leur durée de conservation. Lors de la définition de la stratégie de sauvegarde d’une machine virtuelle, vous pouvez déclencher un travail de sauvegarde *une fois par jour*. Lorsque vous créez une stratégie, elle est appliquée à l’archivage. L'interface de la stratégie de sauvegarde ressemble à ceci :
@@ -20,22 +20,27 @@ Pour créer une stratégie :
 
 1. Entrez un nom dans **Nom de la stratégie**.
 2. Les instantanés de vos données peuvent être pris à intervalles quotidiens ou hebdomadaires. Utilisez le menu déroulant **Fréquence de sauvegarde** pour déterminer la fréquence de prise des instantanés de données (tous les jours ou toutes les semaines).
-   
+
    * Si vous choisissez un intervalle quotidien, utilisez le contrôle en surbrillance pour sélectionner l'heure du jour à laquelle prendre l'instantané. Pour modifier l'heure, désélectionnez-la et choisissez-en une autre.
-     
+
      ![Stratégie de sauvegarde quotidienne](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
    * Si vous choisissez un intervalle hebdomadaire, utilisez les contrôles en surbrillance pour sélectionner le(s) jour(s) de la semaine et l’heure auxquels prendre l’instantané. Dans le menu du jour, sélectionnez un ou plusieurs jours. Dans le menu de l'heure, sélectionnez une heure. Pour modifier l'heure, désélectionnez-la et choisissez-en une autre.
-     
+
      ![Stratégie de sauvegarde hebdomadaire](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
 3. Par défaut, toutes les options **Durée de rétention** sont sélectionnées. Désactivez la limite de plage de rétention que vous ne souhaitez pas utiliser. Ensuite, spécifiez le ou les intervalles à utiliser.
-   
-    Les durées de rétention mensuelle et annuelle vous permettent de prendre des instantanés selon un intervalle hebdomadaire ou quotidien.
-   
-   > [!NOTE]
-   > Lorsque vous protégez un ordinateur virtuel, un travail de sauvegarde s'exécute une fois par jour. L'heure d'exécution de la sauvegarde est le même pour chaque plage de rétention.
-   > 
-   > 
-4. Après avoir défini toutes les options de la stratégie, cliquez sur **Enregistrer**en haut du panneau.
-   
-    La nouvelle stratégie est appliquée immédiatement au coffre.
 
+    Les durées de rétention mensuelle et annuelle vous permettent de prendre des instantanés selon un intervalle hebdomadaire ou quotidien.
+
+   > [!NOTE]
+   >
+  - Lorsque vous protégez un ordinateur virtuel, un travail de sauvegarde s'exécute une fois par jour. L'heure d'exécution de la sauvegarde est le même pour chaque plage de rétention.
+  - Le point de récupération est généré à la date et à l’heure auxquelles l’instantané de sauvegarde a été effectué, indépendamment de la planification du travail de sauvegarde.
+    - P. Si la fréquence de sauvegarde est planifiée pour 23 h 30 et si, en raison d’un problème, l’instantané est effectué à 0 h 01, le point de récupération est créé avec la prochaine date et à 0 h 01.
+  - En cas de sauvegarde mensuelle, si la sauvegarde est configurée pour s’exécuter le premier jour de chaque mois et si l’instantané est effectué le lendemain en raison d’un problème, le point de récupération créé pour la sauvegarde mensuelle porte l’indication du jour suivant (c’est-à-dire le second du mois en question).
+   >
+   >
+
+
+4. Après avoir défini toutes les options de la stratégie, cliquez sur **Enregistrer**en haut du panneau.
+
+    La nouvelle stratégie est appliquée immédiatement au coffre.

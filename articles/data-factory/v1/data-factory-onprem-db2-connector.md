@@ -9,22 +9,21 @@ ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 88e56f522545f9c1f38bf0d0fdbcebdc171c294b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c7a3893c35031d05ea8aade0ad5d30b5a56176fd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046528"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015132"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Déplacer des données depuis DB2 à l’aide de l’activité de copie dans Azure Data Factory
-> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez:"]
-> * [Version 1](data-factory-onprem-db2-connector.md)
-> * [Version 2 (version actuelle)](../connector-db2.md)
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1](data-factory-onprem-db2-connector.md)
+> * [Version 2 (version actuelle)](../connector-db2.md)
 
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Connecteur DB2 dans V2](../connector-db2.md).
@@ -58,13 +57,13 @@ Le connecteur DB2 Data Factory prend en charge les plateformes et versions IBM D
 
 > [!TIP]
 > Si vous recevez le message d’erreur « Le package correspondant à une requête d’exécution d’instruction SQL est introuvable. SQLSTATE = 51002 SQLCODE =-805 », la raison en est qu’un package nécessaire n’est pas créé pour l’utilisateur normal sur le système d’exploitation. Pour résoudre le problème, suivez ces instructions en fonction de votre type de serveur DB2 :
-> - DB2 pour i (AS400) : demandez à un utilisateur chevronné de créer la collection pour l’utilisateur normal avant d’exécuter l’activité de copie. Pour créer la collection, utilisez la commande : `create collection <username>`
-> - DB2 pour z/OS ou LUW : utilisez un compte doté de privilèges élevés (utilisateur chevronné ou administrateur disposant d’autorités de package et d’autorisations BIND, BINDADD, GRANT EXECUTE TO PUBLIC) pour exécuter une fois l’activité de copie. Le package nécessaire est automatiquement créé au cours de la copie. Vous pouvez ensuite revenir au mode utilisateur normal pour vos copies suivantes.
+> - DB2 pour i (AS400) : demandez à un utilisateur chevronné de créer la collection pour l’utilisateur normal avant d’exécuter l’activité de copie. Pour créer la collection, utilisez la commande : `create collection <username>`
+> - DB2 pour z/OS ou LUW : utilisez un compte doté de privilèges élevés (utilisateur chevronné ou administrateur disposant d’autorités de package et d’autorisations BIND, BINDADD, GRANT EXECUTE TO PUBLIC) pour exécuter une fois l’activité de copie. Le package nécessaire est automatiquement créé au cours de la copie. Vous pouvez ensuite revenir au mode utilisateur normal pour vos copies suivantes.
 
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie pour déplacer des données d’un magasin de données DB2 local à l’aide de différents outils et API : 
 
-- Le moyen le plus simple de créer un pipeline consiste à utiliser l’Assistant de copie Azure Data Factory. Pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant de copie, consultez la page [Didacticiel : Créer un pipeline à l’aide de l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md). 
+- Le moyen le plus simple de créer un pipeline consiste à utiliser l’Assistant de copie Azure Data Factory. Pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant de copie, consultez la page [Didacticiel : Créer un pipeline à l’aide de l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md). 
 - Vous pouvez également utiliser des outils pour créer un pipeline, notamment le portail Azure, Visual Studio, Azure PowerShell, un modèle Azure Resource Manager, l’API .NET et l’API REST. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes :
@@ -73,7 +72,7 @@ Que vous utilisiez des outils ou des API, la création d’un pipeline qui dépl
 2. Création de jeux de données pour représenter les données d’entrée et de sortie de l’opération de copie. 
 3. Création d’un pipeline avec une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. 
 
-Lorsque vous utilisez l’Assistant de copie, les définitions JSON des entités de services liés, jeux de données et pipeline Data Factory sont automatiquement créées pour vous. Lorsque vous utilisez des outils ou API (à l’exception de l’API .NET), vous devez définir les entités Data Factory à l’aide du format JSON. L’[exemple JSON : copier des données depuis DB2 vers le stockage Azure Blob](#json-example-copy-data-from-db2-to-azure-blob) montre des définitions JSON pour les entités Data Factory utilisées pour copier des données depuis un magasin de données DB2 local.
+Lorsque vous utilisez l’Assistant de copie, les définitions JSON des entités de services liés, jeux de données et pipeline Data Factory sont automatiquement créées pour vous. Lorsque vous utilisez des outils ou API (à l’exception de l’API .NET), vous devez définir les entités Data Factory à l’aide du format JSON. L’[exemple JSON : copier des données de DB2 vers Stockage Azure Blob](#json-example-copy-data-from-db2-to-azure-blob) montre les définitions JSON pour les entités Data Factory utilisées pour copier des données à partir d’un magasin de données DB2 local.
 
 Les sections suivantes contiennent des informations détaillées sur les propriétés JSON utilisées pour définir les entités Data Factory propres à un magasin de données DB2.
 
@@ -82,14 +81,14 @@ Le tableau suivant répertorie les propriétés JSON spécifiques d’un service
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| **type** |Cette propriété doit être définie sur **OnPremisesDb2**. |OUI |
-| **server** |Nom du serveur DB2. |OUI |
-| **database** |Nom de la base de données DB2. |OUI |
+| **type** |Cette propriété doit être définie sur **OnPremisesDb2**. |Oui |
+| **server** |Nom du serveur DB2. |Oui |
+| **database** |Nom de la base de données DB2. |Oui |
 | **schema** |Nom du schéma dans la base de données DB2. Cette propriété est sensible à la casse. |Non  |
-| **authenticationType** |Type d'authentification utilisé pour se connecter à la base de données DB2. Les valeurs possibles sont : Anonyme, De base et Windows. |OUI |
+| **authenticationType** |Type d'authentification utilisé pour se connecter à la base de données DB2. Les valeurs possibles sont les suivantes : Anonymous, Basic et Windows. |Oui |
 | **nom d’utilisateur** |Nom du compte d’utilisateur si vous utilisez l’authentification de base ou Windows. |Non  |
 | **mot de passe** |Mot de passe du compte d’utilisateur. |Non  |
-| **gatewayName** |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données DB2 locale. |OUI |
+| **gatewayName** |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données DB2 locale. |Oui |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la **structure**, la **disponibilité** et la **stratégie** d’un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, stockage Azure Blob, stockage Azure Table, etc.).
@@ -112,7 +111,7 @@ Pour l’activité de copie, lorsque la source est de type **RelationalSource** 
 > [!NOTE]
 > Les noms de schéma et de table respectent la casse. Dans l’instruction de requête, mettez les noms de propriétés entre "" (guillemets doubles).
 
-## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>Exemple JSON : copie de données de DB2 vers le stockage Azure Blob
+## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>Exemple JSON : copier des données de DB2 vers Stockage Blob Azure
 Cet exemple présente des exemples de définition JSON, que vous pouvez utiliser pour créer un pipeline à l’aide du [portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou d’[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). L’exemple montre comment copier des données depuis une base de données DB2 dans le stockage Blob. Les données peuvent toutefois être copiées dans [tout magasin de données récepteur pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) à l’aide de l’activité de copie dans Azure Data Factory.
 
 L’exemple contient les entités Data Factory suivantes :

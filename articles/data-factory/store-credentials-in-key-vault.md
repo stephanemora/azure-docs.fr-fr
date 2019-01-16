@@ -8,16 +8,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2017
 ms.author: jingwang
-ms.openlocfilehash: 3428fb5034435d9f3444347329171d803136177c
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 60dd0bdd529b4ee8fc8377093d49b8a27fb9b3f1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944666"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016646"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Stocker des informations d’identification dans Azure Key Vault
 
@@ -47,7 +46,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Key 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **AzureKeyVault**. | Oui |
+| Type | La propriété type doit être définie sur : **AzureKeyVault**. | Oui |
 | baseUrl | Spécifiez l’URL d’Azure Key Vault. | Oui |
 
 **Utilisation de l’interface utilisateur de création :**
@@ -80,7 +79,7 @@ Les propriétés suivantes sont prises en charge lorsque vous configurez un cham
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du champ doit être définie sur **AzureKeyVaultSecret**. | Oui |
+| Type | La propriété type du champ doit être définie sur : **AzureKeyVaultSecret**. | Oui |
 | secretName | Nom du secret dans le coffre de clés Azure. | Oui |
 | secretVersion | Version du secret dans le coffre de clés Azure.<br/>Si elle n’est pas spécifiée, la version la plus récente du secret est utilisée.<br/>Si elle est spécifiée, elle utilise la version spécifiée.| Non  |
 | store | Fait référence au service lié Azure Key Vault que vous utilisez pour stocker les informations d’identification. | Oui |

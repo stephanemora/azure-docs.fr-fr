@@ -12,12 +12,12 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: c23bdba74ab528a0774b73598dbee8888ebfdc7e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6d53de431ea619dfc8865ef23439146517d37764
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076111"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013296"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Qu’est-ce que l’architecture Azure Active Directory ?
 Azure Active Directory (Azure AD) vous permet de gérer en toute sécurité l’accès aux ressources et aux services Azure pour vos utilisateurs. Azure AD comprend une suite complète de fonctionnalités de gestion des identités. Pour plus d’informations sur les fonctionnalités d’Azure AD, voir [Qu’est Azure Active Directory ?](active-directory-whatis.md)
@@ -34,7 +34,7 @@ Les éléments d’architecture suivants sont traités dans cet article :
  *  Centres de données
 
 ### <a name="service-architecture-design"></a>Conception de l’architecture de service
-La méthode la plus courante pour créer un système accessible et riche en données consiste à s’appuyer sur des unités d’échelle ou des blocs de construction indépendants pour le niveau de données Azure AD. Les unités d’échelle sont appelées des *partitions*. 
+La méthode la plus courante pour créer un système riche en données, accessible et pratique, consiste à s’appuyer sur des éléments fondamentaux indépendants : des unités d’échelle. Au niveau des données Azure AD, les unités d’échelle s’appellent des *partitions*. 
 
 Le niveau de données possède plusieurs services frontaux offrant une fonctionnalité de lecture-écriture. Le diagramme suivant montre comment les composants d’une partition à répertoire unique sont délivrés entre des centres de données géographiquement distribués. 
 

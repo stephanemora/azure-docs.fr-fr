@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: qianw211
-ms.openlocfilehash: 0468c41f0813277b6ba6d3be8ad89c3178dd1420
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: f13d3f780e24d71babb1bda48a9b85d1208e3c4c
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094669"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074595"
 ---
 # <a name="iot-edge-modules"></a>Modules IoT Edge
 
@@ -95,3 +95,4 @@ Si ce n’est déjà fait,
 Si vous êtes inscrit et créez une nouvelle offre ou travaillez sur une offre existante,
 
 - [Connectez-vous au portail Cloud Partner](https://cloudpartner.azure.com/) pour créer ou terminer votre offre.
+- Pour plus d’informations sur la publication d’une offre de module IoT Edge, consultez [Vue d’ensemble de la publication d’une offre de module Azure IoT Edge](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts).

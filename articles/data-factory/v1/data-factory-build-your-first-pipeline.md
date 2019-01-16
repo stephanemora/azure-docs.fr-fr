@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel Data Factory : premier pipeline de données | Microsoft Docs'
+title: 'Tutoriel Data Factory : Premier pipeline de données | Microsoft Docs'
 description: Ce didacticiel Azure Data Factory vous montre comment créer et planifier une fabrique de données qui traite les données à l’aide du script Hive sur un cluster Hadoop.
 services: data-factory
 documentationcenter: ''
@@ -10,21 +10,20 @@ ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 63ae8699af5213634eeac7dfc5045a3fc888b6c0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 266d16311115f788283eadc60ca16f95b433d6b0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734250"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015948"
 ---
-# <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Didacticiel : Générer votre premier pipeline pour transformer les données à l’aide du cluster Hadoop
+# <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutoriel : Générer votre premier pipeline pour transformer les données à l’aide du cluster Hadoop
 > [!div class="op_single_selector"]
-> * [Vue d’ensemble et étapes préalables requises](data-factory-build-your-first-pipeline.md)
+> * [Vue d’ensemble et composants requis](data-factory-build-your-first-pipeline.md)
 > * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
@@ -33,11 +32,11 @@ ms.locfileid: "45734250"
 
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Démarrage rapide : Créer une fabrique de données à l’aide d’Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Démarrage rapide : Créer une fabrique de données à l’aide d’Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 Dans ce didacticiel, vous allez générer votre première fabrique de données Azure avec un pipeline de données. Le pipeline transforme les données d’entrée en exécutant un script Hive sur un cluster Azure HDInsight (Hadoop) pour produire des données de sortie.  
 
-Cet article fournit une vue d’ensemble et la configuration requise pour le didacticiel. Si vous disposez de tout ce qui est nécessaire, vous pouvez suivre le didacticiel en utilisant les outils/Kits de développement logiciel (SDK) ci-après : Portail Azure, Visual Studio, PowerShell, modèle Resource Manager, API REST. Sélectionnez l’une des options de la liste déroulante au début ou les liens à la fin de cet article pour suivre ce didacticiel en utilisant l’une ou l’autre des possibilités.    
+Cet article fournit une vue d’ensemble et la configuration requise pour le didacticiel. Une fois les prérequis satisfaits, vous pouvez effectuer le tutoriel à l’aide de l’un des outils/SDK suivants : portail Azure, Visual Studio, PowerShell, modèle Resource Manager, API REST. Sélectionnez l’une des options de la liste déroulante au début ou les liens à la fin de cet article pour suivre ce didacticiel en utilisant l’une ou l’autre des possibilités.    
 
 ## <a name="tutorial-overview"></a>Vue d’ensemble du didacticiel
 Dans ce tutoriel, vous effectuerez les étapes suivantes :
@@ -45,12 +44,12 @@ Dans ce tutoriel, vous effectuerez les étapes suivantes :
 1. Création d'une **fabrique de données**. Une fabrique de données peut contenir un ou plusieurs pipelines de données qui déplacent et transforment des données. 
 
     Dans ce didacticiel, vous créez un pipeline dans la fabrique de données. 
-2. Création d'un **pipeline**. Un pipeline peut avoir une ou plusieurs activités (exemples : activité de copie, activité Hive HDInsight). Cet exemple utilise l’activité Hive d’HDInsight, qui exécute un script Hive sur un cluster HDInsight Hadoop. Le script crée d’abord une table qui fait référence aux données de journaux web bruts stockées dans le stockage d’objets blob Azure, puis partitionne les données brutes par année et par mois.
+2. Création d'un **pipeline**. Un pipeline peut contenir une ou plusieurs activités (exemples : activité de copie, activité HDInsight Hive). Cet exemple utilise l’activité Hive d’HDInsight, qui exécute un script Hive sur un cluster HDInsight Hadoop. Le script crée d’abord une table qui fait référence aux données de journaux web bruts stockées dans le stockage d’objets blob Azure, puis partitionne les données brutes par année et par mois.
 
     Dans ce didacticiel, le pipeline utilise l’activité Hive pour transformer les données en exécutant une requête Hive sur un cluster Azure HDInsight Hadoop. 
 3. Créer des **services liés**. Vous créez un service lié pour lier un magasin de données ou un service de calcul à la fabrique de données. Un magasin de données comme Azure Storage conserve les données d’entrée/de sortie d’activités dans le pipeline. Un service de calcul comme un cluster HDInsight Hadoop traite/transforme des données.
 
-    Dans ce didacticiel, vous allez créer deux services liés : **Azure Storage** et **Azure HDInsight**. Le service lié du stockage Azure relie un compte de stockage Azure qui contient les données d’entrée/de sortie de la fabrique de données. Le service lié Azure HDInsight relie un cluster Azure HDInsight qui est utilisé pour transformer les données de la fabrique de données. 
+    Dans ce tutoriel, vous allez créer deux services liés : **Stockage Azure** et **HDInsight Azure**. Le service lié du stockage Azure relie un compte de stockage Azure qui contient les données d’entrée/de sortie de la fabrique de données. Le service lié Azure HDInsight relie un cluster Azure HDInsight qui est utilisé pour transformer les données de la fabrique de données. 
 3. Créer des **jeux de données**d’entrée et de sortie. Un jeu de données d’entrée représente l’entrée d’une activité dans le pipeline, tandis qu’un jeu de données de sortie représente la sortie de l’activité.
 
     Dans ce didacticiel, les jeux de données d’entrée et de sortie indiquent des emplacements de données d’entrée et de sortie dans le stockage Blob Azure. Le service lié du stockage Azure indique quel compte de stockage Azure est utilisé. Un jeu de données d’entrée spécifie l’emplacement des fichiers d’entrée, tandis qu’un jeu de données de sortie indique l’emplacement des fichiers de sortie. 
@@ -63,7 +62,7 @@ Voici la **vue schématique** de l’exemple de fabrique de données que vous cr
 ![Vue Diagramme dans le didacticiel Data Factory](media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
 
-Dans ce didacticiel, le dossier **inputdata** du conteneur d’objets blob Azure **adfgetstarted** contient un fichier nommé input.log. Ce fichier journal contient les entrées de trois mois : janvier, février et mars 2016. Voici les échantillons de lignes pour chaque mois du fichier d’entrée. 
+Dans ce didacticiel, le dossier **inputdata** du conteneur d’objets blob Azure **adfgetstarted** contient un fichier nommé input.log. Ce fichier journal comporte des entrées de trois mois : janvier, février et mars 2016. Voici les échantillons de lignes pour chaque mois du fichier d’entrée. 
 
 ```
 2016-01-01,02:01:09,SAMPLEWEBSITE,GET,/blogposts/mvc4/step2.png,X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,53175,871 
@@ -103,7 +102,7 @@ Si vous disposez de tout ce qui est nécessaire, sélectionnez l’un des outils
 Le portail Azure et Visual Studio proposent une méthode utilisant l’interface utilisateur graphique pour créer vos fabriques de données. Quant aux options fournies par l’API REST, le modèle Resource Manager et PowerShell, elles vous permettent de créer vos fabriques de données via des scripts et des programmes.
 
 > [!NOTE]
-> Dans ce didacticiel, le pipeline de données transforme les données d’entrée pour produire des données de sortie. Il ne copie pas les données d’un magasin de données source vers un magasin de données de destination. Pour un didacticiel sur la copie de données à l’aide d’Azure Data Factory, consultez [Copie de données Blob Storage vers une base de données SQL à l’aide de Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Dans ce didacticiel, le pipeline de données transforme les données d’entrée pour produire des données de sortie. Il ne copie pas les données d’un magasin de données source vers un magasin de données de destination. Pour suivre un tutoriel sur la copie des données à l’aide d’Azure Data Factory, consultez [Tutoriel : Copier des données de Stockage Blob vers SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > 
 > Vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour plus d’informations, voir [Planification et exécution dans Data Factory](data-factory-scheduling-and-execution.md). 
 

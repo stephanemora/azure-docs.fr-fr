@@ -12,18 +12,18 @@ ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 496f751c263d17d3c5d8e10321bef8330c2f1a24
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 58354bf95b11e497f05fdf08ba4740b3f55c6d6e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096570"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022782"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quelles sont les autorisations d’utilisateur par défaut dans Azure Active Directory ?
 Dans Azure Active Directory (Azure AD), tous les utilisateurs bénéficient d’un jeu d’autorisations par défaut. L’accès d’un utilisateur se compose du type d’utilisateur, de ses [appartenances aux rôles](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) et de sa possession d’objets individuels. Cet article décrit ces autorisations par défaut et compare celles des utilisateurs membres et celles des utilisateurs invités.
 
 ## <a name="member-and-guest-users"></a>Utilisateurs membres et utilisateurs invités
-Le jeu d’autorisations par défaut reçu varie selon que l’utilisateur est membre natif du locataire (utilisateur membre) ou invité à la collaboration B2B (utilisateur invité). Pour plus d’informations sur la collaboration B2B et les utilisateurs invités, consultez [Qu’est-ce qu’Azure AD B2B Collaboration ?](../b2b/what-is-b2b.md). 
+Le jeu d’autorisations par défaut reçu varie selon que l’utilisateur est membre natif du locataire (utilisateur membre) ou invité à la collaboration B2B (utilisateur invité). Pour plus d’informations sur la collaboration B2B et les utilisateurs invités, consultez [Qu’est-ce qu’Azure AD B2B Collaboration ?](../b2b/what-is-b2b.md). 
 * Les utilisateurs membres peuvent inscrire des applications, gérer leurs numéro de téléphone mobile et photo de profil, changer leur mot de passe et inviter des invités B2B. En outre, les utilisateurs peuvent lire toutes les informations d’annuaire (à quelques exceptions près). 
 * Les utilisateurs invités B2B Azure AD ont des autorisations d’annuaire limitées. Par exemple, les utilisateurs invités ne peuvent pas parcourir les informations du locataire au-delà de leurs propres informations de profil. Toutefois, un utilisateur invité peut récupérer des informations relatives à un autre utilisateur en fournissant le nom d’utilisateur principal ou un ID d’objet. Un invité ne peut voir aucune information sur les autres objets de locataire, comme les groupes ou les applications.
 

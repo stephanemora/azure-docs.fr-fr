@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5bb36c693db5b2d7d46b772fd8b92bcda3667dc7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f1607a7d795e3934881429feb18c711a75995e31
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039426"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062942"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Activer les solutions Update Management, Change Tracking et Inventory sur plusieurs machines virtuelles
 
@@ -59,6 +59,24 @@ Si l’espace de travail sélectionné n’est pas lié à un compte Automation,
 
 ![Aucun espace de travail](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
+Lorsque vous activez des solutions, seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation.
+
+Le tableau suivant renseigne sur les mappages pris en charge :
+
+|**Région de l’espace de travail Log Analytics**|**Région Azure Automation**|
+|---|---|
+|AustralieSudEst|AustralieSudEst|
+|CanadaCentral|CanadaCentral|
+|CentralIndia|CentralIndia|
+|USAEst|USAEst2|
+|JaponEst|JaponEst|
+|AsieSudEst|AsieSudEst|
+|USACentreOuest|USACentreOuest|
+|WestEurope|WestEurope|
+|RoyaumeUniSud|RoyaumeUniSud|
+|USGovVirginie|USGovVirginie|
+|USAEst2EUAP|USACentreEUAP|
+
 Désactivez la case à cocher en regard des machines virtuelles que vous ne souhaitez pas activer. Les machines virtuelles qui ne peuvent pas être activées sont déjà désélectionnées.
 
 Cliquez sur **Activer** pour activer la solution. L’activation de la solution prend jusqu’à 15 minutes.
@@ -80,13 +98,13 @@ Après avoir supprimé ces solutions, vous pouvez effectuer les étapes suivante
 
 1. Dans le portail Azure, ouvrez votre compte Automation puis, dans la page de ce dernier, sélectionnez **Espace de travail lié** dans la section **Ressources associées** sur la gauche.
 
-1. Dans la page Dissocier l’espace de travail, cliquez sur **Dissocier l’espace de travail**.
+2. Dans la page Dissocier l’espace de travail, cliquez sur **Dissocier l’espace de travail**.
 
    ![Page Dissocier l’espace de travail](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
 
    Vous recevez une invite de confirmation de la suppression.
 
-1. Pour suivre la progression de la suppression du lien de votre espace de travail Log Analytics dans Azure Automation, sélectionnez **Notifications** dans le menu.
+3. Pour suivre la progression de la suppression du lien de votre espace de travail Log Analytics dans Azure Automation, sélectionnez **Notifications** dans le menu.
 
 Si vous avez utilisé la solution de gestion de la mise à jour, vous pouvez (si vous le souhaitez) supprimer les éléments suivants qui ne sont plus nécessaires après la suppression de la solution.
 
@@ -106,9 +124,9 @@ Lors de l’intégration de plusieurs machines, certaines machines peuvent affic
 
 ### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>La machine virtuelle est associée à un autre espace de travail : '\<workspaceName\>'.  Modifier la configuration afin de l’utiliser pour l’activation
 
-**Cause** : cette erreur indique que la machine virtuelle que vous tentez d’intégrer est associée à un autre espace de travail.
+**Cause** : cette erreur indique que la machine virtuelle que vous tentez d’intégrer est associée à un autre espace de travail.
 
-**Solution** : cliquez sur **Use as configuration** (Utiliser comme configuration) pour modifier le compte Automation et l’espace de travail Log Analytics ciblés.
+**Solution** : cliquez sur **Utiliser comme configuration** pour modifier le compte Automation et l’espace de travail Log Analytics ciblés.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>La machine virtuelle est associée à un espace de travail qui n’est pas disponible pour cet abonnement
 
@@ -122,7 +140,7 @@ Lors de l’intégration de plusieurs machines, certaines machines peuvent affic
 
 ### <a name="vm-operating-system-version-or-distribution-is-not-supported"></a>La version ou distribution du système d’exploitation de la machine virtuelle n’est pas prise en charge
 
-**Cause :** la solution n’est pas prise en charge pour toutes les distributions de Linux ou toutes les versions de Windows.
+**Cause :** la solution n’est pas prise en charge pour toutes les distributions de Linux ni pour toutes les versions de Windows.
 
 **Solution :** reportez-vous à la [liste des clients pris en charge](automation-update-management.md#clients) pour la solution.
 
@@ -130,11 +148,11 @@ Lors de l’intégration de plusieurs machines, certaines machines peuvent affic
 
 **Cause** : les machines virtuelles qui utilisent le modèle de déploiement classique ne sont pas prises en charge.
 
-**Solution** : migrez la machine virtuelle vers le modèle de déploiement de Resource Manager. Pour savoir comment procéder, consultez [Migrer des ressources d’un modèle de déploiement classique](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Solution** : migrez la machine virtuelle vers le modèle de déploiement de Resource Manager. Pour savoir comment procéder, consultez [Migrer des ressources d’un modèle de déploiement classique](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>La machine virtuelle est arrêtée. (désallouée)
 
-**Cause** : la machine virtuelle n’affiche pas l’état **Running** (en cours d’exécution).
+**Cause** : la machine virtuelle n’affiche pas l’état **En cours d’exécution**.
 
 **Solution** : pour intégrer une machine virtuelle à une solution, la machine virtuelle doit être en cours d’exécution. Cliquez sur le lien inline **Démarrer la machine virtuelle** pour démarrer la machine virtuelle sans quitter la page.
 

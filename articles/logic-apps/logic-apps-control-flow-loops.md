@@ -3,28 +3,28 @@ title: Ajouter des boucles qui répètent des actions ou des tableaux de process
 description: Comment créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 5ba5e5abef4ebdc58c44cbe7f5ba584efe8abfc7
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+manager: jeconnoc
+ms.date: 01/05/2019
+ms.topic: article
+ms.openlocfilehash: 7237a9a6a99b57401af40512a6d2e21a3fe49e53
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233104"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159483"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
 
-Pour itérer via des tableaux dans votre application logique, vous pouvez utiliser une [boucle « Foreach »](#foreach-loop) ou une [boucle « Foreach » séquentielle](#sequential-foreach-loop). Les itérations d’une boucle « Foreach » standard s’exécutent en parallèle, tandis que les itérations d’une bouche « Foreach » séquentielle s’exécutent l’une après l’autre. Pour connaître le nombre maximal d’éléments de tableau que des boucles « Foreach » peuvent traiter en une seule exécution d’application logique, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). 
+Pour traiter un tableau dans votre application logique, vous pouvez créer une [boucle « Foreach »](#foreach-loop). Cette boucle répète une ou plusieurs actions sur chaque élément du tableau. Pour connaître les limites applicables au nombre d’éléments de tableau que des boucles « Foreach » peuvent traiter, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). 
 
-> [!TIP] 
+Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un état change, vous pouvez créer une [boucle « Until »](#until-loop). Votre application logique exécute toutes les actions dans la boucle, puis vérifie la condition ou l’état. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète. Pour connaître les limites applicables au nombre de boucles « Until » dans une exécution d’application logique, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). 
+
+> [!TIP]
 > Si vous disposez d’un déclencheur qui reçoit un tableau et souhaite exécuter un workflow pour chaque élément du tableau, vous pouvez *dégrouper* ce tableau avec le déclencheur de propriété [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
-  
-Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un statut ait changé, utilisez une [boucle « Until »](#until-loop). Votre application logique réalise toutes les actions dans la boucle puis vérifie la condition à la dernière étape. Si la condition est remplie, la boucle s’arrête. Dans le cas contraire, la boucle se répète. Pour connaître le nombre maximal de boucles « Until » dans une seule exécution d’application logique, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md). 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -36,21 +36,31 @@ Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu�
 
 ## <a name="foreach-loop"></a>Boucle « Foreach »
 
-Pour répéter des actions pour chaque élément d’un tableau, utilisez une boucle « Foreach » dans le workflow de votre application logique. Vous pouvez inclure plusieurs actions dans une boucle « Foreach », et vous pouvez imbriquer des boucles « Foreach » l’une dans l’autre. Par défaut, les cycles dans une boucle « Foreach » standard s’exécutent en parallèle. Pour connaître le nombre maximal de cycles parallèles que peuvent exécuter des boucles « Foreach », consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md).
+Une boucle « Foreach » répète une ou plusieurs actions sur chaque élément du tableau et fonctionne uniquement sur les tableaux. Les itérations dans une boucle « Foreach » s’exécutent en parallèle. Toutefois, vous pouvez exécuter des itérations une à la fois en configurant une [boucle « Foreach » séquentielle](#sequential-foreach-loop). 
 
-> [!NOTE] 
-> Une boucle « Foreach » ne fonctionne qu’avec un tableau, et les actions dans cette boucle utilisent la référence `@item()` pour traiter chaque élément du tableau. Si vous spécifiez des données qui ne sont pas présentes dans le tableau, le workflow de l’application logique échoue. 
+Voici quelques considérations liées à l’utilisation des boucles « Foreach » :
 
-Par exemple, cette application logique vous envoie un résumé quotidien depuis le flux RSS d’un site web. L’application utilise une boucle « Foreach » qui envoie un courrier électronique pour chaque nouvel élément trouvé.
+* Dans les boucles imbriquées, les itérations s’exécutent toujours de manière séquentielle, pas en parallèle. Pour exécuter des opérations en parallèle pour les éléments d’une boucle imbriquée, créez et [appelez une application logique enfant](../logic-apps/logic-apps-http-endpoint.md).
+
+* Pour obtenir des résultats prévisibles à partir d’opérations exécutées sur des variables pendant chaque itération de boucle, exécutez ces boucles de manière séquentielle. Par exemple, quand une boucle exécutée simultanément se termine, les opérations d’incrémentation, de décrémentation et d’ajout aux variables retournent des résultats prévisibles. Toutefois, pendant chaque itération de la boucle s’exécutant simultanément, ces opérations peuvent retourner des résultats imprévisibles. 
+
+* Les actions dans une boucle « Foreach » utilisent l’expression [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
+pour référencer et traiter chaque élément du tableau. Si vous spécifiez des données qui ne sont pas présentes dans le tableau, le workflow de l’application logique échoue. 
+
+Cet exemple d’application logique envoie un résumé quotidien pour le flux RSS d’un site web. L’application utilise une boucle « Foreach » qui envoie un e-mail pour chaque nouvel élément.
 
 1. [Créez cet exemple d’application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md) avec un compte Outlook.com ou Office 365 Outlook.
 
 2. Entre le déclencheur RSS et l’action Envoyer un courrier électronique, ajoutez une bouche « Foreach ». 
 
-   Pour ajouter une boucle entre des étapes, placez le curseur sur la flèche où vous souhaitez ajouter la boucle. 
-   Cliquez sur le **signe plus** (**+**) qui s’affiche, puis choisissez **Ajouter un pour chaque**.
+   1. Pour ajouter une boucle entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. 
+   Choisissez le **signe plus** (**+**) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
-   ![Ajouter une boucle « Foreach » entre des étapes](media/logic-apps-control-flow-loops/add-for-each-loop.png)
+      ![Sélectionner « Ajouter une action »](media/logic-apps-control-flow-loops/add-for-each-loop.png)
+
+   1. Sous la zone de recherche, choisissez **Tout**. Dans la zone de recherche, tapez « for each » comme filtre. Dans la liste des actions, sélectionnez cette action : **For each - Contrôle**
+
+      ![Ajouter une boucle « for each »](media/logic-apps-control-flow-loops/select-for-each.png)
 
 3. Générez maintenant la boucle. Sous **Sélectionner une sortie des étapes précédentes**, après que la liste **Ajouter contenu dynamique** s’affiche, sélectionnez le tableau **Liens du flux**, qui sort du déclencheur RSS. 
 
@@ -63,7 +73,7 @@ Par exemple, cette application logique vous envoie un résumé quotidien depuis 
 
    ![Sélectionner le tableau](media/logic-apps-control-flow-loops/for-each-loop-select-array.png)
 
-4. Pour effectuer une action sur chaque élément du tableau, faites glisser l’action **Envoyer un courrier électronique** dans la boucle **For each**. 
+4. Pour exécuter une action sur chaque élément du tableau, faites glisser l’action **Envoyer un message électronique** dans la boucle. 
 
    Votre application logique peut ressembler à cet exemple :
 
@@ -79,86 +89,90 @@ Si vous travaillez en mode code pour votre application logique, vous pouvez déf
 
 ``` json
 "actions": {
-    "myForEachLoopName": {
-        "type": "Foreach",
-        "actions": {
-            "Send_an_email": {
-                "type": "ApiConnection",
-                "inputs": {
-                    "body": {
-                        "Body": "@{item()}",
-                        "Subject": "New CNN post @{triggerBody()?['publishDate']}",
-                        "To": "me@contoso.com"
-                    },
-                    "host": {
-                        "api": {
-                            "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
-                        },
-                        "connection": {
-                            "name": "@parameters('$connections')['office365']['connectionId']"
-                        }
-                    },
-                    "method": "post",
-                    "path": "/Mail"
-                },
-                "runAfter": {}
-            }
-        },
-        "foreach": "@triggerBody()?['links']",
-        "runAfter": {},
-    }
-},
+   "myForEachLoopName": {
+      "type": "Foreach",
+      "actions": {
+         "Send_an_email": {
+            "type": "ApiConnection",
+            "inputs": {
+               "body": {
+                  "Body": "@{item()}",
+                  "Subject": "New CNN post @{triggerBody()?['publishDate']}",
+                  "To": "me@contoso.com"
+               },
+               "host": {
+                  "api": {
+                     "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
+                  },
+                  "connection": {
+                     "name": "@parameters('$connections')['office365']['connectionId']"
+                  }
+               },
+               "method": "post",
+               "path": "/Mail"
+            },
+            "runAfter": {}
+         }
+      },
+      "foreach": "@triggerBody()?['links']",
+      "runAfter": {}
+   }
+}
 ```
 
 <a name="sequential-foreach-loop"></a>
 
-## <a name="foreach-loop-sequential"></a>Boucle « Foreach » : séquentielle
+## <a name="foreach-loop-sequential"></a>Boucle « Foreach » : Sequential
 
-Par défaut, chaque cycle d’une boucle « Foreach » s’exécute en parallèle pour chaque élément du tableau. Pour exécuter chaque cycle de façon séquentielle, définissez l’option **Séquentielle** dans votre boucle « Foreach ».
+Par défaut, les cycles dans une boucle « Foreach » s’exécutent en parallèle. Pour exécuter chaque cycle de manière séquentielle, définissez l’option **Sequential** de la boucle. Les boucles « Foreach » doivent s’exécuter séquentiellement quand vous avez des boucles imbriquées ou des variables à l’intérieur de boucles où vous attendez des résultats prévisibles. 
 
 1. En haut à droite de la boucle, choisissez **Ellipses** (**...**) > **Paramètres**.
 
    ![Dans la boucle « Foreach », choisissez « ... » > « Paramètres »](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-2. Activez le paramètre **Séquentielle**, puis choisissez **Terminé**.
+1. Sous **Contrôle d’accès concurrentiel**, affectez la valeur **On** au paramètre **Contrôle d’accès concurrentiel**. Déplacez le curseur **Degré de parallélisme** sur **1**, puis choisissez **Terminé**.
 
-   ![Activer le paramètre Séquentielle pour la boucle « Foreach »](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
+   ![Activer le contrôle d’accès concurrentiel](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
-Vous pouvez aussi régler le paramètre **operationOptions** sur `Sequential` dans la définition JSON de votre application logique. Par exemple : 
+Si vous travaillez avec la définition JSON de votre application logique, vous pouvez utiliser l’option `Sequential` en ajoutant le paramètre `operationOptions`, par exemple :
 
 ``` json
 "actions": {
-    "myForEachLoopName": {
-        "type": "Foreach",
-        "actions": {
-            "Send_an_email": {               
-            }
-        },
-        "foreach": "@triggerBody()?['links']",
-        "runAfter": {},
-        "operationOptions": "Sequential"
-    }
-},
+   "myForEachLoopName": {
+      "type": "Foreach",
+      "actions": {
+         "Send_an_email": { }
+      },
+      "foreach": "@triggerBody()?['links']",
+      "runAfter": {},
+      "operationOptions": "Sequential"
+   }
+}
 ```
 
 <a name="until-loop"></a>
 
 ## <a name="until-loop"></a>Boucle « Until »
   
-Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un statut ait changé, utilisez une boucle « Until ». Voici quelques cas d’utilisation courants dans lesquels vous pouvez utiliser une boucle « Until » :
+Pour répéter des actions jusqu’à ce qu’une condition soit remplie ou qu’un état change, placez ces actions dans une boucle « Until ». Voici quelques scénarios courants dans lesquels vous pouvez utiliser une boucle « Until » :
 
-* Appelez un point de terminaison jusqu’à obtenir la réponse souhaitée.
-* Créez un enregistrement dans une base de données, attendez qu’un champ spécifique de cet enregistrement soit approuvé, puis continuez. 
+* Appeler un point de terminaison jusqu’à obtenir la réponse souhaitée.
 
-Par exemple, à 8 h 00 chaque jour, cette application logique incrémente une variable jusqu’à ce que sa valeur soit égale à 10. Ensuite, l’application logique envoie un message qui confirme la valeur actuelle. Bien que cet exemple utilise Office 365 Outlook, vous pouvez utiliser n’importe quel fournisseur de messagerie électronique pris en charge par Logic Apps ([voir la liste des connecteurs ici](https://docs.microsoft.com/connectors/)). Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais votre interface utilisateur peut-être légèrement différente. 
+* Créer un enregistrement dans une base de données. Attendre qu’un champ spécifique dans cet enregistrement soit approuvé. Continuer le traitement. 
 
-1. Créez une application logique vide. Dans Logic App Designer, cherchez « Récurrence », et sélectionnez ce déclencheur : **Planification - Récurrence** 
+À partir de 8h00 chaque jour, cet exemple d’application logique incrémente une variable jusqu’à ce que sa valeur soit égale à 10. L’application logique envoie ensuite un e-mail qui confirme la valeur actuelle. 
 
-   ![Ajouter le déclencheur « Planification - Récurrence »](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
+> [!NOTE]
+> Ces étapes utilisent Office 365 Outlook, mais vous pouvez utiliser n’importe quel fournisseur de messagerie pris en charge par Logic Apps. 
+> [Vérifiez la liste des connecteurs ici](https://docs.microsoft.com/connectors/). Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais l’affichage de l’interface utilisateur peut être légèrement différent. 
 
-2. Spécifiez l’envoi du déclencheur en définissant l’intervalle, la fréquence et l’heure du jour. Pour définir l’heure, choisissez **Afficher les options avancées**.
+1. Créez une application logique vide. Dans le Concepteur d’application logique, sous la zone de recherche, choisissez **Tout**. Recherchez « récurrence ». Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Récurrence - Planification**
 
-   ![Ajouter le déclencheur « Planification - Récurrence »](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
+   ![Ajouter le déclencheur « Récurrence - Planification »](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
+
+1. Spécifiez l’envoi du déclencheur en définissant l’intervalle, la fréquence et l’heure du jour. Pour définir l’heure, choisissez **Afficher les options avancées**.
+
+   ![Configurer la planification de la récurrence](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
    | Propriété | Valeur |
    | -------- | ----- |
@@ -167,11 +181,11 @@ Par exemple, à 8 h 00 chaque jour, cette application logique incrémente une va
    | **Aux heures indiquées** | 8 |
    ||| 
 
-3. Sous le déclencheur, choisissez **Nouvelle étape** > **Ajouter une action**. Rechercher « variables » puis sélectionnez cette action : **Variables : initialiser la variable**
+1. Sous le déclencheur, choisissez **Nouvelle étape**. Recherchez « variables », puis sélectionnez cette action : **Initialiser la variable - Variables**
 
-   ![Ajouter l’action « Variables : initialiser la variable »](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
+   ![Ajouter une action « Initialiser la variable - Variables »](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
-4. Configurez votre variable avec ces valeurs :
+1. Configurez votre variable avec ces valeurs :
 
    ![Définir les propriétés de la variable](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
@@ -182,27 +196,35 @@ Par exemple, à 8 h 00 chaque jour, cette application logique incrémente une va
    | **Valeur** | 0 | Valeur de départ de votre variable | 
    |||| 
 
-5. Sous l’action **Initialiser la variable**, choisissez **Nouvelle étape** > **Plus**. Sélectionner la boucle : **Ajouter Do Until**
+1. Sous l’action **Initialiser la variable**, choisissez **Nouvelle étape**. 
 
-   ![Ajouter une boucle « Do Until »](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
+1. Sous la zone de recherche, choisissez **Tout**. Recherchez « until », puis sélectionnez cette action : **Until - Contrôle**
 
-6. Générez la condition de sortie de la boucle en sélectionnant la variable **Limite** et l’opérateur **Est égal à**. Entrez **10** comme valeur de comparaison.
+   ![Ajouter une boucle « Until »](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
+
+1. Générez la condition de sortie de la boucle en sélectionnant la variable **Limite** et l’opérateur **Est égal à**. Entrez **10** comme valeur de comparaison.
 
    ![Générer la connexion de sortie pour arrêter la boucle](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
 
-7. Dans la boucle, choisissez **Ajouter une action**. Cherchez « variables » puis ajoutez cette action : **Variables - Incrémenter la variable**
+1. Dans la boucle, choisissez **Ajouter une action**. 
+
+1. Sous la zone de recherche, choisissez **Tout**. Recherchez « variables », puis sélectionnez cette action : **Incrémenter une variable - Variables**
 
    ![Ajouter une action pour incrémenter une variable](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-8. Comme **Nom**, sélectionnez la variable **Limite**. Comme **Valeur**, entrez « 1 ». 
+1. Comme **Nom**, sélectionnez la variable **Limite**. Comme **Valeur**, entrez « 1 ». 
 
    ![Incrémenter la variable « Limite » de 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
-9. Sous la boucle, mais hors de cette dernière, ajoutez une action d’envoi de message électronique. Si vous y êtes invité, connectez-vous à votre compte e-mail.
+1. En dehors et sous la boucle, choisissez **Nouvelle étape**. 
+
+1. Sous la zone de recherche, choisissez **Tout**. Recherchez et ajoutez une action qui envoie un e-mail, par exemple : 
 
    ![Ajouter une action d’envoi de message électronique](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
-10. Définissez les propriétés du message électronique. Ajoutez la variable **Limite** au sujet. De cette façon, vous pouvez confirmer que la valeur actuelle de la variable corresponde aux conditions que vous avez spécifiées. Par exemple :
+1. Si vous y êtes invité, connectez-vous à votre compte e-mail.
+
+1. Définissez les propriétés de l’action d’e-mail. Ajoutez la variable **Limite** au sujet. De cette façon, vous pouvez confirmer que la valeur actuelle de la variable corresponde aux conditions que vous avez spécifiées. Par exemple :
 
     ![Configurer les propriétés du message électronique](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
@@ -213,7 +235,7 @@ Par exemple, à 8 h 00 chaque jour, cette application logique incrémente une va
     | **Corps** | <*email-content*> | Spécifiez le contenu du message électronique à envoyer. Pour cet exemple, écrivez ce que vous voulez. | 
     |||| 
 
-11. Enregistrez votre application logique. Pour tester manuellement votre application logique, sélectionnez **Exécuter** dans la barre d’outils du concepteur.
+1. Enregistrez votre application logique. Pour tester manuellement votre application logique, sélectionnez **Exécuter** dans la barre d’outils du concepteur.
 
     Lorsque votre application logique s’exécute, vous recevez un message électronique avec le contenu spécifié :
 
@@ -225,8 +247,8 @@ Une boucle « Until » dispose de limites par défaut qui arrêtent l’exécuti
 
 | Propriété | Valeur par défaut | Description | 
 | -------- | ------------- | ----------- | 
-| **Count** | 60 | Le nombre maximum de boucles qui s’exécutent avant que la boucle ne sorte. La valeur par défaut est 60 cycles. | 
-| **Délai d'expiration** | PT1H | La durée maximale d’exécution d’une boucle avant que la boucle ne sorte. La valeur par défaut est d’une heure et est spécifiée au format ISO 8601. <p>La valeur du délai d’attente est évaluée pour chaque cycle de boucle. Si une action dans la boucle dure plus longtemps que la limite du délai d’attente, le cycle actuel ne s’arrête pas, mais le prochain ne démarre pas car la condition de limite n’est pas remplie. | 
+| **Count** | 60 | Quantité maximale de boucles qui s’exécutent avant que la boucle ne sorte. La valeur par défaut est 60 cycles. | 
+| **Délai d'expiration** | PT1H | Durée d’exécution maximale d’une boucle avant que la boucle ne sorte. La valeur par défaut est d’une heure et est spécifiée au format ISO 8601. <p>La valeur du délai d’attente est évaluée pour chaque cycle de boucle. Si une action dans la boucle dure plus longtemps que la limite de délai d’attente, le cycle actuel ne s’arrête pas. Toutefois, le cycle suivant ne démarre pas, car la condition de limite n’est pas remplie. | 
 |||| 
 
 Pour modifier ces limites par défaut, choisissez **Afficher les options avancées** dans la forme d’action de la boucle.
@@ -239,73 +261,74 @@ Si vous travaillez en mode code pour votre application logique, vous pouvez déf
 
 ``` json
 "actions": {
-    "Initialize_variable": {
-        // Definition for initialize variable action
-    },
-    "Send_an_email": {
-        // Definition for send email action
-    },
-    "Until": {
-        "type": "Until",
-        "actions": {
-            "Increment_variable": {
-                "type": "IncrementVariable",
-                "inputs": {
-                    "name": "Limit",
-                    "value": 1
-                },
-                "runAfter": {}
-            }
-        },
-        "expression": "@equals(variables('Limit'), 10)",
-        // To prevent endless loops, an "Until" loop 
-        // includes these default limits that stop the loop. 
-        "limit": { 
-            "count": 60,
-            "timeout": "PT1H"
-        },
-        "runAfter": {
-            "Initialize_variable": [
-                "Succeeded"
-            ]
-        },
-    }
-},
+   "Initialize_variable": {
+      // Definition for initialize variable action
+   },
+   "Send_an_email": {
+      // Definition for send email action
+   },
+   "Until": {
+      "type": "Until",
+      "actions": {
+         "Increment_variable": {
+            "type": "IncrementVariable",
+            "inputs": {
+               "name": "Limit",
+               "value": 1
+            },
+            "runAfter": {}
+         }
+      },
+      "expression": "@equals(variables('Limit'), 10)",
+      // To prevent endless loops, an "Until" loop 
+      // includes these default limits that stop the loop. 
+      "limit": { 
+         "count": 60,
+         "timeout": "PT1H"
+      },
+      "runAfter": {
+         "Initialize_variable": [
+            "Succeeded"
+         ]
+      }
+   }
+}
 ```
 
-Dans un autre exemple, cette boucle « Until » appelle un point de terminaison HTTP qui crée une ressource et s’arrête lorsque le corps de la réponse HTTP renvoie le statut « Terminé ». Pour empêcher les boucles infinies, la boucle s’arrête aussi si l’un de ces conditions est remplie :
+Cet exemple de boucle « Until » appelle un point de terminaison HTTP, qui crée une ressource. La boucle s’arrête quand le corps de réponse HTTP est retourné avec l’état `Completed`. Pour empêcher les boucles infinies, la boucle s’arrête aussi si l’un de ces conditions est remplie :
 
 * La boucle s’est exécutée 10 fois comme spécifié par l’attribut `count`. La valeur par défaut est de 60 fois. 
-* La boucle a essayé de s’exécuter pendant deux heures comme spécifié par l’attribut `timeout` au format ISO 8601. La valeur par défaut est d’une heure.
+
+* La boucle s’est exécutée pendant deux heures comme spécifié par l’attribut `timeout` au format ISO 8601. La valeur par défaut est d’une heure.
   
 ``` json
 "actions": {
-    "myUntilLoopName": {
-        "type": "Until",
-        "actions": {
-            "Create_new_resource": {
-                "type": "Http",
-                "inputs": {
-                    "body": {
-                        "resourceId": "@triggerBody()"
-                    },
-                    "url": "https://domain.com/provisionResource/create-resource",
-                    "body": {
-                        "resourceId": "@triggerBody()"
-                    }
-                },
-                "runAfter": {},
-                "type": "ApiConnection"
-            }
-        },
-        "expression": "@equals(triggerBody(), 'Completed')",
-        "limit": {
-            "count": 10,
-            "timeout": "PT2H"
-        },
-        "runAfter": {}
-    }
-},
+   "myUntilLoopName": {
+      "type": "Until",
+      "actions": {
+         "Create_new_resource": {
+            "type": "Http",
+            "inputs": {
+               "body": {
+                  "resourceId": "@triggerBody()"
+               },
+               "url": "https://domain.com/provisionResource/create-resource",
+               "body": {
+                  "resourceId": "@triggerBody()"
+               }
+            },
+            "runAfter": {},
+            "type": "ApiConnection"
+         }
+      },
+      "expression": "@equals(triggerBody(), 'Completed')",
+      "limit": {
+         "count": 10,
+         "timeout": "PT2H"
+      },
+      "runAfter": {}
+   }
+}
 ```
 
 ## <a name="get-support"></a>Obtenir de l’aide

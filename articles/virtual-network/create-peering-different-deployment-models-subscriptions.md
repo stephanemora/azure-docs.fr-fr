@@ -1,13 +1,10 @@
 ---
-title: Créer une homologation de réseaux virtuels Azure - Modèles de déploiement différents - Abonnements différents | Microsoft Docs
+title: Créer un appairage de réseaux virtuels Azure - Modèles de déploiement différents - Abonnements différents
+titlesuffix: Azure Virtual Network
 description: Découvrez comment créer une homologation de réseaux virtuels entre des réseaux virtuels créés via des modèles de déploiement Azure différents qui existent dans des abonnements différents.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 666e4c434d05bb953950893f32c262183055becd
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 45dd31ecca4f09a595fbf1dae5fe61623fb2be3c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728163"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025859"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Créer une homologation de réseaux virtuels Azure - Modèles de déploiement et abonnements différents
 

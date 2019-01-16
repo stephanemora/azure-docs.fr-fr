@@ -10,16 +10,15 @@ ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: c7cd9dfa019ca0d8560833b10a3e8a1a37a1e1ac
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4d897512e5c53222cb77906200e1a33e2eeec78e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296548"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074051"
 ---
 # <a name="authentication-requests-and-responses"></a>Authentification, requêtes et réponses
 
@@ -65,13 +64,13 @@ Cette rubrique traite des caractéristiques du service Azure Key Vault. Pour obt
 ## <a name="error-responses"></a>Réponses d’erreur  
  La gestion des erreurs utilise des codes d’état HTTP. Les résultats types sont :  
 
--   2xx - Réussite : utilisés pour un fonctionnement normal. Le corps de réponse contient le résultat attendu  
+-   2xx - Réussite : utilisé pour un fonctionnement normal. Le corps de réponse contient le résultat attendu  
 
--   3xx - Redirection : le message 304 « Non modifié » peut être retourné pour répondre à une opération GET conditionnelle. D’autres codes 3xx pourront indiquer les futures modifications de DNS et de chemin d’accès.  
+-   3xx - Redirection : le message 304 « Non modifié » peut être retourné pour répondre à une opération GET conditionnelle. D’autres codes 3xx pourront indiquer les futures modifications de DNS et de chemin d’accès.  
 
--   4xx - Erreur du client : utilisés pour les requêtes incorrectes, les clés manquantes, les erreurs de syntaxe, les paramètres non valides, les erreurs d’authentification, etc. Le corps de réponse contient une explication détaillée de l’erreur.  
+-   4xx - Erreur du client : utilisé pour les requêtes incorrectes, les clés manquantes, les erreurs de syntaxe, les paramètres non valides, les erreurs d’authentification, etc. Le corps de réponse contient une explication détaillée de l’erreur.  
 
--   5xx - Erreur de serveur : utilisés pour les erreurs de serveur internes. Le corps de réponse contient une synthèse des informations d’erreur.  
+-   5xx – Erreur de serveur : utilisé pour les erreurs internes du serveur. Le corps de réponse contient une synthèse des informations d’erreur.  
 
  Le système est conçu pour fonctionner derrière un pare-feu ou un proxy. Par conséquent, un client peut recevoir d’autres codes d’erreur.  
 
@@ -115,9 +114,9 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
  Les paramètres de l’en-tête WWW-Authenticate sont :  
 
--   authorization : adresse du service d’autorisation OAuth2 qui peut être utilisé afin d’obtenir un jeton d’accès pour la requête.  
+-   authorization : adresse du service d’autorisation OAuth2 qui peut être utilisé afin d’obtenir un jeton d’accès pour la requête.  
 
--   resource : nom de la ressource à utiliser dans la requête d’autorisation.  
+-   resource : nom de la ressource à utiliser dans la requête d’autorisation.  
 
 ## <a name="see-also"></a>Voir aussi  
  [Présentation des clés, des secrets et des certificats](about-keys-secrets-and-certificates.md)

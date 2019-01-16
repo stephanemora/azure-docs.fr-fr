@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 140c92d260ac6423127e478e304cbebcf9c42124
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 27686cf036f69a9a4597c499e9b8b7d66d77e1e9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140479"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019671"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Effectuez des transformations JSON avancées avec des modèles Liquid dans Azure Logic Apps
 
@@ -34,7 +34,7 @@ Par conséquent, avant de pouvoir effectuer une transformation Liquid dans votre
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Créer un mappage ou un modèle Liquid pour votre compte d’intégration
 
 1. Pour cet exemple, créez l’exemple de modèle Liquid décrit à cette étape.
-Si vous souhaitez utiliser des filtres dans votre modèle Liquid, assurez-vous que ces filtres commencent par une majuscule. En savoir plus sur les [filtres Liquid](https://shopify.github.io/liquid/basics/introduction/#filters). 
+Si vous souhaitez utiliser des filtres dans votre modèle Liquid, assurez-vous que ces filtres commencent par une majuscule. Apprenez-en davantage sur les [filtres Liquid](https://shopify.github.io/liquid/basics/introduction/#filters), qui utilisent [DotLiquid](https://dotliquidmarkup.org/) et les conventions de nommage C#.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -67,7 +67,7 @@ Si vous souhaitez utiliser des filtres dans votre modèle Liquid, assurez-vous q
 
    | Propriété | Valeur | Description | 
    |----------|-------|-------------|
-   | **Name** | JsonToJsonTemplate | Nom de votre mappage (« JsontoJsonTemplate » dans cet exemple) | 
+   | **Nom** | JsonToJsonTemplate | Nom de votre mappage (« JsontoJsonTemplate » dans cet exemple) | 
    | **Type de mappage** | **liquid** | Type de votre mappage. Pour une transformation JSON à JSON, vous devez sélectionner **liquid**. | 
    | **Map** | « SimpleJsonToJsonTemplate.liquid » | Fichier de modèle ou de mappage Liquid existant à utiliser pour la transformation (« SimpleJsonToJsonTemplate.liquid » dans cet exemple). Pour trouver ce fichier, vous pouvez utiliser le sélecteur de fichiers. |
    ||| 
@@ -80,7 +80,7 @@ Si vous souhaitez utiliser des filtres dans votre modèle Liquid, assurez-vous q
 
 2. Dans le Concepteur d’application logique, ajoutez le [déclencheur Requête](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) à votre application logique.
 
-3. Sous le déclencheur, choisissez **Nouvelle étape**. Dans la zone de recherche, entrez « liquid » comme filtre, puis sélectionnez l’action suivante : **Transformer de JSON en JSON - Liquid**
+3. Sous le déclencheur, choisissez **Nouvelle étape**. Dans la zone de recherche, entrez « liquid » comme filtre, puis sélectionnez cette action : **Transformer de JSON en JSON - Liquid**
 
    ![Rechercher et sélectionner l’action Liquid](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
@@ -117,7 +117,7 @@ Liquid n’est pas limité aux transformations JSON. Voici d’autres actions de
    ``` json
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
-   Voici des exemples d’entrée et de sortie :
+   Voici quelques exemples d’entrées et de sorties :
   
    ![Exemple de sortie JSON en texte](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
 
@@ -130,7 +130,7 @@ Liquid n’est pas limité aux transformations JSON. Voici d’autres actions de
         {{item}}
     {% endJSONArrayFor -%}]
    ```
-   Voici des exemples d’entrée et de sortie :
+   Voici quelques exemples d’entrées et de sorties :
 
    ![Exemple de sortie XML en JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
 
@@ -142,12 +142,12 @@ Liquid n’est pas limité aux transformations JSON. Voici d’autres actions de
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
 
-   Voici des exemples d’entrée et de sortie :
+   Voici quelques exemples d’entrées et de sorties :
 
    ![Exemple de sortie XML en texte](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack")  
+* [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")  
 * [En savoir plus sur les mappages](../logic-apps/logic-apps-enterprise-integration-maps.md "Découvrez les mappages d’intégration d’entreprise")  
 

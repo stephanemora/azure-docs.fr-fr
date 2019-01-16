@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: dekapur
-ms.openlocfilehash: 3ce47d631e8a2ec7daf96ef95200001e5d4f8327
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 321a69768935a9cb220bf5c2ae96c30274dc590d
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818579"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159450"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Créer un cluster autonome s’exécutant sur Windows Server
 Vous pouvez utiliser Azure Service Fabric pour créer des clusters Service Fabric sur toute machine virtuelle ou tout ordinateur exécutant Windows Server. Cela signifie que vous pouvez déployer et exécuter des applications Service Fabric dans n’importe quel environnement contenant un ensemble d’ordinateurs Windows Server interconnectés, que ce soit en local ou avec un fournisseur cloud. Service Fabric fournit un package d’installation pour créer des clusters Service Fabric, appelé package Windows Server autonome.
@@ -27,7 +27,7 @@ Vous pouvez utiliser Azure Service Fabric pour créer des clusters Service Fabri
 Cet article vous guide tout au long du processus de création d’un cluster Service Fabric autonome.
 
 > [!NOTE]
-> Ce package de Windows Server autonome est commercialisé et peut être utilisé pour les déploiements de production. Ce package peut contenir de nouvelles fonctionnalités Service Fabric en version « préliminaire ». Faites défiler jusqu’à la section « [Fonctionnalités préliminaires incluses dans ce package](#previewfeatures_anchor). » pour obtenir la liste des fonctionnalités préliminaires. Vous pouvez [télécharger une copie du CLUF](http://go.microsoft.com/fwlink/?LinkID=733084) maintenant.
+> Ce package de Windows Server autonome est commercialisé et peut être utilisé pour les déploiements de production. Ce package peut contenir de nouvelles fonctionnalités Service Fabric en version « préliminaire ». Faites défiler jusqu’à la section « [Fonctionnalités préliminaires incluses dans ce package](#previewfeatures_anchor). » pour obtenir la liste des fonctionnalités préliminaires. Vous pouvez [télécharger une copie du CLUF](https://go.microsoft.com/fwlink/?LinkID=733084) maintenant.
 > 
 > 
 
@@ -35,7 +35,7 @@ Cet article vous guide tout au long du processus de création d’un cluster Ser
 
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Obtenir de l’aide pour le package Service Fabric pour Windows Server
 * Interrogez la Communauté sur le package autonome Service Fabric pour Windows Server dans le [forum Azure Service Fabric](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
-* Ouvrez un ticket pour obtenir le [support professionnel Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  En savoir plus sur le support professionnel Microsoft [ici](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
+* Ouvrez un ticket pour obtenir le [support professionnel Service Fabric](https://support.microsoft.com/oas/default.aspx?prid=16146).  En savoir plus sur le support professionnel Microsoft [ici](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * Vous pouvez également bénéficier du support pour ce package dans le cadre du [Support Premier Microsoft](https://support.microsoft.com/en-us/premier).
 * Pour plus d’informations, consultez [Options de support d’Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
 * Pour collecter des journaux à des fins de support, exécutez le [collecteur de journaux de Service Fabric autonome](service-fabric-cluster-standalone-package-contents.md).
@@ -44,7 +44,7 @@ Cet article vous guide tout au long du processus de création d’un cluster Ser
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Télécharger le package Service Fabric pour Windows Server
 Pour créer le cluster, utilisez le package Service Fabric pour Windows Server (Windows Server 2012 R2 et versions ultérieures) disponible ici : <br>
-[Lien de téléchargement - Package autonome Service Fabric - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
+[Lien de téléchargement - Package autonome Service Fabric - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690)
 
 Plus d’informations sur le contenu du package [ici](service-fabric-cluster-standalone-package-contents.md).
 
@@ -85,7 +85,7 @@ L’administrateur de cluster déployant et configurant le cluster doit disposer
     .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.json
     ```
 
-    Une sortie semblable à ce qui suit doit s’afficher. Si le champ du bas « Passed » (Transmis) est retourné avec la valeur « True », les contrôles de validité ont réussi et le cluster semble être déployable à l’aide de la configuration d’entrée.
+    Le résultat ressemble à ce qui suit. Si le champ du bas « Passed » (Transmis) est retourné avec la valeur « True », les contrôles de validité ont réussi et le cluster semble être déployable à l’aide de la configuration d’entrée.
 
     ```powershell
     Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
@@ -104,7 +104,7 @@ L’administrateur de cluster déployant et configurant le cluster doit disposer
     Passed                     : True
     ```
 
-2. Créez le cluster : exécutez le script *CreateServiceFabricCluster.ps1* pour déployer le cluster Service Fabric sur chaque ordinateur dans la configuration. 
+2. Créer le cluster :  exécutez le script *CreateServiceFabricCluster.ps1* pour déployer le cluster Service Fabric sur chaque ordinateur dans la configuration. 
     ```powershell
     .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
     ```
@@ -124,7 +124,7 @@ Le package de runtime peut être téléchargé séparément, à partir d’un au
 
 *.\ClusterConfig.json* et *.\MicrosoftAzureServiceFabric.cab* sont, respectivement, les chemins de la configuration du cluster et du fichier .cab de runtime.
 
-### <a name="step-2-connect-to-the-cluster"></a>Étape 2 : Se connecter au cluster
+### <a name="step-2-connect-to-the-cluster"></a>Étape 2 : Connexion au cluster
 Connectez-vous au cluster pour vérifier que le cluster est en cours d’exécution et disponible. Le module Service Fabric PowerShell est installé avec le runtime.  Vous pouvez vous connecter au cluster à partir de l’un des nœuds de cluster ou d’un ordinateur distant avec le runtime Service Fabric.  L’applet de commande [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) établit une connexion au cluster.
 
 Exécutez la commande PowerShell suivante pour vous connecter à un cluster non sécurisé :
@@ -150,7 +150,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
                      vm0      localhost       NodeType0 5.6.220.9494 0                     Up 00:02:43   00:00:00              OK
 ```
 
-### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>Étape 3 : Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer
+### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>Étape 3 : Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) est un bon outil pour visualiser votre cluster et gérer les applications.  Service Fabric Explorer est un service qui s’exécute dans le cluster, auquel vous accédez à l’aide d’un navigateur en utilisant l’adresse [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
 
 Le tableau de bord de cluster fournit une vue d’ensemble de votre cluster, y compris un résumé de l’intégrité de l’application et du nœud. L’affichage des nœuds montre la disposition physique du cluster. Vous pouvez identifier les applications ayant déployé du code sur un nœud donné.
@@ -200,8 +200,8 @@ Par défaut, le produit collecte les données de télémétrie sur l’utilisati
 * FailoverUnitQueueLength
 * CommitQueueLength
 * Nombre de nœuds
-* IsContextComplete : True/False
-* ClusterId : GUID généré de manière aléatoire pour chaque cluster
+* IsContextComplete : True/False
+* ClusterId : GUID généré de manière aléatoire pour chaque cluster
 * ServiceFabricVersion
 * Adresse IP de la machine virtuelle ou de l’ordinateur à partir de laquelle/duquel les données de télémétrie sont téléchargées
 

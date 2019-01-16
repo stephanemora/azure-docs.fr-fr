@@ -9,17 +9,16 @@ ms.assetid: c34db93f-570a-44f1-a7d6-00390f4dc0fa
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: edbef08eaa100248368d7f0b23171f15b52ec56a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 309ddcf68d03f34ca3309d76d15cc3928037c667
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050945"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017444"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Appeler des programmes MapReduce à partir de Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -41,7 +40,7 @@ ms.locfileid: "37050945"
 L’activité MapReduce de HDInsight dans un [pipeline](data-factory-create-pipelines.md) Data Factory exécute des programmes MapReduce sur votre cluster HDInsight [propre](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) ou [à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) sous Windows ou Linux. Cet article s'appuie sur l'article [Activités de transformation des données](data-factory-data-transformation-activities.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
 
 > [!NOTE] 
-> Si vous découvrez Azure Data Factory, lisez la [Présentation d’Azure Data Factory](data-factory-introduction.md) et suivez le didacticiel : [Générer votre premier pipeline de données](data-factory-build-your-first-pipeline.md) avant de lire cet article.  
+> Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Factory](data-factory-introduction.md) et suivez le tutoriel : [Générer votre premier pipeline de données](data-factory-build-your-first-pipeline.md) avant de lire cet article.  
 
 ## <a name="introduction"></a>Introduction
 Un pipeline dans une fabrique de données Azure traite les données dans les services de stockage liés à l'aide des services de calcul liés. Il contient une séquence d'activités dans laquelle chaque activité effectue une opération de traitement spécifique. Cet article décrit l'utilisation de l’activité MapReduce de HDInsight.
@@ -181,7 +180,7 @@ Le pipeline de cet exemple n’accepte pas d’entrées. Vous spécifiez un jeu 
 ```
 
 ### <a name="pipeline"></a>Pipeline
-Le pipeline de cet exemple n'a qu'une seule activité de type : HDInsightMapReduce. Certaines propriétés importantes dans le JSON sont : 
+Le pipeline de cet exemple n’a qu’une seule activité, de type HDInsightMapReduce. Certaines propriétés importantes dans le JSON sont : 
 
 | Propriété | Notes |
 |:--- |:--- |

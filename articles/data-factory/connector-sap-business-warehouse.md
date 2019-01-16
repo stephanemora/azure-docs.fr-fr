@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 52bbf93d73af281f3959e056a4d5b959e7286cb5
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9a0abcd70b4aeb2369604bafa924136122206e0a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590328"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022279"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copier des données de SAP Business Warehouse à l’aide d’Azure Data Factory
-> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-sap-business-warehouse-connector.md)
 > * [Version actuelle](connector-sap-business-warehouse.md)
 
@@ -61,7 +60,7 @@ Les propriétés prises en charge pour le service lié SAP Business Warehouse so
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **SapBw** | Oui |
+| Type | La propriété type doit être définie sur : **SapBw** | Oui |
 | serveur | Nom du serveur sur lequel réside l’instance SAP BW. | Oui |
 | systemNumber | Numéro de système du système SAP BW.<br/>Valeur autorisée : nombre décimal à deux chiffres représenté sous forme de chaîne. | Oui |
 | clientId | ID client du client dans le système SAP W.<br/>Valeur autorisée : nombre décimal à trois chiffres représenté sous forme de chaîne. | Oui |
@@ -126,7 +125,7 @@ Pour copier des données de SAP BW, définissez **RelationalSource** comme type 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **RelationalSource** | Oui |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | Oui |
 | query | Spécifie la requête MDX pour lire les données de l’instance SAP BW. | Oui |
 
 **Exemple :**

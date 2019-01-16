@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: a66917f1ab4e554dbb5a8cd1fb9013e111970714
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: b6713eabec62b1658b54dcb29231ddbfb2faceb7
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999813"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107495"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -169,7 +169,7 @@ Disque chiffré invité/serveur | Non
 NFS invité/serveur | Non 
 SMB 3.0 invité/serveur | Non 
 RDM invité/serveur | OUI<br/><br/> N/A pour les serveurs physiques
-Disque invité/serveur > 1 To | OUI<br/><br/>Jusqu’à 4 095 Go
+Disque invité/serveur > 1 To | OUI<br/><br/>Jusqu’à 4 095 Go<br/><br/> Le disque doit être d’une taille supérieure à 1 024 Mo.
 Disque invité/serveur avec une taille de secteur logique de 4 Ko et une taille de secteur physique de 4 K | OUI
 Disque invité/serveur avec une taille de secteur logique de 4 K et une taille de secteur physique de 512 octets | OUI
 Volume invité/serveur avec disque à bandes > 4 To <br/><br/>Gestion des volumes logiques (LVM)| OUI

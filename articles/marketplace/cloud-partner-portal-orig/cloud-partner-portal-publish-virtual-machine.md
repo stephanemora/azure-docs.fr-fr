@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d77dad52e75253de02fd079d791861356c4c5e1f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 519867b1e0607a769948c86af263c172e810d107
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247073"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078114"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Publier une machine virtuelle sur la Place de marché Microsoft Azure
 
@@ -31,35 +31,23 @@ Les prérequis techniques et non techniques suivants s’appliquent à la public
 
 ### <a name="technical"></a>Techniques
 
--   [Prérequis techniques pour créer une image de machine virtuelle pour la Place de marché Azure](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)
-
+-   [Prérequis techniques pour créer une image de machine virtuelle pour la Place de marché Azure](../cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md)
 -   [Créer et charger un disque dur virtuel (VHD) Linux](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 -   [Créer et tester une machine virtuelle Linux à partir d’une image](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
-
 -   [Créer et charger un disque dur virtuel (VHD) Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
-
 -   [Créer et tester une machine virtuelle Windows à partir d’une image](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
-
--   [Comment résoudre les problèmes courants rencontrés lors de la création d’un disque dur virtuel](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting)
-
+-   [Comment résoudre les problèmes courants rencontrés lors de la création d’un disque dur virtuel](../cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 -   [Recommandations de sécurité pour les images Place de marché Azure](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images)
 
 
 ### <a name="non-technical-business-requirements"></a>Non techniques (critères de l’entreprise)
 
  -   Votre entreprise (ou sa filiale) est située dans un pays expéditeur pris en charge par la Place de marché Azure.
-
 -   Votre produit doit être disponible sous licence d’une manière compatible avec les modèles de facturation pris en charge par la Place de marché Azure.
-
 -   Il vous incombe de consentir tous les efforts raisonnables pour mettre à la disposition de vos clients un support technique. Ce support peut être gratuit, payant ou accessible via une communauté.
-
 -   Il vous incombe de gérer les licences de vos logiciels et de toutes les dépendances de logiciels tiers.
-
--   Vous fournissez un contenu qui répond aux critères définis pour que votre offre soit répertoriée sur la Place de marché Azure et sur le portail de gestion Azure.
-
+-   Vous fournissez un contenu qui répond aux critères définis pour que votre offre soit listée sur la Place de marché Azure et sur le portail Azure.
 -   Vous acceptez les termes de la Stratégie de participation et du Contrat d’éditeur de la Place de marché Azure.
-
 -   Vous vous engagez à respecter les [Conditions d’utilisation](https://azure.microsoft.com/support/legal/website-terms-of-use/), la [Déclaration de confidentialité Microsoft](https://www.microsoft.com/privacystatement/default.aspx) et le [Contrat relatif au programme Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="before-you-begin"></a>Avant de commencer
@@ -116,7 +104,7 @@ Une référence SKU apparaît sous l’offre parente sur la Place de marché Mic
 
     **Nom**
 
-    Nom d’affichage de votre offre. Ce nom apparaît sur la Place de marché Microsoft Azure et sur le portail Azure. Il ne peut pas comprendre plus de 50 caractères. Suivez les conseils ci-dessous pour le nom de l’offre :
+    Nom d’affichage de votre offre. Ce nom apparaît sur la Place de marché Microsoft Azure et sur le portail Microsoft Azure. Il ne peut pas comprendre plus de 50 caractères. Suivez les conseils ci-dessous pour le nom de l’offre :
     -  Incluez un nom de marque reconnaissable pour votre produit. 
     - N’incluez pas ici le nom de votre entreprise, sauf si l’offre est commercialisée de cette façon.
     - Si vous commercialisez cette offre sur votre propre site web, veillez à ce que le nom soit identique à celui qui apparaît sur votre site web.
@@ -140,7 +128,7 @@ Après avoir ajouté une référence SKU, celle-ci apparaît dans la liste des r
 
 ### <a name="hide-this-sku"></a>Masquer cette référence (SKU)
 
-Ce paramètre permet de gérer la visibilité de la référence SKU. Si « Masquer cette référence » est désactivé, la référence SKU est visible sur la [Place de marché Azure](https://azuremarketplace.microsoft.com) et le [portail Azure](https://portal.azure.com/). Vous pouvez choisir de masquer la référence (SKU) si vous souhaitez qu’elle soit disponible via des modèles de solution, mais pas en tant qu’achat individuel.
+Ce paramètre permet de gérer la visibilité de la référence SKU. Si « Masquer cette référence (SKU) » est désactivé, la référence SKU est visible par les clients sur la [Place de marché Azure](https://azuremarketplace.microsoft.com) et sur le [portail Azure](https://portal.azure.com/). Vous pouvez choisir de masquer la référence (SKU) si vous souhaitez qu’elle soit disponible via des modèles de solution, mais pas en tant qu’achat individuel.
 
 ### <a name="cloud-availability"></a>Disponibilité dans le cloud
 
@@ -177,32 +165,32 @@ Vous gérez la licence du logiciel en cours d’exécution sur la machine virtue
 
 #### <a name="usage-based-monthly-billed-sku"></a>Référence (SKU) facturée mensuellement sur la base de l’utilisation
 
-Les clients sont facturés à l’heure sur la base des tarifs définis par les éditeurs en fonction des tailles de machines virtuelles. Dans le cas du modèle de **facturation horaire** des références, le prix total est la somme du coût logiciel facturé par l’éditeur et du coût d’infrastructure facturé par Microsoft. Ce coût total s’affiche au client sous la forme d’un tarif horaire et d’un prix mensuel au moment où il envisage l’achat. Dans ce cas, la facturation est effectuée mensuellement.
+Les clients sont facturés à l’heure sur la base des tarifs définis par les éditeurs en fonction des tailles de machines virtuelles. Si le modèle de **facturation horaire** est utilisé, le prix total est la somme du coût logiciel facturé par l’éditeur et du coût d’infrastructure facturé par Microsoft. Ce coût total s’affiche au client sous la forme d’un tarif horaire et d’un prix mensuel au moment où il envisage l’achat. Dans ce cas, la facturation est effectuée mensuellement.
 
 Dans le modèle basé sur l’utilisation, vous fixez des paramètres supplémentaires.
 
-**Évaluation gratuite**
+**Version d'évaluation gratuite**
 
 Vous pouvez spécifier si vous souhaitez proposer un essai gratuit à vos clients.
 Ici, le client n’est pas facturé pour le coût du logiciel pendant les 30/90 premiers jours (en fonction de l’option sélectionnée) après le déploiement de la machine virtuelle. À l’issue de la période d’essai gratuit, le client est facturé à l’heure en fonction des tarifs définis par les éditeurs dans le modèle horaire.
 
 **Tarification par cœur**
 
-Vous pouvez définir une tarification par cœur pour votre référence (SKU). Dans ce cas, vous devez simplement entrer un prix de base pour un seul cœur. Ensuite, nous calculons automatiquement le prix pour le reste des cœurs. Entrez les prix en USD sur le portail. Nous calculons automatiquement les prix pour les autres régions. Vous pouvez vérifier les prix dans les autres régions en **exportant les données de tarification**.
+Vous pouvez définir une tarification par cœur pour votre référence (SKU). Pour cette option, vous devez simplement entrer un prix de base pour un seul cœur. Ensuite, nous calculons automatiquement le prix pour le reste des cœurs. Entrez les prix en USD sur le portail. Nous calculons automatiquement les prix pour les autres régions. Vous pouvez vérifier les prix dans les autres régions en **exportant les données de tarification**.
 
 ![Tarification par cœur](./media/cloud-partner-portal-publish-virtual-machine/publishvm6.png)
 
 
 **Tarification distincte**
 
-Vous pouvez définir la tarification individuellement pour chaque ensemble de cœurs si vous souhaitez tarifer chaque cœur séparément.
+Vous pouvez définir le tarif individuellement pour chaque ensemble de cœurs si vous souhaitez fixer le prix de chaque cœur séparément.
 
 ![Tarification distincte](./media/cloud-partner-portal-publish-virtual-machine/publishvm7.png)
 
 **Exporter/Importer la tarification**
 
-Vous avez la possibilité d’exporter la tarification configurée via le portail pour apporter des modifications dans l’interface Excel. Cela vous permet également de vérifier la tarification par région et la tarification dans les devises locales.
-L’option d’**exportation de la tarification** vous permet de télécharger un fichier Excel dans lequel les détails de la tarification sont renseignés. Vous pouvez modifier ceux-ci dans Excel, puis utiliser l’option d’**importation de la tarification** pour importer les modifications apportées.
+Vous avez la possibilité d’exporter la tarification configurée via le portail pour apporter des modifications dans l’interface Excel. Cette option vous permet également de vérifier le tarif par région et le tarif dans les devises locales.
+L’option d’**exportation des tarifs** vous permet de télécharger un fichier Excel dans lequel les détails des tarifs sont renseignés. Vous pouvez modifier ces détails dans la feuille de calcul, puis utiliser l’option d’**importation des tarifs** pour importer les changements apportés.
 La tarification importée s’affiche également sur le portail.
 
 Dans cette tarification Excel, les prix pour les différentes régions sont indiqués dans la devise locale. Le taux de change que nous utilisons est actualisé quotidiennement.
@@ -219,24 +207,18 @@ Dans cette tarification Excel, les prix pour les différentes régions sont indi
 
 La section suivante est celles consacrée aux Images de machine virtuelle. Avant de passer à cette section, vous devez avoir préparé le disque dur virtuel que vous souhaitez publier. Voici quelques liens pour vous aider à créer votre disque dur virtuel :
 
--   [Prérequis techniques pour créer une image de machine virtuelle pour la Place de marché Azure](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)
-
+-   [Prérequis techniques pour créer une image de machine virtuelle pour la Place de marché Azure](../cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
 -   [Création et chargement d’un disque dur virtuel Linux](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 -   [Créer et tester une machine virtuelle Linux à partir d’une image](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
-
 -   [Création et chargement d’un disque dur virtuel Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
-
 -   [Créer et tester une machine virtuelle Windows à partir d’une image](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
+-   [Comment résoudre les problèmes courants rencontrés lors de la création d’un disque dur virtuel](../cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 
--   [Comment résoudre les problèmes courants rencontrés lors de la création d’un disque dur virtuel](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting)
-
-Une fois votre disque dur virtuel prêt, vous pouvez commencer à compléter cette section.
-Voici quelques détails pour certains champs.
+Une fois votre disque dur virtuel prêt, vous pouvez commencer à compléter cette section.  Voici quelques détails pour certains champs.
 
 ### <a name="recommended-vm-sizes"></a>Tailles de machines virtuelles recommandées
 
-Sélectionnez jusqu’à six tailles de machine virtuelle recommandées. Ces recommandations sont présentées à l’utilisateur sur la Place de marché Microsoft Azure et dans le panneau Niveau tarifaire sur le portail Azure s’il décide d’acheter et de déployer votre image. **Il s’agit uniquement de recommandations. Le client peut sélectionner n’importe quelle taille de machine virtuelle prenant en charge les disques spécifiés dans votre image.**  La capture d’écran suivante montre les tailles de machines virtuelles recommandées qui sont présentées aux clients sur le portail Azure.
+Sélectionnez jusqu’à six tailles de machine virtuelle recommandées. Ces recommandations sont présentées aux clients sur la Place de marché Azure et dans le panneau Niveau tarifaire sur le portail Azure s’ils décident d’acheter et de déployer votre image. *Ces tailles sont uniquement des recommandations. Le client peut sélectionner n’importe quelle taille de machine virtuelle prenant en charge les disques spécifiés dans votre image.*  La capture d’écran suivante montre les tailles de machines virtuelles recommandées qui sont présentées aux clients sur le portail Azure.
 
 
 ![Tailles de machines virtuelles recommandées](./media/cloud-partner-portal-publish-virtual-machine/publishvm9.png)
@@ -248,9 +230,9 @@ Spécifiez les ports que vous voulez ouvrir et rendre disponibles. Ces ports son
 
 ### <a name="adding-vm-images"></a>Ajout d’images de machine virtuelle
 
-L’étape suivante consiste à ajouter une image de machine virtuelle pour votre référence SKU. Vous pouvez ajouter jusqu’à 8 versions disque par référence (SKU). Seul le numéro de version disque le plus élevé pour une référence (SKU) particulière apparaît sur la Place de marché Microsoft Azure. Les autres sont visibles via des API.
+L’étape suivante consiste à ajouter une image de machine virtuelle pour votre référence SKU. Vous pouvez ajouter jusqu’à huit versions de disque par référence SKU. Seul le numéro de version disque le plus élevé pour une référence (SKU) particulière apparaît sur la Place de marché Microsoft Azure. Les autres sont visibles via des API.
 
-Sous **Version du disque**, sélectionnez **+ Nouvelle version**. Les champs ci-dessous s’affichent ; vous devez les compléter.
+Sous **Version du disque**, sélectionnez **+ Nouvelle version**. Cette option affiche les champs suivants ; vous devez les compléter.
 
 #### <a name="vm-image-version"></a>Version image de machine virtuelle
 
@@ -258,13 +240,13 @@ La version image de machine virtuelle doit suivre le format [version sémantique
 
 #### <a name="os-vhd-url"></a>URL DU DISQUE DUR VIRTUEL DU SYSTÈME D’EXPLOITATION
 
-Entrez l’[URI de signature d’accès partagé](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#52-get-the-shared-access-signature-uri-for-your-vm-images) créé pour le disque dur virtuel du système d’exploitation.
+Entrez l’[URI de signature d’accès partagé](../cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md) créé pour le disque dur virtuel du système d’exploitation.
 
 Si des disques de données sont associés à cette référence SKU, vous pouvez les ajouter en sélectionnant le lien **+ Nouveau disque de données**. Cette action affiche des champs supplémentaires à compléter.
 
 #### <a name="lun-vhd-url"></a>URL DU DISQUE DUR VIRTUEL DU NUMÉRO D’UNITÉ LOGIQUE (LUN)
 
-Entrez l’[URI de signature d’accès partagé](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#52-get-the-shared-access-signature-uri-for-your-vm-images) pour votre disque de données.
+Entrez l’[URI de signature d’accès partagé](../cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md) pour votre disque de données.
 
 #### <a name="lun-number"></a>Numéro de LUN
 
@@ -286,7 +268,7 @@ Attribuez un numéro à ce LUN. Ce numéro est réservé à ce disque de donnée
 
 ## <a name="to-configure-the-marketplace"></a>Pour configurer la Place de marché
 
-Utilisez la vue Place de marché pour configurer les champs qui s’affichent pour l’offre sur la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com) et le [portail Azure](https://portal.azure.com/).
+Utilisez la vue Place de marché pour configurer les champs de l’offre qui s’affichent sur la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com) et le [portail Microsoft Azure](https://portal.azure.com/).
 
 ### <a name="preview-subscription-ids"></a>ID d’abonnement pour version préliminaire
 
@@ -294,9 +276,9 @@ Il s’agit de la liste des ID d’abonnement Azure dont vous voulez qu’ils ai
 
 ### <a name="suggested-categories"></a>Catégories suggérées
 
-Sélectionnez dans la liste fournie jusqu’à 5 catégories auxquelles votre offre peut être associée au mieux. Les catégories sélectionnées servent à mapper votre offre aux catégories de produits disponibles sur la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com) et le [portail Azure](https://portal.azure.com/).
+Sélectionnez dans la liste fournie jusqu’à cinq catégories auxquelles votre offre peut être associée au mieux. Les catégories sélectionnées servent à mapper votre offre aux catégories de produits disponibles sur la [Place de marché Azure](https://azuremarketplace.microsoft.com) et le [portail Azure](https://portal.azure.com/).
 
-Les exemples suivants présentent les informations de place de marché qui s’affichent sur la Place de marché Microsoft Azure et le portail Azure.
+Les exemples suivants présentent les informations de place de marché qui s’affichent sur la Place de marché Microsoft Azure et le portail Microsoft Azure.
 
 **Azure Marketplace**
 
@@ -316,7 +298,6 @@ Les exemples suivants présentent les informations de place de marché qui s’a
 ![publishvm12](./media/cloud-partner-portal-publish-virtual-machine/publishvm12.png)
 
 
-
 ![publishvm13](./media/cloud-partner-portal-publish-virtual-machine/publishvm13.png)
 
 
@@ -333,7 +314,7 @@ Suivez ces instructions pour les logos chargés sur le portail Cloud Partner :
 
 -   N'utilisez pas d’arrière-plan dégradé sur le logo.
 
--   Évitez de placer du texte sur le logo. Cela vaut aussi pour le nom de votre entreprise ou de votre marque. L’apparence de votre logo doit être *plate* et éviter les dégradés.
+-   Évitez de placer du texte, notamment le nom de votre société ou votre marque, sur le logo.  L’apparence de votre logo doit être *plate* et éviter les dégradés.
 
 -   Le logo ne doit pas être étiré.
 
@@ -343,9 +324,9 @@ La bannière est facultative. L’éditeur peut choisir de ne pas télécharger 
 
 #### <a name="guidelines-for-the-hero-logo-icon"></a>Recommandations concernant l’icône Bannière
 
--   Le nom d’affichage de l’éditeur, le titre du plan et le résumé long de l’offre s’affichent en utilisant une police de couleur blanche. Évitez d’utiliser une couleur claire dans l’arrière-plan. Les arrière-plans noirs, blancs et transparents ne sont pas autorisés pour les icônes Bannière.
+-   Le nom d’affichage de l’éditeur, le titre du plan et le résumé long de l’offre s’affichent dans une police de couleur blanche. Évitez d’utiliser une couleur claire dans l’arrière-plan. Les arrière-plans noirs, blancs et transparents ne sont pas autorisés pour les icônes de bannière.
 
--   Le nom d’affichage de l’éditeur, le titre du plan, le résumé long de l’offre et le bouton Créer sont incorporés par programmation à l’intérieur de la bannière quand l’offre est publiée. N’entrez pas de texte au moment de concevoir la bannière. Laissez un espace vide à droite du logo. Cet espace doit faire 415 x 100 pixels et être décalé de 370 px à partir de la gauche.
+-   Le nom d’affichage de l’éditeur, le titre du plan, le récapitulatif long de l’offre et le bouton Créer sont embarqués par programmation à l’intérieur de la bannière quand l’offre est listée. N’entrez pas de texte au moment de concevoir la bannière. Laissez un espace vide à droite du logo. Cet espace doit faire 415 x 100 pixels et être décalé de 370 px à partir de la gauche.
 
 ![Exemple d’icône de bannière](./media/cloud-partner-portal-publish-virtual-machine/publishvm14.png)
 

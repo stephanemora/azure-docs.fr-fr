@@ -9,17 +9,16 @@ ms.assetid: 0614cd24-2ff0-49d3-9301-06052fd4f92a
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f33ff3f588dac49e295a5aa96d71557d32407e46
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 77e81dce7857433481f501410419f1067a51c3fc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38667436"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020334"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Jeux de données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,14 +33,14 @@ Cet article décrit les jeux de données, comment ils sont définis au format JS
 > [!NOTE]
 > Si vous débutez avec Data Factory, consultez [Présentation d’Azure Data Factory](data-factory-introduction.md) pour obtenir une vue d’ensemble. Si vous n’avez pas d’expérience pratique de la création de fabriques de données, vous pouvez obtenir une meilleure compréhension en lisant le [tutoriel de transformation des données](data-factory-build-your-first-pipeline.md) et le [tutoriel de déplacement des données](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Une fabrique de données peut avoir un ou plusieurs pipelines. Un **pipeline** constitue un regroupement logique d’**activités** qui exécutent ensemble une tâche. Les activités d’un pipeline définissent les actions à effectuer sur les données. Par exemple, vous pouvez utiliser une activité de copie pour copier des données d’un serveur SQL Server local vers un stockage Blob Azure. Ensuite, vous pouvez utiliser une activité Hive qui exécute un script Hive sur un cluster Azure HDInsight pour traiter les données du stockage Blob afin de produire des données de sortie. Enfin, vous pouvez utiliser une deuxième activité de copie pour copier les données de sortie dans Azure SQL Data Warehouse sur lequel des solutions de génération de rapports décisionnelles sont développées. Pour plus d’informations sur les pipelines et les activités, voir [Pipelines et activités dans Azure Data Factory](data-factory-create-pipelines.md).
 
 Une activité peut inclure zéro ou plusieurs **jeux de données** d’entrée et produire un ou plusieurs jeux de données de sortie. Un jeu de données d’entrée représente l’entrée d’une activité dans le pipeline, tandis qu’un jeu de données de sortie représente la sortie de l’activité. Les jeux de données identifient les données dans différents magasins de données, par exemple des tables, des fichiers, des dossiers et des documents. Par exemple, un jeu de données d’objets Blob Azure spécifie le conteneur et le dossier du stockage Blob à partir duquel le pipeline doit lire les données. 
 
 Avant de créer un jeu de données, créez un **service lié** pour lier votre magasin de données à la fabrique de données. Les services liés ressemblent à des chaînes de connexion. Ils définissent les informations de connexion nécessaires à Data Factory pour se connecter à des ressources externes. Les jeux de données identifient données dans les magasins de données liés, par exemple des tables SQL, des fichiers, des dossiers et des documents. Par exemple, un service lié de stockage Azure relie un compte de stockage à la fabrique de données. Un jeu de données blob Azure représente le conteneur d’objets blob et le dossier qui contient les objets blob d’entrée à traiter. 
 
-Voici un exemple de scénario. Pour copier des données d’un stockage Blob Azure dans une base de données SQL, vous créez deux services liés : le stockage Azure et la base de données SQL Azure. Créez ensuite deux jeux de données : le jeu de données d’objets blob Azure (qui fait référence au service lié de stockage Azure) et le jeu de données de table SQL Azure (qui fait référence au service lié pour base de données SQL Azure). Les services liés de stockage Azure et de base de données SQL Azure contiennent des chaînes de connexion utilisées par la fabrique de données pendant l’exécution pour se connecter à votre stockage Azure et à la base de données SQL Azure, respectivement. Le jeu de données d’objets blob Azure spécifie le conteneur d’objets blob et le dossier d’objets blob qui contient les objets blob d’entrée dans votre stockage Blob. Le jeu de données de table SQL Azure spécifie la table SQL dans votre base de données SQL dans laquelle les données doivent être copiées.
+Voici un exemple de scénario. Pour copier des données du stockage Blob vers une base de données SQL, vous devez créer deux services liés : Stockage Azure et Azure SQL Database. Créez ensuite deux jeux de données : le jeu de données d’objets blob Azure (qui fait référence au service lié Stockage Azure) et le jeu de données de table SQL Azure (qui fait référence au service lié Azure SQL Database). Les services liés de stockage Azure et de base de données SQL Azure contiennent des chaînes de connexion utilisées par la fabrique de données pendant l’exécution pour se connecter à votre stockage Azure et à la base de données SQL Azure, respectivement. Le jeu de données d’objets blob Azure spécifie le conteneur d’objets blob et le dossier d’objets blob qui contient les objets blob d’entrée dans votre stockage Blob. Le jeu de données de table SQL Azure spécifie la table SQL dans votre base de données SQL dans laquelle les données doivent être copiées.
 
 Le diagramme suivant montre la relation entre le pipeline, l’activité, le jeu de données et le service lié dans la fabrique de données : 
 
@@ -82,12 +81,12 @@ La table suivante décrit les propriétés dans le JSON ci-dessus :
 
 | Propriété | Description | Obligatoire | Default |
 | --- | --- | --- | --- |
-| Nom |Nom du jeu de données Pour connaître les règles d’affectation des noms, voir [Azure Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md). |OUI |N/D |
-| Type |Type du jeu de données. Spécifiez un des types pris en charge par la fabrique de données (par exemple : AzureBlob, AzureSqlTable). <br/><br/>Pour plus d’informations, consultez [Type du jeu de données](#Type). |OUI |N/D |
+| Nom |Nom du jeu de données Pour connaître les règles d’affectation des noms, voir [Azure Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md). |Oui |N/D |
+| Type |Type du jeu de données. Spécifiez l’un des types pris en charge par la fabrique de données (par exemple : AzureBlob, AzureSqlTable). <br/><br/>Pour plus d’informations, consultez [Type du jeu de données](#Type). |Oui |N/D |
 | structure |Schéma du jeu de données.<br/><br/>Pour plus d’informations, consultez [Structure d’un jeu de données](#Structure). |Non  |N/D |
-| typeProperties | Les propriétés de type sont différentes pour chaque type (par exemple : Blob Azure, table SQL Azure). Pour plus d’informations sur les types pris en charge et leurs propriétés, consultez [Type du jeu de données](#Type). |OUI |N/D |
+| typeProperties | Les propriétés de type sont différentes pour chaque type (par exemple : objet blob Azure, table SQL Azure). Pour plus d’informations sur les types pris en charge et leurs propriétés, consultez [Type du jeu de données](#Type). |Oui |N/D |
 | external | Indicateur booléen pour indiquer si un jeu de données est explicitement généré par un pipeline de fabrique de données ou non. Si le jeu de données d’entrée d’une activité n’est pas produit par le pipeline actuel, définissez cet indicateur sur true. Définissez cet indicateur sur true pour le jeu de données d’entrée de la première activité dans le pipeline.  |Non  |false |
-| availability | Définit la fenêtre de traitement (par exemple, horaire ou journalier) ou le modèle de découpage pour la production du jeu de données. Chaque unité de données consommée et produite pendant l’exécution d’une activité est appelée tranche de données. Si la disponibilité d’un jeu de données de sortie est journalière (fréquence : Day, intervalle : 1), une tranche est produite chaque jour. <br/><br/>Pour plus d’informations, consultez [Disponibilité du jeu de données](#Availability). <br/><br/>Pour plus d’informations sur le modèle de découpage du jeu de données, consultez l’article [Planification et exécution](data-factory-scheduling-and-execution.md). |OUI |N/D |
+| availability | Définit la fenêtre de traitement (par exemple, horaire ou journalier) ou le modèle de découpage pour la production du jeu de données. Chaque unité de données consommée et produite pendant l’exécution d’une activité est appelée tranche de données. Si la disponibilité d’un jeu de données de sortie est journalière (fréquence : Day, intervalle : 1), une tranche est produite chaque jour. <br/><br/>Pour plus d’informations, consultez [Disponibilité du jeu de données](#Availability). <br/><br/>Pour plus d’informations sur le modèle de découpage du jeu de données, consultez l’article [Planification et exécution](data-factory-scheduling-and-execution.md). |Oui |N/D |
 | policy |Définit les critères ou la condition que les segments du jeu de données doivent remplir. <br/><br/>Pour plus d’informations, consultez la section [Stratégie du jeu de données](#Policy). |Non  |N/D |
 
 ## <a name="dataset-example"></a>Exemple de jeu de données
@@ -112,7 +111,7 @@ Dans l’exemple suivant, le jeu de données représente une table nommée **MyT
 }
 ```
 
-Notez les points suivants :
+Notez les points suivants :
 
 * **type** est défini sur AzureSQLTable.
 * La propriété de type **tableName** (propre au type AzureSqlTable) est définie sur MyTable.
@@ -195,7 +194,7 @@ Chaque colonne de la structure contient les propriétés suivantes :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Nom |Nom de la colonne. |OUI |
+| Nom |Nom de la colonne. |Oui |
 | Type |Type de données de la colonne.  |Non  |
 | culture |Culture .NET à utiliser lorsque le type est un type .NET : `Datetime` ou `Datetimeoffset`. Par défaut, il s’agit de `en-us`. |Non  |
 | format |Chaîne de format à utiliser lorsque le type est un type .NET : `Datetime` ou `Datetimeoffset`. |Non  |
@@ -207,7 +206,7 @@ Les recommandations suivantes vous permettent de déterminer le moment auquel in
     Comme les informations de type sont déjà disponibles pour les sources de données structurées, vous ne devez pas les inclure lorsque vous incluez la section structure.
 * **Pour un schéma des sources de données de lecture (en particulier le stockage Blob)**, vous pouvez choisir de stocker des données sans les informations de type ou de schéma. Pour ces types de sources de données, incluez la structure lorsque vous souhaitez mapper les colonnes sources aux colonnes de récepteur. Incluez également la structure lorsque le jeu de données est une entrée d’une activité de copie et que les types de données du jeu de données source doivent être convertis en types natifs pour le récepteur. 
     
-    La fabrique de données prend en charge les valeurs suivantes pour fournir des informations de type dans la structure : **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset et Timespan**. Ces valeurs sont des valeurs de type basées sur .NET compatibles avec la norme CLS (Common Language Specification).
+    Data Factory prend en charge les valeurs suivantes pour fournir des informations de type dans la structure : **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset et Timespan**. Ces valeurs sont des valeurs de type basées sur .NET compatibles avec la norme CLS (Common Language Specification).
 
 Data Factory effectue automatiquement les conversions de type lorsque vous déplacez des données d’un magasin de données source vers un magasin de données récepteur. 
   
@@ -238,10 +237,10 @@ Le tableau suivant décrit les propriétés que vous pouvez utiliser dans la sec
 
 | Propriété | Description | Obligatoire | Default |
 | --- | --- | --- | --- |
-| frequency |Spécifie l’unité de temps pour la production du segment du jeu de données.<br/><br/><b>Fréquence prise en charge</b>: minute, heure, jour, semaine, mois |OUI |N/D |
-| interval |Spécifie un multiplicateur de fréquence.<br/><br/>« Frequency x interval » déterminent la fréquence à laquelle la tranche est produite. Par exemple, si vous voulez des tranches de jeu de données d’une heure, définissez <b>frequency</b> sur <b>Hour</b> et <b>interval</b> sur <b>1</b>.<br/><br/>Notez que si vous spécifiez **frequency** sur **Minute**, vous devez définir l’intervalle sur une valeur au minimum égale à 15. |OUI |N/D |
+| frequency |Spécifie l’unité de temps pour la production du segment du jeu de données.<br/><br/><b>Fréquence prise en charge</b> : Minute, Hour, Day, Week, Month |Oui |N/D |
+| interval |Spécifie un multiplicateur de fréquence.<br/><br/>« Frequency x interval » déterminent la fréquence à laquelle la tranche est produite. Par exemple, si vous voulez des tranches de jeu de données d’une heure, définissez <b>frequency</b> sur <b>Hour</b> et <b>interval</b> sur <b>1</b>.<br/><br/>Notez que si vous spécifiez **frequency** sur **Minute**, vous devez définir l’intervalle sur une valeur au minimum égale à 15. |Oui |N/D |
 | style |Spécifie si le segment doit être généré au début ou à la fin de l’intervalle.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Si **frequency** est défini sur **Month** et **style** défini sur **EndOfInterval**, le segment est généré le dernier jour du mois. Si **style** est défini sur **StartOfInterval**, le segment est généré le premier jour du mois.<br/><br/>Si **frequency** est défini sur **Day** et **style** est défini sur **EndOfInterval**, le segment est généré la dernière heure du jour.<br/><br/>Si **frequency** est défini sur **Hour** et **style** défini sur **EndOfInterval**, le segment est généré à la fin de l’heure. Par exemple, pour un segment de la période 13 h-14 h, le segment est généré à 14 h. |Non  |EndOfInterval |
-| anchorDateTime |Définit la position absolue dans le temps utilisée par le planificateur pour calculer les limites de tranche de jeu de données. <br/><br/>Notez que si cette propriété comporte des éléments de date plus précis que la fréquence spécifiée, les éléments plus précise sont ignorés. Par exemple, si **interval** est défini sur **hourly** (frequency : hour et interval : 1) et si **anchorDateTime** contient **minutes and seconds**, les éléments minutes et seconds de la valeur **anchorDateTime** sont ignorés. |Non  |01/01/0001 |
+| anchorDateTime |Définit la position absolue dans le temps utilisée par le planificateur pour calculer les limites de tranche de jeu de données. <br/><br/>Notez que si cette propriété comporte des éléments de date plus précis que la fréquence spécifiée, les éléments plus précise sont ignorés. Par exemple, si **interval** est **hourly** (frequency: hour et interval: 1), et que **anchorDateTime** contient **minutes and seconds**, les éléments minutes et seconds d’**anchorDateTime** sont ignorés. |Non  |01/01/0001 |
 | Offset |Intervalle de temps marquant le déplacement du début et de la fin de toutes les tranches du jeu de données. <br/><br/>Notez que si **anchorDateTime** et **offset** sont spécifiés, un décalage combiné est obtenu. |Non  |N/D |
 
 ### <a name="offset-example"></a>exemple offset
@@ -335,7 +334,7 @@ Vous pouvez créer des jeux de données à l’aide de l’un de ces outils ou k
 - Visual Studio
 - PowerShell
 - Modèle Azure Resource Manager
-- de l’API REST
+- API REST
 - API .NET
 
 Consultez les tutoriels suivants pour obtenir des instructions pas à pas sur la création de pipelines et de jeux de données à l’aide de l’un de ces outils ou kits de développement logiciel (SDK) :

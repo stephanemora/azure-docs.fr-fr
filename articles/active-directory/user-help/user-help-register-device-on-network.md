@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.component: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 01/04/2019
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 7126a47bd90168c7d86fe9fcc05fab0a60955063
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: dc3a0974eed7b044e137b45ec367c56d7534cee6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40180584"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054076"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Inscrire votre appareil personnel sur le réseau de votre organisation
-Inscrivez votre appareil personnel, généralement un téléphone ou une tablette, sur le réseau de votre organisation. Une fois votre appareil inscrit, il peut accéder aux ressources restreintes de votre organisation.
+Inscrivez votre appareil personnel (généralement un téléphone ou une tablette) sur le réseau de votre organisation. Une fois votre appareil inscrit, il peut accéder aux ressources restreintes de votre organisation.
 
 >[!Note]
 >Cet article utilise un appareil Windows à des fins de démonstration, mais vous pouvez également inscrire des appareils exécutant iOS, Android ou macOS.
@@ -34,7 +34,7 @@ Quand vous inscrivez votre appareil sur le réseau de votre organisation, les ac
 
 - Selon les choix de votre organisation, vous pouvez être automatiquement inscrit dans une solution de gestion des appareils mobiles, comme Microsoft Intune. Pour plus d’informations sur l’inscription dans Microsoft Intune, consultez [Inscrire votre appareil sur Intune](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all).
 
-- Vous suivrez le processus de connexion en utilisant le nom d’utilisateur et le mot de passe de votre compte Microsoft personnel.
+- Vous suivrez le processus de connexion en utilisant le nom d’utilisateur et le mot de passe de votre compte professionnel ou scolaire.
 
 ## <a name="to-register-your-windows-device"></a>Pour inscrire votre appareil Windows
 
@@ -44,30 +44,26 @@ Suivez ces étapes pour inscrire votre appareil personnel sur votre réseau.
 
     ![Comptes dans l’écran Paramètres](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Sélectionnez **E-mail et comptes**, puis sélectionnez **Ajouter un compte Microsoft**.
+2. Sélectionnez **Accès Professionnel ou Scolaire**, puis sélectionnez **Connexion** à partir de l’écran **Accès Professionnel ou Scolaire**.
 
-    ![Liens E-mail et comptes et Ajouter un compte Microsoft](./media/user-help-register-device-on-network/register-device-email-and-accounts.png)
+    ![Écran Accès Professionnel ou Scolaire avec l’option Connexion mise en évidence](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
 
-3. Dans l’écran **Ajoutez votre compte Microsoft**, tapez l’adresse e-mail de votre compte Microsoft personnel.
+3. Dans l’écran **Ajouter un compte professionnel ou scolaire**, tapez votre adresse e-mail pour votre compte professionnel ou scolaire, puis sélectionnez **Suivant**. Par exemple : alain@contoso.com.
 
-    ![Écran Ajoutez votre compte Microsoft, avec adresse e-mail](./media/user-help-register-device-on-network/register-device-add-accounts.png)
-
-4. Dans l’écran **Saisie du mot de passe**, tapez le mot de passe de votre compte Microsoft personnel, puis sélectionnez **Se connecter**.
-
-    ![Écran Saisie du mot de passe](./media/user-help-register-device-on-network/register-device-enter-password.png)
+4. Connectez-vous à votre compte professionnel ou scolaire, puis sélectionnez **Se connecter**.
 
 5. Effectuez le reste du processus d’inscription, y compris l’approbation de votre demande de vérification d’identité (si vous utilisez la vérification en deux étapes) et la configuration de Windows Hello (si nécessaire).
 
-## <a name="to-make-sure-youre-registered"></a>Pour vérifier que vous êtes inscrit
+## <a name="to-verify-that-youre-registered"></a>Pour vérifier que vous êtes inscrit
 Vous pouvez vérifier que vous êtes inscrit en examinant vos paramètres.
 
 1. Ouvrez **Paramètres**, puis sélectionnez **Comptes**.
 
     ![Comptes dans l’écran Paramètres](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Sélectionnez **E-mail et comptes** et vérifiez que vous voyez votre compte Microsoft personnel.
+2. Sélectionnez **Accès Professionnel ou Scolaire** et vérifiez que vous voyez votre compte professionnel ou scolaire.
 
-    ![Écran Accès Professionnel ou Scolaire avec le compte contoso connecté](./media/user-help-register-device-on-network/register-device-verify-account.png)
+    ![Écran Accès Professionnel ou Scolaire avec compte contoso connecté](./media/user-help-register-device-on-network/register-device-setup-verify.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Après avoir inscrit votre appareil personnel sur le réseau de votre organisation, vous devriez pouvoir accéder à la plupart de vos ressources.

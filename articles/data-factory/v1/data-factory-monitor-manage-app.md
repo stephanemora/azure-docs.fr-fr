@@ -9,17 +9,16 @@ ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3f234e49f1a28fd0881e47ede13ae72483ed31f3
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5b70edd4f65538b52c70881258bc500a34b04d80
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053114"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025417"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion
 > [!div class="op_single_selector"]
@@ -60,7 +59,7 @@ Dans la liste Activity Windows (Fenêtres d’activité), dans le volet central,
 Si vous ne disposez pas d’une application de fabrique de données pour tester ces étapes, suivez ce didacticiel : [Copie de données de Stockage Blob vers SQL Database à l’aide de Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="understand-the-monitoring-and-management-app"></a>Présentation de l’application de surveillance et gestion
-Trois onglets sont disponibles sur le côté gauche : **Explorateur de ressources**, **Vues de surveillance** et **Alertes**. Le premier onglet (**Explorateur de ressources**) est sélectionné par défaut.
+Il existe trois onglets sur la gauche : **Explorateur de ressources**, **Vues de surveillance** et **Alertes**. Le premier onglet (**Explorateur de ressources**) est sélectionné par défaut.
 
 ### <a name="resource-explorer"></a>Explorateur de ressources
 Vous voyez l'affichage suivant :
@@ -146,7 +145,7 @@ Dans la fenêtre contextuelle et l’Explorateur de fenêtres d’activité, vou
 
 ![Flèches gauche/droite de l’Explorateur de fenêtres d’activité](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-En bas de la vue schématique, vous trouverez des boutons pour effectuer un zoom avant ou arrière, zoomer pour ajuster, effectuer un Zoom à 100 % et verrouiller la disposition. Le bouton **Verrouiller la disposition** vous empêche de déplacer accidentellement des tables et des pipelines dans la vue schématique. L’option est activée par défaut. Vous pouvez la désactiver et déplacer des entités dans la vue schématique. Lorsque vous la désactivez, vous pouvez utiliser le dernier bouton pour positionner automatiquement les tables et les pipelines. Vous pouvez également effectuer des zooms avant et arrière à l’aide de la roulette de la souris.
+En bas de la vue schématique figurent les boutons suivants : zoom avant, zoom arrière, zoom d’ajustement, zoom à 100 %, verrouiller la disposition. Le bouton **Verrouiller la disposition** vous empêche de déplacer accidentellement des tables et des pipelines dans la vue schématique. L’option est activée par défaut. Vous pouvez la désactiver et déplacer des entités dans la vue schématique. Lorsque vous la désactivez, vous pouvez utiliser le dernier bouton pour positionner automatiquement les tables et les pipelines. Vous pouvez également effectuer des zooms avant et arrière à l’aide de la roulette de la souris.
 
 ![Commandes de zoom de la vue schématique](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 

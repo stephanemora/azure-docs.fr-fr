@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: 2d42d2014432b72f35e9b0d9543fe499a6ab721b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: d56e96ca1fbc96261f6f526c792b0a53c74718ef
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355217"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063658"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Le démarrage de la machine virtuelle Azure est bloqué au niveau de la mise à jour de Windows
 
 Cet article vous aide à résoudre le blocage de votre machine virtuelle au stade Windows Update durant le démarrage. 
 
 > [!NOTE] 
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager. Nous vous recommandons d’utiliser ce modèle pour les nouveaux déploiements au lieu du modèle de déploiement classique.
+> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager. Nous vous recommandons d’utiliser ce modèle pour les nouveaux déploiements au lieu du modèle de déploiement classique.
 
  ## <a name="symptom"></a>Symptôme
 
@@ -47,16 +47,16 @@ En fonction du nombre de mises à jour qui sont installées ou annulées, le pro
 
 1. Prenez un instantané du disque du système d’exploitation de la machine virtuelle affectée en guise de sauvegarde. Pour plus d’informations, voir [Prendre un instantané d’un disque](../windows/snapshot-copy-managed-disk.md). 
 2. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](troubleshoot-recovery-disks-portal-windows.md).
-3. Une fois le disque du système d’exploitation attaché sur la machine virtuelle de récupération, ouvrez le **gestionnaire de disque** et vérifiez qu’il est **en ligne**. Notez la lettre de lecteur affectée au disque du système d’exploitation attaché contenant le dossier \windows. Si le disque est chiffré, déchiffrez-le avant de passer aux étapes suivantes dans ce document.
+3. Une fois que le disque du système d’exploitation est attaché à la machine virtuelle de récupération, exécutez **diskmgmt.msc** pour ouvrir le programme Gestion des disques, puis vérifiez que le disque attaché est **EN LIGNE**. Notez la lettre de lecteur affectée au disque du système d’exploitation attaché contenant le dossier \windows. Si le disque est chiffré, déchiffrez-le avant de passer aux étapes suivantes dans ce document.
 
-3. Obtenez la liste des packages de mise à jour qui se trouvent sur le disque du système d’exploitation attaché :
+4. Ouvrez une instance d’invite de commandes avec élévation de privilèges (Exécuter en tant qu’administrateur). Exécutez la commande suivante pour obtenir la liste des packages de mise à jour présents sur le disque de système d’exploitation attaché :
 
         dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
 
     Par exemple, si le disque du système d’exploitation attaché est le lecteur F, exécutez la commande suivante :
 
         dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
-4. Ouvrez le fichier C:\temp\Patch_level.txt, puis lisez-le de bas en haut. Recherchez la mise à jour dont l’état est **Installation en attente** ou **Désinstallation en attente**.  Voici un exemple d’état de la mise à jour :
+5. Ouvrez le fichier C:\temp\Patch_level.txt, puis lisez-le de bas en haut. Recherchez la mise à jour dont l’état est **Installation en attente** ou **Désinstallation en attente**.  Voici un exemple d’état de la mise à jour :
 
      ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
@@ -64,7 +64,7 @@ En fonction du nombre de mises à jour qui sont installées ou annulées, le pro
     Release Type : Security Update
     Install Time :
     ```
-5. Supprimez la mise à jour à l’origine du problème :
+6. Supprimez la mise à jour à l’origine du problème :
     
     ```
     dism /Image:<Attached OS disk>:\ /Remove-Package /PackageName:<PACKAGE NAME TO DELETE>
@@ -72,10 +72,10 @@ En fonction du nombre de mises à jour qui sont installées ou annulées, le pro
     Exemple : 
 
     ```
-    dism /Image:F:\ /Remove-Package /Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
+    dism /Image:F:\ /Remove-Package /PackageName:Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
     ```
 
     > [!NOTE] 
     > Selon la taille du package, l’outil DISM prend un certain temps pour traiter la désinstallation. Normalement, le processus est terminé en 16 minutes.
 
-6. Détachez le disque du système d’exploitation, puis [régénérez la machine virtuelle à l’aide du disque du système d’exploitation](troubleshoot-recovery-disks-portal-windows.md). 
+7. [Détachez le disque de système d’exploitation et recréez la machine virtuelle](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk). Ensuite, vérifiez que le problème est résolu.

@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a28ae46a449d4aacf046636793585a84adc5ba83
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2b4fcb42c913149f8caf05a72fb089586ee21e2a
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089621"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106118"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>Recevoir des événements d’Azure Event Hubs avec l’hôte de processeur d’événements
 
@@ -123,7 +123,9 @@ Ici, chaque hôte acquiert la possession d’une partition pour une certaine dur
 
 ## <a name="receive-messages"></a>Recevoir des messages
 
-Chaque appel à [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) offre une collection d’événements. Il vous incombe de gérer ces événements. Il est recommandé de procéder relativement vite. Autrement dit, de faire aussi peu de traitement que possible. Pour cela, utilisez des groupes de consommateurs. Si vous avez besoin d’écrire dans le stockage et de procéder à un routage, il est généralement préférable d’utiliser deux groupes de consommateurs et d’avoir deux implémentations [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) qui s’exécutent séparément.
+Chaque appel à [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) offre une collection d’événements. Il vous incombe de gérer ces événements. Si vous souhaitez vous assurer que l’hôte du processeur traite chaque message au moins une fois, vous devez écrire votre propre code de nouvelle tentative. Méfiez-vous cependant des messages empoisonnés.
+
+Il est recommandé de procéder relativement vite. Autrement dit, de faire aussi peu de traitement que possible. Pour cela, utilisez des groupes de consommateurs. Si vous avez besoin d’écrire dans le stockage et de procéder à un routage, il est généralement préférable d’utiliser deux groupes de consommateurs et d’avoir deux implémentations [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) qui s’exécutent séparément.
 
 À un moment donné pendant le traitement, vous souhaiterez peut-être effectuer le suivi de ce que vous avez lu et accompli. Cela est essentiel si vous devez redémarrer la lecture, afin de ne pas revenir au début du flux de données. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) simplifie ce suivi à l’aide de *points de contrôle*. Un point de contrôle est un emplacement (ou un décalage) d’une partition donnée au sein d’un groupe de consommateurs, où vous êtes satisfait du traitement des messages. La création d’un point de contrôle dans **EventProcessorHost** nécessite d’appeler la méthode [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) sur l’objet [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext). Cette opération s’effectue dans la méthode [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync), mais également dans [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
 

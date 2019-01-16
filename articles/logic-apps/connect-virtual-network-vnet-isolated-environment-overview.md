@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 12/03/2018
-ms.openlocfilehash: 5046b1012e0074e9548cad050c16eef25c00cee0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2b11d74436907380811acda3b7427ebe8011afb4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845193"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061021"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accéder aux ressources Réseau virtuel Microsoft Azure à partir d’Azure Logic Apps à l’aide d’environnements de service d’intégration (ISE)
 
@@ -33,7 +33,7 @@ Cette vue d’ensemble explique comment un environnement de service d’intégra
 
 ## <a name="isolated-versus-global"></a>Isolé ou global
 
-Quand vous créez un environnement de service d’intégration dans Azure, vous sélectionnez un réseau virtuel Azure où vous *injectez* votre environnement. Azure déploie une instance privée du service Logic Apps dans votre réseau virtuel. Cette action crée un environnement isolé où vous pouvez créer et exécuter vos applications logiques sur des ressources dédiées. Quand vous créez une application logique, vous sélectionnez cet environnement comme emplacement pour votre application, ce qui donne à votre application logique un accès direct aux ressources de votre réseau virtuel. 
+Quand vous créez un environnement de service d’intégration dans Azure, vous sélectionnez un réseau virtuel Azure où vous souhaitez *injecter* votre environnement. Azure déploie une instance privée du service Logic Apps dans votre réseau virtuel. Cette action crée un environnement isolé où vous pouvez créer et exécuter vos applications logiques sur des ressources dédiées. Quand vous créez une application logique, vous sélectionnez cet environnement comme emplacement pour votre application, ce qui donne à votre application logique un accès direct aux ressources de votre réseau virtuel. 
 
 Les applications logiques d’un ISE fournissent les mêmes expériences d’utilisateur avec des fonctionnalités similaires que le service Logic Apps global. Vous pouvez non seulement utiliser les actions et connecteurs intégrés dans le service Logic Apps mondial, mais aussi des connecteurs spécifiques à l’environnement de service d’intégration. Voici, par exemple, quelques connecteurs standard offrant des versions qui s’exécutent dans un ISE :
  

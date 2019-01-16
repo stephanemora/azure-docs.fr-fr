@@ -6,23 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 1a4fe30881f06d8af851a67f389a6faafbe3dfef
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 412727d79c194172f2855d014d1eaf18f44167f6
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389460"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159347"
 ---
-# <a name="azure-data-box-disk-limits-preview"></a>Limites d’Azure Data Box Disk (préversion)
+# <a name="azure-data-box-disk-limits"></a>Limites d’Azure Data Box Disk
 
 
 Tenez compte de ces limites quand vous déployez et utilisez votre solution Microsoft Azure Data Box Disk. 
-
-> [!IMPORTANT] 
-> Azure Data Box Disk est disponible en préversion. Veuillez lire les [conditions d’utilisation de la préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de déployer cette solution. 
-
 
 ## <a name="data-box-service-limits"></a>Limites du service Data Box
 

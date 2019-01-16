@@ -10,20 +10,20 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5a09bd8db89f85c785d3d701a3b7180e4616e52c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 4f6d49a60df09e78c3cbeee22d43827ecc9f9f64
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713229"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118419"
 ---
-# <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnostics dans Fonctions durables (Azure Functions)
+# <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostics de Durable Functions dans Azure
 
 Il existe plusieurs options permettant de diagnostiquer les problèmes avec [Fonctions durables](durable-functions-overview.md). Certaines de ces options sont les mêmes pour les fonctions standard, et d’autres sont uniques à Fonctions durables.
 
 ## <a name="application-insights"></a>Application Insights
 
-[Application Insights](../../application-insights/app-insights-overview.md) est la méthode recommandée pour les diagnostics et la surveillance dans Azure Functions. Il en va de même pour Fonctions durables. Pour obtenir une vue d’ensemble montrant comment tirer parti d’Application Insights dans votre application de fonction, consultez [Surveiller l’exécution des fonctions Azure](../functions-monitoring.md).
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) est la méthode recommandée pour les diagnostics et la surveillance dans Azure Functions. Il en va de même pour Fonctions durables. Pour obtenir une vue d’ensemble montrant comment tirer parti d’Application Insights dans votre application de fonction, consultez [Surveiller l’exécution des fonctions Azure](../functions-monitoring.md).
 
 L’extension Fonctions durables d’Azure émet également des *événements de suivi* vous permettant de tracer l’exécution de bout en bout d’une orchestration. Ces événements sont accessibles et interrogés à l’aide de l’outil [Application Insights Analytics](../../azure-monitor/app/analytics.md) dans le portail Azure.
 

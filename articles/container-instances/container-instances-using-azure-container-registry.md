@@ -5,29 +5,29 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bbdf9a88c19e8006ffa9669b0c6d95d85506b256
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 33cf6650de757f538dcefc858c94fa71b434ec80
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854454"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064642"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Déployer sur Azure Container Instances à partir d’Azure Container Registry
 
-Azure Container Registry est un registre privé Azure pour vos images conteneur Docker. Cet article explique comment déployer des images conteneur stockées dans un registre de conteneurs Azure sur Azure Container Instances.
+[Azure Container Registry](../container-registry/container-registry-intro.md) est un service de registre de conteneurs managé basé sur Azure, utilisé pour stocker des images de conteneurs Docker privés. Cet article explique comment déployer des images conteneur stockées dans un registre de conteneurs Azure sur Azure Container Instances.
 
 ## <a name="prerequisites"></a>Prérequis
 
-**Azure Container Registry** : vous avez besoin d’un registre de conteneurs Azure, et au moins une image conteneur dans le registre, pour effectuer les étapes décrites dans cet article. Si vous avez besoin d’un registre, consultez [Créer un registre de conteneurs à l’aide de Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
+**Azure Container Registry** : Vous avez besoin d’un registre de conteneurs Azure et au moins d’une image conteneur dans le registre pour effectuer les étapes décrites dans cet article. Si vous avez besoin d’un registre, consultez [Créer un registre de conteneurs à l’aide de Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
 
-**Azure CLI** : les exemples de ligne de commande dans cet article utilisent le [Azure CLI](/cli/azure/) et sont formatés pour l’interpréteur de commandes Bash. Vous pouvez [installer Azure CLI](/cli/azure/install-azure-cli) localement, ou bien utilisez [Azure Cloud Shell][cloud-shell-bash].
+**Azure CLI** : Les exemples de ligne de commande dans cet article utilisent [Azure CLI](/cli/azure/) et sont mis en forme pour le shell Bash. Vous pouvez [installer Azure CLI](/cli/azure/install-azure-cli) localement, ou bien utilisez [Azure Cloud Shell][cloud-shell-bash].
 
 ## <a name="configure-registry-authentication"></a>Configurer l’authentification du registre
 
-Dans les scénarios de production, l’accès à un registre de conteneur Azure doit être fourni à l’aide de [principaux de service](../container-registry/container-registry-auth-service-principal.md). Les principaux de service vous permettent de fournir un contrôle d’accès basé sur des rôles à vos images conteneur. Par exemple, vous pouvez configurer un principal de service avec uniquement un accès d’extraction à un registre.
+Dans les scénarios de production, l’accès à un registre de conteneur Azure doit être fourni à l’aide de [principaux de service](../container-registry/container-registry-auth-service-principal.md). Les principaux du service vous permettent de fournir un [contrôle d’accès en fonction du rôle](../container-registry/container-registry-roles.md) à vos images de conteneur. Par exemple, vous pouvez configurer un principal de service avec uniquement un accès d’extraction à un registre.
 
 Dans cette section, vous créez un coffre de clés Azure et un principal de service et vous stockez des informations d’identification du principal de service dans le coffre.
 
@@ -35,7 +35,7 @@ Dans cette section, vous créez un coffre de clés Azure et un principal de serv
 
 Si vous n’avez pas encore un coffre dans [Azure Key Vault](/azure/key-vault/), créez-en un avec Azure CLI à l’aide des commandes suivantes.
 
-Mettez à jour la variable `RES_GROUP` avec le nom du groupe de ressources dans lequel créer le coffre de clés, et `ACR_NAME` avec le nom de votre registre de conteneurs. Spécifiez un nom pour votre nouveau coffre de clés dans `AKV_NAME`. Le nom du coffre doit être unique au sein de Azure et doit être composé de 3 à 24 caractères alphanumériques, en commençant par une lettre, se terminant par une lettre ou un chiffre, et sans contenir de traits d’union consécutifs.
+Mettez à jour la variable `RES_GROUP` avec le nom d’un groupe de ressources existant où créer le coffre de clés, et `ACR_NAME` avec le nom de votre registre de conteneurs. Spécifiez un nom pour votre nouveau coffre de clés dans `AKV_NAME`. Le nom du coffre doit être unique au sein de Azure et doit être composé de 3 à 24 caractères alphanumériques, en commençant par une lettre, se terminant par une lettre ou un chiffre, et sans contenir de traits d’union consécutifs.
 
 ```azurecli
 RES_GROUP=myresourcegroup # Resource Group name
@@ -57,14 +57,14 @@ az keyvault secret set \
   --vault-name $AKV_NAME \
   --name $ACR_NAME-pull-pwd \
   --value $(az ad sp create-for-rbac \
-                --name $ACR_NAME-pull \
+                --name http://$ACR_NAME-pull \
                 --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-                --role reader \
+                --role acrpull \
                 --query password \
                 --output tsv)
 ```
 
-L’argument `--role` dans la commande précédente configure le principal de service avec le rôle *lecteur*, ce qui lui accorde uniquement un accès d’extraction au registre. Pour accorder les accès push et pull (envoi et tirage), changez l’argument `--role` par *collaborateur*.
+L’argument `--role` dans la commande précédente configure le principal de service avec le rôle *acrpull*, ce qui lui accorde uniquement un accès d’extraction au registre. Pour accorder les accès push et pull (envoi et tirage), affectez à l’argument `--role` la valeur *acrpush*.
 
 Ensuite, stockez le *appId* du principal de service dans le coffre, qui est le **nom d’utilisateur** que vous passez à Azure Container Registry pour l’authentification.
 
@@ -78,8 +78,8 @@ az keyvault secret set \
 
 Vous avez créé un coffre de clés Azure et il contient deux secrets :
 
-* `$ACR_NAME-pull-usr` : l’ID de principal du service, pour une utilisation comme **nom d’utilisateur** du registre de conteneurs.
-* `$ACR_NAME-pull-pwd` : le mot de passe du principal du service, pour une utilisation comme **mot de passe** du registre de conteneurs.
+* `$ACR_NAME-pull-usr`: ID de principal du service, pour une utilisation comme **nom d’utilisateur** du registre de conteneurs.
+* `$ACR_NAME-pull-pwd`: mot de passe du principal du service, pour une utilisation comme **mot de passe** du registre de conteneurs.
 
 Vous pouvez maintenant référencer ces secrets par nom lorsque vous ou vos applications et services extrayez des images du registre.
 
@@ -87,14 +87,20 @@ Vous pouvez maintenant référencer ces secrets par nom lorsque vous ou vos appl
 
 Maintenant que les informations d’identification du principal de service sont stockées dans les secrets de Azure Key Vault, vos applications et vos services peuvent les utiliser pour accéder à votre registre privé.
 
+Obtenez d’abord le nom du serveur de connexion du registre avec la commande [az acr show][az-acr-show]. Le nom du serveur de connexion est tout en minuscules et est similaire à `myregistry.azurecr.io`.
+
+```azurecli
+ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --resource-group $RES_GROUP --query "loginServer" --output tsv)
+```
+
 Exécutez la commande [az container create][az-container-create] suivante pour déployer une instance de conteneur. La commande utilise les informations d’identification du principal du service stockées dans Azure Key Vault pour vous authentifier auprès de votre registre de conteneur et suppose que vous avez précédemment poussé l’image [aci-helloworld](container-instances-quickstart.md) dans votre registre. Mettez à jour la valeur `--image` si vous souhaitez utiliser une autre image à partir de votre registre.
 
 ```azurecli
 az container create \
     --name aci-demo \
     --resource-group $RES_GROUP \
-    --image $ACR_NAME.azurecr.io/aci-helloworld:v1 \
-    --registry-login-server $ACR_NAME.azurecr.io \
+    --image $ACR_LOGIN_SERVER/aci-helloworld:v1 \
+    --registry-login-server $ACR_LOGIN_SERVER \
     --registry-username $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-usr --query value -o tsv) \
     --registry-password $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-pwd --query value -o tsv) \
     --dns-name-label aci-demo-$RANDOM \
@@ -104,7 +110,7 @@ az container create \
 La valeur `--dns-name-label` doit être unique dans Azure, afin que la commande précédente ajoute un nombre aléatoire à l’étiquette de nom du DNS du conteneur. La sortie pour la commande affiche le nom de domaine complet du conteneur (FQDN), par exemple :
 
 ```console
-$ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_NAME.azurecr.io/aci-helloworld:v1 --registry-login-server $ACR_NAME.azurecr.io --registry-username $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-usr --query value -o tsv) --registry-password $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-pwd --query value -o tsv) --dns-name-label aci-demo-$RANDOM --query ipAddress.fqdn
+$ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_LOGIN_SERVER/aci-helloworld:v1 --registry-login-server $ACR_LOGIN_SERVER --registry-username $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-usr --query value -o tsv) --registry-password $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-pwd --query value -o tsv) --dns-name-label aci-demo-$RANDOM --query ipAddress.fqdn
 "aci-demo-25007.eastus.azurecontainer.io"
 ```
 
@@ -158,6 +164,7 @@ Pour plus d’information sur l’authentification Azure Container Registry, con
 [cloud-shell-powershell]: https://shell.azure.com/powershell
 
 <!-- LINKS - Internal -->
+[az-acr-show]: /cli/azure/acr#az-acr-show
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-container-create]: /cli/azure/container#az-container-create
 [az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set

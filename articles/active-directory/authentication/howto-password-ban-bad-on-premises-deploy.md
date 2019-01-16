@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 02c2b7560a0a609f6d902af78877d5f0236615d3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5774af4e0550ceb7a51e399fcab203a503a7f23f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011491"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033602"
 ---
-# <a name="preview-deploy-azure-ad-password-protection"></a>Préversion : Déployer la protection de mot de passe Azure AD
+# <a name="preview-deploy-azure-ad-password-protection"></a>Aperçu : Déployer la protection par mot de passe d’Azure AD
 
 |     |
 | --- |
@@ -86,6 +86,9 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
 2. Installez le logiciel du service de proxy de la stratégie de mot de passe à l’aide du package MSI AzureADPasswordProtectionProxy.msi.
    * L’installation du logiciel ne nécessite pas un redémarrage. L’installation du logiciel peut être automatisée à l’aide de procédures MSI standard, par exemple : `msiexec.exe /i AzureADPasswordProtectionProxy.msi /quiet /qn`
 
+      > [!NOTE]
+      > Le service Pare-feu Windows doit être en cours d’exécution avant de procéder à l’installation du package MSI AzureADPasswordProtectionProxy.msi, faute de quoi une erreur d’installation se produit. Si le Pare-feu Windows est configuré pour ne pas s’exécuter, la solution de contournement consiste à temporairement activer et démarrer le service de Pare-feu Windows pendant le processus d’installation. Le logiciel de proxy n’a aucune dépendance particulière sur le logiciel du Pare-feu Windows après l’installation. Si vous utilisez un pare-feu tiers, il doit tout de même être configuré pour répondre aux exigences du déploiement (autoriser l’accès entrant sur le port 135 et le port du serveur RPC proxy, qu’il soit dynamique ou statique). Voir [Exigences en matière de déploiement](howto-password-ban-bad-on-premises-deploy.md#deployment-requirements)
+
 3. Ouvrez une fenêtre PowerShell en tant qu’administrateur.
    * Le logiciel du proxy de protection de mot de passe Azure AD inclut un nouveau module PowerShell nommé AzureADPasswordProtection. Les étapes suivantes sont basées sur l’exécution de diverses cmdlets à partir de ce module PowerShell et supposent que vous avez ouvert une nouvelle fenêtre PowerShell et importé le nouveau module comme suit :
       * `Import-Module AzureADPasswordProtection`
@@ -142,7 +145,7 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
    > [!NOTE]
    > Pour que `Register-AzureADPasswordProtectionForest` réussisse, il faut qu’au moins un contrôleur de domaine Windows Server 2012 (ou version ultérieure) soit disponible dans le domaine du serveur proxy. Il n’est cependant pas nécessaire que les logiciels d’agent de contrôleur de domaine soient installés sur des contrôleurs de domaine avant cette étape.
 
-6. Facultatif : configurez le service de proxy de protection de mot de passe Azure AD pour l’écoute sur un port spécifique.
+6. Facultatif : Configurez le service proxy de protection de mot de passe Azure AD pour l’écoute sur un port spécifique.
    * RPC sur TCP est utilisé par le logiciel Agent DC de protection de mot de passe Azure AD sur les contrôleurs de domaine pour communiquer avec le service de proxy de protection de mot de passe Azure AD. Par défaut, le service Proxy de la stratégie de mot de passe de protection de mot de passe Azure AD est à l’écoute sur n’importe quel point de terminaison RPC dynamique disponible. Si nécessaire en raison de la topologie du réseau ou de la configuration du pare-feu, le service peut être configuré à la place pour écouter sur un port TCP spécifique.
       * Pour configurer le service afin qu’il s’exécute sous un port statique, utilisez la cmdlet `Set-AzureADPasswordProtectionProxyConfiguration`.
          ```

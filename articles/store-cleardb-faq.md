@@ -1,5 +1,5 @@
 ---
-title: FAQ sur les bases de données MySQL ClearDB avec Azure App Service | Microsoft Docs
+title: FAQ sur les bases de données MySQL ClearDB avec Azure App Service
 description: Réponses aux questions courantes sur l’utilisation de bases de données MySQL ClearDB avec Azure App Service.
 documentationcenter: php
 services: mysql
@@ -7,17 +7,16 @@ author: sunbuild
 manager: yochayk
 tags: mysql
 ms.service: multiple
-ms.workload: data-management
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 253f817099bd2705d8b9ea98741dc8fd28f09efe
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0887f58ca455dfec0474c8d6a1acba584224f0d7
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421655"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074408"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>FAQ sur les bases de données MySQL ClearDB avec Azure App Service
 Ce FAQ répond aux questions courantes sur l’utilisation et l’achat de bases de données MySQL ClearDB pour Azure Web Apps.
@@ -27,24 +26,22 @@ Ce FAQ répond aux questions courantes sur l’utilisation et l’achat de bases
 >
 > Pour plus d’informations, également concernant les étapes suivantes, consultez [Modifications apportées aux plans de service ClearDB](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/).
 
-
 ## <a name="what-options-do-i-have-for-mysql-on-azure"></a>Quelles sont les options MySQL sur Azure ?
-Vous disposez de plusieurs options :
+Pour obtenir les dernières informations sur ce service, consultez [ClearDB](https://w2.cleardb.net/). ClearDB est un service d’hébergement MySQL qui gère l’infrastructure MySQL pour vous. 
 
-* [Base de données MySQL partagée ClearDB](/marketplace/partners/cleardb/databases/)
-* [Clusters Premium MySQL ClearDB](/marketplace/partners/cleardb-clusters/cluster/)
+Vous avez plusieurs autres possibilités pour héberger MySQL dans Azure :
+* [Azure Database pour MySQL](https://azure.microsoft.com/services/mysql/)
 * [Cluster MySQL s’exécutant sur une machine virtuelle Azure](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
 * [Instance unique de MySQL s’exécutant sur une machine virtuelle Azure](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-ClearDB est un service d’hébergement MySQL qui gère l’infrastructure MySQL pour vous. Quand vous exécutez votre propre cluster ou base de données MySQL sur une machine virtuelle Azure, vous devez configurer le serveur MySQL et le maintenir à jour avec des correctifs.
 
 ## <a name="do-i-need-a-credit-card-for-the-web-app--mysql-template-in-the-azure-marketplace"></a>Ai-je besoin d’une carte de crédit pour le modèle Application web + MySQL dans Azure Marketplace ?
 Cela dépend du type d’abonnement que vous utilisez. Voici quelques types d’abonnement couramment utilisés :
 
-* [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) : exige une carte de crédit. Quand vous achetez une base de données MySQL payante, votre carte de crédit est débitée.
-* [Essai gratuit](https://azure.microsoft.com/pricing/free-trial/) : inclut des crédits à utiliser avec des services Microsoft Azure mais ne permet pas d’acheter des ressources tierces. Pour acheter des services tiers ou une base de données MySQL payante, vous devez utiliser un abonnement avec une carte de crédit activée. Pour Web Apps, vous pouvez créer une base de données MySQL ClearDB GRATUITE.
-* [Abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) et **Dev MSDN/Tester le paiement à l’utilisation**: à l’instar d’un essai gratuit, un abonnement MSDN exige une carte de crédit pour acheter une solution MySQL payante à partir de ClearDB.
-* [Contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/): les clients Contrat Entreprise sont facturés conformément à leur contrat, tous les trimestres, à hauteur de tous leurs achats Azure Marketplace (tiers) sur une facture distincte et cumulée. Vous êtes facturé hors engagement monétaire pour tous les achats Marketplace. Notez que, à ce jour, Azure Store n’est pas disponible pour les clients inscrits en Azerbaïdjan, Croatie, Norvège et à Porto Rico. 
+* [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) : nécessite une carte de crédit. Quand vous achetez une base de données MySQL payante, votre carte de crédit est débitée.
+* [Essai gratuit](https://azure.microsoft.com/pricing/free-trial/) : inclut des crédits à utiliser avec les services Microsoft Azure mais ne permet pas d’acheter des ressources tierces. Pour acheter des services tiers ou une base de données MySQL payante, vous devez utiliser un abonnement avec une carte de crédit activée. Pour Web Apps, vous pouvez créer une base de données MySQL ClearDB GRATUITE.
+* [Abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) et **Dev MSDN/Tester le paiement à l’utilisation** : semblable à l’essai gratuit, un abonnement MSDN nécessite une carte de crédit pour acheter une solution MySQL payante à partir de ClearDB.
+* [Contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/) : les clients Contrat Entreprise sont facturés conformément à leur contrat, chaque trimestre, à hauteur de tous leurs achats sur la Place de marché Azure (tiers), sur une facture distincte et cumulée. Vous êtes facturé hors engagement monétaire pour tous les achats Marketplace. Notez que, à ce jour, Azure Store n’est pas disponible pour les clients inscrits en Azerbaïdjan, Croatie, Norvège et à Porto Rico. 
 
 ## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>Pourquoi ai-je été facturé 3,50 USD pour une application Web + MySQL dans Azure Marketplace ?
 L’option de base de données par défaut est Titan, qui coûte 3,50 USD. Nous n’indiquons pas le coût lors de la création de la base de données et vous pouvez acheter par erreur une base de données que vous ne souhaitiez pas. Nous essayons de trouver un moyen d’améliorer l’expérience, mais en attendant, vous devez vérifier tous vos niveaux tarifaires sélectionnés pour l’application web et la base de données avant de cliquer sur **Créer** et commencer le déploiement des ressources.
@@ -53,7 +50,7 @@ L’option de base de données par défaut est Titan, qui coûte 3,50 USD. Nous
 Oui. Vous pouvez connecter votre application web à votre base de données tant que votre machine virtuelle Azure a octroyé l’accès à distance à votre application web. Pour plus d’informations, consultez la page [Installer MySQL sur une machine virtuelle](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="in-which-countries-are-cleardb-premium-mysql-clusters-supported"></a>Dans quels pays les clusters Premium MySQL ClearDB sont-ils pris en charge ?
-[clusters Premium MySQL ClearDB](/marketplace/partners/cleardb-clusters/cluster/) sont disponibles dans toutes les régions Azure dans le monde à l’exception de l’Inde, l’Australie, le sud du Brésil et la Chine.
+Les clusters Premium MySQL ClearDB sont disponibles dans toutes les régions Azure du monde, à l’exception des régions suivantes : Inde, Australie, Brésil Sud et Chine.
 
 ## <a name="can-i-create-a-new-cluster-prior-to-creating-a-database-with-cleardb-premium-cluster-solution"></a>Puis-je créer un nouveau cluster avant de créer une base de données avec la solution de cluster premium ClearDB ?
 Non, la création de clusters ClearDB vides n’est pas prise en charge. Le portail Azure vous permet de créer des bases de données dans un cluster, ce qui peut éventuellement créer un cluster en même temps.
@@ -65,7 +62,7 @@ Non, Azure ne vous avertit pas si vous supprimez un achat Marketplace dont dépe
 Azure Marketplace n’est pas disponible pour les clients inscrits en Azerbaïdjan, Croatie, Norvège ou à Porto Rico. ClearDB n’est pas disponible dans ces régions.
 
 ## <a name="what-pricing-tier-should-i-choose-for-a-production-web-app-and-database"></a>Quel niveau tarifaire dois-je choisir pour une application web de production et une base de données ?
-Utilisez le niveau tarifaire De base ou un niveau supérieur pour Web Apps. Pour ClearDB, nous vous recommandons d’utiliser un plan Saturne ou Jupiter. Examinez les fonctionnalités et les limitations de chaque niveau tarifaire pour [Web Apps](https://azure.microsoft.com/pricing/details/app-service/) et les [bases de données MySQL ClearDB](/marketplace/partners/cleardb/databases/) pour choisir celui qui correspond à vos besoins.
+Utilisez le niveau tarifaire De base ou un niveau supérieur pour Web Apps. Pour ClearDB, nous vous recommandons d’utiliser un plan Saturne ou Jupiter. Examinez les fonctionnalités et les limitations de chaque niveau tarifaire pour [Web Apps](https://azure.microsoft.com/pricing/details/app-service/) et les [bases de données MySQL ClearDB](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/) pour choisir celui qui correspond à vos besoins.
 
 ## <a name="how-do-i-upgrade-my-cleardb-database-from-one-plan-to-another"></a>Comment dois-je faire pour mettre à niveau ma base de données ClearDB d’un plan vers un autre ?
 Dans le [portail Azure](https://portal.azure.com), vous pouvez faire monter en puissance une base de données d’hébergement partagé ClearDB. (pour plus d’informations, consultez cet [article](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/)). Actuellement, nous ne prenons pas en charge la mise à niveau des clusters ClearDB Premium dans le portail Azure.

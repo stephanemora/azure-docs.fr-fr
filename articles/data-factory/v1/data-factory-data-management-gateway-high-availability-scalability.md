@@ -9,17 +9,16 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 58f612906af55575e9d42307af924ea0a8501ca1
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: bc8cacd6d52de0367a0ea14748e548b9d32f47ef
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42142101"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016765"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Passerelle de gestion des données - Haute disponibilité et scalabilité (préversion)
 > [!NOTE]
@@ -171,7 +170,7 @@ Voici la configuration requise pour le certificat TLS/SSL utilisé pour sécuris
 - Prise en charge de toutes les tailles de clé prises en charge par Windows Server 2012 R2 pour les certificats SSL.
 - Les certificat utilisant des clés CNG ne sont pas pris en charge.
 
-#### <a name="faq-when-would-i-not-enable-this-encryption"></a>Forum aux questions : quand faut-il ne pas activer ce chiffrement ?
+#### <a name="faq-when-would-i-not-enable-this-encryption"></a>Questions fréquentes : Quand faut-il ne pas activer ce chiffrement ?
 L’activation du chiffrement peut ajouter certains coûts à votre infrastructure (possession d’un certificat public). Par conséquent, vous pouvez ignorer l’activation du chiffrement dans les cas ci-dessous :
 - Quand le runtime d’intégration s’exécute sur un réseau approuvé ou sur un réseau avec un chiffrement transparent comme IP/SEC. Étant donné que ce canal de communication se limite uniquement à votre réseau approuvé, vous n’aurez peut-être pas besoin d’un chiffrement supplémentaire.
 - Quand le runtime d’intégration ne s’exécute pas dans un environnement de production. Cela peut aider à réduire le coût du certificat TLS/SSL.

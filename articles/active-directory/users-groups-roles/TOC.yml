@@ -23,14 +23,12 @@ items:
   items:
   - name: Déléguer les rôles d’administrateur Azure AD
     href: roles-concept-delegation.md
-  - name: Notions de base sur les licences basées sur des groupes
-    href: /azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Comparer les autorisations d’utilisateur par défaut
     href: /azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Rôles d’administrateur Azure AD et Azure
+  - name: Comparer les rôles Azure AD et Azure
     href: /azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Restrictions et limites du service
-    href: directory-service-limits-restrictions.md
+  - name: Notions de base sur les licences basées sur des groupes
+    href: /azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
   expanded: true
 - name: Procédures
   items:
@@ -96,6 +94,8 @@ items:
       href: groups-restore-deleted.md
     - name: Gérer les paramètres de groupe
       href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Configurer un libre-service de groupe
+      href: groups-self-service-management.md
     - name: Groupes dynamiques
       items:
       - name: Créer un groupe dynamique
@@ -104,8 +104,6 @@ items:
         href: groups-dynamic-membership.md
       - name: Modifier le type d’appartenance au groupe
         href: groups-change-type.md
-    - name: Configurer des groupes créés par un utilisateur
-      href: groups-self-service-management.md
   - name: Attribuer des licences
     items:
     - name: Attribuer des licences à un groupe
@@ -120,7 +118,7 @@ items:
       href: licensing-group-advanced.md
     - name: Licence de groupe avec PowerShell
       href: licensing-ps-examples.md
-    - name: ID du produit et du plan de service
+    - name: ID de plan de service pour les licences
       href: licensing-service-plan-reference.md
   - name: Rôles d’administrateur Azure AD
     items:
@@ -161,9 +159,11 @@ items:
     href: https://docs.microsoft.com/cli/azure/ad
   - name: Azure AD PowerShell pour Graph
     href: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0
-ms.openlocfilehash: e2244b8058c53ff8d921bc54bfed71d6fe4d0df9
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+  - name: Limites du service Azure AD
+    href: directory-service-limits-restrictions.md
+ms.openlocfilehash: 5556185bfad0cebf409b5f95fa5c26f6779d5903
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133568"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329937"

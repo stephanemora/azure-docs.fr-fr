@@ -8,20 +8,19 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 4c2bf83fec3d8f961a84523365e4a98fe3bf7603
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: b498e09e53f8b0844470bf3948a664d8ad4337b7
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052365"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022221"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité de diffusion en continu Hadoop dans Azure Data Factory
-> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez:"]
-> * [Version 1](v1/data-factory-hadoop-streaming-activity.md)
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1](v1/data-factory-hadoop-streaming-activity.md)
 > * [Version actuelle](transform-data-using-hadoop-streaming.md)
 
 L’activité de diffusion en continu HDInsight dans un [pipeline](concepts-pipelines-activities.md) Data Factory exécute des programmes de diffusion en continu Hadoop sur votre cluster HDInsight [propre](compute-linked-services.md#azure-hdinsight-linked-service) ou [à la demande](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Cet article s'appuie sur l'article [Activités de transformation des données](transform-data.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
@@ -71,18 +70,18 @@ Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Fa
 
 | Propriété          | Description                              | Obligatoire |
 | ----------------- | ---------------------------------------- | -------- |
-| Nom              | Nom de l’activité                     | OUI      |
+| Nom              | Nom de l’activité                     | Oui      |
 | description       | Texte décrivant la raison motivant l’activité. | Non        |
-| Type              | Pour l’activité de diffusion en continu Hadoop, le type d’activité est HDInsightStreaming. | OUI      |
-| linkedServiceName | Référence au cluster HDInsight enregistré en tant que service lié dans Data Factory. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | OUI      |
-| mappeur            | Spécifie le nom de l’exécutable du mappeur. | OUI      |
-| raccord de réduction           | Spécifie le nom de l’exécutable du raccord de réduction. | OUI      |
+| Type              | Pour l’activité de diffusion en continu Hadoop, le type d’activité est HDInsightStreaming. | Oui      |
+| linkedServiceName | Référence au cluster HDInsight enregistré en tant que service lié dans Data Factory. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | Oui      |
+| mappeur            | Spécifie le nom de l’exécutable du mappeur. | Oui      |
+| raccord de réduction           | Spécifie le nom de l’exécutable du raccord de réduction. | Oui      |
 | combinateur          | Spécifie le nom de l’exécutable du combinateur. | Non        |
 | fileLinkedService | Référence à un service lié de stockage Azure utilisée pour stocker les programmes du mappeur, du combinateur et du raccord de réduction à exécuter. Si vous ne spécifiez pas ce service lié, le service lié Stockage Azure défini dans le service lié HDInsight est utilisé. | Non        |
-| filePath          | Fournissez un tableau du chemin vers les programmes du mappeur, du combinateur et du raccord de réduction stockés dans le stockage Azure référencé par fileLinkedService. Le chemin respecte la casse. | OUI      |
-| entrée             | Spécifie le chemin WASB vers le fichier d’entrée du mappeur. | OUI      |
-| sortie            | Spécifie le chemin WASB vers le fichier de sortie du raccord de réduction. | OUI      |
-| getDebugInfo      | Spécifie quand les fichiers journaux sont copiés vers le stockage Azure utilisé par le cluster HDInsight (ou) spécifié par scriptLinkedService. Valeurs autorisées : Aucun, Toujours ou Échec. Valeur par défaut : Aucun. | Non        |
+| filePath          | Fournissez un tableau du chemin vers les programmes du mappeur, du combinateur et du raccord de réduction stockés dans le stockage Azure référencé par fileLinkedService. Le chemin respecte la casse. | Oui      |
+| entrée             | Spécifie le chemin WASB vers le fichier d’entrée du mappeur. | Oui      |
+| sortie            | Spécifie le chemin WASB vers le fichier de sortie du raccord de réduction. | Oui      |
+| getDebugInfo      | Spécifie quand les fichiers journaux sont copiés vers le stockage Azure utilisé par le cluster HDInsight (ou) spécifié par scriptLinkedService. Valeurs autorisées : None, Always ou Failure. Valeur par défaut : Aucune. | Non        |
 | arguments         | Spécifie un tableau d’arguments pour un travail Hadoop. Les arguments sont passés sous la forme d’arguments de ligne de commande à chaque tâche. | Non        |
 | defines           | Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script Hive. | Non        | 
 

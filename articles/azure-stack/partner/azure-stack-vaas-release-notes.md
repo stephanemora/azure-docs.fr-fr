@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: a6245472f0fc3f65dcbeebdf251387efed5f02b8
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 687e47eff000679f24088a59297a258a1469f3fd
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333016"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106271"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Notes de publication de Validation en tant que service
 
@@ -49,7 +49,7 @@ Cet article présente les notes de publication d’Azure Stack Validation en tan
 
 - Prérequis à la validation VaaS et mises à jour de disque dur virtuel
 
-    `Install-VaaSPrerequisites` requiert désormais des informations d’identification d’administrateur du cloud pour résoudre un problème lors de la validation d’un package. La documentation indiquée dans la section [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) (Télécharger et installer l’agent) a été mise à jour comme suit :
+    `Install-VaaSPrerequisites` nécessite désormais des informations d’identification d’administrateur cloud pour résoudre un problème durant la validation de solution. La documentation indiquée dans la section [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) (Télécharger et installer l’agent) a été mise à jour comme suit :
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -76,7 +76,7 @@ Cet article présente les notes de publication d’Azure Stack Validation en tan
 
   - Notifications de signature de package
 
-    Quand un package de personnalisation OEM est envoyé dans le cadre du flux de travail de validation du package, le format du package est validé pour garantir qu’il suit la spécification publiée. Si le package n’est pas conforme, l’exécution échoue. Des notifications par courrier sont envoyées à l’adresse e-mail du contact Azure Active Directory enregistré pour le locataire.
+    Quand un package de personnalisation OEM est envoyé dans le cadre du workflow de validation de solution, le format du package est validé pour garantir son respect de la spécification publiée. Si le package n’est pas conforme, l’exécution échoue. Des notifications par courrier sont envoyées à l’adresse e-mail du contact Azure Active Directory enregistré pour le locataire.
 
   - Catégorie de test interactif
 

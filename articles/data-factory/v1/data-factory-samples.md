@@ -9,17 +9,16 @@ ms.assetid: c0538b90-2695-4c4c-a6c8-82f59111f4ab
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 417425a6982ca92e486ccfb578131ebc898a0466
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 03127dc777588f669ef07af52c8f73d986bfe0ea
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046086"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020810"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - Exemples
 > [!NOTE]
@@ -83,7 +82,7 @@ Les composants suivants doivent être installés sur votre ordinateur :
 
 * Visual Studio 2013 ou Visual Studio 2015
 * Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013 ou Visual Studio 2015. Accédez à la [page de téléchargement d’Azure](https://azure.microsoft.com/downloads/), puis cliquez sur **VS 2013** ou **VS 2015** dans la section  **.NET**.
-* Téléchargez le dernier plug-in Azure Data Factory pour Visual Studio : [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Si vous utilisez Visual Studio 2013, vous pouvez également mettre à jour le plug-in en procédant comme suit : dans le menu, cliquez sur **Outils** -> **Extensions et mises à jour** -> **En ligne** -> **Galerie Visual Studio** -> **Outils Microsoft Azure Data Factory pour Visual Studio** -> **Mettre à jour**.
+* Téléchargez le dernier plug-in Azure Data Factory pour Visual Studio : [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Si vous utilisez Visual Studio 2013, vous pouvez également mettre à jour le plug-in en effectuant les étapes suivantes : Dans le menu, cliquez sur **Outils** -> **Extensions et mises à jour** -> **En ligne** -> **Galerie Visual Studio** -> **Outils Microsoft Azure Data Factory pour Visual Studio** -> **Mettre à jour**.
 
 ### <a name="use-data-factory-templates"></a>Utilisation de modèles de fabrique de données
 1. Cliquez sur **Fichier** dans le menu, pointez sur **Nouveau**, puis cliquez sur **Projet**.
@@ -105,7 +104,7 @@ Les composants suivants doivent être installés sur votre ordinateur :
    2. Entrez un **nom** pour la fabrique de données.
    3. Sélectionnez l’ **abonnement Azure** dans lequel vous voulez créer la fabrique de données.
    4. Sélectionnez le **groupe de ressources** pour la fabrique de données.
-   5. Sélectionnez **États-Unis de l’Ouest**, **États-Unis de l’Est** ou **Europe du Nord** pour la **région**.
+   5. Sélectionnez **USA Ouest**, **USA Est** ou **Europe Nord** pour la **région**.
    6. Cliquez sur **Suivant**.
 6. Dans la page **Configurer des banques de données**, spécifiez une **base de données SQL Azure** et un **compte de stockage Azure** existants, ou créez-en des nouveaux, puis cliquez sur Suivant.
 7. Dans la page **Configurer le calcul**, sélectionnez les valeurs par défaut, puis cliquez sur **Suivant**.

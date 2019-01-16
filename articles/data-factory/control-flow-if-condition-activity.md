@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 5077982bdef4d0e8fbf1ab485566909b4dc97a8a
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 799348c14bba80909d6e443f09d232e5a4783f25
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857376"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015149"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Activité IfCondition dans Azure Data Factory | Microsoft Docs
 L’activité IfCondition fournit les mêmes fonctionnalités qu’une instruction «if » dans les langages de programmation. La condition évalue un ensemble d’activités si l’expression retourne `true` et un autre ensemble d’activités si elle retourne `false`. 
@@ -67,11 +66,11 @@ L’activité IfCondition fournit les mêmes fonctionnalités qu’une instructi
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-Nom | Nom de l’activité de condition « if ». | Chaîne | OUI
-Type | Doit avoir la valeur **IfCondition** | Chaîne | OUI
-expression | Expression qui doit retourner true ou false | Expression avec un résultat de type booléen | OUI
-ifTrueActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `true`. | Tableau | OUI
-ifFalseActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `false`. | Tableau | OUI
+Nom | Nom de l’activité de condition « if ». | Chaîne | Oui
+Type | Doit avoir la valeur **IfCondition** | Chaîne | Oui
+expression | Expression qui doit retourner true ou false | Expression avec un résultat de type booléen | Oui
+ifTrueActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `true`. | Tableau | Oui
+ifFalseActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `false`. | Tableau | Oui
 
 ## <a name="example"></a>Exemples
 Le pipeline dans cet exemple copie les données depuis un dossier d’entrée vers un dossier de sortie. Le dossier de sortie est déterminé par la valeur du paramètre de pipeline routeSelection. Si la valeur de routeSelection est true, les données sont copiées vers outputPath1. Par contre, si la valeur de routeSelection est false, les données sont copiées vers outputPath2. 
@@ -246,7 +245,7 @@ Le pipeline définit **folderPath** sur la valeur de paramètre **outputPath1** 
 ```
 
 ### <a name="powershell-commands"></a>Commandes PowerShell
-Ces commandes supposent que vous avez enregistré les fichiers JSON dans le dossier C:\ADF. 
+Ces commandes supposent que vous avez enregistré les fichiers JSON dans le dossier : C:\ADF. 
 
 ```powershell
 Connect-AzureRmAccount

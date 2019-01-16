@@ -1,6 +1,6 @@
 ---
 title: Présentation du modèle de ressource Azure Service Fabric | Microsoft Docs
-description: Découvrez le modèle de ressource Service Fabric, une approche simplifiée de la définition d’applications Service Fabric Mesh.
+description: Découvrez le modèle de ressource Service Fabric, une approche simplifiée de la définition d’applications Service Fabric mesh.
 services: service-fabric-mesh
 documentationcenter: .net
 author: vturecek
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3eeabd4c3bf099d7a0c7007bdf0c8c7e85f3381e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 702e1ef9c8593c2106be256e6fd7de602bf41aa7
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889665"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019994"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Présentation du modèle de ressource Azure Service Fabric
 
@@ -32,11 +32,11 @@ Le modèle de ressource Service Fabric décrit une approche simple de la défini
 - Secrets et secrets/valeurs
 - Volumes
 
-Chaque ressource est décrite de manière déclarative dans un fichier de ressources, qui est un document YAML ou JSON simple décrivant l’application Mesh, et est provisionnée par la plateforme Service Fabric.
+Chaque ressource est décrite de manière déclarative dans un fichier de ressources, qui est un simple document YAML ou JSON décrivant l’application mesh, et approvisionnée par la plateforme Service Fabric.
 
 ## <a name="applications-and-services"></a>Applications et services
 
-Une ressource Application est l’unité de déploiement, le versioning et la durée de vie d’une application Mesh. Elle est composée d’une ou plusieurs ressources Service qui représentent un microservice. Chaque ressource Service, à son tour, se compose d’un ou plusieurs packages de code qui décrivent tout ce qui est nécessaire pour exécuter l’image conteneur associée au package de code.
+Une ressource d’application est l’unité de déploiement, le contrôle de version et la durée de vie d’une application mesh. Elle est composée d’une ou plusieurs ressources Service qui représentent un microservice. Chaque ressource Service, à son tour, se compose d’un ou plusieurs packages de code qui décrivent tout ce qui est nécessaire pour exécuter l’image conteneur associée au package de code.
 
 ![Applications et services][Image1]
 
@@ -49,7 +49,7 @@ Une ressource Service déclare les éléments suivants :
 
 Tous les packages de code définis comme faisant partie d’une ressource de service sont déployés et activés ensemble en tant que groupe. La ressource de service décrit également le nombre d’instances du service à exécuter, et référence d’autres ressources (par exemple, des ressources réseau) dont elle dépend.
 
-Si une application Mesh est composée de plusieurs services, il n’est pas garanti que ceux-ci s’exécutent ensemble sur le même nœud. De même, pendant une mise à niveau de l’application, l’échec de mise à niveau d’un seul service entraîne la restauration de la version précédente de tous les services.
+Si une application mesh est composée de plusieurs services, il n’est pas garanti que ceux-ci s’exécutent ensemble sur le même nœud. De même, pendant une mise à niveau de l’application, l’échec de mise à niveau d’un seul service entraîne la restauration de la version précédente de tous les services.
 
 Comme mentionné précédemment, le cycle de vie de chaque instance d’application peut être géré indépendamment. Par exemple, une instance d’application peut être mise à niveau indépendamment des autres instances d’application. Généralement, vous maintenez un nombre relativement faible de services dans une application car, plus vous placez de services dans une application, plus il devient difficile de gérer chacun d’eux de façon indépendante.
 
@@ -78,9 +78,9 @@ Les conteneurs mettent souvent des disques temporaires à disposition. Toutefois
 ![Volumes][Image3]
 
 ## <a name="programming-models"></a>Modèles de programmation
-Une ressource de service ne requiert qu’une image conteneur pour s’exécuter, qui est référencée dans les packages de code associés à la ressource. Vous pouvez exécuter n’importe quel code, écrit dans n’importe quel langage, à l’aide de n’importe quelle infrastructure au sein du conteneur sans avoir besoin de connaître ou d’utiliser des API spécifiques à Service Fabric Mesh. 
+Une ressource de service ne requiert qu’une image conteneur pour s’exécuter, qui est référencée dans les packages de code associés à la ressource. Vous pouvez exécuter n’importe quel code, écrit dans n’importe quel langage, à l’aide de n’importe quelle infrastructure au sein du conteneur sans avoir besoin de connaître ou d’utiliser des API spécifiques de Service Fabric mesh. 
 
-Votre code d’application reste portable, même en dehors de Service Fabric Mesh, et vos déploiements d’applications restent cohérents indépendamment du langage ou de l’infrastructure utilisés pour implémenter vos services. Que votre application soit ASP.NET Core, Go, ou simplement un ensemble de processus et de scripts, le modèle de déploiement de ressource Service Fabric Mesh reste le même. 
+Votre code d’application reste portable, même en dehors de Service Fabric mesh, et vos déploiements d’applications restent cohérents indépendamment du langage ou de l’infrastructure utilisés pour implémenter vos services. Que votre application soit ASP.NET Core, Go, ou simplement un ensemble de processus et de scripts, le modèle de déploiement de ressource Service Fabric mesh reste le même. 
 
 ## <a name="packaging-and-deployment"></a>Empaquetage et déploiement
 
@@ -88,8 +88,8 @@ Suivant le modèle de ressource, les applications Service Fabric Mesh sont empaq
 
 
 ## <a name="next-steps"></a>Étapes suivantes 
-Pour en savoir plus sur Service Fabric Mesh, consultez :
-- [Vue d’ensemble de Service Fabric Mesh](service-fabric-mesh-overview.md)
+Pour en savoir plus sur Service Fabric mesh, voir la
+- [Vue d’ensemble de Service Fabric mesh](service-fabric-mesh-overview.md)
 
 [Image1]: media/service-fabric-mesh-service-fabric-resources/AppsAndServices.png
 [Image2]: media/service-fabric-mesh-service-fabric-resources/NetworkAndGateway.png

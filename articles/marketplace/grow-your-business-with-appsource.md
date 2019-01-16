@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: f39392518f89ac51afd9a18fe59bcef46840478d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2a4343b036716e6c49f7a05a8a480c6e74463760
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054171"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077995"
 ---
 # <a name="grow-your-business-with-appsource"></a>Développer votre activité avec AppSource  
 Utilisez App Source pour encourager les clients professionnels à rechercher, essayer et obtenir des applications métier SaaS (Software as a service) et des services d’implémentation, afin d’accroître les résultats commerciaux et de réduire le délai de rentabilité.  
@@ -67,7 +67,7 @@ C’est la qualité de votre publication, ainsi que la qualité de votre engagem
 La liste de vérification suivante comprend des bonnes pratiques et des ressources marketing que vous pouvez utiliser pour créer des offres destinées à être publiées sur AppSource :  
 *   **Prenez connaissance des directives relatives aux marques et marques déposées Microsoft.**  
     Lorsque vous nommez votre application, et faites référence aux marques Microsoft et aux noms des logiciels, produits et services Microsoft, suivez les directives relatives aux marques et marques déposées Microsoft, ainsi que les directives propres aux produits.  
-    *   Pour plus d’informations sur les marques et marques déposées Microsoft, visitez la page des Directives relatives aux marques et marques déposées Microsoft à l’adresse [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx).  
+    *   Pour plus d’informations sur les marques et marques déposées Microsoft, visitez la page des Directives relatives aux marques et marques déposées Microsoft à l’adresse [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).  
 *   **Permettez aux clients d’utiliser votre application en fournissant un lien de téléchargement, un essai gratuit ou un Test Drive.**  
     Les utilisateurs professionnels voudront d’abord tester votre application.  
 *   **Créez une proposition de valeur forte.**  
@@ -102,20 +102,20 @@ Les tableaux suivants détaillent chaque étape de renseignement de l’offre.
 
 **Identité de l’offre**  
 
-| Paramètre de l'offre | Meilleures pratiques | 
+| Paramètre de l'offre | Bonnes pratiques | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Name** | **Nommage de votre offre**<br />Le choix du nom pour votre application est une décision importante. Les noms qui décrivent les avantages que présente l’application sont plus efficaces que les noms descriptifs. Le nom de votre application doit refléter l’atout principal dont bénéficieront les clients. Le fait d’inclure des mots clés de recherche dans le titre de votre application peut également améliorer le référencement de votre offre dans les résultats de recherche. Lorsque vous faites référence aux marques Microsoft et aux noms des logiciels, produits et services Microsoft, suivez les directives relatives aux marques et marques déposées Microsoft, ainsi que les directives propres aux produits.<ul> <li>Pour plus d’informations sur les marques et marques déposées Microsoft, visitez la page des Directives relatives aux marques et marques déposées Microsoft à l’adresse [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
+| **Nom** | **Nommage de votre offre**<br />Le choix du nom pour votre application est une décision importante. Les noms qui décrivent les avantages que présente l’application sont plus efficaces que les noms descriptifs. Le nom de votre application doit refléter l’atout principal dont bénéficieront les clients. Le fait d’inclure des mots clés de recherche dans le titre de votre application peut également améliorer le référencement de votre offre dans les résultats de recherche. Lorsque vous faites référence aux marques Microsoft et aux noms des logiciels, produits et services Microsoft, suivez les directives relatives aux marques et marques déposées Microsoft, ainsi que les directives propres aux produits.<ul> <li>Pour plus d’informations sur les marques et marques déposées Microsoft, visitez la page des Directives relatives aux marques et marques déposées Microsoft à l’adresse [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
 
 **Détails de la vitrine - Détails de l’offre**  
 
-| Paramètres de la vitrine | Meilleures pratiques | 
+| Paramètres de la vitrine | Bonnes pratiques | 
 |:---------------------------------------- |:----------------------------------------------------- |
 | **Nom de l’offre** | Le résumé de l’offre s’affiche dans la page de recherche de l’offre, dans la page d’accueil AppSource et dans la galerie des applications. Ajoutez des mots clés de recherche dans le résumé de votre offre pour améliorer le référencement de votre application dans les résultats de recherche. |
 | **Description de l’offre** | **Fournissez une description de qualité pour votre offre**<br />Décrivez clairement la proposition de valeur de votre offre dans les premières phrases de votre description. Gardez à l’esprit que les premières phrases peuvent être affichées dans les résultats de recherche.<br />Ne comptez pas sur les fonctionnalités de votre produit pour convaincre. Concentrez-vous plutôt sur ce que votre application peut apporter aux clients. Autant que possible, utilisez le vocabulaire propre au secteur visé, ainsi que des termes décrivant les avantages proposés.<br />Votre proposition de valeur doit comprendre les composants suivants :<ul> <li>La description du produit</li>  <li>Qui en bénéficie le plus</li> <li>Les besoins auxquels il répond ou les problèmes qu’il permet de résoudre</li> </ul>Expliquez aux clients comment l’utilisation de votre solution peut changer leur activité ou leur vie professionnelle.<br />Incorporez des mots clés de recherche et des variations de mot clé dans la description de l’offre pour améliorer le référencement de votre offre dans les résultats de recherche.<br />Rédigez la description de l’offre au format HTML.<br />Voici un exemple d’offre simple (comme le montre l’exemple d’offre ci-dessus) qui fournit un résumé de l’offre et quelques fonctionnalités clés. Le nombre maximal de caractères est de 3 000.<br />*Exemple HTML*<br />Organization Insights for Dynamics 365 (en ligne) fournit d’importantes métriques d’adoption et d’utilisation pour votre organisation Dynamics 365, ainsi que des outils qui vous permettront de résoudre les problèmes de performances et de prise en charge. <ul> <li>**Personnaliser les tableaux de bord**<br />Configurez votre tableau de bord pour fournir une expérience utilisateur riche, ainsi que des captures instantanées de vos données importantes.<ul> <li>**Surveiller l’adoption et l’utilisation**<br />Identifiez vos utilisateurs les plus actifs, le nombre de demandes de pages, les entités les plus utilisées, les flux de travail, et bien plus encore.</li> </ul></li> </ul>Version minimale prise en charge : `8.1.1` |
 
 **Détails de la vitrine - Détails de l’annonce**  
 
-| Paramètres de la vitrine | Meilleures pratiques | 
+| Paramètres de la vitrine | Bonnes pratiques | 
 |:--- |:--- |
 | **Secteurs d’activité (2 max.)** | Sélectionnez jusqu'à deux secteurs si votre offre répond à des besoins spécifiques. Citez ces fonctionnalités spécifiques dans la description de l’offre. |
 | **Catégories (3 max.)** | Sélectionnez la ou les catégories (trois maximum) qui correspondent le mieux à votre offre. Choisissez soigneusement ces catégories, car elles permettent aux utilisateurs de trouver les applications qu’ils recherchent. Expliquez dans la description comment votre offre peut répondre aux besoins propres à la catégorie en question. |
@@ -124,12 +124,12 @@ Les tableaux suivants détaillent chaque étape de renseignement de l’offre.
 
 **Détails de vitrine - Artefacts marketing**  
 
-| Paramètres de la vitrine | Meilleures pratiques | 
+| Paramètres de la vitrine | Bonnes pratiques | 
 |:--- |:--- |
 | **Logo de l’offre (au format .png, 48 x 48)** | Votre logo doit être conçu et optimisé pour le numérique.<br />Chargez le logo au format PNG pour la page de recherche de l’offre. |
 | **Logo de l'offre (.png. 216 x 216)** | Votre logo doit être conçu et optimisé pour le numérique.<br />Chargez le logo au format PNG pour la page détaillée de l’offre. |
 | **En savoir plus** | Ajoutez des ressources de vente et de marketing sous le lien « En savoir plus ». Par exemple, des livres blancs, des brochures, des listes de vérification, des présentations PowerPoint, etc. Tous les fichiers doivent être au format PDF. Ne cherchez pas à vendre mais à informer.<br />Ajoutez le lien vers la page d’accueil de votre application à tous vos documents, et ajoutez des paramètres d’URL pour effectuer le suivi des visiteurs et des essais gratuits. |
-| **Vidéos** | Chargez au moins une vidéo (quatre vidéos maximum). Votre vidéo doit refléter la valeur de votre offre. Dans la vidéo, centrez-vous sur le prospect et non sur votre entreprise. Votre vidéo doit évoquer les principaux défis et objectifs des décisionnaires.<br />Durée recommandée : 60 à 90 secondes. Incorporez les mots clés dans le nom des vidéos.<br />Vous pouvez ajouter d’autres vidéos comme une vidéo explicative, une vidéo pour bien démarrer ou un témoignage client. |
+| **Vidéos** | Chargez au moins une vidéo (quatre vidéos maximum). Votre vidéo doit refléter la valeur de votre offre. Dans la vidéo, centrez-vous sur le prospect et non sur votre entreprise. Votre vidéo doit évoquer les principaux défis et objectifs des décisionnaires.<br />Durée recommandée : 60 à 90 secondes. Incorporez les mots clés dans le nom des vidéos.<br />Vous pouvez ajouter d’autres vidéos comme une vidéo explicative, une vidéo pour bien démarrer ou un témoignage client. |
 | **Captures d’écran** | Ajoutez jusqu'à cinq captures d’écran et incorporez les mots clés dans leurs noms. |
 
 ### <a name="promote-the-availability-of-your-offer-on-appsource"></a>Informer les utilisateurs que votre offre est disponible sur AppSource  
@@ -153,7 +153,7 @@ https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-87
 ```  
 
 >[!Important]  
->Lorsque vous préparez l’URL, n’y ajoutez pas le code de langue, par exemple `/en-us/`.  
+>Lorsque vous préparez l’URL, n’y ajoutez pas le code langue, par exemple ``.  
 
 
 #### <a name="link-to-gtm-benefits"></a>Lien vers les avantages de commercialisation

@@ -9,17 +9,16 @@ ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 988c264ef6052b4b41de493944ac8d39a197a083
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 728adae62677eb2edb1e203df9b0d9f11f6acecf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698755"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022306"
 ---
 # <a name="data-management-gateway"></a>Passerelle de gestion de données
 > [!NOTE]
@@ -51,7 +50,7 @@ La passerelle de gestion des données offre les fonctionnalités suivantes :
 ### <a name="command-flow-and-data-flow"></a>Flux de commandes et flux de données
 Lorsque vous utilisez une activité de copie pour copier des données entre des machines locales et cloud, l’activité utilise une passerelle pour transférer les données à partir de la source de données locale vers le cloud et vice versa.
 
-Voici un flux de données global et un résumé des étapes pour la copie à l’aide de la passerelle de données : ![Flux de données à l’aide de la passerelle](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
+Voici le flux de données global et un résumé des étapes pour la copie à l’aide de la passerelle de données : ![Flux de données à l’aide de la passerelle](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
 
 1. Le développeur des données crée une passerelle pour une fabrique de données Azure à l’aide du [portail Azure](https://portal.azure.com)ou d’une [applet de commande PowerShell](https://docs.microsoft.com/powershell/module/azurerm.datafactories/).
 2. Le développeur de données crée un service lié pour un magasin de données local en spécifiant la passerelle. Dans le cadre de la configuration du service lié, le développeur des données utilise l’application de configuration des informations d’identification pour spécifier les types d’authentification et les informations d’identification.  La boîte de dialogue de l’application de configuration des informations d’identification communique avec le magasin de données pour tester la connexion et la passerelle afin d’enregistrer les informations d’identification.
@@ -152,7 +151,7 @@ Au niveau du pare-feu Windows, ces ports de sortie sont normalement activés. Si
 
 > [!NOTE]
 > 1. Selon votre source/vos récepteurs, vous devrez peut-être ajouter des domaines et des ports de sortie supplémentaires à la liste verte de votre pare-feu d’entreprise/Windows.
-> 2. Pour certaines bases de données cloud (par exemple : [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), vous devrez peut-être ajouter l’adresse IP de l’ordinateur de la passerelle à la liste verte dans la configuration du pare-feu.
+> 2. Pour certaines bases de données cloud (par exemple : [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), vous aurez besoin d’ajouter sur liste blanche l’adresse IP de la machine passerelle dans la configuration de pare-feu.
 >
 >
 
@@ -182,9 +181,9 @@ La passerelle utilise le serveur proxy pour se connecter au service cloud. Cliqu
 
 Il existe trois options de configuration :
 
-* **Ne pas utiliser de proxy**: la passerelle n’utilise pas explicitement de proxy pour se connecter aux services cloud.
-* **Utiliser le proxy système** : la passerelle utilise le paramètre de proxy configuré dans diahost.exe.config et diawp.exe.config.  Si aucun proxy n’est configuré dans diahost.exe.config et diawp.exe.config, la passerelle se connecte au service cloud directement sans passer par le proxy.
-* **Utiliser un proxy personnalisé** : configurez les paramètres du proxy HTTP à utiliser pour la passerelle, au lieu d’utiliser les configurations dans diahost.exe.config et diawp.exe.config.  L’adresse et le port sont requis.  Le nom d’utilisateur et le mot de passe sont facultatifs, en fonction du paramètre d’authentification de votre proxy.  Tous les paramètres sont chiffrés avec le certificat d’informations d’identification de la passerelle et stockés localement sur la machine hôte de passerelle.
+* **Ne pas utiliser de proxy** : la passerelle n’utilise pas explicitement de proxy pour se connecter aux services cloud.
+* **Utiliser le proxy système** : la passerelle utilise le paramètre de proxy configuré dans diahost.exe.config et diawp.exe.config.  Si aucun proxy n’est configuré dans diahost.exe.config et diawp.exe.config, la passerelle se connecte au service cloud directement sans passer par le proxy.
+* **Utiliser un proxy personnalisé** : configurez les paramètres du proxy HTTP à utiliser pour la passerelle, au lieu d’utiliser les configurations dans diahost.exe.config et diawp.exe.config.  L’adresse et le port sont requis.  Le nom d’utilisateur et le mot de passe sont facultatifs, en fonction du paramètre d’authentification de votre proxy.  Tous les paramètres sont chiffrés avec le certificat d’informations d’identification de la passerelle et stockés localement sur la machine hôte de passerelle.
 
 Le service hôte de la passerelle de gestion des données redémarre automatiquement après avoir enregistré les paramètres de proxy mis à jour.
 
@@ -236,7 +235,7 @@ Outre ces points, vous devez également vérifier que Microsoft Azure figure dan
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Symptômes possibles des erreurs liées au pare-feu et au serveur proxy
 Si vous rencontrez l’une des erreurs suivantes, cela signifie que vous avez probablement mal configuré le serveur proxy ou le pare-feu, et que la passerelle ne peut pas se connecter à Data Factory pour s’authentifier. Reportez-vous à la section précédente pour vous assurer que votre pare-feu et votre serveur proxy sont correctement configurés.
 
-1. Lorsque vous tentez d’inscrire la passerelle, vous recevez le message d’erreur suivant : « Nous n’avons pas pu enregistrer la clé de passerelle. Avant de réessayer d’enregistrer la clé de passerelle, vérifiez que la passerelle de gestion des données est connectée et que le service d’hébergement de la passerelle de gestion des données est en cours d’exécution. »
+1. Quand vous tentez d’inscrire la passerelle, vous recevez le message d’erreur suivant : « Nous n’avons pas pu enregistrer la clé de passerelle. Avant de réessayer d’enregistrer la clé de passerelle, vérifiez que la passerelle de gestion des données est connectée et que le service d’hébergement de la passerelle de gestion des données est en cours d’exécution. »
 2. Quand vous ouvrez le Gestionnaire de configuration, l’état indiqué est « Déconnecté » ou « En cours de connexion ». Quand vous affichez les journaux des événements Windows, sous « Observateur d’événements » > « Journaux des applications et services » > « Passerelle de gestion des données », des messages d’erreur tels que le suivant s’affichent : `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
@@ -307,7 +306,7 @@ Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique c
 Une fois la passerelle installée, vous pouvez lancer le Gestionnaire de configuration de passerelle de gestion des données de l’une des manières suivantes :
 
 1. Dans la fenêtre **Rechercher**, saisissez **passerelle de gestion de données** pour accéder à cet utilitaire.
-2. Exécutez l’exécutable **ConfigManager.exe** dans le dossier : **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
+2. Exécutez le fichier exécutable **ConfigManager.exe** dans le dossier : **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
 
 ### <a name="home-page"></a>page d'accueil
 La page d’accueil permet d’effectuer les actions suivantes :
@@ -439,7 +438,7 @@ Cette section décrit les opérations pour déplacer une passerelle client d’u
 Pour chiffrer les informations d’identification dans Data Factory Editor, procédez comme suit :
 
 1. Lancez le navigateur web sur **l’ordinateur passerelle**, accédez au [portail Azure](http://portal.azure.com). Recherchez votre fabrique de données si nécessaire, ouvrez-la dans la page **DATA FACTORY**, puis cliquez sur **Créer et déployer** pour démarrer Data Factory Editor.   
-2. Cliquez sur un **service lié** existant dans l’arborescence pour afficher sa définition JSON ou créez un autre service lié qui nécessite une passerelle de gestion des données (par exemple, SQL Server ou Oracle).
+2. Cliquez sur un **service lié** existant dans l’arborescence pour afficher sa définition JSON, ou créez un autre service lié qui nécessite une passerelle de gestion des données (par exemple, SQL Server ou Oracle).
 3. Dans l’éditeur JSON, entrez le nom de la passerelle pour la propriété **gatewayName** .
 4. Entrez le nom du serveur pour la propriété **Data Source** dans **connectionString**.
 5. Entrez le nom de la base de données pour la propriété **Initial Catalog** dans **connectionString**.    

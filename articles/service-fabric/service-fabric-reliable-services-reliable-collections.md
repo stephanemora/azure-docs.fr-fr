@@ -12,16 +12,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 11/6/2017
+ms.date: 1/3/2019
 ms.author: twhitney
-ms.openlocfilehash: caca297afb9ed4e2d85f1068ad3c1122db60c1d7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 422b4bbcfc6811cdc6bbf1649e2c660d04d95776
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191986"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039671"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introduction aux Collections fiables dans les services avec état d’Azure Service Fabric
+
 Les Collections fiables vous permettent d’écrire des applications cloud hautement disponibles, évolutives et à faible latence comme si vous écriviez des applications informatiques uniques. Les classes dans l’espace de noms **Microsoft.ServiceFabric.Data.Collections** fournissent un ensemble de collections qui rendent automatiquement votre état hautement disponible. Les développeurs doivent programmer uniquement les API de Collection fiable et laisser les Collections fiables gérer l’état répliqué et local.
 
 La principale différence entre les Collections fiables et d'autres technologies de haute disponibilité (comme Redis, le service Table Azure et le service File d'attente Azure) est que l'état est conservé localement dans l'instance de service tout en étant également rendu hautement disponible. Cela signifie que :
@@ -35,6 +36,7 @@ Les Collections fiables peuvent être considérées comme l’évolution naturel
 
 * Répliquées : les modifications d’état sont répliquées pour une haute disponibilité.
 * Persistantes : les données sont conservées sur le disque pour une meilleure durabilité par rapport aux pannes à grande échelle (par exemple, une panne de courant dans un centre de données).
+* Étant donné que les écritures sont rendues persistantes et sont répliquées, vous ne pouvez pas créer un ReliableDictionary ou un ReliableQueue volatile, ou autre type de collection fiable qui conserve uniquement les données en mémoire.
 * Asynchrones : les API sont asynchrones afin que les threads ne soient pas bloqués en cas d’entrées/sorties.
 * Transactionnelles : les API utilisent l’abstraction de transactions pour faciliter la gestion de plusieurs Collections fiables au sein d’un service.
 
@@ -45,7 +47,7 @@ Pour obtenir une cohérence plus faible, les applications peuvent accuser récep
 Les API de Collections fiables sont une évolution des API de collections simultanées (trouvées dans l’espace de noms **System.Collections.Concurrent** ) :
 
 * Asynchrones : renvoie une tâche, car contrairement aux collections simultanées, les opérations sont répliquées et conservées.
-* Aucun paramètre de sortie : utilise `ConditionalValue<T>` pour renvoyer un paramètre booléen et une valeur au lieu des paramètres de sortie. `ConditionalValue<T>` est similaire à `Nullable<T>`, mais ne nécessite ne pas que T soit une structure.
+* Aucun paramètre de sortie : utilise `ConditionalValue<T>` pour retourner un `bool` et une valeur au lieu des paramètres de sortie. `ConditionalValue<T>` est similaire à `Nullable<T>`, mais ne nécessite ne pas que T soit une structure.
 * Transactions : utilise un objet de transaction pour permettre à l’utilisateur de regrouper des actions sur plusieurs Collections fiables dans une transaction.
 
 Actuellement, **Microsoft.ServiceFabric.Data.Collections** contient trois collections :
@@ -55,6 +57,7 @@ Actuellement, **Microsoft.ServiceFabric.Data.Collections** contient trois collec
 * [File d’attente simultanée fiable](service-fabric-reliable-services-reliable-concurrent-queue.md) : représente une file d’attente de classement de meilleur effort répliquée, transactionnelle et asynchrone, pour un débit élevé. Semblable à celle de **ConcurrentQueue**, la valeur peut être de tout type.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Instructions et recommandations relatives aux collections fiables](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Utilisation des collections fiables](service-fabric-work-with-reliable-collections.md)
 * [Transactions et verrous](service-fabric-reliable-services-reliable-collections-transactions-locks.md)

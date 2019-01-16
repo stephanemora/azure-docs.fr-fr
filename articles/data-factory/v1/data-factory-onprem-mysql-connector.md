@@ -9,22 +9,21 @@ ms.assetid: 452f4fce-9eb5-40a0-92f8-1e98691bea4c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 34de57188dffb7375889ed9ed89a759238b035ac
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046882"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021632"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Déplacer des données depuis MySQL à l’aide d’Azure Data Factory
-> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez:"]
-> * [Version 1](data-factory-onprem-mysql-connector.md)
-> * [Version 2 (version actuelle)](../connector-mysql.md)
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1](data-factory-onprem-mysql-connector.md)
+> * [Version 2 (version actuelle)](../connector-mysql.md)
 
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez le [Connecteur MySQL dans V2](../connector-mysql.md).
@@ -51,8 +50,8 @@ Pour que la passerelle de gestion des données puisse se connecter à la base de
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’un magasin de données Cassandra local à l’aide de différents outils/API. 
 
-- Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données. 
-- Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, le **modèle Azure Resource Manager**, l’**API .NET** et l’**API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+- Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données. 
+- Vous pouvez également utiliser les outils suivants pour créer un pipeline : **portail Azure**, **Visual Studio**, **Azure PowerShell**, **modèle Azure Resource Manager**, **API .NET** et **API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes :
 
@@ -60,7 +59,7 @@ Que vous utilisiez des outils ou des API, la création d’un pipeline qui dépl
 2. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie. 
 3. Création d’un **pipeline** avec une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. 
 
-Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour consulter un exemple contenant des définitions JSON pour les entités Data Factory utilisées pour copier des données d’un magasin de données MySQL local, consultez la section [Exemple JSON : copier des données depuis un système MySQL vers Azure Blob](#json-example-copy-data-from-mysql-to-azure-blob) de cet article. 
+Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour un exemple contenant des définitions JSON pour les entités Data Factory servant à copier des données à partir d’un magasin de données MySQL local, consultez la section [Exemple JSON : copier des données de MySQL vers Stockage Blob Azure](#json-example-copy-data-from-mysql-to-azure-blob) de cet article. 
 
 Les sections suivantes contiennent des informations détaillées sur les propriétés JSON utilisées pour définir les entités Data Factory propres à un magasin de données MySQL :
 
@@ -69,14 +68,14 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| type |Le type de propriété doit être défini sur : **OnPremisesMySql** |OUI |
-| serveur |Nom du serveur MySQL. |OUI |
-| database |Nom de la base de données MySQL. |OUI |
+| Type |La propriété type doit être définie sur : **OnPremisesMySql** |Oui |
+| serveur |Nom du serveur MySQL. |Oui |
+| database |Nom de la base de données MySQL. |Oui |
 | schema |Nom du schéma dans la base de données. |Non  |
-| authenticationType |Type d'authentification utilisé pour se connecter à la base de données MySQL. Les valeurs possibles sont les suivantes : `Basic`. |OUI |
-| username |Spécifiez le nom d’utilisateur associé à la connexion à la base de données MySQL. |OUI |
-| password |Spécifiez le mot de passe du compte d’utilisateur que vous avez indiqué. |OUI |
-| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données MySQL locale. |OUI |
+| authenticationType |Type d'authentification utilisé pour se connecter à la base de données MySQL. Les valeurs possibles sont les suivantes : `Basic`. |Oui |
+| username |Spécifiez le nom d’utilisateur associé à la connexion à la base de données MySQL. |Oui |
+| password |Spécifiez le mot de passe du compte d’utilisateur que vous avez indiqué. |Oui |
+| gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données MySQL locale. |Oui |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
@@ -99,7 +98,7 @@ Lorsque la source de l’activité de copie est de type **RelationalSource** (ce
 | query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : select * from MyTable. |Non (si **tableName** de **dataset** est spécifiée) |
 
 
-## <a name="json-example-copy-data-from-mysql-to-azure-blob"></a>Exemple JSON : copier des données depuis un système MySQL vers Azure Blob
+## <a name="json-example-copy-data-from-mysql-to-azure-blob"></a>Exemple JSON : copier des données de MySQL vers Stockage Blob Azure
 Cet exemple présente des exemples de définition JSON que vous pouvez utiliser pour créer un pipeline à l’aide du [portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Il indique comment copier des données à partir d’une base de données MySQL locale vers un système de Stockage Blob Azure. Toutefois, les données peuvent être copiées vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie d’Azure Data Factory.
 
 > [!IMPORTANT]
@@ -332,9 +331,9 @@ Lors du déplacement de données vers MySQL, les mappages suivants sont utilisé
 | set |Chaîne |
 | smallint non signé |Int32 |
 | smallint |Int16 |
-| text |Chaîne |
+| texte |Chaîne |
 | time |intervalle de temps |
-| timestamp |DateTime |
+|  timestamp |DateTime |
 | tinyblob |Byte[] |
 | tinyint non signé |Int16 |
 | tinyint |Int16 |

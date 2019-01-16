@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/12/2018
+ms.date: 1/8/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: f8f3584475415cf9ca19458f6da78d34df37f438
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 34731bb96a83a901b3fc1a59ce1846083d69bfd7
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614359"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103381"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Intégration des messages Azure Blockchain Workbench
 
@@ -324,7 +324,7 @@ Si la demande a échoué, les détails sur l’échec sont inclus dans les infor
 - Le contrat existe déjà
 - L’action de contrat existe déjà
 
-**Code d’erreur 5000 : Erreur interne du serveur**
+**Code d’erreur 5000 : Erreur interne du serveur**
 - Messages d’exception
 
 ## <a name="event-notifications"></a>Notifications d’événement
@@ -345,8 +345,8 @@ Si un utilisateur souhaite utiliser Event Grid pour être informé des événeme
 
 ### <a name="consuming-event-grid-events-with-logic-apps"></a>Consommation d’événements Event Grid avec Logic Apps
 
-1.  Créez une **application logique Azure** dans le portail Azure.
-2.  Lorsque vous ouvrez l’application logique Azure dans le portail, vous êtes invité à sélectionner un déclencheur. Sélectionnez **Azure Event Grid--When a resource event occurs** (Azure Event Grid--Quand un événement de ressource se produit).
+1. Créez une **application logique Azure** dans le portail Azure.
+2. Lorsque vous ouvrez l’application logique Azure dans le portail, vous êtes invité à sélectionner un déclencheur. Sélectionnez **Azure Event Grid--When a resource event occurs** (Azure Event Grid--Quand un événement de ressource se produit).
 3. Lorsque le Concepteur de flux de travail s’affiche, vous êtes invité à vous connecter.
 4. Sélectionnez l’abonnement. Ressource comme **Microsoft.EventGrid.Topics**. Sélectionnez le **nom de la ressource** à partir du nom de la ressource du groupe de ressources Azure Blockchain Workbench.
 5. Sélectionnez l’événement Event Grid dans le groupe de ressources de Blockchain Workbench.
@@ -355,11 +355,11 @@ Si un utilisateur souhaite utiliser Event Grid pour être informé des événeme
 
 Des rubriques Service Bus peuvent être utilisées pour informer les utilisateurs des événements qui se produisent dans Blockchain Workbench. 
 
-1.  Accédez à Service Bus dans le groupe de ressources de Workbench.
-2.  Sélectionnez **Rubriques**.
-3.  Sélectionnez **workbench-external**.
-4.  Créez un abonnement à cette rubrique. Récupérez une clé pour celle-ci.
-5.  Créez un programme qui s’abonne aux événements de cet abonnement.
+1. Accédez à Service Bus dans le groupe de ressources de Workbench.
+2. Sélectionnez **Rubriques**.
+3. Sélectionnez **egress-topic**.
+4. Créez un abonnement à cette rubrique. Récupérez une clé pour celle-ci.
+5. Créez un programme qui s’abonne aux événements de cet abonnement.
 
 ### <a name="consuming-service-bus-messages-with-logic-apps"></a>Consommation des messages Service Bus avec Logic Apps
 
@@ -373,240 +373,531 @@ Des rubriques Service Bus peuvent être utilisées pour informer les utilisateur
 
 En fonction de **OperationName**, les messages de notification ont l’un des types de messages suivants.
 
-### <a name="accountcreated"></a>AccountCreated
+### <a name="block-message"></a>Message de bloc
 
-Indique qu’un nouveau compte a reçu une demande d’ajout à la chaîne spécifiée.
-
-| NOM    | Description  |
-|----------|--------------|
-| UserId  | ID de l’utilisateur qui a été créé. |
-| ChainIdentifier | Adresse de l’utilisateur qui a été créé sur le réseau blockchain. Dans Ethereum, il s’agit de l’adresse **on-chain** de l’utilisateur. |
-
-``` csharp
-public class NewAccountRequest : MessageModelBase
-{
-  public int UserID { get; set; }
-  public string ChainIdentifier { get; set; }
-}
-```
-
-### <a name="contractinsertedorupdated"></a>ContractInsertedOrUpdated
-
-Indique qu’une demande a été faite pour insérer ou mettre à jour un contrat sur un registre distribué.
+Contient des informations sur des blocs individuels. *BlockMessage* inclut une section avec des informations de niveau bloc et une section avec des informations sur la transaction.
 
 | NOM | Description |
-|-----|--------------|
-| ChainID | Identificateur unique de la chaîne associée à la demande |
-| BlockId | Identificateur unique pour un bloc sur le registre |
-| ContractId | Identificateur unique du contrat |
-| ContractAddress |       Adresse du contrat sur le registre |
-| TransactionHash  |     Code de hachage de la transaction sur le registre |
-| OriginatingAddress |   Adresse du créateur de la transaction |
-| ActionName       |     Nom de l’action |
-| IsUpdate        |      Identifie s’il s’agit d’une mise à jour |
-| parameters       |     Liste d’objets qui identifient le nom, la valeur et le type de données des paramètres transmis à une action |
-| TopLevelInputParams |  Dans les scénarios où un contrat est lié à un ou plusieurs contrats, il s’agit des paramètres du contrat de niveau supérieur. |
+|------|-------------|
+| block | Contient des [informations sur les blocs](#block-information) |
+| transactions | Contient une collection d’[informations sur les transactions](#transaction-information) pour le bloc |
+| connectionId | Identificateur unique de la connexion |
+| messageSchemaVersion | Version du schéma de messagerie |
+| messageName | **BlockMessage** |
+| additionalInformation | Informations supplémentaires fournies |
 
-``` csharp
-public class ContractInsertOrUpdateRequest : MessageModelBase
+#### <a name="block-information"></a>Informations de bloc
+
+| NOM              | Description |
+|-------------------|-------------|
+| blockId           | Identificateur unique du bloc dans Azure Blockchain Workbench |
+| blockNumber       | Identificateur unique pour un bloc sur le registre |
+| blockHash         | Code de hachage du bloc |
+| previousBlockHash | Hachage du bloc précédent |
+| blockTimestamp    | Timestamp du bloc |
+
+#### <a name="transaction-information"></a>Informations sur les transactions
+
+| NOM               | Description |
+|--------------------|-------------|
+| transactionId      | Identificateur unique de la transaction dans Azure Blockchain Workbench |
+| transactionHash    | Code de hachage de la transaction sur le registre |
+| from               | Identificateur unique sur le registre pour l’origine de la transaction |
+| to                 | Identificateur unique sur le registre pour la destination de la transaction |
+| provisioningStatus | Identifie l’état actuel du processus de configuration pour la transaction. Les valeurs possibles sont les suivantes : </br>0 : la transaction a été créée par l’API dans la base de données</br>1 : la transaction a été envoyée au registre</br>2 : la transaction a été validée correctement dans le registre</br>3 ou 4 : échec de la validation de la transaction dans le registre</br>5 : la transaction a été validée correctement dans le registre |
+
+Exemple de *BlockMessage* de Blockchain Workbench :
+
+``` json
 {
-    public int ChainId { get; set; }
-    public int BlockId { get; set; }
-    public int ContractId { get; set; }
-    public string ContractAddress { get; set; }
-    public string TransactionHash { get; set; }
-    public string OriginatingAddress { get; set; }
-    public string ActionName { get; set; }
-    public bool IsUpdate { get; set; }
-    public List<ContractProperty> Parameters { get; set; }
-    public bool IsTopLevelUpdate { get; set; }
-    public List<ContractInputParameter> TopLevelInputParams { get; set; }
+    "block": {
+        "blockId": 123
+        "blockNumber": 1738312,
+        "blockHash": "0x03a39411e25e25b47d0ec6433b73b488554a4a5f6b1a253e0ac8a200d13fffff",
+        "previousBlockHash": null,
+        "blockTimestamp": "2018-10-09T23:35:58Z",
+    },
+    "transactions": [
+        {
+            "transactionId": 234
+            "transactionHash": "0xa4d9c95b581f299e41b8cc193dd742ef5a1d3a4ddf97bd11b80d123fec27ffff",
+            "from": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60dffff",
+            "to": null,
+            "provisioningStatus": 1
+        },
+        {
+            "transactionId": 235
+            "transactionHash": "0x5c1fddea83bf19d719e52a935ec8620437a0a6bdaa00ecb7c3d852cf92e1ffff",
+            "from": "0xadd97e1e595916e29ea94fda894941574000ffff",
+            "to": "0x9a8DDaCa9B7488683A4d62d0817E965E8f24ffff",
+            "provisioningStatus": 2
+        }
+    ],
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "BlockMessage",
+    "additionalInformation": {}
 }
 ```
 
-#### <a name="updatecontractaction"></a>UpdateContractAction
+### <a name="contract-message"></a>Message de contrat
 
-Indique qu’une demande a été faite pour exécuter une action sur un contrat spécifique dans un registre distribué.
+Contient des informations sur un contrat. Le message inclut une section avec des propriétés du contrat et une section avec des informations sur les transactions. Toutes les transactions qui ont modifié le contrat pour le bloc particulier sont incluses dans la section des transactions.
 
-| NOM                     | Description                                                                                                                                                                   |
-|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ContractActionId         | Identificateur unique de cette action de contrat |
-| ChainIdentifier          | Identificateur unique de la chaîne |
-| ConnectionId             | Identificateur unique de la connexion |
-| UserChainIdentifier      | Adresse de l’utilisateur qui a été créé sur le réseau blockchain. Dans Ethereum, il s’agit de l’adresse **on-chain** de l’utilisateur. |
-| ContractLedgerIdentifier | Adresse du contrat sur le registre |
-| WorkflowFunctionName     | Nom de la fonction du flux de travail |
-| WorkflowName             | Nom du flux de travail |
-| WorkflowBlobStorageURL   | URL du contrat dans le stockage Blob |
-| ContractActionParameters | Paramètres de l’action du contrat |
-| TransactionHash          | Code de hachage de la transaction sur le registre |
-| État de l’approvisionnement      | État de l’approvisionnement de l’action.</br>0 - Créée</br>1 - En cours de traitement</br>2 - Terminée</br> « Terminée » indique une confirmation de l’ajout par le registre |
+| NOM | Description |
+|------|-------------|
+| blockId | Identificateur unique du bloc dans Azure Blockchain Workbench |
+| blockHash | Hachage du bloc |
+| modifyingTransactions | [Transactions ayant modifié](#modifying-transaction-information) le contrat |
+| contractId | Identificateur unique du contrat dans Azure Blockchain Workbench |
+| contractLedgerIdentifier | Identificateur unique du contrat sur le registre |
+| contractProperties | [Propriétés du contrat](#contract-properties) |
+| isNewContract | Indique si ce contrat a été ou non récemment créé. Les valeurs possibles sont : true - ce contrat était un contrat nouvellement créé. false : ce contrat est une mise à jour du contrat. |
+| connectionId | Identificateur unique de la connexion |
+| messageSchemaVersion | Version du schéma de messagerie |
+| messageName | **ContractMessage** |
+| additionalInformation | Informations supplémentaires fournies |
 
-```csharp
-public class ContractActionRequest : MessageModelBase
+#### <a name="modifying-transaction-information"></a>Modification des informations sur les transactions
+
+| NOM               | Description |
+|--------------------|-------------|
+| transactionId | Identificateur unique de la transaction dans Azure Blockchain Workbench |
+| transactionHash | Code de hachage de la transaction sur le registre |
+| from | Identificateur unique sur le registre pour l’origine de la transaction |
+| to | Identificateur unique sur le registre pour la destination de la transaction |
+
+#### <a name="contract-properties"></a>Propriétés du contrat
+
+| NOM               | Description |
+|--------------------|-------------|
+| workflowPropertyId | Identificateur unique de la propriété du workflow dans Azure Blockchain Workbench |
+| Nom | Nom de la propriété du workflow |
+| value | Valeur de la propriété du workflow |
+
+Exemple de *ContractMessage* de Blockchain Workbench :
+
+``` json
 {
-    public int ContractActionId { get; set; }
-    public int ConnectionId { get; set; }
-    public string UserChainIdentifier { get; set; }
-    public string ContractLedgerIdentifier { get; set; }
-    public string WorkflowFunctionName { get; set; }
-    public string WorkflowName { get; set; }
-    public string WorkflowBlobStorageURL { get; set; }
-    public IEnumerable<ContractActionParameter> ContractActionParameters { get; set; }
-    public string TransactionHash { get; set; }
-    public int ProvisioningStatus { get; set; }
+    "blockId": 123,
+    "blockhash": "0x03a39411e25e25b47d0ec6433b73b488554a4a5f6b1a253e0ac8a200d13fffff",
+    "modifyingTransactions": [
+        {
+            "transactionId": 234,
+            "transactionHash": "0x5c1fddea83bf19d719e52a935ec8620437a0a6bdaa00ecb7c3d852cf92e1ffff",
+            "from": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60dffff",
+            "to": "0xf8559473b3c7197d59212b401f5a9f07ffff"
+        },
+        {
+            "transactionId": 235,
+            "transactionHash": "0xa4d9c95b581f299e41b8cc193dd742ef5a1d3a4ddf97bd11b80d123fec27ffff",
+            "from": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60dffff",
+            "to": "0xf8559473b3c7197d59212b401f5a9f07b429ffff"
+        }
+    ],
+    "contractId": 111,
+    "contractLedgerIdentifier": "0xf8559473b3c7197d59212b401f5a9f07b429ffff",
+    "contractProperties": [
+        {
+            "workflowPropertyId": 1,
+            "name": "State",
+            "value": "0"
+        },
+        {
+            "workflowPropertyId": 2,
+            "name": "Description",
+            "value": "1969 Dodge Charger"
+        },
+        {
+            "workflowPropertyId": 3,
+            "name": "AskingPrice",
+            "value": "30000"
+        },
+        {
+            "workflowPropertyId": 4,
+            "name": "OfferPrice",
+            "value": "0"
+        },
+        {
+            "workflowPropertyId": 5,
+            "name": "InstanceAppraiser",
+            "value": "0x0000000000000000000000000000000000000000"
+        },
+        {
+            "workflowPropertyId": 6,
+            "name": "InstanceBuyer",
+            "value": "0x0000000000000000000000000000000000000000"
+        },
+        {
+            "workflowPropertyId": 7,
+            "name": "InstanceInspector",
+            "value": "0x0000000000000000000000000000000000000000"
+        },
+        {
+            "workflowPropertyId": 8,
+            "name": "InstanceOwner",
+            "value": "0x9a8DDaCa9B7488683A4d62d0817E965E8f24ffff"
+        },
+        {
+            "workflowPropertyId": 9,
+            "name": "ClosingDayOptions",
+            "value": "[21,48,69]"
+        }
+    ],
+    "isNewContract": false,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "ContractMessage",
+    "additionalInformation": {}
 }
 ```
 
-### <a name="updateuserbalance"></a>UpdateUserBalance
+### <a name="event-message-contract-function-invocation"></a>Message d’événement : Appel de fonction du contrat
 
-Indique qu’une demande a été faite pour mettre à jour le solde de l’utilisateur sur un registre distribué spécifique.
+Contient des informations indiquant quand une fonction de contrat est appelée, comme le nom de la fonction, les paramètres en entrée et l’appelant de la fonction.
 
-> [!NOTE]
-> Ce message est généré uniquement pour les registres qui requièrent le budget des comptes.
-> 
+| NOM | Description |
+|------|-------------|
+| eventName                   | **ContractFunctionInvocation** |
+| caller                      | [Informations de l’appelant](#caller-information) |
+| contractId                  | Identificateur unique du contrat dans Azure Blockchain Workbench |
+| contractLedgerIdentifier    | Identificateur unique du contrat sur le registre |
+| functionName                | Nom de la fonction |
+| parameters                  | [Informations sur les paramètres](#parameter-information) |
+| transaction                 | [Informations sur les transactions](#eventmessage-transaction-information) |
+| inTransactionSequenceNumber | Numéro de séquence de la transaction dans le bloc |
+| connectionId                | Identificateur unique de la connexion |
+| messageSchemaVersion        | Version du schéma de messagerie |
+| messageName                 | **EventMessage** |
+| additionalInformation       | Informations supplémentaires fournies |
 
-| NOM    | Description                              |
-|---------|------------------------------------------|
-| Adresse | Adresse de l’utilisateur qui a été financé |
-| Balance | Solde de l’utilisateur         |
-| ChainID | Identificateur unique de la chaîne     |
+#### <a name="caller-information"></a>Informations de l’appelant
 
+| NOM | Description |
+|------|-------------|
+| Type | Type de l’appelant, comme un utilisateur ou un contrat |
+| id | Identificateur unique de l’appelant dans Azure Blockchain Workbench |
+| ledgerIdentifier | Identificateur unique pour l’appelant sur le registre |
 
-``` csharp
-public class UpdateUserBalanceRequest : MessageModelBase
+#### <a name="parameter-information"></a>Informations sur les paramètres
+
+| NOM | Description |
+|------|-------------|
+| Nom | Nom du paramètre |
+| value | Valeur du paramètre |
+
+#### <a name="event-message-transaction-information"></a>Informations sur les transactions des messages d’événement
+
+| NOM               | Description |
+|--------------------|-------------|
+| transactionId      | Identificateur unique de la transaction dans Azure Blockchain Workbench |
+| transactionHash    | Code de hachage de la transaction sur le registre |
+| from               | Identificateur unique sur le registre pour l’origine de la transaction |
+| to                 | Identificateur unique sur le registre pour la destination de la transaction |
+
+Exemple de *EventMessage ContractFunctionInvocation* de Blockchain Workbench :
+
+``` json
 {
-    public string Address { get; set; }
-    public decimal Balance { get; set; }
-    public int ChainID { get; set; }
+    "eventName": "ContractFunctionInvocation",
+    "caller": {
+        "type": "User",
+        "id": 21,
+        "ledgerIdentifier": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60ffff"
+    },
+    "contractId": 34,
+    "contractLedgerIdentifier": "0xf8559473b3c7197d59212b401f5a9f07b429ffff",
+    "functionName": "Modify",
+    "parameters": [
+        {
+            "name": "description",
+            "value": "a new description"
+        },
+        {
+            "name": "price",
+            "value": "4567"
+        }
+    ],
+    "transaction": {
+        "transactionId": 234,
+        "transactionHash": "0x5c1fddea83bf19d719e52a935ec8620437a0a6bdaa00ecb7c3d852cf92e1ffff",
+        "from": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60dffff",
+        "to": "0xf8559473b3c7197d59212b401f5a9f07b429ffff"
+    },
+    "inTransactionSequenceNumber": 1,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "EventMessage",
+    "additionalInformation": { }
 }
 ```
 
-### <a name="insertblock"></a>InsertBlock
+### <a name="event-message-application-ingestion"></a>Message d’événement : Ingestion d’application
 
-Message qui indique qu’une demande a été faite pour ajouter un bloc sur un registre distribué.
+Contient des informations indiquant quand une application est chargée sur Workbench, comme le nom et la version de l’application chargée.
 
-| NOM           | Description                                                            |
-|----------------|------------------------------------------------------------------------|
-| ChainId        | Identificateur unique de la chaîne à laquelle le bloc a été ajouté             |
-| BlockId        | Identificateur unique du bloc dans Azure Blockchain Workbench |
-| BlockHash      | Code de hachage du bloc                                                 |
-| BlockTimeStamp | Timestamp du bloc                                            |
+| NOM | Description |
+|------|-------------|
+| eventName | **ApplicationIngestion** |
+| applicationId | Identificateur unique pour l’application dans Azure Blockchain Workbench |
+| applicationName | Nom de l’application |
+| applicationDisplayName | Nom d’affichage de l’application |
+| applicationVersion | Version de l’application |
+| applicationDefinitionLocation | URL de l’emplacement du fichier de configuration de l’application |
+| contractCodes | Collection de [codes de contrat](#contract-code-information) pour l’application |
+| applicationRoles | Collection de [rôles de contrat](#application-role-information) pour l’application |
+| applicationWorkflows | Collection de [workflows de contrat](#application-workflow-information) pour l’application |
+| connectionId | Identificateur unique de la connexion |
+| messageSchemaVersion | Version du schéma de messagerie |
+| messageName | **EventMessage** |
+| additionalInformation | Les informations supplémentaires fournies ici incluent les états des workflows et les informations de transition de l’application. |
 
-``` csharp
-public class InsertBlockRequest : MessageModelBase
+#### <a name="contract-code-information"></a>Informations de code de contrat
+
+| NOM | Description |
+|------|-------------|
+| id | Identificateur unique du fichier de code de contrat dans Azure Blockchain Workbench |
+| ledgerId | Identificateur unique du registre dans Azure Blockchain Workbench |
+| location | URL de l’emplacement du fichier de code de contrat |
+
+#### <a name="application-role-information"></a>Informations des rôles de l’application
+
+| NOM | Description |
+|------|-------------|
+| id | Identificateur unique pour le rôle d’application dans Azure Blockchain Workbench |
+| Nom | Nom du rôle d’application |
+
+#### <a name="application-workflow-information"></a>Informations de workflow d’application
+
+| NOM | Description |
+|------|-------------|
+| id | Identificateur unique pour le workflow d’application dans Azure Blockchain Workbench |
+| Nom | Nom du workflow d’application |
+| displayName | Nom d’affichage du workflow d’application |
+| functions | Collection de [fonctions pour le workflow d’application](#workflow-function-information)|
+| unis | Collection d’[états pour le workflow d’application](#workflow-state-information) |
+| properties | [Informations des propriétés de workflow](#workflow-property-information) d’application |
+
+##### <a name="workflow-function-information"></a>Informations de fonction de workflow
+
+| NOM | Description |
+|------|-------------|
+| id | Identificateur unique pour la fonction de workflow d’application dans Azure Blockchain Workbench |
+| Nom | Nom de la fonction |
+| parameters | Paramètres pour la fonction |
+
+##### <a name="workflow-state-information"></a>Informations d’état du workflow
+
+| NOM | Description |
+|------|-------------|
+| Nom | Nom de l’état |
+| displayName | Nom d’affichage de l’état |
+| style | Style d’état (réussite ou échec) |
+
+##### <a name="workflow-property-information"></a>Informations de propriété de workflow
+
+| NOM | Description |
+|------|-------------|
+| id | Identificateur unique pour la propriété de workflow d’application dans Azure Blockchain Workbench |
+| Nom | Nom de la propriété |
+| Type | Type de propriété |
+
+Exemple de *EventMessage ApplicationIngestion* de Blockchain Workbench :
+
+``` json
 {
-    public int ChainId { get; set; }
-    public int BlockId { get; set; }
-    public string BlockHash { get; set; }
-    public int BlockTimestamp { get; set; }
+    "eventName": "ApplicationIngestion",
+    "applicationId": 31,
+    "applicationName": "AssetTransfer",
+    "applicationDisplayName": "Asset Transfer",
+    "applicationVersion": “1.0”,
+    "applicationDefinitionLocation": "http://url"
+    "contractCodes": [
+        {
+            "id": 23,
+            "ledgerId": 1,
+            "location": "http://url"
+        }
+    ],
+    "applicationRoles": [
+            {
+                "id": 134,
+                "name": "Buyer"
+            },
+            {
+                "id": 135,
+                "name": "Seller"
+            }
+       ],
+    "applicationWorkflows": [
+        {
+            "id": 89,
+            "name": "AssetTransfer",
+            "displayName": "Asset Transfer",
+            "functions": [
+                {
+                    "id": 912,
+                    "name": "",
+                    "parameters": [
+                        {
+                            "name": "description",
+                            "type": {
+                                "name": "string"
+                             }
+                        },
+                        {
+                            "name": "price",
+                            "type": {
+                                "name": "int"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 913,
+                    "name": "modify",
+                    "parameters": [
+                        {
+                            "name": "description",
+                            "type": {
+                                "name": "string"
+                             }
+                        },
+                        {
+                            "name": "price",
+                            "type": {
+                                "name": "int"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "states": [ 
+                 {
+                      "name": "Created",
+                      "displayName": "Created",
+                      "style" : "Success"
+                 },
+                 {
+                      "name": "Terminated",
+                      "displayName": "Terminated",
+                      "style" : "Failure"
+                 }
+            ],
+            "properties": [
+                {
+                    "id": 879,
+                    "name": "Description",
+                    "type": {
+                                "name": "string"
+                     }
+                },
+                {
+                    "id": 880,
+                    "name": "Price",
+                    "type": {
+                                "name": "int"
+                     }
+                }
+            ]
+        }
+    ]
+    "connectionId": [ ],
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "EventMessage",
+    "additionalInformation":
+        {
+            "states" :
+            [
+                {
+                    "Name": "BuyerAccepted",
+                    "Transitions": [
+                        {
+                            "DisplayName": "Accept"
+                            "AllowedRoles": [ ],
+                            "AllowedInstanceRoles": [ "InstanceOwner" ],
+                            "Function": "Accept",
+                            "NextStates": [ "SellerAccepted" ]
+                        }
+                    ]
+                }
+            ]
+        }
 }
 ```
 
-### <a name="inserttransaction"></a>InsertTransaction
+### <a name="event-message-role-assignment"></a>Message d’événement : Attribution de rôle
 
-Message qui fournit des détails sur une demande d’ajout d’une transaction sur un registre distribué.
+Contient des informations indiquant quand un rôle est attribué à un utilisateur dans Workbench, comme la personne ayant effectué l’attribution de rôle, et le nom du rôle et de l’application correspondante.
 
-| NOM            | Description                                                            |
-|-----------------|------------------------------------------------------------------------|
-| ChainId         | Identificateur unique de la chaîne à laquelle le bloc a été ajouté             |
-| BlockId         | Identificateur unique du bloc dans Azure Blockchain Workbench |
-| TransactionHash | Code de hachage de la transaction                                           |
-| À partir            | Adresse du créateur de la transaction                      |
-| À              | Adresse du destinataire de la transaction              |
-| Valeur           | Valeur incluse dans la transaction                                 |
-| IsAppBuilderTx  | Identifie s’il s’agit d’une transaction Blockchain Workbench                         |
+| NOM | Description |
+|------|-------------|
+| eventName | **RoleAssignment** |
+| applicationId | Identificateur unique pour l’application dans Azure Blockchain Workbench |
+| applicationName | Nom de l’application |
+| applicationDisplayName | Nom d’affichage de l’application |
+| applicationVersion | Version de l’application |
+| applicationRole        | Informations sur le [rôle d’application](#roleassignment-application-role) |
+| assigner               | Informations sur la [personne ayant effectué l’attribution](#roleassignment-assigner) |
+| assignee               | Informations sur la [personne ayant reçu l’attribution](#roleassignment-assignee) |
+| connectionId           | Identificateur unique de la connexion |
+| messageSchemaVersion   | Version du schéma de messagerie |
+| messageName            | **EventMessage** |
+| additionalInformation  | Informations supplémentaires fournies |
 
-``` csharp
-public class InsertTransactionRequest : MessageModelBase
+#### <a name="roleassignment-application-role"></a>Rôle d’application RoleAssignment
+
+| NOM | Description |
+|------|-------------|
+| id | Identificateur unique pour le rôle d’application dans Azure Blockchain Workbench |
+| Nom | Nom du rôle d’application |
+
+#### <a name="roleassignment-assigner"></a>Personne ayant effectué l’attribution RoleAssignment
+
+| NOM | Description |
+|------|-------------|
+| id | Identificateur unique de l’utilisateur dans Azure Blockchain Workbench |
+| Type | Type de personne ayant effectué l’attribution |
+| chainIdentifier | Identificateur unique de l’utilisateur sur le registre |
+
+#### <a name="roleassignment-assignee"></a>Personne ayant reçu l’attribution RoleAssignment
+
+| NOM | Description |
+|------|-------------|
+| id | Identificateur unique de l’utilisateur dans Azure Blockchain Workbench |
+| Type | Type de la personne ayant reçu l’attribution |
+| chainIdentifier | Identificateur unique de l’utilisateur sur le registre |
+
+Exemple de *EventMessage RoleAssignment* de Blockchain Workbench :
+
+``` json
 {
-    public int ChainId { get; set; }
-    public int BlockId { get; set; }
-    public string TransactionHash { get; set; }
-    public string From { get; set; }
-    public string To { get; set; }
-    public decimal Value { get; set; }
-    public bool IsAppBuilderTx { get; set; }
-}
-```
-
-### <a name="assigncontractchainidentifier"></a>AssignContractChainIdentifier
-
-Fournit des détails sur l’affectation d’un identificateur de chaîne pour un contrat. Par exemple, dans un blockchain Ethereum, l’adresse d’un contrat sur le registre.
-
-| NOM            | Description                                                                       |
-|-----------------|-----------------------------------------------------------------------------------|
-| ContractId      | Identificateur unique du contrat dans Azure Blockchain Workbench |
-| ChainIdentifier | Identificateur du contrat sur la chaîne                             |
-
-``` csharp
-public class AssignContractChainIdentifierRequest : MessageModelBase
-{
-    public int ContractId { get; set; }
-    public string ChainIdentifier { get; set; }
-}
-```
-
-## <a name="classes-used-by-message-types"></a>Classes utilisées par les types de messages
-
-### <a name="messagemodelbase"></a>MessageModelBase
-
-Modèle de base pour tous les messages.
-
-| NOM          | Description                          |
-|---------------|--------------------------------------|
-| OperationName | Nom de l’opération           |
-| RequestId     | Identificateur unique pour la demande |
-
-``` csharp
-public class MessageModelBase
-{
-    public string OperationName { get; set; }
-    public string RequestId { get; set; }
-}
-```
-
-### <a name="contractinputparameter"></a>ContractInputParameter
-
-Contient le nom, la valeur et le type d’un paramètre.
-
-| NOM  | Description                 |
-|-------|-----------------------------|
-| NOM  | Nom du paramètre  |
-| Valeur | Valeur du paramètre |
-| type  | Type du paramètre  |
-
-``` csharp
-public class ContractInputParameter
-{
-    public string Name { get; set; }
-    public string Value { get; set; }
-    public string Type { get; set; }
-}
-```
-
-#### <a name="contractproperty"></a>ContractProperty
-
-Contient l’ID, le nom, la valeur et le type d’une propriété.
-
-| NOM  | Description                |
-|-------|----------------------------|
-| ID    | ID de la propriété    |
-| NOM  | Nom de la propriété  |
-| Valeur | Valeur de la propriété |
-| type  | Type de la propriété  |
-
-``` csharp
-public class ContractProperty
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string Value { get; set; }
-    public string DataType { get; set; }
+    "eventName": "RoleAssignment",
+    "applicationId": 31,
+    "applicationName": "AssetTransfer",
+    "applicationDisplayName": "Asset Transfer",
+    "applicationVersion": “1.0”,
+    "applicationRole": {
+        "id": 134,
+        "name": "Buyer"
+    },
+    "assigner": {
+        "id": 1,
+        "type": null,
+        "chainIdentifier": "0xeFFC7766d38aC862d79706c3C5CEEf089564ffff"
+    },
+    "assignee": {
+        "id": 3,
+        "type": null,
+        "chainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f24ffff"
+    },
+    "connectionId": [ ],
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "EventMessage",
+    "additionalInformation": { }
 }
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Modèles d’intégration de contrat intelligent](integration-patterns.md)
+- [Modèles d’intégration de contrat intelligent](integration-patterns.md)

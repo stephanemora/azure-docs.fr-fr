@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 83054c505689768c14d168841764a4557c3e1f8b
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6da0bddc3f6c90d0ecd3a554988f510e1063caac
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158996"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043037"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Conditions de licence pour la réinitialisation du mot de passe en libre-service Azure AD
 
-Azure Active Directory (Azure AD) est proposé en quatre éditions : Gratuite, Standard, Premium P1 et Premium P2. Il existe plusieurs fonctionnalités qui rendent la réinitialisation du mot de passe libre-service, y compris la modification, la réinitialisation, le déverrouillage et l’écriture différée, qui sont disponibles dans les différentes éditions d’Azure AD. Cet article tente d’expliquer les différences. Vous trouverez plus d’informations sur les fonctionnalités incluses dans chaque édition Azure AD sur la [Page de tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure Active Directory (Azure AD) est proposé en quatre éditions : Gratuit, De base, Premium P1 et Premium P2. Il existe plusieurs fonctionnalités qui rendent la réinitialisation du mot de passe libre-service, y compris la modification, la réinitialisation, le déverrouillage et l’écriture différée, qui sont disponibles dans les différentes éditions d’Azure AD. Cet article tente d’expliquer les différences. Vous trouverez plus d’informations sur les fonctionnalités incluses dans chaque édition Azure AD sur la [Page de tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="compare-editions-and-features"></a>Comparer les éditions et les fonctionnalités
 
@@ -41,7 +41,7 @@ La réinitialisation du mot de passe Azure AD libre-service est fournie sous lic
    * Cette fonctionnalité est incluse dans les éditions Azure AD Premium P1, ou Premium P2.
 
 > [!WARNING]
-> Les plans de licences Office 365 édition autonome **ne prennent pas en charge la réécriture du mot de passe** et nécessitent les éditions Azure AD Premium P1, ou Premium P2 pour que cette fonctionnalité fonctionne.
+> Les plans de licences Office 365 édition autonome *ne prennent pas en charge « les réinitialisation/modification/déverrouillage de mot de passe libre-service avec réécriture locale »* et nécessitent un plan qui inclut les éditions Azure AD Premium P1 ou Premium P2 pour que cette fonctionnalité soit opérationnelle.
 >
 
 Vous trouverez des informations de licence supplémentaires, notamment les prix, dans les pages suivantes :

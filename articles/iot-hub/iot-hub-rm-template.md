@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 1a64749b7218fccfdad6b6eeebfac39a44aa0522
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2b1aca07fe60a328dac9d3724454a21835026a53
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38687769"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063843"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Créer un IoT Hub avec un modèle Azure Resource Manager (.NET)
 
@@ -23,7 +23,7 @@ ms.locfileid: "38687769"
 Vous pouvez utiliser Azure Resource Manager pour créer et gérer des hubs Azure IoT de façon programmée. Ce didacticiel vous montre comment utiliser un modèle Azure Resource Manager pour créer un IoT Hub à partir d’un programme C#.
 
 > [!NOTE]
-> Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Azure Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md).  Cet article traite de l’utilisation du modèle de déploiement Azure Resource Manager.
+> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources :  [Azure Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md).  Cet article traite de l’utilisation du modèle de déploiement Azure Resource Manager.
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -74,7 +74,7 @@ Utilisez un fichier de paramètres et un modèle JSON pour créer un IoT Hub dan
 
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet, cliquez sur **Ajouter**, puis sur **Nouvel élément**. Ajoutez un fichier JSON appelé **template.json** à votre projet.
 
-2. Pour ajouter un IoT Hub standard à la région **Est des États-Unis**, remplacez le contenu de **template.json** par la définition de ressource suivante. Pour obtenir la liste des régions qui prennent en charge IoT Hub, consultez [Statut Azure][lnk-status] :
+2. Pour ajouter un IoT Hub standard à la région **USA Est**, remplacez le contenu de **template.json** par la définition de ressource suivante. Pour obtenir la liste des régions qui prennent en charge IoT Hub, consultez [Statut Azure][lnk-status] :
 
     ```json
     {
@@ -203,6 +203,7 @@ Maintenant que vous avez déployé un IoT Hub à l’aide d’un modèle Azure R
 
 * Découvrez les capacités de [l’API REST du fournisseur de ressources IoT Hub][lnk-rest-api].
 * Pour plus d’informations sur les capacités d’Azure Resource Manager, voir [Vue d’ensemble d’Azure Resource Manager][lnk-azure-rm-overview].
+* Pour connaître la syntaxe JSON et les propriétés à utiliser dans les modèles, consultez [Types de ressources Microsoft.Devices](/azure/templates/microsoft.devices/iothub-allversions).
 
 Pour en savoir plus sur le développement pour IoT Hub, consultez les articles suivants :
 

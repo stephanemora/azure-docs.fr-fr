@@ -8,17 +8,16 @@ ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 9453099af8d9be21a97808733ffa8f8bfe5a364a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: b39fb3ed6dbcf8fde2dadf0de59d154285eb8587
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047562"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022536"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Résoudre les problèmes liés à l’utilisation de la passerelle de gestion des données
 Cet article fournit des informations sur la résolution des problèmes liés à l’utilisation de la passerelle de gestion des données.
@@ -169,7 +168,7 @@ La passerelle ne peut pas se connecter au service cloud via Service Bus.
 #### <a name="resolution"></a>Résolution :
 Suivez ces étapes pour remettre la passerelle en ligne :
 
-1. Autorisez les règles de trafic sortant d’adresse IP sur l’ordinateur de la passerelle et le pare-feu d’entreprise. Vous trouverez les adresses IP dans le journal des événements Windows (ID == 401) : Une tentative d’accès à un socket de manière interdite par ses autorisations d’accès a été tentée XX. XX. XX. XX:9350.
+1. Autorisez les règles de trafic sortant d’adresse IP sur l’ordinateur de la passerelle et le pare-feu d’entreprise. Vous pouvez trouver les adresses IP dans le journal des événements Windows (ID == 401) : Tentative d’accès à un socket de manière interdite par ses autorisations d’accès XX.XX.XX.XX:9350.
 * Configurez les paramètres de proxy de la passerelle. Pour plus d’informations, consultez la section [Considérations relatives aux serveurs proxy](#proxy-server-considerations).
 * Activez les ports sortants 5671 et 9350 à 9354 sur le pare-feu Windows de l’ordinateur passerelle et le pare-feu d’entreprise. Pour plus d’informations, consultez la section [Ports et pare-feu](#ports-and-firewall). Cette étape est facultative, mais elle est recommandée pour des questions de performances.
 

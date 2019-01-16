@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: e1dc637d2f629b5002c2e8796fbd29a95478c392
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b48de6a6eeed997fe162cabe4d57e6770e016971
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035507"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54122800"
 ---
 Les machines virtuelles Microsoft Azure passent par différents états qui peuvent être classés en états *d’approvisionnement* et *d’alimentation*. Cet article vise à décrire ces états et en particulier à mettre en exergue la date de facturation des clients pour l’utilisation des instances. 
 
@@ -108,7 +108,7 @@ Facturation de l’utilisation de l’instance
  ]</code><br>
 </td>
 <td>
-<p><b>Pas de facturation</b></p>
+<p><b>Facturation&#42;</b></p>
 </td>
 </tr>
 <tr>
@@ -151,7 +151,7 @@ Facturation de l’utilisation de l’instance
 </table>
 
 
-Certaines ressources Azure, telles que les disques et la mise en réseau impliquent des frais quel que soit l’état de l’instance. 
+&#42;Certaines ressources Azure, par exemple les disques et le réseau, impliquent des frais. Les licences de logiciels sur l’instance n’engendrent aucun frais.
 
 ## <a name="provisioning-states"></a>États d’approvisionnement
 
@@ -244,7 +244,7 @@ Voici les états transitoires des opérations une fois que la plateforme a accep
  "displayStatus": "OS Provisioning Complete"<br>
  }<br>
 ]</code><br>
-<p><b>Remarque</b> : l’approvisionnement du système d’exploitation peut passer à l’état **Échec** en cas de défaillance du système d’exploitation ou si ce dernier n’est pas installé à temps. Les clients sont facturés pour la machine virtuelle déployée dans l’infrastructure.</p>
+<p><b>Remarque</b>: Le provisionnement du système d’exploitation peut passer à l’état **Échec** en cas de défaillance du système d’exploitation, ou si ce dernier n’est pas installé à temps. Les clients sont facturés pour la machine virtuelle déployée dans l’infrastructure.</p>
 </td>
 </tr>
 </table>
@@ -287,7 +287,7 @@ Une fois l’opération terminée, la machine virtuelle passe à l’un des éta
 
 L’API de vue d’instance fournit des informations sur l’état d’exécution d’une machine virtuelle. Pour plus d’informations, consultez la documentation relative à l’API [Virtual Machines - Instance View](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview) (Machines virtuelles : vue d’instance).
 
-Azure Resource Explorer présente une interface utilisateur simple permettant d’afficher l’état d’exécution des machines virtuelles : [Resource Explorer](https://resources.azure.com/).
+Azure Resource Explorer présente une IU simple permettant d’afficher l’état en cours d’exécution des machines virtuelles : [Resource Explorer](https://resources.azure.com/).
 
 Les états d’approvisionnement sont visibles dans la vue d’instance et les propriétés des machines virtuelles. Les états d’alimentation sont disponibles dans la vue d’instance des machines virtuelles. 
 

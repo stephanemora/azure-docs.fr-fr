@@ -10,17 +10,16 @@ ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8b74a431664faa95e8be9c9ff90970fd6e7c0ec7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 90f78428601d7b039d00d39c1ca8339ab3ace9ba
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048718"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020351"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copier ou déplacer facilement des données avec l’Assistant de copie Azure Data Factory
 > [!NOTE]
@@ -41,7 +40,7 @@ Cet Assistant vous permet de déplacer facilement et en quelques minutes des don
 > 
 > 
 
-Dès le début, l’Assistant est conçu pour traiter des données volumineuses (Big Data). Avec l’Assistant Data Factory Copy, vous disposez d’un outil simple et performant pour créer des pipelines Data Factory capables de déplacer des centaines de dossiers, fichiers ou tables. L’Assistant prend en charge les trois fonctionnalités suivantes : aperçu des données automatique, capture de schéma, et mappage et filtrage des données. 
+Dès le début, l’Assistant est conçu pour traiter des données volumineuses (Big Data). Avec l’Assistant Data Factory Copy, vous disposez d’un outil simple et performant pour créer des pipelines Data Factory capables de déplacer des centaines de dossiers, fichiers ou tables. L’Assistant prend en charge les trois fonctionnalités suivantes : aperçu des données automatique, capture et mappage de schéma, et filtrage des données. 
 
 ## <a name="automatic-data-preview"></a>Aperçu des données automatique
 L’Assistant Data Factory Copy vous permet de consulter une partie des données à partir de la source de données sélectionnée pour que vous puissiez vérifier qu’il s’agit bien des données que vous voulez copier. En outre, si les données sources sont contenues dans un fichier texte, l’Assistant analyse ce fichier pour découvrir automatiquement les délimiteurs de colonnes et de lignes ainsi que le schéma. 
@@ -94,5 +93,5 @@ Une opération de copie unique ne permet le déplacement des données à d’une
 ![Propriétés de planification](./media/data-factory-copy-wizard/scheduling-properties.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour découvrir une procédure pas à pas rapide sur l’utilisation de l’Assistant Data Factory Copy afin de créer un pipeline avec une activité de copie, consultez le [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md).
+Pour découvrir une procédure pas à pas rapide sur l’utilisation de l’Assistant Copie de Data Factory afin de créer un pipeline avec une activité de copie, consultez le [Tutoriel : Créez un pipeline à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md).
 

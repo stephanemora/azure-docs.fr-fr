@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d84596b586ea54dd4a64faf46b32226862d83198
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: edbb953111fb4589539369bd9b2519b48b9b70eb
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584619"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121309"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gérer les pré-scripts et les post-scripts (préversion)
 
@@ -100,10 +100,7 @@ Voici un exemple de chaîne JSON transmise dans le paramètre **SoftwareUpdateCo
    }
 ```
 
-Un exemple complet incluant toutes les propriétés est disponible dans l’article suivant : [Software Update Configurations - Get By Name](/rest/api/automation/softwareupdateconfigurations/getbyname#examples) (Configurations de mises à jour logicielles - Obtenir par nom).
-
-> [!NOTE]
-> Pour l’instant, les ordinateurs ajoutés à un déploiement à l’aide des [groupes dynamiques (préversion)](automation-update-management.md#using-dynamic-groups) ne font pas partie intégrante du paramètre **SoftwareUpdateConfigurationRunContext**.
+Un exemple complet avec toutes les propriétés est disponible ici : [Configurations de mise à jour logicielle - Obtenir par nom](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
 
 ## <a name="samples"></a>Exemples
 

@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 01/04/2019
 ms.author: danlep
-ms.openlocfilehash: a1644f68465cffa8cce27257bb91100c111af8a1
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b18638057def03a02024200edb157e5caf08a669
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857769"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065169"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Supprimer des images conteneur dans Azure Container Registry
 
@@ -60,7 +60,7 @@ Dans un registre privé comme Azure Container Registry, le nom de l’image comp
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
 ```
 
-Pour connaître les bonnes pratiques relatives au choix des étiquettes pour les images, consultez le billet de blog [Docker Tagging: Best practices for tagging and versioning docker images][tagging-best-practices] sur MSDN.
+Pour une discussion sur les bonnes pratiques d’étiquetage des images, consultez le billet de blog [Docker Tagging: Best practices for tagging and versioning docker images][tagging-best-practices] sur MSDN.
 
 ### <a name="layer"></a>Couche
 
@@ -129,9 +129,9 @@ $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea
 
 Vous pouvez supprimer les données d’image du registre de conteneurs de plusieurs façons :
 
-* En supprimant un [référentiel](#delete-repository) : de cette façon, vous supprimez toutes les images et tous les calques contenus dans le référentiel.
-* En supprimant en fonction de [l’étiquette](#delete-by-tag) : de cette façon, vous supprimez une image, son étiquette, tous les calques référencés par l’image et toutes les autres étiquettes associées à l’image.
-* En supprimant en fonction du [code de hachage du manifeste](#delete-by-manifest-digest) : de cette façon, vous supprimez une image, tous les calques référencés par l’image et toutes les autres étiquettes associées à l’image.
+* Supprimer un [référentiel](#delete-repository) : Supprime toutes les images et toutes les couches uniques au sein du référentiel.
+* Supprimer par [étiquette](#delete-by-tag) : Supprime une image, l’étiquette, toutes les couches référencées par l’image et toutes les autres étiquettes associées à l’image.
+* Supprimer par [code de hachage du manifeste](#delete-by-manifest-digest) : Supprime une image, toutes les couches référencées par l’image et toutes les étiquettes associées à l’image.
 
 ## <a name="delete-repository"></a>Supprimer le référentiel
 
@@ -239,20 +239,20 @@ Comme mentionné dans la section [Code de hachage de manifeste](#manifest-digest
      },
      {
        "digest": "sha256:d2bdc0c22d78cde155f53b4092111d7e13fe28ebf87a945f94b19c248000ceec",
-       "tags": null,
+       "tags": [],
        "timestamp": "2018-07-11T21:32:21.1400513Z"
      }
    ]
    ```
 
-Comme vous pouvez le voir dans la sortie de la dernière étape de la séquence, il existe maintenant un manifeste orphelin dont la propriété `"tags"` est `null`. Ce manifeste se trouve toujours dans le registre, ainsi que toutes les données des calques propres qu’il référence. **Pour supprimer ces images orphelines et leurs données de calque, vous devez supprimer en fonction du code de hachage du manifeste**.
+Comme vous pouvez le voir dans la sortie de la dernière étape de la séquence, il existe maintenant un manifeste orphelin dont la propriété `"tags"` est un tableau vide. Ce manifeste se trouve toujours dans le registre, ainsi que toutes les données des calques propres qu’il référence. **Pour supprimer ces images orphelines et leurs données de calque, vous devez supprimer en fonction du code de hachage du manifeste**.
 
 ### <a name="list-untagged-images"></a>Répertorier les images sans étiquette
 
 Vous pouvez répertorier toutes les images sans étiquette de votre référentiel à l’aide de la commande Azure CLI suivante. Remplacez `<acrName>` et `<repositoryName>` par les valeurs adaptées à votre environnement.
 
 ```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName>  --query "[?tags==null].digest"
+az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?!(tags[?'*'])].digest"
 ```
 
 ### <a name="delete-all-untagged-images"></a>Supprimer toutes les images sans étiquette
@@ -283,7 +283,7 @@ REPOSITORY=myrepository
 # Delete all untagged (orphaned) images
 if [ "$ENABLE_DELETE" = true ]
 then
-    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags==null].digest" -o tsv \
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?!(tags[?'*'])].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
     echo "No data deleted. Set ENABLE_DELETE=true to enable image deletion."
@@ -310,7 +310,7 @@ $registry = "myregistry"
 $repository = "myrepository"
 
 if ($enableDelete) {
-    az acr repository show-manifests --name $registry --repository $repository --query "[?tags==null].digest" -o tsv `
+    az acr repository show-manifests --name $registry --repository $repository --query "[?!(tags[?'*'])].digest" -o tsv `
     | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
 } else {
     Write-Host "No data deleted. Set `$enableDelete = `$TRUE to enable image deletion."

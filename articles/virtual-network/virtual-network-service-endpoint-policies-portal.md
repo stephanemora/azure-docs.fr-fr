@@ -1,13 +1,10 @@
 ---
-title: Créer et associer des stratégies de point de terminaison de service - Portail Azure | Microsoft Docs
+title: Créer et associer des stratégies de point de terminaison de service - Portail Azure
+titlesuffix: Azure Virtual Network
 description: Dans cet article, découvrez comment configurer et associer des stratégies de point de terminaison de service à l’aide du portail Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: anithaa
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 6bd318da5b3cd667d0a39b9c963e8d3ffd472f41
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 06c034968b2577d6321ffe6f55f969547a35931f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633008"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054433"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Créer, changer ou supprimer une stratégie de point de terminaison de service à l’aide du portail Azure
 
@@ -47,9 +44,9 @@ Connectez-vous au portail Azure sur http://portal.azure.com.
 3. Entrez ou sélectionnez les informations suivantes dans **Informations de base** : 
 
    - Abonnement : sélectionnez votre abonnement pour la stratégie.    
-   - Groupe de ressources : sélectionnez **Créer**, puis entrez *myResourceGroup*.     
+   - Groupe de ressources : Sélectionnez **Créer** et entrez *myResourceGroup*.     
    - Nom : myEndpointPolicy
-   - Emplacement : West Central US     
+   - Emplacement : USA Centre-Ouest     
  
    ![Informations de base sur la création d’une stratégie de point de terminaison de service](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-startpane.PNG)
    
@@ -58,16 +55,16 @@ Connectez-vous au portail Azure sur http://portal.azure.com.
    - Sous **+ Ajouter une ressource**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **Ajouter**.  
    - Étendue : sélectionnez **Compte unique** ou **Tous les comptes de l’abonnement** ou **Tous les comptes du groupe de ressources**.    
    - Abonnement : sélectionnez votre abonnement pour le compte de stockage. La stratégie et les comptes de stockage peuvent se trouver dans des abonnements différents.   
-   - Groupe de ressources : sélectionnez votre groupe de ressources. Obligatoire si l’étendue est définie avec la valeur « Tous les comptes du groupe de ressources » ou « Compte unique ».  
+   - Groupe de ressources : Sélectionnez votre groupe de ressources. Obligatoire si l’étendue est définie avec la valeur « Tous les comptes du groupe de ressources » ou « Compte unique ».  
    - Ressource : mystorageaccountportal    
    - Cliquez sur **+ Ajouter une ressource** pour continuer à ajouter des ressources supplémentaires.
    
    ![Créer des définitions de stratégie de point de terminaison de service](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-policydefinitionspane.PNG)
    
-5. Facultatif : entrez ou sélectionnez les informations suivantes dans **Étiquettes** :
+5. Facultatif : Entrez ou sélectionnez les informations suivantes dans **Étiquettes** :
    
    - Clé : sélectionnez votre clé pour la stratégie. Exemple : Département     
-   - Valeur : entrez la paire de valeur pour la clé. Exemple : Finances
+   - Valeur : entrez la valeur correspondant à la clé. Exemple : Finances
 
 6. Sélectionnez **Vérifier + créer**. Validez les informations, puis cliquez sur **Créer**. Pour apporter d’autres modifications, cliquez sur **Précédent**. 
 
@@ -101,9 +98,9 @@ Avant de pouvoir associer une stratégie à un sous-réseau, vous devez créer u
 3. Sous **Créer un réseau virtuel**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis sélectionnez **Créer** :
    - Nom : myVirtualNetwork      
    - Espace d’adressage : 10.0.0.0/16      
-   - Abonnement : sélectionnez votre abonnement. La stratégie doit se trouver dans le même abonnement que le réseau virtuel     
-   - Groupe de ressources : sélectionnez **Utiliser l’existant**, puis *myResourceGroup*     
-   - Emplacement : West Central US     
+   - Abonnement : Sélectionnez votre abonnement. La stratégie doit se trouver dans le même abonnement que le réseau virtuel     
+   - Groupe de ressources : Sélectionnez **Utiliser l’existant**, puis *myResourceGroup*     
+   - Emplacement : USA Centre-Ouest     
    - Nom du sous-réseau : private     
    - Plage d’adresses : 10.0.0.0/24
      
@@ -114,7 +111,7 @@ Avant de pouvoir associer une stratégie à un sous-réseau, vous devez créer u
    ![Associer une stratégie](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-associatepolicies.PNG)
 
 >[!WARNING] 
->L’accès à des ressources du service dans d’autres régions sera autorisé à partir de ce sous-réseau, en fonction des groupes de sécurité réseau (NSG). Pour retreindre l’accès aux seules les régions de point de terminaison, limitez les groupes de sécurité réseau au seul trafic de service dans les régions de point de terminaison. Pour plus d’informations sur la création de groupes de sécurité réseau avec des étiquettes de service par région, consultez [Étiquettes de service Azure pour les groupes de sécurité réseau](manage-network-security-group.md?toc=%2fcreate-a-security-rule%2f.json).
+>L’accès à des ressources du service dans d’autres régions sera autorisé à partir de ce sous-réseau, en fonction des groupes de sécurité réseau (NSG). Pour retreindre l’accès aux seules les régions de point de terminaison, limitez les groupes de sécurité réseau au seul trafic de service dans les régions de point de terminaison. Pour plus d’informations sur la création de groupes de sécurité réseau avec des balises de service par région, consultez [Balises de service Azure pour les groupes de sécurité réseau](manage-network-security-group.md?toc=%2fcreate-a-security-rule%2f.json).
 
 Dans l’exemple ci-dessous, le groupe de sécurité réseau est soumis à des restrictions pour accéder uniquement aux ressources du Stockage Azure dans WestCentralUS et WestUS2, avec une règle « Refuser tout » comme règle de priorité inférieure.
 

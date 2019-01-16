@@ -8,23 +8,22 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5cfab02fc248139c76bd6123ac942832f8e1a21a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 44703a2547f685aaa0b6c583c39c08ef6a570d56
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052509"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016526"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Ajouter une tolérance de panne de l’activité de copie en ignorant les lignes incompatibles
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](data-factory-copy-activity-fault-tolerance.md)
-> * [Version 2 (version actuelle)](../copy-activity-fault-tolerance.md)
+> * [Version 1](data-factory-copy-activity-fault-tolerance.md)
+> * [Version 2 (version actuelle)](../copy-activity-fault-tolerance.md)
 
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Tolérance de panne de l’activité de copie dans Azure Data Factory](../copy-activity-fault-tolerance.md).
@@ -39,15 +38,15 @@ L’activité de copie offre la possibilité de détecter, d’ignorer et de jou
 
 - **Incompatibilité entre le type de données sources et le type natif récepteur**
 
-    Exemple : copie de données d’un fichier CSV du stockage Blob Azure dans une base de données SQL avec une définition de schéma contenant trois colonnes de type **INT**. Les lignes du fichier CSV qui contiennent des données numériques, telles que `123,456,789`, sont correctement copiées dans le magasin récepteur. En revanche, les lignes qui contiennent des valeurs non numériques, telles que `123,456,abc`, sont considérées comme incompatibles et ignorées.
+    Par exemple :  copier des données d’un fichier CSV du stockage Blob vers une base de données SQL avec une définition de schéma contenant trois colonnes de type **INT**. Les lignes du fichier CSV qui contiennent des données numériques, telles que `123,456,789`, sont correctement copiées dans le magasin récepteur. En revanche, les lignes qui contiennent des valeurs non numériques, telles que `123,456,abc`, sont considérées comme incompatibles et ignorées.
 
 - **Incompatibilité du nombre de colonnes entre la source et le récepteur**
 
-    Exemple : copie de données d’un fichier CSV du stockage Blob Azure dans une base de données SQL avec une définition de schéma contenant six colonnes. Les lignes du fichier CSV qui contiennent six colonnes sont correctement copiées dans le magasin récepteur. Les lignes du fichier CSV qui contiennent plus ou moins de six colonnes sont considérées comme incompatibles et ignorées.
+    Par exemple :  copier des données d’un fichier CSV du stockage Blob Azure vers une base de données SQL avec une définition de schéma contenant six colonnes. Les lignes du fichier CSV qui contiennent six colonnes sont correctement copiées dans le magasin récepteur. Les lignes du fichier CSV qui contiennent plus ou moins de six colonnes sont considérées comme incompatibles et ignorées.
 
 - **Violation de clé primaire lors de l’écriture dans SQL Server/Azure SQL Database/Azure Cosmos DB**
 
-    Exemple : copie de données depuis un serveur SQL dans une base de données SQL. Il existe une clé primaire définie dans la base de données SQL réceptrice, mais aucune clé primaire correspondante n’est définie dans le serveur SQL source. Les lignes en double qui peuvent exister dans la source ne sont pas copiées dans le récepteur. L’activité de copie ne copie que la première ligne des données sources dans le récepteur. Toutes les lignes sources suivantes contenant une valeur de clé primaire en double sont considérées comme incompatibles et ignorées.
+    Par exemple :  copier des données d’un serveur SQL vers une base de données SQL. Il existe une clé primaire définie dans la base de données SQL réceptrice, mais aucune clé primaire correspondante n’est définie dans le serveur SQL source. Les lignes en double qui peuvent exister dans la source ne sont pas copiées dans le récepteur. L’activité de copie ne copie que la première ligne des données sources dans le récepteur. Toutes les lignes sources suivantes contenant une valeur de clé primaire en double sont considérées comme incompatibles et ignorées.
 
 >[!NOTE]
 >Cette fonctionnalité ne s’applique pas quand l’activité de copie est configurée pour appeler un mécanisme de chargement de données externes, comme [Azure SQL Data Warehouse PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) ou [Amazon Redshift Unload](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). Pour charger des données dans SQL Data Warehouse avec PolyBase, utilisez la prise en charge native de la tolérance de panne de PolyBase en spécifiant « [polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink) » dans l’activité de copie.
@@ -83,7 +82,7 @@ Une fois l’exécution de l’activité de copie terminée, vous pouvez voir le
 
 ![Le système de surveillance a ignoré les lignes incompatibles](./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png)
 
-Si vous configurez la journalisation des lignes incompatibles, le chemin d’accès du fichier journal est le suivant : `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv`. Vous pourrez y vérifier les lignes qui ont été ignorées et la cause racine de l’incompatibilité.
+Si vous effectuez la configuration de manière à enregistrer les lignes incompatibles, vous pouvez trouver le fichier journal à l’emplacement suivant : `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv` Le fichier journal affiche les lignes qui ont été ignorées et la cause racine de l’incompatibilité.
 
 Les données d’origine et l’erreur correspondante sont consignées dans le fichier journal. Voici un exemple de contenu de fichier journal :
 ```

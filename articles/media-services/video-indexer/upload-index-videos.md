@@ -9,16 +9,16 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: juliako
-ms.openlocfilehash: f29adb500401c9f5d6e177a0740ce54719c36a34
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2af3e75e3810284d9740a3d87d681d9ee31f14d3
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253202"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052834"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
-Lorsque vous chargez des vidéos avec l’API Video Indexer, vous avez deux options de chargement : 
+Lorsque vous chargez des vidéos avec l’API Video Indexer, vous disposez des deux options de chargement suivantes : 
 
 * charger votre vidéo à partir d’une URL (par défaut),
 * Envoyer le fichier vidéo sous forme de tableau d’octets dans le corps de la demande,

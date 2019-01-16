@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 179d8fc0f17bf43792db6a9b0e15a6f63349f002
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 43ca62191f0dc5a306ea5891f31a316242694a02
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890940"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107869"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Référence de fonctions du langage de définition de workflow dans Azure Logic Apps
 
@@ -102,6 +102,7 @@ Pour travailler avec des collections, généralement des tableaux, des chaînes 
 | [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Vérifie si une collection est vide. | 
 | [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Renvoyer le premier élément d’une collection. | 
 | [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Retourne une collection qui contient *uniquement* les éléments communs aux collections spécifiées. | 
+| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | À l’intérieur d’une action répétée sur un tableau, renvoyer l’élément actuel du tableau au cours de l’itération actuelle de l’action. | 
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Renvoyer une chaîne qui contient *tous* les éléments d’un tableau, séparés par le caractère spécifié. | 
 | [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Retourne le dernier élément d’une collection. | 
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Renvoyer le nombre d’éléments d’une chaîne ou d’un tableau. | 
@@ -4014,7 +4015,7 @@ xml('<value>')
 
 | Paramètre | Obligatoire | type | Description | 
 | --------- | -------- | ---- | ----------- | 
-| <*value*> | Oui | Chaîne | Chaîne contenant l’objet JSON à convertir <p>L’objet JSON ne doit posséder qu’une seule propriété racine. <br>Utilisez le caractère de barre oblique inverse (\\) comme caractère d’échappement pour le guillemet double ("). | 
+| <*value*> | Oui | Chaîne | Chaîne contenant l’objet JSON à convertir <p>L’objet JSON ne doit avoir qu’une seule propriété racine, qui ne peut pas être un tableau. <br>Utilisez le caractère de barre oblique inverse (\\) comme caractère d’échappement pour le guillemet double ("). | 
 ||||| 
 
 | Valeur de retour | type | Description | 

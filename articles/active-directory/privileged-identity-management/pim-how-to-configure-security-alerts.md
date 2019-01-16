@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 11/21/2018
+ms.date: 01/04/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4a715020e37d5885dac26ac0573efe985c3f2cfb
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 0231eaad26fbc3e7157999c0023c5001f37d70d5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291213"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063283"
 ---
 # <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Configurer des alertes de sécurité pour les rôles d’annuaire Azure AD dans PIM
 
@@ -30,9 +30,9 @@ Azure AD Privileged Identity Management (PIM) génère des alertes en cas d’ac
 
 Cette section répertorie toutes les alertes de sécurité pour les rôles d’annuaire, et explique comment les corriger et les éviter. Le terme Gravité revêt les significations suivantes :
 
-* **Élevé** : nécessite une action immédiate, car il s’agit d’une violation de stratégie.
-* **Moyen** : ne nécessite pas d’action immédiate, mais signale une violation potentielle de la stratégie.
-* **Faible** : ne nécessite pas d’action immédiate, mais suggère une modification de la stratégie.
+* **Haute** : nécessite une action immédiate, car il s’agit d’une violation de stratégie.
+* **Moyen** : ne nécessite pas d’action immédiate, mais signale une violation potentielle de la stratégie.
+* **Faible** : ne nécessite pas d’action immédiate, mais suggère de préférence une modification de la stratégie.
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>Les administrateurs n’utilisent pas leurs rôles privilégiés
 
@@ -69,7 +69,7 @@ Cette section répertorie toutes les alertes de sécurité pour les rôles d’a
 | | |
 | --- | --- |
 | **Niveau de gravité** | Moyenne |
-| **Pourquoi reçois-je cette alerte ?** | Les comptes qui n’ont pas changé leur mot de passe récemment peuvent être des comptes de service ou des comptes partagés qui ne sont pas en cours de maintenance. Ces comptes dans des rôles privilégiés sont vulnérables aux attaques. |
+| **Pourquoi reçois-je cette alerte ?** | Comptes dans un rôle privilégié qui n’ont pas changé leur mot de passe au cours des 90 derniers jours. Ces comptes peuvent être des comptes partagés ou de service, qui ne sont pas gérés et qui sont vulnérables aux attaques. |
 | **Procédure de résolution** | Passez en revue les comptes de la liste. S’ils n’ont plus besoin d’un accès, supprimez-les de leurs rôles privilégiés. |
 | **Prévention** | Assurez-vous que les comptes partagés modifient régulièrement leur mot de passe fort en cas de changement des utilisateurs qui connaissent le mot de passe. </br>Passez régulièrement en revue les comptes avec des rôles privilégiés en utilisant des [révisions d’accès](pim-how-to-start-security-review.md) et supprimez les attributions de rôles qui ne sont plus nécessaires. |
 | **Action d´atténuation dans le portail** | Supprime le compte de leur rôle privilégié. |

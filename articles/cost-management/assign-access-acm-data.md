@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: ab5f334b1c830ea5e9c0164b8e75ef0f4fab8e1b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 50f048dc36b0248cdbbd85d91c00b7947f9ddc1f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075639"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052136"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Affecter une autorisation d’accès aux données Cost Management
 
@@ -39,6 +39,10 @@ Pour afficher les données de coût, un utilisateur doit disposer au moins d’u
 <sup>1</sup> Le compte de facturation est souvent désigné sous le terme de Contrat Entreprise ou Compte d’inscription.
 
 <sup>2</sup> Le compte d’inscription est souvent désigné sous le terme de propriétaire du compte.
+
+Le diagramme suivant illustre la relation entre les étendues de gestion des coûts avec des rôles et les paramètres du portail Accord Entreprise.
+
+![Diagramme montrant la relation entre les étendues de gestion des coûts avec des rôles et les paramètres du portail Accord Entreprise.](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Activer l’accès aux coûts dans le portail EA
 

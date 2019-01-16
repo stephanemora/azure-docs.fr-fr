@@ -1,21 +1,19 @@
 ---
 title: 'Azure Cosmos DB : Ressources, kit SDK et API .NET Core SQL'
 description: Tout savoir sur l’API SQL .NET Core et le kit de développement logiciel (SDK), notamment les dates de sortie, les dates de déclassement et les modifications effectuées entre chaque version du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB.
-services: cosmos-db
-author: rnagpal
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d947974575cf996ed880f2c1b5f8f7700b81ffd3
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.author: sngun
+ms.openlocfilehash: 5eb04f30fd6766b8df65998b8a4d53797b8341ba
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413504"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053549"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK .NET Core Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -57,6 +55,14 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la pari
 * Nouveau modèle d’objet, avec le CosmosClient de niveau supérieur et les méthodes réparties entre les classes CosmosDatabases, CosmosContainers et CosmosItems appropriées.
 * Prise en charge des flux.
 * Mise à jour de CosmosResponseMessage à partir du serveur pour renvoyer le code d’état, et levée d’une seule exception si aucune réponse n’est retournée.
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+
+* Amélioration dans la logique de nouvelle tentative lors du basculement pour les appels d’exécution de procédure stockée.
+
+* DocumentClientEventSource est devenu un singleton. 
+
+* Correction du délai d’expiration de GatewayAddressCache qui ne respectait pas le délai d’expiration des requêtes de la stratégie de connexion.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 
@@ -227,6 +233,7 @@ Si vous avez des questions liées à ce kit SDK, postez sur [StackOverflow](http
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |24 décembre 2018 |--- |
 | [2.2.0](#2.2.0) |7 décembre 2018 |--- |
 | [2.1.3](#2.1.3) |15 octobre 2018 |--- |
 | [2.1.2](#2.1.2) |4 octobre 2018 |--- |

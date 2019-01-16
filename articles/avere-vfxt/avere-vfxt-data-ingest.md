@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: bf16c0fbc7090bf9b548796765502cde1731aef9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a3d6cb745c782d2a7166208f2a8dd1202a330b15
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669706"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050487"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Déplacement des données vers le cluster vFXT - ingestion parallèle des données 
 
@@ -19,7 +19,7 @@ Une fois que vous avez créé un cluster vFXT, votre première tâche peut être
 
 Comme le cluster Avere vFXT est un cache multiclient scalable, le moyen le plus rapide et efficace d’y copier des données consiste à utiliser plusieurs clients. Cette technique parallélise l’ingestion des fichiers et des objets.
 
-![Diagramme montrant le déplacement des données multiclient et multithread : en haut à gauche, plusieurs flèches proviennent d’une icône pour le stockage matériel local. Les flèches pointent vers quatre ordinateurs clients. À partir de chaque ordinateur client, trois flèches pointent vers le système Avere vFXT. À partir du système Avere vFXT, plusieurs flèches pointent vers le stockage Blob Azure.](media/avere-vfxt-parallel-ingest.png) 
+![Diagramme illustrant le déplacement des données multithread et multiclient : en haut à gauche, plusieurs flèches partent d’une icône représentant le stockage matériel local. Les flèches pointent vers quatre ordinateurs clients. À partir de chaque ordinateur client, trois flèches pointent vers le système Avere vFXT. À partir du système Avere vFXT, plusieurs flèches pointent vers le stockage Blob Azure.](media/avere-vfxt-parallel-ingest.png) 
 
 Les commandes ``cp`` ou ``copy`` couramment utilisées pour transférer des données d’un système de stockage vers un autre sont des processus monothread qui ne copient qu’un seul fichier à la fois. Cela signifie que le serveur de fichiers ne reçoit qu’un fichier à la fois, ce qui représente un gaspillage des ressources du cluster.
 
@@ -167,7 +167,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ### <a name="create-file-manifests"></a>Créer des manifestes de fichiers
 
-Une fois que vous avez compris les approches ci-dessus (plusieurs threads de copie par destination, plusieurs destinations par client, plusieurs clients par système de fichiers source accessible via le réseau), tenez compte de la recommandation suivante : générez des manifestes de fichiers, puis utilisez-les avec des commandes de copie sur plusieurs clients.
+Une fois que vous avez compris les approches ci-dessus (plusieurs threads de copie par destination, plusieurs destinations par client, plusieurs clients par système de fichiers source accessible via le réseau), tenez compte de la recommandation suivante, celle de générer des manifestes de fichiers, puis de les utiliser avec les commandes de copie dans plusieurs clients.
 
 Ce scénario utilise la commande UNIX ``find`` pour créer des manifestes de fichiers ou répertoires :
 
@@ -272,7 +272,7 @@ Pour utiliser msrsync pour remplir un volume cloud Azure avec un cluster Avere, 
 1. Installez msrsync et ses composants requis (rsync et Python 2.6 ou version ultérieure)
 1. Déterminez le nombre total de fichiers et répertoires à copier.
 
-   Par exemple, utilisez l’utilitaire Avere ``prime.py`` avec des arguments ```prime.py --directory /path/to/some/directory``` (disponibles en téléchargeant l’url https://raw.githubusercontent.com/Azure/Avere/master/src/dataingestor/prime.py).
+   Par exemple, utilisez l’utilitaire Avere ``prime.py`` avec des arguments ```prime.py --directory /path/to/some/directory``` (disponibles en téléchargeant l’url https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py).
 
    Si vous n’utilisez pas ``prime.py``, vous pouvez calculer le nombre d’éléments avec l’outil Gnu ``find`` comme suit :
 

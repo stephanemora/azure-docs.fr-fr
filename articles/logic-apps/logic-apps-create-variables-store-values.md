@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: c0f2802bae366637fd93d47e33619746b7142f53
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: bb84c7d5e483b0a2abc3b7d1a37de8760513d203
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231625"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063214"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Créer des variables pour l’enregistrement et la gestion de valeurs dans Azure Logic Apps
 
@@ -28,7 +28,10 @@ Vous pouvez créer des variables pour des types de données tels que entier, flo
 * Affecter une valeur différente à la variable.
 * Insérer, ou *ajouter*, la valeur de la variable à la fin d’une chaîne ou d’un tableau.
 
-Les variables existent et sont globales uniquement au sein de l’instance d’application logique qui les crée. En outre, elles sont conservées dans toutes les itérations de boucle à l’intérieur d’une instance d’application logique. Lorsque vous référencez une variable, utilisez le nom de celle-ci en tant que jeton, pas le nom de l’action qui est la façon habituelle de référencer les résultats d’une action.
+Les variables existent et sont globales uniquement au sein de l’instance d’application logique qui les crée. En outre, elles sont conservées dans toutes les itérations de boucle à l’intérieur d’une instance d’application logique. Lorsque vous référencez une variable, utilisez le nom de celle-ci en tant que jeton, pas le nom de l’action qui est la façon habituelle de référencer les résultats d’une action. 
+
+> [!IMPORTANT]
+> Par défaut, les cycles dans une boucle « Foreach » s’exécutent en parallèle. Quand vous utilisez des variables dans des boucles, exécutez la boucle [séquentiellement](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) afin que les variables retournent des résultats prévisibles. 
 
 Si vous n’avez pas encore d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
@@ -38,7 +41,7 @@ Pour suivre cet article, voici les éléments que vous avez besoin :
 
 * L’application logique dans laquelle vous souhaitez créer une variable 
 
-  Si vous ne connaissez pas les applications logiques, consultez les sections [Présentation d’Azure Logic Apps](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Un [déclencher](../logic-apps/logic-apps-overview.md#logic-app-concepts) en tant que première étape de votre application logique 
 
@@ -73,7 +76,7 @@ Vous pouvez créer une variable et déclarer son type de données et sa valeur i
    |----------|----------|-------|--------------|
    | NOM | Oui | <*variable-name*> | Nom de la variable à incrémenter | 
    | type | Oui | <*variable-type*> | Type de données de la variable. | 
-   | Valeur | Non  | <*start-value*> | Valeur initiale de votre variable. <p><p>**Conseil** : bien que cette valeur soit facultative, il est recommandé de la définir afin de toujours savoir la valeur initiale de votre variable. | 
+   | Valeur | Non  | <*start-value*> | Valeur initiale de votre variable. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur initiale de votre variable. | 
    ||||| 
 
    ![Initialiser la variable](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -208,7 +211,7 @@ Pour augmenter, ou *incrément*, une variable d’une valeur constante, ajoutez 
    | Propriété | Obligatoire | Valeur |  Description |
    |----------|----------|-------|--------------|
    | NOM | Oui | <*variable-name*> | Nom de la variable à incrémenter | 
-   | Valeur | Non  | <*increment-value*> | Valeur utilisée pour incrémenter la variable. La valeur par défaut est 1. <p><p>**Conseil** : bien que cette valeur soit facultative, il est recommandé de la définir afin de toujours savoir la valeur spécifique de l’incrémentation de votre variable. | 
+   | Valeur | Non  | <*increment-value*> | Valeur utilisée pour incrémenter la variable. La valeur par défaut est 1. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur spécifique pour l’incrémentation de votre variable. | 
    |||| 
 
    Par exemple :  
@@ -328,7 +331,7 @@ Voici les propriétés disponibles pour l’action **Décrémenter une variable*
 | Propriété | Obligatoire | Valeur |  Description |
 |----------|----------|-------|--------------|
 | NOM | Oui | <*variable-name*> | Nom de la variable à décrémenter | 
-| Valeur | Non  | <*increment-value*> | Valeur de la décrémentation de la variable. La valeur par défaut est 1. <p><p>**Conseil** : bien que cette valeur soit facultative, il est recommandé de la définir afin de toujours savoir la valeur spécifique de la décrémentation de votre variable. | 
+| Valeur | Non  | <*increment-value*> | Valeur de la décrémentation de la variable. La valeur par défaut est 1. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur spécifique pour la décrémentation de votre variable. | 
 ||||| 
 
 Si vous passez du concepteur à l’éditeur en mode Code, voici comment l’action **Décrémenter une variable** s’affiche à l’intérieur de la définition de votre application logique, qui est au format JSON.

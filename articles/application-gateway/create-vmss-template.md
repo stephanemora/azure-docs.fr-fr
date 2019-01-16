@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: d6180156e1a8f3fa053c7fbb247e38831f86e76a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: f7050514d5f0de0cade09c6be672d7dfd3568da3
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998403"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037410"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Création d’une passerelle d’application à l’aide du modèle Azure Resource Manager
 
@@ -68,7 +68,7 @@ Vous pouvez télécharger le modèle Azure Resource Manager existant pour créer
 
    * **type**. Type de ressource créée par le modèle. Dans ce cas, le type qui représente une passerelle d’application est `Microsoft.Network/applicationGateways`.
    * **name**. Nom de la ressource. Remarquez l’utilisation de `[parameters('applicationGatewayName')]`, qui signifie que le nom est fourni par vous ou un fichier de paramètres lors du déploiement.
-   * **properties**. Liste des propriétés de la ressource. Ce modèle utilise le réseau virtuel et une adresse IP publique lors de la création de la passerelle Application Gateway.
+   * **properties**. Liste des propriétés de la ressource. Ce modèle utilise le réseau virtuel et une adresse IP publique lors de la création de la passerelle Application Gateway. Pour les propriétés et la syntaxe JSON d’une passerelle d’application dans un modèle, consultez [Microsoft.Network/applicationgateways](/azure/templates/microsoft.network/applicationgateways).
 
 1. Revenir à [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Cliquez sur **azuredeploy-parameters.json**, puis sur **RAW**.

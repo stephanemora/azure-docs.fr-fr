@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 898fd7d0416d1e1b27a25cabf524e72a7de44fde
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 902c659d2c51d69f2e9d0ef3a7401326e0e530eb
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269586"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013143"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Premiers pas avec Azure Machine Learning pour Visual Studio Code
 
@@ -80,7 +80,8 @@ Avant de commencer à effectuer l’apprentissage et à déployer les modèles M
 
 1. Cliquez sur l’icône Azure dans la barre d’activités Visual Studio Code. La barre latérale Azure Machine Learning apparaît.
 
-   [![Barre latérale](./media/vscode-tools-for-ai/CreateNewWorkspace.gif)](./media/vscode-tools-for-ai/CreateNewWorkspace.gif#lightbox)
+   [![installer](./media/vscode-tools-for-ai/CreateaWorkspace.gif)](./media/vscode-tools-for-ai/CreateaWorkspace.gif#lightbox)
+
 
 1. Cliquez avec le bouton droit sur votre abonnement Azure et sélectionnez **Créer un espace de travail**. Une liste s’affiche. Dans l’image animée, le nom de l’abonnement est « Free Trial » (Essai gratuit) et l’espace de travail est « TeamWorkspace » (Espace de travail d’équipe). 
 
@@ -96,11 +97,11 @@ Avant de commencer à effectuer l’apprentissage et à déployer les modèles M
  
 1. Appuyez sur Entrée pour créer l’expérience. Elle apparaît dans l’arborescence située sous le nom de l’espace de travail.
 
-1. Cliquez avec le bouton droit sur le nom de l’expérience et choisissez **Attach folder to experiment** (Joindre le dossier à l’expérience). Ce dossier doit contenir vos scripts Python locaux. Le dossier est ensuite lié à l’expérience dans le cloud. 
+1. Vous pouvez cliquer avec le bouton droit sur une expérience dans un espace de travail et sélectionner « Définir comme expérience active ». L’expérience « **Active** » est celle que vous utilisez actuellement, et votre dossier ouvert dans Visual Studio Code sera lié à cette expérience dans le cloud. Ce dossier doit contenir vos scripts Python locaux.
 
-   Maintenant que toutes vos expériences s’exécutent dans votre expérience, l’ensemble de vos métriques clés sont stockées dans l’historique des expériences et les modèles dont vous effectuez l’apprentissage sont automatiquement chargés dans Azure Machine Learning et stockés dans vos journaux et métriques d’expérience.
+   Maintenant que toutes vos expériences s’exécutent dans votre expérience, l’ensemble de vos métriques clés sont stockées dans l’historique des expériences et les modèles dont vous effectuez l’entraînement sont chargés automatiquement dans Azure Machine Learning et stockés dans vos journaux et métriques d’expérience.
 
-   [![Joindre un dossier dans VS Code](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif)](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif#lightbox)
+   [![Joindre un dossier dans VS Code](./media/vscode-tools-for-ai/CreateAnExperiment.gif)](./media/vscode-tools-for-ai/CreateAnExperiment.gif#lightbox)
 
 ### <a name="use-keyboard-shortcuts"></a>Utiliser les raccourcis clavier
 

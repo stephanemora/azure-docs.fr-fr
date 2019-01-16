@@ -9,23 +9,22 @@ ms.assetid: 4b9a6a4f-8cf5-4e0a-a06f-8133a2b7bc58
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 505f7345af6224b767d6d3719c123d91f54e48f5
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 632e605a6f7c9885f3854ca1f7b69ed337a1eacc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054290"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025876"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](data-factory-copy-activity-performance.md)
-> * [Version 2 (version actuelle)](../copy-activity-performance.md)
+> * [Version 1](data-factory-copy-activity-performance.md)
+> * [Version 2 (version actuelle)](../copy-activity-performance.md)
 
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Guide sur les performances et le réglage de l’activité de copie pour Data Factory](../copy-activity-performance.md).
@@ -194,11 +193,11 @@ Lorsque vous activez la fonctionnalité intermédiaire, tout d’abord les donn�
 
 Dans le scénario de copie cloud (les banques de données sources et réceptrices de données sont dans le cloud), la passerelle n’est pas utilisée. Le service Data Factory effectue les opérations de copie.
 
-![Copie intermédiaire : scénario cloud](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
+![Copie intermédiaire : scénario cloud](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
 
 Dans le scénario de copie hybride, (la source existe en local et le récepteur dans le cloud), la passerelle déplace les données de la banque de données source vers une banque de données intermédiaire. Le service Data Factory déplace les données de la banque de données intermédiaire vers la banque de données réceptrice. La copie de données à partir d’une banque de données cloud vers une banque de données locale à l’aide d’une banque intermédiaire est également prise en charge avec un flux inversé.
 
-![Copie intermédiaire : scénario hybride](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
+![Copie intermédiaire : scénario hybride](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
 
 Lorsque vous activez le déplacement de données à l’aide d’une banque de données intermédiaire, vous pouvez indiquer si vous souhaitez compresser les données avant de les déplacer de la banque de données source vers une banque de données intermédiaire, et les décompresser avant leur transfert d’une banque de données intermédiaire vers une banque de données réceptrice.
 
@@ -210,8 +209,8 @@ Configurez le paramètre **enableStaging** sur l’activité de copie pour spéc
 | Propriété | Description | Valeur par défaut | Requis |
 | --- | --- | --- | --- |
 | **enableStaging** |Indiquez si vous souhaitez copier les données via un magasin de données intermédiaire. |False |Non |
-| **linkedServiceName** |Spécifiez le nom d’un service lié [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) faisant référence à l’instance de stockage que vous utilisez comme banque de données intermédiaire. <br/><br/> Vous ne pouvez pas utiliser le stockage avec une signature d’accès partagé pour charger les données dans SQL Data Warehouse via PolyBase. Vous pouvez l’utiliser dans tous les autres scénarios. |N/A |Oui, quand **enableStaging** est défini sur TRUE |
-| **path** |Spécifiez le chemin du stockage Blob où vous souhaitez placer les données intermédiaires. Si vous ne renseignez pas le chemin d’accès, le service crée un conteneur pour stocker les données temporaires. <br/><br/> Ne spécifiez un chemin d’accès que si vous utilisez le stockage avec une signature d’accès partagé, ou si vous avez besoin de données temporaires dans un emplacement spécifique. |N/A |Non |
+| **linkedServiceName** |Spécifiez le nom d’un service lié [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) faisant référence à l’instance de stockage que vous utilisez comme banque de données intermédiaire. <br/><br/>  Vous ne pouvez pas utiliser le stockage avec une signature d’accès partagé pour charger les données dans SQL Data Warehouse via PolyBase. Vous pouvez l’utiliser dans tous les autres scénarios. |N/A |Oui, quand **enableStaging** est défini sur TRUE |
+| **path** |Spécifiez le chemin du stockage Blob où vous souhaitez placer les données intermédiaires. Si vous ne renseignez pas le chemin d’accès, le service crée un conteneur pour stocker les données temporaires. <br/><br/>  Ne spécifiez un chemin d’accès que si vous utilisez le stockage avec une signature d’accès partagé, ou si vous avez besoin de données temporaires dans un emplacement spécifique. |N/A |Non |
 | **enableCompression** |Spécifie si les données doivent être compressées avant d’être copiées vers la destination. Ce paramètre réduit le volume de données transférées. |False |Non |
 
 Voici un exemple de définition de l’activité de copie avec les propriétés qui sont décrites dans le tableau précédent :
@@ -274,9 +273,9 @@ Nous vous recommandons d’effectuer cette procédure pour régler les performan
 3. **Étendez la configuration à l’ensemble de votre jeu de données**. Lorsque vous êtes satisfait des résultats et des performances de l’exécution, vous pouvez étendre la définition et la période active du pipeline pour couvrir l’ensemble de votre jeu de données.
 
 ## <a name="considerations-for-data-management-gateway"></a>Considérations relatives à la passerelle de gestion des données
-**Configuration de la passerelle :** nous vous recommandons d’utiliser un ordinateur dédié pour héberger la passerelle de gestion des données. Voir [Considérations relatives à l’utilisation de la passerelle de gestion des données](data-factory-data-management-gateway.md#considerations-for-using-gateway).  
+**Configuration de la passerelle** : nous vous recommandons d’utiliser un ordinateur dédié pour héberger la passerelle de gestion des données. Voir [Considérations relatives à l’utilisation de la passerelle de gestion des données](data-factory-data-management-gateway.md#considerations-for-using-gateway).  
 
-**Analyse et mise à l’échelle de la passerelle :** une seule passerelle logique comportant un ou plusieurs nœuds de passerelle peut traiter simultanément plusieurs exécutions de l’activité de copie. Vous pouvez afficher un instantané en temps quasi réel de l’utilisation des ressources (processeur, mémoire, réseau (entrant/sortant), etc.) sur un ordinateur de passerelle, et voir le nombre de travaux simultanés en cours d’exécution par rapport à la limite dans le portail Azure. Voir [Surveillance de la passerelle dans le portail](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Si vous avez besoin de déplacer des données hybrides avec de nombreuses exécutions d’activité de copie simultanées ou avec un gros volume de données à copier, vous devriez envisager [d’augmenter la taille des instances de passerelle](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) afin de mieux utiliser vos ressources ou de configurer plus de ressources pour répondre à vos besoins de copie. 
+**Supervision de la passerelle et scale-up/out** : une seule passerelle logique comportant un ou plusieurs nœuds de passerelle peut traiter simultanément plusieurs exécutions de l’activité de copie. Vous pouvez afficher un instantané en temps quasi réel de l’utilisation des ressources (processeur, mémoire, réseau (entrant/sortant), etc.) sur un ordinateur de passerelle, et voir le nombre de travaux simultanés en cours d’exécution par rapport à la limite dans le portail Azure. Voir [Surveillance de la passerelle dans le portail](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Si vous avez besoin de déplacer des données hybrides avec de nombreuses exécutions d’activité de copie simultanées ou avec un gros volume de données à copier, vous devriez envisager [d’augmenter la taille des instances de passerelle](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) afin de mieux utiliser vos ressources ou de configurer plus de ressources pour répondre à vos besoins de copie. 
 
 ## <a name="considerations-for-the-source"></a>Considérations relatives à la source
 ### <a name="general"></a>Généralités
@@ -289,15 +288,15 @@ Si vous copiez des données depuis le stockage Blob vers SQL Data Warehouse, env
 ### <a name="file-based-data-stores"></a>Magasins de données basés sur un fichier
 *(Inclut le stockage des objets blob, Data Lake Store, Amazon S3, les systèmes de fichiers locaux et HDFS locaux)*
 
-* **Taille moyenne de fichier et nombre de fichiers**: l’activité de copie transfère les données d’un fichier à la fois. Pour une même quantité de données à déplacer, le débit global est plus lent si les données se composent de beaucoup de petits fichiers plutôt que de quelques fichiers volumineux, en raison de la phase d’amorçage nécessaire pour chaque fichier. Par conséquent, vous devez autant que possible combiner plusieurs petits fichiers en fichiers plus volumineux pour augmenter le débit.
+* **Taille et quantité moyennes de fichiers**: l’activité de copie transfère les données un fichier à la fois. Pour une même quantité de données à déplacer, le débit global est plus lent si les données se composent de beaucoup de petits fichiers plutôt que de quelques fichiers volumineux, en raison de la phase d’amorçage nécessaire pour chaque fichier. Par conséquent, vous devez autant que possible combiner plusieurs petits fichiers en fichiers plus volumineux pour augmenter le débit.
 * **Format de fichier et compression** : pour d’autres méthodes permettant d’améliorer les performances, voir les sections [Considérations relatives à la sérialisation et à la désérialisation](#considerations-for-serialization-and-deserialization) et [Considérations relatives à la compression](#considerations-for-compression).
 * Pour le scénario de **système de fichiers local** où l’utilisation d’une **passerelle de gestion des données** est requise, voir la section [Considérations relatives à la passerelle de gestion des données](#considerations-for-data-management-gateway).
 
 ### <a name="relational-data-stores"></a>Bases de données relationnelles
 *(Inclut SQL Database, SQL Data Warehouse, Amazon Redshift, les bases de données SQL Server et les bases de données Oracle, MySQL, DB2, Teradata, Sybase et PostgreSQL, etc.)*
 
-* **Modèle de données**: votre schéma de table a des répercussions sur le débit de copie. Une taille de ligne importante vous donne de meilleures performances qu’une petite taille de ligne pour copier la même quantité de données. Raison : la base de données peut récupérer plus efficacement moins de lots de données contenant moins de lignes.
-* **Requête ou procédure stockée**: optimisez la logique de la requête ou de la procédure stockée que vous spécifiez dans la source d’activité de copie pour extraire les données plus efficacement.
+* **Modèle de données** : Votre schéma de table a des répercussions sur le débit de copie. Une taille de ligne importante vous donne de meilleures performances qu’une petite taille de ligne pour copier la même quantité de données. Raison : la base de données peut récupérer plus efficacement moins de lots de données contenant moins de lignes.
+* **Requête ou procédure stockée** : optimisez la logique de la requête ou de la procédure stockée que vous spécifiez dans la source d’activité de copie pour extraire les données plus efficacement.
 * Pour des **bases de données relationnelles locales**, telles que SQL Server et Oracle, qui requièrent l’utilisation d’une **passerelle de gestion des données**, voir la section [Considérations relatives à la passerelle de gestion des données](#considerations-on-data-management-gateway).
 
 ## <a name="considerations-for-the-sink"></a>Considérations relatives au récepteur
@@ -311,15 +310,15 @@ Si vous copiez des données depuis le **stockage Blob** vers **SQL Data Warehous
 ### <a name="file-based-data-stores"></a>Magasins de données basés sur un fichier
 *(Inclut le stockage des objets blob, Data Lake Store, Amazon S3, les systèmes de fichiers locaux et HDFS locaux)*
 
-* **Comportement de copie** : si vous copiez des données d’une banque de données basée sur fichier différente, l’activité de copie propose trois options via la propriété **copyBehavior**. Elle conserve la hiérarchie, aplatit la hiérarchie ou fusionne les fichiers. La conservation ou l’aplanissement de la hiérarchie entraîne peu ou pas de surcharge de performances, mais la fusion de fichiers entraîne une augmentation de la surcharge des performances.
+* **Comportement de copie**: si vous copiez des données d’une banque de données basée sur fichier différente, l’activité de copie propose trois options via la propriété **copyBehavior**. Elle conserve la hiérarchie, aplatit la hiérarchie ou fusionne les fichiers. La conservation ou l’aplanissement de la hiérarchie entraîne peu ou pas de surcharge de performances, mais la fusion de fichiers entraîne une augmentation de la surcharge des performances.
 * **Format de fichier et compression** : voir les sections [Considérations relatives à la sérialisation et à la désérialisation](#considerations-for-serialization-and-deserialization) et [Considérations relatives à la compression](#considerations-for-compression) pour d’autres méthodes permettant d’améliorer les performances.
-* **Stockage Blob**: actuellement, le stockage Blob ne prend en charge que les objets blob de blocs pour un transfert de données et un débit optimisés.
+* **Stockage Blob** : actuellement, le Stockage Blob ne prend en charge que les objets blob de blocs pour un transfert de données et un débit optimisés.
 * Pour les scénarios de **systèmes de fichiers locaux** nécessitant l’utilisation d’une **passerelle de gestion des données**, voir la section [Considérations relatives à la passerelle de gestion des données](#considerations-for-data-management-gateway).
 
 ### <a name="relational-data-stores"></a>Bases de données relationnelles
 *(Inclut SQL Database, SQL Data Warehouse, les bases de données SQL Server et les bases de données Oracle)*
 
-* **Comportement de copie** : selon les propriétés que vous avez configurées pour **sqlSink**, l’activité de copie écrit des données dans la base de données de destination de différentes façons.
+* **Comportement de copie**: selon les propriétés que vous avez configurées pour **sqlSink**, l’activité de copie écrit des données dans la base de données de destination de différentes façons.
   * Par défaut, le service de déplacement de données utilise une API de copie en bloc pour insérer des données en mode Append, ce qui optimise les performances.
   * Si vous configurez une procédure stockée dans le récepteur, la base de données applique les données une ligne à la fois plutôt que de les charger en bloc. Les performances chutent considérablement. Si votre jeu de données est volumineux, le cas échéant, songez à utiliser la propriété **sqlWriterCleanupScript** .
   * Si vous configurez la propriété **sqlWriterCleanupScript** pour chaque exécution de l’activité de copie, le service déclenche le script, puis vous utilisez l’API de copie en bloc pour insérer les données. Par exemple, pour remplacer les données de la table entière par les dernières données, vous pouvez spécifier un script pour commencer par supprimer tous les enregistrements avant de charger en bloc les nouvelles données à partir de la source.
@@ -332,9 +331,9 @@ Si vous copiez des données depuis le **stockage Blob** vers **SQL Data Warehous
 *(Inclut le Stockage Table et Azure Cosmos DB)*
 
 * Pour le **Stockage Table**:
-  * **Partition**: l’écriture de données en partitions entrelacées dégrade considérablement les performances. Classez vos données sources par clé de partition afin qu’elles soient insérées efficacement partition après partition, ou ajustez la logique pour écrire les données dans une seule partition.
+  * **Partition** : l’écriture de données en partitions entrelacées dégrade considérablement les performances. Classez vos données sources par clé de partition afin qu’elles soient insérées efficacement partition après partition, ou ajustez la logique pour écrire les données dans une seule partition.
 * Pour **Azure Cosmos DB** :
-  * **Taille de lot** : la propriété de **writeBatchSize** définit le nombre de demandes parallèles adressées au service Azure Cosmos DB pour la création de documents. Vous pouvez vous attendre à de meilleures performances lorsque vous augmentez la valeur **writeBatchSize** , car davantage de demandes parallèles sont envoyées à Azure Cosmos DB. Toutefois, regardez la limitation lorsque vous écrivez sur Azure Cosmos DB (le message d’erreur est « Le taux de demandes est élevé »). Différents facteurs peuvent entraîner la limitation, notamment la taille des documents, le nombre de termes dans les documents et la stratégie d’indexation de la collection cible. Pour obtenir un débit de copie plus élevé, songez à utiliser une meilleure collection, par exemple, S3.
+  * **Taille de lot** : la propriété **writeBatchSize** définit le nombre de requêtes parallèles adressées au service Azure Cosmos DB pour la création de documents. Vous pouvez vous attendre à de meilleures performances lorsque vous augmentez la valeur **writeBatchSize** , car davantage de demandes parallèles sont envoyées à Azure Cosmos DB. Toutefois, regardez la limitation lorsque vous écrivez sur Azure Cosmos DB (le message d’erreur est « Le taux de demandes est élevé »). Différents facteurs peuvent entraîner la limitation, notamment la taille des documents, le nombre de termes dans les documents et la stratégie d’indexation de la collection cible. Pour obtenir un débit de copie plus élevé, songez à utiliser une meilleure collection, par exemple, S3.
 
 ## <a name="considerations-for-serialization-and-deserialization"></a>Considérations relatives à la sérialisation et à la désérialisation
 Une sérialisation et une désérialisation peuvent survenir quand le jeu de données d’entrée ou de sortie est un fichier. Consultez la page [Formats de fichier et de compression pris en charge](data-factory-supported-file-and-compression-formats.md) qui présente des détails sur les formats de fichier pris en charge par activité de copie.
@@ -347,16 +346,16 @@ Une sérialisation et une désérialisation peuvent survenir quand le jeu de don
   * Lorsque les jeux de données d’entrée et de sortie diffèrent par leur format de fichier ou leur configuration, par exemple au niveau des séparateurs, le service de déplacement de données désérialise les données sources en flux, les transforme, puis les sérialise au format de sortie que vous avez indiqué. Cette opération donne lieu à une surcharge des performances beaucoup plus importante par rapport à d’autres scénarios.
 * Lorsque vous copiez des fichiers vers/à partir d’une banque de données qui n’est pas basée sur fichier (par exemple, d’une banque basée sur fichier vers une banque relationnelle), l’étape de sérialisation ou de désérialisation est requise. Cette étape génère une surcharge significative des performances.
 
-**Format de fichier**: le format de fichier que vous choisissez peut affecter les performances de copie. Par exemple, Avro est un format binaire compact qui stocke des métadonnées avec des données. Il bénéficie d’une prise en charge étendue dans l’écosystème Hadoop pour le traitement et l’interrogation. En revanche, le format Avro étant plus coûteux en sérialisation et désérialisation, le débit de copie est inférieur par rapport au format texte. Choisissez votre format de fichier dans le flux de traitement de manière holistique. Commencez par la forme sous laquelle les données sont stockées dans les banques de données sources ou doivent être extraites de systèmes externes ; le meilleur format pour le stockage, le traitement analytique et les requêtes, et le format dans lequel les données doivent être exportées dans des mini-data warehouses pour les outils de rapport et de visualisation. Parfois, un format de fichier non optimal pour les performances en lecture et écriture peut constituer une option idéale pour le processus analytique général.
+**Format de fichier** : le format de fichier que vous choisissez peut affecter les performances de copie. Par exemple, Avro est un format binaire compact qui stocke des métadonnées avec des données. Il bénéficie d’une prise en charge étendue dans l’écosystème Hadoop pour le traitement et l’interrogation. En revanche, le format Avro étant plus coûteux en sérialisation et désérialisation, le débit de copie est inférieur par rapport au format texte. Choisissez votre format de fichier dans le flux de traitement de manière holistique. Commencez par la forme sous laquelle les données sont stockées dans les banques de données sources ou doivent être extraites de systèmes externes ; le meilleur format pour le stockage, le traitement analytique et les requêtes, et le format dans lequel les données doivent être exportées dans des mini-data warehouses pour les outils de rapport et de visualisation. Parfois, un format de fichier non optimal pour les performances en lecture et écriture peut constituer une option idéale pour le processus analytique général.
 
 ## <a name="considerations-for-compression"></a>Considérations relatives à la compression
 Lorsque votre jeu de données d’entrée ou de sortie est un fichier, vous pouvez définir l’activité de copie pour qu’elle effectue une compression ou une décompression lors de l’écriture de données dans la destination. Lorsque vous choisissez la compression, vous trouvez un compromis entre les entrées/sorties (E/S) et le processeur. La compression des données a un coût supplémentaire en ressources de calcul. Toutefois, en retour, elle réduit les E/S réseau et le stockage. En fonction de vos données, vous pouvez constater une augmentation du débit global de copie.
 
-**Codec**: l’activité de copie prend en charge gzip, bzip2 et les types de compression Deflate. Azure HDInsight peut utiliser les trois types de traitement. Chaque codec de compression présente des avantages. Par exemple, bzip2 a le plus faible débit de copie, mais vous obtenez les meilleures performances de requêtes Hive avec bzip2, car vous pouvez le fractionner pour traitement. Gzip est l’option la plus équilibrée, et la plus souvent utilisée. Choisissez le codec le plus approprié pour votre scénario de bout en bout.
+**Codec** : l’activité de copie prend en charge les types de compression gzip, bzip2 et Deflate. Azure HDInsight peut utiliser les trois types de traitement. Chaque codec de compression présente des avantages. Par exemple, bzip2 a le plus faible débit de copie, mais vous obtenez les meilleures performances de requêtes Hive avec bzip2, car vous pouvez le fractionner pour traitement. Gzip est l’option la plus équilibrée, et la plus souvent utilisée. Choisissez le codec le plus approprié pour votre scénario de bout en bout.
 
-**Niveau**: vous avec le choix entre deux options pour chaque codec de compression, la compression la plus rapide et la compression optimale. L’option de compression la plus rapide compresse les données aussi rapidement que possible, même si le fichier résultant de l’opération n’est pas compressé de façon optimale. L’option de compression optimale nécessite plus de temps, et produit une quantité de données minimale. Vous pouvez tester les deux options pour voir celle qui offre les meilleures performances globales dans votre cas.
+**Niveau** : vous avec le choix entre deux options pour chaque codec de compression, la compression la plus rapide et la compression optimale. L’option de compression la plus rapide compresse les données aussi rapidement que possible, même si le fichier résultant de l’opération n’est pas compressé de façon optimale. L’option de compression optimale nécessite plus de temps, et produit une quantité de données minimale. Vous pouvez tester les deux options pour voir celle qui offre les meilleures performances globales dans votre cas.
 
-**Élément à tenir en compte**: pour copier une grande quantité de données entre une banque locale et le cloud, envisagez d’utiliser le stockage Blob intermédiaire avec la compression. L’utilisation du stockage intermédiaire est utile lorsque la bande passante de votre réseau d’entreprise et de vos services Azure est le facteur limitant et que vous souhaitez que le jeu de données d’entrée et le jeu de données de sortie soient sous forme non compressée. Plus spécifiquement, vous pouvez scinder une activité de copie unique en deux activités de copie. La première activité de copie copie à partir de la source vers un blob intermédiaire sous forme compressée. La deuxième activité de copie copie les données compressées de l’environnement intermédiaire, puis les décompresse tandis qu’elle écrit dans le récepteur.
+**Élément à prendre en compte** : pour copier une grande quantité de données entre une banque locale et le cloud, utilisez le stockage Blob intermédiaire avec compression. L’utilisation du stockage intermédiaire est utile lorsque la bande passante de votre réseau d’entreprise et de vos services Azure est le facteur limitant et que vous souhaitez que le jeu de données d’entrée et le jeu de données de sortie soient sous forme non compressée. Plus spécifiquement, vous pouvez scinder une activité de copie unique en deux activités de copie. La première activité de copie copie à partir de la source vers un blob intermédiaire sous forme compressée. La deuxième activité de copie copie les données compressées de l’environnement intermédiaire, puis les décompresse tandis qu’elle écrit dans le récepteur.
 
 ## <a name="considerations-for-column-mapping"></a>Considérations relatives au mappage de colonnes
 Vous pouvez définir la propriété **columnMappings** dans l’activité de copie pour mapper la totalité ou un sous-ensemble des colonnes d’entrée aux colonnes de sortie. Une fois que le service de déplacement de données a lu les données de la source, il doit effectuer le mappage de colonnes sur les données avant d’écrire celles-ci sur le récepteur. Ce traitement supplémentaire réduit le débit de copie.
@@ -368,16 +367,16 @@ Si la taille des données à copier est importante, vous pouvez ajuster votre lo
 
 Faites attention au nombre de jeux de données et d’activités de copie nécessitant que Data Factory se connecte à la même banque de données en même temps. De nombreux travaux de copie simultanés peuvent limiter une banque de données, et entraîner une dégradation des performances, une multiplication des tentatives internes de travail de copie et, dans certains cas, des échecs d’exécution.
 
-## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Exemple de scénario : copie depuis un SQL Server local pour le stockage Blob
-**Scénario :** un pipeline est conçu pour copier des données d’un serveur SQL Server local vers un stockage Blob au format CSV. Pour accélérer la copie des travaux, les fichiers CSV doivent être compressés au format bzip2.
+## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Exemple de scénario : copie depuis un SQL Server local vers le stockage Blob
+**Scénario** : un pipeline est conçu pour copier des données d’un serveur SQL Server local vers un stockage Blob au format CSV. Pour accélérer la copie des travaux, les fichiers CSV doivent être compressés au format bzip2.
 
-**Test et analyse :** le débit de l’activité de copie est inférieur à 2 Mbits/s, ce qui est beaucoup plus lent que le test d’évaluation des performances.
+**Test et analyse** : le débit de l’activité de copie est inférieur à 2 Mbits/s, ce qui est beaucoup plus lent que le test d’évaluation des performances.
 
-**Analyse des performances et réglage :** pour résoudre le problème de performances, nous allons tout d’abord examiner la manière dont les données sont traitées et déplacées.
+**Analyse des performances et réglage** : pour résoudre le problème de performances, nous allons tout d’abord examiner la manière dont les données sont traitées et déplacées.
 
-1. **Lecture des données :** la passerelle ouvre la connexion à SQL Server et envoie la requête. SQL Server répond en envoyant le flux de données à la passerelle via l’intranet.
-2. **Sérialiser et compresser les données**: la passerelle sérialise le flux de données au format CSV, et compresse les données dans un flux bzip2.
-3. **Écriture des données :** la passerelle charge le flux bzip2 vers le stockage Blob via Internet.
+1. **Lecture des données** : la passerelle ouvre la connexion à SQL Server et envoie la requête. SQL Server répond en envoyant le flux de données à la passerelle via l’intranet.
+2. **Sérialiser et compresser les données** : la passerelle sérialise le flux de données au format CSV, et compresse les données dans un flux bzip2.
+3. **Écriture des données** : la passerelle charge le flux bzip2 vers le Stockage Blob via Internet.
 
 Comme vous pouvez le voir, les données sont traitées et déplacées de manière séquentielle en continu : SQL Server > LAN > Passerelle > WAN > Stockage Blob. **Les performances globales sont contrôlées par le débit minimum sur le pipeline**.
 
@@ -385,42 +384,42 @@ Comme vous pouvez le voir, les données sont traitées et déplacées de manièr
 
 Un ou plusieurs des facteurs suivants peuvent entraîner un goulot d’étranglement des performances :
 
-* **Source :** SQL Server offre lui-même un faible débit en raison des charges lourdes.
+* **Source** : SQL Server offre lui-même un faible débit en raison des charges lourdes.
 * **Passerelle de gestion des données**:
-  * **LAN**: la passerelle est éloignée de l’ordinateur SQL Server et dispose d’une connexion à faible bande passante.
-  * **Passerelle**: la passerelle a atteint ses limites de charge pour effectuer les opérations suivantes :
-    * **Sérialisation :** la sérialisation du flux de données au format CSV présente un débit lent.
-    * **Compression**: vous avez choisi un codec de compression lent (par exemple, bzip2, c’est-à-dire 2,8 Mbits/s avec Core i7).
-  * **WAN**: la bande passante entre le réseau d’entreprise et vos services Azure est faible (par exemple, T1 = 1 544 Kbits/s ; T2 = 6 312 Kbits/s).
-* **Récepteur**: le stockage Blob a un faible débit. (Ce scénario est peu probable car son contrat SLA garantit un minimum de 60 Mbits/s.)
+  * **LAN** : la passerelle est éloignée de l’ordinateur SQL Server et dispose d’une connexion à faible bande passante.
+  * **Passerelle** : la passerelle a atteint ses limites de charge pour effectuer les opérations suivantes :
+    * **Sérialisation** : la sérialisation du flux de données au format CSV présente un débit lent.
+    * **Compression** : vous avez choisi un codec de compression lent (par exemple, bzip2, c’est-à-dire 2,8 Mbits/s avec Core i7).
+  * **WAN** : la bande passante entre le réseau d’entreprise et vos services Azure est faible (par exemple, T1 = 1 544 Kbits/s ; T2 = 6 312 Kbits/s).
+* **Récepteur** : le stockage Blob a un faible débit. (Ce scénario est peu probable car son contrat SLA garantit un minimum de 60 Mbits/s.)
 
 Dans ce cas, la compression de données bzip2 pourrait ralentir l’ensemble du pipeline. Un basculement vers le codec de compression gzip peut résoudre ce goulot d’étranglement.
 
-## <a name="sample-scenarios-use-parallel-copy"></a>Exemples de scénarios : utilisation de la copie en parallèle
-**Scénario I :** copiez 1 000 fichiers de 1 Mo d’un système de fichiers local vers le stockage Blob.
+## <a name="sample-scenarios-use-parallel-copy"></a>Exemples de scénarios : Utiliser la copie en parallèle
+**Scénario I :** copier 1000 fichiers de 1 Mo d’un système de fichiers local vers le Stockage Blob.
 
-**Analyse des performances et réglage :** par exemple, si vous avez installé la passerelle sur un ordinateur à quatre cœurs, Data Factory utilise 16 copies en parallèle pour déplacer simultanément les fichiers du système de fichiers vers le stockage blob. Cette exécution parallèle doit aboutir à un débit élevé. Vous pouvez également spécifier explicitement le nombre de copies parallèles. Lorsque vous copiez plusieurs petits fichiers, les copies parallèles aident considérablement le débit en utilisant les ressources plus efficacement.
+**Analyse des performances et réglage** : par exemple, si vous avez installé la passerelle sur un ordinateur à quatre cœurs, Data Factory utilise 16 copies en parallèle pour déplacer simultanément les fichiers du système de fichiers vers le Stockage Blob. Cette exécution parallèle doit aboutir à un débit élevé. Vous pouvez également spécifier explicitement le nombre de copies parallèles. Lorsque vous copiez plusieurs petits fichiers, les copies parallèles aident considérablement le débit en utilisant les ressources plus efficacement.
 
 ![Scénario 1](./media/data-factory-copy-activity-performance/scenario-1.png)
 
-**Scénario II :** copiez 20 blobs de 500 Mo chacun depuis le stockage Blob vers Data Lake Store Analysis, puis réglez les performances.
+**Scénario II :** copier 20 blobs de 500 Mo chacun du Stockage Blob vers Data Lake Store Analytics, puis régler les performances.
 
-**Analyse des performances et réglage** : dans ce scénario, Data Factory copie les données depuis le stockage Blob de Data Lake Store en utilisant ///la copie unique (valeur **parallelCopies** définie sur 1) et les unités uniques de déplacement de données cloud. Le débit que vous constatez est proche de la description figurant dans la [section relative aux performances de référence](#performance-reference).   
+**Analyse des performances et réglage** : dans ce scénario, Data Factory copie les données du Stockage Blob vers Data Lake Store en utilisant des unités de déplacement de données à copie unique (valeur **parallelCopies** définie sur 1) et à cloud unique. Le débit que vous constatez est proche de la description figurant dans la [section relative aux performances de référence](#performance-reference).   
 
 ![Scénario 2](./media/data-factory-copy-activity-performance/scenario-2.png)
 
-**Scénario III**: la taille des fichiers individuels est supérieure à des dizaines de mégaoctets et le volume total est important.
+**Scénario III** : la taille des fichiers est supérieure à des dizaines de mégaoctets et le volume total est important.
 
-**Analyse des performances et réglage** : l’augmentation de la valeur **parallelCopies** ne donne pas de meilleures performances de copie en raison des limitations de ressource d’une unité de déplacement de données cloud unique. Vous avez plutôt intérêt à spécifier plus d’unités de déplacement de données cloud pour obtenir davantage de ressources pour le déplacement de données. Ne spécifiez pas de valeur pour la propriété **parallelCopies** . Data Factory gère le parallélisme pour vous. Dans ce cas, si vous définissez **cloudDataMovementUnits** sur 4, un débit quatre fois supérieur se produit.
+**Analyse des performances et réglage** : l’augmentation de la valeur **parallelCopies** ne donne pas de meilleures performances de copie, en raison des limitations de ressource d’une unité de déplacement de données à cloud unique. Vous avez plutôt intérêt à spécifier plus d’unités de déplacement de données cloud pour obtenir davantage de ressources pour le déplacement de données. Ne spécifiez pas de valeur pour la propriété **parallelCopies** . Data Factory gère le parallélisme pour vous. Dans ce cas, si vous définissez **cloudDataMovementUnits** sur 4, un débit quatre fois supérieur se produit.
 
 ![Scénario 3](./media/data-factory-copy-activity-performance/scenario-3.png)
 
 ## <a name="reference"></a>Informations de référence
 Voici des références relatives à la surveillance et au réglage des performances pour quelques banques de données prises en charge :
 
-* Azure Storage (le Stockage Blob et le Stockage Table) : [Objectifs d’évolutivité d’Azure Storage](../../storage/common/storage-scalability-targets.md) et [Liste de contrôle des performances et de l’évolutivité d’Azure Storage](../../storage/common/storage-performance-checklist.md)
-* Base de données SQL Azure : vous pouvez [surveiller les performances](../../sql-database/sql-database-single-database-monitor.md) et vérifier le pourcentage de l’unité de transaction de base de données (DTU)
+* Stockage Azure (le Stockage Blob et le Stockage Table) : [Objectifs d’évolutivité du Stockage Azure](../../storage/common/storage-scalability-targets.md) et [Liste de contrôle des performances et de l’évolutivité du Stockage Azure](../../storage/common/storage-performance-checklist.md)
+* Azure SQL Database : vous pouvez [surveiller les performances](../../sql-database/sql-database-single-database-monitor.md) et vérifier le pourcentage de l’unité de transaction de base de données (DTU)
 * Azure SQL Data Warehouse : sa capacité est mesurée en Data Warehouse Units (DWU) ; voir [Gestion de la puissance de calcul dans Azure SQL Data Warehouse (Vue d’ensemble)](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
-* Azure Cosmos DB : [Niveaux de performances d’Azure Cosmos DB](../../cosmos-db/performance-levels.md)
-* SQL Server local : [Surveillance et réglage des performances](https://msdn.microsoft.com/library/ms189081.aspx)
+* Azure Cosmos DB : [Niveaux de performances dans Azure Cosmos DB](../../cosmos-db/performance-levels.md)
+* Serveur SQL Server local : [Surveillance et réglage des performances](https://msdn.microsoft.com/library/ms189081.aspx)
 * Serveur de fichiers local : [Réglage des performances des serveurs de fichiers](https://msdn.microsoft.com/library/dn567661.aspx)

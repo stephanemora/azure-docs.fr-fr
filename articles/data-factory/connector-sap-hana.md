@@ -9,20 +9,19 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1ded69225319e447ad210aed267741b2803889ac
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: cdd83c3ff9d34a5e8b7f2c164136ab82f498ffb5
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048082"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022969"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copier des données de SAP HANA à l’aide d’Azure Data Factory
-> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez:"]
-> * [Version 1](v1/data-factory-sap-hana-connector.md)
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1](v1/data-factory-sap-hana-connector.md)
 > * [Version actuelle](connector-sap-hana.md)
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données SAP HANA. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
@@ -59,12 +58,12 @@ Les propriétés prises en charge pour le service lié SAP HANA sont les suivant
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **SapHana** | OUI |
-| serveur | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | OUI |
-| authenticationType | Type d'authentification utilisé pour se connecter à la base de données SAP HANA.<br/>Valeurs autorisées : **De base** et **Windows** | OUI |
-| userName | Nom de l’utilisateur ayant accès au serveur SAP. | OUI |
+| Type | La propriété type doit être définie sur : **SapHana** | Oui |
+| serveur | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | Oui |
+| authenticationType | Type d'authentification utilisé pour se connecter à la base de données SAP HANA.<br/>Les valeurs autorisées sont les suivantes : **Basic** et **Windows** | Oui |
+| userName | Nom de l’utilisateur ayant accès au serveur SAP. | Oui |
 | password | Mot de passe pour l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |OUI |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |Oui |
 
 **Exemple :**
 
@@ -122,8 +121,8 @@ Pour copier des données de SAP HANA, définissez **RelationalSource** comme typ
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **RelationalSource** | OUI |
-| query | Spécifie la requête SQL pour lire les données de l’instance SAP HANA. | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | Oui |
+| query | Spécifie la requête SQL pour lire les données de l’instance SAP HANA. | Oui |
 
 **Exemple :**
 

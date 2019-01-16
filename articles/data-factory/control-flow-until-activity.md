@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: cd4b58dea43e497a2d7a5b977379d95f7004af45
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9a1623cca1c185ff3dba07ad5fbe354d8662dc68
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052305"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020963"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Activité Until dans Azure Data Factory
 L’activité Until fournit les mêmes fonctionnalités qu’une structure de boucle do-until dans les langages de programmation. Elle exécute un ensemble d’activités dans une boucle jusqu’à ce que la condition associée à l’activité retourne la valeur true. Vous pouvez spécifier une valeur de délai d’attente pour l’activité Until dans Data Factory. 
@@ -55,11 +54,11 @@ L’activité Until fournit les mêmes fonctionnalités qu’une structure de bo
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-Nom | Nom de l’activité `Until`. | Chaîne | OUI
-Type | Doit être défini sur **Until**. | Chaîne | OUI
-expression | Expression qui doit retourner true ou false | Expression.  | OUI
-timeout | La boucle do-until expire à la fin du délai d’attente spécifié ici. | Chaîne. `d.hh:mm:ss` (ou) `hh:mm:ss`. La valeur par défaut est de 7 jours. Valeur maximale : 90 jours. | Non 
-Activités | Ensemble d’activités qui sont exécutées jusqu’à ce que l’expression retourne `true`. | Tableau des activités. |  OUI
+Nom | Nom de l’activité `Until`. | Chaîne | Oui
+Type | Doit être défini sur **Until**. | Chaîne | Oui
+expression | Expression qui doit retourner true ou false | Expression.  | Oui
+timeout | La boucle do-until expire à la fin du délai d’attente spécifié ici. | Chaîne. `d.hh:mm:ss` (ou) `hh:mm:ss`. La valeur par défaut est de 7 jours. La valeur maximale est : 90 jours. | Non 
+Activités | Ensemble d’activités qui sont exécutées jusqu’à ce que l’expression retourne `true`. | Tableau des activités. |  Oui
 
 ## <a name="example-1"></a>Exemple 1
 
@@ -67,7 +66,7 @@ Activités | Ensemble d’activités qui sont exécutées jusqu’à ce que l’
 > Cette section fournit des définitions JSON et des exemples de commandes PowerShell pour exécuter le pipeline. Pour une procédure pas à pas avec des instructions détaillées permettant de créer un pipeline Data Factory en utilisant des définitions JSON et Azure PowerShell, consultez [Didacticiel : créer une fabrique de données avec Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="pipeline-with-until-activity"></a>Pipeline avec activité Until
-Dans cet exemple, le pipeline a deux activités : **Until** et **Wait**. L’activité Wait attend pendant la période spécifiée avant d’exécuter l’activité Web dans la boucle. Pour en savoir plus sur les expressions et fonctions dans Data Factory, consultez [Langage d’expression et fonctions](control-flow-expression-language-functions.md). 
+Dans cet exemple, le pipeline a deux activités : **Jusqu’à** et **Attendre**. L’activité Wait attend pendant la période spécifiée avant d’exécuter l’activité Web dans la boucle. Pour en savoir plus sur les expressions et fonctions dans Data Factory, consultez [Langage d’expression et fonctions](control-flow-expression-language-functions.md). 
 
 ```json
 {
@@ -248,7 +247,7 @@ Le pipeline définit **folderPath** sur la valeur de paramètre **outputPath1** 
 ```
 
 ### <a name="powershell-commands"></a>Commandes PowerShell
-Ces commandes supposent que vous avez enregistré les fichiers JSON dans le dossier C:\ADF. 
+Ces commandes supposent que vous avez enregistré les fichiers JSON dans le dossier : C:\ADF. 
 
 ```powershell
 Connect-AzureRmAccount

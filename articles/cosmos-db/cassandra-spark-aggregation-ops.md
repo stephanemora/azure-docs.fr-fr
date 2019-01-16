@@ -1,21 +1,19 @@
 ---
 title: Opérations d’agrégation sur des tables de l’API Cassandra Azure Cosmos DB à partir de Spark
 description: Cet article traite des opérations d’agrégation de base sur les tables de l’API Cassandra Azure Cosmos DB à partir de Spark
-services: cosmos-db
-author: anagha-microsoft
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.custom: basics, DDL, DML
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: ankhanol
-ms.openlocfilehash: 385a365ac3b81bca70a71eeed7ca1876c9df49b8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 56cd2284fb4bf7dabb280170757c128b8f985433
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224994"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037308"
 ---
 # <a name="aggregate-operations-on-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Opérations d’agrégation sur des tables de l’API Cassandra Azure Cosmos DB à partir de Spark 
 
@@ -89,19 +87,19 @@ L’opération de comptage sur les dataframes n’est pas prise en charge.  En g
 
 Choisissez une [option de stockage]( https://spark.apache.org/docs/2.2.0/rdd-programming-guide.html#which-storage-level-to-choose) parmi les options disponibles suivantes, pour éviter de rencontrer des problèmes de « mémoire insuffisante » :
 
-* MEMORY_ONLY : option de stockage par défaut. Stocke le jeu de donnée distribué résilient en tant qu’objets Java désérialisés dans la machine virtuelle Java. Si le jeu de donnée distribué résilient ne tient pas dans la mémoire, certaines partitions ne sont pas mises en cache et elles sont recalculées à la volée chaque fois qu’elles sont nécessaires.
+* MEMORY_ONLY : Il s’agit de l’option de stockage par défaut. Stocke le jeu de donnée distribué résilient en tant qu’objets Java désérialisés dans la machine virtuelle Java. Si le jeu de donnée distribué résilient ne tient pas dans la mémoire, certaines partitions ne sont pas mises en cache et elles sont recalculées à la volée chaque fois qu’elles sont nécessaires.
 
-* MEMORY_AND_DISK : stocke le jeu de donnée distribué résilient en tant qu’objets Java désérialisés dans la machine virtuelle Java. Si le jeu de donnée distribué résilient ne tient pas dans la mémoire, stocke les partitions qui ne tiennent pas sur le disque et, chaque fois que nécessaire, les lire à partir de l’emplacement où elles sont stockées.
+* MEMORY_AND_DISK : Stocke le jeu de donnée distribué résilient en tant qu’objets Java désérialisés dans la machine virtuelle Java. Si le jeu de donnée distribué résilient ne tient pas dans la mémoire, stocke les partitions qui ne tiennent pas sur le disque et, chaque fois que nécessaire, les lire à partir de l’emplacement où elles sont stockées.
 
-* MEMORY_ONLY_SER (Java/Scala) : stocke le jeu de donnée distribué résilient en tant qu’objets Java sérialisés, à raison d’un tableau d’octets par partition. Cette option est moins gourmande en espace par rapport à des objets désérialisés, surtout quand vous utilisez un sérialiseur rapide, mais les opérations de lecture sont plus gourmandes en UC.
+* MEMORY_ONLY_SER (Java/Scala) : Stocke le jeu de donnée distribué résilient en tant qu’objets Java sérialisés, à raison d’un tableau d’octets par partition. Cette option est moins gourmande en espace par rapport à des objets désérialisés, surtout quand vous utilisez un sérialiseur rapide, mais les opérations de lecture sont plus gourmandes en UC.
 
-* MEMORY_AND_DISK_SER (Java/Scala) : cette option de stockage ressemble à MEMORY_ONLY_SER, la seule différence étant qu’elle déverse les partitions qui ne tiennent pas dans la mémoire du disque au lieu de les recalculer quand elles sont nécessaires.
+* MEMORY_AND_DISK_SER (Java/Scala) : Cette option de stockage est comme MEMORY_ONLY_SER, la seule différence est qu’elle étend les partitions qui ne tiennent pas dans la mémoire du disque au lieu de les recalculer quand elles sont nécessaires.
 
-* DISK_ONLY : stocke les partitions du jeu de donnée distribué résilient sur le disque uniquement.
+* DISK_ONLY : Stocke les partitions du jeu de donnée distribué résilient sur le disque uniquement.
 
-* MEMORY_ONLY_2, MEMORY_AND_DISK_2... : identique aux niveaux ci-dessus, mais réplique chaque partition sur deux nœuds de cluster.
+* MEMORY_ONLY_2, MEMORY_AND_DISK_2... : Identique aux niveaux ci-dessus, mais réplique chaque partition sur deux nœuds du cluster.
 
-* OFF_HEAP (option expérimentale) : similaire à MEMORY_ONLY_SER, mais elle stocke les données dans la mémoire hors tas, et nécessite que celle-ci soit activée à l’avance. 
+* OFF_HEAP (expérimental) : Similaire à MEMORY_ONLY_SER, mais stocke les données dans la mémoire hors tas, et nécessite que celle-ci soit activée à l’avance. 
 
 ```scala
 //Workaround

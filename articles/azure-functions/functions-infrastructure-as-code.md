@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 428e1bed4e62b4fcbd7a4e03601cfc5c630b6583
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 488b3797c7e18855a60b84a77a05e4e0a5654475
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715526"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023655"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatiser le déploiement de ressources pour votre application de fonction dans Azure Functions
 
@@ -36,6 +36,12 @@ Une application de fonction nécessite les ressources suivantes :
 * Un compte de [stockage Azure](../storage/index.yml)
 * Un plan d’hébergement (plan Consommation ou plan App Service)
 * Une application de fonction 
+
+Pour les propriétés et la syntaxe JSON de ces ressources, consultez :
+
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+* [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
+* [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)
 
 ### <a name="storage-account"></a>Compte de stockage
 

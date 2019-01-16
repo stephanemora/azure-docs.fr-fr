@@ -3,31 +3,31 @@ title: Installer le client Chef à partir du portail Azure
 description: Découvrez comment déployer et configurer le client Chef à partir du portail Azure
 keywords: azure, chef, devops, client, installation, portail
 ms.service: virtual-machines-linux
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: e121cd038b8becee1e9c4c12659dbbee0696a9f1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: e5de21e8e493871150d302f1d2c0e31d067affde
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378650"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051326"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Installer le client Chef à partir du portail Azure
 Lorsque vous créez ou modifiez une machine virtuelle Linux ou Windows à partir du portail Azure, vous pouvez ajouter l’extension Chef à la machine virtuelle. Cet article vous guide tout au long de ce processus, qui utilise une machine virtuelle Linux.
 
 ## <a name="prerequisites"></a>Prérequis
-- **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
+- **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
-- **Chef** : si vous n’avez pas de compte Chef actif, inscrivez-vous pour [essayer gratuitement Hosted Chef](https://manage.chef.io/signup). Pour suivre les instructions de cet article, vous aurez besoin des informations suivantes concernant votre compte Chef : 
+- **Chef** : Si vous n’avez pas de compte Chef actif, inscrivez-vous pour [un essai gratuit de Hosted Chef](https://manage.chef.io/signup). Pour suivre les instructions de cet article, vous avez besoin des valeurs suivantes de votre compte Chef : 
     - clé organization_validation
     - rb
     - run_list
 
 ## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>Installer l’extension Chef sur une nouvelle machine virtuelle Linux
-Dans cette section, vous allez utiliser le portail Azure pour créer une machine Linux. Au cours de ce processus, vous allez également apprendre à installer l’extension Chef sur la nouvelle machine virtuelle.
+Dans cette section, vous utilisez d’abord le portail Azure pour créer une machine Linux. Au cours de ce processus, vous voyez aussi comment installer l’extension Chef sur la nouvelle machine virtuelle.
 
 1. Accédez au [portail Azure](http://portal.azure.com).
 
@@ -65,7 +65,7 @@ Dans cette section, vous allez utiliser le portail Azure pour créer une machine
 
 1. Sous l’onglet **Choisir une taille**, sélectionnez une taille de machine virtuelle, puis sélectionnez **Sélectionner**.
 
-1. Sous l’onglet **Paramètres**, la plupart des valeurs sont renseignées automatiquement, selon les valeurs que vous avez sélectionnées sous les onglets précédents. Sélectionnez **Extensions**.
+1. Sous l’onglet **Paramètres**, la plupart des valeurs sont renseignées pour vous en fonction de ce que vous avez sélectionné dans les onglets précédents. Sélectionnez **Extensions**.
 
     ![Des extensions sont ajoutées aux machines virtuelles via l’onglet Paramètres](./media/chef-extension-portal/add-vm-select-extensions.png)
 
@@ -87,7 +87,7 @@ Dans cette section, vous allez utiliser le portail Azure pour créer une machine
     - **Validation Client Name** (Nom du client de validation) : entrez le nom du client de validation Chef. Par exemple, *tarcher-validator*.
     - **Validation Key** (Clé de validation) : sélectionnez un fichier contenant la clé de validation utilisée lors de l’amorçage de vos machines. 
     - **Client Configuration File** (Fichier de configuration du client) : sélectionnez un fichier de configuration pour le client Chef. Cela champ peut être vide.
-    - **Chef Client version** (Version du client Chef) : entrez la version du client Chef à installer. Cela champ peut être vide. Si vous laissez ce champ vide, la version la plus récente est installée. 
+    - **Chef Client version** (Version du client Chef) : entrez la version du client Chef à installer. Cela champ peut être vide. Une valeur vide équivaut à la dernière version installée. 
     - **SSL Verification Mode** (Mode de vérification SSL) : sélectionnez **None** (Aucun) ou **Peer** (Pair). *None* a été sélectionné pour la démonstration.
     - **Chef Environment** (Environnement Chef) : entrez l’environnement Chef dont ce nœud doit faire partie. Cela champ peut être vide.
     - **Encrypted Databag Secret** (Secret du conteneur de données chiffrées) : sélectionnez un fichier contenant le secret du conteneur de données chiffrées auquel cet ordinateur doit avoir accès. Cela champ peut être vide.

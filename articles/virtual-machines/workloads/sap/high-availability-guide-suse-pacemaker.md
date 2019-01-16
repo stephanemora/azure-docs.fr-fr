@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: c6dee6fc26f540ad93f5a4b4e6e2f9432f757a6c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 00e50d60ed7f13a2f28338891b39b1b55b7adbfa
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076353"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074374"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure
 
@@ -483,12 +483,12 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
 L’appareil STONITH utilise un principal de service pour l’autorisation sur Microsoft Azure. Pour créer un principal de service, effectuez les étapes suivantes.
 
-1. Accédez à <https://portal.azure.com>
+1. Accédez à <https\://portal.azure.com>
 1. Ouvrez le panneau Azure Active Directory  
    Accédez aux propriétés et notez l’ID de répertoire. Il s’agit de **l’ID du locataire**.
 1. Cliquez sur Inscriptions d’applications
 1. Cliquez sur Ajouter.
-1. Entrez un nom, sélectionnez le type d’application Application/API web, saisissez une URL de connexion (par exemple, http://localhost), puis cliquez sur Créer.
+1. Entrez un nom, sélectionnez le type d’application « Application web/API », entrez une URL de connexion (par exemple http\://localhost), puis cliquez sur Créer
 1. L’URL de connexion n’est pas utilisée et peut être une URL valide
 1. Sélectionnez la nouvelle application et cliquez sur Clés dans l’onglet Paramètres
 1. Entrez une description pour la nouvelle clé, sélectionnez « N’expire jamais » et cliquez sur Enregistrer
@@ -525,7 +525,7 @@ Utilisez le contenu suivant pour le fichier d’entrée. Vous devez adapter le c
 
 Affectez au principal de service le rôle personnalisé Linux Fence Agent Role (Rôle d’agent d’isolation Linux) créé dans la section précédente. N’utilisez plus le rôle Propriétaire !
 
-1. Accédez à https://portal.azure.com
+1. Accédez à https\://portal.azure.com
 1. Ouvrez le panneau Toutes les ressources
 1. Sélectionnez la machine virtuelle du premier nœud de cluster.
 1. Cliquez sur Contrôle d’accès (IAM)

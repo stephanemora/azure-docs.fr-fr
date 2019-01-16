@@ -1,12 +1,10 @@
 ---
-title: Configurer des zones de recherche inversée pour une vérification de bannière SMTP dans Azure | Microsoft Docs
+title: Configurer des zones de recherche inversée pour une vérification de bannière SMTP dans Azure
+titlesuffix: Azure Virtual Network
 description: Décrit comment configurer des zones de recherche inversée pour une vérification de bannière SMTP dans Azure
 services: virtual-network
 documentationcenter: virtual-network
 author: genlin
-manager: WillChen
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,13 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.custom: ''
-ms.openlocfilehash: 815e3c711850eab11aef63e04a1c512c4510a910
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 6d5e8f199380aca86da005823536a5be4a599e90
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684278"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052953"
 ---
 #  <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>Configurer des zones de recherche inversée pour une vérification de bannière SMTP
 
@@ -30,7 +27,7 @@ Cet article décrit comment utiliser une zone de recherche inversée dans Azure 
 
 Si vous hébergez un serveur SMTP dans Microsoft Azure, vous pouvez recevoir le message d’erreur suivant quand vous envoyez ou recevez un message à partir de serveurs de messagerie distants :
 
-**554: No PTR Record** (554 : Aucun enregistrement PTR) 
+**554 : Aucun enregistrement PTR** 
 
 ## <a name="solution"></a>Solution
 

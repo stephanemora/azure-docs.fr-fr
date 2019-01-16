@@ -4,16 +4,16 @@ description: Découvrez comment résoudre les problèmes avec les runbooks Azure
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/04/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 41eb31ecabb20ec9eec3db13d5eda9f9cfbe6c69
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f5663842a4d861ed6eb76de859b870aa7114cb04
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015464"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063639"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Résoudre les erreurs avec les runbooks
 
@@ -94,13 +94,15 @@ Cette erreur se produit si le nom de l’abonnement n’est pas valide ou si l�
 Pour déterminer si vous vous êtes correctement authentifié auprès d’Azure et si vous avez accès à l’abonnement que vous voulez sélectionner, effectuez les étapes suivantes :  
 
 1. Testez votre script en dehors d’Azure Automation pour vérifier qu’il fonctionne de façon autonome.
-2. Assurez-vous d’exécuter la cmdlet **Add-AzureAccount** avant d’exécuter la cmdlet **Select-AzureSubscription**.  
-3. Si ce message d’erreur persiste, modifiez votre code en ajoutant le paramètre **-AzureRmContext** après la cmdlet **Add-AzureAccount**, puis exécutez le code.
+2. Vérifiez que vous exécutez l’applet de commande `Add-AzureAccount` avant d’exécuter l’applet de commande `Select-AzureSubscription`. 
+3. Ajoutez `Disable-AzureRmContextAutosave –Scope Process` au début de votre runbook. Vous avez la garantie que les informations d’identification s’appliquent uniquement à l’exécution du runbook actuel.
+4. Si ce message d’erreur persiste, modifiez votre code en ajoutant le paramètre **AzureRmContext** après l’applet de commande `Add-AzureAccount`, puis exécutez le code.
 
    ```powershell
+   Disable-AzureRmContextAutosave –Scope Process
+
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
--ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
    $context = Get-AzureRmContext
 
@@ -147,21 +149,24 @@ Cette erreur peut être résolue en mettant à jour vos modules Azure vers la de
 
 Dans votre compte Automation, cliquez sur **Modules**, puis sur **Mettre à jour les modules Azure**. La mise à jour prend environ 15 minutes, après la réexécution du runbook qui a échoué. Pour en savoir plus sur la mise à jour de vos modules, consultez [Mettre à jour des modules Azure dans Azure Automation](../automation-update-azure-modules.md).
 
-### <a name="child-runbook-auth-failure"></a>Scénario : Le runbook enfant échoue lors du traitement de plusieurs abonnements
+### <a name="runbook-auth-failure"></a>Scénario : Les runbooks échouent lors du traitement de plusieurs abonnements
 
 #### <a name="issue"></a>Problème
 
-Lors de l’exécution de runbooks enfants avec `Start-AzureRmRunbook`, le runbook enfant ne parvient pas à gérer les ressources Azure.
+Lors de l’exécution de runbooks avec `Start-AzureRmAutomationRunbook`, le runbook ne parvient pas à gérer les ressources Azure.
 
-#### <a name="cause"></a>Cause :
+#### <a name="cause"></a>Cause
 
-Le runbook enfant n’utilise pas le contexte approprié lors de l’exécution.
+Le runbook n’utilise pas le contexte approprié lors de l’exécution.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
-Si vous utilisez plusieurs abonnements, le contexte de l’abonnement peut être perdu durant l’appel des runbooks enfants. Pour que le contexte de l’abonnement soit passé aux runbooks enfants, ajoutez le paramètre `AzureRmContext` à l’applet de commande et passez-lui le contexte.
+Si vous utilisez plusieurs abonnements, le contexte de l’abonnement peut être perdu durant l’appel des runbooks. Pour s’assurer que le contexte de l’abonnement est passé aux runbooks, ajoutez le paramètre `AzureRmContext` à l’applet de commande et passez-lui le contexte. Il est également recommandé d’utiliser l’applet de commande `Disable-AzureRmContextAutosave` avec l’étendue **Processus** pour avoir la garantie que les informations d’identification dont vous vous servez sont uniquement utilisées pour le runbook actuel.
 
 ```azurepowershell-interactive
+# Ensures that any credentials apply only to the execution of this runbook
+Disable-AzureRmContextAutosave –Scope Process
+
 # Connect to Azure with RunAs account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
@@ -222,11 +227,11 @@ The job was tried three times but it failed
 
 Cette erreur peut être due aux raisons suivantes :
 
-1. Limite de mémoire. Il existe des [limites du service Automation](../../azure-subscription-service-limits.md#automation-limits) documentées sur la quantité de mémoire allouée à un bac à sable. Un travail peut donc échouer s’il utilise plus de 400 Mo de mémoire.
+1. Limite de mémoire. Les limites documentées sur la quantité de mémoire qui est allouée à un bac à sable se trouvent à la section [Limites du service Automation](../../azure-subscription-service-limits.md#automation-limits). Un travail peut échouer s’il utilise plus de 400 Mo de mémoire.
 
-1. Sockets réseau. Les bacs à sable Azure sont limités à 1 000 sockets réseau simultanés, comme décrit dans [Limites du service Automation](../../azure-subscription-service-limits.md#automation-limits).
+2. Sockets réseau. Les bacs à sable Azure sont limités à 1 000 sockets réseau simultanés, comme décrit dans [Limites du service Automation](../../azure-subscription-service-limits.md#automation-limits).
 
-1. Module incompatible. Cette erreur peut se produire si les dépendances de module ne sont pas correctes. Dans ce cas, votre runbook retourne généralement un message « Commande introuvable » ou « Impossible de lier le paramètre ».
+3. Module incompatible. Cette erreur peut se produire si les dépendances de module ne sont pas correctes. Dans ce cas, votre runbook retourne généralement un message « Commande introuvable » ou « Impossible de lier le paramètre ».
 
 #### <a name="resolution"></a>Résolution :
 
@@ -328,9 +333,9 @@ Le runbook s’est exécuté au-delà de la limite de trois heures autorisée pa
 
 Une solution recommandée consiste à exécuter le runbook sur un [Runbook Worker hybride](../automation-hrw-run-runbooks.md).
 
-Les Workers hybrides ne sont pas restreints par la limite d’exécution de runbook de trois heures autorisée par la [répartition de charge équilibrée](../automation-runbook-execution.md#fair-share). Les Runbooks Workers hybrides ne sont pas limités par la répartition de charge équilibrée de trois heures, mais les runbooks s’exécutant sur eux doivent néanmoins être développés pour prendre en charge les comportements de redémarrage après un problème inattendu avec l’infrastructure locale.
+Les Workers hybrides ne sont pas restreints par la limite d’exécution de runbook de trois heures autorisée par la [répartition de charge équilibrée](../automation-runbook-execution.md#fair-share). Les Runbooks Workers hybrides ne sont pas limités par la répartition de charge équilibrée de trois heures, mais les runbooks s’exécutant sur eux doivent néanmoins être développés pour prendre en charge les comportements de redémarrage s’il y a un problème inattendu avec l’infrastructure locale.
 
-Une autre option consiste à optimiser le runbook en créant des [runbooks enfants](../automation-child-runbooks.md). Si votre runbook exécute une boucle via la même fonction sur plusieurs ressources, comme une opération de base de données sur diverses bases de données, vous pouvez déplacer cette fonction vers un runbook enfant. Chacun de ces runbooks enfants s’exécute en parallèle dans des processus distincts, diminuant ainsi le temps total d’exécution du runbook parent.
+Une autre option consiste à optimiser le runbook en créant des [runbooks enfants](../automation-child-runbooks.md). Si votre runbook exécute une boucle via la même fonction sur plusieurs ressources, comme une opération de base de données sur diverses bases de données, vous pouvez déplacer cette fonction vers un runbook enfant. Chacun de ces runbooks enfants s’exécute en parallèle dans des processus distincts. Ce comportement réduit la quantité totale de temps pour l’exécution du runbook parent.
 
 Applets de commande PowerShell prenant en charge le scénario avec des runbooks enfants :
 
@@ -354,13 +359,13 @@ Le webhook que vous tentez d’appeler est désactivé ou a expiré.
 
 #### <a name="resolution"></a>Résolution :
 
-Si le webhook est désactivé, vous pouvez réactiver le webhook via le Portail Azure. Si le webhook a expiré, il doit être supprimé et recréé. Vous pouvez uniquement [renouveler un webhook](../automation-webhooks.md#renew-webhook) s’il n’a pas déjà expiré.
+Si le webhook est désactivé, vous pouvez réactiver le webhook via le Portail Azure. Lorsque le webhook a expiré, il doit être supprimé et recréé. Vous pouvez uniquement [renouveler un webhook](../automation-webhooks.md#renew-webhook) s’il n’a pas déjà expiré.
 
 ### <a name="429"></a>Scénario : 429 : Le taux de requêtes est actuellement trop grand. Réessayez
 
 #### <a name="issue"></a>Problème
 
-Vous recevez le message d’erreur suivant lors de l’exécution de la cmdlet `Get-AzureRmAutomationJobOutput` :
+Vous recevez le message d’erreur suivant lors de l’exécution de l’applet de commande `Get-AzureRmAutomationJobOutput` :
 
 ```
 429: The request rate is currently too large. Please try again
@@ -375,7 +380,7 @@ Cette erreur peut se produire lors de la récupération d’une sortie de tâche
 Il existe deux façons de résoudre cette erreur :
 
 * Modifiez le runbook et réduisez le nombre de flux de tâches émis.
-* Réduisez le nombre de flux à récupérer lors de l’exécution de la cmdlet. Pour cela, vous pouvez spécifier le paramètre `-Stream Output` de la cmdlet `Get-AzureRmAutomationJobOutput` de sorte qu’il récupère uniquement les flux de sortie. 
+* Réduisez le nombre de flux à récupérer lors de l’exécution de la cmdlet. Pour suivre ce comportement, vous pouvez spécifier le paramètre `-Stream Output` sur l’applet de commande `Get-AzureRmAutomationJobOutput` afin de ne récupérer que les flux de sortie. 
 
 ## <a name="common-errors-when-importing-modules"></a>Erreurs courantes survenant lors de l’importation de modules
 

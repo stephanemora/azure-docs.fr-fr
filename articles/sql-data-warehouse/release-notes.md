@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 11/11/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: b702d375f7a66843918a960ca3783c078eac541e
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: a4737f4308f49547178bb216b90589c596f604c9
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579285"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118436"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notes de publication pour Azure SQL Data Warehouse
 
@@ -23,6 +23,7 @@ Azure SQL Data Warehouse est un entrepôt de données d’entreprise basé sur l
 
 Cliquez sur les liens ci-dessous pour en savoir plus sur les nouvelles fonctionnalités et les améliorations que vous pouvez attendre dans la dernière version d’Azure SQL Data Warehouse. Vous pouvez vous attendre à recevoir ces mises à jour de service au cours de votre programme de maintenance planifié.
 
+- [Décembre 2018](./release-notes-december-2018.md)
 - [Octobre 2018](./release-notes-october-2018.md)
 - [Septembre 2018](./release-notes-september-2018.md)
 - [Août 2018](./release-notes-august-2018.md)
@@ -38,7 +39,7 @@ Pour confirmer quelle version a été appliquée à votre entrepôt de données�
 SELECT @@VERSION AS 'SQL Data Warehouse';
 ```
 
-Exemple de sortie : ![Version SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
+Exemple de sortie : ![Version de SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
 
 Veuillez utiliser la date prévue pour confirmer quelle version a été appliquée à votre version d’Azure SQL Data Warehouse. 
 

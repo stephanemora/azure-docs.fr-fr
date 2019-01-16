@@ -5,16 +5,16 @@ description: Les clés de compte de stockage assurent une intégration transpare
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
-author: bryanla
-ms.author: bryanla
+author: prashanthyv
+ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: e110a24af6a0d49ea949db6bc30ab344c81d0f48
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 3ee0d19c174490d558a8ff06d3f5e038ffff211f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619280"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064438"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Compte de stockage managé Azure Key Vault – CLI
 
@@ -32,7 +32,7 @@ ms.locfileid: "52619280"
 1. [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) Installer Azure CLI   
 2. [Créer un compte de stockage](https://azure.microsoft.com/services/storage/)
     - Suivez les étapes de ce [document](https://docs.microsoft.com/azure/storage/) pour créer un compte de stockage.  
-    - **Instructions de nommage :** Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres.        
+    - **Aide pour le nommage :** Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres.        
       
 <a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>Instructions étape par étape sur la façon d'utiliser Key Vault pour gérer les clés du compte de stockage
 --------------------------------------------------------------------------------

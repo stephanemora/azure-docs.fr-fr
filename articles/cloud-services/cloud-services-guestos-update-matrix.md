@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2018
+ms.date: 1/7/2019
 ms.author: raiye
-ms.openlocfilehash: 2a4dd769d3a08873dfd6592413b6bd6a1210d15e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e621d526aed3c4d98d964dfdcd7ba01e8c1fb830
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548882"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104860"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -43,6 +43,9 @@ Vous ne savez pas comment mettre à jour votre système d’exploitation invité
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
 
+###### <a name="january-7-2019"></a>**7 janvier 2019**
+Le système d’exploitation invité de décembre a été publié.
+
 ###### <a name="december-14-2018"></a>**14 décembre 2018**
 Publication du système d’exploitation invité du mois de novembre.
 
@@ -61,9 +64,6 @@ Le système d’exploitation invité de juillet a été publié.
 ###### <a name="july-3-2018"></a>**3 juillet 2018**
 Le système d’exploitation invité de juin a été publié.
 
-###### <a name="june-1-2018"></a>**1er juin 2018**
-Le système d’exploitation invité de mai a été publié.
-
 ## <a name="releases"></a>Publications
 ## <a name="family-5-releases"></a>Publications de famille 5
 **Windows Server 2016**
@@ -76,13 +76,13 @@ Le système d’exploitation invité de mai a été publié.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-5.26_201812-01 |7 janvier 2019 |Billet 5.28 |
 | WA-GUEST-OS-5.25_201811-01 |14 décembre 2018 |Post 5.27 |
-| WA-GUEST-OS-5.24_201810-01 |8 novembre 2018 |Post 5.26 |
+|~~WA-GUEST-OS-5.24_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-5.23_201809-01~~ |12 octobre 2018 |14 décembre 2018 |
 |~~WA-GUEST-OS-5.22_201808-01~~ |12 septembre 2018 |8 novembre 2018 |
 |~~WA-GUEST-OS-5.21_201807-02~~ |3 août 2018 |12 octobre 2018 |
 |~~WA-GUEST-OS-5.20_201806-01~~ |3 juillet 2018 |12 septembre 2018 |
-|~~WA-GUEST-OS-5.19_201805-01~~ |1er juin 2018 |3 août 2018 |
 
 ## <a name="family-4-releases"></a>Publications de famille 4
 **Windows Server 2012 R2**
@@ -91,13 +91,13 @@ Le système d’exploitation invité de mai a été publié.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-4.61_201812-01 |7 janvier 2019 |Billet 4.63 |
 | WA-GUEST-OS-4.60_201811-01 |14 décembre 2018 |Post 4.62 |
-| WA-GUEST-OS-4.59_201810-01 |8 novembre 2018 |POST 4.61 |
+|~~WA-GUEST-OS-4.59_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-4.58_201809-01~~ |12 octobre 2018 |14 décembre 2018 |
 |~~WA-GUEST-OS-4.57_201808-01~~ |12 septembre 2018 |8 novembre 2018 |
 |~~WA-GUEST-OS-4.56_201807-02~~ |3 août 2018 |12 octobre 2018 |
 |~~WA-GUEST-OS-4.55_201806-01~~ |3 juillet 2018 |12 septembre 2018 |
-|~~WA-GUEST-OS-4.54_201805-01~~ |1er juin 2018 |3 août 2018 |
 
 ## <a name="family-3-releases"></a>Publications de famille 3
 **Windows Server 2012**
@@ -106,13 +106,13 @@ Le système d’exploitation invité de mai a été publié.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-3.68_201812-01 |7 janvier 2019 |Billet 3.70 |
 | WA-GUEST-OS-3.67_201811-01 |14 décembre 2018 |Post 3.69 |
-| WA-GUEST-OS-3.66_201810-01 |8 novembre 2018 |Post 3.68 |
+|~~WA-GUEST-OS-3.66_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-3.65_201809-01~~ |12 octobre 2018 |14 décembre 2018 |
 |~~WA-GUEST-OS-3.64_201808-01~~ |12 septembre 2018 |8 novembre 2018 |
 |~~WA-GUEST-OS-3.63_201807-02~~ |3 août 2018 |12 octobre 2018 |
 |~~WA-GUEST-OS-3.62_201806-01~~ |3 juillet 2018 |12 septembre 2018 |
-|~~WA-GUEST-OS-3.61_201805-01~~ |1er juin 2018 |3 août 2018 |
 
 ## <a name="family-2-releases"></a>Publications de famille 2
 **Windows Server 2008 R2 SP1**
@@ -121,13 +121,13 @@ Le système d’exploitation invité de mai a été publié.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-2.81_201812-01 |7 janvier 2019 |Billet 2.83 |
 | WA-GUEST-OS-2.80_201811-01 |14 décembre 2018 |Post 2.82 |
-| WA-GUEST-OS-2.79_201810-01 |8 novembre 2018 |Post 2.81 |
+|~~WA-GUEST-OS-2.79_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-2.78_201809-01~~|12 octobre 2018 |14 décembre 2018 |
 |~~WA-GUEST-OS-2.77_201808-01~~ |12 septembre 2018 |8 novembre 2018 |
 |~~WA-GUEST-OS-2.76_201807-02~~ |3 août 2018 |12 octobre 2018 |
 |~~WA-GUEST-OS-2.75_201806-01~~ |3 juillet 2018 |12 septembre 2018 |
-|~~WA-GUEST-OS-2.74_201805-01~~ |1er juin 2018 |3 août 2018|
 
 ## <a name="msrc-patch-updates"></a>Mises à jour correctives MSRC
 La liste des correctifs inclus dans chaque publication mensuelle du SE invité est disponible [ici][patches].

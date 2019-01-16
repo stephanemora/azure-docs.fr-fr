@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 47d597188c761921817bf7e2155548157e0d2eb3
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f0f929e7caece9bea10dbe09e237bc987ad93d44
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185424"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159653"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Comprendre les performances du cluster AKS avec Azure Monitor pour les conteneurs 
 Avec Azure Monitor pour les conteneurs, vous pouvez utiliser les graphiques de performances et l’état d’intégrité pour surveiller la charge de travail de vos clusters Azure Kubernetes Service (AKS) selon deux perspectives, directement à partir d’un cluster AKS ou tous les clusters AKS d’un abonnement à partir d’Azure Monitor. L’affichage d’ACI (Azure Container Instances) est également possible lorsque vous surveillez un cluster ACS spécifique.
@@ -98,6 +98,8 @@ Le graphique de performances affiche quatre métriques de performance :
 - **Nombre de nœuds** : nombre et état des nœuds fournis par Kubernetes. L’état des nœuds de cluster représentés sont *All* (Tous), *Ready* (Prêts) et *Not Ready* (Non prêts). Il est possible de les filtrer individuellement ou en les combinant à l’aide du sélecteur situé au-dessus du graphique. 
 - **Nombre de pods d’activité** : nombre et état des pods fournis par Kubernetes. L’état des pods représentés sont *All* (Tous), *Pending* (En attente), *Running* (En cours d’exécution) et *Unknown* (Inconnus). Il est possible de les filtrer individuellement ou en les combinant à l’aide du sélecteur situé au-dessus du graphique. 
 
+Vous pouvez utiliser les touches de direction gauche/droite pour parcourir chaque point de données sur le graphe, et haut/bas pour faire défiler les lignes de centile.
+
 Quand vous passez à l’onglet **Nodes** (Nœuds), **Controllers** (Contrôleurs) et **Containers** (Conteneurs), le volet des propriétés s’affiche automatiquement à droite de la page.  Il présente les propriétés de l’élément sélectionné, notamment les étiquettes que vous définissez pour organiser les objets Kubernetes. Cliquez sur le lien **>>** dans le volet pour afficher ou masquer le volet.  
 
 ![Exemple du volet de propriétés des perspectives Kubernetes](./media/container-insights-analyze/perspectives-preview-pane-01.png)
@@ -129,7 +131,7 @@ Par défaut, les données de performances sont basées sur les six dernières he
 
 ![Sélection de centile pour le filtrage des données](./media/container-insights-analyze/containers-metric-percentile-filter.png)
 
-Lorsque vous placez la souris sur le graphique à barres sous la colonne **Tendance**, chaque barre indique l’utilisation du processeur ou de la mémoire, selon la métrique sélectionnée, au sein d’une période d’échantillonnage de 15 minutes.  
+Lorsque vous placez la souris sur le graphique à barres sous la colonne **Tendance**, chaque barre indique l’utilisation du processeur ou de la mémoire, selon la métrique sélectionnée, au sein d’une période d’échantillonnage de 15 minutes. Après avoir sélectionné le graphique de tendances à l’aide d’un clavier, vous pouvez utiliser les touches Alt + Pg. préc ou Alt + Pg. suiv pour parcourir chaque barre individuellement et obtenir les mêmes détails, comme vous le feriez sur mouseover.
 
 ![Exemple de pointage sur le graphique à barres](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 

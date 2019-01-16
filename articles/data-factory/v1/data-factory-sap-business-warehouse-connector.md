@@ -9,21 +9,20 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2104f2690e681c53649b9a37c6c764380aa94568
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9e972ee64d60f0fc9703e766c3ab45c3057c32a2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051495"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019875"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Déplacer des données depuis SAP Business Warehouse à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](data-factory-sap-business-warehouse-connector.md)
+> * [Version 1](data-factory-sap-business-warehouse-connector.md)
 > * [Version 2 (version actuelle)](../connector-sap-business-warehouse.md)
 
 > [!NOTE]
@@ -38,7 +37,7 @@ Vous pouvez copier et coller les données d’un magasin de données SAP Busine
 Ce connecteur prend en charge la version 7.x de SAP Business Warehouse. Il prend en charge la copie de données d’InfoCubes et de QueryCubes (y compris les requêtes BEx) à l’aide de requêtes MDX.
 
 Pour activer la connectivité à l’instance SAP BW, installez les composants suivants :
-- **Passerelle de gestion des données** : le service Data Factory prend en charge la connexion aux magasins de données locaux (y compris SAP Business Warehouse) à l’aide d’un composant appelé passerelle de gestion des données. Consultez l’article [Déplacement de données d’un magasin de données local vers un magasin de données cloud](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus sur la passerelle de gestion des données et obtenir des instructions détaillées sur la configuration de la passerelle. Une passerelle est requise même si SAP Business Warehouse est hébergé sur une machine virtuelle Azure IaaS. Vous pouvez installer la passerelle sur la même machine virtuelle que le magasin de données, ou sur une autre machine virtuelle pourvu que la passerelle puisse se connecter à la base de données.
+- **Passerelle de gestion des données**: Le service Data Factory prend en charge la connexion aux magasins de données locaux (notamment SAP Business Warehouse) avec un composant appelé « passerelle de gestion des données ». Consultez l’article [Déplacement de données d’un magasin de données local vers un magasin de données cloud](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus sur la passerelle de gestion des données et obtenir des instructions détaillées sur la configuration de la passerelle. Une passerelle est requise même si SAP Business Warehouse est hébergé sur une machine virtuelle Azure IaaS. Vous pouvez installer la passerelle sur la même machine virtuelle que le magasin de données, ou sur une autre machine virtuelle pourvu que la passerelle puisse se connecter à la base de données.
 - **Bibliothèque SAP NetWeaver** sur la machine passerelle. Vous pouvez obtenir la bibliothèque SAP Netweaver auprès de votre administrateur SAP, ou directement depuis le [Centre de téléchargement de logiciel SAP](https://support.sap.com/swdc). Recherchez la **Note SAP 1025361** pour obtenir l’emplacement de téléchargement de la version la plus récente. Assurez-vous que l’architecture de la bibliothèque de SAP NetWeaver (32 bits ou 64 bits) correspond à votre installation de la passerelle. Ensuite, installez tous les fichiers inclus dans le Kit de développement logiciel (SDK) RFC de SAP NetWeaver en fonction de la note SAP. La bibliothèque de SAP NetWeaver est également incluse dans l’installation des outils clients SAP.
 
 > [!TIP]
@@ -47,8 +46,8 @@ Pour activer la connectivité à l’instance SAP BW, installez les composants s
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’un magasin de données Cassandra local à l’aide de différents outils/API. 
 
-- Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données. 
-- Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, le **modèle Azure Resource Manager**, l’**API .NET** et l’**API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+- Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données. 
+- Vous pouvez également utiliser les outils suivants pour créer un pipeline : **portail Azure**, **Visual Studio**, **Azure PowerShell**, **modèle Azure Resource Manager**, **API .NET** et **API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes :
 
@@ -56,7 +55,7 @@ Que vous utilisiez des outils ou des API, la création d’un pipeline qui dépl
 2. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie. 
 3. Création d’un **pipeline** avec une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. 
 
-Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour consulter un exemple contenant des définitions JSON pour les entités Data Factory utilisées pour copier des données d’un magasin de données SAP Business Warehouse, consultez la section [Exemple JSON : copier des données depuis SAP Business Warehouse vers Azure Blob](#json-example-copy-data-from-sap-business-warehouse-to-azure-blob) de cet article. 
+Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour un exemple contenant des définitions JSON pour les entités Data Factory servant à copier des données à partir d’un magasin de données SAP Business Warehouse local, consultez la section [Exemple JSON : Copier des données depuis SAP Business Warehouse vers Stockage Blob Azure](#json-example-copy-data-from-sap-business-warehouse-to-azure-blob) de cet article. 
 
 Les sections suivantes contiennent des informations détaillées sur les propriétés JSON utilisées pour définir les entités Data Factory propres à un magasin de données SAP Business Warehouse :
 
@@ -65,12 +64,12 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-serveur | Nom du serveur sur lequel réside l’instance SAP BW. | chaîne | OUI
-systemNumber | Numéro de système du système SAP BW. | Nombre décimal à deux chiffres représenté sous forme de chaîne. | OUI
-clientId | ID client du client dans le système SAP W. | Nombre décimal à trois chiffres représenté sous forme de chaîne. | OUI
-username | Nom de l’utilisateur qui a accès au serveur SAP | chaîne | OUI
-password | Mot de passe pour l’utilisateur. | chaîne | OUI
-gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP BW locale. | chaîne | OUI
+serveur | Nom du serveur sur lequel réside l’instance SAP BW. | chaîne | Oui
+systemNumber | Numéro de système du système SAP BW. | Nombre décimal à deux chiffres représenté sous forme de chaîne. | Oui
+clientId | ID client du client dans le système SAP W. | Nombre décimal à trois chiffres représenté sous forme de chaîne. | Oui
+username | Nom de l’utilisateur qui a accès au serveur SAP | chaîne | Oui
+password | Mot de passe pour l’utilisateur. | chaîne | Oui
+gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP BW locale. | chaîne | Oui
 Encryptedcredential | La chaîne d’informations d’identification chiffrée. | chaîne | Non 
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
@@ -88,10 +87,10 @@ Lorsque la source de l’activité de copie est de type **RelationalSource** (qu
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| query | Spécifie la requête MDX pour lire les données de l’instance SAP BW. | Requête MDX. | OUI |
+| query | Spécifie la requête MDX pour lire les données de l’instance SAP BW. | Requête MDX. | Oui |
 
 
-## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>Exemple JSON : copier des données depuis SAP Business Warehouse vers Azure Blob
+## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>Exemple JSON : Copie de données depuis SAP Business Warehouse vers Stockage Blob Azure
 L’exemple suivant présente des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide du [portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Cet exemple indique comment copier des données depuis un SAP Business Warehouse local vers un Stockage Blob Azure. Toutefois, les données peuvent être copiées **directement** vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie d’Azure Data Factory.  
 
 > [!IMPORTANT]
@@ -172,7 +171,7 @@ Les propriétés de fréquence et d’intervalle définissent la planification. 
 
 
 ### <a name="azure-blob-output-dataset"></a>Jeu de données de sortie d’objet Blob Azure
-Ce jeu de données définit le jeu de données d’objet blob Azure de sortie. La propriété du type est définie sur AzureBlob. La section typeProperties indique l’emplacement auquel les données copiées à partir de l’instance SAP BW sont stockées. Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois, le jour et l’heure de l’heure de début.
+Ce jeu de données définit le jeu de données d’objet blob Azure de sortie. La propriété du type est définie sur AzureBlob. La section typeProperties indique l’emplacement auquel les données copiées à partir de l’instance SAP BW sont stockées. Les données sont écrites dans un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le chemin d’accès du dossier pour l’objet blob est évalué dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois, le jour et l’heure de l’heure de début.
 
 ```json
 {

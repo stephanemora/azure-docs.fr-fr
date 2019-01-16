@@ -10,16 +10,15 @@ ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 8e3076f2176739f5b9df5776f27d7483c9fd2692
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2a36993e9406613ad9182d01c3681056114dca18
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000408"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159959"
 ---
 # <a name="azure-key-vault-logging"></a> Journalisation d’Azure Key Vault
 
@@ -39,7 +38,7 @@ Utilisez ce didacticiel pour vous familiariser avec Azure Key Vault pour créer 
 > [!NOTE]
 > Ce didacticiel n’inclut pas d’instructions pour créer des coffres de clés, des clés ou des clés secrètes. Pour plus d’informations, consultez [Prise en main d’Azure Key Vault](key-vault-get-started.md). Ou, pour obtenir des instructions de l'interface de ligne de commande interplateforme, consultez [ce didacticiel équivalent](key-vault-manage-with-cli2.md).
 >
-> Actuellement, vous ne pouvez pas configurer Azure Key Vault dans le portail Azure. Au lieu de cela, vous devez suivre ces instructions Azure PowerShell.
+> Cet article fournit des instructions Azure PowerShell pour la mise à jour de la journalisation des diagnostics. Toutefois, vous pouvez activer ces mêmes fonctionnalités à l’aide d’Azure Monitor dans le portail Azure dans la section **Journaux de diagnostic**. 
 >
 >
 
@@ -113,7 +112,7 @@ Pour activer la journalisation du coffre de clés, nous allons utiliser l’appl
 Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 ```
 
-Le résultat de l’opération inclut :
+La sortie se présente ainsi :
 
     StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccounts/ContosoKeyVaultLogs
     ServiceBusRuleId   :
@@ -230,6 +229,7 @@ Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
 
 retourne une entrée de journal semblable à celle présentée ci-dessous :
 
+```json
     {
         "records":
         [
@@ -250,6 +250,7 @@ retourne une entrée de journal semblable à celle présentée ci-dessous :
             }
         ]
     }
+```
 
 Le tableau suivant répertorie les noms de champ et les descriptions.
 

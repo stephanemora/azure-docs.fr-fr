@@ -9,17 +9,16 @@ ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6b13c70d86af195e50190083aa562811236cdd4b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3d0a3014fa224d6b5c85142e492afb0679f9f0b1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299858"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014679"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Déplacer des données à l’aide de l’activité de copie
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +28,7 @@ ms.locfileid: "38299858"
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Activité de copie dans V2](../copy-activity-overview.md).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Dans Azure Data Factory, vous pouvez utiliser l’activité de copie pour copier des données entre des magasins de données locaux et cloud. Une fois les données copiées, elles peuvent être transformées et analysées plus avant. Vous pouvez également utiliser l’activité de copie pour publier les résultats de transformation et d’analyse pour l’aide à la décision (BI) et l’utilisation d’application.
 
 ![Rôle d’activité de copie](media/data-factory-data-movement-activities/copy-activity.png)
@@ -79,7 +78,7 @@ L’activité de copie dans Data Factory permet de copier les données d’un ma
 ### <a name="supported-file-formats"></a>Formats de fichiers pris en charge
 Si vous voulez utiliser une activité de copie pour **copier des fichiers en l’état** entre deux magasins de données basés sur des fichiers, vous pouvez ignorer la [section format](data-factory-create-datasets.md) dans l’entrée et dans la sortie des définitions de dataset. Les données sont copiées efficacement, sans sérialisation/désérialisation.
 
-L’activité de copie peut également lire et écrire dans des fichiers de formats spécifiés : **Texte, Avro, ORC et Parquet**, et les codecs de compression **GZip, Deflate, BZip2 et ZipDeflate** sont pris en charge. Pour plus d’informations, consultez [Formats de fichier et de compression pris en charge](data-factory-supported-file-and-compression-formats.md).
+L’activité de copie permet également de lire et d’écrire dans les fichiers aux formats spécifiés : Les formats **texte, JSON, Avro, ORC et Parquet**, ainsi que les codecs de compression **GZip, Deflate, BZip2 et ZipDeflate** sont pris en charge. Pour plus d’informations, consultez [Formats de fichier et de compression pris en charge](data-factory-supported-file-and-compression-formats.md).
 
 Par exemple, vous pouvez effectuer les activités de copie suivantes :
 
@@ -89,37 +88,37 @@ Par exemple, vous pouvez effectuer les activités de copie suivantes :
 * Copier des données au format texte compressé GZip (CSV) provenant d’objets blob Azure et les écrire dans une base de données SQL Azure.
 
 ## <a name="global"></a>Déplacement des données disponible globalement
-Azure Data Factory est disponible uniquement dans les régions Europe du Nord, États-Unis de l'Est et États-Unis de l'Ouest. Cependant, le service proposant l’activité de copie est disponible globalement dans les régions et zones géographiques suivantes. La topologie globalement disponible garantit le déplacement efficace des données en évitant généralement les sauts entre régions. Consultez la section [Services par région](https://azure.microsoft.com/regions/#services) pour connaître la disponibilité de Data Factory et du déplacement des données dans une région.
+Azure Data Factory est disponible uniquement dans les régions Europe Nord, USA Est et USA Ouest. Cependant, le service proposant l’activité de copie est disponible globalement dans les régions et zones géographiques suivantes. La topologie globalement disponible garantit le déplacement efficace des données en évitant généralement les sauts entre régions. Consultez la section [Services par région](https://azure.microsoft.com/regions/#services) pour connaître la disponibilité de Data Factory et du déplacement des données dans une région.
 
 ### <a name="copy-data-between-cloud-data-stores"></a>Copier des données entre des banques de données cloud
 Lorsque les banques de données source et récepteur résident toutes les deux dans le cloud, Data Factory utilise un déploiement de service dans la région la plus proche du récepteur dans la même zone géographique afin de déplacer des données. Pour connaître le mappage, reportez-vous au tableau suivant :
 
 | Géographie des magasins de données de destination | Région de la banque de données de destination | Région utilisée pour le déplacement des données |
 |:--- |:--- |:--- |
-| États-Unis | Est des États-Unis | Est des États-Unis |
-| &nbsp; | Est des États-Unis 2 | Est des États-Unis 2 |
-| &nbsp; | Centre des États-Unis | Centre des États-Unis |
-| &nbsp; | Centre-Nord des États-Unis | Centre-Nord des États-Unis |
-| &nbsp; | États-Unis - partie centrale méridionale | États-Unis - partie centrale méridionale |
-| &nbsp; | Centre-Ouest des États-Unis | Centre-Ouest des États-Unis |
-| &nbsp; | États-Unis de l’Ouest | États-Unis de l’Ouest |
-| &nbsp; | Ouest des États-Unis 2 | Ouest des États-Unis 2 |
+| États-Unis | USA Est | USA Est |
+| &nbsp; | USA Est 2 | USA Est 2 |
+| &nbsp; | USA Centre | USA Centre |
+| &nbsp; | USA Centre Nord | USA Centre Nord |
+| &nbsp; | USA Centre Sud | USA Centre Sud |
+| &nbsp; | USA Centre-Ouest | USA Centre-Ouest |
+| &nbsp; | USA Ouest | USA Ouest |
+| &nbsp; | USA Ouest 2 | USA Ouest 2 |
 | Canada | Est du Canada | Centre du Canada |
 | &nbsp; | Centre du Canada | Centre du Canada |
-| Brésil | Sud du Brésil | Sud du Brésil |
-| Europe | Europe du Nord | Europe du Nord |
-| &nbsp; | Europe de l'Ouest | Europe de l'Ouest |
+| Brésil | Brésil Sud | Brésil Sud |
+| Europe | Europe Nord | Europe Nord |
+| &nbsp; | Europe Ouest | Europe Ouest |
 | Royaume-Uni | Ouest du Royaume-Uni | Sud du Royaume-Uni |
 | &nbsp; | Sud du Royaume-Uni | Sud du Royaume-Uni |
-| Asie-Pacifique | Asie du Sud-Est | Asie du Sud-Est |
-| &nbsp; | Est de l'Asie | Asie du Sud-Est |
-| Australie | Est de l’Australie | Est de l’Australie |
-| &nbsp; | Sud-est de l’Australie | Sud-est de l’Australie |
-| Inde | Inde centrale | Inde centrale |
-| &nbsp; | Inde occidentale | Inde centrale |
-| &nbsp; | Inde du Sud | Inde centrale |
-| Japon | Est du Japon | Est du Japon |
-| &nbsp; | Ouest du Japon | Est du Japon |
+| Asie-Pacifique | Asie Sud-Est | Asie Sud-Est |
+| &nbsp; | Asie Est | Asie du Sud-Est |
+| Australie | Australie Est | Australie Est |
+| &nbsp; | Australie Sud-Est | Australie Sud-Est |
+| Inde | Inde Centre | Inde Centre |
+| &nbsp; | Inde Ouest | Inde Centre |
+| &nbsp; | Inde Sud | Inde Centre |
+| Japon | Japon Est | Japon Est |
+| &nbsp; | Japon Ouest | Japon Est |
 | Corée du Sud | Centre de la Corée | Centre de la Corée |
 | &nbsp; | Corée du Sud | Centre de la Corée |
 
@@ -139,7 +138,7 @@ Vous pouvez créer un pipeline avec une activité de copie de plusieurs façons 
 L’Assistant Data Factory Copy vous aide à créer un pipeline avec l’activité de copie. Le pipeline vous permet de créer un pipeline pour copier des données de sources prises en charge vers des destinations *sans avoir à écrire de définitions JSON* pour les services liés, les jeux de données et les pipelines. Reportez-vous à [l’Assistant Data Factory Copy](data-factory-copy-wizard.md) pour connaître les détails de cet Assistant.  
 
 ### <a name="by-using-json-scripts"></a>Avec utilisation de scripts JSON
-Vous pouvez utiliser Data Factory Editor dans le portail Azure, Visual Studio ou Azure PowerShell pour créer une définition JSON pour un pipeline (en utilisant l’activité de copie). Vous pouvez ensuite le déployer pour créer le pipeline dans Data Factory. Consultez le [Didacticiel : Utilisation de l’activité de copie dans un pipeline Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour connaître les instructions des procédures pas à pas.    
+Vous pouvez utiliser Data Factory Editor dans le portail Azure, Visual Studio ou Azure PowerShell pour créer une définition JSON pour un pipeline (en utilisant l’activité de copie). Vous pouvez ensuite le déployer pour créer le pipeline dans Data Factory. Consultez le [tutoriel : Utiliser l’activité de copie dans un pipeline Azure Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour connaître les instructions des procédures pas à pas.    
 
 Les propriétés JSON (le nom, la description, les tables d'entrée et de sortie et les différentes stratégies) sont disponibles pour tous les types d'activités. Les propriétés qui sont disponibles dans la section `typeProperties` de l’activité varient avec chaque type d’activité.
 

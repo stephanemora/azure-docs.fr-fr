@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e6c5f4623f3483dcfb0dde0f55b77161eee2c562
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: aff3f47624fe21e1d0f020e8e5732e60b4b53657
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035430"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54084053"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Comprendre les redémarrages des machines virtuelles : maintenance et temps d’arrêt
 Il existe trois scénarios pouvant affecter une machine virtuelle dans Azure : maintenance matérielle non planifiée, temps d’arrêt imprévu et maintenance planifiée.
@@ -32,7 +32,7 @@ Pour réduire l'effet des interruptions de service dues à un ou plusieurs de ce
 
 * [Configuration de plusieurs machines virtuelles dans un groupe à haute disponibilité pour assurer la redondance]
 * [Utilisation de disques gérés pour les machines virtuelles dans le groupe à haute disponibilité]
-* [Utilisation d’événements planifiés pour répondre de façon proactive aux événements qui impactent les machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Utiliser des événements planifiés pour répondre de façon proactive aux événements qui impactent les machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Configuration de chaque couche application dans des groupes à haute disponibilité séparés]
 * [Combinaison de l’équilibrage de charge et des groupes à haute disponibilité]
 * [Utiliser les zones de disponibilité pour se protéger contre les défaillances au niveau du centre de données]
@@ -65,6 +65,10 @@ Si vous prévoyez d’utiliser des machines virtuelles avec des [disques non gé
 1. **Conservez tous les disques (système d’exploitation et données) associés à une machine virtuelle dans le même compte de stockage.**
 2. **Examinez les [limites](../articles/storage/common/storage-scalability-targets.md) sur le nombre de disques non gérés dans un compte de stockage** avant d’ajouter plus de disques durs virtuels à un compte de stockage.
 3. **Utilisez un compte de stockage distinct pour chaque machine virtuelle d’un groupe à haute disponibilité.** Ne partagez pas de comptes de stockage avec plusieurs machines virtuelles d’un même groupe à haute disponibilité. Il est acceptable pour les machines virtuelles de différents groupes à haute disponibilité de partager des comptes de stockage si les meilleures pratiques ci-dessus sont suivies ![FDs de disques non gérés](./media/virtual-machines-common-manage-availability/umd-updated.png)
+
+## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>Utiliser des événements planifiés pour répondre de façon proactive aux événements qui impactent les machines virtuelles
+
+Quand vous vous abonnez à des [événements planifiés](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events), votre machine virtuelle reçoit une notification relative aux futurs événements de maintenance susceptibles de l’impacter. Quand des événements planifiés sont activés, votre machine virtuelle dispose d’un délai minimal avant l’exécution de l’activité de maintenance. Par exemple, les mises à jour du système d’exploitation hôte susceptibles d’impacter votre machine virtuelle sont mises en file d’attente en tant qu’événements indiquant l’impact ainsi que l’heure d’exécution de la maintenance si aucune action n’est entreprise. Les événements de planification sont également mis en file d’attente quand Azure détecte une défaillance matérielle imminente pouvant impacter votre machine virtuelle, ce qui vous permet de décider du moment de la réparation. Les clients peuvent utiliser l’événement pour effectuer des tâches préalables à la maintenance, par exemple une sauvegarde de l’état, un basculement vers le nœud secondaire, etc. Une fois que vous avez fini de mettre au point votre logique de gestion de l’événement de maintenance, vous pouvez approuver l’événement planifié en attente pour permettre à la plateforme de procéder à la maintenance.
 
 ## <a name="configure-each-application-tier-into-separate-availability-sets"></a>Configuration de chaque couche application dans des groupes à haute disponibilité séparés
 Si vos machines virtuelles sont presque identiques et ont la même fonction au sein de votre application, nous vous recommandons de configurer un groupe à haute disponibilité pour chaque couche de votre application.  Si vous placez deux couches différentes dans le même groupe à haute disponibilité, toutes les machines virtuelles de la même couche application peuvent être redémarrées en même temps. En configurant deux machines virtuelles ou plus dans un groupe à haute disponibilité par couche, vous vous assurez qu’au moins une machine de chaque couche reste disponible.

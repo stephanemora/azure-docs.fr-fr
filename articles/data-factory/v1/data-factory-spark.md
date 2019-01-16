@@ -10,17 +10,16 @@ ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2c00e42284783439b0a01f6ba6bab31be053b1c9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736408"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015812"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Appeler des programmes Spark à partir des pipelines Azure Data Factory
 
@@ -46,7 +45,7 @@ L’activité Spark est l’une des [activités de transformation des données](
 > - L’activité Spark ne prend pas en charge les clusters Spark HDInsight qui utilisent Azure Data Lake Store en tant que stockage principal.
 > - L’activité Spark prend en charge uniquement les clusters Spark HDInsight existants (c’est-à-dire vos propres clusters). Elle ne prend pas en charge les services liés HDInsight à la demande.
 
-## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Procédure pas à pas : création d’un pipeline avec une activité Spark
+## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Procédure pas à pas : Créer un pipeline avec une activité Spark
 Voici les étapes classiques pour créer un pipeline de fabrique de données avec une activité Spark : 
 
 * Créer une fabrique de données.
@@ -74,7 +73,7 @@ Pour créer une fabrique de données, procédez comme suit :
 1. Dans le panneau **Nouvelle fabrique de données**, entrez **SparkDF** dans le champ **Nom**.
 
    > [!IMPORTANT]
-   > Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur « Data factory name SparkDF is not available » (Le nom de fabrique de données SparkDF n’est pas disponible) s’affiche, changez le nom de la fabrique de données. Par exemple, utilisez votrenomSparkDF et recréez la fabrique de données. Pour plus d’informations sur les règles d’affectation des noms, consultez [Data Factory : Règles d’affectation des noms](data-factory-naming-rules.md).
+   > Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur « Data factory name SparkDF is not available » (Le nom de fabrique de données SparkDF n’est pas disponible) s’affiche, changez le nom de la fabrique de données. Par exemple, utilisez votrenomSparkDF et recréez la fabrique de données. Pour plus d’informations sur les règles de nommage, consultez [Data Factory : Règles d’affectation des noms](data-factory-naming-rules.md).
 
 1. Sous **Abonnement**, sélectionnez l’abonnement Azure dans lequel vous souhaitez créer la fabrique de données.
 
@@ -338,7 +337,7 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 | className | Classe principale Java/Spark de l’application. | Non  |
 | arguments | Liste d’arguments de ligne de commande du programme Spark. | Non  |
 | proxyUser | Compte d’utilisateur à emprunter pour exécuter le programme Spark. | Non  |
-| sparkConfig | Spécifiez les valeurs des propriétés de configuration de Spark répertoriées dans la rubrique : [Configuration Spark : Propriétés de l’application](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Non  |
+| sparkConfig | Spécifiez les valeurs des propriétés de configuration de Spark lisétes dans la rubrique [Configuration Spark : Propriétés de l’application](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Non  |
 | getDebugInfo | Spécifie quand les fichiers journaux de Spark sont copiés vers le stockage utilisé par le cluster HDInsight (ou) spécifié par sparkJobLinkedService. Les valeurs autorisées sont Aucun, Toujours ou Échec. La valeur par défaut est Aucun. | Non  |
 | sparkJobLinkedService | Service lié Stockage qui contient le fichier de travail, les dépendances et les journaux Spark. Si vous ne spécifiez pas de valeur pour cette propriété, le stockage associé au cluster HDInsight est utilisé. | Non  |
 

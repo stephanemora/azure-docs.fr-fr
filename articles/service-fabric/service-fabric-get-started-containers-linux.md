@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
+ms.date: 1/4/2019
 ms.author: twhitney
-ms.openlocfilehash: 07c227c198166254eb130604685a4ba5884b783a
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e02acb0d283257658d4466295e3be323072210b5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299875"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062364"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Créer votre première application de conteneur Service Fabric sur Linux
 > [!div class="op_single_selector"]
@@ -193,6 +193,11 @@ Spécifiez le mappage de port au format approprié. Pour cet article, vous devez
    </ServiceManifestImport>
 ``` 
 
+Nous vous recommandons de chiffrer le mot de passe du référentiel. Pour obtenir des instructions, consultez [Gérer les secrets chiffrés dans les applications Service Fabric](service-fabric-application-secret-management.md).
+
+### <a name="configure-cluster-wide-credentials"></a>Configurer les informations d’identification au niveau du cluster
+Reportez-vous à [cette documentation](
+service-fabric-get-started-containers.md#configure-cluster-wide-credentials).
 
 ## <a name="configure-isolation-mode"></a>Configurer le mode d’isolation
 Avec la version du runtime 6.3, l’isolation de machine virtuelle est prise en charge pour les conteneurs Linux. Deux modes d’isolation sont ainsi pris en charge pour les conteneurs : process et hyperv. Avec le mode d’isolation hyperv, les noyaux sont isolés entre chaque conteneur et l’hôte du conteneur. L’isolation hyperv est implémentée à l’aide de l’option [Nettoyer les conteneurs](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). Le mode d’isolation est spécifié pour les clusters Linux dans l’élément `ServicePackageContainerPolicy` dans le fichier manifeste de l’application. Les modes d’isolation qui peuvent être définis sont `process`, `hyperv` et `default`. La valeur par défaut est le mode d’isolation de processus. L’extrait de code suivant montre comment le mode d’isolation est spécifié dans le fichier manifeste de l’application.
@@ -210,7 +215,7 @@ Avec la version du runtime 6.3, l’isolation de machine virtuelle est prise en 
 
 
 ## <a name="configure-resource-governance"></a>Configurer la gouvernance des ressources
-La [gouvernance des ressources](service-fabric-resource-governance.md) limite les ressources que le conteneur peut utiliser sur l’hôte. L’élément `ResourceGovernancePolicy`, spécifié dans le manifeste de l’application, est utilisé pour déclarer des limites relatives aux ressources pour un package de code de service. Des limites de ressources peuvent être définies pour les ressources suivantes : mémoire, MemorySwap, CpuShares (poids relatif du processeur), MemoryReservationInMB, BlkioWeight (poids relatif de l’élément BlockIO). Dans cet exemple, le package de service Guest1Pkg obtient un cœur sur les nœuds de cluster où il est placé. Les limites de mémoire sont absolues, ce qui signifie que le package de code est limité à 1024 Mo de mémoire (avec une garantie de réservation identique). Les packages de code (conteneurs ou processus) ne sont pas en mesure d’allouer plus de mémoire que cette limite. Toute tentative en ce sens conduit à une exception de mémoire insuffisante. Pour pouvoir appliquer la limite de ressources, des limites de mémoire doivent être spécifiées pour tous les packages de code au sein d’un package de service.
+La [gouvernance des ressources](service-fabric-resource-governance.md) limite les ressources que le conteneur peut utiliser sur l’hôte. L’élément `ResourceGovernancePolicy`, spécifié dans le manifeste de l’application, est utilisé pour déclarer des limites relatives aux ressources pour un package de code de service. Des limites de ressources peuvent être définies pour les ressources suivantes : Memory, MemorySwap, CpuShares (poids relatif du processeur), MemoryReservationInMB, BlkioWeight (poids relatif de l’élément BlockIO). Dans cet exemple, le package de service Guest1Pkg obtient un cœur sur les nœuds de cluster où il est placé. Les limites de mémoire sont absolues, ce qui signifie que le package de code est limité à 1024 Mo de mémoire (avec une garantie de réservation identique). Les packages de code (conteneurs ou processus) ne sont pas en mesure d’allouer plus de mémoire que cette limite. Toute tentative en ce sens conduit à une exception de mémoire insuffisante. Pour pouvoir appliquer la limite de ressources, des limites de mémoire doivent être spécifiées pour tous les packages de code au sein d’un package de service.
 
 ```xml
 <ServiceManifestImport>

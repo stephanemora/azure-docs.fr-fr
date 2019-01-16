@@ -1,13 +1,9 @@
 ---
-title: Mesures des utilisateurs réels dans Azure Traffic Manager | Microsoft Docs
+title: Mesures utilisateur réelles dans Azure Traffic Manager
 description: Présentation de la fonctionnalité Mesures des utilisateurs réels dans Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -16,22 +12,22 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 4e8d808d65c9898d230455d128e3ffc50db303d6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fd37ef739522955ae8227db39a41aecf199d65c3
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30178111"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052817"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Vue d’ensemble de la fonctionnalité Mesures des utilisateurs réels dans Traffic Manager
 
-Quand vous configurez un profil Traffic Manager pour utiliser la méthode de routage des performances, le service recherche la provenance des demandes de requête DNS et prend des décisions de routage pour diriger ces demandeurs vers la région Azure qui leur offre la latence la plus faible. Pour ce faire, il utilise l’intelligence de la latence réseau que Traffic Manager gère pour différents réseaux d’utilisateurs finaux.
+Quand vous configurez un profil Traffic Manager pour utiliser la méthode de routage des performances, le service recherche la provenance des demandes de requête DNS et prend des décisions de routage pour diriger ces demandeurs vers la région Azure qui leur offre la latence la plus faible. Pour ce faire, il utilise l’intelligence de latence réseau que Traffic Manager gère pour différents réseaux d’utilisateurs finaux.
 
 La fonctionnalité Mesures des utilisateurs réels vous permet d’évaluer les mesures de la latence réseau vers les régions Azure, à partir des applications clientes auxquelles recourent vos utilisateurs finaux, et d’intégrer ces informations aux prises de décision de routage par Traffic Manager. En choisissant d’utiliser la fonctionnalité Mesures des utilisateurs réels, vous pouvez augmenter la précision du routage pour les demandes provenant des réseaux où résident vos utilisateurs finaux. 
 
 ## <a name="how-real-user-measurements-work"></a>Fonctionnement de la fonctionnalité Mesures des utilisateurs réels
 
-Vos applications clientes mesurent la latence vers les régions Azure du point de vue des réseaux d’utilisateurs finaux où elles sont utilisées. Par exemple, si vous avez une page web accessible aux utilisateurs en différents endroits (par exemple, dans les régions d’Amérique du Nord), vous pouvez tirer parti de la puissance de la fonctionnalité Mesures des utilisateurs réels quand vous utilisez la méthode de routage des performances pour les aiguiller vers la meilleure région Azure hébergeant votre application serveur.
+Grâce à la fonctionnalité Mesures utilisateur réelles, vos applications clientes mesurent la latence vers les régions Azure du point de vue des réseaux d’utilisateurs finaux où elles sont utilisées. Par exemple, si vous avez une page web accessible aux utilisateurs en différents endroits (par exemple, dans les régions d’Amérique du Nord), vous pouvez utiliser la fonctionnalité Mesures utilisateur réelles avec la méthode de routage des performances pour orienter ces utilisateurs vers la meilleure région Azure hébergeant votre application serveur.
 
 Dans un premier temps, un code JavaScript fourni par Azure (et contenant une clé unique) est incorporé dans vos pages web. Ensuite, chaque fois qu’un utilisateur visite cette page web, le code JavaScript interroge Traffic Manager pour obtenir des informations sur les régions Azure qu’il doit mesurer. Le service retourne un ensemble de points de terminaison au script, qui mesure ensuite ces régions consécutivement en téléchargeant une image d’un pixel hébergée dans ces régions Azure et en notant la latence qui s’est écoulée entre l’envoi de la demande et la réception du premier octet. Ces mesures sont ensuite renvoyées au service Traffic Manager.
 

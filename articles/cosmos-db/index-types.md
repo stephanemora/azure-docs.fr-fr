@@ -6,22 +6,22 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: f3c5d7bc1907e94ff2e590fe77cc531ac4b01f4c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 44fe262dc28a016af9eb01f28278b2c3d81d9034
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628391"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034082"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Types d'index dans Azure Cosmos DB
 
 Plusieurs options s'offrent à vous lorsque vous configurez la stratégie d’indexation d'un chemin d'accès. Vous pouvez spécifier une ou plusieurs définitions d’indexation pour chaque chemin d’accès :
 
-- **Type de données** : Chaîne, Nombre, Point, Polygone ou LineString (ne pouvant contenir qu’une seule entrée par type de données par chemin d'accès).
+- **Type de données :** Chaîne, Nombre, Point, Polygone ou LineString (peut contenir une seule entrée par type de données par chemin).
 
-- **Type d’index** : Hachage (requêtes d’égalité), Plage (requêtes d’égalité, de plage ou ORDER BY) ou Spatial (requêtes spatiales).
+- **Type d’index :** Hachage (requêtes d’égalité), Plage (requêtes d’égalité, de plage ou ORDER BY) ou Spatial (requêtes spatiales).
 
-- **Précision** : pour les index de hachage, cette valeur varie de 1 à 8 pour les chaînes et les nombres, et la valeur par défaut est 3. Pour un index de plage, la valeur de précision maximale est -1. Elle peut varier de 1 à 100 (précision maximale) pour les valeurs de chaîne ou numériques.
+- **Précision :** Pour les index de hachage, cette valeur varie de 1 à 8 pour les chaînes et les nombres, et la valeur par défaut est 3. Pour un index de plage, la valeur de précision maximale est -1. Elle peut varier de 1 à 100 (précision maximale) pour les valeurs de chaîne ou numériques.
 
 ## <a name="index-kind"></a>Type d’index
 
@@ -31,7 +31,7 @@ Azure Cosmos DB prend en charge les types d’index de hachage et de plage pour 
 
 - **Index de plage**  prend en charge les requêtes d’égalité efficaces, les requêtes de plage (avec >, <, >=, <=, !=) et les requêtes ORDER BY. Par défaut, les requêtes ORDER BY nécessitent également une précision d’index maximale (-1). Le type de données peut être Chaîne ou Nombre.
 
-- **Index spatial** prend en charge les requêtes spatiales efficaces (within et distance). Le type de données peut être Point, Polygone ou LineString. Azure Cosmos DB prend également en charge le type d’index spatial pour chaque chemin d'accès qui peut être spécifié pour les types de données Point, Polygone ou LineString. La valeur du chemin d’accès spécifié doit être un fragment tel que {"type": "Point", "coordinates": [0.0, 10.0]}. Azure Cosmos DB prend en charge l’indexation automatique des types de données Points, Polygone et LineString.
+- **Index spatial** prend en charge les requêtes spatiales efficaces (within et distance). Le type de données peut être Point, Polygone ou LineString. Azure Cosmos DB prend également en charge le type d’index spatial pour chaque chemin d'accès qui peut être spécifié pour les types de données Point, Polygone ou LineString. La valeur dans le chemin spécifié doit être un fragment GeoJSON valide, comme {"type": "Point", "coordinates": [0.0, 10.0]}. Azure Cosmos DB prend en charge l’indexation automatique des types de données Points, Polygone et LineString.
 
 Voici quelques exemples de requêtes d'index de hachage, de portée et spatial à utiliser pour traiter :
 
@@ -39,7 +39,7 @@ Voici quelques exemples de requêtes d'index de hachage, de portée et spatial �
 | ---------- | ---------------- |
 | Hachage  | Le hachage disposant de l’élément /prop? (ou /) peut être utilisé pour traiter efficacement les requêtes suivantes :<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Le hachage disposant de l’élément /props/[]/? (ou / ou /props/) peut être utilisé pour traiter efficacement les requêtes suivantes :<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5  |
 | Plage  | La plage disposant de l’élément /prop/? (ou /) peut être utilisé pour traiter efficacement les requêtes suivantes :<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop   |
-| spatial     | La plage disposant de l’élément /prop/? (ou /) peut être utilisé pour traiter efficacement les requêtes suivantes :<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --avec indexation sur les points activée<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --avec indexation sur les polygones activée     |
+| spatial     | La plage disposant de l’élément /prop/? (ou /) peut être utilisé pour traiter efficacement les requêtes suivantes :<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) -- avec indexation sur les points activée<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) -- avec indexation sur les polygones activée.     |
 
 ## <a name="default-behavior-of-index-kinds"></a>Comportement par défaut des types d’index
 

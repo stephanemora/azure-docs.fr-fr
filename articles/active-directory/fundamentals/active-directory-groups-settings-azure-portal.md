@@ -12,12 +12,12 @@ ms.date: 08/27/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: b857b0bd56b479d4301535a4e1f734d8002dcc8e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c63872ce19cc7076929785cc7bd150c1599c5705
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099050"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063046"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Modifier les informations de votre groupe avec Azure Active Directory
 
@@ -50,7 +50,7 @@ Avec Azure Active Directory (Azure AD), vous pouvez modifier les paramètres d�
 
     - **Type du groupe**. Vous ne pouvez pas changer le type du groupe après sa création. Pour changer le **Type du groupe**, vous devez le supprimer et en recréer un.
     
-    - **Type d’appartenance.** Changez le type d’appartenance. Pour plus d’informations sur les différents types d’appartenance disponibles, consultez le [Guide pratique pour créer un groupe de base et ajouter des membres avec Azure Active Directory](active-directory-groups-create-azure-portal.md).
+    - **Type d’appartenance.** Changez le type d’appartenance. Pour plus d’informations sur les différents types d’appartenance disponibles, consultez le [Guide pratique pour créer un groupe de base et ajouter des membres avec le portail Azure Active Directory](active-directory-groups-create-azure-portal.md).
     
     - **ID d’objet**. Vous ne pouvez pas changer l’ID d’objet, mais vous pouvez le copier pour vous en servir dans vos commandes PowerShell pour le groupe. Pour plus d’informations sur l’utilisation des cmdlets PowerShell, consultez [Configuration des paramètres de groupe avec les cmdlets Azure Active Directory](../users-groups-roles/groups-settings-v2-cmdlets.md).
 

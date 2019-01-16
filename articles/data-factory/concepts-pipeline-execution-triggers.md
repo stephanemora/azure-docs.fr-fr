@@ -9,23 +9,22 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 58fffafe9658919a96d1aef2881424c0d324e688
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d103061289991fb149b7c8d76430b37a6b385f80
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876475"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064370"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory
-> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez:"]
+> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
 > * [Version 1](v1/data-factory-scheduling-and-execution.md)
 > * [Version actuelle](concepts-pipeline-execution-triggers.md)
 
-Une _exécution du pipeline_ dans Azure Data Factory définit une instance d’une exécution du pipeline. Par exemple, supposons que vous disposez d’un pipeline qui s’exécute à 8h00, 9h00 et 10h00. Dans ce cas, il y aura trois exécutions du pipeline différentes. Chaque exécution de pipeline possède un ID d’exécution de pipeline unique. Une ID d’exécution est un GUID qui identifie de façon unique cette exécution de pipeline spécifique. 
+Une _exécution du pipeline_ dans Azure Data Factory définit une instance d’une exécution du pipeline. Par exemple, supposons que vous disposez d’un pipeline qui s’exécute à 8h00, 9h00 et 10h00. Dans ce cas, il y aura trois exécutions du pipeline différentes. Chaque exécution de pipeline possède un ID d’exécution de pipeline unique. Une ID d’exécution est un GUID qui identifie de façon unique cette exécution de pipeline spécifique.
 
 Les exécutions de pipeline sont généralement instanciées en transmettant des arguments aux paramètres que vous définissez dans les pipelines. Vous pouvez exécuter un pipeline manuellement ou via un _déclencheur_. Cet article décrit de manière détaillée ces deux méthodes d’exécution d’un pipeline.
 
@@ -85,7 +84,7 @@ Vous pouvez exécuter manuellement votre pipeline à l’aide d’une des métho
 - Kit de développement logiciel (SDK) Python
 
 ### <a name="rest-api"></a>API REST
-L’exemple de commande suivant vous montre comment exécuter manuellement votre pipeline à l’aide de l’API REST :  
+L’exemple de commande suivant vous montre comment exécuter manuellement votre pipeline à l’aide de l’API REST :
 
 ```
 POST
@@ -176,7 +175,7 @@ Un déclencheur de planification exécute les pipelines selon un planning horair
 Pour obtenir plus d’informations sur les déclencheurs de planification ainsi que des exemples, consultez [Créer un déclencheur de planification](how-to-create-schedule-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Définition du déclencheur de planification
-Quand vous créez un déclencheur de planification, vous spécifiez la planification et la périodicité à l’aide d’une définition JSON. 
+Quand vous créez un déclencheur de planification, vous spécifiez la planification et la périodicité à l’aide d’une définition JSON.
 
 Pour que votre déclencheur de planification lance une exécution de pipeline, insérez la référence du pipeline concerné dans la définition du déclencheur. Les pipelines et les déclencheurs ont une relation plusieurs-à-plusieurs. Plusieurs déclencheurs peuvent exécuter le même pipeline. Un seul déclencheur peut déclencher plusieurs pipelines.
 
@@ -293,7 +292,7 @@ Le tableau suivant vous montre comment la propriété **startTime** contrôle un
 
 Examinons ce qui se passe lorsque l’heure de début se situe dans le passé, avec la valeur de périodicité définie mais pas la valeur de planification. Supposons que l’heure actuelle soit 2017-04-08 13:00, l’heure de début 2017-04-07 14:00, et que la périodicité soit tous les deux jours. (La valeur **recurrence** est définie en paramétrant la propriété **frequency** sur « jour » et la propriété **interval** sur 2.) Notez que la valeur **startTime** se situe dans le passé et se produit avant l’heure actuelle.
 
-Dans ces conditions, la première exécution aura lieu le 2017-04-09 à 14:00. Le moteur d'Azure Scheduler calcule les occurrences de l'exécution à partir de l'heure de début. Toutes les instances dans le passé sont ignorées. Le moteur utilise l'instance suivante qui se produit dans le futur. Dans ce scénario, l’heure de début est 2017-04-07 à 14:00. L’instance suivante aura lieu 2 jours après cette date, c’est-à-dire le 2017-04-09 à 14:00.
+Dans ces conditions, la première exécution a lieu le 09/04/2017 à 14:00. Le moteur d'Azure Scheduler calcule les occurrences de l'exécution à partir de l'heure de début. Toutes les instances dans le passé sont ignorées. Le moteur utilise l'instance suivante qui se produit dans le futur. Dans ce scénario, l’heure de début est 2017-04-07 à 14:00. L’instance suivante aura lieu 2 jours après cette date, c’est-à-dire le 2017-04-09 à 14:00.
 
 La première heure d’exécution est la même que l’**heure de début** soit 2017-04-05 14:00 ou 2017-04-01 14:00. Après la première exécution, les exécutions suivantes sont calculées à l’aide de la planification. Par conséquent, les exécutions suivantes sont le 2017-04-11 à 14:00, puis le 2017-04-13 à 14:00, puis le 2017-04-15 à 14:00 et ainsi de suite.
 
@@ -313,7 +312,7 @@ Le tableau suivant décrit les éléments **schedule** en détail :
 | **minutes** | Minutes d’exécution du déclencheur dans l’heure. |- Entier<br />- Tableau d’entiers|
 | **hours** | Heures d’exécution du déclencheur dans la journée. |- Entier<br />- Tableau d’entiers|
 | **weekDays** | Jours d’exécution du déclencheur dans la semaine. La valeur ne peut être spécifiée qu’avec une fréquence hebdomadaire.|<br />- Lundi<br />- Mardi<br />- Mercredi<br />- Jeudi<br />- Vendredi<br />- Samedi<br />- Dimanche<br />- Tableau des valeurs de jour (la taille maximale du tableau est de 7)<br /><br />Les valeurs de jour ne respectent pas la casse|
-| **monthlyOccurrences** | Jours d’exécution du déclencheur dans le mois. La valeur ne peut être spécifiée qu’avec une fréquence mensuelle uniquement. |- Tableau d’objets **monthlyOccurrence** : `{ "day": day,  "occurrence": occurrence }`<br />- L’attribut **day** est le jour de la semaine durant lequel le déclencheur s’exécute. Par exemple, une propriété **monthlyOccurrences** avec une valeur **day** de `{Sunday}` signifie tous les dimanches du mois. L’attribut **day** est requis.<br />- L’attribut **occurrence** est l’occurrence du **jour** spécifié au cours du mois. Par exemple, une propriété **monthlyOccurrences** avec les valeurs **day** et **occurrence** de `{Sunday, -1}` signifie le dernier dimanche du mois. L’attribut **occurrence** est facultatif.|
+| **monthlyOccurrences** | Jours d’exécution du déclencheur dans le mois. La valeur ne peut être spécifiée qu’avec une fréquence mensuelle uniquement. |- Tableau d’objets **monthlyOccurrence** : `{ "day": day, "occurrence": occurrence }`<br />- L’attribut **day** est le jour de la semaine durant lequel le déclencheur s’exécute. Par exemple, une propriété **monthlyOccurrences** avec une valeur **day** de `{Sunday}` signifie tous les dimanches du mois. L’attribut **day** est requis.<br />- L’attribut **occurrence** est l’occurrence du **jour** spécifié au cours du mois. Par exemple, une propriété **monthlyOccurrences** avec les valeurs **day** et **occurrence** de `{Sunday, -1}` signifie le dernier dimanche du mois. L’attribut **occurrence** est facultatif.|
 | **monthDays** | Jours d’exécution du déclencheur dans le mois. La valeur ne peut être spécifiée qu’avec une fréquence mensuelle uniquement. |- Toute valeur <= -1 et >= -31<br />- Toute valeur >= 1 et <= 31<br />- Tableau de valeurs|
 
 ## <a name="tumbling-window-trigger"></a>Déclencheur de fenêtre bascule
@@ -373,7 +372,7 @@ Le tableau suivant présente une comparaison du déclencheur de fenêtre bascule
 | **Fonctionnalité de nouvelle tentative** |  Pris en charge. Les exécutions de pipeline ayant échoué ont une stratégie de nouvelle tentative par défaut d’une valeur de 0, ou une stratégie spécifiée par l’utilisateur dans le cadre de la définition du déclencheur. Effectue automatiquement une nouvelle tentative quand les exécutions du pipeline échouent en raison de limites de concurrence/de serveur/de limitation (autrement dit, en cas de codes d’état 400 : Erreur de l’utilisateur, 429 : Trop de demandes et 500 : Erreur interne du serveur). | Non pris en charge. |
 | **Concurrency** |  Pris en charge. Les utilisateurs peuvent définir explicitement les limites de concurrence pour le déclencheur. Permet entre 1 et 50 exécutions du pipeline déclenchées en simultané. | Non pris en charge. |
 | **Variables système** | Prend en charge l’utilisation des variables système **WindowStart** et **WindowEnd**. Les utilisateurs peuvent accéder à `triggerOutputs().windowStartTime` et `triggerOutputs().windowEndTime` comme variables système de déclencheur dans la définition du déclencheur. Les valeurs sont utilisées en tant qu’heure de début de fenêtre et heure de fin de fenêtre, respectivement. Par exemple, pour un déclencheur de fenêtre bascule qui s’exécute toutes les heures, pour la fenêtre de 1h00 à 2h00, la définition est `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` et `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Non pris en charge. |
-| **Relation du pipeline et du déclencheur** | Prend en charge une relation un à un. Un seul pipeline peut être déclenché. | Prend en charge les relations plusieurs à plusieurs. Plusieurs déclencheurs peuvent exécuter le même pipeline. Un seul déclencheur peut déclencher plusieurs pipelines. | 
+| **Relation du pipeline et du déclencheur** | Prend en charge une relation un à un. Un seul pipeline peut être déclenché. | Prend en charge les relations plusieurs à plusieurs. Plusieurs déclencheurs peuvent exécuter le même pipeline. Un seul déclencheur peut déclencher plusieurs pipelines. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les didacticiels suivants :

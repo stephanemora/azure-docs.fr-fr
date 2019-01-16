@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 349632c751c3116244bc8ef7708708f3aa45754c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 963960657fb8c16307dbf062c0b16cd74a4a7b3f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013234"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101715"
 ---
 # <a name="advisor-performance-recommendations"></a>Recommandations Azure Advisor en matière de performances
 
@@ -39,11 +39,6 @@ Le conseiller vous offre une vue cohérente et consolidée des recommandations p
 
 Pour plus d’informations sur SQL Database Advisor, consultez la page [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
 
-## <a name="improve-azure-cache-for-redis-performance-and-reliability"></a>Améliorer la fiabilité et les performances du Cache Azure pour Redis
-
-Advisor identifie les instances de Cache Azure pour Redis où les performances peuvent être défavorablement affectées par une utilisation intensive de la mémoire, la charge du serveur, la bande passante réseau ou un grand nombre de connexions clientes. Il fournit également des recommandations quant aux meilleures pratiques pour vous éviter les problèmes potentiels. Pour plus d’informations sur les recommandations liées au Cache Azure pour Redis, consultez [Azure Cache for Redis Advisor](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor).
-
-
 ## <a name="improve-app-service-performance-and-reliability"></a>Améliorer la fiabilité et les performances d’App Service
 
 Le conseiller Azure intègre des recommandations quant aux meilleures pratiques pour améliorer votre expérience App Services et vous faire découvrir des fonctionnalités appropriées de la plateforme. Exemples de recommandations App Services :
@@ -52,6 +47,16 @@ Le conseiller Azure intègre des recommandations quant aux meilleures pratiques 
 
 Pour plus d’informations sur les recommandations App Services, consultez [Meilleures pratiques pour Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
 
+## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>Utiliser Managed Disks pour éviter la limitation des E/S de disque
+
+Advisor identifie les machines virtuelles appartenant à un compte de stockage qui atteint sa cible de scalabilité. C’est un état qui le rend sensible à la limitation des E/S. Advisor recommande l’utilisation par ces machines virtuelles de Managed Disks, afin d’éviter une altération des performances.
+
+## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks-by-using-premium-storage"></a>Améliorer les performances et la fiabilité des disques de machine virtuelle en utilisant le stockage Premium
+
+Advisor identifie les machines virtuelles dont les disques standard ont un volume de transactions élevé sur votre compte de stockage, et recommande de passer à des disques Premium. 
+
+Azure Premium Storage offre une prise en charge très performante et à faible latence des disques pour les machines virtuelles exécutant des charges de travail qui utilisent beaucoup d'E/S. Les disques de machine virtuelle qui utilisent des comptes Premium Storage stockent les données sur des disques SSD. Pour que votre application bénéficie de performances optimales, nous vous recommandons de migrer les disques de machine virtuelle nécessitant un nombre élevé d’E/S par seconde dans le stockage Premium.
+
 ## <a name="remove-data-skew-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Supprimez l’asymétrie des données sur votre table d’entrepôt de données SQL pour augmenter les performances de requête
 
 L’asymétrie des données peut provoquer des déplacement des données ou des goulots d’étranglement de ressource inutiles lors de l’exécution de votre charge de travail. Advisor va détecter l’asymétrie des données au-delà de 15 % et vous recommander de redistribuer vos données et de revisiter vos sélections de clé de distribution de table. Pour en savoir plus sur l’identification et la suppression d’une asymétrie, consultez [résolution des problèmes d’asymétrie](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice).
@@ -59,6 +64,14 @@ L’asymétrie des données peut provoquer des déplacement des données ou des 
 ## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Créer ou mettre à jour les statistiques de table obsolètes sur votre table d’entrepôt de données SQL pour augmenter les performances de requête
 
 Advisor identifie les tables qui n’ont pas de [statistiques de table](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) à jour et recommande la création ou mise à jour des statistiques de table. L’optimiseur de requête d’entrepôt de données SQL utilise des statiques à jour pour estimer la cardinalité ou le nombre de lignes dans le résultat de requête qui permet à l’optimiseur de requête de créer un plan de requête de haute qualité pour de meilleures performances.
+
+## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Effectuer un scale-up pour optimiser l’utilisation du cache sur vos tables SQL Data Warehouse et ainsi améliorer les performances de requête
+
+Azure Advisor détecte si votre instance SQL Data Warehouse enregistre un pourcentage élevé d’utilisation du cache avec un faible pourcentage d’accès. Cet état indique une éviction élevée du cache, ce qui peut avoir une incidence sur les performances de votre instance SQL Data Warehouse. Advisor suggère d’effectuer un scale-up de votre instance SQL Data Warehouse, pour garantir l’allocation d’une capacité suffisante du cache pour votre charge de travail.
+
+## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>Convertir les tables SQL Data Warehouse en tables répliquées pour augmenter les performances de requête
+
+Advisor identifie les tables qui ne sont pas des tables répliquées, mais qui pourraient tirer parti de la conversion, et vous suggère de convertir ces tables. Ces suggestions sont basées sur la taille de la table répliquée, le nombre de colonnes, le type de distribution de la table et le nombre de partitions de la table SQL Data Warehouse. Une méthode heuristique supplémentaire peut être fournie dans la suggestion pour le contexte. Pour en savoir plus sur la détermination de cette recommandation, consultez [Recommandations de SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Migrer votre compte de stockage vers Azure Resource Manager pour obtenir toutes les dernières fonctionnalités Azure
 

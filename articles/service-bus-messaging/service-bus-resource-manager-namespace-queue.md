@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 4010f1582b726993a5540898492c76aa543fa2d9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 4d16e6161d2e31ed104f6b1ed9842470dd5faae9
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407737"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062415"
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Créer un espace de noms Service Bus et une file d’attente à l’aide d’un modèle Azure Resource Manager
 
@@ -117,6 +117,8 @@ Crée un espace de noms Service Bus standard de type **Messagerie**, avec une fi
     }]
 ```
 
+Pour la syntaxe et les propriétés JSON, consultez [espaces de noms](/azure/templates/microsoft.servicebus/namespaces) et [files d’attente](/azure/templates/microsoft.servicebus/namespaces/queues).
+
 ## <a name="commands-to-run-deployment"></a>Commandes pour l’exécution du déploiement
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
@@ -137,7 +139,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez créé et déployé des ressources à l’aide d’Azure Resource Manager, découvrez comment gérer ces ressources en consultant les articles suivants :
 
-* [Gérer Service Bus avec PowerShell](service-bus-manage-with-ps.md)
+* [Gestion de Service Bus avec PowerShell](service-bus-manage-with-ps.md)
 * [Gérer les ressources Service Bus avec l'explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md

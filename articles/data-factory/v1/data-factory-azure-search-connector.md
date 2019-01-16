@@ -9,22 +9,21 @@ ms.assetid: f8d46e1e-5c37-4408-80fb-c54be532a4ab
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f68e1077ebc26245b25eae3b0310db74b6d1357e
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4d3c67974bc1dd0e52d3de457071d550a6379e36
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046443"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023081"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Envoyer des données à un index Recherche Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](data-factory-azure-search-connector.md)
-> * [Version 2 (version actuelle)](../connector-azure-search.md)
+> * [Version 1](data-factory-azure-search-connector.md)
+> * [Version 2 (version actuelle)](../connector-azure-search.md)
 
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Connecteur Recherche Azure dans V2](../connector-azure-search.md).
@@ -39,9 +38,9 @@ La passerelle de gestion des données connecte des sources de données locales �
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer un pipeline avec une activité de copie qui transmet les données d’une banque de données source à l’index Recherche Azure à l’aide de différents outils/API.
 
-Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez la page [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
+Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données.
 
-Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, le **modèle Azure Resource Manager**, l’**API .NET** et l’**API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+Vous pouvez également utiliser les outils suivants pour créer un pipeline : **portail Azure**, **Visual Studio**, **Azure PowerShell**, **modèle Azure Resource Manager**, **API .NET** et **API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes : 
 
@@ -49,7 +48,7 @@ Que vous utilisiez des outils ou des API, la création d’un pipeline qui dépl
 2. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie. 
 3. Création d’un **pipeline** avec une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. 
 
-Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour consulter un exemple contenant des définitions JSON pour les entités Data Factory utilisées pour copier des données vers l’index Recherche Azure, consultez la section [Exemple JSON : copier des données depuis un serveur SQL local vers l’index Recherche Azure](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) de cet article. 
+Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour obtenir un exemple contenant des définitions JSON pour les entités Data Factory utilisées pour copier des données vers un index Recherche Azure, consultez la section [Exemple JSON : copier des données d’un serveur SQL Server local vers un index Recherche Azure](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) de cet article. 
 
 Les sections suivantes offrent des informations détaillées sur les propriétés JSON utilisées pour définir les entités Data Factory propres à l’Index Recherche Azure :
 
@@ -59,9 +58,9 @@ Le tableau suivant décrit les éléments JSON propres au service lié Recherche
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| Type | La propriété de type doit être définie sur **AzureSearch**. | OUI |
-| URL | URL du service Recherche Azure. | OUI |
-| key | Clé d’administration du service Recherche Azure. | OUI |
+| Type | La propriété type doit être définie sur : **AzureSearch**. | Oui |
+| URL | URL du service Recherche Azure. | Oui |
+| key | Clé d’administration du service Recherche Azure. | Oui |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
@@ -69,8 +68,8 @@ Pour obtenir une liste complète des sections et propriétés disponibles pour l
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| Type | La propriété de type doit être définie sur **AzureSearchIndex**.| OUI |
-| indexName | Nom de l’index Recherche Azure. Data Factory ne crée pas l’index. L’index doit exister dans Recherche Azure. | OUI |
+| Type | La propriété de type doit être définie sur **AzureSearchIndex**.| Oui |
+| indexName | Nom de l’index Recherche Azure. Data Factory ne crée pas l’index. L’index doit exister dans Recherche Azure. | Oui |
 
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
@@ -89,7 +88,7 @@ AzureSearchSink effectue une opération d’upsert lors de l’écriture des don
 AzureSearchSink fournit les deux comportements upsert suivants (en utilisant le Kit de développement logiciel (SDK) AzureSearch) :
 
 - **Fusion** : combine toutes les colonnes du nouveau document avec celles du document existant. Pour les colonnes ayant une valeur Null dans le nouveau document, la valeur de celles du document existant est conservée.
-- **Chargement** : le nouveau document remplace l’ancien. Pour les colonnes qui ne sont pas spécifiées dans le nouveau document, la valeur est définie sur Null qu’il existe ou non une valeur autre que Null dans le document existant.
+- **Chargement**  : le nouveau document remplace l’ancien. Pour les colonnes qui ne sont pas spécifiées dans le nouveau document, la valeur est définie sur Null qu’il existe ou non une valeur autre que Null dans le document existant.
 
 **Fusion** est le comportement par défaut.
 
@@ -110,7 +109,7 @@ Le tableau suivant indique si un type de données Recherche Azure est pris en c
 | Tableau de chaînes | N |
 | GeographyPoint | N |
 
-## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>Exemple JSON : copier des données depuis un serveur SQL Server local vers un index Recherche Azure
+## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>Exemple JSON : copier des données d’un serveur SQL Server local vers un index Recherche Azure
 
 L’exemple suivant montre :
 

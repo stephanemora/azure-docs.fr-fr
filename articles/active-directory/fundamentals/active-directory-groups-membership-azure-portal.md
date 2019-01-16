@@ -12,12 +12,12 @@ ms.date: 10/19/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 12f557e9453db0d8bff2ab91fe8453e026e0320c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c13be8cbe9c05b9dcf513588825a22722c66e529
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104269"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061893"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Ajouter ou supprimer un groupe dans un autre groupe à l’aide d’Azure Active Directory
 Cet article vous aide à ajouter et supprimer un groupe d’un autre groupe à l’aide d’Azure Active Directory.
@@ -29,7 +29,7 @@ Cet article vous aide à ajouter et supprimer un groupe d’un autre groupe à l
 Vous pouvez ajouter un groupe de sécurité existant à un autre groupe de sécurité (aussi appelé groupe imbriqué), créer un groupe (ou sous-groupe) de membres et un groupe parent. Le groupe de membres hérite des attributs et des propriétés du groupe parent, vous permettant ainsi de gagner du temps de configuration.
 
 >[!Important]
->Nous ne prenons actuellement pas en charge :<ul><li>Ajout de groupes à un groupe synchronisé avec Active Directory en local</li><li>L’ajout de groupes de sécurité aux groupes Office 365</li><li>L’ajout de groupes Office 365 à des groupes de sécurité ou à d’autres groupes Office 365</li><li>L’affectation d’applications à des groupes imbriqués</li><li>L’application de licences à des groupes imbriqués</li></ul>
+>Nous ne prenons actuellement pas en charge :<ul><li>L’ajout de groupes à un groupe synchronisé avec Active Directory en local.</li><li>L’ajout de groupes de sécurité aux groupes Office 365.</li><li>L’ajout de groupes Office 365 à des groupes de sécurité ou à d’autres groupes Office 365.</li><li>L’affectation d’applications à des groupes imbriqués.</li><li>L’application de licences à des groupes imbriqués.</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Pour ajouter un groupe en tant que membre d’un autre groupe
 

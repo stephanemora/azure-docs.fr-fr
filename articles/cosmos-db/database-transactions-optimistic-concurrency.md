@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: fbb92fd1186881a359f77a9c6b68816763dd8f9b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: cbd09f141128f9103af88b695baf717eaa3c99d5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628375"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038834"
 ---
 # <a name="database-transactions-and-optimistic-concurrency-control"></a>Transactions de base de données et contrôle d’accès concurrentiel optimiste
 
@@ -53,9 +53,9 @@ Le contrôle d’accès concurrentiel optimiste vous permet d’empêcher les su
 
 Les mises à jour simultanées d’un élément sont soumises au contrôle d’accès concurrentiel optimiste par la couche de protocole de communication d’Azure Cosmos DB. La base de données Azure Cosmos garantit que la version côté client de l’élément que vous mettez à jour (ou supprimez) est identique à la version de l’élément dans le conteneur Azure Cosmos. Cela garantit que vos écritures sont protégées contre tout remplacement involontaire par les écritures d’autres utilisateurs, et inversement. Dans un environnement multi-utilisateur, le contrôle d’accès concurrentiel optimiste vous empêche de supprimer ou de mettre à jour accidentellement la version incorrecte d’un élément. Par conséquent, les éléments sont protégés contre les problèmes notoires de perte de mise à jour ou de suppression.
 
-Chaque élément stocké dans un conteneur Azure Cosmos dispose d’une propriété `__etag` définie par le système. La valeur de `__etag` est automatiquement générée et mise à jour par le serveur chaque fois que l’élément est mis à jour. La propriété `__etag` peut être utilisée avec l’en-tête de demande if-match fourni par le client pour permettre au serveur de déterminer si un élément peut être mis à jour de manière conditionnelle. Si la valeur de l’en-tête if-match correspond à la valeur de `__etag` au niveau du serveur, l’élément est alors mis à jour. Si la valeur de l’en-tête de demande if-match n’est plus actuelle, le serveur rejette l’opération avec un message de réponse de type « HTTP 412 Échec de la condition préalable ». Le client peut alors réextraire l’élément pour acquérir sa version actuelle sur le serveur ou remplacer la version de l’élément sur le serveur par sa propre valeur `__etag` pour l’élément. De plus, la propriété `__etag` peut être utilisée avec l’en-tête if-none-match pour déterminer si une nouvelle extraction d’une ressource est nécessaire. 
+Chaque élément stocké dans un conteneur Azure Cosmos dispose d’une propriété `_etag` définie par le système. La valeur de `_etag` est automatiquement générée et mise à jour par le serveur chaque fois que l’élément est mis à jour. La propriété `_etag` peut être utilisée avec l’en-tête de demande if-match fourni par le client pour permettre au serveur de déterminer si un élément peut être mis à jour de manière conditionnelle. Si la valeur de l’en-tête if-match correspond à la valeur de `_etag` au niveau du serveur, l’élément est alors mis à jour. Si la valeur de l’en-tête de demande if-match n’est plus actuelle, le serveur rejette l’opération avec un message de réponse de type « HTTP 412 Échec de la condition préalable ». Le client peut alors réextraire l’élément pour acquérir sa version actuelle sur le serveur ou remplacer la version de l’élément sur le serveur par sa propre valeur `_etag` pour l’élément. De plus, la propriété `_etag` peut être utilisée avec l’en-tête if-none-match pour déterminer si une nouvelle extraction d’une ressource est nécessaire. 
 
-La valeur __etag de l’élément change chaque fois que l’élément est mis à jour. Pour les opérations de remplacement d’élément, if-match doit être exprimé explicitement dans le cadre des options de demande. Pour obtenir un exemple, consultez l’exemple de code dans [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446). Les valeurs `__etag` sont implicitement vérifiées pour tous les éléments écrits affectés par une procédure stockée. Si un conflit est détecté, la procédure stockée restaure la transaction et lève une exception. Avec cette méthode, l’ensemble ou aucune des écritures dans la procédure stockée sont appliquées de façon atomique. Il s’agit d’un signal à l’application pour réappliquer les mises à jour et réessayer la demande du client d’origine.
+La valeur _etag de l’élément change chaque fois que l’élément est mis à jour. Pour les opérations de remplacement d’élément, if-match doit être exprimé explicitement dans le cadre des options de demande. Pour obtenir un exemple, consultez l’exemple de code dans [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446). Les valeurs `_etag` sont implicitement vérifiées pour tous les éléments écrits affectés par une procédure stockée. Si un conflit est détecté, la procédure stockée restaure la transaction et lève une exception. Avec cette méthode, l’ensemble ou aucune des écritures dans la procédure stockée sont appliquées de façon atomique. Il s’agit d’un signal à l’application pour réappliquer les mises à jour et réessayer la demande du client d’origine.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 5d8aa2c25bf79278b10b96f93733e3abf89e4783
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9cf0c378271841277e6dfd770bf8d186494b9d48
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971179"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040742"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Activer et consulter les journaux du nœud principal Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -31,18 +31,15 @@ Log Analytics est activé et géré dans le Portail Azure. Pour activer la colle
 1. Sélectionnez le groupe de ressources de votre cluster AKS, par exemple *myResourceGroup*. Ne sélectionnez pas le groupe de ressources qui contient vos ressources de cluster AKS individuelles, comme *MC_myResourceGroup_myAKSCluster_eastus*.
 1. Sur le côté gauche, choisissez **Paramètres de diagnostic**.
 1. Sélectionnez votre cluster AKS, tel que *myAKSCluster*, puis choisissez **Activer les diagnostics**.
-1. Entrez un nom, par exemple *myAKSLogs*, puis sélectionnez l’option **Envoyer à Log Analytics**.
+1. Entrez un nom, par exemple *myAKSClusterLogs*, puis sélectionnez l’option pour **Envoyer à Log Analytics**.
     * Choisissez *Configurer* pour configurer Log Analytics, puis sélectionnez un espace de travail existant ou l’option **Créer un espace de travail**.
     * Si vous avez besoin de créer un espace de travail, indiquez un nom, un groupe de ressources et un emplacement.
-1. Dans la liste des journaux disponibles, sélectionnez les journaux que vous souhaitez activer, par exemple *kube-apiserver*, *kube-controller-manager* et *kube-scheduler*. Vous pourrez réaccéder à cet emplacement et modifier les journaux collectés une fois Log Analytics activé.
+1. Dans la liste des journaux disponibles, sélectionnez les journaux que vous souhaitez activer. Par défaut, les journaux *kube-apiserver*, *kube-controller-manager* et *kube-scheduler* sont activés. Vous pouvez activer des journaux supplémentaires, tels que *kube-audit* et *cluster-autoscaler*. Vous pourrez réaccéder à cet emplacement et modifier les journaux collectés une fois Log Analytics activé.
 1. Lorsque vous avez terminé, sélectionnez **Enregistrer** pour activer la collecte des journaux sélectionnés.
 
 L’exemple de capture d’écran du portail ci-après présente la fenêtre *Paramètres de diagnostic*, ainsi que l’option de création d’un espace de travail Log Analytics :
 
 ![Activation de l’espace de travail Log Analytics pour Log Analytics dans un cluster AKS](media/view-master-logs/enable-oms-log-analytics.png)
-
->[!NOTE]
->Les espaces de travail OMS sont désormais appelés « espaces de travail Log Analytics ».
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Planifier un pod test sur le cluster AKS
 

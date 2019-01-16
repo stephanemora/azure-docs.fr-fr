@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: cd137462235431f0a0c1562e15a32951fe2a41c5
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: fcf5b5d0064292c11abeb361b0c046b5a3388457
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346698"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025689"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Database en utilisant Azure Data Factory
-> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
 > * [Version 1](v1/data-factory-azure-sql-connector.md)
 > * [Version actuelle](connector-azure-sql-database.md)
 
@@ -63,8 +62,8 @@ Les propriétés prises en charge pour un service lié Azure SQL Database sont l
 Pour en savoir plus sur les autres types d’authentification, consultez les sections suivantes sur les prérequis et les exemples JSON, respectivement :
 
 - [Authentification SQL](#sql-authentication)
-- [Authentification du jeton d’application Azure AD : principal de service](#service-principal-authentication)
-- [Authentification du jeton d’application Azure AD : Identités managées pour les ressources Azure](#managed-identity)
+- [Authentification par jeton d’application Azure AD : Principal du service](#service-principal-authentication)
+- [Authentification par jeton d’application Azure AD : Identités managées pour les ressources Azure](#managed-identity)
 
 >[!TIP]
 >Si vous rencontrez une erreur avec le code d’erreur « UserErrorFailedToConnectToSqlServer » et un message tel que « La limite de session pour la base de données est XXX et a été atteinte. », ajoutez `Pooling=false` à votre chaîne de connexion, puis réessayez.
@@ -343,8 +342,8 @@ Pour copier des données vers Azure SQL Database, affectez la valeur **SqlSink**
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété **type** du récepteur d’activité de copie doit être définie sur **SqlSink**. | Oui |
-| writeBatchSize | Insère des données dans la table SQL quand la taille de la mémoire tampon atteint **writeBatchSize**.<br/> La valeur autorisée est **integer** (nombre de lignes). | Non. La valeur par défaut est 10000. |
-| writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/> La valeur autorisée est **timespan**. Exemple : « 00:30:00 » (30 minutes). | Non  |
+| writeBatchSize | Insère des données dans la table SQL quand la taille de la mémoire tampon atteint **writeBatchSize**.<br/> La valeur autorisée est **integer** (nombre de lignes). |  Non. La valeur par défaut est 10000. |
+| writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/> La valeur autorisée est **timespan**. Exemple : “00:30:00” (30 minutes). | Non  |
 | preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Azure SQL Database. Elle n’est appelée qu’une seule fois par copie. Utilisez cette propriété pour nettoyer les données préchargées. | Non  |
 | sqlWriterStoredProcedureName | Nom de la procédure stockée qui définit comment appliquer des données sources dans une table cible. Un exemple consiste à faire des upserts ou des transformations en utilisant votre propre logique métier. <br/><br/>Cette procédure stockée est **appelée par lot**. Pour les opérations qui ne s’exécutent qu’une seule fois et n’ont rien à faire avec les données sources, utilisez la propriété `preCopyScript`. La suppression et la troncature sont des exemples d’opérations. | Non  |
 | storedProcedureParameters |Paramètres de la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms et de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. | Non  |
@@ -503,7 +502,7 @@ Quand vous copiez des données dans Azure SQL Database, vous pouvez également c
 
 Vous pouvez utiliser une procédure stockée à la place des mécanismes de copie intégrée. Elles sont généralement utilisées quand une upsert, insertion plus mise à jour, ou traitement supplémentaire doivent être effectués avant l’insertion finale des données sources dans la table de destination. Fusionner des colonnes, rechercher des valeurs supplémentaires et effectuer des insertions dans plusieurs tables sont des exemples de traitement supplémentaire.
 
-L’exemple suivant montre comment utiliser une procédure stockée pour effectuer une opération upsert dans une table d’Azure SQL Database. On part du principe que les données d’entrée et la table réceptrice **Marketing** ont trois colonnes : **ProfileID**, **State** et **Category**. Effectuez l’opération upsert basée sur la colonne **ProfileID** et appliquez-la uniquement à une catégorie spécifique.
+L’exemple suivant montre comment utiliser une procédure stockée pour effectuer une opération upsert dans une table d’Azure SQL Database. En supposant que les données d’entrée et la table réceptrice **Marketing** ont trois colonnes : **ProfileID**, **State** et **Category**. Effectuez l’opération upsert basée sur la colonne **ProfileID** et appliquez-la uniquement à une catégorie spécifique.
 
 #### <a name="output-dataset"></a>Jeu de données de sortie
 
@@ -603,7 +602,7 @@ Quand vous copiez des données vers ou à partir d’Azure SQL Database, les map
 | sql_variant |Objet * |
 | texte |String, Char[] |
 | time |intervalle de temps |
-| timestamp |Byte[] |
+|  timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |

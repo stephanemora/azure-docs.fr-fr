@@ -1,25 +1,24 @@
 ---
 title: Mise à l'échelle du débit dans Azure Cosmos DB
 description: Cet article décrit comment Azure Cosmos DB met à l’échelle le débit de manière élastique
-services: cosmos-db
-author: dharmas
+author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 7e3f6d053e9466f07e15b0c2c1092fece76c98a4
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: c5e4720a6b830158581d17bbdcb9aba49e13183b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160662"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064489"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>Mise à l'échelle du débit dans Azure Cosmos DB
 
-Dans Azure Cosmos DB, le débit approvisionné est représenté sous forme d’unités de requête unités par seconde (RU/s). Les unités de requête mesurent le coût des opérations en lecture et en écriture sur votre conteneur Cosmos comme le montre l’image suivante :
+Dans Azure Cosmos DB, le débit provisionné est représenté sous forme d’unités de requête par seconde (RU/s, au pluriel : RUs). Les unités de requête mesurent le coût des opérations en lecture et en écriture sur votre conteneur Cosmos comme le montre l’image suivante :
 
-![Unités de requête](./media/scale-throughput/figure1.png)
+![Unités de requête](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
 
 Vous pouvez approvisionner des unités de requête sur un conteneur Cosmos ou dans une base de données Cosmos. Les unités de requête approvisionnées sur un conteneur sont exclusivement disponibles pour les opérations effectuées sur ce conteneur. Les unités de requête approvisionnées sur une base de données sont partagées entre tous les conteneurs au sein de cette base de données (à l’exception des conteneurs avec des unités de requête attribuées exclusivement).
 

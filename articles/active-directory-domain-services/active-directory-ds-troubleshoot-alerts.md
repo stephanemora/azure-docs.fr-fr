@@ -1,5 +1,5 @@
 ---
-title: 'Services de domaine Azure Active Directory : dépannage des alertes | Microsoft Docs'
+title: 'Azure Active Directory Domain Services : Résoudre les problèmes d’alertes | Microsoft Docs'
 description: Dépannage des alertes pour les services de domaine Azure AD
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: c4aa5786ea1dfbef32c40306de6291ebeb2fe6f8
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: c30e18c42f310172b07995e0ad88a505a01c4218
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036136"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159602"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services : dépannage des alertes
 Cet article fournit des guides de dépannage pour les alertes que vous pouvez rencontrer sur votre domaine géré.
@@ -56,7 +56,7 @@ Choisissez les étapes de résolution qui correspondent à l’ID ou au message 
 
 
 
-## <a name="aadds100-missing-directory"></a>AADDS100 : Répertoire manquant
+## <a name="aadds100-missing-directory"></a>AADDS100 : Annuaire manquant
 **Message d'alerte :**
 
 *L’annuaire Azure AD associé à votre domaine géré a peut-être été supprimé. Le domaine géré n’est plus dans une configuration prise en charge. Microsoft ne peut pas surveiller, gérer, mettre à jour et synchroniser votre domaine géré.*
@@ -67,7 +67,7 @@ Cette erreur est généralement causée par un déplacement incorrect de votre a
 
 Cette erreur est irrécupérable. Pour résoudre ce problème, vous devez [supprimer votre domaine géré existant](active-directory-ds-disable-aadds.md) puis le recréer dans votre nouveau répertoire. Si vous avez des difficultés à le supprimer, contactez l’équipe produit des services de domaine Azure Active Directory [pour obtenir de l’aide](active-directory-ds-contact-us.md).
 
-## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101 : Azure AD B2C est en cours d’exécution dans ce répertoire
+## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101 : Azure AD B2C est en cours d’exécution dans cet annuaire
 **Message d'alerte :**
 
 *Les services de domaine Azure AD ne peuvent pas être activés dans un annuaire Azure AD B2C.*
@@ -114,7 +114,7 @@ Avant de commencer, lisez la section **Espace d’adressage IPv4** de [cet artic
 4. Pour joindre vos machines virtuelles à votre nouveau domaine, suivez [ce guide](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Pour vérifier que l’alerte est résolue, vérifiez l’intégrité de votre domaine dans deux heures.
 
-## <a name="aadds106-your-azure-subscription-is-not-found"></a>AADDS106 : Votre abonnement Azure est introuvable
+## <a name="aadds106-your-azure-subscription-is-not-found"></a>AADDS106 : Votre abonnement Azure est introuvable
 
 **Message d'alerte :**
 
@@ -128,7 +128,7 @@ Azure AD Domain Services requiert un abonnement pour fonctionner et ne peut pas 
 2. [Supprimez votre domaine géré](active-directory-ds-disable-aadds.md) de votre annuaire Azure AD existant.
 3. Suivez le guide de [Prise en main](active-directory-ds-getting-started.md) pour recréer un domaine géré.
 
-## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107 : Votre abonnement Azure est désactivé
+## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107 : Votre abonnement Azure est désactivé
 
 **Message d'alerte :**
 
@@ -140,7 +140,7 @@ Azure AD Domain Services requiert un abonnement pour fonctionner et ne peut pas 
 1. [Renouvelez votre abonnement Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
 2. Une fois l’abonnement renouvelé, Azure AD Domain Services reçoit une notification d’Azure pour réactiver votre domaine managé.
 
-## <a name="aadds108-subscription-moved-directories"></a>AADDS108 : annuaires déplacés d’abonnements
+## <a name="aadds108-subscription-moved-directories"></a>AADDS108 : Annuaires déplacés d’abonnements
 
 **Message d'alerte :**
 
@@ -179,7 +179,7 @@ Azure AD Domain Services crée des ressources spécifiques lors du déploiement 
 
 Cette erreur est irrécupérable. Pour résoudre ce problème, vous devez [supprimer votre domaine managé existant](active-directory-ds-disable-aadds.md), puis [recréer votre domaine managé](active-directory-ds-getting-started.md).
 
-## <a name="aaddds111-service-principal-unauthorized"></a>AADDDS111 : Principal du service non autorisé
+## <a name="aadds111-service-principal-unauthorized"></a>AADDS111 : Principal du service non autorisé
 
 **Message d'alerte :**
 
@@ -214,7 +214,7 @@ Nos principaux de service ont besoin d’un accès pour pouvoir gérer et créer
 4. Pour joindre vos machines virtuelles à votre nouveau domaine, suivez [ce guide](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 5. Consultez l’intégrité de votre domaine après deux heures pour vérifier que vous avez correctement suivi les étapes.
 
-## <a name="aadds113-resources-are-unrecoverable"></a>AADDS113 : Des ressources sont irrécupérables
+## <a name="aadds113-resources-are-unrecoverable"></a>AADDS113 : Des ressources sont irrécupérables
 
 **Message d'alerte :**
 
@@ -258,7 +258,7 @@ Cette erreur est irrécupérable. Pour résoudre ce problème, vous devez [suppr
 
 
 
-## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500 : La synchronisation ne parvient pas à se terminer depuis un certain temps.
+## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500 : La synchronisation ne parvient pas à se terminer depuis un certain temps
 
 **Message d'alerte :**
 
@@ -272,7 +272,7 @@ Voici quelques-unes des raisons courantes de l’arrêt de la synchronisation su
 - La connexion réseau est bloquée sur le domaine managé. Pour en savoir plus sur la vérification de votre réseau afin de détecter des problèmes, lisez [Résoudre les problèmes relatifs aux groupes de sécurité réseau](active-directory-ds-troubleshoot-nsg.md) et [Configuration réseau requise pour Azure AD Domain Services](active-directory-ds-networking.md).
 -  La synchronisation de mot de passe n’a jamais configurée ou terminée. Pour configurer la synchronisation de mot de passe lisez [cet article](active-directory-ds-getting-started-password-sync.md).
 
-## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501 : Il n’y a pas eu de sauvegarde depuis un certain temps.
+## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501 : Il n’y a pas eu de sauvegarde depuis un certain temps
 
 **Message d'alerte :**
 

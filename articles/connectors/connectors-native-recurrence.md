@@ -1,6 +1,6 @@
 ---
-title: Créer des workflows et des tâches à exécution régulière avec Azure Logic Apps | Microsoft Docs
-description: Automatiser des tâches et des workflows qui s’exécutent selon une planification avec le connecteur Recurrence dans Azure Logic Apps
+title: Planifier et exécuter des tâches et des workflows automatisés avec Azure Logic Apps | Microsoft Docs
+description: Automatiser des tâches planifiées et récurrentes avec le connecteur de récurrence dans Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,24 +10,24 @@ ms.reviewer: klam, LADocs
 ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 tags: connectors
 ms.topic: article
-ms.date: 09/25/2017
-ms.openlocfilehash: 905157ab530ae042318de520f9d6fe24cb9d59ce
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.date: 01/08/2019
+ms.openlocfilehash: a1f89ca6e9dc2d05180df14ff0f4dc52729a7e03
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127052"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107835"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Créer et exécuter des tâches et des workflows récurrents avec Azure Logic Apps
 
-Pour planifier des tâches, actions, charges de travail ou processus à exécuter régulièrement, vous pouvez créer un flux de travail d’application logique qui démarre avec le **déclencheur** [Planification - Périodicité](../logic-apps/logic-apps-overview.md#logic-app-concepts). Ce déclencheur permet de définir une date et une heure de démarrage de la périodicité et une planification périodique de tâches comme les suivantes, entre autres :
+Pour planifier des actions, des charges de travail ou des processus qui s’exécutent régulièrement, vous pouvez créer un workflow d’application logique qui démarre avec le [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts) **Planification - Récurrence**. Vous pouvez définir une date et une heure de démarrage du workflow, et une planification de récurrence pour effectuer des tâches, comme le montrent ces exemples :
 
-* Obtenir des données internes : [exécuter une procédure stockée SQL](../connectors/connectors-create-api-sqlazure.md) tous les jours.
-* Obtenir des données externes : extraire des rapports météorologiques de NOAA toutes les 15 minutes.
-* Générer des rapports de données : envoyer par e-mail un résumé de toutes les commandes supérieures à une quantité spécifique de la semaine antérieure.
-* Traiter des données : compresser les images téléchargées le jour même tous les jours aux heures creuses.
-* Nettoyez des données : supprimer tous les tweets de plus de trois mois.
-* Archiver des données : envoyer les factures vers un service de sauvegarde tous les mois.
+* Obtenir des données internes : [Exécuter une procédure stockée SQL](../connectors/connectors-create-api-sqlazure.md) tous les jours.
+* Obtenir des données externes : E extraire des rapports météorologiques de NOAA toutes les 15 minutes.
+* Générer des rapports de données : Envoyer par e-mail un récapitulatif de toutes les commandes supérieures à une quantité spécifique pour la semaine précédente.
+* Traiter des données : Compresser les images chargées le jour même tous les jours aux heures creuses.
+* Nettoyer des données : Supprimer tous les tweets de plus de trois mois.
+* Archiver des données : Envoyer les factures à un service de sauvegarde tous les mois.
 
 Ce déclencheur prend en charge de nombreux modèles, par exemple :
 
@@ -37,7 +37,9 @@ Ce déclencheur prend en charge de nombreux modèles, par exemple :
 * Exécuter et répéter chaque semaine, mais uniquement certains jours, par exemple le samedi et le dimanche.
 * Exécuter et répéter chaque semaine, mais uniquement certains jours et à des heures précises, par exemple du lundi au vendredi à 8h00 et 17h00.
 
-Chaque fois que le déclencheur de périodicité est activé, Logic Apps crée et exécute une nouvelle instance de votre flux de travail d’application logique.
+Chaque fois que le déclencheur de périodicité est activé, Logic Apps crée et exécute une nouvelle instance de votre flux de travail d’application logique. 
+
+Pour déclencher votre application logique et l’exécuter une seule fois, consultez [Exécuter des travaux une seule fois](#run-once) plus loin dans cette rubrique.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -49,9 +51,9 @@ Chaque fois que le déclencheur de périodicité est activé, Logic Apps crée e
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com). Créez une application logique vide ou découvrez [comment créer une application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. Une fois affiché le concepteur Logic Apps, dans la zone de recherche, entrez « périodicité » comme filtre. Sélectionnez le déclencheur **Planification - Périodicité**. 
+2. Dans le Concepteur Logic Apps, sous la zone de recherche, choisissez **Tout**. Dans la zone de recherche, entrez « récurrence » comme filtre. Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Récurrence - Planification** 
 
-   ![Déclencheur Planification - Périodicité](./media/connectors-native-recurrence/add-recurrence-trigger.png)
+   ![Sélectionner le déclencheur « Récurrence - Planification »](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
    Ce déclencheur est désormais la première étape de votre application logique.
 
@@ -95,11 +97,11 @@ Vous pouvez configurer ces propriétés pour le déclencheur de périodicité.
 
 | NOM | Obligatoire | Nom de la propriété | type | Description | 
 |----- | -------- | ------------- | ---- | ----------- | 
-| **Fréquence** | Oui | frequency | Chaîne | L’unité de temps de la périodicité est : **Seconde**, **Minute**, **Heure**, **Jour**, **Semaine** ou **Mois**. | 
-| **Intervalle** | Oui | interval | Entier  | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence. <p>L’intervalle par défaut est de 1 minute. Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>- Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est de 6 et que la fréquence soit définie sur « Mois », la périodicité est alors tous les 6 mois. | 
+| **Fréquence** | Oui | frequency | Chaîne | Unité de temps à utiliser pour la récurrence : **Seconde**, **Minute**, **Heure**, **Jour**, **Semaine** ou **Mois** | 
+| **Intervalle** | Oui | interval | Entier  | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence. <p>L’intervalle par défaut est de 1 minute. Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est de 6 et que la fréquence soit définie sur « Mois », la périodicité est alors tous les 6 mois. | 
 | **Fuseau horaire** | Non  | timeZone | Chaîne | S’applique uniquement quand vous spécifiez une heure de début, car ce déclencheur n’accepte pas le [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Sélectionnez le fuseau horaire à appliquer. | 
-| **Heure de début** | Non  | startTime | Chaîne | Fournissez une heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous sélectionnez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne sélectionnez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h00, spécifiez « 2017-09-18T14:00:00 » et sélectionnez un fuseau horaire tel que « Pacific Time » (Heure du Pacifique). Vous pouvez également spécifier « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** cette heure de début doit être conforme à la [spécification date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne sélectionnez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin sans espace. Ce « Z » fait référence à l’équivalent en [temps nautique](https://en.wikipedia.org/wiki/Nautical_time). <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que pour les planifications complexes, le déclencheur ne s’active pas avant l’heure de début. [*Comment puis-je utiliser la date et l’heure de début ?*](#start-time) | 
-| **Aux jours indiqués** | Non  | weekDays | Chaîne ou tableau de chaînes | Si vous sélectionnez « Semaine », vous pouvez sélectionner un ou plusieurs jours pour l’exécution du flux de travail : **Lundi**, **Mardi**, **Mercredi**, **Jeudi**, **Vendredi**, **Samedi** et **Dimanche** | 
+| **Heure de début** | Non  | startTime | Chaîne | Fournissez une heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous sélectionnez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne sélectionnez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h00, spécifiez « 2017-09-18T14:00:00 » et sélectionnez un fuseau horaire tel que « Pacific Time » (Heure du Pacifique). Vous pouvez également spécifier « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** Cette heure de début doit être conforme à la [spécification de date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format de date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne sélectionnez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin sans espace. Ce « Z » fait référence à l’équivalent en [temps nautique](https://en.wikipedia.org/wiki/Nautical_time). <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que pour les planifications complexes, le déclencheur ne s’active pas avant l’heure de début. [*Comment puis-je utiliser la date et l’heure de début ?*](#start-time) | 
+| **Aux jours indiqués** | Non  | weekDays | Chaîne ou tableau de chaînes | Si vous sélectionnez « Semaine », vous pouvez sélectionner un ou plusieurs jours où vous voulez exécuter le workflow : **Lundi**, **Mardi**, **Mercredi**, **Jeudi**, **Vendredi**, **Samedi** et **Dimanche** | 
 | **Aux heures indiquées** | Non  | hours | Entier ou tableau d’entiers | Si vous sélectionnez « Jour » ou « Semaine », vous pouvez sélectionner un ou plusieurs entiers compris entre 0 et 23 pour les heures de la journée durant lesquelles exécuter le flux de travail. <p>Par exemple, si vous spécifiez « 10 », « 12 » et « 14 », vous obtenez 10h00, 12h00 et 14h00 comme marques horaires. | 
 | **Aux minutes indiquées** | Non  | minutes | Entier ou tableau d’entiers | Si vous sélectionnez « Jour » ou « Semaine », vous pouvez sélectionner un ou plusieurs entiers compris entre 0 et 59 pour les minutes de l’heure durant lesquelles exécuter le flux de travail. <p>Par exemple, vous pouvez spécifier « 30 » pour les minutes et à l’aide de l’exemple précédent des heures de la journée, vous obtenez 10h30, 12h30 et 14h30. | 
 ||||| 
@@ -109,40 +111,47 @@ Vous pouvez configurer ces propriétés pour le déclencheur de périodicité.
 Voici un exemple de [définition de déclencheur de périodicité](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger) :
 
 ``` json
-{
-    "triggers": {
-        "Recurrence": {
-            "type": "Recurrence",
-            "recurrence": {
-                "frequency": "Week",
-                "interval": 1,
-                "schedule": {
-                    "hours": [
-                        10,
-                        12,
-                        14
-                    ],
-                    "minutes": [
-                        30
-                    ],
-                    "weekDays": [
-                        "Monday"
-                    ]
-                },
-               "startTime": "2017-09-07T14:00:00",
-               "timeZone": "Pacific Standard Time"
-            }
-        }
-    }
+"triggers": {
+   "Recurrence": {
+      "type": "Recurrence",
+      "recurrence": {
+         "frequency": "Week",
+         "interval": 1,
+         "schedule": {
+            "hours": [
+               10,
+               12,
+               14
+            ],
+            "minutes": [
+               30
+            ],
+            "weekDays": [
+               "Monday"
+            ]
+         },
+         "startTime": "2017-09-07T14:00:00",
+         "timeZone": "Pacific Standard Time"
+      }
+   }
 }
 ```
 
 ## <a name="faq"></a>Forum Aux Questions
 
+<a name="run-once"></a>
+
+**Q :** Que faire si je veux exécuter une application logique une seule fois ? </br>
+**R :** Pour déclencher votre application logique et l’exécuter une seule fois sans récurrence, vous pouvez utiliser le modèle **Planificateur : Exécuter des tâches une fois**. Après avoir créé une application logique, mais avant d’ouvrir le concepteur Logic Apps, sous la section **Modèles**, dans la liste **Catégorie**, sélectionnez **Planifier**, puis sélectionnez le modèle :
+
+![Sélectionner le modèle « Planificateur : Exécuter des tâches une fois »](./media/connectors-native-recurrence/choose-run-once-template.png)
+
+Si vous utilisez un modèle d’application logique vide, vous pouvez aussi démarrer votre application logique avec le déclencheur **Lors de la réception d’une demande HTTP - Demande**. Passez l’heure de début du déclencheur comme paramètre. Pour l’étape suivante, ajoutez l’action **Différer jusqu’à - Planifier** et indiquez l’heure de début d’exécution de l’action suivante.
+
 <a name="example-recurrences"></a>
 
-**Q :** Existe-t-il d’autres exemples de planifications de périodicité ? </br>
-**R :** Oui, voici des exemples supplémentaires :
+**Q :** Existe-t-il d’autres exemples de planifications de récurrence ? </br>
+**R :** Voici des exemples supplémentaires :
 
 | Périodicité | Intervalle | Fréquence | Heure de début | Aux jours indiqués | Aux heures indiquées | Aux minutes indiquées | Remarque |
 | ---------- | -------- | --------- | ---------- | ------------- | -------------- | ---------------- | ---- |
@@ -171,14 +180,14 @@ Voici un exemple de [définition de déclencheur de périodicité](../logic-apps
 
 <a name="start-time"></a>
 
-**Q :** Comment puis-je utiliser la date et l’heure de début ? </br>
-**R :** Voici quelques modèles qui montrent comment vous pouvez contrôler la périodicité à l’aide de la date et l’heure de début, et comment le moteur Logic Apps exécute ces périodicités :
+**Q :** Comment puis-je utiliser la date et l’heure de début ? </br>
+**R :** Voici quelques modèles qui montrent comment vous pouvez contrôler la récurrence avec la date et l’heure de début, et comment le moteur Logic Apps exécute ces récurrences :
 
 | Heure de début | Périodicité sans planification | Périodicité avec planification | 
 | ---------- | --------------------------- | ------------------------ | 
 | {aucune} | Exécute la première charge de travail instantanément. <p>Exécute les charges de travail suivantes en fonction de la dernière heure d’exécution. | Exécute la première charge de travail instantanément. <p>Exécute les charges de travail suivantes en fonction de la planification spécifiée. | 
-| Heure de début dans le passé | Calcule le temps d’exécution en fonction de l’heure de début spécifiée et ignore les heures d’exécution passées. Exécute la première charge de travail à la prochaine heure d’exécution. <p>Exécute les charges de travail suivantes selon des calculs basés sur la dernière heure d’exécution. <p>Pour une explication plus détaillée, consultez l’exemple fourni après ce tableau. | Exécute la première charge de travail *exactement* à l’heure de début, en fonction de la planification calculée à partir de l’heure de début. <p>Exécute les charges de travail suivantes en fonction de la planification spécifiée. <p>**Remarque :** si vous spécifiez une périodicité avec une planification, mais sans spécifier d’heures ni de minutes, les exécutions suivantes sont calculées à partir des heures ou minutes, respectivement, de la première heure d’exécution. | 
-| Heure de début actuelle ou future | Exécute la première charge de travail à l’heure de début spécifiée. <p>Exécute les charges de travail suivantes selon des calculs basés sur la dernière heure d’exécution. | Exécute la première charge de travail *exactement* à l’heure de début, en fonction de la planification calculée à partir de l’heure de début. <p>Exécute les charges de travail suivantes en fonction de la planification spécifiée. <p>**Remarque :** si vous spécifiez une périodicité avec une planification, mais sans spécifier d’heures ni de minutes, les exécutions suivantes sont calculées à partir des heures ou minutes, respectivement, de la première heure d’exécution. | 
+| Heure de début dans le passé | Calcule le temps d’exécution en fonction de l’heure de début spécifiée et ignore les heures d’exécution passées. Exécute la première charge de travail à la prochaine heure d’exécution. <p>Exécute les charges de travail suivantes selon des calculs basés sur la dernière heure d’exécution. <p>Pour une explication plus détaillée, consultez l’exemple fourni après ce tableau. | Exécute la première charge de travail *exactement* à l’heure de début, en fonction de la planification calculée à partir de l’heure de début. <p>Exécute les charges de travail suivantes en fonction de la planification spécifiée. <p>**Remarque :** Si vous spécifiez une récurrence avec une planification, mais sans spécifier d’heures ni de minutes, les exécutions suivantes sont calculées avec les heures ou les minutes (respectivement) depuis le moment de la première d’exécution. | 
+| Heure de début actuelle ou future | Exécute la première charge de travail à l’heure de début spécifiée. <p>Exécute les charges de travail suivantes selon des calculs basés sur la dernière heure d’exécution. | Exécute la première charge de travail *exactement* à l’heure de début, en fonction de la planification calculée à partir de l’heure de début. <p>Exécute les charges de travail suivantes en fonction de la planification spécifiée. <p>**Remarque :** Si vous spécifiez une récurrence avec une planification, mais sans spécifier d’heures ni de minutes, les exécutions suivantes sont calculées avec les heures ou les minutes (respectivement) depuis le moment de la première d’exécution. | 
 ||||
 
 **Exemple d’heure de début passée avec une périodicité, mais sans planification** 

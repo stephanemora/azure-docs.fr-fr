@@ -9,17 +9,16 @@ ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1bf915bf702cdf9492cce1f32886c0049fbf9867
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bd9df4553a50f162a4fb2142b7085f813311754f
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242838"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015829"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données
 > [!NOTE]
@@ -63,13 +62,13 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
     ![Ajouter au Tableau d'accueil](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
 
    > [!IMPORTANT]
-   > Le nom de la fabrique de données Azure doit être un nom global unique. Si l'erreur suivante s'affiche : **Le nom de la fabrique de données « ADFTutorialOnPremDF » n'est pas disponible**, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialOnPremDF), puis essayez de la recréer. Utilisez ce nom à la place d'ADFTutorialOnPremDF quand vous effectuez les étapes restantes de ce didacticiel.
+   > Le nom de la fabrique de données Azure doit être un nom global unique. Si vous recevez le message d’erreur : **Le nom de la fabrique de données « ADFTutorialOnPremDF » n’est pas disponible**, changez le nom de la fabrique de données (par exemple votrenomADFTutorialOnPremDF), puis réessayez de la créer. Utilisez ce nom à la place d'ADFTutorialOnPremDF quand vous effectuez les étapes restantes de ce didacticiel.
    >
    > Le nom de la fabrique de données pourra être enregistré en tant que nom **DNS** et devenir ainsi visible publiquement.
    >
    >
 4. Sélectionnez l’ **abonnement Azure** où vous voulez que la fabrique de données soit créée.
-5. Sélectionnez un **groupe de ressources** existant ou créez-en un. Pour les besoins de ce didacticiel, créez un groupe de ressources nommé **ADFTutorialResourceGroup**.
+5. Sélectionnez un **groupe de ressources** existant ou créez-en un. Pour ce tutoriel, créez un groupe de ressources nommé : **ADFTutorialResourceGroup**.
 6. Cliquez sur **Créer** dans la page **Nouvelle fabrique de données**.
 
    > [!IMPORTANT]
@@ -106,7 +105,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
 
     ![Passerelle - Page Configurer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
-    Il s’agit de la méthode la plus simple (un clic) pour télécharger, installer, configurer et inscrire la passerelle en une seule étape. Vous pouvez voir que l’application **Gestionnaire de configuration de la passerelle de gestion de données Microsoft** est installée sur votre ordinateur. Vous pouvez également trouver l’exécutable **ConfigManager.exe** dans le dossier suivant : **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**.
+    Il s’agit de la méthode la plus simple (un clic) pour télécharger, installer, configurer et inscrire la passerelle en une seule étape. Vous pouvez voir que l’application **Gestionnaire de configuration de la passerelle de gestion de données Microsoft** est installée sur votre ordinateur. Vous pouvez aussi trouver l’exécutable **ConfigManager.exe** dans le dossier : **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**.
 
     Vous pouvez également télécharger et installer manuellement la passerelle en utilisant les liens de cette page et l’inscrire à l’aide de la clé indiquée dans la zone de texte **NOUVELLE CLÉ**.
 
@@ -119,7 +118,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
 5. Attendez quelques minutes, ou patientez jusqu’à ce que le message de notification suivant s’affiche :
 
     ![Gateway installation successful (Installation réussie de la passerelle)](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
-6. Lancez l’application **Gestionnaire de configuration de passerelle de gestion des données** sur votre ordinateur. Dans la fenêtre **Rechercher**, saisissez **passerelle de gestion de données** pour accéder à cet utilitaire. Vous pouvez également trouver l’exécutable **ConfigManager.exe** dans le dossier suivant : **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
+6. Lancez l’application **Gestionnaire de configuration de passerelle de gestion des données** sur votre ordinateur. Dans la fenêtre **Rechercher**, saisissez **passerelle de gestion de données** pour accéder à cet utilitaire. Vous pouvez aussi trouver l’exécutable **ConfigManager.exe** dans le dossier : **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
 
     ![Gestionnaire de configuration de la passerelle](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 7. Vérifiez que le message `adftutorialgateway is connected to the cloud service` s’affiche. La barre d’état située au bas de l’écran affiche le message **Connecté au service de cloud** accompagné d’une **coche verte**.
@@ -154,7 +153,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
 12. Vous devez voir **adftutorialgateway** sous **Passerelles de données** dans l’arborescence de gauche.  Si vous cliquez dessus, vous devez voir le code JSON associé.
 
 ## <a name="create-linked-services"></a>Créez des services liés
-Au cours de cette étape, vous créez deux services liés : **AzureStorageLinkedService** et **SqlServerLinkedService**. Le service lié **SqlServerLinkedService** associe une base de données SQL Server locale, et le service lié **AzureStorageLinkedService** associe un magasin d’objets blob Azure à la fabrique de données. Plus loin dans cette procédure pas à pas, vous allez créer un pipeline qui copie les données de la base de données SQL Server locale vers le magasin d’objets blob Azure.
+Dans cette étape, vous créez deux services liés : **AzureStorageLinkedService** et **SqlServerLinkedService**. Le service lié **SqlServerLinkedService** associe une base de données SQL Server locale, et le service lié **AzureStorageLinkedService** associe un magasin d’objets blob Azure à la fabrique de données. Plus loin dans cette procédure pas à pas, vous allez créer un pipeline qui copie les données de la base de données SQL Server locale vers le magasin d’objets blob Azure.
 
 #### <a name="add-a-linked-service-to-an-on-premises-sql-server-database"></a>Ajout d’un service lié à une base de données SQL Server locale
 1. Dans **Data Factory Editor**, cliquez sur **Nouvelle banque de données** sur la barre d’outils, puis sélectionnez **SQL Server**.
@@ -281,7 +280,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
    * Le paramètre **folderPath** est défini sur **adftutorial/outfromonpremdf**, où « outfromonpremdf » est le dossier dans le conteneur adftutorial. S’il n’existe pas déjà, créez le conteneur **adftutorial** .
    * **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**).  Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Azure.
 
-   Si vous ne spécifiez pas de **fileName** pour une **table de sortie**, les fichiers générés dans le **folderPath** sont nommés selon le format suivant : Data<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
+   Si vous ne spécifiez pas **fileName** pour une **table de sortie**, les fichiers générés dans **folderPath** sont nommés selon le format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
    Pour affecter une valeur à **folderPath** et **fileName** de manière dynamique en fonction de l’heure de **SliceStart**, utilisez la propriété partitionedBy. Dans l’exemple suivant, folderPath utilise les valeurs Year, Month et Day à partir de SliceStart (heure de début de la partie en cours de traitement), alors que fileName utilise la valeur Hour à partir de SliceStart. Par exemple, si une partie est produite pour 2014-10-20T08:00:00, la valeur folderName est wikidatagateway/wikisampledataout/2014/10/20, alors que la valeur de fileName est 08.csv.
 
@@ -363,7 +362,7 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
    * Dans la section **typeProperties**, **SqlSource** est spécifié en tant que **Type de source** et **BlobSink **, en tant que **Type de récepteur**.
    * La requête SQL `select * from emp` est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
 
-   Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple : 2014-10-14T16:32:41Z. L’heure de fin ( **end** ) est facultative, mais nous allons l’utiliser dans ce didacticiel.
+   Les dates/heures de début et de fin doivent toutes deux être au [format ISO](http://en.wikipedia.org/wiki/ISO_8601). Par exemple :  2014-10-14T16:32:41Z. L’heure de fin ( **end** ) est facultative, mais nous allons l’utiliser dans ce didacticiel.
 
    Si vous ne spécifiez aucune valeur pour la propriété **end**, cette dernière est calculée comme suit : « **start + 48 heures** ». Pour exécuter le pipeline indéfiniment, spécifiez **9/9/9999** comme valeur pour la propriété **end**.
 

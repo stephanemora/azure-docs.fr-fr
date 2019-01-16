@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: ab2ea762ac8cc289ff24136f3cafac2b80fa1a9f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7ffceaf761d459667e4118e3e10b733898ea2710
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268442"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053974"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
@@ -51,9 +51,7 @@ Pour plus d’informations sur l’affectation d’une autorisation d’accès a
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Créez un budget dans le portail Azure
 
-Vous pouvez créer un budget d’abonnement Azure pour un mois, un trimestre ou un an. Votre navigation dans le portail Azure détermine si vous créez un budget pour un abonnement ou pour un groupe de ressources.
-
-Dans le portail Azure, accédez à **Gestion des coûts + facturation** &gt; **Abonnements** &gt; Sélectionner un abonnement &gt; **Budgets**. Dans cet exemple, le budget que vous créez est pour l’abonnement que vous avez sélectionné.
+Vous pouvez créer un budget d’abonnement Azure pour un mois, un trimestre ou un an. Votre navigation dans le portail Azure détermine si vous créez un budget pour un abonnement ou pour un groupe de ressources. Par exemple, dans le portail Azure, accédez à **Abonnements** &gt; sélectionnez un abonnement &gt; **Budgets**. Dans cet exemple, le budget que vous créez est pour l’abonnement que vous avez sélectionné. Si vous voulez créer un budget pour un groupe de ressources, accédez à **Groupes de ressources** > sélectionnez un groupe de ressources > **Budgets**.
 
 Une fois des budgets créés, ils affichent une vue simple de vos dépenses actuelles par rapport à ces budgets.
 

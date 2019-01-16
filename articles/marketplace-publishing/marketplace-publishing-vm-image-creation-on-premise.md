@@ -3,7 +3,7 @@ title: Création d’une image de machine virtuelle locale pour Azure Marketplac
 description: Découvrez et exécutez les étapes de création d’une image de machine virtuelle locale et déployez-la dans Azure Marketplace pour que d’autres utilisateurs puissent l’acheter.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 26dfbd5a-8685-4b19-987e-c20ca60540ec
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: f68dadab96e27cc7b90f44681d87ffa7cce8126b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ROBOTS: NOINDEX
+ms.openlocfilehash: b9fbb2f50905b1b80a092ba13f860f30cb9423a9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390055"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077791"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Développer une image de machine virtuelle locale pour Azure Marketplace
 Nous vous recommandons fortement de développer les disques durs virtuels (VHD) Azure directement dans le cloud à l’aide du protocole RDP. Toutefois, si nécessaire, vous pouvez télécharger un disque dur virtuel et le développer à l’aide d’une infrastructure locale.  
@@ -71,7 +72,7 @@ Une fois que vous connaissez l’URL d’objet blob, vous pouvez télécharger l
    ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
 
 ### <a name="download-a-vhd-by-using-powershell"></a>Télécharger un disque dur virtuel à l’aide de PowerShell
-Outre le portail Azure, vous pouvez utiliser l’applet de commande [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) pour télécharger le disque dur virtuel de système d’exploitation.
+Outre le portail Azure, vous pouvez utiliser l’applet de commande [Save-AzureVhd](https://msdn.microsoft.com/library/dn495297.aspx) pour télécharger le disque dur virtuel de système d’exploitation.
 
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
@@ -139,12 +140,12 @@ Créez un conteneur comme suit :
 Une fois le compte de stockage et le conteneur créés, vous pouvez télécharger vos disques durs virtuels préparés. Vous pouvez utiliser PowerShell, l’outil en ligne de commande Linux ou d’autres outils de gestion Azure Storage.
 
 ### <a name="upload-a-vhd-via-powershell"></a>Télécharger un disque dur virtuel à l’aide de PowerShell
-Utilisez l’applet de commande [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) .
+Utilisez l’applet de commande [Add-AzureVhd](https://msdn.microsoft.com/library/dn495173.aspx) .
 
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 
 ### <a name="upload-a-vhd-by-using-the-command-line-tool-for-mac-and-linux"></a>Télécharger un disque dur virtuel à l’aide de l’outil en ligne de commande pour Mac et Linux
-Avec [l’outil en ligne de commande Linux](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), utilisez la commande suivante : azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>
+Avec l’[outil en ligne de commande Linux](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), utilisez la commande suivante : `azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>`
 
 ## <a name="see-also"></a>Voir aussi
 * [Création d’une image de machine virtuelle pour la Place de Marché](marketplace-publishing-vm-image-creation.md)

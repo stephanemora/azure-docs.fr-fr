@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: e682b3780c26da9cf2398e93adc32cb107127d9c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: bc695bf8398a39460eff9bbe4f791ba92b0fa7e0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426789"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019306"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Activité de recherche dans Azure Data Factory
 
@@ -106,7 +105,7 @@ Dans cet exemple, l’activité Copy copie les données d’une table SQL de vot
 Cet exemple illustre une recherche pour la première ligne uniquement. Pour effectuer une recherche portant sur toutes les lignes et chaîner les résultats avec l’activité ForEach, consultez les exemples dans [Copier plusieurs tables en bloc à l’aide d’Azure Data Factory](tutorial-bulk-copy.md).
 
 ### <a name="pipeline"></a>Pipeline
-Ce pipeline contient deux activités : Lookup et Copy. 
+Ce pipeline contient deux activités : Recherche et Copie. 
 
 - L’activité Lookup est configurée pour utiliser **LookupDataset**, qui fait référence à un emplacement dans le stockage Blob Azure. L’activité Lookup lit le nom de la table SQL à partir d’un fichier JSON dans cet emplacement. 
 - L’activité Copy utilise la sortie de l’activité Lookup, qui correspond au nom de la table SQL. La propriété **tableName** dans **SourceDataset** est configurée pour utiliser la sortie de l’activité Lookup. L’activité Copy copie les données de la table SQL dans un emplacement du stockage Blob Azure. L’emplacement est spécifié par la propriété **SinkDataset**. 

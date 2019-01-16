@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: a36ad31531e41782f5be457450737a74f476c543
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 478b1352d0bf2eec9af62e519b50e61dea6cc8fc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584874"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158429"
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -103,7 +103,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 ```
 
 #### <a name="example"></a>Exemples
- Cet exemple montre comment effectuer un filtrage du contenu en supprimant des éléments de données de la réponse reçue du service principal en cas d’utilisation du produit `Starter`. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez la page [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky) et rendez-vous directement à 34 min 30 s. Commencez à 31 min 50 s pour voir une présentation de [l’API The Dark Sky Forecast](https://developer.forecast.io/) utilisée pour cette démonstration.
+ Cet exemple montre comment effectuer un filtrage du contenu en supprimant des éléments de données de la réponse reçue du service principal en cas d’utilisation du produit `Starter`. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky) et rendez-vous directement à 34 min 30 s. Commencez à 31 min 50 s pour voir une présentation de [l’API The Dark Sky Forecast](https://developer.forecast.io/) utilisée pour cette démonstration.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -449,7 +449,7 @@ status code and media type. If no example or schema found, the content is empty.
 > [!NOTE]
 >  Lorsque seul `interval` est spécifié, les nouvelles tentatives sont effectuées à intervalles **fixes**.
 > Lorsque seuls `interval` et `delta` sont spécifiés, un algorithme de nouvelles tentatives à intervalle **linéaire** est utilisé, suivant lequel le temps d’attente entre les tentatives est calculé selon la formule suivante : `interval + (count - 1)*delta`.
-> Lorsque `interval`, `max-interval` et `delta` sont spécifiés, l’algorithme de nouvelles tentatives à intervalle **exponentiel** s’applique, suivant lequel le temps d’attente entre les tentatives augmente de façon exponentielle entre la valeur `interval` et la valeur `max-interval` selon la formule suivante : `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
+> Lorsque `interval`, `max-interval` et `delta` sont spécifiés, l’algorithme de nouvelles tentatives à intervalle **exponentiel** s’applique, suivant lequel le temps d’attente entre les tentatives augmente de façon exponentielle entre la valeur `interval` et la valeur `max-interval` selon la formule suivante : `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes. Notez que des restrictions d’utilisation des stratégies enfants seront héritées par cette stratégie.
@@ -649,7 +649,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Attribut|Description|Obligatoire|Default|
 |---------------|-----------------|--------------|-------------|
 |mode="string"|Détermine s’il s’agit d’une nouvelle demande ou d’une copie de la demande actuelle. En mode outbound, mode=copy n’initialise pas le corps de la demande.|Non |Nouveau|
-|response-variable-name="string"|Nom de la variable contextuelle qui recevra un objet Response. Si la variable n’existe pas, elle sera créée après exécution réussie de la stratégie, et deviendra accessible par le biais de la collection [`context.Variable`](api-management-policy-expressions.md#ContextVariables).|Oui|N/A|
+|response-variable-name="string"|Nom de la variable contextuelle qui recevra un objet Response. Si la variable n’existe pas, elle est créée après l’exécution réussie de la stratégie, et devient accessible par le biais de la collection [`context.Variable`](api-management-policy-expressions.md#ContextVariables).|Oui|N/A|
 |timeout="integer"|Délai d’expiration en secondes avant l’échec de l’appel à l’URL.|Non |60|
 |ignore-error|S’il a la valeur true et que la demande aboutit à une erreur :<br /><br /> - Si response-variable-name a été spécifié, il contiendra une valeur Null.<br />- Si response-variable-nam n’est pas spécifié, context.Request ne sera pas mis à jour.|Non |false|
 |Nom|Spécifie le nom de l’en-tête à définir.|Oui|N/A|

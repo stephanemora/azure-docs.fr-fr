@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a6f18222e5683d2d9663b699a8f6bab399d4f45b
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 6cf32ba50e83b95d51493244ef8e8646433b0b02
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299858"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024941"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Exigences de certificat pour infrastructure à clé publique Azure Stack
 
@@ -45,7 +45,7 @@ La liste suivante décrit les exigences de certificat nécessaires pour déploye
 - Le format du certificat doit être PFX, car les clés publiques et privées sont requises pour l’installation d’Azure Stack. La clé privée doit être définie pour l’attribut de clé Ordinateur local.
 - Le chiffrement PFX doit être 3DES (paramètre par défaut en cas d’exportation depuis un client Windows 10 ou un magasin de certificats Windows Server 2016).
 - Les fichiers pfx de certificat doivent avoir une valeur « Signature numérique » et « KeyEncipherment » dans le champ « Utilisation de la clé ».
-- Dans le champ « Utilisation avancée de la clé », les fichiers pfx de certificat doivent avoir les valeurs « Authentification du serveur (1.3.6.1.5.5.7.3.1) » et « Authentification du client (1.3.6.1.5.5.7.3.2) ».
+- Dans le champ « Utilisation avancée de la clé », les fichiers pfx de certificat doivent avoir les valeurs « Authentification du serveur (1.3.6.1.5.5.7.3.1) » et « Authentification du client (1.3.6.1.5.5.7.3.2) ».
 - Le contenu des champs « Délivré à » et « Délivré par » du certificat ne peut pas être identique.
 - Les mots de passe de tous les fichiers pfx de certificat doivent être identiques au moment du déploiement
 - Le mot de passe pour le fichier de certificats pfx doit être un mot de passe complexe.

@@ -3,7 +3,7 @@ title: Déploiement de votre offre sur Azure Marketplace | Microsoft Docs
 description: Lisez et suivez les instructions pour déployer votre offre (une image de machine virtuelle, un service de développement, des services de données, etc.) dans Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 8f79b891-84e2-4f41-ba0d-66420e2c6b2e
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2016
 ms.author: hascipio
-ms.openlocfilehash: 12dc81642905cd9449a1032c7ab57298e6b69ba8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 058f50853795453617593a6a07e2951f15f28174
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714279"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076109"
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Déploiement de votre offre sur Azure Marketplace
 Quand vous avez finalisé votre offre (avec des scénarios clients testés, du contenu marketing, etc.) et êtes prêt à la lancer, cliquez sur **Push to Production** (Lancer la production) sous l’onglet **Publish** (Publier).  
@@ -50,7 +51,7 @@ Quand vous avez finalisé votre offre (avec des scénarios clients testés, du c
 ## <a name="production-checklist-for-all-virtual-machine-offers"></a>Liste de contrôle de production pour toutes les offres de machines virtuelles
 * Assurez-vous que vous avez le statut de partenaire Microsoft Azure Certified
 * Sous l’onglet SKU, l’option « Masquer cette référence (SKU) à partir du Marketplace, car elle doit toujours être achetée via un modèle de solution » doit être marquée comme « OUI » uniquement si le SKU fait partie d’un modèle de solution. Dans tous les autres cas, cette option doit toujours être marquée comme « NON ».
-* Rappel : vous ne devez pas modifier le paramètre de visibilité de la référence lorsque cette dernière est répertoriée. Nous ne prenons pas en charge cette fonctionnalité.
+* Rappel : vous ne devez pas modifier le paramètre de visibilité de la référence SKU lorsque celle-ci est référencée. Nous ne prenons pas en charge cette fonctionnalité.
 * Vérifiez que les logos suivent les instructions relatives aux logos Azure Marketplace données ci-dessous.
 * La description de l’offre et celle de la référence ne peuvent pas être les mêmes.
 * Le titre de la référence et le résumé long de l’offre ne peuvent pas être les mêmes.
@@ -69,8 +70,8 @@ Quand vous avez finalisé votre offre (avec des scénarios clients testés, du c
 **Recommandations supplémentaires pour la bannière :**
 
 * La bannière est facultative. L’éditeur peut choisir de ne pas télécharger de bannière. **Toutefois l’icône ne peut pas être supprimée du portail de publication une fois téléchargée. À ce moment, le partenaire doit suivre les instructions d’Azure Marketplace pour les icônes, sans quoi l’offre ne sera pas approuvée en production.**
-* Le nom d’affichage de l’éditeur, le titre de la référence et le résumé long de l’offre s’affichent en couleur de police blanche. Par conséquent, vous devez éviter de conserver toute couleur claire dans l’arrière-plan l’icône. Les arrière-plans noirs, blancs et transparents ne sont pas autorisés pour les icônes.
-* Le nom d’affichage de l’éditeur, le titre de la référence, le résumé long de l’offre et le bouton Créer sont incorporés programmatiquement à la bannière une fois l’offre répertoriée. Vous ne devez par conséquent pas saisir de texte lorsque vous concevez la bannière. Laissez un espace vide à droite, car nous incluons le texte (nom d’affichage de l’éditeur, titre de la référence SKU, résumé détaillé de l’offre) à cet emplacement par programmation. L’espace vide pour le texte doit être de 415 x 100 sur la droite (décalé de 370px à partir de la gauche).
+* Le nom d’affichage de l’éditeur, le titre de la référence SKU et le résumé long de l’offre s’affichent en couleur de police blanche. Par conséquent, vous devez éviter de conserver toute couleur claire dans l’arrière-plan l’icône. Les arrière-plans noirs, blancs et transparents ne sont pas autorisés pour les icônes.
+* Le nom d’affichage de l’éditeur, le titre de la référence, le résumé long de l’offre et le bouton Créer sont incorporés programmatiquement à la bannière une fois l’offre répertoriée. Vous ne devez par conséquent pas saisir de texte lorsque vous concevez la bannière. Laissez un espace vide à droite, car nous incluons le texte (nom d’affichage de l’éditeur, titre de la référence SKU, résumé détaillé de l’offre) par programmation à cet emplacement. L’espace vide pour le texte doit être de 415 x 100 sur la droite (décalé de 370 px à partir de la gauche).
 
 ## <a name="additional-production-checklist-for-already-listed-virtual-machine-offers"></a>Liste de contrôle de production supplémentaire pour les offres de machines virtuelles déjà répertoriées
 * Vérifiez s’il existe déjà une offre de votre entreprise portant le même nom. Si Oui, vous devez ajouter une nouvelle version de la référence à l’offre existante au lieu de créer une offre en double.
@@ -81,7 +82,7 @@ Quand vous avez finalisé votre offre (avec des scénarios clients testés, du c
 Une fois l'offre publiée, testez les scénarios de clients pour valider le fonctionnement correct de tous les contrats et de toutes les fonctionnalités dans l'environnement de production de la même manière qu'ils ont été testés et validés dans l'environnement intermédiaire.
 
 ## <a name="see-also"></a>Voir aussi
-* [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Prise en main : Comment publier une offre dans la Place de marché Microsoft Azure](marketplace-publishing-getting-started.md)
 
 [img-pubportal-walkthru-checked]:media/marketplace-publishing-push-to-production/pubportal-walkthru-checked.png
 [img-pubportal-menu-publish]:media/marketplace-publishing-push-to-production/pubportal-menu-publish.png

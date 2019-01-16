@@ -1,20 +1,19 @@
 ---
 title: 'Azure Cosmos DB : API SQL .NET, SDK et ressources'
 description: Tout savoir sur l’API SQL .NET et le Kit de développement logiciel (SDK), y compris les dates de sortie, les dates de déclassement et les modifications effectuées entre chaque version du Kit de développement logiciel (SDK) .NET Azure Cosmos DB.
-author: rnagpal
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 715d67a30bbf2c6d1f50ed7c10a013c0d421f48b
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.author: sngun
+ms.openlocfilehash: f135281ad8bfe8222fd799e3d18c4022c627d23c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337935"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051949"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Kit de développement logiciel .NET Azure Cosmos DB pour l’API SQL : Téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -49,11 +48,19 @@ ms.locfileid: "53337935"
 ## <a name="release-notes"></a>Notes de publication
 
 ### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-preview
-* Aperçu 1 de la [version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) du SDK .NET pour la préversion publique.
-* .NET Standard cible, prenant en charge .NET framework 4.6.1+ et .NET Core 2.0+
+* Préversion 1 de la [version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) du kit SDK .NET pour la préversion publique.
+* .NET Standard cible, prenant en charge .NET framework 4.6.1+ et .NET Core 2.0+
 * Nouveau modèle d’objet, avec le CosmosClient de niveau supérieur et les méthodes réparties entre les classes CosmosDatabases, CosmosContainers et CosmosItems appropriées. 
 * Prise en charge des flux. 
 * Mise à jour de CosmosResponseMessage à partir du serveur pour renvoyer le code d’état, et levée d’une seule exception si aucune réponse n’est retournée. 
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+
+* Amélioration dans la logique de nouvelle tentative lors du basculement pour les appels d’exécution de procédure stockée.
+
+* DocumentClientEventSource est devenu un singleton. 
+
+* Correction du délai d’expiration de GatewayAddressCache qui ne respectait pas le délai d’expiration des requêtes de la stratégie de connexion.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 
@@ -350,7 +357,8 @@ Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développem
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
-| [2.2.0](#2.2.0) |7 décembre 2018 |--- |
+| [2.2.1](#2.2.1) |24 décembre 2018 |--- |
+| [2.2.0](#2.2.0) |7 décembre 2018 |--- |
 | [2.1.3](#2.1.3) |15 octobre 2018 |--- |
 | [2.1.2](#2.1.2) |4 octobre 2018 |--- |
 | [2.1.1](#2.1.1) |27 septembre 2018 |--- |

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 359594ab91b903033ecc303eccd270988be19810
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: fbfee92343bfecfbe8395f95775ae1f107b99299
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336524"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037274"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>Vue d’ensemble des types de fonctions et fonctionnalités pour les fonctions durables (Azure Functions)
 
@@ -37,7 +37,7 @@ Pour plus d’informations et des exemples, consultez l’[article sur la liaiso
 
 ### <a name="orchestrator-functions"></a>Fonctions d’orchestrateur
 
-Les fonctions d’orchestrateur sont au cœur d’une fonction durable.  Les fonctions d’orchestrateur décrivent le mode et l’ordre d’exécution des actions.  Les fonctions d’orchestrateur décrivent l’orchestration dans le code (C# ou JavaScript), comme indiqué dans la [vue d’ensemble des fonctions durables](durable-functions-overview.md).  Une orchestration peut avoir de nombreux types différents d’actions, comme des [fonctions d’activité](#activity-functions), [des sous-orchestrations](#sub-orchestrations), l’[attente d’événements externes](#external-events) et des [ minuteurs](#durable-timers).  
+Les fonctions d’orchestrateur sont au cœur d’une fonction durable.  Les fonctions d’orchestrateur décrivent le mode et l’ordre d’exécution des actions.  Les fonctions d’orchestrateur décrivent l’orchestration dans le code (C# ou JavaScript), comme indiqué dans les [Concepts techniques et modèles Durable Functions](durable-functions-concepts.md).  Une orchestration peut avoir de nombreux types différents d’actions, comme des [fonctions d’activité](#activity-functions), [des sous-orchestrations](#sub-orchestrations), l’[attente d’événements externes](#external-events) et des [ minuteurs](#durable-timers).  
 
 Une fonction d’orchestrateur doit être déclenchée par un [déclencheur d’orchestration](durable-functions-bindings.md#orchestration-triggers).
 
@@ -134,7 +134,7 @@ public static async Task<bool> CheckIsComplete([ActivityTrigger] string statusUr
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (fonctions 2.x uniquement)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
 
 ```javascript
 const df = require("durable-functions");

@@ -5,15 +5,15 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 01/07/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 1aeb5ca447a3058962483b640f742e4a7ec4a414
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a35bde6e89290fd2282ba6ec829f46cb4c6fc225
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104031"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103313"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurer ExpressRoute des connexions coexistantes de site à site en utilisant PowerShell
 > [!div class="op_single_selector"]
@@ -43,6 +43,7 @@ Les étapes de configuration de ces deux scénarios sont décrites dans cet arti
 * **La passerelle de référence de base n’est pas prise en charge.** Vous devez utiliser une passerelle de référence SKU autre que De base pour la [passerelle ExpressRoute](expressroute-about-virtual-network-gateways.md) et la [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Seule la passerelle VPN basée sur un itinéraire est prise en charge.** Vous devez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) basée sur un itinéraire.
 * L’**itinéraire statique doit être configuré pour votre passerelle VPN.** Si votre réseau local est connecté à la fois à ExpressRoute et à un VPN de site à site, vous devez avoir configuré un itinéraire statique sur votre réseau local pour acheminer la connexion VPN de site à site vers l’Internet public.
+* **La passerelle VPN est ASN 65515 par défaut si elle n’est pas spécifié.** La passerelle VPN Azure prend en charge le protocole de routage BGP. Vous pouvez spécifier le numéro ASN pour un réseau virtuel en ajoutant le commutateur -Asn. Si vous ne spécifiez pas ce paramètre, le numéro ASN par défaut est 65515. Vous pouvez utiliser n’importe quel numéro ASN pour la configuration, mais si vous sélectionnez autre chose que 65515, vous devez réinitialiser la passerelle pour que le paramètre prenne effet.
 
 ## <a name="configuration-designs"></a>Modèles de configuration
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Configurer un réseau VPN de site à site comme un chemin d’accès de basculement pour ExpressRoute

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Data Factory : Forum Aux Questions | Microsoft Docs'
+title: 'Azure Data Factory : Forum Aux Questions (FAQ) | Microsoft Docs'
 description: Réponses aux questions les plus fréquentes concernant Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -9,16 +9,15 @@ ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: d900c9c438ed40841639d556643a231075f4f194
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: be0cdeed81c66e1a848b44d2429c1c67bce9b4f3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249585"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024091"
 ---
 # <a name="azure-data-factory-faq"></a>Forum Aux Questions Azure Data Factory
 Cet article fournit des réponses aux questions fréquemment posées sur Azure Data Factory.  
@@ -50,7 +49,7 @@ Data Factory vous donne la liberté de modéliser n’importe quel style de flux
 - Flux delta :
     - Utilisez des paramètres et définissez la marque de borne haute pour la copie delta lors du déplacement des tables de dimension ou de référence à partir d’un magasin relationnel, localement ou dans le cloud, pour charger les données dans le lac. 
 
-Pour plus d’informations, consultez l’article [Didacticiel : flux de contrôle](tutorial-control-flow.md).
+Pour plus d’informations, consultez [Tutoriel : Flux de contrôle](tutorial-control-flow.md).
 
 ### <a name="transform-your-data-at-scale-with-code-free-pipelines"></a>Transformer vos données à grande échelle avec des pipelines sans code
 La nouvelle expérience des outils basés sur un navigateur permet la création et le déploiement de pipelines sans code avec une expérience web interactive et moderne.
@@ -92,9 +91,9 @@ Depuis la préversion publique initiale de 2017, les fonctionnalités suivantes 
 ## <a name="what-is-integration-runtime"></a>Qu’est-ce que le runtime d’intégration ?
 Le runtime d’intégration est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir les fonctionnalités d’intégration de données suivantes entre différents environnements réseau :
 
-- **Déplacement de données** : pour le déplacement des données, Integration Runtime déplace les données entre les banques de données source et de destination, tout en fournissant une prise en charge des connecteurs intégrés, de la conversion de format, du mappage de colonnes, et des transferts de données performants et évolutifs.
-- **Répartition des activités** : pour la transformation, Integration Runtime offre la possibilité d’exécuter de façon native des packages SSIS.
-- **Exécution des packages SSIS** : exécute en mode natif les packages SSIS dans un environnement de calcul Azure géré. Integration Runtime prend également en charge la répartition et la surveillance des activités de transformation exécutées sur un large éventail de services de calcul, comme Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, etc.
+- **Déplacement des données** : Pour le mouvement des données, Integration Runtime déplace les données entre les magasins de données source et de destination, tout en fournissant une prise en charge des connecteurs intégrés, de la conversion de format, du mappage de colonnes et des transferts de données performants et scalables.
+- **Répartir les activités** : Pour la transformation, Integration Runtime offre la possibilité d’exécuter les packages SSIS en mode natif.
+- **Exécuter des packages SSIS** : Exécute des packages SSIS en mode natif dans un environnement de calcul Azure managé. Integration Runtime prend également en charge la répartition et la surveillance des activités de transformation exécutées sur un large éventail de services de calcul, comme Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, etc.
 
 Vous pouvez déployer une ou plusieurs instances de runtime d’intégration en fonction de vos besoins pour déplacer ou transformer des données. Le runtime d’intégration peut s’exécuter sur un réseau public Azure ou un réseau privé (localement, réseau virtuel Azure ou AWS VPC [Amazon Web Services Virtual Private Cloud]). 
 
@@ -179,5 +178,5 @@ Vous pouvez utiliser la construction `@coalesce` dans les expressions pour gére
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des instructions pas à pas pour créer une fabrique de données, consultez les tutoriels suivants :
 
-- [Démarrage rapide : créer une fabrique de données](quickstart-create-data-factory-dot-net.md)
-- [Didacticiel : copier des données dans le cloud](tutorial-copy-data-dot-net.md)
+- [Démarrage rapide : Créer une fabrique de données](quickstart-create-data-factory-dot-net.md)
+- [Tutoriel : Copier des données dans le cloud](tutorial-copy-data-dot-net.md)

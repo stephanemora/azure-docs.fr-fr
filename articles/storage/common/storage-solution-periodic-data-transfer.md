@@ -8,12 +8,12 @@ ms.subservice: blob
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 61d3bcf8fd046ec1b68637bfdcc9827bb5b5d084
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 271be60bc26cf6bc9a64c459d030818d9e493a22
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263244"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158446"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Solutions de transfert périodique de données
  
@@ -48,13 +48,13 @@ Le tableau suivant résume les différences entre les principales fonctionnalit�
 | Installation ponctuelle initiale     | Minimales                                | Effort de développement modéré et variable    |
 | Format de données                 | Blobs, Fichiers et Tables Azure | Blobs, Fichiers et Tables Azure   |
 | Performances                 | Déjà optimisé                      | Optimisé au fil du développement                  |
-| Tarifs                     | Gratuit, des frais de sortie de données s’appliquent      | Gratuit, des frais de sortie de données s’appliquent        |
+| Tarifs                     | Gratuit, des frais de sortie de données s'appliquent      | Gratuit, des frais de sortie de données s’appliquent        |
 
 ### <a name="continuous-data-ingestion-over-network"></a>Ingestion continue des données sur le réseau
 
 | Fonctionnalité                                       | Data Box Gateway (préversion) | Data Box Edge (préversion)  | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
-| Facteur de forme                                   | Appareil virtuel             | Appareil physique          | Service sur le Portail Azure, agent local                                                            |
+| Facteur de forme                                   | Appareil virtuel             | Appareil physique          | Service dans le Portail Azure, agent local                                                            |
 | Matériel                                      | Votre hyperviseur            | Fourni par Microsoft    | N/D                                                            |
 | Effort de configuration initial                          | Faible (< 30 minutes)            | Modéré (quelques heures) | Grand (plusieurs jours)                                                 |
 | Format de données                                   | Blob et Fichiers Azure   | Blob et Fichiers Azure | [Prend en charge plus de 70 connecteurs de données pour les formats et les magasins de données](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: cshoe
-ms.openlocfilehash: ba2441044d63e63b969054e84e163352d2b376e8
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a44b348e0c41e96c575555f2b5c275e196284c5b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993801"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074519"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concepts des déclencheurs et liaisons Azure Functions
 
@@ -674,6 +674,10 @@ Avec C# et d’autres langages .NET, vous pouvez utiliser un schéma de liaison 
 ## <a name="functionjson-file-schema"></a>Schéma de fichier function.json
 
 Le schéma de fichier *function.json* se trouve à l’adresse [http://json.schemastore.org/function](http://json.schemastore.org/function).
+
+## <a name="testing-bindings"></a>Test des liaisons
+
+Lorsque vous développez des fonctions localement, vous pouvez tester vos liaisons à l’aide de Visual Studio 2017 ou de Visual Studio Code. Pour en savoir plus, consultez [Stratégies permettant de tester votre code dans Azure Functions](functions-test-a-function.md). Vous pouvez également appeler des liaisons non-HTTP à l’aide des API REST. Pour en apprendre davantage, consultez [Exécuter manuellement une fonction non déclenchée via HTTP](functions-manually-run-non-http.md).
 
 ## <a name="handling-binding-errors"></a>Gestion des erreurs de liaison
 

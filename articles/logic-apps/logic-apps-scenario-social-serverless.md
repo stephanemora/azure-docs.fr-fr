@@ -10,16 +10,16 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 1c8abc153084f0c6491cab3677b93f8c450ad908
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 638b29dd2a15d0467c41e20ecfed9f333b34c04d
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229415"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061055"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Créer un tableau de bord des insights client en streaming avec Azure Logic Apps et Azure Functions
 
-Azure offre des outils serverless qui permettent de générer et d’héberger rapidement des applications dans le cloud, sans avoir à réfléchir à l’infrastructure. Dans ce tutoriel, vous pouvez créer un tableau de bord qui se déclenche lors de retours d’expérience client, analyse le retour avec le Machine Learning et publie des insights dans une source telle que Power BI ou Azure Data Lake.
+Azure offre des outils [serverless](https://azure.microsoft.com/solutions/serverless/) qui permettent de générer et d’héberger rapidement des applications dans le cloud, sans avoir à réfléchir à l’infrastructure. Dans ce tutoriel, vous pouvez créer un tableau de bord qui se déclenche lors de retours d’expérience client, analyse le retour avec le Machine Learning et publie des insights dans une source telle que Power BI ou Azure Data Lake.
 
 Pour cette solution, utilisez ces composants Azure clés pour les applications serverless : [Azure Functions](https://azure.microsoft.com/services/functions/) et [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 Azure Logic Apps fournit un moteur de flux de travail serverless dans le cloud afin que vous puissiez créer des orchestrations entre les composants serverless et vous connecter à plus de 200 services et API. Azure Functions offre un computing serverless dans le cloud. Cette solution utilise Azure Functions pour le marquage des tweets client en fonction de mots clés prédéfinis.
@@ -34,7 +34,7 @@ Vous pouvez [générer la solution entière dans Visual Studio](../logic-apps/qu
 
    Si vous êtes débutant avec les applications logiques, consultez le [démarrage rapide pour le portail Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md) ou le [démarrage rapide pour Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
-2. Dans le Concepteur d’application logique, recherchez et ajoutez le déclencheur Twitter qui possède cette action : **Lorsqu’un nouveau tweet est publié**
+2. Dans le Concepteur d’application logique, recherchez et ajoutez le déclencheur Twitter qui a cette action : **When a new tweet is posted** (Quand un nouveau tweet est publié)
 
 3. Configurez le déclencheur pour écouter les tweets en fonction d’un mot-clé ou d’un hashtag.
 
@@ -60,8 +60,8 @@ Pour détecter le sentiment derrière un texte, vous pouvez utiliser [Azure Cogn
 
 Une fois que vous obtenez les données et les insights du tweet, vous pouvez utiliser plusieurs autres connecteurs appropriés et leurs actions :
 
-* **Power BI - Ajouter des lignes au jeu de données en streaming** : affichez des tweets entrants dans un tableau de bord Power BI.
-* **Azure Data Lake - Ajouter un fichier** : ajoutez des données client à un jeu de données Azure Data Lake à inclure dans des travaux analytiques.
+* **Power BI - Ajouter des lignes au jeu de données de streaming** : Affichez des tweets entrants dans un tableau de bord Power BI.
+* **Azure Data Lake - Ajouter un fichier** : ajoutez des données client à un jeu de données Azure Data Lake à inclure dans des travaux analytiques.
 * **SQL - Ajouter des lignes** : stockez des données dans une base de données pour les récupérer ultérieurement.
 * **Slack - Envoyer un message** : alertez un canal Slack en cas de retours d’expérience négatifs nécessitant des actions.
 

@@ -9,21 +9,20 @@ ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 848616bb69aa0eae384b9c4e7ea1c2ac3da3c04e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1ccf66da14bbbd4993f29da2e40d996cb564864e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167118"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024907"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copier des données vers ou à partir d’une instance locale d’Oracle à l’aide d’Azure Data Factory
 
-> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-onprem-oracle-connector.md)
 > * [Version 2 (version actuelle)](../connector-oracle.md)
 
@@ -56,7 +55,7 @@ Une passerelle est nécessaire, même si la base de données Oracle est héberg�
 
 Ce connecteur Oracle prend en charge deux versions de pilotes :
 
-- **Pilote Microsoft pour Oracle (recommandé)** : à compter de la version 2.7 de la passerelle de gestion des données, le pilote Microsoft pour Oracle est installé automatiquement avec la passerelle. Vous n’avez pas besoin d’installer ou de mettre à jour le pilote pour établir une connectivité à Oracle. Avec ce pilote, vous pouvez également constater de meilleures performances de copie. Voici les versions prises en charge des bases de données Oracle :
+- **Pilote Microsoft pour Oracle (recommandé)**  : À compter de la version 2.7 de la passerelle de gestion des données, le pilote Microsoft pour Oracle est installé automatiquement avec la passerelle. Vous n’avez pas besoin d’installer ou de mettre à jour le pilote pour établir une connectivité à Oracle. Avec ce pilote, vous pouvez également constater de meilleures performances de copie. Voici les versions prises en charge des bases de données Oracle :
     - Oracle 12c R1 (12.1)
     - Oracle 11g R1, R2 (11.1, 11.2)
     - Oracle 10g R1, R2 (10.1, 10.2)
@@ -70,7 +69,7 @@ Ce connecteur Oracle prend en charge deux versions de pilotes :
     > Le pilote Microsoft pour Oracle prend uniquement en charge la copie de données à partir d’Oracle. Le pilote ne prend pas en charge l’écriture de données dans Oracle. Ce pilote n’est pas pris en charge par la fonctionnalité de connexion de test sous l’onglet **Diagnostics** de la passerelle de gestion des données. Cependant, vous avez la possibilité de valider la connectivité à l’aide de l’Assistant Copie.
     >
 
-- **Fournisseur de données Oracle pour .NET :** vous pouvez également choisir d’utiliser le fournisseur de données Oracle pour copier des données vers ou à partir d’Oracle. Ce composant est inclus dans [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Installez la version appropriée (32 ou 64 bits) sur l’ordinateur où est installée la passerelle. Le [Fournisseur de données Oracle pour .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) peut accéder à Oracle Database 10g Release 2 ou versions ultérieures.
+- **Fournisseur de données Oracle pour .NET** : Vous pouvez utiliser le fournisseur de données Oracle pour copier des données vers ou à partir d’Oracle. Ce composant est inclus dans [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Installez la version appropriée (32 ou 64 bits) sur l’ordinateur où est installée la passerelle. Le [Fournisseur de données Oracle pour .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) peut accéder à Oracle Database 10g Release 2 ou versions ultérieures.
 
     Si vous sélectionnez **XCopy Installation** (Installation de XCopy), effectuez les étapes décrites dans le fichier readme.htm. Nous vous recommandons de sélectionner le programme d’installation qui comprend une interface utilisateur (et non le programme d’installation XCopy).
 
@@ -82,7 +81,7 @@ Si vous utilisez l’Assistant Copie pour créer le pipeline de copie, le type d
 
 Vous pouvez créer un pipeline ayant une activité de copie. Le pipeline déplace les données vers ou à partir d’une base de données Oracle locale, à l’aide de différents outils ou API.
 
-Le moyen le plus simple de créer un pipeline consiste à utiliser l’Assistant de copie. Pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copier des données, consultez [Tutoriel: Créer un pipeline à l’aide de l’Assistant Copier des données](data-factory-copy-data-wizard-tutorial.md).
+Le moyen le plus simple de créer un pipeline consiste à utiliser l’Assistant de copie. Consultez le [tutoriel : Créer un pipeline à l’aide de l’Assistant Copie de données](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données.
 
 Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, un **modèle Azure Resource Manager**, **l’API .NET** et **l’API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline ayant une activité de copie, consultez le [Tutoriel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
@@ -108,10 +107,10 @@ Le tableau suivant décrit les éléments JSON qui sont propres au service lié 
 | connectionString | Spécifiez les informations nécessaires pour se connecter à l’instance de base de données Oracle pour la propriété **connectionString**. | Oui |
 | gatewayName | Nom de la passerelle utilisée pour se connecter au serveur Oracle local |Oui |
 
-**Exemple : Utilisation du pilote Microsoft**
+**Exemple : Utilisation du pilote Microsoft**
 
 > [!TIP]
-> Si vous recevez un message d’erreur indiquant « ORA-01025: UPI parameter out of range » (ORA-01025 : paramètre UPI en dehors de la plage) et que votre version Oracle est la version 8i, ajoutez `WireProtocolMode=1` à votre chaîne de connexion, puis réessayez.
+> Si vous voyez l’erreur « ORA-01025: UPI parameter out of range » et que votre version d’Oracle est 8i, ajoutez `WireProtocolMode=1` à votre chaîne de connexion, puis réessayez :
 
 ```json
 {
@@ -127,7 +126,7 @@ Le tableau suivant décrit les éléments JSON qui sont propres au service lié 
 }
 ```
 
-**Exemple : Utilisation du pilote ODP**
+**Exemple : Utilisation du pilote ODP**
 
 Pour plus d’informations sur les formats autorisés, consultez [Fournisseur de données Oracle pour .NET ODP](https://www.connectionstrings.com/oracle-data-provider-for-net-odp-net/).
 
@@ -182,7 +181,7 @@ Dans le cas d’une activité de copie, quand la source est de type **OracleSour
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Temps d’attente avant expiration de l’opération d’insertion de lot. |**timespan**<br/><br/> Exemple : « 00:30:00 » (30 minutes). |Non  |
+| writeBatchTimeout |Temps d’attente avant expiration de l’opération d’insertion de lot. |**timespan**<br/><br/> Exemple : 00:30:00 (30 minutes) |Non  |
 | writeBatchSize |Insère des données dans la table SQL quand la taille de la mémoire tampon atteint la valeur de **writeBatchSize**. |Nombre entier (nombre de lignes) |Non (valeur par défaut : 100) |
 | sqlWriterCleanupScript |Spécifie une requête pour exécuter l’activité de copie afin que les données d’un segment spécifique soient nettoyées. |Une instruction de requête. |Non  |
 | sliceIdentifierColumnName |Spécifie le nom de la colonne qui doit être remplie avec un identificateur de segment généré automatiquement pour l’activité de copie.  La valeur de **sliceIdentifierColumnName** est utilisée pour nettoyer les données d’un segment quand celui-ci est réexécuté. |Nom d’une colonne avec le type de données **binary(32)**. |Non  |
@@ -191,7 +190,7 @@ Dans le cas d’une activité de copie, quand la source est de type **OracleSour
 
 Les exemples suivants présentent des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide [du Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données vers ou à partir d’une base de données Oracle ou du Stockage Blob Azure. Toutefois, il est possible de copier des données dans l’un des récepteurs répertoriés dans [Magasins et formats de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats), à l’aide de l’activité de copie dans Azure Data Factory.   
 
-**Exemple : Copie de données d’Oracle vers le Stockage Blob Azure**
+**Exemple : Copie de données d’Oracle vers Stockage Blob Azure**
 
 L’exemple contient les entités Data Factory suivantes :
 
@@ -268,7 +267,7 @@ Définition de **external** : la valeur **true** informe le service Data Factory
 
 **Jeu de données de sortie d'objet Blob Azure**
 
-Les données sont écrites dans un nouvel objet blob toutes les heures (**fréquence** : **heure**, **intervalle** : **1**). Le chemin du dossier et le nom de fichier de l’objet blob sont évalués dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin du dossier utilise l’année, le mois, le jour et l’heure de début.
+Les données sont écrites dans un nouvel objet blob toutes les heures (**fréquence** : **heure**, **intervalle** : **1**). Le chemin du dossier et le nom de fichier de l’objet blob sont évalués dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin du dossier utilise l’année, le mois, le jour et l’heure de début.
 
 ```json
 {
@@ -377,7 +376,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 }
 ```
 
-**Exemple : Copie de données du Stockage Blob Azure vers Oracle**
+**Exemple : Copie de données de Stockage Blob Azure vers Oracle**
 
 Cet exemple indique comment copier des données d’un compte de stockage d’objets blob Azure vers une base de données Oracle locale. Toutefois, vous pouvez copier les données *directement* dans l’une des sources répertoriées dans [Magasins et formats de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats), à l’aide de l’activité de copie dans Azure Data Factory.  
 
@@ -423,7 +422,7 @@ L’exemple copie chaque heure les données d’une objet blob vers une table d�
 
 **Jeu de données d'entrée d'objet Blob Azure**
 
-Les données sont récupérées à partir d’un nouvel objet blob toutes les heures (**fréquence** : **heure**, **intervalle** : **1**). Le chemin du dossier et le nom de fichier de l’objet blob sont évalués dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin du dossier utilise l’année, le mois et le jour de début. Le nom de fichier utilise la partie Heure du début. Définition de **external** : la valeur **true** informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à Data Factory, et non produit par une activité dans Data Factory.
+Les données sont récupérées depuis un nouvel objet blob toutes les heures (**fréquence** : **heure**, **intervalle** : **1**). Le chemin du dossier et le nom de fichier de l’objet blob sont évalués dynamiquement en fonction de l’heure de début du segment en cours de traitement. Le chemin du dossier utilise l’année, le mois et le jour de début. Le nom de fichier utilise la partie Heure du début. Définition de **external** : la valeur **true** informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à Data Factory, et non produit par une activité dans Data Factory.
 
 ```json
 {

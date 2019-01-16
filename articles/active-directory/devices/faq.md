@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a0cfd65aa2444956336e5363d20acab61a404c68
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8d1e44eae7e87a450ac5f36e621d559fca92ca74
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309176"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016152"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -180,6 +180,9 @@ Les utilisateurs supprimés ou désactivés qui ne se sont pas connectés aupara
 
 - [Résolution des problèmes de l’inscription automatique des ordinateurs joints au domaine à Azure AD pour les clients de bas niveau Windows](troubleshoot-hybrid-join-windows-legacy.md)
  
+**Q : Pourquoi je vois un enregistrement inscrit en double sur Azure AD pour mon appareil Windows 10 joint à Azure AD Hybride dans la liste des appareils Azure AD ?**
+
+**R :** Lorsque vos utilisateurs ajoutent leur compte aux applications sur un appareil joint à un domaine, ils peuvent être invités à « Ajouter un compte à Windows ? ». Le fait de cliquer sur « Oui » dans l’invite aboutirait à inscrire l’appareil auprès d’Azure AD, avec le type d’approbation marqué comme Inscrit auprès d’Azure AD. Dès lors que vous activez une jonction Azure AD Hybride dans votre organisation, l’appareil est également joint à Azure AD Hybride. Par conséquent, il y a deux états d’appareil s’affichant pour le même appareil. Toutefois, la jonction Azure AD Hybride est prioritaire sur l’état inscrit auprès d’Azure AD. Ainsi, votre appareil est considéré comme jonction Azure AD Hybride pour toute authentification et pour toute évaluation de l’accès conditionnel. Vous pouvez donc supprimer sans problème l’enregistrement d’appareil inscrit à Azure AD depuis le portail Azure AD. Lisez [cette section](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know) de l’article sur la jonction Azure AD Hybride pour comprendre comment éviter ou éliminer cet état double sur la machine Windows 10. 
 
 ---
 

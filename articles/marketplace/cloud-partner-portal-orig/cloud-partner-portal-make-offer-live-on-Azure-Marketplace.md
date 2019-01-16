@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: ff3ca665382efc9133a4c4ce3f3fde25c03c5e52
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ad22f1944d3fe9a088b66da4cf4df7136db497f7
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806741"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075336"
 ---
 <a name="make-your-virtual-machine-offer-live-on-azure-marketplace"></a>Proposer votre offre de machine virtuelle en direct sur la Place de marché Azure
 =========================================================
@@ -49,15 +49,15 @@ Nous allons étudier chacune des étapes de publication pour comprendre en quoi 
 
 **Valider les conditions préalables (\<1 jour)**
 
-Lorsque vous cliquez sur « Publier », une vérification automatique intervient pour confirmer que vous avez renseigné tous les champs obligatoires de votre offre. Si un champ n'est pas renseigné, un avertissement apparaît en regard de celui-ci. Complétez-le correctement, puis cliquez à nouveau sur « Publier ».
+Lorsque vous cliquez sur « Publier », une vérification automatique intervient pour confirmer que vous avez renseigné tous les champs obligatoires de votre offre. Si tous les champs ne sont pas renseignés, un avertissement s’affiche en regard du champ vide. Remplissez-le correctement, puis cliquez sur « Publier » à nouveau.
 
-Au terme de cette étape, une fenêtre contextuelle apparaît pour vous demander votre adresse de messagerie. Il s’agit de la messagerie sur laquelle vous recevrez les notifications d’état de publication pour le reste du processus de publication. Une fois l’adresse de messagerie communiquée, cette étape est terminée.
+Au terme de cette étape, une fenêtre contextuelle vous demande une adresse e-mail. Il s’agit de la messagerie sur laquelle vous recevrez les notifications d’état de publication pour le reste du processus de publication. Une fois l’adresse de messagerie communiquée, cette étape est terminée.
 
 ![Offre en direct - Séquence 4 - Publier votre offre](./media/cloud-partner-portal-offer-go-live-azure-marketplace/publishyouroffer.png)
 
 **Certification (\<5 jours)**
 
-Lors de cette étape, nous exécutons plusieurs tests afin de vérifier que votre image de machine virtuelle répond aux conditions de certification Azure. Vous trouverez [ici](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites) tous les conseils nécessaires pour remplir les conditions de certification.
+Lors de cette étape, nous exécutons plusieurs tests afin de vérifier que votre image de machine virtuelle répond aux conditions de certification Azure. Vous trouverez [ici](../cloud-partner-portal/virtual-machine/cpp-prerequisites.md) tous les conseils nécessaires pour remplir les conditions de certification.
 
 Cette étape pouvant prendre plusieurs jours, vous pouvez vous déconnecter du portail Microsoft Cloud Partner. Nous vous enverrons un e-mail de notification si des erreurs sont à résoudre. Si tout se passe correctement, le processus passe automatiquement à l’étape d’approvisionnement.
 
@@ -75,17 +75,17 @@ En outre, si vous avez configuré la fonctionnalité de génération de prospect
 
 Vous recevrez un e-mail de notification indiquant que votre offre a rempli toutes les étapes requises et qu’elle est désormais disponible en version préliminaire. Au cours de cette étape, il est recommandé d’afficher un aperçu de votre offre afin de vous assurer que tout se présente comme il convient et que votre machine virtuelle se déploie correctement dans l’environnement intermédiaire.
 
-**Seuls les abonnements figurant dans la liste approuvée peuvent procéder à cette vérification.**\*
+*Seuls les abonnements figurant dans la liste verte peuvent procéder à cette vérification.*
 
 **Validation de l’éditeur**
 
-Lorsque vous aurez vérifié que tous les éléments fonctionnent correctement en version préliminaire, vous êtes prêt à proposer votre offre en direct. Pour ce faire, cliquez sur Démarrer sous l’onglet État afin de lancer le processus permettant à votre offre de s’exécuter dans un environnement de production et sur le site web. En règle générale,plusieurs heures peuvent s’écouler entre le moment où vous cliquez sur le bouton Démarrer et le moment où votre offre est disponible en direct sur le site web. Nous vous enverrons un e-mail de notification lorsque votre offre sera officiellement disponible en direct sur le site web.
+Lorsque vous aurez vérifié que tous les éléments fonctionnent correctement en version préliminaire, vous êtes prêt à proposer votre offre en direct. Cliquez sur **Démarrer** sous l’onglet **État** afin de lancer le processus permettant à votre offre de s’exécuter dans un environnement de production et sur le site web. En règle générale,plusieurs heures peuvent s’écouler entre le moment où vous cliquez sur le bouton Démarrer et le moment où votre offre est disponible en direct sur le site web. Nous vous enverrons un e-mail de notification lorsque votre offre sera officiellement disponible en direct sur le site web.
 
 ![Offre en direct - Séquence 5 - Démarrer](./media/cloud-partner-portal-offer-go-live-azure-marketplace/golive.png)
 
 **En direct**
 
-Votre offre est désormais disponible en direct sur la Place de marché et sur le portail Azure, et les clients sont en mesure d’afficher et de déployer votre machine virtuelle dans leur abonnement Azure. À tout moment, vous pouvez cliquer sur l’onglet Toutes les offres et voir l’état de toutes vos offres répertorié dans la colonne de droite. Vous pouvez cliquer sur l’état pour afficher en détail l’état de flux de publication de votre offre.
+Votre offre est désormais disponible en direct sur la Place de marché Azure et sur le portail Azure. Les clients sont ainsi en mesure d’afficher et de déployer votre machine virtuelle dans leurs abonnements Azure. À tout moment, vous pouvez cliquer sur l’onglet Toutes les offres et voir l’état de toutes vos offres répertorié dans la colonne de droite. Vous pouvez cliquer sur l’état pour afficher en détail l’état de flux de publication de votre offre.
 
 <a name="error-handling"></a>Gestion des erreurs
 --------------
@@ -94,7 +94,7 @@ Une erreur peut se produire lors du processus de publication. Le cas échéant, 
 
 ![Offre en direct - Séquence 6 - Message d'erreur](./media/cloud-partner-portal-offer-go-live-azure-marketplace/errormessage.png)
 
-Si vous rencontrez des erreurs pendant le processus de publication, vous devez les corriger, puis cliquer sur « Publier » pour redémarrer le processus. Vous devez rependre au début des étapes de publication de la séquence Valider les conditions préalables lorsque vous republiez après avoir corrigé une erreur.
+Si vous rencontrez des erreurs pendant le processus de publication, vous devez corriger les problèmes, puis cliquer sur « Publier » pour redémarrer le processus. Vous devez rependre au début des étapes de publication de la séquence « Valider les conditions préalables » quand vous republiez après avoir corrigé une erreur.
 
 Si vous rencontrez des problèmes lors de la résolution d’une erreur, vous pouvez ouvrir une demande de support pour obtenir l’aide de nos ingénieurs du support technique.
 

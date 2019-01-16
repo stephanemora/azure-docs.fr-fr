@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 8e8cabe48f7f1036986a896d0449798f4aea2522
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 64011614c28fc2d94132e0bf4848b9a2c4fad599
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844564"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118322"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Supprimer des serveurs et désactiver la protection
 
@@ -126,7 +126,7 @@ Les hôtes Hyper-V non gérés par VMM sont rassemblés dans un site Hyper-V. Po
         }catch
         {    
             [system.exception]
-            Write-Host "Error occured" -ForegroundColor "Red"
+            Write-Host "Error occurred" -ForegroundColor "Red"
             $error[0]
             Write-Host "FAILED" -ForegroundColor "Red"
         }
@@ -138,7 +138,7 @@ Les hôtes Hyper-V non gérés par VMM sont rassemblés dans un site Hyper-V. Po
 
 1. Dans **Éléments protégés** > **Éléments répliqués**, cliquez avec le bouton droit sur la machine et sélectionnez **Désactiver la réplication**.
 2. Dans la page **Désactiver la réplication**, sélectionnez une des options suivantes :
-    - **Désactiver la réplication et supprimer (recommandé)** : cette option supprime l’élément répliqué d’Azure Site Recovery, puis la réplication de la machine est arrêtée. La configuration de la réplication sur le serveur de configuration est nettoyée et la facturation de Site Recovery pour ce serveur protégé est arrêtée.
+    - **Désactiver la réplication et supprimer (recommandé)** : cette option supprime l’élément répliqué d’Azure Site Recovery, puis la réplication de la machine est arrêtée. La configuration de la réplication sur le serveur de configuration est nettoyée et la facturation de Site Recovery pour ce serveur protégé est arrêtée. Notez que cette option peut uniquement être utilisée lorsque le serveur de configuration est à l’état Connecté.
     - **Supprimer** : cette option n’est censée être utilisée que si l’environnement source est supprimé ou est inaccessible (non connecté). Elle supprime l’élément répliqué d’Azure Site Recovery (la facturation est arrêtée). La configuration de la réplication sur le serveur de configuration **n’est pas** nettoyée. 
 
 > [!NOTE]

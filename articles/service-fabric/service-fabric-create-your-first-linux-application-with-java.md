@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 61b804b876c91b5fcd12ce15bd7e2438f5d897a0
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 923ba21574cce201c7b073b3078145239dd8c0ec
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617415"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121598"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Création de votre première application Java Service Fabric Reliable Actors
 > [!div class="op_single_selector"]
@@ -51,8 +51,8 @@ Pour prendre en main Reliable Actors, il vous suffit de comprendre quelques conc
 * **Interface d’acteur**. L’interface d’acteur est utilisée pour définir une interface publique fortement typée d’un acteur. Dans la terminologie du modèle Reliable Actor, l’interface d’acteur définit les types de messages que l’acteur peut comprendre et traiter. L’interface d’acteur est utilisée par d’autres acteurs et applications clientes pour « envoyer » (de façon asynchrone) des messages à l’acteur. Reliable Actors peut implémenter plusieurs interfaces.
 * **Classe ActorProxy**. La classe ActorProxy est utilisée par des applications clientes pour appeler les méthodes exposées par le biais de l’interface d’acteur. La classe ActorProxy fournit deux fonctionnalités importantes :
   
-  * Résolution de noms : elle est en mesure de localiser l’acteur dans le cluster (en recherchant le nœud du cluster dans lequel il est hébergé).
-  * Gestion des défaillances : elle peut retenter les appels de méthode et déterminer de nouveau l’emplacement de l’acteur après une défaillance qui, par exemple, nécessite le déplacement de l’acteur vers un autre nœud du cluster.
+  * Résolution de noms : Elle est en mesure de localiser l’acteur dans le cluster (rechercher le nœud du cluster dans lequel il est hébergé).
+  * Gestion des échecs : Elle peut retenter les appels de méthode et résoudre de nouveau l’emplacement de l’acteur après une défaillance qui nécessite le déplacement de l’acteur vers un autre nœud du cluster, par exemple.
 
 Les règles suivantes, qui se rapportent aux interfaces d’acteur, sont importantes :
 
@@ -179,7 +179,7 @@ public static void main(String[] args) throws Exception {
             ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new FabricActorService(context, actorType, (a,b)-> new HelloWorldActorImpl(a,b)), Duration.ofSeconds(10));
             Thread.sleep(Long.MAX_VALUE);
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Exception occured", e);
+            logger.log(Level.SEVERE, "Exception occurred", e);
             throw e;
         }
     }

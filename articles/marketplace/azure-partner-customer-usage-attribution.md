@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: fad023b7593b0e13b05d081a11333f5e92c8ecef
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: da8fd886afa6028959247caa0c6e007df20fdd1b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602169"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077740"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribution de l’utilisation de client partenaire Azure
 
@@ -36,10 +36,8 @@ L’attribution de l’utilisation de client est obligatoire pour tous les [mod�
 
 ## <a name="use-resource-manager-templates"></a>Utiliser des modèles Resource Manager
 
-De nombreuses solutions de partenaires sont déployées pour l’abonnement d’un client grâce aux modèles Resource Manager. Si vous disposez d’un modèle Resource Manager sur la Place de marché Azure, sur GitHub ou dans le cadre d’un démarrage rapide, le processus de modification de votre modèle pour activer cette nouvelle méthode de suivi doit être relativement simple. Si vous n’utilisez pas de modèle Azure Resource Manager, voici quelques liens pour vous aider à mieux comprendre les modèles Resource Manager et la manière d’en créer un : 
+De nombreuses solutions de partenaires sont déployées pour l’abonnement d’un client grâce aux modèles Resource Manager. Si vous disposez d’un modèle Resource Manager sur la Place de marché Azure, sur GitHub ou dans le cadre d’un démarrage rapide, le processus de modification de votre modèle pour activer cette nouvelle méthode de suivi doit être relativement simple. Pour plus d’informations, consultez [Créer et déployer votre premier modèle Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
 
-*   [Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
-*   [Guide de création d’un modèle de solution pour Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
 
 ## <a name="add-a-guid-to-your-template"></a>Ajouter un GUID à votre modèle
 
@@ -270,11 +268,15 @@ Microsoft permet aux partenaires de visualiser les déploiements de leurs modèl
 
 **Qui peut ajouter un GUID à un modèle ?**
 
-La ressource de suivi vise à connecter la solution du partenaire à l’utilisation d’Azure par les clients. Les données d’utilisation sont liées à l’identité Microsoft Partner Network d’un partenaire (ID MPN). 
+La ressource de suivi vise à connecter la solution du partenaire à l’utilisation d’Azure par les clients. Les données d’utilisation sont liées à l’identité Microsoft Partner Network d’un partenaire (ID MPN). La création de rapports est mise à la disposition des partenaires sur le portail Cloud Partner.
 
 **Une fois ajouté, un GUID peut-il être modifié ?**
  
 Oui, un client ou un partenaire d’implémentation peut personnaliser le modèle et modifier ou supprimer le GUID. Nous suggérons aux partenaires de décrire de façon proactive le rôle de la ressource et le GUID à leurs clients et partenaires pour empêcher la suppression ou la modification du GUID de suivi. La modification du GUID affecte uniquement les ressources et les déploiements nouveaux, qui n’existent pas.
+
+**Quand la création de rapports sera-t-elle disponible ?**
+
+Une version bêta de la création de rapports doit être disponible bientôt. La création de rapports sera intégrée sur le portail Cloud Partner.
 
 **Puis-je effectuer le suivi de modèles déployés à partir d’un dépôt autre que Microsoft tel que GitHub ?**
 

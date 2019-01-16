@@ -8,16 +8,21 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: bc311ca5c49584ae3715fa4507e1fd678bcc93bb
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: db37515926bf3872a1183467e0449035f7bf6097
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53007931"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54122834"
 ---
 Les tailles de machine virtuelle au GPU optimisé sont des machines virtuelles spécialisées disponibles avec des GPU NVIDIA uniques ou multiples. Ces tailles sont conçues pour des charges de travail de visualisation, mais également de calcul et d’affichage graphique intensifs. Cet article donne des informations sur le nombre et le type de GPU, de processeurs virtuels, de disques de données et de cartes réseau. Le débit de stockage et la bande passante réseau sont également inclus pour chacune des tailles de ce regroupement. 
 
 * Les tailles **NC, NCv2, NCv3, ND et NDv2** sont optimisées pour les algorithmes et les applications nécessitant beaucoup de ressources réseau et de calculs. En voici quelques exemples : les applications et les simulations CUDA et OpenCL, l’intelligence artificielle et l’apprentissage profond. Équipée du GPU Tesla V100 de NVIDIA, la série NCv3 est axée sur les charges de travail informatiques à hautes performances.  La série ND est destinée à l’exécution de scénarios d’apprentissage et d’inférence pour l’apprentissage profond. Elle utilise le GPU Tesla P40 de NVIDIA.
+
+* La **série NC** comprend un processeur Intel Xeon® E5-2690 v3 2,6 GHz.
+
+* Les tailles **NCSv3**, **NCSv2** et **ND** comprennent un processeur Intel Xeon® E5-2690 v4 2,6 GHz.
+                      
 * Les tailles **NV et NVv2** sont optimisées et conçues pour la visualisation à distance, la diffusion en continu, les jeux, l’encodage et les scénarios de VDI utilisant des infrastructures comme OpenGL ou DirectX.  Ces machines virtuelles reposent sur le GPU Tesla M60 de NVIDIA.
 
 

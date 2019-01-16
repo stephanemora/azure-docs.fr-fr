@@ -10,16 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e8a09a9fc87bff692b5d5b4c54f87839f2591b63
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: ce1bcb26b3a3510b22ced57471016999156bb0cf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086945"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040657"
 ---
-# <a name="how-to-configure-password-writeback"></a>Comment : configurer la réécriture du mot de passe
-
-Nous vous recommandons d’utiliser la fonctionnalité de mise à jour d’[Azure AD Connect](../hybrid/how-to-connect-install-express.md) lors de l’utilisation de la réécriture du mot de passe.
+# <a name="how-to-configure-password-writeback"></a>Procédure : Configuration de l’écriture différée du mot de passe
 
 Les étapes suivantes partent du principe que vous avez déjà configuré Azure AD Connect dans votre environnement à l’aide des paramètres [Express](../hybrid/how-to-connect-install-express.md) ou [Personnalisé](../hybrid/how-to-connect-install-custom.md).
 
@@ -38,7 +36,25 @@ Pour apprendre à connaître les tâches de dépannage courantes associées à l
 > [!WARNING]
 > La réécriture du mot de passe ne fonctionnera plus pour les clients qui utilisent les versions d’Azure AD Connect 1.0.8641.0 et antérieures quand [Azure Access Control Service (ACS) sera mis hors service le 7 novembre 2018](../develop/active-directory-acs-migration.md). Les versions d’Azure AD Connect 1.0.8641.0 et antérieures cesseront alors d’autoriser la réécriture du mot de passe, car elles dépendent d’ACS pour cette fonctionnalité.
 >
-> Pour éviter une interruption de service, effectuez une mise à niveau depuis une version antérieure d’Azure AD Connect vers une version plus récente ; consultez l’article [Azure AD Connect : effectuer une mise à niveau vers la dernière version](../hybrid/how-to-upgrade-previous-version.md).
+> Pour éviter une interruption de service, effectuez une mise à niveau depuis une version antérieure d’Azure AD Connect vers une version plus récente ; consultez l’article [Azure AD Connect : Effectuer une mise à niveau vers la dernière version](../hybrid/how-to-upgrade-previous-version.md).
+>
+
+## <a name="licensing-requirements-for-password-writeback"></a>Conditions de licence pour la réécriture du mot de passe
+
+**Réinitialisation/modification/déverrouillage de mot de passe libre-service avec écriture différée locale est une fonctionnalité Premium d’Azure AD**. Pour plus d’informations sur les licences, consultez la [page des tarifs Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Pour que vous puissiez utiliser la réécriture du mot de passe, il faut que l’une des licences suivantes soit attribué sur votre locataire :
+
+* Azure AD Premium P1
+* Azure AD Premium P2
+* Enterprise Mobility + Security E3 ou A3
+* Enterprise Mobility + Security E5 ou A5
+* Microsoft 365 E3 ou A3
+* Microsoft 365 E5 ou A5
+* Microsoft 365 F1
+
+> [!WARNING]
+> Les plans de licences Office 365 édition autonome *ne prennent pas en charge « les réinitialisation/modification/déverrouillage de mot de passe libre-service avec réécriture locale »* et nécessitent l’un des plans précédents pour que cette fonctionnalité soit opérationnelle.
 >
 
 ## <a name="active-directory-permissions"></a>Autorisations Active Directory

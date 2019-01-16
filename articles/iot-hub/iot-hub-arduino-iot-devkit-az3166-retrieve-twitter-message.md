@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 722f350c4f11648753465e302e84949fc340e281
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: f488f8aa991b3d4baae05097af9b6e2f2db481cc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42144785"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158922"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Secouez, secouez pour récupérer un tweet - Récupérez un message Twitter avec Azure Functions
 
@@ -52,7 +52,7 @@ Commencez par ouvrir le dossier du projet.
 Développez la section **EXEMPLES ARDUINO** à gauche, accédez à **Exemples pour MXCHIP AZ3166 > AzureIoT** et sélectionnez **ShakeShake**. Une nouvelle fenêtre VS Code s’ouvre, dans laquelle apparaît le dossier de projet. Si vous ne trouvez pas la section MXCHIP AZ3166, vérifiez que votre appareil est correctement connecté et redémarrez Visual Studio Code.  
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-Vous pouvez également ouvrir l’exemple de projet à partir de la palette de commandes. Cliquez sur `Ctrl+Shift+P` (macOS : `Cmd+Shift+P`) pour ouvrir la palette de commandes, tapez **Arduino**, puis recherchez et sélectionnez **Arduino : Exemples**.
+Vous pouvez également ouvrir l’exemple de projet à partir de la palette de commandes. Cliquez sur `Ctrl+Shift+P` (macOS : `Cmd+Shift+P`) pour ouvrir la palette de commandes, tapez **Arduino**, puis recherchez et sélectionnez **Arduino : Exemples**.
 
 ## <a name="provision-azure-services"></a>Approvisionner les services Azure
 
@@ -88,7 +88,7 @@ Utilisez `Ctrl+P` (macOS: `Cmd+P`) pour exécuter `task cloud-deploy` et commenc
 
 Ensuite, générez et chargez le code de l’appareil.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 1. Utilisez `Ctrl+P` pour exécuter `task device-upload`.
 
@@ -118,7 +118,7 @@ Une fois la chaîne de connexion définie, il vérifie et charge l’application
 
 2. Le DevKit redémarre et commence à exécuter le code.
 
-Vous risquez d’obtenir un message d’erreur « Error: AZ3166: Unknown package » (Erreur : AZ3166 : Package inconnu). Cette erreur se produit lorsque l’index du package de la carte n’est pas actualisé correctement. Pour résoudre ce problème, consultez [l’erreur « package inconnu » dans le FAQ sur le DevKit IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+Vous risquez d’obtenir un message d’erreur « Erreur : AZ3166 : package inconnu ». Cette erreur se produit lorsque l’index du package de la carte n’est pas actualisé correctement. Pour résoudre ce problème, consultez [l’erreur « package inconnu » dans le FAQ sur le DevKit IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Tester le projet
 
@@ -157,7 +157,7 @@ Après l’initialisation de l’application, cliquez sur le bouton A, puis rel�
 
 L’ébauche de projet Arduino envoie un événement à Azure IoT Hub. Cet événement déclenche l’application Azure Functions. L’application Azure Functions contient la logique pour se connecter à l’API Twitter et récupérer un tweet. Ensuite, elle inclut dans un wrapper le texte du tweet dans un message cloud-à-appareil et le renvoie à l’appareil.
 
-## <a name="optional-use-your-own-twitter-bearer-token"></a>Facultatif : utiliser votre propre jeton de porteur Twitter
+## <a name="optional-use-your-own-twitter-bearer-token"></a>Facultatif : utilisez votre propre jeton de porteur Twitter
 
 À des fins de test, cet exemple de projet utilise un jeton de porteur Twitter préconfiguré. Toutefois, il existe une [limite de fréquence](https://dev.twitter.com/rest/reference/get/search/tweets) pour chaque compte Twitter. Si vous souhaitez utiliser votre propre jeton, procédez comme suit :
 
@@ -167,7 +167,7 @@ L’ébauche de projet Arduino envoie un événement à Azure IoT Hub. Cet évé
 
 3. Utilisez [un utilitaire](https://gearside.com/nebula/utilities/twitter-bearer-token-generator/) pour générer un jeton de porteur Twitter à partir de ces deux clés.
 
-4. Dans le [portail Azure](https://portal.azure.com/){:target="_blank"}, accédez au **Groupe de ressources** et recherchez la fonction Azure (Type : App Service) pour votre projet « Shake, Shake ». Le nom contient toujours la chaîne « shake... ».
+4. Dans le [portail Azure](https://portal.azure.com/){:target="_blank"}, accédez au **Groupe de ressources** et recherchez la fonction Azure (Type : App Service) pour votre projet « Shake, Shake ». Le nom contient toujours la chaîne « shake... ».
 
    ![azure-function](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
 
@@ -202,7 +202,7 @@ Ou bien, lorsque vous exécutez le code, certains blocages entrainent un redéma
 Si vous rencontrez d’autres problèmes, consultez le [FAQ sur le DevKit IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) ou contactez-nous par le biais des canaux suivants :
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Dépassement de capacité de la pile](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

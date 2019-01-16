@@ -1,68 +1,49 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: da46b78d764465d8b9e5ce438b0843e0b79e16a9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 9fe3efba6cc18839f7d65d2f19dfb165bbdecc05
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271145"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331280"
 documentType: LandingData
 title: Documentation du service Azure Machine Learning
 metadata:
   title: Documentation - Service Azure Machine Learning - Tutoriels, informations de référence sur les API | Microsoft Docs
   description: Découvrez comment gérer des algorithmes intelligents dans vos applications et vos sites. Utilisez Scikit-learn, Tensorflow, Pytorch ou toute autre infrastructure fondée sur Python pour générer votre modèle d’apprentissage automatique et effectuez son apprentissage localement ou dans le cloud. Ces tutoriels, démarrages rapides, références d’API et exemples vous montrent comment.
   services: machine-learning
-  author: j-martens
-  manager: jhubbard
   ms.service: machine-learning
   ms.component: core
+  ms.topic: landing-page
+  manager: jhubbard
+  author: j-martens
+  ms.author: jmartens
+  ms.date: 12/04/2018
+  ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 12/04/2018
-  ms.author: jmartens
-  ms.custom: seodec18
 abstract:
   description: Découvrez comment gérer des algorithmes intelligents dans vos applications et vos sites. Utilisez Scikit-learn, Tensorflow, Pytorch ou toute autre infrastructure fondée sur Python pour générer votre modèle d’apprentissage automatique et effectuez son apprentissage localement ou dans le cloud. Ces tutoriels, démarrages rapides, références d’API et exemples vous montrent comment.
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Commencer à découvrir le service Azure Machine Learning
-      href: /azure/machine-learning/service/overview-what-is-azure-ml
-      image:
-        src: /azure/machine-learning/media/index/i_machine-learning.svg
-        href: /azure/machine-learning/service/overview-what-is-azure-ml
 - title: Démarrages en 5 minutes
   items:
   - type: paragraph
-    text: Configurez vos ressources pour le service Azure Machine Learning.
+    text: 'Découvrez comment configurer l’espace de travail et les ressources pour le service Azure Machine Learning à l’aide d’un guide de démarrage rapide :'
   - type: list
     style: unordered
     items:
-    - html: <a href="quickstart-get-started.md">Bien démarrer dans le portail Azure</a>
-    - html: <a href="quickstart-create-workspace-with-python.md">Bien démarrer avec Python</a>
+    - html: Bien démarrer avec le <a href="quickstart-get-started">portail Azure</a>.
+    - html: Bien démarrer avec <a href="quickstart-create-workspace-with-python">Python</a>.
 - title: Didacticiels pas à pas
   items:
   - type: paragraph
-    text: Découvrez comment configurer une expérience et rendre vos modèles opérationnels.
-  - type: paragraph
-    text: <b>Tutoriel sur la classification des images avec des données MNIST :</b>
+    text: 'Découvrez comment préparer les données, configurer les expériences et opérationnaliser vos modèles Machine Learning :'
   - type: list
     style: unordered
     items:
-    - html: Partie 1 &#58; <a href="tutorial-train-models-with-aml">Entraîner votre propre modèle Machine learning automatique</a>
-    - html: Partie 2 &#58; <a href="tutorial-deploy-models-with-aml">Déployer ce modèle</a>
+    - html: <a href="tutorial-train-models-with-aml">Entraîner et déployer des modèles de classification d’images</a> (<b>série en deux parties</b>).
+    - html: <a href="tutorial-data-prep">Préparer les données et utiliser le machine learning automatisé</a> pour entraîner et adapter les modèles de régression (<b>série en deux parties</b>).<br>&nbsp;
   - type: paragraph
-    text: <b>Tutoriel de modélisation de régression avec des données NYC Taxi :</b>
-  - type: list
-    style: unordered
-    items:
-    - html: Partie 1 &#58; <a href="tutorial-data-prep">Préparer des données NYC Taxi pour la modélisation</a>
-    - html: Partie 2 &#58; <a href="tutorial-auto-train-models">Utiliser le machine learning automatisé pour générer des modèles</a>
-  - type: paragraph
-    text: '<b>Exemples de bloc-notes</b> : Explorez le service avec les bloc-notes suivants : <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://aka.ms/aml-notebooks">Bloc-notes Jupyter</a> sur GitHub.'
+    text: '<b>Exemples</b> : Explorer le service avec ces <a href="https://aka.ms/aml-notebooks">notebooks Jupyter</a> sur GitHub.'
 - title: Informations de référence
   items:
   - type: list

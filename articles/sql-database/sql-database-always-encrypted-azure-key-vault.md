@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: e0971b6b9b8460447d383d238843d4bdddc912f7
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.date: 01/03/2019
+ms.openlocfilehash: e988a3c86302b875f8393264279e4a65c45ba1eb
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958973"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041235"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted : protéger les données sensibles et stocker les clés de chiffrement dans Azure Key Vault
 
@@ -60,6 +60,7 @@ Vous pouvez rapidement créer un coffre de clés en exécutant le script suivant
     $userPrincipalName = '<username@domain.com>'
     $applicationId = '<application ID from your AAD application>'
     $resourceGroupName = '<resource group name>'
+    # Use the same resource group name when creating your SQL Database below
     $location = '<datacenter location>'
     $vaultName = 'AeKeyVault'
 
@@ -132,7 +133,7 @@ SSMS intègre un Assistant pour vous aider à configurer facilement le chiffreme
    
     ![Chiffrer les colonnes](./media/sql-database-always-encrypted-azure-key-vault/encrypt-columns.png)
 
-L’Assistant Always Encrypted comprend les sections suivantes : **Sélection de colonne**, **Configuration de la clé principale**, **Validation** et **Résumé**.
+L’Assistant Always Encrypted comprend les sections suivantes : **Sélection de la colonne**, **Configuration de la clé principale**, **Validation** et **Résumé**.
 
 ### <a name="column-selection"></a>Sélection de colonnes
 Dans la page **Introduction**, cliquez sur **Suivant** pour ouvrir la page **Sélection de colonne**. Dans cette page, sélectionnez les colonnes à chiffrer, [le type de chiffrement et la clé de chiffrement de colonne (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) à utiliser.
@@ -635,5 +636,5 @@ Après avoir créé une base de données utilisant le chiffrement intégral, vou
 * [Chiffrement transparent des données](https://msdn.microsoft.com/library/bb934049.aspx)
 * [Chiffrement SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Assistant Chiffrement intégral](https://msdn.microsoft.com/library/mt459280.aspx)
-* [Blog Chiffrement intégral](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+* [Blog Chiffrement intégral](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 

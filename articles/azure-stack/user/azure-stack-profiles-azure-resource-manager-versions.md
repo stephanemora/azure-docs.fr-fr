@@ -10,29 +10,30 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: bc57d445c334baeb32dbffda814cb10a35956d03
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d1b15e634cae0758f1f872750ffd9dd569e83a8e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380214"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036237"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versions des API du fournisseur de ressources prises en charge par des profils dans Azure Stack
 
 Vous pouvez trouver le fournisseur de ressources et les numéros de version pour chaque profil d’API utilisé par Azure Stack dans cet article. Les tableaux de cet article répertorient les versions prises en charge pour chaque fournisseur de ressources et les versions API des profils. Chaque fournisseur de ressources contient un ensemble de types de ressources et de numéros de version spécifiques.
 
 Le profil de l’API utilise trois conventions d’affectation de noms :
- - le plus récent
- - yyyy-mm-dd-hybrid
- - yyyy-mm-dd-profile
+
+ - **le plus récent**
+ - **yyyy-mm-dd-hybrid**
+ - **yyyy-mm-dd-profile**
 
 Pour obtenir une explication des profils d’API et de la cadence de publication de versions pour Azure Stack, consultez [Gérer les profils de version des API dans Azure Stack](azure-stack-version-profiles.md).
 
 > [!Note]  
-> Le **dernier** profil d’API contient la dernière version du fournisseur de ressources et n’est pas répertorié dans cet article.
+> Le **dernier** profil d’API contient la dernière version de l’API de fournisseur de ressources et n’est pas listé dans cet article.
 
 ## <a name="overview-of-2018--03-01-hybrid"></a>Vue d’ensemble de 2018-03-01-hybride
 
@@ -76,13 +77,13 @@ Pour une liste des versions pour chaque type de ressource pour les fournisseurs 
 | Resources_Locks | 2016-09-01 |
 | Abonnements | 2016-06-1 |
 
-Pour une liste des versions pour chaque type de ressource pour les fournisseurs dans le profil de l’API, consultez [Détails pour 2018-03-01-hybrid](#details-for-the-2018-03-01-hybrid)
+Pour une liste des versions de chaque type de ressource pour les fournisseurs dans le profil de l’API, consultez la prochaine section.
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Détails de 2018-03-01-hybride
 
 ### <a name="microsoftauthorization"></a>Microsoft.Authorization
 
-Vous utilisez le contrôle d’accès en fonction du rôle pour gérer les actions que les utilisateurs de votre organisation peuvent entreprendre sur les ressources. Cet ensemble d’opérations vous permet de définir des rôles, d’assigner des rôles aux utilisateurs ou aux groupes, et d’obtenir des informations sur les autorisations. Pour plus d’informations, consultez [Autorisation](https://docs.microsoft.com/rest/api/authorization/).
+Vous utilisez le contrôle d’accès en fonction du rôle pour gérer les actions que les utilisateurs de votre organisation peuvent entreprendre sur les ressources. Cet ensemble d’opérations vous permet de définir des rôles, d’assigner des rôles aux utilisateurs ou aux groupes, et d’obtenir des informations sur les autorisations. Pour plus d’informations, consultez [Autorisation](/rest/api/authorization/).
 
 | Types de ressources | Versions des API |
 |---------------------|--------------------|
@@ -108,7 +109,7 @@ Vous utilisez le contrôle d’accès en fonction du rôle pour gérer les actio
 
 ### <a name="microsoftcompute"></a>Microsoft.Compute
 
-Les API de calcul Azure vous donnent un accès par programme aux machines virtuelles et à leurs ressources connexes. Pour plus d’informations, consultez [Calcul Azure](https://docs.microsoft.com/rest/api/compute/).
+Les API de calcul Azure vous donnent un accès par programme aux machines virtuelles et à leurs ressources connexes. Pour plus d’informations, consultez [Calcul Azure](/rest/api/compute/).
 
 | Type de ressource | Version de l'API |
 |---------------------------------------------------------------|-------------|
@@ -155,7 +156,7 @@ Les API de calcul Azure vous donnent un accès par programme aux machines virtue
 
 ### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
-Gestion de vos coffres de clés, ainsi que des clés, des secrets et des certificats dans vos coffres de clés. Pour plus d’informations, consultez les [informations de référence sur l’API REST Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/).
+Gestion de vos coffres de clés, ainsi que des clés, des secrets et des certificats dans vos coffres de clés. Pour plus d’informations, consultez les [informations de référence sur l’API REST Azure Key Vault](/rest/api/keyvault/).
 
 | Types de ressources | Versions des API |
 |-------------------------|--------------|
@@ -166,7 +167,7 @@ Gestion de vos coffres de clés, ainsi que des clés, des secrets et des certifi
 
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
-Le résultat de l’appel des opérations est une représentation sous forme de liste des opérations cloud du réseau disponible. Pour plus d’informations, consultez [API REST Operation](https://docs.microsoft.com/rest/api/operation/).
+Le résultat de l’appel des opérations est une représentation sous forme de liste des opérations cloud du réseau disponible. Pour plus d’informations, consultez [API REST Operation](/rest/api/operation/).
 
 | Types de ressources | Versions des API |
 |---------------------------|--------------|
@@ -188,7 +189,7 @@ Le résultat de l’appel des opérations est une représentation sous forme de 
 
 ### <a name="microsoftresources"></a>Microsoft.Resources
 
-Azure Resource Manager vous permet de déployer et de gérer l’infrastructure pour vos solutions Azure. Vous organisez les ressources associées dans des groupes de ressources et vous déployez vos ressources avec des modèles JSON. Pour découvrir le déploiement et la gestion des ressources avec Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+Azure Resource Manager vous permet de déployer et de gérer l’infrastructure pour vos solutions Azure. Vous organisez les ressources associées dans des groupes de ressources et vous déployez vos ressources avec des modèles JSON. Pour une introduction au déploiement et à la gestion des ressources avec Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 | Types de ressources | Versions des API |
 |-----------------------------------------|-------------------|
@@ -220,7 +221,7 @@ Azure Resource Manager vous permet de déployer et de gérer l’infrastructure 
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
 
-Le fournisseur de ressources de stockage (SRP) vous permet de gérer par programme votre compte de stockage et vos clés. Pour plus d’informations, consultez [Informations de référence sur l’API REST du fournisseur de ressources de stockage Azure](https://docs.microsoft.com/rest/api/storagerp/).
+Le fournisseur de ressources de stockage (SRP) vous permet de gérer par programme votre compte de stockage et vos clés. Pour plus d’informations, consultez [Informations de référence sur l’API REST du fournisseur de ressources de stockage Azure](/rest/api/storagerp/).
 
 | Types de ressources | Versions des API |
 |-------------------------|--------------|

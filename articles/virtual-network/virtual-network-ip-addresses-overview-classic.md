@@ -1,13 +1,10 @@
 ---
-title: Types d’adresses IP dans Azure (classique) | Microsoft Docs
+title: Types d’adresse IP dans Azure (Classic)
+titlesuffix: Azure Virtual Network
 description: Découvrez plus en détail les adresses IP publiques et privées (Classic) dans Azure.
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 2f8664ab-2daf-43fa-bbeb-be9773efc978
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 81699764952e50cb18c1f299c9c4f7c524b0a332
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f96ac14d68d98937cf230b04b45503e21c5e0187
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011682"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024567"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Types d’adresses IP et méthodes d’allocation (classiques) dans Azure
 Vous pouvez affecter des adresses IP à des ressources Azure pour communiquer avec d’autres ressources Azure, votre réseau local et Internet. Les adresses IP que vous pouvez utiliser dans Azure sont de deux types : publiques et privées.
@@ -44,7 +41,7 @@ Une adresse IP publique est associée aux types de ressources suivants :
 * Passerelles d’application
 
 ### <a name="allocation-method"></a>Méthode d’allocation
-Lorsqu'une adresse IP publique doit être affectée à une ressource Azure, elle est *dynamiquement* allouée à partir d'un pool d'adresses IP publiques disponibles dans l'emplacement où la ressource est créée. Cette adresse IP est libérée lorsque la ressource est arrêtée. Dans le cas d’un service cloud, cela se produit lorsque toutes les instances de rôle sont arrêtées, ce qui peut être évité en utilisant une adresse IP *statique* (réservée) (voir [Services cloud](#Cloud-services)).
+Lorsqu'une adresse IP publique doit être affectée à une ressource Azure, elle est *dynamiquement* allouée à partir d'un pool d'adresses IP publiques disponibles dans l'emplacement où la ressource est créée. Cette adresse IP est libérée lorsque la ressource est arrêtée. Dans le cas d’un service cloud, cela se produit quand toutes les instances de rôle sont arrêtées, ce qui peut être évité en utilisant une adresse IP *statique* (réservée) (consultez [Services cloud](#Cloud-services)).
 
 > [!NOTE]
 > La liste des plages d’adresses IP à partir desquelles les adresses IP publiques sont allouées à des ressources Azure est publiée dans [Plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -52,7 +49,7 @@ Lorsqu'une adresse IP publique doit être affectée à une ressource Azure, elle
 > 
 
 ### <a name="dns-hostname-resolution"></a>Résolution de nom d’hôte DNS
-Lorsque vous créez un service cloud ou une VM IaaS, vous devez fournir un nom DNS du service cloud unique pour toutes les ressources dans Azure. Ce processus crée un mappage dans les serveurs DNS gérés par Azure pour *dnsname*.cloudapp.net à l'adresse IP publique de la ressource. Par exemple, quand vous créez un service cloud avec le nom DNS de service cloud **contoso**, le nom de domaine complet (FQDN) **contoso.cloudapp.net** est résolu en adresse IP publique (VIP) du service cloud. Vous pouvez utiliser ce nom de domaine complet pour créer un enregistrement CNAME de domaine personnalisé qui pointe vers l’adresse IP publique dans Azure.
+Quand vous créez un service cloud ou une machine virtuelle IaaS, vous devez fournir un nom DNS de service cloud unique pour toutes les ressources dans Azure. Ce processus crée un mappage dans les serveurs DNS gérés par Azure pour *dnsname*.cloudapp.net à l'adresse IP publique de la ressource. Par exemple, quand vous créez un service cloud ayant le nom DNS de service cloud **contoso**, le FQDN (nom de domaine complet) **contoso.cloudapp.net** est résolu en VIP (adresse IP virtuelle) publique du service cloud. Vous pouvez utiliser ce nom de domaine complet pour créer un enregistrement CNAME de domaine personnalisé qui pointe vers l’adresse IP publique dans Azure.
 
 ### <a name="cloud-services"></a>Services cloud
 Un service cloud dispose toujours d’une adresse IP publique appelée adresse IP virtuelle (VIP). Vous pouvez créer des points de terminaison dans un service cloud pour associer des ports différents dans l'adresse IP virtuelle pour les ports internes sur les machines virtuelles et les instances de rôle au sein du service cloud. 
@@ -63,9 +60,9 @@ Vous pouvez vérifier que l’adresse IP publique d’un service cloud reste la
 
 Les adresses IP publiques (réservées) statiques sont fréquemment utilisées dans les scénarios où un service cloud :
 
-* nécessite des règles de pare-feu pour être configuré par des utilisateurs finaux ;
+* Nécessite des règles de pare-feu pour être configuré par les utilisateurs finaux
 * varie selon la résolution de noms DNS externe (une adresse IP dynamique nécessite la mise à jour des enregistrements A) ;
-* consomme les services web externes qui utilisent le modèle de sécurité basé sur IP ;
+* Consomme les services web externes qui utilisent le modèle de sécurité basé sur IP
 * utilise des certificats SSL liés à une adresse IP.
 
 > [!NOTE]
@@ -107,7 +104,7 @@ Dans le modèle de déploiement d'Azure Classic, une adresse IP privée peut êt
 * passerelle d’application
 
 ### <a name="iaas-vms-and-paas-role-instances"></a>Instances de rôle des machines virtuelles IaaS et PaaS
-Les machines virtuelles (VM) créées avec le modèle de déploiement classique sont toujours placées dans un service cloud, de même que les instances de rôle PaaS. Le comportement des adresses IP privées sont donc identiques pour ces ressources.
+Les machines virtuelles (VM) créées avec le modèle de déploiement classique sont toujours placées dans un service cloud, de même que les instances de rôle PaaS. Le comportement des adresses IP privées est donc similaire pour ces ressources.
 
 Il est important de noter qu'un service cloud peut être déployé de deux manières :
 
@@ -130,7 +127,7 @@ Les adresses IP privées statiques sont couramment utilisées pour :
 #### <a name="internal-dns-hostname-resolution"></a>Résolution du nom d’hôte DNS interne
 Toutes instances de rôle PaaS et les machines virtuelles Azure sont configurées avec des [serveurs DNS gérés par Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) par défaut, sauf si vous configurez explicitement des serveurs DNS personnalisés. Ces serveurs DNS assurent la résolution de noms interne pour les machines virtuelles et les instances de rôle qui résident dans le même VNet ou service cloud.
 
-Lorsque vous créez une machine virtuelle, un mappage du nom d’hôte à son adresse IP privée est ajouté aux serveurs DNS gérés par Azure. Dans le cas d’une machine virtuelle dotée de plusieurs cartes d’interface réseau, le nom d’hôte est mappé à l’adresse IP privée de la carte réseau principale. Toutefois, ces informations de mappage sont limitées aux ressources au sein du même service cloud ou du même VNet.
+Lorsque vous créez une machine virtuelle, un mappage du nom d’hôte à son adresse IP privée est ajouté aux serveurs DNS gérés par Azure. Dans le cas d’une machine virtuelle dotée de plusieurs cartes d’interface réseau, le nom d’hôte est mappé à l’adresse IP privée de la carte réseau principale. Toutefois, ces informations de mappage sont limitées aux ressources au sein du même service cloud ou du même VNet.
 
 Dans le cas d'un service cloud *autonome* , vous serez en mesure de résoudre les noms d'hôtes de toutes les instances de rôle ou de toutes les machines virtuelles dans le même service cloud. Dans le cas d'un service cloud dans un VNet, vous serez en mesure de résoudre les noms d'hôtes de toutes les instances de rôle ou de toutes les machines virtuelles dans le même VNet.
 

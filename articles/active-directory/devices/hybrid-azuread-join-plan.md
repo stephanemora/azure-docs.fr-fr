@@ -1,5 +1,5 @@
 ---
-title: Comment configurer des appareils hybrides joints à Azure Active Directory | Microsoft Docs
+title: Guide pratique pour planifier l’implémentation de la jonction Azure AD Hybride dans Azure Active Directory (Azure AD) | Microsoft Docs
 description: Découvrez comment configurer des appareils hybrides joints à Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c951d4f646fdaec9731ec4b6320e5f625ad91a42
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: bddd183c517c611373afd1df64f22bfcd6a0cea8
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993281"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102276"
 ---
-# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Guide pratique pour planifier l’implémentation de la jointure Azure Active Directory hybride
+# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
-De façon comparable à un utilisateur, un appareil devient une autre identité qu’il faut protéger et également utiliser pour protéger les ressources partout et à tout instant. Vous pouvez atteindre cet objectif en intégrant les identités de vos appareils à Azure AD suivant l’une des méthodes ci-dessous :
+À l’instar d’un utilisateur, un appareil devient une autre identité que vous souhaitez protéger et aussi utiliser pour protéger vos ressources à tout moment et en tout lieu. Vous pouvez atteindre cet objectif en intégrant les identités de vos appareils à Azure AD suivant l’une des méthodes ci-dessous :
 
 - jointure Azure AD ;
 - jointure Azure AD hybride ;
@@ -54,7 +54,6 @@ Pour planifier votre implémentation Azure AD hybride, prenez connaissance de ce
 
 
  
-
 
 ## <a name="review-supported-devices"></a>Vérifier les appareils pris en charge 
 
@@ -112,6 +111,11 @@ Si votre organisation a besoin d’accéder à Internet via un proxy sortant aut
 
 La jointure Azure AD hybride est un processus qui consiste à inscrire automatiquement auprès d’Azure AD des appareils joints au domaine local. Si vous ne souhaitez pas que tous vos appareils s’inscrivent automatiquement, voir [Guide pratique pour contrôler la jointure Azure AD hybride de vos appareils](hybrid-azuread-join-control.md).
 
+Si vos appareils joints au domaine Windows 10 sont déjà [inscrits auprès d’Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices) sur votre locataire, vous devriez envisager la suppression de cet état avant d’activer la jonction Azure AD Hybride. Le double état d’un appareil, à la fois être une jonction Azure AD Hybride et inscrit auprès d’Azure AD, n’est pas pris en charge. À partir de la version 1809 de Windows 10, les modifications suivantes ont été apportées pour éviter ce double état : 
+ - Tout état existant inscrit à Azure AD est automatiquement supprimé dès lors que l’appareil est joint à Azure AD Hybride. 
+ - Vous pouvez éviter que votre appareil joint au domaine soit inscrit à Azure AD en ajoutant cette clé de Registre - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001
+
+
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Guide pratique pour contrôler la jointure Azure AD hybride de vos appareils
 
 La jointure Azure AD hybride est un processus qui consiste à inscrire automatiquement auprès d’Azure AD des appareils joints au domaine local. Il existe des cas où vous ne souhaitez pas que tous vos appareils s’inscrivent automatiquement. Cela est vrai, par exemple, lors du déploiement initial pour vérifier que tout fonctionne conformément à ce qui est attendu.
@@ -144,15 +148,15 @@ Depuis la version 1.1.819.0, Azure AD Connect comporte un Assistant permettant d
  Si vous n’avez pas la possibilité d’installer la version requise d’Azure AD Connect, consultez le [Guide pratique pour configurer manuellement l’inscription des appareils](../device-management-hybrid-azuread-joined-devices-setup.md). 
 
 
-## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Prise en charge des ID de connexion de substitution dans une jointure hybride Azure AD
+## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Prise en charge des ID de connexion de substitution dans une jonction Azure AD Hybride
 
-Une jointure hybride Azure AD Windows 10 offre une prise en charge limitée pour les [ID de connexion de substitution](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) en fonction du type d’ID de connexion de substitution, de la [méthode d’authentification](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), du type de domaine et de la version de Windows 10. Deux types d’ID de connexion de substitution peuvent exister au sein de votre environnement.
+Une jonction Azure AD Hybride Windows 10 offre une prise en charge limitée des [ID de connexion de substitution](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) en fonction du type d’ID de connexion de substitution, de la [méthode d’authentification](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), du type de domaine et de la version de Windows 10. Deux types d’ID de connexion de substitution peuvent exister au sein de votre environnement :
 
- - ID de connexion de substitution routable : Un ID de connexion de substitution routable possède un domaine valide vérifié, inscrit auprès d’un bureau d’enregistrement de domaines. Par exemple, si contoso.com est le domaine principal, contoso.org et contoso.co.uk sont des domaines valides appartenant à Contoso et [vérifiés dans Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+ - ID de connexion de substitution routable : un ID de connexion de substitution routable possède un domaine vérifié valide, qui est inscrit auprès d’un bureau d’enregistrement de domaines. Par exemple, si contoso.com est le domaine principal, contoso.org et contoso.co.uk sont des domaines valides appartenant à Contoso et [vérifiés dans Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
- - ID de connexion de substitution non routable : Un ID de connexion de substitution non routable ne possède pas un domaine vérifié. Il est applicable uniquement au sein du réseau privé de votre organisation. Par exemple, si contoso.com est le domaine primaire, contoso.local n’est pas un domaine vérifiable sur internet mais il est utilisé au sein du réseau de Contoso.
+ - ID de connexion de substitution non routable : un ID de connexion de substitution non routable ne dispose pas d’un domaine vérifié. Il est applicable uniquement au sein du réseau privé de votre organisation. Par exemple, si contoso.com est le domaine primaire, contoso.local n’est pas un domaine vérifiable sur internet mais il est utilisé au sein du réseau de Contoso.
  
-Le tableau ci-dessous fournit des détails sur la prise en charge de ces ID de connexion de substitution au sein d’une jointure hybride Azure AD Windows 10
+Le tableau ci-dessous fournit des détails sur la prise en charge de ces ID de connexion de substitution dans une jonction Windows 10 Azure AD Hybride
 
 |Type d’ID de connexion de substitution|Type de domaine|version Windows 10|Description|
 |-----|-----|-----|-----|

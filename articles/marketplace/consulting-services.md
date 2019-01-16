@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: dbd97ba8faacdc387a6e0b78c206f65a201ca246
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 85f88d9234acbb1831ea76188d06ef47199703ca
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261545"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074085"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Services de conseil dans la Place de marché Azure et AppSource
 Les services de conseil dans la Place de marché Azure et AppSource permettent aux partenaires Microsoft de connecter les clients à des services pour gérer et étendre leur utilisation d’Azure en fonction de leurs besoins professionnels. 
@@ -66,8 +66,8 @@ Les partenaires doivent avoir une **compétence Silver ou Gold** dans le domaine
 |Produit principal |Condition d’éligibilité |
 |---------|---------|
 | Dynamics 365 for Customer Engagement    |   Compétence [Gestion de la relation client dans le Cloud](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency), statut Silver ou Gold.    | 
-|Dynamics 365 pour les opérations et la finance, édition Entreprise  |  Compétence [Planification des ressources d’entreprise](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency), statut Silver ou Gold, et un revenu généré par les opérations cloud d’au moins 25 000 $ au cours des 12 derniers mois.       |
-|Dynamics 365 pour les opérations et la finance, édition Business  |  Agir en tant que [fournisseur de services cloud](https://partner.microsoft.com/en-us/cloud-solution-provider) ou [partenaire de référence numérique](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) pour au moins un client.      |
+|Dynamics 365 pour les opérations et la finance, édition Entreprise  |  Compétence [Planification des ressources d’entreprise](https://partner.microsoft.com/membership/enterprise-resource-planning-competency), statut Silver ou Gold, et un revenu généré par les opérations cloud d’au moins 25 000 $ au cours des 12 derniers mois.       |
+|Dynamics 365 pour les opérations et la finance, édition Business  |  Agir en tant que [fournisseur de services cloud](https://partner.microsoft.com/cloud-solution-provider) ou [partenaire de référence numérique](https://partner.microsoft.com/membership/digital-partner-of-record) pour au moins un client.      |
 |Power BI, Visuels personnalisés Power BI | Respecter les [critères du partenaire de solution](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
 |PowerApps | Avoir publié une solution de [présentation des partenaires]().
 
@@ -84,10 +84,10 @@ Les partenaires doivent avoir une **compétence Silver ou Gold** dans le domaine
 |Danemark   |Italie   |     Norvège          |États-Unis |
 |Finlande   |Japon   |     Pologne          
 
-Le lancement des services de conseil sera effectué dans une région géographique spécifique. Le premier lancement sera effectué aux États-Unis, au Canada, au Royaume-Uni et en Australie. Les catalogues pour les autres pays seront lancés une fois qu’un nombre significatif et qu’une sélection attrayante d’offres de services auront été envoyés par les partenaires et approuvés par Microsoft.
+Le lancement des services de conseil sera effectué dans une région géographique spécifique. Le premier lancement aura lieu dans les régions suivantes : États-Unis, Canada, Royaume-Uni et Australie. Les catalogues pour les autres pays seront lancés une fois qu’un nombre significatif et qu’une sélection attrayante d’offres de services auront été envoyés par les partenaires et approuvés par Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Comment s’inscrire aux services de conseil dans la Place de marché Azure et AppSource
-Commencez par [inscrire](https://azuremarketplace.microsoft.com/en-us/sell/signup) votre entreprise dans la Place de marché. Les éditeurs peuvent consulter [Devenir éditeur sur la Place de marché](https://docs.microsoft.com/azure/marketplace/become-publisher), pour obtenir une liste de vérification complète des conditions d’inscription. 
+Commencez par [inscrire](https://azuremarketplace.microsoft.com/sell/signup) votre entreprise dans la Place de marché. Les éditeurs peuvent consulter [Devenir éditeur sur la Place de marché](https://docs.microsoft.com/azure/marketplace/become-publisher), pour obtenir une liste de vérification complète des conditions d’inscription. 
 
 **À quoi s’attendre après l’inscription** L’équipe d’intégration vous enverra un e-mail de bienvenue dans un délai de 1 à 3 jours ouvrables, qui inclut vos informations de connexion au Portail Cloud Partner (CPP). [Portail Cloud Partner](https://cloudpartner.azure.com) est le portail de référencement des offres où les éditeurs soumettent les informations de référencement et les envois. 
 
@@ -120,37 +120,37 @@ Avant l’inscription, vous pouvez commencer à collecter et à préparer le con
 Le référencement de votre offre de services de conseil dans la Place de marché Azure et dans AppSource implique les étapes suivantes :
 
 1. **Référencement** : pour commencer le référencement d’une nouvelle offre, connectez-vous à votre compte dans le [portail Cloud Partner](https://cloudpartner.azure.com). Dans le menu déroulant, sélectionnez « Nouvelle offre » et « Services de conseil ». Entrez votre artefact de référencement et publiez-le.
-2. **Validation** : votre demande est examinée pour s’assurer que vous répondez aux critères d’éligibilité. Nous vous envoyons ensuite des instructions pour le référencement de votre offre de services de conseil. 
-3. **Envoi** : fournissez les informations requises indiquées dans les instructions. Tout le contenu et les documents de prise en charge doivent être envoyés en anglais. 
-4. **Révision** : notre équipe marketing et de rédaction examine votre envoi et l’optimise du point de vue lisibilité, grammaire et efficacité. 
-5. **Intermédiaire** : votre envoi vous est renvoyé pour révision. 
+2. **Validation** : votre demande est examinée pour vérifier que vous répondez aux critères d’éligibilité. Nous vous envoyons ensuite des instructions pour le référencement de votre offre de services de conseil. 
+3. **Envoi** : fournissez les informations nécessaires qui sont indiquées dans les instructions. Tout le contenu et les documents de prise en charge doivent être envoyés en anglais. 
+4. **Révision** : notre équipe marketing et éditoriale examine votre envoi et optimise sa lisibilité, sa syntaxe et sa fluidité. 
+5. **Préproduction** : votre envoi vous est renvoyé pour révision. 
 6. **Publication** : une fois que Microsoft et vous-même êtes satisfaits du contenu intermédiaire, votre référencement est prêt à être mis en ligne sur la place de marché. La date de lancement de votre annonce varie selon le pays spécifié dans votre offre. Si le catalogue pour le pays sélectionné est déjà en ligne sur la Place de marché Azure ou AppSource, votre référencement s’affiche au bout de quelques heures. Sinon, l’annonce s’affiche dès que le catalogue est en ligne.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Référencements des offres et critères de révision du contenu
 Les offres doivent correspondre à l’un des cinq types de services suivants (vous pouvez en répertorier plus d’un) : 
 
-* **Évaluation** : évaluation de l’environnement d’un client pour déterminer la mise en application d’une solution et fournir une estimation du coût et de la durée. 
-* **Réunion d’information** : présentation d’une solution ou d’un service de conseil pour susciter l’intérêt du client à l’aide de frameworks, de démonstrations et d’exemples de clients. 
-* **Implémentation** : installation complète qui résulte en une solution entièrement fonctionnelle. Nous vous recommandons de la limiter à des solutions qui peuvent être implémentées en deux semaines ou moins. 
-* **Preuve de concept** : implémentation de portée limitée pour déterminer si une solution répond aux exigences du client. 
-* **Atelier** : engagement interactif réalisé dans les locaux du client. Il peut inclure une formation, des réunions d’information, des évaluations ou des démonstrations reposant sur les données ou l’environnement du client. 
+* **Évaluation** : évaluation de l’environnement d’un client pour déterminer la mise en application d’une solution et fournir une estimation du coût et de la durée. 
+* **Réunion d’information** : présentation d’une solution ou d’un service de conseil pour susciter l’intérêt du client à l’aide de frameworks, de démonstrations et d’exemples de clients. 
+* **Implémentation** : installation complète qui résulte en une solution entièrement fonctionnelle. Nous vous recommandons de la limiter à des solutions qui peuvent être implémentées en deux semaines ou moins. 
+* **Preuve de concept** : implémentation de portée limitée pour déterminer si une solution répond aux exigences du client. 
+* **Atelier** : engagement interactif réalisé dans les locaux du client. Il peut inclure une formation, des réunions d’information, des évaluations ou des démonstrations reposant sur les données ou l’environnement du client. 
 
-**Remarque :** À l’exception du type de service *Réunion d’information*, les services de conseil peuvent être offerts en personne (à savoir, sur site chez un client ou dans les bureaux d’un partenaire) ou virtuellement (à savoir, via la téléconférence, la conférence web ou l’implémentation à distance). Les réunions doivent être proposées en personne.
+**Remarque :** À l’exception du type de service *Réunion d’information*, les services de conseil peuvent être offerts en personne (à savoir, sur site chez un client ou dans l’établissement d’un partenaire) ou virtuellement (à savoir, via la téléconférence, la conférence web ou l’implémentation à distance). Les réunions doivent être proposées en personne.
 
 Une fois que vous avez configuré les éléments requis répertoriés ci-dessus, l’équipe de révision du contenu vérifie que la description de votre offre est informative et exhaustive pour votre public cible. 
 
 #### <a name="listing-title"></a>Titre des référencements
 
-Le champ de titre est limité à 50 caractères et doit indiquer la durée et le type de service de l’offre. Cette approche garantit l’optimisation du référencement dans un moteur de recherche. Le format à utiliser est le suivant : NOM : DURÉE TYPE
+Le champ de titre est limité à 50 caractères et doit indiquer la durée et le type de service de l’offre. Cette approche garantit l’optimisation du référencement dans un moteur de recherche. Le format à utiliser est le suivant : NOM : TYPE DE DURÉE
 
 Exemples :
 
 
 |Exemple de titre  |Format correct  |
 |---------|---------|
-|Prise en main d’Azure IoT pour la fabrication    |   IoT pour la fabrication : évaluation de 2 jours      |
-|Atelier portant sur les grille-pain intelligents        |  Grille-pain intelligents : atelier d’une semaine       |
-|  POC sur la migration de SQL Server    | Migration SQL : preuve de concept de 3 semaines        |
+|Prise en main d’Azure IoT pour la fabrication    |   Fabrication IoT : Évaluation de 2 jours      |
+|Atelier portant sur les grille-pain intelligents        |  Grille-pain intelligents : Atelier d’une semaine       |
+|  POC sur la migration de SQL Server    | Migration SQL : Preuve de concept de 3 semaines        |
 
 #### <a name="listing-summaries-and-descriptions"></a>Descriptions et résumés des référencements
 
@@ -180,8 +180,9 @@ Dans le Portail Cloud Partner, vous pouvez ajouter une mise en forme à votre r�
 
 Si vous ne l’avez pas déjà fait, 
 
-- [Inscrivez-vous](https://azuremarketplace.microsoft.com/sell) sur la place de marché
+- [Inscrivez-vous](https://azuremarketplace.microsoft.com/sell) sur la place de marché.
 
 Si vous êtes inscrit et utilisez le portail Cloud Partner, 
 
-- [Connectez-vous au portail Cloud Partner](https://cloudpartner.azure.com) pour créer ou terminer votre offre
+- [Connectez-vous au portail Cloud Partner](https://cloudpartner.azure.com) pour créer ou terminer votre offre.
+- Pour plus d’informations, consultez [Offre de services de conseil Azure et Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer).

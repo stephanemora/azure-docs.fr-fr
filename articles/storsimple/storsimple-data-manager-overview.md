@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble de Microsoft Azure StorSimple Data Manager | Microsoft Docs
-description: Cet article offre une vue d’ensemble du service StorSimple Data Manager.
+description: Vue d’ensemble du service StorSimple Data Manager
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 5845fd246b20d29739eb6d60bbc8621489ccc0d6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fe4d332859b3ec0ba03e64f9a830b7710586aa17
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011937"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158815"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Vue d’ensemble de la solution StorSimple Data Manager
 
@@ -47,11 +47,11 @@ Vous pouvez utiliser Data Manager avec Azure Functions, Azure Automation et Azur
 
 StorSimple Data Manager est disponible dans les sept régions suivantes :
 
- - Asie du Sud-Est
+ - Asie Sud-Est
  - USA Est
  - USA Ouest
  - USA Ouest 2
- - Centre-Ouest des États-Unis
+ - USA Centre-Ouest
  - Europe Nord
  - Europe Ouest
 

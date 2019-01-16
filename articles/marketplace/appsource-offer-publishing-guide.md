@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 236859cca623643b9bc7a4484f6ce4e6aa11aad6
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 943f3a4739e5dffb2a7d218bf3a82a4e882538a6
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579783"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075666"
 ---
 # <a name="office-365-dynamics-365-power-apps-and-power-bi-offer-publishing-guide"></a>Guide de publication des offres Office 365, Dynamics 365, Power Apps et Power BI
 
@@ -35,7 +35,7 @@ Examinez le [processus et les instructions de publication](https://docs.microsof
 
 ### <a name="power-apps"></a>Power Apps
 
-Découvrez comment les clients peuvent [essayer votre application sur AppSource.](https://powerapps.microsoft.com/en-us/blog/appsource-test-drive/)
+Découvrez comment les clients peuvent [essayer votre application sur AppSource.](https://powerapps.microsoft.com/blog/appsource-test-drive/)
 
 ### <a name="power-bi"></a>Power BI
 
@@ -46,15 +46,19 @@ Examinez le [processus et les instructions de publication](https://docs.microsof
 #### <a name="dynamics-365-for-finance-and-operations"></a>Dynamics 365 pour la finance et les opérations
 Lors de la création pour l’édition Entreprise, passez en revue le [processus et les instructions de publication](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
+Pour savoir comment publier l’offre dans le portail Cloud Partner, consultez [Offre Dynamics 365 for Finance and Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer).
+
 ### <a name="dynamics-365-for-customer-engagement"></a>Dynamics 365 for Customer Engagement
 Examinez le [processus et les instructions de publication](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource).
+
+Pour savoir comment publier l’offre dans le portail Cloud Partner, consultez [Offre Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-customer-engagement-offer).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si vous ne l’avez pas déjà fait, 
 
-- [Inscrivez-vous](https://azuremarketplace.microsoft.com/sell) sur la place de marché
+- [Inscrivez-vous](https://azuremarketplace.microsoft.com/sell) sur la place de marché.
 
 Si vous êtes inscrit et utilisez le portail Cloud Partner, 
 
-- [Connectez-vous au portail Cloud Partner](https://cloudpartner.azure.com) pour créer ou terminer votre offre
+- [Connectez-vous au portail Cloud Partner](https://cloudpartner.azure.com) pour créer ou terminer votre offre.

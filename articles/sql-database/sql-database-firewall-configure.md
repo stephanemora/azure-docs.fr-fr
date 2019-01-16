@@ -11,21 +11,20 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 6de91e28ebced1d41e128cec1180839e4b353020
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 01/03/2019
+ms.openlocfilehash: e4079a4dcaadab8e9cea0cc1b30a609a091e5937
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945465"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035268"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Règles de pare-feu Azure SQL Database et SQL Data Warehouse
 
 Microsoft Azure [SQL Database](sql-database-technical-overview.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) fournissent un service de base de données relationnelle pour Azure et d’autres applications Internet. Pour aider à protéger vos données, le pare-feu empêche tout accès à votre serveur de base de données jusqu’à ce que vous spécifiiez les ordinateurs qui disposent d’autorisations. Le pare-feu octroie l’accès à la base de données en fonction de l’adresse IP d’origine de chaque demande.
 
 > [!NOTE]
-> Cet article s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse. 
-
+> Cet article s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse.
 > [!IMPORTANT]
 > Cet article ne s’applique *pas* à **Azure SQL Database Managed Instance**. Consultez l’article suivant sur la [connexion à une instance Managed Instance](sql-database-managed-instance-connect-app.md) pour en savoir plus sur la configuration réseau nécessaire.
 
@@ -58,9 +57,9 @@ Les tentatives de connexion à partir d’Internet et d’Azure doivent franchir
 
 Microsoft recommande d’utiliser quand c’est possible des règles de pare-feu au niveau de la base de données pour améliorer la sécurité et renforcer la portabilité de la base de données. Utilisez des règles de pare-feu pour les administrateurs au niveau du serveur quand plusieurs bases de données ont les mêmes exigences d’accès et que vous ne souhaitez les configurer une à une.
 
-> [!Important]
+> [!IMPORTANT]
 > Microsoft Azure SQL Database prend en charge un maximum de 128 règles de pare-feu.
-> [!Note]
+> [!NOTE]
 > Pour plus d’informations sur les bases de données portables dans le cadre de la continuité d’activité, consultez [Exigences d’authentification pour la récupération d’urgence](sql-database-geo-replication-security-config.md).
 
 ### <a name="connecting-from-the-internet"></a>Connexion à partir d’Internet
@@ -102,7 +101,7 @@ Pour définir une règle de pare-feu au niveau du serveur dans le portail Azure,
 
 ### <a name="from-database-overview-page"></a>À partir de la page de vue d’ensemble de la base de données
 
-1. Pour définir une règle de pare-feu au niveau du serveur à partir de la page de présentation de la base de données, cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils, comme illustré dans l’image suivante : la page **Paramètres de pare-feu** du serveur SQL Database s’ouvre.
+1. Pour définir une règle de pare-feu au niveau du serveur à partir de la page de présentation de la base de données, cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils, comme illustré dans l’image suivante : La page **Paramètres de pare-feu** du serveur de base de données SQL s’ouvre.
 
       ![règle de pare-feu de serveur](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
@@ -223,7 +222,7 @@ Considérez les points suivants quand l’accès au service Microsoft Azure SQL 
 
 - **Configuration du pare-feu local :**
 
-  Pour que votre ordinateur puisse accéder à Azure SQL Database, vous devez créer une exception de pare-feu sur votre ordinateur pour le port TCP 1433. Vous devrez peut-être ouvrir des ports supplémentaires si vous effectuez des connexions dans la limite du cloud Azure. Pour plus d’informations, consultez la section **SQL Database : exécution externe ou exécution interne** de [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
+  Pour que votre ordinateur puisse accéder à Azure SQL Database, vous devez créer une exception de pare-feu sur votre ordinateur pour le port TCP 1433. Vous devrez peut-être ouvrir des ports supplémentaires si vous effectuez des connexions dans la limite du cloud Azure. Pour plus d’informations, consultez la section **SQL Database : exécution externe ou exécution interne** de [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 - **Traduction d’adresses réseau (NAT) :**
 
@@ -248,7 +247,7 @@ Considérez les points suivants quand l’accès au service Microsoft Azure SQL 
 
 - Pour obtenir un démarrage rapide sur la création d’une base de données et d’une règle de pare-feu au niveau du serveur, consultez [Créer une base de données Azure SQL Database](sql-database-get-started-portal.md).
 - Pour obtenir de l’aide afin de vous connecter à une base de données SQL Azure à partir d’applications open source ou tierces, consultez [Exemples de code de démarrage rapide client pour Base de données SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
-- Pour plus d’informations sur d’autres ports que vous devrez peut-être ouvrir, consultez la section **SQL Database : exécution externe ou exécution interne** de [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
+- Pour plus d’informations sur les autres ports que vous devrez peut-être ouvrir, consultez la section **SQL Database : exécution externe ou exécution interne** de [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Pour obtenir une vue d’ensemble de la sécurité Azure SQL Database, consultez [Sécurisation de votre base de données](sql-database-security-overview.md)
 
 <!--Image references-->

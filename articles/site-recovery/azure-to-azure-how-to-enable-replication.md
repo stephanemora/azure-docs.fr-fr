@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 797cef2d3a0e2cfeb28411c30a7da8a5b6f2d953
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 79ad4b3598c227ad2c2e3b76562cf95a30e82ad3
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834517"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101545"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Répliquer des machines virtuelles Azure vers une autre région Azure
 
@@ -65,7 +65,7 @@ Activez la réplication. Cette procédure suppose que la région principale Azur
     - **Stratégie de réplication** : définit les paramètres de l’historique de conservation des points de récupération et la fréquence des captures instantanées de cohérence des applications. Par défaut, Azure Site Recovery crée une stratégie de réplication avec les paramètres par défaut de « 24 heures » pour la rétention des points de récupération, et de « 60 minutes » pour la fréquence des captures instantanées de cohérence des applications.
 
     ![Activer la réplication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
-
+  
 ## <a name="customize-target-resources"></a>Personnaliser les ressources cibles
 
 Vous pouvez modifier les paramètres de cible par défaut utilisés par Site Recovery.
@@ -79,7 +79,13 @@ Vous pouvez modifier les paramètres de cible par défaut utilisés par Site Rec
     - Dans **Comptes de stockage cible**, sélectionnez le compte que vous souhaitez utiliser.
 
         ![Activer la réplication](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
-
+1. Cliquez sur **Personnaliser :** pour modifier les paramètres de réplication.
+   - Dans **Cohérence multimachine virtuelle**, sélectionnez les machines virtuelles que vous souhaitez répliquer ensemble. 
+   - Toutes les machines d’un groupe de réplication ont des points de récupération cohérents après incident et avec les applications lorsqu’elles basculent. L’activation de la cohérence multimachine virtuelle peut influer sur les performances de la charge de travail (utilisation intensive du processeur). Elle ne doit être utilisée que si les machines exécutent la même charge de travail et si vous avez besoin de cohérence entre plusieurs machines virtuelles. Par exemple, si une application a deux machines virtuelles SQL et deux serveurs web, vous devez ajouter uniquement les machines virtuelles SQL dans le cadre du groupe de réplication.
+   - Vous pouvez choisir d’avoir au maximum 16 machines virtuelles dans un groupe de réplication.
+   - Si vous activez la cohérence multimachine virtuelle, les machines du groupe de réplication communiquent entre elles sur le port 20004. Vérifiez qu’aucun dispositif de pare-feu ne bloque la communication interne entre les machines virtuelles sur le port 20004. Si vous voulez que les machines virtuelles Linux fassent partie d’un groupe de réplication, vérifiez que le trafic sortant sur le port 20004 est ouvert manuellement conformément aux instructions de la version Linux spécifique.
+![Activer la réplication](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
+    
 2. Cliquez sur **Créer une ressource cible** > **Activer la réplication**.
 3. Une fois que les machines virtuelles sont activées pour la réplication, vous pouvez vérifier leur état d’intégrité sous **Éléments répliqués**
 

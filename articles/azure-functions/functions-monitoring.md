@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: da676b5d1cb3c25adc72d04882915ee0440c2d98
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d0c24fbd749a344d9041e9c50c34e6e58ab8fd38
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002329"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121223"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
-[Azure Functions](functions-overview.md) est intégré à [Azure Application Insights](../application-insights/app-insights-overview.md) pour la surveillance des fonctions. Cet article explique comment configurer Functions de façon à envoyer des fichiers journaux générés par le système à Application Insights.
+[Azure Functions](functions-overview.md) est intégré à [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) pour la surveillance des fonctions. Cet article explique comment configurer Functions de façon à envoyer des fichiers journaux générés par le système à Application Insights.
 
 ![Application Insights Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
@@ -329,7 +329,7 @@ Comme indiqué dans la section précédente, le runtime agrège les données sur
 
 ## <a name="configure-sampling"></a>Configurer l’échantillonnage
 
-Application Insights a une fonctionnalité [d’échantillonnage](../application-insights/app-insights-sampling.md) qui peut vous éviter de produire une quantité excessive de données de télémétrie aux heures de forte activité. Quand le taux de données de télémétrie entrantes dépasse un seuil spécifié, Application Insights commence à ignorer aléatoirement certains des éléments entrants. Par défaut, le nombre maximal d’éléments par seconde est fixé à 5. Vous pouvez configurer l’échantillonnage dans [host.json](functions-host-json.md).  Voici un exemple :
+Application Insights a une fonctionnalité [d’échantillonnage](../azure-monitor/app/sampling.md) qui peut vous éviter de produire une quantité excessive de données de télémétrie aux heures de forte activité. Quand le taux de données de télémétrie entrantes dépasse un seuil spécifié, Application Insights commence à ignorer aléatoirement certains des éléments entrants. Par défaut, le nombre maximal d’éléments par seconde est fixé à 5. Vous pouvez configurer l’échantillonnage dans [host.json](functions-host-json.md).  Voici un exemple :
 
 ### <a name="version-2x"></a>Version 2.x 
 
@@ -360,7 +360,7 @@ Application Insights a une fonctionnalité [d’échantillonnage](../application
 ```
 
 > [!NOTE]
-> [L’échantillonnage](../application-insights/app-insights-sampling.md) est activé par défaut. Si vous pensez qu’il vous manque des données, il vous faut peut-être simplement adapter les paramètres d’échantillonnage à votre scénario de monitoring.
+> [L’échantillonnage](../azure-monitor/app/sampling.md) est activé par défaut. Si vous pensez qu’il vous manque des données, il vous faut peut-être simplement adapter les paramètres d’échantillonnage à votre scénario de monitoring.
 
 ## <a name="write-logs-in-c-functions"></a>Écrire des journaux dans des fonctions C#
 
@@ -414,7 +414,7 @@ Voici un exemple de représentation JSON des données `customDimensions` :
 Dans les fonctions de script C#, vous pouvez utiliser la méthode d’extension `LogMetric` sur `ILogger` pour créer des métriques personnalisées dans Application Insights. Voici un exemple d’appel de méthode :
 
 ```csharp
-logger.LogMetric("TestMetric", 1234); 
+logger.LogMetric("TestMetric", 1234);
 ```
 
 Ce code est une alternative à l’appel de `TrackMetric` à l’aide de [l’API Application Insights pour .NET](#custom-telemetry-in-c-functions).
@@ -429,10 +429,10 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 
 ### <a name="logging-custom-metrics"></a>Journalisation des métriques personnalisées  
 
-Dans les fonctions Node.js, vous pouvez utiliser la méthode `context.log.metric` pour créer des métriques personnalisées dans Application Insights. Voici un exemple d’appel de méthode :
+Lors de l’exécution sur la [version 1.x](functions-versions.md#creating-1x-apps) du runtime Functions, les fonctions Node.js peuvent utiliser la méthode `context.log.metric` pour créer des métriques personnalisées dans Application Insights. Cette méthode n’est pas actuellement prise en charge dans la version 2.x. Voici un exemple d’appel de méthode :
 
 ```javascript
-context.log.metric("TestMetric", 1234); 
+context.log.metric("TestMetric", 1234);
 ```
 
 Ce code est une alternative à l’appel de `trackMetric` à l’aide du [SDK Node.js pour Application Insights](#custom-telemetry-in-javascript-functions).

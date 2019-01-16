@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: eb88501c5daf0b79d22f4407a372c4606a173db1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5856824ba4aec2998ad38ac73cc5acc0840584cd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987694"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023836"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Machines virtuelles dans un modèle Azure Resource Manager
 
@@ -260,7 +260,7 @@ La plupart des ressources dépendent d’autres ressources pour fonctionner corr
 ],
 ```
 
-Resource Manager déploie en parallèle les ressources qui ne dépendent pas d'une autre ressource en cours de déploiement. Soyez prudent lors de la définition des dépendances car vous pouvez accidentellement ralentir votre déploiement en spécifiant des dépendances inutiles. Les dépendances peuvent couvrir plusieurs ressources. Par exemple, l’interface réseau dépend de l’adresse IP publique et des ressources du réseau virtuel.
+Resource Manager déploie en parallèle toutes les ressources qui ne dépendent pas d’une autre ressource en cours de déploiement. Soyez prudent lors de la définition des dépendances car vous pouvez accidentellement ralentir votre déploiement en spécifiant des dépendances inutiles. Les dépendances peuvent couvrir plusieurs ressources. Par exemple, l’interface réseau dépend de l’adresse IP publique et des ressources du réseau virtuel.
 
 Comment savoir si une dépendance est nécessaire ? Examinez les valeurs que vous avez définies dans le modèle. Si un élément dans la définition des ressources de la machine virtuelle pointe vers une autre ressource déployée dans le même modèle, vous avez besoin d’une dépendance. Par exemple, votre exemple de machine virtuelle définit un profil de réseau :
 
@@ -273,7 +273,7 @@ Comment savoir si une dépendance est nécessaire ? Examinez les valeurs que vo
 },
 ```
 
-Pour définir cette propriété, l’interface réseau doit exister. Vous avez donc besoin d’une dépendance. Vous devez également définir une dépendance lorsqu’une ressource (un enfant) est définie dans une autre ressource (un parent). Par exemple, les paramètres de diagnostic et les extensions de script personnalisé sont définies en tant que ressources enfants de la machine virtuelle. Ils ne peuvent pas être créés tant que la machine virtuelle n'existe pas. Par conséquent, les deux ressources sont marquées comme dépendantes de la machine virtuelle.
+Pour définir cette propriété, l’interface réseau doit exister. Vous avez donc besoin d’une dépendance. Vous devez également définir une dépendance lorsqu’une ressource (un enfant) est définie dans une autre ressource (un parent). Par exemple, les paramètres de diagnostic et les extensions de script personnalisé sont définies en tant que ressources enfants de la machine virtuelle. Ils ne peuvent pas être créés tant que la machine virtuelle n’existe pas. Par conséquent, les deux ressources sont marquées comme dépendantes de la machine virtuelle.
 
 ## <a name="profiles"></a>Profils
 
@@ -287,7 +287,7 @@ Plusieurs éléments de profil sont utilisés lors de la définition d’une res
 
 ## <a name="disks-and-images"></a>Disques et images
    
-Dans Azure, les fichiers de disque dur virtuel peuvent représenter [des disques ou des images](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Lorsque le système d’exploitation dans un fichier vhd est spécialisé pour être une machine virtuelle spécifique, il est appelé disque. Lorsque le système d’exploitation dans un fichier de disque dur virtuel est généralisé afin d'être utilisé pour créer plusieurs machines virtuelles, il est appelé image.   
+Dans Azure, les fichiers de disque dur virtuel peuvent représenter [des disques ou des images](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Quand le système d’exploitation d’un fichier vhd est spécialisé pour être une machine virtuelle spécifique, il est appelé disque. Quand le système d’exploitation d’un fichier vhd est généralisé pour permettre la création de plusieurs machines virtuelles, il est appelé image.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Créer des machines virtuelles et des disques à partir d’une image de plateforme
 
@@ -436,7 +436,7 @@ Il existe de nombreuses extensions que vous pouvez installer sur une machine vir
 }
 ```
 
-Le script start.ps1 permettre d'effectuer de nombreuses tâches de configuration. Par exemple, les disques de données ajoutés aux machines virtuelles dans l’exemple ne sont pas initialisés ; vous pouvez utiliser un script personnalisé pour les initialiser. Si vous avez plusieurs tâches de démarrage à exécuter, vous pouvez utiliser le fichier start.ps1 pour appeler d’autres scripts PowerShell dans le stockage Azure. L’exemple utilise PowerShell, mais vous pouvez utiliser n'importe quelle méthode de script disponible sur le système d’exploitation que vous utilisez.
+Le script start.ps1 permettre d'effectuer de nombreuses tâches de configuration. Par exemple, les disques de données ajoutés aux machines virtuelles dans l’exemple ne sont pas initialisés. Vous pouvez utiliser un script personnalisé pour les initialiser. Si vous avez plusieurs tâches de démarrage à exécuter, vous pouvez utiliser le fichier start.ps1 pour appeler d’autres scripts PowerShell dans le stockage Azure. L’exemple utilise PowerShell, mais vous pouvez utiliser n’importe quelle méthode de script disponible sur le système d’exploitation que vous utilisez.
 
 Vous pouvez consulter l’état des extensions installées à l'aide des paramètres Extensions sur le portail :
 
@@ -448,14 +448,15 @@ Vous pouvez aussi obtenir des informations sur l’extension à l’aide de la c
 
 Lorsque vous déployez un modèle, Azure effectue le suivi des ressources que vous déployez en tant que groupe et assigne automatiquement un nom à ce groupe déployé. Le nom du déploiement est identique à celui du modèle.
 
-Si vous souhaitez connaître l’état des ressources dans le déploiement, vous pouvez utiliser le panneau Groupe de ressources sur le portail Azure :
+Si vous souhaitez en savoir plus sur l’état des ressources dans le déploiement, affichez le groupe de ressources dans le Portail Azure :
 
 ![Obtenir les informations de déploiement](./media/template-description/virtual-machines-deployment-info.png)
     
-Vous pouvez utiliser le même modèle pour créer des ressources ou pour mettre à jour des ressources existantes. Lorsque vous utilisez des commandes pour déployer des modèles, vous avez la possibilité de choisir le [mode](../../resource-group-template-deploy.md) à utiliser. Le mode peut être défini avec la valeur **Complète** ou **Incrémentielle**. La valeur par défaut consiste à effectuer des mises à jour incrémentielles. Soyez prudent lorsque vous utilisez le mode **Complète** car vous risquez de supprimer accidentellement des ressources. Lorsque vous choisissez le mode **Complète**, Resource Manager supprime toutes les ressources du groupe de ressources qui ne figurent pas dans le modèle.
+Vous pouvez utiliser le même modèle pour créer des ressources ou pour mettre à jour des ressources existantes. Lorsque vous utilisez des commandes pour déployer des modèles, vous avez la possibilité de choisir le [mode](../../resource-group-template-deploy.md) à utiliser. Le mode peut être défini avec la valeur **Complète** ou **Incrémentielle**. La valeur par défaut consiste à effectuer des mises à jour incrémentielles. Soyez prudent lorsque vous utilisez le mode **Complète** car vous risquez de supprimer accidentellement des ressources. Quand vous choisissez le mode **Complète**, Resource Manager supprime toutes les ressources du groupe de ressources qui ne figurent pas dans le modèle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Créez votre propre modèle à l’aide de la rubrique [Création de modèles Azure Resource Manager](../../resource-group-authoring-templates.md).
 - Déployez le modèle que vous avez créé à l'aide de la rubrique [Créer une machine virtuelle Windows avec un modèle Resource Manager](ps-template.md).
 - Découvrez comment gérer les machines virtuelles que vous avez créées en lisant [Créer et gérer des machines virtuelles Windows avec le module Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Pour connaître la syntaxe JSON et les propriétés des types de ressource dans les modèles, consultez la [référence du modèle Azure Resource Manager](/azure/templates/).

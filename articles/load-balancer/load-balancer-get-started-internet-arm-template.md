@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: c77cdf23e73a174ca68744ea543a41ce0a1de9f7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5f6a0ce0c9d863b5ab4922e7228a873ed5398600
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095701"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033279"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Création d’un équilibreur de charge public à l’aide d’un modèle
 
@@ -80,3 +80,5 @@ Pour déployer le modèle à l’aide de l’interface de ligne de commande Azur
 [Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)
 
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
+
+Pour connaître la syntaxe JSON et les propriétés d’un équilibreur de charge dans un modèle, consultez [Microsoft.Network/loadbalancers](/azure/templates/microsoft.network/loadbalancers).

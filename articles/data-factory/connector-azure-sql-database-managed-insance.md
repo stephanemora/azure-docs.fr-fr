@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 561e672436c38cd0b3e637b794662483fc630676
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: df8d337e7950400a86dcab14de4484f4811f43e2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706719"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025077"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-using-azure-data-factory"></a>Copier des données depuis et vers Azure SQL Database Managed Instance à l’aide d’Azure Data Factory
 
@@ -50,7 +49,7 @@ Les propriétés prises en charge pour le service lié Azure SQL Database Manage
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **SqlServer** | Oui |
+| Type | La propriété type doit être définie sur : **SqlServer** | Oui |
 | connectionString |Spécifiez les informations connectionString nécessaires pour établir une connexion à Managed Instance à l’aide de l’authentification SQL ou de l’authentification Windows. Consultez l’exemple suivant. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
 | userName |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non  |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez défini pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Non  |
@@ -59,7 +58,7 @@ Les propriétés prises en charge pour le service lié Azure SQL Database Manage
 >[!TIP]
 >Si vous rencontrez une erreur avec le code d’erreur « UserErrorFailedToConnectToSqlServer » et un message tel que « La limite de session pour la base de données est XXX et a été atteinte. », ajoutez `Pooling=false` à votre chaîne de connexion, puis réessayez.
 
-**Exemple 1 : utilisation de l’authentification SQL**
+**Exemple 1 : Utilisation de l’authentification SQL**
 
 ```json
 {
@@ -80,7 +79,7 @@ Les propriétés prises en charge pour le service lié Azure SQL Database Manage
 }
 ```
 
-**Exemple 2 : utilisation de l’authentification Windows**
+**Exemple 2 : Utilisation de l’authentification Windows**
 
 ```json
 {
@@ -114,7 +113,7 @@ Pour copier des données depuis/vers Azure SQL Database Managed Instance, défin
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du jeu de données doit être définie sur **SqlServerTable** | Oui |
+| Type | La propriété type du jeu de données doit être définie sur : **SqlServerTable** | Oui |
 | TableName |Nom de la table ou de la vue dans l’instance de base de données à laquelle le service lié fait référence. | Non pour Source, Oui pour Récepteur |
 
 **Exemple**
@@ -146,7 +145,7 @@ Pour copier des données d’Azure SQL Database Managed Instance, définissez **
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **SqlSource** | Oui |
+| Type | La propriété type de la source d’activité de copie doit être définie sur : **SqlSource** | Oui |
 | SqlReaderQuery |Utiliser la requête SQL personnalisée pour lire les données. Exemple : `select * from MyTable`. |Non  |
 | sqlReaderStoredProcedureName |Nom de la procédure stockée qui lit les données de la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. |Non  |
 | storedProcedureParameters |Paramètres de la procédure stockée.<br/>Valeurs autorisées : paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non  |
@@ -156,7 +155,7 @@ Pour copier des données d’Azure SQL Database Managed Instance, définissez **
 - Si **sqlReaderQuery** est spécifié comme SqlSource, l’activité de copie exécute cette requête sur la source Managed Instance pour obtenir les données. Vous pouvez également spécifier une procédure stockée en indiquant **sqlReaderStoredProcedureName** et **storedProcedureParameters** (si la procédure stockée accepte des paramètres).
 - Si vous ne spécifiez pas la propriété « sqlReaderQuery » ou « sqlReaderStoredProcedureName », les colonnes définies dans la section « structure » du jeu de données JSON sont utilisées pour construire une requête (`select column1, column2 from mytable`) à exécuter sur Managed Instance. Si la définition du jeu de données ne possède pas de « structure », toutes les colonnes de la table sont sélectionnées.
 
-**Exemple : utilisation d’une requête SQL**
+**Exemple : Utilisation d’une requête SQL**
 
 ```json
 "activities":[
@@ -188,7 +187,7 @@ Pour copier des données d’Azure SQL Database Managed Instance, définissez **
 ]
 ```
 
-**Exemple : utilisation d’une procédure stockée**
+**Exemple : Utilisation d’une procédure stockée**
 
 ```json
 "activities":[
@@ -249,9 +248,9 @@ Pour copier des données vers Azure SQL Database Managed Instance, définissez *
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **SqlSink**. | Oui |
-| writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize<br/>Valeurs autorisées : integer (nombre de lignes). |Non (valeur par défaut : 10000) |
-| writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan.  Exemple : « 00:30:00 » (30 minutes). |Non  |
+| Type | La propriété type du récepteur d’activité de copie doit être définie sur : **SqlSink** | Oui |
+| writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize<br/>Valeurs autorisées : integer (nombre de lignes). |Non (valeur par défaut : 10000) |
+| writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan. Exemple : “00:30:00” (30 minutes). |Non  |
 | preCopyScript |Spécifiez une requête SQL que l’activité de copie doit exécuter avant l’écriture des données dans Managed Instance. Elle ne sera appelée qu’une seule fois par copie. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. |Non  |
 | sqlWriterStoredProcedureName |Nom de la procédure stockée qui définit comment appliquer les données sources dans la table cible, par exemple pour effectuer des upserts ou des transformations à l’aide de votre propre logique métier. <br/><br/>Notez que cette procédure stockée sera **appelée par lot**. Si vous souhaitez effectuer une opération qui ne s’exécute qu’une seule fois et n’a rien à faire avec les données sources, par exemple supprimer/tronquer, utilisez la propriété `preCopyScript`. |Non  |
 | storedProcedureParameters |Paramètres de la procédure stockée.<br/>Valeurs autorisées : paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non  |
@@ -260,7 +259,7 @@ Pour copier des données vers Azure SQL Database Managed Instance, définissez *
 > [!TIP]
 > Lors de la copie de données vers Azure SQL Database Managed Instance, l’activité de copie ajoute des données à la table du récepteur par défaut. Pour effectuer un UPSERT ou une logique métier supplémentaire, utilisez la procédure stockée dans SqlSink. Pour en savoir plus, consultez [Appel d’une procédure stockée pour un récepteur SQL](#invoking-stored-procedure-for-sql-sink).
 
-**Exemple 1 : ajout de données**
+**Exemple 1 : Ajout de données**
 
 ```json
 "activities":[
@@ -292,7 +291,7 @@ Pour copier des données vers Azure SQL Database Managed Instance, définissez *
 ]
 ```
 
-**Exemple 2 : appel d’une procédure stockée pendant la copie pour upsert**
+**Exemple 2 : Appel d’une procédure stockée pendant la copie pour upsert**
 
 Pour en savoir plus, consultez [Appel d’une procédure stockée pour un récepteur SQL](#invoking-stored-procedure-for-sql-sink).
 
@@ -406,7 +405,7 @@ Quand vous copiez des données vers Azure SQL Database Managed Instance, une pro
 
 Une procédure stockée peut être utilisée à la place des mécanismes de copie intégrée. C’est généralement le cas quand une opération upsert (insertion + mise à jour) ou un traitement supplémentaire (fusion de colonnes, recherche de valeurs supplémentaires, insertion dans plusieurs tables, etc.) doivent être effectués avant l’insertion finale des données sources dans la table de destination.
 
-L’exemple suivant montre comment utiliser une procédure stockée pour effectuer une opération upsert simple dans une table de Managed Instance. On part du principe que les données d’entrée et la table réceptrice « Marketing » ont trois colonnes : ProfileID, State et Category. On effectue une opération upsert basée sur la colonne « ProfileID » et on l’applique uniquement à une catégorie spécifique.
+L’exemple suivant montre comment utiliser une procédure stockée pour effectuer une opération upsert simple dans une table de Managed Instance. En supposant que les données d’entrée et la table réceptrice « Marketing » ont trois colonnes : ProfileID, State et Category. On effectue une opération upsert basée sur la colonne « ProfileID » et on l’applique uniquement à une catégorie spécifique.
 
 **Jeu de données de sortie**
 

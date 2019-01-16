@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: 1c850b16492f725114fb23a8503f6345e1509212
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 3cd0766fa4308df41172c323aa933e1c048f1e9d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868665"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074000"
 ---
 # <a name="requirements-by-listing-type"></a>Exigences par type de liste  
 Les exigences techniques et de contenu marketing varient en fonction de la vitrine, du type d’offre et du type de liste. Consultez les spécifications suivantes pour vous assurer que vous respectez les critères.  
@@ -40,7 +40,7 @@ Le tableau suivant présente la configuration préalable requise pour la publica
 | ***Application SaaS (Software as a service) professionnelle*** | Votre application doit répondre aux exigences suivantes.<ul> <li>Une application SaaS métier</li> <li>Centrée sur les processus métier</li> <li>Destinée aux clients professionnels</li> <li>Permet aux utilisateurs d’utiliser leurs informations d’identification professionnelles pour se connecter (nom d’utilisateur et mot de passe, par exemple)</li> </ul> | Obligatoire |  
 | ***Période d’essai gratuite et évaluation*** | Votre application doit inclure l’une des options suivantes pour qu’un client puisse utiliser votre application gratuitement pendant une durée limitée.<ul> <li>Fournissez une méthode `try` pour que les clients puissent commencer la période d’essai de votre application dans AppSource</li> <li>Fournissez une option `request trial` dans AppSource pour que les clients puissent demander une version d’évaluation de votre application</li> </ul>L’essai gratuit fourni doit inclure une période prédéfinie pendant laquelle le client peut tester votre application sans coût supplémentaire. | Obligatoire |  
 | ***Solution facile à configurer et prête à l’emploi*** | Votre application doit être facile et rapide à configure,r sans personnalisation. | Obligatoire |  
-| ***Gestion des prospects*** | Vous devez activer l’acceptation des données des prospects dans votre CRM avant de générer des prospects via la vitrine.<ul> <li>Les CRM sont par exemple Marketo, Microsoft Dynamics ou Salesforce</li> </ul> | Obligatoire |  
+| ***Gestion des prospects*** | Activez l’acceptation des données des prospects dans votre système CRM avant de générer des prospects via la vitrine.<ul> <li>Les CRM sont par exemple Marketo, Microsoft Dynamics ou Salesforce</li> </ul> | Obligatoire |  
 | ***Politique de confidentialité et conditions d’utilisation*** | Votre application doit fournir un lien vers votre page de politique de confidentialité en utilisant une URL publique. Vous devez fournir le texte de vos conditions d’utilisation lors de la publication. | Obligatoire |  
 | ***Support*** | Votre application doit fournir un lien vers votre page de service client en utilisant une URL publique. Si votre application est une version d’évaluation, vous devez fournir une assistance sans coût supplémentaire pendant la période d’essai. | Obligatoire |  
 
@@ -49,10 +49,10 @@ La configuration préalable requise pour les types de liste dans la Place de mar
 
 | Prérequis | Détails | Type de liste |  
 |:--- |:--- |:--- |  
-| ***Politiques concernant la participation*** | Votre application doit appliquer les politiques concernant la Participation à la Place de Marché Microsoft Azure.<ul> <li>Pour plus d’informations sur les politiques de participation, consultez la page Politiques concernant la Participation à la Place de Marché Microsoft Azure à l’adresse [azure.microsoft.com/support/legal/marketplace/participation-policies/](https://azure.microsoft.com/support/legal/marketplace/participation-policies).</li></ul> | list<br />transact<br />trial |  
+| ***Politiques concernant la participation*** | Votre application doit appliquer les politiques concernant la participation à la Place de marché Azure.<ul> <li>Pour plus d’informations sur les politiques de participation, consultez la page Politiques concernant la Participation à la Place de Marché Microsoft Azure à l’adresse [azure.microsoft.com/support/legal/marketplace/participation-policies/](https://azure.microsoft.com/support/legal/marketplace/participation-policies).</li></ul> | list<br />transact<br />trial |  
 | ***Intégration à Microsoft*** | Votre offre doit utiliser ou étendre les types de services Microsoft Azure (par exemple, calcul, réseau, stockage). Votre offre doit être alignée sur une catégorie de la Place de marché Microsoft Azure existante (par exemple, bases de données, sécurité ou réseau).<ul> <li>Pour plus d’informations sur les offres de la Place de marché, consultez la page des applications de la Place de marché à l’adresse [azuremarketplace.microsoft.com/marketplace/apps](https://azuremarketplace.microsoft.com/marketplace/apps).</li> </ul> | list<br />transact<br />trial |  
 | ***Public ciblé*** | Votre offre doit s’adresser aux professionnels de l’informatique, aux développeurs cloud et autres rôles client techniques. | list<br />transact<br />trial |  
-| ***Gestion des prospects*** | Pour générer des prospects via la vitrine, vous devez configurer votre CRM (Marketo, Microsoft Dynamics ou Salesforce) de manière à accepter les données liées aux prospects. | list<br />transact<br />trial |  
+| ***Gestion des prospects*** | Pour générer des prospects via la vitrine, configurez votre système CRM (Marketo, Microsoft Dynamics ou Salesforce) de manière à accepter les données liées aux prospects. | list<br />transact<br />trial |  
 | ***Politique de confidentialité et conditions d’utilisation*** | Votre application doit fournir un lien vers votre page de politique de confidentialité en utilisant une URL publique. Vous devez fournir le texte de vos conditions d’utilisation lors de la publication. | list<br />transact<br />trial |  
 | ***Support*** | Votre offre doit fournir un lien vers votre page de service client en utilisant une URL publique. Si votre offre est une version d’évaluation, vous devez fournir une assistance sans coût supplémentaire pendant la période d’essai. | transact<br />trial |    
 
@@ -164,9 +164,8 @@ Le type de référencement Liste inclut les types d’offre suivants dans les vi
 | Prérequis | Détails |  
 |:--- |:--- | 
 | Facturation et mesure | Votre machine virtuelle doit prendre en charge la facturation mensuelle BYOL ou avec paiement à l’utilisation. |  
-| Disque dur virtuel compatible avec Azure | Les machines virtuelles doivent être basées sur Windows ou Linux.<ul> <li>Pour plus d’informations sur la création d’un disque dur virtuel Linux, consultez la section Créer un disque dur virtuel compatible avec Azure (Linux) à l’adresse [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2- Create-an-Azure-compatible-VHD-Linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based).</li> <li>Pour plus d’informations sur la création d’un disque dur virtuel Windows, consultez la section Créer un disque dur virtuel compatible avec Azure (Windos) à l’adresse [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based).</li> </ul> |  
+| Disque dur virtuel compatible avec Azure | Les machines virtuelles doivent être basées sur Windows ou Linux.<ul> <li>Pour plus d’informations sur la création d’un disque dur virtuel Linux, consultez [Distributions Linux approuvées sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Pour plus d’informations sur la création d’un disque dur virtuel Windows, consultez [Créer un disque dur virtuel compatible avec Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
 
 ## <a name="next-steps"></a>Étapes suivantes
 *   Consultez la page [Guide de l’éditeur Place de marché Azure et AppSource](./marketplace-publishers-guide.md).  
- 
----  
+

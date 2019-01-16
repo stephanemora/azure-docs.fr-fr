@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: shlo
-ms.openlocfilehash: e38a0ec39227b0064175c3c39d32bf87970ef9f5
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 90c36e728a8ec91606f93c080258eeca9c3825e6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423726"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020776"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Activité ForEach dans Azure Data Factory
 L’activité ForEach définit un flux de contrôle répétitif dans votre pipeline. Elle permet d’effectuer une itération sur une collection, et exécute des activités spécifiées dans une boucle. L’implémentation en boucle de cette activité est semblable à la structure d’exécution en boucle de Foreach dans les langages de programmation.
@@ -86,7 +85,7 @@ Si la valeur de **isSequential** est définie sur False, l’activité effectue 
 Dans l’activité ForEach, fournissez un tableau sur lequel effectuer l’itération pour la propriété **items**. Utilisez `@item()` pour itérer sur une seule énumération dans l’activité ForEach. Par exemple, si **items** est un tableau [1, 2, 3], `@item()` retourne 1 dans la première itération, 2 dans la deuxième, et 3 dans la troisième.
 
 ## <a name="iterating-over-a-single-activity"></a>Itération sur une activité unique
-**Scénario :** copier à partir du même fichier source dans un objet blob Azure vers plusieurs fichiers de destination dans l’objet blob Azure.
+**Scénario :** Copier à partir du même fichier source dans Stockage Blob Azure vers plusieurs fichiers de destination dans Stockage Blob Azure.
 
 ### <a name="pipeline-definition"></a>Définition de pipeline
 
@@ -237,7 +236,7 @@ Il est possible d’itérer sur plusieurs activités (par exemple : des activit
 
 ```
 ### <a name="example"></a>Exemples
-**Scénario :**  itérer sur un pipeline interne au sein d’une activité ForEach avec l’activité d’exécution du pipeline. Le pipeline interne copie avec des définitions de schéma paramétrées.
+**Scénario :** Itérer sur un pipeline interne au sein d’une activité ForEach avec l’activité d’exécution du pipeline. Le pipeline interne copie avec des définitions de schéma paramétrées.
 
 #### <a name="master-pipeline-definition"></a>Définition du pipeline principal
 

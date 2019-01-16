@@ -8,12 +8,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 12/01/2018
 ms.author: victorh
-ms.openlocfilehash: 86fdbbacf3e8064afe0aaaaebea1d6ef6c25f9d4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a15ffa23b64f944d8b2c088113bcc29443ce6873
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865823"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038957"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Déployer un pare-feu Azure à l’aide d’un modèle
 
@@ -51,6 +51,8 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
    La création des ressources prend quelques minutes. 
    
 1. Explorez les ressources créées avec le pare-feu. 
+
+Pour en savoir plus sur la syntaxe JSON et les propriétés d’un pare-feu dans un modèle, consultez [Microsoft.Network/azureFirewalls](/azure/templates/microsoft.network/azurefirewalls).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

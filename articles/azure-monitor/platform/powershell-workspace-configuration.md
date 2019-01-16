@@ -14,12 +14,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: 088d8155fda6c370d89cded516bfa6c174c9380a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b8b3b28d2bf7fc75b9f70d145290af1edf44c94f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438029"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063175"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Gérer Log Analytics à l’aide de PowerShell
 Vous pouvez utiliser les [applets de commande PowerShell Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) pour exécuter diverses fonctions dans Log Analytics à partir d’une ligne de commande ou via un script.  Voici quelques exemples des tâches que vous pouvez effectuer avec PowerShell :
@@ -186,6 +186,21 @@ New-AzureRmOperationalInsightsWindowsPerformanceCounterDataSource -ResourceGroup
 New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -CustomLogRawJson "$CustomLog" -Name "Example Custom Log Collection"
 
 ```
+Dans l’exemple ci-dessus regexDelimiter a été défini comme « \\n » pour le saut de ligne. Le délimiteur de journal peut être également un timestamp.  Voici les formats pris en charge :
+
+| Format | Le format RegEx JSON utilise deux \\ pour chaque \ dans une expression régulière standard, par conséquent si les tests dans une application RegEx réduit \\ à \ |
+| --- | --- |
+| AAAA-MM-JJ HH:MM:SS  | ((\\\\j{2})\|(\\\\j{4}))-([0-1]\\\\j)-(([0-3]\\\\j)\|(\\\\j))\\\\s((\\\\j)\|([0-1]\\\\j)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
+| M/J/AAAA HH:MM:SS AM/PM | (([0-1]\\\\j)\|[0-9])/(([0-3]\\\\j)\|(\\\\d))/((\\\\j{2})\|(\\\\j{4}))\\\\s((\\\\j)\|([0-1]\\\\j)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\\\s(AM\|PM\|am\|pm) |
+| jj/MMM/aaaa HH:MM:SS | ((([0-3]\\\\j)\|(\\\\j))/(Jan\|Fév\|Mar\|Mai\|Avr\|Jul\|Jun\|Aoû\|Oct\|Sep\|Nov\|Déc\|jan\|fév\|mar\|mai\|avr\|jul\|jun\|aoû\|oct\|sep\|nov\|déc)/((\\\\j{2})\|(\\\\j{4}))\\\\s((\\\\j)\|([0-1]\\\\j)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]) |
+| MMM jj, aaaa HH:MM:SS | (((?:Jan(?:vier)?\|Fév(?:rier)?\|Mar(?:s)?\|Avr(?:il)?\|Mai\|Jun(?:Juin)?\|Jul(?:Juillet)?\|Aoû(?:t)?\|Sep(?:tembre)?\|Sept\|Oct(?:obre)?\|Nov(?:embre)?\|Déc(?:embre)?)).*?((?:(?:[0-2]?\\\\j{1})\|(?:[3][01]{1})))(?![\\\\j]).*?((?:(?:[1]{1}\\\\j{1}\\\\j{1}\\\\j{1})\|(?:[2]{1}\\\\j{3})))(?![\\\\j]).*?((?:(?:[0-1][0-9])\|(?:[2][0-3])\|(?:[0-9])):(?:[0-5][0-9])(?::[0-5][0-9])?(?:\\\\s?(?:am\|AM\|pm\|PM))?)) |
+| aaMMjj HH:mm:ss | ([0-9]{2}([0][1-9]\|[1][0-2])([0-2][0-9]\|[3][0-1])\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
+| jjMMaa HH:mm:ss | (([0-2][0-9]\|[3][0-1])([0][1-9]\|[1][0-2])[0-9]{2}\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
+| MMM j HH:mm:ss | (Jan\|Fév\|Mar\|Avr\|Mai\|Jun\|Jul\|Aoû\|Sep\|Oct\|Nov\|Déc)\\\\s\\\\s?([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0-1]?[0-9]\|[2][0-3]):([0-5][0-9]):([0-5][0-9]) |
+| MMM  j HH:mm:ss<br> deux espaces après MMM | (Jan\|Fév\|Mar\|Avr\|Mai\|Jun\|Jul\|Aoû\|Sep\|Oct\|Nov\|Déc)\\\\s\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9]) |
+| MMM j HH:mm:ss | (Jan\|Fév\|Mar\|Avr\|Mai\|Jun\|Jul\|Aoû\|Sep\|Oct\|Nov\|Déc)\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9]) |
+| jj/MMM/aaaa:HH:mm:ss +zzzz<br> sachant que + est le signe + ou le signe -<br> sachant que zzzz est le décalage de temps | (([0-2][1-9]\|[3][0-1])\\\\/(jan\|fév\|mar\|avr\|mai\|jun\|jul\|aoû\|sep\|oct\|nov\|déc)\\\\/((19\|20)[0-9][0-9]):([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\\\s[\\\\+\|\\\\-][0-9]{4}) |
+| aaaa-MM-jjTHH:mm:ss<br> Le T est la lettre T | ((\\\\j{2})\|(\\\\j{4}))-([0-1]\\\\j)-(([0-3]\\\\j)\|(\\\\j))T((\\\\j)\|([0-1]\\\\j)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
 
 ## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Configuration de Log Analytics pour indexer les diagnostics Azure
 Pour une analyse sans agent des ressources Azure, celles-ci doivent avoir les diagnostics Azure activés et configurés pour écrire dans un espace de travail Log Analytics. Cette approche a pour effet d’envoyer des données directement à Log Analytics, et ne nécessite pas d’écriture de données dans un compte de stockage. Les ressources prises en charge sont les suivantes :

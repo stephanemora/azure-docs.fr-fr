@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2017
 ms.author: yushwang
-ms.openlocfilehash: d2f3da47f1d4eebe1b81964790ff6612dd78155d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 060e647badcc3bad7b44d7cef3530c36b8ecdf57
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 01/07/2019
 ms.locfileid: "23125177"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>À propos des exigences de chiffrement et des passerelles VPN Azure
@@ -29,7 +29,7 @@ Cet article explique comment configurer des passerelles VPN Azure pour satisfair
 ## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>À propos des paramètres de stratégie IPsec et IKE pour les passerelles VPN Azure
 La norme de protocole IPsec et IKE standard prend en charge un vaste éventail d’algorithmes de chiffrement dans différentes combinaisons. Si les clients ne demandent pas une combinaison spécifique de paramètres et d’algorithmes de chiffrement, les passerelles VPN Azure utilisent un ensemble de propositions par défaut. Les jeux de stratégies par défaut ont été choisis pour optimiser l’interopérabilité avec un large éventail d’appareils VPN tiers dans des configurations par défaut. Par conséquent, les stratégies et le nombre de propositions ne peuvent pas couvrir toutes les combinaisons d’algorithmes de chiffrement disponibles et de forces de clé disponibles.
 
-La stratégie par défaut définie pour la passerelle VPN Azure est répertoriée dans le document : [À propos des appareils VPN et des paramètres IPsec/IKE pour les connexions de passerelle VPN site à site](vpn-gateway-about-vpn-devices.md).
+La stratégie par défaut définie pour la passerelle VPN Azure est listée dans le document : [À propos des périphériques VPN et des paramètres IPsec/IKE pour les connexions de passerelle VPN site à site](vpn-gateway-about-vpn-devices.md).
 
 ## <a name="cryptographic-requirements"></a>Exigences de chiffrement
 Pour les communications qui exigent des paramètres ou des algorithmes de chiffrement spécifiques, généralement en raison des exigences de conformité ou de sécurité, les clients peuvent désormais configurer leurs passerelles VPN Azure pour utiliser une stratégie IPsec/IKE personnalisée avec des algorithmes de chiffrement et des forces de clé spécifiques, plutôt que les jeux de stratégies Azure par défaut.
