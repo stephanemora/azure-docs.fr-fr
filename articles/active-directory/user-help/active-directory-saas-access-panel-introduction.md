@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: 129f77ec9ea4d4e2633e1ea0b02795bc0df26433
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1f51fb1d92fdec93fdb57fd25f8ca1cbaeb4fc46
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834704"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188927"
 ---
 # <a name="what-is-the-myapps-portal"></a>Qu’est-ce que le portail MyApps ?
 
@@ -65,7 +65,7 @@ Le programme d’installation est spécifique à l’architecture. Si vous cliqu
 
 
 L’extension du portail MyApps est actuellement disponible pour :
-- **Edge** : sur Windows 10 Édition anniversaire ou version ultérieure. 
+- **Microsoft Edge** : sur Windows 10 Édition anniversaire ou version ultérieure. 
 - **Chrome** : sur Windows 7 ou version ultérieure, et sur Mac OS X ou version ultérieure.
 - **Firefox 26.0 ou version ultérieure** : sur Windows XP SP2 ou version ultérieure, et sur Mac OS X 10.6 ou version ultérieure.
 - **Internet Explorer 11** : sur Windows 7 ou version ultérieure (prise en charge limitée).
@@ -79,7 +79,7 @@ Pour vous connecter à l’authentification unique avec mot de passe, vous devez
 - Vous pouvez utiliser les URL internes de la société à distance via le [Proxy d’application](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
-> Les fonctionnalités supplémentaires sont disponibles uniquement pour Edge, Chrome et Firefox.
+> Les fonctionnalités supplémentaires sont uniquement disponibles pour Microsoft Edge, Chrome et Firefox.
 >
 Vous pouvez télécharger l’extension directement à partir des sites suivants :
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)

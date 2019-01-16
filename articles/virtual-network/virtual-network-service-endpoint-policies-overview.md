@@ -3,24 +3,20 @@ title: Stratégies de point de terminaison de service de réseau virtuel Azure |
 description: Découvrez comment filtrer le trafic de réseau virtuel vers les ressources de service Azure à l’aide de stratégies de point de terminaison de service
 services: virtual-network
 documentationcenter: na
-author: anithaa
-manager: narayan
-editor: ''
-ms.assetid: ''
+author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: anithaa
-ms.custom: ''
-ms.openlocfilehash: 425bbc9eac112a4b999bd08940abb8b875aca61c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: sumeet.mittal
+ms.openlocfilehash: 7a3a94e9759dfb3c525ffcf1e840d5bec18f4808
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433291"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051309"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Stratégies de point de terminaison de service de réseau virtuel (préversion)
 
@@ -123,13 +119,13 @@ Les stratégies de point de terminaison de service de réseau virtuel offrent le
      - Azure Application Gateway (classique)
      - Passerelle VPN Azure (classique)
 
-- Stockage Azure : Les comptes de stockage classiques ne sont pas pris en charge dans les stratégies de point de terminaison. Par défaut, les stratégies refusent l’accès à tous les comptes de stockage classiques. Si votre application doit accéder à Azure Resource Manager et à des comptes de stockage classiques, les stratégies de point de terminaison ne doivent pas être utilisées pour ce trafic. 
+- Stockage Azure : Les comptes de stockage classiques ne sont pas pris en charge dans les stratégies de point de terminaison. Par défaut, les stratégies refusent l’accès à tous les comptes de stockage classiques. Si votre application doit accéder à Azure Resource Manager et à des comptes de stockage classiques, les stratégies de point de terminaison ne doivent pas être utilisées pour ce trafic. 
 
 ## <a name="nsgs-with-service-endpoint-policies"></a>NSG avec stratégies de points de terminaison de service
 - Par défaut, les NSG autorisent le trafic Internet sortant, y compris le trafic de votre réseau virtuel vers les services Azure.
 - Si vous souhaitez refuser tout trafic Internet sortant et autoriser le trafic uniquement vers des ressources de services Azure spécifiques : 
 
-  Étape 1 : Configurez les NSG pour autoriser le trafic sortant uniquement vers les services Azure dans les régions de point de terminaison, à l’aide de *balises de service Azure*. Pour plus d’informations, consultez [Balises de Service Azure pour les groupes de sécurité réseau](https://aka.ms/servicetags)
+  Étape 1 : Configurez les NSG pour autoriser le trafic sortant uniquement vers les services Azure dans les régions de point de terminaison, à l’aide de *balises de service Azure*. Pour plus d’informations, consultez [Balises de Service Azure pour les groupes de sécurité réseau](https://aka.ms/servicetags)
       
   Les règles de groupe de sécurité réseau qui restreignent l’accès aux seules régions de point de terminaison peuvent ressembler à ce qui suit :
 
@@ -146,11 +142,11 @@ Les stratégies de point de terminaison de service de réseau virtuel offrent le
 
 ## <a name="scenarios"></a>Scénarios
 
-- **Réseaux appairés, connectés ou multiples** : pour filtrer le trafic dans des réseaux virtuels appairés, les stratégies de point de terminaison doivent être appliquées individuellement à ces réseaux virtuels.
-- **Filtrage du trafic Internet avec les appliances réseau ou le pare-feu Azure** : filtre le trafic de service Azure avec les stratégies sur les points de terminaison, et filtre le reste du trafic Internet ou Azure par le biais d’appliances ou d’un pare-feu Azure. 
-- **Filtrage du trafic sur les services Azure déployés dans les réseaux virtuels** : dans la préversion, les stratégies de point de terminaison de service ne sont pas prises en charge pour les services Azure gérés qui sont déployés dans votre réseau virtuel. 
+- **Réseaux virtuels appairés, connectés ou multiples** : Pour filtrer le trafic dans des réseaux virtuels appairés, les stratégies de point de terminaison doivent leur être appliquées individuellement.
+- **Filtrage du trafic Internet avec des appliances réseau ou le Pare-feu Azure** : Filtrez le trafic du service Azure avec des stratégies, sur les points de terminaison et filtrez le reste du trafic Internet ou Azure par le biais d’appliances ou du Pare-feu Azure. 
+- **Filtrage du trafic sur les services Azure déployés dans des réseaux virtuels** : Dans la préversion, les stratégies de point de terminaison de service ne sont pas prises en charge pour les services Azure managés qui sont déployés dans votre réseau virtuel. 
  Pour les services spécifiques, consultez [Limites.](#Limitations)
-- **Filtrage du trafic vers les services Azure en local** : les stratégies de point de terminaison de service s’appliquent uniquement au trafic issu de sous-réseaux associés aux stratégies. Pour autoriser l’accès à des ressources de service Azure spécifiques en local, le trafic doit être filtré à l’aide d’appliances de réseau virtuel ou de pare-feu.
+- **Filtrage du trafic local vers les services Azure** : Les stratégies de point de terminaison de service s’appliquent uniquement au trafic en provenance des sous-réseaux associés aux stratégies. Pour autoriser l’accès à des ressources de service Azure spécifiques en local, le trafic doit être filtré à l’aide d’appliances de réseau virtuel ou de pare-feu.
 
 ## <a name="logging-and-troubleshooting"></a>Journalisation et résolution des problèmes
 Aucun enregistrement centralisé n’est disponible pour les stratégies de point de terminaison de service. Pour les journaux de diagnostic de service, consultez [Service endpoints logging](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting) (Enregistrement des points de terminaison de service).

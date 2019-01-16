@@ -9,14 +9,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 113e5769ee6a58785a46182064684bea5825c12c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d233f1df40d9580edfaaeb6b819c014952ad3b0c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138914"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189272"
 ---
 # <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Tutoriel : Bot LUIS en C# avec Bot Framework 4.x et bot d'application web Azure
 À l’aide de C#, vous pouvez créer un bot conversationnel intégré avec compréhension de la langue (LUIS). Ce bot utilise l’application HomeAutomation pour implémenter une solution de bot. Le bot est créé avec le [bot d’application web](https://docs.microsoft.com/azure/bot-service/) Azure et [Bot Framework version](https://github.com/Microsoft/botbuilder-js) v4.
@@ -301,6 +301,7 @@ Le service de bot Azure utilise le SDK de Bot Framework. Découvrez le SDK et Bo
 
 Vous avez créé un service de bot Azure, copié le secret de bot et le chemin d’accès au fichier `.bot`, puis téléchargé le fichier zip du code. Vous avez ajouté le domaine HomeAutomation prédéfini à l’application LUIS créée dans le cadre du nouveau service de bot Azure, puis entraîné et republié l’application. Vous avez extrait le projet de code, créé un fichier d’environnement (`.env`) et défini le secret de bot ainsi que le chemin d’accès au fichier `.bot`. Dans le fichier bot.js, vous avez ajouté le code pour gérer les deux nouvelles intentions. Ensuite, vous avez testé le bot dans l’émulateur de bot afin de voir la réponse LUIS pour un énoncé d’une des nouvelles intentions. 
 
+Consultez d’autres [exemples](https://github.com/Microsoft/AI) avec des bots conversationnels. 
 
 > [!div class="nextstepaction"]
 > [Générer un domaine personnalisé dans LUIS](luis-quickstart-intents-only.md)

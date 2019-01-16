@@ -4,18 +4,19 @@ titleSuffix: Azure Cosmos DB
 description: Il s’agit de la partie 3 de cette série de didacticiels sur la création d’une application MongoDB avec Angular et Node sur Azure Cosmos DB à l’aide des mêmes API que celles utilisées pour MongoDB.
 author: johnpapa
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: 462d0ea036ee50a3eea6812d87772bba9559125c
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.reviewer: sngun
+ms.openlocfilehash: 286ccfe84f511ffccdc8919b2e717cd21f124c2b
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788580"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158701"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Créer une application Angular avec l’API d’Azure Cosmos DB pour MongoDB - Générer l’interface utilisateur avec Angular
 
@@ -416,7 +417,7 @@ Maintenant que nous avons le composant, comment l’afficher sur l’écran ? C
 
 2. Dans Visual Studio Code, revenez à **heroes.components.ts**. Notez qu’à la ligne `constructor(private heroService: HeroService) {}` (ligne 13), `HeroService` est souligné en rouge. Cliquez sur `HeroService` et l’ampoule apparaît sur le côté gauche du bloc de code. Cliquez sur l’ampoule, puis sur **Importer HeroService depuis « ./hero.service ».** ou **Importer HeroService depuis « client/app/hero.service ».**
 
-    Quand vous cliquez sur l’ampoule, une nouvelle ligne de code est insérée à la ligne 2. Si la ligne 2 fait référence au dossier app/hero, modifiez-la afin de référencer le fichier héros à partir du dossier local (./hero). La ligne 2 doit se présenter comme suit :
+    Quand vous cliquez sur l’ampoule, une nouvelle ligne de code est insérée à la ligne 2. Si la ligne 2 fait référence au dossier /app/hero.service, modifiez-la afin de référencer le fichier hero à partir du dossier local (./hero.service). La ligne 2 doit se présenter comme suit :
     
     ```javascript
     import { HeroService } from "./hero.service"

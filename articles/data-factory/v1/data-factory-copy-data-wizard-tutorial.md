@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer un pipeline à l’aide de l’Assistant de copie | Microsoft Docs'
+title: 'Tutoriel : Créer un pipeline à l’aide de l’Assistant de copie | Microsoft Docs'
 description: Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie, à l’aide de l’Assistant de copie et de Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -9,21 +9,20 @@ ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 85cea4bea0b1cff65464a2ad692e500efdc50c10
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ace2ffdacf775a3c0c5a579e9a4208641c20f661
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095372"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025757"
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant de copie de Data Factory
 > [!div class="op_single_selector"]
-> * [Vue d’ensemble et étapes préalables requises](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Vue d’ensemble et composants requis](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
 > * [Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
@@ -64,7 +63,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une fabrique
       - Sélectionnez **Utiliser l’existant** pour sélectionner un groupe de ressources existant.
       - Sélectionnez **Créer un nouveau** pour entrer un nom pour un groupe de ressources.
           
-        Certaines étapes de ce didacticiel supposent que vous utilisez le groupe de ressources nommé **ADFTutorialResourceGroup** . Pour plus d'informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../../azure-resource-manager/resource-group-overview.md).
+        Certaines étapes de ce tutoriel utilisent le nom : **ADFTutorialResourceGroup** pour le groupe de ressources. Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../../azure-resource-manager/resource-group-overview.md).
    4. Sélectionnez un **emplacement** pour la fabrique de données.
    5. Sélectionnez la case à cocher **Épingler au tableau de bord** en bas du panneau.  
    6. Cliquez sur **Créer**.

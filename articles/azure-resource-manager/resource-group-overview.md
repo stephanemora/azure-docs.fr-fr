@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 470d08c13d5874283794fa9a2ce06fcaad4f60c2
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 24646c9448a70af228085c99f03ab844e5af7e9e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300538"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053140"
 ---
 # <a name="azure-resource-manager-overview"></a>Présentation d’Azure Resource Manager
 L’infrastructure sur laquelle s’appuie votre application est généralement constituée de plusieurs composants, par exemple une machine virtuelle, un compte de stockage et un réseau virtuel ou bien une application web, une base de données, un serveur de base de données et des services tiers. Vous ne verrez peut-être pas ces composants comme des entités distinctes, mais plutôt comme des parties associées et interdépendantes d’une seule et même entité. Vous avez alors besoin de regrouper le déploiement, la gestion et la surveillance de ces différentes parties. Azure Resource Manager vous permet de travailler avec les ressources de solution sous forme de groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre solution dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Le gestionnaire de ressources assure la sécurité, les fonctions d’audit et de balisage pour vous aider à gérer vos ressources après le déploiement. 
 
 ## <a name="consistent-management-layer"></a>Couche de gestion cohérente
-Resource Manager fournit une couche de gestion cohérente pour effectuer des tâches avec Azure PowerShell, Azure CLI, le portail Azure, l’API REST et les kits SDK clients. Toutes les fonctionnalités disponibles dans le portail Azure sont également disponibles dans Azure PowerShell, Azure CLI, les API REST Azure et les kits SDK clients. Les fonctionnalités initialement publiées par le biais des API seront représentées dans le portail dans les 180 jours après la publication de la version initiale.
+Resource Manager fournit une couche de gestion cohérente pour effectuer des tâches par le biais du portail Azure. Par ailleurs, toutes les fonctionnalités qui sont disponibles dans le portail Azure sont également disponibles avec Azure PowerShell, Azure CLI, les API REST Azure et les SDK clients. Les fonctionnalités initialement publiées par le biais des API seront représentées dans le portail dans les 180 jours après la publication de la version initiale.
 
 Choisissez les outils et les API qui vous conviennent le mieux : ils présentent les mêmes fonctionnalités et fournissent des résultats cohérents.
 
@@ -88,9 +88,9 @@ Le nom d’un type de ressource est au format : **{fournisseur de ressources}/{
 Avant de commencer à déployer vos ressources, vous devez connaître les fournisseurs de ressources disponibles. Connaître les noms des fournisseurs de ressources et des ressources vous permettra de mieux définir les ressources que vous allez déployer dans Azure. En outre, vous devez connaître les emplacements valides et les versions d’API pour chaque type de ressource. Pour plus d’informations, consultez [les types et les fournisseurs de ressources](resource-manager-supported-services.md).
 
 ## <a name="template-deployment"></a>Déploiement de modèle
-Avec Resource Manager, vous pouvez créer un modèle (au format JSON) définissant l’infrastructure et la configuration de votre solution Azure. Un modèle vous permet de déployer votre solution à plusieurs reprises tout au long de son cycle de vie pour avoir la garantie que vos ressources présentent un état cohérent lors de leur déploiement. Lorsque vous créez une solution à partir du portail, cette solution inclut automatiquement un modèle de déploiement. Vous n’êtes pas contraint de créer votre modèle à partir de zéro, car vous pouvez partir du modèle de votre solution et le personnaliser en fonction de vos besoins spécifiques. Pour obtenir un exemple, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](./resource-manager-quickstart-create-templates-use-the-portal.md). Vous pouvez également récupérer un modèle pour un groupe de ressources existant en exportant l’état actuel du groupe de ressources ou en affichant le modèle utilisé pour un déploiement particulier. L’affichage du [modèle exporté](resource-manager-export-template.md) est un moyen utile pour en découvrir plus sur sa syntaxe.
+Avec Resource Manager, vous pouvez créer un modèle (au format JSON) définissant l’infrastructure et la configuration de votre solution Azure. Un modèle vous permet de déployer votre solution à plusieurs reprises tout au long de son cycle de vie pour avoir la garantie que vos ressources présentent un état cohérent lors de leur déploiement. Lorsque vous créez une solution à partir du portail, cette solution inclut automatiquement un modèle de déploiement. Vous n’êtes pas contraint de créer votre modèle à partir de zéro, car vous pouvez partir du modèle de votre solution et le personnaliser en fonction de vos besoins spécifiques. Pour obtenir un exemple, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](./resource-manager-quickstart-create-templates-use-the-portal.md). Vous pouvez également récupérer un modèle pour un groupe de ressources existant en exportant l’état actuel du groupe de ressources ou en affichant le modèle utilisé pour un déploiement particulier. L’affichage du [modèle exporté](resource-manager-export-template.md) est un moyen utile pour en découvrir plus sur sa syntaxe.
 
-Pour en savoir plus sur le format du modèle et comment le construire, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](./resource-manager-quickstart-create-templates-use-the-portal.md). Pour afficher la syntaxe JSON pour les types de ressources, voir [Définir des ressources dans les modèles Azure Resource Manager](/azure/templates/).
+Pour en savoir plus sur le format du modèle et la manière de le construire, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](./resource-manager-quickstart-create-templates-use-the-portal.md). Pour afficher la syntaxe JSON pour les types de ressources, voir [Définir des ressources dans les modèles Azure Resource Manager](/azure/templates/).
 
 Resource Manager traite le modèle comme toute autre requête (voir l’image [Couche de gestion cohérente](#consistent-management-layer)). Il analyse le modèle et convertit sa syntaxe en opérations API REST pour les fournisseurs de ressources appropriés. Par exemple, lorsque Resource Manager reçoit un modèle avec la définition de ressource suivante :
 
@@ -212,7 +212,7 @@ Azure fournit également plusieurs rôles spécifiques à la ressource, notammen
 4. Collaborateur de serveurs SQL : peut gérer les serveurs et bases de données SQL, mais pas leurs stratégies de sécurité
 5. Collaborateur de sites web : peut gérer les sites web, mais pas les plans web auxquels ils sont liés
 
-Pour obtenir la liste complète des rôles et actions autorisés, consultez la page [RBAC : rôles intégrés](../role-based-access-control/built-in-roles.md). Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle d’Azure](../role-based-access-control/role-assignments-portal.md). 
+Pour obtenir la liste complète des rôles et des actions autorisées, consultez [RBAC : rôles intégrés](../role-based-access-control/built-in-roles.md). Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle d’Azure](../role-based-access-control/role-assignments-portal.md). 
 
 Dans certains cas, vous souhaiterez exécuter un code ou un script permettant d’accéder aux ressources, sans avoir à utiliser les informations d’identification d’un utilisateur. Vous pouvez choisir de créer une identité appelée « principal de service » de l’application et lui attribuer le rôle approprié. Resource Manager vous permet de créer des informations d’identification pour l’application et d’authentifier cette application par le biais d’une programmation. Pour en savoir plus sur la création de principaux de service, consultez l’une des rubriques suivantes :
 

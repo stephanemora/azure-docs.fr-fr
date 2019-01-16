@@ -9,19 +9,18 @@ ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/10/2018
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 864c80fe0ab8b061439b5a80a111edbd1b2004b6
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: c3b605507c3878770db2c7dcb53a2ff9bb512b6b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027025"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078386"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure
 
 Azure Key Vault est un service cloud qui fonctionne comme un magasin sécurisé contenant des secrets. Vous pouvez stocker des clés, des mots de passe, des certificats et d’autres secrets en toute sécurité. Vous pouvez créer et gérer des coffres de clés Azure grâce au portail Azure. Dans ce démarrage rapide, vous créez un coffre de clés, puis l’utilisez pour stocker un secret. Pour plus d’informations sur Key Vault, consultez la [présentation](key-vault-overview.md).
 
@@ -40,8 +39,8 @@ Connectez-vous au portail Azure sur http://portal.azure.com.
 3. Dans la liste des résultats, choisissez **Key Vault**.
 4. Dans la section Key Vault, choisissez **Créer**.
 5. Dans la section **Créer un coffre de clés**, renseignez les informations suivantes :
-    - **Nom** : requiert un nom unique. Pour ce démarrage rapide, nous utilisons **Contoso-vault2**. 
-    - **Abonnement** : choisissez un abonnement.
+    - **Nom** : un nom unique est obligatoire. Pour ce démarrage rapide, nous utilisons **Contoso-vault2**. 
+    - **Abonnement**: Choisissez un abonnement.
     - Sous **Groupe de ressources**, choisissez **Créer** et entrez le nom du groupe de ressources.
     - Dans le menu déroulant **Emplacement**, choisissez un emplacement.
     - Cochez la case **Épingler au tableau de bord**.
@@ -50,8 +49,8 @@ Connectez-vous au portail Azure sur http://portal.azure.com.
 
 Notez les deux propriétés ci-dessous :
 
-* **Nom du coffre** : dans l’exemple, il s’agit de **Contoso-Vault2**. Vous allez utiliser ce nom pour les autres étapes.
-* **URI du coffre** : dans l’exemple, il s’agit de https://contoso-vault2.vault.azure.net/. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
+* **Nom du coffre** : dans l’exemple, il s’agit de **Contoso-Vault2**. Vous allez utiliser ce nom pour les autres étapes.
+* **URI du coffre** : dans l’exemple, il s’agit de https://contoso-vault2.vault.azure.net/. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
 
 À ce stade, votre compte Azure est le seul autorisé à effectuer des opérations sur ce nouveau coffre.
 
@@ -64,7 +63,7 @@ Pour ajouter un secret au coffre, vous devez effectuer deux autres opérations. 
 1. Dans les pages des propriétés du coffre de clés, sélectionnez **Secrets**.
 2. Cliquez sur **Generate/Import (Générer/Importer)**.
 3. Dans l’écran **Create a secret (Créer un secret)**, choisissez les valeurs suivantes :
-    - **Options de chargement** : Manuel.
+    - **Options de chargement** : Manuel.
     - **Nom** : ExamplePassword.
     - **Valeur** : Pa$$w0rd.
     - Conservez les valeurs par défaut des autres options. Cliquez sur **Créer**.
@@ -73,7 +72,7 @@ Lorsque vous recevez le message confirmant la création du secret, cliquez dessu
 
 ![Propriétés de secret](./media/quick-create-portal/version.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 D’autres démarrages rapides et didacticiels sur les coffres de clés reposent sur ce démarrage rapide. Si vous prévoyez d’utiliser d’autres démarrages rapides et didacticiels, il peut être utile de conserver ces ressources.
 Si vous n’en avez plus besoin, supprimez le groupe de ressources. Ce faisant, vous supprimez le coffre de clés et les ressources associées. Pour supprimer le groupe de ressources à l’aide du portail :

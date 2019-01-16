@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 07/11/2018
+ms.date: 01/02/2019
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: e483997140efc1d75466d887e42383d887f8a6f4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dc7932f197931a0fbf1dde924eb70ca18f6f9748
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963247"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065543"
 ---
 # <a name="introduction-to-azure-storage"></a>Présentation de Stockage Azure
 
@@ -22,7 +22,7 @@ Le Stockage Azure est une solution de stockage cloud de Microsoft pour les scén
 - **Durable et hautement disponible.** La redondance garantit que vos données sont sécurisées en cas de défaillance matérielle temporaire. Vous pouvez également choisir de répliquer des données entre des centres de données ou des régions géographiques pour une protection supplémentaire contre les catastrophes locales ou les catastrophes naturelles. Les données ainsi répliquées restent hautement disponibles en cas de panne inattendue. 
 - **Sécurisé.** Toutes les données écrites dans le Stockage Azure sont chiffrées par le service. Le Stockage Azure vous permet de contrôler de manière plus précise qui a accès à vos données.
 - **Évolutif.** Le Stockage Azure est conçu pour être hautement évolutif afin de répondre aux besoins de stockage de données et de performances des applications actuelles. 
-- **Géré.** Microsoft Azure gère la maintenance et les problèmes critiques pour vous.
+- **Géré.** Microsoft Azure gère la maintenance du matériel, les mises à jour et les problèmes critiques pour vous.
 - **Accessible.** Les données dans le Stockage Azure sont accessibles n’importe où dans le monde via HTTP ou HTTPS. Microsoft propose des Kits de développement logiciel (DSK) pour le Stockage Azure dans une variété de langages : .NET, Java, Node.js, Python, PHP, Ruby, Go et autres encore, ainsi qu’API REST éprouvée. Le stockage Azure prend en charge l’écriture de scripts Azure PowerShell ou l’interface de ligne de commande Azure. De plus, le portail Azure et l’Explorateur Stockage Azure offrent des solutions visuelles simples pour utiliser vos données.  
 
 ## <a name="azure-storage-services"></a>Services de stockage Azure
@@ -89,30 +89,9 @@ Le stockage Azure comprend également des fonctionnalités de disque géré et n
 
 ## <a name="types-of-storage-accounts"></a>Types de compte de stockage
 
-Ce tableau détaille les différents types de comptes de stockage et les objets qu’ils peuvent utiliser.
+[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
-|**Type de compte de stockage**|**Édition Standard à usage général**|**Édition Premium à usage général**|**Stockage d’objets blob, niveaux d’accès froid et chaud**|
-|-----|-----|-----|-----|
-|**Services pris en charge**| Services blob, de file d’attente et de table | Service blob | Service blob|
-|**Types d’objets blob pris en charge**|Objets blob de blocs, objets blob de pages et objets blob d’ajout | Objets blob de pages | Objets blob de blocs et objets blob d’ajout|
-
-### <a name="general-purpose-storage-accounts"></a>Comptes de stockage à usage général
-
-Il existe deux types de comptes de stockage à usage général.
-
-#### <a name="standard-storage"></a>Stockage Standard
-
-Les comptes de stockage Standard sont les plus couramment utilisés. Ils peuvent être utilisés avec n’importe quel type de données. Les comptes de stockage Standard se servent de médias magnétiques pour stocker des données.
-
-#### <a name="premium-storage"></a>Stockage Premium
-
-Le service de stockage Premium offre un stockage hautes performances pour les objets blob de pages, principalement utilisés avec les fichiers VHD. Les comptes de stockage Premium se servent du chiffrement SSD pour stocker des données. Microsoft recommande l’utilisation du service de stockage Premium pour toutes vos machines virtuelles.
-
-### <a name="blob-storage-accounts"></a>Comptes de stockage d’objets blob
-
-Le compte de stockage d’objets blob est un compte de stockage spécialisé, utilisé pour le stockage d’objets blob de blocs et d’ajout. Il est impossible d’y stocker des objets blob de pages et donc d’y stocker des fichiers VHD. Ces comptes permettent de définir un niveau d’accès chaud ou froid, et de le modifier à tout moment.
-
-Le niveau d’accès « chaud » désigne les fichiers souvent sollicités : le coût de stockage est plus élevé, tandis que le coût d’accès aux objets blob est beaucoup plus faible. En ce qui concerne les objets blob stockés au niveau d’accès « froid », le coût pour y accéder est plus élevé, tandis que le coût de stockage est beaucoup plus faible.
+Pour plus d’informations sur les types de comptes de stockage, voir [Vue d’ensemble des comptes de stockage Azure](storage-account-overview.md). 
 
 ## <a name="accessing-your-blobs-files-and-queues"></a>Accéder aux objets blob, aux fichiers et aux files d’attente
 
@@ -161,16 +140,7 @@ Pour en savoir plus sur la récupération d’urgence, consultez [Que faire en c
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Transfert de données vers et depuis Azure Storage
 
-Vous pouvez utiliser l’utilitaire de ligne de commande AzCopy pour copier des données d’objets blob et de fichiers au sein de votre compte de stockage ou entre des comptes de stockage. Pour plus d’informations, consultez l’un des articles suivants :
-
-* [Transférer des données avec AzCopy pour Windows](storage-use-azcopy.md)
-* [Transférer des données avec AzCopy pour Linux](storage-use-azcopy-linux.md)
-
-AzCopy repose sur la [bibliothèque de déplacement de données Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), actuellement disponible en version préliminaire.
-
-Le service d’importation/exportation d’Azure peut être utilisé pour importer ou exporter de grandes quantités de données d’objets blob vers ou depuis votre compte de stockage. Vous préparez et envoyez par courrier électronique plusieurs disques durs vers un centre de données Azure, puis ils transféreront les données vers ou depuis les disques durs avant de vous renvoyer les disques durs. Pour plus d’informations sur le service Import/Export, voir [Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export](../storage-import-export-service.md).
-
-Pour importer de grandes quantités de données d’objets blob dans votre compte de stockage de façon rapide, économique et fiable, vous pouvez également utiliser Azure Data Box Disk. Microsoft envoie jusqu’à 5 disques SSD chiffrés dotés d’une capacité de 40 To à votre centre de données via un transporteur régional. Vous configurez rapidement les disques, y copiez des données via une connexion USB, puis réexpédiez les disques à Azure. Dans le centre de données Azure, vos données sont automatiquement chargées à partir de lecteurs vers le cloud. Pour plus d’informations sur cette solution, accédez à la [vue d’ensemble d’Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
+Vous avez plusieurs options de déplacement des données dans ou en dehors de Stockage Azure. L’option que vous choisissez dépend de la taille de votre jeu de données et de votre bande passante réseau. Pour plus d’informations, consultez [Choisir une solution Azure pour le transfert de données](storage-choose-data-transfer-solution.md).
 
 ## <a name="pricing"></a>Tarifs
 

@@ -9,23 +9,22 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 9aab9df353ea5691b4132741e9b4a97b0afd9d17
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 93f8a5e806bd10824a78dd62351fd3d9be0cf32c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262146"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025825"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activités de création de branches et chaînage dans un pipeline Azure Data Factory
 Dans ce didacticiel, vous créez un pipeline Data Factory qui présente certaines des fonctionnalités de flux de contrôle. Ce pipeline est une simple copie depuis un conteneur Stockage Blob Azure vers un autre conteneur dans le même compte de stockage. Si l’activité de copie réussit, vous envoyez les détails de l’opération de copie réussie (par exemple, la quantité de données écrites) dans un e-mail d’avis de réussite. Si l’activité de copie échoue, vous envoyez les détails de l’échec de la copie (par exemple, le message d’erreur) dans un e-mail d’avis d’échec. Tout au long de ce didacticiel, vous allez apprendre à passer des paramètres.
 
-Vue d’ensemble du scénario : ![vue d’ensemble](media/tutorial-control-flow/overview.png)
+Vue d’ensemble du scénario : ![Vue d'ensemble](media/tutorial-control-flow/overview.png)
 
-Dans ce didacticiel, vous allez effectuer les étapes suivantes :
+Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 
 > [!div class="checklist"]
 > * Créer une fabrique de données.
@@ -95,7 +94,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Ajoutez ces variables statiques à la **classe Program**. Remplacez les espaces réservés par vos propres valeurs. Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent sur la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+2. Ajoutez ces variables statiques à la **classe Program**. Remplacez les espaces réservés par vos propres valeurs. Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent dans la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 
     ```csharp
         // Set variables
@@ -204,7 +203,7 @@ Ajoutez le code suivant à la méthode **Main** qui crée un **jeu de données d
 
 Vous définissez un jeu de données qui représente les données sources dans l’objet blob Azure. Ce jeu de données d’objet blob fait référence au service lié Stockage Azure que vous avez créé à l’étape précédente et décrit :
 
-- l’emplacement de l’objet blob à copier à partir de : **FolderPath** et **NomFichier** ;
+- Emplacement de l’objet blob à partir duquel copier : **FolderPath** et **FileName** ;
 - Notez l’utilisation de paramètres pour FolderPath. « sourceBlobContainer » est le nom du paramètre et l’expression est remplacée par les valeurs passées dans l’exécution du pipeline. La syntaxe pour définir des paramètres est `@pipeline().parameters.<parameterName>`
 
 Créer une fonction « SourceBlobDatasetDefinition » dans votre fichier Program.cs
@@ -258,7 +257,7 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSourceDataset
 client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetName, SinkBlobDatasetDefinition(client));
 ```
 
-## <a name="create-a-c-class-emailrequest"></a>Créer une classe C# : EmailRequest
+## <a name="create-a-c-class-emailrequest"></a>Créez une classe C# : EmailRequest
 Dans votre projet C#, créez une classe nommée **EmailRequest**. Elle définit les propriétés que le pipeline envoie dans le corps de la requête lors de l’envoi d’un e-mail. Dans ce didacticiel, le pipeline envoie quatre propriétés à l’adresse e-mail :
 
 - **Message** : corps de l’e-mail. Dans le cas d’une copie réussie, cette propriété contient les détails de l’exécution (quantité de données écrites). Dans le cas d’une copie ayant échoué, cette propriété contient les détails de l’erreur.

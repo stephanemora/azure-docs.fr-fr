@@ -1,19 +1,19 @@
 ---
-title: 'Leçon 11 du didacticiel Azure Analysis Services : Créer des rôles | Microsoft Docs'
+title: 'Leçon 11 du didacticiel Azure Analysis Services : Créer des rôles | Microsoft Docs'
 description: Explique comment créer des rôles dans le projet du didacticiel Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1a9ecea835e42c90ce7d71617666d210182fe465
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5b89051cab7e89f79a2b62a392173e6dc234e48d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428899"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189743"
 ---
 # <a name="create-roles"></a>Créer des rôles
 
@@ -30,12 +30,12 @@ Vous devez créer trois rôles :
   
 -   **Administrator (Administrateur)**  – Ce rôle peut inclure des utilisateurs auxquels vous souhaitez fournir une autorisation d’administrateur, ce qui permet un accès et des autorisations illimités pour effectuer des tâches administratives sur la base de données de modèles.  
   
-Étant donné que les comptes d’utilisateurs et de groupes Windows de votre organisation sont uniques, vous pouvez ajouter des comptes de votre organisation spécifique aux membres. Toutefois, pour ce didacticiel, vous pouvez également laisser les membres vides. Vous allez tester l’effet de chaque rôle ultérieurement dans la leçon 12 : Analyser dans Excel.  
+Étant donné que les comptes d’utilisateurs et de groupes Windows de votre organisation sont uniques, vous pouvez ajouter des comptes de votre organisation spécifique aux membres. Toutefois, pour ce didacticiel, vous pouvez également laisser les membres vides. Vous allez tester l’effet de chaque rôle ultérieurement dans la leçon 12 : Analyser dans Excel.  
   
-Durée estimée pour suivre cette leçon : **15 minutes**  
+Durée estimée pour suivre cette leçon : **15 minutes**  
   
 ## <a name="prerequisites"></a>Prérequis  
-Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir suivi la leçon précédente : [Leçon 10 : Créer des partitions](../tutorials/aas-lesson-10-create-partitions.md).  
+Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 10 : Créer des partitions](../tutorials/aas-lesson-10-create-partitions.md).  
   
 ## <a name="create-roles"></a>Créer des rôles  
   
@@ -51,7 +51,7 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
 
     ![aas-lesson11-new-role](../tutorials/media/aas-lesson11-new-role.png) 
   
-5.  Facultatif : Cliquez sur l’onglet **Membres**, puis sur **Ajouter**. Dans la boîte de dialogue **Sélectionner des utilisateurs ou des groupes**, entrez les utilisateurs ou les groupes Windows de votre organisation à inclure dans le rôle.  
+5.  Facultatif : Cliquez sur l’onglet **Membres**, puis sur **Ajouter**. Dans la boîte de dialogue **Sélectionner des utilisateurs ou des groupes**, entrez les utilisateurs ou les groupes Windows de votre organisation à inclure dans le rôle.  
   
 #### <a name="to-create-a-sales-analyst-us-user-role"></a>Pour créer un rôle d’utilisateur Sales Analyst US (Analyste en ventes aux États-Unis)  
   
@@ -70,7 +70,7 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
     Une formule de filtre de lignes doit être résolue en une valeur booléenne (TRUE/FALSE). Avec cette formule, vous spécifiez que l’utilisateur doit voir uniquement les lignes dont la valeur Code pays/région est « US ».  
     ![aas-lesson11-role-filter](../tutorials/media/aas-lesson11-role-filter.png) 
   
-6.  Facultatif : Cliquez sur l’onglet **Membres**, puis sur **Ajouter**. Dans la boîte de dialogue **Sélectionner des utilisateurs ou des groupes**, entrez les utilisateurs ou les groupes Windows de votre organisation à inclure dans le rôle.  
+6.  Facultatif : Cliquez sur l’onglet **Membres**, puis sur **Ajouter**. Dans la boîte de dialogue **Sélectionner des utilisateurs ou des groupes**, entrez les utilisateurs ou les groupes Windows de votre organisation à inclure dans le rôle.  
   
 #### <a name="to-create-an-administrator-user-role"></a>Pour créer un rôle d’utilisateur Administrator  
   
@@ -80,7 +80,7 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
   
 3.  Attribuez à ce rôle l’autorisation **Administrateur**.  
   
-4.  Facultatif : Cliquez sur l’onglet **Membres**, puis sur **Ajouter**. Dans la boîte de dialogue **Sélectionner des utilisateurs ou des groupes**, entrez les utilisateurs ou les groupes Windows de votre organisation à inclure dans le rôle. 
+4.  Facultatif : Cliquez sur l’onglet **Membres**, puis sur **Ajouter**. Dans la boîte de dialogue **Sélectionner des utilisateurs ou des groupes**, entrez les utilisateurs ou les groupes Windows de votre organisation à inclure dans le rôle. 
   
   
 ## <a name="whats-next"></a>Et ensuite ?

@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 7f7ae858f633a910b796f544ed69a582e749beaf
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d5d284e8f7756e3e9bff5b08d28a8ed911a60572
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311063"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158871"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android
 
@@ -127,7 +127,7 @@ Vous pouvez trouver la configuration complète de cet exemple de code dans le fi
 
 1. Pour plus d’informations sur les mécanismes de la bibliothèque et la configuration de nouveaux scénarios et fonctionnalités, consultez le [Wiki ADAL pour Android](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki).
 2. Dans les scénarios Natifs, l’application utilise un affichage web intégré qui ne nécessite pas de quitter l’application. La valeur `Redirect URI` peut être arbitraire.
-3. Vous rencontrez des problèmes ou avez des demandes à formuler ? Vous pouvez créer un problème ou publier sur Stackoverflow avec la balise `azure-active-directory`.
+3. Vous rencontrez des problèmes ou avez des demandes à formuler ? Vous pouvez signaler un problème ou publier sur Stack Overflow avec la balise `azure-active-directory`.
 
 ### <a name="cross-app-sso"></a>Authentification unique entre applications
 

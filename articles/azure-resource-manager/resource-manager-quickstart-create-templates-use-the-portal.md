@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 515ab6a4ee832c702cfe19f2aca9022f208b409d
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 15940d952dad62b3f71bfef6aa1cd8598d044605
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612786"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104724"
 ---
-# <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure
+# <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure
 
 Découvrez comment créer votre premier modèle Azure Resource Manager à l’aide du portail Azure et le processus de modification et de déploiement du modèle à partir du portail Azure. Les modèles Azure Resource Manager sont des fichiers JSON qui définissent les ressources nécessaires au déploiement de votre solution. Suivez les instructions de ce tutoriel pour créer un compte de stockage Azure. Vous pouvez utiliser le même processus pour créer d’autres ressources Azure.
 
@@ -97,7 +97,7 @@ Azure requiert que chaque service Azure ait un nom unique. Le déploiement écho
 
     ```json
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "location": {
@@ -145,9 +145,9 @@ Azure requiert que chaque service Azure ait un nom unique. Le déploiement écho
     - **Groupe de ressources** : attribuez un nom unique à votre groupe de ressources.
     - **Emplacement** : sélectionnez un emplacement pour le groupe de ressources.
     - **Emplacement** : sélectionnez un emplacement pour le compte de stockage.  Vous pouvez utiliser le même emplacement que celui de votre groupe de ressources.
-    - **Type de compte** : entrez **Standard_LRS** pour ce démarrage rapide.
-    - **Type** : entrez **StorageV2** pour ce démarrage rapide.
-    - **Niveau d’accès** : entrez **chaud** pour ce démarrage rapide.
+    - **Type de compte** : entrez **Standard_LRS** pour ce démarrage rapide.
+    - **Type** : entrez **StorageV2** pour ce démarrage rapide.
+    - **Niveau d’accès** : entrez **chaud** pour ce démarrage rapide.
     - **Seul le trafic HTTPS est activé**.  Pour ce guide de démarrage rapide, sélectionnez **true**.
     - **J’accepte les termes et conditions mentionnés ci-dessus** : (cochez la case)
 
@@ -164,7 +164,7 @@ Azure requiert que chaque service Azure ait un nom unique. Le déploiement écho
 
     ![Groupe de ressources de déploiement de modèles Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
 
-    L’état du déploiement vous montre qu’il a réussi, et il n’y a qu’un seul compte de stockage dans le groupe de ressources. Le nom de compte de stockage est une chaîne unique générée par le modèle. Pour en savoir plus sur l’utilisation des comptes de stockage Azure, consultez [Démarrage rapide : charger, télécharger et répertorier des objets blob à l’aide du portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
+    L’état du déploiement vous montre qu’il a réussi, et il n’y a qu’un seul compte de stockage dans le groupe de ressources. Le nom de compte de stockage est une chaîne unique générée par le modèle. Pour plus d’informations sur l’utilisation des comptes de stockage Azure, consultez [Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide du portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

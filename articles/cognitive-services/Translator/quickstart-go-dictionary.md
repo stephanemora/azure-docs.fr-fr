@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Rechercher des traductions alternatives, Go - API de traduction de texte Translator Text'
+title: 'Démarrage rapide : Rechercher des mots avec le dictionnaire bilingue, Go - API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez rechercher des traductions alternatives et des exemples de termes en contexte à l’aide de l’API de traduction de texte Translator Text avec Go.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: bcda716d143bd675f9510b1ecf5974ab9c28a394
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: c1a75a32e60e337d07bda9d6f6d39efa58c679e2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000592"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158565"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-go"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour obtenir des traductions alternatives à l’aide de Go
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>Démarrage rapide : Rechercher des mots avec le dictionnaire bilingue en utilisant Go
 
 Dans ce démarrage rapide, vous allez apprendre à rechercher des traductions alternatives et des exemples d’utilisation pour un texte spécifié à l’aide de Go et de l’API de traduction de texte Translator Text.
 
@@ -141,7 +141,7 @@ if err != nil {
 
 ## <a name="handle-and-print-the-response"></a>Gérer et imprimer la réponse
 
-Ajoutez ce code à la fonction `altTranslations` pour décoder la réponse JSON, puis formatez et imprimez le résultat.
+Ajoutez ce code à la fonction `altTranslations` pour décoder la réponse JSON, puis mettez en forme et imprimez le résultat.
 
 ```go
 // Decode the JSON response

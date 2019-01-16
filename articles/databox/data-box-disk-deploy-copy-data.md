@@ -6,17 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/09/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7bc8b3ba415f8fe701098a9fa7e51d60ffb9df4e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 10750b5005810ec9034d2b4c7907578949ca6821
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092451"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155199"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Didacticiel : Copier des données sur un disque Azure Data Box et procéder à une vérification
+# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutoriel : Copier des données sur Azure Data Box Disk et procéder à une vérification
 
 Ce didacticiel explique comment copier des données à partir de votre ordinateur hôte, puis générer les sommes de contrôle pour vérifier l’intégrité des données.
 
@@ -29,16 +29,17 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous que :
-- Vous avez terminé le [Didacticiel : Installer et configurer votre disque Azure Data Box](data-box-disk-deploy-set-up.md).
+- Vous avez terminé le [Tutoriel : Installer et configurer votre offre Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Vos disques sont déverrouillés et connectés à un ordinateur client.
-- Votre ordinateur client utilisé pour copier des données sur les disques doit exécuter un [système d’exploitation pris en charge](data-box-disk-system-requirements.md).
+- Votre ordinateur client utilisé pour copier des données sur les disques doit exécuter un [système d’exploitation pris en charge](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
+- Vérifiez que le type de stockage prévu pour vos données correspond aux [types de stockage pris en charge](data-box-disk-system-requirements.md#supported-storage-types).
 
 
 ## <a name="copy-data-to-disks"></a>Copier des données sur des disques
 
 Procédez comme suit pour vous connecter et copier des données à partir de votre ordinateur vers le disque Data Box.
 
-1. Affichez le contenu du disque déverrouillé. 
+1. Affichez le contenu du disque déverrouillé.
 
     ![Afficher le contenu du disque](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
@@ -147,19 +148,32 @@ Procédez comme suit pour vous connecter et copier des données à partir de vot
     C:\Users>
     ```
  
+    Pour optimiser les performances, utilisez les paramètres robocopy suivants lors de la copie des données.
+
+    |    Plateforme    |    Principalement des fichiers de petite taille (< 512 Ko)                           |    Principalement des fichiers de taille moyenne (entre 512 Ko et 1 Mo)                      |    Principalement des fichiers volumineux (> 1 Mo)                             |   
+    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
+    |    Data Box Disk        |    4 sessions Robocopy* <br> 16 threads par session    |    2 sessions Robocopy* <br> 16 threads par session    |    2 sessions Robocopy* <br> 16 threads par session    |  |
     
-7. Ouvrez le dossier cible pour afficher et vérifier les fichiers copiés. Si vous rencontrez des erreurs au cours du processus de copie, téléchargez les fichiers journaux pour résoudre les problèmes. L’emplacement des fichiers journaux est spécifié dans la commande robocopy.
+    **Chaque session Robocopy peut avoir un maximum de 7 000 répertoires et 150 millions de fichiers.*
+    
+    >[!NOTE]
+    > Les paramètres suggérés ci-dessus s’appuient sur l’environnement utilisé lors des tests internes.
+    
+    Pour plus d’informations sur la commande Robocopy, consultez [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx) (Robocopy et quelques exemples).
+
+6. Ouvrez le dossier cible pour afficher et vérifier les fichiers copiés. Si vous rencontrez des erreurs au cours du processus de copie, téléchargez les fichiers journaux pour résoudre les problèmes. L’emplacement des fichiers journaux est spécifié dans la commande robocopy.
  
-
-
 > [!IMPORTANT]
 > - C’est à vous de vous assurer que les données sont copiées vers des dossiers compatibles avec le format des données. Par exemple, les données d’objet blob de blocs doivent être copiées dans le dossier des objets blob de blocs. Si le format des données ne correspond pas au dossier (type de stockage), les données ne pourront pas être chargées dans Azure.
-> -  Lorsque vous copiez des données, vérifiez que la taille des données est conforme aux limites de taille spécifiées dans l’article [Azure storage and Data Box Disk limits](data-box-disk-limits.md) (Limitations relatives au stockage Azure et aux disques Data Box). 
+> -  Lorsque vous copiez des données, vérifiez que la taille des données est conforme aux limites de taille spécifiées dans l’article [Azure storage and Data Box Disk limits](data-box-disk-limits.md) (Limitations relatives au stockage Azure et aux disques Data Box).
 > - Si les données, qui sont en cours de chargement via Data Box Disk, sont chargées simultanément par d’autres applications en dehors de Data Box Disk, cela pourrait entraîner l’échec du téléchargement ou des corruptions de données.
 
 ### <a name="split-and-copy-data-to-disks"></a>Fractionner et copier des données sur plusieurs disques
 
 Vous pouvez exécuter cette procédure facultative lorsque vous utilisez plusieurs disques et que vous disposez d’un jeu de données volumineux qui doit être fractionné et copié sur la totalité des disques. L’outil Data Box Split Copy vous permet de fractionner et copier les données sur un ordinateur Windows.
+
+>[!IMPORTANT]
+> L’outil Data Box Split Copy valide également vos données. Si vous utilisez l’outil Data Box Split Copy pour copier des données, vous pouvez ignorer l’[étape de validation](#validate-data).
 
 1. L’outil Data Box Split Copy doit avoir été téléchargé et extrait dans un dossier local de votre ordinateur Windows. Cet outil a été téléchargé lorsque vous avez téléchargé l’ensemble d’outils Data Box Disk pour Windows.
 2. Ouvrez l’Explorateur de fichiers. Notez la lettre de lecteur de la source de données et les lettres de lecteur attribuées à Data Box Disk. 
@@ -175,26 +189,26 @@ Vous pouvez exécuter cette procédure facultative lorsque vous utilisez plusieu
 
          ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
-4. Accédez au dossier dans lequel le logiciel a été extrait. Recherchez le fichier SampleConfig.json dans ce dossier. Il s’agit d’un fichier en lecture seule que vous pouvez modifier et enregistrer.
+4. Accédez au dossier dans lequel le logiciel a été extrait. Recherchez le fichier `SampleConfig.json` dans ce dossier. Il s’agit d’un fichier en lecture seule que vous pouvez modifier et enregistrer.
 
    ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
-5. Modifiez le fichier SampleConfig.json.
+5. Modifiez le fichier `SampleConfig.json`.
  
     - Fournissez un nom de travail. Cette opération crée un dossier dans Data Box Disk qui devient le conteneur dans le compte de stockage Azure associé à ces disques. Le nom du travail doit respecter les conventions d’affectation de noms de conteneur Azure. 
-    - Fournissez un chemin d’accès source en notant le format du chemin dans le fichier SampleConfig.json. 
+    - Fournissez un chemin source en notant le format du chemin dans le fichier `SampleConfigFile.json`. 
     - Entrez les lettres de lecteur correspondant aux disques cibles. Les données sont copiées sur les différents disques à partir du chemin d’accès source.
-    - Fournissez un chemin d’accès pour les fichiers journaux. Par défaut, ces fichiers sont envoyés au répertoire dans lequel se trouve le fichier .exe.
+    - Fournissez un chemin d’accès pour les fichiers journaux. Par défaut, ces fichiers sont envoyés au répertoire dans lequel se trouve le fichier `.exe`.
 
      ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
-6. Pour valider le format de fichier, accédez à JSONlint. Enregistrez le fichier sous le nom ConfigFile.json. 
+6. Pour valider le format de fichier, accédez à `JSONlint`. Enregistrez le fichier sous le nom `ConfigFile.json`. 
 
      ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. Ouvrez une fenêtre d’invite de commandes. 
 
-8. Exécutez le fichier DataBoxDiskSplitCopy.exe. type
+8. Exécutez `DataBoxDiskSplitCopy.exe`. type
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
@@ -213,7 +227,7 @@ Vous pouvez exécuter cette procédure facultative lorsque vous utilisez plusieu
     ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-10.png)
     ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-11.png)
      
-    Si vous examinez davantage le contenu du lecteur n:, vous pouvez constater que deux sous-dossiers ont été créés et correspondent aux données d’objet blob de blocs et d’objet blob de pages.
+    Si vous examinez de plus près le contenu du lecteur `n:`, vous pouvez constater que deux sous-dossiers ont été créés et correspondent aux données d’objet blob de blocs et d’objet blob de pages.
     
      ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
@@ -221,15 +235,14 @@ Vous pouvez exécuter cette procédure facultative lorsque vous utilisez plusieu
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+Une fois la copie des données terminée, vous pouvez passer à leur validation. Si vous avez utilisé l’outil Split Copy, ignorez la validation (car l’outil s’en charge aussi) et passez au tutoriel suivant.
 
-Une fois la copie des données terminée, l’étape suivante consiste à valider les données. 
 
+## <a name="validate-data"></a>Valider les données
 
-## <a name="validate-data"></a>Valider les données 
+Si vous n’avez pas utilisé l’outil Split Copy pour copier les données, vous devez les valider. Pour vérifier les données, procédez comme suit.
 
-Pour vérifier les données, procédez comme suit.
-
-1. Exécutez le fichier `DataBoxDiskValidation.cmd` pour la validation des sommes de contrôle dans le dossier *AzureImportExport* de votre lecteur. 
+1. Exécutez le fichier `DataBoxDiskValidation.cmd` pour la validation des sommes de contrôle dans le dossier *DataBoxDiskImport* de votre lecteur.
     
     ![Sortie de l’outil de validation Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
@@ -239,7 +252,7 @@ Pour vérifier les données, procédez comme suit.
 
     > [!TIP]
     > - Réinitialisez l’outil entre deux exécutions.
-    > - Utilisez l’option 1 pour valider les fichiers en traitant uniquement les jeux de données volumineux contenant de petits fichiers (de quelques Ko). Dans ce cas, la génération des sommes de contrôle peut prendre beaucoup de temps et ralentir considérablement les performances.
+    > - Utiliser l’option 1 si vous traitez un grand jeu de données qui contient des petits fichiers (~ Ko). Cette option valide seulement les fichiers, car la génération de la somme de contrôle peut prendre beaucoup de temps et les performances peuvent ralentir considérablement.
 
 3. Si vous utilisez plusieurs disques, exécutez la commande pour chaque disque.
 
@@ -255,4 +268,3 @@ Passez au didacticiel suivant pour savoir comment renvoyer le disque Data Box et
 
 > [!div class="nextstepaction"]
 > [Envoyer votre Azure Data Box à Microsoft](./data-box-disk-deploy-picked-up.md)
-

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 60ecf08d7f0c40a04472b3e2bf5ef739e51c32e8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2af1ad35ee5f7548352180026f1d613d27b6af46
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794428"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103513"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire
 
@@ -43,7 +43,7 @@ Pour suivre ce tutoriel :
 Créez le coffre dans n’importe quelle région, à l’exception de la région source.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) > **Recovery Services**.
-2. Cliquez sur **Créer une ressource** > **Surveillance + Gestion** > **Backup and Site Recovery**.
+2. Cliquez sur **Créer une ressource** > **Outils de gestion** > **Backup and Site Recovery**.
 3. Dans **Nom**, indiquez un nom convivial permettant d’identifier le coffre. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié.
 4. Créez un groupe de ressources ou sélectionnez-en un. Spécifiez une région Azure. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique de la page [Tarification de Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 5. Pour accéder rapidement au coffre à partir du tableau de bord, cliquez sur **Épingler au tableau de bord**, puis sur **Créer**.
@@ -172,7 +172,8 @@ Site Recovery crée les paramètres par défaut et la stratégie de réplication
 
 5. Si vous souhaitez ajouter des machines virtuelles à un groupe de réplication nouveau ou existant, dans **Personnaliser**, sélectionnez **Oui** pour activer la cohérence multimachine virtuelle . Cliquez ensuite sur **OK**.
 
-    - Toutes les machines d’un groupe de réplication ont des points de récupération cohérents après incident et avec les applications lorsqu’elles basculent. L’activation de la cohérence multimachine virtuelle peut influer sur les performances de la charge de travail. Elle ne doit être utilisée que si les machines exécutent la même charge de travail et si vous avez besoin de cohérence entre plusieurs machines virtuelles.
+    - Toutes les machines d’un groupe de réplication ont des points de récupération cohérents après incident et avec les applications lorsqu’elles basculent. L’activation de la cohérence multimachine virtuelle peut influer sur les performances de la charge de travail (utilisation intensive du processeur). Elle ne doit être utilisée que si les machines exécutent la même charge de travail et si vous avez besoin de cohérence entre plusieurs machines virtuelles.
+    - Vous pouvez choisir d’avoir au maximum 16 machines virtuelles dans un groupe de réplication.
     - Si vous activez la cohérence multimachine virtuelle, les machines du groupe de réplication communiquent entre elles sur le port 20004. Vérifiez qu’aucun dispositif de pare-feu ne bloque la communication interne entre les machines virtuelles sur le port 20004. Si vous voulez que les machines virtuelles Linux fassent partie d’un groupe de réplication, vérifiez que le trafic sortant sur le port 20004 est ouvert manuellement conformément aux instructions de la version Linux spécifique.
 
 ### <a name="configure-encryption-settings"></a>Configurer les paramètres de chiffrement

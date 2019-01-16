@@ -3,17 +3,17 @@ title: Mettre à l’échelle automatiquement un groupe de machines virtuelles i
 description: Découvrez comment utiliser Ansible pour mettre à l’échelle un groupe de machines virtuelles identiques avec la mise à l’échelle automatique dans Azure
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, mise à l’échelle, mise à l’échelle automatique, machine virtuelle, groupe de machines virtuelles identiques, vmss
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
-ms.author: yuwzho, kyliel
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.openlocfilehash: c6678d6df3a695d3a0471e5779bc3af4b6ba6c84
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 7721dba37131616122f8a5a902e3c63de5c7157f
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411133"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157052"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-azure-using-ansible"></a>Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques dans Azure avec Ansible
 Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Vous pouvez utiliser Ansible pour gérer votre groupe de machines virtuelles identiques dans Azure comme vous le feriez pour toute autre ressource Azure. 
@@ -29,7 +29,7 @@ Lorsque vous créez un groupe identique, vous définissez le nombre d’instance
 > Ansible 2.7 est nécessaire pour exécuter les exemples de playbooks suivants dans ce didacticiel. 
 
 ## <a name="auto-scale-based-on-a-schedule"></a>Mise à l’échelle automatique en fonction d’une planification   
-Pour activer la mise à l’échelle automatique sur un groupe identique, vous devez d’abord définir un profil de mise à l’échelle automatique. Ce profil définit les capacités par défaut, minimale et maximale du groupe identique. Ces limites vous permettent de contrôler le coût en évitant de créer des instances de machine virtuelle en continu et d’équilibrer les performances acceptables sur un nombre minimal d’instances qui restent dans un événement de diminution du nombre d’instances. 
+Pour activer la mise à l’échelle automatique sur un groupe identique, vous devez d’abord définir un profil de mise à l’échelle automatique. Ce profil définit les capacités par défaut, minimale et maximale du groupe identique. Ces limites vous permettent de contrôler le coût en évitant de créer continuellement des instances de machine virtuelle et d’équilibrer les performances acceptables sur un nombre minimal d’instances qui restent dans un événement de diminution du nombre d’instances. 
 
 Vous pouvez diminuer ou augmenter la taille des instances dans VM Scale Sets selon une planification périodique ou à une date donnée. Cette section présente un exemple de playbook Ansible qui crée un paramètre de mise à l’échelle automatique portant le nombre d’instances de machine virtuelle à trois dans vos groupes identiques à 10h00 tous les lundis (fuseau horaire du Pacifique). 
 

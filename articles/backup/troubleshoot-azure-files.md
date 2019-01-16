@@ -8,12 +8,12 @@ ms.author: raynew
 ms.date: 10/23/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 4806ca77bda1d380d3c5f1d958a335bceddc7f16
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 56daf1bd8d0ab7752b74463759f25441924b52d2
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787441"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064115"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Résoudre les problèmes de sauvegarde des partages de fichiers Azure
 Vous pouvez résoudre les problèmes et les erreurs rencontrés pendant l’utilisation d’une sauvegarde des partages de fichiers Azure à l’aide des informations figurant dans les tables suivantes.
@@ -36,7 +36,7 @@ La sauvegarde des partages de fichiers Azure dans les comptes de stockage avec r
 ## <a name="configuring-backup"></a>Configuration de la sauvegarde
 Le tableau suivant concerne la configuration de la sauvegarde :
 
-| Configuration de la sauvegarde | Conseils de résolution ou solution de contournement |
+| messages d'erreur | Conseils de résolution ou solution de contournement |
 | ------------------ | ----------------------------- |
 | Mon compte de stockage pour configurer la sauvegarde du partage de fichiers Azure est introuvable | <ul><li>Attendez la fin de la découverte. <li>Vérifiez si un partage de fichiers du compte de stockage est déjà protégé par un autre coffre Recovery Services. **Remarque**: Tous les partages de fichiers dans un compte de stockage peuvent être protégés sous un seul coffre Recovery Services. <li>Assurez-vous que le partage de fichiers ne fait pas partie d’un compte de stockage non pris en charge.|
 | Erreur : échec de la découverte des états du portail des comptes de stockage. | Si votre abonnement est partenaire (CSP activé), ignorez l’erreur. Si votre abonnement ne dispose pas du CSP activé, et que vos comptes de stockage ne peuvent pas être découverts, contactez le support technique.|
@@ -64,6 +64,14 @@ Le tableau suivant concerne la configuration de la sauvegarde :
 | Échec de l’opération de restauration, car le partage de fichiers cible est plein. | Augmentez le quota de taille du partage de fichiers cible pour prendre en charge les données de restauration, puis recommencez l’opération. |
 | L’opération de restauration a échoué car une erreur s’est produite lors de l’exécution d’opérations de pré-restauration sur les ressources du service de synchronisation de fichiers associées au partage de fichiers cible. | Réessayez après quelques instants et, si le problème persiste, contactez le support technique Microsoft. |
 | Un ou plusieurs fichiers n’ont pas pu être récupérés avec succès. Pour plus d’informations, vérifiez la liste des fichiers ayant échoué dans le chemin d’accès indiqué ci-dessus. | <ul> <li> Les raisons d’un échec de récupération sont répertoriées dans le fichier (chemin d’accès fourni dans les détails du travail), traitez les raisons et recommencez l’opération de restauration uniquement pour les fichiers ayant échoué. <li> Les causes courantes des échecs d’une restauration de fichiers sont : <br/> -Vérifiez que les fichiers ayant échoué ne sont pas en cours d’utilisation. <br/> -un répertoire portant le même nom que les fichiers ayant échoué existe dans le répertoire parent. |
+
+
+## <a name="modify-policy"></a>Modifier la stratégie
+| messages d'erreur | Conseils de résolution ou solution de contournement |
+| ------------------ | ----------------------------- |
+| Une autre opération de configuration de la protection est en cours pour cet élément. | Attendez que l’opération précédente de modification de la stratégie soit terminée pour réessayer.|
+| Une autre opération est en cours sur l’élément sélectionné. | Attendez que l’autre opération en cours soit terminée, puis réessayez. |
+
 
 ## <a name="see-also"></a>Voir aussi
 Pour plus d’informations sur la sauvegarde des partages de fichiers Azure, consultez les références suivantes :

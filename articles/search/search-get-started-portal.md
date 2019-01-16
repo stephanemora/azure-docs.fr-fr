@@ -7,15 +7,15 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3f75cd61d948f3f6df34124a9b16b333f6c5e6d5
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 9bdc2e197b4d7aea270c954305a96a01a1371945
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001785"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121547"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Démarrage rapide : Utiliser les outils du portail intégrés pour l’importation, l’indexation et la création de requêtes dans Recherche Azure
 
@@ -48,7 +48,7 @@ De nombreux clients commencent avec le service gratuit. Cette version est limit�
 
 Les sections figurant sur le tableau de bord des services indiquent le nombre d’index, d’indexeurs et de sources de données dont vous disposez déjà. 
 
-![Lists of indexes, indexers, and datasources][media/search-get-started-portal/tiles-indexers-datasources2.png]
+![Listes des index, indexeurs et sources de données](media/search-get-started-portal/tiles-indexers-datasources2.png)
 
 ## <a name="create-index"></a> Créer un index et charger des données
 
@@ -124,9 +124,13 @@ Il faut parfois plusieurs minutes au portail pour actualiser la page, mais l’i
 
 ## <a name="view-the-index"></a>Afficher l’index
 
-La liste **Index** indique les index existants, notamment l’index *realestate-us-sample* que vous avez créé à l’aide de l’Assistant.
+La page principale du service fournit des liens vers les ressources créées dans votre service Recherche Azure.  Pour voir l’index que vous venez de créer, cliquez sur **Index** dans la liste des liens. 
 
-Dans cette liste, vous pouvez afficher le schéma d’index et éventuellement ajouter de nouveaux champs, mais vous ne pouvez pas modifier les champs existants. Les champs existants ont une représentation physique dans Recherche Azure et ne sont donc pas modifiables, pas même dans le code. Pour modifier considérablement un champ existant, créez un nouvel index en supprimant l’original.
+   ![Liste des index dans le tableau de bord du service](media/search-get-started-portal/indexes-list.png)
+
+À partir de cette liste, vous pouvez cliquer sur l’index *realestate-us-sample* que vous venez de créer pour voir le schéma d’index. Ajoutez éventuellement de nouveaux champs. 
+
+L’onglet **Champs** montre le schéma d’index. Faites défiler la liste vers le bas pour entrer un nouveau champ. Dans la plupart des cas, vous ne pouvez pas modifier les champs existants. Les champs existants ont une représentation physique dans Recherche Azure et ne sont donc pas modifiables, pas même dans le code. Pour modifier considérablement un champ existant, créez un nouvel index en supprimant l’original.
 
    ![définition de l’index d’exemples](media/search-get-started-portal/sample-index-def.png)
 
@@ -137,6 +141,8 @@ Pour comprendre clairement ce que vous pouvez et ne pouvez pas modifier lors de 
 ## <a name="query-index"></a> Lancer des requêtes à l’aide de l’Explorateur de recherche
 
 Vous devriez maintenant avoir un index de recherche prêt à lancer des requêtes à l’aide de la page de requête [**Explorateur de recherche**](search-explorer.md) intégrée. Il fournit une zone de recherche afin que vous puissiez tester les chaînes de requête arbitraires.
+
+L’**Explorateur de recherche** est uniquement équipé pour gérer des [demandes d’API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), mais il accepte à la fois une syntaxe de [requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) et celle de l’[analyseur complet de requêtes Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), ainsi que tous les paramètres de recherche disponibles dans des opérations d’[API REST de recherche dans des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples).
 
 > [!TIP]
 > La procédure qui suit fait l’objet d’une démonstration à 6 min 08 s dans la [vidéo de présentation du service Recherche Azure](https://channel9.msdn.com/Events/Connect/2016/138).
@@ -150,11 +156,9 @@ Vous devriez maintenant avoir un index de recherche prêt à lancer des requête
 
    ![Commandes d’index et d’API](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 
-3. Dans la barre de recherche, entrez les chaînes de recherche ci-dessous, puis cliquez sur **Rechercher**.
+3. Dans la barre de recherche, collez les chaînes de requête ci-dessous, puis cliquez sur **Rechercher**.
 
-    > [!NOTE]
-    > **L’Explorateur de recherche** n’est équipé que pour gérer la [demande d’API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents). Il accepte à la fois la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) et la [syntaxe de l’analyseur de requêtes complètes Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), ainsi que tous les paramètres de recherche disponibles dans les opérations [Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
-    >
+   ![Chaîne de requête et bouton de recherche](media/search-get-started-portal/search-explorer-query-string-example.png)
 
 ## <a name="example-queries"></a>Exemples de requêtes
 

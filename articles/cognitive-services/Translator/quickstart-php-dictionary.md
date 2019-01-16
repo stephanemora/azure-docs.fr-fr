@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Rechercher des traductions alternatives, PHP - API de traduction de texte Translator Text'
+title: Rechercher des mots avec le dictionnaire bilingue, PHP - API de traduction de texte Translator Text
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez rechercher des traductions alternatives et des exemples de termes en contexte à l’aide de l’API de traduction de texte Translator Text avec PHP.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: 4d48ab8d0178b2d3fbcba2ee631ee97b30518f88
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ff1f0a97667260fa19c46bec6901113ff696aaab
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649759"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156882"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-php"></a>Démarrage rapide : Rechercher des traductions alternatives à l’aide de l’API REST de traduction de texte Translator Text (PHP)
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-php"></a>Démarrage rapide : Rechercher des mots avec le dictionnaire bilingue en utilisant PHP
 
 Ce démarrage rapide vous fournit des informations détaillées sur les traductions alternatives possibles d’un terme, ainsi que des exemples d’utilisation de ces traductions alternatives, à l’aide de l’API de traduction de texte Translator Text.
 

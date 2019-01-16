@@ -10,14 +10,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1ab2e35c916c6bd6f2d73a328f71710378fac890
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8dbf7b6f6741998972070234d90e87baca1154a4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343936"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042459"
 ---
-# <a name="manage-instances-in-durable-functions-azure-functions"></a>Gérer des instances dans Fonctions durables (Azure Functions)
+# <a name="manage-instances-in-durable-functions-in-azure"></a>Gérer des instances dans Durable Functions dans Azure
 
 Les instances d’orchestration de [Fonctions durables](durable-functions-overview.md) peuvent être des événements de notification démarrés, arrêtés, interrogés et envoyés. La gestion de toutes les instances est effectuée à l’aide de la [liaison du client d’orchestration](durable-functions-bindings.md). Cet article explique en détail chaque opération de gestion d’instance.
 
@@ -28,14 +28,14 @@ La méthode [StartNewAsync] (https://azure.github.io/azure-functions-durable-ext
 Cette opération asynchrone se termine quand le processus d’orchestration est correctement planifié. Le processus d’orchestration doit démarrer dans les 30 secondes. Si cela dure plus longtemps, une `TimeoutException` est levée.
 
 > [!WARNING]
-> Quand vous développez localement dans JavaScript, vous devez définir la variable d’environnement `WEBSITE_HOSTNAME` sur `localhost:<port>`, par exemple `localhost:7071`, pour utiliser des méthodes sur `DurableOrchestrationClient`. Pour plus d’informations sur cette configuration, consultez le [problème GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
+> Quand vous développez localement dans JavaScript, vous devez définir la variable d’environnement `WEBSITE_HOSTNAME` sur `localhost:<port>`, par exemple `localhost:7071` pour utiliser les méthodes sur `DurableOrchestrationClient`. Pour plus d’informations sur cette configuration, consultez le [problème GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 ### <a name="net"></a>.NET
 
 Les paramètres de [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) sont les suivants :
 
 * **Name** : Nom de la fonction orchestrator à planifier.
-* **Input** : Toutes les données JSON sérialisables devant être passées comme entrée à la fonction orchestrator.
+* **Entrée**: Toutes les données JSON sérialisables devant être passées comme entrée à la fonction orchestrator.
 * **InstanceId** : (Facultatif) ID unique de l’instance. S’il n’est pas spécifié, un ID d’instance aléatoire est généré.
 
 Voici un exemple simple C# :
@@ -58,7 +58,7 @@ Les paramètres de `startNew` sont les suivants :
 
 * **Name** : Nom de la fonction orchestrator à planifier.
 * **InstanceId** : (Facultatif) ID unique de l’instance. S’il n’est pas spécifié, un ID d’instance aléatoire est généré.
-* **Input** : (Facultatif) Toutes les données JSON sérialisables devant être passées comme entrée à la fonction orchestrator.
+* **Entrée**: (Facultatif) Toutes les données JSON sérialisables devant être passées comme entrée à la fonction orchestrator.
 
 Voici un exemple JavaScript simple :
 
@@ -111,9 +111,9 @@ La méthode retourne un objet JSON avec les propriétés suivantes :
 * **InstanceId** : ID d’instance de l’orchestration (doit être identique à l’entrée `instanceId`).
 * **CreatedTime** : Heure à laquelle la fonction orchestrator a commencé à s’exécuter.
 * **LastUpdatedTime** : Heure du dernier point de contrôle d’orchestration.
-* **Input** : Entrée de la fonction sous forme de valeur JSON. Ce champ n’est pas rempli si `showInput` est false.
+* **Entrée**: Entrée de la fonction sous forme de valeur JSON. Ce champ n’est pas rempli si `showInput` est false.
 * **CustomStatus** : État personnalisé de l’orchestration au format JSON.
-* **Output** : Sortie de la fonction sous forme de valeur JSON (si cette fonction est terminée). En cas d’échec de la fonction, cette propriété inclut les détails de l’échec. En cas d’interruption de la fonction de l’orchestrateur, cette propriété indique pour quel motif (le cas échéant).
+* **Sortie**: Sortie de la fonction sous forme de valeur JSON (si cette fonction est terminée). En cas d’échec de la fonction, cette propriété inclut les détails de l’échec. En cas d’interruption de la fonction de l’orchestrateur, cette propriété indique pour quel motif (le cas échéant).
 * **RuntimeStatus** : L’une des valeurs suivantes :
   * **Pending** : L’instance a été planifiée mais n’est pas encore en cours d’exécution.
   * **Running** : L’instance a commencé à s’exécuter.
@@ -520,7 +520,7 @@ Une instance d’orchestration ayant échoué peut être *rembobinée* jusqu’�
 > [!NOTE]
 > Cette API n’est pas destinée à se substituer à des stratégies appropriées de nouvelles tentatives et de gestion des erreurs. Son utilisation est plutôt uniquement réservée dans les cas où les instances d’orchestration échouent pour des raisons inattendues. Pour plus d’informations sur les stratégies de nouvelles tentatives et de gestion des erreurs, consultez la rubrique [Gestion des erreurs](durable-functions-error-handling.md).
 
-Un exemple de cas d’utilisation pour le *rewind* (rembobinage) s’illustre dans un workflow impliquant une série d’[approbations humaines](durable-functions-overview.md#pattern-5-human-interaction). Supposons une série de fonctions d’activité qui informent une personne que son approbation est nécessaire, et qui attendent la réponse en temps réel. Une fois que toutes les activités d’approbation ont reçu des réponses ou ont expiré, une autre activité échoue en raison d’un problème de configuration d’application (par exemple, une chaîne de connexion de base de données non valide). Il en résulte un échec de l’orchestration, survenu en profondeur dans le workflow. Avec l’API `RewindAsync` (.NET) ou `rewindAsync` (JavaScript), un administrateur d’application peut corriger l’erreur de configuration et rembobiner (*rewind*) l’orchestration ayant échoué jusqu’à l’état situé immédiatement avant l’échec. Aucune des étapes nécessitant une interaction humaine n’a besoin d’être réapprouvée et l’orchestration peut désormais s’effectuer correctement.
+Un exemple de cas d’utilisation pour le *rewind* (rembobinage) s’illustre dans un workflow impliquant une série d’[approbations humaines](durable-functions-concepts.md#human). Supposons une série de fonctions d’activité qui informent une personne que son approbation est nécessaire, et qui attendent la réponse en temps réel. Une fois que toutes les activités d’approbation ont reçu des réponses ou ont expiré, une autre activité échoue en raison d’un problème de configuration d’application (par exemple, une chaîne de connexion de base de données non valide). Il en résulte un échec de l’orchestration, survenu en profondeur dans le workflow. Avec l’API `RewindAsync` (.NET) ou `rewindAsync` (JavaScript), un administrateur d’application peut corriger l’erreur de configuration et rembobiner (*rewind*) l’orchestration ayant échoué jusqu’à l’état situé immédiatement avant l’échec. Aucune des étapes nécessitant une interaction humaine n’a besoin d’être réapprouvée et l’orchestration peut désormais s’effectuer correctement.
 
 > [!NOTE]
 > La fonctionnalité *rewind* ne prend pas en charge les instances d’orchestration de rembobinage qui utilisent des minuteurs durables.

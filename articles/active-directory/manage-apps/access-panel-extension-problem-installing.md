@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 5/4/18
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: aa0602ec0ecb97e9174fe6ef552b88fc30900d09
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 46f1d49e210a483b8e7645d7eba84ad21ed477da
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354831"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190514"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Installer l’extension de navigateur du volet d’accès
 
@@ -36,7 +36,7 @@ Au minimum, le volet d’accès nécessite un navigateur prenant en charge JavaS
 
 Pour l’authentification unique avec mot de passe, vous pouvez utiliser un des navigateurs suivants :
 
-- **Edge** : sur Windows 10 Édition anniversaire ou version ultérieure. 
+- **Microsoft Edge** : sur Windows 10 Édition anniversaire ou version ultérieure. 
 - **Chrome** : sur Windows 7 ou version ultérieure, et sur Mac OS X ou version ultérieure.
 - **Firefox 26.0 ou version ultérieure** : sur Windows XP SP2 ou version ultérieure, et sur Mac OS X 10.6 ou version ultérieure.
 
@@ -59,10 +59,10 @@ Pour installer l’extension de navigateur du volet d’accès, procédez comme 
 
 7.  Connectez-vous au volet d’accès et vérifiez si vous pouvez démarrer vos applications à authentification unique (SSO) avec mot de passe.
 
-Vous pouvez également télécharger l’extension pour Chrome et Edge directement à partir des sites suivants :
+Vous pouvez également télécharger l’extension pour Chrome et Microsoft Edge directement à partir des sites suivants :
 
 - [Extension Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Extension Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
+- [Extension Microsoft Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Utiliser l’extension de connexion sécurisée à Mes applications
 * Si vous utilisez une URL de Mes applications autre que `https://myapps.microsoft.com`, configurez votre URL par défaut en procédant comme suit :
@@ -93,7 +93,7 @@ Vous pouvez également télécharger l’extension pour Chrome et Edge directeme
     4. Vous pouvez à présent accéder à l’URL interne de la société, même à distance.
 
 > [!NOTE]
-> Les options précédentes sont disponibles uniquement pour Edge, Chrome et Firefox.
+> Les options précédentes sont uniquement disponibles pour Microsoft Edge, Chrome et Firefox.
 
 ## <a name="set-up-a-group-policy-for-internet-explorer"></a>Configurer une stratégie de groupe pour Internet Explorer
 
@@ -112,7 +112,7 @@ Pour obtenir des instructions pas à pas sur la configuration et le déploiement
 Pour accéder à un outil de diagnostic et pour obtenir des informations sur la configuration de l’extension pour Internet Explorer, consultez [Résoudre les problèmes liés à l’extension du volet d’accès pour Internet Explorer](manage-access-panel-browser-extension.md).
 
 > [!NOTE]
-> Internet Explorer fait l’objet d’une prise en charge limitée et ne reçoit plus les nouvelles mises à jour logicielles. Edge est le navigateur recommandé.
+> Internet Explorer fait l’objet d’une prise en charge limitée et ne reçoit plus les nouvelles mises à jour logicielles. Microsoft Edge est le navigateur recommandé.
 
 ## <a name="if-the-preceding-steps-do-not-resolve-the-issue"></a>Si les étapes précédentes ne permettent pas de résoudre le problème
 

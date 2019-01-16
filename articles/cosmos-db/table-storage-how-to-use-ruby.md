@@ -1,20 +1,20 @@
 ---
 title: Comment utiliser le Stockage Table et l’API Table d’Azure Cosmos DB avec Ruby
 description: Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure ou de l’API Table d’Azure Cosmos DB.
-services: cosmos-db
-author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: ruby
 ms.topic: sample
 ms.date: 04/05/2018
-ms.author: sngun
-ms.openlocfilehash: 7ddf9c3ef848537cb68dce043bb22680439e9cd5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+author: wmengmsft
+ms.author: wmeng
+ms.reviewer: sngun
+ms.openlocfilehash: 3603455674485a505a7dbc969554a881947940ae
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877906"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036254"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Comment utiliser le Stockage Table et l’API Table d’Azure Cosmos DB avec Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -94,10 +94,10 @@ azure_table_service.insert_entity("testtable", entity)
 ## <a name="update-an-entity"></a>Mise à jour d'une entité
 Plusieurs méthodes permettent de mettre à jour une entité existante :
 
-* **update_entity()** : met à jour une entité existante en la remplaçant.
-* **merge_entity()** : met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante.
-* **insert_or_merge_entity()** : met à jour une entité existante en la remplaçant. En l'absence d'entité, une nouvelle entité est insérée.
-* **insert_or_replace_entity()** : met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante. En l'absence d'entité, une nouvelle entité est insérée.
+* **update_entity() :** met à jour une entité existante en la remplaçant.
+* **merge_entity() :** met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante.
+* **insert_or_merge_entity() :** met à jour une entité existante en la remplaçant. En l'absence d'entité, une nouvelle entité est insérée.
+* **insert_or_replace_entity() :** met à jour une entité existante en fusionnant les nouvelles valeurs des propriétés avec l’entité existante. En l'absence d'entité, une nouvelle entité est insérée.
 
 L’exemple suivant illustre la mise à jour d’une entité avec **update_entity()**  :
 

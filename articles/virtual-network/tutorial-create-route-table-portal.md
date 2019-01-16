@@ -1,5 +1,6 @@
 ---
-title: Acheminer le trafic réseau - Didacticiel - Portail Azure | Microsoft Docs
+title: Router le trafic réseau - Tutoriel - Portail Azure
+titlesuffix: Azure Virtual Network
 description: Dans ce didacticiel, découvrez comment acheminer le trafic réseau avec une table de routage à l’aide du portail Azure.
 services: virtual-network
 documentationcenter: virtual-network
@@ -17,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: fbbc624bbc3d20a70a54c50296f5b74634002a67
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3422219e33c04d7cb130e064790896f5da28649a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409069"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025043"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Didacticiel : Acheminer le trafic réseau avec une table de routage à l’aide du portail Azure
 
@@ -238,7 +239,7 @@ Suivez les étapes 1 à 12 de [Créer une NVA](#create-an-nva). Utilisez la plup
 | Sous-réseau | Sélectionnez **Public (10.0.0.0/24)**. |
 | Adresse IP publique | Acceptez la valeur par défaut. |
 | Aucun port d’entrée public | Sélectionnez **Autoriser les ports sélectionnés**. |
-| Sélectionnez des ports d’entrée | Sélectionnez **HTTP** et **RDP**. |
+| Sélectionner des ports d’entrée | Sélectionnez **HTTP** et **RDP**. |
 | GESTION | |
 | Compte de stockage de diagnostics | Conservez la valeur par défaut **mynvastorageaccount**. |
 | **MACHINE VIRTUELLE PRIVÉE** | |

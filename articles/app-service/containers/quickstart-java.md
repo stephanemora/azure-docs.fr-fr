@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 0c72318f6c80563d138d9c885ea5984a22c5c7fa
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: fe134591a979569048072877632260ea9728b4fc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653898"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159755"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Démarrage rapide : créer une application Java dans App Service sous Linux
 
@@ -108,9 +108,9 @@ Une fois le déploiement terminé, accédez à l’application déployée à l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez utilisé Maven pour créer une application Java, configuré le [plug-in Maven pour Azure Web Apps ](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), puis déployé une application web Java packagée dans une archive web sur App Service sous Linux. Consultez les didacticiels et les articles pratiques suivants pour plus d’informations sur l’hébergement des applications Java au sein d’App service sous Linux.
+Dans ce démarrage rapide, vous avez utilisé Maven pour créer une application Java, configuré le [plug-in Maven pour Azure Web Apps ](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), puis déployé une application web Java packagée dans une archive web sur App Service sous Linux. Consultez les tutoriels et les articles pratiques suivants pour obtenir plus d’informations sur l’hébergement des applications Java sur App Service sur Linux.
 
-- [Didacticiel : Déployer une application Java d’entreprise avec PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
+- [Tutoriel : Déployer une application Java d’entreprise avec PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
 - [Configurer une source de données Tomcat](app-service-linux-java.md#connecting-to-data-sources)
 - [Intégration continue/déploiement continu avec Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
 - [Configurer les outils de surveillance des performances des applications](how-to-java-apm-monitoring.md)

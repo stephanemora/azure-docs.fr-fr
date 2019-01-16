@@ -10,21 +10,20 @@ ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f3dc27b35f35f3aaa649b03777ff13d385561673
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 426a8f3df67ee00ded0591024447770e4cfedc32
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732224"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020708"
 ---
-# <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Didacticiel : Créer votre première fabrique de données à l’aide du portail Azure
+# <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutoriel : Créer votre première fabrique de données à l’aide du portail Azure
 > [!div class="op_single_selector"]
-> * [Vue d’ensemble et étapes préalables requises](data-factory-build-your-first-pipeline.md)
+> * [Vue d’ensemble et composants requis](data-factory-build-your-first-pipeline.md)
 > * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
@@ -33,14 +32,14 @@ ms.locfileid: "45732224"
 
 
 > [!NOTE]
-> Cet article s’applique à la version 1 d’Azure Data Factory, qui est mise à la disposition générale. Si vous utilisez la version actuelle du service Data Factory, consultez [Démarrage rapide : Créer une fabrique de données à l’aide de Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Cet article s’applique à la version 1 d’Azure Data Factory, qui est mise à la disposition générale. Si vous utilisez la version actuelle du service Data Factory, consultez [Démarrage rapide : créer une fabrique de données à l’aide de Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 Dans cet article, vous allez utiliser le [portail Azure](https://portal.azure.com/) pour créer votre première fabrique de données. Pour suivre le didacticiel avec d’autres outils/kits de développement logiciel (SDK), sélectionnez une des options dans la liste déroulante. 
 
 Le pipeline dans ce didacticiel comprend une activité : une activité Azure HDInsight Hive. Cette activité exécute un script Hive sur un cluster HDInsight qui transforme des données d’entrée pour produire des données de sortie. Le pipeline est programmé pour s’exécuter une fois par mois entre les heures de début et de fin spécifiées. 
 
 > [!NOTE]
-> Dans ce didacticiel, le pipeline de données transforme les données d’entrée pour produire des données de sortie. Pour un didacticiel sur la copie de données à l’aide de Data Factory, consultez [Didacticiel : Copier des données de Stockage Blob Azure vers Microsoft Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Dans ce didacticiel, le pipeline de données transforme les données d’entrée pour produire des données de sortie. Pour obtenir un tutoriel sur la copie des données à l’aide de Data Factory, consultez [Tutoriel : Copier des données de Stockage Blob Azure vers Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
 > Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour plus d’informations, consultez [Planification et exécution dans Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
@@ -65,7 +64,7 @@ Pour créer une fabrique de données, procédez comme suit :
    ![Panneau Nouvelle fabrique de données](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
    > [!IMPORTANT]
-   > Le nom de la fabrique de données doit être un nom global unique. Si l’erreur "Data factory name GetStartedDF is not available" (Le nom de fabrique de données GetStartedDF n’est pas disponible) s’affiche, changez le nom de la fabrique de données. Par exemple, utilisez votrenomGetStartedDF et recréez la fabrique de données. Pour en savoir plus sur les règles d’affectation des noms, consultez [Data Factory: Naming rules](data-factory-naming-rules.md) (Data Factory : Règles d’affectation des noms).
+   > Le nom de la fabrique de données doit être un nom global unique. Si l’erreur "Data factory name GetStartedDF is not available" (Le nom de fabrique de données GetStartedDF n’est pas disponible) s’affiche, changez le nom de la fabrique de données. Par exemple, utilisez votrenomGetStartedDF et recréez la fabrique de données. Pour plus d’informations sur les règles de nommage, consultez [Data Factory : règles de nommage](data-factory-naming-rules.md).
    >
    > Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
    >
@@ -327,7 +326,7 @@ Dans cette étape, vous créez votre premier pipeline avec une activité HDInsig
 
     Les propriétés **start** et **end** du pipeline spécifient la période active du pipeline.
 
-    Dans l’activité JSON, vous spécifiez que le script Hive s’exécute sur le calcul spécifié par le service **linkedServiceName** : **HDInsightOnDemandLinkedService**.
+    Dans l’activité JSON, vous spécifiez que le script Hive s’exécute sur le calcul spécifié par le service **linkedServiceName** : **HDInsightOnDemandLinkedService**.
 
    > [!NOTE]
    > Pour en savoir plus sur les propriétés JSON utilisées dans l’exemple, consultez la section « Pipeline JSON » de l’article [Pipelines et activités dans Azure Data Factory](data-factory-create-pipelines.md).
@@ -434,7 +433,7 @@ Dans ce didacticiel, vous avez créé une fabrique de données pour traiter des 
 * Création d’un pipeline avec une activité HDInsight Hive.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour savoir comment utiliser une activité de copie pour copier des données depuis un stockage d’objets blob vers une base de données SQL, voir [Didacticiel : Copie de données de Stockage Blob vers SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour voir comment utiliser une activité de copie pour copier des données du Stockage Blob vers une base de données SQL, consultez [Tutoriel : Copier des données de Stockage Blob vers SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Voir aussi
 | Rubrique | Description |

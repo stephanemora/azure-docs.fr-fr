@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 12/17/2018
 ms.author: danlep
-ms.openlocfilehash: 86c169c84e905362e8fdb069e8ceadcb5e19fe67
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 647890517e6f08a4602ebed8ee1057cb45f10cbe
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602390"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075496"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Disponibilité des régions et quotas pour Azure Container Instances
 
@@ -24,7 +24,7 @@ Tous les services Azure incluent certains quotas et limites par défaut pour les
 
 ## <a name="region-availability"></a>Disponibilité des régions
 
-Azure Container Instances est disponible dans les régions suivantes avec les limites de processeur et de mémoire spécifiées. Les valeurs sont à jour au moment de la publication. Pour des informations à jour, utilisez l’API [Liste des fonctionnalités](/rest/api/container-instances/listcapabilities/listcapabilities).
+Azure Container Instances est disponible dans les régions suivantes avec les limites de processeur et de mémoire spécifiées. Les valeurs sont à jour au moment de la publication. Pour des informations à jour, utilisez l’API [Liste des fonctionnalités](/rest/api/container-instances/listcapabilities/listcapabilities). Les limites de ressources et la disponibilité sont variables selon que vous utilisez Azure Container Instances avec un [réseau virtuel](container-instances-vnet.md) (préversion) ou avec des [ressources GPU](container-instances-gpu.md) (préversion).
 
 | Lieu | SE | UC | Mémoire (Go) |
 | -------- | -- | :---: | :-----------: |

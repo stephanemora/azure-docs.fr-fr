@@ -5,17 +5,17 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 01/07/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e3d1a79dc7dd775cea71df2f36a5f34d85f3e240
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d5533932ef9ab521b623c18a0c3a27b663c56f8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261806"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077400"
 ---
-# <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Didacticiel : Créer une connexion point à site à l’aide d’Azure Virtual WAN (préversion)
+# <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Tutoriel : Créer une connexion point à site à l’aide d’Azure Virtual WAN (préversion)
 
 Ce didacticiel vous montre comment utiliser Azure Virtual WAN pour vous connecter à vos ressources dans Azure via une connexion VPN IPsec/IKE (IKEv2) ou OpenVPN. Pour utiliser ce type de connexion, un client doit être configuré sur l’ordinateur client. Pour plus d’informations sur Azure Virtual WAN, consultez l’article [Vue d'ensemble d’Azure Virtual WAN](virtual-wan-about.md).
 
@@ -42,7 +42,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="register"></a>Inscrire cette fonctionnalité
 
-Pour inscrire facilement cette fonctionnalité à l’aide d’Azure Cloud Shell, cliquez sur **Essayer**.
+Pour inscrire facilement cette fonctionnalité à l’aide d’Azure Cloud Shell, cliquez sur **Essayer**. Si vous préférez exécuter PowerShell localement, vérifiez que vous disposez de la dernière version et connectez-vous en utilisant les commandes **Connect-AzureRmAccount** et **Select-AzureRmSubscription**.
 
 >[!NOTE]
 >Si vous n’inscrivez pas cette fonctionnalité, vous ne serez pas en mesure de l’utiliser, ni de la voir dans le portail.
@@ -149,7 +149,7 @@ Pour configurer les clients avec accès à distance, utilisez le profil téléch
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Téléchargez et installez le client OpenVPN depuis le site web officiel.
-2.  Téléchargez le profil VPN pour la passerelle. Pour y parvenir, accédez à l’onglet Configurations point à site dans le Portail Azure, ou saisissez New-AzureRmVpnClientConfiguration dans PowerShell.
+2.  Téléchargez le profil VPN pour la passerelle. Pour y parvenir, accédez à l’onglet Configurations point à site dans le portail Azure, ou saisissez New-AzureRmVpnClientConfiguration dans PowerShell.
 3.  Décompressez le profil. Utilisez le bloc-notes pour ouvrir le fichier de configuration vpnconfig.ovpn à partir du dossier OpenVPN.
 4.  Renseignez la section du certificat client P2S avec la clé publique du certificat client P2S en base64. Dans un certificat au format PEM, vous pouvez simplement ouvrir le fichier .cer et copier la clé base64 entre les en-têtes de certificat. Découvrez ici comment exporter un certificat pour obtenir la clé publique chiffrée.
 5.  Renseignez la section de la clé privée avec la clé privée du certificat client P2S en base64. Découvrez ici comment extraire la clé privée.
@@ -168,7 +168,7 @@ Pour configurer les clients avec accès à distance, utilisez le profil téléch
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Télécharger et installer un client OpenVPN (comme TunnelBlik) à partir de https://tunnelblick.net/downloads.html 
-2.  Téléchargez le profil VPN pour la passerelle. Pour y parvenir, accédez à l’onglet Configurations point à site dans le Portail Azure, ou saisissez New-AzureRmVpnClientConfiguration dans PowerShell.
+2.  Téléchargez le profil VPN pour la passerelle. Pour y parvenir, accédez à l’onglet Configuration point à site dans le portail Azure, ou saisissez New-AzureRmVpnClientConfiguration dans PowerShell.
 3.  Décompressez le profil. Utilisez le bloc-notes pour ouvrir le fichier de configuration vpnconfig.ovpn à partir du dossier OpenVPN.
 4.  Renseignez la section du certificat client P2S avec la clé publique du certificat client P2S en base64. Dans un certificat au format PEM, vous pouvez simplement ouvrir le fichier .cer et copier la clé base64 entre les en-têtes de certificat. Découvrez ici comment exporter un certificat pour obtenir la clé publique chiffrée.
 5.  Renseignez la section de la clé privée avec la clé privée du certificat client P2S en base64. Découvrez ici comment extraire la clé privée.

@@ -1,28 +1,28 @@
 ---
-title: 'Leçon 7 du didacticiel Azure Analysis Services : Créer des indicateurs de performance clés | Microsoft Docs'
+title: 'Leçon 7 du didacticiel Azure Analysis Services : Créer des indicateurs de performance clés (KPI) | Microsoft Docs'
 description: Indique comment créer des indicateurs de performance clés dans le projet du didacticiel Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1e7fc5cd684610a5d96b5986f5c169741055c9b8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d238b3bf159a5e540eb9c72ecbcee188bd357b05
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426808"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186530"
 ---
 # <a name="create-key-performance-indicators"></a>Créer des indicateurs de performance clés (KPI)
 
 Dans cette leçon, vous allez créer des indicateurs de performance clés (KPI). Les indicateurs de performance clés (KPI) évaluent la performance d’une valeur, définie par une mesure de *base*, par rapport à une valeur *cible*, également définie par une mesure ou par une valeur absolue. Dans les applications clientes de création de rapports, les indicateurs de performance clés offrent aux professionnels un moyen d’obtenir rapidement et aisément un résumé d’un succès commercial ou d’identifier les tendances. Pour plus d’informations, consultez [Indicateurs de performance clés](https://docs.microsoft.com/sql/analysis-services/tabular-models/kpis-ssas-tabular).
   
-Durée estimée pour suivre cette leçon : **15 minutes**  
+Durée estimée pour suivre cette leçon : **15 minutes**  
   
 ## <a name="prerequisites"></a>Prérequis  
-Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir suivi la leçon précédente : [Leçon 6 : Créer des mesures](../tutorials/aas-lesson-6-create-measures.md).   
+Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui doit être suivi dans l’ordre prévu. Avant d’effectuer les tâches de cette leçon, vous devez avoir terminé la leçon précédente : [Leçon 6 : Créer des mesures](../tutorials/aas-lesson-6-create-measures.md).   
   
 ## <a name="create-key-performance-indicators"></a>Créer des indicateurs de performance clés (KPI)  
   

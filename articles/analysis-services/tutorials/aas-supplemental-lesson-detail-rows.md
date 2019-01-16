@@ -1,25 +1,25 @@
 ---
-title: 'Leçon supplémentaire du didacticiel Azure Analysis Services : Lignes de détails | Microsoft Docs'
+title: 'Leçon supplémentaire du didacticiel Azure Analysis Services : Lignes de détails | Microsoft Docs'
 description: Explique comment créer une expression de lignes de détails dans le didacticiel Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7ed4ba27332123d41a9e031f221eedb57fa228b9
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: f52d6ebf4a65a6a182b24017d652693c6f5e4072
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49425964"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190236"
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Leçon supplémentaire – Lignes de détails
 
 Dans cette leçon supplémentaire, vous allez utiliser l’éditeur DAX pour définir une expression de lignes de détail personnalisée. Une expression de lignes de détail est une propriété sur une mesure qui fournit aux utilisateurs finaux des informations supplémentaires sur les résultats agrégées d’une mesure. 
   
-Durée estimée pour suivre cette leçon : **10 minutes**  
+Durée estimée pour suivre cette leçon : **10 minutes**  
   
 ## <a name="prerequisites"></a>Prérequis  
 Cette leçon supplémentaire fait partie d’un didacticiel de modélisation tabulaire. Avant d’effectuer les tâches de cette leçon supplémentaire, vous devez avoir effectué toutes les leçons précédentes ou disposer d’un exemple de projet de modèle de ventes sur Internet Adventure Works.  

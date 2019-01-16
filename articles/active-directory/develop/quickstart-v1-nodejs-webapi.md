@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: f6f804ea9121d1728e31f1e694280e841f4b7f4e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9683eb8cbfcabb946f8b364ac9cc8aeeb167d023
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946542"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120289"
 ---
-# <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Démarrage rapide : Sécuriser une API web avec Azure Active Directory
+# <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Démarrage rapide : Sécuriser une API web avec Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
@@ -106,9 +106,9 @@ Pour plus d’informations sur les paramètres de configuration, consultez la do
 
 ### <a name="implement-the-server"></a>Implémenter le serveur
 
-Le module [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage) comporte deux stratégies d’authentification : par [OIDC](https://github.com/AzureAD/passport-azure-ad#51-oidcstrategy) et par [Porteur](https://github.com/AzureAD/passport-azure-ad#52-bearerstrategy). Le serveur implémenté dans cet article utilise la stratégie par porteur pour sécuriser le point de terminaison d’API.
+Le module [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad#5-usage) comporte deux stratégies d’authentification : par [OIDC](https://github.com/AzureAD/passport-azure-ad#51-oidcstrategy) et par [porteur](https://github.com/AzureAD/passport-azure-ad#52-bearerstrategy). Le serveur implémenté dans cet article utilise la stratégie par porteur pour sécuriser le point de terminaison d’API.
 
-### <a name="step-1-import-dependencies"></a>Étape 1 : Importer les dépendances
+### <a name="step-1-import-dependencies"></a>Étape 1 : Importer les dépendances
 
 Créez un fichier nommé `app.js`, puis collez-y le texte suivant :
 
@@ -161,12 +161,12 @@ Lorsqu’une nouvelle instance de la stratégie est créée, vous devez la passe
 passport.use(authenticationStrategy);
 ```
 
-### <a name="step-3-server-configuration"></a>Étape 3 : Configuration du serveur
+### <a name="step-3-server-configuration"></a>Étape 3 : Configurer le serveur
 
 Une fois la stratégie d’authentification définie, vous pouvez configurer le serveur Restify avec certains paramètres de base et le configurer de manière à utiliser Passport pour la sécurité.
 
 ```JavaScript
-const server = restify.createServer({ name: 'Azure Active Directroy with Node.js Demo' });
+const server = restify.createServer({ name: 'Azure Active Directory with Node.js Demo' });
 server.use(restifyPlugins.authorizationParser());
 server.use(passport.initialize());
 server.use(passport.session());
@@ -221,7 +221,7 @@ Si vous avez correctement configuré votre serveur, la réponse doit ressembler 
 
 ```shell
 HTTP/1.1 200 OK
-Server: Azure Active Directroy with Node.js Demo
+Server: Azure Active Directory with Node.js Demo
 Content-Type: application/json
 Content-Length: 49
 Date: Tue, 10 Oct 2017 18:35:13 GMT
@@ -240,7 +240,7 @@ Si vous avez correctement configuré le serveur, celui-ci doit répondre en affi
 
 ```shell
 HTTP/1.1 401 Unauthorized
-Server: Azure Active Directroy with Node.js Demo
+Server: Azure Active Directory with Node.js Demo
 WWW-Authenticate: token is not found
 Date: Tue, 10 Oct 2017 16:22:03 GMT
 Connection: keep-alive

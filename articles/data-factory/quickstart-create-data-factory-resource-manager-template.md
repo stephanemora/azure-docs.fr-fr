@@ -9,23 +9,22 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 2baadd0bcb5aba401e2dd6cec9a82ca401b3c9bd
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 5a883d922944552b53b152546cc891a0a2f4a31f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620487"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042731"
 ---
-# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Didacticiel : créer une fabrique de données Azure à l’aide du modèle Azure Resource Manager
+# <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutoriel : Créer une fabrique de données Azure à l’aide du modèle Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Version actuelle](quickstart-create-data-factory-resource-manager-template.md) 
 
-Ce démarrage rapide vous montre comment utiliser un modèle Azure Resource Manager pour créer une fabrique de données Azure. Le pipeline que vous créez dans cette fabrique de données **copie** les données d’un dossier vers un autre dossier dans un stockage Blob Azure. Pour suivre un tutoriel sur la **transformation** des données à l’aide d’Azure Data Factory, consultez [Tutoriel : transformation des données à l’aide de Spark](transform-data-using-spark.md). 
+Ce démarrage rapide vous montre comment utiliser un modèle Azure Resource Manager pour créer une fabrique de données Azure. Le pipeline que vous créez dans cette fabrique de données **copie** les données d’un dossier vers un autre dossier dans un stockage Blob Azure. Pour suivre un tutoriel sur la **transformation** des données à l’aide d’Azure Data Factory, consultez [Tutoriel : Transformer des données à l’aide de Spark](transform-data-using-spark.md). 
 
 > [!NOTE]
 > Cet article ne fournit pas de présentation détaillée du service Data Factory. Pour une présentation du service Azure Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md).
@@ -39,6 +38,8 @@ Installez les modules Azure PowerShell les plus récents en suivant les instruct
 Pour en savoir plus sur les modèles Azure Resource Manager, consultez l’article [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). 
 
 La section suivante fournit le modèle Resource Manager complet permettant de définir des entités Data Factory pour que vous puissiez rapidement parcourir le didacticiel et tester le modèle. Pour comprendre comment chaque entité Data Factory est définie, consultez la section [Entités Data Factory dans le modèle](#data-factory-entities-in-the-template).
+
+Pour en savoir plus sur la syntaxe JSON et les propriétés à utiliser pour les ressources Data Factory dans un modèle, consultez [Types de ressources Microsoft.DataFactory](/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="data-factory-json"></a>JSON de la fabrique de données 
 Créez un fichier JSON nommé **ADFTutorialARM.json** dans le dossier **C:\ADFTutorial** avec le contenu suivant :
@@ -268,7 +269,7 @@ Créez un fichier JSON nommé **ADFTutorialARM-Parameters** contient les paramè
 
 > [!IMPORTANT]
 > - Spécifiez le nom et la clé de votre compte Stockage Azure pour les paramètres **storageAccountName** et **storageAccountKey** dans ce fichier de paramètres. Vous avez créé le conteneur adftutorial et téléchargé l’exemple de fichier (emp.txt) dans le dossier d’entrée de ce stockage d’objets blob Azure. 
-> - Spécifiez un nom global unique pour la fabrique de données pour le paramètre **dataFactoryName**. Par exemple : ARMTutorialFactoryJohnDoe11282017. 
+> - Spécifiez un nom global unique pour la fabrique de données pour le paramètre **dataFactoryName**. Par exemple :  ARMTutorialFactoryJohnDoe11282017. 
 > - Pour la valeur **triggerStartTime**, spécifiez la date du jour au format : `2017-11-28T00:00:00`.
 > - Pour la valeur **triggerEndTime**, spécifiez la date du jour suivant au format : `2017-11-29T00:00:00`. Vous pouvez également vérifier l’heure UTC actuelle et spécifier l’heure suivante ou les deux heures suivantes comme heure de fin. Par exemple, si l’heure UTC actuelle est 1:32, spécifiez `2017-11-29:03:00:00` comme heure de fin. Dans ce cas, le déclencheur exécute le pipeline deux fois (à 2:00 et 3:00).
 
@@ -440,11 +441,11 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
     ![Surveillance de l’exécution du pipeline](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)    
 
     > [!IMPORTANT]
-    > Les exécutions du pipeline s’affichent uniquement par heure (par exemple : 4:00, 5:00, 6:00, etc.). Cliquez sur **Actualiser** dans la barre d’outils pour actualiser la liste lorsque l’heure atteint l’heure suivante. 
+    > Les exécutions du pipeline s’affichent uniquement par heure (par exemple, 4:00, 5:00, 6:00, etc.). Cliquez sur **Actualiser** dans la barre d’outils pour actualiser la liste lorsque l’heure atteint l’heure suivante. 
 5. Cliquez sur le lien dans les colonnes **Actions**. 
 
     ![Lien Actions de pipeline](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
-6. Vous voyez les exécutions d’activités associées avec l’exécution du pipeline. Dans ce guide de démarrage rapide, le pipeline n’a qu’une seule activité de type : Copie. Par conséquent, vous observez une exécution de cette activité. 
+6. Vous voyez les exécutions d’activités associées avec l’exécution du pipeline. Dans ce guide de démarrage rapide, le pipeline n’a qu’une seule activité de type : Copier. Par conséquent, vous observez une exécution de cette activité. 
 
     ![Exécutions d’activités](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
 1. Cliquez sur le lien situé sous la colonne **Sortie**. Vous voyez la sortie de l’opération de copie dans une fenêtre **Sortie**. Cliquez sur le bouton Agrandir pour afficher la sortie complète. Vous pouvez fermer la fenêtre de sortie agrandie ou la fermer. 

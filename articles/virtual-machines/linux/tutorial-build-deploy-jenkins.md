@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel : intégration continue/déploiement continu de Jenkins vers des machines virtuelles Azure avec Azure DevOps Services | Microsoft Docs'
 description: Avec ce didacticiel, vous allez apprendre à configurer l’intégration continue (CI) et le déploiement continu (CD) d’une application Node.js en utilisant Jenkins sur des machines virtuelles Azure à partir de Release Management dans Visual Studio Team Services ou Microsoft Team Foundation Server
-author: tomarcher
+author: tomarchermsft
 manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 4e91c0287bfe50b297b9a3ef118ececb67909f21
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 651e8505c6d3a3952347bba5e598ec9a0a518e8e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388480"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074765"
 ---
-# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutoriel : déployer votre application vers des machines virtuelles Linux dans Azure à l’aide de Jenkins et Azure DevOps Service
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutoriel : Déployer votre application vers des machines virtuelles Linux dans Azure à l’aide de Jenkins et Azure DevOps Services
 
 L’intégration continue (CI) et le déploiement continu (CD) constituent un pipeline via lequel vous pouvez générer, mettre en production et déployer votre code. Azure DevOps Services fournit un ensemble complet d’outils d’automatisation CI/CD pour le déploiement sur Azure. Jenkins est un outil serveur CI/CD tiers populaire qui propose également l’automatisation CI/CD. Vous pouvez utiliser Azure DevOps Services et Jenkins ensemble pour personnaliser la façon dont vous proposez votre service ou application cloud.
 
@@ -164,7 +164,7 @@ Pour créer le pipeline de mise en production dans Azure Pipelines :
 
 1. Sélectionnez **+ Mise en production** et sélectionnez **Créer une mise en production**.
 2. Sélectionnez la build que vous avez générée dans la liste déroulante en surbrillance, puis sélectionnez **File d’attente**.
-3. Dans le message qui s’affiche, sélectionnez le lien de la mise en production. Par exemple : « Mise en production **Mise en production-1** a été créé. ».
+3. Dans le message qui s’affiche, sélectionnez le lien de la mise en production. Par exemple :  « Mise en production **Mise en production-1** a été créé. »
 4. Ouvrez l’onglet **Journaux** pour surveiller la sortie de console de mise en production.
 5. Dans votre navigateur, ouvrez l’URL de l’un des serveurs que vous avez ajoutés à votre groupe de déploiement. Par exemple, entrez **http://{adresse-ip-de-votre-serveur}**.
 6. Accédez au dépôt Git source et modifiez le contenu du titre **h1** dans le fichier app/views/index.jade en apportant quelques corrections au texte.

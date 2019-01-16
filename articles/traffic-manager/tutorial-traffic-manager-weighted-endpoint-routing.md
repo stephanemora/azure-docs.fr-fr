@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Acheminer le trafic vers des points de terminaison pondérés à l’aide d’Azure Traffic Manager | Microsoft Docs'
+title: Turtoriel - Router du trafic vers des points de terminaison pondérés - Azure Traffic Manager
 description: Ce didacticiel explique comment acheminer le trafic vers des points de terminaison pondérés à l’aide de Traffic Manager.
 services: traffic-manager
 author: KumudD
@@ -8,14 +8,14 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: kumud
-ms.openlocfilehash: 0f5b1f3525ab75f8c14f7921e23b30a1c58e8c73
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f70f3804bb1c6f385081b56fe6139b1b680a95cf
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158820"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055011"
 ---
-# <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Didacticiel : Contrôler l’acheminement du trafic avec des points de terminaison pondérés à l’aide de Traffic Manager 
+# <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Tutoriel : Contrôler le routage du trafic avec des points de terminaison pondérés à l’aide de Traffic Manager 
 
 Ce didacticiel explique comment utiliser Azure Traffic Manager pour contrôler l’acheminement du trafic utilisateur entre des points de terminaison à l’aide de la méthode de routage pondéré. Dans cette méthode de routage, vous affectez un poids à chaque point de terminaison dans la configuration du profil Traffic Manager. Le trafic utilisateur est alors acheminé en fonction du poids attribué à chaque point de terminaison. Le poids est un entier compris entre 1 et 1 000. Plus la valeur de pondération affectée à un point de terminaison est élevée, plus celui-ci est prioritaire.
 
@@ -33,7 +33,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 Pour voir comment Traffic Manager fonctionne, déployez les éléments suivants pour ce didacticiel :
-- Deux instances de sites web de base exécutées dans différentes régions Azure : USA Est et Europe Ouest.
+- Deux instances de sites web de base exécutées dans différentes régions Azure : USA Est et Europe Ouest.
 - Deux machines virtuelles de test pour tester Traffic Manager : une machine virtuelle dans la région USA Est et la seconde dans la région Europe Ouest. Les machines virtuelles de test servent à illustrer la manière dont Traffic Manager achemine le trafic utilisateur vers un site web dont le point de terminaison s’est vu affecter la valeur de pondération la plus élevée.
 
 ### <a name="sign-in-to-azure"></a>Connexion à Azure 

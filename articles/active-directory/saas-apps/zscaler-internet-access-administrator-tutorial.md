@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/7/2018
 ms.author: jeedes
-ms.openlocfilehash: 1a28a4f8dd5087377d559c50ef3432251510810b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 088fc2b7aeb318481a81387770f1dcef2883241d
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195022"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064098"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Tutoriel : Intégration d'Azure Active Directory à Zscaler Internet Access Administrator
 
@@ -38,7 +38,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 Pour configurer l'intégration d'Azure AD à Zscaler Internet Access Administrator, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Un abonnement Zscaler Internet Access Administrator activé via l'authentification unique (SSO)
+* Abonnement Zscaler Internet Access Administrator
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -105,6 +105,7 @@ Pour configurer l'authentification unique d'Azure AD auprès de Zscaler Internet
     ![Informations d'authentification unique dans Domaine et URL Zscaler Internet Access Administrator](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, entrez une URL répondant à vos besoins :
+    
     | |
     |--|
     | `https://admin.zscaler.net` |
@@ -115,6 +116,7 @@ Pour configurer l'authentification unique d'Azure AD auprès de Zscaler Internet
     | `https://admin.zscalerbeta.net` |
 
     b. Dans la zone de texte **URL de réponse**, entrez une URL répondant à vos besoins :
+    
     | |
     |--|
     | `https://admin.zscaler.net/adminsso.do` |
@@ -165,37 +167,19 @@ Pour configurer l'authentification unique d'Azure AD auprès de Zscaler Internet
 
 ### <a name="configure-zscaler-internet-access-administrator-single-sign-on"></a>Configurer l'authentification unique de Zscaler Internet Access Administrator
 
-9. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d'entreprise Zscaler Internet Access Administrator en tant qu'administrateur.
+1. Dans une autre fenêtre de navigateur web, connectez-vous à votre UI d’administrateur Zscaler Internet Access.
 
-10. Sélectionnez **Administration > Authentification > Paramètres d'authentification** et procédez comme suit :
+2. Accédez à **Administration > Administrator Management**, effectuez les étapes suivantes, puis cliquez sur Save :
    
-    ![Administration](./media/zscaler-internet-access-administrator-tutorial/ic800206.png "Administration")
+    ![Administration](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Administration")
 
-    a. Sous Type d'authentification, choisissez **SAML**.
+    a. Cliquez sur **Enable SAML Authentication**.
 
-    b. Cliquez sur **Configure SAML**.
-
-11. Dans la fenêtre **Modifier les paramètres SAML**, procédez comme suit et cliquez sur Enregistrer.  
-            
-    ![Gérer les utilisateurs et l’authentification](./media/zscaler-internet-access-administrator-tutorial/ic800208.png "Gérer les utilisateurs et l’authentification")
+    b. Cliquez sur **Charger** pour charger le certificat de signature SAML Azure que vous avez téléchargé depuis le portail Azure dans le **Certificat SSL public**.
     
-    a. Dans la zone de texte **URL du portail SAML**, collez l'**URL de connexion** que vous avez copiée sur le portail Azure.
+    c. Si vous le souhaitez, pour renforcer la sécurité, ajoutez les détails de l’émetteur (dans le champ **Issuer**) afin de vérifier l’émetteur de la réponse SAML.
 
-    b. Dans la zone de texte **Attribut de l'ID de connexion**, entrez **NameID**.
-
-    c. Cliquez sur **Charger** pour charger le certificat de signature SAML Azure que vous avez téléchargé depuis le portail Azure dans le **Certificat SSL public**.
-
-    d. Activez/désactivez **Activer l'approvisionnement automatique SAML**.
-
-    e. Dans la zone de texte **Attribut du nom d'affichage de l'utilisateur**, entrez **displayName** si vous souhaitez activer l'approvisionnement automatique SAML pour les attributs displayName.
-
-    f. Dans la zone de texte **Attribut du nom de groupe**, entrez **memberOf** si vous souhaitez activer l'approvisionnement automatique SAML pour les attributs memberOf.
-
-    g. Dans **Attribut du nom du service**, entrez **department** si vous souhaitez activer l'approvisionnement automatique SAML pour les attributs department.
-
-    i. Cliquez sur **Enregistrer**.
-
-12. Dans la page **Configure User Authentication** , procédez comme suit :
+3. Dans l’UI de l’administrateur, effectuez les étapes suivantes :
 
     ![Administration](./media/zscaler-internet-access-administrator-tutorial/ic800207.png)
 
@@ -256,15 +240,16 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l'authentifica
 
 ### <a name="create-zscaler-internet-access-administrator-test-user"></a>Créer un utilisateur de test Zscaler Internet Access Administrator
 
-L'objectif de cette section est de créer un utilisateur appelé Britta Simon dans Zscaler Internet Access Administrator. Zscaler Internet Access Administrator prend en charge l'approvisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S'il n'existe pas encore, un nouvel utilisateur est créé lors d'une tentative d'accès à Zscaler Internet Access Administrator.
->[!Note]
->Si vous avez besoin de créer un utilisateur manuellement, contactez l' [équipe de support technique de Zscaler Internet Access Administrator](Phone: +1-408-701-0534 URL: help.zscaler.com).
+L'objectif de cette section est de créer un utilisateur appelé Britta Simon dans Zscaler Internet Access Administrator. Zscaler Internet Access ne prend pas en charge le provisionnement juste-à-temps pour l’authentification unique des administrateurs. Vous devez créer manuellement un compte d’administrateur.
+Pour savoir comment créer un compte d’administrateur, reportez-vous à la documentation de Zscaler :
+
+https://help.zscaler.com/zia/adding-admins
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette Zscaler Internet Access Administrator du panneau d'accès, vous devez être automatiquement connecté à l'instance de Zscaler Internet Access Administrator pour laquelle vous avez configuré l'authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quand vous cliquez sur la vignette Zscaler Internet Access Administrator du panneau d’accès, vous devez être automatiquement connecté à l’UI d’administrateur Zscaler Internet Access pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

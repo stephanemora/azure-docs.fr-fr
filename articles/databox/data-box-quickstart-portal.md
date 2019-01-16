@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 10/04/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a2f8d295ca161ff2263f53b8faa407c7a42a4c6b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ae6ab0eb4c966ef57c7859098217b5b6b560614b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385834"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188553"
 ---
-# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Démarrage rapide : Déployer Azure Data Box via le portail Azure
+# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Démarrage rapide : Déployer Azure Data Box à l’aide du portail Azure
 
 Ce démarrage rapide explique comment déployer Azure Data Box à l’aide du portail Azure. Ces étapes précisent comment brancher les câbles, puis configurer et copier des données vers Data Box données afin de les charger dans Azure. Le démarrage rapide est effectué dans le portail Azure et sur l’interface utilisateur web locale de l’appareil.
 
-Pour obtenir des instructions détaillées sur le déploiement pas à pas, accédez à [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md) (Didacticiel : commander Azure Data Box)
+Pour obtenir des instructions pas à pas sur le déploiement et le suivi, consultez [Tutoriel : Commander Azure Data Box](data-box-deploy-ordered.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -28,7 +28,6 @@ Avant de commencer :
 - L’abonnement que vous utilisez pour le service Data Box est un des types suivants :
     - Contrat Entreprise (EA) Microsoft. En savoir plus sur les [abonnements EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Fournisseur de solutions cloud (CSP). En savoir plus sur le [programme Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Consommation : paiement à l’utilisation. Plus d’informations sur les [abonnements avec paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) Azure.
     - Microsoft Azure Sponsorship. En savoir plus sur le [programme Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). 
 
 - Vous disposez d’un accès propriétaire ou contributeur à l’abonnement pour créer une commande Data Box.

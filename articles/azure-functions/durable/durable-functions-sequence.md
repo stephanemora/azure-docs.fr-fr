@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 14d50a17cf7816cb8e792128f8dd3965781657e5
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4657bd136592c66b5dab9a712f5f1d6df898876c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339584"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043955"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Chaînage de fonctions dans Fonctions durables - Exemple de séquence Hello
 
-Un chaînage de fonctions fait référence au modèle d’exécution d’une séquence de fonctions dans un ordre particulier. La sortie d’une fonction doit souvent être appliquée à l’entrée d’une autre fonction. Cet article décrit la séquence de chaînage que vous créez quand vous suivez le guide de démarrage rapide de Durable Functions ([C#](durable-functions-create-first-csharp.md) ou [JavaScript](quickstart-js-vscode.md)). Pour plus d’informations sur Durable Functions, consultez [Vue d’ensemble de Durable Functions](durable-functions-overview.md).
+Un chaînage de fonctions fait référence au modèle d’exécution d’une séquence de fonctions dans un ordre particulier. La sortie d’une fonction doit souvent être appliquée à l’entrée d’une autre fonction. Cet article décrit la séquence de chaînage que vous créez quand vous suivez le guide de démarrage rapide de Durable Functions ([C#](durable-functions-create-first-csharp.md) ou [JavaScript](quickstart-js-vscode.md)). Pour plus d'informations sur Durable Functions, consultez [Concepts techniques et modèles Durable Functions](durable-functions-concepts.md).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -142,7 +142,7 @@ Comme vous pouvez le voir, le `runtimeStatus` de l’instance est *Terminé* et 
 > [!NOTE]
 > Le point de terminaison HTTP POST qui a démarré la fonction d’orchestrateur est implémenté dans l’application exemple en tant que fonction de déclenchement HTTP nommée « HttpStart ». Vous pouvez implémenter une logique de démarrage similaire pour d’autres types de déclenchement, comme `queueTrigger`, `eventHubTrigger`, ou `timerTrigger`.
 
-Examinez les journaux d’exécution de fonction. La fonction `E1_HelloSequence` démarrée et terminée plusieurs fois en raison du comportement de relecture décrit dans le [Vue d’ensemble](durable-functions-overview.md). En revanche, il n’y a eu que trois exécutions de `E1_SayHello` étant donné que les exécutions de la fonction ne sont pas relues.
+Examinez les journaux d’exécution de fonction. La fonction `E1_HelloSequence` démarrée et terminée plusieurs fois en raison du comportement de relecture décrit dans le [Vue d’ensemble](durable-functions-concepts.md). En revanche, il n’y a eu que trois exécutions de `E1_SayHello` étant donné que les exécutions de la fonction ne sont pas relues.
 
 ## <a name="visual-studio-sample-code"></a>Exemple de code Visual Studio
 

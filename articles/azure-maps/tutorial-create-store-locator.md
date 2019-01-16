@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7c7891d8a73142c78b1ca80027d685b93a062d06
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6a9b8e25b8c64d39606ee5c2582098839e349630
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317906"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189760"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Créer un localisateur de magasin à l’aide d’Azure Maps
 
@@ -109,7 +109,7 @@ Pour créer le projet, vous pouvez utiliser [Visual Studio](https://visualstudio
 
 Pour créer l’interface utilisateur, ajoutez le code à *index.html* :
 
-1. Ajoutez les balises `meta` suivantes à `head` dans le fichier *index.html*. Les balises définissent le jeu de caractères (UTF-8), indiquent à Internet Explorer et Edge d’utiliser la dernière version du navigateur et spécifient une fenêtre d’affichage qui convient pour les dispositions réactives.
+1. Ajoutez les balises `meta` suivantes à `head` dans le fichier *index.html*. Les balises définissent le jeu de caractères (UTF-8), indiquent à Internet Explorer et Microsoft Edge d’utiliser la dernière version du navigateur et spécifient une fenêtre d’affichage qui convient pour les dispositions réactives.
 
     ```HTML
     <meta charset="utf-8" /> 

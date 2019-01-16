@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a9794c25bd5f0acd48362611d13bac17fc502450
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2a0cee1ad750144f30b9ab6732e0bbdf8138db28
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341046"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038147"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Créer votre première fonction durable dans C\#
 
 *Durable Functions* est une extension d’[Azure Functions](../functions-overview.md) qui vous permet d’écrire des fonctions avec état dans un environnement serverless. L’extension gère l’état, les points de contrôle et les redémarrages à votre place.
 
-Dans cet article, vous allez découvrir comment utiliser les outils Visual Studio 2017 pour Azure Functions afin de créer et tester localement une fonction durable appelée « Hello World ».  Cette fonction permet d’orchestrer et de chaîner des appels à d’autres fonctions. Vous allez ensuite publier le code de la fonction dans Azure. Ces outils sont disponibles dans le cadre de la charge de travail de développement Azure dans Visual Studio 2017.
+Dans cet article, vous allez découvrir comment utiliser les outils Visual Studio 2017 pour Azure Functions afin de créer et tester localement une fonction durable appelée « Hello World ».  Cette fonction orchestre et chaîne des appels à d’autres fonctions. Vous allez ensuite publier le code de la fonction dans Azure. Ces outils sont disponibles dans le cadre de la charge de travail de développement Azure dans Visual Studio 2017.
 
 ![Exécution d’une fonction durable dans Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
@@ -30,7 +30,7 @@ Dans cet article, vous allez découvrir comment utiliser les outils Visual Studi
 
 Pour suivre ce tutoriel :
 
-* Installer [Visual Studio 2017](https://azure.microsoft.com/downloads/) et vérifiez que la charge de travail **Azure development** est également installée.
+* Installez [Visual Studio 2017](https://azure.microsoft.com/downloads/). Vérifiez que la charge de travail de **développement Azure** est également installée.
 
 * Assurez-vous de disposer des [derniers outils Azure Functions](../functions-develop-vs.md#check-your-tools-version).
 
@@ -40,7 +40,7 @@ Pour suivre ce tutoriel :
 
 ## <a name="create-a-function-app-project"></a>Créer un projet d’application de fonction
 
-Le modèle de projet Azure Functions dans Visual Studio crée un projet qui peut être publié dans une application de fonction dans Azure. Une application de fonctions vous permet de regrouper les fonctions dans une unité logique pour la gestion, le déploiement et le partage des ressources.
+Le modèle Azure Functions crée un projet qui peut être publié dans une application de fonction dans Azure. Une application de fonctions vous permet de regrouper les fonctions dans une unité logique pour la gestion, le déploiement et le partage des ressources.
 
 1. Dans Visual Studio, sélectionnez **Nouveau** > **Projet** dans le menu **Fichier**.
 
@@ -54,15 +54,15 @@ Le modèle de projet Azure Functions dans Visual Studio crée un projet qui peut
 
     | Paramètre      | Valeur suggérée  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Version** | Azure Functions 2.x <br />(.NET Core) | Crée un projet de fonction qui utilise le runtime Azure Functions version 2.x qui prend en charge .NET Core. La version 1.x d’Azure Functions prend en charge .NET Framework. Pour plus d’informations, consultez [Guide pratique pour cibler la version du runtime Azure Functions](../functions-versions.md).   |
+    | **Version** | Azure Functions 2.x <br />(.NET Core) | Crée un projet de fonction qui utilise le Runtime Azure Functions version 2.x qui prend en charge .NET Core. La version 1.x d’Azure Functions prend en charge .NET Framework. Pour plus d’informations, consultez [Guide pratique pour cibler la version du runtime Azure Functions](../functions-versions.md).   |
     | **Modèle** | Vide | Crée une application de fonction vide. |
     | **Compte de stockage**  | Émulateur de stockage | Un compte de stockage est nécessaire pour la gestion des états de fonction durable. |
 
-4. Cliquez sur **OK** pour créer un projet de fonction vide.
+4. Cliquez sur **OK** pour créer un projet de fonction vide. Ce projet contient les fichiers de configuration de base nécessaires à l’exécution de vos fonctions.
 
 ## <a name="add-functions-to-the-app"></a>Ajouter des fonctions à l’application
 
-Visual Studio crée un projet d’application de fonction vide.  Ce projet contient les fichiers de configuration de base nécessaires pour une application, mais il ne contient pas encore de fonctions.  Nous devons ajouter un modèle de fonction durable au projet.
+Les étapes suivantes utilisent un modèle pour créer le code de fonction durable dans votre projet.
 
 1. Cliquez avec le bouton droit sur le projet dans Visual Studio et sélectionnez **Ajouter** > **Nouvelle fonction Azure**.
 
@@ -74,11 +74,13 @@ Visual Studio crée un projet d’application de fonction vide.  Ce projet conti
 
     ![Sélectionner un modèle durable](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 
-Une nouvelle fonction durable sera ajoutée à l’application.  Ouvrez le nouveau fichier pour afficher le contenu.  Cette fonction durable est un exemple de chaînage de fonction simple.  
+Une nouvelle fonction durable est ajoutée à l’application.  Ouvrez le nouveau fichier .cs pour afficher le contenu. Cette fonction durable est un exemple de chaînage de fonctions simple avec les méthodes suivantes :  
 
-* La méthode `RunOrchestrator` est associée à la fonction d’orchestrateur.  Cette fonction démarre, crée une liste et ajoute le résultat de trois appels de fonctions à la liste.  À la fin des trois appels de fonctions, elle retourne la liste.  La fonction appelée est la méthode `SayHello` (par défaut, elle est appelée `<NameOfFile>_Hello`).
-* La fonction `SayHello` retourne le mot « hello ».
-* La méthode `HttpStart` décrit la fonction qui démarre les instances de l’orchestration.  Elle est associée à un [déclencheur HTTP](../functions-bindings-http-webhook.md) qui démarre une nouvelle instance de l’orchestrateur et retourne une réponse d’état de vérification.
+| Méthode | FunctionName | Description |
+| -----  | ------------ | ----------- |
+| **`RunOrchestrator`** | `<file-name>` | Gère l’orchestration durable. Dans ce cas, l’orchestration démarre, crée une liste et ajoute le résultat des trois appels de fonctions à la liste.  À la fin des trois appels de fonctions, elle retourne la liste. |
+| **`SayHello`** | `<file-name>_Hello` | La fonction retourne « hello ». Il s’agit de la fonction qui contient la logique métier actuellement orchestrée. |
+| **`HttpStart`** | `<file-name>_HttpStart` | [Fonction déclenchée par HTTP](../functions-bindings-http-webhook.md) qui démarre une instance de l’orchestration et retourne une réponse d’état de vérification. |
 
 Maintenant que vous avez créé un projet de fonction et une fonction durable, vous pouvez tester la fonction sur votre ordinateur local.
 
@@ -143,4 +145,4 @@ Vous devez disposer d’une application de fonction dans votre abonnement Azure 
 Vous avez utilisé Visual Studio pour créer et publier une application de fonction durable C#.
 
 > [!div class="nextstepaction"]
-> [Découvrez maintenant les modèles courants de fonctions durables.](durable-functions-overview.md)
+> [Découvrez maintenant les modèles courants de fonctions durables.](durable-functions-concepts.md)

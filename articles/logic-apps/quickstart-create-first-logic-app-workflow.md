@@ -1,6 +1,6 @@
 ---
-title: Créer et automatiser votre premier flux de travail - Azure Logic Apps| Microsoft Docs
-description: Guide de démarrage rapide pour créer votre première application logique pour automatiser des tâches, des processus et des flux de travail avec Azure Logic Apps. Créer des applications logiques pour des scénarios d’intégration des systèmes et des Applications d’Entreprise (IAE) pour vos systèmes et services cloud
+title: 'Démarrage rapide : Créer et automatiser votre premier workflow - Azure Logic Apps | Microsoft Docs'
+description: Créez votre première application logique pour automatiser des tâches, des processus et des workflow avec Azure Logic Apps. Créer des applications logiques pour des scénarios d’intégration des systèmes et des Applications d’Entreprise (IAE) pour vos systèmes et services cloud
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -11,14 +11,14 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: fe2ca48c1cab3789f2bb501eaf00aeb9cd866b8c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cc0f452cf9dc27354124437acc8d9a7c99fa80f4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233682"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065186"
 ---
-# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Démarrage rapide : créer votre premier flux de travail automatisé avec Azure Logic Apps - portail Azure
+# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Démarrage rapide : Créer votre premier workflow automatisé avec Azure Logic Apps - Portail Azure
 
 Ce guide de démarrage rapide explique comment créer votre premier flux de travail automatisé avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Dans cet article, vous créez une application logique qui vérifie régulièrement le flux RSS d’un site web et recherche de nouveaux éléments. Si de nouveaux éléments existent, l’application logique envoie un e-mail pour chacun d’eux. Lorsque vous avez terminé, votre application logique ressemble au flux de travail suivant à un niveau élevé :
 
@@ -38,7 +38,7 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
 
    ![Créer une application logique](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
-3. Sous **Créer une application logique**, indiquez les détails de votre application logique comme indiqué ici. Lorsque c’est fait, choisissez **Épingler au tableau de bord** > **Créer**.
+3. Sous **Créer une application logique**, indiquez les détails de votre application logique comme indiqué ici. Quand vous avez terminé, choisissez **Créer**.
 
    ![Spécifier les détails de l’application logique](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -61,9 +61,9 @@ Ensuite, ajoutez un [déclencheur](../logic-apps/logic-apps-overview.md#logic-ap
 
 ## <a name="check-rss-feed-with-a-trigger"></a>Vérifier le flux RSS avec un déclencheur
 
-1. Dans le concepteur, entrez « rss » dans la zone de recherche. Sélectionnez le déclencheur suivant : **RSS - Lors de la publication d’un élément de flux**
+1. Dans le concepteur, entrez « rss » dans la zone de recherche. Sélectionner le déclencheur : **RSS - Lors de la publication d’un élément de flux**
 
-   ![Sélectionnez le déclencheur : « RSS - Lors de la publication d’un élément de flux »](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
+   ![Sélectionner le déclencheur : « RSS - Lors de la publication d’un élément de flux »](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
 
 2. Fournissez ces informations pour votre déclencheur, comme illustré et décrit : 
 
@@ -91,13 +91,13 @@ Votre application logique est à présent en ligne mais elle ne fait rien d’au
 
 Ajoutez une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) qui envoie un e-mail lorsqu’un nouvel élément apparaît dans le flux RSS. 
 
-1. Sous le déclencheur **Lors de la publication d’un élément de flux**, choisissez **+ Nouvelle étape** > **Ajouter une action**.
+1. Sous le déclencheur **Lors de la publication d’un élément de flux**, choisissez **Nouvelle étape**.
 
    ![Ajouter une action](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
 
-2. Sous **Choisir une action**, entrez « envoyer un e-mail » comme filtre. Dans la liste d’actions, sélectionnez l’action « envoyer un e-mail » pour le fournisseur de messagerie de votre choix. 
+2. Sous **Choisir une action**, entrez « envoyer un e-mail » dans la zone de recherche. Sous la zone de recherche, choisissez **Tout**. Dans la liste d’actions, sélectionnez l’action « envoyer un e-mail » pour le fournisseur de messagerie de votre choix. 
 
-   ![Sélectionnez l’action : « Office 365 Outlook - Envoyer un e-mail »](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
+   ![Sélectionnez cette action : « Office 365 Outlook - Envoyer un e-mail »](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
    Pour filtrer la liste d’actions pour un service ou une application spécifique, vous pouvez commencer par sélectionner ce service ou cette application :
 

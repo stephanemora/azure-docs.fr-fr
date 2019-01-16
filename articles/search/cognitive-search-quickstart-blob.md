@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ff862dcee77fb874511ea1b9bcc907a5e4b60dcc
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 50b2973f2b245cfb42ed7212e443fec1c66217cf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998980"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015270"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Démarrage rapide : Créer un pipeline de recherche cognitive à l’aide de compétences et d’exemples de données
 
@@ -26,9 +26,9 @@ Dans ce guide de démarrage rapide, créez votre premier pipeline d’enrichisse
 
 > [!div class="checklist"]
 > * Commencer avec les exemples de données dans le stockage d’objets blob Azure
-> * Configurer l’[Assistant Importer des données](search-import-data-portal.md) pour l’indexation cognitive et l’enrichissement 
-> * Exécutez l’Assistant (une compétence d’entité détecte les personnes, l’emplacement et les organisations)
-> * Utilisez l’[Explorateur de recherche](search-explorer.md) pour interroger les données enrichies.
+> * Configurer l’Assistant [**Importer des données**](search-import-data-portal.md) pour l’indexation et l’enrichissement cognitifs 
+> * Exécuter l’Assistant (une compétence d’entité détecte les personnes, l’emplacement et les organisations)
+> * Utiliser l’[**Explorateur de recherche**](search-explorer.md) pour interroger les données enrichies
 
 ## <a name="supported-regions"></a> Régions prises en charge
 
@@ -98,9 +98,9 @@ Le pipeline d’enrichissement procède à l’extraction à partir des sources 
 
 1. [Téléchargez les exemples de données](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consistant en un petit ensemble de fichiers de types différents. 
 
-1. Inscrivez-vous pour le stockage d’objets blob Azure, créez un compte de stockage, connectez-vous à l’Explorateur Stockage et créez un conteneur. Affectez le niveau d’accès public **Conteneur**. Pour plus d’informations, consultez la [section sur la création de conteneur](../storage/blobs/storage-unstructured-search.md#create-a-container) dans le didacticiel sur la recherche de données non structurées.
+1. Inscrivez-vous au Stockage Blob Azure, créez un compte de stockage, ouvrez les pages des services Blob et créez un conteneur. Sur le conteneur, définissez le niveau d’accès public à **Conteneur**. Pour plus d’informations, consultez la [section « Créer un conteneur »](../storage/blobs/storage-unstructured-search.md#create-a-container) dans le tutoriel *Rechercher des données non structurées*.
 
-1. Dans le conteneur que vous avez créé, cliquez sur **Charger** pour charger les fichiers d’exemples.
+1. Dans le conteneur que vous avez créé, cliquez sur **Charger** pour charger les fichiers d’exemples téléchargés lors d’une étape précédente.
 
   ![Fichiers source sur le Stockage Blob Azure](./media/cognitive-search-quickstart-blob/sample-data.png)
 

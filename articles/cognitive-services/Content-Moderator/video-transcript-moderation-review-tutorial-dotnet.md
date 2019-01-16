@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Modérer des vidéos et des transcriptions dans .NET - Content Moderator'
+title: 'Tutoriel : Modérer des vidéos et des transcriptions dans .NET - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Comment utiliser Content Moderator pour modérer des vidéos et des transcriptions dans .NET.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 1/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: d156c481e3c16105ad85cbc793d93306a310d5ef
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: e5958eeb4aca4cdc41bbc263a4cc38378927874b
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567109"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118572"
 ---
-# <a name="tutorial-video-and-transcript-moderation"></a>Tutoriel : Modération de vidéos et de transcriptions
+# <a name="tutorial-video-and-transcript-moderation"></a>Tutoriel : Modération de vidéos et de transcriptions
 
 Les API Vidéo de Content Moderator vous permettent de modérer des vidéos et de créer des révisions des vidéos dans l’outil de révision par un opérateur humain. 
 
@@ -530,7 +530,7 @@ La transcription est publiée sous la forme d’une ressource AMS. Pour analyser
         }
         catch
         {   //TODO:  Logging
-            Console.WriteLine("Exception occured while generating index for video.");
+            Console.WriteLine("Exception occurred while generating index for video.");
             throw;
         }
     }

@@ -4,22 +4,22 @@ description: Découvrez comment créer un modèle de base Terraform dans Azure �
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, machine virtuelle, azure, yeoman
-author: v-mavick
+author: tomarchermsft
 manager: jeconnoc
-ms.author: v-mavick
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 15ef4795544044427805e21f7a8e98646c9cf9bd
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 36e4b424cdb961920fccdf7f050e28447ccbd6cf
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284333"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074517"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Créer un modèle de base Terraform dans Azure à l’aide de Yeoman
 
 [Terraform](https://docs.microsoft.com/azure/terraform/
-) permet de créer facilement des infrastructure sur Azure. [Yeoman](http://yeoman.io/) simplifie considérablement le travail du développeur de module pour la création de modules Terraform tout en offrant un excellent framework de *meilleures pratiques*.
+) permet de créer facilement des infrastructures sur Azure. [Yeoman](http://yeoman.io/) simplifie considérablement le travail du développeur de module pour la création de modules Terraform tout en offrant un excellent framework de *meilleures pratiques*.
 
 Dans cet article, vous allez apprendre à utiliser le générateur de module Yeoman pour créer un modèle Terraform de base. Vous découvrirez ensuite comment tester votre nouveau modèle Terraform à l’aide de deux méthodes différentes :
 
@@ -28,11 +28,11 @@ Dans cet article, vous allez apprendre à utiliser le générateur de module Yeo
 
 ## <a name="prerequisites"></a>Prérequis
 
-- **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
-- **Visual Studio Code** : nous allons utiliser [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) pour examiner les fichiers créés par le générateur Yeoman. Toutefois, vous pouvez utiliser n’importe quel éditeur de code de votre choix.
-- **Terraform** : [Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure ) doit être installé pour exécuter le module créé par Yeoman.
-- **Docker** : nous allons utiliser [Docker](https://www.docker.com/get-started) pour exécuter le module créé par le générateur Yeoman. (Si vous préférez, vous pouvez utiliser Ruby à la place de Docker pour exécuter l’exemple de module.)
-- **Langage de programmation Go** : [Go](https://golang.org/) doit être installé, car les cas de test générés par Yeoman sont écrits en Go.
+- **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+- **Visual Studio Code** : nous allons utiliser [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) pour examiner les fichiers créés par le générateur Yeoman. Toutefois, vous pouvez utiliser l'éditeur de code de votre choix.
+- **Terraform** : [Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure ) doit être installé pour exécuter le module créé par Yeoman.
+- **Docker** : nous allons utiliser [Docker](https://www.docker.com/get-started) pour exécuter le module créé par le générateur Yeoman. (Si vous préférez, vous pouvez utiliser Ruby à la place de Docker pour exécuter l’exemple de module.)
+- **Langage de programmation Go** : [Go](https://golang.org/) doit être installé, car les cas de test générés par Yeoman sont écrits en Go.
 
 >[!NOTE]
 >La plupart des procédures de ce tutoriel impliquent des entrées de ligne de commande. Les étapes décrites ici s’appliquent à tous les systèmes d’exploitation et tous les outils de ligne de commande. Dans nos exemples, nous avons choisi d’utiliser PowerShell pour l’environnement local et Git Bash pour l’environnement Cloud Shell.
@@ -140,16 +140,16 @@ Définit ce que le module génère. Ici, c’est la valeur retournée par **rand
 
 Définit les étapes de génération. Ces étapes sont les suivantes :
 
-- **build** : valide la mise en forme du fichier main.tf.
-- **unit** : le squelette du module généré n’inclut pas le code pour un test unitaire. Si vous souhaitez spécifier un scénario de test unitaire, vous pouvez ajouter ce code ici.
-- **e2e** : exécute un test du module de bout en bout.
+- **build** : valide la mise en forme du fichier main.tf.
+- **unit** : le squelette du module généré n’inclut pas le code pour un test unitaire. Si vous souhaitez spécifier un scénario de test unitaire, vous pouvez ajouter ce code ici.
+- **e2e** : exécute un test du module de bout en bout.
 
 ### <a name="test"></a>test
 
 - Les cas de test sont écrits en Go.
 - Tous les codes de test sont des tests de bout en bout.
 - Les tests de bout en bout essaient d’utiliser Terraform pour provisionner tous les éléments définis sous **fixture** et comparent les résultats dans le code **template_output.go** avec les valeurs attendues prédéfinies.
-- **Gopkg.lock** et **Gopkg.toml** : définir vos dépendances. 
+- **Gopkg.lock** et **Gopkg.toml** : définissent vos dépendances. 
 
 ## <a name="test-your-new-terraform-module-using-a-docker-file"></a>Tester votre nouveau module Terraform à l’aide d’un fichier Docker
 
@@ -248,16 +248,16 @@ Tous ces éléments sont préinstallés dans Cloud Shell.
 
 1. À ce stade, Cloud Shell a déjà configuré GOPATH dans vos variables d’environnement. Pour voir le chemin, entrez `go env`.
 
-1. Créez le dossier $GOPATH s’il n’existe pas. Pour cela, entrez `mkdir ~/go`.
+1. Créez le dossier $GOPATH s’il n’existe pas déjà : Entrez `mkdir ~/go`.
 
-1. Créez un dossier dans le dossier $GOPATH. Pour cela, entrez `mkdir ~/go/src`. Ce dossier est utilisé pour stocker et organiser les différents dossiers de projet que vous pouvez créer, notamment le dossier <your-module-name> que nous allons créer à l’étape suivante.
+1. Créez un dossier dans le dossier $GOPATH : Entrez `mkdir ~/go/src`. Ce dossier est utilisé pour stocker et organiser les différents dossiers de projet que vous pouvez créer, notamment le dossier <your-module-name> que nous allons créer à l’étape suivante.
 
-1. Créez un dossier où stocker votre module Terraform. Pour cela, entrez `mkdir ~/go/src/<your-module-name>`.
+1. Créez un dossier où stocker votre module Terraform : Entrez `mkdir ~/go/src/<your-module-name>`.
 
     >[!NOTE]
     >Dans cet exemple, nous avons choisi `my-module-name` comme nom de dossier.
 
-1. Accédez au dossier du module. Pour cela, entrez `cd ~/go/src/<your-module-name>`.
+1. Accédez au dossier du module : Entrez `cd ~/go/src/<your-module-name>`
 
 ### <a name="create-and-test-your-terraform-module"></a>Créer et tester le module Terraform
 

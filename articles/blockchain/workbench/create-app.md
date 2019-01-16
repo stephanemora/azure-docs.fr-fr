@@ -1,33 +1,35 @@
 ---
 title: Créer une application blockchain dans Azure Blockchain Workbench
-description: Comment créer une application blockchain dans Azure Blockchain Workbench.
+description: Tutoriel sur la création d’une application blockchain dans Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
-ms.topic: article
+ms.date: 1/8/2019
+ms.topic: tutorial
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: a7ca3f42874bc844bc0036e37a790ffebdc5f8d8
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 570d7a51bd6796a6360a4e52e637e1621a29deea
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241216"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104384"
 ---
-# <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Créer une application blockchain dans Azure Blockchain Workbench
+# <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Tutoriel : Créer une application blockchain dans Azure Blockchain Workbench
 
 Vous pouvez utiliser Azure Blockchain Workbench pour créer des applications blockchain qui représentent des flux de travail à plusieurs parties définis par une configuration et du code de contrat intelligent.
 
-Vous allez apprendre à effectuer les actions suivantes :
+Vous découvrirez comment effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Configurer une application blockchain
 > * Créer un fichier de code de contrat intelligent
 > * Ajouter une application blockchain à Blockchain Workbench
 > * Ajouter des membres à l’application blockchain
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -236,56 +238,17 @@ Ajoutez le pragma de version suivant en haut du fichier de code de contrat intel
   pragma solidity ^0.4.20;
   ```
 
-### <a name="base-class"></a>Classe de base
-
-La classe de base **WorkbenchBase** permet à Blockchain Workbench de créer et mettre à jour le contrat. La classe de base est requise pour le code de contrat intelligent spécifique Blockchain Workbench. Votre contrat doit hériter de la classe de base **WorkbenchBase**.
-
-Dans le fichier de code de contrat intelligent `HelloBlockchain.sol`, ajoutez la classe **WorkbenchBase** au début du fichier. 
-
-```
-contract WorkbenchBase {
-    event WorkbenchContractCreated(string applicationName, string workflowName, address originatingAddress);
-    event WorkbenchContractUpdated(string applicationName, string workflowName, string action, address originatingAddress);
-
-    string internal ApplicationName;
-    string internal WorkflowName;
-
-    function WorkbenchBase(string applicationName, string workflowName) internal {
-        ApplicationName = applicationName;
-        WorkflowName = workflowName;
-    }
-
-    function ContractCreated() internal {
-        WorkbenchContractCreated(ApplicationName, WorkflowName, msg.sender);
-    }
-
-    function ContractUpdated(string action) internal {
-        WorkbenchContractUpdated(ApplicationName, WorkflowName, action, msg.sender);
-    }
-}
-```
-La classe de base inclut deux fonctions importantes :
-
-|Fonction de la classe de base  | Objectif  | Quand appeler  |
-|---------|---------|---------|
-| ContractCreated() | Informe Blockchain Workbench qu’un contrat a été créé | Avant de quitter le constructeur de contrat |
-| ContractUpdated() | Informe Blockchain Workbench qu’un état de contrat a été mis à jour | Avant de quitter une fonction de contrat |
-
 ### <a name="configuration-and-smart-contract-code-relationship"></a>Configuration et relation de code de contrat intelligent
 
 Blockchain Workbench utilise le fichier de configuration et le fichier de code de contrat intelligent pour créer une application blockchain. Il existe une relation entre ce qui est défini dans la configuration et le code dans le contrat intelligent. Les détails, fonctions, paramètres et types du contrat doivent correspondre pour créer l’application. Blockchain Workbench vérifie les fichiers avant la création de l’application. 
 
 ### <a name="contract"></a>Contrat
 
-Pour Blockchain Workbench, les contrats doivent hériter de la classe de base **WorkbenchBase**. Lorsque vous déclarez le contrat, vous devez transmettre le nom de l’application et le nom du flux de travail en tant qu’arguments.
-
-Ajoutez l’en-tête **contract** à votre fichier de code de contrat intelligent `HelloBlockchain.sol`. 
+Ajoutez l’en-tête **contract** à votre fichier de code de contrat intelligent `HelloBlockchain.sol`.
 
 ```
-contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') {
+contract HelloBlockchain {
 ```
-
-Votre contrat doit hériter de la classe de base **WorkbenchBase** et transmettre les paramètres **ApplicationName** et le **Nom** de flux de travail tels que définis dans le fichier de configuration. Dans ce cas, le nom de l’application et le nom du flux de travail sont identiques.
 
 ### <a name="state-variables"></a>Variables d’état
 
@@ -312,8 +275,6 @@ Le constructeur définit des paramètres d’entrée pour une nouvelle instance 
 
 Dans la fonction de constructeur, écrivez une logique métier à exécuter avant la création du contrat. Par exemple, initialisez les variables d’état avec des valeurs de départ.
 
-Avant de quitter la fonction de constructeur, appelez la fonction `ContractCreated()`. Cette fonction informe Blockchain Workbench qu’un contrat a été créé.
-
 Ajoutez la fonction de constructeur à votre contrat dans votre fichier de code de contrat intelligent `HelloBlockchain.sol`. 
 
 ```
@@ -323,9 +284,6 @@ Ajoutez la fonction de constructeur à votre contrat dans votre fichier de code 
         Requestor = msg.sender;
         RequestMessage = message;
         State = StateType.Request;
-    
-        // call ContractCreated() to create an instance of this workflow
-        ContractCreated();
     }
 ```
 
@@ -334,8 +292,6 @@ Ajoutez la fonction de constructeur à votre contrat dans votre fichier de code 
 Les fonctions sont les unités exécutables de logique métier dans un contrat. Les paramètres requis pour la fonction sont définis en tant que paramètres de fonction dans le fichier de configuration. Le nombre, l’ordre et le type des paramètres doivent correspondre dans les deux fichiers. Les fonctions sont associées à des transitions dans un flux de travail Blockchain Workbench dans le fichier de configuration. Une transition est une action effectuée pour passer à l’étape suivante du flux de travail d’une application tel que déterminé par le contrat.
 
 Écrivez une logique métier à exécuter dans la fonction. Par exemple, la modification de la valeur d’une variable d’état.
-
-Avant de quitter la fonction, appelez la fonction `ContractUpdated()`. La fonction informe Blockchain Workbench que l’état du contrat a été mis à jour. Si vous souhaitez annuler les modifications apportées dans la fonction, appelez revert(). Le rétablissement ignore les modifications d’état apportées depuis le dernier appel ContractUpdated().
 
 1. Ajoutez les fonctions suivantes à votre contrat dans votre fichier de code de contrat intelligent `HelloBlockchain.sol`. 
 
@@ -347,12 +303,8 @@ Avant de quitter la fonction, appelez la fonction `ContractUpdated()`. La foncti
             {
                 revert();
             }
-    
             RequestMessage = requestMessage;
             State = StateType.Request;
-    
-            // call ContractUpdated() to record this action
-            ContractUpdated('SendRequest');
         }
     
         // call this function to send a response
@@ -360,10 +312,8 @@ Avant de quitter la fonction, appelez la fonction `ContractUpdated()`. La foncti
         {
             Responder = msg.sender;
     
-            // call ContractUpdated() to record this action
             ResponseMessage = responseMessage;
             State = StateType.Respond;
-            ContractUpdated('SendResponse');
         }
     }
     ```

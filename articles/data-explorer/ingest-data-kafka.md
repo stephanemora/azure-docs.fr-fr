@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/19/2018
-ms.openlocfilehash: 316d2b4ebf0a9b0799e2bdcdfda1d517713f413f
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 21eb28611c1e40695356d502c262c23013591986
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52277087"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117365"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Démarrage rapide : Ingérer des données de Kafka dans Azure Data Explorer
  
-Azure Data Explorer est un service d’exploration de données rapide et très scalable pour les données des journaux et les données de télémétrie. Azure Data Explorer permet l’ingestion (le chargement de données) à partir de Kafka. Kafka est une plateforme de streaming distribuée qui permet la création de pipelines de données de streaming en temps réel, qui déplacent les données de façon fiable entre des systèmes ou des applications. 
+L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Azure Data Explorer permet l’ingestion (le chargement de données) à partir de Kafka. Kafka est une plateforme de streaming distribuée qui permet la création de pipelines de données de streaming en temps réel, qui déplacent les données de façon fiable entre des systèmes ou des applications. 
  
 ## <a name="prerequisites"></a>Prérequis
  
@@ -159,4 +159,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
 ## <a name="next-steps"></a>Étapes suivantes
  
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)
+> [Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)

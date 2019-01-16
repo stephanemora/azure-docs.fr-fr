@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 01/09/2019
 ms.author: sethm
-ms.openlocfilehash: b6739a194f6374cf90e6508f4a4316892daaf3dd
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 7de32573ac6c0d084be3fdd6ff2c3641559fc31f
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079240"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118827"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>Créer des abonnements pour des offres dans Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Après avoir [créé une offre](azure-stack-create-offer.md), les utilisateurs ont besoin d’un abonnement à cette offre pour pouvoir l’utiliser. Les utilisateurs peuvent s’abonner à une offre de deux façons :
 
@@ -32,7 +32,7 @@ Après avoir [créé une offre](azure-stack-create-offer.md), les utilisateurs o
 
 ## <a name="create-a-subscription-as-a-cloud-operator"></a>Créer un abonnement en tant qu’opérateur cloud
 
-Les opérateurs cloud peuvent utiliser le portail d’administration pour créer un abonnement à une offre pour un utilisateur.  Vous pouvez créer des abonnements pour les membres de votre propre locataire d’annuaire.  Lorsque la [mutualisation](azure-stack-enable-multitenancy.md) est activée, vous pouvez également créer des abonnements pour les utilisateurs dans des locataires d’annuaires supplémentaires.
+Les opérateurs cloud peuvent utiliser le portail d’administration pour créer un abonnement à une offre pour un utilisateur. Vous pouvez créer des abonnements pour les membres de votre propre locataire d’annuaire. Lorsque la [mutualisation](azure-stack-enable-multitenancy.md) est activée, vous pouvez également créer des abonnements pour les utilisateurs dans des locataires d’annuaires supplémentaires.
 
 Si vous ne voulez pas que vos locataires puissent créer leurs propres abonnements, rendez vos offres privées et créez ensuite des abonnements pour vos locataires. Cette approche est courante lors de l’intégration d’Azure Stack avec les systèmes externes de catalogue de service ou de facturation.
 
@@ -48,17 +48,17 @@ Après avoir créé un abonnement pour un utilisateur, ce dernier peut se connec
 
      - **Azure AD :** `<user1>@<contoso.onmicrosoft.com>`
 
-     - **AD FS :** `<user1>@<azurestack.local>` 
+     - **AD FS :** `<user1>@<azurestack.local>`
 
    - **Locataire d’annuaire** : sélectionnez le locataire d’annuaire auquel appartient le compte d’utilisateur. Si vous n’avez pas activé la mutualisation, seul votre locataire d’annuaire local est disponible.
 
 3. Sélectionnez **Offre**. Sous **Offres**, choisissez une **offre** pour cet abonnement. Étant donné que vous créez l’abonnement pour un utilisateur, sélectionnez **Privé** pour l’état de l’accessibilité.
 
-4. Sélectionnez **Créer** pour créer l’abonnement. Vous verrez le nouvel abonnement sous **Abonnement utilisateur**. Lorsque l’utilisateur se connecte au portail, il voit les détails de l’abonnement.
+4. Sélectionnez **Créer** pour créer l’abonnement. Le nouvel abonnement apparaît sous **Abonnement utilisateur**. Lorsque l’utilisateur se connecte au portail, il voit les détails de l’abonnement.
 
 ### <a name="to-make-an-add-on-plan-available"></a>Pour rendre un plan additionnel disponible
 
-Un opérateur cloud peut ajouter à tout moment un plan additionnel à un abonnement créé précédemment :
+Un opérateur cloud peut ajouter à tout moment un plan à un abonnement créé précédemment :
 
 1. Dans le portail d’administration, sélectionnez **Tous les services**, puis dans la catégorie **RESSOURCES ADMINISTRATIVES**, sélectionnez  **Abonnements utilisateur**. Sélectionnez l’abonnement que vous souhaitez modifier.
 
@@ -71,11 +71,11 @@ Un opérateur cloud peut ajouter à tout moment un plan additionnel à un abonne
 En tant qu’utilisateur, vous pouvez vous connecter au portail utilisateur pour trouver et vous abonner aux offres publiques et aux plans additionnels pour votre locataire d’annuaire (organisation).
 
 >[!NOTE]
->Si l’environnement de Azure Stack prend en charge la [mutualisation](azure-stack-enable-multitenancy.md), vous pouvez également vous abonner à des offres à partir d’un locataire d’annuaire distant.
+>Si votre environnement Azure Stack prend en charge la [mutualisation](azure-stack-enable-multitenancy.md), vous pouvez également vous abonner à des offres à partir d’un locataire d’annuaire distant.
 
 ### <a name="to-subscribe-to-an-offer"></a>S’abonner à une offre
 
-1. [Connectez-vous](azure-stack-connect-azure-stack.md) au portail utilisateur Azure Stack https://portal.local.azurestack.external) et sélectionnez **Prendre un abonnement**.
+1. [Connectez-vous](azure-stack-connect-azure-stack.md) au [portail utilisateur Azure Stack](https://portal.local.azurestack.external) et sélectionnez **Prendre un abonnement**.
 
    ![Prendre un abonnement](media/azure-stack-subscribe-plan-provision-vm/image01.png)
   
@@ -84,19 +84,19 @@ En tant qu’utilisateur, vous pouvez vous connecter au portail utilisateur pour
    ![Créer une offre](media/azure-stack-subscribe-plan-provision-vm/image02.png)
   
 3. Une fois que vous êtes abonné à une offre, actualisez le portail pour voir les services qui font partie du nouvel abonnement.
+
 4. Pour voir l’abonnement que vous avez créé, sélectionnez **Tous les services**, puis **Abonnements** sous la catégorie **GÉNÉRAL**. Sélectionnez l’abonnement pour en afficher les détails.  
 
 ### <a name="to-subscribe-to-an-add-on-plan"></a>S’abonner à un plan additionnel
 
 Si une offre possède un plan additionnel, vous pouvez ajouter ce plan à votre abonnement à tout moment.  
 
-1. Dans le portail utilisateur, sélectionnez **Tous les services**. Ensuite, dans la catégorie **GÉNÉRAL**, sélectionnez **Abonnements**, puis sélectionnez l’abonnement que vous souhaitez modifier. Si des plans additionnels sont disponibles, l’option **+Ajouter un plan** est active et il existe une vignette pour **Plans additionnels**.
+1. Dans le portail utilisateur, sélectionnez **Tous les services**. Ensuite, dans la catégorie **GÉNÉRAL**, sélectionnez **Abonnements**, puis sélectionnez l’abonnement à modifier. Si des plans additionnels sont disponibles, l’option **+Ajouter un plan** est active et il existe une vignette pour **Plans additionnels**. 
 
-   >[!NOTE]
-   >Si l’option **+Ajouter un plan** n’est pas disponible, cela signifie qu’aucun plan additionnel n’existe pour l’offre associée à cet abonnement.
+   Si l’option **+Ajouter un plan** n’est pas active, cela signifie qu’il n’existe aucun plan additionnel pour l’offre associée à cet abonnement.
 
 1. Sélectionnez **+Ajouter un plan** ou la vignette **Plans additionnels**. Sous **Plans additionnels**, sélectionnez le plan que vous souhaitez ajouter.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Approvisionner une machine virtuelle](azure-stack-provision-vm.md)
+- [Approvisionner une machine virtuelle](azure-stack-provision-vm.md)

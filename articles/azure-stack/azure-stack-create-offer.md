@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.openlocfilehash: 4ccff997c7e9f29aafc6966730ab36dfcf72ca9f
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 079f45e37bef24ac974a0e2df7b1e81f1002cac0
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077338"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159075"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Créer une offre dans Azure Stack
 
-Les [offres](azure-stack-key-features.md) sont des groupes d’un ou plusieurs plans que les fournisseurs proposent à l’achat ou à l’abonnement aux utilisateurs. Ce document montre comment créer une offre comprenant le [plan que vous avez créé](azure-stack-create-plan.md). Cette offre donne aux abonnés la possibilité de configurer des machines virtuelles.
+Les [offres](azure-stack-key-features.md) sont des groupes d’un ou plusieurs plans que les fournisseurs proposent à l’achat ou à l’abonnement aux utilisateurs. Cet article décrit comment créer une offre comprenant le [plan que vous avez créé](azure-stack-create-plan.md). Cette offre donne aux abonnés la possibilité de configurer des machines virtuelles.
 
-1. Connectez-vous au portail d’administration Azure Stack (https://adminportal.local.azurestack.external) et sélectionnez **+ Créer une ressource** > **Offres + plans de locataire** > **Offre**.
+1. Connectez-vous au [portail d’administration Azure Stack](https://adminportal.local.azurestack.external) et sélectionnez **+ Créer une ressource**, puis **Offres + plans de locataire** et **Offre**.
 
    ![Créer une offre](media/azure-stack-create-offer/image01.png)
   
@@ -37,17 +37,17 @@ Les [offres](azure-stack-key-features.md) sont des groupes d’un ou plusieurs p
 
    ![Sélectionner un plan](media/azure-stack-create-offer/image02.png)
   
-4. Après avoir créé l’offre, vous pouvez modifier son état. Les offres doivent être rendues *publiques* pour permettre aux utilisateurs d’avoir une vue d’ensemble lorsqu’ils s’abonnent. Les offres peuvent être :
+4. Après avoir créé l’offre, vous pouvez modifier son état. Les offres doivent être rendues **publiques** pour permettre aux utilisateurs d’avoir une vue d’ensemble lorsqu’ils s’abonnent. Les offres peuvent être :
 
-   - **Public** : ils sont visibles pour les utilisateurs.
-   - **Privé** : visibles uniquement par les administrateurs cloud. Ce paramètre est utile lors de l’élaboration du plan ou de l’offre, ou si l’administrateur cloud souhaite [créer chaque abonnement pour les utilisateurs](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
-   - **Retiré**: ils sont fermés aux nouveaux abonnés. L’administrateur cloud peut utiliser cet état pour empêcher tout abonnement futur, sans que cela affecte les abonnés actuels.
+   - **Publiques :** visibles par les utilisateurs.
+   - **Privé** : visibles uniquement par les administrateurs cloud. Ce paramètre est utile lors de l’élaboration du plan ou de l’offre, ou si l’administrateur cloud souhaite [créer chaque abonnement pour les utilisateurs](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
+   - **Désactivées** : fermées aux nouveaux abonnés. L’administrateur cloud peut désactiver des offres pour empêcher tout nouveau abonnement, sans que cela n’affecte les abonnés actuels.
 
    > [!TIP]  
    > Les modifications apportées à l’offre ne sont pas immédiatement visibles par l’utilisateur. Pour voir les modifications et afficher la nouvelle offre, les utilisateurs pourraient devoir se déconnecter et se reconnecter au portail de l’utilisateur.
 
-   Dans la vue d’ensemble de l’offre, sélectionnez **État de l’accessibilité**. Choisissez l’état que vous souhaitez utiliser (par exemple, **Public**), puis sélectionnez **Enregistrer**.
- 
+   Dans l’écran de vue d’ensemble de l’offre, sélectionnez **État de l’accessibilité**. Choisissez l’état à utiliser (par exemple, **Public**), puis sélectionnez **Enregistrer**.
+
      ![Choix de l’état](media/azure-stack-create-offer/change-stage-1807.png)
 
      Une autre possibilité consiste à sélectionner l’option**Changer l’état**, puis à choisir un état.
@@ -55,7 +55,7 @@ Les [offres](azure-stack-key-features.md) sont des groupes d’un ou plusieurs p
     ![Sélectionner État de l’accessibilité](media/azure-stack-create-offer/change-stage-select-1807.png)
 
    > [!NOTE]
-   > Vous pouvez également utiliser PowerShell pour créer des offres, des plans et des quotas par défaut. Pour plus d’informations, consultez l’article [Module Azure Stack PowerShell 1.4.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
+   > Vous pouvez également utiliser PowerShell pour créer des offres, des plans et des quotas par défaut. Pour plus d’informations, consultez l’article [Module Azure Stack PowerShell 1.4.0](/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

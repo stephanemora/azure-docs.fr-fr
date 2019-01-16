@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: 55f388ed15167c5bc7262e194e09e4a92ba50af4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a42236af7e301a21a91a3c1294b20167824dfc84
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866064"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024788"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modes de mise en réseau du conteneur Service Fabric
 
@@ -35,7 +35,7 @@ Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud d
 
 ## <a name="set-up-open-networking-mode"></a>Configurer le mode de mise en réseau Ouvert
 
-1. Configurer le modèle Azure Resource Manager. Dans la section **fabricSettings**, activer le Service DNS et le fournisseur IP : 
+1. Configurer le modèle Azure Resource Manager. Dans la section **fabricSettings** de la ressource de cluster, activez le Service DNS et le fournisseur IP : 
 
     ```json
     "fabricSettings": [
@@ -77,8 +77,10 @@ Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud d
                 }
             ],
     ```
+    
+2. Configurez la section de profil réseau de la ressource du groupe de machines virtuelles identiques. Cela permet la configuration de plusieurs adresses IP sur chaque nœud du cluster. L’exemple suivant définit cinq adresses IP par nœud pour un cluster Windows/Linux Service Fabric. Vous pouvez avoir cinq instances de service à l’écoute sur le port de chaque nœud. Pour rendre les cinq adresses IP accessibles depuis Azure Load Balancer, inscrivez-les dans le pool d’adresses back-end d’Azure Load Balancer, comme indiqué ci-dessous.  Vous devez également ajouter les variables en haut de votre modèle, dans la section des variables.
 
-2. Configurer la section de profil réseau pour autoriser la configuration de plusieurs adresses IP sur chaque nœud du cluster. L’exemple suivant définit cinq adresses IP par nœud pour un cluster Windows/Linux Service Fabric. Vous pouvez avoir cinq instances de service à l’écoute sur le port de chaque nœud. Pour rendre les cinq adresses IP accessibles depuis Azure Load Balancer, inscrivez-les dans le pool d’adresses back-end d’Azure Load Balancer, comme indiqué ci-dessous.
+    Ajoutez cette section aux variables :
 
     ```json
     "variables": {
@@ -97,6 +99,11 @@ Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud d
         "lbHttpProbeID0": "[concat(variables('lbID0'),'/probes/FabricHttpGatewayProbe')]",
         "lbNatPoolID0": "[concat(variables('lbID0'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]"
     }
+    ```
+    
+    Ajouter cette section à la ressource du groupe de machines virtuelles identiques :
+
+    ```json   
     "networkProfile": {
                 "networkInterfaceConfigurations": [
                   {

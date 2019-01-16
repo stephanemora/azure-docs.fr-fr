@@ -1,14 +1,12 @@
 ---
-title: Créer un réseau virtuel - Guide de démarrage rapide - Portail Azure | Microsoft Docs
+title: Créer un réseau virtuel - Démarrage rapide - Portail Azure
+titlesuffix: Azure Virtual Network
 description: Dans ce démarrage rapide, vous découvrez comment créer un réseau virtuel à l’aide du portail Azure. Un réseau virtuel permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé entre elles et avec Internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: quickstart
@@ -16,13 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: jdial
-ms.custom: mvc
-ms.openlocfilehash: d627d54686cb40714e9e8574ceae56a8900cb45e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 346299dff8354bfca56a1f348c8f66e90da89632
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269462"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020827"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Démarrage rapide : Créer un réseau virtuel au moyen du portail Azure
 
@@ -71,14 +68,14 @@ Créez deux machines virtuelles dans le réseau virtuel :
     | Nom de la machine virtuelle | Entrez *myVm1*. |
     | Région | Sélectionnez **USA Est**. |
     | Options de disponibilité | Conservez la valeur par défaut **Aucune redondance d’infrastructure nécessaire**. |
-    | Image | Conservez la valeur par défaut **Microsoft Windows Server 2016 Datacenter**. |
+    | Image | Conservez la valeur par défaut **Windows Server 2016 Datacenter**. |
     | Taille | Conservez la valeur par défaut **Standard DS1 v2**. |
     | **COMPTE ADMINISTRATEUR** |  |
     | Nom d’utilisateur | Entrez un nom d’utilisateur de votre choix. |
     | Mot de passe | Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirmer le mot de passe | Retapez le mot de passe. |
-    | **RÈGLES DES PORTES D’ENTRÉE** |  |
-    | Aucun port d’entrée public | Conservez la valeur par défaut **Aucune**. |
+    | **RÈGLES DES PORTS D’ENTRÉE** |  |
+    | Aucun port d’entrée public | Conservez la valeur par défaut **Aucun**. |
     | **ÉCONOMISEZ DE L’ARGENT** |  |
     | Vous disposez déjà d’une licence Windows ? | Conservez la valeur par défaut **Non**. |
 
@@ -94,11 +91,11 @@ Créez deux machines virtuelles dans le réseau virtuel :
     | Sous-réseau | Conservez la valeur par défaut **myVirtualSubnet (10.1.0.0/24)**. |
     | Adresse IP publique | Conservez la valeur par défaut **(new) myVm-ip**. |
     | Ports de sécurité réseau | Sélectionnez **Autoriser les ports sélectionnés**. |
-    | Sélectionnez des ports d’entrée | Sélectionnez **HTTP** et **RDP**.
+    | Sélectionner des ports d’entrée | Sélectionnez **HTTP** et **RDP**.
 
 1. Sélectionnez **Suivant : Gestion**.
 
-1. Dans **Créer une machine virtuelle - Gestion**, pour **Compte de stockage de diagnostics**, sélectionnez **Créer nouveau**.
+1. Dans **Créer une machine virtuelle - Gestion**, pour **Compte de stockage de diagnostics**, sélectionnez **Créer**.
 
 1. Dans **Créer un compte de stockage**, entrez ou sélectionnez ces informations :
 
@@ -142,7 +139,7 @@ Après avoir créé *myVm1*, connecter-vous à cette machine virtuelle via Inter
 
 1. Sélectionnez **Télécharger le fichier RDP**. Azure crée un fichier *.rdp* (Remote Desktop Protocol) et le télécharge sur votre ordinateur.
 
-1. Ouvrir le fichier *.rdp* téléchargé.
+1. Ouvrez le fichier *.rdp* téléchargé.
 
     1. Si vous y êtes invité, sélectionnez **Connexion**.
 

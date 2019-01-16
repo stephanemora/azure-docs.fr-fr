@@ -1,5 +1,5 @@
 ---
-title: 'Guide de démarrage rapide : Rechercher des traductions alternatives, Ruby - API de traduction de texte Translator Text'
+title: 'Démarrage rapide : Rechercher des mots avec le dictionnaire bilingue, Ruby - API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez rechercher des traductions alternatives et des exemples de termes en contexte à l’aide de l’API de traduction de texte Translator Text avec Ruby.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: c9e33fd4be80c8bb95248e8be34f9540d9cd69ea
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 4574c07f3dfa98c0264d70c08a5ee4feff075bee
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649616"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157086"
 ---
-# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-ruby"></a>Guide de démarrage rapide : Rechercher des traductions à l’aide de l’API REST de traduction de texte Translator Text (Ruby)
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-ruby"></a>Démarrage rapide : Rechercher des mots avec le dictionnaire bilingue en utilisant Ruby
 
 Ce démarrage rapide vous fournit des informations détaillées sur les traductions alternatives possibles d’un terme, ainsi que des exemples d’utilisation de ces traductions alternatives, à l’aide de l’API de traduction de texte Translator Text.
 

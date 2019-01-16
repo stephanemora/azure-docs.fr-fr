@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 7949e764baa7a4e20eb988c78817b6b4f0045593
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: e6cfdca207b114871a478262f14ea960be5985df
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333766"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104962"
 ---
 # <a name="validate-a-new-azure-stack-solution"></a>Valider une nouvelle solution Azure Stack
 
@@ -35,32 +35,53 @@ Pour certifier votre solution, exécutez deux fois le workflow de validation de 
 ## <a name="create-a-solution-validation-workflow"></a>Créer un workflow de validation de solution
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
-2. Sélectionnez **Démarrer** sur la vignette **Validations de solution**.
+
+3. Sélectionnez **Démarrer** sur la vignette **Validations de solution**.
 
     ![Vignette du workflow Validations de solution](media/tile_validation-solution.png)
 
-3. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
-4. Sélectionnez la **Configuration de la solution**.
+4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
+
+5. Sélectionnez la **Configuration de la solution**.
     - **Minimale** : la solution est configurée avec le nombre minimal de nœuds pris en charge.
     - **Maximale** : la solution est configurée avec le nombre maximal de nœuds pris en charge.
-5. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
+6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
     ![Informations relatives à la validation de solution](media/workflow_validation-solution_info.png)
 
-6. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
+7. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
     > [!NOTE]
     > Après la création d’un workflow, les paramètres d’environnement ne peuvent plus être modifiés.
 
-7. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
-8. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+8. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     Vous allez être redirigé vers la page de résumé de tests.
 
-## <a name="execute-solution-validation-tests"></a>Exécuter des tests de validation de solution
+## <a name="run-solution-validation-tests"></a>Exécuter des tests de validation de solution
 
-Sur la page **Résumé des tests de validation de solution**, vous trouverez une liste de tests requis pour terminer la validation.
+Dans la page **Résumé des tests de validation de solution**, vous trouverez une liste des tests à réaliser pour terminer la validation.
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+Dans les workflows de validation, la **planification** d’un test utilise des paramètres communs au niveau du workflow que vous avez spécifiés lors de la création de votre workflow (voir [Paramètres de flux de travail communs dans la validation en tant que service Azure Stack](azure-stack-vaas-parameters.md)). Si l’une des valeurs de paramètres de test devient non valide, vous devez les redéfinir comme indiqué dans la section relative à la [modification des paramètres de workflow](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+
+> [!NOTE]
+> La planification d’un test de validation sur une instance existante créera une nouvelle instance à la place de l’ancienne contenue dans le portail. Les journaux de l’ancienne instance sont conservés, mais ne sont pas accessibles à partir du portail.  
+Dès lors qu’un test est concluant, l’action de **planification** est désactivée.
+
+1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
+
+2. Sélectionnez les tests suivants :
+    - Cloud Simulation Engine
+    - Compute SDK Operational Suite
+    - Disk Identification Test
+    - KeyVault Extension SDK Operational Suite
+    - KeyVault SDK Operational Suite
+    - Network SDK Operational Suite
+    - Storage Account SDK Operational Suite
+
+3. Sélectionnez **Planifier** dans le menu contextuel pour ouvrir une invite de planification de l’instance de test.
+
+4. Passez en revue les paramètres de test, puis sélectionnez **Envoyer** pour planifier l’exécution du test.
 
 ![Planifier un test de validation de solution](media/workflow_validation-solution_schedule-test.png)
 

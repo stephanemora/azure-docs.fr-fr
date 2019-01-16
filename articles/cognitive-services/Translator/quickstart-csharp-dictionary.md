@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Obtenir des traductions alternatives, C# – API de traduction de texte Translator Text'
+title: 'Démarrage rapide : Rechercher des mots avec le dictionnaire bilingue, C# - API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez découvrir comment obtenir des traductions alternatives possibles d’un terme ainsi que des exemples d’utilisation de ces traductions alternatives à l’aide de .NET Core et de l’API de traduction de texte Translator Text.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 034b6e102d008039ddd138798900dbee17faf51d
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 3460c1c62f26e2bb0a4a14238e110cdd363a7a87
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887948"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159568"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-c"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour obtenir des traductions alternatives à l’aide de C#
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>Démarrage rapide : Rechercher des mots avec le dictionnaire bilingue en utilisant C#
 
 Dans ce guide de démarrage rapide, vous allez découvrir comment obtenir des traductions alternatives possibles d’un terme ainsi que des exemples d’utilisation de ces traductions alternatives à l’aide de .NET Core et de l’API de traduction de texte Translator Text.
 
@@ -49,7 +49,7 @@ dotnet add package Newtonsoft.Json --version 11.0.2
 
 ## <a name="add-required-namespaces-to-your-project"></a>Ajouter des espaces de noms requis à votre projet
 
-La commande `dotnet new console` que vous avez exécutée précédemment a créé un projet, y compris `Program.cs`. C’est dans ce fichier que vous placerez votre code d’application. Ouvrez `Program.cs` et remplacez les instructions using existantes. Ces instructions garantissent que vous avez accès à tous les types nécessaires pour générer et exécuter l’exemple d’application.
+La commande `dotnet new console` que vous avez exécutée précédemment a créé un projet, notamment `Program.cs`. C’est dans ce fichier que vous placerez votre code d’application. Ouvrez `Program.cs` et remplacez les instructions using existantes. Ces instructions garantissent que vous avez accès à tous les types nécessaires pour générer et exécuter l’exemple d’application.
 
 ```csharp
 using System;
@@ -147,7 +147,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Exécution de l'exemple d'application
 
-Voilà, vous êtes prêt à exécuter votre exemple d’application. À partir de la ligne de commande (ou d’une session Terminal Server), accédez au répertoire de votre projet et exécutez :
+Voilà, vous êtes prêt à exécuter votre exemple d’application. À partir de la ligne de commande (ou d’une session terminal), accédez au répertoire de votre projet, puis exécutez :
 
 ```console
 dotnet run

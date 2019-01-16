@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9c44e2564c26a16d632a16195d3e53b8ce83d735
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: edea614065d67bab23de29e5cef3b56c69905a90
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629881"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188606"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Créer et utiliser un équilibreur de charge interne avec un environnement App Service #
 
@@ -188,7 +188,7 @@ Les fonctions et les tâches Web sont prises en charge sur un environnement App 
 
 Si vous utilisez Azure Functions sur un environnement App Service ILB, il se peut que vous rencontriez le message d’erreur suivant : « Nous ne pouvons pas récupérer vos fonctions pour l’instant. Veuillez réessayer plus tard. » Cette erreur se produit parce que l’interface utilisateur des fonctions exploite le site SCM via HTTPS et le certificat racine n’est pas dans la chaîne d’approbation du navigateur. Les tâches Web présente un problème similaire. Pour éviter ce problème, vous pouvez effectuer une des opérations suivantes :
 
-- ajouter le certificat à votre magasin de certificats approuvé ; cela débloque Edge et Internet Explorer.
+- Ajouter le certificat à votre magasin de certificats approuvé. Cela débloque Microsoft Edge et Internet Explorer.
 - Utiliser Chrome et accéder d’abord au site SCM, accepter le certificat non approuvé, puis accéder au portail.
 - Utiliser un certificat commercial qui figure dans la chaîne d’approbation de votre navigateur.  Il s’agit de la meilleure option.  
 

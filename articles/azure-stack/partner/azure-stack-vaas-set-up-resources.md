@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 0830deaaa1161880706c39aee741af06a41b4b6f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 58c69840e7b8ebdc2bd367859184ab54460c9426
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426342"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103470"
 ---
-# <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Didacticiel : Configurer des ressources pour la validation en tant que service
+# <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Tutoriel : Configurer des ressources pour la validation en tant que service
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -90,7 +90,7 @@ En tant qu’administrateur Azure AD, attribuez à l’application VaaS Azure AD
 
 ## <a name="create-an-azure-storage-account"></a>Création d'un compte Azure Storage
 
-Pendant l’exécution du test, VaaS génère des journaux de diagnostic vers un compte de stockage Azure. En plus des journaux de test, le compte de stockage peut également servir à charger les packages d’extension OEM pour le workflow de validation du package.
+Pendant l’exécution du test, VaaS génère des journaux de diagnostic vers un compte de stockage Azure. En plus des journaux de test, le compte de stockage peut également servir à charger les packages d’extension OEM pour le workflow de validation de la solution.
 
 Le compte de stockage Azure est hébergé dans le cloud public Azure, et non sur votre environnement Azure Stack.
 

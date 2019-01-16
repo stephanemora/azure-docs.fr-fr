@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Obtenir des traductions alternatives, Python - API de traduction de texte Translator Text'
+title: 'Démarrage rapide : Rechercher des mots avec le dictionnaire bilingue, Python - API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez apprendre à rechercher des traductions alternatives et des exemples d’utilisation pour un texte spécifié à l’aide de Python et de l’API de traduction de texte Translator Text.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/21/2018
 ms.author: erhopf
-ms.openlocfilehash: ab8a6d5b6d4bb52863e77b844a4008bb80d840be
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 52820a9162a20b680b85d07f8c49ac5305d4979a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993954"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158009"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-python"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text pour obtenir des traductions alternatives à l’aide de Python
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Démarrage rapide : Rechercher des mots avec le dictionnaire bilingue en utilisant Python
 
 Dans ce guide de démarrage rapide, vous allez apprendre à rechercher des traductions alternatives et des exemples d’utilisation pour un texte spécifié à l’aide de Python et de l’API de traduction de texte Translator Text.
 
@@ -167,7 +167,7 @@ Si vous avez codé en dur votre clé d’abonnement dans votre programme, veille
 
 ## <a name="see-also"></a>Voir aussi
 
-Apprenez à utiliser l’API de traduction de texte Translator Text pour :
+Apprenez à utiliser l’API de traduction de texte Translator Text pour :
 
 * [Traduire le texte](quickstart-python-translate.md)
 * [Translittérer du texte](quickstart-python-transliterate.md)

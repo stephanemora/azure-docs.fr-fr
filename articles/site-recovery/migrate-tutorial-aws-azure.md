@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 24503a821445bbf1610588d7f69ec87948a812b9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4674428cf96562670b0e24e5ac93a2f2979128da
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793068"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042051"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -33,12 +33,14 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 - Assurez-vous que les machines virtuelles que vous voulez migrer exécutent une version du système d’exploitation prise en charge. Les versions prises en charge incluent : 
-  - Windows Server 2016 
-  - Windows Server 2012 R2
-  - Windows Server 2012 
-  - Version 64 bits de Windows Server 2008 R2 SP1 ou version ultérieure
-  - Red Hat Enterprise Linux 6.7 (instances virtualisées HVM uniquement) avec un pilote Citrix PV ou AWS PV. Les instances exécutant des pilotes RedHat PV *ne sont pas* prises en charge.
- - Le service Mobilité doit être installé sur chaque machine virtuelle que vous souhaitez répliquer. 
+      - Windows Server 2016 
+      - Windows Server 2012 R2
+      - Windows Server 2012 
+      - Version 64 bits de Windows Server 2008 R2 SP1 ou version ultérieure
+      - Red Hat Enterprise Linux 6.4 à 6.10, 7.1 à 7.6 (instances virtualisées HVM uniquement) *(Les instances exécutant des pilotes RedHat PV ne sont pas prises en charge.)*
+      - CentOS 6.4 à 6.10, 7.1 à 7.6 (instances virtualisées HVM uniquement)
+ 
+- Le service Mobilité doit être installé sur chaque machine virtuelle que vous souhaitez répliquer. 
 
     > [!IMPORTANT]
     > Site Recovery installe ce service automatiquement quand vous activez la réplication pour la machine virtuelle. Pour une installation automatique, vous devez préparer un compte sur les instances EC2 qui sera utilisé par Site Recovery pour accéder à la machine virtuelle. Vous pouvez utiliser un compte local ou de domaine. 

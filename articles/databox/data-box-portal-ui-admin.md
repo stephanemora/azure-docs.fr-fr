@@ -6,24 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 08/28/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: f4ea5e282e9b915cffeac7daff07f5934be1a424
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 6b6d0d1a7e14035f7a1b7998ec4b3e68761539f5
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974987"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158106"
 ---
-# <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>Utiliser le Portail Azure pour administrer votre solution Data Box Disk (préversion)
+# <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Utiliser le portail Azure pour administrer votre Data Box Disk
 
 Les didacticiels de cet article s’appliquent à la solution Microsoft Azure Data Box Disk au cours de la période de préversion. Cet article décrit certains des flux de travail et tâches de gestion complexes qui peuvent être effectués sur Data Box Disk. 
 
 Vous pouvez gérer Data Box Disk via le portail Azure. Cet article se concentre sur les tâches que vous pouvez effectuer à l’aide du portail Azure. Utilisez le portail Azure pour gérer les commandes et les disques, et suivre l’état des commandes lorsqu’elles passent à l’étape terminale.
-
-> [!IMPORTANT]
-> Data Box Disk est disponible en préversion. Veuillez lire les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de déployer cette solution.
-
 
 ## <a name="cancel-an-order"></a>Annuler une commande
 

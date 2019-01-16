@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: quickstart
 ms.date: 10/31/2018
 ms.author: areddish
-ms.openlocfilehash: 1ffe75b088b3e6db5717746ab2fc00ef4b350e8b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 14123c316b2881c2ded36a5e30ce62a961183991
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971867"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079151"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Démarrage rapide : créer un projet de détection d’objet avec le kit de développement logiciel (SDK) du service Vision personnalisée pour .NET
 
@@ -43,7 +43,11 @@ Ouvrez le fichier _Program.cs_ et inspectez le code. Insérez vos clés d’abon
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=18-27)]
 
-### <a name="create-a-new-custom-vision-service-project"></a>Créer un projet Vision personnalisée
+Le paramètre du point de terminaison doit pointer vers la région dans laquelle le groupe de ressources Azure contenant les ressources Custom Vision a été créé. Dans cet exemple, nous supposons que la région USA Centre Sud est utilisée :
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=14-14)]
+
+### <a name="create-a-new-custom-vision-service-project"></a>Créer un projet Custom Vision
 
 L’extrait de code suivant crée un projet de détection d’objet. Le projet créé apparaît sur le [site web Custom Vision](https://customvision.ai/) sur lequel vous êtes allé plus tôt. 
 

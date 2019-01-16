@@ -10,21 +10,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 1/07/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 8e0009bf0fc34d3e0d22755d93d941b85db62ffd
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c90b81cdb6df5477d658d53dc93d0c3bbc47c1ff
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334463"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106441"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Valider les mises à jour logicielles issues de Microsoft
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Microsoft publie régulièrement des mises à jour du logiciel Azure Stack. Avant d’être rendues publiques, ces mises à jour sont fournies aux partenaires qui participent à la conception des offres Azure Stack pour permettre à ces derniers de valider les mises à jour pour leurs solutions et de faire part de leurs commentaires à Microsoft.
+Microsoft publie régulièrement des mises à jour du logiciel Azure Stack. Ces mises à jour sont fournies à nos ingénieurs partenaires Azure Stack. Les mises à jour sont fournies avant d’être mises à la disposition du grand public. Vous pouvez vérifier les mises à jour par rapport à votre solution et fournir des commentaires à Microsoft.
 
 [!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
@@ -34,13 +34,17 @@ Microsoft publie régulièrement des mises à jour du logiciel Azure Stack. Avan
 
 ## <a name="create-a-workflow"></a>Créer un workflow
 
-Les validations de mise à jour utilisent le même workflow que **Validation du Package**. Suivez les instructions pour [Create a Package Validation workflow](azure-stack-vaas-validate-oem-package.md#create-a-package-validation-workflow) (créer un workflow de Validation de package).
+Les validations de mises à jour utilisent le même workflow que la **validation de la solution**.
 
 ## <a name="run-tests"></a>Exécuter les tests
 
-Les validations de mise à jour utilisent le même workflow que **Validation du Package**. Suivez les instructions pour [Execute Package Validation tests](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests) (exécutez les tests de Validation de package).
+1. Les validations de mises à jour utilisent le même workflow que la **validation de la solution**. 
 
-Vous n’avez pas besoin de demander la signature du package pour les validations de mise à jour.
+2. Suivez les instructions données dans [Exécuter les tests de validation de la solution](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests). Sélectionnez plutôt les tests suivants :
+    - Vérification de la mise à jour mensuelle Azure Stack
+    - Moteur de simulation cloud
+
+Vous n’avez pas besoin de demander la signature du package pour les validations de mises à jour.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

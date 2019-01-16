@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 01/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 947e5d4004565fd10e81e703111daf26fce10368
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: da71857e84b27b9e9a063d707f75fdf33e5d6a96
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973517"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159007"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Préparer les ressources Azure pour la récupération d’urgence de machines locales
 
@@ -68,11 +68,12 @@ Les images des machines répliquées sont conservées dans le stockage Azure. Le
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
-1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Stockage** > **Backup and Site Recovery (OMS)**.
-2. Dans **Name**, entrez un nom convivial pour identifier le coffre. Pour cette série de didacticiels, nous utilisons **ContosoVMVault**.
-3. Dans **Groupe de ressources**, nous utilisons **contosoRG**.
-4. Dans **Emplacement**. Nous utilisons **Europe Ouest**.
-5. Pour accéder rapidement au coffre à partir du tableau de bord, sélectionnez **Épingler au tableau de bord** > **Créer**.
+1. Dans le portail Azure, cliquez sur **Créer une ressource** et recherchez **Recovery Services** dans la Place de marché.
+2. Cliquez sur **Backup and Site Recovery (OMS)**, puis dans la page éponyme, cliquez sur **Créer**. 
+1. Dans le **coffre Recovery Services** > **Nom**, entrez un nom convivial permettant d’identifier le coffre. Pour cette série de didacticiels, nous utilisons **ContosoVMVault**.
+2. Dans **Groupe de ressources**, sélectionnez un groupe de ressources existant ou créez-en un. Pour ce tutoriel, nous utilisons **contosoRG**.
+3. Dans **Emplacement**, sélectionnez la région dans laquelle le coffre doit se trouver. Nous utilisons **Europe Ouest**.
+4. Pour accéder rapidement au coffre à partir du tableau de bord, sélectionnez **Épingler au tableau de bord** > **Créer**.
 
    ![Créer un coffre](./media/tutorial-prepare-azure/new-vault-settings.png)
 

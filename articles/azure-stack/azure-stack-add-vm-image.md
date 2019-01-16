@@ -12,25 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 1/07/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 7a5c6875f080655e69f549e45ec474958128754f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 9f5f3c4ce08cde81c883bfdac87012dcfd80b8a4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575811"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119728"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Mettre une image de machine virtuelle à la disposition des utilisateurs dans Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Dans Azure Stack, vous pouvez mettre des images de machine virtuelle à la disposition de vos utilisateurs. Ces images peuvent être référencées par des modèles Azure Resource Manager ou vous pouvez les ajouter à l’interface utilisateur de la Place de marché Azure en tant qu’élément sur la Place de marché. Vous pouvez utiliser une image à partir de la Place de marché Azure globale ou ajouter une image personnalisée. Vous pouvez ajouter une machine virtuelle à l’aide du portail ou de Windows PowerShell.
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Ajouter une image de machine virtuelle par le biais du portail
 
-> [!NOTE]
+> [!NOTE]  
 > Avec cette méthode, vous devez créer l’élément de la Place de marché séparément.
 
 Les images doivent pouvoir être référencées par un URI de stockage d’objets blob. Préparez une image de système d’exploitation Windows ou Linux au format VHD (pas VHDX), puis chargez cette image dans un compte de stockage Azure ou Azure Stack. Si votre image est déjà chargée dans le stockage d’objets blob dans Azure ou Azure Stack, ignorez l’étape 1.
@@ -39,7 +39,7 @@ Les images doivent pouvoir être référencées par un URI de stockage d’objet
 
    - Azure Stack prend seulement en charge les machines virtuelles de génération un (1) dans le format VHD de disque dur fixe. Le format fixe structure linéairement le disque logique dans le fichier de façon que l’offset du disque X soit stocké à l’offset de l’objet blob X. Un petit pied de page à la fin de l’objet blob décrit les propriétés du disque dur virtuel. Pour vérifier si votre disque est fixe, utilisez la commande PowerShell [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps).  
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     >  Azure Stack ne prend pas en charge les disques durs virtuels de disque dynamique. Le redimensionnement d’un disque dynamique attaché à une machine virtuelle laissera la machine virtuelle dans un état d’échec. Pour résoudre ce problème, supprimez la machine virtuelle sans supprimer le disque de la machine virtuelle, un objet blob VHD dans un compte de stockage. Ensuite, convertissez le disque dur virtuel d’un disque dynamique en un disque fixe et recréez la machine virtuelle.
 
    * Il est préférable de charger une image dans le stockage d’objets blob Azure Stack plutôt que dans le stockage d’objets blob Azure, car l’envoi (push) d’une image dans le référentiel d’images Azure Stack est plus rapide.
@@ -48,7 +48,7 @@ Les images doivent pouvoir être référencées par un URI de stockage d’objet
 
    * Prenez note de l’URI de stockage d’objets blob dans lequel vous chargez l’image. L’URI de stockage d’objets blob est au format suivant : *&lt;compte_stockage&gt;/&lt;conteneur_objets_blob&gt;/&lt;nom_disque_dur_virtuel_cible&gt;*.vhd.
 
-   * Pour rendre le stockage Blob accessible de manière anonyme, accédez au conteneur d’objets blob du compte de stockage dans lequel l’image de machine virtuelle VHD a été chargée. Sélectionnez **Blob** puis choisissez **Stratégie d’accès**. Si vous le souhaitez, vous pouvez à la place générer une signature d’accès partagé pour le conteneur et l’inclure dans l’URI de l’objet blob. Cette étape permet de s’assurer que l’objet blob est utilisable pour l’ajouter en tant qu’image. Si l’objet blob n’est pas accessible de manière anonyme, l’image de machine virtuelle sera créée dans un état d’échec.
+   * Pour rendre le stockage Blob accessible de manière anonyme, accédez au conteneur d’objets blob du compte de stockage dans lequel l’image de machine virtuelle VHD a été chargée. Sélectionnez **Blob** puis choisissez **Stratégie d’accès**. Si vous le souhaitez, vous pouvez générer une signature d’accès partagé pour le conteneur et l’inclure dans l’URI de l’objet blob. Cette étape permet de s’assurer que l’objet blob est utilisable pour l’ajouter en tant qu’image. Si l’objet blob n’est pas accessible de manière anonyme, l’image de machine virtuelle sera créée dans un état d’échec.
 
    ![Accéder aux objets blob du compte de stockage](./media/azure-stack-add-vm-image/image1.png)
 
@@ -154,7 +154,7 @@ Les images doivent pouvoir être référencées par un URI de stockage d’objet
 
 3. Connectez-vous à Azure Stack comme opérateur. Pour obtenir des instructions, consultez [Se connecter à Azure Stack comme opérateur](azure-stack-powershell-configure-admin.md).
 
-4. Créez un compte de stockage dans Azure Stack ou Azure au niveau global pour stocker votre image de machine virtuelle personnalisée. Pour obtenir des instructions, consultez [Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide du portail Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+4. Créez un compte de stockage dans Azure Stack ou Azure au niveau global pour stocker votre image de machine virtuelle personnalisée. Pour obtenir des instructions, consultez [Démarrage rapide : Charger, télécharger et lister des objets blob à l’aide du portail Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
 
 5. Préparez une image de système d’exploitation Windows ou Linux au format VHD (et non VHDX), chargez l’image sur votre compte de stockage et obtenez l’URI où l’image de machine virtuelle peut être récupérée par PowerShell.  
 

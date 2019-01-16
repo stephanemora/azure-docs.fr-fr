@@ -9,17 +9,16 @@ ms.assetid: 34af20ee-3fa7-4f28-9d98-6168b1759764
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 80a740e13f5c3a13b7533d75e386a9afa2855085
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c96899fc46cd9cf6377894de773785dac14f3345
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002244"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121564"
 ---
 # <a name="what-is-azure-key-vault"></a>Qu’est-ce qu’Azure Key Vault ?
 
@@ -70,7 +69,7 @@ Lorsque vous stockez vos données les plus précieuses, vous devez prendre diff�
 - Fourniture des options d’administration Azure standard par le biais du Portail, de l’interface de ligne de commande Azure et de PowerShell.
 - Automatisation de certaines tâches sur les certificats que vous achetez auprès d’une autorité de certification publique, comme l’inscription et le renouvellement.
 
-En outre, les coffres de clé Azure vous permettent de séparer les secrets d’application. Les applications sont uniquement en mesure d’accéder au coffre dont l’accès leur a été autorisé, et elles ne peuvent effectuer que des opérations spécifiques. Vous pouvez créer un coffre de clés Azure par application et restreindre les secrets stockés dans un coffre de clés à une application et une équipe de développeurs spécifiques.
+En outre, les coffres de clé Azure vous permettent de séparer les secrets d’application. Les applications peuvent accéder uniquement au coffre dont l’accès leur a été accordé, et elles peuvent être restreintes à certaines opérations spécifiques. Vous pouvez créer un coffre de clés Azure par application et restreindre les secrets stockés dans un coffre de clés à une application et une équipe de développeurs spécifiques.
 
 ### <a name="integrate-with-other-azure-services"></a>Intégrer à d’autres services Azure
 

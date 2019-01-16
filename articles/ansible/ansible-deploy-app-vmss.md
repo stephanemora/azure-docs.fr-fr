@@ -3,17 +3,17 @@ title: Déployer des applications sur des groupes de machines virtuelles identiq
 description: Découvrez comment utiliser Ansible pour configurer un groupe de machines virtuelles identiques et déployer des applications sur ce groupe dans Azure
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, machine virtuelle, groupe de machines virtuelles identiques, vmss
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: 049fc711d0cf6a69b584ad3926bd9e9c0fc9e27d
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4f3712a45fdb2474eedeb8d4eac034060723010d
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408372"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156542"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Déployer des applications sur des groupes de machines virtuelles identiques dans Azure avec Ansible
 Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Vous pouvez utiliser Ansible pour déployer vos applications sur Azure. Cet article vous montre comment déployer une application Java sur un groupe de machines virtuelles identiques Azure.  
@@ -150,7 +150,7 @@ La section suivante d’un playbook Ansible installe l’environnement JRE (Java
 Vous pouvez enregistrer l’exemple de playbook Ansible précédent en tant que `vmss-setup-deploy.yml` ou [télécharger la totalité de l’exemple de playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss). 
 
 Pour utiliser le type de connexion SSH avec des mots de passe, vous devez installer le programme sshpass. 
-  - Pour Ubuntu 16.04, exécutez la commande `apt-get install sshpass`.
+  - Pour Ubuntu 16.04, exécutez la commande `apt-get install sshpass`.
   - Pour CentOS 7.4, exécutez la commande `yum install sshpass`.
 
 Vous pouvez voir une erreur comme **Using an SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this. (L’utilisation d’un mot de passe SSH au lieu d’une clé n’est pas possible, car la vérification de la clé d’hôte est activée et sshpass ne la prend pas en charge.) Add this host’s fingerprint to your known_hosts file to manage this host.** (Ajoutez l’empreinte numérique de cet hôte à votre fichier known_hosts pour gérer cet hôte.) Si vous voyez cette erreur, vous pouvez désactiver la vérification de la clé d’hôte en ajoutant la ligne suivante au fichier `/etc/ansible/ansible.cfg` ou au fichier `~/.ansible.cfg` :

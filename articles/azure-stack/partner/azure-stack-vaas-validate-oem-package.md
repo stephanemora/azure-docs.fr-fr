@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/19/2018
+ms.date: 1/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 8268a6b04d7ddbb35821999142d3a33bdd2bedcc
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e3b0de577186cb7eb032a2042d234a0ffa2e3bb9
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261800"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105541"
 ---
 # <a name="validate-oem-packages"></a>Valider les packages OEM
 
@@ -35,7 +35,7 @@ Vous pouvez tester un nouveau package OEM lorsqu’une modification a été appo
 
 Lorsque vous utilisez le workflow **Validation de package** pour valider un package, vous devez fournir une URL à **Stockage Blob Azure**. Ce blob est le package OEM qui a été installé sur la solution au moment du déploiement. Créez le blob à l’aide du compte de stockage Azure que vous avez créé au moment de l’installation (voir [Configurer votre validation en tant que Ressources de service](azure-stack-vaas-set-up-resources.md)).
 
-### <a name="prerequisite-provision-a-storage-container"></a>Condition préalable : Configurer un conteneur de stockage
+### <a name="prerequisite-provision-a-storage-container"></a>Configuration requise : Provisionner un conteneur de stockage
 
 Créer un conteneur dans votre compte de stockage pour les objets blob de package. Ce conteneur peut être utilisé à chaque fois que la validation de package est exécutée.
 
@@ -56,7 +56,7 @@ Créer un conteneur dans votre compte de stockage pour les objets blob de packag
 
 Lorsque vous créez un workflow **Validation de package** dans le portail VaaS, vous devez fournir une URL au Stockage Blob Azure qui contient votre package.
 
-#### <a name="option-1-generating-an-account-sas-url"></a>Option 1 : Générer une URL SAS de compte
+#### <a name="option-1-generating-an-account-sas-url"></a>Option 1 : Générer une URL SAP de compte
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre compte de stockage, puis au fichier .zip contenant votre package
 
@@ -93,7 +93,7 @@ Utilisez la valeur **URL SAP d’objet blob** lors du démarrage d’un nouveau 
 
 3. Sélectionnez **Démarrer** sur la vignette **Validation de package**.
 
-    ![Vignette workflow de validations du package](media/tile_validation-package.png)
+    ![Vignette du workflow des validations du package](media/tile_validation-package.png)
 
 4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 
@@ -113,9 +113,23 @@ Utilisez la valeur **URL SAP d’objet blob** lors du démarrage d’un nouveau 
 
 ## <a name="run-package-validation-tests"></a>Exécution des tests de validations du package
 
-Sur la page **résumé des tests de validation du Package**, vous trouverez une liste de tests requis pour terminer la validation. Les tests dans ce workflow durent environ 24 heures.
+1. Dans la page **Résumé des tests de validation du package**, vous trouverez la liste des tests nécessaires pour terminer la validation. Les tests dans ce workflow durent environ 24 heures.
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+    Dans les workflows de validation, la **planification** d’un test utilise des paramètres communs au niveau du workflow que vous avez spécifiés lors de la création de votre workflow (voir [Paramètres de flux de travail communs dans la validation en tant que service Azure Stack](azure-stack-vaas-parameters.md)). Si l’une des valeurs de paramètres de test devient non valide, vous devez les redéfinir comme indiqué dans la section relative à la [modification des paramètres de workflow](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
+
+    > [!NOTE]
+    > La planification d’un test de validation sur une instance existante créera une nouvelle instance à la place de l’ancienne contenue dans le portail. Les journaux de l’ancienne instance sont conservés, mais ne sont pas accessibles à partir du portail.  
+    Dès lors qu’un test est concluant, l’action de **planification** est désactivée.
+
+2. Sélectionnez l’agent qui exécutera le test. Pour plus d’informations sur l’ajout d’agents d’exécution de test locaux, consultez [Déployer l’agent local](azure-stack-vaas-local-agent.md).
+
+3. Pour chacun des tests suivants, effectuez les étapes 4 et 5 :
+    - Vérification des packages d’extensions OEM
+    - Moteur de simulation cloud
+
+4. Sélectionnez **Planifier** dans le menu contextuel pour ouvrir une invite de planification de l’instance de test.
+
+5. Passez en revue les paramètres de test, puis sélectionnez **Envoyer** pour planifier l’exécution du test.
 
 Une fois que tous les tests ont été effectués avec succès, envoyez le nom de votre validation de solution VaaS et validation de package à l’adresse [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) pour demander la signature du package.
 

@@ -1,10 +1,9 @@
 ---
-title: Configurer la méthode de routage du trafic de sous-réseau à l’aide d’Azure Traffic Manager | Microsoft Docs
+title: Configurer la méthode de routage du trafic de sous-réseau à l’aide d’Azure Traffic Manager
 description: Cet article explique comment configurer Traffic Manager pour router le trafic des sous-réseaux des utilisateurs vers des points de terminaison spécifiques.
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jpconnock
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 20c34b820eb326a18be1c4298b0850a58599be64
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8243130fc9752a47661b4c80826000d573da35c8
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956232"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053072"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Diriger le trafic vers des points de terminaison spécifiques en fonction du sous-réseau de l’utilisateur via Traffic Manager
 
@@ -41,7 +40,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 Pour afficher Traffic Manager en action, ce didacticiel requiert que vous déployiez les éléments suivants :
-- Deux sites web de base s’exécutant dans des régions Azure distinctes, **USA Est** (sert de site web interne) et **Europe Ouest** (sert de site web de production)
+- Deux sites web de base s’exécutant dans des régions Azure distinctes, **USA Est** (sert de site web interne) et **Europe Ouest** (sert de site web de production).
 - Deux machines virtuelles de test pour tester Traffic Manager : une machine virtuelle dans la région **USA Est** et la seconde dans la région **Europe Ouest**. 
 
 Les machines virtuelles de test servent à illustrer la manière dont Traffic Manager route le trafic des utilisateurs vers le site web interne ou le site web de production en fonction du sous-réseau d’où provient la requête de l’utilisateur.
@@ -174,14 +173,14 @@ Dans cette section, vous créez une machine virtuelle (*UserVMUS* et *UserVMEuro
 8. La création des machines virtuelles peut prendre plusieurs minutes. Attendez que les deux machines virtuelles aient été créées avant de passer aux étapes restantes.
 
 ## <a name="create-a-traffic-manager-profile"></a>Créer un profil Traffic Manager
-Créez un profil Traffic Manager qui vous permet de retourner des points de terminaison spécifiques en fonction de l’adresse IP source de la requête.
+Créez un profil Traffic Manager qui vous permet de retourner des points de terminaison spécifiques en fonction de l’adresse IP source de la requête.
 
 1. Dans l’angle supérieur gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Profil Traffic Manager** > **Créer**.
 2. Dans **Créer un profil Traffic Manager**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Créer** :
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
     | NOM                   | Ce nom doit être unique au sein de la zone trafficmanager.net et affiche le nom DNS, trafficmanager.net, qui est utilisé pour accéder à votre profil Traffic Manager.                                   |
-    | Méthode de routage          | Sélectionnez la méthode de routage **Sous-réseau**.                                       |
+    | Méthode de routage          | Sélectionnez la méthode de routage de **Sous-réseau**.                                       |
     | Abonnement            | Sélectionnez votre abonnement.                          |
     | Groupe de ressources          | Sélectionnez **Existant**, puis entrez *myResourceGroupTM1*. |
     | |                              |

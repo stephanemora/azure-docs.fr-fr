@@ -3,17 +3,17 @@ title: Installer Ansible sur des machines virtuelles Azure
 description: Découvrez comment installer et configurer Ansible pour la gestion des ressources Azure sur Ubuntu, CentOS et SLES
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/21/2018
-ms.openlocfilehash: b714470cd12bb7a0cd2d2a00b4f09467726f505d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 227f3baf67bd65a8c6eeb170ce219a3ddf79606a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987048"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078046"
 ---
 # <a name="install-ansible-on-azure-virtual-machines"></a>Installer Ansible sur des machines virtuelles Azure
 
@@ -25,7 +25,7 @@ Ansible vous permet d’automatiser le déploiement et la configuration de resso
 
 - **Accès à Linux ou à une machine virtuelle Linux** : si vous n’avez pas de machine Linux, créez une [machine virtuelle Linux](https://docs.microsoft.com/azure/virtual-network/quick-create-cli).
 
-- **Principal du service Azure** : suivez les instructions de la section **Créer le principal du service** de l’article [Créer un principal du service Azure avec Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Notez les valeurs des éléments **appId**, **displayName**, **password** et **tenant**.
+- **Principal de service Azure** : suivez les instructions de la section **Créer le principal de service** de l’article [Créer un principal de service Azure avec Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Notez les valeurs des éléments **appId**, **displayName**, **password** et **tenant**.
 
 ## <a name="install-ansible-on-an-azure-linux-virtual-machine"></a>Installer Ansible sur une machine virtuelle Linux Azure
 

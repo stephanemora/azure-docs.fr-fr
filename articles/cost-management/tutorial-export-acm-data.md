@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 4614a1417213ed8b4d57c3b7ab21ac7424d75949
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4ad93dad2044526f5825823540325b73f2d0d7ae
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087931"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053532"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutoriel : Créer et gérer des données exportées
 
@@ -61,6 +61,22 @@ Vérifiez vos informations d’exportation, puis cliquez sur **Créer**.
 Votre nouvelle exportation apparaît dans la liste des exportations. Par défaut, les nouvelles exportations sont activées. Si vous voulez désactiver ou supprimer une exportation planifiée, cliquez sur n’importe quel élément de la liste, puis cliquez sur **Désactiver** ou sur **Supprimer**.
 
 Initialement, l’exportation peut s’exécuter au bout d’une ou deux heures. Jusqu’à quatre heures peuvent cependant être nécessaires avant que les données apparaissent dans les fichiers exportés.
+
+### <a name="export-schedule"></a>Planification d’exportation
+
+Les exportations planifiées dépendent de l’heure et du jour de la semaine de la création initiale des exportations. Quand vous créez une exportation planifiée, chacune de ses occurrences suivantes s’exécute à la même heure de la journée. Par exemple, vous créez une exportation quotidienne à 13h00. L’exportation suivante s’exécute à 13h00 le lendemain. L’heure actuelle affecte tous les autres types d’exportation de la même manière. Les exportations s’exécutent toujours à la même heure de la journée que celle à laquelle vous les avez initialement créées. Autre exemple : vous créez une exportation hebdomadaire à 16h00 le lundi. L’exportation suivante s’exécute à 16h00 le lundi suivant. *Les données exportées sont disponibles dans un délai de quatre heures après l’heure d’exécution.*
+
+Chaque exportation crée un fichier, ce qui signifie que les exportations antérieures ne sont pas écrasées.
+
+Il existe trois types d’options d’exportation :
+
+**Exportation quotidienne des coûts en cumul mensuel à ce jour** : l’exportation initiale s’exécute immédiatement. Les exportations suivantes s’exécutent le lendemain à la même heure que l’exportation initiale. Les dernières données sont ajoutées aux exportations quotidiennes précédentes.
+
+**Coûts hebdomadaire des sept derniers jours** : l’exportation initiale s’exécute immédiatement. Les exportations suivantes s’exécutent à la même heure et le même jour que l’exportation initiale. Les coûts correspondent aux sept derniers jours.
+
+**Personnalisé** : permet de planifier des exportations hebdomadaires et mensuelles avec des options de cumul hebdomadaire ou mensuel à ce jour. *L’exportation initiale s’exécute immédiatement.*
+
+![Nouvelle exportation - Onglet de base montrant une sélection d’exportation en cumul hebdomadaire personnalisée](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
 
 ## <a name="verify-that-data-is-collected"></a>Vérifier que les données sont collectées
 

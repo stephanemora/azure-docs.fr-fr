@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/02/2018
+ms.date: 01/04/2019
 ms.author: sethm
-ms.openlocfilehash: 86fcec0321e8f1b92fdc554532cb8f949b1b1569
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 343d4c0192358f715b9f4595d36b2ccd5b9d4445
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081385"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019059"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>À propos de la passerelle VPN pour Azure Stack
 
@@ -29,7 +29,7 @@ Avant que vous puissiez envoyer du trafic réseau entre votre réseau virtuel Az
 
 Une passerelle VPN est un type de passerelle de réseau virtuel qui envoie le trafic chiffré à travers une connexion publique. Vous pouvez utiliser des passerelles VPN pour envoyer en toute sécurité le trafic entre un réseau virtuel dans Azure Stack et un réseau virtuel dans Azure. Vous pouvez également envoyer en toute sécurité le trafic entre un réseau virtuel et un autre réseau connecté à un périphérique VPN.
 
-Lorsque vous créez une passerelle de réseau virtuel, vous spécifiez le type de passerelle que vous voulez créer. Azure Stack prend en charge un seul type de passerelle de réseau virtuel : le type **Vpn**.
+Lorsque vous créez une passerelle de réseau virtuel, vous spécifiez le type de passerelle que vous voulez créer. Azure Stack prend en charge un seul type de passerelle de réseau virtuel : le type **Vpn**.
 
 Chaque réseau virtuel peut avoir deux passerelles de réseau virtuel, mais une seule de chaque type. Selon les paramètres que vous choisissez, vous pouvez créer plusieurs connexions à une passerelle VPN unique. La configuration d’une connexion sur plusieurs sites en est un exemple.
 
@@ -38,8 +38,8 @@ Avant de créer et configurer des passerelles VPN pour Azure Stack, passez en re
 >[!NOTE]
 >Dans Azure, le débit de la bande passante pour la référence SKU de passerelle VPN que vous choisissez doit être réparti entre toutes les connexions connectées à la passerelle. Toutefois, dans Azure Stack, la valeur de la bande passante pour la référence SKU de la passerelle VPN est appliquée à chaque ressource de connexion connectée.
 >
-> Par exemple :
-> * dans Azure, la référence SKU de passerelle VPN de base peut prendre en charge environ 100 Mbits/s de débit agrégé. Si vous créez deux connexions pour cette passerelle VPN, dont une connexion avec une bande passante de 50 Mbits/s, 50 Mbits/s sont disponibles pour l’autre connexion.
+> Par exemple : 
+> * Dans Azure, la référence SKU de passerelle VPN de base peut prendre en charge environ 100 Mbits/s de débit agrégé. Si vous créez deux connexions pour cette passerelle VPN, dont une connexion avec une bande passante de 50 Mbits/s, 50 Mbits/s sont disponibles pour l’autre connexion.
 > * Dans Azure Stack, *chaque* connexion à la référence SKU de passerelle VPN de base se voit allouer un débit de 100 Mbits/s.
 
 ## <a name="configuring-a-vpn-gateway"></a>Configuration d’une passerelle VPN
@@ -48,7 +48,7 @@ Une connexion par passerelle VPN s’appuie sur plusieurs ressources qui sont co
 
 ### <a name="settings"></a>Paramètres
 
-Les paramètres que vous avez choisis pour chaque ressource sont essentiels à la création d’une connexion réussie.
+Les paramètres que vous choisissez pour chaque ressource sont essentiels à la création d’une connexion réussie.
 
 Pour plus d’informations sur les ressources et paramètres spécifiques pour la passerelle VPN, consultez [À propos des paramètres de passerelle VPN pour Azure Stack](azure-stack-vpn-gateway-settings.md). Cet article vous aidera à comprendre les éléments suivants :
 
@@ -61,7 +61,7 @@ Vous pouvez créer et configurer des ressources à l’aide d’un outil de conf
 
 ## <a name="connection-topology-diagrams"></a>Diagrammes de topologie de connexion
 
-Il est important de savoir qu’il existe différentes configurations disponibles pour les connexions aux passerelles VPN. Déterminez la configuration qui correspond le mieux à vos besoins. Dans les sections ci-dessous, vous pouvez afficher des informations et des diagrammes de topologie sur les connexions de passerelle VPN suivantes :
+Il existe différentes configurations disponibles pour les connexions aux passerelles VPN. Déterminez la configuration qui correspond le mieux à vos besoins. Dans les sections ci-dessous, vous pouvez afficher des informations et des diagrammes de topologie sur les connexions de passerelle VPN suivantes :
 
 * Modèle de déploiement disponible
 * Outils de configuration disponibles
@@ -73,13 +73,13 @@ Les graphiques et les descriptions dans les sections suivantes peuvent vous aide
 
 ### <a name="site-to-site"></a>De site à site
 
-Une connexion par passerelle VPN site à site (S2S) est une connexion via un tunnel VPN IPsec/IKE (IKEv1 ou IKEv2). Ce type de connexion requiert un appareil VPN local disposant d’une adresse IP publique. L’appareil VPN ne peut pas se trouver derrière un traducteur d'adresses réseau. Les connexions S2S peuvent être utilisées pour les configurations hybrides et entre différents locaux.
+Une connexion par passerelle VPN *site à site* (S2S) est une connexion via un tunnel VPN IPsec/IKE (IKEv1 ou IKEv2). Ce type de connexion nécessite un appareil VPN local disposant d’une adresse IP publique. Cet appareil ne peut pas se trouver derrière un traducteur d’adresses réseau. Les connexions S2S peuvent être utilisées pour les configurations hybrides et entre différents locaux.
 
 ![Exemple de configuration d’une connexion VPN de site à site](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 
 ### <a name="multi-site"></a>Multi-sites
 
-Ce type de connexion est une variante de la connexion site à site. Vous créez plusieurs connexions VPN à partir de votre passerelle de réseau virtuel, généralement en vous connectant à plusieurs sites locaux. Lorsque vous travaillez avec plusieurs connexions, vous devez utiliser un type de VPN basé sur l’itinéraire (équivalent d’une passerelle dynamique pour les réseaux virtuels classiques). Chaque réseau virtuel ne pouvant disposer que d’une seule passerelle de réseau virtuel, toutes les connexions passant par la passerelle partagent la bande passante disponible. Cela est souvent appelé connexion « multi-sites ».
+Une connexion *multi-site* est une variante de la connexion site à site. Vous créez plusieurs connexions VPN à partir de votre passerelle de réseau virtuel, généralement en vous connectant à plusieurs sites locaux. Lorsque vous travaillez avec plusieurs connexions, vous devez utiliser un type de VPN basé sur la route (équivalent d’une passerelle dynamique pour les réseaux virtuels classiques). Chaque réseau virtuel ne pouvant disposer que d’une seule passerelle de réseau virtuel, toutes les connexions passant par la passerelle partagent la bande passante disponible.
 
 ![Exemple de connexion multisites de passerelle VPN Azure](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-multisite-connection-diagram.png)
 
@@ -89,13 +89,13 @@ Lorsque vous créez une passerelle de réseau virtuel pour Azure Stack, vous sp�
 
 * De base
 * Standard
-* HighPerformance
+* Hautes performances
 
 Lorsque vous sélectionnez une référence SKU de passerelle supérieure, par exemple Standard à la place de De base, ou HighPerformance à la place de Standard ou De base, un plus grand nombre de processeurs et une bande passante réseau plus importante sont alloués à la passerelle. Par conséquent, la passerelle peut prendre en charge un débit réseau plus élevé sur le réseau virtuel.
 
 Azure Stack ne prend pas en charge la référence SKU de passerelle UltraPerformance, utilisée exclusivement avec Express Route.
 
-Prenez en compte les éléments suivants lorsque vous sélectionnez la référence (SKU) :
+Prenez en compte les éléments suivants lorsque vous sélectionnez la référence SKU :
 
 * Azure Stack ne prend pas en charge les passerelles basées sur les stratégies.
 * Le protocole de passerelle frontière (BGP) n’est pas pris en charge pour la référence SKU de base.
@@ -104,23 +104,22 @@ Prenez en compte les éléments suivants lorsque vous sélectionnez la référen
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Débit agrégé estimé par SKU
 
-Le tableau suivant présente les types de passerelle et le débit total estimé par référence de passerelle.
+Le tableau suivant présente les types de passerelle et le débit total estimé par référence SKU de passerelle :
 
 |   | Débit de passerelle VPN *(1)* | Tunnels IPsec max de passerelle VPN *(2)* |
 |-------|-------|-------|
 |**Référence SKU de base** ***(3)***    | 100 Mbits/s  | 20    |
 |**Référence Standard**       | 100 Mbits/s  | 20    |
-|**Référence hautes performances** | 200 Mbits/s    | 10    |
+|**Référence Hautes performances** | 200 Mbits/s    | 10    |
 
 **Notes de la table :**
 
-*Note (1)* Le débit du VPN n’est pas garanti pour les connexions intersites via Internet. Il s’agit de la mesure du débit maximal possible.  
-*Note (2)* Le nombre maximal de tunnels est le total par déploiement Azure Stack pour TOUS les abonnements.  
-*Note (3)* Le routage BGP n’est pas pris en charge pour la référence SKU de base.
+*Remarque (1)* Le débit du VPN n’est pas garanti pour les connexions intersites via Internet. Il s’agit de la mesure du débit maximal possible.  
+*Remarque (2)* Le nombre maximal de tunnels est le total par déploiement Azure Stack pour tous les abonnements.  
+*Remarque (3)* Le routage BGP n’est pas pris en charge pour la référence SKU de base.
 
 >[!NOTE]
->Vous ne pouvez créer qu’une seule connexion VPN de site à site entre deux déploiements Azure Stack.  Ceci est dû au fait que la plateforme n’autorise qu’une seule connexion VPN à la même adresse IP.  Dans la mesure où Azure Stack s’appuie sur la passerelle multi-locataire qui utilise une seule adresse IP publique pour toutes les passerelles VPN dans le système Azure Stack, il ne peut y avoir qu’une seule connexion VPN entre deux systèmes Azure Stack.  Cette limitation s’applique également à la connexion de plusieurs connexions VPN de site à site à une passerelle VPN qui utilise une seule adresse IP.  Azure Stack n’autorise pas la création de plusieurs ressources de passerelle de réseau Local à l’aide de la même adresse IP.
-
+>Vous ne pouvez créer qu’une seule connexion VPN de site à site entre deux déploiements Azure Stack. En effet, la plateforme n’autorise qu’une seule connexion VPN à la même adresse IP. Dans la mesure où Azure Stack s’appuie sur la passerelle multilocataire qui utilise une seule adresse IP publique pour toutes les passerelles VPN dans le système Azure Stack, il ne peut y avoir qu’une seule connexion VPN entre deux systèmes Azure Stack. Cette limitation s’applique également à la connexion de plusieurs connexions VPN de site à site à une passerelle VPN qui utilise une seule adresse IP. Azure Stack n’autorise pas la création de plusieurs ressources de passerelle de réseau local à l’aide de la même adresse IP.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

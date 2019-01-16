@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/11/2018
+ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 9085bea06553bcb2b8cf871153ddd1fb767c04f4
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: cb07ce71162a766add5ca251c97a11d353ee8084
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277741"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077655"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Démarrage rapide : Explorer et analyser les coûts avec l’analyse du coût
 
@@ -49,7 +49,7 @@ L’analyse du coût est accessible à tous les clients bénéficiant d’un [Co
 
 Pour passer en revue vos coûts dans l’analyse des coûts, dans le portail Azure, accédez à **Gestion des coûts + facturation** &gt; **Cost Management** &gt; **Modifier l’étendue**, choisissez une étendue, puis cliquez sur **Sélectionner**.
 
-L’étendue que vous sélectionnez est utilisée à travers Cost Management pour consolider les données et contrôler l’accès aux informations sur les coûts. Quand vous utilisez des étendues, vous n’opérez pas une sélection multiple. Vous sélectionnez plutôt une étendue plus grande qui en englobe d’autres, puis vous appliquez un filtre pour trouver ce qui vous intéresse. Il est important de bien comprendre ceci, car certaines personnes ne doivent pas avoir accès à une étendue parente englobant des étendues enfants.
+L’étendue que vous sélectionnez est utilisée à travers Cost Management pour consolider les données et contrôler l’accès aux informations sur les coûts. Quand vous utilisez des étendues, vous n’opérez pas une sélection multiple. À la place, vous sélectionnez une étendue plus grande qui englobe d’autres étendues, puis vous appliquez un filtre pour trouver ce qui vous intéresse. Il est important de bien comprendre ceci, car certaines personnes ne doivent pas avoir accès à une étendue parente englobant des étendues enfants.
 
 Cliquez sur **Ouvrir l’analyse des coûts**.
 
@@ -86,7 +86,11 @@ En général, attendez-vous à voir des données ou des notifications correspond
 
 ![Vue quotidienne présentant un exemple des coûts quotidiens pour le mois actuel](./media/quick-acm-cost-analysis/daily-view.png)
 
-Vous pouvez **effectuer un regroupement** pour sélectionner une catégorie de groupe afin de changer l’affichage des données dans le graphique en aires Total supérieur. Le regroupement vous permet de voir rapidement comment vos dépenses sont classées par propriétés de ressources et d’utilisation communes, comme des étiquettes de ressources ou de groupes de ressources. Pour regrouper par étiquettes, sélectionnez la clé d’étiquette d’après laquelle vous souhaitez effectuer le regroupement, et vous verrez les coûts répartis par valeur pour cette étiquette, avec un segment supplémentaire pour les ressources pour lesquelles cette étiquette n’est pas appliquée. Notez que Cost Management prend uniquement en charge les étiquettes de ressources à compter de la date à laquelle les étiquettes sont appliquées directement à la ressource. Les étiquettes de groupes de ressources ne sont pas prises en charge à l’heure actuelle. Voici une vue des coûts des services Azure pour le mois dernier.
+Vous pouvez **effectuer un regroupement** pour sélectionner une catégorie de groupe afin de changer l’affichage des données dans le graphique en aires Total supérieur. Le regroupement vous permet de voir rapidement comment vos dépenses sont classées par propriétés de ressources et d’utilisation communes, comme des étiquettes de ressources ou de groupes de ressources. Pour regrouper par étiquettes, sélectionnez la clé d’étiquette d’après laquelle vous souhaitez effectuer le regroupement. Vous verrez les coûts répartis selon la valeur de cette étiquette, avec un segment supplémentaire pour les ressources auxquelles cette étiquette n’a pas été appliquée.
+
+La plupart des [ressources Azure prennent en charge l’étiquetage](../azure-resource-manager/tag-support.md), mais certaines étiquettes ne sont pas disponibles pour la gestion des coûts et la facturation. Par ailleurs, les étiquettes de groupe de ressources ne sont pas prises en charge. Cost Management prend uniquement en charge les étiquettes de ressources à compter de la date à laquelle les étiquettes sont appliquées directement à la ressource.
+
+Voici une vue des coûts des services Azure pour le mois dernier.
 
 ![Vue cumulée quotidienne groupée présentant un exemple de coûts du service Azure pour le mois dernier](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
@@ -96,9 +100,9 @@ Les graphiques croisés dynamiques sous le graphique principal affichent différ
 
 L’image précédente montre les noms de groupe de ressources. Bien que vous puissiez regrouper par étiquette pour afficher le total des coûts par étiquette, l’affichage de toutes les étiquettes par ressource ou par groupe de ressources n’est disponible dans aucune vue d’analyse des coûts.
 
-Lorsque vous regroupez les coûts en fonction d’un attribut spécifique, les dix principaux contributeurs aux coûts s’affichent dans l’ordre décroissant. S’il existe plus de dix groupes, les neuf principaux contributeurs aux coûts apparaissent en même temps qu’un groupe **Autres** qui réunit tous les groupes restants. Lors du regroupement par étiquettes, vous pouvez également voir un groupe **Non étiqueté** pour les coûts auxquels la clé d’étiquette n’a pas été appliquée. **Non étiqueté** est toujours mentionné en dernier, même s’il existe plus de coûts non étiquetés que de coûts étiquetés. S’il y a 10 valeurs d’étiquette ou plus, les coûts non étiquetés font partie du groupe **Autres**.
+Lorsque vous regroupez les coûts en fonction d’un attribut spécifique, les dix principaux contributeurs aux coûts s’affichent dans l’ordre décroissant. S’il y a plus de dix groupes, les neuf principaux contributeurs aux coûts sont affichés. Un groupe **Autres**, qui rassemble tous les groupes restants, s’affiche également. Lors du regroupement par étiquettes, vous pouvez aussi voir un groupe **Non étiqueté** pour les coûts auxquels la clé d’étiquette n’a pas été appliquée. **Non étiqueté** est toujours mentionné en dernier, même s’il existe plus de coûts non étiquetés que de coûts étiquetés. S’il y a dix valeurs d’étiquette ou plus, les coûts non étiquetés sont inclus dans le groupe **Autres**.
 
-Les ressources de machines virtuelles, de mise en réseau et de stockage *Classic* (Azure Service Management ou ASM) ne partagent pas de données de facturation détaillées. Elles sont fusionnées sous forme de **services Classic** lors du regroupement des coûts.
+Les ressources de machines virtuelles, de réseau et de stockage *Classic* (Azure Service Management ou ASM) ne partagent pas de données de facturation détaillées. Elles sont fusionnées dans les **services Classic** lors du regroupement des coûts.
 
 
 ## <a name="download-cost-analysis-data"></a>Télécharger les données de l’analyse du coût

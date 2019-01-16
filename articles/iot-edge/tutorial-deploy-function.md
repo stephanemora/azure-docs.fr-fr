@@ -4,17 +4,17 @@ description: Dans ce tutoriel, vous allez développer une fonction Azure en tant
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/19/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1488f6aff202f8b307b883d8a795d7df20066661
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d8912b67656cb9862f31b03eb9a899dfc650f377
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081878"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053363"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutoriel : Déployer des fonctions Azure en tant que modules IoT Edge
 
@@ -51,13 +51,13 @@ Ressources de développement :
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Extension C# pour Visual Studio Code (développée par OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
-* [Extension Azure IoT Edge pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
+* [Outils Azure IoT pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools). 
 * [SDK .NET Core 2.1](https://www.microsoft.com/net/download).
 * [Docker CE](https://docs.docker.com/install/). 
 
 ## <a name="create-a-container-registry"></a>Créer un registre de conteneur
 
-Dans ce tutoriel, utilisez l’extension Azure IoT Edge pour Visual Studio Code afin de créer un module et une **image conteneur** à partir des fichiers. Puis envoyez cette image à un **registre** qui stocke et gère vos images. Enfin, déployez votre image à partir de votre registre de façon à l’exécuter sur votre appareil IoT Edge.  
+Dans ce tutoriel, vous utilisez les outils Azure IoT pour Visual Studio Code afin de créer un module et une **image conteneur** à partir des fichiers. Puis envoyez cette image à un **registre** qui stocke et gère vos images. Enfin, déployez votre image à partir de votre registre de façon à l’exécuter sur votre appareil IoT Edge.  
 
 Vous pouvez utiliser n’importe quel registre Docker pour stocker vos images conteneur. [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) et [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) sont deux services de registre Docker connus. Ce didacticiel utilise Azure Container Registry. 
 
@@ -84,13 +84,13 @@ Vous pouvez utiliser n’importe quel registre Docker pour stocker vos images co
 
 ## <a name="create-a-function-project"></a>Créer un projet Function
 
-L’extension Azure IoT Edge pour Visual Studio Code que vous avez installée conformément aux prérequis offre des fonctionnalités de gestion, ainsi que certains modèles de code. Dans cette section, vous allez utiliser Visual Studio Code pour créer une solution IoT Edge contenant une fonction Azure. 
+Les outils Azure IoT pour Visual Studio Code que vous avez installés conformément aux prérequis offre des fonctionnalités de gestion, ainsi que certains modèles de code. Dans cette section, vous allez utiliser Visual Studio Code pour créer une solution IoT Edge contenant une fonction Azure. 
 
 1. Ouvrez Visual Studio Code sur votre ordinateur de développement.
 
 2. Ouvrez la palette de commandes VS Code en sélectionnant **Affichage** > **Palette de commandes**.
 
-3. Dans la palette de commandes, entrez et exécutez la commande **Azure IoT Edge: New IoT Edge solution**. Suivez les invites de la palette de commandes pour créer votre solution.
+3. Dans la palette de commandes, entrez et exécutez la commande **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge : Nouvelle solution IoT Edge). Suivez les invites de la palette de commandes pour créer votre solution.
 
    | Champ | Valeur |
    | ----- | ----- |
@@ -221,7 +221,7 @@ Visual Studio Code génère un message de réussite quand l’image de conteneur
 
 ## <a name="deploy-and-run-the-solution"></a>Déployer et exécuter la solution
 
-Vous pouvez utiliser le portail Azure pour déployer votre module de fonction sur un appareil IoT Edge, comme vous l’avez fait dans les démarrages rapides. Vous pouvez également déployer et surveiller des modules à partir de Visual Studio Code. Les sections suivantes utilisent l’extension Azure IoT Edge pour VS Code qui figure dans les prérequis. Installez l’extension maintenant, si ce n’est pas déjà fait. 
+Vous pouvez utiliser le portail Azure pour déployer votre module de fonction sur un appareil IoT Edge, comme vous l’avez fait dans les démarrages rapides. Vous pouvez également déployer et surveiller des modules à partir de Visual Studio Code. Les sections suivantes utilisent les outils Azure IoT pour VS Code qui figurent dans les prérequis. Installez l’extension maintenant, si ce n’est pas déjà fait. 
 
 1. Ouvrez la palette de commandes VS Code en sélectionnant **Affichage** > **Palette de commandes**.
 

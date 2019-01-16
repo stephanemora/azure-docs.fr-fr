@@ -11,16 +11,16 @@ ms.custom: mvc
 ms.date: 6/29/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: f9a59187b8de994e9ebfcab01ae2f3046f8f7971
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: d9f3bb33ab0638fddfcf64e61642c236a03d6293
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42023053"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065268"
 ---
 # <a name="what-is-azure-logic-apps"></a>Qu’est-ce qu’Azure Logic Apps ?
 
-[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) est un service cloud qui vous permet d’automatiser et d’orchestrer des tâches, des processus d’entreprise, et des [flux de travail](#logic-app-concepts) lorsque vous avez besoin d’intégrer des applications, des données, des systèmes et des services entre des entreprises ou des organisations. Logic Apps simplifie la conception et la création de solutions évolutives pour l’intégration d’application, l’intégration de données, l’intégration de systèmes, l’intégration des applications de l’entreprise (EAI) et une communication entre entreprises (B2B), dans le cloud, sur site, ou les deux.
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) est un service cloud qui vous permet d’automatiser et d’orchestrer des tâches, des processus d’entreprise, et des [flux de travail](#logic-app-concepts) lorsque vous avez besoin d’intégrer des applications, des données, des systèmes et des services entre des entreprises ou des organisations. Logic Apps simplifie la conception et la création de solutions scalables pour l’[intégration](https://azure.microsoft.com/product-categories/integration/) d’applications, l’intégration de données, l’intégration de systèmes, l’intégration d’applications d’entreprise (IAE) et la communication interentreprises (B2B), que ce soit dans un environnement cloud, un environnement local, ou les deux.
 
 Par exemple, voici quelques charges de travail que vous pouvez automatiser avec les applications logiques :
 
@@ -41,7 +41,7 @@ Chaque fois que le déclencheur s’active, le moteur Logic Apps crée une insta
 
 ![Concepteur Logic Apps - exemple d’application logique](./media/logic-apps-overview/overview.png)
 
-Vous pouvez créer vos applications logiques visuellement avec le Concepteur d’applications logiques, disponible dans le portail Azure via votre navigateur et dans Visual Studio. Pour disposer d’applications logiques plus personnalisées, vous pouvez créer ou modifier des définitions d’application logique dans JavaScript Objet Notation (JSON) en travaillant dans l’éditeur « code ». Vous pouvez également utiliser des commandes Azure PowerShell et des modèles Azure Resource Manager pour sélectionner des tâches. Les applications logiques se déploient et s’exécutent dans le cloud sur Azure. Pour une présentation plus détaillée, regardez cette vidéo : [Utiliser Azure Enterprise Integration Services pour exécuter des applications cloud à l’échelle](https://channel9.msdn.com/Events/Connect/2017/T119/)
+Vous pouvez créer vos applications logiques visuellement avec le Concepteur d’applications logiques, disponible dans le portail Azure via votre navigateur et dans Visual Studio. Pour disposer d’applications logiques plus personnalisées, vous pouvez créer ou modifier des définitions d’application logique dans JavaScript Objet Notation (JSON) en travaillant dans l’éditeur « code ». Vous pouvez également utiliser des commandes Azure PowerShell et des modèles Azure Resource Manager pour sélectionner des tâches. Les applications logiques se déploient et s’exécutent dans le cloud sur Azure. Pour avoir une présentation plus complète, regardez cette vidéo : [Utiliser Azure Enterprise Integration Services pour exécuter des applications cloud à grande échelle](https://channel9.msdn.com/Events/Connect/2017/T119/)
 
 ## <a name="why-use-logic-apps"></a>Pourquoi utiliser Logic Apps ?
 
@@ -116,15 +116,15 @@ En savoir plus sur Logic Apps avec ces vidéos d’introduction :
 
 ## <a name="key-terms"></a>Termes clés
 
-* **Flux de travail**: visualiser, concevoir, générer, automatiser et déployer des processus d’entreprise en tant que série d’étapes.
+* **Workflow** : visualiser, concevoir, générer, automatiser et déployer des processus métier comme une série d’étapes.
 
-* **Connecteurs gérés** : vos applications logiques ont besoin d’un accès aux données, services et systèmes. Vous pouvez utiliser des connecteurs gérés prégénérés par Microsoft et qui sont conçus pour se connecter, accéder et travailler avec vos données. Voir [Connecteurs pour Azure Logic Apps](../connectors/apis-list.md)
+* **Connecteurs managés** : vos applications logiques ont besoin d’un accès aux données, services et systèmes. Vous pouvez utiliser des connecteurs gérés prégénérés par Microsoft et qui sont conçus pour se connecter, accéder et travailler avec vos données. Voir [Connecteurs pour Azure Logic Apps](../connectors/apis-list.md)
 
-* **Déclencheurs**: beaucoup de connecteurs gérés par Microsoft fournissent des déclencheurs qui s’activent lorsque des événements ou de nouvelles données répondent aux conditions spécifiées. Par exemple, un événement peut être la réception d’un e-mail ou la détection de modifications dans votre compte de Stockage Azure. Chaque fois que le déclencheur s’active, le moteur Logic Apps crée une nouvelle instance d’application logique qui exécute le flux de travail.
+* **Déclencheurs** : beaucoup de connecteurs managés par Microsoft fournissent des déclencheurs qui s’activent lorsque des événements ou de nouvelles données répondent aux conditions spécifiées. Par exemple, un événement peut être la réception d’un e-mail ou la détection de modifications dans votre compte de Stockage Azure. Chaque fois que le déclencheur s’active, le moteur Logic Apps crée une nouvelle instance d’application logique qui exécute le flux de travail.
 
-* **Actions**: les actions sont toutes les étapes qui se produisent après le déclencheur. Chaque action correspond généralement à une opération définie par un connecteur géré, une API personnalisée ou un connecteur personnalisé.
+* **Actions** : Les actions représentent toutes les étapes qui se produisent après le déclencheur. Chaque action correspond généralement à une opération définie par un connecteur géré, une API personnalisée ou un connecteur personnalisé.
 
-* **Enterprise Integration Pack** : pour les scénarios d’intégration plus élaborés, Logic Apps intègre des fonctionnalités de BizTalk Server. Enterprise Integration Pack fournit des connecteurs permettant aux applications logiques d’effectuer facilement une validation, une transformation, et bien plus encore.
+* **Enterprise Integration Pack** : pour les scénarios d’intégration plus avancés, Logic Apps intègre des fonctionnalités de BizTalk Server. Enterprise Integration Pack fournit des connecteurs permettant aux applications logiques d’effectuer facilement une validation, une transformation, et bien plus encore.
 
 ## <a name="how-does-logic-apps-differ-from-functions-webjobs-and-flow"></a>Comment Logic Apps diffère de Functions, WebJobs et Flow ?
 
@@ -139,7 +139,7 @@ Si vous avez un abonnement Azure, essayez ce [guide de démarrage rapide pour cr
 ## <a name="support-and-feedback"></a>Support et commentaires
 
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
+* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

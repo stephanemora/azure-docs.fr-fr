@@ -1,5 +1,5 @@
 ---
-title: 'Déployer App Services : Azure Stack | Microsoft Docs'
+title: 'Déployer App Services : Azure Stack | Microsoft Docs'
 description: Instructions détaillées pour le déploiement d’App Service dans Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: anwestg
-ms.openlocfilehash: cd16bf400c5a5e5a07c7e2dc459d801e6fc810b9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 504cd5a0bfbae1ff91f7914abe12aa35b699ee80
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635371"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104758"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Ajouter un fournisseur de ressources App Service à Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Utilisez les instructions de cet article pour déployer App Service dans Azure Stack.
 
@@ -204,14 +204,14 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 
     Si vous effectuez un déploiement sur un réseau virtuel existant en utilisant une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité de trafic sortant. Cette règle active le trafic SMB entre le sous-réseau worker et le serveur de fichiers.  Pour ce faire, accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
 
-    - Source : Toutes
+    - Source : Quelconque
     - Plage de ports source : : *
-    - Destination : adresses IP
-    - Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
-    - Plage de ports de destination : 445
-    - Protocole : TCP
-    - Action : Autoriser
-    - Priorité : 700
+    - Destination : Adresses IP
+    - Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
+    - Plage de ports de destination : 445
+    - Protocole : TCP
+    - Action : AUTORISER
+    - Priorité : 700
     - Nom : Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Tester App Service sur Azure Stack
@@ -260,9 +260,9 @@ Vous pouvez également tester d’autres [services PaaS](azure-stack-tools-paas-
  - [Fournisseur de ressources MySQL](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
-[Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
-[App_Service_Deployment]: http://go.microsoft.com/fwlink/?LinkId=723982
-[AppServiceHelperScripts]: http://go.microsoft.com/fwlink/?LinkId=733525
+[Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531
+[App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
+[AppServiceHelperScripts]: https://go.microsoft.com/fwlink/?LinkId=733525
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy/app-service-installer.png

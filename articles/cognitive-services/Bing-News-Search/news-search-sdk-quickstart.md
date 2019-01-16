@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: d116f2553ce35c2d4041f37cc3fe4567e1595adc
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5b3e68765fbcff12dcb5337aec38623b8994882c
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258761"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156797"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Démarrage rapide : Effectuer une recherche d'actualités avec le Kit de développement logiciel (SDK) Recherche d'actualités Bing pour C#
 
@@ -35,14 +35,14 @@ L’installation du [package NuGet du Kit de développement logiciel (SDK) Reche
 * Newtonsoft.Json
 
 ## <a name="news-search-client"></a>Client de recherche d’actualités
-Pour créer une instance du client `NewsSearchAPI`, ajoutez en utilisant une directive :
+Pour créer une instance du client `NewsSearchClient`, ajoutez-la en utilisant une directive :
 ```
 using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
 
 ```
 Ensuite, instanciez le client :
 ```
-var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+var client = new NewsSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
 
 ```
@@ -56,7 +56,7 @@ Analysez les actualités renvoyées dans les résultats de la requête précéde
 ```
 if (newsResults.Value.Count > 0)
 {
-    var firstNewsResult = newsResults.Value.First();
+    var firstNewsResult = newsResults.Value[0];
 
     Console.WriteLine($"TotalEstimatedMatches value: {newsResults.TotalEstimatedMatches}");
     Console.WriteLine($"News result count: {newsResults.Value.Count}");
@@ -64,7 +64,7 @@ if (newsResults.Value.Count > 0)
     Console.WriteLine($"First news url: {firstNewsResult.Url}");
     Console.WriteLine($"First news description: {firstNewsResult.Description}");
     Console.WriteLine($"First news published time: {firstNewsResult.DatePublished}");
-    Console.WriteLine($"First news provider: {firstNewsResult.Provider.First().Name}");
+    Console.WriteLine($"First news provider: {firstNewsResult.Provider[0].Name}");
 }
 
 else
@@ -88,7 +88,7 @@ namespace NewsSrchSDK
     {
         static void Main(string[] args)
         {
-            var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+            var client = new NewsSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
             try
             {
@@ -141,7 +141,7 @@ namespace NewsSrchSDK
 ## <a name="recent-news-freshness-and-sortby-parameters"></a>Actualités récentes, paramètres freshness et sortBy
 Le code suivant recherche les actualités les plus récentes concernant « Artificial Intelligence » (Intelligence artificielle) avec les paramètres `freshness` et `sortBy`. Il vérifie le nombre de résultats et affiche `totalEstimatedMatches`, `name`, `url`, `description`, `published time` et `name` du fournisseur pour le premier résultat d’actualités.
 ```
-        public static void NewsSearchWithFilters(NewsSearchAPI client)
+        public static void NewsSearchWithFilters(NewsSearchClient client)
         {
             try
             {
@@ -184,7 +184,7 @@ Le code suivant recherche les actualités les plus récentes concernant « Arti
 ## <a name="category-news-safe-search"></a>Catégorie actualités, recherche sécurisée
 Le code suivant effectue une recherche sécurisée dans la catégorie actualités des films et divertissements TV.  Il vérifie le nombre de résultats et affiche `category`, `name`, `url`, `description`, `published time` et `name` du fournisseur pour le premier résultat d’actualités.
 ```
-        public static void NewsCategory(NewsSearchAPI client)
+        public static void NewsCategory(NewsSearchClient client)
         {
             try
             {
@@ -226,7 +226,7 @@ Le code suivant effectue une recherche sécurisée dans la catégorie actualité
 ## <a name="trending-topics"></a>Rubriques tendance
 Le code suivant recherche des rubriques d’actualités tendance dans Bing. Il vérifie le nombre de résultats et affiche `name`, `text of query`, `webSearchUrl`, `newsSearchUrl` et `image.Url` pour le premier résultat d’actualités.
 ```
-        public static void TrendingTopics(NewsSearchAPI client)
+        public static void TrendingTopics(NewsSearchClient client)
         {
             try
             {

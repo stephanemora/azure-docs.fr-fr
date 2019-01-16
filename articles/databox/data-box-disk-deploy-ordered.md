@@ -6,41 +6,46 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 961352dc99a164b8537fb588e038ad1b385941cc
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: db10361707d83fcda20f0e4bf2adc2abc4176808
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567449"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156169"
 ---
-# <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Tutoriel : Commander un disque Azure Data Box Disk (préversion)
+# <a name="tutorial-order-an-azure-data-box-disk"></a>Tutoriel : Commander une solution Azure Data Box Disk
 
 Azure Data Box Disk est une solution cloud hybride qui vous permet d’importer vos données locales dans Azure de manière rapide, simple et fiable. Vous transférez vos données vers des disques SSD fournis par Microsoft et renvoyez les disques. Ces données sont ensuite chargées dans Azure.
 
 Ce tutoriel explique comment commander un Azure Data Box Disk. Ce tutoriel vous fournira des informations sur :
 
 > [!div class="checklist"]
-> * S’inscrire à Data Box Disk
 > * Commander un Data Box Disk
 > * Suivre la commande
 > * Annuler la commande
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+## <a name="prerequisites"></a>Prérequis
 
-> [!IMPORTANT]
-> - Data Box Disk est disponible en préversion. Veuillez lire les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de commander et déployer cette solution. 
-> - Pendant la période de préversion, Data Box Disk peut être envoyé aux clients se trouvant aux États-Unis, en Europe du Nord et de l’Ouest, au Canada et en Australie. Pour plus d’informations, consultez [Disponibilité des régions](data-box-disk-overview.md#region-availability).
+Avant le déploiement, effectuez les prérequis de configuration suivants pour le service Data Box et Data Box Disk.
 
-## <a name="sign-up"></a>Inscription
+### <a name="for-service"></a>Pour le service
 
-Data Box Disk est en préversion et vous devez vous inscrire pour utiliser ce service. Procédez comme suit pour vous inscrire au service Data Box Disk :
+Avant de commencer, assurez-vous que :
+- Vous disposez d’un compte de stockage Microsoft Azure doté d’informations d’identification d’accès.
+- L’abonnement que vous utilisez pour le service Data Box est un des types suivants :
+    - Contrat Entreprise (EA) Microsoft. En savoir plus sur les [abonnements EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
+    - Fournisseur de solutions cloud (CSP). En savoir plus sur le [programme Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+- Vous disposez d’un accès propriétaire ou contributeur à l’abonnement pour créer une commande Data Box.
 
-1. Connectez-vous au portail Azure à l’adresse : [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
-2. Sélectionnez l’abonnement que vous souhaitez activer pour la préversion. Répondez aux questions concernant la taille des données, le pays de résidence des données, le laps de temps et la fréquence de transfert des données. Cliquez sur **M’inscrire**.
-3. Une fois que vous êtes inscrit et autorisé à utiliser la préversion, vous pouvez commander un Data Box Disk.
+### <a name="for-device"></a>Pour l’appareil
+
+Avant de commencer, assurez-vous que :
+- Vous avez un ordinateur client disponible à partir duquel vous pouvez copier les données. Votre ordinateur client doit :
+    - Exécuter un [système d’exploitation pris en charge](data-box-disk-system-requirements.md#supported-operating-systems-for-clients)
+    - Être équipé des autres [logiciels requis](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) s’il s’agit d’un client Windows  
 
 ## <a name="order-data-box-disk"></a>Commander un Data Box Disk
 
@@ -97,7 +102,7 @@ Procédez comme suit dans le [portail Azure](https://aka.ms/azuredataboxfromdisk
  
 ## <a name="track-the-order"></a>Suivre la commande
 
-Une fois la commande passée, vous pouvez suivre l’état de la commande à partir du portail Azure en préversion. Accédez à votre commande, puis à **Vue d’ensemble** pour afficher l’état. Le portail affiche le travail dont l’état est **Commandé**. 
+Une fois la commande passée, vous pouvez suivre son état à partir du portail Azure. Accédez à votre commande, puis à **Vue d’ensemble** pour afficher l’état. Le portail affiche le travail dont l’état est **Commandé**. 
 
 ![Data Box Disk - État Commandé](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -111,17 +116,15 @@ Une fois la préparation du disque terminée, le portail affiche la commande don
 
 Ensuite, Microsoft prépare et achemine les disques via un transporteur régional. Vous recevez un numéro de suivi une fois les disques expédiés. Le portail affiche la commande dont l’état est **Distribué**.
 
-
-
 ## <a name="cancel-the-order"></a>Annuler la commande
 
-Pour annuler cette commande, dans le portail Azure en préversion, accédez à **Vue d’ensemble** et cliquez sur **Annuler** à partir de la barre de commandes. 
+Pour annuler cette commande, dans le portail Azure, accédez à **Vue d’ensemble** et cliquez sur **Annuler** dans la barre de commandes. 
 
 L’annulation est possible uniquement lorsque les disques sont commandés et la commande en cours de traitement en vue de l’expédition. Une fois la commande traitée, vous ne pouvez plus l’annuler. 
 
 ![Annuler la commande](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
-Pour supprimer une commande annulée, accédez à **Vue d’ensemble** et cliquez sur **Supprimer** à partir de la barre de commandes. 
+Pour supprimer une commande annulée, accédez à **Vue d’ensemble** et cliquez sur **Supprimer** à partir de la barre de commandes.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -129,7 +132,6 @@ Pour supprimer une commande annulée, accédez à **Vue d’ensemble** et clique
 Ce tutoriel vous a apporté des connaissances concernant Azure Data Box, notamment concernant les points suivants :
 
 > [!div class="checklist"]
-> * S’inscrire à Data Box Disk
 > * Commander un Data Box Disk
 > * Suivre la commande
 > * Annuler la commande
