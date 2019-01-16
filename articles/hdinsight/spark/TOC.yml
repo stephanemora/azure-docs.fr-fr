@@ -11,7 +11,7 @@ items:
   - name: HDInsight 4.0
     href: ../hdinsight-version-release.md
     maintainContext: true
-- name: Guides de démarrage rapide
+- name: Démarrages rapides
   items:
   - name: Créer un cluster Apache Spark - Portail
     href: apache-spark-jupyter-spark-sql-use-portal.md
@@ -19,7 +19,7 @@ items:
     href: apache-spark-jupyter-spark-sql-use-powershell.md
   - name: Créer un cluster Apache Spark - Modèle
     href: apache-spark-jupyter-spark-sql.md
-- name: Tutoriels
+- name: Didacticiels
   items:
   - name: Exécuter des requêtes sur un cluster Apache Spark
     href: apache-spark-load-data-run-query.md
@@ -434,6 +434,8 @@ items:
     href: /rest/api/hdinsight/
   - name: API REST (Apache Spark)
     href: /rest/api/hdinsightspark/
+  - name: Modèle Resource Manager
+    href: /azure/templates/microsoft.hdinsight/allversions
 - name: Ressources
   items:
   - name: Notes de publication
@@ -456,9 +458,9 @@ items:
   - name: Outils Windows pour HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 550e028ec66d9f82fd8b1102c6f56b62b9aad8b9
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 1e847037a0a5360679e846d1a5cc409af463772e
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630714"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318863"

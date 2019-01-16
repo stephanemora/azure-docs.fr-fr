@@ -62,13 +62,13 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/azurerm.hdinsight
-  - name: Kit SDK .NET
+  - name: Kit de développement logiciel (SDK) .NET
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
-  - name: Kit SDK Python
+  - name: Kit de développement logiciel (SDK) Python
     href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
-  - name: Kit SDK Java
+  - name: Kit de développement logiciel (SDK) Java
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
-  - name: Kit SDK Go
+  - name: Kit de développement logiciel (SDK) Go
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
@@ -78,6 +78,8 @@ items:
     href: /rest/api/hdinsight/
   - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
+  - name: Modèle Resource Manager
+    href: /azure/templates/microsoft.hdinsight/allversions
 - name: Ressources
   items:
   - name: Notes de publication
@@ -100,9 +102,9 @@ items:
   - name: Outils Windows pour HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 838d344742cdb9c19224b6831540736a86fc5b33
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 63ff1607703c91e4a8da4f341ffb556ff4332044
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433644"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320971"
