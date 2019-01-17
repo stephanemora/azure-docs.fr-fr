@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: jeffgilb
-ms.reviewer: georgel
-ms.openlocfilehash: edca29cfe53f7aa313eb1178a6a2ef19aa7178d0
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.reviewer: jiahan
+ms.openlocfilehash: 759ace67c2adb02003103934c4d5d363470b3068
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159619"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247484"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>Notes de publication de la version 1.1.33.0 du fournisseur de ressources SQL
 
@@ -65,7 +65,7 @@ Cette version du fournisseur de ressources SQL Azure Stack inclut les améliorat
 
     **Solution de contournement** : utilisez toujours des connexions distinctes pour les différentes bases de données associées à un même abonnement.
 
-- **Le fournisseur de ressources SQL ne parvient pas à ajouter l’écouteur SQL Server Always On**. Quand vous utilisez l’adresse IP de l’écouteur SQL Server Always On, la machine virtuelle du fournisseur de ressources SQL ne peut pas résoudre le nom d’hôte de l’écouteur.
+- **Le fournisseur de ressources SQL ne parvient pas à ajouter l’écouteur SQL Server Always On**. Lorsque vous utilisez l’adresse IP de l’écouteur SQL Server Always On, la machine virtuelle du fournisseur de ressources SQL ne peut pas résoudre le nom d’hôte de l’écouteur.
 
     **Solution de contournement** : Vérifiez que DNS fonctionne correctement pour résoudre l’adresse IP de l’écouteur en nom d’hôte de l’écouteur.
 

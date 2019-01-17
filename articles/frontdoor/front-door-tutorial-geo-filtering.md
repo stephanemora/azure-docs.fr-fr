@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/20/2018
 ms.author: sharadag
-ms.openlocfilehash: c4032f7c33cec7b7a7864ccff07a05b87c945949
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 68da9a0255cde6cbad5c675901c80193888bf255
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988587"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214876"
 ---
 # <a name="how-to-set-up-a-geo-filtering-policy-for-your-front-door"></a>Comment configurer une stratégie de filtrage géographique pour votre porte d’entrée
 Dans ce didacticiel, vous allez apprendre à utiliser Azure PowerShell pour créer un exemple de stratégie de filtrage géographique et à l’associer à votre hôte frontend Front Door existant. Cet exemple de stratégie de filtrage géographique bloquera les demandes de tous les autres pays, à l’exception des États-Unis.
@@ -47,7 +47,7 @@ Install-Module -Name AzureRM.FrontDoor -AllowPrerelease
 ```
 
 ## <a name="2-define-geo-filtering-match-conditions"></a>2. Définir la/les condition(s) de correspondance du filtrage géographique
-Tout d’abord, créez un exemple de condition de correspondance qui sélectionne les demandes ne provenant ne pas de « US ». Reportez-vous au [guide](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject) des paramètres PowerShell lors de la création d’une condition de correspondance. L’indicatif pays à deux lettres pour effectuer un mappage pays est fourni [ici](/Protection/GeoFiltering).
+Tout d’abord, créez un exemple de condition de correspondance qui sélectionne les demandes ne provenant ne pas de « US ». Reportez-vous au [guide](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject) des paramètres PowerShell lors de la création d’une condition de correspondance. L’indicatif pays à deux lettres pour effectuer un mappage pays est fourni [ici](front-door-geo-filtering.md).
 
 ```
 $nonUSGeoMatchCondition = New-AzureRmFrontDoorMatchConditionObject -MatchVariable RemoteAddr -OperatorProperty GeoMatch -NegateCondition $true -MatchValue "US"

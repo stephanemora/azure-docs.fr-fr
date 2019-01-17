@@ -5,6 +5,7 @@ description: Ce didacticiel montre comment configurer la redirection de port à 
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/11/18
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: e3431ff7ee6991e5af3ecab0e734cc587009dcde
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: da41b33f3e5d24c0391c8486d9c0b372877eff21
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273518"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232190"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Didacticiel : Configurer la redirection de port dans Azure Load Balancer à l’aide du portail
 
@@ -47,8 +48,8 @@ Commencez par créer un équilibreur de charge standard public qui permet d’é
    
 1. Dans le volet **Créer un équilibreur de charge**, tapez ou sélectionnez les valeurs suivantes :
    
-   - **Nom** : Tapez *MyLoadBalancer*.
-   - **Type** : Sélectionnez **Public**. 
+   - **Nom** : Entrez *MyLoadBalancer*.
+   - **Type** : Sélectionnez **Public**. 
    - **Référence SKU** : Sélectionnez **Standard**.
    - **Adresse IP publique** : Sélectionnez **Créer**, puis tapez *MyPublicIP* dans le champ.
    - **Configurer une adresse IP publique** > **Zone de disponibilité** : Sélectionnez **Redondant dans une zone**.
@@ -74,7 +75,7 @@ Créez un réseau virtuel avec deux machines virtuelles, puis ajoutez les machin
    
    - **Nom** : Tapez *MyVNet*.
    - **Groupe de ressources** : Faites défiler la liste déroulante **Sélectionner** et choisissez **MyResourceGroupLB**. 
-   - **Sous-réseau** > **Nom** : Tapez *MyBackendSubnet*.
+   - **Sous-réseau** > **Nom** : Entrez *MyBackendSubnet*.
    
 1. Sélectionnez **Créer**.
 
@@ -85,14 +86,14 @@ Créez un réseau virtuel avec deux machines virtuelles, puis ajoutez les machin
 1. En haut à gauche du portail, sélectionnez **Créer une ressource** > **Calcul** > **Windows Server 2016 Datacenter**. 
    
 1. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs suivantes sous l’onglet **De base** :
-   - **Abonnement** > **Groupe de ressources** : Faites défiler la liste déroulante et sélectionnez **MyResourceGroupLB**.
+   - **Abonnement** > **Groupe de ressources** : Faites défiler la liste déroulante et sélectionnez **MyResourceGroupLB**.
    - **Nom de la machine virtuelle** : Tapez *MyVM1*.
    - **Région** : Sélectionnez **Europe Ouest**. 
    - **Nom d’utilisateur** : Tapez *azureuser*.
    - **Mot de passe** : Tapez *Azure1234567*. 
      Retapez le mot de passe dans le champ **Confirmer le mot de passe**.
    
-1. Sélectionnez l’onglet **Mise en réseau** ou choisissez **Suivant : Disques**, puis **Suivant : Mise en réseau**. 
+1. Sélectionnez l’onglet **Mise en réseau** ou choisissez **Suivant : Disques**, puis **Suivant : Mise en réseau**. 
    
    Vérifiez que les éléments suivants sont sélectionnés :
    - **Réseau virtuel** : **MyVNet**
@@ -141,14 +142,14 @@ Créez une règle de groupe de sécurité réseau (NSG) pour les machines virtue
    
 1. Dans la boîte de dialogue **Ajouter une règle de sécurité de trafic entrant**, tapez ou sélectionnez les informations suivantes :
    
-   - **Source** : Sélectionnez **Service Tag** (Identification).  
-   - **Source service tag** (Identification source) : Sélectionnez **Internet**. 
-   - **Plages de ports de destination** : Tapez *80*.
-   - **Protocole** : Sélectionnez **TCP**. 
-   - **Action** : Sélectionnez **Autoriser**.  
-   - **Priorité** : Tapez *100*. 
-   - **Nom** : Tapez *MyHTTPRule*. 
-   - **Description** : Tapez *Autoriser HTTP*. 
+   - **Source** : Sélectionnez **Balise du service**.  
+   - **Balise du service source** : Sélectionnez **Internet**. 
+   - **Plages de ports de destination** : Entrez *80*.
+   - **Protocole** : Sélectionnez **TCP**. 
+   - **Action** : Sélectionnez **Autoriser**.  
+   - **Priorité** : Entrez *100*. 
+   - **Nom** : Entrez *MyHTTPRule*. 
+   - **Description** : Entrez *Autoriser HTTP*. 
    
 1. Sélectionnez **Ajouter**. 
    
@@ -186,12 +187,12 @@ Pour permettre à l’équilibreur de charge de superviser l’état d’une mac
    
 1. Dans la page **Ajouter une sonde d’intégrité**, tapez ou sélectionnez les valeurs suivantes :
    
-   - **Nom** : Tapez *MyHealthProbe*.
-   - **Protocole** : Faites défiler la liste déroulante et sélectionnez **HTTP**. 
-   - **Port** : Tapez *80*. 
-   - **Chemin d’accès** : Acceptez */* comme URI par défaut. Vous pouvez remplacer cette valeur avec n’importe quel autre URI. 
-   - **Intervalle** : Tapez *15*. L’intervalle est le nombre de secondes entre les tentatives de la sonde.
-   - **Seuil de défaillance sur le plan de l’intégrité** : Tapez *2*. Cette valeur est le nombre d’échecs de sonde consécutifs qui se produisent avant qu’une machine virtuelle soit considérée comme défaillante.
+   - **Nom** : Entrez *MyHealthProbe*.
+   - **Protocole** : Faites défiler et sélectionnez **HTTP**. 
+   - **Port** : Entrez *80*. 
+   - **Chemin d’accès** : Acceptez */* comme URI par défaut. Vous pouvez remplacer cette valeur avec n’importe quel autre URI. 
+   - **Intervalle** : Entrez *15*. L’intervalle est le nombre de secondes entre les tentatives de la sonde.
+   - **Seuil de défaillance sur le plan de l’intégrité** : Entrez *2*. Cette valeur est le nombre d’échecs de sonde consécutifs qui se produisent avant qu’une machine virtuelle soit considérée comme défaillante.
    
 1. Sélectionnez **OK**.
    
@@ -209,12 +210,12 @@ La règle d’équilibreur de charge nommée **MyLoadBalancerRule** écoute sur 
    
 1. Dans la page **Ajouter une règle d’équilibrage de charge**, tapez ou sélectionnez les valeurs suivantes :
    
-   - **Nom** : Tapez *MyLoadBalancerRule*.
+   - **Nom** : Tapez *MyLoadBalancerRule*.
    - **Protocole** : Sélectionnez **TCP**.
-   - **Port** : Tapez *80*.
-   - **Port principal** : Tapez *80*.
-   - **Pool principal** : Sélectionnez **MyBackendPool**.
-   - **Sonde d’intégrité** : Sélectionnez **MyHealthProbe**. 
+   - **Port** : Entrez *80*.
+   - **Port principal** : Entrez *80*.
+   - **Pool principal** : Sélectionnez **MyBackendPool**.
+   - **Sonde d’intégrité** : Sélectionnez **MyHealthProbe**. 
    
 1. Sélectionnez **OK**.
    

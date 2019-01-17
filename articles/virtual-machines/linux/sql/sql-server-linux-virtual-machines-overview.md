@@ -3,21 +3,22 @@ title: Présentation de SQL Server sur les machines virtuelles Linux Azure | Mic
 description: Découvrez comment exécuter les éditions complètes de SQL Server sur les machines virtuelles Linux Azure. Obtenez des liens directs vers toutes les images de machine virtuelle SQL Server Linux et le contenu associé.
 services: virtual-machines-linux
 documentationcenter: ''
-author: rothja
-manager: jhubbard
+author: MashaMSFT
+manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
 ms.date: 04/10/2018
-ms.author: jroth
-ms.openlocfilehash: 9c24536d8d5647e4a2c19afa17c35050e1f11c20
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 18f9dd5318c6aecff8819178168469d9334e5e29
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31424118"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332402"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Présentation de SQL Server sur les machines virtuelles Azure (Linux)
 
@@ -63,13 +64,13 @@ Lorsque vous configurez SQL Server sur Linux, vous installez le package du moteu
 
 ### <a name="storage"></a>Stockage
 
-* [Introduction à Stockage Microsoft Azure](../../../storage/common/storage-introduction.md)
+* [Introduction à Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>Mise en réseau
 
 * [Présentation du réseau virtuel](../../../virtual-network/virtual-networks-overview.md)
 * [Adresses IP dans Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-* [Créer un nom de domaine complet dans le Portail Azure](../portal-create-fqdn.md)
+* [Créer un nom de domaine complet dans le portail Azure](../portal-create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 

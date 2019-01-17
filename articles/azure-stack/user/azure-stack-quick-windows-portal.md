@@ -1,25 +1,25 @@
 ---
-title: Démarrage rapide avec Azure Stack - Créer une machine virtuelle Windows
-description: Démarrage rapide avec Azure Stack - Créer une machine virtuelle Windows avec le portail
+title: Guide de démarrage rapide avec Azure Stack - Créer une machine virtuelle Windows
+description: Guide de démarrage rapide avec Azure Stack - Créer une machine virtuelle Windows avec le portail
 services: azure-stack
 author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
-ms.reviewer: ''
+ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: e4e3fdbdd3bc9eb982f993a9be60ba0812c68a9d
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 37cd6eaec5b3d4bd6dfbbb7e7b6657d139ccea07
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713735"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303019"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-with-the-azure-stack-portal"></a>Démarrage rapide : créer une machine virtuelle Windows Server avec le portail Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Vous pouvez créer une machine virtuelle Windows Server 2016 dans le portail Azure Stack. Suivez les étapes décrites dans cet article pour créer et utiliser une machine virtuelle.
 

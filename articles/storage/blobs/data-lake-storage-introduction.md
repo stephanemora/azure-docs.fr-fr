@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: ac36499475ffe02ae4d5140f35507530e6cf089e
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 898080f445c54c93543a481bdd0487c70e772160
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994332"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214391"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Présentation d’Azure Data Lake Storage Gen2 (préversion)
 
@@ -51,7 +51,7 @@ Le Stockage Azure est nativement scalable, que vous y accédiez via les interfac
 
 ### <a name="cost-effectiveness"></a>Rentabilité
 
-Un des nombreux avantages de la conception de Data Lake Storage Gen2 sur le stockage Blob Azure est le faible coût de la capacité de stockage et des transactions. Contrairement à d’autres services de stockage cloud, les données stockées dans Data Lake Storage Gen2 n’ont pas à être déplacées ni transformées avant d’effectuer l’analyse. Pour plus d’informations sur la tarification, consultez la page [Tarification Azure Storage]((https://azure.microsoft.com/pricing/details/storage)).
+Un des nombreux avantages de la conception de Data Lake Storage Gen2 sur le stockage Blob Azure est le faible coût de la capacité de stockage et des transactions. Contrairement à d’autres services de stockage cloud, les données stockées dans Data Lake Storage Gen2 n’ont pas à être déplacées ni transformées avant d’effectuer l’analyse. Pour plus d’informations sur la tarification, consultez la page [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage).
 
 Par ailleurs, des fonctionnalités comme [l’espace de noms hiérarchique](data-lake-storage-namespace.md) améliorent considérablement les performances générales de nombreuses tâches analytiques. Cette amélioration des performances signifie que vous avez besoin d’une puissance de calcul moindre pour traiter la même quantité de données, ce qui contribue à la baisse du coût total de possession (TCO) pour le travail analytique de bout en bout.
 

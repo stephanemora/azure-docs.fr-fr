@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.component: autoscale
-ms.openlocfilehash: d676af42b80d12ac0e537ce0c2bc008e196990c6
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: bf9cf931964fec9b2089cce100757e044788a972
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53586271"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262317"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Créer un paramètre de mise à l’échelle automatique pour des ressources Azure basées sur les données de performances ou une planification
 
@@ -63,7 +63,7 @@ Les quelques étapes suivantes vous aident à compléter l’écran de mise à l
   ![Naviguer jusqu’aux paramètres de mise à l’échelle automatique](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
-## <a name="create-recurrance-profile"></a>Créer un profil de récurrence
+## <a name="create-recurrence-profile"></a>Créer un profil de récurrence
 
 1. Cliquez sur le lien **Ajouter une condition de mise à l’échelle**, situé sous le profil par défaut.
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0bc44dc31de4a45127468b956d01d7c3f8d92985
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 47b58e74f57640098751b38c1a4fb504838c9ced
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122817"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54242358"
 ---
 Vous pouvez tirer parti de nombreuses possibilités d’analyser vos machines virtuelles en collectant, affichant et analysant les données de diagnostic et de journal. Pour [analyser](../articles/azure-monitor/overview.md) simplement votre machine virtuelle, vous pouvez utiliser l’écran Vue d’ensemble de la machine virtuelle sur le portail Azure. Vous pouvez utiliser des [extensions](../articles/virtual-machines/windows/extensions-features.md) pour configurer des diagnostics sur vos machines virtuelles afin de collecter des données de mesure supplémentaires. Vous pouvez également utiliser des options d’analyse plus avancées, telles que [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) et [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -31,7 +31,7 @@ Vous pouvez définir et analyser la collecte de [données de diagnostic](https:/
 
 ## <a name="alerts"></a>Alertes
 
-Vous pouvez créer des [alertes](../articles/azure-monitor/platform/alerts-overview.md) en fonction de mesures de performances spécifiques. Les alertes peuvent être utilisées par exemple pour notifier que l’utilisation moyenne de l’UC dépasse un certain seuil ou que l’espace disque disponible est inférieur à une certaine quantité. Les alertes peuvent être configurées dans le [portail Azure](../articles/monitoring-and-diagnostics/insights-alerts-portal.md), à l’aide d’[Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md), ou d’[Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
+Vous pouvez créer des [alertes](../articles/azure-monitor/platform/alerts-overview.md) en fonction de mesures de performances spécifiques. Les alertes peuvent être utilisées par exemple pour notifier que l’utilisation moyenne de l’UC dépasse un certain seuil ou que l’espace disque disponible est inférieur à une certaine quantité. Les alertes peuvent être configurées dans le [portail Azure](../articles/azure-monitor/platform/alerts-classic-portal.md), à l’aide d’[Azure PowerShell](../articles/azure-monitor/platform/alerts-classic-portal.md#with-powershell), ou d’[Azure CLI](../articles/azure-monitor/platform/alerts-classic-portal.md#with-azure-cli).
 
 ## <a name="azure-service-health"></a>Azure Service Health
 

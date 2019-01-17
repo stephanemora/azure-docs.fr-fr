@@ -2,18 +2,18 @@
 title: Parcourir les API Azure Digital Twins | Microsoft Docs
 description: Découvrez les modèles courants d’interrogation des API de gestion Azure Digital Twins.
 author: dsk-2015
-manager: bertvanhoof
+manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 1/7/2019
 ms.author: dkshir
-ms.openlocfilehash: 2221e8b22450a353da42564e5b93342a11e59f71
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9cfcdc879e36b93e21bff6f91886536d799553bb
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54109394"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200953"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Guide pratique pour utiliser les API de gestion Azure Digital Twins
 
@@ -25,11 +25,11 @@ La liste suivante montre les composants des API Digital Twins.
 
 * [/spaces](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces) : ces API interagissent avec les emplacements physiques dans votre installation. Elles vous aident à créer, supprimer et gérer les mappages numériques de vos emplacements physiques sous la forme d’un [graphe spatial](concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph).
 
-* [/resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources) : ces API vous aident à configurer les ressources, par exemple un hub IoT, pour votre instance Digital Twins.
-
 * [/devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices) : ces API interagissent avec les appareils dans votre installation. Ces appareils peuvent gérer un ou plusieurs capteurs. Il peut s’agir par exemple de votre téléphone, d’un pod de capteur Raspberry Pi, d’une passerelle Lora, et ainsi de suite.
 
 * [/sensors](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Sensors) : ces API vous aident à communiquer avec les capteurs associés à vos appareils et vos emplacements physiques. Les capteurs enregistrent et envoient des valeurs ambiantes, qui peuvent ensuite être utilisées pour manipuler votre environnement spatial.  
+
+* [/resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources) : ces API vous aident à configurer les ressources, par exemple un hub IoT, pour votre instance Digital Twins.
 
 * [/types](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Types) : ces API vous permettent d’associer des types étendus à vos objets Digital Twins, afin d’ajouter des caractéristiques spécifiques à ces objets. Ces types facilitent le filtrage et le regroupement d’objets dans l’interface utilisateur et les fonctions personnalisées qui traitent vos données de télémétrie. *DeviceType*, *SensorType*, *SensorDataType*, *SpaceType*, *SpaceSubType*, *SpaceBlobType* et *SpaceResourceType* sont des exemples de types étendus.
 
@@ -66,7 +66,7 @@ Les API Digital Twins prennent en charge le filtrage et la navigation dans l’e
    - Le niveau relatif *-1* représente les espaces au même niveau que l’espace parent de l’espace spécifié
 
 - **traverse** : vous permet de traverser dans les deux sens à partir d’un ID d’espace donné, tel que spécifié par les valeurs suivantes.
-   - **None** : cette valeur par défaut filtre d’après l’ID d’espace donné.
+   - **Aucun** : cette valeur par défaut filtre d’après l’ID d’espace donné.
    - **Down** : filtre d’après l’ID d’espace donné et ses descendants. 
    - **Up** : filtre d’après l’ID d’espace donné et ses ancêtres. 
    - **Span** : filtre une partie horizontale du graphe spatial, au même niveau que l’ID d’espace donné. Il faut pour cela que **minRelative** ou **maxRelative** ait la valeur true. 

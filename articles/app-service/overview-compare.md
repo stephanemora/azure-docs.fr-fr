@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2cf73607f0cb286f06a5aa043fd8b30816e6a80f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 05afbd9a621752b8b665c7d2f68cd8cfcc8a1d1a
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729691"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322025"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparaison entre Azure App Service, Virtual Machines, Service Fabric et Cloud Services
 
@@ -53,7 +53,7 @@ Le tableau suivant compare les fonctionnalités d’Azure App Service, Azure Clo
 | Montée en charge vers plusieurs instances sans redéploiement |X |X |X |X |Bien que les machines virtuelles puissent évoluer vers plusieurs instances, les services exécutés sur celles-ci doivent être écrits de manière à prendre en charge cette montée en charge. Vous devez configurer un équilibreur de charge pour acheminer les demandes entre les machines, et vous assurer que vous avez plusieurs instances de machine virtuelle dans le [groupe à haute disponibilité](../virtual-machines/windows/manage-availability.md). |
 | Prise en charge de SSL |X |X |X |X |Pour les applications web App Service, le protocole SSL pour les noms de domaine personnalisés est pris en charge uniquement en mode De base et Standard. Pour plus d’informations sur l’utilisation de SSL avec les applications web, consultez la page [Configuration d’un certificat SSL pour un site web Azure](app-service-web-tutorial-custom-ssl.md). |
 | Intégration de Visual Studio |X |X |X |X | |
-| Débogage à distance |X |X |X | | |
+| Débogage à distance |X |X |X |X | |
 | Déploiement de code avec TFS |X |X |X |X | |
 | Isolation du réseau avec [Azure Virtual Network](/azure/virtual-network/) |X |X |X |X |Voir aussi [Intégration au réseau virtuel de Sites Web Azure](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
 | Prise en charge d' [Azure Traffic Manager](/azure/traffic-manager/) |X |X |X |X | |

@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 38e85ede1e984aa3d26fe509d68b4582d11b6c26
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.reviewer: justini
+ms.lastreviewed: 11/14/2018
+ms.openlocfilehash: 408be7ad9aa371e749a225ef85be42d002293c0d
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636218"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302593"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Utiliser les modèles Azure Resource Manager dans Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Vous pouvez utiliser les modèles Azure Resource Manager pour déployer et provisionner toutes les ressources de votre application en une seule opération coordonnée. Vous pouvez également redéployer des modèles pour apporter des changements aux ressources d’un groupe de ressources.
 

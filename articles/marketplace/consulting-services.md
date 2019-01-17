@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 85f88d9234acbb1831ea76188d06ef47199703ca
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 53281af4cf3ce49272ffe9fc48ab0f85cea276b2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074085"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213619"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Services de conseil dans la Place de marché Azure et AppSource
 Les services de conseil dans la Place de marché Azure et AppSource permettent aux partenaires Microsoft de connecter les clients à des services pour gérer et étendre leur utilisation d’Azure en fonction de leurs besoins professionnels. 
@@ -69,7 +69,7 @@ Les partenaires doivent avoir une **compétence Silver ou Gold** dans le domaine
 |Dynamics 365 pour les opérations et la finance, édition Entreprise  |  Compétence [Planification des ressources d’entreprise](https://partner.microsoft.com/membership/enterprise-resource-planning-competency), statut Silver ou Gold, et un revenu généré par les opérations cloud d’au moins 25 000 $ au cours des 12 derniers mois.       |
 |Dynamics 365 pour les opérations et la finance, édition Business  |  Agir en tant que [fournisseur de services cloud](https://partner.microsoft.com/cloud-solution-provider) ou [partenaire de référence numérique](https://partner.microsoft.com/membership/digital-partner-of-record) pour au moins un client.      |
 |Power BI, Visuels personnalisés Power BI | Respecter les [critères du partenaire de solution](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
-|PowerApps | Avoir publié une solution de [présentation des partenaires]().
+|PowerApps | Avoir publié une solution de [présentation des partenaires](https://appsource.microsoft.com/partners).
 
 <b>Pour plus d’informations, consultez les [compétences via Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
  

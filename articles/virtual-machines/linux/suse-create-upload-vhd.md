@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 5aa998ef7af157f84a3985fdb458c2800f2575f4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8ecc29e9422c1d427dd76059f1a427f3d49da38f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249368"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262369"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Préparation d'une machine virtuelle SLES ou openSUSE pour Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -49,7 +49,7 @@ Comme alternative à la création de votre propre disque dur virtuel, SUSE publi
         # sudo zypper update
 5. Installez l’agent Linux Azure à partir du référentiel SLES :
    
-        # sudo zypper install WALinuxAgent
+        # sudo zypper install python-azure-agent
 6. Vérifiez que waagent est réglé sur « on » dans chkconfig et, dans le cas contraire, configurez son démarrage automatique :
    
         # sudo chkconfig waagent on
@@ -140,7 +140,7 @@ Comme alternative à la création de votre propre disque dur virtuel, SUSE publi
 7. Il est recommandé de modifier le fichier « /etc/sysconfig/network/dhcp » et le paramètre `DHCLIENT_SET_HOSTNAME` comme suit :
    
      DHCLIENT_SET_HOSTNAME="no"
-8. **Important :** sous « /etc/sudoers », commentez ou supprimez les lignes suivantes (si elles sont présentes) :
+8. **Important :** Sous « /etc/sudoers », commentez ou supprimez les lignes suivantes (si elles sont présentes) :
    
      Defaults targetpw   # Demander le mot de passe pour l’utilisateur cible, c’est-à-dire root ALL    ALL=(ALL) ALL   # WARNING! N’utilisez cette option qu’avec « Defaults targetpw » !
 9. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu.  C'est généralement le cas par défaut.

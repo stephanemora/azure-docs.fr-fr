@@ -13,12 +13,13 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 3c3e064ea229db97c59cc5b49107b568a2fdaa98
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9d22bb288bafb5e9984c357d0bf9139973f5d262
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334446"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262998"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Automatiser la validation Azure Stack avec PowerShell
 
@@ -71,7 +72,7 @@ Ce didacticiel vous guide dans la création d’un script qui :
 
     | Paramètre | Description |
     | --- | --- |
-    | VaaSUserld | Votre ID d’utilisateur VaaS. |
+    | VaaSUserId | Votre ID d’utilisateur VaaS. |
     | VaaSUserPassword | Votre mot de passe VaaS. |
     | VaaSAccountTenantId | Votre identificateur global unique de locataire VaaS GUID. |
     | VaaSSolutionName | Le nom de la solution VaaS sous laquelle le test s’exécutera. |

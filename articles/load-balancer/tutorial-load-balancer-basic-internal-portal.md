@@ -5,6 +5,7 @@ description: Ce tutoriel vous montre comment créer un équilibreur de charge in
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internal traffic to virtual machines within a specific zone in a region.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 1ed77e8573479665d0caac15941d6b6c6ab790cb
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 16c9eea61391511f7515308131b3541e186cd7ae
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262348"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232615"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutoriel : Équilibrer la charge du trafic interne avec un équilibreur de charge de base sur le portail Azure
 
@@ -41,9 +42,9 @@ Créez d’abord un réseau virtuel. Dans le réseau virtuel, créez deux machin
    
 1. Dans le volet **Créer un réseau virtuel**, tapez ou sélectionnez les valeurs suivantes :
    
-   - **Nom** : entrez *MyVNet*.
+   - **Nom** : Tapez *MyVNet*.
    - **Groupe de ressources** : sélectionnez **Créer**, entrez *MyResourceGroupLB*, puis sélectionnez **OK**. 
-   - **Subnet** > **Name** : entrez *MyBackendSubnet*.
+   - **Subnet** > **Name** : Entrez *MyBackendSubnet*.
    
 1. Sélectionnez **Créer**.
 
@@ -54,8 +55,8 @@ Créez d’abord un réseau virtuel. Dans le réseau virtuel, créez deux machin
 1. En haut à gauche du portail, sélectionnez **Créer une ressource** > **Calcul** > **Windows Server 2016 Datacenter**. 
    
 1. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs suivantes sous l’onglet **De base** :
-   - **Subscription** > **Resource Group** : faites défiler la liste et sélectionnez **MyResourceGroupLB**.
-   - **Détails de l’instance** > **Nom de la machine virtuelle** : entrez *MyVM1*.
+   - **Abonnement** > **Groupe de ressources** : Faites défiler la liste et sélectionnez **MyResourceGroupLB**.
+   - **Détails de l’instance** > **Nom de la machine virtuelle** : Entrez *MyVM1*.
    - **Détails de l’instance** > **Options de disponibilité** : 
      1. Faites défiler la liste déroulante vers le bas, puis sélectionnez **Groupe à haute disponibilité**. 
      2. Sélectionnez **Créer**, tapez *MyAvailabilitySet*, puis sélectionnez **OK**.
@@ -63,8 +64,8 @@ Créez d’abord un réseau virtuel. Dans le réseau virtuel, créez deux machin
 1. Sélectionnez l'onglet **Mise en réseau** ou choisissez **Suivant : Disques**, puis **Suivant : Mise en réseau**. 
    
    Vérifiez que les éléments suivants sont sélectionnés :
-   - **Réseau virtuel** : **MyVNet**
-   - **Sous-réseau** : **MyBackendSubnet**
+   - **Réseau virtuel** : **MyVNet**
+   - **Sous-réseau** : **MyBackendSubnet**
    
    Sous **Groupe de sécurité réseau** :
    1. Sélectionnez **Advanced (Avancé)**. 
@@ -88,7 +89,7 @@ Créez un équilibreur de charge interne de base à l’aide du portail. Le nom 
    
 1. Dans le volet **Créer un équilibreur de charge**, tapez ou sélectionnez les valeurs suivantes :
    
-   - **Nom** : entrez *MyLoadBalancer*.
+   - **Nom** : Entrez *MyLoadBalancer*.
    - **Type** : sélectionnez **Interne**. 
    - **SKU** : Sélectionnez **De base**.
    - **Réseau virtuel** : sélectionnez **Choisir un réseau virtuel**, puis **MyVNet**.
@@ -119,7 +120,7 @@ Pour répartir le trafic entre les machines virtuelles, l’équilibreur de char
    
    - **Nom** : entrez *MyBackendPool*.
    - **Associé à** : Faites défiler la liste déroulante vers le bas, puis sélectionnez **Groupe à haute disponibilité**.
-   - **Groupe à haute disponibilité** : sélectionnez **MyAvailabilitySet**.
+   - **Groupe à haute disponibilité** : Sélectionnez **MyAvailabilitySet**.
    
 1. Sélectionnez **Ajouter une configuration IP de réseau cible**. 
    1. Ajoutez **MyVM1** et **MyVM2** au pool back-end.
@@ -146,12 +147,12 @@ Pour permettre à l’équilibreur de charge de superviser l’état d’une mac
    
 1. Dans la page **Ajouter une sonde d’intégrité**, tapez ou sélectionnez les valeurs suivantes :
    
-   - **Nom** : entrez *MyHealthProbe*.
-   - **Protocole** : faites défiler la liste déroulante et sélectionnez **HTTP**. 
-   - **Port** : entrez *80*. 
-   - **Chemin** : acceptez */* comme URI par défaut. Vous pouvez remplacer cette valeur avec n’importe quel autre URI. 
-   - **Intervalle** : entrez *15*. L’intervalle est le nombre de secondes entre les tentatives de la sonde.
-   - **Seuil de défaillance sur le plan de l'intégrité** : entrez *2*. Cette valeur est le nombre d’échecs de sonde consécutifs qui se produisent avant qu’une machine virtuelle soit considérée comme défaillante.
+   - **Nom** : Entrez *MyHealthProbe*.
+   - **Protocole** : Faites défiler et sélectionnez **HTTP**. 
+   - **Port** : Entrez *80*. 
+   - **Chemin d’accès** : Acceptez */* comme URI par défaut. Vous pouvez remplacer cette valeur avec n’importe quel autre URI. 
+   - **Intervalle** : Entrez *15*. L’intervalle est le nombre de secondes entre les tentatives de la sonde.
+   - **Seuil de défaillance sur le plan de l’intégrité** : Entrez *2*. Cette valeur est le nombre d’échecs de sonde consécutifs qui se produisent avant qu’une machine virtuelle soit considérée comme défaillante.
    
 1. Sélectionnez **OK**.
    
@@ -171,13 +172,13 @@ La règle d’équilibreur de charge nommée **MyLoadBalancerRule** écoute sur 
    
 1. Dans la page **Ajouter une règle d’équilibrage de charge**, tapez ou sélectionnez les valeurs suivantes (si elles ne sont pas déjà présentes) :
    
-   - **Nom** : entrez *MyLoadBalancerRule*.
+   - **Nom** : Entrez *MyLoadBalancerRule*.
    - **Adresse IP du serveur front-end :** entrez *LoadBalancerFrontEnd* si absent.
-   - **Protocole** : sélectionnez **TCP**.
-   - **Port** : entrez *80*.
-   - **Port principal** : entrez *80*.
-   - **Pool principal** : sélectionnez **MyBackendPool**.
-   - **Sonde d’intégrité** : sélectionnez **MyHealthProbe**. 
+   - **Protocole** : Sélectionnez **TCP**.
+   - **Port** : Entrez *80*.
+   - **Port principal** : Entrez *80*.
+   - **Pool principal** : Sélectionnez **MyBackendPool**.
+   - **Sonde d’intégrité** : Sélectionnez **MyHealthProbe**. 
    
 1. Sélectionnez **OK**.
    

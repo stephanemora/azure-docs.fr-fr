@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: tamram
-ms.openlocfilehash: b41366b89a0598d52ae973e2a6d27e60ed548765
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 03a0f8885d51e6d45fabda86714afdeefc01f992
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634454"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213482"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>Calculer la taille totale d’un conteneur de stockage d’objets blob
 
@@ -52,7 +52,7 @@ Ce script utilise les commandes suivantes pour calculer la taille du conteneur d
 | Commande | Notes |
 |---|---|
 | [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Obtient un compte de stockage spécifié ou tous les comptes de stockage dans un groupe de ressources ou l’abonnement. |
-| [Get-AzStorageBlob](/powershell/module/azure.storage/get-AzStorageblob) | Répertorie les objets blob inclus dans un conteneur. ||
+| [Get-AzStorageBlob](/powershell/module/az.storage/Get-AzStorageBlob) | Répertorie les objets blob inclus dans un conteneur. ||
 
 ## <a name="next-steps"></a>Étapes suivantes
 

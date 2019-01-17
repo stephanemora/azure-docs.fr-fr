@@ -8,19 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: tutorial
-ms.date: 10/30/2017
+ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 311abe4583d29098ebd26dfcf2214553aa1fe1c9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 02cfd00b8ab1f51c46e745dae480e39dee2ed710
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262042"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262334"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutoriel : Créer une application web monopage
 
-L’API Recherche d’actualités Bing vous permet de parcourir le web et d’obtenir des résultats des types d’actualités relatifs à une requête. Dans ce didacticiel, nous allons générer une application web à page unique qui utilise l’API Recherche d’actualités Bing pour afficher les résultats de la recherche sur la page. L’application inclut des composants HTML, CSS et JavaScript.
+L’API Recherche d’actualités Bing vous permet de parcourir le web et d’obtenir des résultats des types d’actualités relatifs à une requête. Dans ce didacticiel, nous allons générer une application web à page unique qui utilise l’API Recherche d’actualités Bing pour afficher les résultats de la recherche sur la page. L’application inclut des composants HTML, CSS et JavaScript. Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html).
 
 <!-- Remove until we can replace it with sanitized copy
 ![Single-page Bing News Search app](media/news-search-singlepage.png)
@@ -39,8 +39,6 @@ L’application du didacticiel illustre les actions suivantes :
 > * Gérer les erreurs qui peuvent se produire
 
 La page du didacticiel est entièrement autonome. Elle n’utilise pas d’infrastructures, de feuilles de style ni de fichiers image externes. Elle a uniquement recours à des fonctionnalités de langage JavaScript largement prises en charge et fonctionne avec les versions actuelles des principaux navigateurs web.
-
-Dans ce didacticiel, nous abordons certaines parties du code source. Le [code source](tutorial-bing-news-search-single-page-app-source.md) complet est disponible. Pour exécuter l’exemple, copiez et collez le code source dans un éditeur de texte et enregistrez le fichier sous `bing.html`.
 
 ## <a name="app-components"></a>Composants de l’application
 Comme n’importe quelle application web à page unique, cette application du didacticiel comprend trois parties :

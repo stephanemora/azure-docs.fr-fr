@@ -11,18 +11,18 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8f7e414d2aa4962534a90a295e104f8e8ebabbd9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 81afda4227484c19b49ffc4c399e52576629da34
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079236"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321872"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutoriel : Préparer les données pour la modélisation de régression
 
 Dans ce tutoriel, vous apprenez à préparer des données à la modélisation de régression, à l’aide du SDK de préparation des données Azure Machine Learning. Vous exécutez diverses transformations pour filtrer et combiner deux jeux de données NYC Taxi différents.  
 
-Ce tutoriel est le premier d’une série de deux. Une fois que vous aurez terminé la série de tutoriels, vous pourrez prévoir le coût d’une course en taxi en entraînant un modèle sur les caractéristiques des données. Ces caractéristiques incluent le jour et l’heure de départ de la course, le nombre de passagers et le lieu du ramassage.
+Ce tutoriel est le **premier d’une série de deux**. Une fois que vous aurez terminé la série de tutoriels, vous pourrez prévoir le coût d’une course en taxi en entraînant un modèle sur les caractéristiques des données. Ces caractéristiques incluent le jour et l’heure de départ de la course, le nombre de passagers et le lieu du ramassage.
 
 Dans ce tutoriel, vous allez :
 
@@ -1073,7 +1073,7 @@ Si vous n’envisagez pas de passer à la seconde partie, supprimez le fichier *
 Dans la première partie de ce tutoriel, vous avez :
 
 > [!div class="checklist"]
-> * Configuré l’environnement de développement
+> * Configurer l’environnement de développement
 > * Chargé et nettoyé des jeux de données.
 > * Utilisé des transformations intelligentes pour prédire votre logique, à l’aide d’un exemple.
 > * Fusionné et empaqueté des jeux de données pour l’entraînement du machine learning.
