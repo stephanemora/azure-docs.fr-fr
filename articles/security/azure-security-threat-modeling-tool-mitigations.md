@@ -3,9 +3,9 @@ title: Atténuations - Outil Microsoft de modélisation des menaces - Azure | Do
 description: Page des atténuations de l’outil Microsoft de modélisation des menaces, mettant en évidence des solutions possibles pour les menaces générées les plus exposées.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 07ef1fd3d81d795c9164741d22b5a689f86bd720
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24aa49fd4ccccda372d2632ef4aee22bd5cb2bf6
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23043434"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359134"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Atténuations de l’outil Microsoft de modélisation des menaces
 
 L’outil de modélisation des menaces est un élément essentiel de Microsoft Security Development Lifecycle (SDL). Il permet aux architectes logiciels d’identifier et de corriger les problèmes de sécurité potentiels au plus tôt, lorsqu’ils sont relativement simples et peu coûteux à résoudre. Par conséquent, il réduit considérablement le coût total de développement. En outre, nous avons conçu cet outil en pensant aux personnes qui ne sont pas expertes en sécurité et nous avons facilité la modélisation des menaces pour tous les développeurs en fournissant des conseils éclairés sur la création et l’analyse des modèles de menace.
 
-Visitez  **[l’outil de modélisation des menaces](./azure-security-threat-modeling-tool.md)**  pour démarrer dès aujourd'hui !
+Visitez **[l’outil de modélisation des menaces](./azure-security-threat-modeling-tool.md)** pour démarrer dès aujourd'hui !
 
 ## <a name="mitigation-categories"></a>Catégories d’atténuation
 
@@ -53,4 +53,4 @@ Par conséquent, vous utilisez ces catégories pour cibler et hiérarchiser votr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Visitez  **[Menaces pour l’outil de modélisation des menaces](./azure-security-threat-modeling-tool-threats.md)**  pour en savoir plus sur les catégories de menaces que l’outil utilise pour générer des menaces de conception possible.
+Visitez **[Menaces pour l’outil de modélisation des menaces](./azure-security-threat-modeling-tool-threats.md)** pour en savoir plus sur les catégories de menaces que l’outil utilise pour générer des menaces de conception possible.

@@ -13,12 +13,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 10/29/2018
 ms.author: curtand
-ms.openlocfilehash: d046b8e6c054131a4154654637f12dbdc26608a6
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9e0e1a70926127389101c79121ffab03e411f56a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210429"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265142"
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Exemples PowerShell pour les licences basées sur les groupes dans Azure AD
 
@@ -32,7 +32,7 @@ Toutes les fonctionnalités pour la gestion des licences par groupe sont disponi
 
 ## <a name="view-product-licenses-assigned-to-a-group"></a>Afficher les licences de produit attribuées à un groupe
 L’applet de commande [Get-MsolGroup](/powershell/module/msonline/get-msolgroup?view=azureadps-1.0) peut être utilisé pour récupérer l’objet de groupe et vérifier la propriété *Licences* : elle répertorie toutes les licences de produit actuellement affectées au groupe.
-```
+```powershell
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber
 ```
@@ -78,11 +78,11 @@ HTTP/1.1 200 OK
 ## <a name="get-all-groups-with-licenses"></a>Obtenir tous les groupes avec des licences
 
 Vous trouverez tous les groupes avec une licence affectée en exécutant la commande suivante :
-```
+```powershell
 Get-MsolGroup | Where {$_.Licenses}
 ```
 Vous pouvez afficher plus de détails sur les produits affectés :
-```
+```powershell
 Get-MsolGroup | Where {$_.Licenses} | Select `
     ObjectId, `
     DisplayName, `
@@ -102,7 +102,7 @@ c2652d63-9161-439b-b74e-fcd8228a7074 EMSandOffice             {ENTERPRISEPREMIUM
 ## <a name="get-statistics-for-groups-with-licenses"></a>Obtenir des statistiques sur les groupes avec des licences
 Vous pouvez rapporter des statistiques de base sur les groupes avec des licences. Dans l’exemple ci-dessous, le script indique le nombre total d’utilisateurs, le nombre d’utilisateurs ayant déjà des licences attribuées par le groupe et le nombre d’utilisateurs pour lesquels des licences n’ont pas pu être affectées par le groupe.
 
-```
+```powershell
 #get all groups with licenses
 Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
     $groupId = $_.ObjectId;
@@ -160,7 +160,7 @@ Access to Offi... 11151866-5419-4d93-9141-0603bbf78b42 STANDARDPACK             
 
 ## <a name="get-all-groups-with-license-errors"></a>Obtenir tous les groupes avec des erreurs de licence
 Pour rechercher les groupes qui contiennent des utilisateurs pour lesquels des licences n’ont pas pu être affectées :
-```
+```powershell
 Get-MsolGroup -HasLicenseErrorsOnly $true
 ```
 Sortie :
@@ -201,7 +201,7 @@ HTTP/1.1 200 OK
 
 Pour un groupe contenant des erreurs liées aux licences, vous pouvez maintenant répertorier tous les utilisateurs affectés par ces erreurs. Un utilisateur peut aussi avoir des erreurs d’autres groupes. Toutefois, dans cet exemple, nous limitons les résultats uniquement aux erreurs pertinentes au groupe en question en cochant la propriété **ReferencedObjectId** de chaque entrée **IndirectLicenseError** sur l’utilisateur.
 
-```
+```powershell
 #a sample group with errors
 $groupId = '11151866-5419-4d93-9141-0603bbf78b42'
 
@@ -209,7 +209,7 @@ $groupId = '11151866-5419-4d93-9141-0603bbf78b42'
 Get-MsolGroupMember -All -GroupObjectId $groupId |
     #get full information about user objects
     Get-MsolUser -ObjectId {$_.ObjectId} |
-    #filter out users without license errors and users with licenense errors from other groups
+    #filter out users without license errors and users with license errors from other groups
     Where {$_.IndirectLicenseErrors -and $_.IndirectLicenseErrors.ReferencedObjectId -eq $groupId} |
     #display id, name and error detail. Note: we are filtering out license errors from other groups
     Select ObjectId, `
@@ -252,7 +252,7 @@ Le script suivant peut être utilisé pour répertorier tous les utilisateurs qu
 > [!NOTE]
 > Ce script énumère tous les utilisateurs dans le client, ce qui peut ne pas être optimal pour les locataires volumineux.
 
-```
+```powershell
 Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {   
     $user = $_;
     $user.IndirectLicenseErrors | % {
@@ -278,7 +278,7 @@ Drew Fogarty     f2af28fc-db0b-4909-873d-ddd2ab1fd58c 1ebd5028-6092-41d0-9668-12
 
 Voici une autre version du script qui effectue une recherche uniquement dans les groupes qui contiennent des erreurs de licence. Elle peut être davantage optimisée pour les scénarios où vous prévoyez d’avoir plusieurs groupes avec des problèmes.
 
-```
+```powershell
 $groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
     foreach ($groupId in $groupIds) {
     Get-MsolGroupMember -All -GroupObjectId $groupId.ObjectID |
@@ -296,7 +296,7 @@ $groupIds = Get-MsolGroup -HasLicenseErrorsOnly $true
 Pour un objet utilisateur, il est possible de vérifier si une licence de produit spécifique est affectée à partir d’un groupe ou si elle est directement affectée.
 
 Les deux exemples de fonctions ci-dessous peuvent être utilisés pour analyser le type d’affectation sur un utilisateur individuel :
-```
+```powershell
 #Returns TRUE if the user has the license assigned directly
 function UserHasLicenseAssignedDirectly
 {
@@ -358,7 +358,7 @@ function UserHasLicenseAssignedFromGroup
 ```
 
 Ce script exécute ces fonctions sur chaque utilisateur dans le locataire, à l’aide de l’ID de référence SKU en tant qu’entrée : dans cet exemple, nous nous intéressons à la licence pour *Enterprise Mobility + Security*, qui, dans notre locataire, est représentée par l’ID *contoso:EMS*:
-```
+```powershell
 #the license SKU we are interested in. use Msol-GetAccountSku to see a list of all identifiers in your tenant
 $skuId = "contoso:EMS"
 
@@ -436,7 +436,7 @@ L’objectif de ce script consiste à supprimer les licences directes inutiles d
 > [!NOTE]
 > Il est important de commencer par confirmer que les licences directes à supprimer n’activent pas davantage de fonctionnalités de service que les licences héritées. Dans le cas contraire, la suppression de la licence directe peut désactiver l’accès aux services et données pour les utilisateurs. Actuellement, il n’est pas possible de vérifier avec PowerShell les services qui sont activés par licence héritée et ceux qui le sont pas licence directe. Dans le script, nous allons spécifier le niveau minimal de services dont nous savons qu’ils héritent de groupes, puis effectuer une vérification pour avoir la certitude que les utilisateurs ne risquent pas de perdre accidentellement l’accès aux services.
 
-```
+```powershell
 #BEGIN: Helper functions used by the script
 
 #Returns TRUE if the user has the license assigned directly

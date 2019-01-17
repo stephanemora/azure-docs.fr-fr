@@ -8,14 +8,14 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.openlocfilehash: 88880fbfe0f6020a0a982c42b6df0e9eb71b2fc9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: fa0883c18e0d586e6e9b35fb19dbe304388045b5
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550327"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215284"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutoriel : Copier des données vers le stockage Blob Azure Data Box par le biais des API REST  
+# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutoriel : Copier des données vers le stockage Blob Azure Data Box par le biais des API REST  
 
 Ce tutoriel explique comment se connecter au stockage Blob Azure Data Box par le biais des API REST sur *http* ou *https*. Une fois connecté, les étapes nécessaires pour copier les données dans le stockage Blob Data Box et préparer la Data Box pour l’expédition sont également décrites.
 
@@ -138,13 +138,13 @@ Une fois que vous êtes connecté au stockage Blob Data Box, l’étape suivante
 Dans ce tutoriel, nous utilisons AzCopy pour copier des données vers le stockage Blob Data Box. Vous pouvez également utiliser l’Explorateur Stockage Azure (si vous préférez un outil basé sur une interface graphique utilisateur) ou un logiciel de partenaire pour copier les données.
 La procédure de copie nécessite les étapes suivantes :
 
-- Créer un conteneur
+- Créez un conteneur.
 - Charger le contenu d’un dossier dans le Stockage Blob Data Box
 - Charger les fichiers modifiés dans le Stockage Blob Data Box
 
 Chacune de ces étapes est décrite en détail dans les sections suivantes.
 
-### <a name="create-a-container"></a>Créer un conteneur
+### <a name="create-a-container"></a>Créez un conteneur.
 
 La première étape consiste à créer un conteneur, car les objets blob sont toujours chargés dans un conteneur. Les conteneurs organisent des groupes d’objets blob comme des fichiers dans des dossiers sur votre ordinateur. Pour créer un conteneur d’objets blob, effectuez les étapes suivantes :
 
@@ -154,7 +154,7 @@ La première étape consiste à créer un conteneur, car les objets blob sont to
 
    ![Création de conteneurs d’objets blob - Menu contextuel](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
-4. Une zone de texte apparaît sous le dossier **Conteneurs d’objets blob**. Entrez le nom de votre conteneur d’objets blob. Pour obtenir des informations sur les règles et restrictions applicables aux noms de conteneurs d’objets blob, consultez [Créer le conteneur et définir les autorisations](/articles/storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions).
+4. Une zone de texte apparaît sous le dossier **Conteneurs d’objets blob**. Entrez le nom de votre conteneur d’objets blob. Pour obtenir des informations sur les règles et restrictions applicables aux noms de conteneurs d’objets blob, consultez [Créer le conteneur et définir les autorisations](../storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions).
 5. Appuyez sur **Entrée** pour créer le conteneur d’objets blob, ou sur **ÉCHAP** pour annuler. Une fois le conteneur créé, il apparaît sous le dossier **Conteneurs d’objets blob** correspondant au compte de stockage sélectionné.
 
    ![Conteneur d’objets blob créé](media/data-box-deploy-copy-data-via-rest/create-blob-container-2.png)

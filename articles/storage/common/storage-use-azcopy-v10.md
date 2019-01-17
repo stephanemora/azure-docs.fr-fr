@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.component: common
-ms.openlocfilehash: af45081df280f5542b5ba70892ee74c05b3e99cc
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 2d0f3292a12505249ebc8594c58234a0c6e81a8a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808111"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212496"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>Transférer des données avec AzCopy v10 (préversion)
 
@@ -55,7 +55,7 @@ AzCopy v10 ne nécessite pas d’installation. Ouvrez l’application de ligne d
 
 AzCopy v10 vous permet d’utiliser les options suivantes pour l’authentification auprès de Stockage Azure :
 - **Azure Active Directory [pris en charge sur les objets Blob et ADLS Gen2]**. Utilisez ```.\azcopy login``` pour vous connecter à l’aide d’Azure Active Directory.  L’utilisateur doit disposer du [rôle « Contributeur aux données Blob du stockage »](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) pour écrire dans Stockage Blob à l’aide de l’authentification Azure Active Directory.
-- **Jetons SAS [pris en charge sur les objets Blob et ADLS Gen2]**. Ajoutez le jeton SAS au chemin d’accès de l’objet blob sur la ligne de commande pour pouvoir l’utiliser. Vous pouvez générer un jeton SAP à l’aide du portail Azure, de [l’Explorateur Stockage](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), de [PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStorageblobsastoken) ou d’autres outils de votre choix. Pour plus d’informations, consultez les [exemples](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+- **Jetons SAS [pris en charge sur les objets Blob et ADLS Gen2]**. Ajoutez le jeton SAS au chemin d’accès de l’objet blob sur la ligne de commande pour pouvoir l’utiliser. Vous pouvez générer un jeton SAP à l’aide du portail Azure, de [l’Explorateur Stockage](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), de [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) ou d’autres outils de votre choix. Pour plus d’informations, consultez les [exemples](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 ## <a name="getting-started"></a>Prise en main
 
