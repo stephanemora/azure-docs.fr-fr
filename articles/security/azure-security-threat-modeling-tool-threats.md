@@ -3,9 +3,9 @@ title: Menaces - Outil Microsoft de modélisation des menaces - Azure | Document
 description: Page de catégories des menaces pour l’outil Microsoft de modélisation des menaces, contenant les catégories de toutes les menaces générées exposées.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 704f9995828866d4d2e4969e3aa922ed1e23c4ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fd7c5fd929163dc7fcd22fbb045dee0fe3070394
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23043304"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359032"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Menaces de l’outil Microsoft de modélisation des menaces
 
 L’outil de modélisation des menaces est un élément essentiel de Microsoft Security Development Lifecycle (SDL). Il permet aux architectes logiciels d’identifier et de corriger les problèmes de sécurité potentiels au plus tôt, lorsqu’ils sont relativement simples et peu coûteux à résoudre. Par conséquent, il réduit considérablement le coût total de développement. En outre, nous avons conçu cet outil en pensant aux personnes qui ne sont pas expertes en sécurité et nous avons facilité la modélisation des menaces pour tous les développeurs en fournissant des conseils éclairés sur la création et l’analyse des modèles de menace.
 
-> Visitez  **[l’outil de modélisation des menaces](./azure-security-threat-modeling-tool.md)**  pour démarrer dès aujourd'hui !
+> Visitez **[l’outil de modélisation des menaces](./azure-security-threat-modeling-tool.md)** pour démarrer dès aujourd'hui !
 
 L’outil de modélisation des menaces vous aide à répondre à certaines questions, par exemple :
 
@@ -48,4 +48,4 @@ Pour vous aider à formuler ces questions spécifiques, Microsoft utilise le mod
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Reportez-vous à  **[Atténuations de l’outil de modélisation des menaces](./azure-security-threat-modeling-tool-mitigations.md)**  pour découvrir les différentes méthodes pour atténuer ces menaces avec Azure.
+Reportez-vous à **[Atténuations de l’outil de modélisation des menaces](./azure-security-threat-modeling-tool-mitigations.md)** pour découvrir les différentes méthodes pour atténuer ces menaces avec Azure.

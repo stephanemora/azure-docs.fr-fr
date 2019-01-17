@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 842a9354cf20648393c3262736c0a1e9654a3c70
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f7d5fcf1905200bc214a3ff42db9b7b511768dd0
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628338"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214893"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gestion du stockage dans les clouds indépendants Azure avec PowerShell
 
@@ -37,7 +37,7 @@ Ces exemples nécessitent le module Az Azure PowerShell version 0.7 ou ultérie
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Exécutez l’applet de commande [Get-AzEnvironment](/powershell/module/az.profile/get-Azenvironment) pour voir les environnements Azure disponibles :
+Exécutez l’applet de commande [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) pour voir les environnements Azure disponibles :
    
 ```powershell
 Get-AzEnvironment
@@ -71,7 +71,7 @@ Le suffixe de point de terminaison pour chacun de ces environnements est différ
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>Obtenir le point de terminaison avec Get-AzEnvironment 
 
-Récupérez le suffixe de point de terminaison à l’aide de [Get-AzEnvironment](/powershell/module/az.profile/get-azenvironment). Le point de terminaison est la propriété *StorageEndpointSuffix* de l’environnement. Les extraits de code suivants montrent comment effectuer cette opération. Toutes ces commandes retournent des valeurs similaires à « core.cloudapp.net» ou « core.cloudapi.de», etc. Ajoutez ce suffixe au service de stockage pour accéder à ce dernier. Par exemple, « queue.core.cloudapi.de » accède au service de file d’attente du cloud allemand.
+Récupérez le suffixe de point de terminaison à l’aide de [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment). Le point de terminaison est la propriété *StorageEndpointSuffix* de l’environnement. Les extraits de code suivants montrent comment effectuer cette opération. Toutes ces commandes retournent des valeurs similaires à « core.cloudapp.net» ou « core.cloudapi.de», etc. Ajoutez ce suffixe au service de stockage pour accéder à ce dernier. Par exemple, « queue.core.cloudapi.de » accède au service de file d’attente du cloud allemand.
 
 L’extrait de code suivant récupère tous les environnements et le suffixe de point de terminaison pour chacun d’eux.
 

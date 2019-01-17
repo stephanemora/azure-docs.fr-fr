@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/10/2018
-ms.openlocfilehash: 3760e2a5ccae1d21574412ec223cade03bebda1e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/15/2019
+ms.openlocfilehash: 49c9d908970425165fcdd76171c20ab65454f42a
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548926"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318576"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Niveaux tarifaires d’Azure Database pour PostgreSQL
 
@@ -53,14 +53,14 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 | USA Centre Sud | X | X |
 | USA Ouest | X | X |
 | USA Ouest 2 |  | X |
+| Brésil Sud | X | X |
 | Centre du Canada | X | X |
 | Est du Canada | X | X |
-| Brésil Sud | X | X |
 | Europe Nord | X | X |
 | Europe Ouest |  | X |
 | France Centre |  | X |
-| Ouest du Royaume-Uni |  | X |
 | Sud du Royaume-Uni |  | X |
+| Ouest du Royaume-Uni |  | X |
 | Asie Est | X | X |
 | Asie Sud-Est | X | X |
 | Australie Est |  | X |
@@ -68,17 +68,22 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 | Centre de l’Australie 2 |  | X |
 | Australie Sud-Est |  | X |
 | Inde Centre | X | X |
-| Inde Ouest | X | X |
 | Inde Sud |  | X |
+| Inde Ouest | X | X |
 | Japon Est | X | X |
 | Japon Ouest | X | X |
 | Centre de la Corée |  | X |
 | Corée du Sud |  | X |
+| Chine Est 1 | X |  |
+| Chine orientale 2 |  | X |
+| Chine Nord 1 | X |  |
+| Chine Nord 2 |  | X |
 | Centre de l’Allemagne |  | X |
 | Centre des États-Unis – US DoD  | X |  |
 | Est des États-Unis – US DoD  | X |  |
 | Gouvernement des États-Unis – Arizona |  | X |
 | Gouvernement des États-Unis – Texas |  | X |
+| Gouvernement américain - Virginie |  | X |
 
 ## <a name="storage"></a>Stockage
 

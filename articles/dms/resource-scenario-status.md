@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/08/2019
-ms.openlocfilehash: 9e153cca321e94233cfda2a03cf52ba85a0f6b02
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.date: 01/15/2019
+ms.openlocfilehash: e9f1b1a3df92c08b913a56aadc8eb8a9e80c7fdf
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102803"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320053"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>État des scénarios de migration pris en charge par Azure Database Migration Service
 Azure Database Migration Service est conçu pour prendre en charge plusieurs scénarios de migration (paires source/cible), aussi bien pour le mode hors connexion (migration ponctuelle) que le mode en ligne (synchronisation continue). Azure Database Migration Service couvre de plus en plus de scénarios au fil du temps. De nouveaux scénarios sont régulièrement ajoutés. Cet article identifie les scénarios de migration qui sont actuellement pris en charge par Azure Database Migration Service et l’état de chaque scénario (préversion privée [ou limitée], préversion publique ou disposition générale).
@@ -45,10 +45,10 @@ Le tableau suivant présente la prise en charge d’Azure Database Migration Ser
 | **Base de données Azure SQL MI**  | SQL Server  | ✔ |
 |   | RDS SQL  | ✔ |
 |   | Oracle  | ✔  |
-| **Machine virtuelle Azure SQL**  | SQL Server  | ✔ |
+| **Machine virtuelle Azure SQL**  | SQL Server | ✔ |
 |   | Oracle  |   |
-| **Cosmos DB**  | MongoDB  | ✔ |
-| **Base de données Azure pour MySQL**  | MySLQ  |  |
+| **Cosmos DB**  | MongoDB | ✔ |
+| **Base de données Azure pour MySQL**  | MySQL |  |
 |   | RDS MySQL  |  |
 | **Base de données Azure pour PostgresSQL**  | PostgreSQL |  |
 |  | RDS PostgreSQL  |  |
@@ -67,7 +67,7 @@ Le tableau suivant présente la prise en charge d’Azure Database Migration Ser
 | **Machine virtuelle Azure SQL**  | SQL Server  |   |
 |   | Oracle  | ✔  |
 | **Cosmos DB**  | MongoDB  | ✔ |
-| **Base de données Azure pour MySQL**  | MySLQ  | ✔ |
+| **Base de données Azure pour MySQL**  | MySQL | ✔ |
 |   | RDS MySQL  | ✔ |
 | **Base de données Azure pour PostgresSQL**  | PostgreSQL | ✔ |
 |  | RDS PostgreSQL  | ✔ |

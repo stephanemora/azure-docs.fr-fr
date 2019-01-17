@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 30f20e2671b4428f08c38eeb93ec90f0b745eea6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 58486ab821b6b01f531f62445a9d4ade1336569a
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819115"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332011"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configuration des journaux des flux de groupe de sécurité réseau avec l’API REST
 
@@ -32,7 +32,7 @@ ms.locfileid: "51819115"
 Les journaux des flux de groupe de sécurité réseau désignent une fonctionnalité de Network Watcher qui vous permet de visualiser des informations sur le trafic IP d’entrée et de sortie par le biais d’un groupe de sécurité réseau. Ces flux de journaux sont écrits au format json et affichent les flux entrants et sortants en fonction de la règle, la carte réseau à laquelle le flux s’applique, des informations à 5 tuples sur le flux (adresse IP source/de destination, port source/de destination, protocole), ainsi que l’autorisation ou le refus du trafic.
 
 > [!NOTE] 
-> Les journaux de flux version 2 sont disponibles dans la région USA Centre-Ouest. La configuration est disponible via le portail Azure et l’API REST. Si vous activez les journaux version 2 dans une région non prise en charge, des journaux version 1 sont générés dans votre compte de stockage.
+> Les journaux de flux version 2 sont disponibles dans la région USA Centre-Ouest. Si vous activez les journaux version 2 dans une région non prise en charge, des journaux version 1 sont générés dans votre compte de stockage.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

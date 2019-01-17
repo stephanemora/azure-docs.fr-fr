@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 3c7b855588b45cd61bb13848720d6e926bbecba4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d17b1b754afc5067a885025dba83cd0fba2370d5
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121105"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214570"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configuration du kit de développement logiciel (SDK) Application Insights à l’aide du fichier ApplicationInsights.config ou .xml
 Le kit de développement logiciel (SDK) .NET Application Insights se compose d’un certain nombre de packages NuGet. Le [package principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights) fournit l'API pour l'envoi des données télémétriques à Application Insights. Des [packages supplémentaires](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fournissent les *modules* et les *initialiseurs* de télémétrie pour le suivi télémétrique automatique de votre application et de son contexte. La modification du fichier de configuration permet d’activer ou de désactiver les modules et initialiseurs de télémétrie, et de définir les paramètres pour certains d’entre eux.
@@ -233,7 +233,7 @@ Détermine la taille maximale en Mo allouée au stockage persistant sur le disqu
 
 #### <a name="local-forwarder"></a>Redirecteur local
 
-[Redirecteur local](https://docs.microsoft.com/azure/application-insights/opencensus-local-forwarder) est un agent qui collecte des données de télémétrie Application Insights ou [OpenCensus](https://opencensus.io/) sur une variété de kits de développement logiciel (SDK) et d’infrastructures, et les achemine vers Application Insights. Il peut être exécuté sous Windows et Linux. Lorsqu’il est associé avec le kit SDK Java Application Insights, le redirecteur local fournit une prise en charge complète pour les [métriques en temps réel](../../azure-monitor/app/live-stream.md) et l’échantillonnage adaptatif.
+[Redirecteur local](opencensus-local-forwarder.md) est un agent qui collecte des données de télémétrie Application Insights ou [OpenCensus](https://opencensus.io/) sur une variété de kits de développement logiciel (SDK) et d’infrastructures, et les achemine vers Application Insights. Il peut être exécuté sous Windows et Linux. Lorsqu’il est associé avec le kit SDK Java Application Insights, le redirecteur local fournit une prise en charge complète pour les [métriques en temps réel](../../azure-monitor/app/live-stream.md) et l’échantillonnage adaptatif.
 
 ```xml
 <Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">

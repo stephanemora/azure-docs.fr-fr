@@ -12,12 +12,12 @@ ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e9a4c6355c60b18bb78aae362c1e2f142e2d864
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c1ebcae04b51fbf18da22872e3e4160a37a7e2fe
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407998"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201157"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Stocker l’entrée et la sortie de travail Batch AI avec Stockage Azure
 
@@ -79,7 +79,7 @@ Pour monter un volume Stockage Azure sur un travail créé avec Azure CLI, utili
 - < FILE_SHARE_NAME > : le nom du partage de fichiers
 - <BLOB_CONTAINER_NAME> : le nom du conteneur d’objets blob
 
-Pour monter des volumes Stockage Azure avec les Kits de développement logiciel (SDK) Azure Batch AI, définissez la propriété `mount_volumes` (Python) ou `MountVolumes` (C#, Java) sur `JobCreateParameters`. Vous devez fournir les informations d’identification du compte de stockage lors du montage de volumes avec des Kits de développement logiciel (SDK) Azure Batch AI. Consultez les schémas de montage de volumes dans [Python](https://docs.microsoft.com/python/api/azure-mgmt-batchai/azure.mgmt.batchai.models.MountVolumes?view=azure-python), [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.batchai.models.mountvolumes?view=azure-dotnet) et [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.batchai._mount_volumes?view=azure-java-stable).
+Pour monter des volumes Stockage Azure avec les Kits de développement logiciel (SDK) Azure Batch AI, définissez la propriété `mount_volumes` (Python) ou `MountVolumes` (C#, Java) sur `JobCreateParameters`. Vous devez fournir les informations d’identification du compte de stockage lors du montage de volumes avec des Kits de développement logiciel (SDK) Azure Batch AI. Consultez les schémas de montage de volumes dans [Python](https://docs.microsoft.com/python/api/azure-mgmt-batchai/azure.mgmt.batchai.models.MountVolumes?view=azure-python), [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.batchai.models.mountvolumes?view=azure-dotnet) et [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.batchai.mountvolumes?view=azure-java-stable).
 
 ### <a name="mount-volumes-to-a-cluster"></a>Monter des volumes sur un cluster
 

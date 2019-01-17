@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: f4456200d6f497a87424f12a23034dbff00c75aa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d9c428e3fa8d9fe964b83ae345bb70fd49a6ce1a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26373939"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215301"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Utiliser des scripts basés sur le kit de développement logiciel (SDK) Azure Resource Manager pour gérer les appareils StorSimple
 
@@ -57,13 +57,13 @@ Les exemples de scripts suivants sont disponibles pour automatiser divers travau
 
 Cette section utilise un exemple de script et décrit en détail les différentes étapes requises pour exécuter ce script.
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous de satisfaire les exigences suivantes :
 
 *   Azure PowerShell installé. Pour installer les modules Azure PowerShell :
     * Dans un environnement Windows, suivez les étapes décrites dans [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) (Installer et configurer Azure PowerShell). Vous pouvez installer Azure PowerShell sur votre hôte Windows Server pour votre StorSimple si vous utilisez un.
-    * Dans un environnement Linux ou MacOS, suivez les étapes décrites dans [Install and configure Azure PowerShell on macOS and Linux](https://docs.microsoft.com/powershell/azure/install-azurermps-maclinux?view=azurermps-4.4.0) (Installer et configurer Azure PowerShell sur MacOS ou Linux).
+    * Dans un environnement Linux ou MacOS, suivez les étapes décrites dans [Install and configure Azure PowerShell on macOS and Linux](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux?view=azurermps-4.4.0) (Installer et configurer Azure PowerShell sur MacOS ou Linux).
 
 Pour plus d’informations sur l’utilisation d’Azure PowerShell, consultez [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.4.0) (Prise en main d’Azure PowerShell).
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 12/20/2018
+ms.date: 01/10/2019
 ms.author: rolyon
-ms.openlocfilehash: 859d81239cfad9eb5396a30f5db316bc73285831
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 341565bf621fa63ad578489cd04bcfff3510265b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188422"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229470"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux. Cette présentation permet de garantir que les utilisateurs voient les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité. Cet article vous indique comment prendre en main les conditions d’utilisation.
@@ -87,9 +87,7 @@ Après avoir finalisé le document relatif à vos conditions d’utilisation, ef
 
 1. Pour demander aux utilisateurs finaux d’afficher les conditions d’utilisation avant de les accepter, définissez **Demander aux utilisateurs d’étendre les conditions d’utilisation** avec la valeur **Activé**.
 
-1. Pour demander aux utilisateurs finaux d’accepter vos conditions d’utilisation sur chaque appareil à partir duquel l’accès leur est octroyé, définissez **Demander le consentement des utilisateurs sur chaque appareil** avec la valeur **Activé**.
-
-    Si le paramètre **Demander le consentement des utilisateurs sur chaque appareil** n’apparaît pas, c’est que cette fonctionnalité n’a pas encore été déployée dans votre région. Elle devrait être entièrement déployée début janvier 2019. Pour plus d’informations, consultez [Conditions d’utilisation par appareil](#per-device-terms-of-use).
+1. Pour demander aux utilisateurs finaux d’accepter vos conditions d’utilisation sur chaque appareil à partir duquel l’accès leur est octroyé, définissez **Demander le consentement des utilisateurs sur chaque appareil** avec la valeur **Activé**. Pour plus d’informations, consultez [Conditions d’utilisation par appareil](#per-device-terms-of-use).
 
 1. Si vous voulez faire expirer les consentements pour les conditions d’utilisation selon une planification, définissez **Faire expirer les consentements** avec la valeur **Activé**. Si la valeur Activé est définie, deux paramètres de planification supplémentaires sont affichés.
 
@@ -253,9 +251,6 @@ La procédure suivante explique comment ajouter une langue aux conditions d’ut
 ## <a name="per-device-terms-of-use"></a>Conditions d’utilisation par appareil
 
 Le paramètre **Demander le consentement des utilisateurs sur chaque appareil** vous permet de demander aux utilisateurs finaux d’accepter vos conditions d’utilisation sur chaque appareil à partir duquel l’accès leur est octroyé. L’utilisateur final doit joindre son appareil dans Azure AD. Quand l’appareil est joint, l’ID d’appareil est utilisé pour appliquer les conditions d’utilisation sur chaque appareil.
-
-> [!NOTE]
-> Si le paramètre **Demander le consentement des utilisateurs sur chaque appareil** n’apparaît pas lors de la création de conditions d’utilisation, c’est que cette fonctionnalité n’a pas encore été déployée dans votre région. Elle devrait être entièrement déployée début janvier 2019.
 
 Voici une liste des plateformes et des logiciels pris en charge.
 
