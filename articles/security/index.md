@@ -10,14 +10,14 @@ ms.service: security
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 03/30/2018
+ms.date: 01/15/2019
 ms.author: angrobe
-ms.openlocfilehash: 98cb089baa759b6569d1e1e06c90022eb75f5355
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4d260a870bca3218b1c17c28ddf132ca10f3f4fb
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228111"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359746"
 ---
 # <a name="azure-security-documentation"></a>Documentation sur la sécurité Azure
 
@@ -162,7 +162,7 @@ La sécurité fait partie intégrante d’Azure. Azure vous offre des avantages 
     </li>
 </ul>
 
-<ul class="cardsL panelContent singlePanelContent" style="display:flex!important;"> 
+<ul class="cardsL panelContent singlePanelContent" style="display:flex!important;">
     <li style="list-style: none;">
         <div class="cardSize">
             <div class="cardPadding">
@@ -181,7 +181,7 @@ La sécurité fait partie intégrante d’Azure. Azure vous offre des avantages 
                                 <a class="barLink" href="/azure/security/abstract-azure-network-security">Sécurité du réseau Azure</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/abstract-container-security-microsoft-azure">Sécurité du conteneur dans Microsoft Azure</a>
+                                <a class="barLink" href="/azure/security/abstract-develop-secure-apps">Développer des applications sécurisées sur Azure</a>
                             </li>
                         </ul>
                     </div>
@@ -195,7 +195,7 @@ La sécurité fait partie intégrante d’Azure. Azure vous offre des avantages 
                 <div class="card">
                     <div class="cardText">
                         <div class="ico64Link"><img src="https://docs.microsoft.com/media/common/i_guidelines.svg" alt="" /></div>
-                        <h3>Meilleures pratiques</h3>
+                        <h3>Bonnes pratiques</h3>
                         <ul class="noBullet">
                             <li style="list-style: none;">
                                 <a class="barLink" href="https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/">Meilleures pratiques en matière de sécurité pour Azure</a>
