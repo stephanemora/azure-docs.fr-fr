@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer un environnement Azure Time Series Insights | Microsoft Docs'
+title: 'Tutoriel : Créer un environnement Azure Time Series Insights | Microsoft Docs'
 description: Découvrez comment créer un environnement Time Series Insights, contenant des données issues d’appareils simulés.
 services: time-series-insights
 author: ashannon7
@@ -9,12 +9,12 @@ ms.date: 12/05/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: c2aeab6888cf93be75742028b0354c45a1834d51
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 58b19a039bb6aebcd2687ab80cdd29c5f378645e
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537280"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200205"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Tutoriel : Créer un environnement Azure Time Series Insights
 
@@ -41,7 +41,7 @@ Votre compte de connexion Azure doit également être membre du rôle Propriéta
 
 ## <a name="overview"></a>Vue d’ensemble
 
-L’environnement TSI désigne l’endroit où les données de l’appareil sont collectées et stockées. Une fois stockées dans l’environnement TSI, vous pouvez utiliser l’[Explorateur TSI](time-series-quickstart.md) et [l’API de requête TSI](/rest/api/time-series-insights/time-series-insights-reference-queryapi) pour interroger et analyser les données.
+L’environnement TSI désigne l’endroit où les données de l’appareil sont collectées et stockées. Une fois stockées dans l’environnement TSI, vous pouvez utiliser l’[Explorateur TSI](time-series-quickstart.md) et [l’API de requête TSI](/rest/api/time-series-insights/ga-query-api) pour interroger et analyser les données.
 
 Comme tous les appareils, qu’ils soient simulés ou physiques, IoT Hub est le point de connexion utilisé par les appareils pour se connecter en toute sécurité et transmettre des données au cloud Azure. Comme indiqué dans la [Vue d’ensemble de TSI](time-series-insights-overview.md), IoT Hub sert également de source d’événement, pour la transmission en continu des données vers l’environnement TSI. 
 
