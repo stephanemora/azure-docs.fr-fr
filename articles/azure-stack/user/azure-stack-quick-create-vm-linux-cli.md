@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 6fa68fcc4732241b30609f476a09643e458065db
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: fdf9ecd9b6133f05c1b2bda9c32d763d067a0243
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377358"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304582"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Démarrage rapide : créer une machine virtuelle serveur Linux à l’aide d’Azure CLI dans Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Vous pouvez créer une machine virtuelle sous Ubuntu Server 16.04 LTS à l’aide de Azure CLI. Suivez les étapes décrites dans cet article pour créer et utiliser une machine virtuelle. Cet article vous présente également les étapes pour :
 
@@ -107,7 +107,7 @@ Avec NGINX installé et le port 80 ouvert sur votre machine virtuelle, vous pouv
 
 ![Page d’accueil du serveur web NGINX](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Nettoyez les ressources dont vous n’avez plus besoin. Vous pouvez utiliser la commande [az groupe delete](/cli/azure/group#az-group-delete) pour supprimer ces ressources. Pour supprimer le groupe de ressources et toutes ses ressources, exécutez la commande suivante :
 

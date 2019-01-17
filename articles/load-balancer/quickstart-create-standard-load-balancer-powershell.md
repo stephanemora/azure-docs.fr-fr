@@ -5,6 +5,7 @@ description: Ce démarrage rapide montre comment créer un Standard Load Balance
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: ''
 ms.service: load-balancer
@@ -15,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/22/2018
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 0db575ee6c04c0fb4639ea2e9e095200da781fe8
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: b720e07b3da446d3b6fcb106e94e9cc36128bb8c
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256313"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230643"
 ---
 # <a name="get-started"></a>Démarrage rapide : Créer un Standard Load Balancer à l’aide d’Azure PowerShell
 Ce démarrage rapide vous montre comment créer un Standard Load Balancer à l’aide d’Azure PowerShell. Pour tester l’équilibreur de charge, vous déployez deux machines virtuelles exécutant un serveur Windows, puis vous équilibrez la charge d’une application web entre les machines virtuelles. Pour plus d’informations sur l’équilibreur de charge standard, consultez [Qu’st-ce que Standard Load Balancer](load-balancer-standard-overview.md).

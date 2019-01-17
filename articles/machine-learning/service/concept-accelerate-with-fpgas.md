@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 10/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: bc08025f070fb31d83fed26bfec00cec11cee061
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3aa98026d7293f1486f5450cc9ab17057807c031
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313630"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306115"
 ---
 # <a name="what-are-fpgas-and-project-brainwave"></a>Que sont FPGA et Project Brainwave ?
 
@@ -39,7 +39,7 @@ Le diagramme et le tableau qui suivent comparent les FPGA et les autres processe
 
 ## <a name="project-brainwave-on-azure"></a>Project Brainwave sur Azure
 
-[Projet Brainwave](https://www.microsoft.com/research/project/project-brainwave/) est une architecture matérielle de Microsoft. Elle est basée sur les FPGA d’Intel, que les scientifiques des données et les développeurs utilisent pour accélérer les calculs d’intelligence artificielle en temps réel. Cette architecture compatible avec les FPGA offre performances, flexibilité et scalabilité, et est disponible sur Azure.
+[Projet Brainwave](https://www.microsoft.com/en-us/research/project/project-brainwave/) est une architecture matérielle de Microsoft. Elle est basée sur les FPGA d’Intel, que les scientifiques des données et les développeurs utilisent pour accélérer les calculs d’intelligence artificielle en temps réel. Cette architecture compatible avec les FPGA offre performances, flexibilité et scalabilité, et est disponible sur Azure.
 
 Les FPGA permettent d’obtenir une latence faible pour les requêtes d’inférence en temps réel. Les requêtes asynchrones (traitement par lot) ne sont pas nécessaires. Le traitement par lots peut entraîner une latence, car davantage de données doivent être traitées. Les implémentations par Projet Brainwave des unités de traitement neuronal ne nécessitent pas de traitement par lots. Ainsi, la latence peut être plusieurs fois inférieure à celle des UC et des GPU.
 

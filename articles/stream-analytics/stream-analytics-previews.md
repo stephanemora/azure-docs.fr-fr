@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.openlocfilehash: 9b721ab614bf1797604fe342de117c78ba703f96
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 01/10/2019
+ms.openlocfilehash: c84b814ddc06c583fc2f07288c7aa5cd65cc70a0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557595"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232122"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Fonctionnalités d’évaluation Azure Stream Analytics
 
@@ -26,10 +26,6 @@ Les fonctionnalités suivantes sont disponibles en préversion publique. Vous po
 ### <a name="integration-with-azure-machine-learning"></a>Intégration à Azure Machine Learning
 
 Vous pouvez mettre à l’échelle les tâches Stream Analytics avec des fonctions Machine Learning (ML). Pour en savoir plus sur la façon dont vous pouvez utiliser les fonctions ML dans votre tâche Stream Analytics, consultez [Mettre à l’échelle votre travail Stream Analytics avec des fonctions Azure Machine Learning](stream-analytics-scale-with-machine-learning-functions.md). Découvrez un scénario concret avec [Analyse des sentiments à l’aide d’Azure Stream Analytics et Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-
-### <a name="session-windows"></a>Fenêtres de session
-
-Stream Analytics a une prise en charge native des fonctions de fenêtrage, permettant aux développeurs de créer des travaux de traitement de flux complexes avec un minimum d’effort. Les [fenêtres de session](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) regroupent les événements qui arrivent au même moment, en filtrant les périodes pendant lesquelles il n’existe aucune donnée. Pour en savoir plus sur les fonctions de fenêtrage, consultez [Présentation des fonctions de fenêtrage de Stream Analytics](stream-analytics-window-functions.md).
 
 ### <a name="blob-output-partitioning-by-custom-time"></a>Partitionnement de la sortie des objets blob par heure personnalisée
 

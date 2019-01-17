@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b8718e02bc0306db1ac8cd4f5b133ebdb17a4ec3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: fb0ad8efcd73b304ea5c68f0d3c45a38ce1b80e8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557279"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304905"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur
 
@@ -50,7 +50,7 @@ Vue d’ensemble :
 * Utiliser le service RESTful dans le parcours utilisateur
 * Envoyer les revendications d’entrée et lire celles-ci dans votre code
 * Valider le prénom de l’utilisateur
-* Renvoyer un numéro de fidélité 
+* Renvoyer un numéro de fidélité
 * Ajouter le numéro de fidélité à un jeton web JSON (JWT)
 
 ## <a name="prerequisites"></a>Prérequis
@@ -77,11 +77,11 @@ Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnal
 ## <a name="step-2-prepare-the-rest-api-endpoint"></a>Étape 2 : Préparer le point de terminaison de l’API REST
 
 ### <a name="step-21-add-data-models"></a>Étape 2.1 : Ajout de modèles de données
-Les modèles représentent les données des revendications d’entrée et de sortie dans votre service RESTful. Votre code lit les données d’entrée en désérialisant le modèle de revendications d’entrée à partir d’une chaîne JSON vers un objet C# (votre modèle). L’API web ASP.NET désérialise automatiquement le modèle de revendications de sortie dans JSON, puis écrit les données sérialisées dans le corps du message de réponse HTTP. 
+Les modèles représentent les données des revendications d’entrée et de sortie dans votre service RESTful. Votre code lit les données d’entrée en désérialisant le modèle de revendications d’entrée à partir d’une chaîne JSON vers un objet C# (votre modèle). L’API web ASP.NET désérialise automatiquement le modèle de revendications de sortie dans JSON, puis écrit les données sérialisées dans le corps du message de réponse HTTP.
 
 Créez un modèle qui représente les revendications d’entrée en effectuant les opérations suivantes :
 
-1. Si l’Explorateur de solutions n’est pas déjà ouvert, sélectionnez **Vue** > **Explorateur de solutions**. 
+1. Si l’Explorateur de solutions n’est pas déjà ouvert, sélectionnez **Vue** > **Explorateur de solutions**.
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier **Modèles**, sélectionnez **Ajouter**, puis **Classe**.
 
     ![Ajouter un modèle](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
@@ -128,7 +128,7 @@ Créez un modèle qui représente les revendications d’entrée en effectuant l
                 this.userMessage = message;
                 this.status = (int)status;
                 this.version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            }    
+            }
         }
     }
     ```
@@ -241,20 +241,20 @@ La revendication `loyaltyNumber` n’est définie pour l’instant dans notre sc
 </BuildingBlocks>
 ```
 
-## <a name="step-5-add-a-claims-provider"></a>Étape 5 : Ajout d’un fournisseur de revendications 
-Chaque fournisseur de revendications doit avoir un ou plusieurs profils techniques qui déterminent les points de terminaison et les protocoles nécessaires pour communiquer avec le fournisseur de revendications. 
+## <a name="step-5-add-a-claims-provider"></a>Étape 5 : Ajout d’un fournisseur de revendications
+Chaque fournisseur de revendications doit avoir un ou plusieurs profils techniques qui déterminent les points de terminaison et les protocoles nécessaires pour communiquer avec le fournisseur de revendications.
 
-Un fournisseur de revendications peut avoir plusieurs profils techniques pour diverses raisons. Par exemple, plusieurs profils techniques peuvent être définis, car le fournisseur de revendications prend en charge plusieurs protocoles, les points de terminaison peuvent avoir des fonctionnalités distinctes ou les publications peuvent contenir des revendications présentant de nombreux niveaux d’assurance. Il peut être acceptable de publier des revendications sensibles dans un parcours utilisateur, mais pas dans un autre. 
+Un fournisseur de revendications peut avoir plusieurs profils techniques pour diverses raisons. Par exemple, plusieurs profils techniques peuvent être définis, car le fournisseur de revendications prend en charge plusieurs protocoles, les points de terminaison peuvent avoir des fonctionnalités distinctes ou les publications peuvent contenir des revendications présentant de nombreux niveaux d’assurance. Il peut être acceptable de publier des revendications sensibles dans un parcours utilisateur, mais pas dans un autre.
 
 L’extrait de code XML suivant contient un nœud de fournisseur de revendications avec deux profils techniques :
 
-* **TechnicalProfile Id="REST-API-SignUp"**  : définit votre service RESTful. 
-   * `Proprietary` est décrit en tant que protocole pour un fournisseur basé sur RESTful. 
-   * `InputClaims` définit les revendications qui seront envoyées depuis Azure AD B2C vers le service REST. 
+* **TechnicalProfile Id="REST-API-SignUp"**  : définit votre service RESTful.
+   * `Proprietary` est décrit en tant que protocole pour un fournisseur basé sur RESTful.
+   * `InputClaims` définit les revendications qui seront envoyées depuis Azure AD B2C vers le service REST.
 
    Dans cet exemple, le contenu de la revendication `givenName` est envoyé au service REST en tant que `firstName`, le contenu de la revendication `surname` est envoyé au service REST en tant que `lastName` et `email` est envoyé tel quel. L’élément `OutputClaims` définit les revendications qui sont récupérées du service RESTful vers Azure AD B2C.
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**  : ajoute un profil technique de validation à un profil technique existant (défini dans la stratégie de base). Pendant le parcours d’inscription, le profil technique de validation appelle le profil technique précédent. Si le service RESTful retourne une erreur HTTP 409 (erreur de conflit), le message d’erreur est affiché à l’utilisateur. 
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**  : ajoute un profil technique de validation à un profil technique existant (défini dans la stratégie de base). Pendant le parcours d’inscription, le profil technique de validation appelle le profil technique précédent. Si le service RESTful retourne une erreur HTTP 409 (erreur de conflit), le message d’erreur est affiché à l’utilisateur.
 
 Recherchez le nœud `<ClaimsProviders>`, puis ajoutez l’extrait de code XML suivant sous le nœud `<ClaimsProviders>` :
 
@@ -329,7 +329,7 @@ Une fois que vous avez ajouté la nouvelle revendication, le code de partie de c
 
 2. Sélectionnez **Infrastructure d’expérience d’identité**.
 
-3. Ouvrez **Toutes les stratégies**. 
+3. Ouvrez **Toutes les stratégies**.
 
 4. Sélectionnez **Charger la stratégie**.
 
@@ -354,7 +354,7 @@ Une fois que vous avez ajouté la nouvelle revendication, le code de partie de c
 
     ![Tester votre stratégie](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
-4.  Dans la zone **Prénom**, tapez un nom (différent de « Test »).  
+4. Dans la zone **Prénom**, tapez un nom (différent de « Test »).  
     Azure AD B2C inscrit l’utilisateur, puis envoie un numéro de fidélité à votre application. Notez le numéro dans ce JWT.
 
 ```
@@ -381,7 +381,7 @@ Une fois que vous avez ajouté la nouvelle revendication, le code de partie de c
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(Facultatif) Télécharger les fichiers de stratégie et le code complets
 * Une fois que vous avez [pris en main les stratégies personnalisées](active-directory-b2c-get-started-custom.md), nous vous recommandons de créer votre scénario à l’aide de vos propres fichiers de stratégie personnalisée. Des [exemples de fichiers de stratégie](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw) sont à votre disposition pour référence.
 * Vous pouvez télécharger le code complet dans [Exemple de solution Visual Studio pour référence](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/).
-    
+
 ## <a name="next-steps"></a>Étapes suivantes
 * [Azure Active Directory B2C: Secure your RESTful services using HTTP basic authentication](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) (Azure Active Directory B2C : Sécuriser vos services RESTful à l’aide de l’authentification HTTP de base)
 * [Sécuriser votre API RESTful avec des certificats clients](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

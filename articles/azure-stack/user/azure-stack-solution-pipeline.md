@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 12f9ed6d5b5d4c8dc7e5b0b68a0a394749cc72bd
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.reviewer: anajod
+ms.openlocfilehash: 984f6713445b53429758d616945a6e64245b42bc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714608"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263218"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutoriel : Déployer des applications sur Azure et Azure Stack
 
@@ -360,7 +360,7 @@ La CI/CD hybride peut s’appliquer au code d’application et au code d’infra
 
 1. Connectez-vous à Azure DevOps Services à l’aide d’une organisation disposant des droits de création de pipeline de build.
 
-2. Accédez à la page **Build Web Applicaiton** (Créer une application web) du projet.
+2. Accédez à la page **Build Web Application** (Créer une application web) du projet.
 
 3. Dans **Arguments**, ajoutez le code **-r win10-x64**. Cette action est requise pour déclencher un déploiement autonome avec .NET Core.
 

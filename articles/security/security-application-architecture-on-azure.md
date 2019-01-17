@@ -12,30 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 01/14/2019
 ms.author: terrylan
-ms.openlocfilehash: 8ca9f0b75627e7ad366b3c02ec3126713a283ed2
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 4945978fdc27a298daf4de0604b894c53ba51dbe
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233733"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321411"
 ---
 # <a name="application-architecture-on-azure"></a>Architecture des applications sur Azure
 Pour sécuriser vos solutions cloud sur Microsoft Azure, vous devez disposer d’une base architecturale solide. Une bonne connaissance de l’architecture des services et des applications est bénéfique pour les architectes, les concepteurs et les responsables de l’implémentation. Ces connaissances fondamentales vous aident à comprendre tous les composants de vos solutions cloud, et facilitent l’intégration de la sécurité dans tous les aspects de votre conception et de votre implémentation.
 
 Les éléments suivants sont conçus pour vous aider dans vos recherches et conceptions architecturales :
 
-* Éléments d’infographie relatifs à l’architecture
 * Plans d’architecture
 * Jeu de symboles Cloud et Enterprise
 * Modèle 3D Blueprint Visio
-
-## <a name="architectural-infographics"></a>Éléments d’infographie relatifs à l’architecture
-Microsoft publie plusieurs affiches/éléments d’infographie relatifs à l’architecture. À savoir :
-
-* [Génération d’applications Cloud réalistes](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/)
-* [Mise à l’échelle des services Cloud](https://azure.microsoft.com/documentation/infographics/cloud-services/)
 
 ## <a name="architectural-blueprints"></a>Plans d’architecture
 Microsoft publie un ensemble de [plans d’architecture](https://aka.ms/azblueprints) de haut niveau qui montrent comment créer des types spécifiques de systèmes à l’aide des produits Microsoft.

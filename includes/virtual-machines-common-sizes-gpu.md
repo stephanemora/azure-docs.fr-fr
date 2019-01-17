@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: db37515926bf3872a1183467e0449035f7bf6097
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: fd37c0c118812bb3554b19fec9bf5ae3f33a2fdc
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122834"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54314097"
 ---
 Les tailles de machine virtuelle au GPU optimisé sont des machines virtuelles spécialisées disponibles avec des GPU NVIDIA uniques ou multiples. Ces tailles sont conçues pour des charges de travail de visualisation, mais également de calcul et d’affichage graphique intensifs. Cet article donne des informations sur le nombre et le type de GPU, de processeurs virtuels, de disques de données et de cartes réseau. Le débit de stockage et la bande passante réseau sont également inclus pour chacune des tailles de ce regroupement. 
 
@@ -108,9 +108,9 @@ Les machines virtuelles de la série NDv2 rejoignent la famille de processeurs g
 <br>
 
 
-| Taille              | CPU virtuels | GPU              | Mémoire  | Cartes réseau (max) | Bande passante taille du disque           | Bande passante disques de données (1 023 Go chacun) | Bande passante réseau maximale | 
-|-------------------|-------------|-------------------|--------|------------------|---------|------------|--------------------------|--------------------|--------------------------------|-----------------------------------------|-----------------------|------------|
-| Standard_ND40s_v2 | 40     | 8 V100 (NVlilnk) | 672 Gio | 8          | 1344 / 2948XIO temporaires | 32    | 24 000 Mbits/s             | 
+| Taille              | Processeurs virtuels | GPU              | Mémoire  | Cartes réseau (max) | Bande passante taille du disque           | Bande passante disques de données (1 023 Go chacun) | Bande passante réseau maximale | 
+|-------------------|------|------------------|---------|------------|--------------------------|--------------------------------|-----------------------|
+| Standard_ND40s_v2 | 40   | 8 V100 (NVlilnk) | 672 Gio | 8          | 1344 / 2948XIO temporaires | 32                             | 24 000 Mbits/s           |
 
 ## <a name="nd-series"></a>Série ND
 

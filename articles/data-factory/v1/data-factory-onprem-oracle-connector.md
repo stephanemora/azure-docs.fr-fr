@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ccf66da14bbbd4993f29da2e40d996cb564864e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: aa6f891cc68d19e638bb2b7281f4b332de26bd26
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024907"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332640"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copier des données vers ou à partir d’une instance locale d’Oracle à l’aide d’Azure Data Factory
 
@@ -73,7 +73,7 @@ Ce connecteur Oracle prend en charge deux versions de pilotes :
 
     Si vous sélectionnez **XCopy Installation** (Installation de XCopy), effectuez les étapes décrites dans le fichier readme.htm. Nous vous recommandons de sélectionner le programme d’installation qui comprend une interface utilisateur (et non le programme d’installation XCopy).
 
-    Après avoir installé le fournisseur, redémarrez le service hôte de la passerelle de gestion des données sur votre ordinateur, à l’aide de l’applet Services ou du Gestionnaire de configuration de la passerelle de gestion des données.  
+    Après avoir installé le fournisseur, redémarrez le service hôte de la passerelle de gestion des données sur votre ordinateur, à l’aide de l’applet Services ou du Gestionnaire de configuration de la passerelle de gestion des données.
 
 Si vous utilisez l’Assistant Copie pour créer le pipeline de copie, le type de pilote sera déterminé automatiquement. Le pilote Microsoft est utilisé par défaut, sauf si votre version de la passerelle est antérieure à la version 2.7, ou si vous sélectionnez Oracle en tant que récepteur.
 
@@ -87,12 +87,12 @@ Vous pouvez également utiliser les outils suivants pour créer un pipeline : le
 
 Que vous utilisiez des outils ou des API, effectuez les étapes suivantes pour créer un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur :
 
-1. Création d'une **fabrique de données**. Une fabrique de données peut contenir un ou plusieurs pipelines. 
+1. Création d'une **fabrique de données**. Une fabrique de données peut contenir un ou plusieurs pipelines.
 2. Création de **services liés** pour lier les magasins de données d’entrée et de sortie à votre fabrique de données. Par exemple, si vous copiez des données d’une base de données Oracle vers le Stockage Blob Azure, créez deux services liés pour lier votre base de données Oracle et votre compte de stockage Azure à votre fabrique de données. Pour les propriétés du service lié qui sont propres à Oracle, consultez [Propriétés du service lié](#linked-service-properties).
 3. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie. Dans l’exemple de l’étape précédente, vous créez un jeu de données pour spécifier la table de votre base de données Oracle qui doit contenir les données d’entrée. Créez un autre jeu de données pour spécifier le conteneur d’objets blob et le dossier qui contient les données copiées à partir de la base de données Oracle. Pour plus d’informations sur les propriétés de jeu de données qui sont propres à Oracle, consultez [Propriétés du jeu de données](#dataset-properties).
-4. Créez un **pipeline** comprenant une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. Dans l’exemple précédent, vous utilisez **OracleSource** comme source et **BlobSink** comme récepteur pour l’activité de copie. De la même façon, si vous copiez des données du Stockage Blob Azure vers une base de données Oracle, vous devez utiliser **BlobSource** et **OracleSink** dans l’activité de copie. Pour connaître les propriétés d’activité de copie qui sont propres à une base de données Oracle, consultez [Propriétés de l’activité de copie](#copy-activity-properties). Pour plus d’informations sur l’utilisation d’un magasin de données comme source ou comme récepteur, sélectionnez le lien de la section précédente correspondant à votre magasin de données. 
+4. Créez un **pipeline** comprenant une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie. Dans l’exemple précédent, vous utilisez **OracleSource** comme source et **BlobSink** comme récepteur pour l’activité de copie. De la même façon, si vous copiez des données du Stockage Blob Azure vers une base de données Oracle, vous devez utiliser **BlobSource** et **OracleSink** dans l’activité de copie. Pour connaître les propriétés d’activité de copie qui sont propres à une base de données Oracle, consultez [Propriétés de l’activité de copie](#copy-activity-properties). Pour plus d’informations sur l’utilisation d’un magasin de données comme source ou comme récepteur, sélectionnez le lien de la section précédente correspondant à votre magasin de données.
 
-Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées. Lorsque vous utilisez les outils ou API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory à l’aide du format JSON.  Pour obtenir des exemples comportant des définitions JSON d’entités Data Factory utilisées dans le but de copier des données vers ou à partir d’une base de données Oracle locale, consultez [Exemples JSON](#json-examples-for-copying-data-to-and-from-oracle-database).
+Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées. Lorsque vous utilisez les outils ou API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory à l’aide du format JSON. Pour obtenir des exemples comportant des définitions JSON d’entités Data Factory utilisées dans le but de copier des données vers ou à partir d’une base de données Oracle locale, consultez [Exemples JSON](#json-examples-for-copying-data-to-and-from-oracle-database).
 
 Les sections suivantes fournissent des informations sur les propriétés JSON qui sont utilisées pour définir les entités Data Factory.
 
@@ -136,8 +136,7 @@ Pour plus d’informations sur les formats autorisés, consultez [Fournisseur de
     "properties": {
         "type": "OnPremisesOracle",
         "typeProperties": {
-            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<host name>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<service ID>)));
-User Id=<user name>;Password=<password>;",
+            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<host name>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<service ID>))); User Id=<user name>;Password=<password>;",
             "gatewayName": "<gateway name>"
         }
     }
@@ -146,7 +145,7 @@ User Id=<user name>;Password=<password>;",
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). 
+Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md).
 
 Les sections d’un fichier JSON de jeu de données, comme la structure, la disponibilité et la stratégie, sont similaires pour tous les types de jeux de données (par exemple, Oracle, Stockage Blob Azure et Table de stockage Azure).
 
@@ -158,7 +157,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 
-Pour obtenir la liste complète des sections et des propriétés permettant de définir des activités, consultez [Création de pipelines](data-factory-create-pipelines.md). 
+Pour obtenir la liste complète des sections et des propriétés permettant de définir des activités, consultez [Création de pipelines](data-factory-create-pipelines.md).
 
 Les propriétés comme le nom, la description, les tables d’entrée et de sortie, et la stratégie, sont disponibles pour tous les types d’activités.
 
@@ -188,7 +187,7 @@ Dans le cas d’une activité de copie, quand la source est de type **OracleSour
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>Exemples JSON pour copier des données vers et à partir de la base de données Oracle
 
-Les exemples suivants présentent des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide [du Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données vers ou à partir d’une base de données Oracle ou du Stockage Blob Azure. Toutefois, il est possible de copier des données dans l’un des récepteurs répertoriés dans [Magasins et formats de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats), à l’aide de l’activité de copie dans Azure Data Factory.   
+Les exemples suivants présentent des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide [du Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données vers ou à partir d’une base de données Oracle ou du Stockage Blob Azure. Toutefois, il est possible de copier des données dans l’un des récepteurs répertoriés dans [Magasins et formats de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats), à l’aide de l’activité de copie dans Azure Data Factory.
 
 **Exemple : Copie de données d’Oracle vers Stockage Blob Azure**
 
@@ -254,12 +253,12 @@ Définition de **external** : la valeur **true** informe le service Data Factory
             "anchorDateTime": "2014-02-27T12:00:00",
             "frequency": "Hour"
         },
-        "policy": {     
-            "externalData": {        
-                "retryInterval": "00:01:00",    
-                "retryTimeout": "00:10:00",       
-                "maximumRetry": 3       
-            }     
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
         }
     }
 }
@@ -327,16 +326,16 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (**fréqu
 
 **Pipeline avec une activité de copie**
 
-Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d’entrée et de sortie, et qui est planifiée pour s’exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **OracleSource** et le type **sink** est défini sur **BlobSink**.  La requête SQL spécifiée pour la propriété **oracleReaderQuery** sélectionne les données de la dernière heure qui sont à copier.
+Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d’entrée et de sortie, et qui est planifiée pour s’exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **OracleSource** et le type **sink** est défini sur **BlobSink**. La requête SQL spécifiée pour la propriété **oracleReaderQuery** sélectionne les données de la dernière heure qui sont à copier.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-01T19:00:00",
         "description":"pipeline for a copy activity",
-        "activities":[  
+        "activities":[
             {
                 "name": "OracletoBlob",
                 "description": "copy activity",
@@ -378,7 +377,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 
 **Exemple : Copie de données de Stockage Blob Azure vers Oracle**
 
-Cet exemple indique comment copier des données d’un compte de stockage d’objets blob Azure vers une base de données Oracle locale. Toutefois, vous pouvez copier les données *directement* dans l’une des sources répertoriées dans [Magasins et formats de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats), à l’aide de l’activité de copie dans Azure Data Factory.  
+Cet exemple indique comment copier des données d’un compte de stockage d’objets blob Azure vers une base de données Oracle locale. Toutefois, vous pouvez copier les données *directement* dans l’une des sources répertoriées dans [Magasins et formats de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats), à l’aide de l’activité de copie dans Azure Data Factory.
 
 L’exemple contient les entités Data Factory suivantes :
 
@@ -503,16 +502,16 @@ L’exemple suppose que vous avez créé une table nommée **MyTable** dans Orac
 
 **Pipeline avec une activité de copie**
 
-Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d’entrée et de sortie, et qui est planifiée pour s’exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **BlobSource** et le type **sink** est défini sur **OracleSink**.  
+Le pipeline contient une activité de copie qui est configurée pour utiliser les jeux de données d’entrée et de sortie, et qui est planifiée pour s’exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **BlobSource** et le type **sink** est défini sur **OracleSink**.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-05T19:00:00",
         "description":"pipeline with a copy activity",
-        "activities":[  
+        "activities":[
             {
                 "name": "AzureBlobtoOracle",
                 "description": "Copy Activity",
@@ -558,7 +557,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 
 **Message d’erreur**
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.  
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.
 
 **Causes possibles**
 
@@ -584,7 +583,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 
 Vous devez ajuster la chaîne de requête en fonction de la configuration des dates dans votre base de données Oracle. Voici un exemple (utilisant la fonction **to_date**) :
 
-    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
 
 
 ## <a name="type-mapping-for-oracle"></a>Mappage de type pour Oracle

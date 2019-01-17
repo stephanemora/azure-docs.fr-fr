@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: ccdfbc38cb39f2c0aa839dc56022192e9e389d95
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 3e40dbb96b27df4b228c52e7a8f70d047a556c31
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187415"
+ms.locfileid: "54198523"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Réécrire des en-têtes HTTP dans Azure Application Gateway (préversion publique)
 
@@ -116,8 +116,6 @@ Cette fonctionnalité prend en charge la réécriture d’en-têtes dans les var
 ## <a name="limitations"></a>Limites
 
 - Cette fonctionnalité permettant de réécrire des en-têtes HTTP est actuellement disponible uniquement via Azure PowerShell, API Azure et SDK Azure. Une prise en charge via le portail et Azure CLI sera bientôt disponible.
-
-- Lorsque vous appliquez une réécriture à votre Application Gateway, vous ne devez pas utiliser le portail pour apporter des modifications ultérieures à cette Application Gateway aussi longtemps que la fonctionnalité est prise en charge sur le portail. Si vous utilisez le portail pour apporter des modifications à l’Application Gateway après application d’une règle de réécriture, la règle de réécriture d’en-tête. Vous pouvez continuer à apporter des modifications à l’aide d’Azure PowerShell, d’API Azure ou de SDK Azure.
 
 - La prise en charge de la réécriture de l’en-tête HTTP est disponible uniquement sur la nouvelle référence SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). La fonctionnalité ne sera pas prise en charge sur l’ancienne référence SKU.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: ab9d28212e471a9fe3d59ff30a8225b7440655d7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d6a6d9b352db61d98e85c840a3ebc5cb6a832a3f
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022493"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352459"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Copier des données de SAP ECC à l’aide d’Azure Data Factory
 
@@ -99,7 +99,7 @@ Pour copier des données de SAP ECC, définissez **SapEccResource** comme propri
     "name": "SapEccDataset",
     "properties": {
         "type": "SapEccResource",
-        "typePoperties": {
+        "typeProperties": {
             "path": "<entity path e.g. dd04tentitySet>"
         },
         "linkedServiceName": {

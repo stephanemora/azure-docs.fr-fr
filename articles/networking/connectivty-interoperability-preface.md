@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 4e077e496479d146306bd301f303b4e8c0f97d05
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: b090633ee33582a235a92ab7100741e0be48cb27
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191868"
+ms.locfileid: "54200154"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-setup"></a>Interopérabilité des fonctionnalités de connectivité de back-end Azure : Configuration des tests
 
@@ -71,11 +71,11 @@ Pour plus d’informations, consultez [Qu’est-ce qu’une passerelle VPN ?][V
 
 En savoir plus sur les [détails de la configuration][Configuration] pour la topologie de test.
 
-Découvrez-en plus sur l’[analyse du plan de contrôle][Control-Analysis] de l’initialisation de test et les vues de différents réseaux virtuels ou réseaux locaux virtuels (VLAN) dans la topologie.
+En savoir plus sur l’[analyse de plan de contrôle][Control-Analysis] de la configuration de test et les vues de différents réseaux virtuels ou réseaux VLAN dans la topologie.
 
 En savoir plus sur l’[analyse de plan de données][Data-Analysis] de la configuration de test et les affichages des fonctionnalités de supervision de réseau Azure.
 
-Consultez le [Forum aux questions sur ExpressRoute][ExR-FAQ] pour :
+Consultez le [Forum Aux Questions sur ExpressRoute][ExR-FAQ] pour :
 -   Connaître le nombre de circuits ExpressRoute que vous pouvez connecter à une passerelle ExpressRoute.
 -   Connaître le nombre de passerelles ExpressRoute que vous pouvez connecter à un circuit ExpressRoute.
 -   En savoir plus sur les autres limites de mise à l’échelle d’ExpressRoute.
@@ -89,6 +89,12 @@ Consultez le [Forum aux questions sur ExpressRoute][ExR-FAQ] pour :
 [VPN]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
 [VNet]: https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal
 [Configuration]: connectivty-interoperability-configuration.md
-[Control-Analysis]connectivty-interoperability-control-plane.md [Data-Analysis] : connectivty-interoperability-data-plane.md [ExR-FAQ] : https://docs.microsoft.com/azure/expressroute/expressroute-faqs [S2S-Over-ExR] : https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering [ExR-S2S-CoEx] : https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager [Hub-n-Spoke] : https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke [Deploy-NVA] : https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-haa
+[Control-Analysis]: connectivty-interoperability-control-plane.md
+[Data-Analysis]: connectivty-interoperability-data-plane.md
+[ExR-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs
+[S2S-Over-ExR]: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
+[ExR-S2S-CoEx]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager
+[Hub-n-Spoke]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+[Deploy-NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
 
 

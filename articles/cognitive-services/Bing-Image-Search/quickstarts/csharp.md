@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: 67dd91d7555ebd1e72cea168fc8b841bf4ed9175
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 53dc9b90fd06cf4b6feb1e394f5fbfc5f257be4d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249513"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215250"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Démarrage rapide : Rechercher des images à l’aide de l’API REST Recherche d’images Bing et de C#
 
@@ -101,12 +101,12 @@ namespace BingSearchApisQuickstart
 
 Dans la méthode `BingImageSearch`, effectuez les étapes suivantes.
 
-1. Construisez l’URI de la requête de recherche. Notez que le terme de recherche `toSearch` doit être mis en forme avant d’être ajouté à la chaîne.
+1. Construisez l’URI de la requête de recherche. Notez que le terme de recherche `SearchTerm` doit être mis en forme avant d’être ajouté à la chaîne.
 
     ```csharp
-    static SearchResult BingImageSearch(string toSearch){
+    static SearchResult BingImageSearch(string SearchTerm){
 
-        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
+        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(SearchTerm);
     //...
     ```
 
@@ -156,7 +156,6 @@ Dans la méthode `BingImageSearch`, effectuez les étapes suivantes.
     Console.WriteLine("URL for the first image result: " + firstJsonObj["webSearchUrl"]+"\n");
     ```  
 
-3. Veillez à supprimer votre clé d’abonnement du code de l’application.
 
 ## <a name="json-response"></a>Réponse JSON
 

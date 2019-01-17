@@ -16,12 +16,12 @@ ms.workload: ''
 ms.date: 05/02/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2b8766a5353b015030872176e9032034afb7cb9d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a0153cf11c3fe817ce397b4d0c47a786a4334f39
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779554"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214808"
 ---
 # <a name="azure-policy-sample-templates-for-virtual-network"></a>Exemples de modèles de stratégie Azure pour un réseau virtuel
 
@@ -43,7 +43,7 @@ Le tableau suivant contient des liens vers des exemples de modèles [Azure Polic
 | [Exiger le modèle de correspondance](../azure-policy/scripts/enforce-match-pattern.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Vérifier que les noms de ressource correspondent à un modèle d’affectation de noms spécifié. |
 | [Exiger le modèle de correspondance de balise](../azure-policy/scripts/enforce-tag-match-pattern.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Vérifier qu’une valeur de balise correspond à un modèle de texte. |
 |**Balises**||
-| [Initiative de la stratégie de facturation en fonction d’étiquettes](../azure-policy/scripts/billing-tags-policy-init.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Exige des valeurs de balise spécifiées pour le nom de produit et le centre de coût. Utilise des stratégies intégrées pour appliquer et imposer les balises nécessaires. Spécifiez les valeurs nécessaires pour les balises.  |
+| [Initiative de la stratégie de facturation en fonction d’étiquettes](../governance/policy/samples/billing-tags-policy-initiative.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Exige des valeurs de balise spécifiées pour le nom de produit et le centre de coût. Utilise des stratégies intégrées pour appliquer et imposer les balises nécessaires. Spécifiez les valeurs nécessaires pour les balises.  |
 | [Imposer une balise et sa valeur sur les groupes de ressources](../azure-policy/scripts/enforce-tag-rg.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Exige une balise et une valeur sur un groupe de ressources. Spécifiez les nom et valeur de balise nécessaires.  |
 | [Imposer une balise et sa valeur](../azure-policy/scripts/enforce-tag-val.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Exige un nom et une valeur de balise spécifiée. Spécifiez les nom et valeur de balise à imposer.  |
 | [Appliquer la balise et sa valeur par défaut](../azure-policy/scripts/apply-tag-def-val.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Ajoute le nom et la valeur d’une balise spécifiée, si cette balise n’est pas fournie. Spécifiez les nom et valeur de balise à appliquer.  |

@@ -8,19 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 832bf85087b706451a6ee58c538d7a163ef18203
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 73504cff7a35dfe475b2de90a6b38a9527a800e1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079940"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259936"
 ---
 # <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>Glossaire de la base de connaissances et du service QnA Maker
 
-## <a name="qna-maker-service"></a>Service QnA Maker
+## <a name="qna-maker-service"></a>Service d’établissement QnA
 L’une des conditions préalables requises pour commencer à utiliser QnA Maker est de posséder un service QnA Maker. En achetant un niveau QnA Maker, vous définissez des ressources dans votre abonnement Azure pour créer et gérer votre base de connaissances. Chaque compte d’utilisateur QnA Maker permet de créer plusieurs services QnA Maker dans un abonnement Azure.
 
 ## <a name="knowledge-base"></a>Base de connaissances

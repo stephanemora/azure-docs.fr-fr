@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a8ac01850c090b36a5b9d896f6de6c122edfbcaa
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 64e041d61c628a54b7a55b11fceba0973f3f427b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628423"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214961"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Démarrage rapide : Créer et gérer un partage de fichiers Azure avec Azure PowerShell 
 Ce guide vous explique les bases de l’utilisation du [partage de fichiers](storage-files-introduction.md) Azure avec PowerShell. Le partage de fichiers Azure est similaire à d’autres partages de fichiers, mais est stocké dans le cloud et s’appuie sur la plateforme Azure. Il prend en charge le protocole SMB de norme industrielle et permet le partage de fichiers entre plusieurs machines, applications et instances. 
@@ -51,7 +51,7 @@ $storageAcct = New-AzStorageAccount `
 ```
 
 ## <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
-Vous pouvez désormais créer votre premier partage de fichiers Azure. Vous pouvez créer un partage de fichiers à l’aide de l’applet de commande [New-AzStorageShare](/powershell/module/azure.storage/new-AzStorageshare). Cet exemple crée un partage nommé `myshare`.
+Vous pouvez désormais créer votre premier partage de fichiers Azure. Vous pouvez créer un partage de fichiers à l’aide de l’applet de commande [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare). Cet exemple crée un partage nommé `myshare`.
 
 ```azurepowershell-interactive
 New-AzStorageShare `
@@ -81,7 +81,7 @@ Dans la plupart des cas, vous allez utiliser votre partage de fichiers Azure sur
 Les exemples suivants montrent comment utiliser le module Azure PowerShell pour manipuler votre partage de fichiers Azure avec le protocole REST de fichier. 
 
 #### <a name="create-directory"></a>Créer un répertoire
-Pour créer un répertoire nommé *myDirectory* à la racine de votre partage de fichiers Azure, utilisez l’applet de commande [New-AzStorageDirectory](/powershell/module/azure.storage/new-AzStoragedirectory).
+Pour créer un répertoire nommé *myDirectory* à la racine de votre partage de fichiers Azure, utilisez l’applet de commande [New-AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory).
 
 ```azurepowershell-interactive
 New-AzStorageDirectory `
@@ -91,7 +91,7 @@ New-AzStorageDirectory `
 ```
 
 #### <a name="upload-a-file"></a>Charger un fichier
-Pour montrer comment charger un fichier avec l’applet de commande [Set-AzStorageFileContent](/powershell/module/azure.storage/set-AzStoragefilecontent), nous devons d’abord créer un fichier dans le disque de travail de PowerShell Cloud Shell à charger. 
+Pour montrer comment charger un fichier avec l’applet de commande [Set-AzStorageFileContent](/powershell/module/az.storage/Set-AzStorageFileContent), nous devons d’abord créer un fichier dans le disque de travail de PowerShell Cloud Shell à charger. 
 
 Cet exemple place la date et l’heure actuelles dans un nouveau fichier sur votre disque de travail, puis charge le fichier vers le partage de fichiers.
 
@@ -109,14 +109,14 @@ Set-AzStorageFileContent `
 
 Si vous exécutez PowerShell en local, vous devez remplacer `C:\Users\ContainerAdministrator\CloudDrive\` par un chemin existant sur votre machine.
 
-Après avoir chargé le fichier, vous pouvez exécuter l’applet de commande [Get-AzStorageFile](/powershell/module/Azure.Storage/Get-AzStorageFile) pour vérifier que le fichier a bien été chargé dans votre partage de fichiers Azure. 
+Après avoir chargé le fichier, vous pouvez exécuter l’applet de commande [Get-AzStorageFile](/powershell/module/Az.Storage/Get-AzStorageFile) pour vérifier que le fichier a bien été chargé dans votre partage de fichiers Azure. 
 
 ```azurepowershell-interactive
 Get-AzStorageFile -Context $storageAcct.Context -ShareName "myshare" -Path "myDirectory" 
 ```
 
 #### <a name="download-a-file"></a>Téléchargement d’un fichier
-Vous pouvez exécuter l’applet de commande [Get-AzStorageFileContent](/powershell/module/azure.storage/get-AzStoragefilecontent) pour télécharger une copie du fichier que vous venez de charger sur le disque de travail de Cloud Shell.
+Vous pouvez exécuter l’applet de commande [Get-AzStorageFileContent](/powershell/module/az.storage/Get-AzStorageFilecontent) pour télécharger une copie du fichier que vous venez de charger sur le disque de travail de Cloud Shell.
 
 ```azurepowershell-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists because you've run this example before.
@@ -139,7 +139,7 @@ Get-ChildItem -Path "C:\Users\ContainerAdministrator\CloudDrive"
 ``` 
 
 #### <a name="copy-files"></a>Copie des fichiers
-Une tâche courante consiste à copier les fichiers d’un partage de fichiers vers un autre partage de fichiers, ou dans/depuis un conteneur de stockage d’objets blob Azure. Pour illustrer cette fonctionnalité, vous pouvez créer un partage et copier le fichier que vous venez de charger dans ce nouveau partage avec l’applet de commande [Start-AzStorageFileCopy](/powershell/module/azure.storage/start-AzStoragefilecopy). 
+Une tâche courante consiste à copier les fichiers d’un partage de fichiers vers un autre partage de fichiers, ou dans/depuis un conteneur de stockage d’objets blob Azure. Pour illustrer cette fonctionnalité, vous pouvez créer un partage et copier le fichier que vous venez de charger dans ce nouveau partage avec l’applet de commande [Start-AzStorageFileCopy](/powershell/module/az.storage/Start-AzStorageFileCopy). 
 
 ```azurepowershell-interactive
 New-AzStorageShare `
@@ -173,7 +173,7 @@ Avec un partage de fichiers Azure, vous pouvez aussi créer des instantanés de 
 - Le [service VSS](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) pour les systèmes de fichiers Windows comme NTFS et ReFS
 - Les instantanés du [Gestionnaire de Volume logique (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) pour les systèmes Linux
 - Les instantanés du [système de fichiers Apple (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) pour macOS. 
- Vous pouvez créer un instantané de partage pour un partage à l’aide de la méthode `Snapshot` sur un objet PowerShell pour un partage de fichiers, qui est récupéré avec l’applet de commande [Get-AzStorageShare](/powershell/module/azure.storage/get-AzStorageshare). 
+ Vous pouvez créer un instantané de partage pour un partage à l’aide de la méthode `Snapshot` sur un objet PowerShell pour un partage de fichiers, qui est récupéré avec l’applet de commande [Get-AzStorageShare](/powershell/module/az.storage/Get-AzStorageShare). 
 
 ```azurepowershell-interactive
 $share = Get-AzStorageShare -Context $storageAcct.Context -Name "myshare"
@@ -213,7 +213,7 @@ Start-AzStorageFileCopy `
 ```
 
 ### <a name="delete-a-share-snapshot"></a>Supprimer un instantané de partage
-Pour supprimer un instantané de partage, exécutez l’applet de commande [Remove-AzStorageShare](/powershell/module/azure.storage/remove-AzStorageshare), avec la variable contenant la référence `$snapshot` au paramètre `-Share`.
+Pour supprimer un instantané de partage, exécutez l’applet de commande [Remove-AzStorageShare](/powershell/module/az.storage/Remove-AzStorageShare), avec la variable contenant la référence `$snapshot` au paramètre `-Share`.
 
 ```azurepowershell-interactive
 Remove-AzStorageShare -Share $snapshot

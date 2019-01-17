@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 17ca5430a0fdba0bf11d7c2caecd19ec0a402c0e
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: b9f3561155038e91bc278f5d7ddc995adb53ad78
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556694"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197995"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 
@@ -106,7 +106,7 @@ Utilisez l’ID et la clé de l’application dans votre application pour effect
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour un exemple de code qui appelle l’API Time Series Insights, voir [Interroger des données à l’aide de C#](time-series-insights-query-data-csharp.md).
-- Pour obtenir des informations de référence sur l’API, consultez le [document de référence sur l’API de requête](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
+- Pour obtenir des informations de référence sur l’API, consultez le [document de référence sur l’API de requête](/rest/api/time-series-insights/ga-query-api).
 
 > [!div class="nextstepaction"]
 > [Créer un principal du service](../active-directory/develop/howto-create-service-principal-portal.md)

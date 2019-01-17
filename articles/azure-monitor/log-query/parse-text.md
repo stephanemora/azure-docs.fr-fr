@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 03268981bcfe90f14f35c74effe5799dd31e4ac0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0d589156824c7b9f3f6a8c31591d69479d11780a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185781"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214128"
 ---
 # <a name="parse-text-data-in-log-analytics"></a>Analyser des données de texte dans Log Analytics
 Certaines données collectées par Log Analytics incluent plusieurs éléments d’information dans une seule propriété. L’analyse de ces données dans plusieurs propriétés simplifie leur utilisation dans des requêtes. Un exemple courant est le [journal personnalisé](../../log-analytics/log-analytics-data-sources-custom-logs.md) qui collecte une entrée de journal entière avec plusieurs valeurs dans une seule propriété. En créant des propriétés distinctes pour les différentes valeurs, vous pouvez faire des recherches et des agrégations sur chacune d’elles.
@@ -98,7 +98,7 @@ AzureActivity
 
 
 ### <a name="regular-expressions"></a>Expressions régulières
-Si vos données peuvent être identifiées avec une expression régulière, vous pouvez utiliser des [fonctions utilisant des expressions régulières](/azure/kusto/query/re2) pour extraire les valeurs individuelles. L’exemple suivant utilise [extract](/kusto/query/extractfunction) pour diviser le champ _UPN_ à partir des enregistrements _AzureActivity_, puis retourne des utilisateurs distincts.
+Si vos données peuvent être identifiées avec une expression régulière, vous pouvez utiliser des [fonctions utilisant des expressions régulières](/azure/kusto/query/re2) pour extraire les valeurs individuelles. L’exemple suivant utilise [extract](/azure/kusto/query/extractfunction) pour diviser le champ _UPN_ à partir des enregistrements _AzureActivity_, puis retourne des utilisateurs distincts.
 
 ```Kusto
 AzureActivity

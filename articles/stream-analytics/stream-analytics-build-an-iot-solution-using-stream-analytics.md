@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 820a918b9ab5dd7a399dc43bcfed29fb3b94e99b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971101"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321566"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Créer une solution IoT à l’aide de Stream Analytics
 
@@ -36,7 +36,7 @@ Pour effectuer cette solution, vous avez besoin des prérequis suivants :
 ## <a name="scenario-introduction-hello-toll"></a>Présentation du scénario : « Gare de péage »
 Une gare de péage est un dispositif très répandu. Il s’en trouve sur de nombreux autoroutes, ponts et tunnels dans le monde entier. Chaque station de péage compte plusieurs guichets. Aux guichets manuels, vous vous arrêtez pour régler le montant du péage à un guichetier. Aux guichets automatisés, un capteur scanne une carte RFID apposée sur le pare-brise de votre véhicule lorsque vous franchissez le péage. Il est facile de visualiser le franchissement de ces stations de péage par les véhicules sous la forme d’un flux d’événements sur lequel des opérations intéressantes peuvent être effectuées.
 
-![Image de voitures aux guichets de péage](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth .jpg)
+![Image de voitures à des postes de péage](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth.jpg)
 
 ## <a name="incoming-data"></a>Données entrantes
 Cette solution fonctionne avec deux flux de données. Des capteurs installés à l’entrée et à la sortie des stations de péage produisent le premier flux. Le deuxième flux de données est un jeu de données de recherche statique contenant les données d’inscription des véhicules.

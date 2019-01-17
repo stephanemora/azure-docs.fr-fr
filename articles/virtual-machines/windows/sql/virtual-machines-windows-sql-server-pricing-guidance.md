@@ -3,7 +3,7 @@ title: Optimiser les coûts pour SQL Server sur les machines virtuelles Azure |
 description: Fournit des meilleures pratiques pour choisir le bon modèle de tarification de machine virtuelle SQL Server.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
-ms.author: jroth
-ms.openlocfilehash: b19cf9cd4b67479d811a590cb80a618680f3b3d5
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 19ba6896d9186cae32249fc8eb51319f9b37a6ff
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496474"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330787"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Tarification des machines virtuelles SQL Server Azure
 
@@ -43,7 +44,7 @@ Pour ces charges de travail de développement/test et de production légère, vo
 
 Pour créer une machine virtuelle SQL Server 2017 Azure avec l’une de ces images, consultez les liens suivants :
 
-| Plateforme | Images sous licence gratuite |
+| Plateforme | Images sous licence libre |
 |---|---|
 | Windows Server 2016 | [Machine virtuelle Azure SQL Server 2017 Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016)<br/>[Machine virtuelle Azure SQL Server 2017 Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016) |
 | Red Hat Enterprise Linux | [Machine virtuelle Azure SQL Server 2017 Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonRedHatEnterpriseLinux74)<br/>[Machine virtuelle Azure SQL Server 2017 Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonRedHatEnterpriseLinux74) |
@@ -109,7 +110,7 @@ L’apport de votre propre licence SQL par le biais de Licence Mobility est reco
 
 - **Les charges de travail dont la durée de vie et la mise à l’échelle sont connues**. Par exemple, une application qui sera requise pendant toute l’année et dont la demande a été prévue.
 
-Pour utiliser la méthode BYOL avec une machine virtuelle SQL Server, vous devez posséder une licence SQL Server Standard ou Enterprise ainsi que [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1), qui est une option obligatoire pour certains programmes de licence en volume, et une option facultative pour d’autres. Le niveau tarifaire fourni par les programmes de licence en volume varie selon le type de contrat et la quantité et/ou l’engagement vis-à-vis de SQL Server. Mais en règle générale, l’apport de votre propre licence pour les charges de travail continues présente les avantages suivants :
+Pour utiliser la méthode BYOL avec une machine virtuelle SQL Server, vous devez posséder une licence SQL Server Standard ou Enterprise ainsi que [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1), qui est une option obligatoire pour certains programmes de licence en volume, et une option facultative pour d’autres. Le niveau de tarification fourni par les programmes de licence en volume varie selon le type de contrat et la quantité et/ou l’engagement vis-à-vis de SQL Server. Mais en règle générale, l’apport de votre propre licence pour les charges de travail continues présente les avantages suivants :
 
 | Avantages de la méthode BYOL | Description |
 |-----|-----|
@@ -167,7 +168,7 @@ Pour les autres flux de travail, envisagez l’arrêt et le redémarrage automat
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour une assistance sur l’ensemble des tarifs Azure, consultez [Éviter les coûts inattendus avec la gestion de la facturation et des coûts dans Azure](../../../billing/billing-getting-started.md). Pour obtenir les tarifs des machines virtuelles les plus récents, notamment ceux de SQL Server, consultez la page des tarifs des machines virtuelles Azure pour [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) et [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+Pour obtenir une assistance globale sur la tarification Azure, consultez [Éviter les coûts inattendus avec la gestion de la facturation et des coûts dans Azure](../../../billing/billing-getting-started.md). Pour obtenir les tarifs des machines virtuelles les plus récents, notamment ceux de SQL Server, consultez la page des tarifs des machines virtuelles Azure pour [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) et [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 Pour obtenir une vue d’ensemble de SQL Server sur des machines virtuelles Azure, consultez les articles suivants :
 

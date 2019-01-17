@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: b5a129c2a92c18b979a3b0c2eeea7fa19791551c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 29b44e4b281ded635359148e251527c44efaa6d4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633763"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214043"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Utiliser une identité Azure AD pour accéder à Stockage Azure avec CLI ou PowerShell (préversion)
 
@@ -84,7 +84,7 @@ Pour utiliser Azure PowerShell pour vous connecter avec une identité Azure AD�
    Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
    ```
 1. Fermez, puis rouvrez la fenêtre PowerShell.
-1. Appelez l’applet de commande [New-AzStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext) pour créer un contexte et spécifiez le paramètre `-UseConnectedAccount`. 
+1. Appelez l’applet de commande [New-AzStorageContext](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontext) pour créer un contexte et spécifiez le paramètre `-UseConnectedAccount`. 
 1. Pour appeler une applet de commande avec une identité Azure AD, passez le contexte que vous venez de créer à l’applet de commande.
 
 L’exemple suivant montre comment dresser la liste des objets blob d’un conteneur à partir d’Azure PowerShell à l’aide d’une identité Azure AD. Veillez à remplacer les espaces réservés correspondant aux noms du compte et du conteneur par vos propres valeurs : 

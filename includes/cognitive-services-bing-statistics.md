@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: scottwhi
 ms.custom: include file
-ms.openlocfilehash: a8d588b186652ab86ee1e8152bd9be08f0f1ef04
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6016b13fe7d3e1f3b673bd2446d2f68b04878cd6
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978680"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193374"
 ---
 Bing Statistiques fournit l’analytique pour les API Recherche Bing. L’analytique inclut le volume d’appels, les principales chaînes de requête, la répartition géographique, et bien plus encore. Pour activer Bing Statistiques dans votre abonnement payant Recherche Bing, accédez à votre [Tableau de bord Azure](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7), sélectionnez votre abonnement payant, puis cliquez sur Enable Bing Statistics (Activer Bing Statistiques). L’activation de Bing Statistiques augmente légèrement le prix de votre abonnement (voir [Tarification](https://aka.ms/bingstatisticspricing)).
 
@@ -85,7 +85,7 @@ Les métriques possibles sont les suivantes. Chaque mesure présente des restric
 
 - **Distribution du code de réponse** : codes d’état HTTP de tous les appels pendant la période de rapport.
 
-- **Distribution d’origine des appels** : types de navigateurs utilisés par les utilisateurs. Par exemple, Edge, Chrome, Safari et FireFox. Les appels non établis par un navigateur, par exemple par des robots, Postman ou à l’aide de curl à partir d’une application console, sont regroupés sous Bibliothèques. L’origine est déterminée à l’aide de la valeur d’en-tête User-Agent de la demande. Si la demande n’inclut pas l’en-tête User-Agent, Bing tente de dériver l’origine à partir d’autres signaux.  
+- **Distribution d’origine des appels** : types de navigateurs utilisés par les utilisateurs. Par exemple, Microsoft Edge, Chrome, Safari et FireFox. Les appels non établis par un navigateur, par exemple par des robots, Postman ou à l’aide de curl à partir d’une application console, sont regroupés sous Bibliothèques. L’origine est déterminée à l’aide de la valeur d’en-tête User-Agent de la demande. Si la demande n’inclut pas l’en-tête User-Agent, Bing tente de dériver l’origine à partir d’autres signaux.  
 
 - **Distribution de recherche sécurisée** : distribution des valeurs de recherche sécurisée. Par exemple, off, moderate ou strict. Le paramètre de requête `safeSearch` contient la valeur, si celle-ci est spécifiée. Dans le cas contraire, la valeur par défaut de Bing est moderate.  
 

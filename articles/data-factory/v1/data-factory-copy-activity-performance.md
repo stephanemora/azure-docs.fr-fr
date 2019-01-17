@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 632e605a6f7c9885f3854ca1f7b69ed337a1eacc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 572f4535044e077ed245b0a231ccc9fa973a8a9b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025876"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331643"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 
@@ -108,7 +108,7 @@ Une **unité de déplacement de données cloud** est une mesure qui représente 
 Pour remplacer cette valeur par défaut, spécifiez une valeur pour la propriété **cloudDataMovementUnits** comme suit. Les **valeurs autorisées** pour la propriété **cloudDataMovementUnits** sont les suivantes : 2, 4, 8, 16, 32. Le **nombre réel d’unités de déplacement de données cloud** que l’opération de copie utilise au moment de l’exécution est égal ou inférieur à la valeur configurée, en fonction de votre modèle de données. Pour plus d’informations sur le niveau de gain de performances que vous pouvez obtenir lorsque vous configurez plusieurs unités pour une source et un récepteur de copie spécifiques, voir [Performances de référence](#performance-reference).
 
 ```json
-"activities":[  
+"activities":[
     {
         "name": "Sample copy activity",
         "description": "",
@@ -135,7 +135,7 @@ Pour remplacer cette valeur par défaut, spécifiez une valeur pour la propriét
 ### <a name="parallelcopies"></a>parallelCopies
 Vous pouvez utiliser la propriété **parallelCopies** pour indiquer le parallélisme que vous voulez que l’activité de copie utilise. Vous pouvez penser cette propriété comme le nombre maximum de threads dans une activité de copie qui peut lire dans votre source ou écrire dans vos banques de données réceptrices en parallèle.
 
-Pour chaque exécution d’activité de copie, Data Factory détermine le nombre de copies en parallèle à utiliser pour copier les données depuis la banque de données source et vers la banque de données de destination. Le nombre de copies en parallèle par défaut qu’il utilise dépend du type de source et de récepteur que vous utilisez.  
+Pour chaque exécution d’activité de copie, Data Factory détermine le nombre de copies en parallèle à utiliser pour copier les données depuis la banque de données source et vers la banque de données de destination. Le nombre de copies en parallèle par défaut qu’il utilise dépend du type de source et de récepteur que vous utilisez.
 
 | Source et récepteur | Nombre de copie en parallèle par défaut déterminé par le service |
 | --- | --- |
@@ -146,7 +146,7 @@ Pour chaque exécution d’activité de copie, Data Factory détermine le nombre
 Généralement, le comportement par défaut doit offrir le meilleur débit. Or, pour contrôler la charge sur les ordinateurs qui hébergent vos banques de données ou pour optimiser les performances de copie, vous pouvez choisir de remplacer la valeur par défaut et spécifier une valeur pour la propriété **parallelCopies** . La valeur doit être comprise entre 1 et 32 (inclus). Au moment de l’exécution, pour des performances optimales, l’activité de copie utilise une valeur inférieure ou égale à la valeur que vous avez définie.
 
 ```json
-"activities":[  
+"activities":[
     {
         "name": "Sample copy activity",
         "description": "",
@@ -176,7 +176,7 @@ Points à noter :
 >
 >
 
-Pour mieux utiliser ces deux propriétés et pour améliorer votre débit de déplacement de données, voir [exemples de cas d’utilisation](#case-study-use-parallel-copy). Vous n’avez pas besoin de configurer **parallelCopies** pour tirer parti du comportement par défaut. Si vous configurez **parallelCopies** et que la valeur est trop basse, plusieurs unités de déplacement de données cloud ne peuvent pas être pleinement utilisées.  
+Pour mieux utiliser ces deux propriétés et pour améliorer votre débit de déplacement de données, voir [exemples de cas d’utilisation](#case-study-use-parallel-copy). Vous n’avez pas besoin de configurer **parallelCopies** pour tirer parti du comportement par défaut. Si vous configurez **parallelCopies** et que la valeur est trop basse, plusieurs unités de déplacement de données cloud ne peuvent pas être pleinement utilisées.
 
 ### <a name="billing-impact"></a>Impact sur la facturation
 Il est **important** de garder à l’esprit que vous êtes facturé selon la durée totale de l’opération de copie. Si un travail de copie prenait auparavant une heure avec une seule unité cloud et qu’il prend maintenant 15 minutes avec quatre unités cloud, le montant total de la facture reste identique. Par exemple, vous utilisez quatre unités cloud. La première unité cloud dépense 10 minutes, la deuxième, 10 minutes, la troisième, 5 minutes et la quatrième, 5 minutes, le tout dans une seule exécution d’activité de copie. Vous êtes facturé pour la durée (déplacement de données) de la copie totale, qui est de 10 + 10 + 5 + 5 = 30 minutes. L’utilisation de **parallelCopies** n’affecte pas la facturation.
@@ -216,7 +216,7 @@ Configurez le paramètre **enableStaging** sur l’activité de copie pour spéc
 Voici un exemple de définition de l’activité de copie avec les propriétés qui sont décrites dans le tableau précédent :
 
 ```json
-"activities":[  
+"activities":[
 {
     "name": "Sample copy activity",
     "type": "Copy",
@@ -273,9 +273,9 @@ Nous vous recommandons d’effectuer cette procédure pour régler les performan
 3. **Étendez la configuration à l’ensemble de votre jeu de données**. Lorsque vous êtes satisfait des résultats et des performances de l’exécution, vous pouvez étendre la définition et la période active du pipeline pour couvrir l’ensemble de votre jeu de données.
 
 ## <a name="considerations-for-data-management-gateway"></a>Considérations relatives à la passerelle de gestion des données
-**Configuration de la passerelle** : nous vous recommandons d’utiliser un ordinateur dédié pour héberger la passerelle de gestion des données. Voir [Considérations relatives à l’utilisation de la passerelle de gestion des données](data-factory-data-management-gateway.md#considerations-for-using-gateway).  
+**Configuration de la passerelle** : nous vous recommandons d’utiliser un ordinateur dédié pour héberger la passerelle de gestion des données. Voir [Considérations relatives à l’utilisation de la passerelle de gestion des données](data-factory-data-management-gateway.md#considerations-for-using-gateway).
 
-**Supervision de la passerelle et scale-up/out** : une seule passerelle logique comportant un ou plusieurs nœuds de passerelle peut traiter simultanément plusieurs exécutions de l’activité de copie. Vous pouvez afficher un instantané en temps quasi réel de l’utilisation des ressources (processeur, mémoire, réseau (entrant/sortant), etc.) sur un ordinateur de passerelle, et voir le nombre de travaux simultanés en cours d’exécution par rapport à la limite dans le portail Azure. Voir [Surveillance de la passerelle dans le portail](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Si vous avez besoin de déplacer des données hybrides avec de nombreuses exécutions d’activité de copie simultanées ou avec un gros volume de données à copier, vous devriez envisager [d’augmenter la taille des instances de passerelle](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) afin de mieux utiliser vos ressources ou de configurer plus de ressources pour répondre à vos besoins de copie. 
+**Supervision de la passerelle et scale-up/out** : une seule passerelle logique comportant un ou plusieurs nœuds de passerelle peut traiter simultanément plusieurs exécutions de l’activité de copie. Vous pouvez afficher un instantané en temps quasi réel de l’utilisation des ressources (processeur, mémoire, réseau (entrant/sortant), etc.) sur un ordinateur de passerelle, et voir le nombre de travaux simultanés en cours d’exécution par rapport à la limite dans le portail Azure. Voir [Surveillance de la passerelle dans le portail](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Si vous avez besoin de déplacer des données hybrides avec de nombreuses exécutions d’activité de copie simultanées ou avec un gros volume de données à copier, vous devriez envisager [d’augmenter la taille des instances de passerelle](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) afin de mieux utiliser vos ressources ou de configurer plus de ressources pour répondre à vos besoins de copie.
 
 ## <a name="considerations-for-the-source"></a>Considérations relatives à la source
 ### <a name="general"></a>Généralités
@@ -404,7 +404,7 @@ Dans ce cas, la compression de données bzip2 pourrait ralentir l’ensemble du 
 
 **Scénario II :** copier 20 blobs de 500 Mo chacun du Stockage Blob vers Data Lake Store Analytics, puis régler les performances.
 
-**Analyse des performances et réglage** : dans ce scénario, Data Factory copie les données du Stockage Blob vers Data Lake Store en utilisant des unités de déplacement de données à copie unique (valeur **parallelCopies** définie sur 1) et à cloud unique. Le débit que vous constatez est proche de la description figurant dans la [section relative aux performances de référence](#performance-reference).   
+**Analyse des performances et réglage** : dans ce scénario, Data Factory copie les données du Stockage Blob vers Data Lake Store en utilisant des unités de déplacement de données à copie unique (valeur **parallelCopies** définie sur 1) et à cloud unique. Le débit que vous constatez est proche de la description figurant dans la [section relative aux performances de référence](#performance-reference).
 
 ![Scénario 2](./media/data-factory-copy-activity-performance/scenario-2.png)
 

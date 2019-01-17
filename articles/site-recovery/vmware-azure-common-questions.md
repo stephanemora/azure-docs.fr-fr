@@ -7,13 +7,13 @@ ms.service: site-recovery
 services: site-recovery
 ms.date: 12/31/2018
 ms.topic: conceptual
-ms.author: rayne
-ms.openlocfilehash: e229fcc2c9eb6b8e1b49293dfd741a2f96f62871
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.author: raynew
+ms.openlocfilehash: 90f3a4571e485e52a47eda34eacf6367aef35933
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077383"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320988"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -91,7 +91,7 @@ Pour la réplication, une machine virtuelle VMware doit exécuter un système d�
 La réplication est continue quand il s’agit de la réplication des machines virtuelles VMware vers Azure.
 
 ### <a name="can-i-extend-replication"></a>Puis-je étendre la réplication ?
-La réplication étendue ou chaînée n’est pas prise en charge. Demandez cette fonctionnalité dans le [forum de commentaires](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
+La réplication étendue ou chaînée n’est pas prise en charge. Demandez cette fonctionnalité dans le [forum de commentaires](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Puis-je effectuer une réplication initiale hors connexion ?
 Ceci n’est pas pris en charge. Demandez cette fonctionnalité dans le [forum de commentaires](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).

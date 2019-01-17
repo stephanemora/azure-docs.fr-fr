@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: a7b91bfdc616e19fde9f74246d05cf14ecbd335e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5ba596a85abbb529990efdf7b15ac50515de011b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117263"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214451"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Supervision continue avec Azure Monitor
 
@@ -47,7 +47,7 @@ Les applications ne sont fiables que si leur infrastructure sous-jacente l’est
 - Ajoutez des [solutions de supervision](insights/solutions-inventory.md) pour différents services et applications de votre environnement.
 
 
-L’[infrastructure en tant que code](/devops/learn/what-is-infrastructure-as-code) est la gestion de l’infrastructure dans un modèle descriptif, en utilisant la même gestion de versions que celle utilisée par les équipes DevOps pour le code source. Cette possibilité ajoute fiabilité et scalabilité à votre environnement, tout en vous permettant de tirer parti de processus similaires à ceux qui habituellement gèrent vos applications.
+L’[infrastructure en tant que code](/azure/devops/learn/what-is-infrastructure-as-code) est la gestion de l’infrastructure dans un modèle descriptif, en utilisant la même gestion de versions que celle utilisée par les équipes DevOps pour le code source. Cette possibilité ajoute fiabilité et scalabilité à votre environnement, tout en vous permettant de tirer parti de processus similaires à ceux qui habituellement gèrent vos applications.
 
 -  Utilisez des [modèles Resource Manager](platform/template-workspace-configuration.md) pour activer la supervision et configurer des alertes sur un large éventail de ressources.
 - Utilisez [Azure Policy](../governance/policy/overview.md) pour appliquer différentes règles sur vos ressources. Vous avez ainsi l’assurance que vos ressources demeurent en conformité avec les standards et contrats de niveau de service de votre entreprise. 
@@ -63,7 +63,7 @@ L’intégration continue / le déploiement continu vous donne la possibilité d
 
 
 - Utilisez [Azure Pipelines](/azure/devops/pipelines) pour implémenter un déploiement continu et automatiser votre processus en entier, de la validation de code à la production, selon vos tests CI/CD.
-- Utilisez [Quality Gates](/devops/pipelines/release/approvals/gates) pour intégrer la supervision à votre prédéploiement ou post-déploiement. Vous êtes ainsi assuré de respecter les métriques d’intégrité/de performances clés (KPI) tandis que vos applications passent du développement en production, et qu’aucune différence dans la mise à l’échelle ou l’environnement d’infrastructure n’a d’impact négatif sur vos KPI.
+- Utilisez [Quality Gates](/azure/devops/pipelines/release/approvals/gates) pour intégrer la supervision à votre prédéploiement ou post-déploiement. Vous êtes ainsi assuré de respecter les métriques d’intégrité/de performances clés (KPI) tandis que vos applications passent du développement en production, et qu’aucune différence dans la mise à l’échelle ou l’environnement d’infrastructure n’a d’impact négatif sur vos KPI.
 - [Tenez à jour des instances de supervision distinctes](../azure-monitor/app/separate-resources.md) entre vos différents environnements de déploiement, tels que le développement, les tests, le contrôle de validité et la production. Les données collectées sont ainsi pertinentes sur l’ensemble de l’infrastructure et des applications associées. Si vous devez mettre en corrélation des données entre différents environnements, vous pouvez utiliser des [graphiques multi-ressources dans Metrics Explorer](../azure-monitor/platform/metrics-charts.md) ou créer des [requêtes inter-ressources dans Log Analytics](log-query/cross-workspace-query.md).
 
 

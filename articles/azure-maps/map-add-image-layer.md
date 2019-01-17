@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d36179685e2098455e00186827d35e6de18bf975
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 5396fefca3a60dea7a503f8b4e84cc575753ea30
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892903"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229113"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Ajouter une couche d’images à une carte
 
@@ -31,7 +31,7 @@ Cet article vous montre comment vous pouvez superposer une image à un ensemble 
 
 ## <a name="add-an-image-layer"></a>Ajouter un calque d’images
 
-Cet exemple montre comment superposer l’image d’une [carte de Newark dans le New Jersey datant de 1922]((https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg)) à la carte principale.
+Cet exemple montre comment superposer l’image d’une [carte de Newark dans le New Jersey datant de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) à la carte principale.
 
 <br/>
 
@@ -40,7 +40,7 @@ Cet exemple montre comment superposer l’image d’une [carte de Newark dans le
 
 Dans le code ci-dessus, le premier bloc de code construit un objet de carte. Vous pouvez consulter la section [Créer une carte](./map-create.md) pour obtenir des instructions.
 
-Dans le deuxième bloc de code, un [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) est créé en passant une URL à une image ainsi que les coordonnées des quatre angles, au format `[Top Left Corner, Top Right Corner, Bottom Right Conter, Bottom Left Corner]`.
+Dans le deuxième bloc de code, un [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) est créé en passant une URL à une image ainsi que les coordonnées des quatre angles, au format `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
 
 ## <a name="import-a-kml-ground-overlay"></a>Importer un calque de relief KML
 

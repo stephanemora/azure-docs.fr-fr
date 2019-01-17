@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: fef6858383028d62a16472bd530bf456d01ee7d3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 016d6b1991085e3ed881deb68317dbde0ee46326
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634420"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213227"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Effectuer des opérations sur Stockage File d’attente Azure avec Azure PowerShell
 
@@ -77,7 +77,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>Créer une file d’attente
 
-L'exemple suivant établit d'abord une connexion à Azure Storage à l'aide du contexte de compte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il appelle l’applet de commande [New-AzStorageQueue](/powershell/module/azure.storage/new-AzStoragequeue) pour créer une file d’attente appelée « queuename ».
+L'exemple suivant établit d'abord une connexion à Azure Storage à l'aide du contexte de compte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il appelle l’applet de commande [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) pour créer une file d’attente appelée « queuename ».
 
 ```powershell
 $queueName = "howtoqueue"
@@ -88,7 +88,7 @@ Pour plus d’informations sur les conventions d’affectation de noms pour le s
 
 ## <a name="retrieve-a-queue"></a>Récupérer une file d’attente
 
-Vous pouvez interroger et récupérer une file d'attente spécifique ou une liste de toutes les files d'attente dans un compte de stockage. Les exemples suivants montrent comment récupérer toutes les files d’attente dans le compte de stockage et une file d’attente spécifique ; les deux commandes utilisent l’applet de commande [Get-AzStorageQueue](/powershell/module/azure.storage/get-AzStoragequeue).
+Vous pouvez interroger et récupérer une file d'attente spécifique ou une liste de toutes les files d'attente dans un compte de stockage. Les exemples suivants montrent comment récupérer toutes les files d’attente dans le compte de stockage et une file d’attente spécifique ; les deux commandes utilisent l’applet de commande [Get-AzStorageQueue](/powershell/module/az.storage/Get-AzStorageQueue).
 
 ```powershell
 # Retrieve a specific queue

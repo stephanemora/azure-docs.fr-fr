@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer une application de traitement d’image – C#'
+title: 'Tutoriel : Créer une application de traitement d’image – C#'
 titleSuffix: Computer Vision - Cognitive Services - Azure
 description: Explorez une application Windows de base qui utilise l’API Vision par ordinateur dans Microsoft Cognitive Services. Effectuez une reconnaissance OCR, créez des miniatures et utilisez des fonctionnalités visuelles dans une image.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8640d89c5fb9e38fc6c982e21147361ad690964a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: f4f588ad9123ec98cbae9f9bf03c08ec551a31a5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584443"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232751"
 ---
-# <a name="tutorial-build-an-image-processing-app---c35"></a>Didacticiel : Créer une application de traitement d’image – C&#35;
+# <a name="tutorial-build-an-image-processing-app---c35"></a>Tutoriel : Créer une application de traitement d’image – C&#35;
 
 Explorez une application Windows de base qui utilise l’API Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent, mais aussi détecter, classer, baliser et décrire des caractéristiques visuelles, y compris les visages, dans une image. L’exemple ci-dessous vous permet d’envoyer une URL d’image ou un fichier stocké localement. Vous pouvez utiliser cet exemple open source comme modèle afin de générer votre propre application pour Windows avec l’API Vision par ordinateur et Windows Presentation Foundation (WPF), qui fait partie du .NET Framework.
 
@@ -97,9 +97,6 @@ Vous pouvez exécuter l’exemple d’application pour vérifier son interaction
    |Reconnaître le texte (OCR) | Utilise l’opération [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) pour reconnaître et extraire le texte imprimé à partir d’une image. Vous pouvez choisir la langue à utiliser, ou laisser Vision par ordinateur détecter automatiquement la langue. |
    |Reconnaître le texte V2 (en anglais) | Utilise les opérations [Reconnaître le texte](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) et [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (Obtenir le résultat de l’opération Reconnaître le texte) pour reconnaître de façon asynchrone et extraire le texte imprimé ou manuscrit à partir d’une image. |
    |Générer une miniature | Utilise l’opération [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) (Générer une miniature) afin de générer la miniature d’une image locale ou distante. |
-
-   > [!IMPORTANT]
-   > Microsoft reçoit les images que vous chargez et peut les utiliser pour améliorer l’API Vision par ordinateur et les services associés. En envoyant une image, vous confirmez que vous avez respecté notre [Code de conduite du développeur](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 
    La capture d’écran suivante illustre la page fournie pour le scénario Analyser l’image, après l’analyse d’un exemple d’image.
    ![Capture d’écran de la page Analyser l’image](../Images/Analyze_Image_Example.PNG)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 2299dd6c723aa3059c293170c655918e5236ca0e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 5842c5edd0402d61f564ab15e34e8f69c0e718d7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138158"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213448"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Impossible d’établir une connexion RDP à des machines virtuelles Azure car le service client DHCP est désactivé
 
@@ -62,8 +62,8 @@ Pour résoudre ce problème, utilisez le contrôle série pour activer DHCP ou [
 
 ### <a name="use-serial-control"></a>Utiliser le contrôle série
 
-1. Connectez-vous à la [console série et ouvrez une instance CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). Si la console série n’est pas activée sur votre machine virtuelle, consultez [Réinitialiser l’interface réseau](reset-network-interface.md).
+1. Connectez-vous à la [console série et ouvrez une instance CMD](serial-console-windows.md#use-cmd-or-powershell-in-serial-console).
+Sinon, une erreur d’incompatibilité du microprogramme s’affiche : la réinitialisation aux paramètres d’usine ne peut pas se poursuivre en raison d’une incohérence dans les versions du microprogramme. Si la console série n’est pas activée sur votre machine virtuelle, consultez [Réinitialiser l’interface réseau](reset-network-interface.md).
 2. Vérifiez si le protocole DHCP est désactivé sur l’interface réseau :
 
         sc query DHCP
@@ -95,7 +95,7 @@ Pour résoudre ce problème, utilisez le contrôle série pour activer DHCP ou [
 
 #### <a name="dhcp-client-service-is-stopped-because-of-an-access-denied-error"></a>Le service client DHCP est arrêté en raison d’une erreur d’accès refusé
 
-1. Connectez-vous à la [console série](serial-console-windows.md#) et ouvrez une instance PowerShell.
+1. Connectez-vous à la [console série](serial-console-windows.md) et ouvrez une instance PowerShell.
 2. Téléchargez l’outil Process Monitor en exécutant le script suivant :
 
    ```

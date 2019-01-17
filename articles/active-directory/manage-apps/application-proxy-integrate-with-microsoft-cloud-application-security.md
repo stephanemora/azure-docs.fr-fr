@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 33da0b09339460d66650c492ec125461bc0980b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3be75f2fe004939eff6bf6cc960759db69bfb93a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730169"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215097"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Configurer la supervision de l’accès aux applications en temps réel avec Microsoft Cloud App Security et Azure Active Directory
 Configurez une application locale dans Azure Active Directory (Azure AD) pour utiliser Microsoft Cloud App Security (MCAS) pour la supervision en temps réel. MCAS utilise le contrôle d’application par accès conditionnel pour surveiller et contrôler les sessions en temps réel en fonction des stratégies d’accès conditionnel. Vous pouvez appliquer ces stratégies aux applications locales qui utilisent le proxy d’application dans Azure Active Directory (Azure AD).
@@ -27,7 +27,7 @@ Voici quelques exemples de types de stratégies que vous pouvez créer avec MCAS
 - Utilisez les certificats clients ou la conformité des périphériques pour bloquer l’accès à des applications spécifiques à partir des appareils non gérés.
 - Restreignez les sessions utilisateur des réseaux hors entreprise. Vous pouvez donner un accès restreint aux utilisateurs accédant à une application en dehors de votre réseau d’entreprise. Par exemple, cet accès restreint peut empêcher l’utilisateur de télécharger des documents sensibles.
 
-Pour plus d’informations, consultez [Protéger les applications avec le Contrôle d’accès conditionnel aux applications Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad.md).
+Pour plus d’informations, consultez [Protéger les applications avec le Contrôle d’accès conditionnel aux applications Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad).
 
 ## <a name="requirements"></a>Configuration requise
 

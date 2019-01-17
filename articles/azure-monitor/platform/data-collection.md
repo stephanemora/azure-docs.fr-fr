@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: 84ab63d145d9726fad83b7b2337542fef5c8743d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b96a00fb5dbf96a7b57adbaaacf24af319d86950
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718960"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215386"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Supervision des données collectées par Azure Monitor
 [Azure Monitor](../overview.md) est un service qui vous permet de surveiller vos applications et les ressources dont elles dépendent. Au cœur de cette fonction se trouve le stockage de données de télémétrie et d’autres données tirées des ressources supervisées. Cet article décrit de manière exhaustive la façon dont ces données sont stockées et utilisées par Azure Monitor.
@@ -156,7 +156,7 @@ Les tâches réalisables avec les journaux sont les suivantes :
 Toutes les données de journal dans Azure Monitor sont récupérées en utilisant une [requête de journal](../log-query/log-query-overview.md) écrite dans le [langage de requête Data Explorer](../log-query/get-started-queries.md), qui vous permet de rapidement récupérer, consolider et analyser les données collectées. Utilisez [Log Analytics](../log-query/portals.md) pour écrire et tester des requêtes dans le Portail Azure. Vous pouvez afficher les résultats de manière interactive ou les épingler au tableau de bord pour les voir avec d’autres visualisations. Vous pouvez également récupérer les journaux à l’aide de l’[API REST Azure Monitoring](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 > [!IMPORTANT]
-> Les données Application Insights sont stockées dans une partition autre que les données de journal dans Azure Monitor. Les mêmes fonctionnalités que les autres données de journal sont prises en charge, mais vous devez utiliser la [console Application Insights](/azure-monitor/app/analytics.md) ou l’[API Application Insights](https://dev.applicationinsights.io/) pour accéder à ces données. Vous pouvez utiliser une [requête interressources](../log-query/cross-workspace-query.md) pour analyser les données d’application ainsi que d’autres données de journal.
+> Les données Application Insights sont stockées dans une partition autre que les données de journal dans Azure Monitor. Les mêmes fonctionnalités que les autres données de journal sont prises en charge, mais vous devez utiliser la [console Application Insights](../app/analytics.md) ou l’[API Application Insights](https://dev.applicationinsights.io/) pour accéder à ces données. Vous pouvez utiliser une [requête interressources](../log-query/cross-workspace-query.md) pour analyser les données d’application ainsi que d’autres données de journal.
 
 ![Journaux](media/data-collection/logs.png)
 

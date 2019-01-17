@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 977c464e0c172a25d069fa7db55d8aefb78d89d9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f6267bd2d97dabd71c007bcb8112936093124f74
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339091"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267026"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Protection des données et du service SQL Azure dans Azure Security Center
 Le Centre de sécurité Azure analyse l’état de sécurité de vos ressources Azure. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des recommandations qui vous guident tout au long du processus de configuration des contrôles nécessaires.  Ces recommandations s’appliquent aux types de ressources Azure : machines virtuelles, mise en réseau, SQL et données et applications.
 
-Cet article traite des recommandations qui s’appliquent aux données et au service SQL Azure. Les recommandations se concentrent autour de l’audit des bases de données et des serveurs SQL Azure, de l’activation du chiffrement pour les bases de données SQL et de l’activation du chiffrement pour votre compte de stockage Azure.  Utilisez le tableau ci-dessous pour mieux comprendre les recommandations disponibles pour les données et le service SQL et leurs effets.
+
 ### <a name="monitor-data-security"></a>Surveiller la sécurité des données
 
 Lorsque vous cliquez sur **Sécurité des données** dans la section **Prévention**, le panneau **Ressources de données** s’ouvre et affiche des recommandations pour SQL et le stockage. Il contient également des [recommandations](security-center-sql-service-recommendations.md) pour l’état général de la base de données. Pour plus d’informations sur le chiffrement du stockage, consultez [Enable encryption for Azure storage account in Azure Security Center (Activer le chiffrement pour le compte de stockage Azure dans Azure Security Center)](security-center-enable-encryption-for-storage-account.md).
@@ -60,7 +60,6 @@ Pour activer l’audit, sélectionnez **ACTIVÉ** sous **Audit**.
 |SQL|15|Activer l’audit sur les bases de données SQL|Activer l’audit sur les bases de données Azure SQL. (Service Azure SQL uniquement. N’inclut pas SQL en cours d’exécution sur vos machines virtuelles.)|
 |Data Lake Analytics|15|Activer le chiffrement au repos de Data Lake Analytics|Activer le chiffrement transparent des données pour sécuriser les données au repos dans votre service Data Lake Analytics. Le chiffrement au repos est transparent, ce qui signifie que Data Lake Analytics chiffre automatiquement les données avant leur stockage permanent et les déchiffre avant leur récupération. Aucune modification n’est donc requise dans les applications et services qui interagissent avec Data Lake Analytics en raison du chiffrement. Le chiffrement au repos réduit le risque de perte de données suite à un vol physique et permet également de répondre aux exigences de conformité réglementaire.|
 |Data Lake Store|15|Activer le chiffrement au repos pour Data Lake Store|Activer le chiffrement transparent des données pour sécuriser les données au repos dans votre service Data Lake Store. Le chiffrement au repos est transparent, ce qui signifie que Data Lake Store chiffre automatiquement les données avant leur stockage permanent et les déchiffre avant leur récupération. Vous n’êtes pas obligé d’apporter des modifications aux applications et services qui interagissent avec Data Lake Store pour prendre en charge le chiffrement. Le chiffrement au repos réduit le risque de perte de données suite à un vol physique et permet également de répondre aux exigences de conformité réglementaire.|
-|Compte de stockage|15|Activer le chiffrement pour le compte de stockage Azure|Activer Azure Storage Service Encryption pour les données au repos. SSE (Storage Service Encryption) chiffre les données lorsqu’elles sont écrites dans le stockage Azure et les déchiffre avant récupération. SSE est actuellement disponible uniquement pour le service BLOB Azure et peut être utilisé pour les objets blob de blocs, les objets blob de pages les objets blob Append.|
 |Data Lake Analytics|5.|Activer les journaux de diagnostic dans Data Lake Analytics|Activer les journaux et les conserver un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
 |Data Lake Store|5.|Activer les journaux de diagnostic dans Azure Data Lake Store|Activer les journaux et les conserver un an maximum. Permet de recréer les pistes d’activité à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau. |
 |SQL|30|Corriger les vulnérabilités sur vos bases de données SQL|L'évaluation de la vulnérabilité SQL analyse les vulnérabilités de la sécurité dans votre base de données et expose tout manquement aux meilleures pratiques, comme les erreurs de configuration, les autorisations excessives et les données sensibles non protégées. La résolution des vulnérabilités détectées peut améliorer considérablement le niveau de sécurité de votre base de données.|

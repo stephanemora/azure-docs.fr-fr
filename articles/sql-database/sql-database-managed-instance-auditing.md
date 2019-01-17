@@ -13,13 +13,13 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 045314980d0051e8b5ef71bdf95023084eff1880
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.date: 01/12/2019
+ms.openlocfilehash: 716c4caa1b28cc40470d366e5fc6901de9462f9a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063875"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267264"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Prendre en main l’audit d’Azure SQL Database Managed Instance
 
@@ -172,9 +172,9 @@ Plusieurs méthodes vous permettent d’afficher des journaux d’audit d’obje
 
 - Utilisez la fonction système `sys.fn_get_audit_file` pour retourner les données du journal d’audit dans un format tabulaire. Pour plus d’informations sur l’utilisation de cette fonction, consultez la [documentation sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
-- Vous pouvez explorer les journaux d’audit avec un outil tel que l’Explorateur Stockage Azure. Dans Stockage Azure, les journaux d’audit sont enregistrés sous la forme d’une collection de fichiers blob dans un conteneur nommé sqldbauditlogs. Pour plus d’informations sur la hiérarchie du dossier de stockage, sur les conventions d’affectation de noms et sur le format de journal, consultez la documentation de référence concernant le format de journal d’audit blob.
+- Vous pouvez explorer les journaux d’audit avec un outil comme [l’Explorateur de stockage Azure](https://azure.microsoft.com/en-us/features/storage-explorer/). Dans Stockage Azure, les journaux d’audit sont enregistrés sous la forme d’une collection de fichiers blob dans un conteneur nommé sqldbauditlogs. Pour plus d’informations sur la hiérarchie du dossier de stockage, sur les conventions de nommage et sur le format des journaux, consultez le [document de référence sur le format des journaux d’audit d’objets blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- Pour obtenir la liste complète des méthodes de consommation du journal d’audit, reportez-vous à l’article [Bien démarrer avec l’audit de bases de données SQL](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
+- Pour obtenir la liste complète des méthodes de consommation du journal d’audit, reportez-vous à l’article [Bien démarrer avec l’audit de bases de données SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
 
 > [!IMPORTANT]
 > L’affichage des enregistrements d’audit du portail Azure (volet « Enregistrements d’audit ») n’est pas actuellement disponible pour Managed Instance.

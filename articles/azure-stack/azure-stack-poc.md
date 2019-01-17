@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 89552bc568ce38c6153683e9c3b0f3f26f569083
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 530bb7b164ec7d7b31e6d4a58bca97aa17dc62fa
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959535"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54357876"
 ---
 # <a name="what-is-azure-stack"></a>Qu’est-ce qu’Azure Stack ?
 
@@ -29,8 +29,6 @@ Microsoft Azure Stack est une plateforme cloud hybride qui vous permet de fourni
 
 Vous disposez de deux options pour déployer Azure Stack.
 
-## <a name="azure-stack-integrated-systems"></a>Systèmes intégrés Azure Stack
-Les systèmes intégrés Azure Stack sont disponibles par le biais d’un partenariat entre Microsoft et des [fournisseurs de matériel partenaires](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), qui aboutit à la création d’une solution combinant innovation cloud et simplicité de gestion. Comme Azure Stack est offert comme matériel et logiciel système intégré, vous avez la flexibilité et le contrôle dont vous avez besoin, ainsi que la capacité à innover depuis le cloud. Les systèmes intégrés Azure Stack présentent une taille comprise entre 4 et 16 nœuds et sont pris en charge conjointement par le fournisseur de matériel partenaire et Microsoft.  Utilisez des systèmes intégrés Azure Stack pour créer des scénarios et déployer de nouvelles solutions pour vos charges de travail de production.
 
 ## <a name="azure-stack-development-kit"></a>Kit de développement Azure Stack
 
@@ -44,6 +42,9 @@ L’ASDK présente les limites suivantes :
 * L’ASDK est associé à un seul fournisseur d’identité Azure Active Directory (Azure AD) ou de services de fédération Active Directory (AD FS). Vous pouvez créer plusieurs utilisateurs dans ce répertoire et attribuer des abonnements à chaque utilisateur.
 * Étant donné que tous les composants Azure Stack sont déployés sur un seul ordinateur hôte, les ressources physiques disponibles sont limitées pour les abonnés. Cette configuration n’est pas destinée à l’évaluation des performances ou de la mise à l’échelle.
 * Les scénarios de mise en réseau sont limités à cause des exigences de déploiement de la carte réseau et de l’hôte unique.
+
+## <a name="azure-stack-integrated-systems"></a>Systèmes intégrés Azure Stack
+Les systèmes intégrés Azure Stack sont disponibles par le biais d’un partenariat entre Microsoft et des [fournisseurs de matériel partenaires](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), qui aboutit à la création d’une solution combinant innovation cloud et simplicité de gestion. Comme Azure Stack est offert comme matériel et logiciel système intégré, vous avez la flexibilité et le contrôle dont vous avez besoin, ainsi que la capacité à innover depuis le cloud. Les systèmes intégrés Azure Stack présentent une taille comprise entre 4 et 16 nœuds et sont pris en charge conjointement par le fournisseur de matériel partenaire et Microsoft.  Utilisez des systèmes intégrés Azure Stack pour créer des scénarios et déployer de nouvelles solutions pour vos charges de travail de production.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
