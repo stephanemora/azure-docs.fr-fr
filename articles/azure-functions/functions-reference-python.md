@@ -149,7 +149,7 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-Lorsque la fonction est appelée, la requête HTTP est transmise à la fonction dans `req`. Une entrée est récupérée dans le Stockage Blob Azure à partir de _l’ID_ dans l’URL d’itinéraire et mise à disposition comme `obj` dans le corps de fonction.
+Lorsque la fonction est appelée, la requête HTTP est transmise à la fonction dans `req`. Une entrée est récupérée dans le Stockage Blob Azure à partir de _id_ dans l’URL d’itinéraire et mise à disposition comme `obj` dans le corps de fonction.
 
 ## <a name="outputs"></a>Outputs
 
