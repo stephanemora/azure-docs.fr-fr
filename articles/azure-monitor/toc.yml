@@ -662,6 +662,8 @@ items:
         href: log-query/query-language.md
       - name: Différences de langage
         href: log-query/data-explorer-difference.md
+      - name: Transition à partir de la recherche dans les journaux
+        href: log-query/log-search-transition.md
       - name: Prise en main
         items:
         - name: Prise en main du portail Analytics
@@ -702,6 +704,8 @@ items:
         items:
         - name: Exemples
           href: log-query/examples.md
+        - name: Écrire des requêtes efficaces
+          href: log-query/log-query-performance.md
         - name: Analytique intelligente
           href: log-query/smart-analytics.md
         - name: Recherches inter-ressources
@@ -1013,13 +1017,13 @@ items:
     href: https://azure.microsoft.com/resources/videos/index/?services=monitor
   - name: Modèles de démarrage rapide
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemples de code
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: a0dc6965328ed73059342f36d89d5fdd405bfc9d
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 5cb859501356213289c674e3bfa689095c9b28e1
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352612"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390726"
