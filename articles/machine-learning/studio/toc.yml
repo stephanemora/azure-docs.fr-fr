@@ -57,34 +57,13 @@ items:
     href: r-quickstart.md
 - name: Exemples
   items:
+  - name: Exemples d'expérimentations
+    displayName: gallery
+    href: sample-experiments.md
   - name: Exemples de jeux de données
     href: use-sample-datasets.md
-  - name: Exemple d’évolution client
-    href: azure-ml-customer-churn-scenario.md
   - name: Galerie Azure AI
-    items:
-    - name: Vue d’ensemble
-      href: gallery-how-to-use-contribute-publish.md
-    - name: Exemples d'expérimentations
-      href: sample-experiments.md
-    - name: Secteurs d’activité
-      href: gallery-industries.md
-    - name: solutions
-      href: gallery-solutions.md
-    - name: Expériences
-      href: gallery-experiments.md
-    - name: Blocs-notes Jupyter
-      href: gallery-jupyter-notebooks.md
-    - name: Concours
-      href: gallery-competitions.md
-    - name: FAQ Concours
-      href: competition-faq.md
-    - name: Didacticiels
-      href: gallery-tutorials.md
-    - name: Collections
-      href: gallery-collections.md
-    - name: Modules personnalisés
-      href: gallery-custom-modules.md
+    href: gallery-how-to-use-contribute-publish.md
 - name: Concepts
   items:
   - name: Gestion des modèles
@@ -102,9 +81,6 @@ items:
       href: troubleshooting-creating-ml-workspace.md
     - name: Déployer à l’aide d’ARM
       href: deploy-with-resource-manager-template.md
-    - name: Afficher et supprimer des données de compte Studio
-      displayName: export
-      href: export-delete-personal-data-dsr.md
   - name: Importer les données de formation
     items:
     - name: Vue d’ensemble
@@ -127,16 +103,10 @@ items:
     - name: Utiliser PowerShell pour créer des modèles
       displayName: endpoint, endpoints
       href: create-models-and-endpoints-with-powershell.md
-    - name: Sélectionner des algorithmes
-      items:
-      - name: Choisir des algorithmes
-        href: algorithm-choice.md
-      - name: Aide-mémoire d’algorithme
-        href: algorithm-cheat-sheet.md
-      - name: Utiliser une régression linéaire
-        href: linear-regression-in-azure.md
-      - name: Utiliser l’analyse de texte
-        href: text-analytics-module-tutorial.md
+    - name: Choisir des algorithmes
+      href: algorithm-choice.md
+    - name: Aide-mémoire d’algorithme
+      href: algorithm-cheat-sheet.md
     - name: Évaluer et interpréter les résultats
       items:
       - name: Évaluer les performances
@@ -212,7 +182,19 @@ items:
       href: consume-web-service-with-web-app-template.md
     - name: Utiliser un pool Batch
       href: dedicated-capacity-for-bes-jobs.md
-  - name: Afficher et supprimer des données de compte
+  - name: Exemples
+    items:
+    - name: Désengagement de clients
+      href: azure-ml-customer-churn-scenario.md
+    - name: analyse de sentiments
+      href: text-analytics-module-tutorial.md
+    - name: Migrer l’analytique d’Excel vers Studio
+      href: linear-regression-in-azure.md
+  - name: Afficher et supprimer des données Studio
+    displayName: export
+    href: export-delete-personal-data-dsr.md
+  - name: Afficher et supprimer des données Gallery
+    displayName: export
     href: ai-gallery-control-personal-data-dsr.md
 - name: Informations de référence
   items:
@@ -244,9 +226,9 @@ items:
     href: azure-ml-netsharp-reference-guide.md
   - name: Comparer nos produits ML
     href: ../service/overview-more-machine-learning.md
-ms.openlocfilehash: 821a6ffb787aef0d75dbc0f9e1ab331ad35dafa0
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: a79ff2e7b2fba67e5c341468b462eacd07e2693c
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389920"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401943"
