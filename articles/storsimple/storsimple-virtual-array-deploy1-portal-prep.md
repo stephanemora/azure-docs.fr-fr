@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2017
+ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2126ff7ffd503e1d7b30997f3f32f30429cffefb
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 17e51c91d2857ac91b0ebf998c016ebcf56c0de0
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143489"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244781"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Déploiement de StorSimple Virtual Array - Préparation du portail Azure
 
@@ -43,8 +43,8 @@ Consultez les articles suivants dans l'ordre indiqué pour déployer votre insta
 | **#** | **Dans cette étape** | **Procédez comme suit …** | **Et utilisez ces documents.** |
 | --- | --- | --- | --- |
 | 1. |**Configuration du portail Azure** |Créez et configurez votre service StorSimple Device Manager avant de configurer une instance StorSimple Virtual Array. |[Préparation du portail](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**Configuration du tableau virtuel** |Pour Hyper-V, configurez et connectez-vous à une instance StorSimple Virtual Array sur un système hôte exécutant Hyper-V sur Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. <br></br> <br></br> Pour VMware, provisionnez et connectez-vous à une instance StorSimple Virtual Array sur un système hôte exécutant VMware ESXi 5.0, 5.5 ou 6.0.<br></br> |[Configuration d’un tableau virtuel dans Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Configuration d’un tableau virtuel dans VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
-| 3. |**Configuration du tableau virtuel** |Pour votre serveur de fichiers, effectuez la configuration initiale, inscrivez votre serveur de fichiers StorSimple, puis finalisez la configuration de l’appareil. Vous pouvez ensuite configurer les partages SMB. <br></br> <br></br> Pour votre serveur iSCSI, effectuez la configuration initiale, inscrivez votre serveur iSCSI StorSimple, puis finalisez la configuration de l’appareil. Vous pouvez ensuite configurer les volumes iSCSI. |[Configuration d’un tableau virtuel comme serveur de fichiers](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Configuration d’un tableau virtuel comme serveur iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md) |
+| 2. |**Configuration du tableau virtuel** |Pour Hyper-V, configurez et connectez-vous à une instance StorSimple Virtual Array sur un système hôte exécutant Hyper-V sur Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. <br></br> <br></br> Pour VMware, provisionnez et connectez-vous à une instance StorSimple Virtual Array sur un système hôte exécutant VMware ESXi 5.0, 5.5, 6.0 ou 6.5.<br></br> |[Configurer un tableau virtuel dans Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Configuration d’un tableau virtuel dans VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 3. |**Configuration du tableau virtuel** |Pour votre serveur de fichiers, effectuez la configuration initiale, inscrivez votre serveur de fichiers StorSimple, puis finalisez la configuration de l’appareil. Vous pouvez ensuite configurer les partages SMB. <br></br> <br></br>  Pour votre serveur iSCSI, effectuez la configuration initiale, inscrivez votre serveur iSCSI StorSimple, puis finalisez la configuration de l’appareil. Vous pouvez ensuite configurer les volumes iSCSI. |[Configuration d’un tableau virtuel comme serveur de fichiers](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Configuration d’un tableau virtuel comme serveur iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 Vous pouvez maintenant commencer à configurer le portail Azure.
 
@@ -52,8 +52,8 @@ Vous pouvez maintenant commencer à configurer le portail Azure.
 
 La liste de contrôle de la configuration présente les informations dont vous avez besoin avant de configurer le logiciel sur votre instance StorSimple Virtual Array. L’étude préalable de ces informations simplifie le déploiement de l’appareil StorSimple dans votre environnement. Selon que votre instance StorSimple Virtual Array sera déployée comme serveur de fichiers ou serveur iSCSI, suivez l’une des listes de contrôle suivantes.
 
-* Téléchargez la [liste de vérification de la configuration du serveur de fichiers StorSimple Virtual Array](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
-* Téléchargez la [liste de vérification de la configuration du serveur iSCSI StorSimple Virtual Array](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
+* Téléchargez la [liste de vérification de la configuration du serveur de fichiers StorSimple Virtual Array](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
+* Téléchargez la [liste de vérification de la configuration du serveur iSCSI StorSimple Virtual Array](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -71,7 +71,7 @@ Avant de commencer, assurez-vous que :
 
 Avant de déployer un tableau virtuel, assurez-vous que :
 
-* Vous avez accès à un système hôte exécutant Hyper-V sur Windows Server 2008 R2 ou une version ultérieure, ou VMware (ESXi 5.0, 5.5 ou 6.0) permettant de configurer un appareil.
+* Vous avez accès à un système hôte exécutant Hyper-V sous Windows Server 2008 R2 ou version ultérieure ou sous VMware (ESXi 5.0, 5.5, 6.0 ou 6.5) et permettant de configurer un appareil.
 * Le système hôte est en mesure de dédier les ressources suivantes pour configurer votre tableau virtuel :
   
   * Un minimum de 4 cœurs.
@@ -90,9 +90,9 @@ Avant de commencer, assurez-vous que :
 
 Utilisez la procédure pas à pas suivante afin de préparer votre portail pour le service StorSimple Device Manager.
 
-## <a name="step-1-create-a-new-service"></a>Étape 1 : Création d’un nouveau service
+## <a name="step-1-create-a-new-service"></a>Étape 1 : Créer un service
 
-Une seule instance du service StorSimple Device Manager peut gérer plusieurs instances StorSimple Virtual Array. Procédez comme suit pour créer une instance du service StorSimple Device Manager. Si vous disposez d'un service StorSimple Device Manager existant pour gérer vos tableaux virtuels, ignorez cette étape et passez à l’[Étape 2 : Obtention de la clé d’inscription](#step-2-get-the-service-registration-key).
+Une seule instance du service StorSimple Device Manager peut gérer plusieurs instances StorSimple Virtual Array. Procédez comme suit pour créer une instance du service StorSimple Device Manager. Si vous disposez déjà d'un service StorSimple Device Manager pour gérer vos tableaux virtuels, ignorez cette étape et passez à l'[Étape 2 : Obtenir la clé d’inscription du service](#step-2-get-the-service-registration-key).
 
 [!INCLUDE [storsimple-virtual-array-create-new-service](../../includes/storsimple-virtual-array-create-new-service.md)]
 
@@ -100,11 +100,11 @@ Une seule instance du service StorSimple Device Manager peut gérer plusieurs in
 > Si vous n’avez pas activé la création automatique d’un compte de stockage avec votre service, vous devez créer au moins un compte de stockage après avoir créé un service.
 > 
 > * Si vous n’avez pas créé de compte de stockage automatiquement, accédez à la page [Configuration d’un compte de stockage pour le service](#optional-step-configure-a-new-storage-account-for-the-service) pour obtenir des instructions détaillées.
-> * Si vous avez activé la création automatique d’un compte de stockage, passez à l’ [étape 2 : Obtention de la clé d’inscription](#step-2-get-the-service-registration-key).
+> * Si vous avez activé la création automatique d'un compte de stockage, passez à l'[Étape 2 : Obtenir la clé d’inscription du service](#step-2-get-the-service-registration-key).
 > 
 > 
 
-## <a name="step-2-get-the-service-registration-key"></a>étape 2 : Obtention de la clé d’inscription
+## <a name="step-2-get-the-service-registration-key"></a>Étape 2 : Obtenir la clé d’inscription du service
 
 Une fois le service StorSimple Device Manager opérationnel, vous devez obtenir la clé d’inscription. Cette clé est utilisée pour inscrire et connecter votre appareil StorSimple auprès du service.
 
@@ -117,7 +117,7 @@ Procédez comme suit dans le [portail Azure](https://portal.azure.com/).
 > 
 > 
 
-## <a name="step-3-download-the-virtual-array-image"></a>Étape 3 : Téléchargement de l'image du tableau virtuel
+## <a name="step-3-download-the-virtual-array-image"></a>Étape 3 : Télécharger l'image du tableau virtuel
 
 Après avoir obtenu la clé d'inscription du service, vous devrez télécharger l'image du tableau virtuel approprié pour configurer un tableau virtuel sur votre système hôte. Les images du tableau virtuel sont spécifiques au système d'exploitation et peuvent être téléchargées depuis la page Démarrage rapide du portail Azure.
 
@@ -137,10 +137,10 @@ Procédez comme suit dans le [portail Azure](https://portal.azure.com/).
    
    * VHDX pour Hyper-V sur Windows Server 2012 et versions ultérieures
    * VHD pour Hyper-V sur Windows Server 2008 R2 et versions ultérieures
-   * VMDK pour VMWare ESXi 5.0, 5.5 ou 6.0
+   * VMDK pour VMWare ESXi 5.0, 5.5, 6.0 ou 6.5
 5. Téléchargez et décompressez le fichier sur un lecteur local et notez l’emplacement du fichier décompressé.
 
-## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Étape facultative : configuration d’un nouveau compte de stockage pour le service
+## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Étape facultative : Configuration d’un compte de stockage pour le service
 
 Il s’agit d’une étape facultative que vous devez exécuter uniquement si vous n’avez pas activé la création automatique d’un compte de stockage avec votre service.
 

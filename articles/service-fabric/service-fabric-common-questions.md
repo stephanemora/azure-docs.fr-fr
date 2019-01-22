@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 54ce1d9ab6216f1d757d7076cb95362d55ea9d9c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 60fe7296d95a7746fd703c3a45349faf294e5bbd
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537618"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320597"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Questions fréquentes sur Service Fabric
 
@@ -56,7 +56,7 @@ Pour les clusters qui ne s’exécutent PAS sur Azure, nous [proposons une appli
 
 **Réponse courte** : Non. 
 
-**Réponse longue** : Bien que les grands groupes de machines virtuelles identiques puissent évoluer jusqu’à 1 000 instances de machines virtuelles, ils utilisent pour cela des groupes de placement. Les domaines d’erreur (FD) et les domaines de mise à niveau (UD) ne sont cohérents qu’au sein d’un groupe de placement. Service Fabric utilise des domaines d’erreur et des domaines de mise à niveau pour prendre des décisions de placement de vos instances/réplicas de service. Étant donné que les domaines d’erreur et de mise à niveau ne sont comparables qu’au sein d’un groupe de placement, Service Fabric ne peut pas les utiliser. Par exemple, si VM1 dans PG1 a une topologie de FD = 0 et VM9 dans PG2 a une topologie de FD = 4, cela ne signifie pas que VM1 et VM2 se trouvent sur deux racks matériels différents. Par conséquent, Service Fabric ne peut pas dans ce cas utiliser les valeurs FD pour prendre des décisions de placement.
+**Réponse longue** : les grands groupes de machines virtuelles identiques peuvent accueillir jusqu'à 1 000 instances de machines virtuelles, mais pour cela ils utilisent des groupes de placement. Les domaines d’erreur (FD) et les domaines de mise à niveau (UD) ne sont cohérents qu’au sein d’un groupe de placement. Service Fabric utilise des domaines d’erreur et des domaines de mise à niveau pour prendre des décisions de placement de vos instances/réplicas de service. Étant donné que les domaines d’erreur et de mise à niveau ne sont comparables qu’au sein d’un groupe de placement, Service Fabric ne peut pas les utiliser. Par exemple, si VM1 dans PG1 a une topologie de FD = 0 et VM9 dans PG2 a une topologie de FD = 4, cela ne signifie pas que VM1 et VM2 se trouvent sur deux racks matériels différents. Par conséquent, Service Fabric ne peut pas dans ce cas utiliser les valeurs FD pour prendre des décisions de placement.
 
 Il y a actuellement d’autres problèmes avec les groupes de machines virtuelles identiques volumineux, notamment l’absence de prise en charge de l’équilibrage de charge de niveau 4. Pour plus d’informations, consultez la page [Grands groupes identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 

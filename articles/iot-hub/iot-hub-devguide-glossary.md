@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 01/15/2019
 ms.author: dobett
-ms.openlocfilehash: 26bccc07e402288db696bce8a2371cab9ef7aff9
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3725117b90ec2574737686881e47967f3d9a9e39
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055079"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320088"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossaire des termes d’IoT Hub
 Cet article répertorie certains termes courants utilisés dans les articles relatifs à IoT Hub.
@@ -59,7 +59,7 @@ Le [portail Microsoft Azure](https://portal.azure.com) permet de configurer et d
 Le service [Stockage Azure](../storage/common/storage-introduction.md) est une solution de stockage cloud. Il inclut le service Stockage Blob qui permet de stocker des données d’objet non structurées. Certains didacticiels concernant IoT Hub utilisent le service Stockage Blob.
 
 ## <a name="back-end-app"></a>Application principale
-Dans le contexte de [IoT Hub](#iot-hub), une application principale est une application qui se connecte à l’un des points de terminaison visible par le service sur un hub IoT. Par exemple, une application principale peut récupérer des messages [appareil-à-cloud](#device-to-cloud) ou gérer le [registre des identités](#identity-registry). En règle générale, une application principale s’exécute dans le cloud mais, dans de nombreux didacticiels, les applications principales sont des applications console qui s’exécutent sur votre ordinateur de développement local.
+Dans le contexte de [IoT Hub](#iot-hub), une application principale est une application qui se connecte à l’un des points de terminaison visible par le service sur un hub IoT. Par exemple, une application back-end peut récupérer des messages [appareil-à-cloud](#device-to-cloud) ou gérer le [registre des identités](#identity-registry). En règle générale, une application principale s’exécute dans le cloud mais, dans de nombreux didacticiels, les applications principales sont des applications console qui s’exécutent sur votre ordinateur de développement local.
 
 ## <a name="built-in-endpoints"></a>Points de terminaison intégrés
 Chaque hub IoT inclut un [point de terminaison](iot-hub-devguide-endpoints.md) intégré compatible avec Event Hub. Vous pouvez utiliser n’importe quel mécanisme compatible avec Event Hubs pour lire les messages appareil-à-cloud à partir de ce point de terminaison.
@@ -114,9 +114,6 @@ Les données d’appareil font référence aux données stockées pour chaque ap
 ## <a name="device-identity"></a>Identité d’appareil
 L’identité d’appareil est l’identificateur unique attribué à chaque appareil inscrit dans le [registre des identités](#identity-registry).
 
-## <a name="module-identity"></a>Identité de module
-L’identité de module est l’identificateur unique affecté à chaque module qui appartient à un appareil. L’identité de module est également enregistrée dans le [registre des identités](#identity-registry).
-
 ## <a name="device-management"></a>Gestion des appareils
 La gestion des appareils couvre le cycle de vie complet associé à la gestion des appareils dans votre solution IoT, comprenant la planification, l’approvisionnement, la configuration, la surveillance et la mise hors service.
 
@@ -131,15 +128,6 @@ L’approvisionnement des appareils est le processus d’ajout des [données d�
 
 ## <a name="device-twin"></a>Jumeau d’appareil
 Un [jumeau d’appareil](iot-hub-devguide-device-twins.md) est un document JSON contenant des informations d’état d’appareil telles que des métadonnées, des configurations et des conditions. [IoT Hub](#iot-hub) conserve une représentation d’appareil pour chaque appareil que vous configurez dans votre IoT Hub. Les jumeaux d’appareil vous permettent de synchroniser des [conditions d’appareil](#device-condition) et des configurations entre l’appareil et le back-end de la solution. Vous pouvez interroger des jumeaux d’appareil pour localiser des appareils spécifiques et déterminer l’état d’opérations longues.
-
-## <a name="module-twin"></a>Jumeau de module
-À l’image d’un jumeau d’appareil, un jumeau de module est un document JSON contenant des informations d’état de module telles que des métadonnées, des configurations et des conditions. IoT Hub conserve un jumeau de module pour chaque identité de module que vous provisionnez sous une identité d’appareil dans votre hub IoT. Les jumeaux de module vous permettent de synchroniser des conditions de module et des configurations entre le module et le backend de la solution. Vous pouvez interroger des jumeaux de module pour localiser des modules spécifiques et déterminer l’état d’opérations longues.
-
-## <a name="twin-queries"></a>Requêtes de jumeaux
-Les [requêtes de jumeaux d’appareil et de module](iot-hub-devguide-query-language.md) utilisent le langage de requête similaire à SQL d’IoT Hub pour extraire des informations de vos jumeaux d’appareil ou jumeaux de module. Vous pouvez utiliser le même langage de requête IoT Hub pour récupérer des informations sur l’exécution de [](#job) dans votre hub IoT.
-
-## <a name="twin-synchronization"></a>Synchronisation des jumeaux
-Une synchronisation de jumeau utilise les [propriétés souhaitées](#desired-properties) de vos jumeaux d’appareil ou jumeaux de module pour configurer vos appareils ou modules et extraire de ceux-ci des [propriétés signalées](#reported-properties) à stocker dans le jumeau.
 
 ## <a name="direct-method"></a>Méthode directe
 Une [méthode directe](iot-hub-devguide-direct-methods.md) est un moyen de déclencher une méthode à exécuter sur un appareil en appelant une API sur votre hub IoT.
@@ -190,6 +178,17 @@ Les accélérateurs de solution Azure IoT regroupent plusieurs services Azure da
 
 ## <a name="job"></a>Travail
 Votre serveur principal de solution peut utiliser des [travaux](iot-hub-devguide-jobs.md) pour planifier et suivre des activités sur un ensemble d’appareils inscrits auprès de votre IoT Hub. Ces activités comprennent la mise à jour des [propriétés souhaitées](#desired-properties) de l’appareil, la mise à jour des [balises](#tags) de jumeau d’appareil et l’appel de [méthodes directes](#direct-method). [IoT Hub](#iot-hub) utilise également des travaux pour [importer dans et exporter](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) depuis le [registre des identités](#identity-registry).
+
+## <a name="modules"></a>Modules
+Côté appareil, les kits IoT Hub device SDK vous permettent de créer des [modules](iot-hub-devguide-module-twins.md) dont chacun ouvre une connexion indépendante à IoT Hub. Cette fonctionnalité vous permet d’utiliser des espaces de noms distincts pour les différents composants de votre appareil.
+
+L'identité de module et le jumeau de module fournissent les mêmes fonctionnalités que l'[identité d'appareil](#device-identity) et le [jumeau d'appareil](#device-twin), mais avec une plus grande précision. Ainsi, les appareils compatibles, tels que les appareils basés sur le système d’exploitation ou les appareils avec microprogramme gérant plusieurs composants, peuvent isoler la configuration et les conditions pour chacun de ces composants.
+
+## <a name="module-identity"></a>Identité de module
+L’identité de module est l’identificateur unique affecté à chaque module qui appartient à un appareil. L’identité de module est également enregistrée dans le [registre des identités](#identity-registry).
+
+## <a name="module-twin"></a>Jumeau de module
+À l’image d’un jumeau d’appareil, un jumeau de module est un document JSON contenant des informations d’état de module telles que des métadonnées, des configurations et des conditions. IoT Hub conserve un jumeau de module pour chaque identité de module que vous provisionnez sous une identité d’appareil dans votre hub IoT. Les jumeaux de module vous permettent de synchroniser des conditions de module et des configurations entre le module et le backend de la solution. Vous pouvez interroger des jumeaux de module pour localiser des modules spécifiques et déterminer l’état d’opérations longues.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) est l’un des protocoles de messagerie qu’[IoT Hub](#iot-hub) prend en charge pour communiquer avec des appareils. Pour plus d’informations sur les protocoles de messagerie pris en charge par IoT Hub, consultez [Envoyer et recevoir des messages avec IoT Hub](iot-hub-devguide-messaging.md).
@@ -256,6 +255,12 @@ Les appareils collectent des données de télémétrie, telles que la vitesse du
 
 ## <a name="token-service"></a>Service d’émission de jeton
 Vous pouvez utiliser un service d’émission de jeton pour implémenter un mécanisme d’authentification pour vos appareils. Il utilise une [stratégie d’accès partagé](#shared-access-policy) IoT Hub avec des autorisations **DeviceConnect** pour créer des jetons *device-scoped*. Ces jetons permettent à un appareil de se connecter à votre hub IoT. Un appareil utilise un mécanisme d’authentification personnalisé pour s’authentifier auprès du service d’émission de jeton. Si l’appareil est correctement authentifié, le service d’émission de jeton lui fournit un jeton SAP avec lequel il peut accéder à votre hub IoT.
+
+## <a name="twin-queries"></a>Requêtes de jumeaux
+Les [requêtes de jumeaux d’appareil et de module](iot-hub-devguide-query-language.md) utilisent le langage de requête similaire à SQL d’IoT Hub pour extraire des informations de vos jumeaux d’appareil ou jumeaux de module. Vous pouvez utiliser le même langage de requête IoT Hub pour récupérer des informations sur l’exécution de [](#job) dans votre hub IoT.
+
+## <a name="twin-synchronization"></a>Synchronisation des jumeaux
+Une synchronisation de jumeau utilise les [propriétés souhaitées](#desired-properties) de vos jumeaux d’appareil ou jumeaux de module pour configurer vos appareils ou modules et extraire de ceux-ci des [propriétés signalées](#reported-properties) à stocker dans le jumeau.
 
 ## <a name="x509-client-certificate"></a>Certificat client X.509
 Un appareil peut utiliser un certificat X.509 pour s’authentifier auprès de [IoT Hub](#iot-hub). L’utilisation d’un certificat X.509 est une alternative à l’utilisation d’un [jeton SAP](#shared-access-signature).

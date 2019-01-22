@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 01/10/2019
 ms.author: lagayhar
-ms.openlocfilehash: b662f5c4baa9c4c6e7689f3f463761dbd456f33f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: e16432022c8c8525c95fab46bc61197f67fb8f37
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074173"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260055"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Prise en main d'Application Insights dans un projet web Java
 
@@ -358,6 +358,14 @@ Pour collecter les données concernant d’autres exceptions, vous disposez de d
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Surveiller les appels de méthode et les dépendances externes
 [Installez l’agent Java](java-agent.md) pour journaliser les méthodes internes spécifiées et les appels effectués via JDBC, avec des données de minutage.
+
+## <a name="w3c-distributed-tracing"></a>Traçage distribué W3C
+
+Le kit de développement logiciel (SDK) Java Application Insights prend désormais en charge le [traçage distribué W3C](https://w3c.github.io/trace-context/).
+
+La configuration entrante du SDK est expliquée plus en détail dans notre article consacré à la [corrélation](correlation.md#w3c-distributed-tracing).
+
+La configuration sortante du SDK est définie dans le fichier [AI-Agent.xml](java-agent.md).
 
 ## <a name="performance-counters"></a>Compteurs de performances
 Ouvrez **Paramètres**, **Serveurs** afin d’afficher une gamme de compteurs de performances.

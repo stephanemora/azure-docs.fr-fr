@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 12/4/2018
+ms.date: 1/16/2019
 ms.author: victorh
-ms.openlocfilehash: 663ba97ce96244aa890bef45d1229c12ca170802
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1d4182f491dae9597add4b688b89faa9dd291429
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880146"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352923"
 ---
 # <a name="azure-dns-faq"></a>FAQ Azure DNS
 
@@ -94,7 +94,7 @@ La fonctionnalité de redirection d’URL est suivie dans le backlog Azure DNS. 
 
 Oui. Azure DNS prend en charge le jeu de codage ASCII étendu pour les jeux d’enregistrements TXT. Vous devez toutefois utiliser la dernière version des API REST Azure, des SDK, de PowerShell et de l’interface CLI. Les versions antérieures au 1er octobre 2017 ou au SDK 2.1 ne prennent pas en charge le jeu ASCII étendu. 
 
-Par exemple, un utilisateur peut fournir une chaîne comme valeur pour un enregistrement TXT qui a le caractère ASCII étendu \128. Par exemple, « abcd\128efgh ». Azure DNS utilise la valeur d’octet de ce caractère (128), dans la représentation interne. Au moment de la résolution DNS, cette valeur d’octet s’affiche dans la réponse. Notez également que « abc » et « \097\098\099 » sont interchangeables en ce qui concerne la résolution. 
+Par exemple, pour un enregistrement TXT comportant le caractère ASCII étendu \128, vous pouvez fournir une chaîne en tant que valeur. Par exemple, « abcd\128efgh ». Azure DNS utilise la valeur d’octet de ce caractère (128), dans la représentation interne. Au moment de la résolution DNS, cette valeur d’octet s’affiche dans la réponse. Notez également que « abc » et « \097\098\099 » sont interchangeables en ce qui concerne la résolution. 
 
 Nous suivons les règles d’échappement de format maître de zone de fichiers [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt). Par exemple, `\` échappe maintenant tous les éléments conformément à la RFC. Si vous spécifiez `A\B` comme valeur d’enregistrement TXT, elle est représentée et résolue simplement comme `AB`. Si vous voulez vraiment que l’enregistrement TXT soit `A\B` à la résolution, vous devez de nouveau échapper le caractère `\`. Par exemple, spécifiez `A\\B`.
 
@@ -195,7 +195,7 @@ Pour configurer des noms de domaines internationaux (IDN) dans Azure DNS, conver
 
 La prise en charge de domaines privés est implémentée à l’aide de la fonctionnalité Private Zones. Cette fonctionnalité est actuellement disponible en préversion publique. Les zones privées sont gérées à l’aide des mêmes outils que les zones Azure DNS accessibles sur Internet. Elles peuvent être résolues uniquement à partir de vos réseaux virtuels spécifiés. Pour plus d’informations, consultez la [Vue d’ensemble](private-dns-overview.md).
 
-Actuellement, les zones privées ne sont pas prises en charge dans le portail Azure. 
+Actuellement, les zones privées ne sont pas prises en charge sur le portail Azure.
 
 Pour plus d’informations sur les autres options DNS internes dans Azure, consultez [Résolution de noms pour les machines virtuelles et les instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
@@ -217,7 +217,7 @@ Oui. Les clients peuvent associer jusqu’à 10 réseaux virtuels de résolution
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Un réseau virtuel qui appartient à un autre abonnement peut-il être ajouté en tant que réseau virtuel de résolution à une zone privée ?
 
-Oui. L’utilisateur doit disposer de l’autorisation d’opération d’écriture sur les réseaux virtuels et sur la zone DNS privée. L’autorisation d’accès en écriture peut être accordée à plusieurs rôles RBAC. Par exemple, le rôle RBAC Contributeur de réseaux classiques dispose d’autorisations d’écriture sur les réseaux virtuels. Pour plus d’informations sur les rôles RBAC, consultez [Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md).
+Oui. Vous devez disposer d'une autorisation d'écriture sur les réseaux virtuels ainsi que sur la zone DNS privée. L’autorisation d’accès en écriture peut être accordée à plusieurs rôles RBAC. Par exemple, le rôle RBAC Contributeur de réseaux classiques dispose d’autorisations d’écriture sur les réseaux virtuels. Pour plus d’informations sur les rôles RBAC, consultez [Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md).
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>Les enregistrements DNS de machines virtuelles inscrits automatiquement dans une zone privée sont-ils supprimés automatiquement quand les machines virtuelles sont supprimées par le client ?
 
@@ -257,7 +257,7 @@ Oui. La préversion publique a les limitations suivantes.
 * Si un réseau virtuel d’inscription est spécifié, les enregistrements DNS pour les machines virtuelles de ce réseau virtuel qui sont inscrits dans la zone privée ne sont pas visibles ou récupérables à partir de PowerShell, de l’interface CLI ou des API. Les enregistrements de machine virtuelle sont enregistrés et résolus avec succès.
 * Le DNS inversé fonctionne uniquement pour l’espace IP privé sur le réseau virtuel d’inscription.
 * Le DNS inversé pour une adresse IP privée qui n’est pas inscrite dans la zone privée retourne « internal.cloudapp.net » comme suffixe DNS. Ce suffixe ne peut pas être résolu. Il peut s’agir, par exemple, d’une adresse IP privée pour une machine virtuelle dans un réseau virtuel qui est lié en tant qu’un réseau virtuel de résolution à une zone privée.
-* Un réseau virtuel ne peut pas avoir de machines virtuelles avec une carte réseau attachée quand il est lié pour la première fois à une zone privée en tant qu’un réseau virtuel d’inscription ou de résolution. En d’autres termes, le réseau virtuel doit être vide. Le réseau virtuel peut ensuite être non vide pour les liaisons ultérieures à d’autres zones privées en tant que réseau virtuel d’inscription ou de résolution. 
+* Un réseau virtuel doit être vide lorsqu'il est lié pour la première fois à une zone privée en tant que réseau virtuel d'inscription ou de résolution. Le réseau virtuel peut ensuite être non vide pour les liaisons ultérieures à d’autres zones privées en tant que réseau virtuel d’inscription ou de résolution.
 * Le transfert conditionnel n’est pas pris en charge, par exemple pour activer la résolution entre les réseaux Azure et les réseaux locaux. Découvrez comment les clients peuvent implémenter ce scénario par le biais d’autres mécanismes. Consultez [Résolution de noms pour les machines virtuelles et les instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>Existe-t-il des quotas ou des limites applicables aux zones ou aux enregistrements pour les zones privées ?

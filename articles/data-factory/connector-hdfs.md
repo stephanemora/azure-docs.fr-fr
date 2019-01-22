@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 01/16/2019
 ms.author: jingwang
-ms.openlocfilehash: a5df9d4d323158ee52c872b0122fdd28d9f74979
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 161683b48ae66edc621981142c538f8bce44a2b6
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019858"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352170"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copier des données depuis HDFS à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,6 +39,9 @@ Plus précisément, ce connecteur HDFS prend en charge ce qui suit :
 ## <a name="prerequisites"></a>Prérequis
 
 Pour copier des données depuis un HDFS qui n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour plus d’informations, voir l’article [Runtime d’intégration auto-hébergé](concepts-integration-runtime.md).
+
+> [!NOTE]
+> Assurez-vous que le runtime d'intégration peut accéder à **TOUS** les éléments [serveur du nœud de nom]:[port du nœud de nom] et [serveurs du nœud de données]:[port du nœud de données] du cluster Hadoop. Le [port du nœud de nom] par défaut est 50070 et le [port du nœud de données] par défaut est 50075.
 
 ## <a name="getting-started"></a>Prise en main
 

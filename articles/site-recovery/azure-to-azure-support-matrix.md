@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: raynew
-ms.openlocfilehash: 09d3b698edfc99b9340772aa0ffc4e8de20b286d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 7e5f72ca637cb657369a3b384aee666e0935b9d0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103761"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263543"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice de support pour la réplication à partir d’une région Azure vers une autre
 
@@ -44,9 +44,7 @@ Cet article récapitule les composants et les configurations pris en charge lors
 
 Vous pouvez répliquer et restaurer des machines virtuelles entre deux régions appartenant au même cluster géographique. Les clusters géographiques sont définis en gardant à l’esprit la en souveraineté et la latence des données.
 
->[!NOTE]
->Si vous n’êtes pas en mesure de voir une région au sein d’un cluster géographique pendant l’activation de la réplication, vérifiez que votre abonnement a accès à la création de machine virtuelle dans cette région. Si ce n’est pas le cas, levez une demande de support sous « Type de problème ».
->
+
 **Cluster géographique** | **Régions Azure**
 -- | --
 Amérique | Canada de l’Est, Canada du Centre, Sud du Centre des États-Unis, Ouest du Centre des États-Unis, États-Unis de l’Est, États-Unis de l’Est 2, États-Unis de l’Ouest, États-Unis de l’Ouest 2, États-Unis du Centre, Nord du Centre des États-Unis
@@ -59,9 +57,13 @@ Chine | Chine Est, Chine Nord, Chine Nord 2, Chine Est 2
 
 >[!NOTE]
 >
-> Pour la région Brésil Sud, vous pouvez répliquer et basculer vers l’une des opérations suivantes : USA Centre Sud, USA Centre-Ouest, USA Est, USA Est 2, USA Ouest, USA Ouest 2, USA Centre Nord.
->
-> Il convient de noter que Site Recovery a permis à la région Brésil Sud d’être utilisée uniquement en tant que région source à partir de laquelle les machines virtuelles peuvent être protégées. Elle ne peut pas être utilisée comme région de reprise d’activité cible pour une région Azure comme USA Centre Sud. En raison d’une latence observée à cause de la distance géographique, il est recommandé de sélectionner une région d’Amérique autre que Brésil Sud.
+> - Pour la région **Brésil Sud**, vous pouvez répliquer et basculer vers l'une des opérations suivantes : USA Centre Sud, USA Centre-Ouest, USA Est, USA Est 2, USA Ouest, USA Ouest 2, USA Centre Nord. Il convient de noter que Site Recovery a permis à la région Brésil Sud d’être utilisée uniquement en tant que région source à partir de laquelle les machines virtuelles peuvent être protégées. Elle **ne peut pas être utilisée comme région de reprise d'activité cible** pour une région Azure comme USA Centre Sud. En raison d’une latence observée à cause de la distance géographique, il est recommandé de sélectionner une région d’Amérique autre que Brésil Sud.
+> 
+> - Si vous n'êtes **pas en mesure de voir une région** où vous souhaitez **créer un coffre**, assurez-vous que votre abonnement dispose d'un accès lui permettant de créer des ressources dans cette région. Par exemple :  Si vous n'êtes pas en mesure de créer un coffre dans la région France Sud, votre abonnement n'a pas accès à cette région. Veuillez classer le ticket de support sous « Gestion des abonnements » et « Autres questions générales », sujet « Abonnement à la liste blanche pour la région Azure XXX ».
+> 
+> - Si vous n'êtes **pas en mesure de voir une région** au sein d'un cluster géographique **pendant l'activation de la réplication**, vérifiez que votre abonnement a accès à la création de machine virtuelle dans cette région. Par exemple :  Si vous essayez de protéger des machines virtuelles de France Centre vers France Sud et que vous ne voyez pas France Sud dans la liste déroulante des régions, votre abonnement n'a pas accès au déploiement des machines virtuelles dans cette région. Veuillez classer le ticket de support sous « Gestion des abonnements » et « Autres questions générales », sujet « Abonnement à la liste blanche pour la région Azure XXX ».
+> - Vous ne pouvez pas sélectionner des régions parmi les clusters géographiques mentionnés ci-dessus.
+
 
 ## <a name="cache-storage"></a>Stockage du cache
 
