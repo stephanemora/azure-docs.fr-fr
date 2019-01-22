@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: overview
-ms.date: 10/26/2018
+ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: 5e8e675b32bfd4c741b82b1ab341a80adbb0529d
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: d9b5473e87d83912dd2f33c00e983e346226e4aa
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741638"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54242945"
 ---
 # <a name="what-is-azure-custom-vision"></a>Qu’est-ce que le service Vision personnalisée d’Azure ?
 
@@ -27,7 +27,7 @@ Le service Vision personnalisée utilise un algorithme de Machine Learning pour 
 
 ### <a name="classification-and-object-detection"></a>Classification et détection d’objet
 
-Les fonctionnalités du service Vision personnalisée peuvent être divisées en deux fonctionnalités. La **classification d’images** assigne une distribution des classifications à chaque image. La **détection d’objet** est similaire, mais elle retourne également les coordonnées dans l’image en fonction d’où se trouvent les balises appliquées.
+Les fonctionnalités du service Vision personnalisée peuvent être divisées en deux fonctionnalités. La **classification d’images** assigne une distribution des classifications à chaque image. Les modèles de classification multiclasse (une seule balise par image) et multiétiquette (nombre indifférent de balises par image) sont pris en charge. La **détection d’objet** est similaire à la classification multiétiquette, mais elle retourne également les coordonnées dans l’image en fonction d’où se trouvent les étiquettes appliquées.
 
 ### <a name="optimization"></a>Optimisation
 
@@ -39,6 +39,10 @@ En outre, vous pouvez choisir parmi plusieurs types d’algorithme de Vision per
 Le service Vision personnalisée est disponible en tant qu’ensemble de kits de développement logiciel (SDK) natifs, ainsi que via une interface web sur la [page d’accueil du service Vision personnalisée](https://customvision.ai/). Vous pouvez créer, tester et former un modèle via une des interfaces, ou avec les deux.
 
 ![Page d’accueil du service Vision personnalisée dans une fenêtre du navigateur Chrome](media/browser-home.png)
+
+## <a name="data-privacy-and-security"></a>Sécurité et confidentialité des données
+
+Comme avec tous les services Cognitive Services, les développeurs utilisant le service Vision personnalisée doivent connaître les politiques de Microsoft relatives aux données client. Pour en savoir plus, consultez la [page Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) dans le Centre de gestion de la confidentialité Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

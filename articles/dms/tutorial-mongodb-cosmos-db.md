@@ -1,6 +1,6 @@
 ---
-title: "Tutoriel : Utiliser Azure Database Migration Service pour migrer MongoDB vers l'API Mongo Azure Cosmos DB hors connexion | Microsoft Docs"
-description: Apprenez à migrer une instance locale de MongoDB vers l'API Mongo Azure Cosmos DB hors connexion à l'aide d'Azure Database Migration Service.
+title: 'Tutoriel : utiliser Azure Database Migration Service pour migrer MongoDB vers l’API Azure Cosmos DB pour MongoDB hors connexion | Microsoft Docs'
+description: Apprenez à migrer une instance locale de MongoDB vers l’API Azure Cosmos DB pour MongoDB hors connexion à l’aide d’Azure Database Migration Service.
 services: dms
 author: pochiraju
 ms.author: rajpo
@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/11/2018
-ms.openlocfilehash: 4651c9afab99577622af71297e1fb6465a20097f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b4f8d2bdbce20fc7a932280edc26cb3ddfbe6471
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713095"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247603"
 ---
-# <a name="tutorial-migrate-mongodb-to-azure-cosmos-db-mongo-api-offline-using-dms"></a>Tutoriel : Migrer MongoDB vers l'API Mongo Azure Cosmos DB hors connexion à l'aide de DMS
-Vous pouvez utiliser Azure Database Migration Service pour effectuer une migration hors connexion (unique) de bases de données à partir d'une instance locale ou cloud de MongoDB vers l'API Mongo Azure Cosmos DB.
+# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Tutoriel : migrer MongoDB vers l’API Azure Cosmos DB pour MongoDB hors connexion à l’aide de DMS
+Vous pouvez utiliser Azure Database Migration Service pour effectuer une migration hors connexion (ponctuelle) de bases de données à partir d’une instance locale ou cloud de MongoDB vers l’API Azure Cosmos DB pour MongoDB.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
@@ -28,7 +28,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Exécuter la migration.
 > * Surveiller la migration.
 
-Dans ce tutoriel, vous allez migrer le jeu de données **Wingtips** d’une instance de MongoDB hébergée sur une machine virtuelle Azure vers l’API Azure Cosmos DB pour MongoDB à l’aide d’Azure Database Migration Service. Si vous n'avez pas encore configuré d'instance source de MongoDB, consultez l'article [Installer et configurer MongoDB sur une machine virtuelle Windows dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb).
+Dans ce tutoriel, vous migrez un jeu de données dans MongoDB hébergé dans une machine virtuelle Azure vers l’API Azure Cosmos DB pour MongoDB à l’aide d’Azure Database Migration Service. Si vous n'avez pas encore configuré d'instance source de MongoDB, consultez l'article [Installer et configurer MongoDB sur une machine virtuelle Windows dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb).
 
 ## <a name="prerequisites"></a>Prérequis
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
@@ -66,7 +66,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
 5. Sélectionnez un réseau virtuel existant ou créez-en un.
 
-    Le réseau virtuel fournit à Azure Database Migration Service un accès au serveur SQL Server source et à l’instance Azure SQL Database Managed Instance cible.
+    Le réseau virtuel fournit à Azure Database Migration Service un accès à l’instance MongoDB source et au compte Azure Cosmos DB cible.
 
     Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, consultez l’article [Créer un réseau virtuel à l’aide du portail Azure](https://aka.ms/DMSVnet).
 
@@ -103,7 +103,7 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
    Vous pouvez également utiliser le mode chaîne de connexion et fournir un emplacement pour un conteneur de fichiers de magasin de blog dans lequel vous avez sauvegardé les données que vous souhaitez migrer.
 
    > [!NOTE]
-   > Azure Database Migration Service peut également migrer des documents bson ou json vers des collections d'API Mongo Azure Cosmos DB.
+   > Azure Database Migration Service peut également migrer des documents bson ou json vers des collections d’API Azure Cosmos DB pour MongoDB.
     
    Vous pouvez également utiliser l’adresse IP quand la résolution de noms DNS est impossible.
 
@@ -112,7 +112,7 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
 2. Sélectionnez **Enregistrer**.
 
 ## <a name="specify-target-details"></a>Spécifier les détails de la cible
-1. Sur l'écran **Détails de la cible de migration**, spécifiez les détails de connexion du compte Azure Cosmos DB cible, à savoir le compte MongoDB Azure Cosmos DB pré-approvisionné vers lequel vous migrez vos données MongoDB.
+1. Sur l’écran **Détails de la cible de migration**, spécifiez les détails de connexion du compte Azure Cosmos DB cible, à savoir le compte d’API Azure Cosmos DB pour MongoDB préprovisionné vers lequel vous migrez vos données MongoDB.
 
     ![Spécifier les détails de la cible](media/tutorial-mongodb-to-cosmosdb/dms-specify-target.png)
 
@@ -163,7 +163,7 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
 
 ## <a name="verify-data-in-cosmos-db"></a>Vérifier les données dans Cosmos DB
 
-- Au terme de la migration, vous pouvez consulter votre compte d’API Azure Cosmos DB pour MongoDB afin de vérifier que toutes les collections ont bien été migrées.
+- Au terme de la migration, vous pouvez consulter votre compte Azure Cosmos DB pour vérifier que toutes les collections ont bien été migrées.
 
     ![État de l'activité - Terminé](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
 

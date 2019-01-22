@@ -1,22 +1,22 @@
 ---
 title: Définir un nouveau type d’appareil dans Azure IoT Central | Microsoft Docs
 description: Ce didacticiel vous indique comment définir un nouveau type d’appareil dans votre application Azure IoT Central en votre qualité de générateur. Vous définissez la télémétrie, l’état, les propriétés et les paramètres pour votre type d’appareil.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/30/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
-ms.openlocfilehash: dd81c10bcda6665de7ffabe94a4c1be991687797
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+manager: philmea
+ms.openlocfilehash: d50059fb6fe03309609c91b56fb3763bad32e46b
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963591"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199967"
 ---
-# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Didacticiel : définir un nouveau type d’appareil dans votre application Azure IoT Central
+# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutoriel : Définir un nouveau type d’appareil dans votre application Azure IoT Central
 
 Ce didacticiel vous indique comment utiliser un modèle d’appareil pour définir un nouveau type d’appareil dans votre application Microsoft Azure IoT Central en votre qualité de générateur. Un modèle d’appareil définit la télémétrie, l’état, les propriétés et les paramètres pour votre type d’appareil.
 
@@ -71,7 +71,7 @@ Pour suivre ce didacticiel, vous devez disposer d’une application Azure IoT Ce
 
     ![Page de création d’une application Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreate.png)
 
-    Pour plus d’informations, consultez le guide de démarrage rapide [Créer une application](quick-deploy-iot-central.md).
+    Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central.md).
 
 ## <a name="create-a-new-custom-device-template"></a>Créer un modèle d’appareil personnalisé
 

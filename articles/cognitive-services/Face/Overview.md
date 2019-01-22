@@ -9,12 +9,12 @@ ms.component: face-api
 ms.topic: overview
 ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: a15b6678b15bf5d1a3078494e12da3a08c57bed3
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1916aa94dcf7528ce898ef37eac29c1017f03f15
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633459"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231884"
 ---
 # <a name="what-is-the-azure-face-api"></a>Qu’est ce que le l’API Visage Azure ?
 
@@ -72,10 +72,14 @@ Pour plus d’informations sur l’identification des personnes, consultez la se
 
 Les exemples d’applications suivants présentent quelques-unes des méthodes d’utilisation de l’API Visage.
 
-- [Microsoft API Visage : bibliothèque de client Windows et exemple](https://github.com/Microsoft/Cognitive-Face-Windows) - application WPF qui présente plusieurs scénarios de détection, d’analyse et d’identification de visages.
+- [API Visage de Microsoft : bibliothèque de client Windows et exemple](https://github.com/Microsoft/Cognitive-Face-Windows) : application WPF qui présente plusieurs scénarios de détection, d’analyse et d’identification de visages.
 - [Application FamilyNotes UWP](https://github.com/Microsoft/Windows-appsample-familynotes) - une application Universal Windows Platform (UWP) qui utilise l’identification des visages, ainsi que la reconnaissance vocale, Cortana, l’écriture manuscrite et la caméra dans un scénario de partage de notes en famille.
+
+## <a name="data-privacy-and-security"></a>Sécurité et confidentialité des données
+
+Comme avec tous les services Cognitive Services, les développeurs utilisant le service Visage doivent connaître les politiques de Microsoft relatives aux données client. Pour en savoir plus, consultez la [page Cognitive Services](https://www.microsoft.com/en-us/trustcenter/cloudservices/cognitiveservices) sur le Centre de gestion de la confidentialité Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Suivez un guide de démarrage rapide pour implémenter un scénario de détection des visages dans du code.
-- [Démarrage rapide : Détecter les visages dans une image à l’aide du kit SDK .NET avec C#](quickstarts/csharp.md) (disponible dans d’autres langues)
+- [Démarrage rapide : Détecter les visages dans une image à l’aide du SDK .NET avec C#](quickstarts/csharp.md) (disponible dans d’autres langues)

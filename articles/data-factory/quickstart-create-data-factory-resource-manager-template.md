@@ -12,36 +12,36 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 5a883d922944552b53b152546cc891a0a2f4a31f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5e0d13593fb807f95ba024d527b6720b6abb4a86
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042731"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306146"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutoriel : Créer une fabrique de données Azure à l’aide du modèle Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
-> * [Version actuelle](quickstart-create-data-factory-resource-manager-template.md) 
+> * [Version actuelle](quickstart-create-data-factory-resource-manager-template.md)
 
-Ce démarrage rapide vous montre comment utiliser un modèle Azure Resource Manager pour créer une fabrique de données Azure. Le pipeline que vous créez dans cette fabrique de données **copie** les données d’un dossier vers un autre dossier dans un stockage Blob Azure. Pour suivre un tutoriel sur la **transformation** des données à l’aide d’Azure Data Factory, consultez [Tutoriel : Transformer des données à l’aide de Spark](transform-data-using-spark.md). 
+Ce démarrage rapide vous montre comment utiliser un modèle Azure Resource Manager pour créer une fabrique de données Azure. Le pipeline que vous créez dans cette fabrique de données **copie** les données d’un dossier vers un autre dossier dans un stockage Blob Azure. Pour suivre un tutoriel sur la **transformation** des données à l’aide d’Azure Data Factory, consultez [Tutoriel : Transformer des données à l’aide de Spark](transform-data-using-spark.md).
 
 > [!NOTE]
 > Cet article ne fournit pas de présentation détaillée du service Data Factory. Pour une présentation du service Azure Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md).
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
+[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)]
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Installez les modules Azure PowerShell les plus récents en suivant les instructions décrites dans [Comment installer et configurer Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="resource-manager-templates"></a>Modèles Resource Manager
-Pour en savoir plus sur les modèles Azure Resource Manager, consultez l’article [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). 
+Pour en savoir plus sur les modèles Azure Resource Manager, consultez l’article [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 La section suivante fournit le modèle Resource Manager complet permettant de définir des entités Data Factory pour que vous puissiez rapidement parcourir le didacticiel et tester le modèle. Pour comprendre comment chaque entité Data Factory est définie, consultez la section [Entités Data Factory dans le modèle](#data-factory-entities-in-the-template).
 
 Pour en savoir plus sur la syntaxe JSON et les propriétés à utiliser pour les ressources Data Factory dans un modèle, consultez [Types de ressources Microsoft.DataFactory](/azure/templates/microsoft.datafactory/allversions).
 
-## <a name="data-factory-json"></a>JSON de la fabrique de données 
+## <a name="data-factory-json"></a>JSON de la fabrique de données
 Créez un fichier JSON nommé **ADFTutorialARM.json** dans le dossier **C:\ADFTutorial** avec le contenu suivant :
 
 ```json
@@ -265,11 +265,11 @@ Créez un fichier JSON nommé **ADFTutorialARM.json** dans le dossier **C:\ADFTu
 ```
 
 ## <a name="parameters-json"></a>Paramètres JSON
-Créez un fichier JSON nommé **ADFTutorialARM-Parameters** contient les paramètres du modèle Azure Resource Manager.  
+Créez un fichier JSON nommé **ADFTutorialARM-Parameters** contient les paramètres du modèle Azure Resource Manager.
 
 > [!IMPORTANT]
-> - Spécifiez le nom et la clé de votre compte Stockage Azure pour les paramètres **storageAccountName** et **storageAccountKey** dans ce fichier de paramètres. Vous avez créé le conteneur adftutorial et téléchargé l’exemple de fichier (emp.txt) dans le dossier d’entrée de ce stockage d’objets blob Azure. 
-> - Spécifiez un nom global unique pour la fabrique de données pour le paramètre **dataFactoryName**. Par exemple :  ARMTutorialFactoryJohnDoe11282017. 
+> - Spécifiez le nom et la clé de votre compte Stockage Azure pour les paramètres **storageAccountName** et **storageAccountKey** dans ce fichier de paramètres. Vous avez créé le conteneur adftutorial et téléchargé l’exemple de fichier (emp.txt) dans le dossier d’entrée de ce stockage d’objets blob Azure.
+> - Spécifiez un nom global unique pour la fabrique de données pour le paramètre **dataFactoryName**. Par exemple :  ARMTutorialFactoryJohnDoe11282017.
 > - Pour la valeur **triggerStartTime**, spécifiez la date du jour au format : `2017-11-28T00:00:00`.
 > - Pour la valeur **triggerEndTime**, spécifiez la date du jour suivant au format : `2017-11-29T00:00:00`. Vous pouvez également vérifier l’heure UTC actuelle et spécifier l’heure suivante ou les deux heures suivantes comme heure de fin. Par exemple, si l’heure UTC actuelle est 1:32, spécifiez `2017-11-29:03:00:00` comme heure de fin. Dans ce cas, le déclencheur exécute le pipeline deux fois (à 2:00 et 3:00).
 
@@ -280,7 +280,7 @@ Créez un fichier JSON nommé **ADFTutorialARM-Parameters** contient les paramè
   "parameters": {
     "dataFactoryName": {
       "value": "<datafactoryname>"
-    },    
+    },
     "dataFactoryLocation": {
       "value": "East US"
     },
@@ -316,16 +316,16 @@ Créez un fichier JSON nommé **ADFTutorialARM-Parameters** contient les paramè
 ```
 
 > [!IMPORTANT]
-> Vous pouvez utiliser des fichiers JSON de paramètres distincts pour les environnements de développement, de test et de production avec le même modèle JSON Data Factory. En utilisant un script PowerShell, vous pouvez automatiser le déploiement des entités Data Factory dans ces environnements. 
+> Vous pouvez utiliser des fichiers JSON de paramètres distincts pour les environnements de développement, de test et de production avec le même modèle JSON Data Factory. En utilisant un script PowerShell, vous pouvez automatiser le déploiement des entités Data Factory dans ces environnements.
 
-## <a name="deploy-data-factory-entities"></a>Déployer des entités Data Factory 
-Dans PowerShell, exécutez la commande suivante pour déployer des entités Data Factory à l’aide du modèle Resource Manager que vous avez créé précédemment dans ce démarrage rapide. 
+## <a name="deploy-data-factory-entities"></a>Déployer des entités Data Factory
+Dans PowerShell, exécutez la commande suivante pour déployer des entités Data Factory à l’aide du modèle Resource Manager que vous avez créé précédemment dans ce démarrage rapide.
 
 ```PowerShell
 New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
 ```
 
-Une sortie similaire à l’exemple suivant s’affiche : 
+Une sortie similaire à l’exemple suivant s’affiche :
 
 ```
 DeploymentName          : MyARMDeployment
@@ -355,21 +355,21 @@ DeploymentDebugLogLevel :
 
 ## <a name="start-the-trigger"></a>Démarrer le déclencheur
 
-Le modèle déploie les entités Data Factory suivantes : 
+Le modèle déploie les entités Data Factory suivantes :
 
 - Service lié Stockage Azure
 - Jeux de données Blob Azure (entrée et sortie)
 - Pipeline avec une activité de copie
 - Déclencheur pour déclencher le pipeline
 
-Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le déclencheur consiste à utiliser l’applet de commande PowerShell **Start-AzureRmDataFactoryV2Trigger**. La procédure suivante fournit des étapes détaillées : 
+Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le déclencheur consiste à utiliser l’applet de commande PowerShell **Start-AzureRmDataFactoryV2Trigger**. La procédure suivante fournit des étapes détaillées :
 
-1. Dans la fenêtre PowerShell, créez une variable pour contenir le nom du groupe de ressources. Copiez la commande suivante dans la fenêtre PowerShell et appuyez sur ENTRÉE. Si vous avez spécifié un nom de groupe de ressources différent pour la commande New-AzureRmResourceGroupDeployment, mettez à jour la valeur ici. 
+1. Dans la fenêtre PowerShell, créez une variable pour contenir le nom du groupe de ressources. Copiez la commande suivante dans la fenêtre PowerShell et appuyez sur ENTRÉE. Si vous avez spécifié un nom de groupe de ressources différent pour la commande New-AzureRmResourceGroupDeployment, mettez à jour la valeur ici.
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
-    ``` 
-1. Créez une variable pour contenir le nom de la fabrique de données. Spécifiez le même nom que vous avez spécifié dans le fichier ADFTutorialARM-Parameters.json.   
+    ```
+1. Créez une variable pour contenir le nom de la fabrique de données. Spécifiez le même nom que vous avez spécifié dans le fichier ADFTutorialARM-Parameters.json.
 
     ```powershell
     $dataFactoryName = "<yourdatafactoryname>"
@@ -385,7 +385,7 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
-    Voici l'exemple de sortie : 
+    Voici l'exemple de sortie :
 
     ```json
     TriggerName       : ArmTemplateTestTrigger
@@ -395,14 +395,14 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
     RuntimeState      : Stopped
     ```
     
-    Notez que l’état d’exécution du déclencheur est **arrêté**. 
-5. **Démarrez le déclencheur**. Le déclencheur exécute le pipeline défini dans le modèle à l’heure suivante. Ainsi, si vous avez exécuté cette commande à 14:25, le déclencheur exécute le pipeline à 15:00 pour la première fois. Ensuite, il exécute le pipeline toutes les heures jusqu’à l’heure de fin que vous avez spécifiée pour le déclencheur. 
+    Notez que l’état d’exécution du déclencheur est **arrêté**.
+5. **Démarrez le déclencheur**. Le déclencheur exécute le pipeline défini dans le modèle à l’heure suivante. Ainsi, si vous avez exécuté cette commande à 14:25, le déclencheur exécute le pipeline à 15:00 pour la première fois. Ensuite, il exécute le pipeline toutes les heures jusqu’à l’heure de fin que vous avez spécifiée pour le déclencheur.
 
     ```powershell
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
-    Voici l'exemple de sortie : 
+    Voici l'exemple de sortie :
     
     ```
     Confirm
@@ -410,7 +410,7 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
     True
     ```
-6. Vérifiez que le déclencheur a été démarré en exécutant à nouveau la commande Get-AzureRmDataFactoryV2Trigger.  
+6. Vérifiez que le déclencheur a été démarré en exécutant à nouveau la commande Get-AzureRmDataFactoryV2Trigger.
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
@@ -430,37 +430,37 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
 1. Après vous être connecté au [portail Azure](https://portal.azure.com/), cliquez sur **Tous les services**, faites une recherche avec le mot clé **data fa**, puis sélectionnez **Fabriques de données**.
 
     ![Parcourir le menu Fabriques de données](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
-2. Sur la page **Fabriques de données**, cliquez sur la fabrique de données que vous avez créée. Si nécessaire, filtrez la liste avec le nom de votre fabrique de données.  
+2. Sur la page **Fabriques de données**, cliquez sur la fabrique de données que vous avez créée. Si nécessaire, filtrez la liste avec le nom de votre fabrique de données.
 
     ![Sélectionner une fabrique de données](media/quickstart-create-data-factory-resource-manager-template/select-data-factory.png)
-3. Sur la page Fabrique de données, cliquez sur la vignette **Surveiller et gérer**. 
+3. Sur la page Fabrique de données, cliquez sur la vignette **Surveiller et gérer**.
 
     ![Vignette Surveiller et gérer](media/quickstart-create-data-factory-resource-manager-template/monitor-manage-tile.png)
-4. L’**application d’intégration de données** devrait s’ouvrir dans un onglet distinct dans le navigateur web. Si l’onglet Surveiller n’est pas actif, basculez vers l’**onglet Surveiller**. Notez que l’exécution du pipeline a été déclenchée par un **déclencheur Scheduler**. 
+4. L’**application d’intégration de données** devrait s’ouvrir dans un onglet distinct dans le navigateur web. Si l’onglet Surveiller n’est pas actif, basculez vers l’**onglet Surveiller**. Notez que l’exécution du pipeline a été déclenchée par un **déclencheur Scheduler**.
 
-    ![Surveillance de l’exécution du pipeline](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)    
+    ![Surveillance de l’exécution du pipeline](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)
 
     > [!IMPORTANT]
-    > Les exécutions du pipeline s’affichent uniquement par heure (par exemple, 4:00, 5:00, 6:00, etc.). Cliquez sur **Actualiser** dans la barre d’outils pour actualiser la liste lorsque l’heure atteint l’heure suivante. 
-5. Cliquez sur le lien dans les colonnes **Actions**. 
+    > Les exécutions du pipeline s’affichent uniquement par heure (par exemple, 4:00, 5:00, 6:00, etc.). Cliquez sur **Actualiser** dans la barre d’outils pour actualiser la liste lorsque l’heure atteint l’heure suivante.
+5. Cliquez sur le lien dans les colonnes **Actions**.
 
     ![Lien Actions de pipeline](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
-6. Vous voyez les exécutions d’activités associées avec l’exécution du pipeline. Dans ce guide de démarrage rapide, le pipeline n’a qu’une seule activité de type : Copier. Par conséquent, vous observez une exécution de cette activité. 
+6. Vous voyez les exécutions d’activités associées avec l’exécution du pipeline. Dans ce guide de démarrage rapide, le pipeline n’a qu’une seule activité de type : Copier. Par conséquent, vous observez une exécution de cette activité.
 
     ![Exécutions d’activités](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
-1. Cliquez sur le lien situé sous la colonne **Sortie**. Vous voyez la sortie de l’opération de copie dans une fenêtre **Sortie**. Cliquez sur le bouton Agrandir pour afficher la sortie complète. Vous pouvez fermer la fenêtre de sortie agrandie ou la fermer. 
+1. Cliquez sur le lien situé sous la colonne **Sortie**. Vous voyez la sortie de l’opération de copie dans une fenêtre **Sortie**. Cliquez sur le bouton Agrandir pour afficher la sortie complète. Vous pouvez fermer la fenêtre de sortie agrandie ou la fermer.
 
     ![Fenêtre Sortie](media/quickstart-create-data-factory-resource-manager-template/output-window.png)
-7. Arrêtez le déclencheur une fois que vous voyez une exécution réussie ou un échec. Le déclencheur exécute le pipeline une fois par heure. Le pipeline copie le même fichier à partir du dossier d’entrée dans le dossier de sortie à chaque exécution. Pour arrêter le déclencheur, exécutez la commande suivante dans la fenêtre PowerShell. 
+7. Arrêtez le déclencheur une fois que vous voyez une exécution réussie ou un échec. Le déclencheur exécute le pipeline une fois par heure. Le pipeline copie le même fichier à partir du dossier d’entrée dans le dossier de sortie à chaque exécution. Pour arrêter le déclencheur, exécutez la commande suivante dans la fenêtre PowerShell.
     
     ```powershell
     Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
-[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)] 
+[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
 
 ## <a name="data-factory-entities-in-the-template"></a> Définitions JSON pour les entités
-Les entités Data Factory suivantes sont définies dans le modèle JSON : 
+Les entités Data Factory suivantes sont définies dans le modèle JSON :
 
 - [Service lié Azure Storage](#azure-storage-linked-service)
 - [Jeu de données d'entrée d'objet Blob Azure](#azure-blob-input-dataset)
@@ -469,7 +469,7 @@ Les entités Data Factory suivantes sont définies dans le modèle JSON :
 - [Déclencheur](#trigger)
 
 #### <a name="azure-storage-linked-service"></a>Service lié Stockage Azure
-AzureStorageLinkedService relie votre compte de stockage Azure à la fabrique de données. Vous avez créé un conteneur et chargé des données dans ce compte de stockage en remplissant les conditions préalables. Vous spécifiez le nom et la clé de votre compte Stockage Azure dans cette section. Consultez [Service lié Stockage Azure](connector-azure-blob-storage.md#linked-service-properties) pour en savoir plus sur les propriétés JSON utilisées pour définir un service lié Stockage Azure. 
+AzureStorageLinkedService relie votre compte de stockage Azure à la fabrique de données. Vous avez créé un conteneur et chargé des données dans ce compte de stockage en remplissant les conditions préalables. Vous spécifiez le nom et la clé de votre compte Stockage Azure dans cette section. Consultez [Service lié Stockage Azure](connector-azure-blob-storage.md#linked-service-properties) pour en savoir plus sur les propriétés JSON utilisées pour définir un service lié Stockage Azure.
 
 ```json
 {
@@ -492,108 +492,102 @@ AzureStorageLinkedService relie votre compte de stockage Azure à la fabrique de
 }
 ```
 
-La propriété connectionString utilise les paramètres storageAccountName et storageAccountKey. Les valeurs de ces paramètres sont transmises à l’aide d’un fichier de configuration. La définition utilise également les variables azureStroageLinkedService et dataFactoryName, définies dans le modèle. 
+La propriété connectionString utilise les paramètres storageAccountName et storageAccountKey. Les valeurs de ces paramètres sont transmises à l’aide d’un fichier de configuration. La définition utilise également les variables azureStroageLinkedService et dataFactoryName, définies dans le modèle.
 
 #### <a name="azure-blob-input-dataset"></a>Jeu de données d'entrée d'objet Blob Azure
-Le service lié Stockage Azure spécifie la chaîne de connexion que le service Data Factory utilise au moment de l’exécution pour se connecter à votre compte de stockage Azure. Dans la définition du jeu de données d’objets blob Azure, vous spécifiez les noms du conteneur d’objets blob, du dossier et du fichier contenant les données d’entrée. Consultez [Propriétés du jeu de données d’objet blob Azure](connector-azure-blob-storage.md#dataset-properties) pour en savoir plus sur les propriétés JSON permettant de définir un jeu de données d’objets blob Azure. 
+Le service lié Stockage Azure spécifie la chaîne de connexion que le service Data Factory utilise au moment de l’exécution pour se connecter à votre compte de stockage Azure. Dans la définition du jeu de données d’objets blob Azure, vous spécifiez les noms du conteneur d’objets blob, du dossier et du fichier contenant les données d’entrée. Consultez [Propriétés du jeu de données d’objet blob Azure](connector-azure-blob-storage.md#dataset-properties) pour en savoir plus sur les propriétés JSON permettant de définir un jeu de données d’objets blob Azure.
 
 ```json
 {
     "type": "datasets",
     "name": "[variables('inputDatasetName')]",
     "dependsOn": [
-    "[parameters('dataFactoryName')]",
-    "[variables('azureStorageLinkedServiceName')]"
+        "[parameters('dataFactoryName')]",
+        "[variables('azureStorageLinkedServiceName')]"
     ],
     "apiVersion": "2017-09-01-preview",
     "properties": {
-    "type": "AzureBlob",
-    "typeProperties": {
-        "folderPath": "[concat(parameters('blobContainer'), '/', parameters('inputBlobFolder'), '/')]",
-        "fileName": "[parameters('inputBlobName')]"
-    },
-    "linkedServiceName": {
-        "referenceName": "[variables('azureStorageLinkedServiceName')]",
-        "type": "LinkedServiceReference"
-    }
+        "type": "AzureBlob",
+        "typeProperties": {
+            "folderPath": "[concat(parameters('blobContainer'), '/', parameters('inputBlobFolder'), '/')]",
+            "fileName": "[parameters('inputBlobName')]"
+        },
+        "linkedServiceName": {
+            "referenceName": "[variables('azureStorageLinkedServiceName')]",
+            "type": "LinkedServiceReference"
+        }
     }
 },
 
 ```
 
 #### <a name="azure-blob-output-dataset"></a>Jeu de données de sortie d’objet Blob Azure
-Vous spécifiez le nom du dossier dans le Stockage Blob Azure contenant les données copiées à partir du dossier d’entrée. Consultez [Propriétés du jeu de données d’objet blob Azure](connector-azure-blob-storage.md#dataset-properties) pour en savoir plus sur les propriétés JSON permettant de définir un jeu de données d’objets blob Azure. 
+Vous spécifiez le nom du dossier dans le Stockage Blob Azure contenant les données copiées à partir du dossier d’entrée. Consultez [Propriétés du jeu de données d’objet blob Azure](connector-azure-blob-storage.md#dataset-properties) pour en savoir plus sur les propriétés JSON permettant de définir un jeu de données d’objets blob Azure.
 
 ```json
 {
     "type": "datasets",
     "name": "[variables('outputDatasetName')]",
     "dependsOn": [
-    "[parameters('dataFactoryName')]",
-    "[variables('azureStorageLinkedServiceName')]"
+        "[parameters('dataFactoryName')]",
+        "[variables('azureStorageLinkedServiceName')]"
     ],
     "apiVersion": "2017-09-01-preview",
     "properties": {
-    "type": "AzureBlob",
-    "typeProperties": {
-        "folderPath": "[concat(parameters('blobContainer'), '/', parameters('outputBlobFolder'), '/')]",
-        "fileName": "[parameters('outputBlobName')]"
-    },
-    "linkedServiceName": {
-        "referenceName": "[variables('azureStorageLinkedServiceName')]",
-        "type": "LinkedServiceReference"
-    }
+        "type": "AzureBlob",
+        "typeProperties": {
+            "folderPath": "[concat(parameters('blobContainer'), '/', parameters('outputBlobFolder'), '/')]",
+            "fileName": "[parameters('outputBlobName')]"
+        },
+        "linkedServiceName": {
+            "referenceName": "[variables('azureStorageLinkedServiceName')]",
+            "type": "LinkedServiceReference"
+        }
     }
 }
 ```
 
 #### <a name="data-pipeline"></a>Pipeline de données
-Vous définissez un pipeline qui copie les données d’un jeu de données d’objet blob Azure vers un autre jeu de données d’objet blob Azure. Consultez [Pipeline JSON](concepts-pipelines-activities.md#pipeline-json) pour obtenir des descriptions des éléments JSON permettant de définir un pipeline dans cet exemple. 
+Vous définissez un pipeline qui copie les données d’un jeu de données d’objet blob Azure vers un autre jeu de données d’objet blob Azure. Consultez [Pipeline JSON](concepts-pipelines-activities.md#pipeline-json) pour obtenir des descriptions des éléments JSON permettant de définir un pipeline dans cet exemple.
 
 ```json
 {
     "type": "pipelines",
     "name": "[variables('pipelineName')]",
     "dependsOn": [
-    "[parameters('dataFactoryName')]",
-    "[variables('azureStorageLinkedServiceName')]",
-    "[variables('inputDatasetName')]",
-    "[variables('outputDatasetName')]"
+        "[parameters('dataFactoryName')]",
+        "[variables('azureStorageLinkedServiceName')]",
+        "[variables('inputDatasetName')]",
+        "[variables('outputDatasetName')]"
     ],
     "apiVersion": "2017-09-01-preview",
     "properties": {
-    "activities": [
-        {
-        "type": "Copy",
-        "typeProperties": {
-            "source": {
-            "type": "BlobSource"
+        "activities": [{
+            "type": "Copy",
+            "typeProperties": {
+                "source": {
+                    "type": "BlobSource"
+                },
+                "sink": {
+                    "type": "BlobSink"
+                }
             },
-            "sink": {
-            "type": "BlobSink"
-            }
-        },
-        "name": "MyCopyActivity",
-        "inputs": [
-            {
-            "referenceName": "[variables('inputDatasetName')]",
-            "type": "DatasetReference"
-            }
-        ],
-        "outputs": [
-            {
-            "referenceName": "[variables('outputDatasetName')]",
-            "type": "DatasetReference"
-            }
-        ]
-        }
-    ]
+            "name": "MyCopyActivity",
+            "inputs": [{
+                "referenceName": "[variables('inputDatasetName')]",
+                "type": "DatasetReference"
+            }],
+            "outputs": [{
+                "referenceName": "[variables('outputDatasetName')]",
+                "type": "DatasetReference"
+            }]
+        }]
     }
 }
 ```
 
 #### <a name="trigger"></a>Déclencheur
-Vous définissez un déclencheur qui exécute le pipeline une fois par heure. Le déclencheur déployé est à l’arrêt. Démarrez le déclencheur à l’aide de l’applet de commande **Start-AzureRmDataFactoryV2Trigger**. Pour plus d’informations sur les déclencheurs, consultez l’article [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md#triggers). 
+Vous définissez un déclencheur qui exécute le pipeline une fois par heure. Le déclencheur déployé est à l’arrêt. Démarrez le déclencheur à l’aide de l’applet de commande **Start-AzureRmDataFactoryV2Trigger**. Pour plus d’informations sur les déclencheurs, consultez l’article [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md#triggers).
 
 ```json
 {
@@ -615,7 +609,7 @@ Vous définissez un déclencheur qui exécute le pipeline une fois par heure. Le
                 "interval": 1,
                 "startTime": "2017-11-28T00:00:00",
                 "endTime": "2017-11-29T00:00:00",
-                "timeZone": "UTC"               
+                "timeZone": "UTC"
             }
         },
         "pipelines": [{
@@ -630,9 +624,9 @@ Vous définissez un déclencheur qui exécute le pipeline une fois par heure. Le
 ```
 
 ## <a name="reuse-the-template"></a>Réutiliser le modèle
-Dans ce didacticiel, vous avez créé un modèle pour définir des entités Data Factory et un modèle pour transmettre les valeurs des paramètres. Pour utiliser le même modèle afin de déployer des entités Data Factory dans des environnements différents, vous créez un fichier de paramètres pour chaque environnement et l’utiliser lors du déploiement de cet environnement.     
+Dans ce didacticiel, vous avez créé un modèle pour définir des entités Data Factory et un modèle pour transmettre les valeurs des paramètres. Pour utiliser le même modèle afin de déployer des entités Data Factory dans des environnements différents, vous créez un fichier de paramètres pour chaque environnement et l’utiliser lors du déploiement de cet environnement.
 
-Exemple :  
+Exemple :
 
 ```PowerShell
 New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
@@ -641,10 +635,9 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFT
 
 New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
 ```
-Notez que la première commande utilise le fichier de paramètres pour l’environnement de développement, la deuxième pour l’environnement de test et la troisième pour l’environnement de production.  
+Notez que la première commande utilise le fichier de paramètres pour l’environnement de développement, la deuxième pour l’environnement de test et la troisième pour l’environnement de production.
 
-Vous pouvez également réutiliser le modèle pour effectuer des tâches répétitives. Par exemple, créer plusieurs fabriques de données avec un ou plusieurs pipelines qui implémentent la même logique, mais chaque fabrique de données utilise des comptes Stockage Azure différents. Dans ce scénario, vous utilisez le même modèle dans le même environnement (développement, test ou production) avec différents fichiers de paramètres pour créer des fabriques de données. 
-
+Vous pouvez également réutiliser le modèle pour effectuer des tâches répétitives. Par exemple, créer plusieurs fabriques de données avec un ou plusieurs pipelines qui implémentent la même logique, mais chaque fabrique de données utilise des comptes Stockage Azure différents. Dans ce scénario, vous utilisez le même modèle dans le même environnement (développement, test ou production) avec différents fichiers de paramètres pour créer des fabriques de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob Azure. Consultez les [didacticiels](tutorial-copy-data-dot-net.md) pour en savoir plus sur l’utilisation de Data Factory dans d’autres scénarios. 
+Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob Azure. Consultez les [didacticiels](tutorial-copy-data-dot-net.md) pour en savoir plus sur l’utilisation de Data Factory dans d’autres scénarios.

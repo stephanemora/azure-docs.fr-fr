@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Lancer des travaux de modération à l’aide de .NET - Content Moderator'
+title: 'Démarrage rapide : Lancer des travaux de modération à l’aide de .NET - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Comment lancer des travaux de modération à l’aide du SDK Azure Content Moderator pour .NET.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 6045d6daf2abace6e2b38bd6fd6e22516e3a60a0
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f55906aa9de6faa5979ecedbc3ef288f164fd6c8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227424"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261943"
 ---
-# <a name="quickstart-start-moderation-jobs-using-net"></a>Démarrage rapide : Lancer des travaux de modération à l’aide de .NET
+# <a name="quickstart-start-moderation-jobs-using-net"></a>Démarrage rapide : Lancer des tâches de modération à l’aide de .NET
 
 Cet article fournit des informations et des exemples de code qui vont vous aider à prendre en main le [SDK Content Moderator pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) afin d’effectuer les opérations suivantes :
  
@@ -30,8 +30,7 @@ Cet article part du principe que vous connaissez déjà Visual Studio et C#.
 
 ## <a name="sign-up-for-content-moderator"></a>S’inscrire à Content Moderator
 
-Avant de pouvoir utiliser les services Content Moderator par le biais de l’API REST ou du kit SDK, vous avez besoin d’une clé d’abonnement.
-Reportez-vous au [démarrage rapide](quick-start.md) pour découvrir comment obtenir la clé.
+Avant de pouvoir utiliser les services Content Moderator par le biais de l’API REST ou du kit SDK, vous avez besoin d’une clé d’abonnement. Suivez les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Content Moderator et obtenir votre clé.
 
 ## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>S’inscrire à un compte d’outil de révision si cela n’a pas été fait à l’étape précédente
 
@@ -43,7 +42,7 @@ Une fois les étapes précédentes effectuées, il est possible que vous ayez de
 
 Si vous envisagez d’utiliser la clé API fournie par Azure dans votre exemple de SDK, suivez les étapes mentionnées dans la section [Utilisation de la clé Azure avec l’API de révision](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) pour permettre à votre application d’appeler l’API de révision et de créer des révisions.
 
-Si vous utilisez la clé d’essai générée par l’outil de révision, votre compte d’outil de révision connaît déjà la clé ; aucune étape supplémentaire n’est donc nécessaire.
+Si vous utilisez la clé d’essai générée par l’outil de révision, votre compte d’outil de révision connaît déjà la clé ; aucune étape supplémentaire n’est donc nécessaire.
 
 ## <a name="define-a-custom-moderation-workflow"></a>Définir un workflow de modération personnalisé
 

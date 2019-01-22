@@ -1,6 +1,6 @@
 ---
 title: Diffuser en continu dans Event Hub prenant en charge Kafka - Azure Event Hubs | Microsoft Docs
-description: Cet article fournit des informations sur la façon de diffuser en continu dans Azure Event Hubs à l’aide du protocole Kafka et d’API.
+description: Cet article fournit des informations sur la façon d’effectuer une diffusion en continu dans Azure Event Hubs à l’aide du protocole Kafka et d’API.
 services: event-hubs
 author: basilhariri
 ms.author: bahariri
@@ -8,12 +8,12 @@ ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.openlocfilehash: d6e293b80df1ab227a3100040a54b189f48d8027
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 19d903a4083c432ac3932189ad8a6890be9014fb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102807"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354227"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Diffuser en continu dans Event Hubs pour Apache Kafka
 Ce guide de démarrage rapide montre comment échanger des données avec Event Hubs prenant en charge Kafka, sans changer vos protocoles clients ni exécuter vos propres clusters. Vous découvrez comment utiliser vos producteurs et vos consommateurs pour communiquer avec Event Hubs prenant en charge Kafka, avec seulement une modification de configuration dans vos applications. Azure Event Hubs prend en charge [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -34,13 +34,13 @@ Pour suivre ce démarrage rapide, vérifiez que vous avez :
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Créer un espace de noms Event Hubs prenant en charge Kafka
 
-1. Connectez-vous au [portail Azure][portail Azure], puis cliquez sur **Créer une ressource** en haut à gauche de l’écran.
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis cliquez sur **Créer une ressource** en haut à gauche de l’écran.
 
 2. Recherchez Event Hubs et sélectionnez les options indiquées ici :
     
     ![Rechercher Event Hubs dans le portail](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. Spécifiez un nom unique et activez Kafka sur l’espace de noms. Cliquez sur **Créer**.
+3. Spécifiez un nom unique et activez Kafka sur l’espace de noms. Cliquez sur **Créer**. Remarque : Event Hubs pour Kafka est pris en charge uniquement par Event Hubs de niveau standard et dédié. Event Hubs de niveau de base retourne une erreur d’autorisation de rubrique en réponse à toutes les opérations Kafka.
     
     ![Créer un espace de noms](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  

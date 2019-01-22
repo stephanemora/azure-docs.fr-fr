@@ -6,14 +6,14 @@ author: jamesbak
 ms.service: storage
 ms.author: jamesbak
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 6b2812e31174c4e5d61ae9941563e39357de9522
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: e4e75c65178c4bbedcf781c2fbf2149a94a702cd
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107087"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321192"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutoriel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
 
@@ -42,6 +42,30 @@ Pour suivre ce tutoriel :
 * [Créez un compte Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
 * Téléchargez (**small_radio_json.json**) à partir du dépôt [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) et prenez note du chemin où vous enregistrez le fichier.
 * Connectez-vous au [Portail Azure](https://portal.azure.com/).
+
+## <a name="set-aside-storage-account-configuration"></a>Mettre de côté la configuration du compte de stockage
+
+Vous allez avoir besoin du nom de votre compte de stockage et d’un URI de point de terminaison de système de fichiers.
+
+Pour obtenir le nom de votre compte de stockage dans le portail Azure, choisissez **Tous les services**, puis filtrez sur le terme *stockage*. Sélectionnez ensuite **Comptes de stockage**, puis localisez votre compte de stockage.
+
+Pour obtenir l’URI du point de terminaison de système de fichiers, choisissez **Propriétés**. Dans le volet des propriétés, recherchez la valeur du champ **Point de terminaison de système de fichiers ADLS principal**.
+
+Collez ces deux valeurs dans un fichier texte. Vous en aurez besoin bientôt.
+
+<a id="service-principal"/>
+
+## <a name="create-a-service-principal"></a>Créer un principal du service
+
+Créez un principal du service en suivant l’aide fournie dans cette rubrique : [Guide pratique pour Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+Vous devrez faire certaines choses spécifiques pendant que vous suivrez les étapes décrites dans cet article.
+
+:heavy_check_mark: Au cours des étapes indiquées dans la section [Créer une application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) de l’article, veillez à affecter l’URI de point de terminaison que vous venez de collecter au champ **URL de connexion** dans la boîte de dialogue **Créer**.
+
+:heavy_check_mark: Au cours des étapes indiquées dans la section [Attribuer un rôle à l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) de l’article, veillez à affecter le **Rôle Contributeur de Stockage Blob** à votre application.
+
+:heavy_check_mark: Au cours des étapes indiquées dans la section [Obtenir les valeurs de connexion](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de l’article, collez les valeurs de l’ID de locataire, de l’ID d’application et de la clé d’authentification dans un fichier texte. Vous en aurez besoin bientôt.
 
 ## <a name="create-the-workspace"></a>Créer l’espace de travail
 
@@ -101,35 +125,36 @@ Tout d’abord, vous créez un notebook dans votre espace de travail Azure Datab
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à l’espace de travail Azure Databricks que vous avez créé, puis sélectionnez **Initialiser l’espace de travail**.
 
-1. À gauche, sélectionnez **Espace de travail**. Dans la liste déroulante **Espace de travail**, sélectionnez **Créer** > **Notebook**.
+2. À gauche, sélectionnez **Espace de travail**. Dans la liste déroulante **Espace de travail**, sélectionnez **Créer** > **Notebook**.
 
     ![Créer un notebook dans Databricks](./media/data-lake-storage-handle-data-using-databricks/databricks-create-notebook.png "Créer un notebook dans Databricks")
 
-1. Dans la boîte de dialogue **Créer un bloc-notes**, entrez un nom pour le bloc-notes. Sélectionnez **Scala** comme langage, puis sélectionnez le cluster Spark que vous avez créé précédemment.
+3. Dans la boîte de dialogue **Créer un bloc-notes**, entrez un nom pour le bloc-notes. Sélectionnez **Scala** comme langage, puis sélectionnez le cluster Spark que vous avez créé précédemment.
 
     ![Fournir des détails pour un notebook dans Databricks](./media/data-lake-storage-handle-data-using-databricks/databricks-notebook-details.png "fournir des détails pour un notebook dans Databricks")
 
     Sélectionnez **Créer**.
 
-1. Entrez le code suivant dans la première cellule du notebook et exécutez le code. Remplacez les espaces réservés affichés entre crochets dans l’exemple par vos propres valeurs :
+4. Copiez et collez le bloc de code suivant dans la première cellule, mais n’exécutez pas ce code pour l’instant.
 
     ```scala
-    %python%
-    configs = {"fs.azure.account.auth.type": "OAuth",
-        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-        "fs.azure.account.oauth2.client.id": "<service-client-id>",
-        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
-        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
-     
+    val configs = Map(
+    "fs.azure.account.auth.type" -> "OAuth",
+    "fs.azure.account.oauth.provider.type" -> "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+    "fs.azure.account.oauth2.client.id" -> "<application-id>",
+    "fs.azure.account.oauth2.client.secret" -> "<authentication-key>"),
+    "fs.azure.account.oauth2.client.endpoint" -> "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
+    "fs.azure.createRemoteFileSystemDuringInitialization"->"true")
+
     dbutils.fs.mount(
-        source = "abfss://<file-system-name>@<account-name>.dfs.core.windows.net/[<directory-name>]",
-        mount_point = "/mnt/<mount-name>",
-        extra_configs = configs)
+    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/<directory-name>",
+    mountPoint = "/mnt/<mount-name>",
+    extraConfigs = configs)
     ```
 
-1. Appuyez sur les touches Maj+Entrée pour exécuter le code.
+5. Dans ce bloc de code, remplacez les valeurs d’espace réservé `storage-account-name`, `application-id`, `authentication-id` et `tenant-id` par les valeurs que vous avez collectées quand vous avez effectué les étapes des sections [Mettre de côté la configuration du compte de stockage](#config) et [Créer un principal du service](#service-principal) décrites dans cet article. Remplacez les valeurs des espaces réservés `file-system-name`, `directory-name` et `mount-name` par les noms que vous souhaitez donner au système de fichiers, au répertoire et au point de montage.
 
-Le système de fichiers est créé pour le compte de stockage.
+6. Appuyez sur les touches **Maj +Entrée** pour exécuter le code de ce bloc.
 
 ## <a name="upload-the-sample-data"></a>Charger les exemples de données
 

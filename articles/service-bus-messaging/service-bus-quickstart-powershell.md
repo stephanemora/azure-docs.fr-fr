@@ -1,6 +1,6 @@
 ---
-title: Démarrage rapide - Envoyer et recevoir des messages depuis et vers Azure Service Bus | Microsoft Docs
-description: Dans ce démarrage rapide, vous apprenez à envoyer et recevoir des messages Service Bus à l’aide de PowerShell et du client .NET Standard
+title: Démarrage rapide - Utiliser Azure PowerShell pour créer une file d’attente Service Bus | Microsoft Docs
+description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser Azure PowerShell pour créer une file d’attente Service Bus. Vous allez ensuite utiliser un exemple d’application pour envoyer et recevoir des messages à partir de la file d’attente.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -8,17 +8,16 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: ce357fcff3313ae0216d5a7a00b3d845f83bba91
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9fe9952c3885e0e6145141bac7db13694dcdbd11
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405884"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259663"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>Démarrage rapide : Envoyer et recevoir des messages à l’aide d’Azure PowerShell et de .NET
-
+# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Démarrage rapide : Utiliser Azure PowerShell pour créer une file d’attente Service Bus
 Microsoft Azure Service Bus est un courtier de messages d’intégration d’entreprise qui offre des services de messagerie sécurisée et une fiabilité absolue. Un scénario classique Service Bus implique généralement le découplage de deux ou plusieurs applications, services ou processus, et le transfert des modifications de données ou d’état. Ces scénarios peuvent impliquer la planification de plusieurs traitements par lots dans d’autres applications ou services, ou le déclenchement du traitement des commandes. Par exemple, une société de vente au détail peut envoyer ses données de point de vente à un back-office ou un centre de distribution régional pour des mises à jour de l’inventaire et un réapprovisionnement. Dans ce scénario, l’application cliente envoie et reçoit des messages depuis une file d’attente Service Bus.
 
 ![file d'attente](./media/service-bus-quickstart-powershell/quick-start-queue.png)
@@ -31,7 +30,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][] avant de
 
 Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installés :
 
-- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) ou ultérieur.
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) ou ultérieur.
 - [Kit de développement logiciel (SDK) NET Core](https://www.microsoft.com/net/download/windows), version 2.0 ou ultérieure.
 
 Pour ce démarrage rapide, vous devez disposer de la version la plus récente d’Azure PowerShell. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation et configuration d’Azure PowerShell][].
@@ -89,12 +88,12 @@ Pour exécuter le code, procédez comme suit :
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-3. Accédez au dossier d’exemples `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
+3. Accédez à l’exemple de dossier `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
 
-4. Si vous ne l’avez pas déjà fait, obtenez la chaîne de connexion à l’aide de l’applet de commande PowerShell suivante. Veillez à remplacer `my-resourcegroup` et `namespace-name` avec vos valeurs spécifiques : 
+4. Si vous ne l’avez pas déjà fait, obtenez la chaîne de connexion à l’aide de l’applet de commande PowerShell suivante. Veillez à remplacer `my-resourcegroup`  et  `namespace-name` avec vos valeurs spécifiques : 
 
    ```azurepowershell-interactive
-   Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+   Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 
 5.  À l’invite de commande PowerShell, tapez la commande suivante :

@@ -3,7 +3,7 @@ title: Créer une machine virtuelle Windows SQL Server avec Azure PowerShell | M
 description: Ce didacticiel montre comment créer une machine virtuelle Windows SQL Server 2017 avec Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/15/2018
-ms.author: jroth
-ms.openlocfilehash: bebb153d5ff840a0eed7d6afffccd03a5236592d
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.date: 12/21/2018
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: aa4ea4e724ec383fc9f22bd56572d2fd0e844abc
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42023735"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332436"
 ---
-# <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Démarrage rapide : créer une machine virtuelle Windows SQL Server avec Azure PowerShell
+# <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Démarrage rapide : Créer une machine virtuelle Windows SQL Server avec Azure PowerShell
 
 Ce démarrage rapide décrit les étapes de base de création d’une machine virtuelle SQL Server avec Azure PowerShell.
 
@@ -47,11 +48,11 @@ Ce démarrage rapide requiert le module Azure PowerShell version 3.6 ou ultérie
    Connect-AzureRmAccount
    ```
 
-1. Un écran de connexion vous invitant à entrer vos informations d’identification devrait s’afficher. Utilisez l'adresse électronique et le mot de passe que vous utilisez pour vous connecter au portail Azure.
+1. Vous devez voir s’afficher un écran vous invitant à entrer vos informations d’identification. Utilisez l'adresse électronique et le mot de passe que vous utilisez pour vous connecter au portail Azure.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-1. Définissez une variable avec un nom unique de groupe de ressources. Pour simplifier la suite du démarrage rapide, les autres commandes utilisent ce nom comme base des autres noms de ressources.
+1. Définissez une variable avec un nom unique de groupe de ressources. Pour simplifier la suite de ce guide de démarrage rapide, les commandes restantes utilisent ce nom comme base pour d’autres noms de ressources.
 
    ```PowerShell
    $ResourceGroupName = "sqlvm1"
@@ -122,11 +123,11 @@ Ce démarrage rapide requiert le module Azure PowerShell version 3.6 ou ultérie
 
 ## <a name="create-the-sql-vm"></a>Créer la machine virtuelle SQL
 
-1. Définissez les informations d’identification vous permettant de vous connecter à la machine virtuelle. Le nom d'utilisateur est azureadmin. Veillez à modifier le mot de passe avant d’exécuter la commande.
+1. Définissez les informations d’identification qui vous permettent de vous connecter à la machine virtuelle. Le nom d’utilisateur est « azureadmin ». Veillez à remplacer \<password> avant d’exécuter la commande.
 
    ``` PowerShell
    # Define a credential object
-   $SecurePassword = ConvertTo-SecureString 'Change.This!000' `
+   $SecurePassword = ConvertTo-SecureString '<password>' `
       -AsPlainText -Force
    $Cred = New-Object System.Management.Automation.PSCredential ("azureadmin", $securePassword)
    ```
@@ -136,7 +137,7 @@ Ce démarrage rapide requiert le module Azure PowerShell version 3.6 ou ultérie
    ```PowerShell
    # Create a virtual machine configuration
    $VMName = $ResourceGroupName + "VM"
-   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13 | `
+   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13_V2 | `
       Set-AzureRmVMOperatingSystem -Windows -ComputerName $VMName -Credential $Cred -ProvisionVMAgent -EnableAutoUpdate | `
       Set-AzureRmVMSourceImage -PublisherName "MicrosoftSQLServer" -Offer "SQL2017-WS2016" -Skus "SQLDEV" -Version "latest" | `
       Add-AzureRmVMNetworkInterface -Id $Interface.Id
@@ -158,37 +159,37 @@ Pour obtenir les fonctionnalités d’intégration au portail et de machine virt
 
 ## <a name="remote-desktop-into-the-vm"></a>Bureau à distance dans la machine virtuelle
 
-1. La commande suivante permet de récupérer l’adresse IP publique associée à la nouvelle machine virtuelle.
+1. La commande suivante permet de récupérer l’adresse IP publique de la nouvelle machine virtuelle.
 
    ```PowerShell
    Get-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
    ```
 
-1. Utilisez ensuite l’adresse IP renvoyée pour la passer en tant que paramètre de ligne de commande à **mstsc**, ceci pour démarrer une session de Bureau à distance dans la nouvelle machine virtuelle.
+1. Passez l’adresse IP retournée en tant que paramètre de ligne de commande à **mstsc** pour démarrer une session Bureau à distance dans la nouvelle machine virtuelle.
 
    ```
    mstsc /v:<publicIpAddress>
    ```
 
-1. Lorsque l’invite de saisie des informations d’identification s’ouvre, entrez les données correspondant à un compte différent. Saisissez le nom d’utilisateur en le faisant précéder d’une barre oblique inverse (par exemple, `\azureadmin`), puis le mot de passe défini auparavant dans ce démarrage rapide.
+1. Lorsque l’invite de saisie des informations d’identification s’ouvre, entrez les données correspondant à un compte différent. Entrez le nom d’utilisateur en le faisant précéder d’une barre oblique inverse (par exemple `\azureadmin`) ainsi que le mot de passe défini dans ce guide de démarrage rapide.
 
 ## <a name="connect-to-sql-server"></a>Se connecter à SQL Server
 
-1. Une fois connecté à la session du Bureau à distance, lancez **SQL Server Management Studio 2017** à partir du menu de démarrage.
+1. Une fois connecté à la session Bureau à distance, lancez **SQL Server Management Studio 2017** à partir du menu Démarrer.
 
-1. Dans la boîte de dialogue **Se connecter au serveur**, conservez les valeurs par défaut. Le nom du serveur est le nom de la machine virtuelle. L’authentification est définie sur **Authentification Windows**. Cliquez sur **Connecter**.
+1. Dans la boîte de dialogue **Se connecter au serveur**, conservez les valeurs par défaut. Le nom du serveur est le nom de la machine virtuelle. L’authentification est définie sur **Authentification Windows**. Sélectionnez **Connecter**.
 
-Vous êtes désormais connecté localement à SQL Server. Si vous souhaitez vous connecter à distance, il vous faut [configurer la connectivité](virtual-machines-windows-sql-connect.md) à partir du portail ou manuellement.
+Vous êtes désormais connecté localement à SQL Server. Pour vous connecter à distance, vous devez [configurer la connectivité](virtual-machines-windows-sql-connect.md) à partir du portail ou manuellement.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous n’avez pas besoin que la machine virtuelle fonctionne en permanence, vous pouvez éviter les dépenses inutiles en l’arrêtant lorsque vous ne vous en servez pas. La commande suivante arrête la machine virtuelle, tout en la laissant disponible pour une utilisation future.
+Si vous n’avez pas besoin que la machine virtuelle fonctionne en permanence, vous pouvez éviter les frais inutiles en l’arrêtant quand vous ne vous en servez pas. La commande suivante arrête la machine virtuelle, tout en la laissant disponible pour une utilisation future.
 
 ```PowerShell
 Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-Vous pouvez aussi supprimer définitivement toutes les ressources associées à la machine virtuelle à l’aide de la commande **Remove-AzureRmResourceGroup**. Cette commande supprime la machine virtuelle de façon définitive, donc utilisez-la avec précaution.
+Vous pouvez aussi supprimer définitivement toutes les ressources associées à la machine virtuelle à l’aide de la commande **Remove-AzureRmResourceGroup**. Dans la mesure où cette commande supprime la machine virtuelle de façon définitive, utilisez-la avec précaution.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

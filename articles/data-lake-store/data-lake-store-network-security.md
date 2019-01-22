@@ -1,6 +1,6 @@
 ---
 title: Sécurité du réseau dans Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Comprendre l’intégration au pare-feu IP et au réseau virtuel dans Azure Data Lake Storage Gen1
+description: Comprendre l’intégration au réseau virtuel dans Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 703a865eca90deabcb6bbc64a75fc2bad52b43b7
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: a363b5688e5fe915bd96393c35b3f39c69052d7c
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287997"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359304"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1---preview"></a>Intégration de réseau virtuel dans Azure Data Lake Storage Gen1 : Préversion
 
-Cet article présente l’intégration du réseau virtuel dans Azure Data Lake Storage Gen1 (en préversion). Avec l’intégration de réseau virtuel, vous pouvez configurer vos comptes pour qu’ils acceptent uniquement le trafic provenant de sous-réseaux et de réseaux virtuels spécifiques. 
+Cet article présente l’intégration au réseau virtuel pour Azure Data Lake Storage Gen1. Avec l’intégration de réseau virtuel, vous pouvez configurer vos comptes pour qu’ils acceptent uniquement le trafic provenant de sous-réseaux et de réseaux virtuels spécifiques. 
 
 Cette fonctionnalité permet de protéger votre compte Data Lake Storage contre les menaces externes.
 
@@ -65,25 +65,25 @@ En plus de sécuriser les comptes Data Lake Storage concernant l’accès à par
 Utilisez une solution de pare-feu dans votre réseau virtuel pour filtrer le trafic sortant en fonction de l’URL de compte de destination. Autorisez uniquement l’accès aux comptes Data Lake Storage Gen1 approuvés.
 
 Voici quelques options disponibles :
-- [Pare-feu Azure](https://docs.microsoft.com/azure/firewall/overview) : [déployez et configurez un pare-feu Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) pour votre réseau virtuel. Sécurisez le trafic Data Lake Storage sortant et verrouillez-le sur l’URL d’un compte connu et approuvé.
-- [Appliance virtuelle réseau](https://azure.microsoft.com/solutions/network-appliances/) - pare-feu : votre administrateur peut limiter le recours à certains fournisseurs de pare-feu commerciaux uniquement. Utilisez une solution de pare-feu d’appliance virtuelle réseau disponible dans la Place de marché Azure aux mêmes fins.
+- [Pare-feu Azure](https://docs.microsoft.com/azure/firewall/overview) : [déployez et configurez un pare-feu Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) pour votre réseau virtuel. Sécurisez le trafic Data Lake Storage sortant et verrouillez-le sur l’URL d’un compte connu et approuvé.
+- Pare-feu [Appliance virtuelle réseau (NVA)](https://azure.microsoft.com/solutions/network-appliances/) : votre administrateur peut limiter le recours à certains éditeurs de pare-feu commerciaux uniquement. Utilisez une solution de pare-feu d’appliance virtuelle réseau disponible dans la Place de marché Azure aux mêmes fins.
 
 > [!NOTE]
 > L’utilisation de pare-feu dans le chemin d’accès de données introduit un tronçon supplémentaire dans ce chemin. Cela peut affecter les performances du réseau pour l’échange de données de bout en bout. La disponibilité du débit et la latence de la connexion peuvent être affectées. 
 
 ## <a name="limitations"></a>Limites
 
-- Les clusters HDI créés avant la prise en charge de l’intégration de réseau virtuel dans Data Lake Storage Gen1 doivent être recréés pour prendre en charge cette nouvelle fonctionnalité.
+- Les clusters HDInsight créés avant la prise en charge de l’intégration de réseau virtuel dans Data Lake Storage Gen1 doivent être recréés pour prendre en charge cette nouvelle fonctionnalité.
  
-- Lorsque vous créez un nouveau cluster HDInsight et que vous sélectionnez un compte Data Lake Storage Gen1 avec l’intégration de réseau virtuel activée, le processus échoue. Commencez par désactiver la règle de réseau virtuel. Sinon, dans le panneau **Pare-feu et réseaux virtuels** du compte Data Lake Storage, sélectionnez **Autoriser l’accès à tous les réseaux et services**. Pour en savoir plus, consultez la section [Exceptions](##Exceptions).
+- Lorsque vous créez un nouveau cluster HDInsight et que vous sélectionnez un compte Data Lake Storage Gen1 avec l’intégration de réseau virtuel activée, le processus échoue. Commencez par désactiver la règle de réseau virtuel. Sinon, dans le panneau **Pare-feu et réseaux virtuels** du compte Data Lake Storage, sélectionnez **Autoriser l’accès à tous les réseaux et services**. Créez ensuite le cluster HDInsight avant de réactiver la règle de réseau virtuel ou de désélectionner **Autoriser l’accès à tous les réseaux et services**. Pour en savoir plus, consultez la section [Exceptions](##Exceptions).
 
-- La préversion de l’intégration de réseau virtuel dans Data Lake Storage Gen1 ne fonctionne pas avec les [identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+- L’intégration au réseau virtuel dans Data Lake Storage Gen1 ne fonctionne pas avec les [identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
   
 - Les données de fichier et de dossier de votre compte Data Lake Storage Gen 1 avec réseau virtuel activé ne sont pas accessibles à partir du portail. Cette restriction inclut notamment l’accès à partir d’une machine virtuelle située sur le réseau virtuel et d’activités comme l’utilisation de l’Explorateur de données. Les activités de gestion du compte continuent de fonctionner. Les données de fichier et de dossier de votre compte Data Lake Storage avec réseau virtuel activé sont accessibles à partir de toutes les ressources hors portail. Ces ressources incluent l’accès au SDK, les scripts PowerShell et les autres services Azure lorsqu’ils ne proviennent pas du portail. 
 
 ## <a name="configuration"></a>Configuration
 
-### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>Étape 1 : Configurer votre réseau virtuel pour qu’il utilise un point de terminaison de service Azure AD
+### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>Étape 1 : Configurer votre réseau virtuel pour qu’il utilise un point de terminaison de service Azure AD
 
 1.  Accédez au portail Azure et connectez-vous à votre compte.
  

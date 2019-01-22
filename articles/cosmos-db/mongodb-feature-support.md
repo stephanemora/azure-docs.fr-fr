@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 7bf8258524b0b5e73c1a499fb6d3578098a0821e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 08638f0b55c84a6b0e42d3782246ef5b2ce833f3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039161"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359066"
 ---
 # <a name="use-azure-cosmos-dbs-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>Utiliser l’API Azure Cosmos DB pour la prise en charge des fonctionnalités et de la syntaxe MongoDB
 
@@ -20,13 +20,13 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 
 À l’aide de l’API Azure Cosmos DB pour MongoDB, vous pouvez profiter des avantages de MongoDB que vous connaissez déjà, ainsi que de toutes les fonctionnalités d’entreprise fournies par Cosmos DB : [distribution globale](distribute-data-globally.md), [partitionnement automatique](partition-data.md), garanties de disponibilité et latence, indexation automatique de tous les champs, chiffrement au repos, sauvegardes et bien plus encore.
 
-## <a name="mongodb-protocol-support"></a>Prise en charge des protocoles MongoDB
+## <a name="protocol-support"></a>Prise en charge du protocole
 
-L’API Azure Cosmos DB pour MongoDB est compatible avec la version **3.2** du serveur MongoDB par défaut. Les opérateurs pris en charge, ainsi que les limitations ou exceptions sont répertoriés ci-dessous. Les opérateurs de requête ou les fonctionnalités ajoutés dans MongoDB version **3.4** sont actuellement disponibles en tant que fonctionnalités en préversion. Les pilotes clients comprenant ces protocoles doivent pouvoir se connecter à l’API Azure Cosmos DB pour MongoDB.
+L’API d’Azure Cosmos DB pour MongoDB est compatible avec la version **3.2** du serveur MongoDB par défaut. Les opérateurs pris en charge, ainsi que les limitations ou exceptions sont répertoriés ci-dessous. Les opérateurs de requête ou les fonctionnalités ajoutés dans MongoDB version **3.4** sont actuellement disponibles en tant que fonctionnalités en préversion. Les pilotes clients comprenant ces protocoles doivent pouvoir se connecter à l’API Azure Cosmos DB pour MongoDB.
 
 En outre, le [pipeline d’agrégation MongoDB](#aggregation-pipeline) est actuellement disponible en tant qu’une fonctionnalité distincte en préversion.
 
-## <a name="mongodb-query-language-support"></a>Prise en charge du langage de requêtes MongoDB
+## <a name="query-language-support"></a>Prise en charge du langage de requêtes
 
 L’API Azure Cosmos DB pour MongoDB permet la prise en charge complète des constructions de langage de requête MongoDB. Vous trouverez ci-dessous la liste détaillée des opérations prises en charge actuellement, les opérateurs, les étapes, les commandes et les options.
 

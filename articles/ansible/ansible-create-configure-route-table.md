@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/17/2018
-ms.openlocfilehash: 5d7a16ebda088d0ed42021e9def20a398e914ad9
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 29672a75408e42fb9239e5d826784b46e7280805
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158124"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332266"
 ---
 # <a name="create-change-or-delete-an-azure-route-table-using-ansible"></a>Créer, changer ou supprimer une table de routage Azure à l’aide d’Ansible
 Azure achemine automatiquement le trafic entre les sous-réseaux, les réseaux virtuels et les réseaux locaux Azure. Si vous voulez changer un routage par défaut sur Azure, vous devez créer une [table de routage](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
@@ -51,7 +51,7 @@ ansible-playbook route_table_create.yml
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associer une table de routage à un sous-réseau
 Un sous-réseau peut avoir zéro ou une table de routage associée. Une table de routage peut être associée à plusieurs ou aucun sous-réseau. Étant donné que les tables de routage ne sont pas associées à des réseaux virtuels, vous devez associer une table de routage à chaque sous-réseau auquel vous souhaitez associer la table. Tout le trafic sortant du sous-réseau est basé sur les itinéraires que vous avez créés dans les tables de routage, les [itinéraires par défaut](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#default) et les itinéraires propagés à partir d’un réseau local, si le réseau virtuel est connecté à une passerelle de réseau virtuel Azure (ExpressRoute, ou VPN si vous utilisez le protocole BGP avec une passerelle VPN). Vous pouvez uniquement associer une table de routage à des sous-réseaux de réseaux virtuels qui se trouvent au même emplacement et dans le même abonnement Azure que la table de routage.
 
-Cette section présente un exemple de playbook Ansible qui crée un réseau virtuel et une action envoi, puis associe une table de routage au sous-réseau.
+Cette section présente un exemple de playbook Ansible qui crée un réseau virtuel et un sous-réseau, puis associe une table de routage au sous-réseau.
 
 ```yml
 - hosts: localhost

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : SDK Azure Content Moderator pour la méthode d’assistance .NET'
+title: 'Démarrage rapide : Créer un client de modération pour .NET - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Renvoi d’un client Content Moderator à l’aide du SDK Azure Content Moderator pour .NET.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 01/04/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 0c167de3af8aea6820962e7cc8d0c21f5ba61807
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: aa3c2d5c408969aa3127562607ca8d4e89f44f2e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223265"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262266"
 ---
-# <a name="quickstart-helper-code-to-return-a-content-moderator-client"></a>Démarrage rapide : code d’assistance pour retourner un client Content Moderator
+# <a name="quickstart-helper-code-to-return-a-content-moderator-client"></a>Démarrage rapide : Code d’assistance pour renvoyer un client Content Moderator
 
 Cet article fournit des informations et des exemples de code pour vous aider à faire vos premiers pas avec le SDK Azure Content Moderator pour .NET afin de créer un client Content Moderator pour votre abonnement.
 
@@ -32,7 +32,7 @@ Cet article part du principe que vous connaissez déjà Visual Studio et C#.
 ## <a name="sign-up-for-content-moderator-services"></a>S’inscrire aux services Content Moderator
 
 Avant de pouvoir utiliser les services Content Moderator par le biais de l’API REST ou du kit SDK, vous avez besoin d’une clé d’abonnement.
-Reportez-vous au [démarrage rapide](quick-start.md) pour découvrir comment obtenir la clé.
+Consultez le guide de démarrage rapide [Essayer Content Moderator sur le web](quick-start.md) pour savoir comment obtenir la clé.
 
 ## <a name="create-your-visual-studio-project"></a>Créer votre projet Visual Studio
 

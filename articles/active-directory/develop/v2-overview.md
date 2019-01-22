@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ecb95f0440751a6cdbf81dbf02c62bed6b5e780b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 88904b27e114c27dc7b1051c755d3c831c90554f
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286688"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232467"
 ---
 # <a name="about-v20"></a>À propos de v2.0
 
@@ -30,13 +30,13 @@ Le point de terminaison et la plateforme v2.0 sont en préversion et améliorés
 > [!NOTE]
 > MSAL Android, iOS et .NET comprennent toujours des fonctionnalités en cours de développement. Vous pouvez les utiliser pour générer des applications et nous envoyer vos commentaires.
 
-L’expérience de développement du portail Azure a été considérablement mise à jour pour inclure désormais toutes vos applications générées avec la bibliothèque ADAL ou MSAL, et pour améliorer la convivialité.
+L’expérience des [Inscriptions d’applications (préversion)](quickstart-register-app.md) du portail Azure a été considérablement mise à jour pour inclure désormais toutes vos applications générées avec la bibliothèque ADAL ou MSAL, et pour améliorer la convivialité.
 
 Auparavant, les développeurs d’application qui souhaitaient prendre en charge à la fois les comptes Microsoft personnels et les comptes professionnels d’Azure Active Directory (Azure AD) devait opérer une intégration à deux systèmes distincts. Le point de terminaison et la plateforme v2.0 fournissent une version d’API d’authentification qui simplifie ce processus. Ils permettent une connexion à partir de ces deux types de compte à l’aide d’une intégration unique. Les applications qui utilisent le point de terminaison v2.0 peuvent également consommer les API REST à partir de l’[API Microsoft Graph](https://developer.microsoft.com/graph) à l’aide d’un des deux types de compte.
 
 ## <a name="getting-started"></a>Prise en main
 
-Choisissez votre plateforme préférée dans la liste ci-dessous pour créer une application à l’aide des bibliothèques et frameworks open source Microsoft. Vous pouvez également utiliser les protocoles OAuth 2.0 et OpenID Connect pour envoyer et recevoir des messages de protocole directement sans l’aide d’une bibliothèque d’authentification.
+Choisissez votre plateforme préférée dans la liste ci-dessous pour générer une application à l’aide des bibliothèques et frameworks open source Microsoft :
 
 [!INCLUDE [v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
 
@@ -46,14 +46,12 @@ Découvrez ce que vous pouvez faire avec le point de terminaison Azure AD v2.0 :
 
 * Découvrez les [types d’applications que vous pouvez générer avec le point de terminaison Azure AD v2.0](v2-app-types.md).
 * Familiarisez-vous avec les [limites, restrictions et contraintes](active-directory-v2-limitations.md) du point de terminaison Azure AD v2.0.
-* Regardez cette vidéo pour avoir une vue d’ensemble du point de terminaison Azure AD v2.0 :
-
->[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 Informations approfondies sur v2.0 :
 
+* [À propos de la plateforme d’identités Microsoft](about-microsoft-identity-platform.md)
 * [Informations de référence sur les protocoles v2.0](active-directory-v2-protocols.md)
 * [Référence sur les jetons d’accès](access-tokens.md)
 * [Référence sur les jetons d’ID](id-tokens.md)

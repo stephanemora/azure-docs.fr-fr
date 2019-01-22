@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 7cea11f448f20ace2dd50454834e60ce3a3c3b70
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.reviewer: anajod
+ms.openlocfilehash: 7bca71f03ae820107ea0a004b4b96d53f07909ae
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584266"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303069"
 ---
-# <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Didacticiel : configurer l’identité de cloud hybride pour des applications Azure et Azure Stack
+# <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Tutoriel : Configurer l’identité de cloud hybride pour des applications Azure et Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Découvrez comment configurer l’identité de cloud hybride pour vos applications Azure et Azure Stack.
 
@@ -74,7 +74,7 @@ Une installation Azure Stack connectée à Azure Active Directory avec un abonne
 Pour vous connecter à Azure Stack avec du code, utilisez l’API des points de terminaison Azure Resource Manager pour obtenir les points de terminaison d’authentification et de graphique de votre installation Azure Stack, puis authentifiez-vous à l’aide de demandes REST. Vous trouverez un exemple d’application cliente sur [GitHub](https://github.com/shriramnat/HybridARMApplication).
 
 >[!Note]
->Si le Kit SDK Azure du langage de votre choix ne prend pas en charge les profils d’API Azure, il risque de ne pas fonctionner avec Azure Stack. Pour en savoir plus sur les profils d’API Azure, consultez l’article [Gérer les profils de version des API](https://docs.microsoft.com/da-dk/azure/azure-stack/user/azure-stack-version-profiles).
+>Si le Kit SDK Azure du langage de votre choix ne prend pas en charge les profils d’API Azure, il risque de ne pas fonctionner avec Azure Stack. Pour en savoir plus sur les profils d’API Azure, consultez l’article [Gérer les profils de version des API](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

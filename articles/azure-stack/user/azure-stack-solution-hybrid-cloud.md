@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/18/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: e4da34be5b1e9eb2675f540fe4069cfd3dc1d056
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.reviewer: anajod
+ms.openlocfilehash: 1629c4b62fb04e057c38261a33fd3bc759b279c1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409915"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267400"
 ---
-# <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Didacticiel : déployer une solution de cloud hybride avec Azure et Azure Stack
+# <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Tutoriel : Déployer une solution de cloud hybride avec Azure et Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Ce didacticiel vous montre comment déployer une solution de cloud hybride qui utilise le cloud public Azure et le cloud privé Azure Stack.
 
@@ -77,13 +77,13 @@ Avant de commencer le didacticiel, veillez à disposer des éléments suivants :
 
 2. Sur le **Tableau de bord**, sélectionnez **Place de marché**.
 
-    ![Azure Stack Marketplace](media/azure-stack-solution-hybrid-cloud/image1.png)
+    ![Place de marché Azure Stack](media/azure-stack-solution-hybrid-cloud/image1.png)
 
-3. Dans **Place de marché**, sélectionnez **Calcul**, puis choisissez **Plus**. Sous **Plus**, sélectionnez l’image **Free SQL Server License : SQL Server 2017 Developer on Windows Server 2016** (Licence gratuite SQL Server : SQL Server 2017 Developer sur Windows Server 2016).
+3. Dans **Place de marché**, sélectionnez **Calcul**, puis choisissez **Plus**. Sous **Plus**, sélectionnez l’image **Licence SQL Server gratuite : SQL Server 2017 Developer sur Windows Server**.
 
     ![Sélectionner une image de machine virtuelle](media/azure-stack-solution-hybrid-cloud/image2.png)
 
-4. Sur **Free SQL Server License : SQL Server 2017 Developer on Windows Server 2016** (Licence gratuite SQL Server : SQL Server 2017 Developer sur Windows Server 2016), sélectionnez **Create**.
+4. Dans **Licence SQL Server gratuite : SQL Server 2017 Developer sur Windows Server**, sélectionnez **Créer**.
 
 5. Sur **Paramètres de base> Configurer les paramètres de base**, saisissez un **Nom** pour la machine virtuelle (VM), un **Nom d’utilisateur** pour l’association de sécurité de SQL Server et un **Mot de passe** pour l’association de sécurité.  Dans la liste déroulante **Abonnement** , sélectionnez l’abonnement sur lequel vous effectuez le déploiement. Pour le **Groupe de ressources**, utilisez **Choisir un élément déjà existant** et placez la machine virtuelle dans le même groupe de ressources que votre application web Azure Stack.
 
@@ -308,7 +308,7 @@ Lorsque vous créez votre application web dans un environnement App Service, ell
 
     ![Activer la mise à l’échelle automatique](media/azure-stack-solution-hybrid-cloud/image17.png)
 
-3. Fournissez un nom pour le **Nom du paramètre de mise à l’échelle automatique**. Pour la règle de mise à l’échelle automatique **Par défaut**, sélectionnez **Mettre à l’échelle selon une mesure**. Définissez les **Limites d’instance** sur **Minimum : 1**, **Maximum : 10**, et **Par défaut : 1**.
+3. Fournissez un nom pour le **Nom du paramètre de mise à l’échelle automatique**. Pour la règle de mise à l’échelle automatique **Par défaut**, sélectionnez **Mettre à l’échelle selon une mesure**. Définissez les **Limites d’instance** sur **Minimum : 1**, **Maximum : 10** et **Par défaut : 1**.
 
     ![Configurer la mise à l’échelle automatique](media/azure-stack-solution-hybrid-cloud/image18.png)
 

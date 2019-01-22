@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 0b232ed8bacfeb896fd5ee6ff9e2a58b71dc1517
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 92c493a59cc14d61b09e59bdf0fa23be72b7137a
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162956"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232547"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>Quelles méthodes sont disponibles pour l'authentification ?
 
 Les actualités rapportent des cas de mots de passe volés et d’identités compromises. Exiger un second facteur en plus d’un mot de passe augmente immédiatement la sécurité de votre organisation. Microsoft Azure Active Directory (Azure AD) inclut des fonctionnalités, comme l’authentification multifacteur (Azure MFA) et la réinitialisation de mot de passe en libre-service (SSPR) Azure AD, permettant aux administrateurs de protéger les organisations et les utilisateurs avec des méthodes d’authentification supplémentaires.
 
-Lorsqu’un utilisateur doit accéder à une application sensible, réinitialiser son mot de passe ou activer Windows Hello, il peut être invité à effectuer une vérification supplémentaire pour prouver son identité.
+Il existe de nombreux scénarios, notamment la connexion à une application, la réinitialisation de leur mot de passe, l’activation de Windows Hello, entre autres. Vos utilisateurs peuvent être invités à prouver de nouveau qu’ils sont bien ceux qu’ils prétendent être.
 
 Une vérification supplémentaire peut se présenter sous la forme des méthodes d’authentification suivantes :
 
@@ -44,7 +44,7 @@ Options de réinitialisation de mot de passe en libre-service :
 
 * **Modification de mot de passe :** je connais mon mot de passe mais je souhaite le remplacer.
 * **Réinitialisation de mot de passe :** je ne parviens pas à me connecter et je souhaite réinitialiser mon mot de passe à l’aide d’une ou de plusieurs méthodes d’authentification approuvées.
-* **Déverrouillage de compte :** je ne parviens pas à me connecter, car mon compte est verrouillé, et je souhaite le déverrouiller à l’aide d’une ou de plusieurs méthodes d’authentification approuvées.
+* **Déverrouillage de compte** : je ne parviens pas à me connecter, car mon compte est verrouillé, et je souhaite le déverrouiller à l’aide d’une ou de plusieurs méthodes d’authentification approuvées.
 
 ## <a name="multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
@@ -56,6 +56,6 @@ L’étape suivante consiste à approfondir ce concept et à configurer la réin
 
 Pour commencer avec la réinitialisation de mot de passe en libre-service, consultez l’[article sur l’activation du démarrage rapide de la réinitialisation de mot de passe en libre-service](quickstart-sspr.md).
 
-Pour en savoir plus sur la réinitialisation de mot de passe en libre-service, consultez l’article [Découverte approfondie de la réinitialisation de mot de passe libre-service dans Azure AD](concept-sspr-howitworks.md).
+Pour en savoir plus sur la réinitialisation de mot de passe en libre-service, consultez l’article [Fonctionnement : réinitialisation de mot de passe en libre-service Azure AD](concept-sspr-howitworks.md).
 
-Pour en savoir plus sur l’authentification multifacteur Azure, consultez l’article [Fonctionnement : Azure Multi-Factor Authentication](concept-mfa-howitworks.md).
+Pour en savoir plus sur l’authentification multifacteur Azure, consultez l’article [Fonctionnement : Azure Multi-Factor Authentication](concept-mfa-howitworks.md)

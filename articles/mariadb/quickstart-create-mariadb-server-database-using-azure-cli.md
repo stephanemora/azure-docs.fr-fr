@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 0a629b9b068694960178c1c5727ba2f38b0e8af7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7d45c11345312fe48312bd4e744433397a17a62d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190333"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359321"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Créer un serveur Azure Database for MariaDB à l’aide d’Azure CLI
 
@@ -59,10 +59,10 @@ version | **10.2** | Version majeure du moteur MariaDB.
 admin-user | **myadmin** | Nom d’utilisateur du compte administrateur. Le paramètre **admin-user** ne peut pas être **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
 admin-password | *votre mot de passe* | Mot de passe de l’utilisateur Administrateur. Votre mot de passe doit contenir entre 8 et 128 caractères. Il doit contenir des caractères de trois des catégories suivantes : Lettres majuscules, lettres minuscules, chiffres et caractères non alphanumériques.
 
-La valeur du paramètre **sku-name** suit la convention *niveau tarifaire*\_*génération de calcul*\_*vCores* comme dans les exemples suivants :
-+ `--sku-name B_Gen5_4` correspond au niveau tarifaire De base, à la génération de calcul Gen 5 et à 4 vCores.
-+ `--sku-name GP_Gen5_32` correspond au niveau tarifaire Usage général, à la génération de calcul Gen 5 et à 32 vCores.
-+ `--sku-name MO_Gen5_2` correspond au niveau tarifaire Mémoire optimisée, à la génération de calcul Gen 5 et à 2 vCores.
+La valeur du paramètre sku-name suit la convention {tarification}\_{génération de calcul}\_{vCores} comme dans les exemples ci-dessous :
++ `--sku-name B_Gen5_1` correspond à De base, Gen 5 et 1 vCore. Cette option correspond à la plus petite référence disponible.
++ `--sku-name GP_Gen5_32` correspond à Usage général, Gen 5 et 32 vCores.
++ `--sku-name MO_Gen5_2` correspond à Mémoire optimisée, Gen 5 et 2 vCores.
 
 Pour plus d’informations sur les valeurs valides par région et pour les niveaux, consultez [Niveaux tarifaires pour Azure Database for MariaDB](./concepts-pricing-tiers.md).
 

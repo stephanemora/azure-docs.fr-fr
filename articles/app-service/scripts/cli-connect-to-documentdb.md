@@ -16,16 +16,16 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 12f7a4cb5db084d6e2c179bf8acd641c814dcbd0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 68c69413322d87fc557686701c474730d2ed8405
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719793"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358287"
 ---
 # <a name="connect-an-app-service-app-to-cosmos-db-using-cli"></a>Connecter une application App Service à Cosmos DB à l’aide de l’interface CLI
 
-Cet exemple de script crée un compte Azure Cosmos DB à l’aide de l’API Cosmos DB pour MongoDB et une application App Service. Il relie ensuite une chaîne de connexion MongoDB à l’application web à l’aide des paramètres de l’application.
+Cet exemple de script crée un compte Azure Cosmos DB à l’aide de l’API Azure Cosmos DB pour MongoDB et d’une application App Service. Il relie ensuite une chaîne de connexion MongoDB à l’application web à l’aide des paramètres de l’application.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

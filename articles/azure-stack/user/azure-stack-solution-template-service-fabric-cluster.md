@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: abb77f59e49a98c1195dcd2e7b622b2b8e3fd7b8
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 151f6fa7880db03909c522147d9c1f74508f51a1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087274"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351847"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Déployer un cluster Service Fabric dans Azure Stack
 
@@ -118,7 +118,7 @@ Utilisez le script ci-après pour créer le coffre de clés et lui ajouter le *c
    ``` 
 
 
-Pour plus d’informations, consultez l’article [Gérer Key Vault dans Azure Stack avec PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-kv-manage-powershell).
+Pour plus d’informations, consultez l’article [Gérer Key Vault dans Azure Stack avec PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-key-vault-manage-powershell).
 
 ## <a name="deploy-the-marketplace-item"></a>Déployer l’élément Place de marché
 
@@ -138,10 +138,10 @@ Pour plus d’informations, consultez l’article [Gérer Key Vault dans Azure S
 
    Pour le champ *Admin Client Certificate Thumbprints* (Empreinte du certificat client d’administration), entrez l’empreinte du *certificat client d’administration*. (Consultez les [prérequis](#prerequisites).)
    
-   - Coffre de clés source : spécifiez la chaîne *KeyVault id* complète obtenue dans les résultats du script. 
-   - Cluster Certificate URL (URL du certificat de cluster) : spécifiez l’URL complète de *Secret Id* obtenue dans les résultats du script. 
-   - Cluster Certificate thumbprint (Empreinte du certificat de cluster) : spécifiez la valeur *Cluster Certificate Thumbprint* obtenue dans les résultats du script.
-   - Admin Client Certificate Thumbprints (Empreinte du certificat client d’administration) : spécifiez la valeur *Admin Client Certificate Thumbprint* (Empreinte du certificat client d’administration) que vous avez créée dans les prérequis. 
+   - Coffre de clés source :  spécifiez la chaîne *KeyVault id* complète obtenue dans les résultats du script. 
+   - Cluster Certificate URL (URL du certificat de cluster) : spécifiez l’URL complète de l’entrée *Secret Id* obtenue dans les résultats du script. 
+   - Cluster Certificate thumbprint (Empreinte numérique du certificat de cluster) : spécifiez la valeur *Cluster Certificate Thumbprint* obtenue dans les résultats du script.
+   - Admin Client Certificate Thumbprints (Empreinte numérique du certificat client d’administration) : spécifiez la valeur de l’*empreinte numérique du certificat client d’administration* que vous avez créée dans les prérequis. 
 
    ![Sortie du script](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 

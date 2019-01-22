@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: ad490630d3ce5d625bce05c75c20fa71a7aa2d29
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b9e9c0b141987f8af563944c8eee216b8218846c
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014538"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352884"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Charger de façon incrémentielle les données d’une base de données SQL Azure dans un stockage Blob Azure
 Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table d’une base de données SQL Azure vers un stockage Blob Azure. 
@@ -135,7 +135,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 Exécutez la commande suivante pour créer une procédure stockée dans votre base de données SQL :
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -302,7 +302,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     ![Activité de procédure stockée - Compte SQL](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Basculez vers l’onglet **Procédure stockée**, et procédez comme suit : 
 
-    1. Pour **Nom de la procédure stockée**, sélectionnez **sp_write_watermark**. 
+    1. Pour **Nom de la procédure stockée**, sélectionnez **usp_write_watermark**. 
     2. Pour spécifier des valeurs correspondant aux paramètres de procédure stockée, cliquez sur **Import parameter** (Paramètre d’importation), puis entrez les valeurs suivantes pour les paramètres : 
 
         | NOM | type | Valeur | 

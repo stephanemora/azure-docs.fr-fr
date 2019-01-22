@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/14/2018
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: abbbec05dfb6d81a65941619a36b7f3afcdc1fba
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: fc02f754682046ead3f546fc1253e1c9ac0a63b9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435563"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261466"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Didacticiel : Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
 
@@ -49,9 +49,9 @@ Pour ce tutoriel, vous devez exécuter PowerShell localement. Le module Azure Po
 
 Il existe trois conditions clés pour que ce scénario fonctionne correctement :
 
-- Un itinéraire défini par l’utilisateur sur le sous-réseau spoke qui pointe vers l’adresse IP du pare-feu Azure en tant que passerelle par défaut. La propagation des itinéraires BGP doit être **désactivée** sur cette table de routage.
-- Un itinéraire défini par l’utilisateur sur le sous-réseau de passerelle hub doit pointer vers l’adresse IP du pare-feu comme prochain tronçon pour les réseaux spoke.
-- Aucun itinéraire défini par l’utilisateur n’est requis sur le sous-réseau du pare-feu Azure, puisqu’il apprend les itinéraires à partir de BGP.
+- Un itinéraire défini par l’utilisateur (UDR) sur le sous-réseau spoke qui pointe vers l’adresse IP du Pare-feu Azure en tant que passerelle par défaut. La propagation des itinéraires BGP doit être **désactivée** sur cette table de routage.
+- Un UDR sur le sous-réseau de passerelle hub doit pointer vers l’adresse IP du pare-feu comme prochain tronçon pour les réseaux spoke.
+- Aucun UDR n’est requis sur le sous-réseau du Pare-feu Azure, puisqu’il apprend les itinéraires à partir de BGP.
 - Assurez-vous de définir **AllowGatewayTransit** lors de l’appairage de VNet-Hub avec VNet-Spoke et **UseRemoteGateways** lors de l’appairage de VNet-Spoke avec VNet-Hub.
 
 Consultez la section [Créer des itinéraires](#create-routes) de ce didacticiel pour voir comment ces itinéraires sont créés.
@@ -60,7 +60,7 @@ Consultez la section [Créer des itinéraires](#create-routes) de ce didacticiel
 >Le Pare-feu Azure doit avoir une connectivité Internet directe. Si vous avez activé le tunneling forcé en local via ExpressRoute ou Application Gateway, vous devez configurer UDR 0.0.0.0/0 avec la valeur **NextHopType** définie en tant que **Internet**, puis l’attribuer à **AzureFirewallSubnet**.
 
 >[!NOTE]
->Le trafic entre les réseaux virtuels directement appairés est acheminé directement même si l’UDE pointe vers le Pare-feu Azure en tant que passerelle par défaut. Pour envoyer un trafic de sous-réseau à sous-réseau au pare-feu dans ce scénario, la route définie par l’utilisateur doit contenir explicitement le préfixe du réseau cible dans les deux sous-réseaux.
+>Le trafic entre les réseaux virtuels directement appairés est acheminé directement même si l’UDR pointe vers le Pare-feu Azure en tant que passerelle par défaut. Pour envoyer un trafic de sous-réseau à sous-réseau au pare-feu dans ce scénario, un UDR doit contenir explicitement le préfixe du réseau cible dans les deux sous-réseaux.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -489,4 +489,4 @@ Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, 
 Ensuite, vous pouvez surveiller les journaux de Pare-feu Azure.
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Surveiller les journaux de pare-feu Azure](./tutorial-diagnostics.md)
+> [Didacticiel : Superviser les journaux de Pare-feu Azure](./tutorial-diagnostics.md)

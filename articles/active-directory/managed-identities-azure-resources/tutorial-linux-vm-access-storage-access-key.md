@@ -1,6 +1,6 @@
 ---
 title: Utiliser une identité managée affectée par le système de machine virtuelle Linux pour accéder au Stockage Azure
-description: Ce didacticiel vous guide tout au long du processus consistant à utiliser une identité managée attribuée par le système de machine virtuelle Linux pour accéder au Stockage Azure.
+description: Ce didacticiel vous guide tout au long du processus consistant à utiliser une identité managée affectée par le système de machine virtuelle Linux pour accéder au Stockage Azure.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: f00de9095e45901f92fcf3004a5f51cfdd709da2
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ee26db80e3219c170c77a2bd90f7d1416676333e
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724767"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352748"
 ---
-# <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder au Stockage Azure par une clé d’accès
+# <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder au Stockage Azure par une clé d’accès
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -61,7 +61,7 @@ Plus tard, nous chargerons et téléchargerons un fichier vers le nouveau compte
 
 ## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-storage-account-access-keys"></a>Autoriser votre identité managée attribuée par le système de la machine virtuelle à utiliser les clés d’accès d’un compte de stockage
 
-Le stockage Azure ne prend pas en charge l’authentification Azure AD en mode natif.  Cependant, vous pouvez utiliser des identités managées pour les ressources Azure afin de récupérer les clés d’accès d’un compte de stockage depuis le gestionnaire des ressources, puis utiliser une clé pour accéder au stockage.  Dans cette étape, vous autorisez votre identité managée attribuée par le système de la machine virtuelle à accéder aux clés de votre compte de stockage.   
+Dans cette étape, vous autorisez votre identité managée attribuée par le système de la machine virtuelle à accéder aux clés de votre compte de stockage.   
 
 1. Revenez à votre compte de stockage nouvellement créé.
 2. Cliquez sur le lien **(IAM) de contrôle d’accès** dans le panneau de gauche.  

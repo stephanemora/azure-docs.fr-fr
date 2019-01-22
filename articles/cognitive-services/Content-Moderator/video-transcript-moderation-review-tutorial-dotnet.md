@@ -1,27 +1,27 @@
 ---
 title: 'Tutoriel : Modérer des vidéos et des transcriptions dans .NET - Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Comment utiliser Content Moderator pour modérer des vidéos et des transcriptions dans .NET.
+description: Ce tutoriel explique comment concevoir une solution de modération de vidéos et de transcriptions complète à l’aide de la modération assistée par ordinateur et de la création de révisions pour une intervention humaine.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 1/27/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: e5958eeb4aca4cdc41bbc263a4cc38378927874b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 45f1b4d16bd982e17b67d6fb337e0d917f635851
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118572"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332691"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutoriel : Modération de vidéos et de transcriptions
 
 Les API Vidéo de Content Moderator vous permettent de modérer des vidéos et de créer des révisions des vidéos dans l’outil de révision par un opérateur humain. 
 
-Ce tutoriel détaillé permet de comprendre comment concevoir une solution de modération de vidéos et de transcriptions complète avec la modération assistée par ordinateur et la création de révisions pour une intervention humaine.
+Ce tutoriel explique comment concevoir une solution de modération de vidéos et de transcriptions complète à l’aide de la modération assistée par ordinateur et de la création de révisions pour une intervention humaine.
 
 Téléchargez l’[application console C#](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) pour ce tutoriel. L’application console utilise le kit SDK et les packages associés pour effectuer les tâches suivantes :
 
@@ -241,7 +241,7 @@ Le code effectue les étapes suivantes :
 
 - Vérifie que la configuration dans `App.config` contient toutes les données nécessaires
 - Vérifie que le binaire `ffmpeg` est présent
-- Génère le nom de fichier de sortie en ajoutant `_c.mp4` au nom de base du fichier (comme `Example.mp4` -> `E>xample_c.mp4`)
+- Génère le nom de fichier de sortie en ajoutant `_c.mp4` au nom de base du fichier (comme `Example.mp4` -> `Example_c.mp4`)
 - Génère une chaîne de ligne de commande pour effectuer la conversion
 - Démarre un processus `ffmpeg` à l’aide de la ligne de commande
 - Attend que la vidéo soit traitée

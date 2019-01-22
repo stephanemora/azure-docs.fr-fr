@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Salesforce | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Salesforce | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Salesforce.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 9d9f9d1e9a87802960fd2f004f3e19f47fdd3fe0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 5be86017926e09b5db5fd08f1c33d316b9031bc4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971799"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264289"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Tutoriel : Intégration d’Azure Active Directory à Salesforce
+# <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Tutoriel : Intégration d’Azure Active Directory à Salesforce
 
 Dans ce didacticiel, vous allez apprendre à intégrer Salesforce à Azure Active Directory (Azure AD).
 L’intégration de Salesforce dans Azure AD vous offre les avantages suivants :
@@ -180,7 +180,7 @@ Pour configurer l’authentification unique Azure AD avec Salesforce, effectuez
 
     ![Configurer l'authentification unique](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-11. Dans la section **Authentication Configuration** (Configuration de l’authentification), cochez **AzureSSO** comme **Authentication Service** (Service d’authentification) de votre configuration SSO SAML, puis cliquez sur **Save** (Enregistrer).
+11. Dans la section **Configuration de l’authentification**, cochez **AzureSSO** comme **Service d’authentification** de votre configuration SSO SAML, puis cliquez sur **Enregistrer**.
 
     ![Configurer l'authentification unique](./media/salesforce-tutorial/sf-auth-config.png)
 

@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
 ms.date: 12/03/2018
-ms.openlocfilehash: 507425a6cffc6f3b49e117ebf5a604bf0d252164
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 7fecc280d4e92df88f5f8e9b9e571273328d2458
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542014"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352308"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Qu’est-ce qu’Azure Database for MariaDB ?
 
@@ -45,7 +45,7 @@ Le service Azure Database for MariaDB offre plusieurs niveaux de service : De b
 
 ## <a name="monitoring-and-alerting"></a>Surveillance et alerte
 
-Comment savoir quand monter ou baisser la puissance des instances ? Vous pouvez utiliser les fonctionnalités intégrées de surveillance et d’alerte de performances d’Azure Database for MariaDB, combinées avec les évaluations de performance basées sur des vCores. Ces outils vous permettent d’évaluer rapidement les effets des mises à l’échelle des vCores (montées ou descentes en charge) en fonction de vos besoins en performances actuels ou pour un projet. <!--See [Alerts](howto-alert-on-metric.md) for details.-->
+Comment savoir quand monter ou baisser la puissance des instances ? Vous pouvez utiliser les fonctionnalités intégrées de surveillance et d’alerte de performances d’Azure Database for MariaDB, combinées avec les évaluations de performance basées sur des vCores. Ces outils vous permettent d’évaluer rapidement les effets des mises à l’échelle des vCores (montées ou descentes en charge) en fonction de vos besoins en performances actuels ou pour un projet. Pour plus d’informations, consultez [Alertes](howto-alert-metric.md).
 
 ## <a name="keep-your-app-and-business-running"></a>Votre application et votre activité ne s’arrêtent jamais
 
@@ -55,7 +55,7 @@ Avec un temps de disponibilité de 99,99 %, le SLA (contrat de niveau de servic
 
 Azure Database for MariaDB respecte la tradition de sécurité des données qu’offrent les services de base de données Azure. Azure Database for MariaDB offre des fonctionnalités qui limitent l’accès, protègent les données au repos et en mouvement et vous aident à surveiller l’activité. Visitez le [Centre de confidentialité Azure](https://www.microsoft.com/en-us/trustcenter/security) pour plus d’informations sur la sécurité de la plateforme Azure.
 
-Le service Azure Database for MariaDB utilise le chiffrement de stockage pour les données au repos. Toutes les données, y compris les sauvegardes, sont chiffrées sur le disque. (Les fichiers temporaires créés par le moteur lors de l’exécution des requêtes ne sont pas chiffrés sur le disque.) Le service utilise le chiffrement AES 256 bits qui est inclus dans le chiffrement de stockage Azure. Les clés sont managées par le système. Le chiffrement de stockage est toujours activé et ne peut pas être désactivé.
+Le service Azure Database for MariaDB utilise le chiffrement de stockage pour les données au repos et est conforme à la norme FIPS 140-2. Toutes les données, y compris les sauvegardes, sont chiffrées sur le disque. (Les fichiers temporaires créés par le moteur lors de l’exécution des requêtes ne sont pas chiffrés sur le disque.) Le service utilise le chiffrement AES 256 bits qui est inclus dans le chiffrement de stockage Azure. Les clés sont managées par le système. Le chiffrement de stockage est toujours activé et ne peut pas être désactivé.
 
 Par défaut, le service Azure Database for MariaDB est configuré de manière à exiger la [sécurité de la connexion SSL](./concepts-ssl-connection-security.md) pour les données en mouvement sur le réseau. L’application de connexions SSL entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application. Vous avez la possibilité de désactiver les exigences SSL pour la connexion à votre service de base de données si votre application cliente ne prend pas en charge la connectivité SSL.
 

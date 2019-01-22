@@ -1,21 +1,21 @@
 ---
-title: 'Tutoriel : Accéder aux données Azure Data Lake Storage Gen2 Preview avec Azure Databricks à l’aide de Spark | Microsoft Docs'
+title: 'Tutoriel : Accéder aux données Azure Data Lake Storage Gen2 Preview avec Azure Databricks à l’aide de Spark | Microsoft Docs'
 description: Ce tutoriel montre comment exécuter des requêtes Spark sur un cluster Azure Databricks afin d’accéder aux données dans un compte de stockage Azure Data Lake Storage Gen2.
 services: storage
 author: dineshmurthy
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: dineshm
-ms.openlocfilehash: b0382d31f9d16228ca3447ace9c7d4f171b206f6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e72a4f71a42a892d14fad076b124426f0c32ac7d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548984"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321804"
 ---
-# <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Tutoriel : Accéder aux données Data Lake Storage Gen2 Preview avec Azure Databricks à l’aide de Spark
+# <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Tutoriel : Accéder aux données Data Lake Storage Gen2 Preview avec Azure Databricks à l’aide de Spark
 
 Ce tutoriel vous montre comment connecter un cluster Azure Databricks aux données contenues dans un compte de stockage Azure compatible avec Azure Data Lake Storage Gen2 (Preview). Cette connexion vous permet d’exécuter en mode natif des requêtes et analyses sur des données à partir de votre cluster.
 
@@ -36,12 +36,31 @@ Ce tutoriel montre comment consommer et interroger des données de vol de billet
 2. Sélectionnez **Télécharger** et enregistrez les résultats sur votre machine.
 3. Notez le nom du fichier et le chemin du téléchargement, car vous aurez besoin de ces informations à une étape ultérieure.
 
-Pour suivre ce tutoriel, vous avez besoin d’un compte de stockage avec des capacités analytiques. Nous vous recommandons de suivre notre [guide de démarrage rapide](data-lake-storage-quickstart-create-account.md) sur le sujet afin d’en créer un. Après avoir créé le compte de stockage, accédez à ce dernier pour récupérer les paramètres de configuration.
+Pour suivre ce tutoriel, vous avez besoin d’un compte de stockage avec des capacités analytiques. Nous vous recommandons de suivre notre [guide de démarrage rapide](data-lake-storage-quickstart-create-account.md) sur le sujet afin d’en créer un. 
 
-1. Sous **Paramètres**, sélectionnez **Clés d’accès**.
-2. Sélectionnez le bouton **Copier** situé à côté de **key1** pour copier la valeur de clé.
+## <a name="set-aside-storage-account-configuration"></a>Mettre de côté la configuration du compte de stockage
 
-Le nom et la clé du compte sont nécessaires dans les étapes ultérieures de ce didacticiel. Ouvrez un éditeur de texte et mettez de côté le nom et la clé du compte pour référence ultérieure.
+Vous allez avoir besoin du nom de votre compte de stockage et d’un URI de point de terminaison de système de fichiers.
+
+Pour obtenir le nom de votre compte de stockage sur le portail Azure, choisissez **Tous les services**, puis effectuez un filtrage basé sur le terme *stockage*. Sélectionnez ensuite **Comptes de stockage**, puis localisez votre compte de stockage.
+
+Pour obtenir l’URI du point de terminaison de système de fichiers, choisissez **Propriétés**. Dans le volet des propriétés, recherchez la valeur du champ **Point de terminaison de système de fichiers ADLS principal**.
+
+Collez ces deux valeurs dans un fichier texte. Vous en aurez besoin bientôt.
+
+<a id="service-principal"/>
+
+## <a name="create-a-service-principal"></a>Créer un principal du service
+
+Créez un principal du service en suivant l’aide fournie dans cette rubrique : [Guide pratique pour Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+Vous devrez faire certaines choses spécifiques pendant que vous suivrez les étapes décrites dans cet article.
+
+:heavy_check_mark: Au cours des étapes indiquées dans la section [Créer une application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) de l’article, veillez à affecter l’URI de point de terminaison que vous venez de collecter au champ **URL de connexion** dans la boîte de dialogue **Créer**.
+
+:heavy_check_mark: Au cours des étapes indiquées dans la section [Attribuer un rôle à l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) de l’article, veillez à affecter le **Rôle Contributeur de Stockage Blob** à votre application.
+
+:heavy_check_mark: Au cours des étapes indiquées dans la section [Obtenir les valeurs de connexion](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de l’article, collez les valeurs de l’ID de locataire, de l’ID d’application et de la clé d’authentification dans un fichier texte. Vous en aurez besoin bientôt.
 
 ## <a name="create-a-databricks-cluster"></a>Créer un cluster Databricks
 
@@ -63,22 +82,24 @@ L’étape suivante consiste à créer un cluster Databricks pour créer un espa
 14. Entrez un nom de votre choix dans le champ **Nom**, puis sélectionnez **Python** comme langage.
 15. Tous les autres champs peuvent être laissés sur leurs valeurs par défaut.
 16. Sélectionnez **Créer**.
-17. Collez le code ci-après dans la cellule **Cmd 1**. Remplacez les espaces réservés affichés entre crochets dans l’exemple par vos propres valeurs :
+17. Copiez et collez le bloc de code suivant dans la première cellule, mais n’exécutez pas ce code pour l’instant.
 
-    ```scala
-    %python%
+    ```Python
     configs = {"fs.azure.account.auth.type": "OAuth",
-        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-        "fs.azure.account.oauth2.client.id": "<service-client-id>",
-        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
-        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
-        
+           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+           "fs.azure.account.oauth2.client.id": "<application-id>",
+           "fs.azure.account.oauth2.client.secret": "<authentication-id>",
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
+           "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
+
     dbutils.fs.mount(
-        source = "abfss://dbricks@<account-name>.dfs.core.windows.net/folder1",
-        mount_point = "/mnt/flightdata",
-        extra_configs = configs)
+    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
+    mount_point = "/mnt/flightdata",
+    extra_configs = configs)
     ```
-18. Appuyez sur **Maj+Entrée** pour exécuter la cellule de code.
+18. Dans ce bloc de code, remplacez les valeurs d’espace réservé `storage-account-name`, `application-id`, `authentication-id` et `tenant-id` par les valeurs que vous avez collectées quand vous avez effectué les étapes des sections [Mettre de côté la configuration du compte de stockage](#config) et [Créer un principal du service](#service-principal) décrites dans cet article. Remplacez l’espace réservé `file-system-name` par n’importe quel nom que vous souhaitez donner à votre système de fichiers.
+
+19. Appuyez sur les touches **Maj +Entrée** pour exécuter le code de ce bloc.
 
 ## <a name="ingest-data"></a>Réception de données
 

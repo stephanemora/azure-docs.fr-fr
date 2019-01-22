@@ -1,23 +1,23 @@
 ---
-title: Utilisateurs, groupes, licences et rôles pour grandes entreprises dans Azure Active Directory | Microsoft Docs
+title: Vue d’ensemble des utilisateurs, groupes, licences et rôles - Azure Active Directory | Microsoft Docs
 description: Relation entre utilisateurs et licences assignées, rôles d’administrateur, appartenance à un groupe dans Azure Active Directory
 keywords: ''
 author: curtand
 manager: mtillman
 ms.author: curtand
 ms.reviewer: vincesm
-ms.date: 10/01/2018
+ms.date: 01/14/2019
 ms.topic: overview
 ms.service: active-directory
 ms.workload: identity
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: 7f588766ead19f2cbca22aab596e6dc9d0210791
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 2689ec400b7d29c9f086481056e5f554d7fde95a
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48019916"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321957"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>Utilisateurs, groupes, licences et rôles pour grandes entreprises
 

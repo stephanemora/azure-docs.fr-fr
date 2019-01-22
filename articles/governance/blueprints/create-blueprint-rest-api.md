@@ -4,17 +4,17 @@ description: Utilisez des blueprints Azure pour créer, définir et déployer de
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/07/2018
+ms.date: 01/15/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9e44a44b76e79375076f71cf808d6d30eebc5cdb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b66a1c2c12a97ea8754377a138b51a4ca1739c21
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311420"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320682"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Définir et affecter un blueprint Azure avec l’API REST
 
@@ -66,9 +66,9 @@ La première étape de la définition d’un modèle standard à des fins de con
 > [!NOTE]
 > Quand vous utilisez l’API REST, l’objet _blueprint_ est créé en premier. Pour chaque _artefact_ à ajouter contenant des paramètres, vous devez définir ces paramètres à l’avance sur le _blueprint_ initial.
 
-Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par vos propres valeurs :
+Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par vos propres valeurs :
 
-- Remplacer `{YourMG}` par le nom de votre groupe d’administration
+- Remplacer `{YourMG}` par l’ID de votre groupe d’administration
 - Remplacer `{subscriptionId}` par votre ID d’abonnement
 
 1. Créez l’objet _blueprint_ initial. Le **corps de la requête** inclut des propriétés du blueprint, les groupes de ressources à créer et tous les paramètres au niveau du blueprint. Les paramètres sont définis durant l’affectation et utilisés par les artefacts ajoutés aux étapes ultérieures.
@@ -130,7 +130,7 @@ Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par 
      }
      ```
 
-1. Ajoutez une attribution de rôle au niveau de l’abonnement. Le **corps de la demande** définit le _genre_ d’artefact, les propriétés sont alignées avec l’identificateur de définition de rôle et les identités de principal sont passées en tant que tableau de valeurs. Dans l’exemple ci-dessous, les identités de principal ayant reçu le rôle spécifié sont configurées avec un paramètre qui est défini durant l’affectation du blueprint.
+1. Ajoutez une attribution de rôle au niveau de l’abonnement. Le **corps de la demande** définit le _genre_ d’artefact, les propriétés sont alignées avec l’identificateur de définition de rôle et les identités de principal sont passées en tant que tableau de valeurs. Dans l’exemple ci-dessous, les identités de principal ayant reçu le rôle spécifié sont configurées avec un paramètre qui est défini durant l’affectation du blueprint. Cet exemple utilise le rôle intégré _Contributeur_ avec le GUID `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
    - URI de l’API REST
 
@@ -150,7 +150,7 @@ Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par 
      }
      ```
 
-1. Ajoutez une affectation de stratégie au niveau de l’abonnement. Le **corps de la requête** définit le _genre_ d’artefact, définit les propriétés qui sont alignées sur une définition de stratégie ou d’initiative, et configure l’affectation de stratégie pour utiliser les paramètres de blueprint définis (à configurer durant l’affectation du blueprint).
+1. Ajoutez une affectation de stratégie au niveau de l’abonnement. Le **corps de la requête** définit le _genre_ d’artefact, définit les propriétés qui sont alignées sur une définition de stratégie ou d’initiative, et configure l’affectation de stratégie pour utiliser les paramètres de blueprint définis (à configurer durant l’affectation du blueprint). Cet exemple utilise la stratégie intégrée _Appliquer l’étiquette et sa valeur par défaut aux groupes de ressources_ avec le GUID `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - URI de l’API REST
 
@@ -178,7 +178,7 @@ Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par 
      }
      ```
 
-1. Ajoutez une autre affectation de stratégie pour l’étiquette Storage (réutilisation du paramètre _storageAccountType_) au niveau de l’abonnement. Cet artefact d’affectation de stratégie supplémentaire montre qu’un paramètre défini sur le blueprint peut être utilisé par plusieurs artefacts. Dans l’exemple, l’élément **storageAccountType** sert à définir une étiquette sur le groupe de ressources. Cette valeur fournit des informations sur le compte de stockage créé à l’étape suivante.
+1. Ajoutez une autre affectation de stratégie pour l’étiquette Storage (réutilisation du paramètre _storageAccountType_) au niveau de l’abonnement. Cet artefact d’affectation de stratégie supplémentaire montre qu’un paramètre défini sur le blueprint peut être utilisé par plusieurs artefacts. Dans l’exemple, l’élément **storageAccountType** sert à définir une étiquette sur le groupe de ressources. Cette valeur fournit des informations sur le compte de stockage créé à l’étape suivante. Cet exemple utilise la stratégie intégrée _Appliquer l’étiquette et sa valeur par défaut aux groupes de ressources_ avec le GUID `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - URI de l’API REST
 
@@ -292,7 +292,7 @@ Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par 
      }
      ```
 
-1. Ajoutez une attribution de rôle sous le groupe de ressources. Comme pour l’entrée d’attribution de rôle précédente, l’exemple ci-dessous utilise l’identificateur de définition pour le rôle **Propriétaire** et lui fournit un paramètre différent à partir du blueprint.
+1. Ajoutez une attribution de rôle sous le groupe de ressources. Comme pour l’entrée d’attribution de rôle précédente, l’exemple ci-dessous utilise l’identificateur de définition pour le rôle **Propriétaire** et lui fournit un paramètre différent à partir du blueprint. Cet exemple utilise le rôle intégré _Propriétaire_ avec le GUID `8e3af657-a8ff-443c-a75c-2fe8c4bcb635`.
 
    - URI de l’API REST
 

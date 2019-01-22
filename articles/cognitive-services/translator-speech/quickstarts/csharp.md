@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : API de traduction de conversation Translator Speech avec C#'
+title: 'Démarrage rapide : API de traduction de conversation Translator Speech en C#'
 titlesuffix: Azure Cognitive Services
 description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API de traduction de conversation Translator Speech.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 224a0ab83720bb9605f2dad9c2612630e90fea2a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: b873dbd3132e549c529280400d5a9644174232f9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341733"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259020"
 ---
-# <a name="quickstart-translator-speech-api-with-c"></a>Démarrage rapide : API de traduction de conversation Translator Speech avec C# 
+# <a name="quickstart-translator-speech-api-with-c"></a>Démarrage rapide : API de traduction de conversation Translator Speech avec C# 
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -26,7 +26,7 @@ Cet article explique comment utiliser l’API de traduction de conversation Tran
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez disposer de [Visual Studio 2017](https://www.visualstudio.com/downloads/) pour exécuter ce code sur Windows. (La version Community Edition gratuite fonctionne.)
+Vous devez disposer de [Visual Studio 2017](https://www.visualstudio.com/downloads/) pour exécuter ce code sur Windows. (La version Community Edition gratuite fonctionne.) Si vous utilisez Mac OS ou Linux, vous pouvez également utiliser l’éditeur de texte [Visual Studio Code](https://code.visualstudio.com/Download) comme alternative.
 
 Vous devez disposer d’un fichier .wav nommé « speak.wav » dans le même dossier que le fichier exécutable que vous compilez à partir du code ci-dessous. Ce fichier .wav doit être au format PCM standard 16 bits, 16kHz, monocanal.
 

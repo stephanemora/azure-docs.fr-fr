@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
-ms.openlocfilehash: 00a72c8c7fb42c763a8b0bad1fa3914ac27c496f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6c77e58e626ba370a6278a0f01b09578930cba09
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406928"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247110"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Exécuter manuellement une fonction non déclenchée via HTTP
 
@@ -51,19 +51,20 @@ Après avoir copié la clé principale, cliquez sur le nom de fonction pour reve
 
 Ouvrez Postman et procédez comme suit :
 
-1. Entrez l'**emplacement de la requête dans la zone de texte de l'URL**. 
-2. **Cliquez** sur l'onglet **En-têtes**.
-3. Entrez **x-fonctions-key** en tant que première **clé** et collez la clé principale (à partir du Presse-papiers) dans la zone **Valeur**.
-4. Entrez **Content-Type** en tant que deuxième **clé** et entrez **application/json** en tant que **valeur**.
+1. Entrez l'**emplacement de la requête dans la zone de texte de l'URL**.
+2. Vérifiez que la méthode HTTP est définie sur **POST**.
+3. **Cliquez** sur l'onglet **En-têtes**.
+4. Entrez **x-fonctions-key** en tant que première **clé** et collez la clé principale (à partir du Presse-papiers) dans la zone **Valeur**.
+5. Entrez **Content-Type** en tant que deuxième **clé** et entrez **application/json** en tant que **valeur**.
 
     ![Paramètres des en-têtes Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
 
-5. **Cliquez** sur l'onglet **Corps**.
-6. Entrez **{ "input": "test" }** en tant que corps de la requête.
+6. **Cliquez** sur l'onglet **Corps**.
+7. Entrez **{ "input": "test" }** en tant que corps de la requête.
 
     ![Paramètres de corps Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
 
-7. Cliquez sur **Envoyer**.
+8. Cliquez sur **Envoyer**.
 
     ![Envoi d’une requête avec Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
 

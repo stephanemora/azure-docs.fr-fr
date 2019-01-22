@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2018
+ms.date: 01/14/2019
 ms.author: mstewart
 ms.custom: seodec18
-ms.openlocfilehash: ee2a4be97b2b56f9c659639a34e821e37c188828
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6f94ec1a64108cde6ff69a572559960a988a1b7c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087862"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261279"
 ---
 # <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Démarrage rapide : Chiffrer une machine virtuelle IaaS Windows avec Azure PowerShell
 
@@ -30,9 +30,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 - Windows PowerShell ISE
-- Installer ou mettre à jour la [dernière version d’Azure PowerShell](/powershell/azure/install-azurerm-ps)
-    - La version du module AzureRM doit être 6.0.0 ou une version ultérieure. `Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path`
-- Une copie du [script de configuration d’Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+- Installer ou mettre à jour la [dernière version du module AzureRM PowerShell](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0)
+    - La version du module AzureRM doit être 6.0.0 ou une version ultérieure. `Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path`
+- Une copie du [script de configuration d’Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
     - Si vous avez déjà ce script, téléchargez une nouvelle copie car il a été modifié récemment. 
     - Utilisez **CTRL-A** pour sélectionner tout le texte, puis utilisez **CTRL-C** pour le copier dans le bloc-notes.
     - Enregistrez le fichier sous le nom **ADEPrereqScript.ps1**

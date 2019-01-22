@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: 3b9c8ea3dba5fdbd3e25293873ab1ae6854b3b83
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5397ab76afa8c28623f1522ffa773b0895e19f02
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728106"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303936"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Que sont les identités gérées pour les ressources Azure ?
 
@@ -38,9 +38,9 @@ La fonctionnalité des identités managées pour les ressources Azure est gratui
 
 Les termes suivants sont utilisés dans l'ensemble de la documentation sur les identités gérées pour les ressources Azure :
 
-- **ID client** : identificateur unique généré par Azure AD qui est lié à une application et à un principal de service lors de son approvisionnement initial.
-- **ID du principal** : ID de l'objet principal de service pour votre identité gérée ; il est utilisé pour accorder un accès basé sur le rôle à une ressource Azure.
-- **Azure Instance Metadata Service (IMDS)**  : point de terminaison REST accessible à toutes les machines virtuelles IaaS créées par le biais d'Azure Resource Manager. Le point de terminaison est disponible sur une adresse IP non routable bien connue (169.254.169.254) accessible uniquement à partir de la machine virtuelle.
+- **ID client** : identificateur unique généré par Azure AD qui est lié à une application et à un principal de service lors de son provisionnement initial.
+- **ID du principal** : ID d’objet du principal de service pour votre identité managée ; il est utilisé pour accorder un accès basé sur les rôles à une ressource Azure.
+- **Instance Metadata Service (IMDS) Azure** : point de terminaison REST accessible à toutes les machines virtuelles IaaS créées par le biais d’Azure Resource Manager. Le point de terminaison est disponible sur une adresse IP non routable bien connue (169.254.169.254) accessible uniquement à partir de la machine virtuelle.
 
 ## Comment fonctionnent les identités managées pour les ressources Azure ?<a name="how-does-it-work"></a>
 

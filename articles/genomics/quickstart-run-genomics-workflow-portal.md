@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Exécuter un workflow avec Microsoft Genomics'
+title: 'Démarrage rapide : Exécuter un workflow par le biais de Microsoft Genomics'
 description: Ce démarrage rapide vous montre comment charger des données d’entrée dans le service Stockage Blob Azure et exécuter un workflow via le service Microsoft Genomics.
 services: genomics
 author: grhuynh
@@ -7,26 +7,26 @@ manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
-ms.date: 12/07/2017
-ms.openlocfilehash: 152aa51c6dee12216dc9e5fac70f43f638c2c8da
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/11/2019
+ms.openlocfilehash: 4c8d488021ca12a704a5c0a06bb0c491588bcaed
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242855"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261687"
 ---
-# <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Démarrage rapide : Exécuter un workflow via le service Microsoft Genomics
+# <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Démarrage rapide : Exécuter un workflow par le biais du service Microsoft Genomics
 
 Ce démarrage rapide vous montre comment charger des données d’entrée dans le stockage Blob Azure et exécuter un workflow via le service Microsoft Genomics. Microsoft Genomics est un service sécurisé et évolutif dédié à l’analyse secondaire de génomes. Il procède rapidement, en commençant par des lectures brutes, puis produit des lectures alignées et des appels de variants. 
 
 Démarrez en quelques étapes : 
-1.  Configuration : Créez un compte Microsoft Genomics via le portail Azure, puis installez le client Microsoft Genomics Python dans votre environnement local. 
-2.  Chargement des données d’entrée : Créez un compte de stockage Microsoft Azure via le portail Azure, puis chargez les fichiers d’entrée. Les fichiers d’entrée doivent constituer des séquences appariées (fichiers fastq ou bam).
-3.  Exécution : Utilisez l’interface de ligne de commande Microsoft Genomics afin d’exécuter les workflows via le service Microsoft Genomics. 
+1.  Configuration : Créez un compte Microsoft Genomics par le biais du portail Azure, puis installez le client Microsoft Genomics Python dans votre environnement local. 
+2.  Chargement des données d’entrée : Créez un compte de Stockage Microsoft Azure par le biais du portail Azure, puis chargez les fichiers d’entrée. Les fichiers d’entrée doivent constituer des séquences appariées (fichiers fastq ou bam).
+3.  Exécution : Utilisez l’interface de ligne de commande Microsoft Genomics pour exécuter les workflows par le biais du service Microsoft Genomics. 
 
 Pour plus d’informations sur Microsoft Genomics, consultez la page [Qu’est-ce que Microsoft Genomics ?](overview-what-is-genomics.md)
 
-## <a name="set-up-create-a-microsoft-genomics-account-in-the-azure-portal"></a>Configuration : Créer un compte Microsoft Genomics dans le portail Azure
+## <a name="set-up-create-a-microsoft-genomics-account-in-the-azure-portal"></a>Configuration : Créer un compte Microsoft Genomics dans le portail Azure
 
 Pour créer un compte Microsoft Genomics, accédez au [portail Azure](https://portal.azure.com/#create/Microsoft.Genomics). Si vous n’avez pas encore d’abonnement Azure, créez-en un avant de créer le compte Microsoft Genomics. 
 
@@ -38,9 +38,9 @@ Configurez votre compte Genomics avec les informations suivantes, tel que repré
 
  |**Paramètre**          |  **Valeur suggérée**  | **Description du champ** |
  |:-------------       |:-------------         |:----------            |
- |Nom du compte         | MyGenomicsAccount     |Choisissez un identifiant de compte unique. Pour connaître les noms valides, consultez la page [Règles d’affectation des noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
  |Abonnement         | Votre nom d’abonnement|Il s’agit de l’unité de facturation de vos services Azure. Pour plus de détails sur votre abonnement, consultez la section [Abonnements](https://account.azure.com/Subscriptions) |      
  |Groupe de ressources       | myResourceGroup       |  Les groupes de ressources vous permettent de rassembler plusieurs ressources Azure (compte de stockage, compte Genomics, etc.) dans un groupe unique, pour une gestion simplifiée. Pour plus d’informations, consultez [Groupes de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Pour connaître les noms valides de groupes de ressources, consultez la page [Règles d’affectation des noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+ |Nom du compte         | MyGenomicsAccount     |Choisissez un identifiant de compte unique. Pour connaître les noms valides, consultez la page [Règles d’affectation des noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
  |Lieu                   | USA Ouest 2                    |    Le service est disponible dans les régions USA Ouest 2, Europe Ouest et Asie Sud-Est. |
 
 
@@ -51,7 +51,7 @@ Pour surveiller le processus de déploiement, vous pouvez cliquer sur les Notifi
 
 
 
-## <a name="set-up-install-the-microsoft-genomics-python-client"></a>Configuration : Installer le client Microsoft Genomics Python
+## <a name="set-up-install-the-microsoft-genomics-python-client"></a>Configuration : Installer le client Microsoft Genomics Python
 
 Les utilisateurs doivent installer Python et le client Microsoft Genomics Python au sein de leur environnement local. 
 
@@ -59,7 +59,7 @@ Les utilisateurs doivent installer Python et le client Microsoft Genomics Python
 
 Le client Microsoft Genomics Python est compatible avec Python 2.7. 12 ou une version 2.7.xx ultérieure ; la version 2.7.15 est la dernière version au moment d’écrire cet article ; 2.7.14 est la version suggérée. Accédez au téléchargement [ici](https://www.python.org/downloads/). 
 
-Remarque : Python 3.x n’est pas compatible avec Python 2.7.xx.  MSGen est une application Python 2.7. Lorsque vous exécutez MSGen, assurez-vous que votre environnement Python actif utilise une version 2.7.xx de Python. Vous pouvez obtenir des erreurs si vous tentez d’utiliser MSGen avec une version 3.x de Python.
+REMARQUE :  Python 3.x n’est pas compatible avec Python 2.7.xx.  MSGen est une application Python 2.7. Lorsque vous exécutez MSGen, assurez-vous que votre environnement Python actif utilise une version 2.7.xx de Python. Vous pouvez obtenir des erreurs si vous tentez d’utiliser MSGen avec une version 3.x de Python.
 
 
 ### <a name="install-the-microsoft-genomics-client"></a>Installer le client Microsoft Genomics
@@ -112,28 +112,22 @@ Si vous avez déjà déplacé vos données dans un compte Stockage Azure, il vou
 
 ![Panneau de création Stockage](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Panneau de création Stockage")
 
-Configurez votre compte Stockage avec les informations suivantes, tel que représenté dans l’image précédente. Utilisez la plupart des options standard dédiées aux comptes de stockage, en indiquant uniquement qu’il s’agit d’un compte de stockage d’objets blob, non à usage général. Le stockage d’objets blob peut s’avérer entre 2 à 5 fois plus rapide pour les téléchargements et les chargements. 
+Configurez votre compte Stockage avec les informations suivantes, tel que représenté dans l’image précédente. Utilisez la plupart des options standard dédiées aux comptes de stockage, en indiquant uniquement qu’il s’agit d’un compte de stockage d’objets blob, non à usage général. Le stockage d’objets blob peut s’avérer entre 2 à 5 fois plus rapide pour les téléchargements et les chargements.  Le modèle de déploiement par défaut, Resource Manager, est recommandé.  
 
 
  |**Paramètre**          |  **Valeur suggérée**  | **Description du champ** |
  |:-------------------------       |:-------------         |:----------            |
- |NOM         | MyStorageAccount     |Choisissez un identifiant de compte unique. Pour connaître les noms valides, consultez la page [Règles d’affectation des noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
- |Modèle de déploiement         | Gestionnaire de ressources| Resource Manager est le modèle de déploiement recommandé. Pour plus d’informations, consultez [Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model). |      
- |Type de compte       | Stockage d'objets blob       |  Le stockage d’objets blob peut s’avérer entre 2 à 5 fois plus rapide que le modèle à usage général pour les téléchargements et les chargements. |
- |Performances                  | standard                   | Le niveau par défaut est Standard. Pour plus d’informations sur les comptes de stockage standard et premium, consultez [Présentation du stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction).    |
- |Réplication                  | Stockage localement redondant                  | Le stockage localement redondant réplique vos données dans la région du centre de données dans laquelle vous avez créé votre compte de stockage. Pour plus d’informations, consultez l’article [Réplication de Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy).    |
- |Transfert sécurisé requis                  | Désactivé                 | La valeur par défaut est désactivée. Pour plus d’informations sur la sécurité du transfert de données, consultez l’article [Exiger un transfert sécurisé dans le stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer).    |
- |Niveau d’accès                  | À chaud                   | Un niveau d’accès chaud indique que le compte de stockage sera sollicité plus fréquemment.    |
  |Abonnement         | Votre abonnement Azure |Pour plus d’informations sur votre abonnement, consultez [Abonnements](https://account.azure.com/Subscriptions). |      
  |Groupe de ressources       | myResourceGroup       |  Vous pouvez sélectionner le même groupe de ressources en tant que compte Genomics. Pour connaître les noms valides de groupes de ressources, consultez la page [Règles d’affectation des noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
- |Lieu                  | USA Ouest 2                  | Utilisez l’emplacement de votre compte Genomics, afin de réduire les frais de sortie ainsi que la latence. Le service Genomics est disponible dans les régions USA Ouest 2, Europe Ouest et Asie Sud-Est.    |
- |Réseaux virtuels                | Désactivé                   | La valeur par défaut est désactivée. Pour plus d’informations, consultez la section [Réseau virtuel Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).    |
+ |Nom du compte de stockage         | MyStorageAccount     |Choisissez un identifiant de compte unique. Pour connaître les noms valides, consultez la page [Règles d’affectation des noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+ |Lieu                  | USA Ouest 2                  | Utilisez l’emplacement de votre compte Genomics, afin de réduire les frais de sortie ainsi que la latence.  | 
+ |Performances                  | standard                   | Le niveau par défaut est Standard. Pour plus d’informations sur les comptes de stockage standard et premium, consultez [Présentation du stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction).    |
+ |Type de compte       | Stockage d'objets blob       |  Le stockage d’objets blob peut s’avérer entre 2 à 5 fois plus rapide que le modèle à usage général pour les téléchargements et les chargements. |
+ |Réplication                  | Stockage localement redondant                  | Le stockage localement redondant réplique vos données dans la région du centre de données dans laquelle vous avez créé votre compte de stockage. Pour plus d’informations, consultez l’article [Réplication de Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy).    |
+ |Niveau d’accès                  | À chaud                   | Un niveau d’accès chaud indique que le compte de stockage sera sollicité plus fréquemment.    |
 
 
-
-
-
-Cliquez ensuite sur Créer pour créer votre compte de stockage. Comme vous l’avez fait pour la création de votre compte Genomics, vous pouvez cliquer sur les Notifications dans la barre de menus supérieure pour surveiller le processus de déploiement. 
+Cliquez ensuite sur `Review + create` pour créer votre compte de stockage. Comme vous l’avez fait pour la création de votre compte Genomics, vous pouvez cliquer sur les Notifications dans la barre de menus supérieure pour surveiller le processus de déploiement. 
 
 
 ## <a name="upload-input-data-to-your-storage-account"></a>Charger les données d’entrée dans votre compte de stockage
@@ -156,6 +150,11 @@ Ouvrez le fichier config.txt téléchargé à partir de votre compte Genomics. L
 
 
 ![Configuration Genomics](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Configuration Genomics")
+
+
+Si vous souhaitez exécuter GATK4, définissez le paramètre `process_name` sur gatk4 ou gatk4-promotion. Pour plus d’informations sur la promotion GATK4, visitez [cette page](https://aka.ms/msgatk4).
+
+Par défaut, le service Genomics génère des fichiers VCF. Si vous voulez une sortie gVCF plutôt qu’une sortie VCF (équivalent à `-emitRefConfidence` dans GATK 3.x et à `emit-ref-confidence` dans GATK 4.x), ajoutez le paramètre `emit_ref_confidence` à votre fichier `config.txt`, puis affectez-lui la valeur `gvcf`, comme illustré dans la figure ci-dessus.  Pour revenir à la sortie VCF, supprimez-le du fichier `config.txt` ou définissez le paramètre `emit_ref_confidence` sur `none`. 
 
 ### <a name="submit-your-workflow-to-the-microsoft-genomics-service-the-microsoft-genomics-client"></a>Soumettre votre workflow dans le service Microsoft Genomics via le client Microsoft Genomics Python
 

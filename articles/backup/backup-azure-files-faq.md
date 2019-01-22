@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 51952196bd2c44ba79e96266436860106a0753c4
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 875eb20a05a96d094a17229699bb2d87b3377a62
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793510"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359899"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Questions sur la sauvegarde des fichiers Azure
 Cet article répond aux questions courantes sur la sauvegarde des fichiers Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -94,11 +94,14 @@ Oui. Si vous avez choisi l’option **Conserver les données de sauvegarde** lor
 
 ## <a name="manage-backup"></a>Gérer la sauvegarde
 
+### <a name="can-i-use-powershell-to-configuremanagerestore-backups-of-azure-file-shares-br"></a>Puis-je utiliser PowerShell pour configurer/gérer/restaurer des sauvegardes de partages de fichiers Azure ? <br/>
+Oui. Reportez-vous à la documentation détaillée [ici](backup-azure-afs-automation.md)
+
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-it-br"></a>Puis-je accéder aux instantanés effectués par les sauvegardes Azure et les monter ? <br/>
 Tous les instantanés pris par Azure Backup sont accessibles par l’option Voir les instantanés dans le portail, PowerShell ou CLI. Pour en savoir plus sur les instantanés de partage de fichiers Azure, consultez [Vue d’ensemble des instantanés de partage pour Azure Files (préversion)](../storage/files/storage-snapshots-files.md).
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups-br"></a>Quelle est la durée de rétention maximale configurable pour les sauvegardes ? <br/>
-La sauvegarde pour les partages de fichiers Azure vous permet de conserver vos sauvegardes quotidiennes pendant 120 jours.
+La sauvegarde de partages de fichiers Azure offre la possibilité de configurer des stratégies de rétention allant jusqu’à 180 jours. Toutefois, à l’aide de la [option « sauvegarde à la demande » dans PowerShell](backup-azure-afs-automation.md#trigger-an-on-demand-backup), vous pouvez même conserver un point de récupération pendant 10 ans.
 
 ### <a name="what-happens-when-i-change-the-backup-policy-for-an-azure-file-share-br"></a>Que se passe-t-il lorsque je modifie la stratégie de sauvegarde pour un partage de fichiers Azure ? <br/>
 Lorsqu’une nouvelle stratégie est appliquée sur les partages de fichiers, le planning et la rétention de la nouvelle stratégie sont suivis. Si la rétention est étendue, les points de récupération existants sont marqués comme à conserver afin qu’ils soient conformes à la nouvelle stratégie. Si la rétention est réduite, ils sont marqués comme à nettoyer lors de la prochaine tâche de nettoyage et supprimés.

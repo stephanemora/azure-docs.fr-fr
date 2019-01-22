@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/19/2018
-ms.openlocfilehash: 21eb28611c1e40695356d502c262c23013591986
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: b53c26f265cc5d944c8e15ae5bf436e8f71dcc2f
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117365"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352731"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Démarrage rapide : Ingérer des données de Kafka dans Azure Data Explorer
  
-L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Azure Data Explorer permet l’ingestion (le chargement de données) à partir de Kafka. Kafka est une plateforme de streaming distribuée qui permet la création de pipelines de données de streaming en temps réel, qui déplacent les données de façon fiable entre des systèmes ou des applications. 
+L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Azure Data Explorer permet l’ingestion (le chargement de données) à partir de Kafka. Kafka est une plateforme de streaming distribuée qui permet la création de pipelines de données de streaming en temps réel, qui déplacent les données de façon fiable entre des systèmes ou des applications.
  
 ## <a name="prerequisites"></a>Prérequis
  
@@ -30,9 +30,11 @@ L’Explorateur de données Azure est un service d’exploration de données rap
 * [Visual studio 2017 version 15.3.2 ou ultérieure](https://www.visualstudio.com/vs/) pour exécuter l’application exemple
  
 ## <a name="kafka-connector-setup"></a>Installation du connecteur Kafka
+
 Kafka Connect est un outil pour le streaming de données scalable et fiable entre Apache Kafka et d’autres systèmes. Il permet de définir simplement et rapidement des connecteurs qui déplacent des grandes collections de données vers et depuis Kafka. ADX Kafka Sink sert de connecteur depuis Kafka.
  
-### <a name="bundle"></a>Bundle 
+### <a name="bundle"></a>Bundle
+
 Kafka peut charger un `.jar` en tant que plug-in qui fera office de connecteur personnalisé. Pour produire un tel `.jar`, nous allons cloner le code localement et générer une build avec Maven. 
 
 #### <a name="clone"></a>Cloner
@@ -41,7 +43,7 @@ Kafka peut charger un `.jar` en tant que plug-in qui fera office de connecteur p
 git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
- 
+
 #### <a name="build"></a>Créer
 
 Générez une build localement avec Maven pour produire un `.jar` complet avec des dépendances.
@@ -55,9 +57,9 @@ Dans le répertoire racine *kafka-sink-azure-kusto*, exécutez :
 ```bash
 mvn clean compile assembly:single
 ```
- 
+
 ### <a name="deploy"></a>Déployer 
- 
+
 Chargez le plug-in dans Kafka. Vous trouverez un exemple de déploiement avec docker dans [kafka-sink-azure-kusto](https://github.com/Azure/kafka-sink-azure-kusto#deploy)
  
 
@@ -112,13 +114,16 @@ Créez une table dans ADX à laquelle Kafka peut envoyer des données. Créez la
 Maintenant que le cluster Kafka est connecté à ADX, utilisez l’[exemple d’application](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que vous avez téléchargé pour générer des données.
 
 ### <a name="clone"></a>Cloner
+
 Clonez l’exemple d’application localement :
 
 ```cmd
 git clone git://github.com:Azure/azure-kusto-samples-dotnet.git
 cd ./azure-kusto-samples-dotnet/kafka/
 ```
+
 ### <a name="run-the-app"></a>Exécution de l'application
+
 1. Ouvrez la solution de l’application exemple dans Visual Studio.
 
 1. Dans le fichier `Program.cs`, mettez à jour la constante `connectionString` avec votre chaîne de connexion Kafka.
@@ -127,11 +132,11 @@ cd ./azure-kusto-samples-dotnet/kafka/
     const string connectionString = @"<YourConnectionString>";
     ```
 
-1. Générez et exécutez l'application. L’application envoie des messages au cluster Kafka et affiche son état toutes les dix secondes.
+1. Générez et exécutez l'application. L’application envoie des messages au cluster Kafka et affiche son état toutes les 10 secondes.
 
 1. Une fois que l’application a envoyé quelques messages, passez à l’étape suivante.
  
-## <a name="query-and-review-the-data"></a>Interroger et passer en revue les données 
+## <a name="query-and-review-the-data"></a>Interroger et passer en revue les données
 
 1. Pour vérifier qu’aucune erreur ne s’est produite au cours de l’ingestion :
 

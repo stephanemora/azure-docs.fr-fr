@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: af7500d6bf12ef34e6919aa255185a87525310b3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8eed0b4f2d14d22bdd9eddac9dbb4c0e02404975
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240713"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302712"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gérer les comptes de stockage dans Azure Stack
 Découvrez comment gérer les comptes de stockage dans Azure Stack pour rechercher, restaurer et récupérer de la capacité de stockage en fonction des besoins de l’entreprise.
@@ -148,7 +148,7 @@ Vous pouvez aussi utiliser PowerShell pour remplacer explicitement la période d
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
 ````
 
-Pour plus d’informations, consultez la [documentation Azure Stack PowerShell](https://docs.microsoft.com/powershell/module/azurerm.azurestackstorage).
+Pour plus d’informations, consultez la [documentation Azure Stack PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
  
 
 ## <a name="next-steps"></a>Étapes suivantes

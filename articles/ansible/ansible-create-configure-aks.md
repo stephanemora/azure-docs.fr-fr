@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: be9de3c10fdfd040b249dd8da568259c599d7215
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c4f78d8bb43b26814dc3a4b94109dfd8719cb48f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050385"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258830"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Créer et configurer des clusters Azure Kubernetes Service dans Azure avec Ansible
 Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Vous pouvez utiliser Ansible pour gérer votre service Azure Kubernetes Service (AKS). Cet article vous montre comment utiliser Ansible pour créer et configurer un cluster Azure Kubernetes Service.
@@ -28,7 +28,10 @@ Ansible vous permet d’automatiser le déploiement et la configuration de resso
 > Ansible 2.6 est nécessaire pour exécuter les exemples de playbooks suivants dans ce tutoriel. 
 
 ## <a name="create-a-managed-aks-cluster"></a>Créer un cluster AKS managé
-L’exemple de playbook Ansible suivant crée un groupe de ressources et un cluster AKS qui se trouve dans le groupe de ressources :
+Le code indiqué dans cette section présente un exemple de playbook Ansible pour créer un groupe de ressources, ainsi qu’un cluster AKS qui réside dans ce groupe de ressources.
+
+> [!Tip]
+> Pour l’espace réservé `your_ssh_key`, entrez votre clé publique RSA dans un format de ligne unique, commençant par « ssh-rsa » (sans les guillemets). 
 
   ```yaml
   - name: Create Azure Kubernetes Service
@@ -99,7 +102,8 @@ La sortie de la commande **ansible-playbook* est similaire à ceci, qui montre q
 
 L’exemple de playbook de la section précédente définit deux nœuds. Si vous avez besoin de plus ou de moins de charges de travail de conteneur sur votre cluster, vous pouvez facilement ajuster le nombre de nœuds. L’exemple de playbook de cette section fait passer le nombre de nœuds de deux à trois. La modification du nombre de nœuds est effectuée en changeant la valeur de **count** dans le bloc **agent_pool_profiles**. 
 
-Entrez vos propres valeurs pour `ssh_key`, `client_id` et `client_secret` dans le bloc **service_principal** :
+> [!Tip]
+> Pour l’espace réservé `your_ssh_key`, entrez votre clé publique RSA dans un format de ligne unique, commençant par « ssh-rsa » (sans les guillemets). 
 
 ```yaml
 - name: Scale AKS cluster

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Analyser le contenu d’un texte pour trouver des éléments répréhensibles dans Python'
+title: 'Démarrage rapide : Analyser le contenu d’un texte (Python) - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Comment analyser le contenu d’un texte pour trouver des éléments répréhensibles à l’aide du kit SDK Content Moderator pour Python
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 11/19/2018
+ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: acafd666b2d3791450499ebdf173ffb67ad2c932
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6aace9301050877d452b69bd7d1c741f50dae558
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095187"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264090"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>Démarrage rapide : Analyser le contenu d’un texte pour trouver des éléments répréhensibles dans Python
 

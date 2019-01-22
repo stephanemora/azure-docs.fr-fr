@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 4809c09b5aa7b8212981cc13589602a365a23a37
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: d82e80530d375a9d0f0a6d3f491d3070942ca02f
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113612"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331909"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Créez une fonction dans Azure, qui est déclenchée par un minuteur
 
@@ -43,30 +43,30 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
 ## <a name="create-a-timer-triggered-function"></a>Créer une fonction déclenchée par un minuteur
 
-1. Développez votre Function App, puis cliquez sur le bouton **+** en regard de **Fonctions**. S’il s’agit de la première fonction de votre Function App, sélectionnez **Fonction personnalisée**. Cela affiche l’ensemble complet des modèles de fonction.
+1. Développez votre Function App, puis cliquez sur le bouton **+** en regard de **Fonctions**. S’il s’agit de la première fonction de votre application de fonction, sélectionnez **Dans le portail**, puis **Continuer**. Sinon, passez à l’étape 3.
 
-    ![Page de démarrage rapide des fonctions sur le portail Azure](./media/functions-create-scheduled-function/add-first-function.png)
+   ![Page de démarrage rapide des fonctions sur le portail Azure](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 
-2. Dans la zone de recherche, saisissez `timer`, puis sélectionnez la langue souhaitée pour le modèle déclencheur de minuteur. 
+2. Choisissez **Autres modèles**, puis **Terminer et afficher les modèles**.
 
-    ![Choisissez le modèle de fonction déclenchée de minuteur.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+    ![Page de démarrage rapide Functions permettant de choisir d’autres modèles](./media/functions-create-scheduled-function/add-first-function.png)
 
-3. Configurez le nouveau déclencheur avec les paramètres comme spécifié dans le tableau situé sous l’image.
+3. Dans le champ de recherche, tapez `timer`, puis configurez le nouveau déclencheur avec les paramètres spécifié dans le tableau situé sous l’image.
 
     ![Créez une fonction déclenchée par un minuteur dans le portail Azure.](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
 
     | Paramètre | Valeur suggérée | Description |
     |---|---|---|
-    | **Name** | Default | Définit le nom de votre fonction déclenchée par minuteur. |
+    | **Nom** | Default | Définit le nom de votre fonction déclenchée par minuteur. |
     | **Planification** | 0 \*/1 \* \* \* \* | Un champ de six [expressions CRON](functions-bindings-timer.md#cron-expressions) qui planifie l’exécution de votre fonction chaque minute. |
 
-2. Cliquez sur **Créer**. Une fonction est créée dans le langage que vous avez choisi et s’exécute chaque minute.
+4. Cliquez sur **Créer**. Une fonction est créée dans le langage que vous avez choisi et s’exécute chaque minute.
 
-3. Vérifiez l’exécution en consultant les informations de traçage écrites dans les journaux.
+5. Vérifiez l’exécution en consultant les informations de traçage écrites dans les journaux.
 
     ![Affichage des journaux de fonction dans le portail Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
-À présent, vous pouvez modifier la planification de la fonction afin qu’elle s’exécute une fois par heure plutôt que toutes les minutes. 
+À présent, vous pouvez modifier la planification de la fonction afin qu’elle s’exécute une fois par heure plutôt que toutes les minutes.
 
 ## <a name="update-the-timer-schedule"></a>Mise à jour de la planification du minuteur
 

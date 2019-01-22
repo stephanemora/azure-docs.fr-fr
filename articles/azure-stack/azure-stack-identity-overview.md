@@ -12,29 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/09/2018
+ms.date: 01/14/2019
 ms.author: patricka
-ms.reviewer: ''
-ms.openlocfilehash: 1bc4fcda360a899fb2f58e2ac26270d160227a65
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.reviewer: fiseraci
+ms.openlocfilehash: 4ffbf552b2c35039ceadfdf6940873a22cb194aa
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902839"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306537"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Vue d’ensemble d’une identité pour Azure Stack
 
 Azure Stack nécessite Azure Active Directory (Azure AD) ou Active Directory Federation Services (AD FS), ainsi qu’Active Directory en tant que fournisseur d’identité. Le choix d’un fournisseur est une décision unique que vous prenez lorsque vous déployez Azure Stack pour la première fois. Les concepts et les détails d’autorisation de cet article peuvent vous aider à choisir un fournisseur d’identité.
 
-Votre choix entre Azure AD et AD FS peut être limité par le mode dans lequel vous déployez Azure Stack :
+Votre choix entre Azure AD et AD FS est déterminé par le mode de déploiement d’Azure Stack :
 
 - Lorsque vous le déployez en mode connecté, vous pouvez utiliser Azure AD ou AD FS.
 - Lorsque vous le déployez en mode déconnecté sans connexion internet, seul AD FS est pris en charge.
 
 Pour plus d’informations sur ces options, qui dépendent de votre environnement Azure Stack, consultez les articles suivants :
 
-- Kit de déploiement d’Azure Stack : [Considérations sur l’identité](azure-stack-datacenter-integration.md#identity-considerations).
-- Systèmes intégrés Azure Stack : [Décisions relatives à la planification du déploiement pour les systèmes intégrés Azure Stack](azure-stack-deployment-decisions.md).
+- Kit de déploiement Azure Stack : [Identité - Éléments à prendre en compte](azure-stack-datacenter-integration.md#identity-considerations).
+- Systèmes intégrés Azure Stack : [Décisions relatives à la planification du déploiement pour les systèmes intégrés Azure Stack](azure-stack-deployment-decisions.md).
 
 ## <a name="common-concepts-for-identity"></a>Concepts courants pour l’identité
 
@@ -64,7 +64,7 @@ Dans Azure Stack, des comptes d’utilisateur :
 - Sont limités au répertoire où ils se sont inscrits en premier lieu, qui est le répertoire de leur organisation.
 - Peuvent être importés à partir de vos répertoires locaux. Pour obtenir plus d’informations, consultez [Intégrer vos répertoires locaux avec Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).
 
-Lorsque vous vous connectez au portail du locataire de votre organisation, vous utilisez l’URL *https://portal.local.azurestack.external*. Lorsque vous vous connectez au portail Azure Stack à partir d’autres domaines que celui utilisé pour l’inscription à Azure Stack, le nom de domaine utilisé pour l’inscription à Azure Stack doit être ajouté à l’url du portail. Par exemple, si Azure Stack a été inscrit avec fabrikam.onmicrosoft.com et que le compte utilisateur est admin@contoso.com, voici l’url à utiliser pour se connecter au portail utilisateur : https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Lorsque vous vous connectez au portail du locataire de votre organisation, vous utilisez l’URL *https://portal.local.azurestack.external*. Lorsque vous vous connectez au portail Azure Stack à partir d’autres domaines que celui utilisé pour l’inscription à Azure Stack, le nom de domaine utilisé pour l’inscription à Azure Stack doit être ajouté à l’url du portail. Par exemple, si Azure Stack a été inscrit avec fabrikam.onmicrosoft.com et que le compte utilisateur est admin@contoso.com, voici l’URL à utiliser pour se connecter au portail utilisateur : https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ### <a name="guest-users"></a>Utilisateurs invités
 
@@ -80,17 +80,17 @@ Vous pouvez inscrire des applications à Azure AD ou AD FS et les offrir à des 
 
 Les applications incluent :
 
-- **Application web** : le portail Azure et Azure Resource Manager sont des exemples. Elles prennent en charge les appels d’API web.
-- **Client natif** : Azure PowerShell, Visual Studio et Azure CLI sont des exemples.
+- **Application web** : le portail Azure et Azure Resource Manager sont des exemples. Elles prennent en charge les appels d’API web.
+- **Client natif** : Azure PowerShell, Visual Studio et Azure CLI sont des exemples.
 
 Les applications peuvent prendre en charge deux types de location :
 
-- **Locataire unique** : ces applications prennent seulement en charge les utilisateurs et les services du répertoire où l’application est inscrite.
+- **Monolocataire** : prend uniquement en charge les utilisateurs et services du même annuaire que celui où l’application est inscrite.
 
   > [!NOTE]
   > Étant donné qu’AD FS prend seulement en charge un répertoire unique, les applications que vous créez dans une topologie AD FS sont, par défaut, des applications à locataire unique.
 
-- **Applications mutualisées** : peuvent être utilisées par les utilisateurs et les services du répertoire où elles sont enregistrées, mais également depuis d’autres répertoires de locataire. Avec les applications mutualisées, les utilisateurs d’un autre répertoire (un autre locataire Azure AD) peuvent se connecter à votre application. 
+- **Multilocataire** : prend en charge les utilisateurs et les services faisant partie à la fois de l’annuaire où l’application est inscrite et d’autres annuaires de locataire. Avec les applications mutualisées, les utilisateurs d’un autre répertoire (un autre locataire Azure AD) peuvent se connecter à votre application. 
 
   Pour plus d’informations sur la mutualisation, consultez [Activer la mutualisation](azure-stack-enable-multitenancy.md).
 
@@ -98,9 +98,9 @@ Les applications peuvent prendre en charge deux types de location :
 
 Lorsque vous inscrivez une application, vous créez deux objets :
 
-- **Objet d’application** : représentation globale de l’application sur tous les locataires. Cette relation est de type un à un avec l’application logicielle et existe uniquement dans le premier répertoire d’inscription de l’application.
+- **Objet application** : représentation globale de l’application sur tous les locataires. Cette relation est de type un à un avec l’application logicielle et existe uniquement dans le premier répertoire d’inscription de l’application.
 
-- **Objet principal de service** : informations d’identification créées pour une application dans le premier répertoire d’inscription de l’application. Un principal de service est également créé dans le répertoire de chaque locataire supplémentaire où cette application est utilisée. Cette relation peut être du type un à plusieurs avec l’application.
+- **Objet principal de service** : informations d’identification créées pour une application dans le premier annuaire d’inscription de l’application. Un principal de service est également créé dans le répertoire de chaque locataire supplémentaire où cette application est utilisée. Cette relation peut être du type un à plusieurs avec l’application.
 
 Pour en savoir plus sur les objets d’application et principal de service, consultez [Objets application et principal de service dans Azure Active Directory](/azure/active-directory/develop/active-directory-application-objects).
 
@@ -155,10 +155,10 @@ Pour les applications et les utilisateurs, l’architecture de Azure Stack est d
 
 Pour s’authentifier auprès du fournisseur d’identité et recevoir un JSON Web Token, vous devez disposer des informations suivantes :
 
-1. **URL pour le système d’identité (autorité)** : l’URL à laquelle votre fournisseur d’identité peut être contacté. Par exemple : *https://login.windows.net*.
-2. **URI ID d’application pour Azure Resource Manager** : l’identificateur unique pour Azure Resource Manager enregistré avec votre fournisseur d’identité. Il est également unique pour chaque installation Azure Stack.
-3. **Informations d’identification** : informations d’identification utilisées pour l’authentification avec le fournisseur d’identité.
-4. **URL pour Azure Resource Manager** : l’URL est l’emplacement du service Azure Resource Manager. Par exemple *https://management.azure.com* ou *https://management.local.azurestack.external*.
+1. **URL du système d’identité (autorité)**  : URL d’accès à votre fournisseur d’identité. Par exemple : *https://login.windows.net*.
+2. **URI ID d’application pour Azure Resource Manager** : identificateur unique pour l’instance Azure Resource Manager inscrite avec votre fournisseur d’identité. Il est également unique pour chaque installation Azure Stack.
+3. **Informations d’identification** : informations d’identification utilisées pour l’authentification avec le fournisseur d’identité.
+4. **URL pour Azure Resource Manager** : URL correspondant à l’emplacement du service Azure Resource Manager. Par exemple *https://management.azure.com* ou *https://management.local.azurestack.external*.
 
 Lorsqu’un principal (un client, une application ou un utilisateur) effectue une demande d’authentification pour accéder à une ressource, cette demande doit inclure :
 
@@ -179,7 +179,7 @@ Une fois toutes les validations terminées, Azure Resource Manager utilise les r
 ![Diagramme du protocole d’échange de jeton](media/azure-stack-identity-overview/token-exchange.png)
 
 > [!NOTE]
-> Après le déploiement, l’autorisation d’administrateur général Azure Active Directory n’est pas nécessaire. Toutefois, certaines opérations peuvent demander des informations d’identification d’administrateur général. Par exemple, un script d’installation d’un fournisseur de ressources ou une nouvelle fonctionnalité peut avoir besoin d’une autorisation spécifique. Vous pouvez temporairement réactiver les autorisations d’administrateur général du compte ou utiliser un compte d’administrateur général distinct qui est propriétaire de *l’abonnement fournisseur par défaut*.
+> Après le déploiement, l’autorisation d’administrateur général Azure Active Directory n’est pas nécessaire. Toutefois, certaines opérations peuvent demander des informations d’identification d’administrateur général. Par exemple, un script d’installation d’un fournisseur de ressources ou une nouvelle fonctionnalité peut avoir besoin d’une autorisation spécifique. Vous pouvez temporairement réactiver les autorisations d’administrateur général du compte ou utiliser un compte d’administrateur général distinct qui est propriétaire de l’*abonnement fournisseur par défaut*.
 
 ### <a name="use-role-based-access-control"></a>Utiliser le contrôle d’accès en fonction du rôle
 

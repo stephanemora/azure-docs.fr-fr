@@ -1,5 +1,5 @@
 ---
-title: Didacticiel concernant l’utilisation de l’appartenance de groupe dynamique pour ajouter ou supprimer automatiquement des utilisateurs dans Azure Active Directory
+title: Ajouter ou supprimer des utilisateurs relevant d’une appartenance de groupe dynamique - tutoriel - Azure Active Directory
 description: Dans le cadre de ce didacticiel, vous utilisez des groupes avec des règles d’appartenance des utilisateurs pour ajouter ou supprimer automatiquement des utilisateurs.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.date: 08/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 2119bb60cbdc36f62623ce0db52885e17f3d3006
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 6efb649142f43a98ea08c99ae853de0fc0c8ea3c
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40209149"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321260"
 ---
-# <a name="tutorial-add-or-remove-group-members-automatically"></a>Didacticiel : Ajouter ou supprimer automatiquement des membres dans un groupe
+# <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutoriel : Ajouter ou supprimer automatiquement des membres dans un groupe
 
 Dans Azure Active Directory (Azure AD), vous pouvez ajouter ou supprimer automatiquement des utilisateurs dans des groupes de sécurité ou des groupes Office 365, ce qui vous évite d’avoir à le faire manuellement. Chaque fois que l’une des propriétés d’un utilisateur ou d’un appareil change, Azure AD évalue toutes les règles de groupe dynamique dans votre locataire pour déterminer si cette modification doit ajouter ou supprimer des membres.
 
@@ -72,7 +72,7 @@ Votre plan administratif final consiste peut-être à répartir l’ensemble de 
 
    ![Modifier le groupe Tous les utilisateurs pour le réserver aux membres](./media/groups-dynamic-tutorial/all-users-edit.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 **Pour supprimer le groupe d’utilisateurs invités**
 

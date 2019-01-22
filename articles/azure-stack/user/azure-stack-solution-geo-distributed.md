@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: f1151c845797d74bbb9a5e50feeeb288a4ab349b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.reviewer: anajod
+ms.openlocfilehash: da6c9fa416d19916243860178d15619306aaf3c0
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714846"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305313"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutoriel : Créer une solution d’application géolocalisée avec Azure et Azure Stack
 
@@ -41,7 +41,7 @@ Avec le modèle d’application géolocalisée, l’application couvre plusieurs
 
 #### <a name="scalability-considerations"></a>Considérations relatives à l’extensibilité
 
-La solution que vous allez créer avec ce didacticiel ne prend pas en charge l’extensibilité. Toutefois, utilisée en combinaison avec d’autres technologies et solutions Azure et locales, elle s’adapte à ces exigences d’extensibilité. Pour plus d’informations sur la création d’une solution hybride avec mise à l’échelle automatique via Traffic Manager, consultez [Create cross-cloud scaling solutions with Azure](azure-stack-solution-cloud-burst.md) (Création de solutions de mise à l’échelle inter-cloud avec Azure).
+La solution que vous allez créer avec ce didacticiel ne prend pas en charge l’extensibilité. Toutefois, utilisée en combinaison avec d’autres technologies et solutions Azure et locales, elle s’adapte à ces exigences d’extensibilité. Pour plus d’informations sur la création d’une solution hybride avec mise à l’échelle automatique via Traffic Manager, consultez [Créer des solutions de mise à l’échelle dans le cloud avec Azure](azure-stack-solution-cloud-burst.md).
 
 #### <a name="availability-considerations"></a>Considérations relatives à la disponibilité
 
@@ -93,7 +93,7 @@ Un abonnement Azure et l’installation d’Azure Stack sont requis.
 
 ### <a name="obtain-a-custom-domain-and-configure-dns"></a>Obtenir un domaine personnalisé et configurer DNS
 
-Mettez à jour le fichier de zone DNS pour Créer des applications web et publier le domaine. Azure AD peut ensuite vérifier la propriété du nom de domaine personnalisé. Utilisez [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) pour les enregistrements DNS Azure/Office 365/externes dans Azure, ou ajouter l’entrée DNS à [un autre bureau d’enregistrement DNS](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+Mettez à jour le fichier de zone DNS pour le domaine. Azure AD peut ensuite vérifier la propriété du nom de domaine personnalisé. Utilisez [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) pour les enregistrements DNS Azure/Office 365/externes dans Azure, ou ajouter l’entrée DNS à [un autre bureau d’enregistrement DNS](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
 
 1. Inscrivez un domaine personnalisé auprès d’un bureau d’enregistrement public.
 
@@ -106,7 +106,7 @@ Mettez à jour le fichier de zone DNS pour Créer des applications web et publie
 Configurez la CI/CD hybride pour déployer Web App sur Azure et Azure Stack, et pour envoyer (push) les modifications sur les deux clouds.
 
 > [!Note]  
-> Vous avez besoin d’Azure Stack avec les images appropriées syndiquées pour s’exécuter (Windows Server et SQL), et App Service doit être déployé. Pour l’opérateur Azure Stack, consultez la section «[ Avant de commencer avec App Service sur Azure Stack ](/articles/azure-stack/azure-stack-app-service-before-you-get-started)» dans la documentation d’App Service.
+> Vous avez besoin d’Azure Stack avec les images appropriées syndiquées pour s’exécuter (Windows Server et SQL), et App Service doit être déployé. Consultez la section [Avant de commencer avec App Service sur Azure Stack](../azure-stack-app-service-before-you-get-started.md) de la documentation App Service pour l’opérateur Azure Stack.
 
 #### <a name="add-code-to-azure-repos"></a>Ajouter du code à Azure Repos
 
@@ -122,7 +122,7 @@ Configurez la CI/CD hybride pour déployer Web App sur Azure et Azure Stack, et 
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>Création d’un déploiement d’application web dans les deux clouds
 
-1.  Modifiez le fichier **WebApplication.csproj** : Sélectionnez Runtimeidentifier et ajoutez **win10-x64**. (Consultez la documentation sur le [déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).)
+1.  Modifiez le fichier **WebApplication.csproj** : Sélectionnez **Runtimeidentifier** et ajoutez **win10-x64**. (Consultez la documentation sur le [déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd).)
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image3.png)
 
@@ -273,7 +273,7 @@ Mettez à jour le fichier de zone DNS pour le domaine. Azure AD vérifie la prop
 
 -   Mettez à jour le fichier de zone DNS du domaine en ajoutant l’entrée DNS fournie par Azure AD.
 
-Par exemple, pour ajouter les entrées DNS fornorthwindcloud.com et www.northwindcloud.com, configurez les paramètres DNS pour le domaine racine thenorthwindcloud.com.
+Par exemple, pour ajouter les entrées DNS northwindcloud.com et www.northwindcloud.com, configurez les paramètres DNS pour le domaine racine northwindcloud.com.
 
 > [!Note]  
 >  Vous pouvez acheter un nom de domaine à l’aide du [portail Azure](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).  
@@ -302,7 +302,7 @@ La capture d’écran suivante est un exemple d’une page d’enregistrements D
 
 2.  Ajoutez un enregistrement CNAME pour mapper un sous-domaine au nom d’hôte par défaut de l’application.
 
-  Pour l’exemple de domaine www.northwindcloud.com, ajoutez un enregistrement CNAME qui mappe le nom www sur <nom\_application>.azurewebsites.net.
+  Pour l’exemple de domaine www.northwindcloud.com, ajoutez un enregistrement CNAME qui mappe le nom à <nom\_application>.azurewebsites.net.
 
 Après avoir ajouté l’enregistrement CNAME, la page d’enregistrements DNS ressemble à l’exemple suivant :
 

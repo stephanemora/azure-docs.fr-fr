@@ -1,25 +1,25 @@
 ---
 title: 'Tutoriel : Modération du contenu Facebook - Azure Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Modérez les pages Facebook avec Content Moderator.
+description: Dans ce tutoriel, vous allez apprendre à utiliser le service Content Moderator, basé sur l’apprentissage automatique, pour faciliter la modération des posts et commentaires Facebook.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 09/18/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 048f2f40714fd7675c073337825d75443e58039b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 085ddaf757f2a11b4db4aadb22ad16009d29231e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255429"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260443"
 ---
-# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Tutoriel : Modération du contenu Facebook avec Content Moderator
+# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Tutoriel : Modération du contenu Facebook avec Content Moderator
 
-Dans ce tutoriel, nous apprenons à utiliser Content Moderator basé sur l’apprentissage automatique pour faciliter la modération des posts et des commentaires Facebook.
+Dans ce tutoriel, vous allez apprendre à utiliser le service Content Moderator, basé sur l’apprentissage automatique, pour faciliter la modération des posts et commentaires Facebook.
 
 Ce tutoriel vous guide tout au long des étapes suivantes :
 
@@ -35,7 +35,7 @@ La figure suivante illustre les composants de la solution.
 
 ## <a name="create-a-content-moderator-team"></a>Créer une équipe Content Moderator
 
-Reportez-vous à la page [Démarrage rapide](quick-start.md) pour vous inscrire à Content Moderator et créer une équipe.
+Consultez le guide de démarrage rapide [Essayer Content Moderator sur le web](quick-start.md) pour savoir comment vous inscrire au service et créer une équipe.
 
 ## <a name="configure-image-moderation-workflow-threshold"></a>Configurer un flux de travail de modération des images (seuil)
 
@@ -152,10 +152,6 @@ La solution envoie toutes les images et le texte publiés sur votre page Faceboo
 ## <a name="license"></a>Licence
 
 Tous les SDK Microsoft Cognitive Services et les exemples sont fournis sous licence MIT. Pour plus d’informations, consultez [LICENCE](https://microsoft.mit-license.org/).
-
-## <a name="developer-code-of-conduct"></a>Code de conduite du développeur
-
-Les développeurs qui utilisent Cognitive Services, notamment cette bibliothèque cliente et cet exemple, sont supposés suivre le « Code de conduite du développeur pour Microsoft Cognitive Services », disponible à l’adresse http://go.microsoft.com/fwlink/?LinkId=698895.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

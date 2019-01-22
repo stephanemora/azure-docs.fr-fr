@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 0db76e80b2ff7400e7c2914efbd2bbcb24d9b005
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4ee1c9edf8cb10cae1a8a6e1c15f9bcf6e9a8ff8
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034316"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359457"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Créer votre première fonction durable dans JavaScript
 
@@ -94,7 +94,7 @@ Nous avons ajouté un orchestrateur pour coordonner les fonctions d’activité.
 
 ## <a name="create-an-activity-function"></a>Créer une fonction d’activité
 
-1. Répétez les étapes des sections précédentes pour créer une troisième fonction à l’aide du modèle de déclencheur HTTP. Cette fois, nommez la fonction `SayHello`.
+1. Répétez les étapes des sections précédentes pour créer une troisième fonction à l’aide du modèle de déclencheur HTTP. Cette fois, nommez la fonction `E1_SayHello`.
 
 2. Ouvrez le fichier index.js de la nouvelle fonction et remplacez son contenu par le code suivant :
 
@@ -121,9 +121,11 @@ Azure Functions Core Tools vous permet d’exécuter un projet Azure Functions s
 
     ![Sortie Azure locale](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-4. Collez l’URL de la requête HTTP dans la barre d’adresse de votre navigateur et vérifiez l’état de votre orchestration.
+4. Remplacez `{functionName}` par `OrchestratorFunction`.
 
-5. Pour arrêter le débogage, appuyez sur Maj + F1.
+5. À l’aide d’un outil tel que [Postman](https://www.getpostman.com/) ou [cURL](https://curl.haxx.se/), envoyez une requête HTTP POST au point de terminaison de l’URL.
+
+6. Pour arrêter le débogage, appuyez sur Maj + F1 dans VS Code.
 
 Après avoir vérifié que la fonction s’exécute correctement sur votre ordinateur local, il est temps de publier le projet sur Azure.
 

@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 7b0a837bf23145c5ac5e5775d4324582fa3a6b20
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: e66acd6a94b891ac3f727fddb7a88a9c56f465d3
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120833"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246566"
 ---
 # <a name="what-is-azure-load-balancer"></a>Qu’est-ce qu’Azure Load Balancer ?
 
@@ -153,7 +153,13 @@ Un équilibreur de charge interne permet d’effectuer les types d’équilibrag
 *Figure : Applications multiniveaux utilisant à la fois un équilibreur de charge public et un équilibreur de charge interne*
 
 ## <a name="pricing"></a>Tarifs
-L’utilisation de la référence SKU Standard de Load Balancer est facturée en fonction du nombre de règles d’équilibrage de charge configurées et de la quantité de données traitées en entrée et en sortie. Pour plus d’informations sur la tarification de Load Balancer Standard, consultez la page [Tarification de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
+
+L’utilisation de Standard Load Balancer est facturée.
+
+- Nombre de règles d’équilibrage de charge et de règles de trafic sortant configurées (les règles NAT de trafic entrant ne sont pas prises en compte dans le nombre total de règles)
+- Quantité de données traitées entrantes et sortantes, quelle que soit la règle. 
+
+Pour plus d’informations sur la tarification de Load Balancer Standard, consultez la page [Tarification de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 La référence SKU De base de Load Balancer est proposée gratuitement.
 

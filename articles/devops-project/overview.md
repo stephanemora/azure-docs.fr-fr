@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/03/2018
 ms.author: mlearned
-ms.openlocfilehash: 9efb3c9bae790efed3d09274b1a77d7b8161d479
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9e425662a698f077c3a1b9b3ff1270384fd61374
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165235"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261245"
 ---
 # <a name="overview-of-azure-devops-projects"></a>Vue d’ensemble d’Azure DevOps Projects
 
@@ -29,7 +29,7 @@ ms.locfileid: "52165235"
 
 ## <a name="why-should-i-use-devops-projects"></a>Pourquoi utiliser DevOps Projects ?
 
-  DevOps Projects automatise la configuration d’un pipeline complet d’intégration continue (CI) et de livraison continue (CD) sur Azure.  Vous pouvez démarrer avec du code existant ou utiliser un des exemples d’application fournis. Vous pouvez ensuite déployer rapidement cette application sur différents services Azure, comme Machines virtuelles, App Service, Azure Kubernetes Services (AKS), Azure SQL Database et Azure Service Fabric.  
+  DevOps Projects automatise la configuration d’un pipeline complet d’intégration continue (CI) et de livraison continue (CD) sur Azure.  Vous pouvez démarrer avec du code existant ou utiliser un des exemples d’application fournis. Vous pouvez ensuite déployer rapidement cette application sur différents services Azure, comme Machines virtuelles, App Service, Azure Kubernetes Service (AKS), Azure SQL Database et Azure Service Fabric.  
 
   Azure DevOps Projects s’occupe de toute la configuration initiale d’un pipeline DevOps, notamment configurer le dépôt Git initial, configurer le pipeline CI/CD, créer une ressource Application Insights pour la supervision et fournir une même vue de l’ensemble de la solution avec la création d’un tableau de bord DevOps Projects dans le portail Azure.
 
@@ -68,7 +68,7 @@ Les pipelines de build et de mise en production peuvent être personnalisés pou
 Après avoir créé votre projet DevOps Project, vous pouvez :
 
 * Personnaliser votre build et pipeline de mise en production
-* Utiliser des demandes de tirage (pull request) pour gérer votre flux de code et conserver une qualité élevée
+* Utiliser des requêtes Pull pour gérer votre flux de code et conserver une qualité élevée
 * Tester et générer chaque validation avant de fusionner votre code pour optimiser la qualité
 * Effectuer le suivi de votre backlog et de vos problèmes en même temps que votre application
 

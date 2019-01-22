@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Diffuser en continu des données dans Azure Databricks à l’aide d’Event Hubs '
+title: 'Tutoriel : Diffuser en continu des données dans Azure Databricks à l’aide d’Event Hubs '
 description: Apprenez à utiliser Azure Databricks avec Event Hubs pour ingérer des données de diffusion en continu de Twitter et la lecture des données en temps quasi-réel.
 services: azure-databricks
 author: lenadroid
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: 6e75e549486fb260f3ccbdead7fe1dea02593f3c
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 16095dabb0e5e3e303e82126c7f57cb4ff3fe8dd
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707144"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200920"
 ---
-# <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Didacticiel : Diffuser en continu des données dans Azure Databricks à l’aide d’Event Hubs
+# <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Tutoriel : Diffuser en continu des données dans Azure Databricks à l’aide d’Event Hubs
 
 Dans ce didacticiel, vous connectez un système d’ingestion des données à Azure Databricks pour diffuser en continu des données en temps quasi-réel dans un cluster Apache Spark. Vous allez configurer le système d’ingestion des données à l’aide d’Azure Event Hubs et le connecter à Azure Databricks pour traiter les messages entrants. Pour accéder à un flux de données, vous allez utiliser des API Twitter pour faire ingérer des tweets à Event Hubs. Une fois les données reçues dans Azure Databricks, vous pourrez exécuter des tâches d’analyse pour aller plus loin. 
 
@@ -168,7 +168,7 @@ Dans cette section, vous allez créer deux notebooks dans l’espace de travail 
 
 ## <a name="send-tweets-to-event-hubs"></a>Envoyer des tweets vers Event Hubs
 
-Dans le notebook **SendTweetsToEventHub**, collez le code suivant, et remplacez les espaces réservés par les valeurs de votre espace de noms Event Hubs et de l’application Twitter que vous avez créés précédemment. Ce notebook diffuse les tweets avec le mot-clé « Azure » dans Event Hubs en temps réel.
+Dans le notebook **SendTweetsToEventHub**, collez le code suivant, puis remplacez les espaces réservés par les valeurs de votre espace de noms Event Hubs et de l’application Twitter que vous avez créés précédemment. Ce notebook diffuse les tweets avec le mot-clé « Azure » dans Event Hubs en temps réel.
 
 ```scala
     import java.util._
@@ -384,4 +384,4 @@ Dans ce tutoriel, vous avez appris à :
 Passez au didacticiel suivant pour en savoir plus sur l’exécution d’une analyse d’opinions sur les données diffusées en continu à l’aide d’Azure Databricks et de l’[API Microsoft Cognitive Services](../cognitive-services/text-analytics/overview.md).
 
 > [!div class="nextstepaction"]
->[Analyse d’opinions sur les données de streaming à l’aide d’Azure Databricks ](databricks-sentiment-analysis-cognitive-services.md)
+>[Analyse d’opinions sur des données de streaming à l’aide d’Azure Databricks](databricks-sentiment-analysis-cognitive-services.md)

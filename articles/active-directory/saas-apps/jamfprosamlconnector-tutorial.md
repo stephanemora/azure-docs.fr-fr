@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Jamf Pro | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory avec Jamf Pro | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Jamf Pro.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: e30ede3e69711fefcf5026202ed7b004d00cb02e
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: ebd9f2115116e8f9cf976c86e4914f0b7f6beb39
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810812"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322110"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Didacticiel : Intégration d’Azure Active Directory avec Jamf Pro
+# <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Tutoriel : Intégration d’Azure Active Directory avec Jamf Pro
 
 Dans ce tutoriel, vous allez apprendre à intégrer Jamf Pro dans Azure Active Directory (Azure AD).
 L’intégration de Jamf Pro à Azure AD vous offre les avantages suivants :
@@ -155,7 +155,7 @@ Pour configurer l’authentification unique Azure AD avec Jamf Pro, procédez co
 
     e. Collez la valeur `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` dans la zone de texte **NOM DE L’ATTRIBUT DE GROUPE**.
 
-7. Sur la même page, faites défiler jusqu’à **IDENTITY PROVIDER** (Fournisseur d’identité) sous la section **Authentification unique** et effectuez les étapes suivantes :
+7. Dans la même page, faites défiler jusqu’à **FOURNISSEUR D’IDENTITÉ** sous la section **Authentification unique** et effectuez les étapes suivantes :
 
     ![Configuration Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 

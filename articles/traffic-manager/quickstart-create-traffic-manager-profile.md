@@ -1,9 +1,8 @@
 ---
-title: Démarrage rapide - Créer un profil Traffic Manager pour assurer une haute disponibilité à vos applications à l’aide du portail Azure
+title: Guide de démarrage rapide - Créer un profil Traffic Manager pour assurer une haute disponibilité à vos applications à l’aide du portail Azure
 description: Cet article de démarrage rapide décrit comment créer un profil Traffic Manager pour créer des applications web hautement disponibles.
 services: traffic-manager
-documentationcenter: ''
-author: kumudd
+dauthor: kumudd
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
@@ -12,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
-ms.openlocfilehash: 5520b78ce3899c39167663ac426fa6702369c944
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f24bcebb04c3cb17b5e0420695504541c54e88f3
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634776"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198217"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>Démarrage rapide : créer un profil Traffic Manager pour une application web hautement disponible
+# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>Démarrage rapide : Créer un profil Traffic Manager pour une application web hautement disponible
 
 Ce démarrage rapide explique comment créer un profil Traffic Manager qui assure une haute disponibilité pour votre application web.
 
@@ -44,7 +43,7 @@ Pour ce guide de démarrage rapide, vous aurez besoin de deux instances d’une 
     | Abonnement | Sélectionnez l’abonnement auquel vous souhaitez appliquer l’application web. |
     | Groupe de ressources | Sélectionnez **Créer** et entrez *myResourceGroupTM1*. |
     | SE | Sélectionnez **Windows** comme système d’exploitation. |
-    | Publier | Sélectionnez **Code** comme format de publication. |
+    | Publish | Sélectionnez **Code** comme format de publication. |
 
 3. Sélectionnez **Plan App Service/Emplacement**.
 4. Dans **Plan App Service**, sélectionnez **Créer**.
@@ -64,7 +63,7 @@ Pour ce guide de démarrage rapide, vous aurez besoin de deux instances d’une 
 
     | Paramètre | Valeur |
     | --------| ----- |
-    | Nom | Attribuez un nom unique à votre application web. |
+    | NOM | Attribuez un nom unique à votre application web. |
     | Abonnement | Sélectionnez l’abonnement auquel vous souhaitez appliquer l’application web. |
     | Groupe de ressources | Sélectionnez **Créer**, puis entrez *myResourceGroupTM2*. |
     | SE | Sélectionnez **Windows** comme système d’exploitation. |
@@ -82,7 +81,7 @@ Créez un profil Traffic Manager qui dirige le trafic utilisateur en fonction de
 
     | Paramètre | Valeur |
     | --------| ----- |
-    | Nom | Attribuez un nom unique à votre profil Traffic Manager.|
+    | NOM | Attribuez un nom unique à votre profil Traffic Manager.|
     | Méthode de routage | Sélectionnez **Priorité**.|
     | Abonnement | Sélectionnez l’abonnement auquel vous souhaitez appliquer le profil Traffic Manager. |
     | Groupe de ressources | Sélectionnez *myResourceGroupTM1*.|
@@ -115,7 +114,7 @@ Ajoutez le site web dans la région *USA Est* en tant que point de terminaison p
     | Paramètre | Valeur |
     | ------- | ------|
     | type | Sélectionnez **Point de terminaison Azure**. |
-    | Nom | Entrez *myFailoverEndpoint*. |
+    | NOM | Entrez *myFailoverEndpoint*. |
     | Type de ressource cible | Sélectionner **App Service**. |
     | Ressource cible | Sélectionnez **Choisir un service d’application** > **Europe Ouest**. |
     | Priorité | Sélectionnez **2**. Tout le trafic se dirige vers ce point de terminaison de basculement si le point de terminaison principal n’est pas sain. |
@@ -136,7 +135,7 @@ Dans cette section, vous allez vérifier le nom de domaine de votre profil Traff
   
    ![Capture d’écran de l’emplacement du nom DNS de votre profil Traffic Manager](./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png)
 
-### <a name="view-traffic-manager-in-action"></a>Voir Traffic Manager en action
+### <a name="view-traffic-manager-in-action"></a>Afficher Traffic Manager en action
 
 1. Dans un navigateur web, entrez le nom DNS de votre profil Traffic Manager pour afficher le site web par défaut de votre application web.
 
@@ -163,4 +162,4 @@ Une fois que vous avez terminé, supprimez les groupes de ressources, les applic
 Dans ce guide de démarrage rapide, vous avez créé un profil Traffic Manager. Celui-ci vous permet de diriger le trafic utilisateur pour les applications web à haute disponibilité. Pour plus d’informations sur le routage du trafic, passez aux tutoriels Traffic Manager.
 
 > [!div class="nextstepaction"]
-> [Tutoriels Traffic Manager](tutorial-traffic-manager-improve-website-response.md)
+> [Didacticiels Traffic Manager](tutorial-traffic-manager-improve-website-response.md)

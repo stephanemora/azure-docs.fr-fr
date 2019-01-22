@@ -12,24 +12,24 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 01/14/2019
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: fe6df20d294a3b1802d396085c36a6587dc45730
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 076ddbd722966709cbe386123acafb57f5def0be
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249079"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318455"
 ---
-# <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutoriel : Déployer une application Service Fabric sur un cluster dans Azure
+# <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutoriel : déployer une application Service Fabric sur un cluster dans Azure
 
 Ce tutoriel est le deuxième d’une série. Il vous montre comment déployer une application Azure Service Fabric sur un nouveau cluster dans Azure.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
-> * Créer un cluster tiers.
-> * Déplacer une application sur un cluster distant à l’aide de Visual Studio.
+> * Créer un cluster.
+> * Déployer une application sur un cluster distant à l’aide de Visual Studio.
 
 Dans cette série de didacticiels, nous allons aborder les points suivants :
 > [!div class="checklist"]
@@ -55,85 +55,71 @@ Si vous n’avez pas créé l’exemple d’application de vote lors de la [prem
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart 
 ```
 
-## <a name="publish-to-a-service-fabric-cluster"></a>Publier sur un cluster Service Fabric
+Ouvrez l’application dans Visual Studio en tant qu’administrateur et générez l’application.
 
-À présent que l’application est prête, vous pouvez la déployer sur un cluster directement à partir de Visual Studio. Un [cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere) est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés.
+## <a name="create-a-cluster"></a>Créer un cluster
 
-Pour ce didacticiel, vous avez deux options pour le déploiement de l’application de vote vers un cluster Service Fabric à l’aide de Visual Studio :
+Maintenant que l’application est prête, créez un cluster Service Fabric et déployez l’application sur celui-ci. Un [cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere) est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés.
 
-* Publiez sur un cluster d’essai (partie). 
-* Publier sur un cluster existant dans votre abonnement. Vous pouvez créer des clusters Service Fabric via le [portail Azure](https://portal.azure.com), à l’aide des scripts [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) ou [Azure CLI](./scripts/cli-create-cluster.md), ou à partir d’un [modèle Azure Resource Manager](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+Dans ce tutoriel, vous créez un cluster de test de trois nœuds dans l’IDE Visual Studio, puis vous publiez l’application sur ce cluster. Pour plus d’informations sur la création d’un cluster de production, consultez le [tutoriel sur la création et la gestion d’un cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md). Vous pouvez également déployer l’application sur un cluster existant que vous avez précédemment créé dans le [portail Azure](https://portal.azure.com), à l’aide de scripts [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) ou [Azure CLI](./scripts/cli-create-cluster.md), ou à partir d’un [modèle azure Resource Manager](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 > [!NOTE]
-> De nombreux services utilisent le proxy inverse pour communiquer entre eux. Le proxy inverse est activé par défaut pour les clusters créés depuis Visual Studio et les clusters tiers. Si vous utilisez un cluster existant, vous devez [activer le proxy inverse dans le cluster](service-fabric-reverseproxy-setup.md).
+> L’application Voting et bon nombre d’autres applications utilisent le proxy inverse Service Fabric pour communiquer entre les services. Le proxy inverse est activé par défaut sur les clusters créés à partir de Visual Studio. Si vous procédez au déploiement sur un cluster existant, vous devez [activer le proxy inverse dans le cluster](service-fabric-reverseproxy-setup.md) pour que l’application Voting fonctionne.
 
 
-### <a name="find-the-voting-web-service-endpoint-for-your-azure-subscription"></a>Rechercher le point de terminaison de service web de vote pour votre abonnement Azure
+### <a name="find-the-votingweb-service-endpoint"></a>Rechercher le point de terminaison de service VotingWeb
 
-Pour publier l’application de vote sur votre propre abonnement Azure, recherchez le point de terminaison du service web frontal. Si vous utilisez un cluster tiers, connectez-vous au port 8080 à l’aide de l’exemple de vote ouvert automatiquement. Vous n’avez pas besoin de le configurer dans l’équilibreur de charge du cluster tiers.
-
-Le service web frontal est à l’écoute sur un port spécifique. Lorsque l’application est déployée sur un cluster dans Azure, le cluster et l’application s’exécutent derrière un équilibreur de charge Azure. Le port de l’application doit être ouvert à l’aide d’une règle dans l’équilibreur de charge Azure pour le cluster. Le port ouvert envoie le trafic entrant au service web. Le port se trouve dans le fichier **VotingWeb/PackageRoot/ServiceManifest.xml** de l’élément **point de terminaison**. Par exemple, le port 8080.
+Le service web front-end de l’application Voting écoute sur un port spécifique (8080 si vous avez suivi les étapes décrites dans la [première partie de cette série de tutoriels](service-fabric-tutorial-create-dotnet-app.md)). Lorsque l’application est déployée sur un cluster dans Azure, le cluster et l’application s’exécutent derrière un équilibreur de charge Azure. Le port de l’application doit être ouvert dans l’équilibreur de charge Azure à l’aide d’une règle. La règle envoie le trafic entrant au service web par le biais de l’équilibreur de charge. Le port se trouve dans le fichier **VotingWeb/PackageRoot/ServiceManifest.xml** de l’élément **point de terminaison**. 
 
 ```xml
 <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
 ```
 
-Pour votre abonnement Azure, ouvrez ce port à l’aide d’une règle d’équilibrage de charge dans Azure par le biais d’un [script PowerShell](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) ou via l’équilibreur de charge pour ce cluster dans le [portail Azure](https://portal.azure.com).
+Prenez note du point de terminaison de service, car vous en aurez besoin dans une étape ultérieure.  Si vous procédez au déploiement sur un cluster existant, ouvrez ce port en créant une sonde et une règle d’équilibrage de charge dans l’équilibreur de charge Azure à l’aide d’un [script PowerShell](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) ou par le biais de l’équilibreur de charge pour ce cluster dans le [portail Azure](https://portal.azure.com).
 
-### <a name="join-a-party-cluster"></a>Rejoindre un cluster tiers
+### <a name="create-a-test-cluster-in-azure"></a>Créer un cluster de test dans Azure
+Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Voting**, puis sélectionnez **Publier**.
 
-> [!NOTE]
->  Pour publier l’application sur votre propre cluster dans un abonnement Azure, passez à la section [Publier l’application à l’aide de Visual Studio](#publish-the-application-by-using-visual-studio). 
+Dans **Point de terminaison de connexion**, sélectionnez **Créer un cluster**.  Si vous procédez au déploiement sur un cluster existant, sélectionnez le point de terminaison de cluster dans la liste.  La boîte de dialogue Créer un cluster Service Fabric s’ouvre.
 
-Les clusters tiers sont des clusters Service Fabric gratuits, limités dans le temps et hébergés sur Azure. En outre, ils sont exécutés par l’équipe Service Fabric. Tout le monde peut déployer des applications et en savoir plus sur la plateforme. Le cluster utilise un seul certificat auto-signé pour la sécurité de nœud à nœud et de client à nœud.
+Sous l’onglet **Cluster**, entrez le **Nom du cluster** (par exemple, « mytestcluster »), sélectionnez votre abonnement, choisissez une région pour le cluster (par exemple, USA Centre Sud), entrez le nombre de nœuds de cluster (nous recommandons trois nœuds pour un cluster de test), puis entrez un groupe de ressources (par exemple, « mytestclustergroup »). Cliquez sur **Suivant**.
 
-Connectez-vous et [rejoignez un cluster Windows](https://aka.ms/tryservicefabric). Pour télécharger le certificat PFX sur votre ordinateur, sélectionnez le lien **PFX**. Sélectionnez le lien **Comment se connecter à un cluster tiers sécurisé ?**, puis copiez le mot de passe du certificat. Le certificat, le mot de passe du certificat et la valeur **Point de terminaison de connexion** sont utilisés dans les étapes suivantes.
+![Créer un cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-![Certificat PFX et point de terminaison de connexion](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
+Sous l’onglet **Certificat**, entrez le mot de passe et le chemin de sortie du certificat de cluster. Un certificat auto-signé est créé en tant que fichier PFX et enregistré dans le chemin de sortie spécifié.  Le certificat est utilisé pour la sécurité nœud à nœud et client à nœud.  N’utilisez pas un certificat auto-signé pour des clusters de production.  Ce certificat est utilisé par Visual Studio pour l’authentification auprès du cluster et le déploiement d’applications. Sélectionnez **Importer un certificat** pour installer le fichier PFX dans le magasin de certificats CurrentUser\My de votre ordinateur.  Cliquez sur **Suivant**.
 
-> [!Note]
-> Le nombre de clusters tiers disponibles par heure est limité. Si vous obtenez une erreur lorsque vous tentez de vous connecter à un cluster tiers, patientez et réessayez. Vous pouvez également suivre les étapes du didacticiel [Déployer une application .NET](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) pour créer un cluster Service Fabric dans votre abonnement Azure et déployer l’application sur celui-ci. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
->
+![Créer un cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 
-Sur votre ordinateur Windows, installez le certificat PFX dans le magasin de certificats **CurrentUser\My**.
+Sous l’onglet **Détail de la machine virtuelle**, entrez le **Nom d’utilisateur** et le **Mot de passe** du compte administrateur du cluster.  Sélectionnez l’**Image de machine virtuelle** pour les nœuds de cluster et la **Taille de machine virtuelle** pour chaque nœud du cluster.  Cliquez sur l’onglet **Avancé** .
 
-```powershell
-PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString 873689604 -AsPlainText -Force)
+![Créer un cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
 
+Dans **Ports**, entrez le point de terminaison de service VotingWeb de l’étape précédente (par exemple, 8080).  Une fois le cluster créé, ces ports d’application sont ouverts dans l’équilibreur de charge Azure pour transférer le trafic vers le cluster.  Cliquez sur **Créer** pour créer le cluster, ce qui prend plusieurs minutes.
 
-   PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+![Créer un cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/advanced.png)
 
-Thumbprint                                Subject
-----------                                -------
-3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
-```
+## <a name="publish-the-application-to-the-cluster"></a>Publier l’application sur le cluster
 
-N’oubliez pas l’empreinte numérique pour l’étape suivante.
+Quand le nouveau cluster est prêt, vous pouvez déployer l’application Voting directement à partir de Visual Studio.
 
-> [!Note]
-> Par défaut, le service frontend web est configuré pour écouter le trafic entrant sur le port 8080. Le port 8080 est ouvert dans le cluster tiers. Si vous devez changer le port de l’application, remplacez-le par l’un des ports ouverts dans le cluster tiers.
->
+Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Voting**, puis sélectionnez **Publier**. La boîte de dialogue **Publier** s’affiche.
 
-### <a name="publish-the-application-by-using-visual-studio"></a>Publier l’application à l’aide de Visual Studio
+Dans **Point de terminaison de connexion**, sélectionnez le point de terminaison du cluster créé à l’étape précédente.  Par exemple, « mytestcluster.southcentral.cloudapp.azure.com:19000 ». Si vous sélectionnez **Paramètres de connexion avancés**, les informations de certificat doivent être renseignées automatiquement.  
+![Publier une application Service Fabric](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
-À présent que l’application est prête, vous pouvez la déployer sur un cluster directement à partir de Visual Studio.
+Sélectionnez **Publier**.
 
-1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Voting**. Choisissez **Publier**. La boîte de dialogue **Publier** s’affiche.
+Une fois l’application déployée, ouvrez un navigateur et entrez l’adresse du cluster suivie de  **:8080**. Vous pouvez également entrer un autre port, si configuré. Par exemple `http://mytestcluster.southcentral.cloudapp.azure.com:8080`. Vous voyez l’application en cours d’exécution dans le cluster dans Azure. Dans la page web de vote, essayez d’ajouter ou de supprimer des options de vote et de voter pour une ou plusieurs de ces options.
 
-2. Copiez le **Point de terminaison de connexion** depuis la page du cluster tiers ou de votre abonnement Azure dans le champ **Point de terminaison de connexion**. Par exemple `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Sélectionnez **Paramètres de connexion avancés**.  Veillez à ce que les valeurs **FindValue** et **ServerCertThumbprint** correspondent à l’empreinte numérique du certificat installé lors d’une étape précédente pour un cluster tiers ou du certificat correspondant à votre abonnement Azure.
-
-    ![Publier une application Service Fabric](./media/service-fabric-quickstart-dotnet/publish-app.png)
-
-    Chaque application du cluster doit avoir un nom unique. Les clusters tiers constituent un environnement public partagé, un conflit avec une application existante peut donc se présenter. S’il existe un conflit de noms, renommez le projet Visual Studio et redéployez-le.
-
-3. Sélectionnez **Publier**.
-
-4. Pour accéder à votre application de vote dans le cluster, ouvrez un navigateur et entrez l’adresse du cluster suivie de **:8080**. Vous pouvez également entrer un autre port, si configuré. Par exemple `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. Vous voyez l’application en cours d’exécution dans le cluster dans Azure. Dans la page web de vote, essayez d’ajouter ou de supprimer des options de vote et de voter pour une ou plusieurs de ces options.
-
-    ![Exemple de vote Service Fabric](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
+![Exemple de vote Service Fabric](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-screenshot-new-azure.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes
+Dans cette partie du tutoriel, vous avez appris à :
+
+> [!div class="checklist"]
+> * Créer un cluster.
+> * Déployer une application sur un cluster distant à l’aide de Visual Studio.
 
 Passez au tutoriel suivant :
 > [!div class="nextstepaction"]

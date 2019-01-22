@@ -16,14 +16,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8b9097a62ca4bfa67fb5eb35e06f7834df6691e7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 07239e3411bc8df06cdff731343649867b59a3c9
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622803"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213092"
 ---
-# <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Tutoriel : Télécharger et utiliser un script pour accéder aux journaux de connexion
+# <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Tutoriel : Télécharger et utiliser un script pour accéder aux journaux de connexion
 
 Vous pouvez télécharger les données des activités de connexion si vous souhaitez les utiliser en dehors du portail Azure. L’option **Télécharger** du portail Azure crée un fichier CSV contenant les 5 000 enregistrements les plus récents. Si vous avez besoin d’une plus grande flexibilité, par exemple pour télécharger plus de 5 000 enregistrements à la fois ou pour télécharger les journaux à intervalles planifiés, vous pouvez utiliser le bouton **Script** pour générer un script PowerShell visant à télécharger vos données.
 
@@ -33,11 +33,11 @@ Dans ce tutoriel, vous allez apprendre à générer un script pour télécharger
 
 Vous devez avoir
 
-* Un locataire Azure Active Directory avec une licence premium (P1/P2). 
+* Un locataire Azure Active Directory avec une licence premium (P1/P2). Notez que si vous n’aviez aucune donnée d’activité avant la mise à niveau, l’affichage des données dans les rapports prendra quelques jours une fois la mise à niveau vers une licence premium effectuée. 
 * Un utilisateur dans le rôle **Administrateur général**, **Administrateur de la sécurité**, **Lecteur Sécurité** ou **Lecteur de rapport** pour le locataire. De plus, tout utilisateur peut accéder à ses propres connexions. 
 * Si vous souhaitez exécuter le script téléchargé sur votre ordinateur Windows 10, [configurez le module AzureRM et définissez une stratégie d’exécution](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
 
-## <a name="tutorial"></a>Tutoriel
+## <a name="tutorial"></a>Didacticiel
 
 1. Accédez au [portail Azure](https://portal.azure.com) et sélectionnez votre annuaire.
 2. Sélectionnez **Azure Active Directory**, puis **Connexions** dans la section **Supervision**. 

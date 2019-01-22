@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Flex Global View | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Flex Global View.
+title: 'Tutoriel : Intégration d’Azure Active Directory à GTNexus SSO System | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et GTNexus SSO System.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/08/2019
 ms.author: jeedes
-ms.openlocfilehash: ae466dc4bce6ab7068622272651c22d70fc84fff
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 646c9b1c3a1f10cae678e6788379eb6bbd144e78
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54067496"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263490"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-flex-global-view"></a>Tutoriel : Intégration d’Azure Active Directory à Flex Global View
+# <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>Tutoriel : Intégration d’Azure Active Directory à GTNexus SSO System
 
-Dans ce tutoriel, vous allez apprendre à intégrer Flex Global View à Azure Active Directory (Azure AD).
-L’intégration de Flex Global View à Azure AD vous offre les avantages suivants :
+Dans ce tutoriel, vous allez apprendre à intégrer GTNexus SSO System à Azure Active Directory (Azure AD).
+L’intégration de GTNexus SSO System à Azure AD vous offre les avantages suivants :
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à Flex Global View.
-* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Flex Global View (par le biais de l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez contrôler dans Azure AD qui a accès à GTNexus SSO System.
+* Vous pouvez autoriser les utilisateurs à se connecter automatiquement à GTNexus SSO System (via l’authentification unique) avec leur compte Azure AD.
 * Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,22 +35,22 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration d’Azure AD à Flex Global View, vous avez besoin des éléments suivants :
+Pour configurer l’intégration d’Azure AD à GTNexus SSO System, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Abonnement Flex Global View pour lequel l’authentification unique est activée
+* Un abonnement à GTNexus SSO System pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* Flex Global View prend en charge l’authentification unique initiée par le **fournisseur d’identité**
+* GTNexus SSO System prend en charge l’authentification unique lancée par le **fournisseur d’identité (IdP)**
 
-## <a name="adding-flex-global-view-from-the-gallery"></a>Ajout de Flex Global View à partir de la galerie
+## <a name="adding-gtnexus-sso-system-from-the-gallery"></a>Ajout de GTNexus SSO System depuis la galerie
 
-Pour configurer l’intégration de Flex Global View à Azure AD, vous devez ajouter Flex Global View depuis la galerie à votre liste d’applications SaaS managées.
+Pour configurer l’intégration de GTNexus SSO System à Azure AD, vous devez ajouter GTNexus SSO System à votre liste d’applications SaaS managées à partir de la galerie.
 
-**Pour ajouter Flex Global View à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter GTNexus SSO System à partir de la galerie, effectuez les étapes suivantes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -64,31 +64,31 @@ Pour configurer l’intégration de Flex Global View à Azure AD, vous devez ajo
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **Flex Global View**, sélectionnez **Flex Global View** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **GTNexus SSO System**, sélectionnez **GTNexus SSO System** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-     ![Flex Global View dans la liste des résultats](common/search-new-app.png)
+     ![GTNexus SSO System dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Flex Global View avec un utilisateur de test appelé **Britta Simon**.
-Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur Flex Global View associé doit être établie.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD auprès de GTNexus SSO System à l’aide d’un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur GTNexus SSO System associé doit être établie.
 
-Pour configurer et tester l’authentification unique Azure AD avec Flex Global View, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD auprès de GTNexus SSO System, vous devez effectuer les modules suivants :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique Flex Global View](#configure-flex-global-view-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+2. **[Configurer l’authentification unique GTNexus SSO System](#configure-gtnexus-sso-system-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test Flex Global View](#create-flex-global-view-test-user)** pour avoir un équivalent de Britta Simon dans Flex Global View, lié à la représentation Azure AD de l’utilisateur.
+5. **[Créer un utilisateur de test GTNexus SSO System](#create-gtnexus-sso-system-test-user)** pour avoir un équivalent de Britta Simon dans GTNexus SSO System lié à la représentation Azure AD de l’utilisateur.
 6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
 Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-Pour configurer l’authentification unique Azure AD avec Flex Global View, effectuez les étapes suivantes :
+Pour configurer l’authentification unique Azure AD auprès de GTNexus SSO System, effectuez les étapes suivantes :
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Flex Global View**, sélectionnez **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **GTNexus SSO System**, sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
@@ -110,7 +110,7 @@ Pour configurer l’authentification unique Azure AD avec Flex Global View, effe
 
     ![image](common/browse-upload-metadata.png)
 
-    c. Une fois le fichier de métadonnées chargé, les valeurs **Identificateur** et **URL de réponse** sont automatiquement renseignées dans la zone de texte de la section Flex Global View :
+    c. Une fois le fichier de métadonnées chargé, les valeurs **Identificateur** et **URL de réponse** sont automatiquement renseignées dans la zone de texte de la section GTNexus SSO System :
 
     ![image](common/idp-intiated.png)
 
@@ -121,9 +121,9 @@ Pour configurer l’authentification unique Azure AD avec Flex Global View, effe
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-### <a name="configure-flex-global-view-single-sign-on"></a>Configurer l’authentification unique Flex Global View
+### <a name="configure-gtnexus-sso-system-single-sign-on"></a>Configurer l’authentification unique GTNexus SSO System
 
-Pour configurer l’authentification unique côté **Flex Global View**, vous devez envoyer le fichier **XML de métadonnées de fédération** à [l’équipe du support technique Flex Global View](mailto:support@gtnexus.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **GTNexus SSO System**, vous devez envoyer le **XML des métadonnées de fédération** à l’[équipe du support technique de GTNexus SSO System](mailto:support@gtnexus.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -152,15 +152,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Flex Global View.
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à GTNexus SSO System.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis sélectionnez **Flex Global View**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **GTNexus SSO System**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **Flex Global View**.
+2. Dans la liste des applications, sélectionnez **GTNexus SSO System**.
 
-    ![Lien Flex Global View dans la liste des applications](common/all-applications.png)
+    ![Lien GTNexus SSO System dans la liste des applications](common/all-applications.png)
 
 3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
@@ -176,15 +176,15 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="create-flex-global-view-test-user"></a>Créer un utilisateur de test Flex Global View
+### <a name="create-gtnexus-sso-system-test-user"></a>Créer un utilisateur de test GTNexus SSO System
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Flex Global View. Collaborez avec l’ [équipe du support technique Flex Global View](mailto:support@gtnexus.com)  pour ajouter les utilisateurs à la plateforme Flex Global View. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans GTNexus SSO System. Contactez [l’équipe du support technique de GTNexus SSO System](mailto:support@gtnexus.com) pour ajouter les utilisateurs dans la plateforme GTNexus SSO System. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Le fait de cliquer sur la vignette Flex Global View dans le panneau d’accès doit vous connecter automatiquement à l’application Flex Global View pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quand vous cliquez sur la vignette GTNexus SSO System dans le volet d’accès, vous devez vous connecter automatiquement à l’application GTNexus SSO System pour laquelle vous configurez l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -8,51 +8,59 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: overview
-ms.date: 10/05/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5756e8fb451b073c68271359848ab27373ad85ed
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: f7fef00cfff9295036d7545470f86e27314e6451
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309550"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258696"
 ---
-# <a name="what-is-content-moderator"></a>Qu’est-ce que Content Moderator ?
+# <a name="what-is-azure-content-moderator"></a>Qu’est-ce qu’Azure Content Moderator ?
 
-La modération du contenu est le processus d’analyse du texte, des images ou des vidéos visant à détecter les matériaux potentiellement offensants, indésirables ou à risque. Le contenu marqué peut ensuite être masqué ou traité afin de se conformer aux réglementations ou pour maintenir l’environnement souhaité pour les utilisateurs.
+L’API Azure Content Moderator est un service cognitif qui vérifie le texte, les images et le contenu vidéo à la recherche d’éléments potentiellement dangereux, offensants ou indésirables. Lorsque des éléments de ce type sont détectés, le service applique les étiquettes appropriées (indicateurs) au contenu. L’application peut ensuite gérer le contenu marqué afin de se conformer aux réglementations ou pour maintenir l’environnement souhaité pour les utilisateurs. Consultez la section sur l’[API Content Moderator](#content-moderator-apis) pour en savoir plus sur les différents indicateurs de contenu.
 
 ## <a name="where-it-is-used"></a>Utilisation
 
-La liste suivante présente quelques exemples d’utilisation de Content Moderator :
+Voici quelques scénarios dans lesquels un développeur de logiciels ou une équipe utilise Content Moderator :
 
-- Modération des catalogues de produits et du contenu généré par l’utilisateur sur les marketplaces
+- Modération des catalogues de produits et du contenu généré par l’utilisateur sur les marketplaces en ligne
 - Modération des artefacts créés par les utilisateurs et des messageries instantanées par les sociétés de jeu
 - Modération des images, du texte et des vidéos ajoutés par les utilisateurs sur les plateformes de messagerie sociale
 - Mise en place par les sociétés de contenu d’entreprise d’un système de modération centralisée du contenu
-- Filtrage du contenu inadéquat et offensant pour les étudiants et les enseignants par les fournisseurs de solutions éducatives K-12
+- Filtrage du contenu inapproprié pour les étudiants et les enseignants par les fournisseurs de solutions éducatives (maternelle-terminale)
 
 ## <a name="what-it-includes"></a>Contenu
 
-Content Moderator se compose de plusieurs API de services web et d’un outil intégré de révision par un opérateur humain qui aide à modérer les images, le texte et les vidéos.
+Le service Content Moderator se compose de plusieurs API de service web disponibles via les appels REST et un SDK .NET. Il inclut également l’outil de vérification humaine, qui permet aux réviseurs humains d’aider le service et d’améliorer ou d’ajuster sa fonction de modération.
 
-![Diagramme de blocs Content Moderator](images/content-moderator-block-diagram.png)
+![Diagramme de blocs pour Content Moderator montrant les API de modération, les API de vérification et l’outil de vérification humaine](images/content-moderator-block-diagram.png)
 
-### <a name="apis"></a>API
+### <a name="content-moderator-apis"></a>API Content Moderator
 
-Le service Content Moderator inclut les API suivantes :
-  - [**API Modération du texte**](text-moderation-api.md) : cette API permet d’analyser le texte à la recherche d’injures, de contenu explicite, suggestif, offensant, et d’informations d’identification personnelle (PII).
-  - [**API Liste de termes personnalisée**](try-terms-list-api.md) : utilisez cette API pour effectuer une mise en correspondance avec des listes de termes personnalisées, en plus des termes intégrés. Utilisez ces listes pour bloquer ou autoriser du contenu conformément aux stratégies de votre contenu.  
-  - [**API Modération de l’image**](image-moderation-api.md) : cette API permet d’analyser des images à la recherche de contenu pour adultes et osé, de détecter le texte dans les images grâce à la reconnaissance optique des caractères (OCR) et de détecter les visages.
-  - [**API Liste d’images personnalisée**](try-image-list-api.md) : utilisez cette API pour effectuer une mise en correspondance avec des listes d’images personnalisées, du contenu préidentifié que vous n’avez pas besoin de classer à nouveau.
-  - [**API de modération des vidéos**](video-moderation-api.md) : cette API permet d’analyser les vidéos à la recherche de contenu pour adultes et osé.
-  - [**API de révision**](try-review-api-job.md): utilisez les opérations [Travaux](try-review-api-job.md), [Révisions](try-review-api-review.md), et [Flux de travail](try-review-api-workflow.md) pour créer et automatiser les flux de travail impliquant une intervention humaine dans l’outil de révision.
+Le service Content Moderator inclut des API pour les scénarios suivants.
+
+| Action | Description |
+| ------ | ----------- |
+|[**Modération de texte**](text-moderation-api.md)| Analyse du texte à la recherche de contenu offensant, de contenu sexuellement explicite ou suggestif, de blasphèmes et d’informations d’identification personnelle (PII).|
+|[**Listes de termes personnalisées**](try-terms-list-api.md)| Analyse du texte par rapport à une liste personnalisée de termes, en plus des termes prédéfinis. Utilisez les listes personnalisées pour bloquer ou autoriser du contenu en fonction de vos propres stratégies de contenu.|  
+|[**Modération d’images**](image-moderation-api.md)| Analyse des images à la recherche de contenu pour adultes et osé, détection de texte dans les images grâce à la reconnaissance optique des caractères (OCR) et détection des visages.|
+|[**Listes d’images personnalisées**](try-image-list-api.md)| Analyse des images par rapport à une liste d’images personnalisée. Utilisez les listes d’images personnalisées pour filtrer les instances de contenu récurrent que vous ne souhaitez pas classifier à nouveau.|
+|[**Modération de vidéos**](video-moderation-api.md)| Analyse des vidéos à la recherche de contenu pour adultes ou osé, en renvoyant des marqueurs de temps pour ce contenu.|
+|[**Révision**](try-review-api-job.md)| Utilisez les opérations [Travaux](try-review-api-job.md), [Révisions](try-review-api-review.md) et [Flux de travail](try-review-api-workflow.md) pour créer et automatiser les workflows impliquant une intervention humaine dans l’outil de vérification humaine. L’API de workflow n’est pas encore disponible par le biais du SDK .NET.|
 
 ### <a name="human-review-tool"></a>Outil de révision par un opérateur humain
 
-Votre abonnement Content Moderator inclut l’accès à l’[outil intégré de révision par un opérateur humain](Review-Tool-User-Guide/human-in-the-loop.md). Utilisez l’API de révision mentionnée précédemment pour créer des analyses de texte, d’images et de vidéos pour permettre à vos modérateurs humains de prendre des décisions.
+Le service Content Moderator inclut également un [outil web de vérification humaine](Review-Tool-User-Guide/human-in-the-loop.md). 
 
-![Outil de révision des vidéos Content Moderator](images/video-review-default-view.png)
+![Page d'accueil de l’outil de vérification humaine de Content Moderator](images/homepage.PNG)
+
+Vous pouvez utiliser les API de révision pour configurer des révisions d’équipe de contenu vidéo, de texte et d’images en fonction des filtres que vous spécifiez. Ensuite, les modérateurs humains peuvent prendre les décisions de modération finales. Le service n’apprend pas de l’entrée humaine, mais le travail combiné du service et des équipes de vérification humaine permet aux développeurs de trouver le bon équilibre entre efficacité et précision.
+
+## <a name="data-privacy-and-security"></a>Sécurité et confidentialité des données
+Comme avec tous les services Cognitive Services, les développeurs utilisant le service Content Moderator doivent connaître les politiques de Microsoft relatives aux données client. Pour en savoir plus, consultez la [page Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) dans le Centre de gestion de la confidentialité Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Utilisez le [Démarrage rapide](quick-start.md) pour découvrir Content Moderator.
+Commencez à utiliser le service Content Moderator en suivant les instructions fournies dans [Essayer Content Moderator sur le web](quick-start.md).

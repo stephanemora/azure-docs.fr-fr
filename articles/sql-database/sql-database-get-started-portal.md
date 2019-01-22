@@ -11,19 +11,19 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/21/2018
-ms.openlocfilehash: b8ff482f2aec406ef4c1c545db7844a861317518
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 1/9/2019
+ms.openlocfilehash: b11eb08a960e81ab938a9b15a1153c44706231c5
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994417"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198285"
 ---
 # <a name="quickstart-create-an-azure-sql-database-in-the-azure-portal"></a>Démarrage rapide : Création d’une base de données SQL Azure dans le portail Azure
 
 Azure SQL Database est une offre de type *base de données en tant que service* qui vous permet d’exécuter et de mettre à l’échelle des bases de données SQL Server hautement disponibles dans le cloud. Ce guide de démarrage rapide vous montre comment commencer en créant une base de données SQL Azure à l’aide du Portail Azure, puis en effectuant des requêtes. 
 
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/).
 
 Pour toutes les étapes de ce guide de démarrage rapide, connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -35,36 +35,36 @@ Comment créer une base de données SQL contenant les exemples de données Adven
 
 1. Sélectionnez **Créer une ressource** dans le coin supérieur gauche du portail Azure.
    
-1. Sélectionnez **Bases de données**, puis **SQL Database**.
+1. Sélectionnez **Bases de données**, puis **Base de données SQL**.
    
-1. Dans le formulaire **SQL Database**, saisissez ou sélectionnez les valeurs suivantes : 
+1. Dans le formulaire **Créer une base de données SQL**, tapez ou sélectionnez les valeurs suivantes : 
    
    - **Nom de la base de données** : Entrez *mySampleDatabase*.
-   - **Abonnement**: Faites défiler la liste et sélectionnez l’abonnement approprié, s’il n’apparaît pas.  
+   - **Abonnement**: Faites défiler la liste et sélectionnez l’abonnement approprié, s’il n’apparaît pas.
    - **Groupe de ressources** : Sélectionnez **Créer**, entrez *myResourceGroup* et sélectionnez **OK**. 
-   - **Sélectionner la source** : Sélectionnez **Sample (AdventureWorksLT)** dans la liste. 
-   
-   >[!IMPORTANT]
-   >Veillez à sélectionner les données **Exemple (AdventureWorksLT)** pour pouvoir suivre le présent guide ainsi que d’autres articles dédiés à Azure SQL Database qui utilisent ces données. 
-   
+   - **Sélectionner la source** : Sélectionnez **Sample (AdventureWorksLT)** dans la liste.
+    
+    >[!IMPORTANT]
+    >Veillez à sélectionner les données **Exemple (AdventureWorksLT)** pour pouvoir suivre le présent guide ainsi que d’autres articles dédiés à Azure SQL Database qui utilisent ces données.
+  
    ![Créer une base de données Azure SQL Database](./media/sql-database-get-started-portal/create-database-1.png)
    
-1. Sélectionnez **Serveur**, puis sélectionnez **Créer un serveur**. 
+1. Sous **Serveur**, sélectionnez **Créer**. 
    
 1. Dans le formulaire **Nouveau serveur**, saisissez ou sélectionnez les valeurs suivantes : 
    
-   - **Nom du serveur** : Tapez *mysqlserver*.
+   - **Nom du serveur** : Entrez *mysqlserver*.
    - **Connexion administrateur au serveur** : Tapez *azureuser*. 
-   - **Mot de passe** : Tapez *Azure1234567*. 
+   - **Mot de passe** : Entrez *Azure1234567*. 
    - **Confirmer le mot de passe** : Retapez le mot de passe.
    - **Emplacement** : Sélectionnez n’importe quel emplacement valide dans la liste.  
    
    >[!IMPORTANT]
-   >Mémorisez ou enregistrez vos identifiants et mot de passe de connexion administrateur au serveur, car vous en aurez besoin pour vous connecter au serveur et aux bases de données dans le cadre du présent guide ou d’autres articles dédiés. Si vous oubliez votre mot de passe ou vos identifiants de connexion, vous pouvez obtenir le nom de connexion ou réinitialiser le mot de passe sur la page **SQL Server**. Pour ouvrir la page **SQL Server** , sélectionnez le nom du serveur sur la page **Vue d’ensemble** de la base de données une fois cette dernière créée.
+   >Mémorisez votre nom d’utilisateur et mot de passe de connexion d’administrateur au serveur, car vous en aurez besoin pour vous connecter au serveur et aux bases de données dans le cadre de ce guide ou d’autres guides de démarrage rapide. Si vous oubliez votre mot de passe ou vos identifiants de connexion, vous pouvez obtenir le nom de connexion ou réinitialiser le mot de passe sur la page **SQL Server**. Pour ouvrir la page **SQL Server** , sélectionnez le nom du serveur sur la page **Vue d’ensemble** de la base de données une fois cette dernière créée.
    
-1. Sélectionnez **Sélectionner**.
-   
-   ![Créer un serveur](./media/sql-database-get-started-portal/create-database-server.png)
+    ![Créer un serveur](./media/sql-database-get-started-portal/create-database-server.png)
+
+1. Choisissez **Select**.
    
 1. Sur le formulaire **SQL Database**, sélectionnez **Niveau tarifaire**. Explorez la quantité de DTU et de stockage disponible pour chaque niveau de service.
    
@@ -113,18 +113,18 @@ Maintenant que vous avez créé une base de données Azure SQL, utilisez l’out
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Conservez ce groupe de ressources, ce serveur SQL et cette base de données SQL si vous souhaitez passer aux [Étapes suivantes](#next-steps) et découvrir comment vous connecter à votre base de données et les différentes méthodes à votre disposition pour l’interroger. 
+Conservez ce groupe de ressources, ce serveur SQL et cette base de données SQL pour accéder aux [Étapes suivantes](#next-steps). Les étapes suivantes vous montrent comment vous connecter à votre base de données et comment l’interroger via différentes méthodes. 
 
 Une fois que vous avez fini d’utiliser ces ressources, vous pouvez les supprimer comme suit :
 
 1. Dans le menu de gauche du Portail Azure, cliquez sur **Groupes de ressources**, puis sur **myResourceGroup**.
 1. Dans la page de votre groupe de ressources, sélectionnez **Supprimer le groupe de ressources**. 
-1. Entrez *myResourceGroup* dans le champ, puis cliquez sur **Supprimer**.
+1. Entrez *myResourceGroup* dans le champ, puis sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Vous devez créer une règle de pare-feu au niveau du serveur pour vous connecter à votre base de données SQL Azure en local ou à l’aide d’outils à distance. Pour plus d’informations, consultez [Créer une règle de pare-feu au niveau du serveur](sql-database-get-started-portal-firewall.md).
-- Une fois que vous créez une règle de pare-feu au niveau du serveur, vous pouvez [vous connecter](sql-database-connect-query.md) à votre base de données et l’interroger à l’aide de divers langages et outils. 
+- Créez une règle de pare-feu au niveau du serveur pour vous connecter à votre base de données SQL Azure à l’aide d’outils de contrôle locaux ou à distance. Pour plus d’informations, consultez [Créer une règle de pare-feu au niveau du serveur](sql-database-get-started-portal-firewall.md).
+- Après avoir créé une règle de pare-feu au niveau du serveur, [connectez et interrogez](sql-database-connect-query.md) votre base de données à l’aide de plusieurs outils et langues différents. 
   - [Se connecter et effectuer des requêtes à l’aide de SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Se connecter et effectuer des requêtes à l’aide d’Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Pour créer des bases de données SQL Azure à l’aide d’Azure CLI, consultez [Exemples d’interface de ligne de commande Azure](sql-database-cli-samples.md).

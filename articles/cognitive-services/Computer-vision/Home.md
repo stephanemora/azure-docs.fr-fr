@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4c952c847aa56b385065a878b664b3d1d98763f4
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cd4eca669936a206241069f1f8a8d9440f45be33
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584018"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229776"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
@@ -69,6 +69,10 @@ Le service Vision par ordinateur peut analyser des images qui répondent aux exi
 - La taille de fichier de l’image doit être inférieure à 4 mégaoctets (Mo)
 - Les dimensions de l’image doivent être supérieures à 50 x 50 pixels  
   Pour l’OCR, la taille de l’image doit être comprise entre 50 x 50 et 4200 x 4200 pixels
+
+## <a name="data-privacy-and-security"></a>Sécurité et confidentialité des données
+
+Comme avec tous les services Cognitive Services, les développeurs utilisant le service Vision par ordinateur doivent connaître les politiques de Microsoft relatives aux données client. Pour en savoir plus, consultez la [page Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) dans le Centre de gestion de la confidentialité Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

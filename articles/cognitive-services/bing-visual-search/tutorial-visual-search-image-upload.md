@@ -10,14 +10,14 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 23e6d044a1c08fb585e01d61a97deaf87e24cbb9
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: aa221569cec6df298db4a90560ac7ea0992dd120
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743100"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318726"
 ---
-# <a name="tutorial-uploading-images-to-the-bing-visual-search-api"></a>Didacticiel : chargement d’images vers l’API Recherche visuelle Bing
+# <a name="tutorial-uploading-images-to-the-bing-visual-search-api"></a>Tutoriel : chargement d’images vers l’API Recherche visuelle Bing
 
 L’API Recherche visuelle Bing vous permet de rechercher sur le web des images similaires à celles que vous chargez. Utilisez ce tutoriel pour créer une application web qui peut envoyer une image à l’API et afficher les aperçus que cette dernière retourne dans la page web. Notez que cette application n’est pas conforme à toutes les [conditions d’utilisation et d’affichage de Bing](./use-and-display-requirements.md) concernant l’utilisation de l’API.
 
@@ -628,7 +628,7 @@ La fonction `addShopping()` crée un lien pour tout résultat d’achat renvoyé
 
 ### <a name="products-insights"></a>Insights Products
 
-La fonction `addProducts()` crée un lien pour tout résultat d’achat renvoyé en procédant à des itérations dans la liste des actions `Products` et en ajoutant une balise `<img>` au `<div>` extérieur de chaque site.
+La fonction `addProducts()` crée un lien pour chaque résultat de produit retourné en effectuant des itérations dans la liste des actions `Products` et en ajoutant une balise `<img>` au `<div>` extérieur de chacun.
 
 ```javascript
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 1bfe79c502361e6cf9616c3ba61e781fb7ce92ac
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 390cd17d667785c7bf9531d86dab00bc922a2df5
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032854"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351724"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Faire expirer des données avec l’API Azure Cosmos DB pour MongoDB
 
@@ -55,7 +55,7 @@ La valeur de durée de vie doit être un Int32. Vous pouvez également utiliser 
 
 La valeur de durée de vie pour le document est facultative. Les documents sans valeur de durée de vie peuvent être insérés dans la collection.  Dans ce cas, la valeur de durée de vie de la collection sera respectée. 
 
-Les documents suivants ont des valeurs de durée de vie valides. Une fois que les documents sont insérés, les valeurs de durée de vie des documents remplacent les valeurs de durée de vie de la collection. Par conséquent, les documents seront supprimés après 20 secondes.  
+Les documents suivants ont des valeurs de durée de vie valides. Une fois que les documents sont insérés, les valeurs de durée de vie des documents remplacent les valeurs de durée de vie de la collection. Par conséquent, les documents seront supprimés après 20 secondes.   
 
 ```JavaScript 
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: 20.0}) 

@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2018
+ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1af74cc44391c95fba781cbce14e9118ca36c14b
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 038a70f5cce5b78f6c0e95316e66de42fa529954
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078492"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321736"
 ---
-# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutoriel : créer et déployer une application avec un service frontal API Web ASP.NET Core et un service principal avec état
+# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutoriel : Créer et déployer une application avec un service frontal API Web ASP.NET Core et un service principal avec état
 
-Ce tutoriel est la première partie d’une série d’étapes.  Vous allez découvrir comment créer une application Azure Service Fabric avec un service frontal API Web ASP.NET Core et un service principal avec état pour stocker vos données. Lorsque vous avez terminé, vous disposez d’une application de vote avec un composant web frontal ASP.NET Core qui enregistre les résultats de vote dans un service principal avec état dans le cluster. Si vous ne souhaitez pas créer l’application de vote manuellement, vous pouvez [télécharger le code source](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) pour obtenir l’application terminée et passer directement au [Guide de l’exemple d’application de vote](#walkthrough_anchor).  Si vous préférez, vous pouvez également regarder une [vidéo de procédure pas-à-pas](https://channel9.msdn.com/Events/Connect/2017/E100) de ce tutoriel.
+Ce didacticiel est la première partie d’une série d’étapes.  Vous allez découvrir comment créer une application Azure Service Fabric avec un service frontal API Web ASP.NET Core et un service principal avec état pour stocker vos données. Lorsque vous avez terminé, vous disposez d’une application de vote avec un composant web frontal ASP.NET Core qui enregistre les résultats de vote dans un service principal avec état dans le cluster. Si vous ne souhaitez pas créer l’application de vote manuellement, vous pouvez [télécharger le code source](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) pour obtenir l’application terminée et passer directement au [Guide de l’exemple d’application de vote](#walkthrough_anchor).  Si vous préférez, vous pouvez également regarder une [vidéo de procédure pas-à-pas](https://channel9.msdn.com/Events/Connect/2017/E100) de ce tutoriel.
 
 ![Diagramme de l’application](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
@@ -326,8 +326,6 @@ Dans l’Explorateur de solutions, ouvrez *VotingWeb/PackageRoot/ServiceManifest
 
 Mettez également à jour la valeur de la propriété d’URL d’application dans le projet Voting, afin qu’un navigateur web s’ouvre sur le port adéquat lorsque vous effectuez le débogage de votre application.  Dans l’Explorateur de solutions, sélectionnez le projet **Voting** et définissez la propriété **URL de l’application** sur **8080**.
 
-![URL de l’application](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
-
 ### <a name="deploy-and-run-the-voting-application-locally"></a>Déployer et exécuter l’application Voting localement
 Vous pouvez maintenant continuer et exécuter l’application pour le débogage. Dans Visual Studio, appuyez sur **F5** pour déployer l’application sur votre cluster Service Fabric local en mode débogage. L’application échoue si vous n’avez pas précédemment ouvert Visual Studio en tant qu’**administrateur**.
 
@@ -454,12 +452,7 @@ Dans l’étape qui suit, connectez les deux services et faites en sorte que l�
 
 Service Fabric fournit une flexibilité complète sur votre façon de communiquer avec Reliable Services. Dans une même application, vous pouvez avoir des services qui sont accessibles via TCP, d’autres services accessibles via une API REST HTTP et encore d’autres services accessibles via des sockets web. Pour obtenir des informations sur les options disponibles et leurs avantages/inconvénients respectifs, consultez [Communication avec les services](service-fabric-connect-and-communicate-with-services.md).
 
-Dans ce tutoriel, utilisez l’[API web ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) et le [proxy inverse Service Fabric](service-fabric-reverseproxy.md) pour que le service web frontal VotingWeb puisse communiquer avec le service de données principal VotingWeb. Le proxy inverse est configuré par défaut pour utiliser le port 19081 et doit fonctionner pour ce tutoriel. Le port est défini dans le modèle ARM utilisé pour configurer le cluster. Pour savoir quel port est utilisé, effectuez une recherche dans le modèle de cluster de la ressource **Microsoft.servicefabric/clusters** ou examinez l’élément HttpApplicationGatewayEndpoint du manifeste de cluster.
-
-> [!NOTE]
-> Le proxy inverse est uniquement pris en charge sur un cluster exécutant Windows 8 et les versions ultérieures ou Windows Server 2012 et les versions ultérieures.
-
-<u>Microsoft.ServiceFabric/clusters reverseProxyEndpointPort resource</u>
+Dans ce tutoriel, utilisez l’[API web ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) et le [proxy inverse Service Fabric](service-fabric-reverseproxy.md) pour que le service web frontal VotingWeb puisse communiquer avec le service de données principal VotingWeb. Le proxy inverse est configuré par défaut pour utiliser le port 19081 et doit fonctionner pour ce tutoriel. Le port du proxy inverse est défini dans le modèle Azure Resource Manager utilisé pour configurer le cluster. Pour connaître le port utilisé, examinez le modèle de cluster dans la ressource **Microsoft.ServiceFabric/clusters** : 
 
 ```json
 "nodeTypes": [
@@ -472,13 +465,10 @@ Dans ce tutoriel, utilisez l’[API web ASP.NET Core](service-fabric-reliable-se
           }
         ],
 ```
-Pour afficher l’élément HttpApplicationGatewayEndpoint dans le manifeste de cluster Service Fabric local :
-1. Ouvrez une fenêtre de navigateur et accédez à http://localhost:19080.
-2. Cliquez sur **Manifeste**.
+Pour rechercher le port de proxy inverse utilisé dans votre cluster de développement local, examinez l’élément **HttpApplicationGatewayEndpoint** dans le manifeste de cluster Service Fabric local :
+1. Ouvrez une fenêtre de navigateur et accédez à http://localhost:19080 pour ouvrir l’outil Service Fabric Explorer.
+2. Sélectionnez **Cluster -> Manifeste**.
 3. Notez l’élément de port HttpApplicationGatewayEndpoint. Il doit s’agir par défaut de 19081. Si tel n’est pas le cas, vous devez modifier le port dans la méthode GetProxyAddress du code VotesController.cs suivant.
-
-
-
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
@@ -622,9 +612,9 @@ Lors du débogage d’application dans Visual Studio, vous utilisez un cluster d
 
 Pour examiner ce qui se produit dans le code, procédez comme suit :
 
-1. Ouvrez le fichier **VotingWeb\VotesController.cs** et définissez un point d’arrêt dans la méthode **Put** de l’API web (ligne 63).
+1. Ouvrez le fichier **VotingWeb\VotesController.cs** et définissez un point d’arrêt dans la méthode **Put** de l’API web (ligne 72).
 
-2. Ouvrez le fichier **VotingData\VoteDataController.cs** et définissez un point d’arrêt dans la méthode **Put** de l’API web (ligne 53).
+2. Ouvrez le fichier **VotingData\VoteDataController.cs** et définissez un point d’arrêt dans la méthode **Put** de l’API web (ligne 54).
 
 3. Appuyez sur **F5** pour exécuter l'application en mode débogage.
 

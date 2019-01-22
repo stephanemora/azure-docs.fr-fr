@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 00c001b5c0c2c3dab86477fca798ec651f7b6c93
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5ce8217629cff702ecd3ec274d77918e54efacc6
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189964"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359117"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutoriel : Commander Azure Data Box
 
@@ -22,7 +22,7 @@ Azure Data Box est une solution hybride qui vous permet d’importer vos donnée
 Ce tutoriel explique comment commander une Azure Data Box. Ce tutoriel vous fournira des informations sur :
 
 > [!div class="checklist"]
-> * S’inscrire à Data Box
+> * Conditions préalables au déploiement de la Data Box
 > * Commander une Data Box
 > * Suivre la commande
 > * Annuler la commande
@@ -63,7 +63,7 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 4. Vérifiez si le service Data Box est disponible dans votre région. Saisissez ou sélectionnez les informations suivantes, puis sélectionnez **Appliquer**. 
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Abonnement     | Sélectionnez un abonnement EA, CSP ou avec paiement à l’utilisation pour le service Data Box. <br> L’abonnement est lié à votre compte de facturation.       |
+    |Abonnement     | Sélectionnez un abonnement EA, CSP ou Azure pour le service Data Box. <br> L’abonnement est lié à votre compte de facturation.       |
     |Type de transfert     | Sélectionnez **Importer vers Azure**.        |
     |Pays source     |   Sélectionnez le pays où vos données se trouvent actuellement.         |
     |Région Azure de destination     |     Sélectionnez la région Azure où vous souhaitez transférer des données.        |
@@ -79,7 +79,7 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
     |NOM     |  Indiquez un nom convivial pour suivre la commande. <br> Le nom peut comporter entre 3 et 24 caractères qui peuvent être des lettres, des chiffres et des traits d’union. <br> Il doit commencer et se terminer par une lettre ou un chiffre.      |
     |Groupe de ressources     |   Créez-en un nouveau ou utilisez un groupe existant. <br> Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble.         |
     |Région Azure de destination     | Sélectionnez une région pour votre compte de stockage. <br> Pour plus d’informations, consultez la [disponibilité des régions](data-box-overview.md#region-availability).        |
-    |Compte(s) de stockage     | Selon la région Azure spécifiée, sélectionnez un ou plusieurs comptes de stockage dans la liste filtrée d’un compte de stockage existant. La Data Box peut être liée à 10 comptes de stockage maximum. <br> Vous pouvez également créer un compte de **stockage blob**, **Usage général v1** ou **Usage général v2**.        |
+    |Compte(s) de stockage     | Selon la région Azure spécifiée, sélectionnez un ou plusieurs comptes de stockage dans la liste filtrée d’un compte de stockage existant. La Data Box peut être liée à 10 comptes de stockage maximum. <br> Vous pouvez également créer un compte de **stockage blob**, **Usage général v1** ou **Usage général v2**. Vous ne pouvez pas utiliser les comptes de stockage qui ont des règles configurées. Les comptes de stockage doivent **autoriser l’accès à partir de tous les réseaux** dans la section des pare-feu et réseaux virtuels.|
     
 7. Dans la zone **Adresse d’expédition**, indiquez vos nom et prénom, le nom et l’adresse postale de la société, et un numéro de téléphone valide. Cliquez sur **Valider l’adresse**. Le service valide l’adresse d’expédition de disponibilité du service. Si le service est disponible pour l’adresse de livraison indiquée, vous recevez une notification à cet effet. Cliquez sur **Suivant**.
 
@@ -94,7 +94,7 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 
 ## <a name="track-the-order"></a>Suivre la commande
 
-Une fois la commande passée, vous pouvez suivre son état à partir du portail Azure. Accédez à votre commande, puis à **Vue d’ensemble** pour afficher l’état. Le portail affiche la commande avec l’état **Commandé**.
+Une fois la commande passée, vous pouvez suivre son état à partir du portail Azure. Accédez à votre commande Data Box, puis à **Vue d’ensemble** pour voir l’état. Le portail affiche la commande avec l’état **Commandé**.
 
 Si l’appareil n’est pas disponible, vous recevez une notification. Si l’appareil est disponible, Microsoft identifie l’appareil à expédier et le prépare. Pendant la préparation de l’appareil, les actions suivantes se produisent :
 

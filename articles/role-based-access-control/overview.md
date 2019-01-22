@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9ddad471236877977fec620565d8f110e265ff72
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c614ae9d157c6e4121701cb22213706020ee20a7
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867896"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303311"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ?
 
@@ -78,7 +78,7 @@ Azure propose des opérations de données (actuellement en version préliminaire
 
 ### <a name="scope"></a>Étendue
 
-*Étendue* constitue la limite à laquelle l’accès s’applique. Lorsque vous attribuez un rôle, vous pouvez restreindre les actions autorisées en définissant une étendue. Cette possibilité s’avère utile si vous voulez par exemple attribuer le rôle de [contributeur de site web](built-in-roles.md#website-contributor) à quelqu’un, mais seulement pour un groupe de ressources.
+*Étendue* représente l’ensemble des ressources auxquelles l’accès s’applique. Lorsque vous attribuez un rôle, vous pouvez restreindre les actions autorisées en définissant une étendue. Cette possibilité s’avère utile si vous voulez par exemple attribuer le rôle de [contributeur de site web](built-in-roles.md#website-contributor) à quelqu’un, mais seulement pour un groupe de ressources.
 
 Dans Azure, vous pouvez spécifier une étendue à plusieurs niveaux : [groupe d'administration](../azure-resource-manager/management-groups-overview.md), abonnement, groupe de ressources ou ressource. Les étendues sont structurées dans une relation parent-enfant.
 
@@ -99,6 +99,12 @@ Le diagramme suivant montre un exemple d’attribution de rôle. Dans cet exempl
 ![Attribution de rôle pour contrôler les accès](./media/overview/rbac-overview.png)
 
 Vous pouvez créer des attributions de rôles à l’aide du Portail Azure, d’Azure CLI, d’Azure PowerShell, des kits de développement logiciel (SDK) Azure ou d’API REST. Vous pouvez avoir jusqu’à 2000 attributions de rôles dans chaque abonnement. Pour créer et supprimer des attributions de rôles, les utilisateurs doivent disposer de l’autorisation `Microsoft.Authorization/roleAssignments/*`. Cette autorisation est accordée par le biais des rôles [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator).
+
+## <a name="multiple-role-assignments"></a>Attributions de rôles multiples
+
+Que se passe-t-il si plusieurs attributions de rôles se chevauchent ? RBAC étant un modèle additif, vos autorisations effectives correspondent à l’ajout de vos attributions de rôles. Prenons l’exemple suivant où un utilisateur reçoit le rôle Contributeur pour l’étendue de l’abonnement et le rôle Lecteur pour un groupe de ressources. L’ajout des autorisations du rôle Contributeur et des autorisations du rôle Lecteur correspond effectivement au rôle Contributeur pour le groupe de ressources. Ainsi, dans ce cas, l’attribution du rôle Lecteur n’a aucun impact.
+
+![Attributions de rôles multiples](./media/overview/rbac-multiple-roles.png)
 
 ## <a name="deny-assignments"></a>Affectations de refus
 
@@ -126,7 +132,7 @@ Voici les principales étapes suivies par RBAC pour déterminer si vous avez acc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Démarrage rapide : accorder l’accès à un utilisateur avec RBAC et le Portail Azure](quickstart-assign-role-user-portal.md)
+- [Démarrage rapide : Accorder l’accès à un utilisateur avec RBAC et le portail Azure](quickstart-assign-role-user-portal.md)
 - [Manage access using RBAC and the Azure portal](role-assignments-portal.md) (Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du Portail Azure)
 - [Comprendre les différents rôles dans Azure](rbac-and-directory-admin-roles.md)
-- [Adoption du cloud d’entreprise : Gestion de l’accès aux ressources dans Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)
+- [Adoption du cloud d’entreprise : Gestion de l’accès aux ressources dans Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

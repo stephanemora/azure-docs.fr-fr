@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6d4a40b07ef70d8dd43eb410ba396057551cd483
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249895"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304392"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gérer la capacité de stockage pour Azure Stack 
 
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Les informations contenues dans cet article aident l’opérateur de cloud d’Azure Stack à surveiller et à gérer la capacité de stockage de son déploiement Azure Stack. L’infrastructure de stockage d’Azure Stack alloue un sous-ensemble de la capacité de stockage totale du déploiement Azure Stack aux **services de stockage**. Les services de stockage stockent les données d’un locataire dans les partages des volumes qui correspondent aux nœuds du déploiement.
 
@@ -79,7 +79,7 @@ Utilisez PowerShell ou le portail d’administration pour surveiller les partage
 
 ### <a name="use-powershell"></a>Utiliser PowerShell
 En tant qu’opérateur de cloud, vous pouvez surveiller la capacité de stockage d’un partage à l’aide de la cmdlet **Get-AzsStorageShare** PowerShell. La cmdlet Get-AzsStorageShare retourne l’espace libre, alloué et total (en octets) de chacun des partages.   
-![Exemple : retourner l’espace libre des partages](media/azure-stack-manage-storage-shares/free-space.png)
+![Exemple : retourner l’espace libre des partages](media/azure-stack-manage-storage-shares/free-space.png)
 
 - La **capacité totale** est l’espace total (en octets) disponible dans le partage. Cet espace est utilisé pour les données et métadonnées gérées par les services de stockage.
 - La **capacité utilisée** est la quantité de données (en octets) utilisée par toutes les extensions des fichiers qui stockent les données de locataire et les métadonnées associées.
@@ -90,7 +90,7 @@ En tant qu’opérateur de cloud, vous pouvez utiliser le portail d’administra
 1. Connectez-vous au [portail d’administration](https://adminportal.local.azurestack.external).
 2. Sélectionnez **Tous les services** > **Stockage** pour ouvrir la liste de partages de fichiers où vous pouvez consulter les informations d’utilisation. 
 
-  ![Exemple : partages de fichiers de stockage](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+  ![Exemple : partages de fichiers du stockage](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
   - **TOTAL** représente l’espace total (en octets) disponible dans le partage. Cet espace est utilisé pour les données et métadonnées gérées par les services de stockage.
   - **UTILISÉ** représente la quantité de données (en octets) utilisée par toutes les extensions des fichiers qui stockent les données de locataire et les métadonnées associées.
@@ -101,12 +101,12 @@ Lorsque vous utilisez le portail d’administration, vous recevez des alertes su
 > [!IMPORTANT]
 > En tant qu’opérateur de cloud, empêchez les partages d’être utilisés complètement. Quand un partage est utilisé à 100 %, le service de stockage ne fonctionne plus pour celui-ci. Pour récupérer de l’espace libre et les opérations de restauration dans un partage utilisé à 100 %, vous devez contacter le support Microsoft.
 
-**Avertissement** : quand un partage de fichiers est utilisé à plus de 80 %, vous recevez une alerte de type *Avertissement* dans le portail d’administration : ![Exemple : alerte d’avertissement](media/azure-stack-manage-storage-shares/alert-warning.png)
+**Avertissement** : quand un partage de fichiers est utilisé à plus de 80 %, vous recevez une alerte de type *Avertissement* dans le portail d’administration : ![Exemple : alerte d’avertissement](media/azure-stack-manage-storage-shares/alert-warning.png)
 
 
-**Critique** : quand un partage de fichiers est utilisé à plus de 90 %, vous recevez une alerte de type *Critique* dans le portail d’administration : ![Exemple : alerte critique](media/azure-stack-manage-storage-shares/alert-critical.png)
+**Critique** : quand un partage de fichiers est utilisé à plus de 90 %, vous recevez une alerte de type *Critique* dans le portail d’administration : ![Exemple : alerte critique](media/azure-stack-manage-storage-shares/alert-critical.png)
 
-**Afficher les détails** : dans le portail d’administration, vous pouvez ouvrir les détails d’une alerte pour afficher les options d’atténuation : ![Exemple : afficher les détails de l’alerte](media/azure-stack-manage-storage-shares/alert-details.png)
+**Afficher les détails** : dans le portail d’administration, vous pouvez afficher les détails d’une alerte pour voir les options d’atténuation proposées : ![Exemple : afficher les détails de l’alerte](media/azure-stack-manage-storage-shares/alert-details.png)
 
 
 ## <a name="manage-available-space"></a>Gérer l’espace disponible
@@ -188,7 +188,7 @@ La migration consolide tous les objets blob d’un conteneur du nouveau partage.
   Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
   ````
 
-  ![Exemple : état de la migration](media/azure-stack-manage-storage-shares/migration-status1.png)
+  ![Exemple : état de la migration](media/azure-stack-manage-storage-shares/migration-status1.png)
 
 6.  Vous pouvez annuler une tâche de migration en cours d’exécution. Les travaux de migration annulés sont traités de façon asynchrone. Vous pouvez suivre l’annulation à l’aide de $jobid :
 
@@ -196,11 +196,11 @@ La migration consolide tous les objets blob d’un conteneur du nouveau partage.
   Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
   ````
 
-  ![Exemple : état de la restauration](media/azure-stack-manage-storage-shares/rollback.png)
+  ![Exemple : état de la restauration](media/azure-stack-manage-storage-shares/rollback.png)
 
 7. Vous pouvez réexécuter la commande de l’étape 6 jusqu’à ce que l’état confirme que le travail de migration est **Annulé** :  
 
-    ![Exemple : état Annulé](media/azure-stack-manage-storage-shares/cancelled.png)
+    ![Exemple : état Annulé](media/azure-stack-manage-storage-shares/cancelled.png)
 
 ### <a name="move-vm-disks"></a>Déplacer des disques de machine virtuelle
 *Cette option s’applique uniquement aux déploiements de plusieurs nœuds.*

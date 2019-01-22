@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 7656d8247cfb16df9989638b7e8ad2ffd3ff445f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 2c035734d443eba01af6f167681ae289401dbcb4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51851668"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212870"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Démarrage rapide : Détecter des visages sur une image à l’aide de l’API REST et de Java
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Démarrage rapide : Détecter des visages sur une image avec l’API REST et Java
 
 Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Visage Azure avec Java pour détecter des visages humains dans une image.
 
@@ -31,8 +31,10 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="create-the-java-project"></a>Créer le projet Java
 
 Créez une application Java de ligne de commande dans votre IDE et ajoutez une classe **Main** avec une méthode **main**. Téléchargez ensuite les bibliothèques globales suivantes du dépôt Maven dans le répertoire `lib` de votre projet :
-* `org.apache.httpcomponents:httpclient:4.2.4`
+* `org.apache.httpcomponents:httpclient:4.5.6`
+* `org.apache.httpcomponents:httpcore:4.4.10`
 * `org.json:json:20170516`
+* `commons-logging:commons-logging:1.1.2`
 
 ## <a name="add-face-detection-code"></a>Ajoutez le code de détection de visage
 
@@ -54,7 +56,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -92,7 +94,7 @@ private static final String faceAttributes =
 Ajoutez la méthode suivante à la méthode **main**. Elle construit un appel REST à l’API Visage pour détecter les informations de visage dans l’image distante (la chaîne `faceAttributes` spécifie les attributs de visage à récupérer). Elle écrit ensuite les données de sortie dans une chaîne JSON.
 
 ```Java
-HttpClient httpclient = new DefaultHttpClient();
+HttpClient httpclient = HttpClientBuilder.create().build();
 
 try
 {
@@ -249,4 +251,4 @@ Compilez le code et exécutez-le. Une réponse correcte affiche les données Vis
 Dans ce guide de démarrage rapide, vous avez créé une application de console Java simple qui utilise des appels REST avec l’API Visage Azure pour détecter des visages dans une image et retourner leurs attributs. Découvrez à présent comment exploiter davantage cette fonctionnalité dans une application Android.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Créer une application Android pour détecter et encadrer des visages](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+> [Tutoriel : Créer une application Android pour détecter et encadrer des visages](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
