@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 1/8/2019
+ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 203168f27e06d58c192bc5009db077461738011a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 2e9e4fe06f4d3802f6c0b3ff13e6cf6cdc218050
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54122783"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54211834"
 ---
 Data Factory est un service mutualisé qui possède, par défaut, les limites suivantes pour garantir la protection des abonnements clients contre les autres charges de travail. La plupart des limites de votre abonnement peuvent être facilement repoussées jusqu’à la limite maximale en contactant le support.
 
@@ -26,6 +26,7 @@ Data Factory est un service mutualisé qui possède, par défaut, les limites s
 | Nombre total de cœurs de processeur pour les runtimes d’intégration Azure-SSIS d’un même abonnement | 256 | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Exécutions de pipeline simultanées par fabrique de données (partagée entre tous les pipelines en usine) | 10 000  | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Activités maximales par pipeline (inclut les activités internes relatives aux conteneurs) | 40 | 40 |
+| Nombre maximal de runtime d'intégration liés pouvant être créés pour un même runtime d'intégration auto-hébergé | 20 | [Contacter le support technique](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Paramètres maximaux par pipeline | 50 | 50 |
 | Éléments ForEach | 100 000 | 100 000 |
 | Parallélisme ForEach | 20 | 50 |

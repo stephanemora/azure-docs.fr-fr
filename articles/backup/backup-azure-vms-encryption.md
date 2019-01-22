@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40f8f1e9470201292c9dee27187d2155c879e13b
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6793a83002029c009e3d4e124b4386feabecd5f8
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583066"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201072"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Sauvegarder et restaurer des machines virtuelles chiffrées avec Sauvegarde Azure
 Cet article présente les étapes pour sauvegarder et restaurer des machines virtuelles à l’aide de Sauvegarde Azure. Il fournit également des détails sur les scénarios pris en charge, les composants requis et les étapes de dépannage en cas d’erreur.
@@ -128,6 +128,8 @@ Utilisez les étapes suivantes pour fournir à Azure Sauvegarde Azure des autori
 Une fois les autorisations fournies, vous pouvez activer la sauvegarde pour les machines virtuelles chiffrées.
 
 ## <a name="restore-an-encrypted-vm"></a>Restaurer une machine virtuelle chiffrée
+Sauvegarde Azure prend désormais en charge la restauration des [machines virtuelles chiffrées Azure sans Azure AD](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites-aad), en plus de l'offre précédente de prise en charge de la restauration des machines virtuelles chiffrées Azure avec Azure AD.<br>
+
 Pour restaurer une machine virtuelle chiffrée, restaurez tout d’abord les disques en suivant les étapes de la section « Restaurer les disques sauvegardés » de la rubrique [Choisir une configuration de restauration de machine virtuelle](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Ensuite, vous pouvez utiliser l’une des options suivantes :
 
 * Suivez les étapes PowerShell de la rubrique [Créer une machine virtuelle à partir de disques restaurés](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) pour créer une machine virtuelle complète à partir de disques restaurés.

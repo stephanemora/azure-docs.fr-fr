@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 84f0c000f54852bbab60a53ecb686656ac86b3de
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 5f85f0a6b1869571a8db29586e5fe113e0f47433
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002652"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304837"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Comprendre et ajuster les unités de streaming
 
@@ -58,6 +58,8 @@ Pour plus d’informations sur le choix du nombre adapté d’unités de streami
 Les éléments de requête temporelle (orientée sur le temps) sont l’ensemble des opérateurs fournis par Stream Analytics. Stream Analytics gère l’état de ces opérations en interne au nom de l’utilisateur, grâce à la gestion de la consommation de mémoire, les points de contrôle pour la résilience et la récupération de l’état au cours des mises à niveau du service. Même si Stream Analytics gère totalement les états, il existe un nombre de recommandations de meilleure pratique que les utilisateurs doivent prendre en compte.
 
 Notez qu’un travail avec une logique de requête complexe peut avoir une utilisation élevée d’unités de streaming, même s’il ne reçoit pas continuellement des événements d’entrée. Cela peut se produire après un pic soudain des événements d’entrée et de sortie. Le travail peut continuer à maintenir l’état en mémoire si la requête est complexe.
+
+Le pourcentage d'utilisation des unités de streaming peut soudainement et brièvement passer à 0 avant de revenir aux niveaux prévus. Ce phénomène est dû à des erreurs transitoires ou à des mises à niveau lancées par le système.
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Logique de requête avec état dans les éléments temporels
 L’une des caractéristiques propres à un travail Azure Stream Analytics consiste à effectuer un traitement avec état, comme des agrégations fenêtrées, jointures temporelles et fonctions d’analyse temporelle. Chacun de ces opérateurs conserve des informations d’état. La taille maximale de la fenêtre pour ces éléments de requête est de sept jours. 

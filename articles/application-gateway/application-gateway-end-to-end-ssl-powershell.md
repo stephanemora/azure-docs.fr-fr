@@ -2,30 +2,25 @@
 title: Configurer le protocole SSL de bout en bout avec Azure Application Gateway
 description: Cet article explique comment configurer le protocole SSL de bout en bout avec Azure Application Gateway en utilisant PowerShell.
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/23/2018
+ms.date: 1/10/2019
 ms.author: victorh
-ms.openlocfilehash: 5ea022d38970122b88ae35c592af3e4a9351190b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 32dd31c659e1906e8cf59f4c6d06c2b4436284cd
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945329"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214060"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurer le protocole SSL de bout en bout avec Application Gateway en utilisant PowerShell
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Azure Application Gateway prend en charge le chiffrement de bout en bout du trafic. Application Gateway arrête la connexion SSL au niveau de la passerelle d’application. La passerelle applique ensuite les règles de routage au trafic, rechiffre le paquet, puis transfère le paquet au serveur principal approprié selon les règles de routage définies. Toute réponse du serveur web passe par le même processus vers l’utilisateur final.
+Azure Application Gateway prend en charge le chiffrement de bout en bout du trafic. Application Gateway arrête la connexion SSL au niveau de la passerelle d’application. La passerelle applique ensuite les règles d'acheminement au trafic, rechiffre le paquet, puis transfère celui-ci au serveur principal approprié selon les règles d'acheminement définies. Toute réponse du serveur web passe par le même processus vers l’utilisateur final.
 
-Application Gateway prend en charge la définition d’options SSL personnalisées. Sont également prises en charge la désactivation des versions suivantes du protocole : **TLSv1.0**, **TLSv1.1** et **TLSv1.2**, ainsi que la définition des suites de chiffrement à utiliser et leur ordre de préférence. Pour en savoir plus sur les options SSL configurables, consultez cette [vue d’ensemble de la stratégie SSL](application-gateway-SSL-policy-overview.md).
+Application Gateway prend en charge la définition d’options SSL personnalisées. La passerelle prend également en charge la désactivation des versions suivantes du protocole : **TLSv1.0**, **TLSv1.1** et **TLSv1.2**, ainsi que la définition des suites de chiffrement à utiliser et leur ordre de préférence. Pour en savoir plus sur les options SSL configurables, consultez cette [vue d’ensemble de la stratégie SSL](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > SSL 2.0 et SSL 3.0 sont désactivés par défaut et ne peuvent pas être activés. Ces protocoles sont considérés comme non sécurisés et ne peuvent pas être utilisés avec Application Gateway.
@@ -45,9 +40,9 @@ Ce scénario va :
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour configurer un chiffrement SSL de bout en bout avec une passerelle d’application, un certificat est requis pour la passerelle et des certificats sont requis pour les serveurs principaux. Le certificat de la passerelle sert à chiffrer et à déchiffrer le trafic envoyé à l’aide de SSL. Le certificat de passerelle doit être partagé au format Personal Information Exchange (PFX). Ce format de fichier permet d’exporter la clé privée requise par la passerelle d’application pour effectuer le chiffrement et le déchiffrement du trafic.
+Pour configurer un chiffrement SSL de bout en bout avec une passerelle d’application, un certificat est requis pour la passerelle et des certificats sont requis pour les serveurs principaux. Le certificat de passerelle est utilisé pour dériver une clé symétrique conformément aux spécifications du protocole SSL. La clé symétrique est ensuite utilisée pour chiffrer et déchiffrer le trafic envoyé à la passerelle. Le certificat de passerelle doit être partagé au format Personal Information Exchange (PFX). Ce format de fichier permet d’exporter la clé privée requise par la passerelle d’application pour effectuer le chiffrement et le déchiffrement du trafic.
 
-Pour le chiffrement SSL de bout en bout, le serveur principal doit figurer sur la liste approuvée par la passerelle d’application. Vous devez charger le certificat public des serveurs principaux sur la passerelle d’application. L’ajout du certificat permet à la passerelle d’application de communiquer uniquement avec des instances de serveur principal connues. Il sécurise la communication de bout en bout.
+Pour le chiffrement SSL de bout en bout, le serveur principal doit figurer sur la liste approuvée par la passerelle d’application. Chargez le certificat public des serveurs principaux sur la passerelle d'application. L’ajout du certificat permet à la passerelle d’application de communiquer uniquement avec des instances de serveur principal connues. Il sécurise la communication de bout en bout.
 
 Ce processus de configuration est décrit dans les sections suivantes.
 
@@ -258,7 +253,7 @@ Les étapes précédentes vous ont guidé dans la création d’une application 
 
    ```
 
-   3. Pour finir, mettez à jour la passerelle. Notez que cette dernière étape représente une tâche à long terme. Une fois l’opération terminée, le chiffrement SSL de bout en bout est configuré sur la passerelle d’application.
+   3. Pour finir, mettez à jour la passerelle. Cette dernière étape est une tâche de longue haleine. Une fois l’opération terminée, le chiffrement SSL de bout en bout est configuré sur la passerelle d’application.
 
    ```powershell
    $gw | Set-AzureRmApplicationGateway

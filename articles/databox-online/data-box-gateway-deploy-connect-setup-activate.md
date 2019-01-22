@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 5e83eb46a4d62c6aaf0862d4bb1aa046c5d64dde
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 02780a9e9702a41f677595d74b9861ea6a51b572
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120511"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260432"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Tutoriel : Se connecter à Azure Data Box Gateway, le configurer et l’activer (préversion) 
 
@@ -86,7 +86,7 @@ Vous vous trouvez maintenant au niveau du **tableau de bord** de votre appareil.
     - Vous pouvez configurer votre interface réseau sur IPv4.
 
     >[!NOTE] 
-    > Nous vous recommandons de ne pas changer de statique en DHCP l’adresse IP locale de l’interface réseau, sauf si vous avez une autre adresse IP pour vous connecter à l’appareil. Si vous utilisez une seule interface réseau et que vous passez à DHCP, il n’y a aucun moyen de déterminer l’adresse DHCP. Si vous voulez passer à une adresse DHCP, attendez que l’appareil se soit inscrit auprès du service, puis faites la modification. Vous pouvez ensuite voir les adresses IP de tous les adaptateurs dans les **propriétés de l’appareil** dans le portail Azure pour votre service.
+    > Nous vous recommandons de ne pas replacer Statique par DHCP pour l'adresse IP locale de l'interface réseau, sauf si vous disposez d'une autre adresse IP pour vous connecter à l'appareil. Si vous utilisez une seule interface réseau et que vous passez à DHCP, il n’y a aucun moyen de déterminer l’adresse DHCP. Si vous voulez passer à une adresse DHCP, attendez que l’appareil se soit inscrit auprès du service, puis faites la modification. Vous pouvez ensuite voir les adresses IP de tous les adaptateurs dans les **propriétés de l’appareil** dans le portail Azure pour votre service.
 
 4. (Facultatif) Configurez votre serveur proxy web. Bien que la configuration du proxy web soit facultative, si vous en utilisez un, vous pouvez uniquement le configurer ici.
    
@@ -94,7 +94,7 @@ Vous vous trouvez maintenant au niveau du **tableau de bord** de votre appareil.
    
    Sur la page **Proxy Web** :
    
-   1. Indiquez **l’URL du proxy web** au format suivant : *http://&lt;adresse IP ou nom de domaine complet de l’hôte&gt;:numéro de port*. Notez que les URL HTTPS ne sont pas prises en charge.
+   1. Indiquez l'**URL du proxy web** au format suivant : *http://&lt;adresse IP ou nom de domaine complet de l'hôte&gt;:numéro de port*. Notez que les URL HTTPS ne sont pas prises en charge.
    2. Définissez **Authentification** sur la valeur **De base** ou **Aucune**.
    3. Si vous utilisez une authentification, vous devrez également fournir un **nom d’utilisateur** et un **mot de passe**.
    4. Cliquez sur **Appliquer**. Cette opération validera et appliquera les paramètres de proxy web configurés.

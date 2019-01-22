@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 0b27cd314dd03375b2d2e6ba537cda74e2ec4310
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c01d911a59647956914518aa62a616823241ab3b
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313239"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304922"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Intégrer des journaux d’audit Azure Active Directory
 
@@ -28,7 +28,7 @@ Les événements d’audit Azure Active Directory (Azure AD) vous aident à iden
 
 
 >[!IMPORTANT]
-> La fonctionnalité d’intégration des journaux Azure sera déconseillée à partir du 01/06/2019. Les téléchargements AzLog seront désactivés le 27 juin 2018. Pour obtenir des conseils pour évoluer, consultez la publication [Utiliser Azure Monitor pour intégrer avec des outils SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). 
+> La fonctionnalité d’intégration des journaux Azure sera déconseillée à partir du 01/06/2019. Les téléchargements d'AzLog ont été désactivés le 27 juin 2018. Pour obtenir des conseils pour évoluer, consultez la publication [Utiliser Azure Monitor pour intégrer avec des outils SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/). 
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Procédure d’intégration des journaux d’audit Azure Active Directory
 
@@ -73,7 +73,7 @@ Vous pouvez également ouvrir une [demande de support](../azure-supportability/h
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur l’intégration des journaux Azure, consultez :
 
-* [Microsoft Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) : cette page du Centre de téléchargement donne plus d’informations, la configuration système requise et les instructions d’installation pour l’intégration des journaux Azure.
-* [Introduction à l’intégration de journaux Azure](security-azure-log-integration-overview.md) : cet article présente l’intégration des journaux Azure, ses principales fonctionnalités et son fonctionnement.
-* [Forum aux questions sur l’intégration des journaux Azure](security-azure-log-integration-faq.md) : cet article répond à des questions sur l’intégration des journaux Azure.
-* [Nouvelles fonctionnalités des diagnostics Azure et des journaux d’Audit Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) : ce billet de blog présente les journaux d’Audit Azure et autres fonctionnalités pour vous permettre de mieux connaître les opérations de vos ressources Azure.
+* [Microsoft Azure Log Integration pour les journaux Azure](https://www.microsoft.com/download/details.aspx?id=53324) : La page Centre de téléchargement contient des informations détaillées, la configuration système requise et des instructions d'installation pour Azure Log Integration.
+* [Présentation d'Azure Log Integration](security-azure-log-integration-overview.md) : Cet article présente Azure Log Integration, ses principales fonctionnalités et son fonctionnement.
+* [Forum aux questions sur Azure Log Integration](security-azure-log-integration-faq.md) : Cet article répond à des questions sur l’intégration des journaux Azure.
+* [Nouvelles fonctionnalités d'Azure Diagnostics et des journaux d'audit Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) : Ce billet de blog présente les journaux d'audit Azure ainsi que d'autres fonctionnalités pour vous aider à mieux comprendre le fonctionnement de vos ressources Azure.

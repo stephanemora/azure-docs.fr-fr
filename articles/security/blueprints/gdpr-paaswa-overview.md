@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 805c983c0c2db4256dade641f32363ca6514023c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1a99ffb751414d255f2aacfe514e5a8f474255bd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600809"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267213"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-gdpr"></a>Azure Blueprint Sécurité et conformité - Application web PaaS pour le RGPD
 
@@ -35,7 +35,7 @@ Cette architecture de référence, ainsi que le guide de mise en œuvre et le mo
 ## <a name="architecture-diagram-and-components"></a>Diagramme et composants de l’architecture
 Cette solution fournit une architecture de référence pour une application web PaaS avec un serveur principal Azure SQL Database. L’application web est hébergée dans un environnement Azure App Service dédié, privé et isolé dans un centre de données Azure. L’environnement équilibre la charge du trafic généré par l’application web entre des machines virtuelles gérées par Azure. Cette architecture inclut également des groupes de sécurité réseau, une passerelle d’application (Azure Application Gateway), un DNS (Azure DNS) et un équilibreur de charge (Azure Load Balancer). En outre, Azure Monitor fournit une analyse en temps réel de l’intégrité du système. **Azure recommande de configurer une connexion VPN ou ExpressRoute pour la gestion et l’importation de données dans le sous-réseau de l’architecture de référence.**
 
-![Diagramme de l’architecture de référence de l’application web PaaS pour le RGPD](images/gdpr-paaswa-architecture.png?raw=true "Diagramme de l’architecture de référence de l’application web PaaS pour le RGPD")
+![Diagramme de l'architecture de référence de l'application web PaaS pour le RGPD](images/gdpr-paaswa-architecture.png?raw=true "Diagramme de l'architecture de référence de l'application web PaaS pour le RGPD")
 
 Cette solution utilise les services Azure suivants. Les informations détaillées concernant l’architecture de déploiement se trouvent dans la section [Architecture de déploiement](#deployment-architecture).
 

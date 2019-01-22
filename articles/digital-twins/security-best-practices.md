@@ -1,25 +1,25 @@
 ---
 title: Comprendre les meilleures pratiques de sécurité Azure Digital Twins | Microsoft Docs
-description: Bonnes pratiques de sécurité relatives à Azure Digital Twins
+description: Meilleures pratiques de sécurité Azure Digital Twins.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 01/15/2019
 ms.author: adgera
-ms.openlocfilehash: 6ca01523744dbce15f8fdb3bbe2d5a9b44510f3f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 16bb148a0b3a424c9ba3aaae422f423ebd40793b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959475"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358811"
 ---
 # <a name="security-best-practices"></a>Meilleures pratiques en matière de sécurité
 
-La sécurité Azure Digital Twins permet un accès précis aux ressources et actions de votre graphe IoT. Cette gestion granulaire des rôles et des autorisations est appelée contrôle d’accès en fonction du rôle.
+La sécurité Azure Digital Twins permet un accès précis aux ressources et actions de votre graphe IoT. Cette gestion granulaire des rôles et des autorisations est appelée [contrôle d'accès en fonction du rôle](./security-role-based-access-control.md).
 
-Azure Digital Twins utilise également d’autres fonctionnalités de sécurité présentes dans Azure IoT, notamment Azure Active Directory (Azure AD). Pour cette raison, la configuration de votre application Azure Digital Twins implique l’utilisation de plusieurs [bonnes pratiques de sécurité Azure IoT](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/) actuellement recommandées.
+Azure Digital Twins utilise également d'autres fonctionnalités de sécurité présentes dans Azure IoT, notamment Azure Active Directory (Azure AD). Pour cette raison, la configuration et la sécurisation des applications créées sur Azure Digital Twins impliquent l'utilisation de bon nombre des [bonnes pratiques de sécurité Azure IoT](../iot-fundamentals/iot-security-best-practices.md) actuellement recommandées.
 
 Cet article récapitule les principales bonnes pratiques à suivre.
 
@@ -42,25 +42,27 @@ Voici certaines des pratiques les plus importantes pour sécuriser un espace IoT
 > [!div class="checklist"]
 > * Chiffrer les données enregistrées, stockées ou persistantes.
 > * Changer ou actualiser régulièrement les mots de passe ou les clés.
-> * Limiter soigneusement l’accès et les autorisations en fonction du rôle. Voir la section « Meilleures pratiques relatives au contrôle d’accès en fonction du rôle ».
+> * Limiter soigneusement l’accès et les autorisations en fonction du rôle. Consultez la section [Bonnes pratiques relatives au contrôle d'accès en fonction du rôle](#rbac) ci-dessous.
 > * Utiliser un chiffrement puissant. Cela implique d’utiliser des mots de passe longs, des protocoles sécurisés et l’authentification à deux facteurs.
 
-Supervisez les ressources IoT pour identifier les valeurs hors norme, les menaces et les paramètres de ressources indiquant un fonctionnement inhabituel. Utilisez pour cela Azure Analytics.
+[Supervisez](./how-to-configure-monitoring.md) les ressources IoT pour identifier les valeurs hors norme, les menaces ou les paramètres de ressources indiquant un fonctionnement inhabituel. Utilisez Azure Analytics pour la gestion de la supervision.
 
 > [!NOTE]
 > Pour plus d’informations sur le traitement et le monitoring des événements, voir [Acheminer des événements et des messages avec Azure Digital Twins](./concepts-events-routing.md).
 
 ## <a name="azure-active-directory-best-practices"></a>Bonnes pratiques relatives à Azure Active Directory
 
-Azure Digital Twins utilise Azure AD pour authentifier les utilisateurs et protéger les applications. Azure AD prend en charge l’authentification pour différentes architectures modernes. Elles sont toutes basées sur des protocoles standard comme OAuth 2.0 ou OpenID Connect. Voici quelques-unes des meilleures pratiques clés permettant de sécuriser un espace IoT pour Azure AD :
+Azure Digital Twins utilise Azure Active Directory pour authentifier les utilisateurs et protéger les applications. Azure Active Directory assure la prise en charge de l'authentification pour différentes architectures modernes. Elles sont toutes basées sur des protocoles standard comme OAuth 2.0 ou OpenID Connect. Voici certaines bonnes pratiques clés permettant de sécuriser votre espace IoT avec Azure Active Directory :
 
 > [!div class="checklist"]
-> * Stocker les clés et les secrets d’application Azure AD dans un emplacement sécurisé comme [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
-> * Utiliser un certificat émis par une [autorité de certification](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) approuvée pour s’authentifier, plutôt que des secrets d’application.
+> * Stocker les clés et les secrets d'application Azure Active Directory à un emplacement sécurisé, comme [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+> * Utiliser un certificat émis par une [autorité de certification](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) approuvée pour s’authentifier, plutôt que des secrets d’application.
 > * Limiter l’étendue d’accès OAuth 2.0 pour un jeton.
 > * Vérifier la durée de validité d’un jeton, ainsi que de sa capacité à rester valide.
 > * Définir des durées de validité appropriées pour les jetons.
 > * Actualiser des jetons expirés.
+
+<div id="rbac"></div>
 
 ## <a name="role-based-access-control-best-practices"></a>Bonnes pratiques relatives au contrôle d’accès en fonction du rôle
 
@@ -68,8 +70,8 @@ Azure Digital Twins utilise Azure AD pour authentifier les utilisateurs et prot�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les bonnes pratiques Azure IoT, consultez [Bonnes pratiques de sécurité IoT](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/).
+* Pour plus d’informations sur les bonnes pratiques Azure IoT, consultez [Bonnes pratiques de sécurité IoT](../iot-fundamentals/iot-security-best-practices.md).
 
-Pour plus d’informations sur le contrôle d’accès en fonction du rôle, voir [Contrôle d’accès en fonction du rôle](./security-role-based-access-control.md).
+* Pour plus d’informations sur le contrôle d’accès en fonction du rôle, voir [Contrôle d’accès en fonction du rôle](./security-role-based-access-control.md).
 
-Pour plus d’informations sur l’authentification, voir [S’authentifier auprès des API](./security-authenticating-apis.md).
+* Pour plus d’informations sur l’authentification, voir [S’authentifier auprès des API](./security-authenticating-apis.md).

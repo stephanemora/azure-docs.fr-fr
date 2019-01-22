@@ -1,10 +1,10 @@
 ---
-title: Guide pratique pour migrer en toute sécurité des utilisateurs entre des licences de produit à l’aide de la gestion de licences basée sur des groupes dans Azure Active Directory | Microsoft Docs
-description: Décrit le processus recommandé pour migrer des utilisateurs entre différentes licences de produit (par exemple, Office 365 Entreprise E1 et E3) à l’aide de la gestion de licences basée sur des groupes
+title: Guide pratique pour migrer des utilisateurs entre des licences de produit à l'aide de groupes - Azure Active Directory | Microsoft Docs
+description: Décrit le processus recommandé pour migrer des utilisateurs entre différentes licences de produit (par exemple, Office 365 Entreprise E1 et E3) à l'aide de la gestion de licences basée sur des groupes
 services: active-directory
 keywords: Gestion des licences Azure AD
 documentationcenter: ''
-author: piotrci
+author: curtand
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/29/2018
-ms.author: piotrci
-ms.openlocfilehash: 643339545dac6ec35ab44f2a05fbe417dea2bb71
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 01/14/2019
+ms.author: curtand
+ms.reviewer: sumitp
+ms.openlocfilehash: 68d4cdf3c7ba08f7cf37132936c6769c99c177cc
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211789"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319416"
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>Guide pratique pour migrer en toute sécurité des utilisateurs entre des licences produit à l’aide de la gestion de licences basée sur des groupes
 
@@ -47,7 +48,7 @@ Avant de commencer la migration, il est important de vérifier l’exactitude de
 -   Savoir comment les groupes sont gérés dans votre environnement. Par exemple, si vous gérez des groupes en local et les synchronisez dans Azure Active Directory (Azure AD) via Azure AD Connect, vous ajoutez/supprimer des utilisateurs à l’aide de votre système local. Il faut un certain temps pour que les modifications soient synchronisées dans Azure AD et qu’elles soient collectées par la licence de groupe. Si vous utilisez des appartenances de groupe dynamique Azure AD, vous ajoutez/supprimez des utilisateurs en modifiant leurs attributs. Le processus de migration général reste cependant le même. La seule différence réside dans la façon dont vous allez ajouter/supprimer des utilisateurs pour l’appartenance au groupe.
 
 ## <a name="migrate-users-between-products-that-dont-have-conflicting-service-plans"></a>Migrer des utilisateurs entre produits sans plans de service en conflit
-L’objectif de la migration est d’utiliser la gestion de licences basée sur des groupes pour passer les licences utilisateur d’une *licence source* (dans cet exemple : Office 365 Entreprise E3) à une *licence cible* (dans cet exemple : Office 365 Entreprise E5). Les deux produits de ce scénario ne contiennent pas de plans de service en conflit, ce qui signifie qu’ils peuvent être complètement attribués en même temps, sans conflit. À aucun moment de la migration les utilisateurs ne doivent perdre l’accès aux services ou données. La migration se déroule par petits « lots ». Vous pouvez valider le résultat pour chaque lot et réduire l’étendue des problèmes susceptibles de se produire au cours du processus. De manière générale, le processus est celui-ci :
+L'objectif de la migration est d'utiliser la gestion de licences basée sur des groupes pour modifier les licences utilisateur en remplaçant une *licence source* (dans cet exemple : Office 365 Enterprise E3) par une *licence cible* (dans cet exemple : Office 365 Enterprise E5). Les deux produits de ce scénario ne contiennent pas de plans de service en conflit, ce qui signifie qu’ils peuvent être complètement attribués en même temps, sans conflit. À aucun moment de la migration les utilisateurs ne doivent perdre l’accès aux services ou données. La migration se déroule par petits « lots ». Vous pouvez valider le résultat pour chaque lot et réduire l’étendue des problèmes susceptibles de se produire au cours du processus. De manière générale, le processus est celui-ci :
 
 1.  Les utilisateurs sont membres d’un groupe source et héritent la *licence source* de ce groupe.
 
@@ -66,15 +67,15 @@ L’objectif de la migration est d’utiliser la gestion de licences basée sur 
 ### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Migrer un seul utilisateur à l’aide du portail Azure
 Cette procédure pas à pas simple explique comment procéder à la migration d’un seul utilisateur.
 
-**ÉTAPE 1** : l’utilisateur possède une *licence source* héritée du groupe. Il n’existe aucune attribution directe de la licence :
+**ÉTAPE 1** : l'utilisateur possède une *licence source* héritée du groupe. Il n’existe aucune attribution directe de la licence :
 
 ![Utilisateur avec une licence source héritée du groupe](./media/licensing-groups-change-licenses/UserWithSourceLicenseInherited.png)
 
-**ÉTAPE 2** : l’utilisateur est ajouté au groupe cible et le système de gestion de licences basée sur des groupes traite la modification. L’utilisateur dispose maintenant à la fois de la *licence source* et de la *licence cible* héritées des groupes :
+**ÉTAPE 2** : l'utilisateur est ajouté au groupe cible et le système de gestion de licences basée sur des groupes traite la modification. L’utilisateur dispose maintenant à la fois de la *licence source* et de la *licence cible* héritées des groupes :
 
 ![Utilisateur avec licences source et cible héritées des groupes](./media/licensing-groups-change-licenses/UserWithBothSourceAndTargetLicense.png)
 
-**ÉTAPE 3** : l’utilisateur est supprimé du groupe source et le système de gestion de licences basée sur des groupes traite la modification. L’utilisateur possède désormais uniquement la *licence cible* :
+**ÉTAPE 3** : l'utilisateur est supprimé du groupe source et le système de gestion de licences basée sur des groupes traite la modification. L’utilisateur possède désormais uniquement la *licence cible* :
 
 ![Utilisateur avec une licence cible héritée du groupe](./media/licensing-groups-change-licenses/UserWithTargetLicenseAssigned.png)
 
@@ -176,7 +177,7 @@ Check passed for all users. Exiting check loop.
 ```
 
 ## <a name="migrate-users-between-products-that-have-conflicting-service-plans"></a>Migrer des utilisateurs entre des produits avec des plans de service en conflit
-L’objectif de la migration est d’utiliser la gestion de licences basée sur des groupes pour passer les licences utilisateur d’une *licence source* (dans cet exemple : Office 365 Entreprise E1) à une *licence cible* (dans cet exemple : Office 365 Entreprise E3). Les deux produits de ce scénario contiennent des plans de service en conflit. Nous devons donc trouver une solution pour migrer les utilisateurs de manière fluide. Pour plus d’informations sur ces conflits, consultez [Identification et résolution des problèmes d’affectation de licences pour un groupe dans Azure Active Directory : Plans de service en conflit](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). À aucun moment de la migration les utilisateurs ne doivent perdre l’accès aux services ou données. La migration se déroule par petits « lots ». Vous pouvez valider le résultat pour chaque lot et réduire l’étendue des problèmes susceptibles de se produire au cours du processus. De manière générale, le processus est celui-ci :
+L'objectif de la migration est d'utiliser la gestion de licences basée sur des groupes pour modifier les licences utilisateur en remplaçant une *licence source* (dans cet exemple : Office 365 Enterprise E1) par une *licence cible* (dans cet exemple : Office 365 Enterprise E3). Les deux produits de ce scénario contiennent des plans de service en conflit. Nous devons donc trouver une solution pour migrer les utilisateurs de manière fluide. Pour plus d'informations sur ces conflits, consultez [Identification et résolution des problèmes d'affectation de licences pour un groupe dans Azure Active Directory : Plans de service en conflit](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). À aucun moment de la migration les utilisateurs ne doivent perdre l’accès aux services ou données. La migration se déroule par petits « lots ». Vous pouvez valider le résultat pour chaque lot et réduire l’étendue des problèmes susceptibles de se produire au cours du processus. De manière générale, le processus est celui-ci :
 
 1.  Les utilisateurs sont membres d’un groupe source et héritent la *licence source* de ce groupe.
 
@@ -195,15 +196,15 @@ L’objectif de la migration est d’utiliser la gestion de licences basée sur 
 ### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Migrer un seul utilisateur à l’aide du portail Azure
 Cette procédure pas à pas simple explique comment procéder à la migration d’un seul utilisateur.
 
-**ÉTAPE 1** : l’utilisateur possède une *licence source* héritée du groupe. Il n’existe aucune attribution directe de la licence :
+**ÉTAPE 1** : l'utilisateur possède une *licence source* héritée du groupe. Il n’existe aucune attribution directe de la licence :
 
 ![Utilisateur avec une licence source héritée du groupe](./media/licensing-groups-change-licenses/UserWithSourceLicenseInheritedConflictScenario.png)
 
-**ÉTAPE 2** : l’utilisateur est ajouté au groupe cible et le système de gestion de licences basée sur des groupes traite la modification. Étant donné que l’utilisateur possède toujours la *licence source*, la *licence cible* se trouve en état d’erreur en raison du conflit :
+**ÉTAPE 2** : l'utilisateur est ajouté au groupe cible et le système de gestion de licences basée sur des groupes traite la modification. Étant donné que l’utilisateur possède toujours la *licence source*, la *licence cible* se trouve en état d’erreur en raison du conflit :
 
 ![Utilisateur avec une licence source héritée du groupe et une licence cible dans un état d’erreur](./media/licensing-groups-change-licenses/UserWithSourceLicenseAndTargetLicenseInConflict.png)
 
-**ÉTAPE 3** : l’utilisateur est supprimé du groupe source et le système de gestion de licences basée sur des groupes traite la modification. La *licence cible* est appliquée à l’utilisateur :
+**ÉTAPE 3** : l'utilisateur est supprimé du groupe source et le système de gestion de licences basée sur des groupes traite la modification. La *licence cible* est appliquée à l’utilisateur :
 
 ![Utilisateur avec une licence cible héritée du groupe](./media/licensing-groups-change-licenses/UserWithTargetLicenseAssignedConflictScenario.png)
 

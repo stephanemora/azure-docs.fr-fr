@@ -13,15 +13,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2018
 ms.author: borisb
-ms.openlocfilehash: f178ac06b4ebfeef534233c2782423a7358f0c10
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: dbef04710e1a91cfda8b039605b517de9524ee19
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719627"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229572"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Images Red Hat Enterprise Linux dans Azure
-Cet article décrit les images Red Hat Enterprise Linux (RHEL) disponibles dans la Place de marché Azure, ainsi que des stratégies autour de leurs noms et de la rétention
+Cet article décrit les images Red Hat Enterprise Linux (RHEL) disponibles sur la Place de marché Azure, ainsi que les stratégies relatives à leur dénomination et à leur rétention.
+
+Vous trouverez des informations sur les stratégies de prise en charge de Red Hat pour toutes les versions de RHEL sur la page [Cycle de vie de Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
 
 ## <a name="images-available-in-the-ui"></a>Images disponibles dans l’interface utilisateur
 Lorsque vous recherchez « Red Hat » dans la Place de marché, ou lorsque vous créez une ressource dans l’interface utilisateur du portail Azure, vous voyez un sous-ensemble d’images RHEL disponibles et les produits Red Hat associés. Vous pouvez toujours obtenir l’ensemble des images de machine virtuelle disponibles à l’aide d’Azure CLI, de PowerShell ou de l’API.
@@ -108,3 +110,4 @@ Notre stratégie actuelle consiste à conserver toutes les images précédemment
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Apprenez-en davantage sur l’infrastructure Red Hat Update Infrastructure (RHUI) Azure [ici](https://aka.ms/rhui-update).
+* Vous trouverez des informations sur les stratégies de prise en charge de Red Hat pour toutes les versions de RHEL sur la page [Cycle de vie de Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).

@@ -1,5 +1,5 @@
 ---
-title: Nouveautés Notes de publication - Azure Media Services v3 | Microsoft Docs
+title: Notes de publication Azure Media Services v3 | Microsoft Docs
 description: Pour vous informer des développements les plus récents, cet article détaille les toutes dernières mises à jour concernant Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 01/09/2019
 ms.author: juliako
-ms.openlocfilehash: 4db84deb344921d329e81e0f0c9c3a97923430f3
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: bf80f78cc464fe274e83eca2f8afa420c2a8c453
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156491"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229954"
 ---
-# <a name="whats-new-in-azure-media-services-v3"></a>Nouveautés d’Azure Media Services v3
+# <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
 
 Pour vous informer des développements les plus récents, cet article détaille les thèmes suivants :
 
@@ -33,6 +33,15 @@ Pour vous informer des développements les plus récents, cet article détaille 
 > Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-sdk), Azure CLI ou l’un des kits de développement logiciel (SDK) pris en charge.
 
 Pour plus d’informations, consultez [Conseils de migration pour le passage de Media Services v2 à Media Services v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="december-2018"></a>Décembre 2018
+
+Les mises à jour de la version mise à la disposition générale de l'API V3 incluent :
+       
+* Les propriétés **PresentationTimeRange** ne sont plus « obligatoires » pour **AssetFilters** et **AccountFilters**. 
+* Les options de requête $top et $skip de **Jobs** et **Transforms** ont été supprimées et $orderby a été ajouté. Lors de l'ajout de la nouvelle fonctionnalité de commande, il a été découvert que les options $top et $skip avaient déjà été accidentellement exposées, même si elles n'avaient pas été implémentées.
+* L'extensibilité de l'énumération a été réactivée. Cette fonctionnalité a été activée dans les préversions du kit de développement logiciel (SDK), puis accidentellement désactivée dans la version mise à la disposition générale.
+* Deux stratégies de diffusion en continu prédéfinies ont été renommées. **SecureStreaming** s'appelle désormais **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** s'appelle désormais **Predefined_MultiDrmStreaming**.
 
 ## <a name="november-2018"></a>Novembre 2018
 

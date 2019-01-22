@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: b1020389ef28c18c03536d686cd47ef0c65b9204
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e50a82f0f141fec266a8348c0a1a8b5fbdb38b45
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240889"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329851"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Utiliser les données Azure Blockchain Workbench avec Microsoft Power BI
 
@@ -25,9 +25,9 @@ Cet article contient une procédure pas à pas montrant comment se connecter à 
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Téléchargez [PowerBI Desktop](https://aka.ms/pbidesktopstore).
+* Téléchargez [Power BI Desktop](https://aka.ms/pbidesktopstore).
 
-## <a name="connecting-powerbi-to-data-in-azure-blockchain-workbench"></a>Connecter Power BI aux données dans Azure Blockchain Workbench
+## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Connecter Power BI aux données dans Azure Blockchain Workbench
 
 1.  Ouvrez Power BI Desktop.
 2.  Sélectionnez **Obtenir des données**.
@@ -49,7 +49,7 @@ Cet article contient une procédure pas à pas montrant comment se connecter à 
 
     ![Navigateur](./media/data-powerbi/navigator.png)
 
-7.  Sélectionnez les vues à inclure. À des fins de démonstration, nous incluons **vwContractAction** qui fournit des détails sur toutes les actions qui ont eu lieu sur un contrat.
+7.  Sélectionnez les vues à inclure. À des fins de démonstration, nous incluons **vwContractAction** qui fournit des détails sur les actions effectuées sur un contrat.
 
     ![Sélectionner les vues](./media/data-powerbi/select-views.png)
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 8c3c7e94db1f09164d6248cf0b9b093db0cf1d69
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: b46539758d88fe7a0e27799b5da581255fa5f075
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578669"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229330"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Comment utiliser une identité managée avec Azure Container Instances
 
@@ -80,7 +80,7 @@ az keyvault secret set --name SampleSecret --value "Hello Container Instances!" 
 
 Utilisez les exemples suivants pour accéder au coffre de clés Key Vault à l’aide d’une identité managée attribuée par l’utilisateur ou attribuée par le système dans Azure Container Instances.
 
-## <a name="example-1-use-a-user-assigned-identity-to-access-azure-key-vault"></a>Exemple 1 : utiliser une identité attribuée par l’utilisateur pour accéder à Azure Key Vault
+## <a name="example-1-use-a-user-assigned-identity-to-access-azure-key-vault"></a>Exemple 1 : Utiliser une identité attribuée par l'utilisateur pour accéder à Azure Key Vault
 
 ### <a name="create-an-identity"></a>Créer une identité
 
@@ -134,7 +134,7 @@ La section `identity` de la sortie ressemble à ce qui suit, elle montre la déf
 
 ### <a name="grant-user-assigned-identity-access-to-the-key-vault"></a>Autoriser l’identité attribuée par l’utilisateur à accéder au coffre de clés Key Vault
 
-Exécutez la commande [az keyvault set-policy](/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) suivante pour définir une stratégie d’accès sur le coffre de clés Key Vault. L’exemple suivant permet à l’identité attribuée par l’utilisateur d’obtenir les codes secrets du coffre de clés Key Vault :
+Exécutez la commande [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) suivante pour définir une stratégie d’accès sur le coffre de clés Key Vault. L’exemple suivant permet à l’identité attribuée par l’utilisateur d’obtenir les codes secrets du coffre de clés Key Vault :
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get
@@ -179,7 +179,7 @@ La réponse ressemble à ce qui suit, elle affiche le code secret. Dans votre co
 {"value":"Hello Container Instances!","contentType":"ACIsecret","id":"https://mykeyvault.vault.azure.net/secrets/SampleSecret/xxxxxxxxxxxxxxxxxxxx","attributes":{"enabled":true,"created":1539965967,"updated":1539965967,"recoveryLevel":"Purgeable"},"tags":{"file-encoding":"utf-8"}}
 ```
 
-## <a name="example-2-use-a-system-assigned-identity-to-access-azure-key-vault"></a>Exemple 2 : utiliser une identité attribuée par le système pour accéder à Azure Key Vault
+## <a name="example-2-use-a-system-assigned-identity-to-access-azure-key-vault"></a>Exemple 2 : Utiliser une identité attribuée par le système pour accéder à Azure Key Vault
 
 ### <a name="enable-a-system-assigned-identity-on-a-container-group"></a>Activer une identité attribuée par le système dans un groupe de conteneurs
 
@@ -216,7 +216,7 @@ spID=$(az container show --resource-group myResourceGroup --name mycontainer --q
 
 ### <a name="grant-container-group-access-to-the-key-vault"></a>Autoriser le groupe de conteneurs à accéder au coffre de clés Key Vault
 
-Exécutez la commande [az keyvault set-policy](/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) suivante pour définir une stratégie d’accès sur le coffre de clés Key Vault. L’exemple suivant permet à l’identité managée attribuée par le système d’obtenir les codes secrets du coffre de clés Key Vault :
+Exécutez la commande [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) suivante pour définir une stratégie d’accès sur le coffre de clés Key Vault. L’exemple suivant permet à l’identité managée attribuée par le système d’obtenir les codes secrets du coffre de clés Key Vault :
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get

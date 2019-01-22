@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.openlocfilehash: 9cc08920c5b8814a3e4b649f4518dce78c7cb38e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0cf301b98e5fa530b234dbd5953746241c0021ee
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54160524"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244237"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Utiliser le portail Azure pour configurer des alertes sur des métriques pour Azure Database for MariaDB
 
@@ -25,10 +25,9 @@ Vous pouvez configurer une alerte pour effectuer les actions suivantes lors de s
 * Appeler un webhook
 
 Vous pouvez configurer et obtenir des informations sur les règles d’alerte à l’aide des ressources suivantes :
-* [Portail Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [Interface de ligne de commande (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
-* [API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Portail Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Interface de ligne de commande Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [API REST Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric"></a>Créer une règle d'alerte d'une métrique
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez le serveur Azure Database pour MariaDB à surveiller.
@@ -49,7 +48,7 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte à
    
    ![Sélectionner la métrique](./media/howto-alert-metric/6-configure-signal-logic.png)
 
-7. Configurez la logique d’alerte, notamment les éléments **Condition** (par exemple, « Supérieur à »), **Seuil** (par exemple, 85 %), **Agrégation de temps**, **Période** de temps pendant laquelle la règle de métrique doit être satisfaite pour que l’alerte se déclenche (par exemple, « Au cours des 30 dernières minutes » et **Frequency**.
+7. Configurez la logique d’alerte, notamment les éléments **Condition** (par exemple, « Supérieur à »), **Seuil** (par exemple, 85 %), **Agrégation de temps**, **Période** de temps pendant laquelle la règle de métrique doit être satisfaite pour que l’alerte se déclenche (par exemple, « Au cours des 30 dernières minutes ») et **Frequency**.
    
    Sélectionnez **Terminé** lorsque vous avez terminé.
 

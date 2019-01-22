@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: e62276debf121cc39fc5642ed8e5a9faf6b876ed
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cf011558ab984ecaf8181a4dc4ffcb80851f24fb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039637"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352952"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB pour API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -137,7 +137,7 @@ Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les 
 
 ### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
 * Correction d’un bogue dans la gestion des connexions pour éviter les fuites de connexion en mode de connectivité directe.
-* Correction d’un bogue dans la requête TOP des exceptions NullReference peuvent être levées.
+* Correction dans la requête TOP d'un bogue qui pouvait générer une exception NullReference.
 * Amélioration des performances avec la réduction du nombre d’appels réseau pour les caches internes.
 * Ajout d’un code d’état, d’un ID d’activité et d’un URI de requête dans DocumentClientException pour une meilleure résolution des problèmes.
 

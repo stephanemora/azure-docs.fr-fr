@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 51c0fefc0d18127da1f5fc513b493407510a071b
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 4bae38b7596504d8de452e445c05e1c973aba78a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994434"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354595"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Mesures de stockage Azure dans Azure Monitor
 
@@ -341,6 +341,7 @@ Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 | BlobCapacity | Total de stockage d’objets blob utilisé dans le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 <br/> Dimension : BlobType ([Définition](#metrics-dimensions)) |
 | BlobCount    | Nombre d’objets blob stockés dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 <br/> Dimension : BlobType ([Définition](#metrics-dimensions)) |
 | ContainerCount    | Nombre de conteneurs dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
+| IndexCapacity     | Espace utilisé par l'index hiérarchique d'ADLS Gen2 <br/><br/> Unité : Octets <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
 
 ### <a name="table-storage"></a>Stockage de tables
 
@@ -368,7 +369,7 @@ Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 
 ## <a name="transaction-metrics"></a>Métriques de transaction
 
-Les mesures de transaction sont envoyées de Stockage Azure à Azure Monitor toutes les minutes. Toutes les mesures de transaction sont disponibles au niveau du compte et au niveau du service (stockage d’objets blob, stockage de tables, fichiers Azure et stockage de files d’attente). Le fragment de temps définit l’intervalle de temps auquel des valeurs de mesures sont présentées. Les fragments de temps pris en charge pour toutes les mesures de transaction sont PT1H et PT1M.
+Des métriques de transaction sont émises lors de chacune des requêtes adressées à un compte de stockage entre Stockage Azure et Azure Monitor. En l'absence d'activité sur votre compte de stockage, il n'y aura pas de données sur les métriques de transaction au cours la période. Toutes les mesures de transaction sont disponibles au niveau du compte et au niveau du service (stockage d’objets blob, stockage de tables, fichiers Azure et stockage de files d’attente). Le fragment de temps définit l’intervalle de temps auquel des valeurs de mesures sont présentées. Les fragments de temps pris en charge pour toutes les mesures de transaction sont PT1H et PT1M.
 
 Stockage Azure fournit les mesures de transaction suivantes dans Azure Monitor.
 

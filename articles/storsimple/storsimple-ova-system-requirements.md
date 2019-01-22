@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2017
+ms.date: 01/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 5d01523f326bd7e2518bff06e62ae62db8f318d3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7e5cf79613bdbd62427e99a0d1f2aa29ed8f85be
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24815226"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245189"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Configuration système requise pour StorSimple Virtual Array
 ## <a name="overview"></a>Vue d’ensemble
@@ -42,7 +42,7 @@ La configuration logicielle requise inclut les informations sur les navigateurs 
 | **Hyperviseur** | **Version** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 et versions ultérieures |
-| VMware ESXi |5.0, 5.5 et 6.0 <br> (6.5 n'est pas pris en charge.) |
+| VMware ESXi |5.0, 5.5, 6.0 et 6.5. |
 
 > [!IMPORTANT]
 > N’installez pas les outils VMware sur votre StorSimple Virtual Array, car cela engendrerait une configuration non prise en charge.
@@ -54,7 +54,7 @@ La configuration logicielle requise inclut les informations sur les navigateurs 
 | Quantité minimale de mémoire (RAM) |8 Go <br> Pour un serveur de fichiers, 8 Go pour moins de 2 millions de fichiers et 16 Go pour 2 à 4 millions de fichiers|
 | Espace disque<sup>1</sup> |Disque de système d'exploitation - 80 Go  <br></br>Disque de données - 500 Go à 8 To |
 | Nombre minimal d'interfaces réseau |1 |
-| Bande passante Internet<sup>2</sup> |Bande passante minimale requise : 5 Mbits/s <br> Bande passante recommandée : 100 Mbits/s <br> La vitesse de transfert des données varie selon la bande passante Internet. Par exemple, le transfert de 100 Go de données prend deux jours avec une bande passante de 5 Mbits/s. Cela peut entraîner des échecs de sauvegarde, car les sauvegardes quotidiennes ne peuvent pas dans ce cas s’effectuer en un seul jour. Avec une bande passante de 100 Mbits/s, le transfert de 100 Go de données s’effectue en deux heures et demie.   |
+| Bande passante Internet<sup>2</sup> |Bande passante minimale requise : 5 Mbits/s <br> Bande passante recommandée : 100 Mbits/s <br> La vitesse de transfert des données varie selon la bande passante Internet. Par exemple, le transfert de 100 Go de données prend deux jours avec une bande passante de 5 Mbits/s. Cela peut entraîner des échecs de sauvegarde, car les sauvegardes quotidiennes ne peuvent pas dans ce cas s’effectuer en un seul jour. Avec une bande passante de 100 Mbits/s, le transfert de 100 Go de données s’effectue en deux heures et demie.   |
 
 <sup>1</sup> - Allocation dynamique
 
@@ -94,13 +94,13 @@ Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre
 
 | **Numéro de port<sup>1</sup>** | **Entrant ou sortant** | **Étendue de ports** | **Obligatoire** | **Remarques** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |Sortie |WAN |Non |Le port de sortie est utilisé pour accéder à Internet afin de récupérer les mises à jour. <br></br>Le proxy web sortant est configurable par l’utilisateur. |
+| TCP 80 (HTTP) |Sortie |WAN |Non  |Le port de sortie est utilisé pour accéder à Internet afin de récupérer les mises à jour. <br></br>Le proxy web sortant est configurable par l’utilisateur. |
 | TCP 443 (HTTPS) |Sortie |WAN |Oui |Le port de sortie est utilisé pour accéder aux données dans le cloud. <br></br>Le proxy web sortant est configurable par l’utilisateur. |
 | UDP 53 (DNS) |Sortie |WAN |Dans certains cas, consultez les notes. |Ce port est requis seulement si vous utilisez un serveur DNS Internet. <br></br> Notez que si vous déployez un serveur de fichiers, nous recommandons l’utilisation d’un serveur DNS local. |
 | UDP 123 (NTP) |Sortie |WAN |Dans certains cas, consultez les notes. |Ce port est requis seulement si vous utilisez un serveur NTP Internet.<br></br> Notez que si vous déployez un serveur de fichiers, nous vous recommandons de synchroniser l’heure avec vos contrôleurs de domaine Active Directory. |
 | TCP 80 (HTTP) |Dans |LAN |Oui |Il s'agit du port d'entrée pour l'interface utilisateur locale de l'appareil StorSimple pour la gestion locale. <br></br> Notez que l’accès à l’interface utilisateur locale par le biais du protocole HTTP est automatiquement redirigé vers HTTPS. |
 | TCP 443 (HTTPS) |Dans |LAN |Oui |Il s'agit du port d'entrée pour l'interface utilisateur locale de l'appareil StorSimple pour la gestion locale. |
-| TCP 3260 (iSCSI) |Dans |LAN |Non |Ce port est utilisé pour accéder aux données via iSCSI. |
+| TCP 3260 (iSCSI) |Dans |LAN |Non  |Ce port est utilisé pour accéder aux données via iSCSI. |
 
 <sup>1</sup> Aucun port entrant ne doit être ouvert sur l’Internet public.
 

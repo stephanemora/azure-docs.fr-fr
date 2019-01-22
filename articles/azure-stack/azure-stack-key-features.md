@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 01/14/2019
 ms.author: jeffgilb
-ms.reviewer: ''
-ms.openlocfilehash: 21a6eeb4b0a83574be4c5c996e43d9867c3249d0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.reviewer: unknown
+ms.openlocfilehash: 1b533c945fdcfc3d1072a7d8a513126ca3f1f72a
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185730"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303582"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Fonctionnalités et concepts clés de Azure Stack
 Si vous ne connaissez pas encore Microsoft Azure Stack, ces termes et descriptions de fonctionnalité peuvent vous être utiles.
@@ -129,23 +129,13 @@ Le Stockage File d’attente Azure fournit une messagerie cloud entre les compos
 Le fournisseur de ressources KeyVault fournit la gestion et l’audit des secrets, tels que les mots de passe et les certificats. Par exemple, un locataire peut utiliser le fournisseur de ressources KeyVault pour fournir des mots de passe ou des clés d’administrateur lors du déploiement de machine virtuelle.
 
 ## <a name="high-availability-for-azure-stack"></a>Haute disponibilité pour Azure Stack
-*S’applique à : Azure Stack 1802 et versions ultérieures*
+Pour garantir la haute disponibilité d'un système de production à plusieurs machines virtuelles dans Azure, ces machines virtuelles sont placées dans un [groupe à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) qui les répartit entre plusieurs domaines d'erreur et de mise à jour. À la plus petite échelle d'Azure Stack, un domaine d'erreur au sein d'un groupe à haute disponibilité est défini comme un nœud unique dans l'unité d'échelle.  
 
-Pour garantir la haute disponibilité d’un système de production à plusieurs machines virtuelles dans Azure, ces machines virtuelles sont placées dans un groupe à haute disponibilité qui les répartit entre plusieurs domaines d’erreur et de mise à jour. Les [machines virtuelles déployées dans des groupes à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) sont ainsi physiquement isolées les uns des autres sur des racks de serveurs distincts, ce qui assure une résilience en cas d’échec, comme l’indique le diagramme suivant :
-
-  ![Haute disponibilité d’Azure Stack](media/azure-stack-key-features/high-availability.png)
-
-### <a name="availability-sets-in-azure-stack"></a>Groupes à haute disponibilité dans Azure Stack
 Même si l’infrastructure d’Azure Stack est déjà résistante aux défaillances, la technologie sous-jacente (clustering de basculement) implique toujours un temps d’arrêt pour les machines virtuelles qui se trouvent sur un serveur physique impacté en cas de défaillance matérielle. Azure Stack gère les groupes à haute disponibilité comportant trois domaines d’erreur maximum dans un souci de compatibilité avec Azure.
 
 - **Domaines d’erreur**. Les machines virtuelles placées dans un groupe à haute disponibilité seront physiquement isolées les unes des autres grâce à une répartition aussi équilibrée que possible sur plusieurs domaines d’erreur (nœuds Azure Stack). En cas de défaillance matérielle, les machines virtuelles du domaine d’erreur défaillant sont redémarrées dans d’autres domaines d’erreur, si possible distincts de ceux des autres machines virtuelles du même groupe à haute disponibilité. Une fois le matériel rétabli, les machines virtuelles seront rééquilibrées de façon à maintenir une haute disponibilité. 
  
 - **Domaines de mise à jour**. Les domaines de mise à jour représentent un autre concept Azure à l’origine de la haute disponibilité des groupes à haute disponibilité. Un domaine de mise à jour est un groupe logique de matériel sous-jacent pouvant faire l’objet simultanément d’une opération de maintenance. Les machines virtuelles qui se trouvent dans le même domaine de mise à jour sont redémarrées ensemble lors de la maintenance planifiée. Lorsqu’un client crée des machines virtuelles au sein d’un groupe à haute disponibilité, la plateforme Azure les distribue automatiquement dans ces différents domaines de mise à jour. Dans Azure Stack, les machines virtuelles sont migrées en direct sur les autres hôtes en ligne du cluster avant que leur hôte sous-jacent soit mis à jour. Comme il ne se produit aucun temps d’arrêt du côté du client pendant la mise à jour d’un hôte, la fonctionnalité de domaine de mise à jour d’Azure Stack n’existe qu’à des fins de compatibilité des modèles avec Azure. 
-
-### <a name="upgrade-scenarios"></a>Scénarios de mise à niveau 
-Les machines virtuelles des groupes à haute disponibilité qui ont été créés avant la version 1802 d’Azure Stack se voient attribuer un nombre par défaut de domaines d’erreur et de mise à jour (un de chaque). Pour assurer la haute disponibilité des machines virtuelles de ces groupes à haute disponibilité préexistants, commencez par supprimer les machines virtuelles existantes, puis redéployez-les dans un nouveau groupe à haute disponibilité comportant le bon nombre de domaines d’erreur et de mise à jour, en suivant la procédure de la page [Modification du groupe à haute disponibilité pour une machine virtuelle Windows](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
-
-Pour les groupes de machines virtuelles identiques, un groupe à haute disponibilité est créé en interne avec un nombre par défaut de domaines d’erreur et de mise à jour (respectivement, 3 et 5). Tous les groupes de machines virtuelles identiques créés avant la mise à jour 1802 seront placés dans un groupe à haute disponibilité comportant le nombre par défaut de domaines d’erreur et de mise à jour (un de chaque). Pour mettre à jour ces instances de groupes de machines virtuelles identiques, et ainsi bénéficier de la dernière répartition, montez en charge les groupes de machines virtuelles identiques du nombre d’instances présentes avant la mise à jour 1802, puis supprimez les instances plus anciennes des groupes de machines virtuelles identiques. 
 
 ## <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle (RBAC)
 Vous pouvez utiliser le contrôle RBAC pour accorder l’accès au système aux utilisateurs, groupes et services autorisés en leur attribuant des rôles au niveau de l’abonnement, du groupe de ressources ou de la ressource individuelle. Chaque rôle définit le niveau d’accès dont un utilisateur, un groupe ou un service dispose sur les ressources Microsoft Azure Stack.

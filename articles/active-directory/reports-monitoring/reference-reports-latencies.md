@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e5ceae2959f79c677f5b89c0c3f0a487f92ad1c6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: c6d36f3e1cef4fffbe38b0a70d42069577590627
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623177"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212258"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latences de création de rapports Azure Active Directory
 
@@ -31,7 +31,7 @@ La latence est le temps qu’il faut pour que les données de rapport Azure Acti
 
 Il existe deux types de rapports d’activité :
 
-- [Connexions](concept-sign-ins.md) – Fournit des informations sur l’utilisation des applications gérées et les activités de connexion des utilisateurs
+- [Connexions](concept-sign-ins.md) – Fournit des informations sur l’utilisation des applications managées et les activités de connexion des utilisateurs
 - [Activités du système](concept-audit-logs.md) – Fournit des informations sur les utilisateurs et les groupes, les applications gérées et les activités de répertoire
 
 Le tableau suivant répertorie les informations de latence pour les rapports d’activité. 
@@ -40,10 +40,14 @@ Le tableau suivant répertorie les informations de latence pour les rapports d�
 > **Latence (95e centile)** fait référence au délai auquel 95 % des journaux seront déclarés et **Latence (99e centile)** fait référence au délai auquel 99 % des journaux seront déclarés. 
 >
 
-| Rapport | Latence (95e centile) |Latence (99e centile)|
-| :-- | --- | --- | 
-| Journaux d’audit | 2 minutes  | 5 minutes  |
-| Connexions | 2 minutes  | 5 minutes |
+| Rapport | Latence (95e centile) |Latence (99e centile)|Intervalle au cours duquel les journaux seront rapportés|
+| :-- | --- | --- | --- |
+| Journaux d’audit | 2 minutes  | 5 minutes  | 2 à 60 minutes |
+| Connexions | 2 minutes  | 5 minutes | 2 à 120 minutes |
+
+### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Au bout de combien de temps puis-je consulter les données d'activité après avoir obtenu une licence Premium ?
+
+Si vous avez déjà des données d'activités avec votre licence gratuite, vous pouvez les voir immédiatement lors de la mise à niveau. Si vous n'avez pas encore de données, il faudra un ou deux jours pour que les données apparaissent dans les rapports après la mise à niveau vers une licence Premium.
 
 ## <a name="security-reports"></a>Rapports de sécurité
 

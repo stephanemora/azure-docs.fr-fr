@@ -1,27 +1,8 @@
 ---
-title: Tutoriel de démarrage rapide sur le langage R pour Machine Learning Studio - Azure | Microsoft Docs
-description: Utilisez ce didacticiel sur la programmation R pour prendre en main rapidement l'utilisation du langage R avec Azure Machine Learning Studio afin de créer une solution de prévision.
-keywords: démarrage rapide,langage r,langage de programmation r,didacticiel de programmation en r
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/06/2017
-ms.openlocfilehash: ddd9c1fd8b51c6ae43878cf50ee16737511c82e9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278659"
+titre : Tutoriel de démarrage rapide sur le langage R - titleSuffix : Description d'Azure Machine Learning Studio : Utilisez ce didacticiel sur la programmation R pour prendre en main rapidement l'utilisation du langage R avec Azure Machine Learning Studio afin de créer une solution de prévision.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 06/01/2017
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Tutoriel de démarrage rapide pour le langage de programmation R pour Azure Machine Learning Studio
 
@@ -44,7 +25,7 @@ Dans ce guide de démarrage rapide, nous allons utiliser les données de product
 Les données utilisées dans cet article et les scripts R peuvent être [téléchargés ici](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv). À l’origine, ces données ont été synthétisées à partir des informations disponibles sur le site de l’Université du Wisconsin à l’adresse https://dairymarkets.com.
 
 ### <a name="organization"></a>Organisation
-À travers plusieurs étapes successives, vous allez apprendre à créer, tester et exécuter du code R d’analyse et de manipulation de données dans l’environnement Azure Machine Learning.  
+À travers plusieurs étapes successives, vous allez apprendrez à créer, tester et exécuter du code R d’analyse et de manipulation de données dans l’environnement Azure Machine Learning.  
 
 * Dans un premier temps, nous explorerons les bases de l’utilisation du langage R dans l’environnement Azure Machine Learning Studio.
 * Après quoi, nous examinerons différents aspects de l’E/S de données, du code R et des graphiques dans l’environnement Azure Machine Learning.
@@ -125,7 +106,7 @@ Si, pour l’heure, vous ne comprenez pas la dernière ligne de ce code, poursui
 ### <a name="introduction-to-rstudio"></a>Présentation de RStudio
 RStudio est un environnement de développement intégré (IDE) pour R couramment utilisé. C’est l’outil que j’utiliserai pour modifier, tester et déboguer une partie du code R utilisé dans ce guide de démarrage rapide. Une fois le code R testé et prêt, il suffit de le couper dans l’éditeur RStudio et de le coller dans un module [d’exécution de script R][execute-r-script] de Machine Learning Studio.  
 
-Si vous n'avez pas encore installé le langage de programmation R sur votre ordinateur de bureau, je vous conseille de le faire dès maintenant. Des versions open source du langage R sont disponibles en téléchargement gratuit dans la section CRAN (Comprehensive R Archive Network) du site [http://www.r-project.org/](http://www.r-project.org/). Il existe des versions Windows, Mac OS et Linux/UNIX. Choisissez un site miroir voisin et suivez les instructions de téléchargement. Par ailleurs, la section CRAN contient de nombreux packages d'analyse et de manipulation de données fort utiles.
+Si vous n'avez pas encore installé le langage de programmation R sur votre ordinateur de bureau, je vous conseille de le faire dès maintenant. Des versions open source du langage R sont disponibles en téléchargement gratuit dans la section CRAN (Comprehensive R Archive Network) du site [http://www.r-project.org/](http://www.r-project.org/). Il existe des versions Windows, Mac OS et Linux/UNIX. Choisissez un site miroir voisin et suivez les instructions de téléchargement. Par ailleurs, le section CRAN contient de nombreux packages d'analyse et de manipulation de données fort utiles.
 
 Si vous débutez avec RStudio, téléchargez et installez la version pour ordinateur de bureau. Les versions Windows, Mac OS et Linux/UNIX de RStudio sont disponibles en téléchargement à l’adresse http://www.rstudio.com/products/RStudio/. Suivez les instructions qui vous sont fournies pour installer RStudio sur votre ordinateur de bureau.  
 
@@ -289,7 +270,7 @@ Le comportement de l'entrée Jeu de données 2 est identique à Jeu de données
 
 ### <a name="execute-r-script-outputs"></a>Sorties du module d'exécution de script R
 #### <a name="output-a-dataframe"></a>Sortie d'un tableau de données
-Vous pouvez sortir le contenu d’un tableau de données R sous forme de table rectangulaire via le port du Jeu de données 1 de résultat en utilisant la fonction `maml.mapOutputPort()`. Dans notre script R simple, cette opération est exécutée par la ligne suivante :
+Vous pouvez sortir le contenu d’un tableau de données R sous forme de table rectangulaire via le port du Jeu de données 1 de résultat en utilisant la fonction `maml.mapOutputPort()` . Dans notre script R simple, cette opération est exécutée par la ligne suivante :
 
     maml.mapOutputPort('cadairydata')
 

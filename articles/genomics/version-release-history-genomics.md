@@ -3,28 +3,34 @@ title: Historique de publication des versions | Microsoft Genomics
 titleSuffix: Azure
 description: Microsoft Genomics met régulièrement à jour le client Python Microsoft Genomics à l’aide de correctifs et de nouvelles fonctionnalités.
 services: genomics
-author: ruchir
+author: grhuynh
 manager: cgronlun
-ms.author: ruchir
+ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
-ms.date: 11/08/2018
-ms.openlocfilehash: e673d732d1d43e3f58a295a94d11fc42f3618d93
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.date: 01/11/2019
+ms.openlocfilehash: 2037bcf173951769f1627f809352ef60afce2d50
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345860"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260275"
 ---
 # <a name="version-release-history"></a>Historique de publication des versions
 L’équipe Microsoft Genomics met régulièrement à jour le client Python Microsoft Genomics à l’aide de correctifs et de nouvelles fonctionnalités. 
 
 ## <a name="latest-release"></a>Dernière version
-Le client Python actuel correspond à la version 0.7.4. Elle a été publiée le 5 mars 2018 et prend en charge des flux de travail en cours d’exécution avec GATK 3.5 et GATK4.
+Le client Python actuel correspond à la version 0.8.1. Cette version a été publiée le 3 décembre 2018 et prend en charge des flux de travail en cours d'exécution avec GATK 3.5 et GATK4. Elle prend également en charge la sortie gVCF.
 
 
 ## <a name="release-history"></a>Historique de publication 
 De nouvelles versions du client Python Microsoft Genomics sont publiées environ deux fois par an. Au fur et à mesure de leur publication, la liste des correctifs et des fonctionnalités est mise à jour ici. Quand de nouvelles versions sont publiées, la prise en charge des versions antérieures est maintenue pendant au moins 90 jours. Les versions antérieures qui ne sont plus prises en charge sont répertoriées sur cette page. 
+
+### <a name="version-081"></a>Version 0.8.1
+La version 0.8.1 inclut des correctifs mineurs.  
+
+### <a name="version-080"></a>Version 0.8.0
+La version 0.8.0 prend en charge GATK4 et les sorties de gVCF.  
 
 ### <a name="version-074"></a>Version 0.7.4
 La version 0.7.4 inclut la prise en charge des jetons SAS au lieu des clés de compte dans l’entrée `config.txt`. Pour plus d’informations, consultez [Démarrage rapide sur les jetons SAS d’entrée](quickstart-input-sas.md). 

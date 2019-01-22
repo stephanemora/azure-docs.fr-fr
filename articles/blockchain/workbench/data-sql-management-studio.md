@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 3a0b4db77e6dfb8be3a2f943052925001e5f7715
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 32606f988152b061fa1923c409207b2a650e64ba
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259781"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332453"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>Utilisation des données Azure Blockchain Workbench avec SQL Server Management Studio
 
@@ -34,7 +34,7 @@ Microsoft SQL Server Management Studio permet d’écrire et de tester rapidemen
 
 3. Dans la boîte de dialogue **Se connecter au serveur**, saisissez le nom du serveur et les informations d’identification de votre base de données.
 
-    Si vous utilisez les informations d’identification créées par le processus de déploiement d’Azure Blockchain Workbench, le nom d’utilisateur sera **dbadmin** et le mot de passe, celui indiqué pendant le déploiement.
+    Si vous utilisez les informations d’identification créées par le processus de déploiement d’Azure Blockchain Workbench, le nom d’utilisateur sera **dbadmin** et le mot de passe, celui que vous avez indiqué pendant le déploiement.
 
     ![Saisie des informations d’identification SQL](./media/data-sql-management-studio/sql-creds.png)
 
@@ -43,7 +43,7 @@ Microsoft SQL Server Management Studio permet d’écrire et de tester rapidemen
     ![Liste des bases de données](./media/data-sql-management-studio/db-list.png)
 
 5. Pour afficher les données associées aux vues de la base de données, vous pouvez générer automatiquement une instruction select. Pour cela, procédez comme suit.
-6. Cliquez avec le bouton droit sur l’une des vues de la base de données dans l’Explorateur d’objets.
+6. Cliquez avec le bouton droit sur l'une des vues de la base de données dans l'Explorateur d'objets.
 7. Sélectionnez **Script View as** (Vue du script en tant que).
 8. Choisissez **SELECT to** (SÉLECTIONNER vers).
 9. Sélectionnez **Nouvelle fenêtre d’éditeur de requête**.

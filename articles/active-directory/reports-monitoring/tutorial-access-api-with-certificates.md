@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7535aad95f7410d25ada232b4946fe52ebc4ba67
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5714ed552c81d28a253aa57ad6e2ba1d67e543a1
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961958"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214264"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutoriel : Obtenir des données à l’aide de l’API de création de rapports Azure Active Directory avec des certificats
 
@@ -30,24 +30,28 @@ Dans ce didacticiel, vous allez apprendre à utiliser un certificat de test pour
 
 ## <a name="prerequisites"></a>Prérequis
 
-1. Tout d’abord, remplissez les [prérequis pour accéder à l’API de création de rapports Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md). 
+1. Pour accéder aux données de connexion, vous devez disposer d'un locataire Azure Active Directory avec licence premium (P1/P2). Consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) pour mettre à niveau votre édition d’Azure Active Directory. Notez que si vous ne disposiez d'aucune donnée d'activité avant la mise à niveau, quelques jours seront nécessaires pour que les données s'affichent dans les rapports après la mise à niveau vers une licence premium. 
 
-2. Téléchargez et installez [Azure AD PowerShell V2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md).
+2. Créez ou basculez vers un compte d'utilisateur dans le rôle **Administrateur général**, **Administrateur de la sécurité**, **Lecteur Sécurité** ou **Lecteur de rapport** pour le locataire. 
 
-3. Installez [MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Ce module fournit plusieurs applets de commande d’utilitaire, notamment :
+3. Remplissez les [conditions préalables pour accéder à l'API de création de rapports Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md). 
+
+4. Téléchargez et installez [Azure AD PowerShell V2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md).
+
+5. Installez [MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Ce module fournit plusieurs applets de commande d’utilitaire, notamment :
     - Les bibliothèques d’authentification Active Directory (ADAL) nécessaires pour l’authentification
     - Les jetons d’accès d’utilisateur, de clés d’application et de certificats à l’aide d’ADAL
     - L’API Graph gérant les résultats paginés
 
-4. S’il s’agit de la première utilisation du module, exécutez **Install-MSCloudIdUtilsModule**. Dans le cas contraire, importez-le à l’aide de la commande Powershell **Import-Module**. Votre session doit ressembler à ce qui suit : ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. S’il s’agit de la première utilisation du module, exécutez **Install-MSCloudIdUtilsModule**. Dans le cas contraire, importez-le à l’aide de la commande Powershell **Import-Module**. Votre session doit ressembler à ce qui suit : ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-5. Utilisez la cmdlet PowerShell **New-SelfSignedCertificate** pour créer un certificat de test.
+7. Utilisez la cmdlet PowerShell **New-SelfSignedCertificate** pour créer un certificat de test.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
    ```
 
-6. Utilisez la cmdlet **Export-Certificate** pour l’exporter dans un fichier de certificat.
+8. Utilisez la cmdlet **Export-Certificate** pour l’exporter dans un fichier de certificat.
 
    ```
    Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"

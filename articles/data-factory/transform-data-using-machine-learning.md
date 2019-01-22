@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 494aa435f2b3e682ae330baa61d4778f3d91d789
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 333750e4959e0bdfea05347ef0e9a1d968b8f13c
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025740"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214709"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Création de pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,10 +27,10 @@ ms.locfileid: "54025740"
 
 1. **Créez une expérience de formation**. Vous effectuez cette étape à l’aide d’Azure ML Studio. ML Studio est un environnement de développement visuel collaboratif qui vous permet de former et de tester un modèle d’analyse prédictive à l’aide de données d’apprentissage.
 2. **Convertissez-la en une expérience prédictive**. Une fois que votre modèle a été formé avec des données existantes et que vous êtes prêt à l’utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience de notation.
-3. **Déployez-la en tant que service web**. Vous pouvez publier votre expérience de notation comme un service web Azure. Vous pouvez envoyer des données à votre modèle via ce point de terminaison de service web et recevoir des prédictions de résultats du modèle.  
+3. **Déployez-la en tant que service web**. Vous pouvez publier votre expérience de notation comme un service web Azure. Vous pouvez envoyer des données à votre modèle via ce point de terminaison de service web et recevoir des prédictions de résultats du modèle.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory et Machine Learning
-Azure Data Factory vous permet de créer facilement des pipelines qui utilisent un service web [Azure Machine Learning][azure-machine-learning] publié pour l’analytique prédictive. À l’aide de l’ **activité d’exécution par lots** dans un pipeline Azure Data Factory, vous pouvez appeler un service web Azure ML pour effectuer des prédictions sur les données par lots. 
+Azure Data Factory vous permet de créer facilement des pipelines qui utilisent un service web [Azure Machine Learning][azure-machine-learning] publié pour l’analytique prédictive. À l’aide de l’ **activité d’exécution par lots** dans un pipeline Azure Data Factory, vous pouvez appeler un service web Azure ML pour effectuer des prédictions sur les données par lots.
 
 Au fil du temps, les modèles prédictifs dans les expériences de notation Azure ML doivent être reformés à l’aide de nouveaux jeux de données d’entrée. Vous pouvez reformer un modèle Azure ML à partir d’un pipeline Data Factory en procédant comme suit :
 
@@ -41,8 +41,7 @@ Une fois que vous avez fini la reformation, mettez à jour le service web de not
 
 ## <a name="azure-machine-learning-linked-service"></a>Service lié Microsoft Azure Machine Learning
 
-Vous créez un service lié **Azure Machine Learning** pour lier un service web Azure Machine Learning à une fabrique de données Azure. Le service lié est utilisé par l’activité d’exécution par lot Azure Machine Learning et l’[activité des ressources de mise à jour](update-machine-learning-models.md). 
-
+Vous créez un service lié **Azure Machine Learning** pour lier un service web Azure Machine Learning à une fabrique de données Azure. Le service lié est utilisé par l'Activité d'exécution par lot et l'[Activité des ressources de mise à jour](update-machine-learning-models.md) Azure Machine Learning.
 
 ```JSON
 {
@@ -57,7 +56,7 @@ Vous créez un service lié **Azure Machine Learning** pour lier un service web 
                 "type": "SecureString",
                 "value": "api key"
             }
-        }
+        },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
             "type": "IntegrationRuntimeReference"
@@ -66,15 +65,15 @@ Vous créez un service lié **Azure Machine Learning** pour lier un service web 
 }
 ```
 
-Consultez l’article sur les [services liés de calcul](compute-linked-services.md) pour obtenir les descriptions des propriétés dans la définition JSON. 
+Consultez l’article sur les [services liés de calcul](compute-linked-services.md) pour obtenir les descriptions des propriétés dans la définition JSON.
 
-Azure Machine Learning prend à la fois en charge les services web classiques et les nouveaux services web pour votre expérience prédictive. Vous pouvez choisir celui qui vous convient à partir de Data Factory. Pour obtenir les informations requises pour créer le service lié Azure Machine Learning, accédez à https://services.azureml.net, où tous vos (nouveaux) services web et les services web classiques sont répertoriés. Cliquez sur le service web auquel vous voulez accéder, puis cliquez sur la page **Consommer**. Copiez la **clé primaire** de la propriété **apiKey**, puis les **requêtes de lots** de la propriété **mlEndpoint**. 
+Azure Machine Learning prend à la fois en charge les services web classiques et les nouveaux services web pour votre expérience prédictive. Vous pouvez choisir celui qui vous convient à partir de Data Factory. Pour obtenir les informations requises pour créer le service lié Azure Machine Learning, accédez à https://services.azureml.net, où tous vos (nouveaux) services web et les services web classiques sont répertoriés. Cliquez sur le service web auquel vous voulez accéder, puis cliquez sur la page **Consommer**. Copiez la **clé primaire** de la propriété **apiKey**, puis les **requêtes de lots** de la propriété **mlEndpoint**.
 
 ![Services web Azure Machine Learning](./media/transform-data-using-machine-learning/web-services.png)
 
 ## <a name="azure-machine-learning-batch-execution-activity"></a>Activité d’exécution par lot Azure Machine Learning
 
-L’extrait de code JSON suivant définit une activité d’exécution par lot Azure Machine Learning. La définition de l’activité comporte une référence au service lié Azure Machine Learning que vous avez créée précédemment. 
+L’extrait de code JSON suivant définit une activité d’exécution par lot Azure Machine Learning. La définition de l’activité comporte une référence au service lié Azure Machine Learning que vous avez créée précédemment.
 
 ```JSON
 {
@@ -91,32 +90,32 @@ L’extrait de code JSON suivant définit une activité d’exécution par lot A
                 "LinkedServiceName":{
                     "referenceName": "AzureStorageLinkedService1",
                     "type": "LinkedServiceReference"
-                }, 
+                },
                 "FilePath":"path1"
-            }, 
+            },
             "<web service input name 2>": {
                 "LinkedServiceName":{
                     "referenceName": "AzureStorageLinkedService1",
-                    "type": "LinkedServiceReference" 
-                }, 
+                    "type": "LinkedServiceReference"
+                },
                 "FilePath":"path2"
-            }        
+            }
         },
         "webServiceOutputs": {
             "<web service output name 1>": {
                 "LinkedServiceName":{
                     "referenceName": "AzureStorageLinkedService2",
-                    "type": "LinkedServiceReference"   
-                }, 
+                    "type": "LinkedServiceReference"
+                },
                 "FilePath":"path3"
-            }, 
+            },
             "<web service output name 2>": {
                 "LinkedServiceName":{
                     "referenceName": "AzureStorageLinkedService2",
-                    "type": "LinkedServiceReference"   
-                }, 
+                    "type": "LinkedServiceReference"
+                },
                 "FilePath":"path4"
-            }         
+            }
         },
         "globalParameters": {
             "<Parameter 1 Name>": "<parameter value>",
@@ -126,13 +125,11 @@ L’extrait de code JSON suivant définit une activité d’exécution par lot A
 }
 ```
 
-
-
 | Propriété          | Description                              | Obligatoire |
 | :---------------- | :--------------------------------------- | :------- |
 | Nom              | Nom de l’activité dans le pipeline     | Oui      |
 | description       | Texte décrivant l’activité.  | Non        |
-| Type              | Pour l’activité U-SQL de Data Lake Analytics, le type d’activité est **AzureMLBatchExecution**. | Oui      |
+| Type              | Pour l'activité U-SQL de Data Lake Analytics, le type d'activité est **AzureMLBatchExecution**. | Oui      |
 | linkedServiceName | Services liés au service lié Azure Machine Learning. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | Oui      |
 | webServiceInputs  | Paires clé/valeur, correspondant aux noms des entrées du service web Azure Machine Learning. La clé doit correspondre aux paramètres d’entrée définis dans le service web Azure Machine Learning publié. La valeur est une paire de propriétés FilePath de services liés de stockage Azure spécifiant les emplacements d’objets blob d’entrée. | Non        |
 | webServiceOutputs | Paires clé/valeur, correspondant aux noms des sorties du service web Azure Machine Learning. La clé doit correspondre aux paramètres de sortie définis dans le service web Azure Machine Learning publié. La valeur est une paire de propriétés FilePath de services liés de stockage Azure spécifiant les emplacements d’objets blob de sortie. | Non        |
@@ -140,12 +137,12 @@ L’extrait de code JSON suivant définit une activité d’exécution par lot A
 
 ### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Scénario 1 : Expériences qui utilisent des entrées/sorties de service web qui font référence à des données dans Stockage Blob Azure
 
-Dans ce scénario, le service web Azure Machine Learning effectue des prédictions à l’aide des données d’un fichier dans un stockage d’objets blob Azure et stocke les résultats des prédictions dans le stockage d’objets blob. Le code JSON suivant définit un pipeline Data Factory avec une activité AzureMLBatchExecution. Les données d’entrée et de sortie dans le stockage d’objets blob Azure sont référencées à l’aide d’une paire LinkedName/FilePath. Dans l’exemple, le service lié des entrées et des sorties est différent. Vous pouvez utiliser des services liés différents pour chacune de vos entrées/sorties pour que Data Factory puisse récupérer les bons fichiers et les envoyer au service web Azure ML. 
+Dans ce scénario, le service web Azure Machine Learning effectue des prédictions à l’aide des données d’un fichier dans un stockage d’objets blob Azure et stocke les résultats des prédictions dans le stockage d’objets blob. Le code JSON suivant définit un pipeline Data Factory avec une activité AzureMLBatchExecution. Les données d’entrée et de sortie dans le stockage d’objets blob Azure sont référencées à l’aide d’une paire LinkedName/FilePath. Dans l’exemple, le service lié des entrées et des sorties est différent. Vous pouvez utiliser des services liés différents pour chacune de vos entrées/sorties pour que Data Factory puisse récupérer les bons fichiers et les envoyer au service web Azure ML.
 
 > [!IMPORTANT]
 > Dans votre expérience Azure ML, les ports et paramètres globaux de l’entrée et la sortie du service web ont des noms par défaut (« input1 », « input2 ») que vous pouvez personnaliser. Les noms que vous utilisez pour les paramètres globalParameters, webServiceOutputs et webServiceInputs doivent correspondre exactement aux noms utilisés dans les expériences. Vous pouvez afficher la charge utile de l’exemple de requête sur la page d’aide relative à l’exécution par lots pour votre point de terminaison Azure ML afin de vérifier le mappage attendu.
 >
-> 
+>
 
 ```JSON
 {
@@ -162,45 +159,45 @@ Dans ce scénario, le service web Azure Machine Learning effectue des prédictio
                 "LinkedServiceName":{
                     "referenceName": "AzureStorageLinkedService1",
                     "type": "LinkedServiceReference"
-                }, 
+                },
                 "FilePath":"amltest/input/in1.csv"
-            }, 
+            },
             "input2": {
                 "LinkedServiceName":{
                     "referenceName": "AzureStorageLinkedService1",
-                    "type": "LinkedServiceReference" 
-                }, 
+                    "type": "LinkedServiceReference"
+                },
                 "FilePath":"amltest/input/in2.csv"
-            }        
+            }
         },
         "webServiceOutputs": {
             "outputName1": {
                 "LinkedServiceName":{
                     "referenceName": "AzureStorageLinkedService2",
-                    "type": "LinkedServiceReference"   
-                }, 
+                    "type": "LinkedServiceReference"
+                },
                 "FilePath":"amltest2/output/out1.csv"
-            }, 
+            },
             "outputName2": {
                 "LinkedServiceName":{
                     "referenceName": "AzureStorageLinkedService2",
-                    "type": "LinkedServiceReference"   
-                }, 
+                    "type": "LinkedServiceReference"
+                },
                 "FilePath":"amltest2/output/out2.csv"
-            }         
+            }
         }
     }
 }
 ```
 ### <a name="scenario-2-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Scénario 2 : Expériences qui utilisent des modules lecteur/enregistreur pour faire référence à des données dans différents stockages
-Un autre scénario courant lors de la création d’expériences Azure ML consiste à utiliser des modules de données d’importation et de données de sortie. Le module de données d’importation permet de charger des données dans une expérience, tandis que le module de données de sortie sert à enregistrer les données issues de cette expérience. Pour plus d’informations sur les modules de données d’importation et de données de sortie, consultez les rubriques [Données d’importation](https://msdn.microsoft.com/library/azure/dn905997.aspx) et [Données de sortie](https://msdn.microsoft.com/library/azure/dn905984.aspx) sur MSDN Library.     
+Un autre scénario courant lors de la création d’expériences Azure ML consiste à utiliser des modules de données d’importation et de données de sortie. Le module de données d’importation permet de charger des données dans une expérience, tandis que le module de données de sortie sert à enregistrer les données issues de cette expérience. Pour plus d’informations sur les modules de données d’importation et de données de sortie, consultez les rubriques [Données d’importation](https://msdn.microsoft.com/library/azure/dn905997.aspx) et [Données de sortie](https://msdn.microsoft.com/library/azure/dn905984.aspx) sur MSDN Library.
 
 Quand vous utilisez les modules de données d’importation et de données de sortie, il est conseillé d’utiliser un paramètre de service web pour chaque propriété de ces modules. Ces paramètres web permettent de configurer les valeurs pendant l’exécution. Par exemple, vous pouvez créer une expérience avec un module d’importation de données qui utilise une base de données Azure SQL Database : XXX.database.windows.net. Une fois le service web déployé, vous pouvez autoriser les consommateurs du service web à spécifier un autre serveur Azure SQL Server appelé `YYY.database.windows.net`. Vous pouvez utiliser un paramètre de service web pour permettre à cette valeur d’être configurée.
 
 > [!NOTE]
 > L’entrée et la sortie du service web diffèrent des paramètres de service web. Dans le premier scénario, vous avez vu comment une entrée et une sortie peuvent être spécifiées pour un service web Azure ML. Dans ce scénario, vous passez pour un service web des paramètres qui correspondent aux propriétés des modules de données d’importation/de sortie.
 >
-> 
+>
 
 Examinons un scénario d’utilisation de paramètres de service web. Vous avez déployé un service web Azure Machine Learning qui utilise un module lecteur pour lire les données de l’une des sources de données prises en charge par Azure Machine Learning (par exemple : Azure SQL Database). Après l’exécution par lots, les résultats sont écrits à l’aide d’un module enregistreur (Azure SQL Database).  Aucune entrée ou sortie de service web n’est définie dans les expériences. Dans ce cas, nous vous recommandons de configurer les paramètres de service web appropriés pour les modules lecteur et enregistreur. Cela permet la configuration des modules lecteur/enregistreur quand vous utilisez l’activité AzureMLBatchExecution. Spécifiez les paramètres de service web dans la section **globalParameters** du code JSON de l’activité comme suit.
 
@@ -215,17 +212,14 @@ Examinons un scénario d’utilisation de paramètres de service web. Vous avez 
 }
 ```
 
-
 > [!NOTE]
 > Les paramètres de service web respectent la casse ; veillez donc à ce que les noms que vous indiquez dans le script JSON de l'activité correspondent à ceux exposés par le service web.
 >
 
 Une fois que vous avez fini la reformation, mettez à jour le service web de notation (expérience prédictive exposée comme un service web) avec le modèle qui vient d’être formé à l’aide de l’**Activité des ressources de mise à jour Azure ML**. Consultez l’article [Mise à jour des modèles à l’aide de l’activité des ressources de mise à jour](update-machine-learning-models.md) pour plus d’informations.
 
-
-
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants qui expliquent comment transformer des données par d’autres moyens : 
+Consultez les articles suivants qui expliquent comment transformer des données par d’autres moyens :
 
 * [Activité U-SQL](transform-data-using-data-lake-analytics.md)
 * [Activité Hive](transform-data-using-hadoop-hive.md)

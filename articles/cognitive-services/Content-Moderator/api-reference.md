@@ -1,7 +1,7 @@
 ---
 title: Informations de référence sur les API - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Découvrez les API de modération du contenu et de révision de Content Moderator.
+description: Découvrez les différentes API de modération du contenu et de révision de Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
@@ -10,19 +10,19 @@ ms.component: content-moderator
 ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: f065310e3afeaf95af602e513421da6770c9583f
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4a64b2f7ce54d5ace26ad18c0ca1a9facb66245e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222402"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266959"
 ---
 # <a name="content-moderator-api-reference"></a>Informations de référence des API de Content Moderator
 
-Vous allez prendre en main les API d’Azure Content Moderator en utilisant les méthodes suivantes : (voir aussi [Managing credentials](review-tool-user-guide/credentials.md) [Gestion des informations d’identification].)
+Vous pouvez commencer à utiliser les API Azure Content Moderator comme suit : (Consultez également [Gérer les informations d'identification](review-tool-user-guide/credentials.md).)
 
 - Dans le portail Azure, [abonnez-vous aux API de Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator).
-- Inscrivez-vous à [l’outil de révision de Content Moderator](http://contentmoderator.cognitive.microsoft.com/). Voir [QuickStart](quick-start.md) (Démarrage rapide).
+- Inscrivez-vous à [l’outil de révision de Content Moderator](https://contentmoderator.cognitive.microsoft.com/). Consultez [Essayer Content Moderator sur le web](quick-start.md).
 
 ## <a name="moderation-apis"></a>API de modération
 
@@ -41,7 +41,7 @@ Les composants de l’API Review (Révision) sont les suivants :
 
 | Description | Informations de référence |
 | -------------------- |-------------|
-| **Travaux**<br /><br /> Lancez des flux de travail de modération par analyse et révision du contenu de texte et d’image. Un travail de modération analyse votre contenu à l’aide de l’API Modération des images ou de l’API Modération du texte. Les travaux de modération utilisent les flux de travail définis et par défaut pour générer des révisions. <br /><br />Une fois qu’un modérateur a examiné les balises affectées automatiquement ainsi que les données de prédiction et soumis une décision en matière de modération du contenu, l’API Review (Révision) soumet toutes les informations à votre point de terminaison d’API.<br /><br /> | [Informations de référence des travaux](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5 "Informations de référence des travaux")   |
+| **Tâches**<br /><br /> Lancez des flux de travail de modération par analyse et révision du contenu de texte et d’image. Un travail de modération analyse votre contenu à l’aide de l’API Modération des images ou de l’API Modération du texte. Les travaux de modération utilisent les flux de travail définis et par défaut pour générer des révisions. <br /><br />Une fois qu’un modérateur a examiné les balises affectées automatiquement ainsi que les données de prédiction et soumis une décision en matière de modération du contenu, l’API Review (Révision) soumet toutes les informations à votre point de terminaison d’API.<br /><br /> | [Informations de référence des travaux](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5 "Informations de référence des travaux")   |
 | **Révisions**<br /><br />Utilisez l’outil de révision pour créer directement des révisions d’image ou de texte pour les modérateurs.<br /><br /> Une fois qu’un modérateur a examiné les balises affectées automatiquement ainsi que les données de prédiction et soumis une décision en matière de modération du contenu, l’API Review (Révision) soumet toutes les informations à votre point de terminaison d’API.<br /><br /> | [Informations de référence sur l’API Review (Révision)](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4 "Informations de référence sur l’API Review (Révision)")   |
 | **Flux de travail**<br /><br />Créez et mettez à jour des flux de travail personnalisés, et obtenez des détails sur ceux qui sont créés par votre équipe. Définissez des flux de travail à l’aide de l’outil de révision. <br /> <br />Les flux de travail utilisent généralement Content Moderator, mais ils peuvent également utiliser d’autres API qui sont disponibles sous forme de connecteurs dans l’outil de révision.<br /><br /> | [Informations de référence des flux de travail](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59 "Informations de référence des flux de travail")   |
 

@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/9/2018
+ms.date: 01/14/2019
 ms.author: patricka
-ms.openlocfilehash: 8b478c1ba60df679d69d5fced660836c16079e6a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.reviewer: fiseraci
+ms.openlocfilehash: cd3aa913bd17498ddc58994196bc8faa96c4de51
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727087"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306452"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Situation de sécurité de l’infrastructure Azure Stack
 
@@ -70,7 +71,7 @@ Tous les composants Azure Stack (les hôtes Hyper-V et Machines Virtuelles) sont
 Dans les scénarios connectés, les mises à jour du moteur et des définitions de l’antivirus sont appliquées plusieurs fois par jour. Dans les scénarios déconnectés, les mises à jour du logiciel anti-programme malveillant sont appliquées dans le cadre des mises à jour mensuelles de Azure Stack. Pour plus d’informations, voir [Mettre à jour l’antivirus Windows Defender sur Azure Stack](azure-stack-security-av.md).
 
 ## <a name="constrained-administration-model"></a>Modèle d’administration avec contraintes
-L’administration dans Azure Stack passe par l’utilisation de trois points d’entrée, chacun ayant un objectif spécifique : 
+Dans Azure Stack, l'administration passe par trois points d'entrée, chacun ayant un objectif spécifique : 
 1. Le [portail administrateur](azure-stack-manage-portals.md) permet d’effectuer les opérations de gestion quotidiennes de façon conviviale.
 2. Azure Resource Manager expose toutes les opérations de gestion du portail administrateur par le biais d’une API REST, utilisée par PowerShell et Azure CLI. 
 3. Pour les opérations de bas niveau spécifiques, par exemple les scénarios d’intégration ou de prise en charge de centre de données, Azure Stack expose un point de terminaison PowerShell appelé [Privileged Endpoint](azure-stack-privileged-endpoint.md) (Point de terminaison privilégié). Ce point de terminaison expose uniquement un jeu d’applets de commande approuvé et fait l’objet d’un audit approfondi.

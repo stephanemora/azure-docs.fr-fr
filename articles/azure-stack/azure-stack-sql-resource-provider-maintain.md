@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.reviewer: jiahan
+ms.openlocfilehash: 68665cc588f8a6340de393330c7a248503b07125
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364085"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244985"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Opérations de maintenance du fournisseur de ressources SQL
 
@@ -32,16 +32,6 @@ Le fournisseur de ressources SQL n’est pas traité au sein d’Azure Stack, ca
 ### <a name="provider-virtual-machine"></a>Machine virtuelle du fournisseur
 
 Étant donné que le fournisseur de ressources s’exécute sur une machine virtuelle de l’*utilisateur*, vous devez appliquer les correctifs et mises à jour lors de leur publication. Vous pouvez utiliser les mises à jour Windows fournies dans le cadre du cycle de correction et de mise à jour pour appliquer les mises à jour à la machine virtuelle Windows.
-
-## <a name="backuprestoredisaster-recovery"></a>Sauvegarde/restauration/récupération d’urgence
-
- Le fournisseur de ressources SQL n’est pas traité au sein du processus Azure Stack Business Continuity Disaster Recovery (BCDR), car il s’agit d’un composant additionnel. Des scripts seront fournis pour les opérations suivantes :
-
-- Sauvegarde des informations d’état (stockées dans un compte de stockage Azure Stack).
-- Restauration du fournisseur de ressources, si une récupération de la pile complète est requise.
-
->[!NOTE]
->S’il est nécessaire d’effectuer une récupération, les serveurs de base de données doivent être récupérés en premier, avant le fournisseur de ressources.
 
 ## <a name="updating-sql-credentials"></a>Mise à jour des informations d’identification SQL
 
@@ -122,7 +112,7 @@ Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèm
 
 ### <a name="known-issues"></a>Problèmes connus
 
-**Problème** : journaux de rotation des secrets.<br>
+**Problème** : Journaux de rotation des secrets.<br>
 Les journaux de la rotation des secrets ne sont pas automatiquement collectés en cas d’échec de l’exécution du script personnalisé de la rotation des secrets.
 
 **Solution de contournement** :<br>

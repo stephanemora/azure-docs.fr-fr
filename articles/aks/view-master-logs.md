@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 9cf0c378271841277e6dfd770bf8d186494b9d48
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a8fefdf352507f0e0c0757625297f667907eb9bc
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040742"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230592"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Activer et consulter les journaux du nœud principal Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -36,6 +36,19 @@ Log Analytics est activé et géré dans le Portail Azure. Pour activer la colle
     * Si vous avez besoin de créer un espace de travail, indiquez un nom, un groupe de ressources et un emplacement.
 1. Dans la liste des journaux disponibles, sélectionnez les journaux que vous souhaitez activer. Par défaut, les journaux *kube-apiserver*, *kube-controller-manager* et *kube-scheduler* sont activés. Vous pouvez activer des journaux supplémentaires, tels que *kube-audit* et *cluster-autoscaler*. Vous pourrez réaccéder à cet emplacement et modifier les journaux collectés une fois Log Analytics activé.
 1. Lorsque vous avez terminé, sélectionnez **Enregistrer** pour activer la collecte des journaux sélectionnés.
+
+> [!NOTE]
+> AKS ne capture les journaux d'audit que pour les clusters créés ou mis à niveau après l'activation d'un indicateur de fonctionnalité sur votre abonnement. Pour enregistrer l'indicateur de fonctionnalité *AKSAuditLog*, utilisez la commande [az feature register][az-feature-register], comme indiqué dans l'exemple suivant :
+>
+> `az feature register --name AKSAuditLog --namespace Microsoft.ContainerService`
+>
+> Attendez que l'état affiche *Enregistré*. Vous pouvez vérifier l'état de l'enregistrement à l'aide de la commande [az feature list][az-feature-list] :
+>
+> `az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAuditLog')].{Name:name,State:properties.state}"`
+>
+> Lorsque vous êtes prêt, actualisez l'enregistrement du fournisseur de ressources AKS à l'aide de la commande [az provider register][az-provider-register] :
+>
+> `az provider register --namespace Microsoft.ContainerService`
 
 L’exemple de capture d’écran du portail ci-après présente la fenêtre *Paramètres de diagnostic*, ainsi que l’option de création d’un espace de travail Log Analytics :
 
@@ -133,3 +146,6 @@ Cet article vous a expliqué comment activer et consulter les journaux des compo
 [analyze-log-analytics]: ../azure-monitor/learn/tutorial-viewdata.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

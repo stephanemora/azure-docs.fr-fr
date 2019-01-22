@@ -3,7 +3,7 @@ title: Sauvegarde automatisée version 2 pour les machines virtuelles SQL Server
 description: Décrit la fonctionnalité de sauvegarde automatisée pour les machines virtuelles SQL Server 2016/2017 s’exécutant dans Azure. Cet article est spécifique aux machines virtuelles utilisant Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
-ms.author: jroth
-ms.openlocfilehash: 664a0036b8aa753de9636688d22afff0163f031f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 432df6d73b2eaa42645fe25ad9c743b7fcef06a8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246818"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331651"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Sauvegarde automatisée version 2 pour les machines virtuelles Azure (Resource Manager)
 
@@ -41,8 +42,8 @@ Pour utiliser la sauvegarde automatisée version 2, passez en revue les conditio
 
 **Édition/version de SQL Server**:
 
-- SQL Server 2016 : Développeur, Standard ou Entreprise
-- SQL Server 2017 : Développeur, Standard ou Entreprise
+- SQL Server 2016 : Développeur, Standard ou Entreprise
+- SQL Server 2017 : Développeur, Standard ou Entreprise
 
 > [!IMPORTANT]
 > La sauvegarde automatisée version 2 fonctionne avec SQL Server 2016 ou une version ultérieure. Si vous utilisez SQL Server 2014, vous pouvez utiliser la sauvegarde automatisée version 1 pour sauvegarder vos bases de données. Pour plus d’informations, voir [Sauvegarde automatisée pour SQL Server 2014 dans les machines virtuelles Azure](virtual-machines-windows-sql-automated-backup.md).
@@ -73,7 +74,7 @@ Le tableau suivant décrit les options qui peuvent être configurées pour une s
 
 | Paramètre | Plage (par défaut) | Description |
 | --- | --- | --- |
-| **Sauvegardes de bases de données système** | Activer/Désactiver (désactivé) | Lorsqu’elle et activée, cette fonctionnalité sauvegarde également les bases de données système : Master, MSDB et Modèle. Pour les bases de données MSDB et Modèle, vérifiez qu’elles sont en mode de récupération complète si vous souhaitez effectuer des sauvegardes de journaux. Les sauvegardes de journaux ne sont jamais effectuées pour Master. Et aucune sauvegarde n’est effectuée pour TempDB. |
+| **Sauvegardes de bases de données système** | Activer/Désactiver (désactivé) | Lorsqu'elle et activée, cette fonctionnalité sauvegarde également les bases de données système : Master, MSDB et Modèle. Pour les bases de données MSDB et Modèle, vérifiez qu’elles sont en mode de récupération complète si vous souhaitez effectuer des sauvegardes de journaux. Les sauvegardes de journaux ne sont jamais effectuées pour Master. Et aucune sauvegarde n’est effectuée pour TempDB. |
 | **Planification de sauvegarde** | Manuelle/automatisée (automatisée) | Par défaut, la planification de la sauvegarde varie automatiquement selon la croissance du journal. Une planification de sauvegarde manuelle permet à l’utilisateur de spécifier la fenêtre de temps des sauvegardes. Dans ce cas, les sauvegardes sont effectuées uniquement à une fréquence spécifiée et pendant la fenêtre de temps définie sur un jour donné. |
 | **Fréquence de sauvegarde complète** | Quotidienne/hebdomadaire | Fréquence des sauvegardes complètes. Dans les deux cas, les sauvegardes complètes commencent à la prochaine fenêtre de temps planifiée. Si vous sélectionnez l’option Hebdomadaire, les sauvegardes peuvent s’étaler sur plusieurs jours jusqu'à ce que toutes les bases de données aient été sauvegardées avec succès. |
 | **Heure de début de la sauvegarde complète** | 00:00 – 23:00 (01:00) | Heure de début d’un jour donné où des sauvegardes complètes peuvent être effectuées. |
@@ -83,15 +84,15 @@ Le tableau suivant décrit les options qui peuvent être configurées pour une s
 ## <a name="understanding-full-backup-frequency"></a>Présentation de la fréquence de sauvegarde complète
 Il est important de bien comprendre la différence entre les sauvegardes complètes quotidiennes et hebdomadaires. Considérez les deux exemples de scénarios suivants.
 
-### <a name="scenario-1-weekly-backups"></a>Scénario 1 : Sauvegardes hebdomadaires
+### <a name="scenario-1-weekly-backups"></a>Scénario 1 : Sauvegardes hebdomadaires
 Vous disposez d’une machine virtuelle SQL Server qui contient plusieurs bases de données volumineuses.
 
 Lundi, vous activez la sauvegarde automatisée version 2 avec les paramètres suivants :
 
-- Planification de sauvegarde : **Manuelle**
-- Fréquence de sauvegarde complète : **Hebdomadaire**
-- Heure de début de la sauvegarde complète : **01:00**
-- Fenêtre de temps de la sauvegarde complète : **1 heure**
+- Planification de la sauvegarde : **Manuel**
+- Fréquence de sauvegarde complète : **Hebdomadaire**
+- Heure de début de la sauvegarde complète : **01:00**
+- Fenêtre de temps de la sauvegarde complète : **1 heure**
 
 Cela signifie que la prochaine fenêtre de sauvegarde disponible est mardi à 1 h 00 pendant 1 heure. À ce stade, la sauvegarde automatisée commence à sauvegarder vos bases de données une par une. Dans ce scénario, vos bases de données sont suffisamment volumineuses pour pouvoir sauvegarder complètement les deux premières bases de données. Mais après une heure, les bases de données n’ont pas toutes été sauvegardées.
 
@@ -101,15 +102,15 @@ Le mardi suivant, la sauvegarde automatisée commence à nouveau à sauvegarder 
 
 Ce scénario montre que la sauvegarde automatisée ne fonctionne que dans la fenêtre de temps spécifiée, et que chaque base de données est sauvegardée une fois par semaine. Il montre également que les sauvegardes peuvent s’étaler sur plusieurs jours dans le cas où il n’est pas possible de terminer toutes les sauvegardes le même jour.
 
-### <a name="scenario-2-daily-backups"></a>Scénario 2 : Sauvegardes quotidiennes
+### <a name="scenario-2-daily-backups"></a>Scénario 2 : Sauvegardes quotidiennes
 Vous disposez d’une machine virtuelle SQL Server qui contient plusieurs bases de données volumineuses.
 
 Lundi, vous activez la sauvegarde automatisée version 2 avec les paramètres suivants :
 
-- Planification de sauvegarde : Manuelle
-- Fréquence de sauvegarde complète : Quotidienne
-- Heure de début de la sauvegarde complète : 22:00
-- Fenêtre de temps de la sauvegarde complète : 6 heures
+- Planification de la sauvegarde : Manuel
+- Fréquence de sauvegarde complète : Quotidien
+- Heure de début de la sauvegarde complète : 22:00
+- Fenêtre de temps de la sauvegarde complète : 6 heures
 
 Cela signifie que la prochaine fenêtre de sauvegarde disponible est lundi à 22 h 00 pendant 6 heures. À ce stade, la sauvegarde automatisée commence à sauvegarder vos bases de données une par une.
 
@@ -331,7 +332,7 @@ Une autre possibilité consiste à tirer parti de la fonctionnalité intégrée 
 ## <a name="next-steps"></a>Étapes suivantes
 La sauvegarde automatisée v2 configure une sauvegarde managée sur les machines virtuelles Azure. Il est donc important de [lire la documentation relative à la sauvegarde gérée](https://msdn.microsoft.com/library/dn449496.aspx) pour comprendre son comportement et ses implications.
 
-Vous trouverez des conseils supplémentaires pour la sauvegarde et la restauration de SQL Server sur les machines virtuelles Azure dans l’article suivant : [Sauvegarde et restauration de SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-backup-recovery.md).
+Vous trouverez des conseils supplémentaires pour la sauvegarde et la restauration de SQL Server sur les machines virtuelles Azure dans l'article suivant : [Sauvegarde et restauration de SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-backup-recovery.md).
 
 Pour plus d’informations sur les autres tâches d’automatisation disponibles, voir [Extension de l’agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 

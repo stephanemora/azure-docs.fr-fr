@@ -1,9 +1,11 @@
 ---
-title: Créer une instance publique de Load Balancer Standard avec un front-end zonal à l’aide d’Azure CLI | Microsoft Docs
-description: Découvrez comment créer une instance publique de Load Balancer Standard avec un front-end zonal à l’aide d’Azure CLI
+title: Créer un équilibreur de charge avec front-end zonal - Azure CLI
+titlesuffix: Azure Load Balancer
+description: Apprenez à créer une instance de Standard Load Balancer avec front-end zonal à l'aide d'Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -11,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 3a0fc37b8e2865163ae6c55813d145a568d796e0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c9926b78955a193f750c1e5ca3ff7461b4192df5
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414480"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247008"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-cli"></a>Créer une instance publique de Load Balancer Standard avec un front-end zonal à l’aide d’Azure CLI
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Créer une instance Standard Load Balancer avec un front-end interzone à l’aide d’Azure CLI
 
-Cet article décrit les étapes de création d’une instance publique de [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) avec un front-end zonal. Le fait de disposer d’un front-end zonal signifie que tout flux entrant ou sortant est servi par une seule zone dans une région. Vous pouvez créer un équilibreur de charge avec un front-end zonal à l’aide d’une adresse IP publique Standard zonale dans sa configuration de front-end. Pour comprendre le fonctionnement des zones de disponibilité avec Standard Load Balancer, consultez [Standard Load Balancer et zones de disponibilité](load-balancer-standard-availability-zones.md). 
+Cet article décrit les étapes de création d'une instance publique de [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) avec front-end zonal. Le fait de disposer d’un front-end zonal signifie que tout flux entrant ou sortant est servi par une seule zone dans une région. Vous pouvez créer un équilibreur de charge avec un front-end zonal à l’aide d’une adresse IP publique Standard zonale dans sa configuration de front-end. Pour comprendre le fonctionnement des zones de disponibilité avec Standard Load Balancer, consultez [Standard Load Balancer et zones de disponibilité](load-balancer-standard-availability-zones.md). 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -50,7 +52,7 @@ az network public-ip create --resource-group myResourceGroupZLB --name myPublicI
 
 ## <a name="create-a-load-balancer"></a>Créer un équilibrage de charge
 
-Créez une instance publique de Load Balancer Standard avec l’adresse IP publique standard que vous avez créée à l’étape précédente, à l’aide de la commande suivante :
+Créez une instance publique de Standard Load Balancer avec l'adresse IP publique standard que vous avez créée à l'étape précédente en utilisant la commande suivante :
 
 ```azurecli-interactive
 az network lb create --resource-group myResourceGroupZLB --name myLoadBalancer --public-ip-address myPublicIPZonal --frontend-ip-name myFrontEnd --backend-pool-name myBackEndPool --sku Standard

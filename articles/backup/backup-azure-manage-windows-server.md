@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 716ddcaf61c4d7db40821056dc759667f9376023
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 552ba28a9635cdd484ccd598726dcea0b3bcbc60
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871322"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261500"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Surveiller et gérer les coffres Recovery Services
 
@@ -251,7 +251,7 @@ Date et heure de fin de la requête.
 
 Utilisez l’option **Exporter les travaux** pour créer une feuille de calcul contenant des informations sur tous les travaux. La feuille de calcul comprend une feuille qui contient un récapitulatif de tous les travaux, ainsi qu’une feuille pour chaque travail.
 
-Pour exporter les informations relatives aux travaux vers une feuille de calcul, cliquez sur **Exporter les travaux**. Le service crée une feuille de calcul en utilisant le nom du coffre et la date actuelle. Cependant, vous pouvez modifier ce nom.
+Pour exporter les informations relatives aux travaux vers une feuille de calcul, cliquez sur **Exporter les travaux**. Le service crée une feuille de calcul en utilisant le nom du coffre et la date actuelle, mais vous pouvez modifier ce nom.
 
 ## <a name="monitor-backup-usage"></a>Surveiller l’utilisation de la sauvegarde
 

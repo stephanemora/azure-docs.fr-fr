@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6ca819b20bd033cc4081fb98a0c22c23aed05a28
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 403f1cee04da17086a55adfbaed28388afd24d29
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264138"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54211837"
 ---
 # <a name="azure-managed-disks-overview"></a>Vue d’ensemble d’Azure Managed Disks
 
@@ -37,7 +37,7 @@ Les disques gérés accroît la fiabilité des groupes à haute disponibilité e
 
 ### <a name="highly-durable-and-available"></a>Disponibilité et durabilité élevées
 
-Les disques Azure sont conçus pour offrir une disponibilité de 99,999 %. Vous pouvez travailler en toute quiétude en sachant que vous disposez de trois réplicas de vos données, ce qui offre plus de durabilité. Si un ou même deux de vos réplicas rencontrent des problèmes, les autres réplicas peuvent assurer la persistance de vos données et offrir une grande tolérance face aux pannes. Cette architecture a permis à Azure de fournir de façon cohérente une durabilité de classe Entreprise pour les disques IaaS, avec un taux de défaillance annuel inégalé dans le secteur de zéro %. 
+Les disques Azure sont conçus pour offrir une disponibilité de 99,999 %. Vous pouvez travailler en toute quiétude en sachant que vous disposez de trois réplicas de vos données, ce qui offre plus de durabilité. Si un ou même deux de vos réplicas rencontrent des problèmes, les autres réplicas peuvent assurer la persistance de vos données et offrir une grande tolérance face aux pannes. Cette architecture a permis à Azure de fournir de façon cohérente une durabilité de classe Entreprise pour les disques IaaS, avec un taux de défaillance annuel inégalé dans le secteur de zéro %.
 
 ### <a name="granular-access-control"></a>Contrôle d’accès granulaire
 
@@ -45,7 +45,7 @@ Utilisez le [contrôle d’accès en fonction du rôle Azure](../articles/role-b
 
 ### <a name="azure-backup-service-support"></a>Prise en charge du service Azure Backup
 
-Utilisez le service Sauvegarde Microsoft Azure avec Managed Disks pour créer une tâche de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde. Managed Disks prend uniquement en charge le stockage localement redondant (LRS, Locally Redundant Storage) comme option de réplication. Trois copies des données sont conservées dans une même région. Pour la reprise d’activité après sinistre au niveau régional, vous devez sauvegarder vos disques de machines virtuelles dans une autre région à l’aide du [service Sauvegarde Microsoft Azure](../articles/backup/backup-introduction-to-azure-backup.md) et d’un compte de stockage GRS comme archivage de sauvegarde. Actuellement, le service Sauvegarde Azure prend en charge les tailles de disque jusqu’à 4 To. Vous devez effectuer une [mise à niveau de la pile de sauvegarde de machine virtuelle vers V2](../articles/backup/backup-upgrade-to-vm-backup-stack-v2.md) pour la prise en charge des disques de 4 To. Pour plus d’informations, consultez [Utilisation du service Sauvegarde Microsoft Azure pour les machines virtuelles avec Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+Utilisez le service Sauvegarde Microsoft Azure avec Managed Disks pour créer une tâche de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde. Managed Disks prend uniquement en charge le stockage localement redondant (LRS, Locally Redundant Storage) comme option de réplication. Trois copies des données sont conservées dans une même région. Pour la reprise d’activité après sinistre au niveau régional, vous devez sauvegarder vos disques de machines virtuelles dans une autre région à l’aide du [service Sauvegarde Microsoft Azure](../articles/backup/backup-introduction-to-azure-backup.md) et d’un compte de stockage GRS comme archivage de sauvegarde. Actuellement, Sauvegarde Azure prend en charge les disques allant jusqu'à 4 To. Reportez-vous à [Restauration instantanée](../articles/backup/backup-instant-restore-capability.md) pour la prise en charge des disques de 4 To. Pour plus d’informations, consultez [Utilisation du service Sauvegarde Microsoft Azure pour les machines virtuelles avec Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 
@@ -63,9 +63,9 @@ Lorsque vous utilisez Managed Disks, les considérations de facturation suivant
 
 Examinons ces options de plus près.
 
-**Type de stockage :** Managed Disks propose 3 niveaux de performance : [HDD Standard](../articles/virtual-machines/windows/standard-storage.md), [SSD Standard](../articles/virtual-machines/windows/disks-standard-ssd.md) et [Premium](../articles/virtual-machines/windows/premium-storage.md). La facturation d’un disque managé dépend du type de stockage sélectionné.
+**Type de stockage** : Managed Disks propose 3 niveaux de performances : [HDD Standard](../articles/virtual-machines/windows/standard-storage.md), [SSD Standard](../articles/virtual-machines/windows/disks-standard-ssd.md) et [Premium](../articles/virtual-machines/windows/premium-storage.md). La facturation d’un disque managé dépend du type de stockage sélectionné.
 
-**Taille de disque** : la facturation des disques managés dépend de leur taille configurée. Azure mappe la taille configurée des disques (arrondie à la valeur supérieure) sur l’option Managed Disks la plus proche, tel qu’indiqué dans les tableaux ci-dessous. Chaque disque managé mappe sur l’une des tailles configurées prises en charge et est facturé en conséquence. Par exemple, si vous créez un disque managé standard et définissez une taille approvisionnée de 200 Go, vous êtes facturé selon la tarification du type de disque S15.
+**Taille de disque** : la facturation des disques managés dépend de la taille configurée. Azure mappe la taille configurée des disques (arrondie à la valeur supérieure) sur l’option Managed Disks la plus proche, tel qu’indiqué dans les tableaux ci-dessous. Chaque disque managé mappe sur l’une des tailles configurées prises en charge et est facturé en conséquence. Par exemple, si vous créez un disque managé standard et définissez une taille approvisionnée de 200 Go, vous êtes facturé selon la tarification du type de disque S15.
 
 Voici les tailles de disque disponibles pour un disque managé premium ; les tailles signalées par un astérisque sont actuellement en préversion :
 
@@ -91,7 +91,7 @@ Les disques SSD Standard utilisent une taille d’unité d’E/S de 256 Ko. Si
 
 Les transactions associées aux disques managés Premium ne sont pas facturées.
 
-**Transferts de données sortantes**: les [transferts de données sortantes](https://azure.microsoft.com/pricing/details/data-transfers/) (données sortant des centres de données Azure) sont facturés en fonction de la bande passante utilisée.
+**Transferts de données sortants** : [transferts de données sortants](https://azure.microsoft.com/pricing/details/data-transfers/) (données sortant des centres de données Azure) sont facturés en fonction de la bande passante utilisée.
 
 Pour plus d’informations sur la tarification d’Azure Managed Disks, consultez la page [Managed Disks Tarification](https://azure.microsoft.com/pricing/details/managed-disks).
 

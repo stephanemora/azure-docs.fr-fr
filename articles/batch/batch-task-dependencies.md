@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a9b44ed56774466bae2f0f5d48b5e012382721b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 40e925fff9d87d8590ea3a83be9e7d93a84d6e26
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865231"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266652"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Créer des dépendances de tâches pour exécuter des tâches qui dépendent d’autres tâches
 
@@ -79,7 +79,7 @@ Vous pouvez utiliser trois scénarios de dépendance de tâches de base dans Azu
 |:---:| --- | --- |
 |  [Un-à-un](#one-to-one) |*taskB* dépend de *taskA* <p/> *taskB* n’est pas planifié pour s’exécuter tant que l’exécution de *taskA* n’est pas terminée |![Schéma : dépendance de tâches un-à-un][1] |
 |  [Un-à-plusieurs](#one-to-many) |*taskC* dépend de *taskA* et de *taskB* <p/> *taskC* n’est pas planifié pour s’exécuter tant que l’exécution de *taskA* et *taskB* n’est pas terminée |![Schéma : dépendance de tâches un-à-plusieurs][2] |
-|  [Plage d’ID de tâche](#task-id-range) |*taskD* dépend d’une plage de tâches <p/> *taskD* n’est pas planifié pour s’exécuter tant que l’exécution des tâches associées aux ID *1* à *10* n’est pas terminée |![Schéma : dépendance de plage d’ID de tâche][3] |
+|  [Plage d’ID de tâche](#task-id-range) |*taskD* dépend d’une plage de tâches <p/> *taskD* n’est pas planifié pour s’exécuter tant que l’exécution des tâches associées aux ID *1* à *10* n’est pas terminée |![Schéma : Dépendance de plage d'ID de tâche][3] |
 
 > [!TIP]
 > Vous pouvez créer des relations **plusieurs-à-plusieurs** où, par exemple, les tâches C, D, E et F dépendent toutes des tâches A et B. Cela est utile, par exemple, dans les scénarios de prétraitement parallélisés où vos tâches en aval dépendent de la sortie de plusieurs tâches en amont.
@@ -123,7 +123,7 @@ Pour créer la dépendance, fournissez le premier et le dernier ID de tâche dan
 > [!IMPORTANT]
 > Lorsque des plages de numéros de tâche sont utilisées pour les dépendances, seules les tâches dont le numéro représente des valeurs entières sont sélectionnées par la plage. Ainsi, la plage `1..10` sélectionne les tâches `3` et `7`, mais pas `5flamingoes`. 
 > 
-> Les zéros à gauche n’étant pas significatifs pour l’évaluation des dépendances aux plages, les tâches ayant pour identificateurs de chaîne `4`, `04` et `004` se trouvent toutes *dans* la plage et sont traitées comme correspondant à la tâche `4`, de sorte que la première à se terminer satisfait la dépendance.
+> Les zéros de gauche n'étant pas significatifs pour l'évaluation des dépendances aux plages, les tâches ayant pour identificateurs de chaîne `4`, `04` et `004` se trouvent toutes *dans* la plage et sont traitées comme correspondant à la tâche `4`, de sorte que la première à se terminer satisfait la dépendance.
 > 
 > Chaque tâche de la plage doit satisfaire la dépendance soit en se terminant avec succès, soit en échouant avec une erreur associée à une action de dépendance définie sur **Satisfy**. Pour plus d’informations, consultez la section [Actions de dépendance](#dependency-actions).
 >

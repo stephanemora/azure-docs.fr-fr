@@ -1,5 +1,5 @@
 ---
-title: Révision de texte dans Azure Content Moderator | Microsoft Docs
+title: Révision de texte dans Azure Content Moderator | Content Moderator
 description: Découvrez comment réviser du texte dans Content Moderator pour consulter le score et les balises détectées. Utilisez ces informations pour déterminer si le contenu est approprié.
 services: cognitive-services
 author: sanjeev3
@@ -7,16 +7,16 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 60a8d03a6562c9a66c2f6781ebbc330c989b343e
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 005e6ed853cbc6013d74e7ff479097dcbb0a1043
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852093"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259561"
 ---
-# <a name="review-text"></a>Réviser le texte
+# <a name="let-human-reviewers-review-text"></a>Confiez la révision du texte à des réviseurs humains
 
 Vous pouvez utiliser Azure Content Moderator pour passer en revue du texte à l’aide des scores et des balises détectées. Utilisez ces informations pour déterminer si le contenu est approprié. 
 

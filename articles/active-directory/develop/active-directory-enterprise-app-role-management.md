@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 01/07/2019
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 2bb9d69487b8576cdae60a1a613a341898495f06
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a354d5d0242bfdbb618eb325c8157a7bed3d3b64
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903878"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263664"
 ---
-# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : configurer les revendications de rôle émises dans le jeton SAML pour les applications d’entreprise
+# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Activation Configurer les revendications de rôle émises dans le jeton SAML pour les applications d'entreprise
 
 Grâce à Azure Active Directory (Azure AD), vous pouvez personnaliser le type de revendications de rôle que vous recevez après avoir autorisé une application.
 
@@ -151,25 +151,29 @@ Si votre application s’attend à voir passer dans une réponse SAML des rôles
 
 8. Mettez à jour la table **Attributs** table pour définir un mappage personnalisé de la revendication de rôle.
 
-9. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut de jeton SAML comme sur l’image et procédez comme suit.
+9. Dans la section **Attributs et revendications utilisateur** de la boîte de dialogue **Authentification unique**, configurez l'attribut de jeton SAML comme sur l'image et procédez comme suit.
 
     | Nom de l’attribut | Valeur de l’attribut |
     | -------------- | ----------------|
     | Nom de rôle  | user.assignedroles |
 
-    a. Sélectionnez **Ajouter un attribut** pour ouvrir le volet **Ajouter un attribut**.
+    a. Cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs d'utilisateur**.
+
+      ![Bouton « Ajouter un attribut »](./media/active-directory-enterprise-app-role-management/editattribute.png)
+
+    b. Sélectionnez **Ajouter un attribut** pour ouvrir le volet **Gérer les revendications des utilisateurs**.
 
       ![Bouton « Ajouter un attribut »](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
       ![Volet « Ajouter un attribut »](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    b. Dans la zone **Nom**, saisissez le nom de l’attribut, si nécessaire. Cet exemple utilise **Nom de rôle** comme nom de revendication.
-
-    c. Dans la liste **Valeur** , saisissez la valeur d’attribut affichée pour cette ligne.
+    c. Dans la zone **Nom**, saisissez le nom de l’attribut, si nécessaire. Cet exemple utilise **Nom de rôle** comme nom de revendication.
 
     d. Laissez la zone **Espace de noms** vide.
 
-    e. Sélectionnez **OK**.
+    e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
+
+    f. Sélectionnez **Enregistrer**.
 
 10. Pour tester votre application dans une authentification unique initiée par un fournisseur d’identité, connectez-vous au [volet d’accès](https://myapps.microsoft.com) et sélectionnez la vignette de votre application. Dans le jeton SAML, vous devez voir tous les rôles assignés à l’utilisateur avec le nom de la revendication que vous avez attribué.
 

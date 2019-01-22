@@ -9,12 +9,12 @@ ms.author: estfan
 ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.topic: article
 ms.date: 08/25/2018
-ms.openlocfilehash: 8a6925d79b225a34d980472d4fb3241ab9eb1017
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bf27739bd42106550c18e3bbc27a1ff8b3770747
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127409"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321124"
 ---
 # <a name="migrate-logic-apps-to-latest-schema-version"></a>Migrer des applications logiques vers la dernière version du schéma
 
@@ -31,7 +31,7 @@ Pour migrer vos applications logiques existantes vers le schéma le plus récent
 
    La page Mettre à jour le schéma apparaît et affiche un lien vers un document qui décrit les améliorations incluses dans le nouveau schéma.
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 
 Voici quelques-unes des meilleures pratiques pour la migration de vos applications logiques vers la dernière version du schéma :
 

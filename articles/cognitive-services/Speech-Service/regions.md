@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: mahilleb
 ms.custom: seodec18
-ms.openlocfilehash: d41213d72d40555d8dc5aeab76040fc556dae774
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d302fc67225213ad55687797c97c7a2a8a17cc6d
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091643"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329505"
 ---
 # <a name="speech-service-supported-regions"></a>Régions prises en charge pour le service Speech
 
@@ -46,11 +46,24 @@ Le SDK Speech est disponible dans les régions suivantes pour la **reconnaissanc
 
 ### <a name="intent-recognition"></a>Reconnaissance de l’intention
 
-La **reconnaissance de l’intention** pour le SDK Speech partage la prise en charge des régions avec LUIS. Pour obtenir la liste complète des régions disponibles, consultez [Points de terminaison et régions de publication - LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions).
+Les régions disponibles pour la **reconnaissance de l'intention** via le kit de développement logiciel (SDK) Speech sont les suivantes :
 
-Les régions disponibles pour la **reconnaissance de l’intention** via le SDK Speech sont listées dans la [page des régions LUIS](/azure/cognitive-services/luis/luis-reference-regions).
+ Région globale | Région | Paramètre du SDK Speech
+ ------|-------|--------
+ Asie | Asie Est | `eastasia`
+ Asie | Asie Sud-Est | `southeastasia`
+ Australie | Australie Est | `australiaeast`
+ Europe | Europe Nord | `northeurope`
+ Europe | Europe Ouest | `westeurope`
+ Amérique du Nord | USA Est | `eastus`
+ Amérique du Nord | USA Est 2 | `eastus2`
+ Amérique du Nord | USA Centre Sud | `southcentralus`
+ Amérique du Nord | USA Centre-Ouest | `westcentralus`
+ Amérique du Nord | USA Ouest | `westus`
+ Amérique du Nord | USA Ouest 2 | `westus2`
+ Amérique du Sud | Brésil Sud | `brazilsouth`
 
-Pour chaque région de publication listée, utilisez le **nom de région d’API** fourni. Par exemple, utilisez `westus` pour les États-Unis de l’Ouest.
+Il s'agit d'un sous-ensemble des régions de publication prises en charge par le [service Language Understanding (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
 
 ## <a name="rest-apis"></a>API REST
 

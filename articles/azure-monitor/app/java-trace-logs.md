@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: e1575afde326875558cea437de775515b8606f01
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: d3f8e5ac1f85483d04da99744809f4bc72295024
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981635"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266192"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Exploration du suivi des journaux Java dans Application Insights
 Si vous utilisez Logback ou Log4J (v1.2 ou v2.0) pour le suivi, vous pouvez faire en sorte que vos journaux de suivi soient envoyés automatiquement à Application Insights, où vous pouvez les explorer et effectuer des recherches.
@@ -98,7 +98,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
 ```
 
 #### <a name="otherwise-"></a>Sinon...
-Suivez les instructions pour installer manuellement le kit de développement logiciel Application Insights pour Java, téléchargez le fichier jar (une fois sur la page principale Maven, cliquez sur le lien « jar » dans la section de téléchargement) de l’appender approprié, puis ajoutez le fichier jar de l’appender téléchargé au projet.
+Suivez les instructions pour installer manuellement le kit de développement logiciel (SDK) Application Insights pour Java, téléchargez le fichier jar (une fois sur la page principale Maven, cliquez sur le lien « jar » dans la section de téléchargement) de l'appender approprié, puis ajoutez le fichier jar de l'appender téléchargé au projet.
 
 | Enregistreur | Download | Bibliothèque |
 | --- | --- | --- |
@@ -156,7 +156,7 @@ Les appenders Application Insights peuvent être référencés par n’importe q
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>Explorer le suivi dans le portail Application Insights
 Maintenant que vous avez configuré votre projet pour qu’il envoie le suivi à Application Insights, vous pouvez rechercher et consulter ce suivi dans le portail Application Insights, dans le panneau [Recherche][diagnostic].
 
-Les exceptions envoyées via les enregistreurs d’événements s’afficheront sur le portail en tant que télémétrie d’exception.
+Les exceptions envoyées via les enregistreurs d'événements s'afficheront sur le portail en tant que données de télémétrie d'exception.
 
 ![Dans Application Insights, ouvrez Recherche](./media/java-trace-logs/10-diagnostics.png)
 

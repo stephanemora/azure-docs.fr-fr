@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2a28c8056e6dc25148299415a63a32993e874e01
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 9687276323598d8600aa6930df8ef18bcc171cc1
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284538"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358828"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ressources de connexion dans Azure Automation
 
@@ -23,7 +23,17 @@ Une ressource de connexion Automation contient les informations nécessaires pou
 Lorsque vous créez une connexion, vous devez spécifier un *type de connexion*. Le type de connexion est un modèle qui définit un ensemble de propriétés. La connexion définit des valeurs pour chaque propriété définie dans son type de connexion. Des types de connexion sont ajoutés à Azure Automation dans les modules d’intégration ou créés avec l’[API Azure Automation](https://msdn.microsoft.com/library/azure/mt163818.aspx) si le module d’intégration inclut un type de connexion et est importé dans votre compte Automation. Dans le cas contraire, vous devez créer un fichier de métadonnées pour indiquer le type de connexion Automation.  Pour plus d’informations à ce sujet, consultez [Modules d’intégration](automation-integration-modules.md).  
 
 >[!NOTE]
->Les ressources sécurisées dans Azure Automation incluent les informations d'identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation à l’aide d’une clé unique générée pour chaque compte Automation. Cette clé est stockée dans Key Vault. Avant de stocker une ressource sécurisée, la clé est chargée à partir de Key Vault, puis utilisée pour chiffrer la ressource.
+>Les ressources sécurisées dans Azure Automation incluent les informations d'identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation à l’aide d’une clé unique générée pour chaque compte Automation. Cette clé est stockée dans un coffre de clés managé par le système. Avant de stocker une ressource sécurisée, la clé est chargée à partir de Key Vault, puis utilisée pour chiffrer la ressource. Ce processus est managé par Azure Automation.
+
+## <a name="connection-types"></a>Types de connexion
+
+Trois types de connexions intégrées sont disponibles dans Azure Automation :
+
+* **Azure** - Cette connexion peut être utilisée pour gérer des ressources classiques.
+* **AzureClassicCertificate** - Cette connexion est utilisée par le compte **AzureClassicRunAs**.
+* **AzureServicePrincipal** - Cette connexion est utilisée par le compte **AzureRunAs**.
+
+Généralement, il n'est pas nécessaire de créer la ressource de connexion car celle-ci est générée au moment où vous créez le [compte RunAs](manage-runas-account.md).
 
 ## <a name="windows-powershell-cmdlets"></a>Applets de commande Windows PowerShell
 

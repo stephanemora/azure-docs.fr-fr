@@ -1,59 +1,33 @@
 ---
-title: Réplication avec Azure SQL Database Managed Instance | Microsoft Docs
-description: Découvrez comment utiliser la réplication SQL Server avec Azure SQL Database Managed Instance
+title: Configurer la réplication dans Azure SQL Database Managed Instance | Microsoft Docs
+description: Familiarisez-vous avec la configuration de la réplication transactionnelle dans Azure SQL Database Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: 4a272b028e1e3ef2778227f259c0b1b980af885d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/16/2019
+ms.openlocfilehash: 568b239cf41c802cc5d25b638f6d1501f58eccdf
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547590"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360086"
 ---
-# <a name="replication-with-sql-database-managed-instance"></a>Réplication avec SQL Database Managed Instance
+# <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Configurer la réplication dans Azure SQL Database Managed Instance
 
-La réplication est disponible en préversion publique dans [Azure SQL Database Managed Instance](sql-database-managed-instance.md). Managed Instance peut héberger des bases de données de serveur de publication, de serveur de distribution et d’abonné.
-
-## <a name="common-configurations"></a>Configurations courantes
-
-En règle générale, le serveur de publication et le serveur de distribution doivent se trouver tous les deux dans le cloud ou sur un même ordinateur local. Les configurations suivantes sont prises en charge :
-
-- **Serveur de publication avec un serveur de distribution local sur l’instance managée**
-
-   ![Replication-with-azure-sql-db-single-managed-instance-publisher-distributor](./media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
-
-   Les bases de données du serveur de publication et du serveur de distribution sont configurées sur une instance managée unique.
-
-- **Serveur de publication avec un serveur de distribution distant sur l’instance managée**
-
-   ![Replication-with-azure-sql-db-separate-managed-instances-publisher-distributor](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
-
-   Le serveur de publication et le serveur de distribution sont configurés sur deux instances managées. Dans cette configuration :
-
-  - Les deux instances managées se trouvent dans le même réseau virtuel.
-
-  - Les deux instances managées se trouvent au même emplacement.
-
-- **Serveur de publication et serveur de distribution locaux avec un abonné sur l’instance managée**
-
-   ![Replication-from-on-premises-to-azure-sql-db-subscriber](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
-
-   Dans cette configuration, une base de données SQL Azure est un abonné. Cette configuration prend en charge la migration de données locales vers Azure. Avec le rôle d’abonné, SQL Database ne nécessite pas Managed Instance. Toutefois, vous pouvez utiliser SQL Database Managed Instance comme une étape dans la migration de vos données locales vers Azure. Pour plus d’informations sur les abonnés Azure SQL Database, consultez [Réplication vers SQL Database](replication-to-sql-database.md).
+La réplication transactionnelle vous permet de répliquer les données des bases de données SQL Server ou Azure SQL Database Managed Instance dans l'instance managée, ou d'envoyer (push) les modifications apportées à vos bases de données de l'instance managée vers un autre serveur SQL Server, une autre base de données unique Azure ou une autre instance managée. La réplication est disponible en préversion publique dans [Azure SQL Database Managed Instance](sql-database-managed-instance.md). Managed Instance peut héberger des bases de données de serveur de publication, de serveur de distribution et d’abonné. Reportez-vous à [Configurations de réplication transactionnelle](sql-database-managed-instance-transactional-replication.md#common-configurations) pour connaître les configurations disponibles.
 
 ## <a name="requirements"></a>Configuration requise
 
 Le serveur de publication et le serveur de distribution sur Azure SQL Database nécessitent ce qui suit :
 
-- Azure SQL Database Managed Instance
+- Azure SQL Database Managed Instance sans configuration de géo-reprise d'activité.
 
    >[!NOTE]
    >Les bases de données SQL Azure qui ne sont pas configurées avec Managed Instance peuvent seulement être des abonnés.
@@ -74,7 +48,13 @@ Prend en charge :
 
 - Les abonnés peuvent être des bases de données uniques locales dans Azure SQL Database, ou des bases de données mises en pool dans des pools élastiques Azure SQL Database.
 
-- La réplication unidirectionnelle et bidirectionnelle
+- La réplication unidirectionnelle ou bidirectionnelle.
+
+Les fonctionnalités suivantes ne sont pas prises en charge :
+
+- Abonnements modifiables.
+
+- Géoréplication active.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Exemple de configuration d’un serveur de publication et d’un serveur de distribution
 
@@ -87,7 +67,7 @@ Prend en charge :
 
    Dans les exemples de scripts ci-dessous, remplacez `<Publishing_DB>` par le nom de cette base de données.
 
-4. Créez un utilisateur de base de données avec l’authentification SQL pour le serveur de distribution. Consultez [Création d’utilisateurs de base de données](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Utilisez un mot de passe sécurisé.
+4. Créez un utilisateur de base de données avec l’authentification SQL pour le serveur de distribution. Utilisez un mot de passe sécurisé.
 
    Dans les exemples de scripts ci-dessous, utilisez `<SQL_USER>` et `<PASSWORD>` avec l’utilisateur de base de données et le mot de passe du compte SQL Server.
 
@@ -188,15 +168,8 @@ Prend en charge :
                 @job_password = N'<PASSWORD>'
    GO
    ```
-
-## <a name="limitations"></a>Limites
-
-Les fonctionnalités suivantes ne sont pas prises en charge :
-
-- Abonnements modifiables
-
-- Géoréplication active
-
+   
 ## <a name="see-also"></a>Voir aussi
 
+- [Réplication transactionnelle](sql-database-managed-instance-transactional-replication.md)
 - [Présentation de Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

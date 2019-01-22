@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 577147ad91c6a35a45fd40ca9e6424863ea196d6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c2ffa623ad7a6c6da5b799d2c7d5f35c9f65e503
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340774"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215403"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API HTTP dans Fonctions durables (Azure Functions)
 
@@ -96,9 +96,9 @@ Toutes les API HTTP implémentées par l’extension utilisent les paramètres s
 | taskHub    | Chaîne de requête    | Le nom du [hub de tâches](durable-functions-task-hubs.md). S’il n’est pas spécifié, le nom de hub de tâches de l’application de fonction en cours est supposé. |
 | connection | Chaîne de requête    | Le **nom** de la chaîne de connexion du compte de stockage. Si elle n’est pas spécifiée, la chaîne de connexion par défaut pour l’application de la fonction est supposée. |
 | systemKey  | Chaîne de requête    | La clé d’autorisation requise pour appeler l’API. |
-| showInput  | Chaîne de requête    | Paramètre facultatif. Si la valeur est définie sur `false`, l’entrée d’exécution n’est pas incluse dans la charge utile de réponse.|
-| showHistory| Chaîne de requête    | Paramètre facultatif. Si la valeur est définie sur `true`, l’historique d’exécution de l’orchestration est inclus dans la charge utile de réponse.|
-| showHistoryOutput| Chaîne de requête    | Paramètre facultatif. Si la valeur est définie sur `true`, les sorties de l’activité sont incluses dans l’historique d’exécution de l’orchestration.|
+| showInput  | Chaîne de requête    | Paramètre facultatif ; requête d'instance unique exclusivement. Si la valeur est définie sur `false`, l’entrée d’exécution n’est pas incluse dans la charge utile de réponse.|
+| showHistory| Chaîne de requête    | Paramètre facultatif ; requête d'instance unique exclusivement. Si la valeur est définie sur `true`, l’historique d’exécution de l’orchestration est inclus dans la charge utile de réponse.|
+| showHistoryOutput| Chaîne de requête    | Paramètre facultatif ; requête d'instance unique exclusivement. Si la valeur est définie sur `true`, les sorties de l’activité sont incluses dans l’historique d’exécution de l’orchestration.|
 | createdTimeFrom  | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances retournées qui ont été créées pendant ou après l’horodatage ISO8601 donné.|
 | createdTimeTo    | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances retournées qui ont été créées pendant ou avant l’horodatage ISO8601 donné.|
 | runtimeStatus    | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances retournées selon leur état d’exécution. Pour obtenir la liste des valeurs d’état d’exécution possibles, consultez la rubrique [Interrogation des instances](durable-functions-instance-management.md). |
@@ -146,7 +146,7 @@ La charge utile de réponse pour les cas **HTTP 200** et **HTTP 202** est un o
 | sortie          | JSON      | La sortie JSON de l’instance. Ce champ est `null` si l’instance n’est pas dans un état terminé. |
 | createdTime     | chaîne    | Heure à laquelle l’instance a été créée. Utilise la notation étendue ISO 8601. |
 | lastUpdatedTime | chaîne    | Heure du dernier état persistant de l’instance. Utilise la notation étendue ISO 8601. |
-| historyEvents   | JSON      | Tableau JSON contenant l’historique d’exécution de l’orchestration. Ce champ est `null`, sauf si le paramètre de chaîne de requête `showHistory` a la valeur `true`.  |
+| historyEvents   | JSON      | Tableau JSON contenant l’historique d’exécution de l’orchestration. Ce champ est `null`, sauf si le paramètre de chaîne de requête `showHistory` a la valeur `true`. |
 
 Voici un exemple de charge utile de réponse incluant l’historique et les sorties de l’activité d’exécution d’orchestration (mis en forme pour une meilleure lisibilité) :
 

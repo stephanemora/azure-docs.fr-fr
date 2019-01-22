@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.openlocfilehash: 5af508714b5eae5cdd23c940af0ae21300c0c5b8
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bf056c162684c021e3a8408edfdf82fe4590be48
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195160"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260632"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Déployer Azure Cognitive Services sur Azure Stack
 
@@ -41,7 +41,7 @@ La conteneurisation est une méthode de distribution de logiciels dans laquelle 
   Fournissez aux utilisateurs de votre application la version et la mise à jour des modèles déployés dans leur solution.
 
 - **Architecture portable**  
-  Activez la création d’une architecture d’application portable afin de pouvoir déployer votre solution sur le cloud public, un cloud privé local ou la périphérie. Vous pouvez déployer votre conteneur sur Azure Kubernetes Service, Azure Container Instances ou un cluster Kubernetes dans Azure Stack. Pour plus d’informations, consultez [Déployer Kubernetes sur Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+  Facilitez la création d'une architecture d'application portable afin de pouvoir déployer votre solution sur le cloud public, sur un cloud privé local ou à la périphérie. Vous pouvez déployer votre conteneur sur Azure Kubernetes Service, Azure Container Instances ou un cluster Kubernetes dans Azure Stack. Pour plus d’informations, consultez [Déployer Kubernetes sur Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
 - **Haut débit et faible latence**  
    Offrez aux utilisateurs de votre application la possibilité de mettre à l’échelle avec des pics de trafic pour un débit élevé et une faible latence. Activez Cognitive Services pour une exécution dans Azure Kubernetes Service physiquement proche de leur logique d’application et de leurs données.

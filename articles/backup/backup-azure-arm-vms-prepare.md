@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: ee7a9c407a26f9334a854c98793db8fc01244e2a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 65e4c6d66e410e8cd761128028b7a47e21db86eb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994672"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354499"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Préparer la sauvegarde de machines virtuelles Azure
 
@@ -61,8 +61,6 @@ Cet article explique comment préparer la sauvegarde d’une machine virtuelle A
     - Vous n’avez pas besoin de spécifier des comptes de stockage dans lesquels héberger les données de sauvegarde. Le coffre et le service Sauvegarde Azure gèrent cela automatiquement.
 - Vérifiez que l’agent de machine virtuelle est installé sur les machines virtuelles Azure que vous souhaitez sauvegarder.
 
-
-
 ### <a name="install-the-vm-agent"></a>Installer l’agent de machine virtuelle
 
 Pour activer la sauvegarde, Sauvegarde Azure installe une extension de sauvegarde (VM Snapshot ou VM Snapshot Linux) sur l’agent de machine virtuelle qui s’exécute sur la machine virtuelle Azure.
@@ -79,12 +77,14 @@ Si vous rencontrez des problèmes de sauvegarde de la machine virtuelle Azure, u
 
 ### <a name="establish-network-connectivity"></a>Établir la connectivité réseau
 
-L’extension de sauvegarde en cours d’exécution sur la machine virtuelle doit avoir un accès sortant vers des adresses IP publiques Azure. Pour autoriser cet accès, vous pouvez effectuer les étapes suivantes :
+L’extension de sauvegarde en cours d’exécution sur la machine virtuelle doit avoir un accès sortant vers des adresses IP publiques Azure.
 
+> [!NOTE]
+> Aucun accès réseau sortant explicite n'est requis pour que la machine virtuelle Azure communique avec le service Sauvegarde Microsoft Azure. Toutefois, certaines machines virtuelles plus anciennes peuvent rencontrer des problèmes et échouer en renvoyant l'erreur **ExtensionSnapshotFailedNoNetwork**. Pour résoudre cette erreur, choisissez l'une des options suivantes afin de permettre à l'extension de sauvegarde de communiquer avec les adresses IP publiques Azure et de fournir un chemin d'accès clair pour le trafic de sauvegarde.
 
-- **Règles de groupe de sécurité réseau** : autorisez les [plages d’adresses IP de centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653). Vous pouvez ajouter une règle qui autorise l’accès au service Sauvegarde Azure en utilisant une [balise de service](../virtual-network/security-overview.md#service-tags), au lieu d’autoriser individuellement chaque plage d’adresses et de les gérer au fil du temps.
+- **Règles de groupe de sécurité réseau** : autorisez les [plages d’adresses IP de centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653). Vous pouvez ajouter une règle qui autorise l’accès au service Sauvegarde Azure en utilisant une [balise de service](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure), au lieu d’autoriser individuellement chaque plage d’adresses et de les gérer au fil du temps. Pour plus d'informations sur la balise de service, consultez cet [article](../virtual-network/security-overview.md#service-tags).
 - **Proxy** : Déployer un serveur de proxy HTTP pour acheminer le trafic.
-- **Pare-feu Azure** : autorisez le trafic qui passe par le Pare-feu Azure sur la machine virtuelle, à l’aide d’une balise de nom de domaine complet pour le service Sauvegarde Azure.
+- **Pare-feu Azure** : autorisez le trafic via le Pare-feu Azure sur la machine virtuelle, en utilisant une balise FQDN pour le service Sauvegarde Azure
 
 Envisagez un compromis pour déterminer votre option.
 
@@ -94,22 +94,17 @@ Envisagez un compromis pour déterminer votre option.
 **Proxy HTTP** | Le contrôle granulaire des URL de stockage est autorisé.<br/><br/> Un seul point d’accès Internet pour les machines virtuelles.<br/><br/> Frais supplémentaires pour le proxy.
 **Balises FQDN** | Simple à utiliser si le Pare-feu Azure est configuré dans un sous-réseau de réseau virtuel. | Impossible de créer vos propres balises FQDN ou de modifier les FQDN dans une balise.
 
-
-
 Si vous utilisez Azure Managed Disks, vous devrez peut-être ouvrir un port supplémentaire (le port 8443) sur les pare-feu.
-
-
 
 ### <a name="set-up-an-nsg-rule-to-allow-outbound-access-to-azure"></a>Configurer une règle de groupe de sécurité réseau pour autoriser l’accès sortant vers Azure
 
 Si l’accès de votre machine virtuelle Azure est géré par un groupe de sécurité réseau, autorisez l’accès sortant pour le stockage de sauvegarde vers les plages et ports nécessaires.
 
-
-
 1. Dans la machine virtuelle > **Mise en réseau**, cliquez sur **Ajouter une règle de port de sortie**.
-- Si vous avez une règle qui refuse l’accès, la nouvelle règle qui l’autorise doit être plus haute. Par exemple, si vous avez une règle **Deny_All** définie au niveau de priorité 1 000, votre nouvelle règle doit avoir une valeur inférieure à 1 000.
+
+  - Si vous avez une règle qui refuse l’accès, la nouvelle règle qui l’autorise doit être plus haute. Par exemple, si vous avez une règle **Deny_All** définie au niveau de priorité 1 000, votre nouvelle règle doit avoir une valeur inférieure à 1 000.
 2. Dans **Ajouter une règle de sécurité de trafic sortant**, cliquez sur **Avancé**.
-3. Dans Source, sélectionnez **VirtualNetwork**.
+3. Dans **Source**, sélectionnez **VirtualNetwork**.
 4. Dans **Plages de ports sources**, tapez un astérisque (*) pour autoriser l’accès sortant à partir de n’importe quel port.
 5. Dans **Destination**, sélectionnez **Balise de service**. Dans la liste, sélectionnez Stockage.<region>. La région correspond à la région dans laquelle se trouvent le coffre et les machines virtuelles que vous souhaitez sauvegarder.
 6. Dans **Plages de ports de destination**, sélectionnez le port.
@@ -117,9 +112,9 @@ Si l’accès de votre machine virtuelle Azure est géré par un groupe de sécu
     - Machine virtuelle avec des disques non managés et un compte de stockage non chiffré : 80
     - Machine virtuelle avec des disques non managés et un compte de stockage chiffré : 443 (paramètre par défaut)
     - Machine virtuelle gérée : 8443
-1. Dans **Protocole**, sélectionnez **TCP**.
-2. Dans **Priorité**, attribuez une valeur inférieure à toute règle de refus située plus haut.
-3. Indiquez un nom et une description pour la règle, puis cliquez sur **OK**.
+7. Dans **Protocole**, sélectionnez **TCP**.
+8. Dans **Priorité**, attribuez une valeur inférieure à toute règle de refus située plus haut.
+9. Indiquez un nom et une description pour la règle, puis cliquez sur **OK**.
 
 Vous pouvez appliquer la règle de groupe de sécurité réseau à plusieurs machines virtuelles pour autoriser l’accès sortant vers Azure pour Sauvegarde Azure.
 
@@ -127,12 +122,12 @@ Cette vidéo vous guide tout au long du processus.
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-
+> [!WARNING]
+> Les balises de service de stockage sont en préversion. Elles ne sont disponibles que dans certaines régions. Vous en trouverez la liste dans la section [Balises de service pour le stockage](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="route-backup-traffic-through-a-proxy"></a>Router le trafic de sauvegarde par le biais d’un proxy
 
 Vous pouvez router le trafic de sauvegarde par le biais d’un proxy, puis octroyer au proxy l’accès aux plages Azure nécessaires.
-
 Vous devez configurer votre machine virtuelle proxy de sorte à autoriser ce qui suit :
 
 - La machine virtuelle Azure route tout le trafic HTTP destiné à l’Internet public par le biais du proxy.
@@ -154,7 +149,7 @@ Si vous n’avez pas de proxy de compte système, configurez-en un comme suit :
         - Ajoutez ces lignes au fichier **/etc/waagent.conf** :
             - **HttpProxy.Host=proxy IP address**
             - **HttpProxy.Port=proxy port**
-    - Sur des machines Windows, dans les paramètres du navigateur, spécifiez qu’un proxy doit être utilisé. Si vous utilisez actuellement un proxy sur un compte d’utilisateur, vous pouvez utiliser ce script pour appliquer le paramètre au niveau du compte système.
+    - Sur des machines Windows, dans les paramètres du navigateur, spécifiez qu’un proxy doit être utilisé. Si vous utilisez actuellement un proxy sur un compte d'utilisateur, vous pouvez utiliser ce script pour appliquer le paramètre au niveau du compte système.
         ```
        $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
        Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
@@ -167,8 +162,9 @@ Si vous n’avez pas de proxy de compte système, configurez-en un comme suit :
 
 #### <a name="allow-incoming-connections-on-the-proxy"></a>Autoriser les connexions entrantes sur le proxy
 
-1. Autorisez les connexions entrantes dans les paramètres du proxy.
-2. Par exemple, ouvrez le **Pare-feu Windows avec fonctions avancées de sécurité**.
+Autorisez les connexions entrantes dans les paramètres du proxy.
+
+- Par exemple, ouvrez le **Pare-feu Windows avec fonctions avancées de sécurité**.
     - Cliquez avec le bouton droit sur **Règles de trafic entrant** > **Nouvelle règle**.
     - Dans **Type de règle**, sélectionnez **Personnalisé** > **Suivant**.
     - Dans **Programme**, sélectionnez **Tous les programmes** > **Suivant**.
@@ -186,13 +182,13 @@ Dans le **verrouillage NSF** du groupe de sécurité réseau, autorisez le trafi
     Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
     Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
     ```
+
 ### <a name="allow-firewall-access-with-fqdn-tag"></a>Autoriser l’accès à travers le pare-feu avec une balise FQDN
 
 Vous pouvez configurer le Pare-feu Azure afin d’autoriser l’accès sortant du trafic réseau vers Sauvegarde Azure.
 
 - [Découvrez-en plus](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) sur le déploiement du Pare-feu Azure.
 - [Découvrez](https://docs.microsoft.com/azure/firewall/fqdn-tags) les balises FQDN.
-
 
 ## <a name="create-a-vault"></a>Création d'un coffre
 
@@ -227,7 +223,7 @@ Une fois votre coffre créé, il apparaît dans la liste des coffres Recovery Se
 
 ## <a name="set-up-storage-replication"></a>Configurer la réplication du stockage
 
-Par défaut, votre coffre utilise un [stockage géoredondant (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). Nous vous recommandons d’utiliser un GRS pour votre sauvegarde principale, mais vous pouvez utiliser un [stockage localement redondant](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour réaliser des économies. 
+Par défaut, votre coffre utilise un [stockage géoredondant (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). Nous vous recommandons d’utiliser un GRS pour votre sauvegarde principale, mais vous pouvez utiliser un [stockage localement redondant](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour réaliser des économies.
 
 Modifiez la réplication du stockage comme suit :
 
@@ -285,5 +281,5 @@ Après avoir activé la sauvegarde :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Résolvez les problèmes rencontrés par les [agents de machine virtuelle Azure](/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) ou la [sauvegarde de machine virtuelle Azure](backup-azure-vms-troubleshoot.md).
+- Résolvez les problèmes rencontrés par les [agents de machine virtuelle Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) ou la [sauvegarde de machine virtuelle Azure](backup-azure-vms-troubleshoot.md).
 - [Sauvegarder des machines virtuelles Azure](backup-azure-vms-first-look-arm.md)

@@ -11,16 +11,36 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 157591897adb7495382b540dc1517c4c652a2632
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5341c4901ca2a7aa0b4935e13d06c8fb5a1f0d1b
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190722"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304092"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notes de publication du service Azure Machine Learning
 
 Dans cet article, découvrez les versions du service Azure Machine Learning. 
+
+## <a name="2019-01-14"></a>14-01-2019
+
+### <a name="azure-machine-learning-sdk-for-python-v108"></a>Kit de développement logiciel (SDK) Azure Machine Learning pour Python v1.0.8
+
++ **Documents de référence sur le SDK** : https://aka.ms/aml-sdk
+
++ **Résolution des bogues** : Cette version contient principalement des correctifs de bogues mineurs
+
+### <a name="azure-machine-learning-data-prep-sdk-v107"></a>Kit de développement logiciel (SDK) de préparation de données Azure Machine Learning v1.0.7
+
++ **Documents de référence sur le SDK** : https://aka.ms/data-prep-sdk
+
++ **Nouvelles fonctionnalités**
+  + Améliorations des magasins de données (documentées dans le [Guide pratique sur les magasins de données](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
+    + Ajout de la possibilité de lire et d'écrire sur le partage de fichiers Azure et dans les magasins de données ADLS lors de la mise à l'échelle.
+    + Lors de l'utilisation de magasins de données, la préparation des données prend désormais en charge l'utilisation de l'authentification du principal de service au lieu de l'authentification interactive.
+    + Ajout de la prise en charge des URL wasb et wasbs.
+
+## <a name="2019-01-09"></a>09-01-2019
 
 ### <a name="azure-machine-learning-data-prep-sdk-v106"></a>SDK de préparation de données Azure Machine Learning v1.0.6
 
@@ -29,7 +49,7 @@ Dans cet article, découvrez les versions du service Azure Machine Learning.
 + **Résolution des bogues**
   + Correction du bogue lors de la lecture à partir de conteneurs Blob Azure publics lisibles sur Spark
 
-## <a name="2018-12-20"></a>2018-12-20 : 
+## <a name="2018-12-20"></a>20-12-2018 
 
 ### <a name="azure-machine-learning-sdk-for-python-v106"></a>Kit SDK Azure Machine Learning pour Python v1.0.6
 
@@ -114,7 +134,7 @@ La capacité de calcul Azure Machine Learning peut être créée dans Python, à
   + Découvrez comment [créer votre premier pipeline](how-to-create-your-first-pipeline.md)
   + Découvrez comment [exécuter des prédictions par lots à l’aide de pipelines](how-to-run-batch-predictions.md)
 + Cible de calcul Azure Machine Learning
-  + [Exemples de notebooks] (https://aka.ms/aml-notebooks) sont désormais mis à jour pour utiliser la nouvelle capacité de calcul gérée.
+  + Les [exemples de notebooks](https://aka.ms/aml-notebooks) ont été mis à jour pour utiliser la nouvelle capacité de calcul managé.
   + [En savoir plus sur cette capacité de calcul](how-to-set-up-training-targets.md#amlcompute)
 
 ### <a name="azure-portal-new-features"></a>Portail Azure : nouvelles fonctionnalités
@@ -135,7 +155,7 @@ La capacité de calcul Azure Machine Learning peut être créée dans Python, à
 
 + **Dernières modifications** 
   * L’espace de noms *azureml.train.widgets* a été déplacé vers *azureml.widgets*.
-  * *azureml.core.compute.AmlCompute* déprécie les classes suivantes : *azureml.core.compute.BatchAICompute* et *azureml.core.compute.DSVMCompute*. Cette dernière classe sera supprimée dans les versions ultérieures. La classe AmlCompute a désormais une définition plus facile ; munie simplement d’un vm_size et du max_nodes, elle met automatiquement à l’échelle votre cluster entre 0 et max_nodes quand un travail est envoyé. Nos [exemples de blocs-notes] (https://github.com/Azure/MachineLearningNotebooks/tree/master/training) ont été mis à jour avec ces informations et doivent proposer des exemples d’utilisation. Nous espérons que vous appréciez cette simplification, que viendront compléter de nombreuses fonctionnalités plus intéressantes dans une version ultérieure !
+  * *azureml.core.compute.AmlCompute* déprécie les classes suivantes : *azureml.core.compute.BatchAICompute* et *azureml.core.compute.DSVMCompute*. Cette dernière classe sera supprimée dans les versions ultérieures. La classe AmlCompute a désormais une définition plus facile ; munie simplement d’un vm_size et du max_nodes, elle met automatiquement à l’échelle votre cluster entre 0 et max_nodes quand un travail est envoyé. Nos [exemples de notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/training) ont été mis à jour avec ces informations afin de vous proposer des exemples d'utilisation. Nous espérons que vous appréciez cette simplification, que viendront compléter de nombreuses fonctionnalités plus intéressantes dans une version ultérieure !
 
 ### <a name="azure-machine-learning-data-prep-sdk-v051"></a>SDK de préparation de données Azure Machine Learning v0.5.1 
 

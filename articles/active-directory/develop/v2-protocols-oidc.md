@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 756d00786005fb6de26ff363d4e233fc28b48687
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 01d73d9c42f99dde02a801af9967430c9735932d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426840"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320954"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 et le protocole OpenID Connect
 
@@ -33,7 +33,7 @@ OpenID Connect est un protocole d’authentification basé sur OAuth 2.0 que vou
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) étend le protocole *d’autorisation* OAuth 2.0 pour l’utiliser en tant que protocole *d’authentification*, ce qui vous permet de procéder à une authentification unique à l’aide d’OAuth. OpenID Connect introduit le concept de *jeton d'ID*, qui est un jeton de sécurité permettant au client de vérifier l’identité de l’utilisateur. Il permet également les informations de base de profil de l'utilisateur. Comme OpenID Connect étend OAuth 2.0, les applications peuvent acquérir de manière sûre les *jetons d’accès* pouvant être utilisés pour accéder à des ressources sécurisées à l’aide d’un [serveur d’autorisation](active-directory-v2-protocols.md#the-basics). Le point de terminaison v2.0 permet également aux applications tierces qui sont inscrites auprès d’Azure AD d’émettre des jetons d’accès pour des ressources sécurisées, telles que des API web. Pour plus d’informations sur la configuration d’une application pour l’émission de jetons d’accès, consultez [Inscription d’une application avec le point de terminaison v2.0](quickstart-v2-register-an-app.md). Nous recommandons d'utiliser OpenID Connect si vous concevez une [application web](v2-app-types.md#web-apps) hébergée sur un serveur et accessible par le biais d’un navigateur.
 
-## <a name="protocol-diagram-sign-in"></a>Schéma de protocole : Connexion
+## <a name="protocol-diagram-sign-in"></a>Schéma de protocole : Connexion
 
 Le flux de connexion le plus simple se compose des étapes présentées dans le diagramme suivant. Chaque étape est décrite en détail dans cet article.
 
@@ -86,7 +86,7 @@ Lorsque votre application web a besoin d’authentifier l’utilisateur, elle p
 * La demande doit inclure le paramètre `nonce` .
 
 > [!IMPORTANT]
-> Afin de demander un jeton d’ID correctement, l’inscription de l’application dans le [portail d’inscription](https://apps.dev.microsoft.com) doit avoir **[l’Octroi implicite](v2-oauth2-implicit-grant-flow.md)** activé pour le client web. S’il n’est pas activé, une erreur `unsupported_response` est renvoyée : « la valeur fournie pour le paramètre d’entrée ’response_type’ n’est pas autorisée pour ce client. La valeur attendue est ’code’ »
+> Pour pouvoir demander un jeton d'identification, l'inscription de l'application sur le [portail d'inscription](https://apps.dev.microsoft.com) doit obligatoirement avoir l'**[Octroi implicite](v2-oauth2-implicit-grant-flow.md)** activé pour le client web. S’il n’est pas activé, une erreur `unsupported_response` est retournée : « La valeur fournie pour le paramètre d'entrée 'response_type' n'est pas autorisée pour ce client. La valeur attendue est ’code’ »
 
 Par exemple : 
 
@@ -207,7 +207,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 Lorsque vous redirigez l’utilisateur vers `end_session_endpoint`, le point de terminaison v2.0 efface la session de l’utilisateur dans le navigateur. Toutefois, l’utilisateur peut rester connecté à d’autres applications qui utilisent des comptes Microsoft pour s’authentifier. Pour permettre à ces applications de déconnecter simultanément l’utilisateur, le point de terminaison v2.0 envoie une requête HTTP GET au paramètre `LogoutUrl` inscrit de toutes les applications auxquelles l’utilisateur est actuellement connecté. Les applications doivent répondre à cette requête en effaçant toute session qui identifie l’utilisateur et en renvoyant une réponse `200`. Si vous souhaitez prendre en charge la déconnexion unique dans votre application, vous devez implémenter ce paramètre `LogoutUrl` dans le code de votre application. Vous pouvez définir le paramètre `LogoutUrl` à partir du portail d’inscription des applications.
 
-## <a name="protocol-diagram-access-token-acquisition"></a>Schéma de protocole : Acquisition de jeton d’accès
+## <a name="protocol-diagram-access-token-acquisition"></a>Schéma de protocole : Acquisition de jeton d'accès
 
 Beaucoup d’applications web nécessitent une connexion de l’utilisateur, puis un accès au service web pour le compte de cet utilisateur à l’aide d’OAuth. Ce scénario utilise OpenID Connect pour l’authentification de l’utilisateur tout en récupérant un code d’autorisation vous permettant d'obtenir des jetons d’accès si vous utilisez le flux de code d’autorisation OAuth.
 

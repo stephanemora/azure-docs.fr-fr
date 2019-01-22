@@ -13,19 +13,19 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1940908cc0120ed5a69ae6603ec101d020b0ef3f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 08897b2085c2a8f0eafb90b77486d60a0edce190
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722071"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359865"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
 Azure Functions s’exécute dans deux modes différents : plan Consommation et plan Azure App Service. Le plan Consommation alloue automatiquement la puissance de calcul lors de l’exécution de votre code. La capacité de votre application est augmentée le cas échéant pour gérer la charge et réduite lorsque le code n’est pas en cours d’exécution. Vous n’avez pas à payer pour des machines virtuelles inactives ni à réserver de la capacité à l’avance.
 
 > [!NOTE]  
-> Pour l’instant, [l’hébergement Linux](functions-create-first-azure-function-azure-cli-linux.md) est uniquement disponible dans un plan App Service.
+> Le plan de consommation relatif à Linux est [désormais disponible en Préversion publique](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/).
 
 Si vous n’êtes pas familiarisé avec Azure Functions, consultez [Vue d’ensemble d’Azure Functions](functions-overview.md).
 

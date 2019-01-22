@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: a0f002266764ace07482023a0412366b90acec63
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c779344f4cb0544009952423b6771b75482c3061
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789855"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353958"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -52,7 +52,7 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 * Ce problème peut également se produire si plusieurs sauvegardes sont déclenchées tous les jours. Actuellement, nous recommandons une seule sauvegarde par jour, car les points de récupération instantanés sont conservés pendant 7 jours, et seuls 18 points de récupération instantanés peuvent être associés à une machine virtuelle à un moment donné. <br>
 
 Action recommandée :<br>
-Pour résoudre ce problème, supprimez le verrou du groupe de ressources de la machine virtuelle et recommencez l’opération pour déclencher le nettoyage. 
+Pour résoudre ce problème, supprimez le verrou du groupe de ressources de la machine virtuelle et recommencez l’opération pour déclencher le nettoyage.
 > [!NOTE]
     > Le service de sauvegarde crée un groupe de ressources distinct du groupe de ressources de la machine virtuelle afin de stocker la collection de points de restauration. Les clients sont invités à ne pas verrouiller le groupe de ressources créé pour une utilisation par le service de sauvegarde. Le format d’affectation des noms du groupe de ressources créé par le service de sauvegarde est : AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
@@ -105,14 +105,14 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 **Code d’erreur** : UserErrorUnsupportedDiskSize <br>
 **Message d’erreur** : Actuellement, La sauvegarde Azure ne prend pas en charge les tailles de disque supérieures à 1 023 Go <br>
 
-Votre opération de sauvegarde peut échouer lorsque vous sauvegardez des machines virtuelles dont la taille de disque est supérieure à 1 023 Go, car votre espace de stockage n’est pas mis à niveau vers la pile Azure VM Backup V2. La mise à niveau vers la pile de sauvegarde de machine virtuelle Azure V2 permettra de prendre en charge jusqu’à 4 To. Passez en revue ces [avantages](backup-upgrade-to-vm-backup-stack-v2.md) et [considérations](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), puis effectuez la mise à niveau en suivant ces [instructions](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+Votre opération de sauvegarde peut échouer lorsque vous sauvegardez une machine virtuelle dotée d'un disque de plus de 1023 Go, car votre espace de stockage n'est pas mis à niveau vers la Restauration instantanée. La mise à niveau vers la Restauration instantanée fournira une prise en charge de 4 To maximum. Reportez-vous à cet [article](backup-instant-restore-capability.md).  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - Actuellement, la sauvegarde Azure ne prend pas en charge les disques SSD Standard
 
 **Code d’erreur** : UserErrorStandardSSDNotSupported <br>
 **Message d’erreur** : Actuellement, Sauvegarde Azure ne prend pas en charge les disques SSD Standard. <br>
 
-Actuellement, Sauvegarde Azure prend en charge les disques SSD Standard uniquement pour les coffres qui ont été mis à niveau vers la pile de sauvegarde de machine virtuelle Azure V2. Passez en revue ces [avantages](backup-upgrade-to-vm-backup-stack-v2.md) et [considérations](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), puis effectuez la mise à niveau en suivant ces [instructions](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).
+Actuellement, Sauvegarde Azure prend en charge les disques SSD Standard uniquement pour les coffres qui ont été mis à niveau vers la [Restauration instantanée](backup-instant-restore-capability.md).
 
 
 ## <a name="causes-and-solutions"></a>Causes et solutions
@@ -122,33 +122,8 @@ Selon la spécification du déploiement, la machine virtuelle n’a pas accès �
 
 Pour fonctionner correctement, l’extension Sauvegarde a besoin d’une connectivité aux adresses IP publiques Azure. Elle envoie des commandes à un point de terminaison Stockage Azure (URL HTTPs) pour gérer les instantanés de la machine virtuelle. Si elle n’a pas accès à l’Internet public, la sauvegarde échoue.
 
-Il est possible de déployer un serveur proxy pour router le trafic de la machine virtuelle.
-##### <a name="create-a-path-for-https-traffic"></a>Créer un chemin d’accès pour le trafic HTTPs
-
-1. Si des restrictions réseau ont été mises en place (un groupe de sécurité réseau, par exemple), déployez un serveur proxy HTTPs pour acheminer le trafic.
-2. Pour autoriser l’accès à Internet à partir du serveur proxy HTTPs, ajoutez des règles au groupe de sécurité réseau (le cas échéant).
-
-Pour savoir comment configurer un proxy HTTPs pour les sauvegardes de machines virtuelles, consultez [Préparer votre environnement pour la sauvegarde des machines virtuelles Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
-
-La machine virtuelle sauvegardée ou le serveur proxy à travers lequel le trafic est routé nécessite un accès à des adresses IP publiques Azure
-
 ####  <a name="solution"></a>Solution
-Pour résoudre le problème, essayez l’une des méthodes suivantes :
-
-##### <a name="allow-access-to-azure-storage-that-corresponds-to-the-region"></a>Autoriser l’accès au Stockage Azure correspondant à la région
-
-Vous pouvez utiliser des [balises de service](../virtual-network/security-overview.md#service-tags) pour autoriser les connexions au stockage de la région concernée. Vérifiez que la règle qui autorise l’accès au compte de stockage a la priorité par rapport à la règle bloquant l’accès à Internet.
-
-![Groupe de sécurité réseau avec des balises de stockage pour une région](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
-
-Pour comprendre la procédure étape par étape permettant de configurer les balises de service, regardez [cette vidéo](https://youtu.be/1EjLQtbKm1M).
-
-> [!WARNING]
-> Les balises de service de stockage sont en préversion. Elles ne sont disponibles que dans certaines régions. Vous en trouverez la liste dans la section [Balises de service pour le stockage](../virtual-network/security-overview.md#service-tags).
-
-Si vous utilisez Azure Managed Disks, vous devrez peut-être ouvrir un port supplémentaire (le port 8443) sur les pare-feu.
-
-En outre, si votre sous-réseau n’a pas d’itinéraire pour le trafic Internet sortant, vous devez ajouter un point de terminaison de service avec la balise de service « Microsoft.Storage » à votre sous-réseau.
+Pour résoudre le problème de réseau, reportez-vous à [Établir la connectivité réseau](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)
 
