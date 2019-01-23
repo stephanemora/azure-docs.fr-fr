@@ -3,7 +3,7 @@ title: Configuration des pilotes GPU de série N Azure pour Linux | Microsoft Do
 description: Procédure de configuration des pilotes GPU NVIDIA pour les machines virtuelles série N exécutant Linux dans Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 01/09/2019
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2bd9f8508f67a3c4b87533fb514854b5f66a5f6b
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: df78852e309054bb5c27a779b37bb2310d9f7a01
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017261"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201038"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installer les pilotes GPU NVIDIA sur les machines virtuelles série N exécutant Linux
 
@@ -51,9 +51,9 @@ Vous verrez une sortie similaire à l’exemple suivant (illustrant une carte K8
 
 Ensuite, exécutez les commandes d’installation spécifiques de votre distribution.
 
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+### <a name="ubuntu"></a>Ubuntu 
 
-1. Téléchargez et installez les pilotes CUDA.
+1. Téléchargez et installez les pilotes CUDA à partir du site web NVIDIA. Par exemple, pour Ubuntu 16.04 LTS :
   ```bash
   CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
@@ -97,7 +97,7 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS ou Red Hat Enterprise Linux 7.3 ou 7.4
+### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS ou Red Hat Enterprise Linux
 
 1. Mettez à jour le noyau (recommandé). Si vous choisissez de ne pas mettre à jour le noyau, vérifiez que les versions de `kernel-devel` et `dkms` sont appropriées pour votre noyau.
 
@@ -174,7 +174,7 @@ Déployez des machines virtuelles de série N compatibles RDMA à partir de l’
 
 Pour installer les pilotes GRID NVIDIA sur les machines virtuelles de série NV ou NVv2, établissez une connexion SSH à chaque machine virtuelle et suivez les étapes de votre distribution Linux. 
 
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+### <a name="ubuntu"></a>Ubuntu 
 
 1. Exécutez la commande `lspci`. Vérifiez que la ou les cartes NVIDIA M60 sont visibles en tant que périphériques PCI.
 

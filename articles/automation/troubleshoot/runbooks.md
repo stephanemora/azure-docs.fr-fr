@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f5663842a4d861ed6eb76de859b870aa7114cb04
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 3968b05f119227552f88a50e96d3acbce6a19143
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063639"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199117"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Résoudre les erreurs avec les runbooks
 
@@ -155,11 +155,11 @@ Dans votre compte Automation, cliquez sur **Modules**, puis sur **Mettre à jour
 
 Lors de l’exécution de runbooks avec `Start-AzureRmAutomationRunbook`, le runbook ne parvient pas à gérer les ressources Azure.
 
-#### <a name="cause"></a>Cause
+#### <a name="cause"></a>Cause :
 
 Le runbook n’utilise pas le contexte approprié lors de l’exécution.
 
-#### <a name="resolution"></a>Résolution
+#### <a name="resolution"></a>Résolution :
 
 Si vous utilisez plusieurs abonnements, le contexte de l’abonnement peut être perdu durant l’appel des runbooks. Pour s’assurer que le contexte de l’abonnement est passé aux runbooks, ajoutez le paramètre `AzureRmContext` à l’applet de commande et passez-lui le contexte. Il est également recommandé d’utiliser l’applet de commande `Disable-AzureRmContextAutosave` avec l’étendue **Processus** pour avoir la garantie que les informations d’identification dont vous vous servez sont uniquement utilisées pour le runbook actuel.
 

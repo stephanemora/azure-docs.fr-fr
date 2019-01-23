@@ -1,23 +1,23 @@
 ---
 title: Travaux de modération et révisions manuelles - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Appliquez une intervention humaine à une modération assistée par ordinateur pour de meilleurs résultats.
+description: Alliez une modération assistée par ordinateur avec une intervention humaine à l’aide de l’API Révision d’Azure Content Moderator pour obtenir les meilleurs résultats possibles pour votre entreprise.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 1/21/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: b4a2f62b1c9cefb716cb217baf7389c3e7c790b8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a348b18d1ecc9c0e4405c54a8e554d932781ec92
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223251"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265343"
 ---
-# <a name="moderation-jobs-and-reviews"></a>Travaux de modération et révisions
+# <a name="content-moderation-jobs-and-reviews"></a>Tâches de modération et révisions
 
 Alliez une modération assistée par ordinateur avec une intervention humaine à l’aide de [l’API Révision](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) d’Azure Content Moderator pour obtenir les meilleurs résultats possibles pour votre entreprise.
 
@@ -55,12 +55,12 @@ Utilisez l’opération `Job.Get` et l’identificateur de la tâche pour obteni
 
 Vos entrées incluent les informations suivantes :
 
-- ID de l’équipe de révision : l’identificateur de la tâche renvoyé par l’opération précédente
+- ID de l’équipe de révision : L’identificateur de la tâche renvoyé par l’opération précédente
 
 La réponse inclut les informations suivantes :
 
 - L’identificateur de la révision créée. (Utilisez cet ID pour obtenir les résultats finaux de la révision.)
-- L’état de la tâche (accomplie ou en cours) : les balises de modération assignées (paires clé-valeur).
+- L’état de la tâche (terminée ou en cours) : Les balises de modération affectées (paires clé-valeur).
 - Le rapport d’exécution de la tâche.
  
  

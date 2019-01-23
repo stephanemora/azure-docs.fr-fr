@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: magattus
-ms.openlocfilehash: 54979bdaab3d3d49ab3d3a08868dd28e27423e7e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 526f3522bff05618189ad4f8205fbb61afc47fdc
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091740"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320306"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Optimiser Azure CDN pour le type de distribution de contenu
 
@@ -83,7 +83,7 @@ La livraison web générale est l’option d’optimisation la plus courante. El
 Un site web classique contient du contenu statique et dynamique. Le contenu statique inclut des images, des bibliothèques JavaScript et des feuilles de style qui peuvent être mis en cache et distribués à différents utilisateurs. Le contenu dynamique est personnalisé pour un utilisateur, par exemple, à l’aide d’éléments d’actualités adaptés à un profil utilisateur. Le contenu dynamique, comme le contenu d’un panier, n’est pas mis en cache, car il est unique pour chaque utilisateur. La livraison web générale peut optimiser votre site web tout entier. 
 
 > [!NOTE]
-> Si vous utilisez un profil **Azure CDN Standard fourni par Akamai**, sélectionnez ce type d’optimisation lorsque la taille de fichier moyenne est inférieure à 10 Mo. Sinon, lorsque la taille de fichier moyenne est supérieure à 10 Mo, sélectionnez **Téléchargement de fichiers volumineux** dans la liste déroulante **Optimisé pour**.
+> Si vous utilisez un profil **Azure CDN Standard fourni par Akamai**, sélectionnez ce type d’optimisation lorsque la taille de fichier moyenne est inférieure à 10 Mo. Sinon, lorsque la taille de fichier moyenne est supérieure à 10 Mo, sélectionnez **Téléchargement de fichiers volumineux** dans la liste déroulante **Optimisé pour**.
 
 ### <a name="general-media-streaming"></a>Diffusion multimédia en continu générale
 

@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Bien démarrer avec Content Moderator'
+title: 'Démarrage rapide : Essayer Content Moderator sur le web - Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Découvrez comment bien démarrer avec Content Moderator.
+description: Dans ce guide de démarrage rapide, vous allez utiliser l’outil de révision Content Moderator pour tester les fonctionnalités de base de Content Moderator sans avoir à écrire du code.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 259919f3b7cb0b614450c94f876cff933a5e01e8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 382401bd8ca073bec6f77fadf1096e42ab1e1d72
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852688"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266465"
 ---
-# <a name="quickstart-get-familiar-with-content-moderator"></a>Démarrage rapide : Bien démarrer avec Content Moderator
+# <a name="quickstart-try-content-moderator-on-the-web"></a>Démarrage rapide : Essayer Content Moderator sur le web
 
 Dans ce guide de démarrage rapide, vous allez utiliser l’outil de révision Content Moderator pour tester les fonctionnalités de base de Content Moderator sans avoir à écrire du code. Si vous souhaitez intégrer ce service dans votre application plus rapidement, consultez les autres démarrages rapides dans la section [Étapes suivantes](#next-steps).
 

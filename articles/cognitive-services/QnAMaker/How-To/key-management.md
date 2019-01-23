@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 3984ac84271728b9066aba15a582065ea3121c76
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 2b199e10b1a70bc44065d422d32acd3bea182721
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581757"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302049"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>Comment gérer les clés dans QnA Maker
 
@@ -42,7 +42,7 @@ Vous pouvez afficher et réinitialiser vos clés d’abonnement à partir du por
 
 Les clés de point de terminaison peuvent être gérées à partir du [portail QnA Maker](https://qnamaker.ai).
 
-1. Connectez-vous au [portail QnA Maker](https://qnamaker.ai) et accédez à **Paramètres de service**.
+1. Connectez-vous au [portail QnA Maker](https://qnamaker.ai), accédez à votre profil, puis cliquez sur **Paramètres de service**.
 
     ![clé de point de terminaison](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 

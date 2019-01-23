@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
-ms.openlocfilehash: 50a49a8bcb6bec6c177823ea61cc340da6876357
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9bfd748e6b10106587e3fce64e15d7f1f6d50e59
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602084"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261585"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Blueprint de sécurité et de conformité Azure : Application web PaaS pour FedRAMP
 
@@ -38,7 +38,7 @@ Cette solution utilise les services Azure suivants. Les informations détaillée
 - Application Gateway
     - (1) Pare-feu d’applications web
         - Mode de pare-feu : prévention
-        - Ensemble de règles : OWASP 3.0
+        - Ensemble de règles : OWASP 3.0
         - Écouteur : port 443
 - réseau virtuel Azure
 - Groupes de sécurité réseau

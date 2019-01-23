@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/19/2018
 ms.author: echuvyrov
-ms.openlocfilehash: 0943bd1bffb3df7beda97ea0619f1aced4ca3a41
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 71cf07b227a75e53119f2f35e79ccd7926b551e7
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946780"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200698"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Installer et configurer Terraform pour approvisionner les machines virtuelles et d’autres infrastructures dans Azure
  
@@ -59,7 +59,7 @@ Pour utiliser un abonnement sélectionné, paramétrez l’abonnement de cette s
 az account set --subscription="${SUBSCRIPTION_ID}"
 ```
 
-Vous pouvez maintenant créer un principal de service pour une utilisation avec Terraform. Utilisez [az ad sp create-for-rbac]/cli/azure/ad/sp#az-ad-sp-create-for-rbac) et paramétrez l’*étendue* à votre abonnement comme suit :
+Vous pouvez maintenant créer un principal de service pour une utilisation avec Terraform. Utilisez [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) et paramétrez l’*étendue* à votre abonnement comme suit :
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"

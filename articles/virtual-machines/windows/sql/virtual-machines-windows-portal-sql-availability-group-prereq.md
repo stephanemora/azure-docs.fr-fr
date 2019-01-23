@@ -16,18 +16,18 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: d75bb780a17653aaacbc74413fb4240a8052a983
-ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
+ms.openlocfilehash: 11e255c8cc32f17efa9fc9e8f39e869fba032d75
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43371483"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359831"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Remplir les conditions préalables pour la création de groupes de disponibilité AlwaysOn sur des machines virtuelles Azure
 
 Ce didacticiel montre comment remplir les conditions préalables pour la création d’un [groupe de disponibilité SQL Server AlwaysOn sur des machines virtuelles Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md). Une fois les conditions préalables remplies, vous disposez d’un contrôleur de domaine, de deux machines virtuelles SQL Server et d’un serveur témoin dans un même groupe de ressources.
 
-**Durée estimée** : remplir les conditions préalables peut prendre plusieurs heures. La majeure partie de ce temps est consacré à la création de machines virtuelles.
+**Durée estimée** : remplir les conditions préalables peut prendre plusieurs heures. La majeure partie de ce temps est consacré à la création de machines virtuelles.
 
 Le schéma suivant illustre ce que vous allez créer dans ce didacticiel.
 
@@ -35,7 +35,7 @@ Le schéma suivant illustre ce que vous allez créer dans ce didacticiel.
 
 ## <a name="review-availability-group-documentation"></a>Consulter la documentation sur le groupe de disponibilité
 
-Ce didacticiel suppose que vous avez des notions de base sur les groupes de disponibilité AlwaysOn SQL Server. Si vous n’êtes pas familiarisé avec cette technologie, consultez [Vue d’ensemble des groupes de disponibilité AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
+Ce didacticiel suppose que vous avez des notions de base sur les groupes de disponibilité AlwaysOn SQL Server. Si vous n’êtes pas familiarisé avec cette technologie, consultez [Vue d’ensemble des groupes de disponibilité AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 
 ## <a name="create-an-azure-account"></a>Création d'un compte Azure
@@ -108,7 +108,7 @@ Le nouveau réseau virtuel dispose d'un sous-réseau, nommé **Admin**. Les cont
 
     Si **SQL-HA-RG** n’est pas visible, cliquez sur **Groupes de ressources** et filtrez les données en fonction du nom du groupe de ressources.
 2. Cliquez sur **autoHAVNET** dans la liste des ressources. 
-3. Sur le réseau virtuel **autoHAVNET**, sous **Paramètres**, cliquez sur **Sous-réseaux**.
+3. Sur le réseau virtuel **autoHAVNET**, sous **Paramètres**, sélectionnez **Sous-réseaux**.
 
     Vous pouvez voir le sous-réseau que vous avez déjà créé.
 
@@ -189,7 +189,7 @@ Le tableau suivant indique les paramètres relatifs à ces deux machines :
 | **Sous-réseau** |admin |
 | **Adresse IP publique** |*Même nom que la machine virtuelle* |
 | **Groupe de sécurité réseau** |*Même nom que la machine virtuelle* |
-| **Groupe à haute disponibilité** |adavailabilityset </br>**Domaines d'erreur** : 2</br>**Domaines de mise à jour** : 2|
+| **Groupe à haute disponibilité** |adavailabilityset </br>**Domaines d'erreur** : 2 </br>**Domaines de mise à jour** : 2|
 | **Diagnostics** |activé |
 | **Compte de stockage de diagnostics** |*Créé automatiquement* |
 
@@ -234,7 +234,7 @@ Dans les étapes suivantes, vous allez configurer la machine **ad-primary-dc** c
     | --- | --- |
     | **Configuration du déploiement** |**Ajouter une nouvelle forêt**<br/> **Nom de domaine racine** = corp.contoso.com |
     | **Options de contrôleur de domaine :** |**Mot de passe DSRM** = Contoso!0000<br/>**Confirmer le mot de passe** = Contoso!0000 |
-14. Cliquez sur **Suivant** pour parcourir les autres pages de l'Assistant. Sur la page **Vérification de la configuration requise**, vérifiez que vous voyez le message suivant : **Toutes les vérifications de la configuration requise ont donné satisfaction**. Vous pouvez examiner les messages d’avertissement applicables, mais il est possible de poursuivre l’installation.
+14. Cliquez sur **Suivant** pour parcourir les autres pages de l'Assistant. Sur la page **Vérification de la configuration requise**, vérifiez que vous voyez le message suivant : **Toutes les vérifications de la configuration requise ont donné satisfaction**. Vous pouvez examiner les messages d’avertissement applicables, mais il est possible de poursuivre l’installation.
 15. Cliquez sur **Installer**. La machine virtuelle **ad-primary-dc** redémarre automatiquement.
 
 ### <a name="note-the-ip-address-of-the-primary-domain-controller"></a>Notez l’adresse IP du contrôleur de domaine principal
@@ -349,7 +349,7 @@ Maintenant que vous avez fini de configurer Active Directory et les objets utili
 
 ## <a name="create-sql-server-vms"></a>Créer des machines virtuelles SQL Server
 
-Créez trois machines virtuelles supplémentaires. Cette solution nécessite deux machines virtuelles avec des instances de SQL Server. Une troisième machine virtuelle fonctionnera comme témoin. Windows Server 2016 peut utiliser un [cloud témoin](http://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), toutefois, pour la cohérence avec les systèmes d’exploitation précédents, ce document utilise une machine virtuelle pour témoin.  
+Créez trois machines virtuelles supplémentaires. Cette solution nécessite deux machines virtuelles avec des instances de SQL Server. Une troisième machine virtuelle fonctionnera comme témoin. Windows Server 2016 peut utiliser un [cloud témoin](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), toutefois, pour la cohérence avec les systèmes d’exploitation précédents, ce document utilise une machine virtuelle pour témoin.  
 
 Avant de continuer, envisagez les décisions de conception suivantes.
 
@@ -370,7 +370,7 @@ Créez ensuite trois machines virtuelles : deux machines virtuelles SQL Server 
 | Sélectionnez l’élément de la galerie approprié. |**Windows Server 2016 Datacenter** |**SQL Server 2016 SP1 Enterprise sur Windows Server 2016** |**SQL Server 2016 SP1 Enterprise sur Windows Server 2016** |
 | **Notions** |**Nom** = cluster-fsw<br/>**Nom d’utilisateur** = DomainAdmin<br/>**Mot de passe** = Contoso!0000<br/>**Abonnement** = votre abonnement<br/>**Groupe de ressources** = SQL-HA-RG<br/>**Emplacement** = Votre emplacement Azure |**Nom** = sqlserver-0<br/>**Nom d’utilisateur** = DomainAdmin<br/>**Mot de passe** = Contoso!0000<br/>**Abonnement** = votre abonnement<br/>**Groupe de ressources** = SQL-HA-RG<br/>**Emplacement** = Votre emplacement Azure |**Nom** = sqlserver-1<br/>**Nom d’utilisateur** = DomainAdmin<br/>**Mot de passe** = Contoso!0000<br/>**Abonnement** = votre abonnement<br/>**Groupe de ressources** = SQL-HA-RG<br/>**Emplacement** = Votre emplacement Azure |
 | Configuration de la machine virtuelle - **Taille** |**TAILLE** = DS1\_V2 (1 processeur virtuel, 3,5 Go) |**TAILLE** = DS2\_V2 (2 processeurs virtuels, 7 Go)</br>La taille doit prendre en charge un stockage SSD (prise en charge des disques Premium. )) |**TAILLE** = DS2\_V2 (2 processeurs virtuels, 7 Go) |
-| Configuration de la machine virtuelle - **Paramètres** |**Stockage** : Utiliser des disques gérés.<br/>**Réseau virtuel** = autoHAVNET<br/>**Sous-réseau** = sqlsubnet(10.1.1.0/24)<br/>**Adresse IP publique** générée automatiquement.<br/>**Groupe de sécurité réseau** = aucun<br/>**Diagnostics de surveillance** = activés<br/>**Compte de stockage de diagnostics** = utilisez un compte de stockage généré automatiquement<br/>**Groupe à haute disponibilité** = sqlAvailabilitySet<br/> |**Stockage** : Utiliser des disques gérés.<br/>**Réseau virtuel** = autoHAVNET<br/>**Sous-réseau** = sqlsubnet(10.1.1.0/24)<br/>**Adresse IP publique** générée automatiquement.<br/>**Groupe de sécurité réseau** = aucun<br/>**Diagnostics de surveillance** = activés<br/>**Compte de stockage de diagnostics** = utilisez un compte de stockage généré automatiquement<br/>**Groupe à haute disponibilité** = sqlAvailabilitySet<br/> |**Stockage** : Utiliser des disques gérés.<br/>**Réseau virtuel** = autoHAVNET<br/>**Sous-réseau** = sqlsubnet(10.1.1.0/24)<br/>**Adresse IP publique** générée automatiquement.<br/>**Groupe de sécurité réseau** = aucun<br/>**Diagnostics de surveillance** = activés<br/>**Compte de stockage de diagnostics** = utilisez un compte de stockage généré automatiquement<br/>**Groupe à haute disponibilité** = sqlAvailabilitySet<br/> |
+| Configuration de la machine virtuelle - **Paramètres** |**Stockage** : Utiliser des disques managés.<br/>**Réseau virtuel** = autoHAVNET<br/>**Sous-réseau** = sqlsubnet(10.1.1.0/24)<br/>**Adresse IP publique** générée automatiquement.<br/>**Groupe de sécurité réseau** = aucun<br/>**Diagnostics de surveillance** = activés<br/>**Compte de stockage de diagnostics** = utilisez un compte de stockage généré automatiquement<br/>**Groupe à haute disponibilité** = sqlAvailabilitySet<br/> |**Stockage** : Utiliser des disques managés.<br/>**Réseau virtuel** = autoHAVNET<br/>**Sous-réseau** = sqlsubnet(10.1.1.0/24)<br/>**Adresse IP publique** générée automatiquement.<br/>**Groupe de sécurité réseau** = aucun<br/>**Diagnostics de surveillance** = activés<br/>**Compte de stockage de diagnostics** = utilisez un compte de stockage généré automatiquement<br/>**Groupe à haute disponibilité** = sqlAvailabilitySet<br/> |**Stockage** : Utiliser des disques managés.<br/>**Réseau virtuel** = autoHAVNET<br/>**Sous-réseau** = sqlsubnet(10.1.1.0/24)<br/>**Adresse IP publique** générée automatiquement.<br/>**Groupe de sécurité réseau** = aucun<br/>**Diagnostics de surveillance** = activés<br/>**Compte de stockage de diagnostics** = utilisez un compte de stockage généré automatiquement<br/>**Groupe à haute disponibilité** = sqlAvailabilitySet<br/> |
 | Configuration de la machine virtuelle - **Paramètres SQL Server** |Non applicable |**Connectivité SQL** = privée (dans le réseau virtuel)<br/>**Port** = 1433<br/>**Authentification SQL** = désactivée<br/>**Configuration du stockage** = général<br/>**Mise à jour corrective automatisée** : dimanche à 2h00<br/>**Sauvegarde automatisée** = désactivée</br>**Intégration Azure Key Vault** = Désactivée |**Connectivité SQL** = privée (dans le réseau virtuel)<br/>**Port** = 1433<br/>**Authentification SQL** = désactivée<br/>**Configuration du stockage** = général<br/>**Mise à jour corrective automatisée** : dimanche à 2h00<br/>**Sauvegarde automatisée** = désactivée</br>**Intégration Azure Key Vault** = Désactivée |
 
 <br/>
@@ -462,6 +462,10 @@ Pour ajouter les fonctionnalités de clustering de basculement, procédez comme 
 6. Cliquez sur **Installer** pour ajouter les fonctionnalités.
 
 Répétez les étapes sur l’autre machine virtuelle SQL Server.
+
+  >[!NOTE]
+  > Cette étape, ainsi que la jonction des machines virtuelles au cluster de basculement, peut désormais être automatisée à l'aide d'un modèle de démarrage rapide Azure. Pour plus d’informations, consultez [Créer un cluster WSFC, un écouteur, puis configurer un équilibreur de charge interne pour un groupe de disponibilité Always On sur une machine virtuelle SQL Server à l’aide d’un modèle de démarrage rapide Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+
 
 ## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> Configurer le pare-feu sur chaque machine virtuelle SQL Server
 

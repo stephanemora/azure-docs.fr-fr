@@ -1,8 +1,7 @@
 ---
-title: Métriques et alertes dans Azure Traffic Manager | Microsoft Docs
+title: Métriques et alertes dans Azure Traffic Manager
 description: Cet article décrit les métriques disponibles pour Traffic Manager dans Azure.
 services: traffic-manager
-documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: bb7817b082da11de3071925d01a3402902410a6f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0bce0d407246ceab05c3951dc976884dd6f15b08
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437961"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200188"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Métriques et alertes Traffic Manager
 
@@ -24,15 +23,15 @@ Traffic Manager vous offre un équilibrage de charge basé sur DNS qui inclut pl
 
 ## <a name="metrics-available-in-traffic-manager"></a>Métriques disponibles dans Traffic Manager 
 
-Traffic Manager fournit les métriques suivantes, selon le profil, qui peuvent servir aux clients à comprendre leur utilisation de Traffic Manager et à connaître l’état de leurs points de terminaison sous ce profil.  
+Traffic Manager fournit les métriques suivantes, selon le profil, que les clients peuvent utiliser pour comprendre leur utilisation de Traffic Manager et connaître l’état de leurs points de terminaison sous ce profil.  
 
 ### <a name="queries-by-endpoint-returned"></a>Requêtes par point de terminaison renvoyé
 Utilisez [cette métrique](../azure-monitor/platform/metrics-supported.md) pour afficher le nombre de requêtes traitées par un profil Traffic Manager sur une période spécifiée. Vous pouvez également afficher les mêmes informations au niveau d’un point de terminaison et déterminer ainsi le nombre de fois où un point de terminaison a été retourné dans les réponses à une requête à partir de Traffic Manager.
 
-Dans l’exemple ci-dessous, la figure 1 affiche toutes les réponses à une requête qui ont été retournées par le profil Traffic Manager. 
+Dans l’exemple suivant, la figure 1 affiche toutes les réponses à une requête renvoyées par le profil Traffic Manager. 
 
   
-![Métriques Traffic Manager - vue agrégée de toutes les requêtes](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
+![Vue agrégée de toutes les requêtes](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
 *Figure 1 : Vue agrégée de toutes les requêtes*
   
@@ -44,10 +43,10 @@ La figure 2 affiche les mêmes informations, mais réparties cette fois par poin
 
 ## <a name="endpoint-status-by-endpoint"></a>État du point de terminaison par point de terminaison
 Utilisez [cette métrique](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) pour évaluer l’état d’intégrité des points de terminaison dans le profil. Elle accepte deux valeurs :
- - utilisez **1** , si le point de terminaison est activé.
+ - utilisez **1** si le point de terminaison est activé.
  - utilisez **0** si le point de terminaison est arrêté.
 
-Cette métrique peut être affichée comme une valeur d’agrégation représentant l’état de toutes les métriques (figure 3), ou elle peut être fractionnée (voir figure 4) pour afficher l’état de points de terminaison spécifiques. Dans le cas le premier cas, si le niveau d’agrégation est sélectionné comme **Avg**, la valeur de cette métrique est la moyenne arithmétique de l’état de tous les points de terminaison. Par exemple, si un profil comporte deux points de terminaison et qu’un seul est sain, cette métrique aura une valeur de **0,50**, comme indiqué dans la figure 3. 
+Cette métrique peut être affichée comme une valeur d’agrégation représentant l’état de toutes les métriques (figure 3), ou elle peut être fractionnée (voir figure 4) pour afficher l’état de points de terminaison spécifiques. Dans le cas le premier cas, si le niveau d’agrégation est sélectionné comme **Avg**, la valeur de cette métrique est la moyenne arithmétique de l’état de tous les points de terminaison. Par exemple, si un profil comporte deux points de terminaison et qu’un seul est sain, cette métrique a une valeur de **0,50**, comme indiqué dans la figure 3. 
 
 
 ![Métriques Traffic Manager - mode composite de l’état du point de terminaison](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)

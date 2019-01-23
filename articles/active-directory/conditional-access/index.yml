@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7aa2166211c3a2a06752bbd6769162da90da9a10
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450006"
 documentType: LandingData
 title: Documentation relative à l’accès conditionnel dans Azure AD
 metadata:
-  document_id: 
-  title: Documentation relative à l’accès conditionnel dans Azure AD - Tutoriels, guides de démarrage rapide, concepts, références | Microsoft Docs
+  document_id: null
+  title: 'Documentation relative à l’accès conditionnel dans Azure AD - Tutoriels, guides de démarrage rapide, concepts, références | Microsoft Docs'
   description: Découvrez comment configurer et tester l’accès conditionnel dans Azure Active Directory.
   services: active-directory
   ms.component: authentication
@@ -22,41 +16,41 @@ metadata:
   ms.date: 08/14/2018
   ms.author: markvi
 abstract:
-  description: Apprenez à maîtriser l’équilibre entre sécurité et productivité en configurant l’accès conditionnel dans Azure AD. Les stratégies d’accès conditionnel permettent de factoriser la manière dont vos applications cloud sont accessibles dans vos décisions d’accès. Par exemple, vous pouvez traiter dans vos décisions d’accès les questions suivantes :<ul><li>Quel est l’emplacement réseau de l’utilisateur ?</li><li>La tentative d’accès provient-elle d’un appareil géré ?</li><li>À partir de quelle application cliente la tentative de connexion a-t-elle été lancée ?</li><li>Une tentative d’accès a-t-elle été effectuée à partir d’une connexion à risque ?</li></ul>Les ressources suivantes permettent une prise en main rapide.
+  description: "Apprenez à maîtriser l’équilibre entre sécurité et productivité en configurant l’accès conditionnel dans Azure AD. Les stratégies d’accès conditionnel permettent de factoriser la manière dont vos applications cloud sont accessibles dans vos décisions d’accès. Par exemple, vous pouvez traiter dans vos décisions d’accès les questions suivantes\_:<ul><li>Quel est l’emplacement réseau de l’utilisateur\_?</li><li>La tentative d’accès provient-elle d’un appareil géré\_?</li><li>À partir de quelle application cliente la tentative de connexion a-t-elle été lancée\_?</li><li>Une tentative d’accès a-t-elle été effectuée à partir d’une connexion à risque\_?</li></ul>Les ressources suivantes permettent une prise en main rapide."
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: ./media/index/video.png
       width: 246
     title: Explication de l’accès conditionnel
-    href: https://www.youtube.com/watch?v=XruceejcCKQ
+    href: 'https://www.youtube.com/watch?v=XruceejcCKQ'
     width: 246
 sections:
-- title: Démarrages rapides en 5 minutes
-  items:
-  - type: paragraph
-    text: Découvrez comment configurer des stratégies d’accès conditionnel pour les scénarios d’accès courants.
-  - type: list
-    style: icon48
+  - title: "Démarrages rapides en\_5\_minutes"
     items:
-    - image:
-        src: ./media/index/i_security-management.png
-      text: Exiger l’authentification multifacteur pour les applications spécifiques
-      href: app-based-mfa.md
-    - image:
-        src: ./media/index/i_security-management.png
-      text: Bloquer l’accès lorsqu’un risque de session est détecté
-      href: app-sign-in-risk.md
-    - image:
-        src: ./media/index/i_security-management.png
-      text: Exiger l’acceptation des conditions d’utilisation
-      href: require-tou.md
-- title: Didacticiels pas à pas
-  items:
-  - type: paragraph
-    text: Découvrez comment migrer vos stratégies d’accès conditionnel classiques.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Découvrez comment configurer des stratégies d’accès conditionnel pour les scénarios d’accès courants.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/index/i_security-management.png
+            text: Exiger l’authentification multifacteur pour les applications spécifiques
+            href: app-based-mfa.md
+          - image:
+              src: ./media/index/i_security-management.png
+            text: Bloquer l’accès lorsqu’un risque de session est détecté
+            href: app-sign-in-risk.md
+          - image:
+              src: ./media/index/i_security-management.png
+            text: Exiger l’acceptation des conditions d’utilisation
+            href: require-tou.md
+  - title: Didacticiels pas à pas
     items:
-    - html: <a href="/azure/active-directory/conditional-access/policy-migration-mfa">Migrer une stratégie classique nécessitant l’authentification multifacteur</a>
+      - type: paragraph
+        text: Découvrez comment migrer vos stratégies d’accès conditionnel classiques.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/conditional-access/policy-migration-mfa">Migrer une stratégie classique nécessitant l’authentification multifacteur</a>

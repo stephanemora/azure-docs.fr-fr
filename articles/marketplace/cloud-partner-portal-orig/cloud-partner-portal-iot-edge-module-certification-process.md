@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c37ed908b61ca54957affed3f81526353bc3f53b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: c8056bd4912605a4cd3ee333b1be87d4f3a6d5ba
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389562"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198046"
 ---
 # <a name="the-iot-edge-module-certification-process"></a>Processus de certification de module IoT Edge
 
@@ -42,7 +42,7 @@ Les modules peuvent aussi inclure le kit SDK de module IoT, qui utilise la termi
 
 -   Un **jumeau de module** est un document JSON stocké dans IoT Hub qui contient les informations d’état relatives à une instance de module, notamment des métadonnées, des configurations et des conditions.
 
--   Les **kits SDK** servent à développer des modules personnalisés dans plusieurs langages, notamment C\#, C, Python, Java et Node.JS.
+-   Les **kits SDK** servent à développer des modules personnalisés dans plusieurs langages, notamment : C\#, C, Python, Java et Node.JS.
 
 ## <a name="the-onboarding-process-for-an-iot-edge-module"></a>Processus d’intégration d’un module IoT Edge
 
@@ -118,7 +118,7 @@ Les principales conditions à remplir pour qu’un module IoT Edge soit certifi�
     - [C\#](https://hub.docker.com/_/mysql/)
     - [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
     - [Python](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
-    - [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._product_info?view=azure-java-stable)
+    - [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
 
 -   Pour les modules qui n’utilisent pas le SDK Module IoT, des insights moins précis sont disponibles via le portail Cloud Partner. Par exemple, le nombre de téléchargements.
 

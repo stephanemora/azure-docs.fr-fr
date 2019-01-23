@@ -1,10 +1,11 @@
 ---
-title: Créer un équilibreur de charge standard avec un front-end redondant interzone en utilisant le portail Azure
+title: Créer une instance Load Balancer avec un frontend interzone redondant - portail Azure
 titlesuffix: Azure Load Balancer
 description: Découvrez comment créer un équilibreur de charge standard public avec un front-end d’adresse IP publique redondant interzone en utilisant le portail Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: fc5dcd76ca8ecfb820a8d157fee9cc0a92bd2d5b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2b898a9228e251003a049b2d82c0b1039eb54114
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135682"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247433"
 ---
-#  <a name="create-a-public-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Créer un équilibreur de charge standard public avec un front-end redondant interzone en utilisant le portail Azure
+#  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Créer un équilibreur de charge standard avec un front-end redondant interzone en utilisant le portail Azure
 
-Cet article décrit les étapes de création d’une instance publique de [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) avec un frontend redondant interzone qui utilise une adresse IP publique Standard. Par défaut, une adresse IP de serveur frontal unique dans un équilibreur de charge standard est redondante interzone.
+Cet article décrit les étapes de création d’une instance publique de [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) avec un frontend interzone redondant utilisant une adresse IP publique standard. Par défaut, une adresse IP de serveur frontal unique dans un équilibreur de charge standard est redondante interzone.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

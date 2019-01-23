@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: danlep
-ms.openlocfilehash: 63affd4ad22d5246274ddfa3160d5675f702003f
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: cd2b14dc29f865a162cb1ced605e740a96f7a46a
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855752"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329971"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatiser les mises à jour correctives du système d’exploitation et du framework avec ACR Tasks
 
@@ -24,10 +24,10 @@ Les conteneurs fournissent de nouveaux niveaux de virtualisation en isolant les 
 
 Générer et tester des images de conteneur avec ACR Tasks de quatre manières :
 
-* [Tâche rapide](#quick-task) : générer et envoyer les images de conteneur à la demande dans Azure, sans avoir besoin d’une installation locale de Docker Engine. Pensez `docker build`, `docker push` dans le cloud. Générez un build à partir du code source local ou d’un référentiel Git.
-* [Génération lors de la validation du code source](#automatic-build-on-source-code-commit) : générez automatiquement une image de conteneur lorsque le code est validé dans un référentiel Git.
-* [Génération lors de la mise à jour de l’image de base](#automate-os-and-framework-patching) : générez une image de conteneur lors de la mise à jour de l’image de base de cette image.
-* [Tâches à plusieurs étapes](#multi-step-tasks-preview) (préversion) : définissez les tâches à plusieurs étapes qui génèrent des images, exécutent des conteneurs comme des commandes et envoient des images à un registre. Cette fonctionnalité d’évaluation d’ACR Tasks prend en charge l’exécution de tâches à la demande, ainsi que les opérations de génération, de test et d’envoi (push) d’images.
+* [Tâche rapide](#quick-task) : générer et envoyer les images de conteneur à la demande dans Azure, sans avoir besoin d’une installation locale de Docker Engine. Pensez `docker build`, `docker push` dans le cloud. Générez un build à partir du code source local ou d’un référentiel Git.
+* [Génération lors de la validation du code source](#automatic-build-on-source-code-commit) : déclenchez automatiquement une génération d’image de conteneur lors de la validation du code dans un référentiel Git.
+* [Génération lors de la mise à jour d'images de base](#automate-os-and-framework-patching) : déclenchez une image de conteneur lors de la mise à jour de l’image de base de cette image.
+* [Tâches à plusieurs étapes](#multi-step-tasks-preview) (préversion) : définissez les tâches à plusieurs étapes qui génèrent des images, exécutent des conteneurs comme des commandes et envoient des images à un registre. Cette fonctionnalité d’évaluation d’ACR Tasks prend en charge l’exécution de tâches à la demande, ainsi que les opérations de génération, de test et d’envoi (push) d’images.
 
 ## <a name="quick-task"></a>Tâche rapide
 
@@ -65,7 +65,7 @@ Découvrez comment déclencher la génération de builds lors de la validation d
 
 L’aptitude d’ACR Tasks à améliorer réellement votre pipeline de génération de conteneur provient de sa capacité à détecter la mise à jour d’une image de base. Quand l’image de base mise à jour est envoyée à votre registre, ACR Tasks peut générer automatiquement des images d’application basées sur elle.
 
-Les images de conteneur appartiennent en gros à deux catégories : les images de *base* et les images d’*application*. En règle générale, vos images de base incluent les frameworks d’application et de système d’exploitation sur lesquels votre application est générée, ainsi que d’autres personnalisations. Ces images de base sont elles-mêmes généralement basées sur des images publiques en amont, par exemple [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], ou [Node.js][base-node]. Plusieurs de vos images d’application peuvent partager une image de base commune.
+Les images de conteneur appartiennent en gros à deux catégories : les images de *base* et les images d’*application*. En règle générale, vos images de base incluent les frameworks d’application et de système d’exploitation sur lesquels votre application est générée, ainsi que d’autres personnalisations. Ces images de base sont elles-mêmes généralement basées sur des images publiques en amont, par exemple : [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet] ou [Node.js][base-node]. Plusieurs de vos images d’application peuvent partager une image de base commune.
 
 Quand une image de framework d’application ou de système d’exploitation est mise à jour par le chargé de maintenance en amont, par exemple avec un correctif de sécurité critique du système d’exploitation, vous devez également mettre à jour vos images de base pour qu’elles contiennent ce correctif critique. Chaque image d’application doit ensuite être également recréée pour inclure ces correctifs en amont maintenant inclus dans votre image de base.
 
@@ -83,10 +83,10 @@ Les tâches à plusieurs étapes, une fonctionnalité en préversion d’ACR Tas
 Par exemple, vous pouvez créer une tâche à plusieurs étapes qui automatise les opérations suivantes :
 
 1. Générer (build) une image de l’application web
-1. Exécuter le conteneur de l’application web
-1. Générer (build) une image de test de l’application web
+1. Exécuter le conteneur d’application web
+1. Compiler une image test d’application web
 1. Exécuter le conteneur de test de l’application web qui effectue des tests sur le conteneur d’application en cours d’exécution
-1. Si les tests sont concluants, générez (build) un package d’archivage du graphique Helm
+1. Si les tests réussissent, compilez un package d’archivage du graphique Helm
 1. Exécutez la commande `helm upgrade` à l’aide du nouveau package d’archivage du graphique Helm
 
 Les tâches à plusieurs étapes vous permettent de fractionner la génération, l’exécution et le test d’une image en étapes plus composables, avec prise en charge des dépendances entre chacune d’elles. Grâce aux tâches à plusieurs étapes d’ACR Tasks, vous contrôlez plus finement la génération d’images, le test la mise à jour corrective du système d’exploitation et du framework.

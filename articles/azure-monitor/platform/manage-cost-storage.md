@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 01/10/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a20e4d713440ca6fe1adaf5b89bff347a8fd0bde
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 262c81dbf2c094b6a823a8320a0657f2767bc20c
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744086"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332317"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gérer l’utilisation et les coûts de Log Analytics
 
@@ -67,7 +66,7 @@ Les étapes suivantes décrivent la configuration d’une limite pour gérer le 
 
 1. À partir de votre espace de travail, sélectionnez **Utilisation et estimation des coûts** dans le volet gauche.
 2. Cliquez sur **Gestion du volume de données** en haut de la page **Utilisation et estimation des coûts** de l’espace de travail sélectionné. 
-5. Par défaut, la limite quotidienne est **DÉSACTIVÉE** : cliquez sur **ACTIVER** pour l’activer, puis définissez la limite de volume de données en Go/jour.<br><br> ![Configurer la limite de données dans Log Analytics](media/manage-cost-storage/set-daily-volume-cap-01.png)
+3. Par défaut, la limite quotidienne est **DÉSACTIVÉE** : cliquez sur **ACTIVER** pour l’activer, puis définissez la limite de volume de données en Go/jour.<br><br> ![Configurer la limite de données dans Log Analytics](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-daily-cap-reached"></a>Alerte lorsque la limite quotidienne est atteinte
 Si nous présentons un indice visuel dans le portail Azure lorsque le seuil limite des données est atteint, ce comportement n’est pas nécessairement en harmonie avec la façon dont vous gérez les problèmes opérationnels exigeant une attention immédiate.  Pour recevoir une notification d’alerte, vous pouvez créer une règle d’alerte dans Azure Monitor.  Pour plus d’informations, reportez-vous à l’article sur [la création, l’affichage et la gestion des alertes](alerts-metric.md).      
@@ -98,6 +97,25 @@ Les étapes suivantes décrivent la configuration de la durée de conservation d
 ## <a name="legacy-pricing-tiers"></a>Niveaux de tarification hérités
 
 Les clients avec un Contrat Entreprise signé avant le 1er juillet 2018 ou qui ont déjà créé un espace de travail Log Analytics dans un abonnement ont toujours accès au plan *Gratuit*. Si votre abonnement n’est pas lié à une inscription de Contrat Entreprise existante, le niveau *Gratuit* n’est pas disponible quand vous créez un espace de travail dans un nouvel abonnement après le 2 avril 2018.  La conservation des données est limitée à 7 jours pour le niveau *Gratuit*.  Pour les niveaux *Autonome* ou *Par nœud* hérités, ainsi que le niveau de tarification unique de 2018 actuel, les données collectées sont disponibles pour les 31 derniers jours. Le niveau *Gratuit* a une limite d’ingestion des données quotidienne de 500 Mo. Si vous constatez que vous dépassez constamment le volume autorisé, vous pouvez changer votre espace de travail pour un autre plan permettant de collecter des données au-delà de cette limite. 
+
+> [!NOTE]
+> Pour utiliser les droits que vous obtenez à l’achat de la suite OMS E1, OMS E2 ou du module complémentaire OMS pour System Center, sélectionnez le niveau tarifaire *Par nœud* de Log Analytics.
+
+## <a name="changing-pricing-tier"></a>Changement de niveau tarifaire
+
+Si votre espace de travail Log Analytics a accès aux niveaux tarifaires hérités, pour changer de niveau tarifaire hérité :
+
+1. Dans le portail Azure, à partir du volet des abonnements Log Analytics, sélectionnez un espace de travail.
+
+2. Dans le volet de l’espace de travail, sous **Général**, sélectionnez **Niveau tarifaire**.  
+
+3. Sous **Niveau tarifaire**, sélectionnez un niveau tarifaire et cliquez sur **Sélectionner**.  
+    ![Plan tarifaire sélectionné](media/manage-cost-storage/workspace-pricing-tier-info.png)
+
+Si vous souhaitez déplacer votre espace de travail vers le niveau tarifaire actuel, vous devez [modifier le modèle de tarifaire de supervision de votre abonnement dans Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model), ce qui modifiera le niveau tarifaire de tous les espaces de travail de cet abonnement.
+
+> [!NOTE]
+> Si votre espace de travail est lié à un compte Automation, avant de pouvoir sélectionner le niveau tarifaire *Autonome (par Go)*, vous devez supprimer les solutions **Automation and Control** et annuler la liaison avec le compte Automation. Dans le panneau Espace de travail sous **Général**, cliquez sur **Solutions** pour afficher et supprimer des solutions. Pour annuler la liaison avec le compte Automation, cliquez sur le nom du compte Automation dans le panneau **Niveau tarifaire**.
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Dépannage si Log Analytics ne collecte plus de données
@@ -136,22 +154,55 @@ Vous pouvez explorer de façon plus précise et déterminer ainsi des tendances 
 
 ### <a name="nodes-sending-data"></a>Envoi de données par les nœuds
 
-Pour plus d’informations sur le nombre de nœuds qui ont envoyé des données le mois dernier, utilisez
+Pour plus d’informations sur le nombre d’ordinateurs (nœuds) qui ont envoyé quotidiennement des données au cours du mois passé, utilisez
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
-| summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
+| summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Pour afficher le nombre d’événements reçus par ordinateur, utilisez
+Pour obtenir la liste des ordinateurs qui envoient des **types de données facturés** (certains types de données sont gratuits), utilisez la propriété [_IsBillable](log-standard-properties.md#isbillable) :
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
+
+L’exécution d’analyses sur différents types de données étant coûteuse, utilisez ces requêtes `union withsource = tt *` avec parcimonie. 
+
+Cela peut être étendu pour renvoyer le nombre d’ordinateurs par heure qui envoient des types de données facturés :
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
+
+Pour voir la **taille** des événements facturables ingérés par ordinateur, utilisez la propriété `_BilledSize` qui fournit la taille en octets :
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+
+Cette requête remplace l’ancienne méthode d’interrogation avec le type de données Usage. 
+
+Pour afficher le **nombre** d’événements reçus par ordinateur, utilisez
 
 `union withsource = tt *
-| summarize count() by Computer |sort by count_ nulls last`
+| summarize count() by Computer | sort by count_ nulls last`
 
-Utilisez cette requête avec parcimonie car son exécution est coûteuse. Si vous souhaitez afficher les types de données qui ont envoyé des données à un ordinateur spécifique, utilisez :
+Pour afficher le nombre d’événements facturables reçus par ordinateur, utilisez 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last`
+
+Si vous souhaitez afficher les types de données facturables qui envoient des données à un ordinateur spécifique, utilisez :
 
 `union withsource = tt *
-| where Computer == "*computer name*"
-| summarize count() by tt |sort by count_ nulls last `
+| where Computer == "computer name"
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last `
 
 > [!NOTE]
 > Certains champs du type de données Utilisation, bien que faisant partie du schéma, sont maintenant déconseillés et leurs valeurs ne seront plus fournies. Il s’agit de **Computer** et des champs liées à l’ingestion (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** et **AverageProcessingTimeMs**.
