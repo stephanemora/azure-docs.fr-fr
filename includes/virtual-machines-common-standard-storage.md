@@ -5,15 +5,15 @@ services: storage
 author: yuemlu
 ms.service: storage
 ms.topic: include
-ms.date: 06/05/2018
+ms.date: 01/08/2019
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: e266b239a44907e8e38e60cfc217aa21e46ab17e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ad57d373422e0fc310e51ac31f2a2e76999abf22
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263929"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193369"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Stockage Standard économique et disques de machine virtuelle Azure gérés et non gérés
 
@@ -25,9 +25,9 @@ Cet article se concentre sur l’utilisation de disques SSD et HDD Standard. Pou
 
 Il existe deux façons de créer des disques Standard pour les machines virtuelles Azure :
 
-**Disques non managés** : avec cette méthode d’origine, vous gérez les comptes de stockage utilisés pour stocker les fichiers VHD qui correspondent aux disques des machines virtuelles. Les fichiers VHD sont stockés en tant qu’objets blob de pages dans les comptes de stockage. Les disques non gérés peuvent être associés à n’importe quelle taille de machine virtuelle Azure, y compris les machines virtuelles qui utilisent principalement le stockage Premium, telles que les séries DSv2 et GS. Les machines virtuelles Azure prennent en charge l’association de plusieurs disques Standard, autorisant jusqu’à 256 Tio de stockage par machine virtuelle. Si vous utilisez les tailles de disque en préversion, vous pouvez avoir jusqu’à environ 2 Pio de stockage par machine virtuelle.
+**Disques non managés** : Avec cette méthode d’origine, vous gérez les comptes de stockage utilisés pour stocker les fichiers VHD qui correspondent aux disques des machines virtuelles. Les fichiers VHD sont stockés en tant qu’objets blob de pages dans les comptes de stockage. Les disques non gérés peuvent être associés à n’importe quelle taille de machine virtuelle Azure, y compris les machines virtuelles qui utilisent principalement le stockage Premium, telles que les séries DSv2 et GS. Les machines virtuelles Azure prennent en charge l’association de plusieurs disques Standard, autorisant jusqu’à 256 Tio de stockage par machine virtuelle. Si vous utilisez les tailles de disque en préversion, vous pouvez avoir jusqu’à environ 2 Pio de stockage par machine virtuelle.
 
-[**Disques gérés Azure**](../articles/virtual-machines/windows/managed-disks-overview.md) : cette fonctionnalité gère les comptes de stockage que vous utilisez pour les disques de machines virtuelles. Vous spécifiez le type (SSD Premium, SSD Standard ou HDD Standard) et la taille de disque dont vous avez besoin, et Azure crée et gère le disque pour vous. Vous n’avez pas à vous occuper de placer les disques sur plusieurs comptes de stockage pour être sûr de rester dans les limites de scalabilité des comptes de stockage : Azure le fait pour vous.
+[**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md) : Cette fonctionnalité gère les comptes de stockage que vous utilisez pour les disques de machines virtuelles. Vous spécifiez le type (SSD Premium, SSD Standard ou HDD Standard) et la taille de disque dont vous avez besoin, et Azure crée et gère le disque pour vous. Vous n’avez pas à vous occuper de placer les disques sur plusieurs comptes de stockage pour être sûr de rester dans les limites de scalabilité des comptes de stockage : Azure le fait pour vous.
 
 Même si les deux types de disques sont disponibles, nous vous recommandons d’utiliser des disques gérés pour tirer parti de leurs nombreuses fonctionnalités.
 
@@ -42,15 +42,15 @@ Pour plus d’informations sur la création d’une machine virtuelle Managed Di
 
 Examinons certaines des fonctionnalités du stockage Standard. Pour plus d’informations, consultez [Introduction à Microsoft Azure Storage](../articles/storage/common/storage-introduction.md).
 
-**Stockage Standard** : le stockage Standard Azure prend en charge les disques Azure, les objets blob Azure, les fichiers Azure, les tables Azure et les files d’attente Azure. Pour utiliser les services de stockage Standard, commencez par [Créer un compte de stockage Azure](../articles/storage/common/storage-quickstart-create-account.md).
+**Stockage standard** : Le stockage Standard Azure prend en charge les disques Azure, les objets blob Azure, les fichiers Azure, les tables Azure et les files d’attente Azure. Pour utiliser les services de stockage Standard, commencez par [Créer un compte de stockage Azure](../articles/storage/common/storage-quickstart-create-account.md).
 
-**Disques SSD Standard** : ces disques offrent des performances plus fiables que les disques HDD Standard et sont actuellement disponibles. Pour plus d’informations sur la disponibilité dans les régions des disques SSD Standard, consultez [Disponibilité dans les régions des disques SSD Standard](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+**Disques SSD Standard :** Ces disques offrent des performances plus fiables que les disques HDD Standard et sont actuellement disponibles. Pour plus d’informations sur la disponibilité dans les régions des disques SSD Standard, consultez [Disponibilité dans les régions des disques SSD Standard](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
 
-**Disques HDD Standard** : ces disques peuvent être attachés à toutes les machines virtuelles Azure, y compris les machines virtuelles de tailles utilisées avec le Stockage Premium, comme les séries DSv2 et GS. Un disque HDD Standard ne peut être attaché qu’à une seule machine virtuelle. Toutefois, vous pouvez associer un ou plusieurs de ces disques à une machine virtuelle, jusqu’au nombre maximal de disques défini pour cette taille de machine virtuelle. La section suivante sur les objectifs de performance et d’extensibilité du stockage Standard décrit ces spécifications plus en détail.
+**Disques HDD Standard :** Ces disques peuvent être attachés à toutes les machines virtuelles Azure, y compris les machines virtuelles de diverses tailles utilisées avec le Stockage Premium, comme les séries DSv2 et GS. Un disque HDD Standard ne peut être attaché qu’à une seule machine virtuelle. Toutefois, vous pouvez associer un ou plusieurs de ces disques à une machine virtuelle, jusqu’au nombre maximal de disques défini pour cette taille de machine virtuelle. La section suivante sur les objectifs de performance et d’extensibilité du stockage Standard décrit ces spécifications plus en détail.
 
-**Objet blob de pages Standard** : les objets blob de pages Standard sont utilisés pour stocker les disques persistants des machines virtuelles et sont également accessibles directement via REST comme d’autres types d’objets blob Azure. Les [objets blob de pages](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) sont une collection de pages de 512 octets optimisées pour les opérations de lecture et d’écriture aléatoires. 
+**Objet blob de pages Standard** : Les objets blob de pages Standard sont utilisés pour stocker les disques persistants des machines virtuelles et sont également accessibles directement via REST comme d’autres types d’objets blob Azure. Les [objets blob de pages](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) sont une collection de pages de 512 octets optimisées pour les opérations de lecture et d’écriture aléatoires. 
 
-**Réplication du stockage :** dans la plupart des régions, les données d’un compte de stockage Standard peuvent être répliquées localement ou géorépliquées entre plusieurs centres de données. Les quatre types de réplication disponibles sont le stockage localement redondant (LRS), le stockage redondant interzone (ZRS), le stockage géoredondant (GRS) et le stockage géoredondant avec accès en lecture (RA-GRS). Actuellement, les disques gérés dans le stockage Standard prennent seulement en charge le stockage localement redondant (LRS). Pour plus d'informations, consultez [Réplication Azure Storage](../articles/storage/common/storage-redundancy.md).
+**Réplication du stockage :** Dans la plupart des régions, les données d’un compte de stockage standard peuvent être répliquées localement ou géorépliquées entre plusieurs centres de données. Les quatre types de réplication disponibles sont le stockage localement redondant (LRS), le stockage redondant interzone (ZRS), le stockage géoredondant (GRS) et le stockage géoredondant avec accès en lecture (RA-GRS). Actuellement, les disques gérés dans le stockage Standard prennent seulement en charge le stockage localement redondant (LRS). Pour plus d'informations, consultez [Réplication Azure Storage](../articles/storage/common/storage-redundancy.md).
 
 ## <a name="scalability-and-performance-targets"></a>Cibles de performance et d’évolutivité
 
@@ -75,15 +75,7 @@ Si les besoins de votre application dépassent les objectifs d’extensibilité 
 
 ### <a name="standard-disks-limits"></a>Limites des disques Standard
 
-Contrairement aux disques Premium, les opérations d’entrée/sortie par seconde et le débit (bande passante) des disques Standard ne sont pas configurés. Les performances des disques Standard varient en fonction de la taille de la machine virtuelle à laquelle le disque est associé, pas de la taille du disque. Vous pouvez vous attendre aux limites de performance répertoriées dans le tableau ci-dessous.
-
-**Limites des disques Standard (gérés et non gérés)**
-
-| **Niveau Machine Virtuelle**            | **Niveau de base - Machine virtuelle** | **Niveau standard - Machine virtuelle** |
-|------------------------|-------------------|----------------------|
-| Taille maximale du disque          | 32 767 Gio           | 32 767 Gio        |
-| Max 8 Ko d’E/S par seconde par disque | Jusqu’à 2 000         | Jusqu’à 2 000        |
-| Bande passante maximale par disque | Jusqu’à 500 Mo/s     | Jusqu’à 500 Mo/s      |
+Contrairement aux disques Premium, les opérations d’entrée/sortie par seconde et le débit (bande passante) des disques Standard ne sont pas configurés. Les performances des disques Standard varient en fonction de la taille de la machine virtuelle à laquelle le disque est associé et de la taille du disque.
 
 Si votre charge de travail exige la prise en charge des disques hautes performances à faible latence, vous devez envisager d’utiliser le stockage Premium. Pour en savoir plus les avantages du stockage Premium, visitez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md).
 
@@ -117,9 +109,9 @@ Les considérations de facturation suivantes s’appliquent à l’utilisation d
 * Transferts de données sortantes
 * Transactions
 
-**Données de stockage et taille de disque non gérées :** pour les disques non gérés et les autres données (objets blob, tables, files d’attente et fichiers), vous êtes facturé uniquement pour la quantité d’espace utilisée. Par exemple, si vous avez une machine virtuelle dont les objets blob de pages sont configurés sur 127 Go, mais que la machine virtuelle n’utilise réellement que 10 Go d’espace, vous êtes facturé pour 10 Go d’espace. Nous prenons en charge le stockage Standard jusqu’à 8 191 Go et les disques non gérés Standard jusqu’à 4 095 Go. 
+**Données de stockage non managées et taille de disque :** Pour les disques non managés et les autres données (objets blob, tables, files d’attente et fichiers), vous êtes facturé uniquement pour la quantité d’espace utilisée. Par exemple, si vous avez une machine virtuelle dont les objets blob de pages sont configurés sur 127 Go, mais que la machine virtuelle n’utilise réellement que 10 Go d’espace, vous êtes facturé pour 10 Go d’espace. Nous prenons en charge le stockage Standard jusqu’à 8 191 Go et les disques non gérés Standard jusqu’à 4 095 Go. 
 
-**Disques managés** : la facturation des disques managés standard dépend du provisionnement de leur taille. Azure mappe la taille configurée des disques (arrondie à la valeur supérieure) sur l’option Managed Disks la plus proche, tel qu’indiqué dans les tableaux ci-dessous. Chaque disque managé mappe sur l’une des tailles configurées prises en charge et est facturé en conséquence. Par exemple, si vous créez un disque managé standard et définissez une taille provisionnée de 200 Gio, vous êtes facturé le prix du type de disque S15.
+**Disques managés :** La facturation des disques managés standard dépend du provisionnement de leur taille. Azure mappe la taille configurée des disques (arrondie à la valeur supérieure) sur l’option Managed Disks la plus proche, tel qu’indiqué dans les tableaux ci-dessous. Chaque disque managé mappe sur l’une des tailles configurées prises en charge et est facturé en conséquence. Par exemple, si vous créez un disque managé standard et définissez une taille provisionnée de 200 Gio, vous êtes facturé le prix du type de disque S15.
 
 Les tailles signalées par un astérisque sont actuellement en préversion.
 
@@ -128,7 +120,7 @@ Les tailles signalées par un astérisque sont actuellement en préversion.
 | Taille du disque        | 32 Gio  | 64 Gio  | 128 Go | 256 Gio | 512 Go | 1 024 Gio (1 Tio) | 2 048 Gio (2 Tio) | 4 095 Gio (4 Tio) | 8 192 Gio (8 Tio) | 16 385 Gio (16 Tio) | 32 767 Gio (32 Tio) |
 
 
-**Captures instantanées** : les captures instantanées des disques Standard sont facturées en fonction de la capacité supplémentaire utilisée par les captures instantanées. Pour plus d'informations sur les captures instantanées, consultez [Création d'un instantané d'objet blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
+**Instantanés** : Les instantanés des disques Standard sont facturés en fonction de la capacité supplémentaire qu’ils utilisent. Pour plus d'informations sur les captures instantanées, consultez [Création d'un instantané d'objet blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
 **Transferts de données sortantes** : [les transferts de données sortantes](https://azure.microsoft.com/pricing/details/data-transfers/)  (données sortant des centres de données Azure) sont facturés en fonction de la bande passante utilisée.
 

@@ -12,21 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/5/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3a377441758fcd7dd91deefb5cae91579e881498
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4bc426e291a47ae42e7628ad911e2960e654819f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007048"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261296"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Amélioration du degré de sécurisation dans Azure Security Center
 
 
 Avec autant de services offrant des avantages en matière de sécurité, il est souvent difficile de connaître les étapes à suivre en premier lieu pour sécuriser et renforcer votre charge de travail. Le degré de sécurisation Azure examine vos recommandations de sécurité et les classe par priorité, afin que vous sachiez quelles recommandations appliquer en priorité. Cela vous permet de rechercher les vulnérabilités de sécurité les plus graves afin de définir les priorités d’investigation. Le degré de sécurisation est un outil qui vous aide à évaluer la sécurité de la charge de travail.
-
-![Tableau de bord du degré de sécurisation](./media/security-center-secure-score/secure-score-dashboard.png)
 
 ## <a name="secure-score-calculation"></a>Calcul du degré de sécurisation
 
@@ -43,11 +41,25 @@ Pour vérifier les recommandations qui affectent le plus votre degré de sécuri
 
 Pour afficher votre degré de sécurisation global :
 
-1. Dans le tableau de bord Azure, cliquez sur **Security Center**, puis sur **Recommandations**.
-2. En haut de la fenêtre, vous pouvez observer le degré de sécurisation qui représente le score par stratégies et par abonnement sélectionné. 
-2. Dans le tableau ci-dessous qui répertorie les recommandations, vous pouvez voir que pour chacune d’elles, il existe une colonne **Impact du degré de sécurisation**. Ce nombre indique l’amélioration de votre degré de sécurisation global si vous suivez les recommandations. Par exemple, dans l’écran ci-dessous, si vous **Corrigez les vulnérabilités dans les configurations de sécurité du conteneur**, votre degré de sécurisation sera augmenté de 35 points.
+1. Dans le tableau de bord Azure, cliquez sur **Security Center**, puis sur **Degré de sécurisation**.
+2. En haut, vous pouvez voir la synthèse du degré de sécurisation :
+   - Le **degré de sécurisation global** représente le degré par stratégie et par abonnement sélectionné.
+   - Le **degré de sécurisation par catégorie** vous montre les ressources qui ont le plus besoin d’attention.
+   - Les **principales recommandations par impact du degré de sécurisation** vous propose une liste de recommandations qui vont améliorer le plus votre degré de sécurisation si vous les appliquez.
+ 
+   ![degré de sécurisation](./media/security-center-secure-score/secure-score-dashboard.png)
+
+3. Dans le tableau ci-dessous, vous pouvez voir chacun de vos abonnements et leur degré de sécurisation global.
+
+   > [!NOTE]
+   > La somme des degrés de sécurisation de chaque abonnement n’est pas égale au degré de sécurisation global. Le degré de sécurisation est un calcul qui se base sur le rapport entre vos ressources saines et vos ressources totales par recommandation, et non la somme des degrés de sécurisation de tous vos abonnements. 
+   >
+4. Cliquez sur **Afficher les recommandations** pour voir les recommandations de l’abonnement correspondant. Vous pouvez les appliquer pour améliorer votre degré de sécurisation.
+4. Dans la liste des recommandations, vous pouvez voir que pour chacune d’elles, il existe une colonne **Impact du degré de sécurisation**. Ce nombre indique l’amélioration de votre degré de sécurisation global si vous suivez les recommandations. Par exemple, dans l’écran ci-dessous, si vous **Corrigez les vulnérabilités dans les configurations de sécurité du conteneur**, votre degré de sécurisation sera augmenté de 35 points.
 
    ![degré de sécurisation](./media/security-center-secure-score/security-center-secure-score1.png)
+
+
 
 ## <a name="individual-secure-score"></a>Degré de sécurisation individuel
 
@@ -60,6 +72,12 @@ Le **Score de la recommandation** est un calcul basé sur le rapport entre vos r
 La recommandation présente les menaces auxquelles votre charge de travail est exposée si les mesures correctives ne sont pas prises.
 
 ![score de la recommandation individuelle](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
+
+
+
+
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a montré comment renforcer votre sécurité à l’aide du **degré de sécurisation** d’Azure Security Center. Pour plus d’informations sur Security Center, consultez :

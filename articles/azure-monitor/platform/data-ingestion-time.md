@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: d8d8e344ce9ee317a7f864492514162b1dc085f9
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5db963b1ffea656455c06092c82ac95e85d87826
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52885005"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213125"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Durée d’ingestion de données dans Log Analytics
 Azure Log Analytics est un service de données à grande échelle dans Azure Monitor servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. Les utilisateurs se demandent souvent quel est le délai nécessaire pour que les données soient disponibles dans Log Analytics une fois qu’elles ont été collectées. Cet article explique les différents facteurs qui affectent cette latence.
@@ -46,7 +46,7 @@ Les solutions de gestion et les agents utilisent différentes stratégies pour c
 Pour vous assurer que l’agent Log Analytics est léger, l’agent met en mémoire tampon les journaux et les charge régulièrement sur Log Analytics. La fréquence de chargement varie entre 30 secondes et 2 minutes en fonction du type de données. La plupart des données sont chargées en moins d’une minute. Les conditions du réseau peuvent affecter négativement la latence nécessaire à ces données pour atteindre le point d’ingestion Log Analytics.
 
 ### <a name="azure-logs-and-metrics"></a>Métriques et journaux Azure 
-Les données de journal d’activité sont disponibles dans Log Analytics en environ 5 minutes. Les données des journaux de diagnostic et des métriques sont disponibles en 1 à 5 minutes, en fonction du service Azure. Il faut 30 à 60 secondes supplémentaires pour les journaux et 3 minutes supplémentaires pour les métriques afin que les données soient envoyées au point d’ingestion Log Analytics.
+Les données de journal d’activité sont disponibles dans Log Analytics en environ 5 minutes. Les données des journaux de diagnostic et des métriques sont disponibles pour l’ingestion en 1 à 15 minutes, en fonction du service Azure. Une fois les données disponibles, il faut 30 à 60 secondes supplémentaires pour les journaux et trois minutes supplémentaires pour les métriques afin que les données soient envoyées au point d’ingestion Log Analytics.
 
 ### <a name="management-solutions-collection"></a>Collecte des solutions de gestion
 Certaines solutions ne collectent pas leurs données à partir d’un agent et peuvent utiliser une méthode de collecte qui introduit une latence supplémentaire. Certaines solutions collectent des données à intervalles réguliers sans tenter d’effectuer une collecte en temps quasi-réel. Voici quelques exemples :
@@ -73,22 +73,60 @@ Ce processus prend environ 5 minutes avec un faible volume de données, mais moi
 
 
 ## <a name="checking-ingestion-time"></a>Vérification de la durée d’ingestion
-Vous pouvez utiliser la table **Pulsation** pour obtenir une estimation de la latence des données à partir d’agents. Étant donné que la pulsation est envoyée une fois par minute, la différence entre l’heure actuelle et le dernier enregistrement de pulsation est, dans l’idéal, aussi près que possible de la minute.
+La durée d’ingestion peut varier pour différentes ressources dans différentes circonstances. Vous pouvez utiliser des requêtes de journal pour identifier un comportement spécifique de votre environnement.
 
-Utilisez la requête suivante pour répertorier les ordinateurs présentant la latence la plus élevée.
+### <a name="ingestion-latency-delays"></a>Délais de latence d’ingestion
+Vous pouvez mesurer la latence d’un enregistrement spécifique en comparant le résultat de la fonction [ingestion_time()](/azure/kusto/query/ingestiontimefunction) au champ _TimeGenerated_. Ces données peuvent être utilisées avec différentes agrégations afin de déterminer le comportement de latence d’ingestion. Examinez certains centiles de la durée d’ingestion pour obtenir des insights sur une grande quantité de données. 
 
-    Heartbeat 
-    | summarize IngestionTime = now() - max(TimeGenerated) by Computer 
-    | top 50 by IngestionTime asc
+Par exemple, la requête suivante montre quels ordinateurs ont eu la durée d’ingestion la plus élevée durant cette journée : 
 
+``` Kusto
+Heartbeat
+| where TimeGenerated > ago(8h) 
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95) by Computer 
+| top 20 by percentile_E2EIngestionLatency_95 desc  
+```
  
-Utilisez la requête suivante dans les grands environnements afin de résumer la latence pour différents pourcentages du nombre total d’ordinateurs.
+Si vous souhaitez explorer au niveau du détail la durée d’ingestion pour un ordinateur spécifique sur une période donnée, utilisez la requête suivante, qui affiche également les données dans un graphe : 
 
-    Heartbeat 
-    | summarize IngestionTime = now() - max(TimeGenerated) by Computer 
-    | summarize percentiles(IngestionTime, 50,95,99)
+``` Kusto
+Heartbeat 
+| where TimeGenerated > ago(24h) and Computer == "ContosoWeb2-Linux"  
+| extend E2EIngestionLatencyMin = todouble(datetime_diff("Second",ingestion_time(),TimeGenerated))/60 
+| summarize percentiles(E2EIngestionLatencyMin,50,95) by bin(TimeGenerated,30m) 
+| render timechart  
+```
+ 
+Utilisez la requête suivante pour afficher la durée d’ingestion des ordinateurs en fonction du pays où ils se trouvent, d’après leur adresse IP : 
 
+``` Kusto
+Heartbeat 
+| where TimeGenerated > ago(8h) 
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95) by RemoteIPCountry 
+```
+ 
+Différents types de données provenant de l’agent peuvent avoir des latences d’ingestion différentes ; ainsi, les requêtes précédentes pourraient être utilisées avec d’autres types. Utilisez la requête suivante pour examiner la durée d’ingestion de divers services Azure : 
 
+``` Kusto
+AzureDiagnostics 
+| where TimeGenerated > ago(8h) 
+| extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95) by ResourceProvider
+```
+
+### <a name="resources-that-stop-responding"></a>Ressources qui ne répondent plus 
+Dans certains cas, une ressource peut cesser d’envoyer des données. Pour savoir si une ressource envoie des données ou non, examinez son enregistrement le plus récent, identifiable par le champ _TimeGenerated_ standard.  
+
+Utilisez la table _Heartbeat_ pour vérifier la disponibilité d’une machine virtuelle, dans la mesure où une pulsation est envoyée une fois par minute par l’agent. Utilisez la requête suivante pour lister les ordinateurs actifs qui n’ont pas signalé de pulsation récemment : 
+
+``` Kusto
+Heartbeat  
+| where TimeGenerated > ago(1d) //show only VMs that were active in the last day 
+| summarize NoHeartbeatPeriod = now() - max(TimeGenerated) by Computer  
+| top 20 by NoHeartbeatPeriod desc 
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez le [contrat SLA](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) Log Analytics.

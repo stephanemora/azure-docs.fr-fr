@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 382027782044a5a1011976560b7460047544f521
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a882ad2bbb700c7d1a1c812d7a05aa14b8038f9a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237962"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359933"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server sur des machines virtuelles Azure
 
@@ -71,10 +71,12 @@ Il existe quelques éléments que vous devez connaître et deux choses que vous 
 ### <a name="what-to-know"></a>Éléments à connaître
 Vous devez avoir une compréhension opérationnelle des technologies suivantes :
 
-- [Technologies de cluster Windows](https://technet.microsoft.com/library/hh831579.aspx)
-- [Instances de cluster de basculement SQL Server](https://msdn.microsoft.com/library/ms189134.aspx).
+- [Technologies de cluster Windows](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
+- [Instances de cluster de basculement SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-Vous devez également avoir une compréhension générale des technologies suivantes :
+Une différence très importante est que sur un cluster de basculement invité de machine virtuelle IaaS Azure, nous vous recommandons d’utiliser une seule carte réseau par serveur (nœud de cluster) et un seul sous-réseau. Les réseaux Azure intègrent une redondance physique, ce qui rend inutiles les cartes réseau et les sous-réseaux supplémentaires sur un cluster invité de machine virtuelle IaaS Azure. Même si le rapport de validation de cluster émet un avertissement stipulant que les nœuds sont uniquement accessibles sur un seul réseau, vous pouvez ignorer ce dernier en toute sécurité sur les clusters de basculement invités de machine virtuelle IaaS Azure. 
+
+De plus, vous devez également avoir une compréhension générale des technologies suivantes :
 
 - [Solution hyper-convergée utilisant les Espaces de stockage direct dans Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Groupes de ressources Azure](../../../azure-resource-manager/resource-group-portal.md)
@@ -97,7 +99,7 @@ Avant de suivre les instructions de cet article, vérifiez que vous disposez dé
 
 Une fois ces conditions préalables en place, vous pouvez passer à la création de votre cluster de basculement. La première étape consiste à créer les machines virtuelles.
 
-## <a name="step-1-create-virtual-machines"></a>Étape 1 : Créer les machines virtuelles
+## <a name="step-1-create-virtual-machines"></a>Étape 1 : Créer des machines virtuelles
 
 1. Connectez-vous au [portail Azure](http://portal.azure.com) avec votre abonnement.
 
@@ -111,12 +113,12 @@ Une fois ces conditions préalables en place, vous pouvez passer à la création
    - Cliquez sur **Groupe à haute disponibilité**.
    - Cliquez sur **Créer**.
    - Dans le panneau **Créer un groupe à haute disponibilité**, définissez les valeurs suivantes :
-      - **Nom** : nom du groupe à haute disponibilité.
-      - **Abonnement** : votre abonnement Azure.
-      - **Groupe de ressources** : si vous souhaitez utiliser un groupe existant, cliquez sur **Use existing** (Utiliser le groupe existant) et sélectionnez le groupe dans la liste déroulante. Sinon, choisissez **Créer** et entrez un nom pour le groupe.
-      - **Emplacement** : définissez l’emplacement où vous souhaitez créer vos machines virtuelles.
-      - **Domaines d’erreur** : utilisez la valeur par défaut (3).
-      - **Domaines de mise à jour** : utilisez la valeur par défaut (5).
+      - **Nom** : Nom du groupe à haute disponibilité.
+      - **Abonnement**: Votre abonnement Azure.
+      - **Groupe de ressources** : Si vous souhaitez utiliser un groupe existant, cliquez sur **Utiliser l’existant** et sélectionnez le groupe dans la liste déroulante. Sinon, choisissez **Créer** et entrez un nom pour le groupe.
+      - **Emplacement** : Définissez l’emplacement où vous souhaitez créer vos machines virtuelles.
+      - **Domaines d’erreur** : Utilisez la valeur par défaut (3).
+      - **Domaines de mise à jour** : Utilisez la valeur par défaut (5).
    - Cliquez sur **Créer** pour créer le groupe à haute disponibilité.
 
 1. Créez les machines virtuelles dans le groupe à haute disponibilité sélectionné.
@@ -139,7 +141,7 @@ Une fois ces conditions préalables en place, vous pouvez passer à la création
 
    Choisissez l’image appropriée en fonction de la façon dont vous souhaitez payer pour la licence SQL Server :
 
-   - **Licences avec paiement à l’utilisation** : le coût par seconde de ces images inclut l’attribution de licences SQL Server :
+   - **Licences de paiement à l’utilisation** : Le coût par seconde de ces images inclut l’attribution de licences SQL Server :
       - **SQL Server 2016 Enterprise sur Windows Server Datacenter 2016**
       - **SQL Server 2016 Standard sur Windows Server Datacenter 2016**
       - **SQL Server 2016 Developer sur Windows Server Datacenter 2016**
@@ -196,7 +198,7 @@ Une fois ces conditions préalables en place, vous pouvez passer à la création
 
 Une fois les machines virtuelles créées et configurées, vous pouvez configurer le cluster de basculement.
 
-## <a name="step-2-configure-the-windows-failover-cluster-with-s2d"></a>Étape 2 : Configurer le cluster de basculement Windows avec la technologie S2D
+## <a name="step-2-configure-the-windows-failover-cluster-with-s2d"></a>Étape 2 : Configurer le cluster de basculement Windows avec la technologie S2D
 
 L’étape suivante consiste à configurer le cluster de basculement avec la technologie S2D. Dans cette étape, vous allez exécuter les sous-étapes suivantes :
 
@@ -312,11 +314,11 @@ Les disques pour la technologie S2D doivent être vides et sans partitions ou au
 
    ![VolumePartagéCluster](./media/virtual-machines-windows-portal-sql-create-failover-cluster/15-cluster-shared-volume.png)
 
-## <a name="step-3-test-failover-cluster-failover"></a>Étape 3 : Tester le basculement du cluster de basculement
+## <a name="step-3-test-failover-cluster-failover"></a>Étape 3 : Tester le basculement du cluster de basculement
 
 Dans le Gestionnaire du cluster de basculement, vérifiez que vous pouvez déplacer la ressource de stockage vers l’autre nœud du cluster. Si vous pouvez vous connecter au cluster de basculement avec le **Gestionnaire du cluster de basculement** et déplacer le stockage d’un nœud à l’autre, vous êtes prêt à configurer l’instance de cluster de basculement.
 
-## <a name="step-4-create-sql-server-fci"></a>Étape 4 : Créer l’instance de cluster de basculement SQL Server
+## <a name="step-4-create-sql-server-fci"></a>Étape 4 : Créer l’instance de cluster de basculement SQL Server
 
 Après avoir configuré le cluster de basculement et tous les composants du cluster, notamment le stockage, vous pouvez créer l’instance de cluster de basculement SQL Server.
 
@@ -345,7 +347,7 @@ Après avoir configuré le cluster de basculement et tous les composants du clus
    >[!NOTE]
    >Si vous avez utilisé une image de la galerie Azure Marketplace avec SQL Server, les outils SQL Server ont été inclus avec l’image. Si vous n’avez pas utilisé cette image, installez les outils SQL Server séparément. Consultez [Télécharger SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-## <a name="step-5-create-azure-load-balancer"></a>Étape 5 : Créer un équilibrage de charge Azure
+## <a name="step-5-create-azure-load-balancer"></a>Étape 5 : Créer un équilibreur de charge Azure
 
 Sur les machines virtuelles Azure, les clusters utilisent un équilibrage de charge pour conserver une adresse IP qui doit se trouver sur un nœud de cluster à la fois. Dans cette solution, l’équilibrage de charge contient l’adresse IP de l’instance de cluster de basculement SQL Server.
 
@@ -363,14 +365,14 @@ Pour créer l’équilibrage de charge :
 
 1. Configurez l’équilibrage de charge avec :
 
-   - **Nom** : nom qui identifie l’équilibrage de charge.
-   - **Type** : l’équilibrage de charge peut être public ou privé. Un équilibrage de charge privé est accessible à partir du même réseau virtuel. La plupart des applications Azure peut utiliser un équilibrage de charge privé. Si votre application doit accéder à SQL Server directement via Internet, utilisez un équilibrage de charge public.
-   - **Réseau virtuel** : le même réseau que les machines virtuelles.
-   - **Sous-réseau** : le même sous-réseau que les machines virtuelles.
-   - **Adresse IP privée** : la même adresse IP que celle attribuée à la ressource réseau de cluster FCI SQL Server.
-   - **Abonnement** : votre abonnement Azure.
-   - **Groupe de ressources** : utilisez le même groupe de ressources que celui de vos machines virtuelles.
-   - **Emplacement** : utilisez le même emplacement Azure que celui de vos machines virtuelles.
+   - **Nom** : Nom qui identifie l’équilibreur de charge.
+   - **Type** : L’équilibreur de charge peut être public ou privé. Un équilibrage de charge privé est accessible à partir du même réseau virtuel. La plupart des applications Azure peut utiliser un équilibrage de charge privé. Si votre application doit accéder à SQL Server directement via Internet, utilisez un équilibrage de charge public.
+   - **Réseau virtuel** : Le même réseau que les machines virtuelles.
+   - **Sous-réseau** : Le même sous-réseau que les machines virtuelles.
+   - **Adresse IP privée** : La même adresse IP que celle attribuée à la ressource réseau de cluster FCI SQL Server.
+   - **Abonnement** : Votre abonnement Azure.
+   - **Groupe de ressources** : Utilisez le même groupe de ressources que celui de vos machines virtuelles.
+   - **Emplacement** : Utilisez le même emplacement Azure que celui de vos machines virtuelles.
    Consultez l’illustration suivante :
 
    ![CréerÉquilibrageCharge](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
@@ -395,11 +397,11 @@ Pour créer l’équilibrage de charge :
 
 1. Dans le panneau **Ajouter une sonde d’intégrité**, <a name="probe"></a>définissez les paramètres de la sonde d’intégrité :
 
-   - **Nom** : nom de la sonde d’intégrité.
+   - **Nom** : Nom de la sonde d’intégrité.
    - **Protocole** : TCP.
-   - **Port** : défini sur un port TCP disponible. Ce port nécessite un port de pare-feu ouvert. Utilisez le [même port](#ports) que celui défini pour la sonde d’intégrité au niveau du pare-feu.
-   - **Intervalle** : 5 secondes.
-   - **Seuil de défaillance** : 2 défaillances consécutives.
+   - **Port** : Défini sur un port TCP disponible. Ce port nécessite un port de pare-feu ouvert. Utilisez le [même port](#ports) que celui défini pour la sonde d’intégrité au niveau du pare-feu.
+   - **Intervalle** : 5 secondes.
+   - **Seuil de défaillance sur le plan de l’intégrité** : 2 défaillances consécutives.
 
 1. Cliquez sur OK.
 
@@ -411,19 +413,19 @@ Pour créer l’équilibrage de charge :
 
 1. Configurez les paramètres d’équilibrage de charge :
 
-   - **Nom** : nom des règles d’équilibrage de charge.
-   - **Adresse IP frontale** : utilisez l’adresse IP de la ressource réseau de cluster FCI SQL Server.
-   - **Port** : défini pour le port TCP FCI SQL Server. Le port d’instance par défaut est 1433.
-   - **Port principal** : cette valeur utilise le même port que la valeur **Port** lorsque vous activez **Adresse IP flottante (retour serveur direct)**.
-   - **Pool principal** : utilisez le nom du pool principal que vous avez configuré précédemment.
-   - **Sonde d’intégrité** : utilisez la sonde d’intégrité que vous avez configurée précédemment.
-   - **Persistance de session** : aucune.
-   - **Délai d’inactivité (minutes)** : 4.
-   - **Adresse IP flottante (retour serveur direct)** : activée
+   - **Nom** : Nom des règles d’équilibrage de charge.
+   - **Adresse IP du serveur frontal** : Utilisez l’adresse IP de la ressource réseau de cluster FCI SQL Server.
+   - **Port** : Défini pour le port TCP FCI SQL Server. Le port d’instance par défaut est 1433.
+   - **Port principal** : Cette valeur utilise le même port que la valeur **Port** lorsque vous activez **Adresse IP flottante (retour direct du serveur)**.
+   - **Pool principal** : Utilisez le nom du pool back-end que vous avez configuré précédemment.
+   - **Sonde d’intégrité** : Utilisez la sonde d’intégrité que vous avez configurée précédemment.
+   - **Persistance de session** : Aucune.
+   - **Délai d’inactivité (minutes)**  : 4.
+   - **Adresse IP flottante (retour direct du serveur)**  : activé
 
 1. Cliquez sur **OK**.
 
-## <a name="step-6-configure-cluster-for-probe"></a>Étape 6 : Configurer le cluster pour la sonde
+## <a name="step-6-configure-cluster-for-probe"></a>Étape 6 : Configurer le cluster pour la sonde
 
 Définissez le paramètre de port de sonde de cluster dans PowerShell.
 
@@ -442,13 +444,13 @@ Pour définir le paramètre de port de sonde de cluster, mettez à jour les vari
 
 Dans le script précédent, définissez les valeurs pour votre environnement. La liste ci-dessous décrit les valeurs :
 
-   - `<Cluster Network Name>` : nom du cluster de basculement Windows Server pour le réseau. Dans le **Gestionnaire du cluster de basculement** > **Réseaux**, cliquez avec le bouton droit sur le réseau et cliquez sur **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**. 
+   - `<Cluster Network Name>`: Nom du cluster de basculement Windows Server pour le réseau. Dans le **Gestionnaire du cluster de basculement** > **Réseaux**, cliquez avec le bouton droit sur le réseau et cliquez sur **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**. 
 
-   - `<SQL Server FCI IP Address Resource Name>`: nom de ressource d’adresse IP de l’instance de cluster de basculement SQL Server. Dans le **Gestionnaire du cluster de basculement** > **Rôles**, sous le rôle de l’instance de cluster de basculement SQL Server, sous **Nom du serveur**, cliquez avec le bouton droit sur la ressource d’adresse IP, et cliquez sur **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**. 
+   - `<SQL Server FCI IP Address Resource Name>`: Nom de la ressource d’adresse IP de l’instance de cluster de basculement SQL Server. Dans le **Gestionnaire du cluster de basculement** > **Rôles**, sous le rôle de l’instance de cluster de basculement SQL Server, sous **Nom du serveur**, cliquez avec le bouton droit sur la ressource d’adresse IP, et cliquez sur **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**. 
 
-   - `<ILBIP>` : adresse IP de l’ILB. Cette adresse est configurée dans le portail Azure en tant qu’adresse frontale d’équilibrage de charge interne. Il s’agit également de l’adresse IP de l’instance de cluster de basculement SQL Server. Vous pouvez la trouver dans le **Gestionnaire du cluster de basculement** sur la page de propriétés où se trouve également localisé le `<SQL Server FCI IP Address Resource Name>`.  
+   - `<ILBIP>`: Adresse IP de l’équilibreur de charge interne. Cette adresse est configurée dans le portail Azure en tant qu’adresse frontale d’équilibrage de charge interne. Il s’agit également de l’adresse IP de l’instance de cluster de basculement SQL Server. Vous pouvez la trouver dans le **Gestionnaire du cluster de basculement** sur la page de propriétés où se trouve également localisé le `<SQL Server FCI IP Address Resource Name>`.  
 
-   - `<nnnnn>`: est le port de sonde que vous avez configuré dans la sonde d’intégrité d’équilibrage de charge. N’importe quel port TCP inutilisé est valide. 
+   - `<nnnnn>`: Port de sonde que vous avez configuré dans la sonde d’intégrité de l’équilibreur de charge. N’importe quel port TCP inutilisé est valide. 
 
 >[!IMPORTANT]
 >Le masque de sous-réseau pour le paramètre de cluster doit être l’adresse de diffusion TCP IP : `255.255.255.255`.
@@ -459,7 +461,7 @@ Après avoir défini la sonde du cluster, vous pouvez voir tous les paramètres 
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 
-## <a name="step-7-test-fci-failover"></a>Étape 7 : Test du basculement FCI
+## <a name="step-7-test-fci-failover"></a>Étape 7 : Tester le basculement de l’instance de cluster de basculement
 
 Testez le basculement de l’instance de cluster de basculement pour valider le fonctionnement du cluster. Effectuez également les étapes suivantes :
 

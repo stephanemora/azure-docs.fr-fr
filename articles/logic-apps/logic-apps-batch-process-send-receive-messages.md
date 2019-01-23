@@ -8,13 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
-ms.date: 08/19/2018
-ms.openlocfilehash: bd31de8f60fff5630141f708714083fe76220d11
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 01/16/2019
+ms.openlocfilehash: c33b1d46ecf710f050fc998ce27f6448337c6b78
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410151"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352510"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Envoyer, recevoir et traiter par lots des messages dans Azure Logic Apps
 
@@ -48,22 +48,29 @@ Pour suivre cet exemple, vous avez besoin de ce qui suit :
 
 Avant de pouvoir envoyer des messages à un lot, ce lot doit d’abord exister en tant que destination vers laquelle envoyer ces messages. Ainsi, vous devez commencer par créer l’application logique « réceptrice de lots », qui démarre avec le déclencheur **Lot**. De cette façon, lorsque vous créez l’application logique « expéditrice de lots », vous pouvez sélectionner l’application logique réceptrice de lots. Le récepteur de lots continue à collecter les messages jusqu’à ce que vos critères spécifiés soient remplis pour mettre en production et traiter ces messages. Alors que les récepteurs de lots n’ont pas besoin de connaître les expéditeurs de lots, les expéditeurs de lots, eux, doivent connaître la destination vers laquelle envoyer les messages. 
 
-1. Dans le [portail Azure](https://portal.azure.com) ou dans Visual Studio, créez une application logique et nommez-la « BatchReceiver ». 
+1. Dans le [portail Azure](https://portal.azure.com) ou dans Visual Studio, créez une application logique et nommez-la ainsi : « BatchReceiver » 
 
-2. Dans le Concepteur d'applications logiques, ajoutez le déclencheur **Lot** qui démarre le flux de travail de votre application logique. Dans la zone de recherche, entrez « lot » comme filtre. Sélectionnez ce déclencheur : **Traiter les messages par lots**
+2. Dans le Concepteur d'applications logiques, ajoutez le déclencheur **Lot** qui démarre le flux de travail de votre application logique. Dans la zone de recherche, entrez « lot » comme filtre. Sélectionner le déclencheur : **Traiter les messages par lots**
 
    ![Ajout d’un déclencheur « Traiter les messages par lots »](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
-3. Définissez les propriétés du récepteur de lots : 
+3. Définissez les propriétés suivantes pour le récepteur de lots : 
 
    | Propriété | Description | 
    |----------|-------------|
-   | **Mode Batch** | - **Inline** : Pour définir des critères de mise en production à l’intérieur du déclencheur de lots <br>- **Compte d’intégration** : Pour définir plusieurs configurations de critères de mise en production via un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Avec un compte d’intégration, vous pouvez conserver ces configurations toutes au même endroit, plutôt que dans des applications logiques distincts. | 
+   | **Mode Batch** | - **Inline** : Pour définir des critères de mise en production à l’intérieur du déclencheur de lots <br>- **Compte d’intégration** : Pour définir plusieurs configurations de critères de mise en production via un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Avec un compte d’intégration, vous pouvez conserver ces configurations toutes au même endroit, plutôt que dans des applications logiques distincts. | 
    | **Nom du lot** | Le nom de votre lot, qui est « TestBatch » dans cet exemple, et qui s’applique uniquement au mode batch **Inline** |  
-   | **Critères de mise en production** | S’applique seulement au mode batch **Inline** et sélectionne les critères à respecter avant de traiter chaque lot : <p>- **Sur la base du nombre de messages** : Nombre de messages à collecter dans le lot, par exemple 10 messages <br>- **En fonction de la taille** : Taille de lot maximale en octets, par exemple 100 Mo <br>- **Sur la base de la planification** : Intervalle et fréquence entre les mises en production de lots, par exemple 10 minutes. La périodicité minimale est de 60 secondes ou 1 minute. Les valeurs fractionnelles des minutes sont arrondies à 1 minute. Pour spécifier une date et une heure de début, choisissez **Afficher les options avancées**. <br>- **Tout sélectionner** : Utilisation de tous les critères spécifiés. | 
+   | **Critères de mise en production** | S’applique seulement au mode batch **Inline** et sélectionne les critères à respecter avant de traiter chaque lot : <p>- **Sur la base du nombre de messages** : Mettez en production le lot en fonction du nombre de messages qu’il a collectés. <br>- **En fonction de la taille** : Mettez en production le lot en fonction de la taille totale (en octets) de tous les messages qu’il a collectés. <br>- **Planification** : Mettez en production le lot selon une planification de récurrence, avec un intervalle et une fréquence. Dans les options avancées, vous pouvez également sélectionner un fuseau horaire, et fournir une date et une heure de début. <br>- **Tout sélectionner** : Utilisez tous les critères spécifiés. | 
+   | **Nombre de messages** | Nombre de messages à collecter dans le lot, par exemple 10 messages. Pour un lot, la limite est de 8 000 messages. | 
+   | **Taille de lot** | Taille totale à collecter dans le lot (en octets), par exemple, 10 Mo. La taille limite d’un lot est de 80 Mo. | 
+   | **Planification** | Intervalle et fréquence entre les mises en production de lots, par exemple 10 minutes. La périodicité minimale est de 60 secondes ou 1 minute. Les fractions de minutes sont arrondies à 1 minute. Pour spécifier un fuseau horaire ainsi qu’une date et une heure de début, choisissez **Afficher les options avancées**. | 
    ||| 
-   
-   Cet exemple sélectionne tous les critères :
+
+   > [!NOTE]
+   > 
+   > Si vous modifiez les critères de mise en production alors que le déclencheur a toujours des messages traités par lot mais non envoyés, celui-ci utilise les nouveaux critères de mise en production pour gérer les messages non envoyés. 
+
+   Cet exemple montre tous les critères. Toutefois, pour vos propres tests, vous pouvez n’utiliser qu’un seul critère :
 
    ![Détails à fournir concernant le déclencheur Lot](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png)
 
@@ -76,7 +83,7 @@ Avant de pouvoir envoyer des messages à un lot, ce lot doit d’abord exister e
 
    2. Dans la zone de recherche, entrez «  envoyer e-mail » comme filtre.
    Sélectionnez un connecteur de messagerie en fonction de votre fournisseur de messagerie.
-      
+
       Par exemple, si vous avez un compte personnel, tel que @outlook.com ou @hotmail.com, sélectionnez le connecteur Outlook.com. 
       Si vous avez un compte Gmail, sélectionnez le connecteur Gmail. 
       Office 365 Outlook est utilisé dans cet exemple. 
@@ -98,7 +105,7 @@ Avant de pouvoir envoyer des messages à un lot, ce lot doit d’abord exister e
 
      ![Dans la liste de contenu dynamique, sélection du « Nom de partition »](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details.png)
 
-     Dans une section ultérieure, vous pouvez spécifier une clé de partition unique, afin de diviser le lot cible en plusieurs sous-ensembles logiques vers lesquels envoyer des messages. 
+     Plus tard, dans l’expéditeur de lots, vous pouvez spécifier une clé de partition unique, afin de diviser le lot cible en plusieurs sous-ensembles logiques vers lesquels envoyer des messages. 
      Chaque ensemble est associé à un numéro unique qui est généré par l’application logique expéditrice de lots. 
      Cette fonctionnalité permet d’utiliser un lot comprenant plusieurs sous-ensembles et de définir chaque sous-ensemble avec le nom que vous fournissez.
 
@@ -127,10 +134,10 @@ Avant de pouvoir envoyer des messages à un lot, ce lot doit d’abord exister e
 
 * Vérifiez que vos récepteur et expéditeur de lots partagent la même région *et* le même abonnement Azure. Si ce n’est pas le cas, vous ne pouvez pas sélectionner le récepteur de lots lorsque vous créez l’expéditeur de lots, car ils ne sont pas visibles entre eux.
 
-1. Créez une autre application logique et nommez-la « BatchSender ».
+1. Créez une autre application logique portant le nom suivant : « BatchSender »
 
    1. Dans la zone de recherche, entrez « récurrence » comme filtre. 
-   Sélectionnez ce déclencheur : **Récurrence - Planification**
+   Sélectionner le déclencheur : **Récurrence - Planification**
 
       ![Ajout du déclencheur « Récurrence - Planification »](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-sender.png)
 
@@ -143,7 +150,7 @@ Avant de pouvoir envoyer des messages à un lot, ce lot doit d’abord exister e
    1. Sous le déclencheur Récurrence, choisissez **Nouvelle étape**.
 
    2. Dans la zone de recherche, entrez « lot » comme filtre. 
-   Sélectionnez la liste **Actions**, puis sélectionnez l’action suivante : **Choisir un workflow Logic Apps avec déclencheur de lot - Envoyer les messages au lot**.
+   Dans la liste **Actions**, sélectionnez cette action : **Choisir un workflow Logic Apps avec déclencheur de lot - Envoyer les messages au lot**
 
       ![Sélection de « Choisir un workflow Logic Apps avec déclencheur de lot »](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
 
@@ -156,15 +163,15 @@ Avant de pouvoir envoyer des messages à un lot, ce lot doit d’abord exister e
       > 
       > Si vous utilisez Visual Studio et que vous ne voyez aucun récepteur de lot à sélectionner, vérifiez que vous avez déployé votre récepteur de lots sur Azure. Si ce n’est pas le cas, découvrez comment [déployer votre application logique réceptrice de lots sur Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). 
 
-   4. Sélectionnez cette action : **Traiter_les_messages_par_lots - <*votre récepteur de lots*>**
+   4. Sélectionnez cette action : **Traiter_les_messages_par_lots - <*votre-récepteur-de-lots*>**
 
-      ![Sélection de l’action : « Traiter_les_messages_par_lots - <votre-application-logique> »](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
+      ![Sélectionnez cette action : "Traiter_les_messages_par_lots - <votre-application-logique>"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 
 3. Définissez les propriétés de l’expéditeur de lots :
 
    | Propriété | Description | 
    |----------|-------------| 
-   | **Nom du lot** | Nom défini par l’application logique réceptrice (« TestBatch » dans cet exemple) <p>**Important** : le nom du lot est validé lors de l’exécution et doit correspondre au nom spécifié par l’application logique réceptrice. Si vous modifiez ce nom, l’expéditeur de lots échoue. | 
+   | **Nom du lot** | Nom défini par l’application logique réceptrice (« TestBatch » dans cet exemple) <p>**Important !** Le nom du lot est validé lors de l’exécution et doit correspondre au nom spécifié par l’application logique réceptrice. Si vous modifiez ce nom, l’expéditeur de lots échoue. | 
    | **Contenu du message** | Contenu du message que vous voulez envoyer | 
    ||| 
 

@@ -5,20 +5,17 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/20/2018
+ms.date: 01/09/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 48404c8b6f45ab79a9136154c44c7fd44572a3e6
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: c65fb1f0f635e79d594a7f080124827e3218f612
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51678183"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193372"
 ---
-La galerie d’images partagées est un service qui vous permet de structurer et d’organiser vos images de machine virtuelle personnalisées. La galerie d’images partagées fournit trois propositions de valeur principales :
-- Gestion simple
-- Mise à l’échelle de vos images personnalisées
-- Partage de vos images : partagez vos images avec différents utilisateurs, principaux de service ou groupes AD au sein de votre organisation, et dans différentes régions à l’aide de la réplication multirégion
+La galerie d’images partagées est un service qui vous permet de structurer et d’organiser vos images de machine virtuelle managées personnalisées. Celle-ci vous permet de partager vos images avec différents utilisateurs, principaux de service ou groupes Active Directory au sein de votre organisation. Il est possible de répliquer des images partagées dans plusieurs régions, pour une mise à l’échelle plus rapide de vos déploiements.
 
 Une image managée est une copie d’une machine virtuelle complète (y compris tous les disques de données attachés) ou simplement du disque de système d’exploitation, selon la façon dont vous créez l’image. Quand vous créez une machine virtuelle à partir de l’image, une copie des disques durs virtuels dans l’image est utilisée pour créer les disques de la nouvelle machine virtuelle. L’image managée reste dans le stockage et peut servir à créer des machines virtuelles à l’infini.
 
@@ -28,10 +25,10 @@ La fonctionnalité Galerie d’images partagées a plusieurs types de ressources
 
 | Ressource | Description|
 |----------|------------|
-| **Image managée** | Il s’agit d’une image de référence pouvant être utilisée seule ou pour créer plusieurs **versions de l’image partagée** dans une galerie d’images.|
+| **Image managée** | Il s’agit d’une image de base pouvant être utilisée seule ou pour créer une **version de l’image**  dans une galerie d’images. Les images managées sont créées à partir de machines virtuelles généralisées. Une image managée est un type spécial de disque dur virtuel qui peut être utilisé pour définir plusieurs machines virtuelles et qui peut maintenant être utilisé pour créer des versions d’image partagée. |
 | **Galerie d’images** | Tout comme la Place de marché Azure, une **galerie d’images** est un dépôt permettant de gérer et partager des images, mais vous contrôlez les utilisateurs qui y ont accès. |
-| **Image de galerie** | Les images sont définies dans une galerie et incluent des informations sur l’image et sur les exigences relatives à son utilisation en interne. Ces informations indiquent, par exemple, si l’image est Windows ou Linux, et comprennent les notes de publication et les exigences de mémoire maximale et minimale. Ce type d’image est une ressource du modèle de déploiement Resource Manager, mais elle n’est pas utilisée directement pour la création de machines virtuelles. Il s’agit d’une définition de type d’image. |
-| **Version d’image partagée** | Une **version d’image** est ce qui vous permet de créer une machine virtuelle quand vous utilisez une galerie. Vous pouvez avoir plusieurs versions d’une image en fonction des besoins de votre environnement. Tout comme une image managée, quand vous utilisez une **version d’image** pour créer une machine virtuelle, la version d’image permet de créer des disques pour la machine virtuelle. Les versions d’image peuvent être utilisées plusieurs fois. |
+| **Définition d'image** | Les images sont définies dans une galerie et incluent des informations sur l’image et sur les exigences relatives à son utilisation en interne. Ces informations indiquent, par exemple, si l’image est Windows ou Linux, et comprennent les notes de publication et les exigences de mémoire maximale et minimale. Il s’agit d’une définition de type d’image. |
+| **Version de l’image** | Une **version d’image** est ce qui vous permet de créer une machine virtuelle quand vous utilisez une galerie. Vous pouvez avoir plusieurs versions d’une image en fonction des besoins de votre environnement. Tout comme une image managée, quand vous utilisez une **version d’image** pour créer une machine virtuelle, la version d’image permet de créer des disques pour la machine virtuelle. Les versions d’image peuvent être utilisées plusieurs fois. |
 
 <br>
 
@@ -44,21 +41,19 @@ La prise en charge régionale pour les galeries d’images partagées est en pr�
 
 | Créer la galerie dans  | Répliquer la version vers |
 |--------------------|----------------------|
-| USA Centre-Ouest    |USA Centre Sud|
-| USA Est 2          |USA Est|
-| USA Centre Sud   |USA Est 2|
-| Asie Sud-Est     |USA Ouest|
-| Europe Ouest        |USA Ouest 2|
-|                    |USA Centre|
-|                    |USA Centre Nord|
-|                    |Centre du Canada|
-|                    |Est du Canada|
-|                    |Europe Nord|
-|                    |Europe Ouest|
-|                    |Inde Sud|
-|                    |Asie Sud-Est|
+| USA Centre-Ouest    |Toutes les régions publiques &#42;|
+| USA Est 2          ||
+| USA Centre Sud   ||
+| Asie Sud-Est     ||
+| Europe Ouest        ||
+| USA Ouest            ||
+| USA Est            ||
+| Centre du Canada     ||
+|                    ||
 
 
+
+&#42; Pour répliquer dans les régions Australie Centre et Australie Centre 2, votre abonnement doit figurer en liste verte. Pour demander la mise en liste verte, accédez à : https://www.microsoft.com/en-au/central-regions-eligibility/
 
 ## <a name="scaling"></a>Mise à l'échelle
 La galerie d’images partagées vous permet de spécifier le nombre de réplicas qu’Azure doit conserver pour les images. De cette façon, dans les scénarios de déploiement multimachines virtuelles, les déploiements de machines virtuelles peuvent être répartis sur différents réplicas pour réduire le risque de limitation du traitement de création d’instances liée à la surcharge d’un seul réplica.
@@ -67,7 +62,9 @@ La galerie d’images partagées vous permet de spécifier le nombre de réplica
 
 
 ## <a name="replication"></a>Réplication
-La galerie d’images partagées vous permet aussi de répliquer vos images sur d’autres régions Azure automatiquement. Chaque version de l’image partagée peut être répliquée sur différentes régions en fonction des besoins de votre organisation. Par exemple, vous pouvez répliquer la dernière image dans plusieurs régions tout en gardant les versions plus anciennes disponibles dans une seule région. De cette façon vous économisez sur les coûts de stockage des versions d’image partagée. Les régions sur lesquelles est répliquée une version d’image partagée peuvent être mises à jour après la création. La durée de réplication sur différentes régions dépend de la quantité de données copiées et du nombre de régions concernées. La réplication peut prendre plusieurs heures dans certains cas. Pendant le processus, vous pouvez voir l’état de la réplication par région. Une fois la réplication de l’image effectuée dans une région, vous pouvez ensuite déployer une machine virtuelle ou un groupe de machines virtuelles identiques à partir de cette version d’image dans la région.
+La galerie d’images partagées vous permet aussi de répliquer vos images sur d’autres régions Azure automatiquement. Chaque version de l’image partagée peut être répliquée sur différentes régions en fonction des besoins de votre organisation. Par exemple, vous pouvez répliquer la dernière image dans plusieurs régions tout en gardant les versions plus anciennes disponibles dans une seule région. De cette façon vous économisez sur les coûts de stockage des versions d’image partagée. 
+
+Les régions sur lesquelles est répliquée une version d’image partagée peuvent être mises à jour après la création. La durée de réplication sur différentes régions dépend de la quantité de données copiées et du nombre de régions concernées. La réplication peut prendre plusieurs heures dans certains cas. Pendant le processus, vous pouvez voir l’état de la réplication par région. Une fois la réplication de l’image effectuée dans une région, vous pouvez ensuite déployer une machine virtuelle ou un groupe de machines virtuelles identiques à partir de cette version d’image dans la région.
 
 ![Graphique montrant comment répliquer des images](./media/shared-image-galleries/replication.png)
 
@@ -87,6 +84,25 @@ Tout comme la Galerie d’images partagées, l’Image partagée et la version d
 L’utilisation du service Galerie d’images partagées n’engendre aucuns frais supplémentaires. Vous êtes facturé pour les ressources suivantes :
 - Coûts de stockage des versions d’Image partagée. Ils dépendent du nombre de réplicas de la version et du nombre de régions sur lesquelles la version est répliquée.
 - Coûts de sortie de réseau pour la réplication de la version de la région source vers les régions répliquées.
+
+## <a name="sdk-support"></a>Prise en charge des Kits de développement logiciel (SDK)
+
+Les SDK suivants prennent en charge la création de galeries d’images partagées :
+
+- [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
+- [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
+- [Node.JS](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
+- [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Go](https://docs.microsoft.com/go/azure/)
+
+## <a name="templates"></a>Modèles
+
+Vous pouvez créer la ressource de galerie d’images partagées à l’aide de modèles. Plusieurs modèles de démarrage rapide Azure sont disponibles : 
+
+- [Créer une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-create/)
+- [Créer une définition d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
+- [Créer une version d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
+- [Créer une machine virtuelle à partir d’une version d’image](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ) 
 
@@ -135,11 +151,11 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
  
  R. Oui. Il existe 3 scénarios basés sur les types d’images.
 
- Scénario 1 : Si vous avez une image managée, vous pouvez créer une définition et une version de l’image.
+ Scénario 1 : Si vous avez une image managée, vous pouvez créer une définition et une version de cette image.
 
- Scénario 2 : Si vous avez une image généralisée non managée, vous pouvez créer une image managée de l’image, puis créer une définition et une version de cette image. 
+ Scénario 2 : Si vous avez une image généralisée non managée, vous pouvez créer une image managée de l’image, puis créer une définition et une version de cette image. 
 
- Scénario 3 : Si vous avez un VHD dans votre système de fichiers local, vous devez charger le VHD, créer une image managée, vous pouvez alors créer une définition et une version de l’image. 
+ Scénario 3 : Si vous avez un VHD dans votre système de fichiers local, vous devez le charger, puis créer une image managée pour pouvoir ensuite créer une définition et une version de cette image. 
     - Si le VHD vient d’une machine virtuelle Windows, consultez [Charger un disque dur virtuel généralisé](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
     - Si le VHD est pour une machine virtuelle Linux, consultez [Charger un disque dur virtuel](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
@@ -221,7 +237,7 @@ Version d’image :
 1. Le nombre de réplicas régionaux, qui spécifie le nombre de réplicas que vous voulez créer par région. 
 2. Le nombre de réplicas communs, qui est le nombre par défaut par région si le nombre de réplicas régionaux n’est pas spécifié. 
 
-Pour spécifier le nombre de réplicas régionaux, passez l’emplacement avec le nombre de réplicas à créer dans cette région de la manière suivante : «South Central US=2 ». 
+Pour spécifier le nombre de réplicas régionaux, passez l’emplacement avec le nombre de réplicas à créer dans cette région de la manière suivante : « USA Centre Sud=2». 
 
 Si le nombre de réplicas régionaux n’est pas spécifié avec chaque emplacement, le nombre de réplicas par défaut est le nombre de réplicas communs que vous avez spécifié. 
 

@@ -4,14 +4,14 @@ description: Fournit une vue d'ensemble des problèmes connus dans le service Az
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: 9a6b40aa86d4d81482d9c3724f0e230e0b811276
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: f91f6386df01050cc67968d05a1e1562e0f9ed01
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189494"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261228"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Résoudre les problèmes d’Azure Migrate
 
@@ -28,6 +28,18 @@ L’appliance de découverte continue collecte uniquement les données de perfor
    ![Arrêter la découverte](./media/troubleshooting-general/stop-discovery.png)
 
 - Suppression de machines virtuelles : en raison de la façon dont l’appliance est conçue, la suppression de machines virtuelles n’apparaît pas, même si vous arrêtez et redémarrez la détection. Cela est dû au fait que les données de détections ultérieures sont ajoutées, et non pas remplacées, aux détections plus anciennes. Dans ce cas, vous pouvez simplement ignorer la machine virtuelle dans le portail en la supprimant de votre groupe et en recalculant l’évaluation.
+
+### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Suppression de projets Azure Migrate et espace de travail Log Analytics associé
+
+Lorsque vous supprimez un projet Azure Migrate, c’est le projet de migration avec tous les groupes et toutes les évaluations qui sont supprimés. Toutefois, si vous avez attaché un espace de travail Log Analytics au projet, celui-ci n’est pas automatiquement supprimé. En effet, le même espace de travail Log Analytics peut être utilisé dans plusieurs cas d’usage. Si vous souhaitez aussi supprimer l’espace de travail Log Analytics, vous devez le faire manuellement.
+
+1. Accédez à l’espace de travail Log Analytics associé au projet.
+   a. Si vous n’avez pas encore supprimé le projet de migration, le lien menant à l’espace de travail se trouve dans la page Vue d’ensemble du projet, à la section Essentials (Fondamentaux).
+
+   ![Espace de travail Log Analytics](./media/troubleshooting-general/LA-workspace.png)
+
+   b. Si vous avez déjà supprimé le projet de migration, cliquez sur **Groupes de ressources** dans le volet gauche du portail Azure et accédez au groupe de ressources dans lequel l’espace de travail a été créé, puis accédez à l’espace.
+2. Suivez les instructions [de cet article](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) pour supprimer l’espace de travail.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Échec de la création du projet de migration avec l’erreur *Les demandes doivent comporter des en-têtes d’identité de l’utilisateur*
 
@@ -80,13 +92,13 @@ Vous pouvez accéder à la section **Bases** de la page **Vue d’ensemble** du 
 
    ![Emplacement du projet](./media/troubleshooting-general/geography-location.png)
 
-## <a name="collector-errors"></a>Erreurs du collecteur
+## <a name="collector-issues"></a>Problèmes liés au collecteur
 
 ### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Échec du déploiement d’Azure Migrate Collector avec l’erreur : Le fichier manifeste indiqué n'est pas valide : entrée de manifeste OVF non valide.
 
 1. Confirmez que le fichier OVA Azure Migrate Collector est correctement téléchargé en vérifiant sa valeur de hachage. Reportez-vous à cet [article](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) pour vérifier la valeur de hachage. Si la valeur de hachage ne correspond pas, téléchargez à nouveau le fichier OVA et recommencez le déploiement.
 2. Si vous faites à nouveau face à un échec et que vous utilisez un client VMware vSphere pour le déploiement du fichier OVF, essayez plutôt d’utiliser le client Web vSphere. Si le problème persiste, essayez d’utiliser un autre navigateur web.
-3. Si vous utilisez le client web vSphere et tentez de le déployer sur vCenter Server 6.5, essayez de déployer le fichier OVA directement sur l’hôte ESXi en suivant les étapes ci-dessous :
+3. Si vous utilisez le client web vSphere et tentez de le déployer sur vCenter Server 6.5 ou 6.7, essayez de déployer le fichier OVA directement sur l’hôte ESXi en suivant les étapes ci-dessous :
   - Connectez-vous directement à l’hôte ESXi (au lieu de vCenter Server) à l’aide du client web (https:// <*adresse IP de l’hôte*> /ui).
   - Accédez à l’accueil, puis à « Inventaire ».
   - Cliquez sur Fichier > Déployer un modèle OVF > Parcourir. Recherchez le fichier OVA et terminez le déploiement.
@@ -156,6 +168,17 @@ Si le problème se produit toujours dans la dernière version, cela peut être d
 2. Si l’étape 1 échoue, essayez de vous connecter au serveur vCenter sur l’adresse IP.
 3. Identifiez le numéro de port correct pour se connecter au serveur vCenter.
 4. Enfin, vérifiez si le serveur vCenter est en cours d’exécution.
+
+### <a name="antivirus-exclusions"></a>Exclusions d’antivirus
+
+Pour renforcer l’appliance Azure Migrate, vous devez exclure de l’analyse antivirus les dossiers suivants qui appartiennent à l’appliance :
+
+- Dossier contenant les fichiers binaires du service Azure Migrate. Exclure tous les sous-dossiers.
+  %ProgramFiles%\ProfilerService  
+- Application web Azure Migrate. Exclure tous les sous-dossiers.
+  %SystemDrive%\inetpub\wwwroot
+- Cache local pour la base de données et les fichiers journaux. Le service Azure Migrate nécessite un accès en lecture/écriture pour ce dossier.
+  %SystemDrive%\Profiler
 
 ## <a name="dependency-visualization-issues"></a>Problèmes de visualisation des dépendances
 

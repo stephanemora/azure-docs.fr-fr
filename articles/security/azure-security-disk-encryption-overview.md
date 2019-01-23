@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73a00756928fd476b723e0b43accf46378ae14cc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1674a54ea78e7fea2cc39cb26fefc52b8764bc4c
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093282"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200851"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption pour les machines virtuelles IaaS
 
@@ -81,7 +81,7 @@ La solution ne prend pas en charge les scénarios, fonctionnalités et technolog
 
 * Machines virtuelles IaaS de niveau de base.
 * Désactivation du chiffrement d’un lecteur de système d’exploitation sur les machines virtuelles IaaS Linux.
-* Désactivation du chiffrement d’un lecteur de données lorsque le lecteur de système d’exploitation est chiffré sur les machines virtuelles Iaas Linux.
+* Désactivation du chiffrement d’un lecteur de données lorsque le lecteur de système d’exploitation est chiffré sur les machines virtuelles IaaS Linux.
 * Machines virtuelles IaaS créées suivant la méthode classique de création de machines virtuelles.
 * Activation du chiffrement des images client personnalisées sur les machines virtuelles IaaS Linux.
 * Intégration à votre système de gestion de clés local.

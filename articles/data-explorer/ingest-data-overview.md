@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 6c7d4d8d4a16e0679722f9de007870a7ec7554b0
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.date: 1/14/2019
+ms.openlocfilehash: 8d5fc1c579fd09f1a71d63dce4d1673ef5a8652b
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635997"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354618"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestion des données dans l’Explorateur de données Azure
 
@@ -33,7 +33,7 @@ Le service de gestion des données Explorateur de données Azure, qui est respon
 
 1. **Point de persistance dans le flux d’ingestion** : gérer la charge d’ingestion sur le moteur et traiter les nouvelles tentatives en cas de défaillance temporaire.
 
-1. **Valider l’ingestion des données** : rend les données disponibles pour les requêtes.
+1. **Validation de l’ingestion des données** : rend les données interrogeables.
 
 ## <a name="ingestion-methods"></a>Méthodes d’ingestion
 
@@ -41,10 +41,13 @@ L’Explorateur de données Azure prend en charge plusieurs méthodes d’ingest
 
 ### <a name="ingestion-using-pipelines"></a>Ingestion à l’aide de pipelines
 
-L’Explorateur de données Azure prend actuellement en charge le pipeline Event Hub, qui peut être géré à l’aide de l’Assistant de gestion dans le portail Azure. Pour plus d’informations, consultez [Démarrage rapide : Ingérer des données Event Hub dans l’Explorateur de données Azure](ingest-data-event-hub.md).
+L’Explorateur de données Azure prend actuellement en charge le pipeline Event Hub, qui peut être géré à l’aide de l’Assistant de gestion dans le portail Azure. Pour plus d’informations, consultez [Démarrage rapide : Ingérer des données Event Hub dans Azure Data Explorer](ingest-data-event-hub.md).
 
 ### <a name="ingestion-using-connectors-and-plugins"></a>Ingestion à l’aide de connecteurs et de plug-ins
-L’Explorateur de données Azure prend actuellement en charge le plug-in Logstash. Pour plus d’informations, consultez [Plug-in de sortie Logstash pour l’Explorateur de données Azure](https://github.com/Azure/logstash-output-kusto/blob/master/README.md).
+
+* Azure Data Explorer prend en charge le plug-in Logstash. Pour plus d’informations, consultez [Plug-in de sortie Logstash pour l’Explorateur de données Azure](https://github.com/Azure/logstash-output-kusto/blob/master/README.md).
+
+* Azure Data Explorer prend en charge le connecteur Kafka. Pour plus d’informations, consultez [Démarrage rapide : Ingérer des données de Kafka dans Azure Data Explorer](ingest-data-kafka.md)
 
 ### <a name="programmatic-ingestion"></a>Ingestion par programmation
 
@@ -68,7 +71,7 @@ Kusto propose des SDK client qui peuvent être utilisés pour ingérer et interr
 
 * Ingestion de données par le biais du service de gestion de données Explorateur de données Azure (ingestion à débit élevé et fiable) :
 
-  * [**Ingestion par lot**](/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (fournie par le SDK) : le client charge les données vers le stockage d’objets blob Azure (désigné par le service de gestion des données Explorateur de données Azure) et envoie une notification à une file d’attente Azure. Il s’agit de la technique recommandée pour une ingestion des données à volume élevé, fiable et peu coûteuse.
+    [**Ingestion par lot**](/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (fournie par le SDK) : le client charge les données vers le stockage d’objets blob Azure (désigné par le service de gestion des données Explorateur de données Azure) et envoie une notification à une file d’attente Azure. L’ingestion par lot est la technique recommandée pour une ingestion des données à volume élevé, fiable et peu coûteuse.
 
 * Ingestion des données directement dans le moteur de l’Explorateur de données Azure (approche la plus appropriée pour l’exploration et le prototypage) :
 
@@ -76,7 +79,7 @@ Kusto propose des SDK client qui peuvent être utilisés pour ingérer et interr
 
   * **Ingestion à partir de requête** : commande de contrôle (.set, .set-or-append, .set-or-replace) qui pointe vers des résultats de requête et qui sert à générer des rapports ou de petites tables temporaires.
 
-  * **Ingestion à partir du stockage** : commande de contrôle (.ingest into) avec données stockées en externe (par exemple, stockage d’objets blob Azure) qui permet d’effectuer une ingestion en bloc efficace des données.
+  * **Ingestion à partir du stockage** : commande de contrôle (.ingest into) avec données stockées en externe (par exemple, Stockage Blob Azure) qui permet d’effectuer une ingestion en bloc efficace des données.
 
 **Latence des différentes méthodes** :
 
@@ -88,7 +91,7 @@ Kusto propose des SDK client qui peuvent être utilisés pour ingérer et interr
 | **Ingestion en file d’attente** | Temps de traitement par lot + temps de traitement |
 | |
 
-Le temps de traitement dépend de la taille des données (il est généralement inférieur à quelques secondes). Le temps de traitement par lot par défaut est de cinq minutes.
+Le temps de traitement dépend de la taille des données (il est inférieur à quelques secondes). Le temps de traitement par lot par défaut est de cinq minutes.
 
 ## <a name="choosing-the-most-appropriate-ingestion-method"></a>Choix de la méthode d’ingestion la plus appropriée
 
@@ -109,7 +112,7 @@ Pour les organisations disposant d’une infrastructure existante basée sur un 
 
 ## <a name="supported-data-formats"></a>Formats de données pris en charge
 
-Pour toutes les méthodes d’ingestion autres que l’ingestion à partir de requête, les données doivent être mises en forme dans l’un des formats de données pris en charge, afin que l’Explorateur de données Azure puisse les analyser.
+Pour toutes les méthodes d’ingestion autres que l’ingestion à partir de requête, mettez en forme les données afin qu’Azure Data Explorer puisse les analyser. les formats de données pris en charge sont :
 
 * CSV, TSV, PSV, SCSV, SOH
 * JSON (séparé par une ligne, multiligne), Avro
@@ -119,21 +122,30 @@ Pour toutes les méthodes d’ingestion autres que l’ingestion à partir de re
 > Quand des données sont ingérées, les types de données sont déduits d’après les colonnes de la table cible. Si un enregistrement est incomplet ou un champ ne peut pas être analysé en tant que type de données requis, les colonnes correspondantes de la table sont remplies avec des valeurs null.
 
 ## <a name="ingestion-recommendations-and-limitations"></a>Restrictions et recommandations d’ingestion
+
 * La stratégie de rétention effective des données ingérées est dérivée de la stratégie de rétention de la base de données. Pour plus d’informations, consultez [Stratégie de rétention](/azure/kusto/concepts/retentionpolicy). L’ingestion des données nécessite l’autorisation **Ingéreur de table** ou **Ingéreur de base de données**.
 * L’ingestion prend en charge une taille de fichier maximale de 5 Go. Nous vous recommandons d’ingérer des fichiers entre 100 Mo et 1 Go.
 
 ## <a name="schema-mapping"></a>Mappage de schéma
 
-Le mappage de schéma permet de lier de façon déterministe des champs de données sources à des colonnes de table de destination.
+Le mappage de schéma permet de lier des champs de données sources à des colonnes de table de destination.
 
-* Le [mappage CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (facultatif) fonctionne avec tous les formats basés sur un ordinal, et peut être passé comme paramètre de commande d’ingestion ou [précréé sur la table](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) et référencé à partir du paramètre de commande d’ingestion.
-* Le [mappage JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obligatoire) et le [mappage Avro](/azure/kusto/management/mappings?branch=master#avro-mapping) (obligatoire) peuvent être passés comme paramètre de commande d’ingestion ou [précréé sur la table](/azure/kusto/management/tables#create-ingestion-mapping) et référencé à partir du paramètre de commande d’ingestion.
+* Le [mappage CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (facultatif) fonctionne avec tous les formats basés sur un ordinal. Il peut être effectué à l’aide du paramètre de commande d’ingestion ou [précréé sur la table](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) et référencé à partir du paramètre de commande d’ingestion.
+* Le [mappage JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obligatoire) et le [mappage Avro](/azure/kusto/management/mappings?branch=master#avro-mapping) (obligatoire) peuvent être effectués à l’aide du paramètre de commande d’ingestion ou [précréés sur la table](/azure/kusto/management/tables#create-ingestion-mapping) et référencés à partir du paramètre de commande d’ingestion.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Démarrage rapide : Ingérer des données Event Hub dans l’Explorateur de données Azure](ingest-data-event-hub.md)
+> [!div class="nextstepaction"]
+> [Démarrage rapide : Ingérer des données Event Hub dans Azure Data Explorer](ingest-data-event-hub.md)
 
-[Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Python de l’Explorateur de données Azure](python-ingest-data.md)
+> [!div class="nextstepaction"]
+> [Démarrage rapide : Ingérer des données de Kafka dans Azure Data Explorer](ingest-data-kafka.md)
 
-[Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Node de l’Explorateur de données Azure](node-ingest-data.md)
+> [!div class="nextstepaction"]
+> [Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Python d’Azure Data Explorer](python-ingest-data.md)
 
+> [!div class="nextstepaction"]
+> [Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Node d’Azure Data Explorer](node-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Démarrage rapide : Ingérer des données avec le SDK .NET Standard dans Azure Data Explorer (préversion)](net-standard-ingest-data.md)

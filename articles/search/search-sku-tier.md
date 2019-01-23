@@ -7,32 +7,32 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3c5e4d568e7118d50ce8779402526fca77ccdda7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 664e31590f578b65da09f1e0fe8f57d579ed3cfc
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315551"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354550"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Choisir un niveau tarifaire pour Recherche Azure
 
-Dans Recherche Azure, un [service est approvisionné](search-create-service-portal.md) à un niveau tarifaire ou une référence SKU qui est fixe pour la durée de vie du service. Les niveaux suivants existent : **Gratuit**, **De base** ou **Standard**, où **Standard** est disponible dans plusieurs configurations et capacités. La plupart des clients commencent par le niveau **Gratuit** à des fins d’évaluation, puis passent au niveau **Standard** pour des déploiements de développement et de production. Au niveau **Gratuit**, vous pouvez effectuer tous les démarrages rapides et suivre tous les tutoriels, notamment ceux qui concernent la recherche cognitive nécessitant de nombreuses ressources. 
+Dans Recherche Azure, une [ressource est créée](search-create-service-portal.md) à un niveau tarifaire ou une référence SKU qui est fixe pour la durée de vie du service. Les niveaux suivants existent : **Gratuit**, **De base** ou **Standard**, sachant que **Standard** est disponible dans plusieurs configurations et capacités. La plupart des clients commencent par le niveau **Gratuit** à des fins d’évaluation, puis passent au niveau **Standard** pour des déploiements de développement et de production. Au niveau **Gratuit**, vous pouvez effectuer tous les démarrages rapides et suivre tous les tutoriels, notamment ceux qui concernent la recherche cognitive nécessitant de nombreuses ressources. 
 
 Les niveaux déterminent la capacité, pas les fonctionnalités, et se distinguent par les caractéristiques suivantes :
 
 + Nombre d’index que vous pouvez créer
 + Taille et la vitesse des partitions (stockage physique)
 
-Bien que tous les niveaux, y compris le niveau **Gratuit**, offrent généralement la parité des fonctionnalités, de plus grandes charges de travail peuvent exiger des niveaux supérieurs. Par exemple, l’indexation de [recherche cognitive](cognitive-search-concept-intro.md) a des compétences à long terme qui dépassent le délai d’attente sur un service gratuit, sauf si le jeu de données est très petit.
+Bien que tous les niveaux, y compris le niveau **Gratuit**, offrent généralement la parité des fonctionnalités, de plus grandes charges de travail peuvent exiger des niveaux supérieurs. Par exemple, l’indexation de la [recherche cognitive](cognitive-search-concept-intro.md) a des compétences à long terme qui dépassent le délai d’attente sur un service gratuit, sauf si le jeu de données est petit.
 
 > [!NOTE] 
 > Les [indexeurs](search-indexer-overview.md), qui ne sont pas disponibles sur S3HD, sont une exception à la parité des fonctionnalités.
 >
 
-Au sein d’un niveau, vous pouvez [ajuster les ressources de réplica et de partition](search-capacity-planning.md) pour optimiser les performances. Alors que vous pouvez commencer avec deux ou trois ressources, vous pouvez augmenter temporairement votre puissance de calcul en cas de lourde charge de travail d’indexation. La possibilité d’optimiser les niveaux des ressources ajoute à la flexibilité, mais complique également un peu votre analyse. Vous devrez peut-être faire des essais pour voir si un niveau inférieur avec plus de ressources/réplicas offre de meilleures valeurs et performances qu’un niveau supérieur avec moins de ressources. Pour en savoir plus sur quand et pourquoi vous devriez ajuster la capacité, consultez [Considérations sur les performances et l’optimisation](search-performance-optimization.md).
+Au sein d’un niveau, vous pouvez [ajuster les ressources de réplica et de partition](search-capacity-planning.md) pour optimiser les performances. Vous pouvez commencer avec deux ou trois ressources de chaque, puis augmenter temporairement votre puissance de calcul en cas de lourde charge de travail d’indexation. La possibilité d’optimiser les niveaux des ressources ajoute à la flexibilité, mais complique également un peu votre analyse. Vous devrez peut-être faire des essais pour voir si un niveau inférieur avec plus de ressources/réplicas offre de meilleures valeurs et performances qu’un niveau supérieur avec moins de ressources. Pour en savoir plus sur quand et pourquoi vous devriez ajuster la capacité, consultez [Considérations sur les performances et l’optimisation](search-performance-optimization.md).
 
 <!---
 The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
@@ -40,23 +40,46 @@ The purpose of this article is to help you choose a tier. It supplements the [pr
 
 ## <a name="how-billing-works"></a>Comment la facturation fonctionne
 
-Dans Recherche Azure, le concept de facturation le plus important à comprendre est l’*unité de recherche* (SU, Search Unit). Étant donné que le fonctionnement de Recherche Azure dépend à la fois des réplicas et des partitions, cela n’a aucun sens de facturer seulement d’après l’un ou l’autre. Au lieu de cela, la facturation est basée sur un composite de ces deux facteurs. 
+Dans Recherche Azure, il existe quatre façons d’engendrer des coûts lorsque vous créez une ressource de recherche dans le portail :
+
+* Ajout de réplicas et de partitions utilisés pour les tâches d’interrogation et d’indexation régulières. Vous démarrez avec une ressource de chaque, mais vous pouvez en augmenter une, ou les deux, pour ajouter de la capacité tout en choisissant de payer pour les niveaux supplémentaires de ressources. 
+* Frais de sortie de données lors de l’indexation. Lors de l’extraction des données à partir d’une source de données Azure SQL Database ou Cosmos DB, des frais de transaction vous sont facturés pour ces ressources.
+* Pour la [recherche cognitive](cognitive-search-concept-intro.md) seulement, l’extraction d’images au cours du décodage de document est facturée en fonction du nombre d’images extraites à partir de vos documents. L’extraction de texte est actuellement gratuite.
+* Pour la [recherche cognitive](cognitive-search-concept-intro.md) uniquement, les enrichissements en fonction des [compétences cognitives intégrées](cognitive-search-predefined-skills.md) sont facturés par rapport à une ressource Cognitive Services. Les enrichissements sont facturés au même tarif que si vous aviez effectué la tâche directement avec Cognitive Services.
+
+Si vous n’utilisez pas la [recherche cognitive](cognitive-search-concept-intro.md) ni les [indexeurs de Recherche Azure](search-indexer-overview.md), vos seuls coûts sont liés aux réplicas et aux partitions en cours d’utilisation, pour des charges de travail de requête et d’indexation habituelles.
+
+### <a name="billing-for-general-purpose-indexing-and-queries"></a>Facturation des requêtes et de l’indexation à usage général
+
+Pour les opérations de Recherche Azure, la notion de facturation la plus importante à saisir est l’*Unité Recherche* (SU, Search Unit). Comme Recherche Azure dépend à la fois des réplicas et des partitions pour l’indexation et les requêtes, facturer uniquement par rapport à l’un ou à l’autre n’aurait aucun sens. Au lieu de cela, la facturation est basée sur un composite de ces deux facteurs. 
 
 L’unité de recherche est le produit des *réplicas* et des *partitions* utilisés par un service : **`(R X P = SU)`**
 
-Chaque service commence avec 1 unité de recherche (un réplica multipliée par une partition) au minimum. Quel que soit le service, le maximum est de 36 unités de recherche, ce nombre pouvant être atteint de différentes manières : 6 partitions x 6 réplicas, ou 3 partitions x 12 réplicas, par exemple. 
-
-Il est courant de ne pas utiliser la capacité totale. Par exemple, un service de 3 réplicas et 3 partitions, facturé comme 9 unités de recherche. 
+Chaque service commence avec une Unité Recherche (un réplica multiplié par une partition) au minimum. Quel que soit le service, le maximum est de 36 unités de recherche, ce nombre pouvant être atteint de différentes manières : 6 partitions x 6 réplicas, ou 3 partitions x 12 réplicas, par exemple. Il est courant de ne pas utiliser la capacité totale. Par exemple, un service de 3 réplicas et 3 partitions, facturé comme 9 unités de recherche. 
 
 Le taux de facturation est un **taux horaire par unité de recherche**, chaque niveau ayant un taux qui augmente progressivement. Les niveaux supérieurs sont fournis avec des partitions plus volumineuses et plus rapides, contribuant à un taux horaire globalement plus élevé pour ces niveaux. Consultez la [Tarification](https://azure.microsoft.com/pricing/details/search/)pour connaître les coûts pour chaque niveau. 
 
 La plupart des clients mettent seulement une partie de la capacité totale en ligne et gardent le reste en réserve. En termes de facturation, c’est le nombre de partitions et de réplicas que vous mettez en ligne, calculé à l’aide de la formule d’unité de recherche (SU), qui détermine le taux horaire que vous payez réellement.
 
-### <a name="tips-for-reducing-costs"></a>Conseils de réduction des coûts
+### <a name="billing-for-image-extraction-in-cognitive-search"></a>Facturation de l’extraction d’image dans la recherche cognitive
+
+Si vous extrayez des images à partir de fichiers dans un pipeline d’indexation de recherche cognitive, vous êtes facturé pour cette opération dans votre facture Recherche Azure. Le paramètre qui déclenche l’extraction d’image est **imageAction** dans une [configuration d’indexeur](https://docs.microsoft.com/erest/api/searchservice/create-indexer#indexer-parameters). Si **imageAction** est défini sur « none » (aucune, la valeur par défaut), aucuns frais ne sont imputés pour l’extraction d’image.
+
+Les tarifs sont susceptibles de changer, mais sont toujours dans la page [Détails des tarifs](https://azure.microsoft.com/pricing/details/search/) de Recherche Azure. 
+
+### <a name="billing-for-built-in-skills-in-cognitive-search"></a>Facturation des compétences intégrées à la recherche cognitive
+
+Lorsque vous configurez un pipeline d’enrichissement, toute [compétence intégrée](cognitive-search-predefined-skills.md) utilisée dans le pipeline s’appuie sur des modèles Machine Learning. Ces modèles sont fournis par Cognitive Services. L’utilisation de ces modèles lors de l’indexation est facturée au même tarif que si vous aviez demandé la ressource directement.
+
+Par exemple, supposez un pipeline constitué de la reconnaissance optique de caractères (OCR) sur des fichiers JPEG d’image numérisée, où le texte résultant est envoyé dans un index Recherche Azure pour des requêtes de recherche de forme libre. Votre pipeline d’indexation inclurait un indexeur avec la [compétence de reconnaissance optique de caractères](cognitive-search-skill-ocr.md), et cette compétence serait [associée à une ressource Cognitive Services](cognitive-search-attach-cognitive-services.md). Lorsque vous exécutez l’indexeur, des frais sont imputés sur votre facture Ressources cognitives pour l’exécution de la reconnaissance optique des caractères.
+
+## <a name="tips-for-reducing-costs"></a>Conseils de réduction des coûts
 
 Vous ne pouvez pas arrêter le service pour réduire la facture. Les ressources dédiées sont opérationnelles 24h/24, 7j/7, allouées pour votre usage exclusif pendant pour la durée de vie de votre service. La seule façon de réduire une facture est de réduire les réplicas et les partitions à un faible niveau fournissant toujours des performances acceptables et la [conformité SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Un levier de réduction des coûts est choix d’un niveau à taux horaire inférieur. Le taux horaire S1 est inférieur aux taux S2 ou S3. Vous pourriez fournir un service ciblant la partie inférieure de vos projections de charge. Si vous dépassez le service, créez un deuxième service de niveau supérieur, reconstruisez vos index sur ce deuxième service, puis supprimez le premier. Si vous avez planifié la capacité des serveurs sur place, vous savez qu'il est courant de « racheter » pour pouvoir faire face à la croissance prévue. Mais avec un service cloud, vous pouvez réaliser des économies beaucoup plus substantielles, parce que vous n'êtes pas lié à un achat spécifique. Vous pouvez toujours passer à un service de niveau supérieur si le service actuel est insuffisant.
+Un levier de réduction des coûts est choix d’un niveau à taux horaire inférieur. Le taux horaire S1 est inférieur aux taux S2 ou S3. En supposant que vous provisionnez un service destiné à la limite inférieure de vos prévisions de charge, si vous dépassez le service, vous pouvez créer un second service de niveau supérieur, reconstruire vos index sur ce second service, puis supprimer le premier. 
+
+Si vous avez planifié la capacité des serveurs sur place, vous savez qu'il est courant de « racheter » pour pouvoir faire face à la croissance prévue. Mais avec un service cloud, vous pouvez réaliser des économies beaucoup plus substantielles, parce que vous n'êtes pas lié à un achat spécifique. Vous pouvez toujours passer à un service de niveau supérieur si le service actuel est insuffisant.
 
 ### <a name="capacity-drill-down"></a>Exploration hiérarchique des capacités
 
@@ -143,9 +166,9 @@ Le nombre et la taille des index sont tout aussi pertinents pour votre analyse, 
 
 **Considérations relatives au volume de requêtes**
 
-Le nombre de requêtes par seconde est une métrique qui prend de l’importance lors du réglage des performances, mais ce n’est généralement pas un facteur lors du choix du niveau, sauf si vous vous attendez à ce que le volume de requêtes soit très élevé dès le départ.
+Le nombre de requêtes par seconde est une métrique qui prend de l’importance lors du réglage des performances, mais ce n’est généralement pas un facteur lors du choix du niveau, sauf si vous vous attendez à ce que le volume de requêtes soit élevé dès le départ.
 
-Tous les niveaux standard peuvent fournir un équilibre entre le nombre de réplicas et le nombre de partitions, avec la prise en charge d’un délai d’exécution de requête plus rapide grâce à des réplicas supplémentaires pour le chargement de partitions supplémentaires et d’équilibrage en vue d’un traitement parallèle. Vous pouvez régler les performances une fois le service provisionné.
+Les niveaux standard peuvent fournir un équilibre entre le nombre de réplicas et le nombre de partitions, avec la prise en charge d’un délai d’exécution de requête plus rapide grâce à des réplicas supplémentaires pour le chargement de partitions supplémentaires et d’équilibrage en vue d’un traitement parallèle. Vous pouvez régler les performances une fois le service provisionné.
 
 Les clients qui prévoient des volumes de requêtes élevés et soutenus dès le début doivent envisager d’adopter les niveaux plus élevés, qui sont pris en charge par du matériel plus puissant. Vous pouvez ensuite mettre des partitions et des réplicas hors connexion, ou même passer à un service de niveau inférieur, si ces volumes de requêtes ne se matérialisent pas. Pour plus d’informations sur la façon de calculer le débit de requête, consultez [Performances et optimisation de Recherche Azure](search-performance-optimization.md).
 
@@ -158,7 +181,7 @@ Le niveau **Gratuit** et les fonctionnalités de préversion ne sont pas fournis
 
 + Apprenez à créer des index efficaces et à identifier les méthodologies d’actualisation ayant le moins d’impact. Nous vous recommandons l’[analytique du trafic des recherches](search-traffic-analytics.md) pour tirer parti des informations obtenues sur l’activité des requêtes.
 
-+ Autorisez la génération de métriques autour des requêtes et recueillez des données relatives aux modèles d’utilisation (requêtes pendant les heures de bureau, indexation pendant les heures creuses), et utilisez ces données pour faciliter les décisions de provisionnement de service ultérieures. Bien que cela ne soit pas pratique à un niveau horaire ou quotidien, vous pouvez ajuster les partitions et les ressources de manière dynamique afin de prendre en charge les changements de volumes de requêtes planifiés, ou les changements non planifiés mais soutenus si les niveaux se maintiennent suffisamment longtemps pour que des mesures s’imposent.
++ Autorisez la génération de métriques autour des requêtes et recueillez des données relatives aux modèles d’utilisation (requêtes pendant les heures de bureau, indexation pendant les heures creuses), et utilisez ces données pour faciliter les décisions de provisionnement de service ultérieures. Bien que cela ne soit pas pratique à une cadence horaire ou quotidienne, vous pouvez ajuster les partitions et les ressources de manière dynamique afin de prendre en charge les changements de volumes de requêtes planifiés, ou les changements non planifiés mais soutenus si les niveaux se maintiennent suffisamment longtemps pour que des mesures s’imposent.
 
 + N’oubliez pas que le seul inconvénient du sous-provisionnement est que vous devrez peut-être supprimer un service si les exigences réelles sont supérieures à celles estimées. Pour éviter toute interruption de service, vous devrez créer un service dans le même abonnement à un niveau supérieur, et l’exécuter côte à côte jusqu’à ce que toutes les applications et requêtes ciblent le nouveau point de terminaison.
 

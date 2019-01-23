@@ -11,16 +11,19 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0c171ff768395540c123c4ef2a19168d926b0661
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7fc40945588c272ae0ae80ba17b7b3752cab4306
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633825"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353309"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Déployer des modèles avec le service Azure Machine Learning
 
 Le service Azure Machine Learning vous permet de déployer votre modèle formé de différentes façons à l'aide du kit de développement logiciel (SDK). Dans ce document, découvrez comment déployer votre modèle en tant que service web dans le cloud Azure ou sur des appareils IoT Edge.
+
+> [!IMPORTANT]
+> Le partage des ressources cross-origin (CORS) n’est pas pris en charge pendant le déploiement d’un modèle en tant que service web.
 
 Vous pouvez déployer des modèles sur les cibles de calcul suivantes :
 
@@ -31,41 +34,34 @@ Vous pouvez déployer des modèles sur les cibles de calcul suivantes :
 | [Azure IoT Edge](#iotedge) | Module IoT | Déploiement de modèles sur des appareils IoT. Une inférence se produit sur l’appareil. |
 | [FPGA (Field-Programmable Gate Array)](#fpga) | Service Web | Latence ultra-faible pour l'inférence en temps réel. |
 
+Le processus de déploiement d'un modèle est similaire pour toutes les cibles de calcul :
+
+1. Entraînez et inscrivez un modèle.
+1. Configurez et inscrivez une image qui utilise le modèle.
+1. Déployez l'image sur une cible de calcul.
+1. test du déploiement
+
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Kwk3]
+
+
+Pour plus d’informations sur les concepts impliqués dans le workflow de déploiement, consultez [Déployer, gérer et surveiller des modèles avec le service Azure Machine Learning](concept-model-management-and-deployment.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
+- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](http://aka.ms/AMLFree) dès aujourd’hui.
+
 - Un espace de travail du service Azure Machine Learning et le kit SDK Azure Machine Learning pour Python installé. Découvrez comment obtenir ces prérequis dans le guide de démarrage rapide [Bien démarrer avec Azure Machine Learning](quickstart-get-started.md).
 
-- Un modèle formé au format pickle (`.pkl`) ou ONNX (`.onnx`). Si vous n'avez pas de modèle formé, suivez la procédure du tutoriel [​​Former des modèles](tutorial-train-models-with-aml.md) pour en former et en inscrire un auprès du service Azure Machine Learning.
+- Un modèle entraîné. Si vous n'avez pas de modèle formé, suivez la procédure du tutoriel [​​Former des modèles](tutorial-train-models-with-aml.md) pour en former et en inscrire un auprès du service Azure Machine Learning.
 
-- Les sections de code supposent que `ws` référence votre espace de travail Machine Learning. Par exemple : `ws = Workspace.from_config()`.
+    > [!NOTE]
+    > Bien que le service Azure Machine Learning puisse utiliser n’importe quel modèle générique pouvant être chargé dans Python 3, les exemples dans ce document illustrent l’utilisation d’un modèle stocké dans le format pickle.
+    > 
+    > Pour plus d'informations sur l'utilisation des modèles ONNX, consultez le document [ONNX et Azure Machine Learning](how-to-build-deploy-onnx.md).
 
-## <a name="deployment-workflow"></a>Workflow du déploiement
+## <a id="registermodel"></a> Inscrire un modèle entraîné
 
-Le processus de déploiement d'un modèle est similaire pour toutes les cibles de calcul :
-
-1. Formez un modèle.
-1. Inscrire le modèle.
-1. Créez une configuration d'image.
-1. Créez l’image.
-1. Déployez l'image sur une cible de calcul.
-1. test du déploiement
-1. (Facultatif) Nettoyez les artefacts.
-
-    * Dans le cadre d'un **déploiement en tant que service web**, trois options de déploiement sont disponibles :
-
-        * [deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) : avec cette méthode, il n'est pas nécessaire d'inscrire le modèle ni de créer l'image. Cependant, vous n'avez aucun contrôle sur le nom du modèle ou de l'image, ni sur les balises et descriptions associées.
-        * [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) : avec cette méthode, il n'est pas nécessaire de créer une image. Mais vous n'avez aucun contrôle sur le nom de l'image créée.
-        * [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) : avant d'utiliser cette méthode, vous devez inscrire le modèle et créer une image.
-
-        Les exemples fournis dans ce document utilisent `deploy_from_image`.
-
-    * Lors d'un **déploiement en tant que module IoT Edge**, vous devez inscrire le modèle et créer l'image.
-
-## <a name="register-a-model"></a>Inscrivez un modèle
-
-Seuls les modèles formés peuvent être déployés. Le modèle peut être formé à l'aide d'Azure Machine Learning ou d'un autre service. Pour inscrire un modèle à partir d'un fichier, utilisez le code suivant :
+Le registre de modèle est un moyen de stocker et d’organiser vos modèles entraînés dans le cloud Azure. Les modèles sont inscrits dans votre espace de travail de service Azure Machine Learning. Le modèle peut être formé à l'aide d'Azure Machine Learning ou d'un autre service. Pour inscrire un modèle à partir d'un fichier, utilisez le code suivant :
 
 ```python
 from azureml.core.model import Model
@@ -77,16 +73,15 @@ model = Model.register(model_path = "model.pkl",
                        workspace = ws)
 ```
 
-> [!NOTE]
-> L'exemple illustre l'utilisation d'un modèle stocké dans un fichier pickle, mais vous pouvez également utiliser des modèles ONNX. Pour plus d'informations sur l'utilisation des modèles ONNX, consultez le document [ONNX et Azure Machine Learning](how-to-build-deploy-onnx.md).
+**Durée estimée** : Environ 10 secondes.
 
 Pour plus d'informations, consultez la documentation de référence de la classe [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-## <a id="configureimage"></a> Créer une configuration d'image
+## <a id="configureimage"></a> Créer et inscrire une image
 
 Les modèles déployés sont empaquetés sous forme d'image. L'image contient les dépendances nécessaires à l'exécution du modèle.
 
-Pour les déploiements **Azure Container Instances**, **Azure Kubernetes Service** et **Azure IoT Edge**, la classe `azureml.core.image.ContainerImage` permet de créer une configuration d'image. La configuration d'image est ensuite utilisée pour créer une image Docker. 
+Pour les déploiements **Azure Container Instances**, **Azure Kubernetes Service** et **Azure IoT Edge**, la classe [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) permet de créer une configuration d’image. La configuration d'image est ensuite utilisée pour créer une image Docker. 
 
 Le code suivant montre comment créer une configuration d'image :
 
@@ -102,24 +97,101 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                  )
 ```
 
-Cette configuration utilise un fichier `score.py` pour transmettre les requêtes au modèle. Ce fichier contient deux fonctions :
+**Durée estimée** : Environ 10 secondes.
 
-* `init()`: en général, cette fonction charge le modèle dans un objet global. Cette fonction est exécutée une seule fois lors du démarrage du conteneur Docker. 
+Les paramètres importants de cet exemple sont décrits dans le tableau suivant :
 
-* `run(input_data)`: cette fonction utilise le modèle pour prédire une valeur basée sur les données d'entrée. Les entrées et les sorties de l’exécution utilisent en général JSON pour la sérialisation et la désérialisation, mais d’autres formats sont pris en charge.
-
-Un exemple de fichier `score.py` est disponible dans le [tutoriel consacré à la classification des images](tutorial-deploy-models-with-aml.md#make-script). Un exemple d'utilisation de modèle ONNX est disponible dans le document [ONNX et Azure Machine Learning](how-to-build-deploy-onnx.md).
-
-Le paramètre `conda_file` est utilisé pour fournir un fichier d'environnement conda. Ce fichier définit l'environnement conda du modèle déployé. Pour plus d'informations sur la création de ce fichier, consultez [Créer un fichier d'environnement (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file).
+| Paramètre | Description |
+| ----- | ----- |
+| `execution_script` | Spécifie un script Python qui est utilisé pour recevoir les demandes soumises au service. Dans cet exemple, le script se trouve dans le fichier `score.py`. Pour plus d’informations, consultez la section [Script d’exécution](#script). |
+| `runtime` | Indique que l’image utilise Python. L’autre option est `spark-py`, qui utilise Python avec Apache Spark. |
+| `conda_file` | Permet de fournir un fichier d’environnement conda. Ce fichier définit l'environnement conda du modèle déployé. Pour plus d'informations sur la création de ce fichier, consultez [Créer un fichier d'environnement (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file). |
 
 Pour plus d'informations, consultez la documentation de référence de la classe [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
 
-## <a id="createimage"></a> Créer l'image
+### <a id="script"></a> Script d’exécution
 
-Une fois la configuration de l'image créée, vous pouvez l'utiliser pour créer une image. Cette image est stockée dans le registre de conteneurs de votre espace de travail. Une fois l'image créée, vous pouvez la déployer sur plusieurs services.
+Le script d’exécution reçoit des données soumises à une image déployée et les transmet au modèle. Ensuite, il prend la réponse retournée par le modèle et la retourne au client. Le script est spécifique à votre modèle ; il doit comprendre les données que le modèle attend et retourne. Le script contient généralement deux fonctions qui chargent et exécutent le modèle :
+
+* `init()`: en général, cette fonction charge le modèle dans un objet global. Cette fonction est exécutée une seule fois lors du démarrage du conteneur Docker. 
+
+* `run(input_data)`: cette fonction utilise le modèle pour prédire une valeur basée sur les données d'entrée. Les entrées et les sorties de l’exécution utilisent en général JSON pour la sérialisation et la désérialisation. Vous pouvez également utiliser des données binaires brutes. Vous pouvez transformer les données avant de les envoyer au modèle ou avant de les retourner au client. 
+
+#### <a name="working-with-json-data"></a>Utilisation de données JSON
+
+Voici un exemple de script qui accepte et retourne des données JSON. La fonction `run` transforme les données à partir du format JSON en un format que le modèle attend, puis transforme la réponse au format JSON avant de les retourner :
 
 ```python
-# Create the image from the image configuration
+# import things required by this script
+import json
+import numpy as np
+import os
+import pickle
+from sklearn.externals import joblib
+from sklearn.linear_model import LogisticRegression
+
+from azureml.core.model import Model
+
+# load the model
+def init():
+    global model
+    # retrieve the path to the model file using the model name
+    model_path = Model.get_model_path('sklearn_mnist')
+    model = joblib.load(model_path)
+
+# Passes data to the model and returns the prediction
+def run(raw_data):
+    data = np.array(json.loads(raw_data)['data'])
+    # make prediction
+    y_hat = model.predict(data)
+    return json.dumps(y_hat.tolist())
+```
+
+#### <a name="working-with-binary-data"></a>Utilisation de données binaires
+
+Si votre modèle accepte les __données binaires__, utilisez `AMLRequest`, `AMLResponse` et `rawhttp`. Voici un exemple de script qui accepte des données binaires et retourne les octets inversés pour les requêtes POST. Pour les requêtes GET, il retourne l’URL complète dans le corps de réponse :
+
+```python
+from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+# Accept and return binary data
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    # handle GET requests
+    if request.method == 'GET':
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    # handle POST requests
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        respBody = bytearray(reqBody)
+        respBody.reverse()
+        respBody = bytes(respBody)
+        return AMLResponse(respBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> L’espace de noms `azureml.contrib` change fréquemment car nous travaillons à améliorer le service. Par conséquent, tout ce qui est compris dans cet espace de noms doit être considéré comme une préversion et n’est pas entièrement pris en charge par Microsoft.
+>
+> Si vous avez besoin d’effectuer ce test sur votre environnement de développement local, vous pouvez installer les composants dans l’espace de noms à l’aide de la commande suivante : 
+> ```shell
+> pip install azureml-contrib-services
+> ```
+
+### <a id="createimage"></a> Inscrire l’image
+
+Une fois la configuration d’image créée, vous pouvez l’utiliser pour inscrire une image. Cette image est stockée dans le registre de conteneurs de votre espace de travail. Une fois l'image créée, vous pouvez la déployer sur plusieurs services.
+
+```python
+# Register the image from the image configuration
 image = ContainerImage.create(name = "myimage", 
                               models = [model], #this is the model object
                               image_config = image_config,
@@ -133,7 +205,7 @@ Des versions sont automatiquement attribuées aux images lorsque vous en inscriv
 
 Pour plus d'informations, consultez la documentation de référence de la classe [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
 
-## <a name="deploy-the-image"></a>Déployer l'image
+## <a id="deploy"></a> Déployer l’image
 
 Le processus de déploiement varie légèrement en fonction de la cible de calcul. Utilisez les informations des sections suivantes pour apprendre à effectuer un déploiement sur :
 
@@ -141,6 +213,17 @@ Le processus de déploiement varie légèrement en fonction de la cible de calcu
 * [Azure Kubernetes Services](#aks)
 * [Project Brainwave (Field-Programmable Gate Arrays)](#fpga)
 * [Appareils Azure IoT Edge](#iotedge)
+
+> [!NOTE]
+> Dans le cadre d’un **déploiement en tant que service web**, vous disposez de trois méthodes de déploiement :
+>
+> | Méthode | Notes |
+> | ----- | ----- |
+> | [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) | Avant d’utiliser cette méthode, vous devez inscrire le modèle et créer une image. |
+> | [deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) | avec cette méthode, il n'est pas nécessaire d'inscrire le modèle ni de créer l'image. Cependant, vous n'avez aucun contrôle sur le nom du modèle ou de l'image, ni sur les balises et descriptions associées. |
+> | [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) | avec cette méthode, il n'est pas nécessaire de créer une image. Mais vous n'avez aucun contrôle sur le nom de l'image créée. |
+>
+> Les exemples fournis dans ce document utilisent `deploy_from_image`.
 
 ### <a id="aci"></a> Procéder à un déploiement sur Azure Container Instances
 
@@ -179,75 +262,82 @@ Azure Kubernetes Service offre les fonctionnalités suivantes :
 * Collection de données de modèle
 * Temps de réponse rapides pour vos services web
 
-Pour effectuer un déploiement sur Azure Kubernetes Service, procédez comme suit :
+#### <a name="create-a-new-cluster"></a>Créer un cluster
 
-1. Pour créer un cluster AKS, utilisez le code suivant :
+Pour créer un cluster Azure Kubernetes Service, utilisez le code suivant :
 
-    > [!IMPORTANT]
-    > La création du cluster AKS est un processus qui n’est à effectuer qu’une seule fois pour votre espace de travail. Une fois créé, vous pouvez le réutiliser pour vos autres déploiements. Si vous supprimez le cluster ou le groupe de ressources dans lequel il se trouve, vous devrez créer un cluster lors du prochain déploiement.
-    > Pour [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), si vous choisissez des valeurs personnalisées pour agent_count et vm_size, vous devez vous assurer que agent_count multiplié par vm_size est supérieur ou égal à 12 processeurs virtuels. Par exemple, si vous définissez vm_size sur « Standard_D3_v2 », qui comporte 4 processeurs virtuels, vous devez définir agent_count sur un nombre supérieur ou égal à 3.
+> [!IMPORTANT]
+> La création du cluster AKS est un processus qui n’est à effectuer qu’une seule fois pour votre espace de travail. Une fois créé, vous pouvez le réutiliser pour vos autres déploiements. Si vous supprimez le cluster ou le groupe de ressources dans lequel il se trouve, vous devrez créer un cluster lors du prochain déploiement.
+> Pour [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), si vous choisissez des valeurs personnalisées pour agent_count et vm_size, vous devez vous assurer que agent_count multiplié par vm_size est supérieur ou égal à 12 processeurs virtuels. Par exemple, si vous définissez vm_size sur « Standard_D3_v2 », qui comporte 4 processeurs virtuels, vous devez définir agent_count sur un nombre supérieur ou égal à 3.
 
-    ```python
-    from azureml.core.compute import AksCompute, ComputeTarget
+```python
+from azureml.core.compute import AksCompute, ComputeTarget
 
-    # Use the default configuration (you can also provide parameters to customize this)
-    prov_config = AksCompute.provisioning_configuration()
+# Use the default configuration (you can also provide parameters to customize this)
+prov_config = AksCompute.provisioning_configuration()
 
-    aks_name = 'aml-aks-1' 
-    # Create the cluster
-    aks_target = ComputeTarget.create(workspace = ws, 
-                                        name = aks_name, 
-                                        provisioning_configuration = prov_config)
+aks_name = 'aml-aks-1' 
+# Create the cluster
+aks_target = ComputeTarget.create(workspace = ws, 
+                                    name = aks_name, 
+                                    provisioning_configuration = prov_config)
 
-    # Wait for the create process to complete
-    aks_target.wait_for_completion(show_output = True)
-    print(aks_target.provisioning_state)
-    print(aks_target.provisioning_errors)
-    ```
+# Wait for the create process to complete
+aks_target.wait_for_completion(show_output = True)
+print(aks_target.provisioning_state)
+print(aks_target.provisioning_errors)
+```
 
-    **Durée estimée** : environ 20 minutes.
+**Durée estimée** : environ 20 minutes.
 
-    > [!TIP]
-    > Si vous disposez déjà d'un cluster AKS dans le cadre de votre abonnement Azure, et qu'il s'agit de la version 1.11.*, vous pouvez l'utiliser pour déployer votre image. Le code suivant montre comment associer un cluster existant à votre espace de travail :
-    >
-    > ```python
-    > from azureml.core.compute import AksCompute, ComputeTarget
-    > # Set the resource group that contains the AKS cluster and the cluster name
-    > resource_group = 'myresourcegroup'
-    > cluster_name = 'mycluster'
-    > 
-    > # Attatch the cluster to your workgroup
-    > attach_config = AksCompute.attach_configuration(resource_group = resource_group,
-    >                                          cluster_name = cluster_name)
-    > aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
-    > 
-    > # Wait for the operation to complete
-    > aks_target.wait_for_completion(True)
-    > ```
+#### <a name="use-an-existing-cluster"></a>Utiliser un cluster existant
 
-2. Pour déployer l'image créée dans la section [Créer l'image](#createimage) de ce document, utilisez le code suivant :
+Si vous disposez déjà d'un cluster AKS dans le cadre de votre abonnement Azure, et qu'il s'agit de la version 1.11.*, vous pouvez l'utiliser pour déployer votre image. Le code suivant montre comment associer un cluster existant à votre espace de travail :
 
-    ```python
-    from azureml.core.webservice import Webservice, AksWebservice
+```python
+from azureml.core.compute import AksCompute, ComputeTarget
+# Set the resource group that contains the AKS cluster and the cluster name
+resource_group = 'myresourcegroup'
+cluster_name = 'mycluster'
 
-    # Set configuration and service name
-    aks_config = AksWebservice.deploy_configuration()
-    aks_service_name ='aks-service-1'
-    # Deploy from image
-    service = Webservice.deploy_from_image(workspace = ws, 
-                                                name = aks_service_name,
-                                                image = image,
-                                                deployment_config = aks_config,
-                                                deployment_target = aks_target)
-    # Wait for the deployment to complete
-    service.wait_for_deployment(show_output = True)
-    print(service.state)
-    ```
+# Attatch the cluster to your workgroup
+attach_config = AksCompute.attach_configuration(resource_group = resource_group,
+                                         cluster_name = cluster_name)
+aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
 
-    > [!TIP]
-    > Si des erreurs se produisent au cours du déploiement, utilisez `service.get_logs()` pour afficher les journaux du service AKS. Les informations journalisées peuvent indiquer la cause de l’erreur.
+# Wait for the operation to complete
+aks_target.wait_for_completion(True)
+```
 
-Pour plus d'informations, consultez la documentation de référence des classes [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) et [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py).
+**Durée estimée** : environ trois minutes.
+
+#### <a name="deploy-the-image"></a>Déployer l'image
+
+Pour déployer sur le cluster Azure Kubernetes Service l’image créée dans la section [Créer l’image](#createimage) de ce document, utilisez le code suivant :
+
+```python
+from azureml.core.webservice import Webservice, AksWebservice
+
+# Set configuration and service name
+aks_config = AksWebservice.deploy_configuration()
+aks_service_name ='aks-service-1'
+# Deploy from image
+service = Webservice.deploy_from_image(workspace = ws, 
+                                            name = aks_service_name,
+                                            image = image,
+                                            deployment_config = aks_config,
+                                            deployment_target = aks_target)
+# Wait for the deployment to complete
+service.wait_for_deployment(show_output = True)
+print(service.state)
+```
+
+**Durée estimée** : environ trois minutes.
+
+> [!TIP]
+> Si des erreurs se produisent au cours du déploiement, utilisez `service.get_logs()` pour afficher les journaux du service AKS. Les informations journalisées peuvent indiquer la cause de l’erreur.
+
+Pour plus d'informations, consultez la documentation de référence des classes [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) et [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py).
 
 ### <a id="fpga"></a> Procéder à un déploiement sur FPGA (Field-Programmable Gate Arrays)
 
@@ -375,23 +465,32 @@ prediction = service.run(input_data = test_sample)
 print(prediction)
 ```
 
-## <a name="update-the-web-service"></a>Mise à jour du service web
+Le service web étant une API REST, vous pouvez créer des applications clientes dans un large éventail de langages de programmation. Pour plus d’informations, consultez [Créer des applications clientes pour utiliser des services web](how-to-consume-web-service.md).
+
+## <a id="update"></a> Mettre à jour le service web
 
 Pour effectuer une mise à jour du service web, utilisez la méthode `update`. Le code suivant montre comment effectuer une mise à jour du service web pour utiliser une nouvelle image :
 
 ```python
 from azureml.core.webservice import Webservice
+from azureml.core.image import Image
 
 service_name = 'aci-mnist-3'
 # Retrieve existing service
 service = Webservice(name = service_name, workspace = ws)
+
+# point to a different image
+new_image = Image(workspace = ws, id="myimage2:1")
+
 # Update the image used by the service
-service.update(image = new-image)
+service.update(image = new_image)
 print(service.state)
 ```
 
 > [!NOTE]
 > La mise à jour d'une image n'entraîne pas automatiquement la mise à jour du service web. Vous devez manuellement mettre à jour chacun des services pour lesquels vous souhaitez utiliser la nouvelle image.
+
+Pour plus d’informations, consultez la documentation de référence de la classe [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
 
 ## <a name="clean-up"></a>Nettoyer
 
@@ -401,8 +500,14 @@ Pour supprimer une image, utilisez `image.delete()`.
 
 Pour supprimer un modèle inscrit, utilisez `model.delete()`.
 
+Pour plus d’informations, consultez la documentation de référence de [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--) et [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Sécuriser les services web Azure Machine Learning avec SSL](how-to-secure-web-service.md)
 * [Utiliser un modèle ML déployé en tant que service web](how-to-consume-web-service.md)
 * [Exécuter des prédictions par lots](how-to-run-batch-predictions.md)
+* [Superviser vos modèles Azure Machine Learning avec Application Insights](how-to-enable-app-insights.md)
+* [Collecter des données pour des modèles en production](how-to-enable-data-collection.md)
+* [SDK du service Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Utiliser le service Azure Machine Learning avec des réseaux virtuels Azure](how-to-enable-virtual-network.md)

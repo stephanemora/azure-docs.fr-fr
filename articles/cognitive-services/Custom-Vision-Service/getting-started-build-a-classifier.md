@@ -1,60 +1,52 @@
 ---
 title: Créer un classifieur - Service Vision personnalisée
 titlesuffix: Azure Cognitive Services
-description: Découvrez comment utiliser le service Vision personnalisée pour créer un classifieur capable d’identifier des objets dans des photographies.
+description: Découvrez comment utiliser le site web Vision personnalisée pour créer un modèle de classification d’images.
 services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: conceptual
-ms.date: 05/02/2018
+ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: 998900e72511a95336e4a94289c794e2a8e59feb
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: f6ab2d8bcf1ae02df95b0cf36eacffa90964d43e
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364235"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243251"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Comment créer un classifieur avec Custom Vision
 
-Pour utiliser le service Vision personnalisée, vous devez en premier lieu créer un classifieur. Dans ce document, découvrez comment créer un classifieur par l’intermédiaire de votre navigateur Web.
+Pour utiliser le service Vision personnalisée pour la classification d’images, vous devez d’abord créer un modèle de classifieur. Dans ce guide, vous découvrez comment créer un classifieur via le site web Vision personnalisée.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour créer un classifieur, vous devez disposer des éléments suivants :
-
-- Un [compte Microsoft](https://account.microsoft.com/account) ou un OrgID (ID d’organisation) Azure Active Directory (un « compte professionnel ou scolaire ») valide, afin de pouvoir vous connecter à customvision.ai et commencer.
+- Un [compte Microsoft](https://account.microsoft.com/account) valide ou un compte Azure Active Directory (compte professionnel ou scolaire).
 
     > [!IMPORTANT] 
-    > La connexion de l’ID d’organisation des utilisateurs d’Azure Active Directory (Azure AD) à partir de [clouds nationaux](https://www.microsoft.com/en-us/trustcenter/cloudservices/nationalcloud) n’est pas prise en charge actuellement.
-
-- Une série d’images pour entraîner votre classifieur (avec un minimum de 30 images par mot clé).
-
-- Quelques images pour tester votre classifieur après son entraînement.
-
-- Facultatif : un abonnement Azure associé à votre compte Microsoft ou votre OrgID. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-
-    > [!IMPORTANT]
-    > Sans abonnement Azure, vous ne pouvez créer que des projets en __version d’évaluation limitée__. Si vous disposez d’un abonnement Azure, vous êtes à même, lors de la création du projet, de créer des ressources de formation et de prédiction pour le service Vision personnalisée dans le [portail Azure](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision).   
+    > La connexion pour les utilisateurs AAD de [clouds nationaux Microsoft](https://www.microsoft.com/en-us/trustcenter/cloudservices/nationalcloud) n’est pas prise en charge actuellement.
+- Un ensemble d’images avec lequel entraîner votre classifieur. Reportez-vous aux conseils ci-dessous pour le choix des images.
+- Facultatif : Un abonnement Azure associé à votre compte Microsoft ou à votre compte AAD. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. Sans abonnement Azure, vous ne pouvez créer que deux projets en __version d’essai limitée__.
 
 ## <a name="create-a-new-project"></a>Création d'un projet
 
-Pour créer un projet, suivez ces étapes :
+Dans votre navigateur web, accédez à la [page web Custom Vision](https://customvision.ai) et sélectionnez __Sign in__ (Se connecter).
 
-1. Dans votre navigateur Web, accédez à la [page web Custom Vision](https://customvision.ai). Sélectionnez __Sign in__ (Connexion) pour commencer à utiliser le service.
+![Image de la page de connexion](./media/browser-home.png)
 
-    ![Image de la page de connexion](./media/getting-started-build-a-classifier/custom-vision-web-ui.png)
+Si vous disposez d’un compte Azure, vous êtes à même, lors de la création du projet, de créer des ressources d’entraînement et de prédiction pour le service Vision personnalisée dans le [portail Azure](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision).
 
-    > [!NOTE]
-    > Une fois connecté au service Vision personnalisée, une liste de projets vous est proposée. En dehors des deux projets en « version d’évaluation limitée » pour les tests, les projets sont associés à une ressource Azure. En tant qu’utilisateur Azure, vous voyez tous les projets associés aux [ressources Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#grant-access-to-resources) auxquelles vous avez accès. 
-
-2. Pour créer votre premier projet, sélectionnez **New Project** (Nouveau projet). Pour votre premier projet, vous êtes invité à accepter les Conditions d’utilisation. Cochez la case, puis sélectionnez le bouton **I agree** (J’accepte). La boîte de dialogue **New project** (Nouveau projet) apparaît.
+1. Pour créer votre premier projet, sélectionnez **New Project** (Nouveau projet). La boîte de dialogue **Create new project** (Créer un projet) s’affiche.
 
     ![La boîte de dialogue du nouveau projet comporte des champs permettant de renseigner le nom, la description et les domaines.](./media/getting-started-build-a-classifier/new-project.png)
 
-3. Entrez un nom et une description pour le projet. Sélectionnez ensuite un des domaines disponibles. Chaque domaine optimise le classifieur pour des types spécifiques d’images, tels que décrits dans le tableau suivant :
+1. Entrez un nom et une description pour le projet. Sélectionnez ensuite un groupe de ressources. Si votre compte de connexion est associé à un compte Azure, la liste déroulante Resource Group (Groupe de ressources) affiche tous vos groupes de ressources Azure qui incluent une ressource du service Vision personnalisée. Dans les deux cas, vous pouvez également sélectionner __Limited trial__  (Essai limité) dans cette liste déroulante.
+
+1. Sélectionnez __Classification__ sous __Project Types__ (Types de projets). Ensuite, sous __Classification Types__ (Types de classifications), choisissez **Multilabel** (Multi-étiquette) ou **Multiclass** (Multiclasse), en fonction de votre cas d’utilisation. La classification multi-étiquette applique un nombre quelconque de vos étiquettes à une image (zéro ou plus), tandis que la classification multiclasse trie les images et les classe dans une seule catégorie (chaque image que vous soumettez se voit appliquer l’étiquette la plus probable). Vous pourrez changer ultérieurement le type de classification si vous le souhaitez.
+
+1. Sélectionnez ensuite un des domaines disponibles. Chaque domaine optimise le classifieur pour des types spécifiques d’images, comme décrit dans le tableau suivant. Vous pourrez changer ultérieurement le domaine si vous le souhaitez.
 
     |Domaine|Objectif|
     |---|---|
@@ -64,70 +56,80 @@ Pour créer un projet, suivez ces étapes :
     |__Retail__ (Commerce)|Optimisé pour les images qui se trouvent dans des catalogues de vente ou sur des site Web commerciaux. Si vous souhaitez un classement de grande précision pour des robes, des pantalons et des chemises, utilisez ce domaine.|
     |__Adult__ (Adulte)|Optimisé pour mieux définir le contenu pour adultes et le contenu pour tous. Par exemple, si vous souhaitez bloquer les images de personnes en maillot de bain, ce domaine vous permet de créer un classifieur personnalisé pour ce faire.|
     |__Compact Domains__ (Domaines compacts)| Optimisés en fonction des contraintes de la classification en temps réel sur les appareils mobiles. Les modèles générés par les domaines compacts sont exportables pour s’exécuter localement.|
+    
+1. Enfin, sélectionnez __Create project__ (Créer le projet).
 
-    Vous pouvez changer de domaine ultérieurement si vous le souhaitez.
+## <a name="choose-training-images"></a>Choisir les images d’entraînement
 
-4. Sélectionnez un groupe de ressources. La liste déroulante Resource Group (Groupe de ressources) vous montre tous vos groupes de ressources Azure qui comportent une ressource du service Vision personnalisée. Vous pouvez également sélectionner __limited trial__ (version d’évaluation limitée). L’entrée de la version d’évaluation limitée est le seul groupe de ressources qu’un utilisateur non-Azure peut choisir.
+Nous vous recommandons d’utiliser au moins 30 images par étiquette dans le jeu d’entraînement initial. Vous allez également collecter quelques images supplémentaires pour tester votre modèle une fois qu’il est entraîné.
 
-    Pour créer le projet, sélectionnez __Create project__ (Créer un projet).
+Pour entraîner votre modèle efficacement, utilisez des images avec une variété de visuels. Sélectionnez des images dont les éléments suivants varient :
+* angle de l’appareil photo
+* éclairage
+* background
+* style de visuel
+* objets individuels/groupés
+* size
+* Type
+
+En outre, vérifiez que toutes vos images d’entraînement respectent les critères suivants :
+* format .jpg, .png ou .bmp
+* taille ne dépassant pas 6 Mo (4 Mo pour les images de prédiction)
+* le côté le plus court ne doit pas comporter moins de 256 pixels ; les images d’une dimension inférieure sont automatiquement mises à l’échelle par le service Vision personnalisée
 
 ## <a name="upload-and-tag-images"></a>Charger et étiqueter des images
 
-1. Pour ajouter des images au classifieur, utilisez le bouton __Add images__ (Ajouter des images), puis sélectionnez __Browse local files__ (Parcourir les fichiers locaux). Sélectionnez __Open__ (Ouvrir) pour passer à l’étiquetage.
+Dans cette section, vous chargez et vous étiquetez manuellement des images pour faciliter l’entraînement du classifieur. 
 
-    > [!TIP]
-    > Une fois les images sélectionnées, vous devez leur attribuer des mots clés. Le mot clé est appliqué au groupe d’images que vous avez sélectionné pour le chargement, ainsi il peut s’avérer plus facile de charger des images en fonction des mots clés que vous prévoyez d’utiliser. Vous pouvez également modifier le mot clé des images sélectionnées une fois qu’elles ont été étiquetées et chargées.
-
-    > [!TIP]
-    > Chargez des images prises selon différents angles, éclairages, arrière-plans, types, styles, groupes, tailles, etc. Utilisez divers types de photos pour vous assurer que votre classifieur n’est pas influencé et qu’il peut généraliser correctement.
-
-    Le service Vision personnalisée accepte des images d’entraînement au format .jpg, .png et .bmp, jusqu’à 6 Mo par image. (La taille des images de prédiction peut atteindre 4 Mo par image.) Nous recommandons une dimension d’image de 256 pixels sur le plus petit bord. Les images inférieures à cette recommandation sont mises à l’échelle par le Service Vision personnalisée.
+1. Pour ajouter des images, cliquez sur le bouton __Add images__ (Ajouter des images), puis sélectionnez __Browse local files__ (Parcourir les fichiers locaux). Sélectionnez __Open__ (Ouvrir) pour passer à l’étiquetage. Votre sélection d’étiquettes s’applique à l’ensemble du groupe d’images que vous avez choisi de charger : il est donc plus facile de charger des images dans des groupes distincts selon les étiquettes souhaitées. Vous pouvez également changer les étiquettes pour des images individuelles après leur chargement.
 
     ![Le contrôle d’ajout d’images est affiché dans le coin supérieur gauche, et sous la forme d’un bouton dans le bas de la page, au centre.](./media/getting-started-build-a-classifier/add-images01.png)
 
-    >[!NOTE] 
-    > L’API REST peut être utilisée pour charger des images d’entraînement à partir d’URL.
 
-2. Pour définir le mot clé, entrez le texte voulu dans le champ __My Tags__ (Mes mots clés), puis utilisez le bouton __+__. Pour charger les images et les étiqueter, utilisez le bouton __Upload [number] files__ (Charger [nombre] fichiers). Vous pouvez ajouter plusieurs mots clés aux images. 
-
-    > [!NOTE]
-    > La durée de chargement varie selon le nombre et la taille des images que vous avez sélectionnées.
+1. Pour créer une étiquette, entrez du texte dans le champ __My Tags__ (Mes étiquettes) et appuyez sur Entrée. Si l’étiquette existe déjà, elle apparaît dans un menu déroulant. Dans un projet multi-étiquette, vous pouvez ajouter plusieurs étiquettes à vos images, mais dans un projet multiclasse, vous ne pouvez en ajouter qu’une seule. Pour terminer le chargement des images, utilisez le bouton __Upload [nombre] files__ (Charger [nombre] fichiers). 
 
     ![Image de la page d’attribution des mots clés et du chargement](./media/getting-started-build-a-classifier/add-images03.png)
 
-3. Sélectionnez __Terminé__ lorsque les images ont été chargés.
+1. Sélectionnez __Terminé__ lorsque les images ont été chargés.
 
     ![La barre de progression indique que toutes les tâches sont terminées.](./media/getting-started-build-a-classifier/add-images04.png)
 
-4. Pour charger un autre ensemble d’images, revenez à l’étape 1. Par exemple, si vous souhaitez faire la distinction entre des chiens et des poneys, chargez et étiquetez des images de poneys.
+Pour charger un autre ensemble d’images, revenez en haut de cette section et répétez les étapes. À un moment donné dans votre projet, il peut être nécessaire d’ajouter des _exemples négatifs_ pour rendre votre classifieur plus précis. Les exemples négatifs sont ceux qui ne correspondent à aucune des autres balises. Quand vous chargez ces images, appliquez l’étiquette spéciale **Negative** (Négatif) à celles-ci.
 
-## <a name="train-and-evaluate-the-classifier"></a>Former et évaluer le classifieur
+## <a name="train-the-classifier"></a>Former le classifieur
 
-Pour former le classifieur, sélectionnez le bouton **Train** (Entraîner).
+Pour former le classifieur, sélectionnez le bouton **Train** (Entraîner). Le classifieur utilise toutes les images pour créer un modèle qui identifie les qualités visuelles de chaque étiquette.
 
-![Le bouton Train (Entraîner) se trouve en haut à droite dans la fenêtre du navigateur.](./media/getting-started-build-a-classifier/train01.png)
+![Le bouton Train (Entraîner) en haut à droite de la barre d’outils de l’en-tête de la page web](./media/getting-started-build-a-classifier/train01.png)
 
-Quelques minutes seulement sont nécessaires pour entraîner le classifieur. Pendant ce temps, des informations sur le processus d’entraînement s’affichent.
+Le processus d’entraînement ne doit durer que quelques minutes. Pendant ce temps, des informations sur le processus d’entraînement s’affichent dans l’onglet **Performance**.
 
-![Le bouton Train (Entraîner) se trouve en haut à droite dans la fenêtre du navigateur.](./media/getting-started-build-a-classifier/train02.png)
+![Fenêtre du navigateur avec une boîte de dialogue d’entraînement dans la section principale](./media/getting-started-build-a-classifier/train02.png)
 
-Après l’entraînement, les __performances__ s’affichent. Les indicateurs de précision et de rappel vous renseignent sur la qualité de votre classifieur, d’après les tests automatiques réalisés. Le service Vision personnalisée utilise les images que vous avez soumises pour l’entraînement et calcule ces chiffres à l’aide d’un processus appelé la [validation croisée par blocs (« k-fold »)](https://en.wikipedia.org/wiki/Cross-validation_(statistics)).
+## <a name="evaluate-the-classifier"></a>Évaluer le classifieur
+
+Une fois l’entraînement terminé, les performances du modèle sont estimées et affichées. Le service Vision personnalisée utilise les images que vous avez soumises pour l’entraînement et calcule la précision et le rappel en utilisant un processus appelé [validation croisée par échantillons (« k-fold »)](https://en.wikipedia.org/wiki/Cross-validation_(statistics)). La précision et le rappel sont deux mesures différentes de l’efficacité d’un classifieur :
+
+- La **précision** indique la proportion des classifications identifiées qui étaient correctes. Par exemple, si le modèle a identifié 100 images comme étant des chiens et que 99 d’entre elles étaient effectivement des chiens, la précision est de 99 %.
+- Le **rappel** indique la proportion des classifications réelles qui ont été correctement identifiées. Par exemple, s’il y avait 100 images de pommes et que le modèle en a identifié 80 comme étant des pommes, le rappel est de 80 %.
 
 ![Les résultats de l’entraînement affichent les taux de précision et de rappel globaux, ainsi que ceux de chaque mot clé dans le classifieur.](./media/getting-started-build-a-classifier/train03.png)
 
-> [!NOTE] 
-> Chaque fois que vous sélectionnez le bouton **Train** (Entraîner), vous créez une nouvelle itération de votre classifieur. Vous pouvez afficher toutes vos anciennes itérations dans l’onglet **Performance** (Performances) et supprimer celles qui peuvent être obsolètes. Lorsque vous supprimez une itération, vous supprimez également toutes les images qui lui sont spécifiquement associées.
+### <a name="probability-threshold"></a>Seuil de probabilité
 
-Le classifieur utilise toutes les images pour créer un modèle qui identifie chaque mot clé. Pour tester la qualité du modèle, le classifieur essaie chaque image sur le modèle pour voir ce que celui-ci trouve.
+Notez le curseur **Probability Threshold** (Seuil de probabilité) dans le volet gauche de l’onglet **Performance**. Il s’agit du seuil pour qu’une probabilité prévue soit considérée comme correcte lors du calcul de la précision et du rappel.
 
-Les qualités des résultats du classifieur sont affichées.
+L’interprétation des appels de prédiction avec un seuil de probabilité élevé tend à retourner des résultats avec une précision élevée au détriment du rappel (les classifications trouvées sont correctes, mais beaucoup n’ont pas été trouvées) ; un seuil de probabilité faible a l’effet contraire (la plupart des classifications réelles ont été trouvées, mais il existe des faux positifs dans cet ensemble). En ayant ceci à l’esprit, vous devez définir le seuil de probabilité en fonction des besoins spécifiques de votre projet. Ultérieurement, sur le côté client, vous devez utiliser la même valeur de seuil de probabilité comme filtre lors de la réception des résultats de la prédiction à partir du modèle.
 
-|Terme|Définition|
-|---|---|
-|__Précision__|Lorsque vous classez une image, quelle est la probabilité que votre classifieur classe correctement cette image ? Sur toutes les images qui sont utilisées pour entraîner le classifieur (les chiens et les poneys), quel taux de réussite le modèle a-t-il obtenu ? Sur 100 images, 99 mots clés corrects donnent une précision de 99 %.|
-|__Recall__ (Rappel)|Sur toutes les images qui auraient dû être correctement classées, combien votre classifieur en a-t-il identifié convenablement ? Un rappel de 100 % signifie que s’il existe 38 images de chiens dans les images utilisées pour entraîner le classifieur, celui-ci a trouvé 38 chiens.|
+## <a name="manage-training-iterations"></a>Gérer les itérations d’entraînement
+
+Chaque fois vous entraînez votre classifieur, vous créez une nouvelle _itération_ avec ses propres métriques de performances mises à jour. Vous pouvez afficher toutes vos itérations dans le volet gauche de l’onglet **Performance**. Quand vous en sélectionnez une, vous avez la possibilité d’en faire l’_itération par défaut_ en cliquant sur le bouton **Make default** (Par défaut) en haut. L’_itération par défaut_ est le modèle qui sera utilisé par défaut quand vous interrogez celui-ci via l’API Prediction (par exemple à partir d’une application). Si vous choisissez de ne pas mettre à jour l’_itération par défaut_, vous pouvez continuer à entraîner le modèle sans affecter le comportement actuel de votre application ; ensuite, une fois que vous êtes satisfait du modèle amélioré, vous pouvez mettre à jour l’itération par défaut.
+
+Dans le volet gauche, vous trouvez également le bouton **Delete** (Supprimer), que vous pouvez utiliser pour supprimer une itération si elle est obsolète. Quand vous supprimez une itération, vous supprimez également toutes les images qui lui sont spécifiquement associées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Tester et ré-entraîner le modèle](test-your-model.md)
+Dans ce guide, vous avez découvert comment créer et entraîner un modèle de classification d’images avec le site web Vision personnalisée. Vous obtenez ensuite plus d’informations sur le processus itératif d’amélioration de votre modèle.
+
+[Tester et réentraîner un modèle](test-your-model.md)
 

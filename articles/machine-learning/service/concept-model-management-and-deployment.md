@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 25f149ad4df43a7e5b443d6abd72be91072cb47f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 467af0f04708c9c6758531fb1cd71d79e9ddd6d7
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250199"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302967"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Déployer, gérer et surveiller des modèles avec le service Azure Machine Learning
 
@@ -29,18 +29,25 @@ Le workflow de déploiement comprend les étapes suivantes :
 1. **Inscrire une image** qui associe un modèle avec un script de scoring et des dépendances dans un conteneur portable 
 1. **Déployer** l’image comme service web dans le cloud ou sur des périphériques de périmètre
 1. **Surveiller et collecter des données**
+1. **Mettre à jour** un déploiement pour utiliser une nouvelle image
 
 Chaque étape peut être effectuée indépendamment ou dans le cadre d’une même commande de déploiement. En outre, vous pouvez intégrer le déploiement dans un **flux de travail CI/CD**, comme illustré dans ce graphique.
 
 [ ![« Cycle d’intégration continue/déploiement continu (CI/CD) d’Azure Machine Learning »](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
-
 ## <a name="step-1-register-model"></a>Étape 1 : Inscrire le modèle
 
-Le registre de modèles garde une trace de tous les modèles de l’espace de travail correspondant au service Azure Machine Learning.
-Les modèles sont identifiés par leur nom et par leur version. Chaque fois que vous inscrivez un modèle portant le même nom qu’un modèle existant, le registre incrémente la version. Vous pouvez également fournir des étiquettes de métadonnées supplémentaires lors de l’inscription, qui peuvent être utilisées lors de la recherche de modèles.
+L’inscription de modèle vous permet de stocker vos modèles dans le cloud Azure, au sein de votre espace de travail, et d’en gérer les versions. Le registre de modèle facilite l’organisation et le suivi de vos modèles entraînés.
+ 
+Les modèles inscrits sont identifiés par leur nom et par leur version. Chaque fois que vous inscrivez un modèle portant le même nom qu’un modèle existant, le registre incrémente la version. Vous pouvez également fournir des étiquettes de métadonnées supplémentaires lors de l’inscription, qui peuvent être utilisées lors de la recherche de modèles. Le service Azure Machine Learning prend en charge les modèles stockés à l’aide de tout modèle pouvant être chargé au moyen de Python 3. 
 
 Vous ne pouvez pas supprimer les modèles qui sont utilisés par une image.
+
+Pour plus d’informations, consultez la section consacrée à l’inscription d’un modèle dans l’article [Déployer des modèles](how-to-deploy-and-where.md#registermodel).
+
+Pour obtenir un exemple d’inscription d’un modèle stocké au format pickle, consultez [Tutoriel : Entraîner un modèle de classification d’images](tutorial-deploy-models-with-aml.md).
+
+Pour obtenir des informations sur l’utilisation des modèles ONNX, consultez le document [ONNX et Azure Machine Learning](how-to-build-deploy-onnx.md).
 
 ## <a name="step-2-register-image"></a>Étape 2 : Inscrire une image
 
@@ -58,6 +65,8 @@ Azure Machine Learning prend en charge les infrastructures les plus courantes, m
 Lors de la création de votre espace de travail, par conséquent, plusieurs autres ressources Azure utilisées par cet espace de travail ont également été créées.
 Tous les objets utilisés pour créer l’image sont stockés dans le compte de stockage Azure de votre espace de travail. L’image est créée et stockée dans Azure Container Registry. Vous pouvez fournir des étiquettes de métadonnées supplémentaires lors de la création de l’image, qui sont également stockées par le registre d’images et peuvent être interrogées pour trouver votre image.
 
+Pour plus d’informations, consultez la section consacrée à la configuration et à l’inscription d’une image dans l’article [Déployer des modèles](how-to-deploy-and-where.md#configureimage).
+
 ## <a name="step-3-deploy-image"></a>Étape 3 : Déployer une image
 
 Vous pouvez déployer des images inscrites dans le cloud ou sur des périphériques de périmètre. Le processus de déploiement crée toutes les ressources nécessaires pour surveiller, équilibrer la charge et mettre automatiquement à l’échelle votre modèle. L’accès aux services déployés peut être sécurisé avec l’authentification par certificat en fournissant les ressources de sécurité lors du déploiement. Vous pouvez également mettre à niveau un déploiement existant pour utiliser une image plus récente.
@@ -66,7 +75,7 @@ Les déploiements de service web peuvent également faire l’objet de recherche
 
 [ ![Inférence des cibles](media/concept-model-management-and-deployment/inferencing-targets.png) ](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
-Vous pouvez déployer vos images sur les [cibles de déploiement](how-to-deploy-and-where.md) suivantes dans le cloud :
+Vous pouvez déployer vos images sur les cibles de déploiement suivantes dans le cloud :
 
 * Azure Container Instance
 * Azure Kubernetes Service
@@ -75,17 +84,27 @@ Vous pouvez déployer vos images sur les [cibles de déploiement](how-to-deploy-
 
 Une fois votre service déployé, la charge des demandes d’inférence est automatiquement équilibrée et le cluster est mis à l’échelle pour satisfaire les pics de demandes. Des [données de télémétrie sur votre service peuvent être capturées](how-to-enable-app-insights.md) dans le service Azure Application Insights associé à votre espace de travail.
 
+Pour plus d’informations, consultez la section consacrée au déploiement dans l’article [Déployer des modèles](how-to-deploy-and-where.md#deploy).
+
 ## <a name="step-4-monitor-models-and-collect-data"></a>Étape 4 : Surveiller des modèles et collecter des données
 
 Un SDK pour la journalisation des modèles et la capture de données est disponible pour vous permettre de surveiller les entrées, les sorties et d’autres données pertinentes de votre modèle. Les données sont stockées comme objet blob dans le compte de stockage Azure pour votre espace de travail.
 
 Pour utiliser le SDK avec votre modèle, vous l’importez dans votre script ou votre application de scoring. Vous pouvez ensuite utiliser le SDK pour journaliser des données comme les paramètres, les résultats ou les détails des entrées.
 
-Si vous décidez [d’activer la collecte de données du modèle](how-to-enable-data-collection.md) chaque fois que vous déployez l’image, les informations nécessaires pour capturer les données, comme les informations d’identification de votre magasin d’objets blob personnel, sont automatiquement provisionnées.
+Si vous décidez d’activer la collecte de données du modèle chaque fois que vous déployez l’image, les informations nécessaires pour capturer les données, comme les informations d’identification de votre magasin d’objets blob personnel, sont automatiquement provisionnées.
 
 > [!Important]
 > Microsoft ne voit pas les données collectées à partir de votre modèle. Les données sont envoyées directement dans le compte de stockage Azure pour votre espace de travail.
 
+Pour plus d’informations, consultez [Guide pratique pour activer la collecte des données de modèle](how-to-enable-data-collection.md).
+
+## <a name="step-5-update-the-deployment"></a>Étape 5 : Mettre à jour le déploiement
+
+Les mises à jour de votre modèle ne sont pas inscrites automatiquement. De même, l’inscription d’une nouvelle image ne met pas automatiquement à jour les déploiements qui ont été créés à partir d’une version précédente de l’image. Au lieu de cela, vous devez manuellement inscrire le modèle, inscrire l’image, puis mettre à jour le modèle. Pour plus d’informations, consultez la section consacrée à la mise à jour dans l’article [Déployer des modèles](how-to-deploy-and-where.md#update).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez plus d’informations sur [comment et où vous pouvez déployer des modèles](how-to-deploy-and-where.md) avec le service Azure Machine Learning.
+
+Découvrez comment créer des applications et services clients qui [utilisent un modèle déployé en tant que service web](how-to-consume-web-service.md).

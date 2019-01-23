@@ -12,118 +12,66 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 1/2/2019
 ms.author: rkarlin
-ms.openlocfilehash: d496f3f28cee711109c5c200102d48482bf6cd9c
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b973bb0e5cd9504725be385ab8505adbb140c950
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340689"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261857"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Utiliser les recommandations Azure Security Center pour améliorer la sécurité
 Vous pouvez réduire les risques d’un incident de sécurité en configurant une stratégie de sécurité, puis en implémentant les recommandations fournies par Azure Security Center. Cet article explique comment utiliser les stratégies de sécurité et les recommandations d'Azure Security Center pour prévenir une attaque de sécurité.
 
-> [!NOTE]
-> Cet article s’appuie sur les rôles et les concepts présentés dans le [Guide de planification et de fonctionnement](security-center-planning-and-operations-guide.md) de Security Center. Il est judicieux de consulter le guide de planification avant de continuer.
->
->
-
-## <a name="managing-security-recommendations"></a>Gestion des Recommandations de sécurité
-Une stratégie de sécurité définit l’ensemble des contrôles recommandés pour les ressources d’un abonnement ou groupe de ressources spécifique. Dans Security Center, vous définissez des stratégies en fonction des exigences de sécurité de votre entreprise. Pour en savoir plus, consultez [Définir des stratégies de sécurité dans Security Center](tutorial-security-policy.md).
-
-Les stratégies de sécurité pour ce groupe de ressources sont héritées du niveau d’abonnement.
-
-![Héritage d'une stratégie de sécurité][1]
-
-Si vous avez besoin de stratégies personnalisées dans certains groupes de ressources, vous pouvez désactiver l’héritage dans le groupe de ressources. Pour le désactiver, définissez la valeur Héritage sur Unique dans le panneau de la stratégie de sécurité puis personnalisez les contrôles pour lesquels Security Center affiche des recommandations.
-
-Par exemple, si certaines de vos charges de travail ne nécessitent pas la stratégie SQL Database Transparent Data Encryption (TDE), désactivez cette dernière au niveau de l’abonnement et ne l’activez que dans les groupes de ressources qui la requièrent.
-
-> [!NOTE]
-> Si un conflit se produit entre la stratégie de niveau abonnement et la stratégie de niveau groupe de ressources, la stratégie de niveau groupe de ressources est prioritaire.
->
->
-
-Le Centre de sécurité analyse l’état de sécurité de vos ressources Azure. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des recommandations en fonction des contrôles définis dans la stratégie de sécurité. Ces recommandations vous guident tout au long du processus de configuration des contrôles de sécurité nécessaires.
-
-Les recommandations de stratégie actuelles de Security Center se concentrent sur les mises à jour du système, la configuration du système d’exploitation, les groupes de sécurité réseau sur les sous-réseaux et les machines virtuelles, l’audit de base de données SQL, SQL Database TDE, et les pare-feu d’applications web. Pour obtenir les recommandations Security Center les plus récentes, consultez [Gestion des recommandations de sécurité dans Security Center](security-center-recommendations.md).
+Le Centre de sécurité analyse l’état de sécurité de vos ressources Azure. Quand Security Center identifie des failles de sécurité potentielles, des recommandations sont créées. Celles-ci vous guident tout au long du processus de configuration des contrôles de sécurité nécessaires.
 
 ## <a name="scenario"></a>Scénario
-Ce scénario vous montre comment utiliser Security Center pour réduire les risques d’un incident de sécurité important en surveillant les recommandations Security Center et en prenant les mesures nécessaires. Le scénario utilise la société fictive Contoso et les rôles présentés dans le [Guide de planification et de fonctionnement](security-center-planning-and-operations-guide.md#security-roles-and-access-controls) de Security Center. Les rôles représentent des personnes et des équipes qui peuvent utiliser Security Center pour exécuter différentes tâches liées à la sécurité. Ces rôles sont les suivants :
+Ce scénario vous montre comment utiliser Security Center pour réduire les risques d’incident en supervisant les recommandations de Security Center et en prenant les mesures nécessaires. Le scénario utilise la société fictive Contoso et les rôles présentés dans le [Guide de planification et de fonctionnement](security-center-planning-and-operations-guide.md#security-roles-and-access-controls) de Security Center. Dans ce scénario, nous nous concentrons sur les rôles des personnages suivants :
 
-![Rôles du scénario][2]
+![Rôles du scénario](./media/security-center-using-recommendations/scenario-roles.png)
 
-Contoso a récemment migré certaines de ses ressources locales vers Azure. Contoso souhaite implémenter et gérer des protections qui limitent sa vulnérabilité face à une attaque de sécurité sur ses ressources dans le cloud.
+Contoso a récemment migré certaines de ses ressources locales vers Azure. Contoso souhaite protéger ses ressources et réduire leur vulnérabilité dans le cloud.
 
-## <a name="recommended-solution"></a>Solution recommandée
-Une solution consiste à utiliser Security Center pour empêcher et détecter les failles de sécurité. Contoso peut accéder à Security Center via son abonnement Azure. Le [niveau Gratuit](security-center-pricing.md) de Security Center est automatiquement activé sur tous les abonnements Azure, et la collecte de données est activée sur toutes les machines virtuelles de son abonnement.
+## <a name="use-azure-security-center"></a>Utiliser Azure Security Center
+David, de la sécurité informatique de Contoso, a déjà choisi d’intégrer Security Center aux abonnements à Azure Security Center de Contoso pour prévenir et détecter les failles de sécurité. 
 
-David, membre de l'équipe de sécurité informatique de Contoso, configure une **stratégie de sécurité** à l’aide de Security Center. Security Center analyse l’état de sécurité des ressources Azure de Contoso. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des **recommandations** en fonction des contrôles définis dans la stratégie de sécurité.
+Security Center analyse automatiquement l’état de sécurité des ressources Azure de Contoso avant d’appliquer les stratégies de sécurité par défaut. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des **recommandations** en fonction des contrôles définis dans la stratégie de sécurité. 
 
-Jeff, qui possède une charge de travail dans le cloud, est responsable de la maintenance des protections conformément à la stratégie de sécurité de Contoso. Jeff peut surveiller les recommandations créées par Security Center pour appliquer des protections. Ces recommandations guident Jeff tout au long du processus de configuration des contrôles de sécurité nécessaires.
+David exécute le niveau standard d’Azure Security sur tous ses abonnements pour obtenir l’intégralité des recommandations et fonctionnalités de sécurité disponibles. Jeff intègre également tous ses serveurs locaux existants qui n’ont pas encore migré vers le cloud pour pouvoir tirer parti de la prise en charge hybride de Security Center sur l’ensemble de ses serveurs [Windows](quick-onboard-windows-computer.md) et [Linux](quick-onboard-linux-computer.md).
 
-Pour que Jeff puisse implémenter, maintenir les protections et éliminer les failles de sécurité, il doit :
+Jeff est propriétaire d’une charge de travail cloud. Il est chargé d’appliquer des contrôles de sécurité conformément aux stratégies de sécurité de Contoso. 
+
+Jeff effectue les tâches suivantes :
 
 - Surveiller les recommandations de sécurité fournies par Security Center
 - Évaluer les recommandations de sécurité et décider s’il doit les appliquer ou les ignorer
 - Appliquer les recommandations de sécurité
 
-Examinons comment Jeff utilise les recommandations de Security Center tout au long du processus de configuration des contrôles afin d'éliminer les failles de sécurité.
+### <a name="remediate-threats-using-recommendations"></a>Remédier aux menaces à l’aide des recommandations
+Dans le cadre de ses activités de supervision quotidiennes, Jeff se connecte à Azure et ouvre Security Center. 
 
-## <a name="how-to-implement-this-solution"></a>Mise en œuvre de cette solution
-Jeff se connecte au [portail Azure](https://azure.microsoft.com/features/azure-portal/) et ouvre la console Security Center. Dans le cadre de ses activités de surveillance quotidiennes, il vérifie si des recommandations de sécurité sont disponibles en procédant comme suit :
+1. Jeff sélectionne les abonnements de sa charge de travail.
 
-1. Jeff sélectionne la vignette **Recommandations** pour ouvrir **Recommandations**.
-   ![Sélectionner la mosaïque Recommandations][3]
-2. Jeff passe en revue la liste des recommandations. Il constate que Security Center a fourni la liste des recommandations par ordre de priorité, de la priorité la plus élevée à la priorité la plus basse. Il décide de traiter une recommandation de priorité élevée dans la liste. Il sélectionne **Installer Endpoint Protection** sous **Recommandations**.
-3. **Installer Endpoint Protection** s’ouvre et affiche une liste de machines virtuelles sur lesquelles il n’y a pas de logiciel anti-programme malveillant activé. Jeff passe en revue la liste des machines virtuelles, sélectionne toutes les machines virtuelles puis choisit **Installer sur 3 machines virtuelles**.
-   ![Installer Endpoint Protection][4]
-4. **Sélectionner Endpoint Protection** s’ouvre et offre à Jeff deux solutions anti-programmes malveillants. Jeff sélectionne la solution **Microsoft Antimalware**.
-5. Des informations supplémentaires sur la solution anti-programme malveillant s’affichent. Jeff sélectionne **Créer**.
-   ![Microsoft Antimalware][5]
-6. Jeff entre les paramètres de configuration nécessaires sous **Installer** et sélectionne **OK**.
+2. Jeff vérifie son **degré de sécurisation** pour savoir si les abonnements sont bien sécurisés et constate que celui-ci s’élève à 548.
 
-[Microsoft Antimalware](../security/azure-security-antimalware.md) est maintenant activé sur les machines virtuelles sélectionnées.
+3. Jeff doit déterminer quelles recommandations gérer en premier. Jeff clique donc sur le degré de sécurisation et commence à gérer les recommandations selon l’amélioration qu’elles apportent à l’[impact du degré de sécurisation](security-center-secure-score.md).
 
-Jeff continue de parcourir les recommandations de priorité élevée et moyenne, en choisissant de les appliquer ou pas. Jeff consulte l'article [Gestion des recommandations de sécurité](security-center-recommendations.md) pour comprendre les recommandations et leur impact en cas de mise en œuvre.
+4. Étant donné que Jeff a un grand nombre de machines virtuelles et serveurs connectés, il décide de se concentrer sur **Compute et applications**.
 
-Jeff apprend que [Microsoft Security Response Center (MSRC)](../security/azure-security-response-center.md) effectue certaines analyses de sécurité sur l'infrastructure et le réseau Azure et reçoit des informations sur les menaces et des plaintes pour mauvaise utilisation provenant de tiers. Si Jeff fournit les coordonnées du contact de sécurité de l’abonnement Azure de Contoso, Microsoft contacte Contoso si MSRC découvre que les données client de Contoso ont été consultées par un pirate ou une personne non autorisée. Jeff applique maintenant la recommandation **Fournir des informations de contact de sécurité** (une recommandation de priorité moyenne dans la liste des recommandations ci-dessus).
+5. Quand il clique sur **Compute et applications**, il voit la liste des recommandations et les gère en fonction de leur impact sur le degré de sécurisation.
 
-1. Jeff sélectionne **Fournir des informations de contact de sécurité** sous **Recommandations**, ce qui ouvre **Fournir des informations de contact de sécurité**.
-2. Jeff sélectionne l’abonnement Azure pour lequel fournir les informations du contact. Un second panneau **Fournissez les détails du contact de sécurité** s’ouvre.
-   ![Informations de contact de sécurité][6]
-3. Sous **Fournissez les détails du contact de sécurité**, Jeff entre les informations suivantes :
+6. Jeff a de nombreuses machines virtuelles accessibles sur Internet. Étant donné que leurs ports sont exposés, il craint qu’un attaquant ne prenne le contrôle des serveurs. Jeff choisit donc d’utiliser un (**accès aux machines virtuelles juste-à-temps**) [security-center-just-in-time.md].
 
-  - Les adresses de messagerie du contact de sécurité, séparées par des virgules (il n’y a pas de limite au nombre d’adresses de messagerie)
-  - Un numéro de téléphone du contact de sécurité
-
-4. Jeff active également l’option **Send me emails about alerts** (M’envoyer des messages électroniques concernant les alertes) pour recevoir des messages électroniques concernant les alertes de gravité élevée.
-5. Jeff sélectionne **OK** pour appliquer les informations du contact de sécurité à l'abonnement de Contoso.
-
-Pour finir, Jeff passe en revue la recommandation de faible priorité **Corriger les vulnérabilités du système d’exploitation** et décide que cette recommandation n’est pas applicable. Il souhaite ignorer la recommandation. Jeff sélectionne les trois points qui apparaissent à droite, puis sélectionne **Dismiss** (Ignorer).
-   ![Ignorer une recommandation][7]
+Jeff continue de parcourir les recommandations de priorité élevée et moyenne et choisit de les appliquer ou pas. Pour chaque recommandation, il examine les informations détaillées fournies par Security Center pour se faire une idée des ressources impactées, de l’impact du degré de sécurisation, de la signification de chaque recommandation et des étapes à suivre pour atténuer chaque problème.
 
 ## <a name="conclusion"></a>Conclusion
-Surveiller les recommandations dans Security Center peut vous aider à éliminer les failles de sécurité avant qu'une attaque ne se produise. Vous pouvez empêcher un incident de sécurité en implémentant et en gérant des protections à l'aide des stratégies de sécurité de Security Center.
+Superviser les recommandations dans Security Center vous permet d’éliminer les failles de sécurité avant qu’une attaque ne se produise. Quand vous appliquez les recommandations, votre degré de sécurisation et la posture de sécurité de vos charges de travail s’améliorent. Security Center détecte automatiquement les nouvelles ressources que vous déployez, les évalue par rapport à votre stratégie de sécurité et fournit de nouvelles recommandations pour les sécuriser.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
+Vérifiez que vous avez un processus de supervision en place, qui vous permet de contrôler régulièrement les recommandations dans Security Center afin de garantir que vos ressources restent bien sécurisées au fil du temps.
+
 Ce scénario vous a montré comment utiliser les stratégies de sécurité et les recommandations dans Security Center pour prévenir une attaque de sécurité. Reportez au [scénario de réponse aux incidents](security-center-incident-response.md) pour découvrir comment mettre en place un plan de réponse aux incidents avant qu’une attaque ne survienne.
 
-Pour plus d’informations sur Security Center, consultez :
-
-* [Surveillance de l’intégrité de la sécurité](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
-* [Gestion et résolution des alertes de sécurité](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
-* [Monitoring and processing security events in Azure Security Center](security-center-events-dashboard.md) (Surveillance et traitement des événements de sécurité dans Azure Security Center) - Découvrez comment surveiller et traiter les événements de sécurité collectés au fil du temps.
-* [Surveillance des solutions de partenaire](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.
-* [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service.
-* [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/) : découvrez les dernières nouvelles et informations sur la sécurité Azure.
-
-<!--Image references-->
-[1]: ./media/security-center-using-recommendations/security-center-policy-inheritance.png
-[2]: ./media/security-center-using-recommendations/scenario-roles.png
-[3]: ./media/security-center-using-recommendations/select-recommendations-tile.png
-[4]: ./media/security-center-using-recommendations/install-endpoint-protection.png
-[5]:./media/security-center-using-recommendations/microsoft-antimalware.png
-[6]: ./media/security-center-using-recommendations/provide-security-contact-details.png
-[7]: ./media/security-center-using-recommendations/dismiss-recommendation.png
+Découvrez comment réagir aux menaces avec la fonctionnalité de [réponse aux incidents](security-center-incident-response.md).

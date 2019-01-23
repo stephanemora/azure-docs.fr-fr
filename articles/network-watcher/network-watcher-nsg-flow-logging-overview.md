@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: addd901e1b3a9bb537278082763081a7e39b21da
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 06130a5ade63e23fdcd139902a19694a510393a3
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824283"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332300"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -33,10 +33,12 @@ Même si les journaux de flux ciblent les groupes de sécurité réseau, ils ne 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
- 
-Les mêmes stratégies de conservation que celles des autres journaux s’appliquent aux journaux de flux. Vous pouvez définir la stratégie de conservation de journal entre 1 jour et 2147483647 jours. Si aucune stratégie de rétention n’est définie, les journaux sont conservés indéfiniment.
+Vous pouvez analyser les journaux de flux et obtenir des informations sur votre trafic réseau à l’aide de l’[analytique du trafic](traffic-analytics.md).
 
-Vous pouvez également analyser les journaux de flux à l’aide de l’[analytique du trafic](traffic-analytics.md).
+Les mêmes stratégies de conservation que celles des autres journaux s’appliquent aux journaux de flux. Vous pouvez définir la stratégie de conservation de journal entre 1 jour et 2147483647 jours. Si aucune stratégie de conservation n’est définie, les journaux sont conservés indéfiniment.
+
+> [!NOTE] 
+> L’utilisation de la fonctionnalité de stratégie de conservation avec la journalisation des flux de groupe de sécurité réseau peut entraîner un volume élevé d’opérations de stockage avec les coûts associés. Si vous n’avez pas besoin de la fonctionnalité de stratégie de conservation, nous vous recommandons de définir cette valeur sur 0.
 
 
 ## <a name="log-file"></a>Fichier journal
@@ -63,7 +65,7 @@ Les flux de journaux incluent les propriétés suivantes :
                     * **Protocol** - Le protocole du flux. Les valeurs valides sont **T** pour TCP et **U** pour UDP.
                     * **Traffic Flow** - La direction du flux de trafic. Les valeurs valides sont **I** pour le trafic entrant et **O** pour le trafic sortant.
                     * **Traffic Decision** - Indique si le trafic a été autorisé ou refusé. Les valeurs valides sont **A** pour autorisé et **D** pour refusé.
-                    * **Flow State - Version 2 Only** - Capture l’état du flux. Les états possibles sont **B** (début), lors de la création d’un flux. Aucune statistique n’est fournie. **C** : continuation d’un flux en cours. Des statistiques sont fournies toutes les 5 minutes. **E** : fin, lorsqu’un flux est arrêté. Des statistiques sont fournies.
+                    * **Flow State - Version 2 Only** - Capture l’état du flux. Les états possibles sont **B** : début, lors de la création d’un flux. Aucune statistique n’est fournie. **C** : continuation d’un flux en cours. Des statistiques sont fournies toutes les 5 minutes. **E** : fin, quand un flux est arrêté. Des statistiques sont fournies.
                     * **Packets - Source to destination - Version 2 Only** Nombre total de paquets TCP ou UDP envoyés de la source à la destination depuis la dernière mise à jour.
                     * **Bytes sent - Source to destination - Version 2 Only** Nombre total d’octets de paquets TCP ou UDP envoyés de la source à la destination depuis la dernière mise à jour. Les octets de paquets incluent l’en-tête et la charge utile du paquet.
                     * **Packets - Destination to source - Version 2 Only** Nombre total de paquets TCP ou UDP envoyés de la destination à la source depuis la dernière mise à jour.
@@ -71,7 +73,7 @@ Les flux de journaux incluent les propriétés suivantes :
 
 ## <a name="nsg-flow-logs-version-2"></a>Journaux de flux NSG version 2
 > [!NOTE] 
-> Les journaux de flux version 2 sont disponibles dans la région USA Centre-Ouest. La configuration est disponible via le portail Azure et l’API REST. Si vous activez les journaux version 2 dans une région non prise en charge, des journaux version 1 sont générés dans votre compte de stockage.
+> Les journaux de flux version 2 sont disponibles dans la région USA Centre-Ouest. Si vous activez les journaux version 2 dans une région non prise en charge, des journaux version 1 sont générés dans votre compte de stockage.
 
 La version 2 des journaux présente l’état du flux. Vous pouvez configurer la version des journaux de flux que vous recevez. Pour savoir comment activer les journaux de flux, consultez [Enable flow logs](network-watcher-nsg-flow-logging-portal.md) (Activer les journaux de flux).
 
@@ -79,13 +81,19 @@ L’état du flux *B* est enregistré lorsqu’un flux est lancé. L’état du 
 
 Pour la continuation *C* et la fin *E* d’états de flux, le nombre d’octets et de paquets est le nombre cumulé depuis l’enregistrement de tuple de flux précédent. Si l’on se réfère à l’exemple de conversation précédent, le nombre total de paquets transférés est de 1 021 + 52 + 8 005 + 47 = 9 125. Le nombre total d’octets transférés est de 588 096+29 952+4 610 880+27 072 = 5 256 000.
 
-**Exemple** : tuples de flux à partir d’une conversation TCP entre 185.170.185.105:35370 and 10.2.0.4:23 :
+**Exemple**: tuples de flux à partir d’une conversation TCP entre 185.170.185.105:35370 and 10.2.0.4:23 :
 
 « 1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,B,,,, » « 1493695838,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1021,588096,8005,4610880 » « 1493696138,185.170.185.105,10.2.0.4,35370,23,T,I,A,E,52,29952,47,27072 »
 
 Pour la continuation *C* et la fin *E* d’états de flux, le nombre d’octets et de paquets est le nombre cumulé depuis l’enregistrement de tuple de flux précédent. Si l’on se réfère à l’exemple de conversation précédent, le nombre total de paquets transférés est de 1 021 + 52 + 8 005 + 47 = 9 125. Le nombre total d’octets transférés est de 588 096+29 952+4 610 880+27 072 = 5 256 000.
 
 Le texte ci-dessous est un exemple de journal de flux. Comme vous pouvez le voir, il existe plusieurs enregistrements qui suivent la liste des propriétés décrite dans la section précédente.
+
+## <a name="nsg-flow-logging-considerations"></a>Considérations sur la journalisation de flux NSG
+
+**Activer la journalisation de flux NSG sur tous les groupes de sécurité réseau associés à une ressource** : la journalisation de flux dans Azure est configurée sur la ressource NSG. Un flux ne peut être associé qu’à une règle de groupe de sécurité réseau. Dans les scénarios où plusieurs groupes de sécurité réseau sont utilisés, nous recommandons que la journalisation de flux NSG soit activée sur tous les groupes de sécurité réseau auxquels le sous-réseau ou l’interface réseau d’une ressource est appliqué pour vous assurer que tout le trafic est enregistré. Consultez [Évaluation du trafic](../virtual-network/security-overview.md#how-traffic-is-evaluated) pour obtenir plus d’informations sur les groupes de sécurité réseau. 
+
+**Coûts de la journalisation de flux** : la journalisation de flux NSG est facturée selon le volume de journaux produits. Un volume de trafic élevé peut entraîner un volume important de journaux de flux avec les coûts associés. Les tarifs des journaux de flux NSG n’incluent pas les coûts de stockage afférents. L’utilisation de la fonctionnalité de stratégie de conservation avec la journalisation des flux de groupe de sécurité réseau peut entraîner un volume élevé d’opérations de stockage avec les coûts associés. Si vous n’avez pas besoin de la fonctionnalité de stratégie de conservation, nous vous recommandons de définir cette valeur sur 0. Consultez [Tarifs Network Watcher](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) et [Tarifs du stockage Azure](https://azure.microsoft.com/en-us/pricing/details/storage/) pour de plus amples informations.
 
 ## <a name="sample-log-records"></a>Exemples d’enregistrements de journal
 

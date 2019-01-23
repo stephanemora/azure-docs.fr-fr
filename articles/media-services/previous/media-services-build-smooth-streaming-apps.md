@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: 953cd536c390e571ee4c40dc670316197718eff2
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7b742840f461744e0be8c7a4ab4d9b392238de4e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279192"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232683"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Génération d'une application Windows Store de diffusion en continu lisse
 
@@ -47,7 +47,7 @@ Vous pouvez télécharger la solution terminée pour chaque leçon sur le site d
 * [Leçon 3](https://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) : un lecteur multimédia Smooth Streaming pour Windows 8 avec sélection de flux,  
 * [Leçon 4](https://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) : un lecteur multimédia Smooth Streaming pour Windows 8 avec sélection des pistes.
 
-## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>Leçon 1 : créer une application Windows Store de diffusion en continu lisse de base
+## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>Leçon 1 : Création d'une application Windows Store de diffusion en continu lisse de base
 
 Dans cette leçon, vous allez apprendre à créer une application Windows Store dotée d'un contrôle MediaElement pour lire du contenu de diffusion en continu lisse.  L'application en cours d'exécution ressemble à ceci :
 
@@ -95,7 +95,7 @@ Après l'ajout des références, vous devez sélectionner la plateforme ciblée 
 
 1. Dans l'Explorateur de solutions, double-cliquez sur **MainPage.xaml** pour l'ouvrir en mode Création.
 2. Recherchez les balises **&lt;Grid&gt;** et **&lt;/Grid&gt;** du fichier XAML et collez le code suivant entre elles :
-```xml
+   ```xml
          <Grid.RowDefinitions>
 
             <RowDefinition Height="20"/>    <!-- spacer -->
@@ -138,7 +138,7 @@ Après l'ajout des références, vous devez sélectionner la plateforme ciblée 
                FontSize="16" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
             <TextBox x:Name="txtStatus" FontSize="10" Width="700" VerticalAlignment="Center"/>
          </StackPanel>
-```
+   ```
    Le contrôle MediaElement permet de lire des fichiers multimédias. La commande de réglage nommée sliderProgress servira dans la prochaine leçon à contrôler la progression du fichier multimédia.
 3. Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
@@ -160,7 +160,7 @@ Dans le fichier XAML, certains gestionnaires d'événements sont associés aux c
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
 5. À la fin de la classe **MainPage** , collez le code suivant :
-```csharp
+   ```csharp
          # region UI Button Click Events
          private void btnPlay_Click(object sender, RoutedEventArgs e)
          {
@@ -202,7 +202,7 @@ Dans le fichier XAML, certains gestionnaires d'événements sont associés aux c
          mediaElement.Position = new TimeSpan(0, 0, (int)(sliderProgress.Value));
          }
          # endregion
-```
+   ```
 Le gestionnaire d'événements sliderProgress_PointerPressed est défini ici.  Pour qu'il fonctionne, il est nécessaire d'effectuer d'autres procédures qui seront décrites dans la leçon suivante de ce didacticiel.
 6. Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
@@ -221,7 +221,7 @@ Le fichier code-behind terminé doit ressembler à ceci :
 
 Vous avez terminé la leçon 1.  Dans cette leçon, vous avez utilisé un contrôle MediaElement pour lire du contenu de diffusion en continu lisse.  Dans la leçon suivante, vous allez ajouter un curseur pour contrôler la progression du contenu de diffusion en continu lisse.
 
-## <a name="lesson-2-add-a-slider-bar-to-control-the-media-progress"></a>Leçon 2 : ajouter une barre de curseur pour contrôler la progression des fichiers multimédias
+## <a name="lesson-2-add-a-slider-bar-to-control-the-media-progress"></a>Leçon 2 : Ajout d'une barre de curseur pour contrôler la progression des fichiers multimédias
 
 Dans la leçon 1, vous avez créé une application Windows Store dotée d'un contrôle XAML MediaElement pour lire du contenu multimédia de diffusion en continu lisse.  Elle offre des fonctions de lecture multimédia de base, comme le démarrage, l'arrêt et la pause.  Dans cette leçon, vous allez ajouter un contrôle de curseur pour votre application.
 
@@ -242,25 +242,29 @@ Cette leçon aborde les procédures suivantes :
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2. Au début du fichier, ajoutez l'instruction using suivante :
-```csharp
+
+   ```csharp
         using Microsoft.Media.AdaptiveStreaming;
-```
+   ```
 3. Au début de la classe MainPage, ajoutez les membres de données suivants :
-```csharp
+
+   ```csharp
          private Windows.Foundation.Collections.PropertySet propertySet = new Windows.Foundation.Collections.PropertySet();             
          private IAdaptiveSourceManager adaptiveSourceManager;
-```
+   ```
 4. Dans le constructeur **MainPage**, ajoutez le code suivant après la ligne **this.Initialize Components();** et les lignes de code d'enregistrement rédigées dans la précédente leçon :
-```csharp
+
+   ```csharp
         // Gets the default instance of AdaptiveSourceManager which manages Smooth 
         //Streaming media sources.
         adaptiveSourceManager = AdaptiveSourceManager.GetDefault();
         // Sets property key value to AdaptiveSourceManager default instance.
         // {A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}" must be hardcoded.
         propertySet["{A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}"] = adaptiveSourceManager;
-```
+   ```
 5. Dans le constructeur **MainPage** , modifiez les deux méthodes RegisterByteStreamHandler pour ajouter les paramètres suivants :
-```csharp
+
+   ```csharp
          // Registers Smooth Streaming byte-stream handler for ".ism" extension and, 
          // "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
          // http://*.ism/manifest URI resources will be resolved by Byte-stream handler.
@@ -276,18 +280,20 @@ Cette leçon aborde les procédures suivantes :
             ".ism", 
             "application/vnd.ms-sstr+xml", 
          propertySet);
-```
+   ```
 6. Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
 **Pour ajouter le gestionnaire d'événements au niveau d'AdaptiveSourceManager**
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2. Dans la classe **MainPage** , ajoutez le membre de données suivant :
-```csharp
+
+   ```csharp
      private AdaptiveSource adaptiveSource = null;
-```
+   ```
 3. À la fin de la classe **MainPage** , ajoutez le gestionnaire d'événements suivant :
-```csharp
+
+   ```csharp
          # region Adaptive Source Manager Level Events
          private void mediaElement_AdaptiveSourceOpened(AdaptiveSource sender, AdaptiveSourceOpenedEventArgs args)
          {
@@ -296,24 +302,27 @@ Cette leçon aborde les procédures suivantes :
          }
 
          # endregion Adaptive Source Manager Level Events
-```
+   ```
 4. À la fin du constructeur **MainPage** , ajoutez la ligne suivante pour vous inscrire à l'événement ouvert de la source adaptative :
-```csharp
+
+   ```csharp
          adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
            new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
-```
+   ```
 5. Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
 **Pour ajouter des gestionnaires d'événements au niveau de la source adaptative**
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2. Dans la classe **MainPage** , ajoutez le membre de données suivant :
-```csharp
+
+   ```csharp
      private AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate; 
      private Manifest manifestObject;
-```
+   ```
 3. À la fin de la classe **MainPage** , ajoutez les gestionnaires d'événements suivants :
-```csharp
+
+   ```csharp
          # region Adaptive Source Level Events
          private void mediaElement_ManifestReady(AdaptiveSource sender, ManifestReadyEventArgs args)
          {
@@ -335,8 +344,10 @@ Cette leçon aborde les procédures suivantes :
          }
 
          # endregion Adaptive Source Level Events
-4. At the end of the **mediaElement AdaptiveSourceOpened** method, add the following code to subscribe to the events:
-   
+   ```
+4. À la fin de la méthode **mediaElement AdaptiveSourceOpened** , ajoutez le code suivant pour vous inscrire aux événements :
+
+   ```csharp
          adaptiveSource.ManifestReadyEvent +=
 
                     mediaElement_ManifestReady;
@@ -346,7 +357,7 @@ Cette leçon aborde les procédures suivantes :
          adaptiveSource.AdaptiveSourceFailedEvent += 
 
             mediaElement_AdaptiveSourceFailed;
-```
+   ```
 5. Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
 Les mêmes événements sont également disponibles sur AdaptiveSourceManager, qui permet de gérer des fonctionnalités communes à tous les éléments multimédias de l'application. Chaque AdaptiveSource inclut ses propres événements et tous les événements AdaptiveSource sont affichés en cascade dans AdaptiveSourceManager.
@@ -355,7 +366,8 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2. À la fin de la classe **MainPage** , ajoutez les gestionnaires d'événements suivants :
-```csharp
+
+   ```csharp
          # region Media Element Event Handlers
          private void MediaOpened(object sender, RoutedEventArgs e)
          {
@@ -376,35 +388,40 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
          }
 
          # endregion Media Element Event Handlers
-```
+   ```
 3. À la fin du constructeur **MainPage** , ajoutez le code suivant pour vous inscrire aux événements :
-```csharp
+
+   ```csharp
          mediaElement.MediaOpened += MediaOpened;
          mediaElement.MediaEnded += MediaEnded;
          mediaElement.MediaFailed += MediaFailed;
-```
+   ```
 4. Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
 **Pour ajouter le code lié à la barre de curseur**
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2. Au début du fichier, ajoutez l'instruction using suivante :
-```csharp
+
+   ```csharp
         using Windows.UI.Core;
-```
+   ```
 3. Dans la classe **MainPage** , ajoutez les membres de données suivants :
-```csharp
+
+   ```csharp
          public static CoreDispatcher _dispatcher;
          private DispatcherTimer sliderPositionUpdateDispatcher;
-```
+   ```
 4. À la fin du constructeur **MainPage** , ajoutez le code suivant :
-```csharp
+
+   ```csharp
          _dispatcher = Window.Current.Dispatcher;
          PointerEventHandler pointerpressedhandler = new PointerEventHandler(sliderProgress_PointerPressed);
          sliderProgress.AddHandler(Control.PointerPressedEvent, pointerpressedhandler, true);    
-```
+   ```
 5. À la fin de la classe **MainPage** , ajoutez le code suivant :
-```csharp
+
+   ```csharp
          # region sliderMediaPlayer
          private double SliderFrequency(TimeSpan timevalue)
          {
@@ -486,30 +503,32 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
          }
 
          # endregion sliderMediaPlayer
-```
+   ```
 
->[!NOTE]
->CoreDispatcher permet d'apporter des modifications au thread d'interface utilisateur à partir d'un autre type de thread. En cas de goulot d'étranglement sur le thread du répartiteur, le développeur peut choisir d'utiliser le répartiteur fourni par l'élément d'interface utilisateur à mettre à jour.  Par exemple : 
+   > [!NOTE]
+   > CoreDispatcher permet d'apporter des modifications au thread d'interface utilisateur à partir d'un autre type de thread. En cas de goulot d'étranglement sur le thread du répartiteur, le développeur peut choisir d'utiliser le répartiteur fourni par l'élément d'interface utilisateur à mettre à jour.  Par exemple : 
 
-```csharp
+   ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
 
          timespan = new TimeSpan(adaptiveSourceStatusUpdate.EndTime); 
          double absvalue  = (int)Math.Round(timespan.TotalSeconds, MidpointRounding.AwayFromZero); 
 
          sliderProgress.Maximum = absvalue; }); 
-```
+   ```
 6. À la fin de la méthode **mediaElement_AdaptiveSourceStatusUpdated**, ajoutez le code suivant :
-```csharp
+
+   ```csharp
          setSliderStartTime(args.StartTime);
          setSliderEndTime(args.EndTime);
-```
+   ```
 7. À la fin de la méthode **MediaOpened** , ajoutez le code suivant :
-```csharp
+
+   ```csharp
          sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
          sliderProgress.Width = mediaElement.Width;
          setupTimer();
-```
+   ```
 8. Appuyez sur **Ctrl+S** pour enregistrer le fichier.
 
 **Pour compiler et tester l'application**
@@ -522,7 +541,7 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
 
 Vous avez terminé la leçon 2.  Dans cette leçon, vous avez ajouté un curseur à l'application. 
 
-## <a name="lesson-3-select-smooth-streaming-streams"></a>Leçon 3 : sélectionner les flux de diffusion en continu lisse
+## <a name="lesson-3-select-smooth-streaming-streams"></a>Leçon 3 : Sélection des flux de diffusion en continu lisse
 La diffusion en continu lisse permet de diffuser du contenu en continu proposant des pistes audio multilingues sélectionnables par les utilisateurs.  Cette leçon vous expliquera comment permettre aux utilisateurs de sélectionner des flux. Cette leçon aborde les procédures suivantes :
 
 1. Modification du fichier XAML
@@ -533,7 +552,8 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Concepteur de vues**.
 2. Recherchez &lt;Grid.RowDefinitions&gt; et modifiez les paramètres RowDefinitions pour qu'ils ressemblent à ceci :
-```xml
+
+   ```xml
          <Grid.RowDefinitions>            
             <RowDefinition Height="20"/>
             <RowDefinition Height="50"/>
@@ -541,9 +561,10 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
             <RowDefinition Height="80"/>
             <RowDefinition Height="50"/>
          </Grid.RowDefinitions>
-```
+   ```
 3. Dans les balises &lt;Grid&gt;&lt;/Grid&gt;, ajoutez le code suivant pour définir un contrôle ListBox, afin que les utilisateurs puissent afficher la liste des flux disponibles et sélectionner des flux :
-```xml
+
+   ```xml
          <Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="300"/>
@@ -567,14 +588,15 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
                 </ListBox>
             </StackPanel>
          </Grid>
-```
+   ```
 4. Appuyez sur **Ctrl+S** pour enregistrer les modifications.
 
 **Pour modifier le fichier code-behind**
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2. Dans l'espace de noms SSPlayer, ajoutez une nouvelle classe :
-```csharp
+
+   ```csharp
         #region class Stream
    
         public class Stream
@@ -619,16 +641,17 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
             }
         }
         #endregion class Stream
-```
+   ```
 3. Au début de la classe MainPage, ajoutez les définitions de variables suivantes :
-```csharp
+
+   ```csharp
          private List<Stream> availableStreams;
          private List<Stream> availableAudioStreams;
          private List<Stream> availableTextStreams;
          private List<Stream> availableVideoStreams;
-```
+   ```
 4. Dans la classe MainPage, ajoutez la région suivante :
-```csharp
+   ```csharp
         #region stream selection
         ///<summary>
         ///Functionality to select streams from IManifestStream available streams
@@ -764,15 +787,15 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
             }
         }
         #endregion stream selection
-```
+   ```
 5. Recherchez la méthode mediaElement_ManifestReady, puis ajoutez le code suivant à la fin de la fonction :
-```csharp
+   ```csharp
         getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
-```
-    So when MediaElement manifest is ready, the code gets a list of the available streams, and populates the UI list box with the list.
+   ```
+    Lorsque le manifeste MediaElement est prêt, le code obtient une liste des flux disponibles et l'insère dans la zone de liste d'interface utilisateur.
 6. Dans la classe MainPage, recherchez la région d’événements Click des boutons de l’interface utilisateur, puis ajoutez la définition de fonction suivante :
-```csharp
+   ```csharp
         private void btnChangeStream_Click(object sender, RoutedEventArgs e)
         {
             List<IManifestStream> selectedStreams = new List<IManifestStream>();
@@ -783,7 +806,7 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
             // Change streams on the presentation
             changeStreams(selectedStreams);
         }
-```
+   ```
 **Pour compiler et tester l'application**
 
 1. Appuyez sur **F6** pour compiler le projet. 
@@ -794,7 +817,7 @@ La diffusion en continu lisse permet de diffuser du contenu en continu proposant
 
 Vous avez terminé la leçon 3.  Dans cette leçon, vous avez ajouté la fonctionnalité permettant de choisir des flux.
 
-## <a name="lesson-4-select-smooth-streaming-tracks"></a>Leçon 4 : sélectionner les pistes de diffusion en continu lisse
+## <a name="lesson-4-select-smooth-streaming-tracks"></a>Leçon 4 : Sélection des pistes de diffusion en continu lisse
 Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers vidéo encodés comportant des niveaux de qualité (débit) et des résolutions différents. Cette leçon vous expliquera comment permettre aux utilisateurs de sélectionner des pistes. Cette leçon aborde les procédures suivantes :
 
 1. Modification du fichier XAML
@@ -805,7 +828,7 @@ Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Concepteur de vues**.
 2. Recherchez la balise &lt;Grid&gt; nommée **gridStreamAndBitrateSelection**, puis ajoutez le code suivant à la fin de la balise :
-```xml
+   ```xml
          <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
          <StackPanel Orientation="Horizontal">
              <TextBlock Name="tbBitRate" Text="Available Bitrates:" FontSize="16" VerticalAlignment="Center"/>
@@ -820,14 +843,14 @@ Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers
              </ListBox.ItemTemplate>
          </ListBox>
          </StackPanel>
-```
+   ```
 3. Appuyez sur **Ctrl+S** pour enregistrer les modifications.
 
 **Pour modifier le fichier code-behind**
 
 1. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur **MainPage.xaml**, puis cliquez sur **Afficher le code**.
 2. Dans l'espace de noms SSPlayer, ajoutez une nouvelle classe :
-```csharp
+   ```csharp
         #region class Track
         public class Track
         {
@@ -864,13 +887,13 @@ Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers
             //public Track() { }
         }
         #endregion class Track
-```
+   ```
 3. Au début de la classe MainPage, ajoutez les définitions de variables suivantes :
-```csharp
+   ```csharp
         private List<Track> availableTracks;
-```
+   ```
 4. Dans la classe MainPage, ajoutez la région suivante :
-```csharp
+   ```csharp
         #region track selection
         /// <summary>
         /// Functionality to select video streams
@@ -967,14 +990,14 @@ Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers
             }
         }
         #endregion track selection
-```
+   ```
 5. Recherchez la méthode mediaElement_ManifestReady, puis ajoutez le code suivant à la fin de la fonction :
-```csharp
+   ```csharp
          getTracks(manifestObject);
          refreshAvailableTracksListBoxItemSource();
-```
+   ```
 6. Dans la classe MainPage, recherchez la région d’événements Click des boutons de l’interface utilisateur, puis ajoutez la définition de fonction suivante :
-```csharp
+   ```csharp
          private void btnChangeStream_Click(object sender, RoutedEventArgs e)
          {
             List<IManifestStream> selectedStreams = new List<IManifestStream>();
@@ -985,7 +1008,7 @@ Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers
             // Change streams on the presentation
             changeStreams(selectedStreams);
          }
-```
+   ```
 **Pour compiler et tester l'application**
 
 1. Appuyez sur **F6** pour compiler le projet. 

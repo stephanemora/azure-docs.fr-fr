@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2018
+ms.date: 01/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5b8247533a8bf51017767aac3a04e47ce6348a60
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 542993d803282bbf62e2e401cab1968a656a8971
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435291"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352272"
 ---
 # <a name="create-resource-groups-and-resources-for-an-azure-subscription"></a>Créer des groupes de ressources et des ressources pour un abonnement Azure
 
@@ -289,7 +289,7 @@ L’exemple suivant assigne une définition de stratégie existante à l’abonn
 }
 ```
 
-Pour appliquer une stratégie intégrée à votre abonnement Azure, utilisez les commandes Azure CLI suivantes. Dans cet exemple, la stratégie n’a pas de paramètres
+Pour appliquer une stratégie intégrée à votre abonnement Azure, utilisez les commandes Azure CLI suivantes :
 
 ```azurecli-interactive
 # Built-in policy that does not accept parameters
@@ -315,7 +315,7 @@ New-AzureRmDeployment `
   -policyName auditRGLocation
 ```
 
-Pour appliquer une stratégie intégrée à votre abonnement Azure, utilisez les commandes Azure CLI suivantes. Dans cet exemple, la stratégie a des paramètres.
+Pour appliquer une stratégie intégrée à votre abonnement Azure, utilisez les commandes Azure CLI suivantes :
 
 ```azurecli-interactive
 # Built-in policy that accepts parameters
@@ -390,7 +390,7 @@ Vous pouvez [définir](../azure-policy/policy-definition.md) et assigner une str
 }
 ```
 
-Pour créer la définition de stratégie dans votre abonnement et l’appliquer à l’abonnement, utilisez la commande CLI suivante.
+Pour créer la définition de stratégie dans votre abonnement et l’appliquer à l’abonnement, utilisez la commande CLI suivante :
 
 ```azurecli-interactive
 az deployment create \
@@ -408,9 +408,9 @@ New-AzureRmDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
-## <a name="assign-role"></a>Affecter le rôle
+## <a name="assign-role-at-subscription"></a>Attribuer un rôle au niveau de l’abonnement
 
-L’exemple suivant affecte un rôle à un utilisateur ou un groupe.
+L’exemple suivant attribue un rôle à un utilisateur ou à un groupe pour l’abonnement. Dans cet exemple, vous ne spécifiez pas d’étendue pour l’attribution, car elle est définie automatiquement sur l’abonnement.
 
 ```json
 {
@@ -439,7 +439,7 @@ L’exemple suivant affecte un rôle à un utilisateur ou un groupe.
 }
 ```
 
-Pour affecter un groupe Active Directory à un rôle pour votre abonnement, utilisez les commandes Azure CLI suivantes.
+Pour affecter un groupe Active Directory à un rôle pour votre abonnement, utilisez les commandes Azure CLI suivantes :
 
 ```azurecli-interactive
 # Get ID of the role you want to assign
@@ -468,6 +468,94 @@ New-AzureRmDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json `
   -roleDefinitionId $role.Id `
   -principalId $adgroup.Id
+```
+
+## <a name="assign-role-at-scope"></a>Attribuer un rôle à une étendue
+
+Le modèle au niveau de l’abonnement suivant attribue un rôle à un utilisateur ou à un groupe qui a pour étendue un groupe de ressources au sein de l’abonnement. L’étendue doit être inférieure ou égale au niveau de déploiement. Vous pouvez déployer sur un abonnement et spécifier une attribution de rôle ayant comme étendue un groupe de ressources au sein de cet abonnement. En revanche, vous ne pouvez pas déployer sur un groupe de ressources et spécifier l’abonnement comme étendue d’attribution de rôle.
+
+Pour attribuer le rôle dans une étendue, utilisez un déploiement imbriqué. Notez que le nom du groupe de ressources est spécifié à la fois dans les propriétés de la ressource de déploiement et dans la propriété d’étendue de l’attribution de rôle.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "principalId": {
+            "type": "string"
+        },
+        "roleDefinitionId": {
+            "type": "string"
+        },
+        "rgName": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "assignRole",
+            "resourceGroup": "[parameters('rgName')]",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Authorization/roleAssignments",
+                            "name": "[guid(parameters('principalId'), deployment().name)]",
+                            "apiVersion": "2017-09-01",
+                            "properties": {
+                                "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
+                                "principalId": "[parameters('principalId')]",
+                                "scope": "[concat(subscription().id, '/resourceGroups/', parameters('rgName'))]"
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Pour affecter un groupe Active Directory à un rôle pour votre abonnement, utilisez les commandes Azure CLI suivantes :
+
+```azurecli-interactive
+# Get ID of the role you want to assign
+role=$(az role definition list --name Contributor --query [].name --output tsv)
+
+# Get ID of the AD group to assign the role to
+principalid=$(az ad group show --group demogroup --query objectId --output tsv)
+
+az deployment create \
+  -n demoRole \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json \
+  --parameters principalId=$principalid roleDefinitionId=$role rgName demoRg
+```
+
+Pour déployer ce modèle avec PowerShell, utilisez :
+
+```azurepowershell-interactive
+$role = Get-AzureRmRoleDefinition -Name Contributor
+
+$adgroup = Get-AzureRmADGroup -DisplayName demogroup
+
+New-AzureRmDeployment `
+  -Name demoRole `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json `
+  -roleDefinitionId $role.Id `
+  -principalId $adgroup.Id `
+  -rgName demoRg
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

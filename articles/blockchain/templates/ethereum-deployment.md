@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: fa58ecf4607efc1d212e40b98d199756d4b987f8
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 16bf68a5fdb1df2a4f60de9167893a42295cbc52
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231795"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260531"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Modèle de solution de consortium de preuve de travail Ethereum
 
@@ -67,7 +67,7 @@ Ce processus requiert un abonnement Azure qui peut prendre en charge le déploie
 
 Une fois que vous disposez d’un abonnement, accédez au portail Azure. Sélectionnez **+Créer une ressource**, Place de marché (Afficher tout) et recherchez **Consortium de preuve de travail Ethereum**.
 
-Le déploiement de modèle vous guidera dans la configuration de l’empreinte du premier membre dans le réseau. Le flux de déploiement est divisé en cinq étapes : actions de base, suite de gestion des opérations, régions de déploiement, taille et performances du réseau, et paramètres Ethereum.
+Le déploiement de modèle vous guidera dans la configuration de l’empreinte du premier membre dans le réseau. Le flux de déploiement est divisé en cinq étapes : actions de base, suite de gestion des opérations, régions de déploiement, taille et performances du réseau, et paramètres Ethereum.
 
 ### <a name="basics"></a>Concepts de base
 
@@ -82,7 +82,7 @@ Déployer un réseau qui fera partie d’un consortium ?|Un réseau de consorti
 Préfixe de ressource |Chaîne utilisée comme base pour les noms de ressources (2 à 4 caractères alphanumériques). Un hachage unique est ajouté au début de la chaîne pour certaines ressources, tandis que des informations propres à la ressource sont ajoutées à la fin.|Caractères alphanumériques (entre 2 et 4)|N/D
 Nom d’utilisateur de la machine virtuelle| Nom d’utilisateur de l’administrateur de chaque machine virtuelle déployée (caractères alphanumériques uniquement).|Entre 1 et 64 caractères |gethadmin
 Type d'authentification|Méthode d’authentification auprès de la machine virtuelle. |Mot de passe ou clé publique SSH|Mot de passe
-Mot de passe (Type d’authentification = Mot de passe).|Mot de passe du compte administrateur pour chaque machine virtuelle déployée. Le mot de passe doit contenir 3 des éléments suivants : une minuscule, une majuscule, un chiffre et un caractère spécial. <br />Initialement, toutes les machines virtuelles ont le même mot de passe, que vous pouvez modifier après l’approvisionnement.|Entre 12 et 72 caractères|N/D
+Mot de passe (Type d’authentification = Mot de passe).|Mot de passe du compte administrateur pour chacune des machines virtuelles déployées. Le mot de passe doit contenir trois des éléments requis suivants : une majuscule, une minuscule, un chiffre et un caractère spécial. <br />Initialement, toutes les machines virtuelles ont le même mot de passe, que vous pouvez modifier après le provisionnement.|Entre 12 et 72 caractères|N/D
 Clé SSH (Type d’authentification = Clé publique)|Clé de shell sécurisée utilisée pour la session à distance.|| N/D
 Abonnement| Abonnement vers lequel vous déployez le réseau de consortium.||N/D
 Groupe de ressources| Groupe de ressources sur lequel déployez le réseau de consortium.||N/D
@@ -143,12 +143,12 @@ Nom du paramètre |Description |Valeurs autorisées|Valeurs par défaut
 ID de membre de consortium|ID associé à chaque membre participant au réseau de consortium, qui sert à configurer les espaces d’adressage IP pour éviter les collisions. <br /><br />L’ID de membre doit être unique dans les différentes organisations du même réseau. Un ID de membre unique est nécessaire même si une organisation effectue des déploiements dans plusieurs régions.<br /><br />Notez la valeur de ce paramètre, car vous devrez le partager avec les autres membres participants.|0 - 255
 ID de réseau Ethereum|ID du réseau Ethereum de consortium en cours de déploiement. Chaque réseau Ethereum possède son propre ID de réseau, 1 étant l’ID du réseau public. Même si l’accès réseau est limité pour les nœuds d’exploration de données, nous vous recommandons toutefois d’utiliser un nombre élevé pour empêcher les collisions.|5 - 999 999 999| 10101010
 Bloc de genèse personnalisé|Option permettant de générer un bloc de genèse automatiquement ou d’en fournir un personnalisé.|Oui/Non| Non 
-Mot de passe du compte Ethereum (Bloc de genèse personnalisé = Non)|Mot de passe d’administrateur utilisé pour sécuriser le compte Ethereum importé dans chaque nœud. Le mot de passe doit contenir les éléments suivants : une majuscule, une minuscule et un chiffre.|12 caractères ou plus|N/D
-Phrase secrète de clé privée Ethereum (Bloc de genèse personnalisé = Non)|Phrase secrète utilisée pour générer la clé privée ECC associée au compte Ethereum par défaut qui est généré. Une clé privée prégénérée n’a pas besoin d’être explicitement transmise.<br /><br />Envisagez une phrase secrète suffisamment aléatoire afin de garantir une clé privée forte et aucun chevauchement avec d’autres membres du consortium. La phrase secrète doit contenir au moins les éléments suivants : une majuscule, une minuscule et un chiffre.<br /><br />Notez que, si deux membres utilisent la même phrase secrète, les comptes générés doit être identiques. La même phrase secrète est utile si une organisation tente un déploiement dans plusieurs régions et souhaite partager un seul compte (base de jetons) sur tous les nœuds.|12 caractères ou plus|N/D
+Mot de passe du compte Ethereum (Bloc de genèse personnalisé = Non)|Mot de passe d’administrateur utilisé pour sécuriser le compte Ethereum importé dans chaque nœud. Le mot de passe doit contenir les éléments suivants : un caractère majuscule, un caractère minuscule et un chiffre.|12 caractères ou plus|N/D
+Phrase secrète de clé privée Ethereum (Bloc de genèse personnalisé = Non)|Phrase secrète utilisée pour générer la clé privée ECC associée au compte Ethereum par défaut qui est généré. Une clé privée prégénérée n’a pas besoin d’être explicitement transmise.<br /><br />Envisagez une phrase secrète suffisamment aléatoire afin de garantir une clé privée forte et aucun chevauchement avec d’autres membres du consortium. La phrase secrète doit contenir au minimum les éléments suivants : un caractère majuscule, un caractère minuscule et un chiffre.<br /><br />Notez que, si deux membres utilisent la même phrase secrète, les comptes générés doit être identiques. La même phrase secrète est utile si une organisation tente un déploiement dans plusieurs régions et souhaite partager un seul compte (base de jetons) sur tous les nœuds.|12 caractères ou plus|N/D
 Bloc de genèse (Bloc de genèse personnalisé = Oui)|Chaîne JSON représentant le bloc de genèse personnalisé. Vous trouverez plus d’informations sur le format du bloc de genèse sous Réseaux personnalisés.<br /><br />Un compte Ethereum est toujours créé lors de la fourniture d’un bloc de genèse personnalisé. Envisagez de spécifier un compte Ethereum prépayé dans le bloc de genèse pour ne pas attendre l’exploration de données.|JSON valide |N/D
 Clé partagée pour la connexion|Clé partagée pour la connexion entre les passerelles de réseau virtuel.| 12 caractères ou plus|N/D
 URL de données du consortium|URL pointant vers les données de configuration de consortium pertinentes, fournies par le déploiement d’un autre membre. <br /><br />Ces informations sont fournies par un membre déjà connecté qui dispose d’un déploiement. Si vous avez déployé le reste du réseau, l’URL est la sortie de déploiement de modèle nommée CONSORTIUM-DATA.||N/D
-Passerelle de réseau virtuel à laquelle se connecter|Chemin d’accès de ressource de la passerelle de réseau virtuel à laquelle se connecter.<br />Ces informations sont fournies par un membre déjà connecté qui dispose d’un déploiement. Si vous avez déployé le reste du réseau, l’URL est la sortie de déploiement de modèle nommée CONSORTIUM_MEMBER_GATEWAY_ID. Remarque : vous devez utiliser l’URL des données de consortium et la ressource de passerelle de réseau virtuel du même membre.||N/D
+Passerelle de réseau virtuel à laquelle se connecter|Chemin d’accès de ressource de la passerelle de réseau virtuel à laquelle se connecter.<br />Ces informations sont fournies par un membre déjà connecté qui dispose d’un déploiement. Si vous avez déployé le reste du réseau, l’URL est la sortie de déploiement de modèle nommée CONSORTIUM_MEMBER_GATEWAY_ID. Remarque : Vous devez utiliser l’URL des données de consortium et la ressource de passerelle de réseau virtuel du même membre.||N/D
 Point de terminaison du bureau d’enregistrement des informations de pair|Point de terminaison des informations de pair fourni par le déploiement d’un autre membre.|Point de terminaison valide du premier membre du consortium.|N/D
 Clé du bureau d’enregistrement des informations de pair|Clé primaire des informations de pair fourni par le déploiement d’un autre membre.|Clé primaire valide du premier membre du consortium.|N/D
 
@@ -226,11 +226,11 @@ mn-ethwvu-reg1_2 |mn-ethwvu-reg1000002
 En tant que premier membre (ou membre connecté) du consortium, vous devez fournir à d’autres membres quelques éléments d’information qui leur permettent de participer et d’établir leur connexion. Plus précisément :
 
 1. **Données de configuration de consortium partagées** : il existe un ensemble de données qui sont utilisées pour orchestrer la connexion Ethereum entre deux membres. Les informations nécessaires, y compris le bloc de genèse, l’ID de réseau de consortium et les nœuds de démarrage, sont écrits dans un fichier sur les nœuds de transaction du leader ou d’un autre membre déployé. L’emplacement de ce fichier est répertorié dans le paramètre de sortie de déploiement de modèle nommé **CONSORTIUM-DATA**.
-2. **Point de terminaison d’informations de pairs**  point de terminaison du bureau d’enregistrement des informations de pairs permettant d’obtenir des informations sur tous les nœuds déjà connectés au réseau Ethereum à partir de leaders ou du déploiement d’un autre membre. Les magasins de base de données constituent un ensemble d’informations sur chaque nœud connecté du réseau, comme le nom d’hôte du nœud, l’adresse IP privée, etc. Il s’agit du paramètre de sortie de déploiement de modèle nommé **PEER_INFO_ENDPOINT**.
+2. **Point de terminaison d’informations de pairs** : point de terminaison du bureau d’enregistrement des informations de pairs permettant d’obtenir des informations sur tous les nœuds déjà connectés au réseau Ethereum à partir de leaders ou du déploiement d’un autre membre. Les magasins de base de données constituent un ensemble d’informations sur chaque nœud connecté du réseau, comme le nom d’hôte du nœud, l’adresse IP privée, etc. Il s’agit du paramètre de sortie de déploiement de modèle nommé **PEER_INFO_ENDPOINT**.
 3. **Clé primaire d’informations de pairs** : clé primaire du bureau d’enregistrement des informations de pairs permettant d’accéder à la clé primaire des informations de pairs du leader ou d’un autre membre. Il s’agit du paramètre de sortie de déploiement de modèle nommé **PEER_INFO_PRIMARY_KEY**.
 
 
-4. **Passerelle de réseau virtuel** : chaque membre établit une connexion au réseau blockchain tout entier via un membre existant. Pour vous connecter un réseau virtuel, vous avez besoin du chemin d’accès de ressource à la passerelle de réseau virtuel du membre auquel vous vous connectez. Il s’agit du paramètre de sortie de déploiement de modèle nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
+4. **Passerelle de réseau virtuel** : chaque membre établit une connexion au réseau blockchain tout entier par le biais d’un membre existant. Pour vous connecter un réseau virtuel, vous avez besoin du chemin d’accès de ressource à la passerelle de réseau virtuel du membre auquel vous vous connectez. Il s’agit du paramètre de sortie de déploiement de modèle nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
 5. **Clé partagée** : clé secrète préétablie entre deux membres du réseau de consortium qui établissent une connexion. Il s’agit d’une chaîne alphanumérique (entre 1 et 128 caractères) convenue en dehors du contexte du déploiement. (Par exemple, **MySharedKeyAbc123**)
 
 ### <a name="acceptance-of-new-member"></a>Acceptation d’un nouveau membre
@@ -243,7 +243,7 @@ Pour plus d’informations sur la prise en main des cmdlets Azure PowerShell et 
 
 Vous avez besoin de la dernière version des cmdlets Azure installées localement et d’une session ouverte. Veillez à vous connecter à la session avec les informations d’identification de votre abonnement Azure.
 
-**PowerShell : établir la connexion**
+**PowerShell : établir la connexion**
 
 Téléchargez le module PowerShell et stockez-le localement. L’emplacement du module PowerShell est spécifié en tant que paramètre de sortie de déploiement de modèle **PAIR-GATEWAY-PS-MODULE**.
 
@@ -261,10 +261,10 @@ Ensuite, importez le module :
 
 Enfin, exécutez la fonction avec l’entrée appropriée :
 
-- **MyGatewayResourceId** : chemin de ressource de votre passerelle. Il s’agit du paramètre de sortie de déploiement de modèle nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId** : chemin de ressource de la passerelle du nouveau membre. Il est fourni par le nouveau membre et il s’agit du paramètre de sortie de déploiement de modèle également nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName** : nom vous permettant d’identifier cette connexion à la passerelle.
-- **Shared Key** : secret préétabli entre deux membres du réseau de consortium qui établissent une connexion.
+- **MyGatewayResourceId :** chemin de ressource de votre passerelle. Il s’agit du paramètre de sortie de déploiement de modèle nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId :** chemin de ressource de la passerelle du nouveau membre. Il est fourni par le nouveau membre et il s’agit du paramètre de sortie de déploiement de modèle également nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **ConnectionName :** nom vous permettant d’identifier cette connexion à la passerelle.
+- **Shared Key :** secret préétabli entre deux membres du réseau de consortium qui établissent une connexion.
 
 **CreateConnection** - MyGatewayResourceId <resource path of your Gateway> -OtherGatewayResourceId <chemin d’accès de ressource de la passerelle du nouveau membre> -ConnectionName myConnection -SharedKey "MySharedKeyAbc123"
 
@@ -274,11 +274,11 @@ Téléchargez le script d’interface CLI Azure et stockez-le localement. L’e
 
 Exécutez le script avec l’entrée appropriée :
 
-- **MyGatewayResourceId** : chemin de ressource de votre passerelle. Il s’agit du paramètre de sortie de déploiement de modèle nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId** : chemin de ressource de la passerelle du nouveau membre. Il est fourni par le nouveau membre et il s’agit du paramètre de déploiement de modèle également nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName** : nom vous permettant d’identifier cette connexion à la passerelle.
-- **Shared Key** : secret préétabli entre deux membres du réseau de consortium qui établissent une connexion.
-- **Location** : région Azure où la ressource de passerelle est déployée.
+- **MyGatewayResourceId :** chemin de ressource de votre passerelle. Il s’agit du paramètre de sortie de déploiement de modèle nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId :** chemin de ressource de la passerelle du nouveau membre. Il est fourni par le nouveau membre et il s’agit du paramètre de déploiement de modèle également nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **ConnectionName :** nom vous permettant d’identifier cette connexion à la passerelle.
+- **Shared Key :** secret préétabli entre deux membres du réseau de consortium qui établissent une connexion.
+- **Location** : région Azure où la ressource de passerelle est déployée.
 
 ``` powershell
 az network vpn-connection create --name $ConnectionName --resource-group

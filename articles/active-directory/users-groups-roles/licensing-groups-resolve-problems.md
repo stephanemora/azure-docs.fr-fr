@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee441a8c9a0d8a70a2797f090a143189cdb6872a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 54e562cca800a19829b985e3fd529368350104a1
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211534"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329478"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identification et résolution des problèmes d’affectation de licences pour un groupe dans Azure Active Directory
 
@@ -53,17 +53,17 @@ Les sections suivantes décrivent chaque problème potentiel et la manière de l
 
 ## <a name="not-enough-licenses"></a>Nombre insuffisant de licences
 
-**Problème :** il n’y pas assez de licences disponibles pour l’un des produits spécifiés dans le groupe. Vous devez acheter des licences produit supplémentaires ou libérer des licences inutilisées par d’autres utilisateurs ou d’autres groupes.
+**Problème :** Le nombre de licences disponibles est insuffisant pour un des produits spécifiés dans le groupe. Vous devez acheter des licences produit supplémentaires ou libérer des licences inutilisées par d’autres utilisateurs ou d’autres groupes.
 
 Pour connaître le nombre de licences disponibles, accédez à **Azure Active Directory** > **Licences** > **Tous les produits**.
 
 Pour voir quels utilisateurs et quels groupes utilisent des licences, sélectionnez un produit. Sous **Utilisateurs sous licence**, vous pouvez voir la liste des utilisateurs auxquels des licences ont été affectées directement, ou par le biais d’un ou de plusieurs groupes. Sous **Groupes sous licence**, vous pouvez voir tous les groupes auxquels ce produit est attribué.
 
-**PowerShell :** les applets de commande PowerShell signalent cette erreur en tant que _CountViolation_.
+**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _CountViolation_.
 
 ## <a name="conflicting-service-plans"></a>Plans de service en conflit
 
-**Problème :** l’un des produits spécifiés dans le groupe contient un plan de service en conflit avec un autre plan de service déjà attribué à l’utilisateur par le biais d’un autre produit. Certains plans de service sont configurés de sorte qu’ils ne puissent pas être attribués à l’utilisateur d’un autre plan de service lié.
+**Problème :** Un des produits spécifiés dans le groupe contient un plan de service en conflit avec un autre plan de service déjà attribué à l’utilisateur par le biais d’un autre produit. Certains plans de service sont configurés de sorte qu’ils ne puissent pas être attribués à l’utilisateur d’un autre plan de service lié.
 
 Considérez l'exemple suivant. Un utilisateur possède une licence Office 365 Entreprise *E1* qui lui a été attribuée directement, avec tous les plans activés. L’utilisateur a été ajouté à un groupe auquel le produit Office 365 Entreprise *E3* est attribué. Ce produit contient des plans de service incompatibles avec les plans contenus dans E1. Par conséquent, l’attribution de la licence de groupe échoue et l’erreur « Plans de service en conflit » s’affiche. Dans cet exemple, les plans de service en conflit sont les suivants :
 
@@ -74,25 +74,25 @@ Pour résoudre ce conflit, vous devez désactiver deux des plans. Vous pouvez d�
 
 Seul l’administrateur peut décider de la méthode à utiliser pour résoudre les problèmes de conflit de licences produit. Azure AD ne résout pas automatiquement les conflits de licences.
 
-**PowerShell :** les applets de commande PowerShell signalent cette erreur en tant que _MutuallyExclusiveViolation_.
+**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _MutuallyExclusiveViolation_.
 
 ## <a name="other-products-depend-on-this-license"></a>D’autres produits dépendent de cette licence
 
-**Problème :** l’un des produits spécifiés dans le groupe contient un plan de service qui doit être activé pour un autre plan de service, dans un autre produit, afin de fonctionner. Cette erreur se produit lorsqu’Azure AD tente de supprimer le plan de service sous-jacent. Par exemple, cela peut se produire lorsque vous supprimez l’utilisateur du groupe.
+**Problème :** Un des produits spécifiés dans le groupe contient un plan de service qui, pour fonctionner, doit être activé pour un autre plan de service dans un autre produit. Cette erreur se produit lorsqu’Azure AD tente de supprimer le plan de service sous-jacent. Par exemple, cela peut se produire lorsque vous supprimez l’utilisateur du groupe.
 
 Pour résoudre ce problème, vous devez vérifier que le plan requis est toujours attribué aux utilisateurs par une autre méthode, ou que les services dépendants sont désactivés pour ces utilisateurs. Après cela, vous pouvez supprimer la licence de groupe sur ces utilisateurs.
 
-**PowerShell :** les applets de commande PowerShell signalent cette erreur en tant que _DependencyViolation_.
+**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _DependencyViolation_.
 
 ## <a name="usage-location-isnt-allowed"></a>L’emplacement d’utilisation n’est pas autorisé
 
-**Problème :** certains services Microsoft ne sont pas disponibles partout en raison de lois et réglementations locales. Avant de pouvoir attribuer une licence à un utilisateur, vous devez spécifier la propriété **Emplacement d’utilisation** pour l’utilisateur. Vous pouvez spécifier l’emplacement sous la section **Utilisateur** > **Profil** > **Paramètres** du portail Azure.
+**Problème :** Certains services Microsoft ne sont pas disponibles partout en raison de lois et réglementations locales. Avant de pouvoir attribuer une licence à un utilisateur, vous devez spécifier la propriété **Emplacement d’utilisation** pour l’utilisateur. Vous pouvez spécifier l’emplacement sous la section **Utilisateur** > **Profil** > **Paramètres** du portail Azure.
 
 Si Azure AD tente d’attribuer une licence de groupe à un utilisateur dont l’emplacement d’utilisation n’est pas pris en charge, il échoue et enregistre une erreur pour cet utilisateur.
 
 Pour résoudre ce problème, retirez du groupe sous licence les utilisateurs associés à des emplacements non pris en charge. Autrement, si les valeurs d’emplacement d’utilisation actuelles ne représentent pas l’emplacement réel des utilisateurs, vous pouvez modifier ceux-ci de sorte que les licences soient attribuées correctement la prochaine fois (à condition que le nouvel emplacement soit pris en charge).
 
-**PowerShell :** les applets de commande PowerShell signalent cette erreur en tant que _ProhibitedInUsageLocationViolation_.
+**PowerShell :** Les applets de commande PowerShell signalent cette erreur comme _ProhibitedInUsageLocationViolation_.
 
 > [!NOTE]
 > Lorsqu’Azure AD attribue des licences de groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement du répertoire. Nous recommandons aux administrateurs de définir des valeurs d’emplacement d’utilisation correctes pour les utilisateurs avant d’utiliser la licence groupée afin de se conformer aux lois et réglementations locales.
@@ -117,6 +117,12 @@ Vous pouvez attribuer plusieurs licences produit à un même groupe. Par exemple
 Azure AD tente d’attribuer toutes les licences spécifiées dans le groupe à chaque utilisateur. Si Azure AD ne peut pas affecter l’un des produits en raison de problèmes liés à la logique métier, il ne pourra pas non plus affecter les autres licences du groupe. Exemple : si le nombre de licences est insuffisant, ou en cas de conflit avec les autres services activés pour l’utilisateur.
 
 Vous pouvez voir les utilisateurs pour lesquels l’attribution a échoué et vérifier les produits concernés.
+
+## <a name="what-happens-when-a-group-with-licenses-assigned-is-deleted"></a>Que se passe-t-il quand un groupe avec des licences attribuées est supprimé ?
+
+Vous devez supprimer toutes les licences attribuées à un groupe pour pouvoir le supprimer. Toutefois, la suppression des licences de tous les utilisateurs dans le groupe peut prendre du temps. La suppression d’attributions de licence d’un groupe peut échouer si l’utilisateur a une licence dépendante attribuée ou en cas de conflit d’adresse proxy qui interdit la suppression de la licence. Si un utilisateur a une licence qui dépend d’une licence en cours de suppression dans le cadre d’une suppression de groupe, l’attribution de licence héritée de l’utilisateur est convertie en attribution directe.
+
+Par exemple, prenons un groupe avec une licence Office 365 E3/E5 attribuée avec un plan de service Skype Entreprise activé. Imaginez que certains membres du groupe ont des licences d’audioconférence attribuées directement. Quand le groupe est supprimé, la gestion des licences attribuées au groupe tente de supprimer Office 365 E3/E5 pour tous les utilisateurs. Comme l’audioconférence dépend de Skype Entreprise, pour tous les utilisateurs bénéficiant de l’audioconférence, la gestion des licences attribuées au groupe convertit les licences Office 365 E3/E5 en attributions de licence directes.
 
 ## <a name="how-do-you-manage-licenses-for-products-with-prerequisites"></a>Comment gérer les licences pour les produits associés à une configuration requise ?
 
@@ -146,8 +152,6 @@ Dorénavant, tout utilisateur ajouté à ce groupe utilise une licence de produi
 
 > [!TIP]
 > Vous pouvez créer plusieurs groupes pour chaque plan de service requis. Par exemple, si vous utilisez Office 365 Enterprise E1 et Office 365 Enterprise E3 pour vos utilisateurs, vous pouvez créer deux groupes pour accorder une licence Microsoft Workplace Analytics : un groupe demandant E1 comme condition préalable et un autre demandant E3. Cela vous permettra de distribuer le module complémentaire aux utilisateurs de E1 et de E3 sans consommer de licences supplémentaires.
-
-
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>Comment faire pour forcer le traitement des licences dans un groupe afin de résoudre les erreurs ?
 

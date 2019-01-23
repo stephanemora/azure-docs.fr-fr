@@ -8,35 +8,30 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 4847d9ce551c9acf1e4fb6325c770187b2cfd89f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2bdcd4c504822a2e60156b0ac565465e0cf23a85
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052289"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358522"
 ---
 # <a name="use-habitat-to-deploy-your-application-to-azure"></a>Utiliser Habitat pour déployer rapidement votre application dans Azure
-[Habitat](https://www.habitat.sh/) est un tout nouveau type de projet open source, qui offre une approche entièrement nouvelle de la gestion des applications. Avec Habitat, l’application et son automatisation constituent l’unité de déploiement. Lorsque les applications sont wrappées dans un « habitat » léger, l’environnement d’exécution, qu’il s’agisse d’un conteneur, d’un système nu ou d’un système PaaS, n’est plus au centre du processus et ne contraint donc plus l’application. 
+[Habitat](https://www.habitat.sh/) est un système d’empaquetage et d’exécution d’application qui regroupe l’application et son automatisation en tant qu’unité de déploiement. Cela optimise la portabilité de l’application, qui peut ainsi être déployée sur des conteneurs, des machines virtuelles, des systèmes nus ou PaaS, sans réécriture ou réempaquetage.
 
-Cet article décrit les avantages que présente l’utilisation d’Habitat.
+Cet article décrit les principaux avantages que présente l’utilisation d’Habitat.
 
-## <a name="support-for-the-modern-application"></a>Prise en charge des applications modernes
-Les packages Habitat comprennent tout ce dont une application a besoin pour s’exécuter tout au long de son cycle de vie. Les principaux composants d’Habitat sont les suivants :
-- Format du package : les applications d’un package Habitat sont atomiques, immuables et auditables.
-- Le superviseur Habitat exécute les packages d’applications en connaissant les relations homologues, la stratégie de mise à niveau et les stratégies de sécurité des packages. Le superviseur Habitat configure et gère l’application, quel que soit l’environnement.
-- L’écosystème Habitat fournit également un service de génération qui prend un plan de génération Habitat, crée le package Habitat, puis le publie dans un dépôt.
+## <a name="modernize-and-move-legacy-applications"></a>Moderniser et déplacer des applications existantes
+Libérez les applications existantes des anciens systèmes d’exploitation et des intergiciels (middlewares) en les réempaquetant avec Habitat. L’artefact qui en résulte est portable, et peut facilement changer de plateforme et basculer vers une infrastructure plus récente telle que des machines virtuelles ou des conteneurs en cours d’exécution dans le cloud.
+
+## <a name="accelerate-container-adoption"></a>Accélérer l’adoption des conteneurs
+Habitat résout le déploiement continu d’applications complexes et orientées microservices en représentant avec précision les dépendances du runtime. Allez au-delà du simple déploiement bleu/vert des composants individuels, et concevez des architectures de comportement de déploiement sophistiquées sans avoir à générer de flux d’orchestration complexe.
 
 ## <a name="run-any-application-anywhere"></a>Exécuter n’importe quelle application dans n’importe quel environnement
-Avec Habitat, les applications peuvent s’exécuter dans n’importe quel environnement d’exécution, sans nécessiter de modifications. L’application peut être de n’importe quel type, du système nu aux machines virtuelles, en passant par les conteneurs (comme Docker), les systèmes de gestion de cluster (comme Mesosphere ou Kubernetes) et les systèmes PaaS (comme Pivotal Cloud Foundry).
-
-## <a name="easily-port-legacy-applications"></a>Porter facilement les applications héritées
-Lorsque les applications héritées sont wrappées dans un package Habitat, elles sont indépendantes de l’environnement pour lequel elles ont été conçues à l’origine. Les packages peuvent être rapidement déplacés vers des environnements plus modernes, tels que le cloud ou des conteneurs. En outre, étant donné que les packages Habitat ont une interface standard, tournée vers l’extérieur, les applications héritées deviennent beaucoup plus faciles à gérer.
-
-## <a name="improve-the-container-experience"></a>Améliorer l’utilisation des conteneurs
-Habitat simplifie la gestion des conteneurs dans les environnements de production. En automatisant la configuration des applications dans un conteneur, Habitat facilite la tâche des développeurs qui doivent déplacer des applications basées sur un conteneur entre un environnement de développement et un environnement de production.
+Avec Habitat, les applications peuvent s’exécuter dans n’importe quel environnement d’exécution, sans nécessiter de modifications. Cela inclut tous les types d’environnements, du système nu aux machines virtuelles, en passant par les conteneurs (tels que Docker), les systèmes de gestion de cluster (comme Mesosphere ou Kubernetes) et les systèmes PaaS (comme Pivotal Cloud Foundry).
 
 ## <a name="integrate-into-the-chef-devops-workflow"></a>Intégration au flux de travail Chef DevOps
-Le projet Habitat est financé par Chef. Habitat s’appuie sur l’expérience de Chef concernant l’automatisation d’infrastructure afin d’ajouter des fonctionnalités d’automatisation inédites aux applications. Chef proposera une prise en charge dans le cadre d’une utilisation commerciale pour Habitat, et garantira une intégration homogène entre Habitat et Chef Delivery afin d’automatiser le cycle de publication des applications, du développement jusqu’au déploiement.
+Le projet Habitat fait partie d’un projet open source de Chef Software, avec une forte communauté de support. Habitat s’appuie sur l’expérience de Chef concernant l’automatisation d’infrastructure afin d’ajouter des fonctionnalités d’automatisation inédites aux applications. Chef propose une prise en charge commerciale pour Habitat et une intégration fluide entre Habitat et Chef Automate afin d’automatiser entièrement le cycle de publication des applications, du développement jusqu’au déploiement.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Créer une machine virtuelle Windows dans Azure avec Chef](/azure/virtual-machines/windows/chef-automation)
+
+* [Essayez Habitat](https://www.habitat.sh/learn/)

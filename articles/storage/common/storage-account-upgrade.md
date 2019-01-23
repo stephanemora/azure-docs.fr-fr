@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: tamram
-ms.openlocfilehash: 7f97b72dc7b3456488d97009bde590b0e29918e6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 500d5217a35cdc569964195558b6e4a2c023c614
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631429"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352136"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Mettre à niveau vers un compte de stockage v2 à usage général
 
@@ -21,7 +21,8 @@ Les comptes de stockage v2 à usage général prennent en charge les dernières 
 La mise à niveau vers un compte de stockage v2 à usage général à partir d’un compte de stockage v1 à usage général ou d’un compte de stockage d’objets blob est une opération très simple. Pour ce faire, vous pouvez utiliser le Portail Azure, PowerShell ou Azure CLI. 
 
 > [!NOTE]
-> La modification du niveau de stockage peut entraîner des frais supplémentaires. Pour plus d’informations, consultez la section [Tarification et facturation](#pricing-and-billing).
+> La mise à niveau de votre compte de stockage vers un compte v2 universel est gratuite.
+> La modification du niveau d’accès de stockage peut entraîner des modifications de facturation. Pour plus d’informations, consultez la section [Tarification et facturation](#pricing-and-billing).
 
 ## <a name="upgrade-using-the-azure-portal"></a>Mise à niveau à l’aide du Portail Azure
 
@@ -62,8 +63,8 @@ Les niveaux d’accès vous permettent de choisir la solution de stockage la plu
 
 Par défaut, un compte de stockage est créé dans le niveau d’accès chaud, et un compte de stockage Usage général v1 est mis à niveau vers le niveau d’accès chaud. Si vous cherchez à déterminer le niveau d’accès à utiliser suite à la mise à niveau des données, examinez votre scénario. Les utilisateurs se trouvent généralement face à deux scénarios lors de la migration vers un compte v2 à usage général :
 
-* Vous disposez d’un compte de stockage v1 à usage général et envisagez de passer à un compte de stockage v2 à usage général, accompagné du niveau de stockage adapté pour les données blob.
-* Vous souhaitez utiliser un compte de stockage Usage général v2 ou vous disposez déjà d’un tel compte et souhaitez savoir si vous devez utiliser le niveau de stockage chaud ou froid pour les données d’objet blob.
+* Vous disposez d’un compte de stockage v1 universel et envisagez de passer à un compte de stockage v2 universel, assorti du niveau d’accès de stockage adapté aux données blob.
+* Vous avez décidé d’utiliser un compte de stockage v2 universel ou vous disposez déjà d’un tel compte et souhaitez savoir si vous devez utiliser le niveau d’accès de stockage chaud ou froid pour les données blob.
 
 Dans les deux cas, la priorité est d’estimer les coûts de stockage, d’exploitation des données stockées dans un compte de stockage v2 à usage général et d’accès à celles-ci pour les comparer avec vos frais actuels.
 
@@ -71,9 +72,9 @@ Dans les deux cas, la priorité est d’estimer les coûts de stockage, d’expl
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 Tous les comptes de stockage utilisent un modèle de tarification pour le stockage d’objets blob basé sur le niveau de chaque objet blob. Les considérations de facturation suivantes s’appliquent à l’utilisation des comptes de stockage :
 
-* **Coûts de stockage** : les coûts de stockage de données varient en fonction de la quantité de données stockées et du niveau de stockage. Le coût par gigaoctet diminue à mesure que le niveau refroidit.
+* **Coûts de stockage** : Les coûts de stockage des données varient en fonction de la quantité de données stockées et du niveau d’accès de stockage. Le coût par gigaoctet diminue à mesure que le niveau refroidit.
 
-* **Coûts d’accès aux données** : les frais d’accès aux données augmentent à mesure que le niveau refroidit. Pour les données des niveaux de stockage froid et archive, des frais d’accès aux données en lecture vous sont facturés par gigaoctet.
+* **Coûts d’accès aux données** : les frais d’accès aux données augmentent à mesure que le niveau refroidit. Pour les données des niveaux d’accès de stockage froid et archive, des frais d’accès aux données en lecture vous sont facturés par gigaoctet.
 
 * **Coûts de transaction** : il existe des frais par transaction pour tous les niveaux, augmentant à mesure que le niveau refroidit.
 
@@ -81,7 +82,7 @@ Tous les comptes de stockage utilisent un modèle de tarification pour le stocka
 
 * **Coûts de transfert de données sortantes** : les transferts de données sortantes (données transférées hors d’une région Azure) sont facturés pour l’utilisation de la bande passante par gigaoctet. Cette facturation est cohérente avec les comptes de stockage à usage général.
 
-* **Modification du niveau de stockage** : passer d’un niveau de stockage de compte froid à un niveau de stockage chaud implique des frais correspondant à la lecture de toutes les données existantes du compte de stockage. Toutefois, la modification du niveau de stockage de compte chaud vers un niveau de stockage froid induit des frais équivalents à l’écriture de toutes les données dans le niveau froid (comptes GPv2 uniquement).
+* **Modification du niveau d’accès de stockage** : Le passage du niveau d’accès de stockage froid au niveau d’accès de stockage chaud implique des frais correspondant à la lecture de toutes les données existant dans le compte de stockage. Par ailleurs, le passage du niveau d’accès de stockage chaud au niveau d’accès de stockage froid implique des frais correspondant à l’écriture de toutes les données dans le niveau froid (comptes GPv2 uniquement).
 
 > [!NOTE]
 > Pour plus d’informations sur le modèle de tarification des comptes de stockage, consultez la page [Tarification du stockage Azure](https://azure.microsoft.com/pricing/details/storage/). Pour plus d’informations sur les frais de transfert de données sortantes, consultez la page [Détails de la tarification – Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/).
@@ -156,7 +157,7 @@ Pour estimer les coûts d’accès aux données pour les comptes de stockage d�
 Le coût de transfert de données de géoréplication des comptes de stockage d’objets blob peut également être calculé en estimant la quantité de données écrites lors de l’utilisation d’un compte de stockage GRS ou RA-GRS.
 
 > [!NOTE]
-> Pour un exemple plus détaillé de calcul des coûts d’un niveau de stockage chaud ou froid, consultez l’article *« Que sont les niveaux Froid et Chaud et comment savoir lequel utiliser ? »* sur la [page relative à la tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+> Pour obtenir un exemple plus détaillé de calcul des coûts de l’utilisation du niveau d’accès de stockage chaud ou froid, consultez l’article *« Que sont les niveaux Froid et Chaud et comment savoir lequel utiliser ? »* sur la [page relative à la tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

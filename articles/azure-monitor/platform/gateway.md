@@ -11,20 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 01/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 5236cff7a4afe508a8e11c6d75484fcdc9d43f91
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 551e7c0ca3b4b5e0e94aca39e19d9a35d08e4e05
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194230"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353037"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Connecter des ordinateurs sans accès Internet à l’aide de la passerelle Log Analytics
 Ce document décrit comment configurer la communication avec Azure Automation et Log Analytics à l’aide de la passerelle Log Analytics lorsqu’elle est directement connectée ou lorsque les ordinateurs analysés Operations Manager n’ont pas accès à Internet.  La passerelle Log Analytics, qui est un proxy de transfert HTP prenant en charge le tunneling HTTP à l’aide de la commande HTTP CONNECT, peut collecter des données et les envoyer à Azure Automation et Log Analytics en son nom.  
 
 La passerelle Log Analytics prend en charge ce qui suit :
 
+* L’envoi de rapports aux quatre même agents d’espaces de travail Log Analytics derrière configurés avec elle  
 * Runbooks Workers hybrides Azure Automation  
 * Ordinateurs Windows avec Microsoft Monitoring Agent directement connecté à un espace de travail Log Analytics
 * Ordinateurs Linux avec agent Log Analytics pour Linux directement connecté à un espace de travail Log Analytics  
@@ -32,15 +33,15 @@ La passerelle Log Analytics prend en charge ce qui suit :
 
 Si vos stratégies de sécurité informatique ne permettent pas aux ordinateurs de votre réseau de se connecter à Internet, comme des appareils de point de vente (PDV) ou des serveurs prenant en charge des services informatiques, mais que vous devez les connecter à Azure Automation ou Log Analytics pour les gérer et les surveiller, ils peuvent être configurés pour communiquer directement avec la passerelle Log Analytics pour recevoir la configuration et faire suivre les données en leur nom.  Si ces ordinateurs sont configurés avec l’agent Log Analytics pour se connecter directement à un espace de travail Log Analytics, tous les ordinateurs communiqueront plutôt avec la passerelle Log Analytics.  La passerelle transfère directement les données des agents au service. Elle n’analyse aucune des données en transit.
 
-Lorsqu’un groupe d’administration Operations Manager est intégré à Log Analytics, les serveurs d’administration peuvent être configurés pour se connecter à la passerelle Log Analytics pour recevoir des informations de configuration et envoyer les données collectées en fonction de la solution que vous avez activée.  Les agents Operations Manager envoient certaines données liées à Operations Manager, telles que des alertes, évaluations de la configuration, espaces d’instance et données de capacité au serveur d’administration. D’autres données volumineuses, telles que les journaux IIS, les données de performances et les événements de sécurité, sont envoyées directement à la passerelle Log Analytics.  Si vous avez un ou plusieurs serveurs de passerelle Operations Manager déployés dans une zone DMZ ou un autre réseau isolé pour analyser les systèmes non fiables, ils ne peuvent pas communiquer avec une passerelle Log Analytics.  Les serveurs de passerelle Operations Manager peuvent uniquement générer des rapports sur un serveur d’administration.  Lorsqu’un groupe d’administration Operations Manager est configuré pour communiquer avec la passerelle Log Analytics, les informations de configuration de proxy sont automatiquement distribuées à tous les ordinateurs gérés par agent qui sont configurés pour collecter des données pour Log Analytics, même si le paramètre est vide.    
+Lorsqu’un groupe d’administration Operations Manager est intégré à Log Analytics, les serveurs d’administration peuvent être configurés pour se connecter à la passerelle Log Analytics pour recevoir des informations de configuration et envoyer les données collectées en fonction de la solution que vous avez activée.  Les agents Operations Manager envoient certaines données liées à Operations Manager, telles que des alertes, évaluations de la configuration, espaces d’instance et données de capacité au serveur d’administration. D’autres données volumineuses, telles que les journaux IIS, les données de performances et les événements de sécurité, sont envoyées directement à la passerelle Log Analytics.  Si vous avez un ou plusieurs serveurs de passerelle Operations Manager déployés dans une zone DMZ ou un autre réseau isolé pour superviser des systèmes non fiables, ils ne peuvent pas communiquer avec une passerelle Log Analytics.  Les serveurs de passerelle Operations Manager peuvent uniquement générer des rapports sur un serveur d’administration.  Lorsqu’un groupe d’administration Operations Manager est configuré pour communiquer avec la passerelle Log Analytics, les informations de configuration de proxy sont automatiquement distribuées à tous les ordinateurs gérés par agent qui sont configurés pour collecter des données pour Log Analytics, même si le paramètre est vide.    
 
 Pour fournir une haute disponibilité pour les groupes directement connectés ou Operations Management qui communiquent avec Log Analytics via la passerelle, vous pouvez utiliser l’équilibrage de charge au niveau du réseau pour rediriger et distribuer le trafic entre plusieurs serveurs de passerelle.  Si un serveur de passerelle tombe en panne, le trafic est redirigé vers un autre nœud disponible.  
 
-L’agent Log Analytics est requis sur l’ordinateur exécutant la passerelle Log Analytics afin qu’il puisse identifier les points de terminaison du service dont il a besoin pour la communication et surveiller la passerelle Log Analytics pour analyser ses performances ou données d’événement.
+L’agent Windows Log Analytics est nécessaire sur l’ordinateur exécutant la passerelle Log Analytics, afin non seulement d’identifier les points de terminaison de service avec lesquels il a besoin de communiquer, mais également de rendre compte aux mêmes espaces de travail avec lesquels sont configurés les agents ou le groupe d’administration Operations Manager situés derrière la passerelle. Cela est nécessaire afin que la passerelle les autorise à communiquer avec leur espace de travail attribué. Une passerelle peut être multirésidente sur quatre espaces de travail au plus, car il s’agit de la quantité maximale d’espaces de travail prise en charge par un agent Windows.  
 
-Chaque agent doit disposer d’une connexion réseau avec sa passerelle, afin que les agents puissent automatiquement transférer des données vers la passerelle et recevoir des données de cette dernière. L’installation de la passerelle sur un contrôleur de domaine n’est pas recommandée.
+Chaque agent doit disposer d’une connectivité réseau avec la passerelle, afin que les agents puissent transférer automatiquement des données vers et à partir de celle-ci. L’installation de la passerelle sur un contrôleur de domaine n’est pas recommandée.
 
-Le diagramme suivant affiche le flux de données entre les agents directs et Azure Automation avec Log Analytics utilisant le serveur de passerelle.  La configuration de proxy des agents doit correspondre au même port que celui sur lequel la passerelle Log Analytics est configurée pour communiquer avec le service.  
+Le diagramme suivant affiche le flux de données entre les agents directs et Azure Automation avec Log Analytics utilisant le serveur de passerelle. La configuration de proxy des agents doit correspondre au même port que celui avec lequel la passerelle Log Analytics est configurée.  
 
 ![diagramme de communication directe entre l’agent et les services](./media/gateway/oms-omsgateway-agentdirectconnect.png)
 
@@ -56,7 +57,7 @@ Lorsque vous configurez un ordinateur pour qu’il s’exécute sur la passerell
 * Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 et Windows Server 2008
 * .NET Framework 4.5
 * Au minimum un processeur 4 cœurs et 8 Go de mémoire 
-* Agent Log Analytics pour Windows 
+* [L’agent Log Analytics pour Windows](agent-windows.md) est installé et configuré pour rendre compte au même espace de travail que les agents communiquant par le biais de la passerelle.  
 
 ### <a name="language-availability"></a>Langues disponibles
 
@@ -66,8 +67,8 @@ La passerelle Log Analytics est disponible dans les langues suivantes :
 - Chinois (traditionnel)
 - Tchèque
 - Néerlandais
-- Français
-- Français
+- Anglais
+- Anglais
 - Allemand
 - Hongrois
 - Italien
@@ -83,12 +84,12 @@ La passerelle Log Analytics est disponible dans les langues suivantes :
 La passerelle Log Analytics prend uniquement en charge le protocole TLS version 1.0, 1.1 et 1.2.  Elle ne prend pas en charge le protocole SSL.  Pour garantir la sécurité des données en transit vers Log Analytics, nous vous encourageons vivement à configurer la passerelle de façon à utiliser au moins Transport Layer Security (TLS) 1.2. Les versions antérieures de TLS/SSL (Secure Sockets Layer) se sont avérées vulnérables et bien qu’elles fonctionnent encore pour assurer la compatibilité descendante, elles sont **déconseillées**.  Pour plus d’informations, passez en revue [Envoi sécurisé de données via TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Nombre de connexion d’agent prises en charge
-Le tableau suivant met en lumière le nombre d’agents pris en charge qui communiquent avec un serveur de passerelle.  Cette prise en charge est basée sur des agents qui chargent environ 200 Ko de données toutes les 6 secondes. Le volume de données par agent testé est d’environ 2,7 Go par jour.
+Le tableau suivant met en lumière le nombre d’agents pris en charge qui communiquent avec un serveur de passerelle.  Cette prise en charge est basée sur des agents qui chargent environ 200 Ko de données toutes les six secondes. Le volume de données par agent testé est d’environ 2,7 Go par jour.
 
 |Passerelle |Nombre approximatif d’agents pris en charge|  
 |--------|----------------------------------|  
-|- Processeur : Intel XEON CPU E5-2660 v3 \@ 2,6 GHz 2 cœurs<br> - Mémoire : 4 Go<br> - Bande passante réseau : 1 Gbit/s| 600|  
-|- Processeur : Intel XEON CPU E5-2660 v3 \@ 2,6 GHz 4 cœurs<br> - Mémoire : 8 Go<br> - Bande passante réseau : 1 Gbit/s| 1 000|  
+|- Processeur : Intel XEON CPU E5-2660 v3 \@ 2,6 GHz deux cœurs<br> - Mémoire : 4 Go<br> - Bande passante réseau : 1 Gbit/s| 600|  
+|- Processeur : Intel XEON CPU E5-2660 v3 \@ 2,6 GHz quatre cœurs<br> - Mémoire : 8 Go<br> - Bande passante réseau : 1 Gbit/s| 1 000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>Téléchargement de la passerelle Log Analytics
 
@@ -124,7 +125,8 @@ Pour installer une passerelle, procédez comme suit.  Si vous avez installé une
 1. Si vous n’avez pas activé Microsoft Update, la page Microsoft Update s’affiche, et vous pouvez choisir de l’activer. Effectuez une sélection, puis cliquez sur **Suivant**. Sinon, passez à l’étape suivante.
 1. Dans la page **Dossier de destination**, conservez le dossier par défaut C:\Program Files\OMS Gateway ou entrez l’emplacement où vous voulez installer la passerelle, puis cliquez sur **Suivant**.
 1. Dans la page **Prêt pour l’installation**, cliquez sur **Installer**. Un contrôle de compte utilisateur peut apparaître et demander une autorisation d’installation. Dans ce cas, cliquez sur **Oui**.
-1. Une fois l’installation terminée, cliquez sur **Terminer**. Vous pouvez vérifier que le service est en cours d’exécution en ouvrant le composant logiciel enfichable services.msc et en vérifiant que **Passerelle Log Analytics** apparaît dans la liste des services et que son statut est défini sur **Exécution en cours**.<br><br> ![Services : passerelle Log Analytics](./media/gateway/gateway-service.png)  
+1. Une fois l’installation terminée, cliquez sur **Terminer**. Vous pouvez vérifier que le service est en cours d’exécution en ouvrant le composant logiciel enfichable services.msc et en vérifiant que **Passerelle OMS** apparaît dans la liste des services et que son statut est défini sur **Exécution en cours**.<br><br> ![Services : passerelle Log Analytics](./media/gateway/gateway-service.png)  
+
 
 ## <a name="configure-network-load-balancing"></a>Configuration de l’équilibrage de la charge réseau 
 Vous pouvez configurer la passerelle pour la haute disponibilité à l’aide de l’équilibrage de charge réseau Microsoft ou basé sur le matériel.  L’équilibreur de charge gère le trafic en redirigeant les connexions demandées à partir des agents Log Analytics ou des serveurs d’administration Operations Manager sur ses nœuds. Si un serveur de passerelle tombe en panne, le trafic est redirigé vers d’autres nœuds.
@@ -140,7 +142,11 @@ Pour apprendre à concevoir et déployer un cluster d’équilibrage de charge r
 La section suivante contient des étapes expliquant la configuration d’agents Log Analytics connectés directement, d’un groupe d’administration Operations Manager ou Runbook Worker hybride Azure Automation avec la passerelle Log Analytics pour communiquer avec Azure Automation ou Log Analytics.  
 
 ### <a name="configure-standalone-log-analytics-agent"></a>Configuration d’un agent Log Analytics autonome
-Pour comprendre les exigences et la procédure à suivre pour installer l’agent Log Analytics sur des ordinateurs Windows connectés directement à Log Analytics, consultez [Connecter des ordinateurs Windows à Log Analytics](agent-windows.md) ou pour les ordinateurs Linux, consultez [Connecter des ordinateurs Linux à Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md). Au lieu de spécifier un serveur proxy lors de la configuration de l’agent, vous remplacez cette valeur par l’adresse IP du serveur de passerelle Log Analytics et son numéro de port.  Si vous avez déployé plusieurs serveurs de passerelle derrière un équilibreur de charge réseau, la configuration de proxy de l’agent Log Analytics est l’adresse IP virtuelle de l’équilibreur de charge réseau.  
+Pour comprendre les exigences et la procédure à suivre pour installer l’agent Log Analytics sur la passerelle et sur les ordinateurs Windows connectés directement à Log Analytics, consultez [Connecter des ordinateurs Windows à Log Analytics](agent-windows.md) ou, pour les ordinateurs Linux, consultez [Connecter des ordinateurs Linux à Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md). Au lieu de spécifier un serveur proxy lors de la configuration de l’agent, vous remplacez cette valeur par l’adresse IP du serveur de passerelle Log Analytics et son numéro de port. Si vous avez déployé plusieurs serveurs de passerelle derrière un équilibreur de charge réseau, la configuration de proxy de l’agent Log Analytics est l’adresse IP virtuelle de l’équilibreur de charge réseau.  
+
+Après avoir installé l’agent sur le serveur de passerelle, vous pouvez le configurer pour qu’il rende compte à l’espace de travail ou aux agents d’espaces de travail communiquant avec la passerelle. Si l’agent Windows Log Analytics n’est pas installé sur la passerelle, l’événement 300 est écrit dans le journal des événements de la **Passerelle OMS** pour signaler que l’agent doit être installé. Si l’agent est installé mais pas configuré pour rendre compte au même espace de travail que les agents communiquant par son intermédiaire, l’événement 105 est écrit dans le même journal des événements pour signaler que l’agent sur la passerelle doit être configuré pour rendre compte au même espace de travail que les agents communiquant avec la passerelle.
+
+Une fois la configuration terminée, vous devez redémarrer le service **Passerelle OMS** pour que les modifications entrent en vigueur. Autrement, la passerelle rejettera les agents tentant de communiquer avec Log Analytics et enregistrera l’ID d’événement 105 dans le journal des événements de la **Passerelle OMS**. Cela s’applique également quand vous ajoutez ou supprimez un espace de travail dans la configuration de l’agent sur le serveur de passerelle.   
 
 Pour plus d’informations relatives au traitement de Runbook Worker hybride Automation, consultez [Déployer Runbook Worker hybride](../../automation/automation-hybrid-runbook-worker.md).
 
@@ -149,18 +155,20 @@ Vous configurez Operations Manager pour ajouter le serveur de passerelle.  La c
 
 Pour que la passerelle prenne en charge Operations Manager, vous devez disposer des éléments suivants :
 
-* Microsoft Monitoring Agent (version de l’agent : **8.0.10900.0** ou version ultérieure) installé sur le serveur de passerelle et configuré pour des espaces de travail Log Analytics avec lequel vous voulez communiquer.
+* Microsoft Monitoring Agent (version de l’agent – **8.0.10900.0** ou ultérieure) installé sur le serveur de passerelle et configuré avec les mêmes espaces de travail Log Analytics que ceux auxquels votre groupe d’administration est configuré pour rendre compte.
 * La passerelle doit disposer d’une connectivité Internet, ou être connectée à un serveur proxy connecté à Internet.
 
 > [!NOTE]
 > Si vous ne spécifiez pas de valeur pour la passerelle, les valeurs vides sont transférées à tous les agents.
 > 
 
-S’il s’agit de la première fois que votre groupe d’administration Operations Manager est inscrit sur un espace de travail Log Analytics, l’option pour spécifier la configuration du proxy pour le groupe d’administration n’est pas disponible dans la console Opérations.  Le groupe d’administration doit être correctement inscrit auprès du service avant que cette option soit disponible.  Vous devez mettre à jour la configuration du proxy système à l’aide de Netsh sur le système à partir duquel vous exécutez la console Opérations pour configurer l’intégration et tous les serveurs d’administration du groupe d’administration.  
+S’il s’agit de la première fois que votre groupe d’administration Operations Manager s’inscrit auprès d’un espace de travail Log Analytics, l’option permettant de spécifier la configuration du proxy pour le groupe d’administration n’est pas disponible dans la console Opérations.  Le groupe d’administration doit être correctement inscrit auprès du service avant que cette option soit disponible.  Mettez à jour la configuration du proxy système à l’aide de Netsh sur le système à partir duquel vous exécutez la console Opérations, afin de configurer l’intégration et tous les serveurs d’administration du groupe d’administration.  
 
 1. Ouvrez une invite de commande avec élévation de privilèges.
-   a. Allez à **Démarrer** et entrez **cmd**.
-   b. Cliquez avec le bouton de droite sur **Invite de commande** et sélectionnez Exécuter en tant qu’administrateur**.
+
+    a. Allez à **Démarrer** et entrez **cmd**.  
+    b. Cliquez avec le bouton droit sur **Invite de commandes** et sélectionnez **Exécuter en tant qu’administrateur**.  
+
 1. Saisissez la commande suivante, puis appuyez sur **Entrée** :
 
     `netsh winhttp set proxy <proxy>:<port>`

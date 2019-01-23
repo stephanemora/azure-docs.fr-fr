@@ -4,14 +4,14 @@ description: Répond aux questions fréquemment posées sur Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 787e3f53cb75b33b03c29b61b319270fdf7a63ca
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2efa450b6b0cfa299370df3941224f4f64e91b4b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975472"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230762"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Forum aux questions
 
@@ -53,6 +53,7 @@ Azure Migrate prend actuellement en charge l’Europe, les États-Unis et Azure 
 **Zone géographique** | **Emplacement de stockage des métadonnées**
 --- | ---
 Azure Government | Gouvernement américain - Virginie
+Asie | Asie Sud-Est
 Europe | Europe Nord ou Europe Ouest
 États-Unis | USA Est ou USA Centre-Ouest
 
@@ -63,6 +64,17 @@ La connexion peut se faire via Internet, ou en utilisant ExpressRoute avec peeri
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Puis-je renforcer la machine virtuelle configurée avec le modèle OVA ?
 
 Des composants supplémentaires (par exemple, des antivirus) peuvent être ajoutés au modèle OVA tant que les règles de communication et de pare-feu requises pour que l’appliance Azure Migrate fonctionne ne sont pas modifiées.   
+
+### <a name="to-harden-the-azure-migrate-appliance-what-are-the-recommended-antivirus-av-exclusions"></a>Pour renforcer l’appliance Azure Migrate, quelles sont les exclusions d’antivirus recommandées ?
+
+Vous devez exclure les dossiers de l’appliance suivants pour l’analyse antivirus :
+
+- Dossier contenant les fichiers binaires du service Azure Migrate. Exclure tous les sous-dossiers.
+  %ProgramFiles%\ProfilerService  
+- Application web Azure Migrate. Exclure tous les sous-dossiers.
+  %SystemDrive%\inetpub\wwwroot
+- Cache local pour la base de données et les fichiers journaux. Le service Azure Migrate nécessite un accès en lecture/écriture pour ce dossier.
+  %SystemDrive%\Profiler
 
 ## <a name="discovery"></a>Découverte
 
@@ -136,6 +148,7 @@ Si vous avez un environnement qui est partagé entre des locataires et que vous 
 
 Vous pouvez découvrir 1 500 machines virtuelles dans un même projet de migration. Si vous avez plus de machines que cela dans votre environnement local, [consultez cette section ](how-to-scale-assessment.md) pour obtenir des informations sur la façon dont vous pouvez découvrir un grand environnement dans Azure Migrate.
 
+
 ## <a name="assessment"></a>Évaluation
 
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Azure Migrate prend-il en charge l’estimation de coût basée sur l’Accord Entreprise (EA) ?
@@ -144,6 +157,13 @@ Azure Migrate ne prend actuellement pas en charge les estimation de coût pour l
 
   ![Remise](./media/resources-faq/discount.png)
 
+### <a name="what-is-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>Quelle différence y a-t-il entre le dimensionnement local et le dimensionnement basé sur les performances ?
+
+Lorsque vous spécifiez le critère de dimensionnement sur le dimensionnement local, Azure Migrate ne tient pas compte des données de performances des machines virtuelles et dimensionne ces machines virtuelles en fonction de la configuration locale. Si le critère de dimensionnement est basé sur les performances, le dimensionnement est effectué en fonction des données d’utilisation. Par exemple, s’il existe une machine virtuelle locale avec 4 cœurs et 8 Go de mémoire, présentant 50 % d’utilisation du processeur et 50 % d’utilisation de la mémoire. Si le critère de dimensionnement est défini localement, il est recommandé d’utiliser une référence SKU de machine virtuelle Azure avec 4 cœurs et 8 Go de mémoire. Cependant, si le critère de dimensionnement est défini en fonction des performances, il est recommandé d’utiliser une référence SKU de machine virtuelle avec 2 cœurs et 4 Go de mémoire, car le pourcentage d’utilisation est pris en compte lors de la recommandation de la taille. De même, pour les disques, le dimensionnement de disque dépend de deux propriétés d’évaluation : le critère de dimensionnement et le type de stockage. Si le critère de dimensionnement est défini en fonction des performances et que le type de stockage est automatique, les IOPS et les valeurs de débit du disque sont prises en compte pour identifier le type de disque cible (Standard ou Premium). Si le critère de dimensionnement est défini en fonction des performances tandis que le type de stockage est Premium, il est recommandé d’utiliser un disque Premium, la référence SKU du disque Premium dans Azure est sélectionnée en fonction de la taille du disque local. La même logique est utilisée pour effectuer le dimensionnement du disque lorsque le critère de dimensionnement est défini localement et que le type de stockage est Standard ou Premium.
+
+### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>Quel est l’impact de l’utilisation de l’historique des performances et des centiles sur les suggestions de taille ?
+
+Ces propriétés sont uniquement applicables pour le dimensionnement en fonction des performances. Azure Migrate collecte l’historique des performances des machines locales et l’utilise pour recommander la taille de la machine virtuelle et le type de disque dans Azure. L’appliance collecteur profile en continu l’environnement local pour collecter les données d’utilisation en temps réel toutes les 20 secondes. L’appliance cumule les échantillons de 20 secondes et crée un point de données unique toutes les 15 minutes. Pour créer le point de données unique, l’appliance sélectionne la valeur maximale de tous les échantillons de 20 secondes, puis l’envoie à Azure. Lorsque vous créez une évaluation dans Azure, en fonction de la durée des performances et de la valeur de centile de l’historique des performances, Azure Migrate calcule la meilleure valeur d’utilisation et l’utilise pour le dimensionnement. Par exemple, si vous avez défini la durée des performances à 1 jour et la valeur de centile à 95 centiles, Azure Migrate utilise des points d’échantillonnage de 15 minutes envoyés par le collecteur pour le dernier jour, les trie dans l’ordre croissant et récupère la valeur du 95e centile en tant que meilleure valeur d’utilisation. Le 95e centile permet de s’assurer que vous ignorez les aberrations, celles-ci pouvant apparaître si vous choisissez le 99e centile. Si vous désirez choisir l’utilisation maximale de la période et que vous ne souhaitez pas manquer les aberrations, vous devriez sélectionner le 99e centile.
 
 ## <a name="dependency-visualization"></a>Visualisation de dépendance
 

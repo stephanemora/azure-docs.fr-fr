@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 4/12/2018
+ms.date: 1/16/2019
 ms.author: dukek
 ms.component: logs
-ms.openlocfilehash: 64b92a758d3d5f713b58a5e310a897ac1f11024d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d5e57442a163c8a93adc39517285bd88affab2fe
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714829"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353054"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
 Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cet article décrit le schéma d’événements par catégorie de données. Le schéma des données varie selon que vous lisez les données dans le portail, dans PowerShell, dans l’interface CLI, ou directement dans l’API REST, au lieu de [diffuser en continu les données vers le stockage ou vers des Event Hubs à l’aide d’un profil de journal](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Les exemples ci-dessous montrent le schéma, tel qu’il se présente dans le portail, PowerShell, l’interface CLI et l’API REST. Un mappage de ces propriétés vers le [schéma des journaux de diagnostic Azure](./tutorial-dashboards.md) est fourni à la fin de cet article.
@@ -648,6 +648,123 @@ Cette catégorie contient l’enregistrement de toutes les nouvelles recommandat
 | properties.recommendationCategory | Catégorie de la recommandation. Les valeurs possibles sont « High Availability » (Haute disponibilité), « Performance », « Security » (Sécurité) et « Cost » (Coût) |
 | properties.recommendationImpact| Impact de la recommandation. Les valeurs possibles sont « High » (Élevé), « Medium » (Moyen) ou « Low » (Bas) |
 | properties.recommendationRisk| Risque de la recommandation. Les valeurs possibles sont « Error » (Erreur), « Warning » (Avertissement) et « None » (Aucun). |
+
+## <a name="policy"></a>Stratégie
+
+Cette catégorie contient les enregistrements de toutes les opérations d’action à effet effectuées par [Azure Policy](../../governance/policy/overview.md). Cette catégorie pourrait par exemple contenir les types d’événements _Audit_ et _Deny_ (Refus). Chaque action effectuée par Policy est modélisée en tant qu’opération sur une ressource.
+
+### <a name="sample-policy-event"></a>Exemple d’événement Azure Policy
+
+```json
+{
+    "authorization": {
+        "action": "Microsoft.Resources/checkPolicyCompliance/read",
+        "scope": "/subscriptions/<subscriptionID>"
+    },
+    "caller": "33a68b9d-63ce-484c-a97e-94aef4c89648",
+    "channels": "Operation",
+    "claims": {
+        "aud": "https://management.azure.com/",
+        "iss": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "iat": "1234567890",
+        "nbf": "1234567890",
+        "exp": "1234567890",
+        "aio": "A3GgTJdwK4vy7Fa7l6DgJC2mI0GX44tML385OpU1Q+z+jaPnFMwB",
+        "appid": "1d78a85d-813d-46f0-b496-dd72f50a3ec0",
+        "appidacr": "2",
+        "http://schemas.microsoft.com/identity/claims/identityprovider": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "f409edeb-4d29-44b5-9763-ee9348ad91bb",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "b-24Jf94A3FH2sHWVIFqO3-RSJEiv24Jnif3gj7s",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "1114444b-7467-4144-a616-e3a5d63e147b",
+        "uti": "IdP3SUJGtkGlt7dDQVRPAA",
+        "ver": "1.0"
+    },
+    "correlationId": "b5768deb-836b-41cc-803e-3f4de2f9e40b",
+    "description": "",
+    "eventDataId": "d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d",
+    "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+    },
+    "category": {
+        "value": "Policy",
+        "localizedValue": "Policy"
+    },
+    "eventTimestamp": "2019-01-15T13:19:56.1227642Z",
+    "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/contososqlpolicy/events/13bbf75f-36d5-4e66-b693-725267ff21ce/ticks/636831551961227642",
+    "level": "Warning",
+    "operationId": "04e575f8-48d0-4c43-a8b3-78c4eb01d287",
+    "operationName": {
+        "value": "Microsoft.Authorization/policies/audit/action",
+        "localizedValue": "Microsoft.Authorization/policies/audit/action"
+    },
+    "resourceGroupName": "myResourceGroup",
+    "resourceProviderName": {
+        "value": "Microsoft.Sql",
+        "localizedValue": "Microsoft SQL"
+    },
+    "resourceType": {
+        "value": "Microsoft.Resources/checkPolicyCompliance",
+        "localizedValue": "Microsoft.Resources/checkPolicyCompliance"
+    },
+    "resourceId": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/contososqlpolicy",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2019-01-15T13:20:17.1077672Z",
+    "subscriptionId": "<subscriptionID>",
+    "properties": {
+        "isComplianceCheck": "True",
+        "resourceLocation": "westus2",
+        "ancestors": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "policies": "[{\"policyDefinitionId\":\"/subscriptions/<subscriptionID>/providers/Microsoft.
+            Authorization/policyDefinitions/5775cdd5-d3d3-47bf-bc55-bb8b61746506/\",\"policyDefiniti
+            onName\":\"5775cdd5-d3d3-47bf-bc55-bb8b61746506\",\"policyDefinitionEffect\":\"Deny\",\"
+            policyAssignmentId\":\"/subscriptions/<subscriptionID>/providers/Microsoft.Authorization
+            /policyAssignments/991a69402a6c484cb0f9b673/\",\"policyAssignmentName\":\"991a69402a6c48
+            4cb0f9b673\",\"policyAssignmentScope\":\"/subscriptions/<subscriptionID>\",\"policyAssig
+            nmentParameters\":{}}]"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="policy-event-property-descriptions"></a>Descriptions des propriétés d’événements Azure Policy
+
+| Nom de l’élément | Description |
+| --- | --- |
+| authorization | Tableau de propriétés RBAC de l’événement. Pour les nouvelles ressources, il s’agit de l’action et de l’étendue de la requête ayant déclenché l’évaluation. Pour les ressources existantes, l’action est « Microsoft.Resources/checkPolicyCompliance/read ». |
+| caller | Pour les nouvelles ressources, il s’agit de l’identité qui a lancé un déploiement. Pour les ressources existantes, il s’agit du GUID du fournisseur de ressources Microsoft Azure Policy Insights. |
+| channels | Les événements Azure Policy utilisent uniquement le canal « Operation ». |
+| claims | Le jeton JWT utilisé par Active Directory pour authentifier l’utilisateur ou l’application afin d’effectuer cette opération dans Resource Manager. |
+| correlationId | Généralement un GUID au format chaîne. Les événements qui partagent un correlationId appartiennent à la même action uber. |
+| description | Ce champ est vide pour les événements Azure Policy. |
+| eventDataId | Identificateur unique d’un événement. |
+| eventName | « BeginRequest » ou « EndRequest ». « BeginRequest » est utilisé pour les évaluations auditIfNotExists et deployIfNotExists retardées, et quand un effet deployIfNotExists démarre un déploiement de modèle. Toutes les autres opérations retournent « EndRequest ». |
+| category | Déclare l’événement de journal d’activité comme appartenant à « Policy ». |
+| eventTimestamp | Horodatage lorsque l’événement a été généré par le service Azure traitant la demande correspondant à l’événement. |
+| id | Identificateur unique de l’événement sur la ressource spécifique. |
+| level | Niveau de l’événement. Audit utilise « Warning » et Deny utilise « Error ». Une erreur auditIfNotExists ou deployIfNotExists peut générer « Warning » ou « Error », en fonction du niveau de gravité. Tous les autres événements Azure Policy utilisent « Informational ». |
+| operationId | Un GUID partagé par les événements correspondant à une opération unique. |
+| operationName | Nom de l’opération, directement en corrélation avec l’effet Azure Policy. |
+| nom_groupe_ressources | Nom du groupe de ressources de la ressource évaluée. |
+| resourceProviderName | Nom du fournisseur de ressources de la ressource évaluée. |
+| resourceType | Pour les nouvelles ressources, il s’agit du type en cours d’évaluation. Pour les ressources existantes, retourne « Microsoft.Resources/checkPolicyCompliance ». |
+| ResourceId | ID de ressource de la ressource évaluée. |
+| status | Chaîne décrivant l’état du résultat de l’évaluation Azure Policy. La plupart des évaluations Azure Policy retournent « Succeeded », mais un effet Deny retourne « Failed ». Les erreurs dans auditIfNotExists ou deployIfNotExists retournent également « Failed ». |
+| subStatus | Ce champ est vide pour les événements Azure Policy. |
+| submissionTimestamp | Horodatage lorsque l’événement est devenu disponible pour l’interrogation. |
+| subscriptionId | ID d’abonnement Azure. |
+| properties.isComplianceCheck | Retourne « False » quand une nouvelle ressource est déployée ou que les propriétés Resource Manager d’une ressource existante sont mises à jour. Tous les autres [déclencheurs d’évaluation](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) génèrent la valeur « True ». |
+| properties.resourceLocation | Région Azure de la ressource en cours d’évaluation. |
+| properties.ancestors | Liste séparée par des virgules de groupes d’administration parents, classés du parent direct au grand-parent le plus éloigné. |
+| properties.policies | Inclut des détails sur la définition de stratégie, l’affectation, l’effet et les paramètres dont cette évaluation Azure Policy est le résultat. |
+| relatedEvents | Ce champ est vide pour les événements Azure Policy. |
 
 ## <a name="mapping-to-diagnostic-logs-schema"></a>Mappage vers le schéma des journaux de diagnostic
 
