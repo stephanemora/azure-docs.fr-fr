@@ -3,9 +3,9 @@ title: Bien démarrer - Outil Microsoft de modélisation des menaces - Azure | D
 description: Il s’agit d’une vue d’ensemble plus approfondie qui met en évidence l’outil de modélisation des menaces en action.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 340c92d2830069a9d957f4ece79416a707062629
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: jegeib
+ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096772"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359474"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Bien démarrer avec l’outil de modélisation des menaces
 
-L’équipe des Outils de sécurité de cloud et d’entreprise a publié l’aperçu des outils de modélisation des menaces cette année en tant que fonction **[cliquer pour télécharger](https://aka.ms/tmtpreview)** gratuite. La modification du mécanisme de livraison nous permet de transmettre les dernières améliorations et correctifs de bogues pour les clients chaque fois qu’ils ouvrent l’outil, rendant ainsi la gestion et l’utilisation plus facile.
+Microsoft Threat Modeling Tool 2018 a été publié par GA en septembre 2018 sous forme de **[téléchargement](https://aka.ms/threatmodelingtool)** gratuit. La modification du mécanisme de livraison nous permet de transmettre les dernières améliorations et correctifs de bogues pour les clients chaque fois qu’ils ouvrent l’outil, rendant ainsi la gestion et l’utilisation plus facile.
 Cet article vous guide tout au long du processus de mise en route avec l’approche de modélisation des menaces SDL Microsoft et vous montre comment utiliser l’outil pour développer d’excellents modèles de menaces comme structure fondamentale de votre processus de sécurité.
 
 Cet article s’appuie sur les connaissances existantes de l’approche de modélisation des menaces SDL. Pour une vérification rapide, reportez-vous à **[Applications Web de la modélisation des menaces](https://msdn.microsoft.com/library/ms978516.aspx)** et une version archivée de l’article MSDN **[Découvrir des failles de sécurité à l’aide de l’approche STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** publiée en 2006.
@@ -67,22 +67,22 @@ Dans cette section, nous parlons de :
 
 Ils suivent le processus de développement de leur premier modèle de menaces.
 
-> Ricardo : Bonjour Cristina, j’ai travaillé sur le diagramme de modèle des menaces et je souhaite m’assurer que tout est correct. Pouvez-vous m’aider à vérifier ?
-> Cristina : absolument. Jetons un œil sur cette configuration.
+> Ricardo : Bonjour Cristina, j’ai travaillé sur le diagramme de modèle des menaces et je souhaite m'assurer que tout est correct. Pouvez-vous m’aider à vérifier ?
+> Cristina : Absolument. Jetons un œil sur cette configuration.
 > Ricardo ouvre l’outil et partage son écran avec Cristina.
 
 ![Modèle de menaces de base](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
-> Cristina : Ok, ça semble simple, mais pouvez-vous m’aider ?
-> Ricardo : Bien sûr ! Voici la répartition :
+> Cristina : OK, ça semble simple, mais pouvez-vous m'aider ?
+> Ricardo : Bien sûr ! Voici la répartition :
 > - Notre utilisateur humain est dessiné comme une entité extérieure, un carré
 > - Ils envoient des commandes vers notre serveur Web, le cercle
 > - Le serveur Web consulte une base de données (deux lignes parallèles)
 
 Ce que Ricardo vient de montrer à Cristina est un DFD, abréviation de **[diagramme de flux de données](https://en.wikipedia.org/wiki/Data_flow_diagram)**. L’outil de modélisation des menaces permet aux utilisateurs de spécifier des limites d’approbation, indiqués par les lignes en pointillés rouges, pour indiquer où les différentes entités sont sous contrôle. Par exemple, les administrateurs informatiques requièrent un système Active Directory à des fins d’authentification, par conséquent, Active Directory est en dehors de leur contrôle.
 
-> Cristina : ça me paraît correct. Qu’en est-il des menaces ?
-> Ricardo : je vais vous montrer.
+> Cristina : Ça me paraît correct. Qu’en est-il des menaces ?
+> Ricardo : Je vais vous montrer.
 
 ## <a name="analyzing-threats"></a>Analyse des menaces
 
@@ -111,7 +111,7 @@ La description lui permet de mesurer l’importance de l’ajout d’un mécanis
 Lorsque Ricardo parcoure les menaces sous Divulgation des informations, il réalise que le plan de contrôle d’accès requiert certains comptes en lecture seule pour la génération de rapports et d’audits. Il se demande si cela peut être une nouvelle menace, mais les atténuations sont identiques, il note alors la menace en conséquence.
 Il réfléchit un peu plus à la divulgation des informations et réalise que les bandes de sauvegarde vont avoir besoin de chiffrement, un travail pour l’équipe des opérations.
 
-Les menaces non applicables à la conception en raison des atténuations existantes ou les garanties de sécurité peuvent être remplacées par « Non applicable » dans la liste déroulante État. Il existe trois autres possibilités : Non démarré, sélection par défaut, Besoin d’investigation, utilisée pour suivre les éléments et Mitigé, une fois complètement terminé.
+Les menaces non applicables à la conception en raison des atténuations existantes ou les garanties de sécurité peuvent être remplacées par « Non applicable » dans la liste déroulante État. Il existe trois autres possibilités : Non démarré (sélection par défaut), Besoin d'investigation (pour le suivi des éléments) et Mitigé (une fois que tout est terminé).
 
 ## <a name="reports--sharing"></a>Rapports et partage
 
@@ -143,4 +143,4 @@ L’approche de modélisation des menaces présentée est considérablement plus
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Envoyez vos questions, commentaires et vos préoccupations à tmtextsupport@microsoft.com. **[Téléchargez](https://aka.ms/tmtpreview)** l’outil de modélisation des menaces pour démarrer.
+Envoyez vos questions, commentaires et vos préoccupations à tmtextsupport@microsoft.com. **[Téléchargez](https://aka.ms/threatmodelingtool)** l’outil de modélisation des menaces pour démarrer.
