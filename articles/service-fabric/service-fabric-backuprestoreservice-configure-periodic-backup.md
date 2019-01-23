@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: f2a1cd79a99e16460c96d28ebeb0a2bd68975361
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 91813e31c6237cf47a744a4290e3e2d7736195f0
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794241"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322093"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Compréhension de la configuration de la sauvegarde périodique dans Azure Service Fabric
 
@@ -45,7 +45,7 @@ Une stratégie de sauvegarde se compose des configurations suivantes :
 
 * **Planification de la sauvegarde** : heure ou fréquence auxquelles effectuer les sauvegardes périodiques. Il est possible de planifier des sauvegardes périodiques à intervalles définis ou à heure fixe chaque jour ou semaine.
 
-    1. **Planification de sauvegarde basée sur la fréquence** : ce type de planification doit être utilisé si les sauvegardes doivent être effectuées à intervalles fixes. L’intervalle de temps souhaité entre deux sauvegardes consécutives est défini à l’aide du format ISO8601. La planification de sauvegarde basée sur la fréquence prend en charge une résolution d’intervalle jusqu’à une minute.
+    1. **Planification de sauvegarde basée sur la fréquence** : ce type de planification doit être utilisé si les sauvegardes doivent être effectuées à intervalles fixes. L’intervalle de temps souhaité entre deux sauvegardes consécutives est défini à l’aide du format ISO8601. La planification de sauvegarde basée sur la fréquence prend en charge une résolution d’intervalle à la minute.
         ```json
         {
             "ScheduleKind": "FrequencyBased",

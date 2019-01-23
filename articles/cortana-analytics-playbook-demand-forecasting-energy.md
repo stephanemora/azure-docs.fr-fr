@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 195776cda0005b3a79aa82220660fcc328f6ee98
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d327c649fcf0f42fd8618161c184fa4f572e2b90
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426252"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306486"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Manuel du modèle de solution Microsoft Cortana Intelligence de prévision de la demande d’énergie
 ## <a name="executive-summary"></a>Résumé
@@ -172,7 +172,7 @@ Dans de nombreux cas, le client peut être intéressé par la justification prof
 
 D’autre part, une personne doit avoir une bonne connaissance de la valeur pour l’entreprise de l’utilisation de la prévision de la demande d’énergie (à court ou à long terme). En fait, il est important de comprendre la valeur commerciale de chaque opération de prévision. Par exemple, une prévision de charge électrique précise pour les 24 heures à venir peut éviter la surproduction ou peut aider à empêcher les surcharges du réseau, ce qui peut se traduire par des économies au quotidien.
 
-La formule de base pour le calcul de l’avantage financier de la solution de prévision de la demande serait : ![Formule de base pour le calcul de l’avantage financier de la solution de prévision de la demande](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+Voici à quoi pourrait ressembler une formule de base pour le calcul de la solution de prévision de la demande :  ![Formule de base pour le calcul des avantages financiers de la solution de prévision de la demande](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
 Cortana Intelligence Suite fournit un modèle de tarification par répartition, et il est donc inutile d’engager un composant de coût fixe pour cette formule. Cette formule peut être calculée sur une base quotidienne, mensuelle ou annuelle.
 
@@ -269,7 +269,7 @@ Cortana Intelligence Suite prend en charge les formats de données les plus cour
 ### <a name="data-ingestion"></a>Ingestion de données
 Étant donné que la prévision de la demande d’énergie est constamment et fréquemment calculée, nous devons nous assurer que les données brutes sont transmises au moyen d’un processus d’ingestion de données performant et fiable. Ce processus d’ingestion doit garantir que les données sont disponibles pour le processus de prévision au moment requis. Cela implique que la fréquence d’ingestion de données doit être supérieure à la fréquence de prévision.
 
-Par exemple : si notre solution de prévision de la demande génère une nouvelle prévision à 8 h 00 chaque jour, nous devons nous assurer que toutes les données recueillies au cours des dernières 24 heures ont été entièrement reçues jusque-là et elle doit même inclure la dernière heure de données.
+Par exemple :  si notre solution de prévision de la demande génère une nouvelle prévision à 8 h 00 chaque jour, nous devons nous assurer que toutes les données recueillies au cours des dernières 24 heures ont été entièrement reçues jusque-là et elle doit même inclure la dernière heure de données.
 
 Pour ce faire, Cortana Intelligence Suite offre différents moyens de prendre en charge un processus d’ingestion de données. Cette méthode sera expliquée plus loin dans la section **Déploiement** de ce document.
 
@@ -306,7 +306,7 @@ Dans cette section, nous répertorions certaines des données communes incluses 
 
 **Gestion des valeurs manquantes :** pendant la phase de préparation des données, nous devons déterminer la meilleure stratégie pour gérer les valeurs manquantes. Généralement, cela se fait grâce aux nombreuses [méthodes d’imputation de données](https://en.wikipedia.org/wiki/Imputation_\(statistics\)) statistiques. Dans le cas de la prévision de la demande d’énergie, nous imputons généralement les valeurs manquantes en utilisant la moyenne mobile des points de données disponibles précédents.
 
-**Normalisation des données :** la normalisation des données est un autre type de transformation utilisé pour mettre à l’échelle toutes les données numériques, notamment prévisions de demande à la même échelle. Cela permet généralement d’améliorer l’exactitude du modèle et sa précision. Pour ce faire, en général, nous divisons la valeur réelle par la plage de données.
+**Normalisation des données :** la normalisation des données est un autre type de transformation utilisé pour mettre à l’échelle toutes les données numériques, notamment les prévisions de demande à la même échelle. Cela permet généralement d’améliorer l’exactitude du modèle et sa précision. Pour ce faire, en général, nous divisons la valeur réelle par la plage de données.
 Cela permet de ramener la valeur d’origine à une plage plus petite, comprise en général entre -1 et 1.
 
 ## <a name="modeling"></a>Modélisation
@@ -320,21 +320,21 @@ En cas de prévision de demande, nous utilisons les données d’historique comm
 Au cours des récentes années, des algorithmes avancés ont été développés pour organiser la prévision des séries chronologiques et pour améliorer la précision des prévisions. Nous en présentons brièvement quelques-unes ici.
 
 > [!NOTE]
-> Cette section n’est pas destinée à être utilisée en tant qu’apprentissage unique et présentation de la prévision, mais plutôt comme un court résumé des techniques de modélisation qui sont en général utilisées pour la prévision de la demande. Pour plus d’informations, et pour obtenir une documentation matérielle sur les prévisions de série chronologique, nous recommandons particulièrement le manuel en ligne [Forecasting: principles and practice](https://www.otexts.org/book/fpp)(Prévision : principes et pratique).
+> Cette section n’est pas destinée à être utilisée en tant qu’apprentissage unique et présentation de la prévision, mais plutôt comme un court résumé des techniques de modélisation qui sont en général utilisées pour la prévision de la demande. Pour plus d’informations, et pour obtenir une documentation matérielle sur les prévisions de série chronologique, nous recommandons particulièrement le manuel en ligne [Forecasting: principles and practice](https://www.otexts.org/)(Prévision : principes et pratique).
 > 
 > 
 
-#### <a name="ma-moving-averagehttpswwwotextsorgfpp62"></a>[**MA (Moyenne mobile)**](https://www.otexts.org/fpp/6/2)
+#### <a name="ma-moving-average"></a>**MA (Moyenne mobile)**
 Moyenne mobile a été la première technique d’analyse utilisée pour la prévision des séries chronologiques et elle reste l’une des plus utilisées à ce jour. Il s’agit également de l’élément de base servant à des techniques de prévision avancées. Avec Moyenne mobile, nous prévoyons le point de données suivant en faisant la moyenne des K points les plus récents, K désignant l’ordre de la moyenne mobile.
 
 La technique de moyenne mobile a pour effet de lisser la prévision et par conséquent, ne peut pas gérer une grande volatilité des données.
 
-#### <a name="ets-exponential-smoothinghttpswwwotextsorgfpp75"></a>[**ETS (Lissage exponentiel)**](https://www.otexts.org/fpp/7/5)
-Le lissage exponentiel (ETS) est une famille de méthodes qui utilisent la moyenne pondérée des points de données récents afin de prévoir le prochain point de données. L’idée consiste à affecter des pondérations plus élevées pour les valeurs les plus récentes et à diminuer progressivement cette pondération sur les valeurs mesurées. Il existe un certain nombre de méthodes différentes chez cette famille, dont certaines gèrent la saisonnalité dans les données, notamment, la [Holt-Winters Seasonal Method](https://www.otexts.org/fpp/7/5)(Méthode saisonnière Holt Winters).
+#### <a name="ets-exponential-smoothing"></a>**ETS (Lissage exponentiel)**
+Le lissage exponentiel (ETS) est une famille de méthodes qui utilisent la moyenne pondérée des points de données récents afin de prévoir le prochain point de données. L’idée consiste à affecter des pondérations plus élevées pour les valeurs les plus récentes et à diminuer progressivement cette pondération sur les valeurs mesurées. Il existe un certain nombre de méthodes différentes dans cette famille, dont certaines gèrent la saisonnalité dans les données, notamment, la Holt-Winters Seasonal Method(Méthode saisonnière Holt Winters).
 
 Certaines de ces méthodes se factorisent dans la saisonnalité des données.
 
-#### <a name="arima-auto-regression-integrated-moving-averagehttpswwwotextsorgfpp8"></a>[**ARIMA (Moyenne mobile intégrée de régression automatique)**](https://www.otexts.org/fpp/8)
+#### <a name="arima-auto-regression-integrated-moving-average"></a>**ARIMA (Moyenne mobile intégrée de régression automatique)**
 La moyenne mobile intégrée de régression automatique (ARIMA) est une autre famille de méthodes couramment utilisée pour la prévision de séries chronologiques. Elle combine de façon pratique les méthodes de régression automatique avec la moyenne mobile. Les méthodes de régression automatique utilisent des modèles en prenant des valeurs de série chronologique précédente afin de calculer le prochain point de date. Les méthodes ARIMA appliquent également des méthodes de différenciation incluant le calcul de la différence entre les points de données et l’utilisation de ces derniers à la place de la valeur de mesure d’origine. Enfin, ARIMA utilise également les techniques de moyenne mobile décrites plus haut. Les diverses combinaisons de toutes ces méthodes constituent la famille des méthodes ARIMA.
 
 Aujourd’hui, ETS et ARIMA sont largement utilisés dans le cadre de la prévision de la demande d’énergie et de nombreuses autres problématiques de prévision. Dans de nombreux cas, ils se combinent pour fournir des résultats très précis.

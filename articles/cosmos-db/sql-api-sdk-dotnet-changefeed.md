@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: f7c8313e6216f10dccdfbb298bbf02036e21c138
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 03862f88bb5debc66940ebae5308771525f51b0b
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043003"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351644"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit de développement logiciel (SDK) du processeur de flux de modification .NET Téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ ms.locfileid: "54043003"
 * Prend en charge le kit de développement logiciel (SDK) Microsoft.Azure.DocumentDB 2.0. Nécessite Microsoft.Azure.DocumentDB 2.0 ou version ultérieure.
 
 ### <a name="a-name206206"></a><a name="2.0.6"/>2.0.6
-* Ajout de la propriété publique ChangeFeedEventHost.HostName pour compatibilité avec v1.
+* Ajout de la propriété publique ChangeFeedEventHost.HostName pour assurer la compatibilité avec la version 1.
 
 ### <a name="a-name205205"></a><a name="2.0.5"/>2.0.5
 * Condition de concurrence qui se produit pendant un fractionnement de partition. La condition de concurrence peut conduire à l’acquisition d’un bail et à sa perte immédiate pendant le fractionnement de partition, entraînant une contention. Le problème de condition de concurrence est résolu avec cette version.

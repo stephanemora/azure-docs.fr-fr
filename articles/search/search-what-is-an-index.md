@@ -9,25 +9,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/08/2017
 ms.custom: seodec2018
-ms.openlocfilehash: 40291b105eb39b44da0b0697f5808d819291e457
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5a39021367c2f51125876081e9174eb372d7b9c9
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630211"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353156"
 ---
-# <a name="indexes-in-azure-search"></a>Index dans Recherche Azure
-> [!div class="op_single_selector"]
-> * [Vue d'ensemble](search-what-is-an-index.md)
-> * [Portail](search-create-index-portal.md)
-> * [.NET](search-create-index-dotnet.md)
-> * [REST](search-create-index-rest-api.md)
-> 
-> 
+# <a name="indexes-and-indexing-overview-in-azure-search"></a>Index et vue d'ensemble de l'indexation dans Recherche Azure
 
-Dans Recherche Azure, un *index* est une banque permanente de *documents* et d’autres éléments utilisés par un service Recherche Azure. Un document correspond à une unité de données pouvant faire l’objet d’une recherche dans votre index. Par exemple, un détaillant de commerce électronique peut posséder un document pour chaque article qu’il vend, un organisme d’information peut posséder un document par article, et ainsi de suite. Pour comparer avec des éléments de base de données plus familiers, d’un point de vue conceptuel, un *index* est similaire à une *table*, et les *documents* équivalent plus ou moins aux *lignes* d’une table.
+Dans Recherche Azure, un *index* est une banque permanente de *documents* et d'autres éléments utilisés pour la recherche filtrée et en texte intégral sur un service Recherche Azure. Un document correspond à une unité de données pouvant faire l’objet d’une recherche dans votre index. Par exemple, un détaillant de commerce électronique peut posséder un document pour chaque article qu’il vend, un organisme d’information peut posséder un document par article, et ainsi de suite. Pour comparer avec des éléments de base de données plus familiers, d’un point de vue conceptuel, un *index* est similaire à une *table*, et les *documents* équivalent plus ou moins aux *lignes* d’une table.
 
-Lorsque vous ajoutez/chargez des documents et soumettez des requêtes de recherche à Azure Search, vous envoyez vos demandes à un index spécifique dans votre service de recherche.
+Lorsque vous ajoutez ou chargez des documents, ou lorsque vous soumettez des requêtes de recherche à Recherche Azure, vous envoyez vos demandes à un index spécifique de votre service de recherche. Le processus consistant à ajouter des documents dans un index s'appelle l'*indexation*.
 
 ## <a name="field-types-and-attributes-in-an-azure-search-index"></a>Types et attributs de champ dans un index Azure Search
 Lorsque vous définissez votre schéma, vous devez spécifier le nom, le type et les attributs de chaque champ de votre index. Le type de champ classifie les données stockées dans ce champ. Les attributs sont définis sur des champs individuels pour spécifier la façon dont le champ est utilisé. Les tableaux ci-après énumèrent les types et les attributs que vous pouvez spécifier.

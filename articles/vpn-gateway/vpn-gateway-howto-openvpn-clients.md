@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 1/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4de4a5a659f38577c1261b169a43df560bf05495
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cd84948b5895a628fc94cc2946156d9fa2284369
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971264"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352321"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Configurer des clients OpenVPN sur la passerelle VPN Azure (préversion)
 
@@ -72,6 +72,10 @@ Vérifiez que vous avez terminé les étapes de configuration de OpenVPN pour vo
 7. Double-cliquez sur le fichier de profil pour créer le profil dans Tunnelblik.
 8. Lancez Tunnelblik à partir du dossier d’applications.
 9. Cliquez sur l’icône Tunnelblik dans la zone de notification et choisissez l’option de connexion.
+
+> [!IMPORTANT]
+>Seuls iOS 11.0 et versions ultérieures et MacOS 10.13 et versions ultérieures sont pris en charge avec le protocole OpenVPN.
+>
 
 ## <a name="linux"></a>Clients Linux
 

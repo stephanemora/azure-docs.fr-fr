@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9c1eff58be52b0b4bd9561db51986c9f509d64ee
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3a2ccd04cd7ec36cafdf56830b9ad8249f89eb7e
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723227"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321588"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protection de vos machines et de vos applications dans Azure Security Center
 Le Centre de sécurité Azure analyse l’état de sécurité de vos ressources Azure. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des recommandations qui vous guident tout au long du processus de configuration des contrôles nécessaires. Ces recommandations s’appliquent aux types de ressources Azure : machines virtuelles et ordinateurs, applications, mise en réseau, SQL et Identité et accès.
@@ -44,7 +44,6 @@ Sous **Compute et applications**, figurent les onglets suivants :
 - **Services cloud** : liste des rôles web et de travail contrôlés par Security Center.
 - **App Services (préversion)**: liste de vos environnements App Service et état actuel de leur sécurité.
 - **Conteneurs (préversion)**  : liste de vos conteneurs hébergés sur des machines IaaS Linux et évaluation de la sécurité de leurs configurations de Docker.
-- **Groupes de machines virtuelles identiques (préversion)**  : liste de vos groupes identiques avec des suggestions pour chacun d’eux.
 - **Ressources Compute (préversion)**  : liste des suggestions pour vos ressources Compute, telles que des clusters Service Fabric et des Event hubs.
 
 Pour continuer, sous **Hygiène de sécurité de la ressource**, sélectionnez **Compute et applications**.
@@ -162,24 +161,6 @@ Cette liste contient trois types d’icônes :
 
     ![Correction d’App Service](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
-## <a name="virtual-machine-scale-sets-preview"></a>Groupe de machines virtuelles identiques (VMSS)
-Security Center détecte automatiquement si vous avez des groupes identiques et vous recommande d’installer Microsoft Monitoring Agent sur ceux-ci. 
-
-Pour installer Microsoft Monitoring Agent : 
-
-1. Sélectionnez la suggestion **Installer l’agent de surveillance sur les groupes de machines virtuelles identiques**. Vous obtenez la liste des jeux identiques non contrôlés.
-2. Sélectionnez un groupe identique défectueux. Suivez les instructions pour installer l’agent de surveillance à l’aide d’un espace de travail rempli existant, ou créez-en un. Veillez à définir l’espace de travail [niveau tarifaire](security-center-pricing.md) s’il ne l’est pas.
-
- ![Installer MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
-
-Si vous souhaitez définir de nouveaux groupes identiques pour installer automatiquement Microsoft Monitoring Agent :
-1. Accédez à Azure Policy et cliquez sur **Définitions**.
-2. Recherchez la stratégie **Déployer un agent Log Analytics pour des groupe identique de machines virtuelles Windows**, puis cliquez dessus.
-3. Cliquez sur **Affecter**.
-4. Définir l’**Étendue** et l’**Espace de travail Log Analytics**, puis cliquez sur **Assigner**.
-
-Si vous souhaitez paramétrer tous les groupes identiques existants pour installer Microsoft Monitoring Agent, dans Azure Policy, accédez à **Correction**, puis appliquez la stratégie existante aux groupes identiques existants.
-
 
 ## <a name="compute-and-app-recommendations"></a>Suggestions de calcul et d’applications
 |Type de ressource|Degré de sécurisation|Recommandation|Description|
@@ -238,11 +219,7 @@ Si vous souhaitez paramétrer tous les groupes identiques existants pour install
 |Ordinateur|30|Installer une solution d'évaluation des vulnérabilités sur vos machines virtuelles|Installer une solution d'évaluation des vulnérabilités sur vos machines virtuelles|
 |Ordinateur|1|Migrer des machines virtuelles vers de nouvelles ressources Azure Resource Manager|Profitez des améliorations apportées à Azure Resource Manager pour renforcer la sécurité de vos machines virtuelles : contrôle d’accès plus puissant, audit amélioré, déploiement et gouvernance basés sur Resource Manager, accès aux identités managées, accès au coffre de clés pour les secrets, authentification basée sur Azure AD, prise en charge des étiquettes et des groupes de ressources pour faciliter la gestion de la sécurité, etc. |
 |Ordinateur|30|Corriger les vulnérabilités avec une solution d’évaluation des vulnérabilités|Les machines virtuelles pour lesquelles une solution tierce d’évaluation des vulnérabilités est déployée sont évaluées en permanence afin d’y détecter d’éventuelles vulnérabilités au niveau de l’application et du système d’exploitation. Chaque fois que ces vulnérabilités sont détectées, elles sont disponibles pour plus d’informations dans le cadre de la recommandation.|
-|Jeu de mise à l’échelle de machine virtuelle |4|Activer les journaux de diagnostic dans Virtual Machine Scale Sets|Activez les journaux et conservez-les pendant jusqu’à un an. Cela vous permet de recréer les pistes d’activité à des fins d’investigation. Cela est utile lorsqu’un incident de sécurité se produit, ou quand votre réseau est compromis.|
-|Jeu de mise à l’échelle de machine virtuelle|35|Corriger les vulnérabilités dans la configuration de sécurité sur vos groupes de machines virtuelles identiques|Corriger les vulnérabilités dans la configuration de la sécurité sur vos groupes de machines virtuelles identiques afin de les protéger des attaques. |
-|Jeu de mise à l’échelle de machine virtuelle|5.|Corriger les échecs d’intégrité de la protection de point de terminaison sur les groupes de machines virtuelles identiques|Corrigez les échecs d’intégrité de la protection du point de terminaison sur vos groupes de machines virtuelles identiques afin de les protéger des menaces et des vulnérabilités. |
-|Jeu de mise à l’échelle de machine virtuelle|10|Installer la solution de protection de point de terminaison sur les groupes de machines virtuelles identiques|Installer une solution de protection de point de terminaison sur vos groupes de machines virtuelles identiques, pour les protéger des menaces et des vulnérabilités. |
-|Jeu de mise à l’échelle de machine virtuelle|40|Installer les mises à jour système sur les groupes de machines virtuelles identiques|Installer les mises à jour critiques et de sécurité système manquantes afin de sécuriser vos groupes de machines virtuelles identiques Windows et Linux. |
+
  
 
 

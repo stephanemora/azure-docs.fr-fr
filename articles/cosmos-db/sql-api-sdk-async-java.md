@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/29/2018
+ms.date: 1/15/2019
 ms.author: moderakh
-ms.openlocfilehash: fbb1757cfb1118380e2f7d79566f6dc9832fce23
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 760a54a09dd612cef93de0de1e8ac2fd59b04b26
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041491"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329376"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Async Azure Cosmos DB pour API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Le Kit de développement logiciel (SDK) Java Async de l’API SQL est différent
 
 <tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
 
-<tr><td>**Documentation de l’API**</td><td>[Documentation de référence sur l’API Java](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._asyncdocumentclient?view=azure-java-stable)</td></tr>
+<tr><td>**Documentation de l’API**</td><td>[Documentation de référence sur l’API Java](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient?view=azure-java-stable)</td></tr>
 
 <tr><td>**Contribution au Kit de développement logiciel (SDK)**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
@@ -50,6 +50,11 @@ Le Kit de développement logiciel (SDK) Java Async de l’API SQL est différent
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
+* Correctifs de gestion des réponses aux requêtes de très grande taille.
+* Correctifs de gestion des jetons de ressource lors de l’instanciation du client ([github #78](https://github.com/Azure/azure-cosmosdb-java/issues/78)).
+* Mise à niveau de la dépendance vulnérable jackson-databind ([github #77](https://github.com/Azure/azure-cosmosdb-java/pull/77)).
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 * Correction d’un bogue de fuite de ressources.
@@ -125,6 +130,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.3.1](#2.3.1) |15 janvier 2019|--- |
 | [2.3.0](#2.3.0) |29 novembre 2018|--- |
 | [2.2.2](#2.2.2) |8 novembre 2018|--- |
 | [2.2.1](#2.2.1) |2 novembre 2018|--- |

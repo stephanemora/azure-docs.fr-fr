@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 148a83cb57675e2e8bda8147041987180df998f0
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 25a05df42029fe444b8d5ceddb2972f779f1b232
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037393"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358726"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>Accéder aux ressources Azure Cosmos DB à partir de réseaux virtuels
 
 Vous pouvez configurer les comptes Azure Cosmos DB pour autoriser l’accès uniquement à partir d’un sous-réseau spécifique de réseau virtuel Azure (VNET). En activant l’option [Point de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) pour accéder à Azure Cosmos DB sur le sous-réseau au sein d’un réseau virtuel, le trafic à partir de ce sous-réseau est envoyé à Azure Cosmos DB avec l’identité du sous-réseau et du réseau virtuel. Une fois le point de terminaison de service Azure Cosmos DB activé, vous pouvez limiter l’accès au sous-réseau en l’ajoutant à votre compte Azure Cosmos.
 
-Par défaut, un compte Azure Cosmos est accessible depuis n’importe quelle source tant que la demande est accompagnée d’un jeton d’autorisation valide. Lorsque vous ajoutez un ou plusieurs sous-réseaux au sein de réseaux virtuels, seules les requêtes provenant de ces sous-réseaux obtiendront une réponse valide. Les requêtes provenant de toute autre source recevront une réponse 404 (introuvable). 
+Par défaut, un compte Azure Cosmos est accessible depuis n’importe quelle source tant que la demande est accompagnée d’un jeton d’autorisation valide. Lorsque vous ajoutez un ou plusieurs sous-réseaux au sein de réseaux virtuels, seules les requêtes provenant de ces sous-réseaux obtiendront une réponse valide. Les requêtes provenant de toute autre source recevront une réponse 403 (Interdit). 
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
@@ -34,7 +34,7 @@ Il existe deux étapes requises pour limiter l’accès au compte Azure Cosmos �
 
 ### <a name="will-virtual-network-acls-and-ip-firewall-reject-requests-or-connections"></a>Les listes de contrôle d'accès (ACL) du réseau virtuel et le pare-feu IP rejetteront-ils les requêtes ou les connexions ? 
 
-Quand un pare-feu IP ou des règles d’accès à un réseau virtuel sont ajoutés, seules les requêtes provenant de sources autorisées obtiennent des réponses valides. Les autres demandes sont rejetées avec une erreur 404 (introuvable). Il est important de distinguer le pare-feu du compte Azure Cosmos d’un pare-feu au niveau de la connexion. La source peut toujours se connecter au service et les connexions elles-mêmes ne sont pas rejetées.
+Quand un pare-feu IP ou des règles d’accès à un réseau virtuel sont ajoutés, seules les requêtes provenant de sources autorisées obtiennent des réponses valides. Les autres requêtes sont rejetées avec une erreur 403 (Interdit). Il est important de distinguer le pare-feu du compte Azure Cosmos d’un pare-feu au niveau de la connexion. La source peut toujours se connecter au service et les connexions elles-mêmes ne sont pas rejetées.
 
 ### <a name="my-requests-started-getting-blocked-when-i-enabled-service-endpoint-to-azure-cosmos-db-on-the-subnet-what-happened"></a>Mes requêtes ont été bloquées lorsque j’ai activé le point de terminaison de service dans Azure Cosmos DB sur le sous-réseau. Que s’est-il passé ?
 

@@ -1,29 +1,11 @@
 ---
-title: Expérience simple - Azure Machine Learning Studio | Microsoft Docs
-description: Ce didacticiel sur l’apprentissage automatique vous guidera tout au long d’une expérience de science des données simple. Nous allons prédire le prix d’une voiture à l’aide d’un algorithme de régression.
-keywords: expérience,régression linéaire,algorithmes d’apprentissage automatique,didacticiel d’apprentissage automatique,techniques de modélisation prédictive,expérience de science de données
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cgronlun
-ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 03/20/2017
-ms.openlocfilehash: b3d8aa709fefcf0eb8c16117f62cbe3bab8e319a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262416"
+titre : Expérience simple titleSuffix : Description d’Azure Machine Learning Studio : Ce didacticiel sur l’apprentissage automatique vous guidera tout au long d’une expérience de science des données simple. Nous allons prédire le prix d’une voiture à l’aide d’un algorithme de régression.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: tutorial
+
+author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 20/03/2017
 ---
-# <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Didacticiel : Créer votre première expérience de science des données dans Azure Machine Learning Studio
+
+# <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Tutoriel : Créer votre première expérience de science des données dans Azure Machine Learning Studio
 
 Si vous n’avez encore jamais utilisé **Azure Machine Learning Studio**, ce didacticiel est pour vous.
 

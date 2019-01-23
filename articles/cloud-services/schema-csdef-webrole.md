@@ -13,12 +13,12 @@ caps.latest.revision: 60
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: e548841f334705aa71ada92c43ccde207a1f6318
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0bb0946ea48a4c206d6bfe683da0835aca9b198b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002311"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331943"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Schéma WebRole de définition d’Azure Cloud Services
 Le rôle web Azure est un rôle personnalisé pour la programmation d’applications web, tel que pris en charge par IIS 7, ASP.NET, PHP, Windows Communication Foundation et FastCGI.
@@ -44,11 +44,11 @@ Le format de base d’un fichier de définition de service contenant un rôle we
       <InputEndpoint certificate="<certificate-name>" ignoreRoleInstanceStatus="[true|false]" name="<input-endpoint-name>" protocol="[http|https|tcp|udp]" localPort="<port-number>" port="<port-number>" loadBalancerProbe="<load-balancer-probe-name>" />  
       <InternalEndpoint name="<internal-endpoint-name>" protocol="[http|tcp|udp|any]" port="<port-number>">  
          <FixedPort port="<port-number>"/>  
-         <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>  
+         <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>  
       </InternalEndpoint>  
      <InstanceInputEndpoint name="<instance-input-endpoint-name>" localPort="<port-number>" protocol="[udp|tcp]">  
          <AllocatePublicPortFrom>  
-            <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>  
+            <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>  
          </AllocatePublicPortFrom>  
       </InstanceInputEndpoint>  
     </Endpoints>  
@@ -106,7 +106,7 @@ Le fichier de définition de service inclut ces éléments, ils sont détaillés
 
 [LocalStorage](#LocalStorage)
 
-[Endpoints](#Endpoints)
+[Points de terminaison](#Endpoints)
 
 [InternalEndpoint](#InternalEndpoint)
 
@@ -150,7 +150,7 @@ Le fichier de définition de service inclut ces éléments, ils sont détaillés
 
 [Startup](#Startup)
 
-[Task](#Task)
+[Tâche](#Task)
 
 [Contents](#Contents)
 
@@ -224,7 +224,7 @@ Le tableau suivant décrit les attributs d’un de l’élément `InputEndpoint`
 |port|int|Requis. Port du point de terminaison externe. Vous pouvez spécifier le numéro de port de votre choix, mais les numéros de port précisés pour chaque rôle dans le service doivent être uniques.<br /><br /> Les valeurs possibles sont comprises entre 1 et 65535 inclus (Kit SDK Azure version 1.7 ou supérieure).|  
 |certificat|chaîne|Obligatoire pour un point de terminaison HTTPS. Nom d’un certificat défini par un élément `Certificate`.|  
 |localPort|int|facultatif. Spécifie le port utilisé pour les connexions internes sur le point de terminaison. L’attribut `localPort` mappe le port externe sur le point de terminaison à un port interne sur un rôle. Cela est utile dans les scénarios où un rôle doit communiquer avec un composant interne sur un port différent de celui qui est exposé en externe.<br /><br /> Si elle n’est pas spécifiée, la valeur de `localPort` est la même que celle de l’attribut `port`. Définissez la valeur de `localPort` sur « * » pour attribuer automatiquement un port non alloué, détectable à l’aide de l’API d’exécution.<br /><br /> Les valeurs possibles sont comprises entre 1 et 65535 inclus (Kit SDK Azure version 1.7 ou supérieure).<br /><br /> L’attribut `localPort` n’est disponible que par le biais du kit SDK Azure version 1.3 ou supérieure.|  
-|ignoreRoleInstanceStatus|booléenne|facultatif. Lorsque la valeur de cet attribut est définie sur `true`, l’état d’un service est ignoré et le point de terminaison n’est pas supprimé par l’équilibreur de charge. Définir cette valeur sur `true` est utile pour déboguer les instances occupées d’un service. La valeur par défaut est `false`. **Remarque :** Un point de terminaison peut toujours recevoir le trafic, même lorsque le rôle n’est pas à l’état Prêt.|  
+|ignoreRoleInstanceStatus|booléenne|facultatif. Lorsque la valeur de cet attribut est définie sur `true`, l’état d’un service est ignoré et le point de terminaison n’est pas supprimé par l’équilibreur de charge. Définir cette valeur sur `true` est utile pour déboguer les instances occupées d’un service. La valeur par défaut est `false`. **Remarque :**  un point de terminaison peut toujours recevoir du trafic, même si le rôle n'est pas à l'état Prêt.|  
 |loadBalancerProbe|chaîne|facultatif. Nom de la sonde de l’équilibreur de charge associée au point de terminaison d’entrée. Pour plus d’informations, consultez [Schéma LoadBalancerProbe](schema-csdef-loadbalancerprobe.md).|  
 
 ##  <a name="InternalEndpoint"></a> InternalEndpoint  
@@ -364,7 +364,7 @@ Le tableau suivant décrit les attributs d’un de l’élément `NetFxEntryPoin
 | Attribut | type | Description |  
 | --------- | ---- | ----------- |  
 |assemblyName|chaîne|Requis. Chemin et nom de fichier de l’assembly contenant le point d’entrée. Le chemin est relatif au dossier **\\%ROLEROOT%\Approot** (ne spécifiez pas **\\%ROLEROOT%\Approot** dans `commandLine`, car il est supposé). **%ROLEROOT%** est une variable d’environnement gérée par Azure, qui représente l’emplacement du dossier racine de votre rôle. Le dossier **\\%ROLEROOT%\Approot** désigne le dossier d’application de votre rôle.<br /><br /> Pour les rôles HWC, le chemin est toujours relatif au dossier **\\%ROLEROOT%\Approot\bin**.<br /><br /> S’il est impossible de trouver l’assembly relatif au dossier **\\%ROLEROOT%\Approot** des rôles web IIS et IIS Express complets, le dossier **\\%ROLEROOT%\Approot\bin** est recherché.<br /><br /> Ce comportement de secours pour le rôle web IIS complet n’est pas une bonne pratique recommandée, et il est possible qu’il soit supprimé dans les prochaines versions.|  
-|targetFrameworkVersion|chaîne|Requis. La version de .NET framework sur laquelle l’assembly a été créé. Par exemple : `targetFrameworkVersion="v4.0"`.|  
+|targetFrameworkVersion|chaîne|Requis. La version de .NET framework sur laquelle l’assembly a été créé. Par exemple : `targetFrameworkVersion="v4.0"`.|  
 
 ##  <a name="Sites"></a> Sites  
 L’élément `Sites` décrit une collection d’applications web et de sites web hébergés dans un rôle web. Cet élément est le parent de l’élément `Site`. Si vous ne spécifiez aucun élément `Sites`, votre rôle web est hébergé en tant que rôle web hérité, et vous ne pouvez disposer que d’un seul site web hébergé dans votre rôle web. Cet élément est facultatif, et un rôle ne peut avoir qu’un seul bloc sites.

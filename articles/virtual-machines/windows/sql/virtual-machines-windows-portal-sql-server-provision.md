@@ -3,7 +3,7 @@ title: Guide de provisionnement des machines virtuelles Windows SQL Server dans 
 description: Ce guide pratique décrit les options disponibles pour créer des machines virtuelles Windows SQL Server 2017 dans le portail Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 05/04/2018
-ms.author: jroth
-ms.openlocfilehash: d2bcabf845a2178abbebe8f2998d58b462e37c78
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: fd01fdd3f7f8803dc7221bd0bd6c993120a83d44
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704536"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330889"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Guide pratique pour provisionner une machine virtuelle Windows SQL Server dans le portail Azure
 
@@ -54,7 +55,7 @@ Lorsque vous créez une machine virtuelle SQL Server, vous pouvez sélectionner 
 
 1. Passez en revue les images SQL Server disponibles. Chaque image identifie une version de SQL Server et un système d’exploitation.
 
-1. Sélectionnez l’image nommée **Free SQL Server License : SQL Server 2017 Developer on Windows Server 2016** (Licence gratuite SQL Server : SQL Server 2017 Developer sur Windows Server 2016).
+1. Sélectionnez l'image intitulée **Licence SQL Server gratuite : SQL Server 2017 Developer sous Windows Server 2016**.
 
    > [!TIP]
    > L’édition Developer est utilisée dans cette procédure pas à pas, car il s’agit d’une version complète et gratuite de SQL Server pour les tests de développement. Vous payez uniquement pour le coût d’exécution de la machine virtuelle. Vous êtes libre, toutefois, de choisir les images à utiliser dans cette procédure pas à pas. Pour obtenir une description des images disponibles, consultez la [Vue d’ensemble des machines virtuelles Windows SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
@@ -249,7 +250,7 @@ Le tableau suivant répertorie les paramètres requis pour configurer l’intég
 | **URL du coffre de clés** |L’emplacement du coffre de clés. |https://contosokeyvault.vault.azure.net/ |
 | **Nom du principal** |Nom du principal du service Azure Active Directory Également appelé ID client. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **Secret du principal** |Secret du principal du service Azure Active Directory Également appelé Secret client. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
-| **Nom des informations d’identification** |**Nom d’identification**: le module d’intégration du coffre de clés Azure crée des informations d’identification dans SQL Server, permettant ainsi à la machine virtuelle d’accéder au coffre de clés. Choisissez un nom pour cette identification. |mycred1 |
+| **Nom des informations d’identification** |**Nom des informations d'identification** : L’intégration du coffre de clés Azure crée des informations d’identification dans SQL Server, permettant ainsi à la machine virtuelle d’accéder au coffre de clés. Choisissez un nom pour cette identification. |mycred1 |
 
 Pour plus d’informations, consultez [Configurer l’intégration d’Azure Key Vault pour SQL Server sur des machines virtuelles Azure](virtual-machines-windows-ps-sql-keyvault.md).
 

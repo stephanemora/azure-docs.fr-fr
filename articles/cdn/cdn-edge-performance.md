@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: ad285b4e2226c85859acb22ba214cc44c77c08e2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "22999154"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320072"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analyser les performances du nœud de périmètre dans Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Edge Performance Analytics fournit des informations précises sur le trafic et la bande passante utilisés pour le CDN. Ces informations peuvent ensuite être exploitées pour générer des statistiques de tendances, ce qui vous permet d’obtenir des informations sur la manière dont vos ressources sont mises en cache et distribuées à vos clients. Vous pouvez ensuite formuler une stratégie sur la façon d’optimiser la distribution de votre contenu et déterminer les problèmes à résoudre afin de mieux tirer parti du CDN. Vous pourrez ainsi non seulement améliorer les performances de diffusion des données mais également réduire vos coûts CDN.
 
 > [!NOTE]
@@ -55,7 +55,7 @@ Ce tableau de bord se décompose comme suit :
     ![Bouton de gestion du panneau de profil CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     Le portail de gestion CDN s'ouvre.
-2. Pointez sur l’onglet **Analytics** puis sur le menu volant **Edge Performance Analytics**.  Cliquez sur **Tableau de bord**.
+2. Pointez sur l’onglet **Analytics** puis sur le menu volant **Analyse des performances de périmètre**.  Cliquez sur **Tableau de bord**.
    
     Le tableau de bord d’analyse des nœuds de périmètre s’affiche.
 
@@ -70,10 +70,10 @@ Le tableau de bord contient un graphique qui assure le suivi d’une mesure pend
 * Cliquez sur View One Year Ago pour superposer sur le graphique l’activité de l’année précédente sur la même période de temps. Ce type de comparaison permet de connaître les modèles d’utilisation à long terme du CDN. La partie en haut à droite du graphique contient une légende indiquant le code couleur pour chaque graphique linéaire.
 
 #### <a name="updating-the-chart"></a>Mise à jour du graphique
-* Time Range : effectuez l’une des opérations suivantes :
+* Intervalle de temps : Effectuez une des opérations suivantes :
   * Sélectionnez la région souhaitée dans la chronologie. Le graphique sera actualisé avec les données correspondant à la période sélectionnée.
   * Double-cliquez sur le graphique pour afficher toutes les données historiques disponibles sur une période maximum de deux ans.
-* Metric : cliquez sur l’icône de graphique qui s’affiche en regard de la mesure souhaitée. Le graphique et la chronologie seront actualisés avec les données de la mesure correspondante.
+* Mesure : cliquez sur l’icône de graphique qui s’affiche en regard de la mesure souhaitée. Le graphique et la chronologie seront actualisés avec les données de la mesure correspondante.
 
 ### <a name="key-metrics-and-statistics"></a>Statistiques et mesures clés
 #### <a name="efficiency-metrics"></a>Mesures de l’efficacité
@@ -143,7 +143,7 @@ Chaque rapport de ce module contient un graphique et des statistiques sur l’ut
     ![Bouton de gestion du panneau de profil CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     Le portail de gestion CDN s'ouvre.
-2. Pointez sur l’onglet **Analytics** puis sur le menu volant **Edge Performance Analytics**.  Cliquez sur **HTTP Large Object**.
+2. Pointez sur l’onglet **Analytics**, puis sur le menu volant **Analyse des performances de périmètre**.  Cliquez sur **HTTP Large Object**.
    
     L’écran des rapports d’analyse des nœuds de périmètre s’affiche.
 

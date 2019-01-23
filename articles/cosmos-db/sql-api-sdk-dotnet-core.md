@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 5eb04f30fd6766b8df65998b8a4d53797b8341ba
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 95ebdd74fa8be433c7a31f79ad36d4645bc57318
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053549"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354516"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK .NET Core Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -121,7 +121,7 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la pari
 ### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
 
 * Correction de KeyNotFoundException pour une commande entre partition par requête dans des cas extrêmes.
-* Correction du bogue lié au non-respect de l’attribut JsonPropery dans la clause Select pour les requêtes LINQ.
+* Correction du bogue lié au non-respect de l’attribut JsonProperty dans la clause Select pour les requêtes LINQ.
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 

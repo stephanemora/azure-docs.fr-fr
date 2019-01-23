@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 570c427166c07e93d3c8a7d3be079d9007238243
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 05fda1b4f71f67714b4723e15533d3555d497249
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656820"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321668"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Créer une configuration SAP NetWeaver multi-SID
 
@@ -72,7 +72,7 @@ L’objectif est d’installer plusieurs instances en cluster SAP ABAP ASCS ou S
 >Le nombre maximal d’instances SAP ASCS/SCS dans un cluster WSFC est égal au nombre maximal d’adresses IP frontales privées pour chaque équilibrage de charge interne Azure.
 >
 
-Pour plus d’informations sur les limites de l’équilibreur de charge, consultez Adresse IP frontale privée par équilibreur de charge sous [Limites de réseau – Azure Resource Manager][networking-limits-azure-resource-manager].
+Pour plus d’informations sur les limites de l’équilibreur de charge, consultez « Adresse IP frontale privée par équilibreur de charge » dans [Limites de réseau : Azure Resource Manager][networking-limits-azure-resource-manager].
 
 Voici une vue d’ensemble avec deux systèmes SAP à haute disponibilité :
 
@@ -208,7 +208,7 @@ foreach ($Port in $Ports) {
 
 $ILB | Set-AzureRmLoadBalancer
 
-Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
+Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
 
 ```
 Une fois le script exécuté, les résultats sont affichés dans le portail Azure, comme indiqué dans la capture d’écran suivante :
@@ -269,6 +269,6 @@ La procédure détaillée est la suivante :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Limites de mise en réseau : Azure Resource Manager][networking-limits-azure-resource-manager]
+- [Limites de mise en réseau : Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Adresses IP virtuelles multiples pour l’équilibrage de charge Azure][load-balancer-multivip-overview]
 - [Guide de haute disponibilité SAP NetWeaver sur des machines virtuelles Windows][sap-ha-guide]

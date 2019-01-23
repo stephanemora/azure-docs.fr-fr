@@ -12,19 +12,20 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 20f408d9dd32c3fd7a0e319e4051483e3aa54dd9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 978f9a341eec2f16b9f6fe3d164e97805d7a8e93
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081730"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359633"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Écrire du code pour effectuer le suivi des requêtes avec Application Insights
 
-Pour afficher les profils pour votre application dans la page Performances, Application Insights doit effectuer le suivi des requêtes pour votre application. Application Insights peut effectuer automatiquement le suivi des requêtes pour les applications qui reposent sur des frameworks déjà instrumentés, comme ASP.net et ASP.Net Core. En revanche, pour d’autres applications telles que les rôles de travail Azure Cloud Service et les API sans état Service Fabric, vous devez écrire du code pour indiquer à Application Insights où vos requêtes commencent et se terminent. Une fois que vous aurez écrit ce code, les données de télémétrie relatives aux requêtes seront envoyées à Application Insights ; vous verrez les données de télémétrie dans la page Performances et les profils seront collectés pour ces requêtes. 
+Pour afficher les profils pour votre application dans la page Performances, Azure Application Insights doit effectuer le suivi des requêtes pour votre application. Application Insights peut effectuer automatiquement le suivi des requêtes pour les applications qui reposent sur des frameworks déjà instrumentés. ASP.NET et ASP.NET Core en sont deux exemples. 
 
-Voici les étapes que vous devez effectuer pour suivre manuellement les requêtes :
+Pour d’autres applications telles que les rôles de travail Azure Cloud Service et les API sans état Service Fabric, vous devez écrire du code pour indiquer à Application Insights où vos requêtes commencent et se terminent. Une fois ce code écrit, les données de télémétrie relatives aux requêtes sont envoyées à Application Insights. Vous pouvez voir les données de télémétrie dans la page Performances, et les profils sont collectés pour ces requêtes. 
 
+Pour suivre manuellement les requêtes, procédez comme suit :
 
   1. Ajoutez le code suivant au début de la durée de vie de l’application :  
 
@@ -36,7 +37,7 @@ Voici les étapes que vous devez effectuer pour suivre manuellement les requête
         ```
       Pour plus d’informations sur cette configuration de clé d’instrumentation générale, consultez [Use Service Fabric with Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md) (Utiliser Service Fabric avec Application Insights).  
 
-  1. Pour tout bloc de code que vous souhaitez instrumenter, encadrez-le d’une instruction **USING** `StartOperation<RequestTelemetry>`, comme indiqué dans l’exemple suivant :
+  1. Pour tout bloc de code que vous souhaitez instrumenter, encadrez-le d’une instruction **using** `StartOperation<RequestTelemetry>`, comme indiqué dans l’exemple suivant :
 
         ```csharp
         using Microsoft.ApplicationInsights;

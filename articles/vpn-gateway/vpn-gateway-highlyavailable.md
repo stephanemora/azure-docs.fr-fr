@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.openlocfilehash: c510bb060d5c0dc866c3802fab751c1cbeff3745
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 623ed10e155012780f039bf7b9148be34143454d
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42141466"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353275"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Configuration haute disponibilité pour la connectivité entre les réseaux locaux et la connectivité entre deux réseaux virtuels
 Cet article fournit une vue d’ensemble des options de configuration haute disponibilité dont vous pouvez tirer parti pour la connectivité entre vos réseaux locaux et la connectivité entre deux réseaux virtuels en utilisant des passerelles VPN Azure.
@@ -49,7 +49,8 @@ Cette configuration offre plusieurs tunnels actifs reliant la même passerelle V
 3. Cette configuration requiert le protocole BGP. Pour chaque passerelle réseau locale qui représente un périphérique VPN, une adresse IP d’homologue BGP unique doit être spécifiée dans la propriété « BgpPeerIpAddress ».
 4. Les champs de propriété AddressPrefix de chaque passerelle réseau locale ne doivent pas se chevaucher. Vous devez spécifier le paramètre « BgpPeerIpAddress » au format CIDR /32 dans le champ AddressPrefix, par exemple, 10.200.200.254/32.
 5. Vous devez utiliser le protocole BGP pour annoncer les mêmes préfixes que les préfixes de réseau local sur votre passerelle VPN Azure. Le trafic sera alors transmis simultanément via ces tunnels.
-6. Chaque connexion est comptabilisée par rapport au nombre maximal de tunnels pour votre passerelle VPN Azure, soit 10 pour les références SKU De base et Standard, et 30 pour les références SKU Hautes performances. 
+6. Vous devez utiliser un routage ECMP (Equal-Cost Multi-Path).
+7. Chaque connexion est comptabilisée par rapport au nombre maximal de tunnels pour votre passerelle VPN Azure, soit 10 pour les références SKU De base et Standard, et 30 pour les références SKU Hautes performances. 
 
 Dans cette configuration, la passerelle VPN Azure est toujours en mode actif-passif, ce qui signifie que l’on aura toujours le même comportement de basculement accompagné d’une brève interruption comme décrit [ci-dessus](#activestandby). Mais cette configuration évite les défaillances ou les interruptions sur votre réseau local et sur vos périphériques VPN.
 

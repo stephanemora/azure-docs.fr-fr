@@ -13,14 +13,14 @@ ms.topic: How to
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 3021fafe7d74f71450eec9b3720c974b04ada224
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0e9ad89e504ce1cb86daad48bec9ffe9423e2cf1
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426925"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319543"
 ---
-# <a name="schedule-your-first-test"></a>Planifier votre premier test
+# <a name="scheduling-a-test"></a>Planification d’un test
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -35,8 +35,8 @@ Si le flux de travail Passe de test peut être utilisé pour exécuter n’impor
 Avant de procéder à ce démarrage rapide, vous devez avoir terminé les éléments suivants :
 
 - [Configurer les ressources de la validation en tant que service](azure-stack-vaas-set-up-resources.md)
-- [Déployer l’agent local](azure-stack-vaas-local-agent.md) (Recommandé)
-- [Concepts clés à propos de la validation en tant que service](azure-stack-vaas-key-concepts.md) (Recommandé)
+- [Déployer l’agent local](azure-stack-vaas-local-agent.md) (Obligatoire)
+- [Concepts clés à propos de la validation en tant que service](azure-stack-vaas-key-concepts.md) (Obligatoire)
 
 ## <a name="start-a-workflow"></a>Démarrer un flux de travail
 

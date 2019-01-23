@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: a1e9647e64556a7c7f2444fa2711a2eb61d230a3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e6fb14fc901b5ae5ad11d94c1e71453c2852239c
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874563"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306248"
 ---
 # <a name="azure-logging-and-auditing"></a>Journalisation et audit Azure
 
@@ -29,6 +29,7 @@ Azure offre un large éventail d’options de journalisation et d’audit de sé
 > Certaines recommandations contenues dans cet article risquent d’entraîner une augmentation de l’utilisation des données, des réseaux ou des ressources de calcul, et donc une augmentation des coûts de licence ou d’abonnement.
 
 ## <a name="types-of-logs-in-azure"></a>Types de journaux dans Azure
+
 Les applications cloud sont complexes, avec de nombreux éléments mobiles. Les journaux fournissent des données pour que vos applications continuent à fonctionner. Ils vous aident à résoudre des problèmes antérieurs et futurs. Ils peuvent aussi aider à améliorer les performances ou la maintenabilité des applications, ou à automatiser des actions qui exigeraient normalement une intervention manuelle.
 
 Les journaux Azure sont classés par type :
@@ -52,6 +53,7 @@ Le tableau suivant liste les principaux types de journaux disponibles dans Azure
 |Traitement des données/alertes de sécurité|    Alertes Azure Security Center, alertes Azure Log Analytics|   Fournit des alertes et des informations sur la sécurité.|  API REST, JSON|
 
 ### <a name="activity-logs"></a>Journaux d’activité
+
 Les [journaux d’activité Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fournissent des insights sur les opérations qui ont été effectuées sur les ressources de votre abonnement. Les journaux d’activité s’appelaient avant « journaux d’audit » ou « journaux des opérations » parce qu’ils signalaient les [événements de plan de contrôle](https://driftboatdave.com/2016/10/13/azure-auditing-options-for-your-custom-reporting-needs/) de vos abonnements. 
 
 Les journaux d’activité vous aident à déterminer le « qui, quoi, quand » des opérations en écriture (PUT, POST ou DELETE). Ils vous aident aussi à comprendre l’état de l’opération et autres propriétés pertinentes. Les journaux d’activité n’incluent pas les opérations (GET) de lecture.
@@ -81,6 +83,7 @@ Scénarios d’intégration pour un événement de journal d’activité :
 Vous pouvez utiliser un compte de stockage ou un [espace de noms Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) qui n’est pas dans le même abonnement que celui générant le journal. La personne qui configure le paramètre doit disposer d’un accès [RBAC (contrôle d’accès en fonction du rôle)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) approprié aux deux abonnements.
 
 ### <a name="azure-diagnostics-logs"></a>Journaux de diagnostics Azure
+
 Les journaux de diagnostic Azure sont générés par une ressource et fournissent des données complètes et fréquentes sur le fonctionnement de cette ressource. Le contenu de ces journaux varie en fonction du type de ressource. Par exemple, les [journaux système des événements Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) sont une catégorie de journal de diagnostic pour les machines virtuelles et les [journaux de file d’attente, table et objet blob](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account) sont des catégories de journaux de diagnostic pour les comptes de stockage. Les journaux de diagnostic diffèrent des journaux d’activité, lesquels fournissent des insights sur les opérations qui ont été effectuées sur les ressources de votre abonnement.
 
 ![Diagrammes des journaux de diagnostic Azure](./media/azure-log-audit/azure-log-audit-fig2.png)
@@ -115,6 +118,7 @@ Les journaux de diagnostic Azure offrent plusieurs options de configuration, com
 |Azure Service Bus|[Journaux de diagnostic Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
 
 ### <a name="azure-active-directory-reporting"></a>Création de rapports Active Directory
+
 Azure Active Directory (Azure AD) comprend des rapports sur la sécurité, les activités et l’audit de l’annuaire d’un utilisateur. Le [rapport d’audit Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) vous aide à identifier les actions privilégiées qui se sont produites dans l’instance Azure AD de l’utilisateur. Ces actions privilégiées incluent les changements d'élévation (par exemple la création de rôle ou la réinitialisation de mot de passe), le changement des configurations de stratégie (par exemple les stratégies de mot de passe) ou les changements de configuration d’annuaire (par exemple les changements de paramètres de fédération de domaine).
 
 Les rapports fournissent l’enregistrement d’audit pour le nom d’événement, l’utilisateur qui a effectué l’action, la ressource cible affectée par le changement, ainsi que la date et l’heure (UTC). Les utilisateurs peuvent récupérer la liste des événements d’audit d’Azure AD dans le [portail Azure](https://portal.azure.com/), comme décrit dans [Afficher vos journaux d’audit](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). 
@@ -143,6 +147,7 @@ Les événements du rapport d’audit d’Azure AD sont conservés pendant 180 
 Si vous souhaitez conserver vos événements d’audit plus longtemps, utilisez l’API de création de rapport pour tirer régulièrement les [événements d’audit](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-audit-events) dans une banque de données séparée.
 
 ### <a name="virtual-machine-logs-that-use-azure-diagnostics"></a>Journaux de machines virtuelles utilisant Azure Diagnostics
+
 [Azure Diagnostics](https://docs.microsoft.com/azure/azure-diagnostics) est la fonctionnalité Azure qui permet de collecter des données de diagnostic sur une application déployée. Vous pouvez utiliser l’extension de diagnostic à partir de plusieurs sources. Sont actuellement pris en charge les [rôles de travail et web Azure Cloud Services](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me).
 
 ![Journaux de machines virtuelles utilisant Azure Diagnostics](./media/azure-log-audit/azure-log-audit-fig3.png)
@@ -160,6 +165,7 @@ Vous pouvez activer Azure Diagnostics sur une machine virtuelle en effectuant l�
 * [Créer une machine virtuelle Windows avec des fonctionnalités de surveillance et de diagnostic à l’aide d’un modèle Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### <a name="storage-analytics"></a>Storage Analytics
+
 [Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) journalise et fournit les données de métrique d’un compte de stockage. Vous pouvez utiliser ces données pour suivre les demandes, analyser les tendances d'utilisation et diagnostiquer les problèmes liés à votre compte de stockage La journalisation Storage Analytics est disponible pour les [services de stockage Blob Azure, File d’attente Azure et Table Azure](https://docs.microsoft.com/azure/storage/storage-introduction). Storage Analytics enregistre des informations détaillées sur les demandes ayant réussi ou échoué pour un service de stockage.
 
 Vous pouvez utiliser ces informations pour surveiller les demandes individuelles et diagnostiquer les problèmes d’un service de stockage. Les demandes sont enregistrées sur la base du meilleur effort. Les entrées de journal sont créées uniquement si des demandes sont effectuées sur le point de terminaison de service. Par exemple, si un compte de stockage a une activité dans son point de terminaison de blob, mais pas dans ses points de terminaison de table ou de file d’attente, seuls les journaux qui appartiennent au service de stockage Blob sont créés.
@@ -185,6 +191,7 @@ Storage Analytics journalise les types suivants de demandes authentifiées et an
 | Les demandes effectuées par Storage Analytics lui-même, telles que la création ou la suppression d'un journal, ne sont pas enregistrées. La liste complète des données journalisées est disponible dans [Opérations et messages d’état journalisés Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) et [Format de journal Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). | Aucune autre demande anonyme ayant échoué n'est enregistrée. La liste complète des données journalisées est disponible dans [Opérations et messages d’état journalisés Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) et [Format de journal Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). |
 
 ### <a name="azure-networking-logs"></a>Journaux réseaux Azure
+
 La journalisation et la surveillance réseau dans Azure sont complètes et couvrent deux grandes catégories :
 
 * [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) : la surveillance réseau basée sur des scénarios est fournie avec les fonctionnalités de Network Watcher. Ce service inclut la capture de paquets, le tronçon saut suivant, la vérification des flux IP, l’affichage de groupe de sécurité, les journaux de flux de groupe de sécurité réseau. La surveillance basée sur des scénarios fournit une vue de bout en bout des ressources réseau, à l’inverse de la surveillance des ressources réseau qui s’intéresse à chaque ressource spécifique.
@@ -271,9 +278,9 @@ Le tableau suivant liste et décrit des scénarios d’intégration :
 | --------------------- | :---------- |
 |[Plan de l’application](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Les composants de votre application, avec des alertes et des mesures clés.||
 |[Recherche de diagnostic pour les données d’instance](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| Cherchez et filtrez les événements, comme les requêtes, les exceptions, les appels de dépendance, les suivis de journaux et les affichages de pages.||
-|[Metrics Explorer pour les données agrégées](https://docs.microsoft.com/azure/application-insights/app-insights-metrics-explorer)|Explorez, filtrez et segmentez des données agrégées, comme les taux de demandes, d’échecs et d’exceptions, les temps de réponse et les durées de chargement des pages.||
+|[Metrics Explorer pour les données agrégées](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Explorez, filtrez et segmentez des données agrégées, comme les taux de demandes, d’échecs et d’exceptions, les temps de réponse et les durées de chargement des pages.||
 |[Tableaux de bord](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Combinez des données de plusieurs sources et partagez-les avec d’autres. Idéal pour les applications à composants multiples et pour un affichage en continu dans la salle de l’équipe.||
-|[Flux de métriques temps réel](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)|Lorsque vous déployez une nouvelle version, observez ces indicateurs de performance quasiment en temps réel pour vous assurer que tout fonctionne comme prévu.||
+|[Flux de métriques temps réel](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|Lorsque vous déployez une nouvelle version, observez ces indicateurs de performance quasiment en temps réel pour vous assurer que tout fonctionne comme prévu.||
 |[Analyse](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Répondez à des questions difficiles sur les performances et l’utilisation de votre application avec ce langage de requêtes puissant.||
 |[Alertes automatiques et manuelles](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Les alertes automatiques s’adaptent aux modèles télémétriques habituels de votre application et se déclenchent lorsqu’un comportement inhabituel est détecté. Vous pouvez également définir des alertes sur des niveaux particuliers de mesures personnalisées ou standard.||
 |[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|Consultez les données de performances dans le code. Accédez au code à partir de l’arborescence des appels de procédure.||
@@ -282,6 +289,7 @@ Le tableau suivant liste et décrit des scénarios d’intégration :
 |[Exportation continue](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Exportation en bloc de données brutes vers le système de stockage dès leur arrivée.||
 
 ### <a name="azure-security-center-alerts"></a>Alertes Azure Security Center
+
 La détection des menaces d’Azure Security Center fonctionne en collectant automatiquement les informations de sécurité à partir de vos ressources Azure, du réseau et des solutions de partenaires connectées. Elle analyse ces informations, souvent issues de plusieurs sources, pour identifier les menaces. Les alertes de sécurité, ainsi que les recommandations sur la façon de répondre à la menace, sont hiérarchisées dans Azure Security Center. Pour plus d’informations, consultez [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro).
 
 ![Diagramme Azure Security Center](./media/azure-log-audit/azure-log-audit-fig7.png)
@@ -296,7 +304,7 @@ Azure Security Center fait appel à une analytique de sécurité avancée qui va
 
 De nombreuses équipes de sécurité et d’intervention utilisent une solution SIEM comme point de départ pour le triage et l’examen des alertes de sécurité. Avec Azure Log Integration, vous pouvez synchroniser quasi en temps réel les alertes Azure Security Center et les événements de sécurité des machines virtuelles, collectés par les journaux de diagnostic et d’audit Azure, avec votre solution SIEM ou Log Analytics.
 
-## <a name="log-analytics"></a>Log Analytics 
+## <a name="log-analytics"></a>Log Analytics
 
 Log Analytics est un service Azure qui vous permet de collecter et d’analyser les données générées par les ressources de vos environnements cloud et locaux. Il vous fournit des insights en temps réel à l’aide d’une recherche intégrée et des tableaux de bord personnalisés permettant d’analyser facilement des millions d’enregistrements sur l’ensemble de vos charges de travail et serveurs, quel que soit leur emplacement physique.
 
@@ -309,6 +317,7 @@ Les sources connectées représentent les ordinateurs et autres ressources qui g
 Les [sources de données](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources) représentent divers types de données collectées auprès de chaque source connectée. Elles comprennent les événements et les [données de performances](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters) d’agents [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) et Linux, en plus des sources telles que les [journaux IIS](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-iis-logs) et les [journaux de texte personnalisés](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-custom-logs). Vous configurez chaque source de données que vous souhaitez collecter, et la configuration est automatiquement remise à chaque source connectée.
 
 Il existe quatre façons de [collecter des journaux et des métriques pour les services Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) :
+
 * Azure Diagnostics directement dans Log Analytics (**Diagnostics** dans le tableau suivant)
 
 * Azure Diagnostics dans stockage Azure dans Log Analytics (**Stockage** dans le tableau suivant)
@@ -351,7 +360,8 @@ Il existe quatre façons de [collecter des journaux et des métriques pour les s
 
 
 ## <a name="log-integration-with-on-premises-siem-systems"></a>Intégration des journaux avec les systèmes SIEM locaux
-Avec [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324), vous pouvez intégrer des journaux bruts de vos ressources Azure à vos systèmes SIEM (Security Information and Event Management) locaux.
+
+Avec Azure Log Integration, vous pouvez intégrer des journaux bruts issus de vos ressources Azure à vos systèmes SIEM (Security Information and Event Management) locaux. Les téléchargements AzLog ont été désactivés le 27 juin 2018. Pour obtenir des conseils pour évoluer, consultez la publication [Utiliser Azure Monitor pour intégrer avec des outils SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/).
 
 ![Diagramme Log Integration](./media/azure-log-audit/azure-log-audit-fig9.png)
 
@@ -373,7 +383,7 @@ Scénarios d’intégration pour SIEM :
 
 * [Étapes de configuration de partenaires](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) : Ce billet de blog vous montre comment configurer Azure Log Integration pour fonctionner avec les solutions de partenaire Splunk, HP ArcSight et IBM QRadar.
 
-* [Forum aux questions sur Azure Log Integration](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq) : Cet article répond à des questions sur Azure Log Integration.
+* [Forum aux questions sur Azure Log Integration](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq) : Cet article répond à des questions sur l’intégration des journaux Azure.
 
 * [Intégration des alertes Security Center avec Azure Log Integration](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration) : Cet article décrit comment synchroniser les alertes Security Center, les événements de sécurité des machines virtuelles collectés par les journaux de diagnostic Azure et les journaux d’audit Azure avec votre solution SIEM ou Log Analytics.
 

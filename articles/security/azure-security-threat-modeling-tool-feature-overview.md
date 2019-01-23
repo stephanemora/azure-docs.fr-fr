@@ -3,9 +3,9 @@ title: Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs
 description: En savoir plus sur les fonctionnalités disponibles dans l’Outil de modélisation des menaces
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 76e49fc0e680acbc2b7b7c62b69fbf72d6690acf
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8bbc13aa77c50c6ae02ecc67869035e7ec85effa
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
-ms.locfileid: "26754743"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359338"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Vue d’ensemble de la fonctionnalité Outil de modélisation des menaces
 
@@ -107,7 +107,7 @@ Les propriétés de l’élément dépendent de l’élément que vous sélectio
 
 | Propriété d’élément                               | Détails      |
 | --------------------------------------- | ------------ |
-| **Name** | Utile pour nommer vos processus, magasins, interacteurs et flux afin qu’ils soient facilement reconnus. |
+| **Nom** | Utile pour nommer vos processus, magasins, interacteurs et flux afin qu’ils soient facilement reconnus. |
 | **Out of scope** (Hors de portée) | Si sélectionné, l’élément est extrait de la matrice de génération des menaces (non recommandé). |
 | **Reason for out of scope** (Raison de l’hors de portée) | Champ de justification pour informer les utilisateurs de la raison pour laquelle l’option Hors de portée a été sélectionnée. |
 
@@ -119,7 +119,7 @@ Quand vous ouvrez l’application, vous voyez l’écran **Welcome** (Bienvenue)
 
 ### <a name="open-a-model"></a>Ouvrir un modèle
 
-Passez la souris au-dessus **d’Open A Model** (Ouvrir un modèle) pour afficher deux options : **Open From This Computer** (Ouvrir depuis cet ordinateur) et **Open From OneDrive** (Ouvrir depuis OneDrive). La première option ouvre l’écran **File Open** (Ouvrir le fichier). La seconde option vous guide dans le processus de connexion pour OneDrive. Une fois l’authentification réussie, vous pouvez sélectionner des fichiers et des dossiers.
+Placez le curseur sur **Ouvrir un modèle** pour afficher deux options : **Ouvrir à partir de cet ordinateur** et **Ouvrir depuis OneDrive**. La première option ouvre l’écran **File Open** (Ouvrir le fichier). La seconde option vous guide dans le processus de connexion pour OneDrive. Une fois l’authentification réussie, vous pouvez sélectionner des fichiers et des dossiers.
 
 ![Ouvrir un modèle](./media/azure-security-threat-modeling-tool-feature-overview/openmodel.png)
 
@@ -139,15 +139,15 @@ Quand vous ouvrez ou créez un modèle, le **Mode création** s’ouvre.
 
 Vous pouvez ajouter des éléments dans la grille de deux manières :
 
-- **Glisser et déposer** : faites glisser l’élément souhaité dans la grille. Ensuite, utilisez les propriétés de l’élément pour fournir des informations supplémentaires.
-- **Cliquer avec le bouton droit** : cliquez avec le bouton droit n’importe où sur la grille, puis sélectionnez des éléments dans le menu déroulant. Une représentation générique de l’élément que vous sélectionnez s’affiche sur l’écran.
+- **Glisser-déplacer** : faites glisser l’élément souhaité dans la grille. Ensuite, utilisez les propriétés de l’élément pour fournir des informations supplémentaires.
+- **Cliquer avec le bouton droit** : cliquez avec le bouton droit n’importe où sur la grille, puis sélectionnez des éléments dans le menu déroulant. Une représentation générique de l’élément que vous sélectionnez s’affiche sur l’écran.
 
 ### <a name="connect-elements"></a>Connecter des éléments
 
 Vous pouvez connecter des éléments de deux manières :
 
-- **Glisser et déposer** : faites glisser le flux de données de votre choix vers la grille et connectez les deux extrémités aux éléments appropriés.
-- **Cliquer + Maj** : cliquez sur le premier élément (envoi de données), appuyez et maintenez la pression sur la touche Maj, puis sélectionnez le deuxième élément (réception de données). Cliquez avec le bouton droit et sélectionnez **Connect** (Se connecter). Si vous utilisez un flux de données bidirectionnel, l’ordre n’est pas aussi important.
+- **Glisser-déplacer** : faites glisser le flux de données de votre choix vers la grille et connectez les deux extrémités aux éléments appropriés.
+- **Cliquer + Maj** : cliquez sur le premier élément (envoi de données), appuyez et maintenez la pression sur la touche Maj, puis sélectionnez le deuxième élément (réception de données). Cliquez avec le bouton droit et sélectionnez **Connect** (Se connecter). Si vous utilisez un flux de données bidirectionnel, l’ordre n’est pas aussi important.
 
 ### <a name="properties"></a>properties
 
@@ -205,7 +205,7 @@ Après avoir changé les priorités et mis à jour l’état de chaque menace g�
 
 ![Rapport](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour contribuer au modèle pour la communauté, accédez à notre page [GitHub](https://github.com/Microsoft/threat-modeling-templates). 
 * Pour commencer à utiliser l’outil, accédez à la page de [téléchargement](https://aka.ms/tmtpreview).

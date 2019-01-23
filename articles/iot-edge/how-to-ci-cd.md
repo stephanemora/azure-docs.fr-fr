@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c4f5d6888d581cb44702a8d76e1ebbb13845091
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: aef88a4fbc7d71ee1438333afd9773d1aba3ed9c
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582913"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359151"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Intégration continue et déploiement continu dans Azure IoT Edge
 
@@ -68,8 +68,8 @@ Dans cette section, vous allez créer un pipeline de build configuré pour s’e
 1. Dans l’éditeur de pipeline, choisissez le pool d’agents. 
     
     * Si vous souhaitez générer vos modules dans des conteneurs de plateforme amd64 pour Linux, choisissez **Hosted Ubuntu 1604** (Ubuntu 1604 hébergé)
-    * Si vous souhaitez générer vos modules dans des conteneurs de plateforme amd64 pour Windows, choisissez **Hosted VS2017** (VS2017 hébergé) 
-    * Si vous souhaitez générer vos modules dans des conteneurs de plateforme arm32v7 pour Linux, vous devez configurer votre propre agent de build en cliquant sur le bouton **Gérer**.
+    * Si vous souhaitez générer vos modules dans des conteneurs de plateforme amd64 pour Windows 1809, vous devez [configurer l'agent auto-hébergé sur Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
+    * Si vous souhaitez générer vos modules dans des conteneurs de plateforme arm32v7 pour Linux, vous devez [configurer l'agent auto-hébergé sur Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
     
     ![Configurer le pool d’agents de build](./media/how-to-ci-cd/configure-env.png)
 

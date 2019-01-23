@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 9784d08a8e3e471a8b516c3bc285430c537857a8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5b418f28cb8cb48d8c9ee369289c899c7f6525bc
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044176"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331960"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guide de conception de tables de Stockage Azure : concevoir des tables scalables et performantes
 
@@ -213,7 +213,7 @@ La section précédente [Présentation du service de Table Azure](#overview) dé
 * La deuxième méthode conseillée consiste à utiliser une ***requête de plage*** de données qui utilise la valeur de **PartitionKey** et des filtres sur une plage de valeurs de **RowKey** pour retourner plusieurs entités. La valeur de **PartitionKey** identifie une partition spécifique, tandis que la valeur de **RowKey** identifie un sous-ensemble des entités de cette partition. Par exemple : $filter=PartitionKey eq ’Sales’ and RowKey ge ’S’ and RowKey lt ’T’  
 * La troisième méthode conseillée consiste à effectuer une ***analyse de partition*** qui utilise la valeur de **PartitionKey** et des filtres sur une autre propriété sans clé afin de renvoyer plusieurs entités. La valeur de **PartitionKey** identifie une partition spécifique et les valeurs des propriétés sélectionnent un sous-ensemble d’entités dans cette partition. Par exemple : $filter=PartitionKey eq ’Sales’ and LastName eq ’Smith’  
 * Une ***analyse de table*** n’inclut pas la valeur de **PartitionKey** et s’avère inefficace, car elle lance une recherche sur toutes les partitions qui composent la table pour toutes les entités correspondantes. Elle effectue une analyse de table, que votre filtre utilise la valeur de **RowKey**ou non. Par exemple : $filter=LastName eq ’Jones’  
-* Les requêtes qui retournent plusieurs entités les retournent triées dans l’ordre de la **PartitionKey** et de la **RowKey**. Pour éviter un nouveau tri des entités dans le client, sélectionnez une valeur de **RowKey** qui définit l’ordre de tri le plus répandu.  
+* Les requêtes Stockage Table Azure qui renvoient plusieurs entités les renvoient triées dans l’ordre de la **PartitionKey** et de la **RowKey**. Pour éviter un nouveau tri des entités dans le client, sélectionnez une valeur de **RowKey** qui définit l’ordre de tri le plus répandu. Les résultats de la requête renvoyés par l’API Table Azure dans Azure Cosmos DB ne sont pas triés par clé de partition ou clé de ligne. Pour obtenir la liste détaillée des différences de fonctionnalités, consultez [Différences entre l'API Table dans Azure Cosmos DB et Stockage Table Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 L’utilisation d’un connecteur « **or** » pour spécifier un filtre selon les valeurs de **RowKey** déclenche une analyse de partition et n’est pas traitée en tant que requête de plage de données. Par conséquent, vous devez éviter les requêtes qui utilisent des filtres comme : $filter=PartitionKey eq ’Sales’ and (RowKey eq ’121’ or RowKey eq ’322’)  
 
@@ -251,7 +251,13 @@ De nombreuses conceptions doivent répondre aux conditions requises pour permett
 * [Modèle d’entités d’index](#index-entities-pattern) : mettez à jour des entités d’index pour mener des recherches efficaces renvoyant des listes d’entités.  
 
 ### <a name="sorting-data-in-the-table-service"></a>Tri des données dans le service de Table
-Le service de Table renvoie des entités triées dans l’ordre croissant selon la **PartitionKey**, puis la **RowKey**. Ces clés correspondent à des valeurs de chaîne. Pour vous assurer que les valeurs numériques permettent des tris corrects, vous devez les convertir en une longueur fixe et les remplir avec des zéros. Par exemple, si la valeur d’ID d’un employé que vous utilisez comme **RowKey** est une valeur de nombre entier, vous devez convertir l’ID de cet employé, **123**, en **00000123**.  
+
+Les résultats de la requête renvoyés sont triés dans l’ordre croissant selon la **PartitionKey**, puis la **RowKey**.
+
+> [!NOTE]
+> Les résultats de la requête renvoyés par l’API Table Azure dans Azure Cosmos DB ne sont pas triés par clé de partition ou clé de ligne. Pour obtenir la liste détaillée des différences de fonctionnalités, consultez [Différences entre l'API Table dans Azure Cosmos DB et Stockage Table Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+
+Dans Stockage Table Azure, les clés correspondent à des valeurs de chaîne. Pour vous assurer que les valeurs numériques permettent des tris corrects, vous devez les convertir en une longueur fixe et les remplir avec des zéros. Par exemple, si la valeur d’ID d’un employé que vous utilisez comme **RowKey** est une valeur de nombre entier, vous devez convertir l’ID de cet employé, **123**, en **00000123**. 
 
 De nombreuses applications ont des conditions d'utilisation pour l'utilisation des données triées dans différents ordres : par exemple, le tri des employés par nom ou par date d'arrivée. Les modèles suivants de la section [Modèles de conception de table](#table-design-patterns) permettent de comprendre comment alterner des commandes de tri pour vos entités :  
 

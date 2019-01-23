@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 12/20/2018
-ms.openlocfilehash: 33e0b66541e5ead5f3c05d2310ecc07e8a62324c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 1/16/2019
+ms.openlocfilehash: 2c022bd002700426eea2c6b38a667cd5a1381c02
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728123"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359848"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Utiliser des règles et des points de terminaison de service de réseau virtuel pour Azure SQL Database
 
@@ -118,8 +118,9 @@ Pour Azure SQL Database, la fonctionnalité de règles de réseau virtuel prése
 
 - Les règles de réseau virtuel s’appliquent uniquement à des réseaux virtuels Azure Resource Manager, et non à des réseaux avec un [modèle de déploiement Classic][arm-deployment-model-568f].
 
-- L’activation des points de terminaison de service de réseau virtuel pour Azure SQL Database active également les points de terminaison des services Azure MySQL et PostgreSQL. Toutefois, avec les points de terminaison activés, les tentatives de connexion à partir des points de terminaison pour vos instances de MySQL ou PostgreSQL échouent.
-  - La raison sous-jacente est que MySQL et PostgreSQL ne prennent pas actuellement en charge les ACL.
+- L’activation des points de terminaison de service de réseau virtuel pour Azure SQL Database active également les points de terminaison des services Azure MySQL et PostgreSQL. Toutefois, avec les points de terminaison activés, les tentatives de connexion à partir des points de terminaison pour vos instances de MySQL ou PostgreSQL peuvent échouer.
+  - Il est fort probable qu'une règle de réseau virtuel n'ait pas été configurée pour MySQL et PostgreSQL. Vous devez configurer une règle de réseau virtuel pour Azure Database pour MySQL et PostgreSQL afin de permettre la connexion.
+
 - Sur le pare-feu, les plages d’adresses IP s’appliquent aux éléments de mise en réseau suivants, contrairement aux règles de réseau virtuel :
   - [Réseau privé virtuel (VPN) site à site (S2S)][vpn-gateway-indexmd-608y]
   - En local via [ExpressRoute][expressroute-indexmd-744v]

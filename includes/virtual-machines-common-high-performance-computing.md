@@ -5,25 +5,21 @@ services: virtual-machines-linux, virtual-machines-windows
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 07/02/2018
+ms.date: 01/15/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 88aeaf1246583345d1d28218e8e91b3ecbcd166b
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 2a2d5f9c85a881dad8f53f81a39c84d4a34b632e
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53429957"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360188"
 ---
 Les organisations ont des besoins informatiques à grande échelle. Ces problèmes informatiques à grande échelle comprennent l’analyse et la conception d’ingénierie, les calculs de risques financiers, le rendu d’image, la modélisation complexe, les simulations Monte Carlo, etc. 
 
 Utilisez le cloud Azure pour exécuter efficacement des charges de travail de calcul Linux et Windows nécessitant beaucoup de ressources système, allant de travaux par lots parallèles à des simulations de calcul haute performance classique. Exécutez vos charges de travail HPC et de lot sur une infrastructure Azure, selon votre choix de services de calcul, de gestionnaires de grilles, de solutions de la Place de marché et d’applications hébergées par le revendeur (SaaS). Azure offre des solutions flexibles pour répartir le travail et mettre à l’échelle de milliers de machines virtuelles ou de noyaux, et descendre en puissance s’il vous faut moins de ressources. 
 
-
-
 ## <a name="solution-options"></a>Options de la solution
-
-
 
 * **Solutions en libre service**
     * Configurez votre environnement de cluster dans des machines virtuelles Azure ou dans des [groupes de machines virtuelles identiques](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). 
@@ -36,32 +32,25 @@ Utilisez le cloud Azure pour exécuter efficacement des charges de travail de ca
     * Utilisez les calculs du cloud à la demande avec votre [gestionnaire de charges de travail](#workload-manager) existant.
     * Tirez parti des [tailles de HPC et de GPU de la machine virtuelle](#hpc-and-gpu-sizes) pour les charges de travail MPI et GPU.
 * **Solutions Big Compute en tant que service**
-    * Développez des solutions Big Compute et des worklows personnalisés à l’aide d’[Azure Batch](#azure-batch) et autres [services Azure](#related-azure-services) associés.
+    * Développez des solutions Big Compute et des worklows personnalisés à l’aide d’[Azure CycleCloud](#azure-cyclecloud), [Azure Batch](#azure-batch), et autres [services Azure services](#related-azure-services) associés.
     * Exécutez des solutions de simulation et d’ingénierie pour Azure de vendeurs tels que [Altair](http://www.altair.com/), [Rescale](https://www.rescale.com/azure/) et [Cycle Computing](https://cyclecomputing.com/) (et [Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/) depuis peu).
     * Utilisez un [superordinateur Cray](https://www.cray.com/solutions/supercomputing-as-a-service/cray-in-azure) en tant que service hébergé dans Azure.
 * **Solutions de la Place de marché**
     * Utilisez la mise à l’échelle des [solutions](#marketplace-solutions) et des [applications HPC](#hpc-applications)offertes dans la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/). 
     
-
-
 La section suivante fournit plus d’informations sur les technologies prises en charge et des liens pour obtenir des conseils.
-
-
 
 ## <a name="marketplace-solutions"></a>Solutions de la Place de marché
 
 Visitez la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/) pour les solutions et images de machines virtuelles Linux et Windows conçues pour HPC. Voici quelques exemples :
 
-* [HPC basé sur RogueWave CentOS](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC?tab=Overview)
+* [HPC basé sur RogueWave CentOS](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74HPC?tab=Overview)
 * [SUSE Linux Enterprise Server (SLES)](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
-*  [TIBCO Grid Server Engine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tibco-software.gridserverlinuxengine?tab=Overview)
+*  [TIBCO Grid Server Engine](https://azuremarketplace.microsoft.com/marketplace/apps/tibco-software.gridserverlinuxengine?tab=Overview)
 * [Machine virtuelle de science des données Azure pour Windows et Linux](../articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md)
-* [D3View](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
+* [D3View](https://azuremarketplace.microsoft.com/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
 * [UberCloud](https://azure.microsoft.com/search/marketplace/?q=ubercloud)
-* [Intel Cloud Edition pour Lustre Software](https://azuremarketplace.microsoft.com/marketplace/apps/intel.intel-cloud-edition-gs)
 
-
- 
 ## <a name="hpc-applications"></a>Applications HPC
 
 Exécuter des applications HPC commerciales ou personnalisées dans Azure. Plusieurs exemples dans cette section ont été testés et se montrent efficaces pour la mise à l’échelle avec des machines virtuelles ou des cœurs de calcul supplémentaires. Visitez la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace) pour obtenir des solutions prêtes au déploiement.
@@ -71,18 +60,15 @@ Exécuter des applications HPC commerciales ou personnalisées dans Azure. Plusi
 
 ### <a name="engineering-applications"></a>Applications d’ingénierie
 
-
 * [Altair RADIOSS](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/)
 * [ANSYS CFD](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/)
 * [MATLAB Distributed Computing Server](../articles/virtual-machines/windows/matlab-mdcs-cluster.md)
 * [StarCCM +](https://blogs.msdn.microsoft.com/azurecat/2017/07/07/run-star-ccm-in-an-azure-hpc-cluster/)
 * [OpenFOAM](https://simulation.azure.com/casestudies/Team-182-ABB-UC-Final.pdf)
 
-
-
 ### <a name="graphics-and-rendering"></a>Graphiques et rendu
 
-* [Autodesk Maya, 3ds Max et Arnold](../articles/batch/batch-rendering-service.md) sur Azure Batch 
+* [Applications de rendu](../articles/batch/batch-rendering-service.md) sur Azure Batch, y compris Autodesk Maya, 3ds Max, Arnold, Chaos Group V-Ray et Blender
 
 ### <a name="ai-and-deep-learning"></a>Intelligence artificielle et apprentissage approfondi
 
@@ -90,12 +76,8 @@ Exécuter des applications HPC commerciales ou personnalisées dans Azure. Plusi
 * [Machine virtuelle d’apprentissage profond](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [Recettes Batch Shipyard pour l’apprentissage approfondi](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
 
-
-
-
-
-
 ## <a name="hpc-and-gpu-vm-sizes"></a>Tailles de machines virtuelles HPC et GPU
+
 Azure propose une plage de tailles de machines virtuelles [Linux](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) et [Windows](../articles/virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), y compris des tailles conçues pour des charges de travail nécessitant beaucoup de ressources système. Par exemple, des machines virtuelles H16r et H16mr peuvent se connecter à un réseau RDMA principal au débit élevé. Ce réseau cloud peut améliorer les performances d’applications parallèles étroitement liées s’exécutant sous [Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) ou Intel MPI. 
 
 Les machines virtuelles de série N comportent des processeurs graphiques NVIDIA conçus pour des applications graphiques ou de calcul nécessitant beaucoup de ressources système, y compris la visualisation et l’apprentissage de l’intelligence artificielle (AI). 
@@ -105,15 +87,18 @@ En savoir plus :
 * Tailles HPC pour machines virtuelles [Linux](../articles/virtual-machines/linux/sizes-hpc.md) et [Windows](../articles/virtual-machines/windows/sizes-hpc.md) 
 * Tailles GPU pour machines virtuelles [Linux](../articles/virtual-machines/linux/sizes-gpu.md) et [Windows](../articles/virtual-machines/windows/sizes-gpu.md) 
 
+## <a name="azure-cyclecloud"></a>Azure CycleCloud
+
+Gérez efficacement les charges de travail courantes tout en créant et en optimisant les clusters HPC sur les machines virtuelles Azure avec [Azure CycleCloud](https://docs.microsoft.com/azure/cyclecloud/overview).
+
 Découvrez comment :
 
-* [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](../articles/virtual-machines/linux/classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Configuration d'un cluster Windows RDMA avec Microsoft HPC Pack pour exécuter des applications MPI](../articles/virtual-machines/windows/classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Utiliser des machines virtuelles nécessitant beaucoup de ressources système dans des pools Batch](../articles/batch/batch-pool-compute-intensive-sizes.md)
+* [Installer et configurer CycleCloud avec un modèle Resource Manager](https://docs.microsoft.com/azure/cyclecloud/quickstart-install-cyclecloud)
 
-
+* [Configurer manuellement CycleCloud](https://docs.microsoft.com/azure/cyclecloud/quickstart-installation)
 
 ## <a name="azure-batch"></a>Azure Batch
+
 [Batch](../articles/batch/batch-technical-overview.md) est une plateforme qui permet d’exécuter efficacement des applications de calcul haute performance (HPC) en parallèle et à grande échelle dans le cloud. Azure Batch planifie les travaux nécessitant une grande quantité de ressources système à exécuter sur un pool géré de machines virtuelles. Il peut mettre automatiquement à l’échelle les ressources de calcul pour répondre aux besoins de vos travaux. 
 
 Les fournisseurs et développeurs SaaS peuvent utiliser les outils et kits de développement logiciel (SDK) pour intégrer des applications HPC ou des charges de travail de conteneur dans Azure, stocker des données dans Azure et générer des pipelines d’exécution du travail. 
@@ -135,19 +120,16 @@ Voici quelques exemples de cluster et de gestionnaires de charges de travail qui
 * [Bright Cluster Manager](http://www.brightcomputing.com/technology-partners/microsoft)
 * [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/)
 * [PBS Pro](http://pbspro.org)
-* [Microsoft HPC Pack](https://technet.microsoft.com/library/mt744885.aspx) : consultez les options pour exécuter dans des machines virtuelles [Windows](../articles/virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) et [Linux](../articles/virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
-
-
+* [Microsoft HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) 
 
 ## <a name="hpc-storage"></a>Stockage HPC
 
-Les charges de travail HPC et Batch à grande échelle nécessitent un stockage des données et un accès à ces dernières dépassant les capacités des systèmes de fichiers cloud classiques. Implémentez des solutions de système de fichiers parallèles dans Azure comme [Lustre](http://lustre.org/) et [BeeGFS](http://www.beegfs.com/content/).
+Les charges de travail HPC et Batch à grande échelle nécessitent un stockage des données et un accès à ces dernières dépassant les capacités des systèmes de fichiers cloud classiques. 
 
 En savoir plus :
 
-* [Systèmes de fichiers virtuels parallèles sur Azure](https://azure.microsoft.com/resources/parallel-virtual-file-systems-on-microsoft-azure/)
-* Solutions de stockage cloud hautes performances [d’Avere](http://www.averesystems.com/about-us/about-avere) (désormais [joint à Microsoft](https://blogs.microsoft.com/blog/2018/01/03/microsoft-to-acquire-avere-systems-accelerating-high-performance-computing-innovation-for-media-and-entertainment-industry-and-beyond/))
-
+* [Avere vFXT pour Azure](../articles/avere-vfxt/avere-vfxt-overview.md) 
+* [Systèmes de fichiers virtuels parallèles sur Azure](https://azure.microsoft.com/resources/parallel-virtual-file-systems-on-microsoft-azure/), y compris [Lustre](http://lustre.org/) et [BeeGFS](http://www.beegfs.com/content/).
 
 ## <a name="related-azure-services"></a>Services Azure connexes
 
@@ -159,6 +141,7 @@ La plupart des solutions HPC Azure reposent sur les machines virtuelles Azure, l
 * [Stockage Fichier](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Données et analyse
+
 * [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Storage Gen1](../articles/data-lake-store/data-lake-store-overview.md)
@@ -166,19 +149,20 @@ La plupart des solutions HPC Azure reposent sur les machines virtuelles Azure, l
 * [Base de données SQL](../articles/sql-database/sql-database-technical-overview.md)
 
 ### <a name="ai-and-machine-learning"></a>IA et Machine Learning
-* [Machine Learning Services](../articles/machine-learning/service/overview-what-is-azure-ml.md)
+
+* [Service Machine Learning](../articles/machine-learning/service/overview-what-is-azure-ml.md)
 * [Genomics](../articles/genomics/overview-what-is-genomics.md)
 
 ### <a name="networking"></a>Mise en réseau
+
 * [Réseau virtuel](../articles/virtual-network/virtual-networks-overview.md)
 * [ExpressRoute](../articles/expressroute/expressroute-introduction.md)
 
 ### <a name="containers"></a>Containers
-* [Service de conteneur](../articles/container-service/dcos-swarm/container-service-intro.md)
+
 * [Azure Kubernetes Service (AKS)](../articles/aks/intro-kubernetes.md)
 * [Container Registry](../articles/container-registry/container-registry-intro.md)
-
-
+* [Container Instances](../articles/container-instances/container-instances-overview.md)
 
 ## <a name="customer-stories"></a>Témoignages client
 
@@ -190,20 +174,16 @@ Exemples de clients ayant résolu des problèmes d’entreprise à l’aide de s
 * [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
 * [EFS](https://customers.microsoft.com/story/efs-professionalservices-azure)
 * [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
-* [MetLife](https://enterprise.microsoft.com/en-us/customer-story/industries/insurance/metlife/)
+* [MetLife](https://customers.microsoft.com/story/metlife-insurance-azure-cloud-services-windows-server-analytics-platform-server-en)
 * [Microsoft Research](https://customers.microsoft.com/doclink/fast-lmm-and-windows-azure-put-genetics-research-on-fa)
 * [Milliman](https://customers.microsoft.com/story/actuarial-firm-works-to-transform-insurance-industry-w)
 * [Mitsubishi UFJ Securities International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
-* [NeuroInitiative](https://customers.microsoft.com/en-us/story/neuroinitiative-health-provider-azure)
+* [NeuroInitiative](https://customers.microsoft.com/story/neuroinitiative-health-provider-azure)
 * [Schlumberger](https://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
 * [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 
-
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur les solutions Big Compute pour la [simulation d’ingénierie](https://simulation.azure.com/), le [rendu](https://azure.microsoft.com/solutions/big-compute/rendering/), les [banques et marchés financiers](https://finance.azure.com/) et la [génomique](https://enterprise.microsoft.com/en-us/industries/health/genomics/).
-* Pour les dernières annonces, consultez le [blog de l’équipe Microsoft HPC et Batch](http://blogs.technet.com/b/windowshpc/) et le [blog Azure](https://azure.microsoft.com/blog/tag/hpc/).
 
-* Utiliser le service Azure [Batch](https://azure.microsoft.com/services/batch/) géré et évolutif pour exécuter des charges de travail nécessitant beaucoup de ressources système sans gérer d’infrastructures sous-jacentes [En savoir plus](https://azure.microsoft.com/solutions/architecture/hpc-big-compute-saas/)
+* En savoir plus sur les solutions Azure pour le [calcul haute performance](https://azure.microsoft.com/solutions/high-performance-computing/), le [rendu](https://azure.microsoft.com/solutions/big-compute/rendering/), les [banques et marchés financiers](https://finance.azure.com/) et la [génomique](https://enterprise.microsoft.com/industries/health/genomics/).
 
-
-
+* En savoir plus sur les [architectures de solution Big Compute](https://azure.microsoft.com/solutions/architecture/?solution=high-performance-computing) dans Azure.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0b38c61f4fe884137204cba6d99d5e383b3259a0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b7f5d4683f0042b95399b86cd4f53c93518c3c56
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338888"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330670"
 ---
 # <a name="speech-service-rest-apis"></a>API REST du service Speech
 
@@ -272,7 +272,7 @@ Ce tableau répertorie les en-têtes obligatoires et facultatifs pour les demand
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Votre clé d’abonnement du service Speech. | Cet en-tête ou `Authorization` est requis. |
 | `Authorization` | Un jeton d’autorisation précédé du mot `Bearer`. Pour en savoir plus, consultez [Authentification](#authentication). | Cet en-tête ou `Ocp-Apim-Subscription-Key` est requis. |
-| `Content-type` | Décrit le format et le codec des données audio fournies. Les valeurs acceptées sont `audio/wav; codec=audio/pcm; samplerate=16000` et `audio/ogg; codec=audio/pcm; samplerate=16000`. | Obligatoire |
+| `Content-type` | Décrit le format et le codec des données audio fournies. Les valeurs acceptées sont `audio/wav; codecs=audio/pcm; samplerate=16000` et `audio/ogg; codecs=opus`. | Obligatoire |
 | `Transfer-Encoding` | Spécifie que les données audio sont envoyées en bloc plutôt que dans un seul fichier. Utilisez uniquement cet en-tête si vous envoyez les données audio en bloc. | Facultatif |
 | `Expect` | Si vous utilisez le transfert en bloc, envoyez `Expect: 100-continue`. Le service Speech accuse réception de la requête initiale et attend des données supplémentaires.| Requis si vous envoyez les données audio en bloc. |
 | `Accept` | Si cette valeur est fournie, elle doit être `application/json`. Le service de reconnaissance vocale Speech fournit les résultats au format JSON. Certains frameworks de requêtes web fournissent une valeur par défaut incompatible si vous n’en spécifiez pas une. Il est donc conseillé de toujours inclure `Accept`. | Cette étape est facultative mais recommandée. |
@@ -296,7 +296,7 @@ Il s’agit d’une requête HTTP standard. L’exemple ci-dessous inclut le nom
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
 Accept: application/json;text/xml
-Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Content-Type: audio/wav; codecs=audio/pcm; samplerate=16000
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.stt.speech.microsoft.com
 Transfer-Encoding: chunked
@@ -330,7 +330,7 @@ Cet exemple de code montre comment envoyer l’audio en bloc. Seul le premier se
     request.Method = "POST";
     request.ProtocolVersion = HttpVersion.Version11;
     request.Host = host;
-    request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
+    request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
     request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
     request.AllowWriteStreamBuffering = false;
 
@@ -469,7 +469,10 @@ Liste de formats audio pris en charge envoyés dans chaque demande en tant qu’
 
 ### <a name="request-body"></a>Corps de la demande
 
-Le texte est envoyé comme corps d’une requête HTTP `POST`. Il peut être au format texte brut (ASCII ou UTF-8) ou [Speech Synthesis Markup Language](speech-synthesis-markup.md) (SSML) UTF-8. Les requêtes en texte brut utilisent la langue et la voix par défaut du service Speech. Avec SSML, vous pouvez spécifier la voix et la langue.
+Le corps de chaque requête `POST` est envoyée en tant que [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). SSML vous permet de choisir la voix et la langue de la synthèse vocale renvoyée par le service de synthèse vocale. Pour obtenir la liste complète des voix prises en charge, consultez [prise en charge linguistique](language-support.md#text-to-speech).
+
+> [!NOTE]
+> Si vous utilisez une voix personnalisée, le corps d’une requête peut être envoyé sous forme de texte brut (ASCII ou UTF-8).
 
 ### <a name="sample-request"></a>Exemple de requête
 

@@ -1,6 +1,6 @@
 ---
-title: Options de stockage d’état sur Azure Service Fabric Mesh | Microsoft Docs
-description: Découvrez comment stocker un état de façon fiable dans des applications Service Fabric Mesh s’exécutant sur Azure Service Fabric Mesh.
+title: Options de stockage d’état sur Azure Service Fabric mesh | Microsoft Docs
+description: Découvrez comment stocker un état de façon fiable dans des applications Service Fabric mesh s’exécutant sur Azure Service Fabric mesh.
 services: service-fabric-mesh
 keywords: ''
 author: rwike77
@@ -9,12 +9,12 @@ ms.date: 11/27/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: ecdb36af786d96a5b343d11cd689642d59528445
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 81d9fc7babef7c1d14a0acc420d0c16c05b83215
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888527"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354329"
 ---
 # <a name="state-management-with-service-fabric"></a>Gestion d’état avec Service Fabric
 
@@ -30,7 +30,7 @@ Les conteneurs utilisent souvent des disques temporaires. Toutefois, les disques
 
 ### <a name="service-fabric-reliable-volume"></a>Service Fabric Reliable Volume
 
-Service Fabric Reliable Volume est un pilote de volume Docker utilisé pour monter un volume local sur un conteneur. Les lectures et les écritures sont des opérations locales et rapides. Les données sont répliquées sur des nœuds secondaires, ce qui les rend hautement disponibles. Le basculement est également rapide. Lorsqu’un conteneur plante, il bascule vers un nœud qui a déjà une copie de vos données. Pour un exemple, consultez [Guide pratique pour déployer une application avec Service Fabric Reliable Volume.](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/counter)
+Service Fabric Reliable Volume est un pilote de volume Docker utilisé pour monter un volume local sur un conteneur. Les lectures et les écritures sont des opérations locales et rapides. Les données sont répliquées sur des nœuds secondaires, ce qui les rend hautement disponibles. Le basculement est également rapide. Lorsqu’un conteneur plante, il bascule vers un nœud qui a déjà une copie de vos données. Pour un exemple, consultez [Guide pratique pour déployer une application avec Service Fabric Reliable Volume.](service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md)
 
 ### <a name="azure-files-volume"></a>Azure Files Volume
 

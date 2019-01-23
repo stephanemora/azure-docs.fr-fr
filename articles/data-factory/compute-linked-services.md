@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/31/2018
+ms.date: 01/15/2019
 ms.author: douglasl
-ms.openlocfilehash: 110005469d5ff42af10b29fcee97c2f130ecdc2d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5e620b03f5588369fc73a62f2019d857766596fd
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873820"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321940"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Environnements de calcul pris en charge par Azure Data Factory
 Cet article décrit les différents environnements de calcul que vous pouvez utiliser pour traiter ou transformer des données. Il fournit également des détails sur les différentes configurations (à la demande ou de type « apporter votre propre configuration ») prises en charge par Data Factory lors de la configuration des services liés qui relient ces environnements de calcul à Azure Data Factory.
@@ -34,11 +34,11 @@ Le tableau suivant fournit une liste d’environnements de calcul pris en charge
 
 >  
 
-## <a name="on-demand-compute-environment"></a>Environnement de calcul à la demande
+## <a name="on-demand-hdinsight-compute-environment"></a>Environnement de calcul HDInsight à la demande
 Dans ce type de configuration, l'environnement de calcul est entièrement géré par le service Azure Data Factory. Il est automatiquement créé par le service Azure Data Factory avant qu'une tâche de traitement des données ne soit soumise et il est supprimé lorsque la tâche est terminée. Vous pouvez créer un service lié pour un environnement de calcul à la demande, le configurer et contrôler les paramètres granulaires pour l'exécution de la tâche, la gestion du cluster et les actions d'amorçage.
 
 > [!NOTE]
-> La configuration à la demande est actuellement prise en charge uniquement pour les clusters Azure HDInsight.
+> La configuration à la demande est actuellement prise en charge uniquement pour les clusters Azure HDInsight. Azure Databricks prend également en charge les travaux à la demande à l'aide de clusters de travaux. Pour plus d'informations, reportez-vous à [Service Azure Databricks lié](#azure-databricks-linked-service).
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Service lié à la demande Azure HDInsight
 Le service Azure Data Factory peut créer automatiquement un cluster HDInsight à la demande pour traiter des données. Le cluster est créé dans la même région que celle du compte de stockage (propriété linkedServiceName dans JSON) associé au cluster. Le compte de stockage doit être un compte de stockage Azure standard général. 
@@ -48,7 +48,7 @@ Notez les points **importants** suivants sur le service lié HDInsight à la dem
 * Le cluster HDInsight à la demande est créé sous votre abonnement Azure. Vous pouvez voir le cluster dans votre portail Azure lorsque le cluster est opérationnel. 
 * Les journaux des tâches exécutées sur un cluster HDInsight à la demande sont copiés dans le compte de stockage associé au cluster HDInsight. Les valeurs clusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword spécifiées dans votre définition de service lié sont utilisées pour la connexion au cluster à des fins de dépannage approfondi pendant le cycle de vie du cluster. 
 * Vous êtes facturé uniquement lorsque le cluster HDInsight est actif et exécute des tâches.
-* Désormais, le service lié à la demande Azure HDInsight prend en charge une action de script.  
+* Vous pouvez utiliser une **action de script** avec le service lié à la demande Azure HDInsight.  
 
 > [!IMPORTANT]
 > Il faut généralement au moins **20 minutes** pour mettre en service un cluster Azure HDInsight à la demande.
@@ -103,7 +103,7 @@ Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Le 
 | linkedServiceName            | Le service lié Azure Storage utilisé par le cluster à la demande pour le stockage et le traitement des données. Le cluster HDInsight est créé dans la même région que ce compte de stockage Azure. Azure HDInsight présente une limite relative au nombre total de cœurs que vous pouvez utiliser dans chaque région Azure prise en charge. Assurez-vous que vous disposez de quotas de cœurs suffisants dans cette région Azure pour offrir la taille de cluster requise. Pour plus de détails, voir, [Configurer des clusters dans HDInsight avec Hadoop, Spark, Kafka et bien plus encore](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>Actuellement, vous ne pouvez pas créer un cluster HDInsight à la demande qui utilise un Azure Data Lake Store en guise de stockage. Si vous souhaitez stocker les données de résultat à partir du traitement HDInsight dans un Azure Data Lake Store, utilisez une activité de copie pour copier les données du stockage Blob Azure dans Azure Data Lake Store. </p> | Oui      |
 | clusterResourceGroup         | Le cluster HDInsight est créé dans ce groupe de ressources. | Oui      |
 | timetolive                   | La durée d’inactivité autorisée pour le cluster HDInsight à la demande. Spécifie la durée pendant laquelle le cluster HDInsight à la demande reste actif après l’achèvement d’une exécution d’activité s’il n’existe aucun autre travail actif dans le cluster. La valeur minimale autorisée est 5 minutes (00:05:00).<br/><br/>Par exemple, si une exécution d’activité prend 6 minutes et si la propriété TimeToLive est définie sur 5 minutes, le cluster reste actif pendant 5 minutes après les 6 minutes du traitement de l’exécution d’activité. Si une autre exécution d’activité intervient dans la fenêtre de 6 minutes, elle est traitée par le même cluster.<br/><br/>La création d’un cluster HDInsight à la demande étant une opération coûteuse (elle peut prendre du temps), utilisez ce paramètre selon le besoin pour améliorer les performances d’une fabrique de données en réutilisant un cluster HDInsight à la demande.<br/><br/>Si vous définissez la valeur de la propriété TimeToLive sur 0, le cluster est supprimé dès que l’exécution d’activité est terminée. Alors que, si vous définissez une valeur élevée, le cluster peut rester inactif pour vous permettre de vous connecter à des fins de dépannage, mais cela peut entraîner des coûts importants. Par conséquent, il est important de définir la valeur appropriée en fonction de vos besoins.<br/><br/>Plusieurs pipelines peuvent partager l’instance du cluster HDInsight à la demande si la valeur de la propriété timetolive est correctement définie. | Oui      |
-| clusterType                  | Type du cluster HDInsight à créer. Valeurs autorisées : « hadoop » et « spark ». Si aucune valeur n’est spécifiée, la valeur par défaut est hadoop. Le cluster Pack Sécurité Entreprise n’est pas pris en charge. | Non        |
+| clusterType                  | Type du cluster HDInsight à créer. Valeurs autorisées : « hadoop » et « spark ». Si aucune valeur n’est spécifiée, la valeur par défaut est hadoop. Un cluster activé avec le Pack Sécurité Entreprise ne peut pas être créé à la demande. Utilisez plutôt un [cluster existant / apportez votre propre environnement de calcul](#azure-hdinsight-linked-service). | Non        |
 | version                      | Version du cluster HDInsight. À défaut de spécification, la version actuelle par défaut de HDInsight est utilisée. | Non        |
 | hostSubscriptionId           | ID d’abonnement Azure utilisé pour créer le cluster HDInsight. Si non spécifié, l’ID d’abonnement de votre contexte de connexion Azure est utilisé. | Non        |
 | clusterNamePrefix           | Préfixe du nom de cluster HDI. Un horodatage est ajouté automatiquement à la fin du nom du cluster.| Non        |
@@ -116,14 +116,14 @@ Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Le 
 | clusterPassword                   | Mot de passe sous forme de chaîne sécurisée pour accéder au cluster. | Non        |
 | clusterSshUserName         | Nom d’utilisateur SSH pour se connecter à distance au nœud du cluster (pour Linux). | Non        |
 | clusterSshPassword         | Mot de passe sous forme de chaîne sécurisée pour établir une connexion SSH à distance au nœud du cluster (pour Linux). | Non        |
+| scriptActions | Spécifiez un script pour les [personnalisations de cluster HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux) lors de la création d'un cluster à la demande. <br />Actuellement, l'outil de création d'interface utilisateur d'Azure Data Factory prend en charge la spécification d'une seule action de script, mais vous pouvez contourner cette limitation dans le JSON (spécifiez plusieurs actions de script dans le JSON). | Non  |
 
 
 > [!IMPORTANT]
 > HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent être déployées. Le choix d'une version crée une version spécifique de la distribution de la plateforme de données Hortonworks (HDP) et un ensemble de composants qui sont contenus dans cette distribution. La liste des versions de HDInsight prises en charge continue à être actualisée afin de fournir les correctifs et composants les plus récents de l’écosystème Hadoop. Assurez-vous de toujours faire référence aux informations les plus récentes sur la [version de HDInsight et le type de système d’exploitation pris en charge](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) pour être certain d’utiliser la version prise en charge de HDInsight. 
 >
-> 
 > [!IMPORTANT]
-> Les services liés HDInsight ne prennent pas en charge les clusters HBase, Interactive Query (Hive LLAP), Storm et Sécurité Entreprise (joints à un domaine). 
+> Les services HDInsight liés ne prennent actuellement pas en charge les clusters HBase, Interactive Query (Hive LLAP) et Storm. 
 >
 > 
 
@@ -284,20 +284,21 @@ Vous pouvez créer un service lié Azure HDInsight pour inscrire votre propre cl
 ```
 
 ### <a name="properties"></a>properties
-| Propriété          | Description                              | Obligatoire |
-| ----------------- | ---------------------------------------- | -------- |
-| Type              | La propriété de type doit être définie sur **HDInsight**. | Oui      |
-| clusterUri        | L'URI du cluster HDInsight.        | Oui      |
+| Propriété          | Description                                                  | Obligatoire |
+| ----------------- | ------------------------------------------------------------ | -------- |
+| Type              | La propriété de type doit être définie sur **HDInsight**.            | Oui      |
+| clusterUri        | L'URI du cluster HDInsight.                            | Oui      |
 | username          | Spécifiez le nom de l'utilisateur à utiliser pour se connecter à un cluster HDInsight existant. | Oui      |
-| password          | Spécifiez le mot de passe du compte d'utilisateur.   | Oui      |
+| password          | Spécifiez le mot de passe du compte d'utilisateur.                       | Oui      |
 | linkedServiceName | Nom du service lié de stockage Azure faisant référence au stockage Blob Azure utilisé par le cluster HDInsight. <p>Actuellement, vous ne pouvez pas spécifier un service lié Azure Data Lake Store pour cette propriété. Vous pouvez accéder aux données d’Azure Data Lake Store à partir de scripts Hive/Pig si le cluster HDInsight a accès à Data Lake Store. </p> | Oui      |
-| connectVia        | Runtime d’intégration à utiliser pour répartir les activités à ce service lié. Vous pouvez utiliser un runtime d’intégration Azure ou un runtime d’intégration auto-hébergé. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non        |
+| isEspEnabled      | Spécifiez « *true* » si le cluster HDInsight est activé avec le [Pack Sécurité Entreprise](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction). La valeur par défaut est « *false* ». | Non        |
+| connectVia        | Runtime d’intégration à utiliser pour répartir les activités à ce service lié. Vous pouvez utiliser un runtime d’intégration Azure ou un runtime d’intégration auto-hébergé. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. <br />Pour un cluster HDInsight activé avec le Pack Sécurité Entreprise, utilisez un runtime d'intégration auto-hébergé qui dispose d'une visibilité directe sur le cluster ou qui doit être déployé dans le même réseau virtuel que le cluster HDInsight activé avec le Pack Sécurité Entreprise. | Non        |
 
 > [!IMPORTANT]
 > HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent être déployées. Le choix d'une version crée une version spécifique de la distribution de la plateforme de données Hortonworks (HDP) et un ensemble de composants qui sont contenus dans cette distribution. La liste des versions de HDInsight prises en charge continue à être actualisée afin de fournir les correctifs et composants les plus récents de l’écosystème Hadoop. Assurez-vous de toujours faire référence aux informations les plus récentes sur la [version de HDInsight et le type de système d’exploitation pris en charge](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) pour être certain d’utiliser la version prise en charge de HDInsight. 
 >
 > [!IMPORTANT]
-> Les services liés HDInsight ne prennent pas en charge les clusters HBase, Interactive Query (Hive LLAP), Storm et Sécurité Entreprise (joints à un domaine). 
+> Les services HDInsight liés ne prennent actuellement pas en charge les clusters HBase, Interactive Query (Hive LLAP) et Storm. 
 >
 > 
 

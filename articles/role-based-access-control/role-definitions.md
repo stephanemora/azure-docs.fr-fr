@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 3d88ac7adc950e2c216824f74586ff6ef4f70712
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 065695f9ce0f0d8dfbb9a43877131c8ab7fada5e
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715768"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354313"
 ---
 # <a name="understand-role-definitions"></a>Comprendre les définitions de rôles
 
@@ -166,12 +166,20 @@ Pour afficher et utiliser des opérations sur les données, vous devez disposer 
 | Outil  | Version  |
 |---------|---------|
 | [Azure PowerShell](/powershell/azure/install-azurerm-ps) | 5.6.0 ou version ultérieure |
-| [interface de ligne de commande Azure](/cli/azure/install-azure-cli) | 2.0.30 ou version ultérieure |
+| [Interface de ligne de commande Azure](/cli/azure/install-azure-cli) | 2.0.30 ou version ultérieure |
 | [Azure pour .NET](/dotnet/azure/) | 2.8.0-preview ou version ultérieure |
 | [Kit de développement logiciel (SDK) Azure pour Go](/go/azure/azure-sdk-go-install) | 15.0.0 ou version ultérieure |
 | [Azure pour Java](/java/azure/) | 1.9.0 ou version ultérieure |
 | [Azure pour Python](/python/azure) | 0.40.0 ou version ultérieure |
 | [Kit de développement logiciel (SDK) Azure pour Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 ou version ultérieure |
+
+Pour afficher et utiliser les opérations de données dans l’API REST, vous devez définir le paramètre **api-version** sur la version suivante ou ultérieure :
+
+- 2018-01-01-preview
+
+Le portail Azure permet également aux utilisateurs de parcourir et de gérer le contenu des files d’attente et conteneurs d'objets Blob via l'expérience de préversion Azure AD. Pour afficher et gérer le contenu d'une file d'attente ou d'un conteneur d'objets Blob, cliquez sur **Explorer les données à l'aide de la préversion Azure AD** sur la vue d’ensemble du compte de stockage.
+
+![Explorer les files d'attente et les conteneurs d'objets Blob à l'aide de la préversion Azure AD](./media/role-definitions/rbac-dataactions-browsing.png)
 
 ## <a name="actions"></a>Actions
 

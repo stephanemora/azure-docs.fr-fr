@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 01/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 4d311794c1c0f2dd6b9a0b2a44983b47bfeef362
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 06a3ac4520a40369c095e57f8e92978fdb280b51
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040538"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359582"
 ---
 # <a name="what-is-password-writeback"></a>Qu’est-ce que la réécriture du mot de passe ?
 
@@ -36,13 +36,13 @@ La réécriture du mot de passe est prise en charge dans les environnements qui 
 La réécriture du mot de passe permet :
 
 * **L’application de stratégies de mot de passe Active Directory locales** : lorsqu’un utilisateur réinitialise son mot de passe, il est vérifié pour assurer qu’il répond à votre stratégie Active Directory locale avant d’être validé dans l’annuaire. Ainsi, nous vérifions l’historique, la complexité, l’âge, les filtres de mot de passe et toute autre restriction de mot de passe éventuellement définie dans l’annuaire Active Directory local.
-* **Le retour d’informations immédiat** :  l’écriture différée de mot de passe est une opération synchrone. Vos utilisateurs sont informés immédiatement si leur mot de passe ne respecte pas la stratégie définie ou s’il n’a pas pu être réinitialisé ou modifié pour une raison quelconque.
+* **Le retour d’informations immédiat** :  L’écriture différée de mot de passe est une opération synchrone. Vos utilisateurs sont informés immédiatement si leur mot de passe ne respecte pas la stratégie définie ou s’il n’a pas pu être réinitialisé ou modifié pour une raison quelconque.
 * **La prise en charge de la modification des mots de passe à partir du panneau d’accès et d’Office 365** : lorsque des utilisateurs fédérés ou synchronisés par mot de passe haché modifient leurs mots de passe (ceux-ci ayant ou non expiré), ces mots de passe sont réécrits dans votre environnement Active Directory local.
 * **La prise en charge de la réécriture du mot de passe lorsqu’un administrateur le réinitialise depuis le portail Azure** : chaque fois qu’un administrateur réinitialise le mot de passe d’un utilisateur dans le [portail Azure](https://portal.azure.com), dès lors que cet utilisateur est fédéré ou qu’il dispose de la synchronisation de mot de passe haché, le mot de passe est réécrit en local. Actuellement, cette fonctionnalité n’est pas prise en charge dans le portail d’administration Office.
 * **L’absence de règles de pare-feu entrantes** : la réécriture de mot de passe utilise un relais Microsoft Azure Service Bus comme canal de communication sous-jacent. Toutes les communications sont sortantes sur le port 443.
 
 > [!Note]
-> Les comptes d’utilisateur qui existent dans des groupes protégés de votre annuaire Active Directory local ne peuvent pas être bénéficier de la réécriture du mot de passe. Pour plus d’informations sur les groupes protégés, consultez la page [Comptes et groupes protégés dans Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
+> Les comptes d’utilisateur qui existent dans des groupes protégés de votre annuaire Active Directory local ne peuvent pas être bénéficier de la réécriture du mot de passe. Les comptes d’administrateur qui existent dans des groupes protégés de votre annuaire AD local peuvent bénéficier de la réécriture du mot de passe. Pour plus d’informations sur les groupes protégés, consultez la page [Comptes et groupes protégés dans Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
 >
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Conditions de licence pour la réécriture du mot de passe
@@ -58,9 +58,10 @@ Pour que vous puissiez utiliser la réécriture du mot de passe, il faut que l�
 * Microsoft 365 E3 ou A3
 * Microsoft 365 E5 ou A5
 * Microsoft 365 F1
+* Microsoft 365 Business
 
 > [!WARNING]
-> Les plans de licences Office 365 édition autonome *ne prennent pas en charge « la réinitialisation/modification/déverrouillage de mot de passe libre-service avec réécriture locale »* et nécessitent l’un des plans précédents pour que cette fonctionnalité soit opérationnelle.
+> Les plans de licences Office 365 édition autonome *ne prennent pas en charge « les réinitialisation/modification/déverrouillage de mot de passe libre-service avec réécriture locale »* et nécessitent l’un des plans précédents pour que cette fonctionnalité soit opérationnelle.
 >
 
 ## <a name="how-password-writeback-works"></a>Fonctionnement de la réécriture du mot de passe

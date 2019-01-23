@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4a4f1691162ab9c9fbd5bc8802ecf7ebc4894d74
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e143c0c8ef09af49aed656d479bcad4dd35e2211
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193669"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351796"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problèmes connus et dépannage du service Azure Machine Learning
  
@@ -44,12 +44,8 @@ Vous ne serez pas en mesure de déployer des modèles sur des FPGA tant que vous
 ## <a name="databricks"></a>Databricks
 
 Problèmes Databricks et Azure Machine Learning
-
-1. Recommandation pour le cluster Databricks :
-   
-   Créez votre cluster Azure Databricks en version 4.x avec Python 3. Nous recommandons un cluster avec accès concurrentiel élevé.
  
-2. Échec de l’installation du SDK AML sur Databricks quand d’autres packages sont installés.
+1. Échec de l’installation du SDK AML sur Databricks quand d’autres packages sont installés.
 
    Certains packages, comme `psutil`, peuvent provoquer des conflits. Pour éviter les erreurs d’installation, installez les packages en bloquant la version des bibliothèques. Ce problème est lié à Databricks et non au kit SDK Azure ML. Il peut aussi se rencontrer avec d’autres bibliothèques. Exemple :
    ```python
@@ -57,12 +53,13 @@ Problèmes Databricks et Azure Machine Learning
    ```
    Vous pouvez également utiliser des scripts init si les problèmes d’installation persistent avec les bibliothèques Python. Cette approche n’est pas prise en charge officiellement. Vous pouvez consulter [ce document](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-3. L’erreur suivante apparaît avec Machine Learning sur Databricks : `Import error: numpy.core.multiarray failed to import`.
+2. Si vous utilisez Machine Learning sur Databricks et souhaitez annuler une exécution pour en démarrer une nouvelle, redémarrez votre cluster Azure Databricks.
 
-   Solution de contournement : importer la bibliothèque Python `numpy==1.14.5` sur votre cluster Databricks avec Créer une bibliothèque à [installer et attacher](https://docs.databricks.com/user-guide/libraries.html#create-a-library).
+3. Dans les paramètres de ML automatisé, en présence de > 10 itérations, définissez show_output sur False lors de la soumission de votre exécution.
+
 
 ## <a name="azure-portal"></a>Portail Azure
-Si vous accédez directement à votre espace de travail à partir d’un lien de partage provenant du kit SDK ou du portail, vous ne pourrez pas afficher la page Vue d’ensemble normale comportant des informations sur l’abonnement dans l’extension. Vous ne pourrez pas non plus basculer sur un autre espace de travail. Si vous souhaitez afficher un autre espace de travail, la solution de contournement consiste à accéder directement au [Portail Azure](https://portal.azure.com) et à rechercher le nom de l’espace de travail.
+Si vous accédez directement à votre espace de travail à partir d’un lien de partage provenant du kit SDK ou du portail, vous ne pourrez pas afficher la page Vue d’ensemble normale comportant des informations sur l’abonnement dans l’extension. Vous ne pourrez pas non plus basculer sur un autre espace de travail. Si vous souhaitez afficher un autre espace de travail, la solution de contournement consiste à accéder directement au [portail Azure](https://portal.azure.com) et à rechercher le nom de l’espace de travail.
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
 Parfois, fournir des informations de diagnostic quand vous demandez de l’aide peut se révéler utile. Les fichiers journaux se trouvent aux emplacements suivants :

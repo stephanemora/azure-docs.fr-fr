@@ -8,12 +8,12 @@ ms.assetid: 0c771e7a-6fcd-417f-9247-897177719567
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 07323f1b0541555ef71919e026ecaf2494056dad
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ec646ad1e9e1330a7e0b3f3f0576cee9d58c08e1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406496"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353258"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Approche et processus d’adoption d’Azure Data Catalog
 Cet article va vous aider dans la prise en main de l’adoption **d’Azure Data Catalog** dans votre organisation. Pour mener à bien l’adoption d’**Azure Data Catalog**, vous pouvez vous concentrer sur trois éléments clés : définition de votre vision du projet, identification des principaux cas d’utilisation métier au sein de votre organisation et choix d’un projet pilote.
@@ -66,7 +66,7 @@ Voici quelques conseils pour identifier les cas d’utilisation :
 * **Définissez les objectifs de l’équipe** : comment l’équipe atteint-elle ses objectifs ? Pour le moment, ne vous concentrez pas sur Data Catalog puisque vous souhaitez être objectif à ce stade. N’oubliez pas qu’il est question des résultats de l’entreprise, pas de la technologie.
 * **Définissez le problème de l’entreprise** : quels sont les problèmes auxquels l’équipe est confrontée concernant la recherche et l’apprentissage des ressources de données ? Par exemple, les informations sur les sources de données importantes peuvent se trouver dans les classeurs Excel d’un dossier réseau, et l’équipe peut passer beaucoup de temps à rechercher les classeurs.
 * **Comprenez la culture d’équipe associée au changement** : de nombreuses difficultés de l’adoption sont liées à la résistance aux modifications, et non à l’implémentation d’un nouvel outil. La façon dont une équipe réagit à une modification est importante lors de l’identification des cas d’utilisation, car le processus existant peut être en place « parce que c’est toujours ainsi que nous avons procédé » ou « parce que pourquoi le réparer s’il n’est pas cassé ? ». L’adoption d’un nouvel outil ou d’un nouveau processus est toujours plus aisée lorsque les personnes concernées comprennent la valeur à tirer parti de la modification, et apprécient l’importance des problèmes à résoudre.
-* **Restez concentré sur les ressources de données** : lorsque vous abordez les problèmes d’entreprise auxquels une équipe est confrontée, vous devez éliminer les éléments superflus et vous concentrer sur ce qui est pertinent pour exploiter les ressources de données d’entreprise avec une meilleure efficacité.
+* **Restez concentré sur les données** : lorsque vous abordez les problèmes d’entreprise auxquels une équipe est confrontée, vous devez éliminer les éléments superflus et vous concentrer sur ce qui est pertinent pour exploiter les ressources de données d’entreprise avec une meilleure efficacité.
 
 Voici quelques exemples de cas d’utilisation associés à Data Catalog :
 

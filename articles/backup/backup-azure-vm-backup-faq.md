@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 063b13f76e2fcbe4df0b13d7e77e34718ec756d4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 31a708f3a0da76ab13e789b099f312cca1f86e08
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041286"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332249"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Questions fréquentes (FAQ) - Sauvegarde Azure
 
@@ -57,14 +57,13 @@ Si vous verrouillez le groupe de ressources, le service Sauvegarde Azure ne peut
  Non. La date et l’heure indiquées sur votre ordinateur local correspond à la date et l’heure locales avec l’heure d’été appliquée. L’heure définie pour les sauvegardes planifiées risque donc de différer de l’heure locale en période d’heure d’été.
 
 ### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>Combien de disques de données je peux attacher à une machine virtuelle sauvegardée par Sauvegarde Azure ?
-Le service Sauvegarde Azure peut sauvegarder des machines virtuelles dotées de 16 disques au maximum. La prise en charge de 16 disques est assurée par la [dernière version](backup-upgrade-to-vm-backup-stack-v2.md) de la pile de sauvegarde de machine virtuelle Azure V2.
+Le service Sauvegarde Azure peut sauvegarder des machines virtuelles dotées de 16 disques au maximum. Une prise en charge de 16 disques est fournie dans la [restauration instantanée](backup-instant-restore-capability.md).
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Le service Sauvegarde Azure prend-il en charge les disques managés SSD standard ?
-Le service Sauvegarde Azure prend en charge les [disques managés SSD standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Les disques managés SSD offrent un nouveau type de stockage durable aux machines virtuelles Azure. La prise en charge des disques managés SSD est assurée par la [dernière version](backup-upgrade-to-vm-backup-stack-v2.md) de la pile de sauvegarde de machine virtuelle Azure V2.
+Le service Sauvegarde Azure prend en charge les [disques managés SSD standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Les disques managés SSD offrent un nouveau type de stockage durable aux machines virtuelles Azure. Une prise en charge disques managés SSD est fournie dans la [restauration instantanée](backup-instant-restore-capability.md).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Pouvons-nous sauvegarder une machine virtuelle dotée d’un disque avec Accélérateur d’écriture ?
-Il n’est pas possible de prendre des instantanés sur un disque avec Accélérateur d’écriture. Toutefois, le service Sauvegarde Azure peut exclure un tel disque de la sauvegarde. L’exclusion de disques sur les machines virtuelles dotées de disques avec Accélérateur d’écriture est prise en charge uniquement pour les abonnements mis à niveau avec la pile de sauvegarde de machine virtuelle Azure V2. Pour effectuer une mise à niveau avec la pile de sauvegarde de machine virtuelle Azure V2, consultez cet [article](backup-upgrade-to-vm-backup-stack-v2.md). Cette fonctionnalité est actuellement disponible dans les régions Japon Est, Europe Nord, Asie Sud-Est, USA Est, USA Ouest2, Europe Ouest et USA Est2.
-
+Il n’est pas possible de prendre des instantanés sur un disque avec Accélérateur d’écriture. Toutefois, le service Sauvegarde Azure peut exclure un tel disque de la sauvegarde. L’exclusion de disques sur les machines virtuelles dotées de disques avec Accélérateur d’écriture est prise en charge uniquement pour les abonnements mis à niveau vers la restauration instantanée.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>J’ai une machine virtuelle dotée de disques avec Accélérateur d’écriture et sur laquelle SAP HANA est installé. Comment faire pour effectuer une sauvegarde ?
 Sauvegarde Azure ne peut pas sauvegarder le disque avec Accélérateur d’écriture, mais peut l’exclure de la sauvegarde. Toutefois, la sauvegarde ne garantit pas la cohérence de la base de données car les informations situées sur le disque avec Accélérateur d’écriture ne sont pas sauvegardées. Vous pouvez sauvegarder des disques dans une telle configuration si vous souhaitez que la sauvegarde porte sur les disques du système d’exploitation et les disques sans Accélérateur d’écriture.
@@ -104,7 +103,7 @@ Oui. Même si vous supprimez la machine virtuelle, vous pouvez accéder à l’�
 Pour une machine virtuelle Azure à disque managé, la restauration dans des groupes à haute disponibilité est activée en proposant une option dans un modèle lors de la restauration en tant que disque managé. Ce modèle dispose du paramètre d’entrée appelé **Groupes à haute disponibilité**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Comment accélérer les performances de restauration ?
-Pour accélérer les performances de restauration, nous vous recommandons de passer à la pile de sauvegarde de machine virtuelle V2 et d’utiliser la [fonctionnalité du point de récupération instantané](backup-upgrade-to-vm-backup-stack-v2.md).
+Pour des performances de restauration plus rapides, nous utilisons la fonctionnalité de [restauration instantanée](backup-instant-restore-capability.md).
 
 ## <a name="manage-vm-backups"></a>Gérer les sauvegardes de machine virtuelle
 

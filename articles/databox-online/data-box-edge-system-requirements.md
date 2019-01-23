@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 01/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 4d6060c1774b2ad09c3b813bc107b73309dae801
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 05f6208788060459e67a787507a56adeed980e2d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020215"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318992"
 ---
 # <a name="azure-data-box-edge-system-requirements-preview"></a>Configuration système Azure Data Box Edge (Préversion)
 
@@ -78,6 +78,8 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 > - Les adresses IP d’appareil (sources) doivent toujours être définies sur l’ensemble des interfaces réseau activées pour le cloud.
 > - Les adresses IP de destination doivent être définies sur les [plages d’adresses IP Azure Datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 
+### <a name="url-patterns-for-gateway-feature"></a>Modèles d’URL pour la fonctionnalité de passerelle
+
 |    Modèle d’URL                                                                                                                                                                                                                                                                                                                                                                                                                                                      |    Composant ou fonctionnalité                                                                           |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 |    https://\*.databoxedge.azure.com/\*<br>https://\*.servicebus.windows.net/\*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                                                                           |    Service Azure Data Box Edge<br>Azure Service Bus<br>Service d’authentification                           |
@@ -89,6 +91,15 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 |    https://\*.partners.extranet.microsoft.com/\*                                                                                                                                                                                                                                                                                                                                                                                                                    |    Package de prise en charge                                                                                      |
 |    http://\*.data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                                     |    Service de télémétrie dans Windows, consultez la mise à jour de l’expérience client et de la télémétrie de diagnostic      |
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                         |
+
+
+### <a name="url-patterns-for-compute-feature"></a>Modèles d’URL pour la fonctionnalité de calcul
+
+| Modèle d’URL                      | Composant ou fonctionnalité                     |   |
+|----------------------------------|---------------------------------------------|---|
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registre de conteneurs Microsoft (obligatoire)               |   |
+| https://\*.azurecr.io                     | Registres de conteneurs personnels et tiers (facultatif) |   |
+| https://\*.azure-devices.net              | Accès IoT Hub (obligatoire)                             |   |
 
 ## <a name="internet-bandwidth"></a>Bande passante Internet
 

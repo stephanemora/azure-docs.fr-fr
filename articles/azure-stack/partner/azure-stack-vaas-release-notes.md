@@ -13,18 +13,35 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 687e47eff000679f24088a59297a258a1469f3fd
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 735f1d7cce8621a29e5a582917d3eea8ee399b8f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106271"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319646"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Notes de publication de Validation en tant que service
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Cet article présente les notes de publication d’Azure Stack Validation en tant que service.
+
+## <a name="version-402"></a>Version 4.0.2
+
+7 janvier 2019
+
+Si vous exécutez le flux de travail Vérification de mise à jour mensuelle Azure Stack et que la version correspondant à votre package de mise à jour OEM n'est pas 1810 ou version ultérieure, vous recevez un message d'erreur lorsque vous accéder à l'étape de mise à jour OEM. Il s'agit d'un bogue. Un correctif est en cours de développement. Les étapes d’atténuation sont les suivantes :
+
+1.  Exécutez normalement la mise à jour OEM.
+2.  Exécutez Test-AzureStack après avoir appliqué le package et enregistré la sortie.
+3.  Annuler le test.
+4.  Envoyez la sorte enregistrée à VaaSHelp@microsoft.com pour recevoir les résultats de validation de l’exécution.
+
+## <a name="version-402"></a>Version 4.0.2
+
+30 novembre 2018
+
+- Correctifs de bogues internes
 
 ## <a name="version-401"></a>Version 4.0.1
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à KnowledgeOwl | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à KnowledgeOwl | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et KnowledgeOwl.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: e902f5969611dd3b1074e899003abe5067857c04
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 80d8d1664100cdfbbf6d537b41823c2db0204040
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446137"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318915"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Didacticiel : Intégration d'Azure Active Directory avec KnowledgeOwl
+# <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Tutoriel : Intégration d'Azure Active Directory avec KnowledgeOwl
 
 Dans ce didacticiel, vous allez apprendre à intégrer KnowledgeOwl à Azure Active Directory (Azure AD).
 
@@ -186,7 +186,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configuration KnowledgeOwl](./media/knowledgeowl-tutorial/configure1.png)
 
-1. Faites défiler jusqu’à la section **SAML SSO Integration** (Intégration de l’authentification unique SAML) et effectuez les étapes suivantes :
+1. Faites défiler jusqu’à **Intégration de l'authentification unique SAML** et effectuez les étapes suivantes :
     
     ![Configuration KnowledgeOwl](./media/knowledgeowl-tutorial/configure2.png)
 
@@ -254,7 +254,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans KnowledgeOwl. KnowledgeOwl prend en charge le provisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas déjà, un utilisateur est créé durant une tentative d’accès à KnowledgeOwl.
 >[!Note]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support KnowledgeOwl](mailto:support@knowledgeowl.com).
+>Si vous devez créer un utilisateur manuellement, contactez  [l’équipe de support technique KnowledgeOwl](mailto:support@knowledgeowl.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

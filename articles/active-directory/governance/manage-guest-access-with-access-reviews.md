@@ -15,12 +15,12 @@ ms.component: compliance
 ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: d3cc5f5a7642ba827a46ab5cbc2b0da2cda38731
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 4d1a9696587ae128b35970414c6c8753179c3f81
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385123"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332572"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gérer l’accès invité avec les révisions d’accès Azure AD
 
@@ -43,11 +43,11 @@ Vous pouvez également demander aux utilisateurs invités de vérifier leur prop
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Créer et exécuter une révision d’accès pour des invités
 
-Tout d’abord, activez les révisions d’accès pour qu’elles apparaissent dans les volets d’accès du réviseur. En tant qu’administrateur général ou administrateur des comptes d’utilisateur, accédez à la [page des révisions d’accès](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/). 
+Tout d’abord, en tant qu’administrateur global ou administrateur de compte utilisateur, accédez à la [page des révisions d’accès](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) pour vous assurer que les révisions d’accès sont prêtes pour votre organisation. 
 
 Azure AD permet plusieurs scénarios de revue des utilisateurs invités.
 
-Sélectionnez l’un des suivants :
+Vous pouvez réviser :
 
  - Un groupe dans Azure AD comprenant un ou plusieurs invités comme membres.
  - Une application connectée à Azure AD ayant un ou plusieurs utilisateurs invités attribués. 
@@ -86,7 +86,7 @@ Vous pouvez utiliser les révisions d’accès pour vous assurer que les utilisa
 
 1. Pour démarrer une révision d’accès pour l’application, choisissez d’y inclure uniquement les invités et de leur faire revoir leur accès eux-mêmes. Pour plus d’informations, consultez [Créer une révision d’accès](create-access-review.md).
 
-2. Demandez à chaque invité de revoir son propre accès à l’application. Par défaut, chaque invité ayant accepté une invitation recevra un message électronique de la part d’Azure AD comprenant un lien vers la révision d’accès dans le panneau d’accès de votre organisation. Azure AD dispose d’instructions destinées aux invités concernant [la vérification de leur accès](perform-access-review.md).
+2. Demandez à chaque invité de revoir son propre accès à l’application. Par défaut, chaque invité ayant accepté une invitation recevra un message électronique de la part d’Azure AD. Ce message contient un comprenant un lien vers la révision d’accès dans le volet d’accès de votre organisation. Azure AD dispose d’instructions destinées aux invités concernant [la vérification de leur accès](perform-access-review.md).
 
 3. Une fois que les réviseurs ont fait part de leur avis, arrêtez la révision d’accès et appliquez les modifications. Pour plus d’informations, consultez [Terminer une révision d’accès](complete-access-review.md).
 
@@ -109,7 +109,7 @@ Dans certaines organisations, les invités peuvent ne pas être conscients de le
 > [!NOTE]
 > Dans les versions antérieures du portail Azure, les utilisateurs de type Invité ne pouvaient pas disposer d’un accès administratif. Dans certains cas, il est possible qu’un administrateur de votre répertoire ait défini la valeur UserType d’un invité sur Membre à l’aide de PowerShell. Si cette modification avait auparavant été apportée dans votre répertoire, il est possible que la requête précédente n’inclue pas tous les utilisateurs invités qui disposaient auparavant de droits d’accès administratif. Dans ce cas, vous devez modifier le type d’utilisateur de l’invité ou inclure manuellement l’invité dans le groupe.
 
-1. Créez un groupe de sécurité dans Azure AD avec les invités comme membres, si un groupe approprié n’existe pas déjà. Par exemple, vous pouvez créer un groupe pour lequel l’appartenance des invités est gérée manuellement. Ou bien, vous pouvez créer un groupe dynamique doté d’un nom tel que « Invités de Contoso » pour les utilisateurs dans le client Contoso dont la valeur d’attribut UserType est configurée sur Invité.  Pour plus d’efficacité, assurez-vous que le groupe est principalement formé d’invités. Ne sélectionnez pas un groupe dont les utilisateurs n’ont pas besoin d’être examinés.
+1. Créez un groupe de sécurité dans Azure AD avec les invités comme membres, si un groupe approprié n’existe pas déjà. Par exemple, vous pouvez créer un groupe pour lequel l’appartenance des invités est gérée manuellement. Ou bien, vous pouvez créer un groupe dynamique doté d’un nom tel que « Invités de Contoso » pour les utilisateurs dans le client Contoso dont la valeur d’attribut UserType est configurée sur Invité.  Pour plus d’efficacité, assurez-vous que le groupe est principalement formé d’invités. Ne sélectionnez pas un groupe dont les utilisateurs sont des membres, car ils n’ont pas besoin d’être examinés.  En outre, n’oubliez pas qu’un utilisateur invité membre du groupe peut voir les autres membres du groupe.
 
 2. Pour démarrer une révision d’accès pour ce groupe, choisissez les membres comme réviseurs. Pour plus d’informations, consultez [Créer une révision d’accès](create-access-review.md).
 

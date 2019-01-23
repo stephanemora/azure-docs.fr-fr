@@ -1,18 +1,18 @@
 ---
-title: Configurer OpenVPN sur la passerelle VPN Azure avec PowerShell | Microsoft Docs
+title: 'Configuration d’OpenVPN sur la passerelle VPN Azure : PowerShell| Microsoft Docs'
 description: Étapes de configuration d’OpenVPN pour la passerelle VPN Azure
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 01/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 958f4f46ec6ba407df7c739b7c62aa1489458485
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1dad960b0877cddf3be9afc01e3e687ebe4702c0
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408274"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54357825"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway-preview"></a>Configurer OpenVPN pour la passerelle VPN Azure de point à site (préversion)
 
@@ -47,7 +47,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="vnet"></a>1. Créer un réseau VPN de point à site
 
-Si vous ne disposez pas d’un environnement de point à site opérationnel, suivez les instructions de création. Consultez l’article [Créer un VPN de point à site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) pour créer et configurer une passerelle VPN de point à site avec l’authentification par certificat native Azure.
+Si vous ne disposez pas d’un environnement de point à site opérationnel, suivez les instructions de création. Consultez l’article [Créer un VPN de point à site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) pour créer et configurer une passerelle VPN de point à site avec l’authentification par certificat native Azure. Notez que la référence SKU de base n’est pas prise en charge pour IKEv2 point-à-site.
 
 ## <a name="cmdlets"></a>2. Installer les applets de commande PowerShell
 

@@ -7,20 +7,19 @@ author: Juliako
 writer: juliako
 manager: femila
 editor: ''
-ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: 06f219b9cf7d17e80699aebc1082b14e2de45c8b
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6b4acf2a8effaef6d9572a4ca36b29af19f2970d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240220"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359985"
 ---
 # <a name="streaming-endpoints-overview"></a>Vue d’ensemble des points de terminaison de streaming 
 
@@ -28,20 +27,26 @@ ms.locfileid: "50240220"
 
 Dans Microsoft Azure Media Services (AMS), un **point de terminaison de diffusion en continu** représente un service de diffusion en continu qui peut fournir du contenu directement à une application de lecteur cliente ou à un réseau de diffusion de contenu (CDN) pour être redistribué. Media Services fournit également une intégration transparente au CDN Azure. Le flux sortant d’un service StreamingEndpoint peut être un flux dynamique, une vidéo à la demande ou un téléchargement progressif de votre ressource dans votre compte Media Services. Chaque compte Azure Media Services comprend une valeur de point de terminaison de streaming par défaut. Vous pouvez créer d’autres points de terminaison de streaming sous votre compte. Il existe deux versions du point de terminaison de streaming : 1.0 et 2.0. À compter du 10 janvier 2017, les nouveaux comptes AMS incluront la version 2.0 du point de terminaison de streaming **par défaut**. Les autres points de terminaison que vous ajoutez à ce compte seront également de la version 2.0. Cette modification n’aura aucune incidence sur les comptes existants ; les StreamingEndpoint existants auront la version 1.0 et pourront être mis à niveau vers la version 2.0. Avec cette modification, il y aura des changements de comportement, de facturation et de fonctionnalités (pour plus d’informations, consultez la section **Types et versions de streaming** ci-dessous).
 
-En outre, à partir de la version 2.15 (publiée en janvier 2017), Azure Media Services a ajouté les propriétés suivantes à l’entité du point de terminaison de streaming : **CdnProvider**, **CdnProfile**, **FreeTrialEndTime** et **StreamingEndpointVersion**. Pour une présentation détaillée de ces propriétés, consultez [ceci](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
+Azure Media Services a ajouté les propriétés suivantes à l’entité de point de terminaison de streaming : **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion**. Pour une présentation détaillée de ces propriétés, consultez [ceci](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
 
 Lorsque vous créez un compte Azure Media Services, un point de terminaison de streaming par défaut est créé pour vous dans l’état **Arrêté**. Il n’est pas possible de supprimer le point de terminaison de streaming par défaut. En fonction de la disponibilité d’Azure CDN dans la région ciblée, le point de terminaison de streaming par défaut qui vient d’être créé comprendra également l’intégration du fournisseur CDN « StandardVerizon ». 
-
->[!NOTE]
->L’intégration d’Azure CDN peut être désactivée avant de démarrer le point de terminaison de streaming.
+                
+> [!NOTE]
+> L’intégration d’Azure CDN peut être désactivée avant de démarrer le point de terminaison de streaming. Le `hostname` et l’URL de diffusion en continu restent identiques que vous activiez le CDN ou non.
 
 Cette rubrique donne une vue d’ensemble des fonctionnalités principales offertes par les points de terminaison de streaming.
+
+## <a name="naming-conventions"></a>Conventions d’affectation de noms
+
+Pour le point de terminaison par défaut : `{AccountName}.streaming.mediaservices.windows.net`
+
+Pour tous les autres points de terminaison : `{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
 
 ## <a name="streaming-types-and-versions"></a>Types et versions de streaming
 
 ### <a name="standardpremium-types-version-20"></a>Types Standard/Premium (version 2.0)
 
-À compter de la version publiée en janvier 2017 de Media Services, il existe deux types de streaming : **Standard** et **Premium**. Ces types font partie de la version de la version « 2.0 » du point de terminaison de streaming.
+À compter de la version publiée en janvier 2017 de Media Services, il existe deux types de streaming : **Standard** et **Premium**. Ces types font partie de la version de la version « 2.0 » du point de terminaison de streaming.
 
 type|Description
 ---|---

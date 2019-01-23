@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 6da0bddc3f6c90d0ecd3a554988f510e1063caac
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6a23ea08ee14efbc7850e555d9ad84daf855638f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043037"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320733"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Conditions de licence pour la réinitialisation du mot de passe en libre-service Azure AD
 
@@ -33,15 +33,15 @@ La réinitialisation du mot de passe Azure AD libre-service est fournie sous lic
 * Réinitialisation libre-service du mot de passe pour les utilisateurs du cloud
    * Je suis un **utilisateur cloud uniquement** et j’ai oublié mon mot de passe.
       * J’aimerais **réinitialiser** mon mot de passe pour un nouveau.
-   * Cette fonctionnalité est incluse dans les éditions Azure AD Basic, Premium P1 ou Premium P2.
+   * Cette fonctionnalité est incluse dans les éditions Basic, Premium P1 et Premium P2 d'Azure AD, ainsi que dans Microsoft 365 Business.
 
 * Réinitialisation/modification/déverrouillage du mot de passe en libre-service **avec des réécritures locales**
    * Je suis un **utilisateur hybride** mon compte d’utilisateur Active Directory local est synchronisé avec mon compte Azure AD à l’aide d’Azure AD Connect. Je souhaite modifier mon mot de passe, j’ai oublié mon mot de passe, ou il a été verrouillé.
       * Je souhaite modifier mon mot de passe ou le réinitialiser en quelque chose que je connais, ou déverrouiller mon compte, **et** je souhaite que la modification soit synchronisée de nouveau à Active Directory en local.
-   * Cette fonctionnalité est incluse dans les éditions Azure AD Premium P1, ou Premium P2.
+   * Cette fonctionnalité est incluse dans les éditions Premium P1 et Premium P2 d'Azure AD, ainsi que dans Microsoft 365 Business.
 
 > [!WARNING]
-> Les plans de licences Office 365 édition autonome *ne prennent pas en charge « les réinitialisation/modification/déverrouillage de mot de passe libre-service avec réécriture locale »* et nécessitent un plan qui inclut les éditions Azure AD Premium P1 ou Premium P2 pour que cette fonctionnalité soit opérationnelle.
+> Les plans de licences Office 365 édition autonome *ne prennent pas en charge les opérations de « réinitialisation/modification/déverrouillage de mot de passe libre-service avec réécriture locale »* et nécessitent un plan qui inclut l'édition Premium P1 ou Premium P2 d'Azure AD, ou Microsoft 365 Business, pour que cette fonctionnalité soit opérationnelle.
 >
 
 Vous trouverez des informations de licence supplémentaires, notamment les prix, dans les pages suivantes :
@@ -50,6 +50,7 @@ Vous trouverez des informations de licence supplémentaires, notamment les prix,
 * [Fonctionnalités Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Entreprise](https://www.microsoft.com/microsoft-365/enterprise)
+* [Description du service Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-business-service-description)
 
 ## <a name="enable-group-or-user-based-licensing"></a>Activer les licences utilisateur ou groupe
 

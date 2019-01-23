@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: jegeib
-ms.openlocfilehash: 8b0700e76bbcc0913b376e607f706f540b1df2bb
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4e08491ae898fef16af1e199a76a4c07a6c226b9
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307073"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358658"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Outil Microsoft de modélisation des menaces
 
@@ -33,12 +33,12 @@ Cet outil permet à quiconque de :
 
 Voici quelques-unes des fonctionnalités et innovations de l’outil :
 
-* **Automatisation :** conseils et commentaires sur le dessin d’un modèle
-* **STRIDE per Element :** analyse guidée des menaces et des mesures de correction
-* **Création de rapports :** activités de sécurité et test pendant la phase de vérification
-* **Méthodologie unique :** permet aux utilisateurs de mieux visualiser et comprendre les menaces
+* **Automatisation :** conseils et commentaires sur le dessin d’un modèle
+* **STRIDE par élément :** analyse guidée des menaces et des mesures de correction
+* **Création de rapports :** activités de sécurité et test pendant la phase de vérification
+* **Méthodologie unique :** permet aux utilisateurs de mieux visualiser et comprendre les menaces
 * **Conçu pour les développeurs et centré sur le logiciel :** de nombreuses approches sont centrées sur les ressources ou les personnes malveillantes. Nous sommes centrés sur le logiciel. Nous nous appuyons sur les activités que connaissent tous les architectes et développeurs de logiciels, par exemple le dessin d’images pour l’architecture logicielle
-* **Axé sur l’analyse de la conception :** le terme « modélisation des menaces » peut faire référence à des spécifications ou à une technique d’analyse de la conception. Parfois, il fait référence à un mélange complexe des deux concepts. L’approche Microsoft SDL de modélisation des menaces est une technique d’analyse de conception ciblée
+* **Axé sur l’analyse de la conception :** le terme « modélisation des menaces » peut faire référence à des spécifications ou à une technique d’analyse de la conception. Parfois, il fait référence à un mélange complexe des deux concepts. L’approche Microsoft SDL de modélisation des menaces est une technique d’analyse de conception ciblée
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -46,7 +46,7 @@ Le tableau ci-dessous contient des liens importants pour vous familiariser avec 
 
 | Étape  | Description                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
-| **1** | [Télécharger l’outil de modélisation des menaces](https://aka.ms/tmtpreview)                                |
+| **1** | [Télécharger l’outil de modélisation des menaces](https://aka.ms/threatmodelingtool)                                |
 | **2** | [Lire notre guide pour bien démarrer](./azure-security-threat-modeling-tool-getting-started.md)    |
 | **3** | [Se familiariser avec les fonctionnalités](./azure-security-threat-modeling-tool-feature-overview.md)   |
 | **4** | [En savoir plus sur les catégories de menaces générées](./azure-security-threat-modeling-tool-threats.md)   |

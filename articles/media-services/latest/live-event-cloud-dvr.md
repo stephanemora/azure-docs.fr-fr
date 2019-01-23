@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/14/2019
 ms.author: juliako
-ms.openlocfilehash: 8df43a9b2c518e77d14dd5cb392b042b0b4846e2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 8543f00ccaecd8fd3f46132b05c2af925e6de10a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407964"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352357"
 ---
 # <a name="using-a-cloud-dvr"></a>Utiliser un magnétoscope numérique cloud
 
@@ -35,7 +35,10 @@ Chaque sortie **LiveOutput** est associée à un élément **Asset**, qu’elle 
 Un événement **LiveEvent** prend en charge jusqu’à trois sorties **LiveOutput** exécutées simultanément, ce qui rend possible la création de trois enregistrements/archives maximum à partir d’un même flux temps réel. Cela vous permet de publier et d’archiver différentes parties d’un événement en fonction des besoins. Supposons que vous vouliez diffuser un flux linéaire temps réel 24 h/24, 7 j/7 et créer tout au long de la journée des « enregistrements » des différents programmes, qui seront proposés à la demande aux utilisateurs dans le cadre d’un service de replay. Dans ce scénario, vous commencez par créer une sortie LiveOutput principale, avec une fenêtre d’archive courte d’une heure ou moins : ce sera le flux temps réel principal que visionneront les utilisateurs. Vous créez ensuite un localisateur **StreamingLocator** pour cette sortie **LiveOutput** et le publiez sur votre application ou votre site web comme flux « temps réel ». Tant l’événement **LiveEvent** est en cours d’exécution, vous pouvez créer programmatiquement une deuxième sortie **LiveOutput** simultanée au début d’un programme (ou cinq minutes avant pour fournir des descripteurs à supprimer ultérieurement). Cette deuxième sortie **LiveOutput** peut être supprimée cinq minutes après la fin du programme. Avec ce second élément **Asset**, vous pouvez créer un nouveau localisateur **StreamingLocator** pour publier ce programme sous forme d’élément multimédia à la demande dans le catalogue de votre application. Vous pouvez répéter plusieurs fois ce processus pour les autres limites ou points forts du programme que vous souhaitez partager sous forme de vidéos à la demande, tandis que le flux « temps réel » de la première sortie **LiveOutput** continue de diffuser le flux linéaire. 
 
 > [!NOTE]
-> Les sorties **LiveOutput** démarrent dès leur création et s’arrêtent à leur suppression. Quand vous supprimez une sortie **LiveOutput**, vous ne supprimez pas l’élément **Asset** sous-jacent, ni son contenu.  
+> Les sorties **LiveOutput** démarrent dès leur création et s’arrêtent à leur suppression. Quand vous supprimez une sortie **LiveOutput**, vous ne supprimez pas l’élément **Asset** sous-jacent, ni son contenu. 
+>
+> Si vous avez publié un **StreamingLocator** sur l’élément multimédia pour **LiveOutput**, l’événement (jusqu’à la longueur de fenêtre DVR) continuera à être visible jusqu’à l’heure de fin du **StreamingLocator** ou jusqu’à ce que lorsque vous supprimiez le localisateur, en fonction de ce qui survient en premier.   
+  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

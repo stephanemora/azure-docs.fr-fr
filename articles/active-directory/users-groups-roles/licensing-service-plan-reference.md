@@ -1,10 +1,10 @@
 ---
-title: Noms de produit et identificateurs de plans de service pour la gestion des licences dans Azure Active Directory | Microsoft Docs
-description: Mappage des identificateurs pour gérer les licences d’Azure AD dans le portail Azure, le portail Office 365, PowerShell ou Microsoft Graph
+title: Noms de produit et identificateurs de plans de service pour la gestion des licences - Azure AD | Microsoft Docs
+description: Mappage des identificateurs pour gérer les licences d’Azure Active Directory dans le portail Azure, le portail Office 365, PowerShell ou Microsoft Graph
 services: active-directory
 keywords: Plans de service des licences Azure Active Directory
 documentationcenter: ''
-author: piotrci
+author: curtand
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -13,23 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 8/17/2018
-ms.author: piotrci
-ms.openlocfilehash: 7ebf0149af9e012d3b0135c7ee9b8167c4cf76c9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.date: 01/14/2019
+ms.author: curtand
+ms.reviewer: sumitp
+ms.openlocfilehash: 9d229dfa11a317c1f3b3121cdc7c1cdfa7df9c5e
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141801"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321634"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Noms de produits et identificateurs de plans de service pour la gestion des licences
 
-Lors de la gestion des licences dans [le portail Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) ou le portail Office 365, vous voyez des noms de produits similaires à *Office 365 Enterprise E3*. Toutefois lorsque vous utilisez les cmdlets PowerShell v1.0, le même produit est identifié avec un nom spécifique mais moins convivial : *ENTERPRISEPACK*. Lorsque vous utilisez les cmdlets PowerShell v2.0 ou Microsoft Graph, le même produit est identifié à l’aide d’une valeur GUID : *6fd2c87f-b296-42f0-b197-1e91e994b900*. Le tableau suivant répertorie les produits Microsoft Online Services les plus couramment utilisés ainsi que leurs différentes valeurs d’identificateur. Ces tableaux sont fournis à titre de référence et ne sont exacts qu’à la date de la dernière mise à jour de cet article. Microsoft ne prévoit pas de les mettre à jour pour les nouveaux services régulièrement ajoutés.
+Lors de la gestion des licences dans [le portail Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) ou le portail Office 365, vous voyez des noms de produits similaires à *Office 365 Enterprise E3*. Toutefois lorsque vous utilisez les cmdlets PowerShell v1.0, le même produit est identifié avec un nom spécifique, mais moins convivial : *ENTERPRISEPACK*. Lorsque vous utilisez les cmdlets PowerShell v2.0 ou Microsoft Graph, le même produit est identifié à l’aide d’une valeur GUID : *6fd2c87f-b296-42f0-b197-1e91e994b900*. Le tableau suivant répertorie les produits Microsoft Online Services les plus couramment utilisés ainsi que leurs différentes valeurs d’identificateur. Ces tableaux sont fournis à titre de référence et ne sont exacts qu’à la date de la dernière mise à jour de cet article. Microsoft ne prévoit pas de les mettre à jour pour les nouveaux services régulièrement ajoutés.
 
-- **Nom de produit** : utilisé dans les portails de gestion
-- **Identificateur de chaîne** : utilisé par les cmdlets PowerShell v1.0 lors des opérations sur les licences
-- **Identificateur de GUID** : utilisé par Azure AD Graph et Microsoft Graph
-- **Plans de service inclus** : liste des plans de service du produit qui correspondent aux identificateurs de chaîne et de GUID
+- **Nom du produit** : utilisé dans les portails de gestion
+- **Identificateur de chaîne** : utilisé par les cmdlets PowerShell v1.0 lors des opérations sur les licences
+- **Identificateur de GUID** : utilisé par Azure AD Graph et Microsoft Graph
+- **Plans de service inclus** : liste des plans de service du produit qui correspondent aux identificateurs de chaîne et de GUID
 
 >[!NOTE]
 >Ces informations sont exactes à la date du 17 août 2018.
@@ -59,7 +60,7 @@ Lors de la gestion des licences dans [le portail Azure](https://portal.azure.com
 | EXCHANGE ONLINE KIOSK | EXCHANGEDESKLESS  | 80b2d799-d2ba-4d2a-8842-fb0d0f3a4b82  | EXCHANGE_S_DESKLESS (4a82b400-a79f-41a4-b4e2-e94f5787b113) |
 | EXCHANGE ONLINE POP   | EXCHANGETELCO | cb0a98a8-11bc-494c-83d9-c1b1ac65327e  | EXCHANGE_B_STANDARD (90927877-dcff-4af6-b346-2332c0b15bb7) |
 | INTUNE    | INTUNE_A  | 061f9ace-7d42-4136-88ac-31dc755f143f  | INTUNE_A (c1ec4a95-1f05-45b3-a911-aa3fa01094f5) |
-| MICROSOFT 365 BUSINESS    | SPB   | cbdc14ab-d96c-4c30-b9f4-6ada7cdc1d46  | AAD_SMB (de377cbc-0019-4ec2-b77c-3f223947e102)<br/>BPOS_S_TODO_1 (5e62787c-c316-451f-b873-1d05acd4d12c)<br/>Deskless (8c7d2df8-86f0-4902-b2ed-a0458298f3b3)<br/>EXCHANGE_S_ARCHIVE_ADDON (176a09a6-7ec5-4039-ac02-b2791c6ba793)<br/>EXCHANGE_S_STANDARD (9aaf7827-d63c-4b61-89c3-182f06f82e5c)<br/>FLOW_O365_P1 (0f9b09cb-62d1-4ff4-9129-43f4996f83f4)<br/>FORMS_PLAN_E1 (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>INTUNE_A (c1ec4a95-1f05-45b3-a911-aa3fa01094f5)<br/>INTUNE_SMBIZ (8e9ff0ff-aa7a-4b20-83c1-2f636b600ac2)<br/>MCOSTANDARD (0feaeb32-d00e-4d66-bd5a-43b5b83db82c)<br/>MICROSOFTBOOKINGS (199a5c09-e0ca-4e37-8f7c-b05d533e1ea2)<br/>O365_SB_Relationship_Management (5bfe124c-bbdc-4494-8835-f1297d457d79)<br/>OFFICE_BUSINESS (094e7854-93fc-4d55-b2c0-3ab5369ebdc1)<br/>POWERAPPS_O365_P1 (92f7a6f3-b89b-4bbd-8c30-809e6da5ad1c)<br/>PROJECTWORKMANAGEMENT (b737dad2-2f6c-4c65-90e3-ca563267e8b9)<br/>RMS_S_ENTERPRISE (bea4c11e-220a-4e6d-8eb8-8ea15d019f90)<br/>RMS_S_PREMIUM (6c57d4b6-3b23-47a5-9bc9-69f17b4947b3)<br/>SHAREPOINTSTANDARD (c7699d2e-19aa-44de-8edf-1736da088ca1)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>STREAM_O365_E1 (743dd19e-1ce3-4c62-a3ad-49ba8f63a2f6)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97)<br/>TEAMS1 (57ff2da0-773e-42df-b2af-ffb7a2317929)<br/>WINBIZ (8e229017-d77b-43d5-9305-903395523b99)<br/>YAMMER_ENTERPRISE (7547a3fe-08ee-4ccb-b430-5077c5041653) |
+| MICROSOFT 365 ENTREPRISE    | SPB   | cbdc14ab-d96c-4c30-b9f4-6ada7cdc1d46  | AAD_SMB (de377cbc-0019-4ec2-b77c-3f223947e102)<br/>BPOS_S_TODO_1 (5e62787c-c316-451f-b873-1d05acd4d12c)<br/>Deskless (8c7d2df8-86f0-4902-b2ed-a0458298f3b3)<br/>EXCHANGE_S_ARCHIVE_ADDON (176a09a6-7ec5-4039-ac02-b2791c6ba793)<br/>EXCHANGE_S_STANDARD (9aaf7827-d63c-4b61-89c3-182f06f82e5c)<br/>FLOW_O365_P1 (0f9b09cb-62d1-4ff4-9129-43f4996f83f4)<br/>FORMS_PLAN_E1 (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>INTUNE_A (c1ec4a95-1f05-45b3-a911-aa3fa01094f5)<br/>INTUNE_SMBIZ (8e9ff0ff-aa7a-4b20-83c1-2f636b600ac2)<br/>MCOSTANDARD (0feaeb32-d00e-4d66-bd5a-43b5b83db82c)<br/>MICROSOFTBOOKINGS (199a5c09-e0ca-4e37-8f7c-b05d533e1ea2)<br/>O365_SB_Relationship_Management (5bfe124c-bbdc-4494-8835-f1297d457d79)<br/>OFFICE_BUSINESS (094e7854-93fc-4d55-b2c0-3ab5369ebdc1)<br/>POWERAPPS_O365_P1 (92f7a6f3-b89b-4bbd-8c30-809e6da5ad1c)<br/>PROJECTWORKMANAGEMENT (b737dad2-2f6c-4c65-90e3-ca563267e8b9)<br/>RMS_S_ENTERPRISE (bea4c11e-220a-4e6d-8eb8-8ea15d019f90)<br/>RMS_S_PREMIUM (6c57d4b6-3b23-47a5-9bc9-69f17b4947b3)<br/>SHAREPOINTSTANDARD (c7699d2e-19aa-44de-8edf-1736da088ca1)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>STREAM_O365_E1 (743dd19e-1ce3-4c62-a3ad-49ba8f63a2f6)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97)<br/>TEAMS1 (57ff2da0-773e-42df-b2af-ffb7a2317929)<br/>WINBIZ (8e229017-d77b-43d5-9305-903395523b99)<br/>YAMMER_ENTERPRISE (7547a3fe-08ee-4ccb-b430-5077c5041653) |
 | MICROSOFT 365 E3  | SPE_E3    | 05e9a617-0261-4cee-bb44-138d3ef5d965  | AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>ADALLOM_S_DISCOVERY (932ad362-64a8-4783-9106-97849a1a30b9)<br/>BPOS_S_TODO_2 (c87f142c-d1e9-4363-8630-aaea9c4d9ae5)<br/>Deskless (8c7d2df8-86f0-4902-b2ed-a0458298f3b3)<br/>EXCHANGE_S_ENTERPRISE (efb87545-963c-4e0d-99df-69c6916d9eb0)<br/>FLOW_O365_P2 (76846ad7-7776-4c40-a281-a386362dd1b9)<br/>FORMS_PLAN_E3 (2789c901-c14e-48ab-a76a-be334d9d793a)<br/>INTUNE_A (c1ec4a95-1f05-45b3-a911-aa3fa01094f5)<br/>MCOSTANDARD (0feaeb32-d00e-4d66-bd5a-43b5b83db82c)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e88db0)<br/>OFFICESUBSCRIPTION (43de0ff5-c92c-492b-9116-175376d08c38)<br/>POWERAPPS_O365_P2 (c68f8d98-5534-41c8-bf36-22fa496fa792)<br/>PROJECTWORKMANAGEMENT (b737dad2-2f6c-4c65-90e3-ca563267e8b9)<br/>RMS_S_ENTERPRISE (bea4c11e-220a-4e6d-8eb8-8ea15d019f90)<br/>RMS_S_PREMIUM (6c57d4b6-3b23-47a5-9bc9-69f17b4947b3)<br/>SHAREPOINTENTERPRISE (5dbe027f-2339-4123-9542-606e4d348a72)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>STREAM_O365_E3 (9e700747-8b1d-45e5-ab8d-ef187ceec156)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97)<br/>TEAMS1 (57ff2da0-773e-42df-b2af-ffb7a2317929)<br/>WIN10_PRO_ENT_SUB (21b439ba-a0ca-424f-a6cc-52f954a5b111)<br/>YAMMER_ENTERPRISE (7547a3fe-08ee-4ccb-b430-5077c5041653) |
 | MICROSOFT DYNAMICS CRM ONLINE BASIC   | CRMPLAN2  | 906af65a-2970-46d5-9b58-4e9aa50f0657  | CRMPLAN2 (bf36ca64-95c6-4918-9275-eb9f4ce2c04f)<br/>FLOW_DYN_APPS (7e6d7d78-73de-46ba-83b1-6d25117334ba)<br/>POWERAPPS_DYN_APPS (874fc546-6efe-4d22-90b8-5c4e7aa59f4b) |
 | MICROSOFT DYNAMICS CRM ONLINE | CRMSTANDARD   | d17b27af-3f49-4822-99f9-56a661538792  | CRMSTANDARD (f9646fb2-e3b2-4309-95de-dc4833737456)<br/>FLOW_DYN_APPS (7e6d7d78-73de-46ba-83b1-6d25117334ba)<br/>MDM_SALES_COLLABORATION (3413916e-ee66-4071-be30-6f94d4adfeda)<br/>NBPROFESSIONALFORCRM (3e58e97c-9abe-ebab-cd5f-d543d1529634)<br/>POWERAPPS_DYN_APPS (874fc546-6efe-4d22-90b8-5c4e7aa59f4b) |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: bc556991cc304aa8c5edc04dba1d333dc77ad230
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: c242d8dd64dc58b0c20b6fb15747f201f85cc482
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073405"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320935"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Linux dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -45,10 +45,13 @@ Les distributions Linux suivantes sont actuellement prises en charge dans la pr�
 
 | Distribution | Version |
 | --- | --- |
-| CentOS | CentOS 6.9 et CentOS 7.4 |
+| CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
+| openSUSE | openSUSE Leap 42.3 |
 | RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
+| SUSE Linux Enteprise Server | SLES 12 |
 | Serveur Ubuntu | Ubuntu 14.04 LTS, Ubuntu Server 16.04, Ubuntu Server 17.10 et Ubuntu Server 18.04 |
+
 
 Les régions Azure suivantes sont actuellement prises en charge dans la préversion de cette fonctionnalité :
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 7d451f7eae16426c85ed5540b35993cd9b218b83
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d209e1f6924e5c7d6bba7512606504b7165f0ed3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033143"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359423"
 ---
 # <a name="configure-an-ip-firewall-for-your-azure-cosmos-db-account"></a>Configurer un pare-feu IP pour votre compte Azure Cosmos DB
 
@@ -145,10 +145,10 @@ Vous pouvez résoudre les problèmes de stratégie de contrôle d’accès IP en
 En activant une stratégie de contrôle d’accès IP pour votre compte Azure Cosmos DB, vous bloquez toutes les demandes envoyées à votre compte à partir d’ordinateurs ne figurant pas dans la liste autorisée de plages d’adresses IP. Pour autoriser des opérations de plan de données du portail comme la navigation dans les conteneurs et l’interrogation de documents, vous devez autoriser explicitement l’accès au portail Azure à l’aide du volet **Pare-feu** du portail.
 
 ### <a name="sdks"></a>Kits de développement logiciel (SDK) 
-Quand vous accédez à des ressources Azure Cosmos DB à l’aide de kits SDK sur des ordinateurs qui ne sont pas dans la liste autorisée, **une réponse générique 404 Introuvable est retournée sans plus de détails**. Vérifiez la liste d’adresses IP autorisées pour votre compte et vérifiez que la configuration de stratégie appropriée est appliquée à votre compte Azure Cosmos DB. 
+Lorsque vous accédez à des ressources Azure Cosmos DB à l’aide de kits SDK sur des ordinateurs qui ne sont pas dans la liste autorisée, une réponse générique **403 Interdit** est renvoyée sans plus de détails. Vérifiez la liste d’adresses IP autorisées pour votre compte et vérifiez que la configuration de stratégie appropriée est appliquée à votre compte Azure Cosmos DB. 
 
 ### <a name="source-ips-in-blocked-requests"></a>Adresses IP sources dans les demandes bloquées
-Activez la journalisation des diagnostics sur votre compte Azure Cosmos DB. Ces journaux affichent chaque demande et réponse. Les messages associés au pare-feu sont journalisés en interne avec le code de retour 403. En filtrant ces messages, vous pouvez voir les adresses IP sources des demandes bloquées. Consultez [Journalisation des diagnostics Azure Cosmos DB](logging.md).
+Activez la journalisation des diagnostics sur votre compte Azure Cosmos DB. Ces journaux affichent chaque demande et réponse. Les messages associés au pare-feu sont journalisés avec le code de retour 403. En filtrant ces messages, vous pouvez voir les adresses IP sources des demandes bloquées. Consultez [Journalisation des diagnostics Azure Cosmos DB](logging.md).
 
 ### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>Demandes à partir d’un sous-réseau avec un point de terminaison de service activé pour Azure Cosmos DB
 Les demandes à partir d’un sous-réseau de réseau virtuel avec un point de terminaison de service activé pour Azure Cosmos DB envoient l’identité de réseau virtuel et de sous-réseau aux comptes Azure Cosmos DB. Comme ces demandes n’ont pas l’adresse IP publique de la source, les filtres IP les rejettent. Pour autoriser l’accès à partir de sous-réseaux spécifiques de réseaux virtuels, ajoutez une liste de contrôle d’accès, comme indiqué dans [Configurer l’accès à votre compte Azure Cosmos DB à partir d’un réseau virtuel et d’un sous-réseau](how-to-configure-vnet-service-endpoint.md). L’application des règles de pare-feu peut prendre jusqu’à 15 minutes.

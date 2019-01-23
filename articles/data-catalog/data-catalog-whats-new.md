@@ -8,12 +8,12 @@ ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 86c8e8c10811b1478ae2c853f1efef5b6b5caa83
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 782f68c52285e787b9dfc6d21352ab2d53876085
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406326"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353139"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Nouveautés d'Azure Data Catalog
 Des mises à jour **d’Azure Data Catalog** sont publiées régulièrement. Comme certaines versions portent sur les fonctionnalités du service principal, toutes les versions ne contiennent pas nécessairement de nouvelles fonctionnalités orientées utilisateur. Cette page présente les nouvelles fonctionnalités orientées utilisateur ajoutées au service Azure Data Catalog.
@@ -45,7 +45,7 @@ Depuis août 2017, les fonctionnalités suivantes ont été ajoutées à Azure D
 
 ## <a name="whats-new-for-july-2017"></a>Nouveautés de juillet 2017 
 Depuis juillet 2017, les fonctionnalités suivantes ont été ajoutées à Azure Data Catalog :
-*   Prise en charge d’un contrôle plus précis des opérations de métadonnées autorisées, notamment :
+*   Prise en charge d’un contrôle plus précis des opérations de métadonnées autorisées, notamment :
     - Les administrateurs du catalogue peuvent limiter la capacité des utilisateurs à insérer des balises et métadonnées associées dans ce dernier, en leur permettant uniquement d’y accéder en lecture seule.
     - Les administrateurs du catalogue peuvent limiter la capacité des utilisateurs à inscrire des sources de données dans le catalogue.
     - Les administrateurs du catalogue peuvent limiter la capacité des utilisateurs à prendre possession des métadonnées des ressources de données dans le catalogue.
@@ -153,7 +153,7 @@ Depuis février 2016, les fonctionnalités suivantes ont été ajoutées à Azur
 
 * Une nouvelle expérience de sélection de sources de données dans l’outil d’inscription de sources de données Azure Data Catalog. L’outil d’inscription de sources de données a été mis à jour pour faciliter la localisation et la sélection à partir des sources de données prises en charge par Azure Data Catalog.
 * Prise en charge de 10 langues supplémentaires sur le Portail Azure Data Catalog et l’outil d’inscription de sources de données. Outre l’anglais, l’expérience Azure Data Catalog est désormais disponible en allemand, chinois simplifié, chinois traditionnel, coréen, espagnol, français, italien, japonais, portugais (Brésil) et russe. L’expérience utilisateur Azure Data Catalog est localisée en fonction des préférences de langue définies dans Windows ou dans le navigateur web de l’utilisateur.
-* Prise en charge de la géo-réplication des données Azure Data Catalog pour garantir la continuité de l’activité et la récupération d’urgence. Tous les contenus Azure Data Catalog, notamment les métadonnées de source de données et les annotations de crowdsourcing, sont désormais répliqués entre deux régions Azure sans frais supplémentaires pour les clients. Les régions Azure sont préalablement jumelées et distantes d’au moins 800 kilomètres, et suivent le mappage décrit dans [Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure](../best-practices-availability-paired-regions.md).
+* Prise en charge de la géo-réplication des données Azure Data Catalog pour garantir la continuité de l’activité et la récupération d’urgence. Tous les contenus Azure Data Catalog, notamment les métadonnées de source de données et les annotations de crowdsourcing, sont désormais répliqués entre deux régions Azure sans frais supplémentaires pour les clients. Les régions Azure sont préalablement jumelées et distantes d’au moins 800 kilomètres, et suivent le mappage décrit dans [Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure](../best-practices-availability-paired-regions.md).
 * Prise en charge du changement de l’abonnement Azure utilisé par Azure Data Catalog. Les administrateurs Azure Data Catalog peuvent utiliser la page Paramètres du portail Azure Data Catalog pour sélectionner un autre abonnement Azure à des fins de facturation.
 
 ## <a name="whats-new-for-january-2016"></a>Nouveautés de janvier 2016

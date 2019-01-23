@@ -6,22 +6,22 @@ documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: b197fce8-3b9b-4189-8d08-486810c0426f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 01/15/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 337ee0edc3d6e644415b2b3f7524d829d0e3c692
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 5059e4c00fc3bcbee76f8f5a3746b4d8783d901b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246464"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359270"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codecs et formats de Media Encoder Premium Workflow
+
 > [!NOTE]
 > Pour des questions relatives à l’encodeur premium, envoyez un e-mail à mepd@microsoft.com.
 > 
@@ -38,9 +38,11 @@ Ce document contient la liste des codecs et formats de fichiers d’entrée et d
 **Media Encoder Premium Workflow** prend en charge le sous-titrage décrit dans [cette](#closed_captioning) section 
 
 ## <a id="input_formats"></a>Codecs et formats d’entrée de Media Encoder Premium Workflow
+
 La section suivante répertorie les codecs et les formats de fichiers que ce processeur multimédia prend en charge en entrée.
 
 ### <a name="input-containerfile-formats"></a>Formats de conteneurs/fichiers d’entrée
+
 * Adobe® Flash® F4V
 * MXF/SMPTE 377M
 * GXF
@@ -51,6 +53,7 @@ La section suivante répertorie les codecs et les formats de fichiers que ce pro
 * AVI (8 bits/10 bits non compressé)
 
 ### <a name="input-video-codecs"></a>Codecs vidéo d’entrée
+
 * AVC 8 bits/10 bits, jusqu'à 4:2:2, y compris AVCIntra
 * Avid DNxHD (dans MXF)
 * DVCPro/DVCProHD (dans MXF)
@@ -61,6 +64,7 @@ La section suivante répertorie les codecs et les formats de fichiers que ce pro
 * Windows Media Video/VC-1
 
 ### <a name="input-audio-codecs"></a>Codecs audio d’entrée
+
 * AES (SMPTE 331M et 302M, AES3-2003)
 * Dolby® E
 * Dolby® Digital (AC3)
@@ -71,9 +75,11 @@ La section suivante répertorie les codecs et les formats de fichiers que ce pro
 * WAV/PCM
 
 ## <a id="output_format"></a>Codecs et formats de sortie de Media Encoder Premium Workflow
+
 La section suivante répertorie les codecs et les formats de fichiers pris en charge en sortie avec ce processeur multimédia.
 
 ### <a name="output-containerfile-formats"></a>Formats de conteneurs/fichiers de sortie
+
 * Adobe® Flash® F4V
 * MXF (OP1a, XDCAM et AS02)
 * DPP (y compris AS11)
@@ -85,6 +91,7 @@ La section suivante répertorie les codecs et les formats de fichiers pris en ch
 * MPEG-TS 
 
 ### <a name="output-video-codecs"></a>Codecs vidéo de sortie
+
 * AVC (H.264 ; 8 bits ; jusqu'au profil High, niveau 5.2 ; Ultra HD 4K ; AVC Intra)
 * Avid DNxHD (dans MXF)
 * DVCPro/DVCProHD (dans MXF)
@@ -92,8 +99,13 @@ La section suivante répertorie les codecs et les formats de fichiers pris en ch
 * MPEG-1
 * Windows Media Video/VC-1
 * Création de miniatures JPEG
+* HEVC (H.265 ; 8 et 10 bits, Profil Main et Main 10)
+
+  La prise en charge pour HDR 10 est disponible dans certains scénarios, contactez mepd@microsoft.com pour plus d’informations
+
 
 ### <a name="output-audio-codecs"></a>Codecs audio de sortie
+
 * AES (SMPTE 331M et 302M, AES3-2003)
 * Dolby® Digital (AC3)
 * Dolby® Digital Plus (E-AC3) jusqu'à 7.1
@@ -106,6 +118,7 @@ La section suivante répertorie les codecs et les formats de fichiers pris en ch
 >Si vous encodez en Dolby® Digital (AC3), la sortie peut uniquement être écrite dans un fichier MP4 ISO.
 
 ## <a id="closed_captioning"></a>Prise en charge du sous-titrage
+
 En entrée, **Media Encoder Premium Workflow** prend en charge :
 
 1. Fichiers sous contrôle de code source (SCC)
@@ -122,14 +135,18 @@ En sortie, les options suivantes sont disponibles :
 5. Fichier de sous-titre SRT
 6. Flux de sous-titres DVB
 
-Remarque : tous les formats de sortie mentionnés ci-dessus ne sont pas pris en charge dans le cadre d'une remise diffusée en continu dans Azure Media Services.
+> [!NOTE]
+> Tous les formats de sortie mentionnés ci-dessus ne sont pas pris en charge dans le cadre d'une remise diffusée en continu dans Azure Media Services.
 
 ## <a name="known-issues"></a>Problèmes connus
+
 Si votre vidéo d’entrée ne contient pas de sous-titres, l’élément multimédia de sortie actif comportera toujours un fichier TTML vide. 
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

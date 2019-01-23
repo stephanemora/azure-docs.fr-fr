@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/26/2018
+ms.date: 01/15/2019
 ms.author: juliako
-ms.openlocfilehash: 3a2b3752926a3a4391ae9479ba636694533c97a8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 91e24fb274c1f9895046e8e2e7d760d02d196ccd
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788206"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354176"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
 
@@ -29,6 +29,22 @@ Azure Media Services vous permet de transmettre des événements en direct aupr�
 - Des composants dans Media Services, pour ingérer, prévisualiser, empaqueter, enregistrer, chiffrer et diffuser l’événement en direct auprès de vos clients, ou dans un CDN en vue d’une diffusion ultérieure.
 
 Cet article présente les principaux composants utilisés pour le streaming en direct avec Media Services. Il fournit également des conseils d’utilisation et des diagrammes de ces composants.
+
+## <a name="live-streaming-workflow"></a>Workflow de streaming en direct
+
+Voici les étapes d’un workflow de streaming en direct :
+
+1. Créez un **événement en temps réel**.
+2. Créez un objet **Asset**.
+3. Créez un objet **LiveOutput** et utilisez le nom de l’objet Asset que vous venez de créer.
+4. Créez une **stratégie de streaming** et une **clé de contenu** si vous avez l’intention de chiffrer votre contenu avec DRM.
+5. Si vous n’utilisez pas DRM, créez un **localisateur de streaming**  avec les types intégrés de la **stratégie de streaming**.
+6. Listez les chemins dans la **stratégie de streaming** pour obtenir les URL à utiliser (celles-ci sont déterministes).
+7. Obtenez le nom d’hôte pour le **point de terminaison de streaming** à partir duquel vous souhaitez effectuer le streaming (assurez vous que le point de terminaison de streaming fonctionne). 
+8. Combinez l’URL de l’étape 6 avec le nom d’hôte de l’étape 7 pour obtenir l’URL complète.
+9. Si vous ne souhaitez plus afficher votre **événement en temps réel**, vous devez arrêter le diffusion de l'événement en supprimant le **localisateur de streaming**.
+
+Pour plus d’informations, suivez un [tutoriel sur le streaming en direct](stream-live-tutorial-with-api.md) qui est basé sur l’exemple [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live).
 
 ## <a name="overview-of-main-components"></a>Présentation des principaux composants
 
@@ -89,9 +105,10 @@ L’article suivant fournit un tableau qui compare les fonctionnalités des deux
 
 Avec une sortie [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs), vous pouvez contrôler les propriétés du flux temps réel sortant, notamment la quantité à enregistrer (par exemple, la capacité du magnétoscope numérique cloud) et le fait que les destinataires sont ou non autorisés à démarrer la lecture du flux. La relation entre un événement **LiveEvent** et sa sortie **LiveOutput** est comparable à la diffusion télévisuelle traditionnelle, où un canal (**LiveEvent**) représente un flux vidéo constant et un enregistrement (**LiveOutput**) est limité à une plage horaire spécifique (par exemple, un journal télévisé de 18 h 30 à 19 h). Vous pouvez enregistrer une émission de télévision à l’aide d’un magnétoscope numérique (DVR). La fonctionnalité LiveEvent équivalente est gérée par la propriété ArchiveWindowLength. Il s’agit d’une durée d’intervalle ISO-8601 (par exemple, PTHH:MM:SS), qui spécifie la capacité du magnétoscope numérique. Sa valeur peut être comprise entre 3 minutes au minimum et 25 heures au maximum.
 
-
 > [!NOTE]
-> Les **LiveOutput** démarrent dès leur création et s’arrêtent à leur suppression. Quand vous supprimez un **LiveOutput**, vous ne supprimez pas l’**actif multimédia** sous-jacent, ni le contenu de l’actif multimédia.  
+> Les sorties **LiveOutput** démarrent dès leur création et s’arrêtent à leur suppression. Lorsque vous supprimez une sortie **LiveOutput**, vous ne supprimez pas l’élément **Asset** sous-jacent, ni son contenu. 
+>
+> Si vous avez publié un **localisateur de streaming** sur l’élément multimédia pour **LiveOutput**, l’événement (jusqu’à la longueur de fenêtre DVR) continuera à être visible jusqu’à l’heure de fin du **localisateur de streaming** ou jusqu’à ce que vous supprimiez le localisateur, en fonction de ce qui survient en premier.   
 
 Pour plus d’informations, consultez [Utilisation d’un magnétoscope numérique cloud](live-event-cloud-dvr.md).
 
@@ -110,21 +127,6 @@ Pour plus d’informations, consultez [États et facturation](live-event-states-
 ## <a name="latency"></a>Latence
 
 Pour plus d’informations sur la latence des événements LiveEvent, consultez [Latence](live-event-latency.md).
-
-## <a name="live-streaming-workflow"></a>Workflow de streaming en direct
-
-Voici les étapes d’un workflow de streaming en direct :
-
-1. Créez un objet LiveEvent.
-2. Créez un objet Asset.
-3. Créez un objet LiveOutput en utilisant le nom de l’objet Asset que vous venez de créer.
-4. Créez une stratégie de streaming et une clé de contenu si vous avez l’intention de chiffrer votre contenu avec DRM.
-5. Si vous n’utilisez pas DRM, créez un localisateur de streaming avec les types intégrés de la stratégie de streaming.
-6. Listez les chemins dans la stratégie de streaming pour obtenir les URL à utiliser (celles-ci sont déterministes).
-7. Obtenez le nom d’hôte pour le point de terminaison de streaming à partir duquel vous souhaitez effectuer le streaming. 
-8. Combinez l’URL de l’étape 6 avec le nom d’hôte de l’étape 7 pour obtenir l’URL complète.
-
-Pour plus d’informations, suivez un [tutoriel sur le streaming en direct](stream-live-tutorial-with-api.md) qui est basé sur l’exemple [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

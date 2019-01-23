@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc369f5bc3d80a476e45d46cfe25541216484b1c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2e419da4ed84f3d202113f9616050c3e7c29f240
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958803"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322042"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Création d’un compte Azure Automation autonome
 
@@ -39,7 +39,7 @@ Pour créer ou mettre à jour un compte Automation et effectuer les tâches déc
 * Pour créer un compte Automation, votre compte utilisateur Azure Active Directory (Azure AD) doit être ajouté à un rôle disposant d’autorisations équivalentes à celles du rôle Propriétaire pour **Microsoft. Automation**. Pour plus d’informations, voir [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).
 * Dans le portail Azure, sous **Azure Active Directory** > **GÉRER** > **Inscriptions des applications**, si **Inscriptions des applications** a la valeur **Oui**, les utilisateurs non-administrateurs dans votre locataire Azure AD peuvent [inscrire les applications Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Si **Inscriptions des applications** est défini sur **Non**, l’utilisateur qui effectue cette action doit être administrateur général dans Azure AD.
 
-Si vous n’êtes pas membre de l’instance Active Directory de l’abonnement avant d’être ajouté au rôle Administrateur général/Coadministrateur de l’abonnement, vous êtes ajouté à Active Directory en tant qu’invité. Dans ce scénario, la page **Ajouter un compte Automation** affiche le message « Vous n’avez pas les autorisations pour créer. »
+Si vous n’êtes pas membre de l’instance Active Directory de l’abonnement avant d’être ajouté au rôle Administrateur général/Coadministrateur de l’abonnement, vous êtes ajouté à Active Directory en tant qu’invité. Dans ce scénario, la page **Ajouter un compte Automation** affiche le message : « Vous n’avez pas les autorisations pour créer. »
 
 Si un utilisateur reçoit d’abord le rôle Administrateur général/Coadministrateur, vous pouvez le supprimer de l’instance Active Directory de l’abonnement, puis le rajouter au rôle Utilisateur complet dans Active Directory.
 
@@ -69,7 +69,7 @@ Pour créer un compte Azure Automation dans le portail Azure, suivez les étapes
   >
   > ![Avertissement Ajouter un compte Automation](media/automation-create-standalone-account/create-account-without-perms.png)
 
-1. Dans le panneau **Ajouter un compte Automation**, dans la zone **Nom**, saisissez un nom à attribuer au nouveau compte Automation. Ce nom ne peut pas être modifié une fois choisi. *Les noms de compte Automation sont uniques par région et par groupe de ressources* .
+1. Dans le panneau **Ajouter un compte Automation**, dans la zone **Nom**, saisissez un nom à attribuer au nouveau compte Automation. Ce nom ne peut pas être modifié une fois choisi. *Les noms de compte Automation sont uniques par région et par groupe de ressources. Il est possible que les noms de comptes Automation qui ont été supprimés ne soient pas immédiatement disponibles.*
 1. Si vous possédez plus d’un abonnement, dans la zone **Abonnement**, spécifiez l’abonnement à utiliser pour le nouveau compte.
 1. Pour **Groupe de ressources**, saisissez ou sélectionnez un groupe de ressources nouveau ou existant.
 1. Pour **Emplacement**, sélectionnez un emplacement de centre de données Azure.
