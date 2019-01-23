@@ -9,18 +9,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/21/2018
-ms.openlocfilehash: 623d03c96866392ef245fb924cbf6600e7850ffe
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 794e2f3db44c29707400f96970159578d9e83f2d
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47057706"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303273"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Sortie d’Azure Stream Analytics dans Azure SQL Database
 
 Cet article donne des conseils pour améliorer les performances de débit d’écriture quand vous chargez des données dans SQL Azure Database à partir d’Azure Stream Analytics.
 
-La sortie SQL dans Azure Stream Analytics prend en charge l’option d’écriture en parallèle. Cette option permet les topologies de travaux [massivement parallèles](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs), où plusieurs partitions de sortie sont écrites en parallèle dans la table de destination. Toutefois, l’activation de cette option dans Azure Stream Analytics ne permet pas toujours d’observer une hausse du débit, car le résultat dépend beaucoup de la configuration et du schéma de table de votre base de données SQL Azure. Les index, la clé de clustering, le facteur de remplissage d’index et la compression que vous choisissez ont un impact sur le temps de chargement des tables. Pour plus d’informations sur les moyens d’optimiser votre base de données SQL Azure afin d’améliorer les performances des requêtes et du chargement sur la base de tests d’évaluation internes, consultez les recommandations fournies dans [Optimisation des performances dans Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance).
+La sortie SQL dans Azure Stream Analytics prend en charge l’option d’écriture en parallèle. Cette option permet les topologies de travaux [massivement parallèles](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs), où plusieurs partitions de sortie sont écrites en parallèle dans la table de destination. Toutefois, l’activation de cette option dans Azure Stream Analytics ne permet pas toujours d’observer une hausse du débit, car le résultat dépend beaucoup de la configuration et du schéma de table de votre base de données SQL Azure. Les index, la clé de clustering, le facteur de remplissage d’index et la compression que vous choisissez ont un impact sur le temps de chargement des tables. Pour plus d’informations sur les moyens d’optimiser votre base de données SQL Azure afin d’améliorer les performances des requêtes et du chargement sur la base de tests d’évaluation internes, consultez les recommandations fournies dans [Optimisation des performances dans Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance). La réorganisation des écritures n’est pas garantie lors de l’écriture en parallèle dans la base de données SQL Azure.
 
 Les configurations présentées ci-après pour chaque service peuvent vous aider à améliorer le débit global de votre solution.
 

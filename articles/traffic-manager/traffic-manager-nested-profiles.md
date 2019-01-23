@@ -1,9 +1,11 @@
 ---
-title: Profils Traffic Manager imbriqués | Microsoft Azure
+title: Profils Traffic Manager imbriqués dans Azure
+titlesuffix: Azure Traffic Manager
 description: Cet article explique la fonctionnalité des profils imbriqués d’Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -11,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: kumud
-ms.openlocfilehash: 876305c7195a186671c30c4bdd9bb0c6b5331e9a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 6fb6b3e4476efec87b15d175d354afab777e6830
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648596"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54228824"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Profils Traffic Manager imbriqués
 
@@ -26,7 +28,7 @@ Chaque profil Traffic Manager spécifie une seule méthode de routage du trafic.
 
 Les exemples suivants illustrent l’utilisation de profils Traffic Manager imbriqués dans divers scénarios.
 
-## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Exemple 1: combinaison de routage du trafic « performant (Performance) » et « pondéré (Weighted) »
+## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Exemple 1 : combinaison de routage du trafic « performant (Performance) » et « pondéré (Weighted) »
 
 Supposons que vous avez déployé une application dans les régions Azure suivantes : USA Ouest, Europe Ouest et Asie Est. Vous utilisez la méthode de routage du trafic « Performance » de Traffic Manager pour acheminer le trafic vers la région la plus proche de l’utilisateur.
 
@@ -61,7 +63,7 @@ Le schéma suivant illustre cette configuration :
 > [!NOTE]
 > La méthode de routage du trafic « Priorité » distribue tout le trafic vers un seul point de terminaison. Il est par conséquent peu utile de définir un paramètre MinChildEndpoints autre que « 1 » pour un profil enfant.
 
-## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Exemple 3 : basculement hiérarchisé des régions dans le routage du trafic de type « Performance »
+## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Exemple 3 : basculement hiérarchisé des régions dans le routage du trafic de type « Performance »
 
 Le comportement par défaut de la méthode de routage « Performance » est que, lorsque vos points de terminaison se trouvent sur des emplacements géographiques différents, les utilisateurs finaux sont renvoyés au point de terminaison « le plus proche » en termes de latence réseau la plus faible.
 
@@ -73,7 +75,7 @@ Toutefois, supposons que vous préfériez basculer le trafic vers Europe Ouest p
 
 Vous pouvez répéter ce modèle pour toutes les régions. Remplacez les trois points de terminaison dans le profil parent par trois profils enfants, chacun offrant une séquence de basculement hiérarchisée.
 
-## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>Exemple 4 : contrôle du routage du trafic de type « Performance » entre plusieurs points de terminaison dans la même région
+## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>Exemple 4 : contrôle du routage du trafic de type « Performance » entre plusieurs points de terminaison dans la même région
 
 Supposons que la méthode de routage du trafic « Performance » est utilisée dans un profil qui a plusieurs points de terminaison dans une région spécifique. Par défaut, le trafic dirigé vers cette région est réparti uniformément entre tous les points de terminaison disponibles dans cette région.
 

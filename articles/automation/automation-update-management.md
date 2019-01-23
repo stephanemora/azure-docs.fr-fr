@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0066a4ea5d91369bf6724dbaea4743a10bd8db0b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d8df48511f2bfd2500dbc0a1dfaa95e488fad63b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631853"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214995"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -125,6 +125,15 @@ Pour plus d’informations sur la façon dont ces packs d’administration de so
 > [!NOTE]
 > Pour les systèmes dotés de l’agent Operations Manager, pour pouvoir être entièrement gérés par Update Management, l’agent doit être mis à jour vers Microsoft Monitoring Agent. Pour savoir comment mettre à jour l’agent, consultez [Guide pratique pour mettre à niveau un agent Operations Manager](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
 
+## <a name="onboard"></a>Activer Update Management
+
+Pour commencer à appliquer des correctifs aux systèmes, vous devez activer la solution Update Management. Vous pouvez intégrer des machines à Update Management de différentes manières. Voici des méthodes recommandées et prises en charge pour intégrer la solution :
+
+* [Depuis une machine virtuelle](automation-onboard-solutions-from-vm.md)
+* [Depuis plusieurs machines](automation-onboard-solutions-from-browse.md)
+* [Depuis votre compte Automation](automation-onboard-solutions-from-automation-account.md)
+* [Avec un runbook Azure Automation](automation-onboard-solutions.md)
+  
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Vérifier que les ordinateurs non-Azure sont intégrés
 
 Pour confirmer que les ordinateurs directement connectés communiquent avec Log Analytics, vous pouvez exécuter l’une des recherches suivantes dans les journaux au bout de quelques minutes.

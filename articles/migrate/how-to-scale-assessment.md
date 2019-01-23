@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 809d892c6238441f5a0bd93382acd7a783a4f0e9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2bc6f14eeb974ded462b8dcaf65d5401cc35291d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260716"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262215"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Découvrir et évaluer un environnement VMware de grande taille
 
@@ -19,7 +19,7 @@ Une limite de 1 500 machines par projet s’applique pour Azure Migrate. Cet art
 
 ## <a name="prerequisites"></a>Prérequis
 
-- **VMware** : les machines virtuelles à migrer doivent être gérées par vCenter Server version 5.5, 6.0 ou 6.5. De plus, vous avez besoin d’un hôte ESXi exécutant la version 5.0 ou ultérieure pour déployer la machine virtuelle du collecteur.
+- **VMware** : les machines virtuelles à migrer doivent être gérées par vCenter Server version 5.5, 6.0, 6.5 ou 6.7. De plus, vous avez besoin d’un hôte ESXi exécutant la version 5.0 ou ultérieure pour déployer la machine virtuelle du collecteur.
 - **Compte vCenter** : vous avez besoin d’un compte en lecture seule pour accéder au serveur vCenter Server. Azure Migrate utilise ce compte pour découvrir les machines virtuelles sur site.
 - **Autorisations** : dans vCenter Server, vous devez disposer des autorisations nécessaires pour créer une machine virtuelle en important un fichier au format OVA.
 - **Paramètres de statistiques** : cette exigence s’applique uniquement au [modèle de détection unique](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods) qui est maintenant déprécié. Pour un modèle de détection unique, les paramètres de statistiques pour vCenter Server doivent être définis sur le niveau 3 avant le début du déploiement. Le niveau de statistiques doit être défini sur 3 pour chaque intervalle de collecte : jour, semaine et mois. Si le niveau appliqué est inférieur à 3 pour l’un des trois intervalles de collecte, l’évaluation est effectuée, mais les données de performances relatives au stockage et au réseau ne sont pas collectées. Dans ce cas, les recommandations de taille sont effectuées selon les données de performances du processeur et de la mémoire, et selon les données de configuration des adaptateurs de disque dur et des adaptateurs réseau.

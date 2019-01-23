@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 01/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c6c67f6f1500ee90a1e0e4a04309f3f7aa2f6d05
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: 894724b08876e96119bf72ce65e22c6ae884d8da
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "36338320"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306877"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Le protocole BGP est-il pris en charge sur toutes les références de passerelle VPN Azure ?
 Non, le protocole BGP est pris en charge sur les passerelles VPN Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** et **HighPerformance**. La référence **De base** N’EST PAS prise en charge.
@@ -30,8 +30,8 @@ Non, les passerelles VPN Azure ne prennent en charge que les NSA 16 bits pour le
 ### <a name="are-there-asns-reserved-by-azure"></a>Existe-t-il des NSA réservés par Azure ?
 Oui. Les NSA suivants sont réservés par Azure pour les homologations internes et externes :
 
-* NSA publics : 8074, 8075, 12076
-* NSA privés : 65515, 65517, 65518, 65519, 65520
+* NSA publics : 8074, 8075, 12076
+* NSA privés : 65515, 65517, 65518, 65519, 65520
 
 Vous ne pouvez pas spécifier ces NSA pour vos périphériques VPN locaux lors de la connexion à des passerelles VPN Azure.
 
@@ -68,7 +68,7 @@ Oui. Vous pouvez utiliser le protocole BGP pour les connexions entre sites locau
 Oui. Vous pouvez combiner des connexions BGP et non-BGP pour la même passerelle VPN Azure.
 
 ### <a name="does-azure-vpn-gateway-support-bgp-transit-routing"></a>La passerelle VPN Azure prend-elle en charge le routage de transit BGP ?
-Oui. Le routage de transit BGP est pris en charge. Cependant, les passerelles VPN Azure ne publient **PAS** les routes par défaut sur les autres pairs BGP. Pour activer le routage de transit via plusieurs passerelles VPN Azure, vous devez activer le protocole BGP sur toutes les connexions intermédiaires entre réseaux virtuels.
+Oui. Le routage de transit BGP est pris en charge. Cependant, les passerelles VPN Azure ne publient **PAS** les routes par défaut sur les autres pairs BGP. Pour activer le routage de transit via plusieurs passerelles VPN Azure, vous devez activer le protocole BGP sur toutes les connexions intermédiaires entre réseaux virtuels. Pour plus d’informations, consultez [À propose de BGP](../articles/vpn-gateway/vpn-gateway-bgp-overview.md).
 
 ### <a name="can-i-have-more-than-one-tunnel-between-azure-vpn-gateway-and-my-on-premises-network"></a>Puis-je créer plusieurs tunnels entre ma passerelle VPN Azure et mon réseau local ?
 Oui. Vous pouvez établir plusieurs tunnels VPN S2S entre une passerelle VPN Azure et votre réseau local. Tous ces tunnels seront comptabilisés par rapport au nombre total de tunnels pour vos passerelles VPN Azure et vous devez activer le protocole BGP sur les deux tunnels.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 963960657fb8c16307dbf062c0b16cd74a4a7b3f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 3caf838fec3a5c0ab847ded85b269df7a66859e0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101715"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266743"
 ---
 # <a name="advisor-performance-recommendations"></a>Recommandations Azure Advisor en matière de performances
 
@@ -32,7 +32,7 @@ Azure Advisor identifie les profils Traffic Manager ayant une valeur TTL élevé
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>Améliorer les performances de base de données avec SQL DB Advisor
 
-Le conseiller vous offre une vue cohérente et consolidée des recommandations pour toutes vos ressources Azure. Il s’intègre à SQL Database Advisor pour vous proposer des recommandations en vue d’améliorer les performances de votre base de données SQL Azure. SQL Database Advisor évalue les performances de vos bases de données SQL Azure en analysant votre historique d’utilisation. Il propose alors les recommandations les plus adaptées pour exécuter la charge de travail standard de la base de données. 
+Le conseiller vous offre une vue cohérente et consolidée des recommandations pour toutes vos ressources Azure. Il s’intègre à SQL Database Advisor pour vous proposer des recommandations en vue d’améliorer les performances de votre base de données SQL Azure. SQL Database Advisor évalue les performances de vos bases de données SQL Azure en analysant votre historique d’utilisation. Il propose alors les recommandations les plus adaptées pour exécuter la charge de travail standard de la base de données.
 
 > [!NOTE]
 > Pour obtenir des recommandations, une base de données doit avoir été utilisée pendant environ une semaine et avoir fait l’objet d’une activité cohérente au cours de cette semaine. SQL Database Advisor peut plus facilement optimiser les modèles de requête cohérents que les pics d’activité aléatoires.
@@ -43,7 +43,7 @@ Pour plus d’informations sur SQL Database Advisor, consultez la page [SQL Data
 
 Le conseiller Azure intègre des recommandations quant aux meilleures pratiques pour améliorer votre expérience App Services et vous faire découvrir des fonctionnalités appropriées de la plateforme. Exemples de recommandations App Services :
 * Détection des instances où les ressources de mémoire ou de processeur sont épuisées par des exécutions d’application avec options d’atténuation.
-* Détection des instances où la colocalisation de ressources telles que les applications web et les bases de données peut améliorer les performances et réduire les coûts. 
+* Détection des instances où la colocalisation de ressources telles que les applications web et les bases de données peut améliorer les performances et réduire les coûts.
 
 Pour plus d’informations sur les recommandations App Services, consultez [Meilleures pratiques pour Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
 
@@ -75,7 +75,10 @@ Advisor identifie les tables qui ne sont pas des tables répliquées, mais qui p
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Migrer votre compte de stockage vers Azure Resource Manager pour obtenir toutes les dernières fonctionnalités Azure
 
-Migrez le modèle de déploiement de votre compte de stockage vers Azure Resource Manager (ARM) pour tirer parti des déploiements de modèles, d’options de sécurité supplémentaires, et de la possibilité de mettre à niveau votre compte vers GPv2 pour bénéficier des dernières fonctionnalités de Stockage Azure. Advisor identifie les comptes de stockage autonomes utilisant le modèle de déploiement classique et recommande une migration vers le modèle de déploiement ARM. 
+Migrez le modèle de déploiement de votre compte de stockage vers Azure Resource Manager (ARM) pour tirer parti des déploiements de modèles, d’options de sécurité supplémentaires, et de la possibilité de mettre à niveau votre compte vers GPv2 pour bénéficier des dernières fonctionnalités de Stockage Azure. Advisor identifie les comptes de stockage autonomes utilisant le modèle de déploiement classique et recommande une migration vers le modèle de déploiement ARM.
+
+> [!NOTE]
+> Les alertes classiques d'Azure Monitor seront mises hors service en juin 2019. Il vous est conseillé de procéder à la mise à niveau de votre compte de stockage classique vers ARM pour conserver la fonctionnalité d’alerte avec la nouvelle plateforme. Pour plus d’informations, consultez [Suppression des alertes classiques](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Comment accéder aux recommandations en matière de performances dans le conseiller
 
@@ -92,4 +95,3 @@ Pour en savoir plus sur les recommandations d’Advisor, consultez les ressource
 * [Recommandations du conseiller en matière de coûts](advisor-performance-recommendations.md)
 * [Recommandations du conseiller en matière de haute disponibilité](advisor-high-availability-recommendations.md)
 * [Recommandations du conseiller en matière de sécurité](advisor-security-recommendations.md)
-

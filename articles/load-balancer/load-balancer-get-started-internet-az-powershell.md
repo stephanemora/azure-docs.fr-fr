@@ -1,10 +1,11 @@
 ---
-title: Créer une instance de Standard Load Balancer avec un frontend redondant interzone à l’aide d’Azure PowerShell
+title: Créer une instance Load Balancer avec un frontend interzone redondant - Azure PowerShell
 titlesuffix: Azure Load Balancer
-description: Découvrez comment créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique redondant interzone à l’aide de PowerShell.
+description: Découvrez comment créer une instance publique de Standard Load Balancer avec un frontend d’adresse IP publique redondant interzone à l’aide de PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: kumud
-ms.openlocfilehash: b6730b624cc0416354fecfdbe747f643540f9e89
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 1a976344fd634e78fc5009ede4954ea578aa8db7
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138737"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244592"
 ---
-#  <a name="create-a-standard-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Créer une instance de Standard Balancer avec un frontend redondant interzone à l’aide d’Azure PowerShell
+#  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Créer une instance de Standard Load Balancer avec un frontend redondant interzone à l’aide d’Azure PowerShell
 
-Cet article décrit les étapes de création d’une instance publique de [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) avec un frontend redondant interzone qui utilise une adresse IP publique Standard.
+Cet article décrit les étapes de création d’une instance publique de [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) avec un frontend interzone redondant utilisant une adresse IP publique standard.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -86,7 +87,7 @@ $probe = New-AzureRmLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http
 ```
 
 ## <a name="create-a-load-balancer"></a>Créer un équilibrage de charge
-Créez une instance de Load Balancer Standard à l’aide de la commande suivante :
+Créez une instance de Standard Load Balancer à l’aide de la commande suivante :
 
 ```powershell
 $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBalancer' -Location westeurope `

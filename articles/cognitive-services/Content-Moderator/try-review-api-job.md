@@ -1,21 +1,21 @@
 ---
 title: Exécuter des travaux de modération du contenu avec la console d’API - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Découvrez comment exécuter des travaux de modération du contenu dans la console d’API.
+description: Utilisez les opérations de travail de l’API Review (Révision) pour initier des travaux de modération du contenu de bout en bout pour le contenu d’image ou de texte dans Azure Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/03/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 240b26cd86a6985825e3145c5bc43ef31524d7b7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4d1f96cbf7a94c59476f077cc4e72a26ee9c8296
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227099"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259118"
 ---
 # <a name="start-a-moderation-job-from-the-api-console"></a>Démarrer un travail de modération à partir de la console d’API
 
@@ -32,9 +32,9 @@ Accédez à [l’outil de révision](https://contentmoderator.cognitive.microsof
 ## <a name="use-the-api-console"></a>Utiliser la console d’API
 Pour évaluer l’API à l’aide de la console en ligne, vous devez entrer quelques valeurs dans la console :
     
-- `teamName` : utilisez le champ `Id` de l’écran des informations d’identification de l’outil de révision. 
-- `ContentId` : cette chaîne est transmise à l’API et retournée via le rappel. L’élément **ContentId** est utile pour associer des métadonnées ou des identificateurs internes aux résultats d’un travail de modération. `Workflowname` : nom du [flux de travail que vous avez créé](Review-Tool-User-Guide/Workflows.md) dans la section précédente.
-- `Ocp-Apim-Subscription-Key` : valeur située dans l’onglet **Paramètres**. Pour plus d’informations, consultez l’article de [présentation](overview.md).
+- `teamName`: utilisez le champ `Id` de l’écran des informations d’identification de l’outil de révision. 
+- `ContentId`: cette chaîne est transmise à l'API et retournée via le rappel. **ContentId** est utile pour associer des métadonnées ou des identificateurs internes aux résultats d’un travail de modération. - `Workflowname` : nom du [workflow que vous avez créé ](Review-Tool-User-Guide/Workflows.md)dans la section précédente.
+- `Ocp-Apim-Subscription-Key`: valeur située dans l'onglet **Paramètres**. Pour plus d’informations, consultez l’article de [présentation](overview.md).
 
 L’accès à la console d’API se fait à partir de la fenêtre **Informations d’identification**.
 

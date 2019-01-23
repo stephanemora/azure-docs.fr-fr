@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e4406a75ea1d9f1968d994ae2294b39ca7613d5
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8e92288883a7779130e3b7f7a8433b61f76aa18c
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623857"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244713"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Rapport de connexions à risque dans le portail Azure Active Directory
 
@@ -85,12 +85,11 @@ Ce rapport fournit aussi une option permettant de :
 
 ![les connexions risquées.](./media/concept-risky-sign-ins/93.png)
 
-
 ## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Rapport sur les connexions risquées pour les éditions Azure AD Premium
 
 Le rapport sur les connexions risquées dans les éditions Azure AD Premium vous fournit les informations suivantes :
 
-- Informations agrégées sur les [types d’événements à risque](concept-risk-events.md) qui ont été détectés
+- Informations agrégées sur les [types d’événements à risque](concept-risk-events.md) qui ont été détectés. Avec l’édition **Azure AD Premium P1**, les détections qui ne sont pas couvertes par la licence s’affichent comme des événements à risque **Connexion avec un risque supplémentaire détecté**. Avec l’édition **Azure AD Premium P2**, vous obtenez des informations très détaillées sur toutes les détections sous-jacentes.
 
 - Une option pour télécharger le rapport
 

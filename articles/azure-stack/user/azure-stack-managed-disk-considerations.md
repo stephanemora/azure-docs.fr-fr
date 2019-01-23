@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 3445974cf832b7ed594f704615482e1d9b0e351c
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: ecbd555809799619d61a7ff33911b7f28dcb3005
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159364"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262708"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Managed Disks Azure Stack : différences et considérations
 
@@ -65,14 +65,14 @@ Les service Managed Disks d’Azure Stack prend en charge les versions d’API s
 
 - 2017-03-30
 
-## <a name="known-issues"></a>Problèmes connus
+## <a name="configuration"></a>Configuration
 
-Après avoir appliqué les mises à jour postérieures à la mise à jour 1808, vous rencontrerez peut-être les problèmes suivants lors du déploiement de machines virtuelles avec le service Managed Disks :
+Après avoir appliqué la mise à jour 1808 ou une version ultérieure, vous devez appliquer la configuration suivante avant d’utiliser Managed Disks :
 
-- Si l’abonnement a été créé avant la mise à jour 1808, le déploiement d’une machine virtuelle avec Managed Disks peut échouer avec un message d’erreur interne. Pour résoudre cette erreur, effectuez les étapes suivantes pour chaque abonnement :
+- Si un abonnement a été créé avant la mise à jour 1808, procédez comme suit pour mettre à jour l’abonnement. Sinon, le déploiement de machines virtuelles dans cet abonnement peut échouer avec un message d’erreur « Erreur interne dans le gestionnaire de disque ».
    1. Dans le portail locataire, accédez à **Abonnements** et recherchez l’abonnement. Cliquez sur **Fournisseurs de ressources**, sur **Microsoft.Compute**, puis sur **Réinscrire**.
    2. Sous le même abonnement, accédez à **Contrôle d’accès (IAM)** et vérifiez que l’élément **Azure Stack – Managed Disks** est répertorié.
-- Si vous avez configuré un environnement multilocataire, le déploiement de machines virtuelles dans un abonnement associé à un annuaire invité peut échouer avec un message d’erreur interne. Pour résoudre le problème, effectuez les étapes décrites dans [cet article](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) afin de reconfigurer chacun de vos annuaires invités.
+- Si vous utilisez un environnement mutualisé, demandez à votre opérateur cloud (dans votre organisation ou chez votre fournisseur de services) de reconfigurer chacun de vos annuaires invités conformément aux étapes décrites dans [cet article](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). Sinon, le déploiement de machines virtuelles dans un abonnement associé à cet annuaire invité peut échouer avec un message d’erreur « Erreur interne dans le gestionnaire de disque ».
 
 
 ## <a name="next-steps"></a>Étapes suivantes

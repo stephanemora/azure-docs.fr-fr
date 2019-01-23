@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ce1bcb26b3a3510b22ced57471016999156bb0cf
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f64331c2b75df84f44486f192e17a744b43fcf9b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040657"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244900"
 ---
 # <a name="how-to-configure-password-writeback"></a>Procédure : Configuration de l’écriture différée du mot de passe
 
@@ -52,6 +52,7 @@ Pour que vous puissiez utiliser la réécriture du mot de passe, il faut que l�
 * Microsoft 365 E3 ou A3
 * Microsoft 365 E5 ou A5
 * Microsoft 365 F1
+* Microsoft 365 Business
 
 > [!WARNING]
 > Les plans de licences Office 365 édition autonome *ne prennent pas en charge « les réinitialisation/modification/déverrouillage de mot de passe libre-service avec réécriture locale »* et nécessitent l’un des plans précédents pour que cette fonctionnalité soit opérationnelle.

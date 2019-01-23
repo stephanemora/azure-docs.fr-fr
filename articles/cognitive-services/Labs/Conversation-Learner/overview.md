@@ -10,18 +10,18 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0d2cca335206ee59b922a31ed3cf3ba24ef4ecd7
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 63d13235ec7244978193ed97aac8d11b2ff65eeb
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790773"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198131"
 ---
 # <a name="what-is-conversation-learner"></a>Qu’est-ce que l’Apprenant de conversation ?
 
 L’Apprenant de conversation vous permet de générer des interfaces conversationnelles qui apprennent des exemples d’interaction. 
 
-Contrairement aux approches traditionnelles, l’Apprenant de conversation tient compte du contexte d’un dialogue de bout en bout pour améliorer les réponses et créer des expériences utilisateur plus attrayantes. Conversation Learner couvre un vaste éventail de cas d’utilisation orientés sur les tâches et applique le Machine Learning en arrière-plan pour que les bots et les agents intelligents soient moins susceptibles de frustrer les utilisateurs et d’entraîner des frais de service client supplémentaires, ainsi que pour stimuler des interactions plus intuitives.
+Contrairement aux approches traditionnelles, l’Apprenant de conversation tient compte du contexte d’un dialogue de bout en bout pour améliorer les réponses et créer des expériences utilisateur plus attrayantes. Conversation Learner couvre un large éventail de cas d'utilisation orientés sur les tâches et applique le Machine Learning en arrière-plan pour que les bots et les agents intelligents soient moins susceptibles de frustrer les utilisateurs et d'entraîner des frais de service client supplémentaires, ainsi que pour stimuler des interactions plus intuitives.
 
 Les développeurs commencent par entrer des prototypes de dialogues qu’il souhaitent imiter. Le modèle apprend à mesure que davantage de dialogues sont entrés. Une fois que le modèle fonctionne bien, le bot peut être déployé pour les utilisateurs finaux. L’Apprenant de conversation enregistre les conversations avec les utilisateurs, et le développeur peut les réviser. Si des erreurs sont repérées, le développeur peut apporter une correction sur place. Le modèle est reformé et peut être utilisé immédiatement.
 

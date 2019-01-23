@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: 3f158d040654b251faebceaa2e89d0462f13c217
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: a43988f8d4d6ae318f409cf1e79d8ad2ff8c8af1
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016022"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247824"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Créer, modifier ou supprimer un réseau virtuel
 
@@ -99,7 +99,13 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 
 ## <a name="add-or-remove-an-address-range"></a>Ajouter ou supprimer une plage d’adresses
 
-Vous pouvez ajouter et supprimer des plages d’adresses pour un réseau virtuel. Une plage d’adresses doit être spécifiée dans une notation CIDR. Elle ne peut pas chevaucher d’autres plages d’adresses au sein du même réseau virtuel. Les plages d’adresses que vous définissez peuvent être publiques ou privées (RFC 1918). Que vous définissiez la plage d’adresses comme publique ou privée, celle-ci est uniquement accessible à partir du réseau virtuel, à partir de réseaux virtuels interconnectés et à partir de tout réseau local que vous avez connecté au réseau virtuel. Vous ne pouvez pas ajouter les plages d’adresses suivantes :
+Vous pouvez ajouter et supprimer des plages d’adresses pour un réseau virtuel. Une plage d’adresses doit être spécifiée dans une notation CIDR. Elle ne peut pas chevaucher d’autres plages d’adresses au sein du même réseau virtuel. Les plages d’adresses que vous définissez peuvent être publiques ou privées (RFC 1918). Que vous définissiez la plage d’adresses comme publique ou privée, celle-ci est uniquement accessible à partir du réseau virtuel, à partir de réseaux virtuels interconnectés et à partir de tout réseau local que vous avez connecté au réseau virtuel. 
+
+Vous pouvez réduire la place d'adresses d'un réseau virtuel si aucun sous-réseau ne lui est associé. Dans le cas contraire, vous pouvez uniquement étendre la plage d'adresses, par exemple, passer de /16 à /8. Vous pouvez commencer par une petite plage d'adresses, puis l'étendre plus tard ou ajouter des plages supplémentaires.
+
+<!-- the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
+
+Vous ne pouvez pas ajouter les plages d’adresses suivantes :
 
 - 224.0.0.0/4 (multidiffusion)
 - 255.255.255.255/32 (diffusion)

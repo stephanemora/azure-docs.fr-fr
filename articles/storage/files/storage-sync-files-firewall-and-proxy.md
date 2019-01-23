@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: 3a1cc0a28ef5a4861d86373ce39258936639baab
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: aa01ffc196ba6ece41fac9a95db04b58ad962060
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333348"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259816"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Paramètres de proxy et de pare-feu d’Azure File Sync
 Azure File Sync connecte vos serveurs locaux à Azure Files, activant des fonctionnalités de synchronisation multisite et de hiérarchisation cloud. Pour cela, un serveur local doit donc être connecté à Internet. Un administrateur informatique doit déterminer la meilleure voie d’accès aux services cloud Azure pour le serveur.
@@ -86,7 +86,7 @@ Pour configurer les paramètres de proxy à l’échelle de la machine, suivez l
 
       net stop filesyncsvc
 
-      Remarque : Le service Agent de synchronisation de stockage (filesyncsvc) démarrera automatiquement une fois arrêté.
+      Remarque : Le service Agent de synchronisation de stockage (filesyncsvc) démarrera automatiquement une fois arrêté.
 
 ## <a name="firewall"></a>Pare-feu
 Comme mentionné plus haut, le port 443 doit être ouvert en sortie. Selon les stratégies en place dans votre centre de données, votre succursale ou votre région, il se peut que vous souhaitiez ou deviez restreindre le trafic sur ce port à des domaines spécifiques.
@@ -100,7 +100,7 @@ Le tableau suivant décrit les domaines requis pour la communication :
 | **Azure Active Directory** | https://graph.windows.net/ | Dans le cadre du déploiement d’Azure File Sync, un principal de service est créé dans l’annuaire Azure Active Directory de l’abonnement. Cette URL est utilisée pour cela. Le principal créé sert à déléguer un ensemble minimal de droits au service Azure File Sync. L’utilisateur qui effectue la configuration initiale d’Azure File Sync doit être un utilisateur authentifié avec des privilèges de propriétaire d’abonnement. |
 | **Stockage Azure** | &ast;.core.windows.net | Quand le serveur télécharge un fichier, il effectue ce déplacement de données plus efficacement quand il communique directement avec le partage de fichiers Azure dans le compte de stockage. Le serveur présente une clé SAS qui permet uniquement un accès ciblé au partage de fichiers. |
 | **Azure File Sync** | &ast;.one.microsoft.com | Après l’inscription initiale du serveur, le serveur reçoit une URL régionale pour l’instance du service Azure File Sync dans cette région. Le serveur peut utiliser cette URL pour communiquer directement et plus efficacement avec l’instance qui gère sa synchronisation. |
-| **Infrastructure à clé publique Microsoft** | http://www.microsoft.com/pki/mscorp  http://ocsp.msocsp.com | Une fois que l’agent Azure File Sync est installé, l’URL de l’infrastructure à clé publique est utilisée pour télécharger les certificats intermédiaires qui sont nécessaires pour communiquer avec le service Azure File Sync et le partage de fichiers Azure. L’URL OCSP est utilisée pour vérifier l’état d’un certificat. |
+| **Infrastructure à clé publique Microsoft** | http://ocsp.msocsp.com | Une fois que l’agent Azure File Sync est installé, l’URL de l’infrastructure à clé publique est utilisée pour télécharger les certificats intermédiaires qui sont nécessaires pour communiquer avec le service Azure File Sync et le partage de fichiers Azure. L’URL OCSP est utilisée pour vérifier l’état d’un certificat. |
 
 > [!Important]
 > Quand le trafic vers &ast;.one.microsoft.com est autorisé, la destination du trafic à partir du serveur n’est pas limitée au service de synchronisation. Les sous-domaines incluent de nombreux autres services Microsoft.
@@ -130,10 +130,10 @@ Pour des raisons de récupération d’urgence et de continuité d’activité (
 
 - Si vous utilisez des comptes de stockage géoredondants (GRS), activez les trois URL.
 
-**Exemple :** Vous déployez un service de synchronisation de stockage dans `"West US"` et inscrivez votre serveur avec celui-ci. Les URL permettant au serveur de communiquer sont dans ce cas :
+**Exemple :** vous déployez un service de synchronisation de stockage dans `"West US"` et inscrivez votre serveur avec celui-ci. Les URL permettant au serveur de communiquer sont dans ce cas :
 
-> - https://kailani.one.microsoft.com (point de terminaison principal : USA Ouest)
-> - https://kailani1.one.microsoft.com (région de basculement jumelée :USA Est)
+> - https://kailani.one.microsoft.com (point de terminaison principal : USA Ouest)
+> - https://kailani1.one.microsoft.com (région de basculement jumelée : USA Est)
 > - https://tm-kailani.one.microsoft.com (URL de détection de la région principale)
 
 ## <a name="summary-and-risk-limitation"></a>Résumé et limitation des risques

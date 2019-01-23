@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: f09b9a93956c9d23e17c742c5f6ec4730591933b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 365b15f11409f985b71c9bba4372552321f162f2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302311"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212547"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Conception de tables dans Azure SQL Data Warehouse
 
@@ -42,7 +42,7 @@ CREATE SCHEMA wwi;
 
 Pour afficher l’organisation des tables dans SQL Data Warehouse, vous pouvez utiliser les préfixes fact, dim et int dans les noms de table. Le tableau suivant répertorie quelques noms de schéma et de table pour WideWorldImportersDW. Il compare les noms utilisés dans SQL Server avec les noms utilisés dans SQL Data Warehouse. 
 
-| Table WideWorldImportersDW  | Type de table | SQL Server | SQL Data Warehouse |
+| Table WideWorldImportersDW  | Type de table | SQL Server | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
 | City | Dimension | Dimension.City | wwi.DimCity |
 | Ordre | Fact | Fact.Order | wwi.FactOrder |
@@ -103,7 +103,7 @@ Une table partitionnée stocke les lignes de table et effectue des opérations s
 ## <a name="columnstore-indexes"></a>Index Columnstore
 Par défaut, SQL Data Warehouse stocke une table comme un index columnstore cluster. Ce format de stockage de données permet une compression élevée des données et offre des performances optimales pour les requêtes sur des tables volumineuses.  L’index columnstore cluster est généralement le meilleur choix, mais dans certains cas, un index cluster ou un segment de mémoire est la structure de stockage la plus appropriée.
 
-Pour obtenir la liste des fonctionnalités columnstore, consultez [Nouveautés pour les index columnstore](/sql/relational-databases/indexes/columnstore-indexes-whats-new). Pour améliorer les performances des index columnstore, consultez [Optimiser la qualité du rowgroup pour les index columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Pour obtenir la liste des fonctionnalités columnstore, consultez [Nouveautés pour les index columnstore](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Pour améliorer les performances des index columnstore, consultez [Optimiser la qualité du rowgroup pour les index columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## <a name="statistics"></a>Statistiques
 L’optimiseur de requête utilise des statistiques au niveau des colonnes quand il crée le plan d’exécution d’une requête. Pour améliorer les performances des requêtes, il est important de créer des statistiques sur des colonnes individuelles, en particulier les colonnes utilisées dans les jointures de requête. La création et la mise à jour des statistiques ne se font pas automatiquement. Vous pouvez [créer des statistiques](/sql/t-sql/statements/create-statistics-transact-sql) après avoir créé une table. Mettez à jour les statistiques après l’ajout ou la modification d’un nombre significatif de lignes. Par exemple, effectuez une mise à jour des statistiques après un chargement. Pour plus d’informations, consultez [Gestion des statistiques](sql-data-warehouse-tables-statistics.md).
@@ -133,7 +133,7 @@ SQL Data Warehouse prend en charge beaucoup des fonctionnalités de table propos
 - [Vues indexées](/sql/relational-databases/views/create-indexed-views)
 - [Séquence](/sql/t-sql/statements/create-sequence-transact-sql)
 - [Colonnes éparses](/sql/relational-databases/tables/use-sparse-columns)
-- [Clés de substitution](). Implémentation avec [Identity](sql-data-warehouse-tables-identity.md).
+- Clés de substitution. Implémentation avec [Identity](sql-data-warehouse-tables-identity.md).
 - [Synonymes](/sql/t-sql/statements/create-synonym-transact-sql)
 - [Déclencheurs](/sql/t-sql/statements/create-trigger-transact-sql)
 - [Index uniques](/sql/t-sql/statements/create-index-transact-sql)

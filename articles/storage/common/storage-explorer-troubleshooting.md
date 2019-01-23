@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: ec12da6ccd5b681c85da87d53f944fc4430149b5
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 2434c04260c223fdcc03bc7f91a6fd147e1d8503
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616195"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264101"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -21,7 +21,7 @@ L’Explorateur Stockage Microsoft Azure est une application autonome qui vous p
 
 Ce guide résume les solutions aux problèmes couramment rencontrés dans l’Explorateur de stockage.
 
-## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Erreur : certificat auto-signé dans la chaîne d’approbation (et erreurs similaires)
+## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Error: certificat auto-signé dans la chaîne d’approbation (et erreurs similaires)
 
 Les erreurs de certificat sont provoquées par une des deux situations suivantes :
 
@@ -100,7 +100,7 @@ Si vous ne parvenez pas à récupérer vos abonnements après vous être connect
 Si vous ne pouvez pas supprimer un compte joint ou une ressource de stockage joints via l’interface utilisateur, vous pouvez supprimer manuellement toutes les ressources jointes en supprimant les dossiers suivants :
 
 * Windows : `%AppData%/StorageExplorer`
-* MacOS : `/Users/<your_name>/Library/Applicaiton Support/StorageExplorer`
+* MacOS : `/Users/<your_name>/Library/Application Support/StorageExplorer`
 * Linux : `~/.config/StorageExplorer`
 
 > [!NOTE]

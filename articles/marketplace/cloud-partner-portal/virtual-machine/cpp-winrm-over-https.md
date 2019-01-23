@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1a341bf36842e49faf8e39f4056232c97cc4232c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 99c41dc010ae589cc43c093646fd1c05c1333f7e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195578"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265122"
 ---
 # <a name="windows-remote-management-over-https"></a>Windows Remote Management via HTTPS
 
 Cette section explique comment configurer une machine virtuelle Windows hébergée sur Azure, afin qu’elle puisse être gérée et déployée à distance avec PowerShell.  Pour activer la communication à distance PowerShell, la machine virtuelle cible doit exposer un point de terminaison HTTPS de gestion à distance de Windows (WinRM).  Pour plus d’informations sur la communication à distance PowerShell, consultez [Exécution des commandes à distance](https://docs.microsoft.com/powershell/scripting/core-powershell/running-remote-commands?view=powershell-6).  Pour plus d’informations sur WinRM, consultez [Gestion à distance de Windows](https://docs.microsoft.com/windows/desktop/WinRM/portal).
 
-Si vous avez créé une machine virtuelle en utilisant l’une des approches Azure « classiques » : le portail Azure Service Manager ou la méthode déconseillée de [l’API Azure Service Management] (https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100), elle est alors automatiquement configurée avec un point de terminaison WinRM.  Toutefois, si vous créez une machine virtuelle en utilisant l’une des approches Azure « modernes » suivantes, votre machine virtuelle ne sera *pas* configurée pour WinRM via HTTPS.  
+Si vous avez créé une machine virtuelle en utilisant l’une des approches Azure « classiques » : le portail Azure Service Manager ou la méthode déconseillée de l’[API Gestion des services Azure](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100)), elle est alors automatiquement configurée avec un point de terminaison WinRM.  Toutefois, si vous créez une machine virtuelle en utilisant l’une des approches Azure « modernes » suivantes, votre machine virtuelle ne sera *pas* configurée pour WinRM via HTTPS.  
 
 - À l’aide du [Portail Azure portal](https://portal.azure.com/), généralement à partir d’une base approuvée, comme décrit dans la section [Créer un disque dur virtuel compatible avec Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd)
 - [Utilisation de modèles Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)

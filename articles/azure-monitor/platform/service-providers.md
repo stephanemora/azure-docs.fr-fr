@@ -1,6 +1,6 @@
 ---
 title: Log Analytics pour les fournisseurs de services | Microsoft Docs
-description: Log Analytics permet aux fournisseurs de services managés (MSP), grandes entreprises, éditeurs de logiciels indépendants (ISV) et fournisseurs de service d’hébergement de gérer et de surveiller les serveurs situés dans l’infrastructure locale ou cloud d’un client.
+description: Log Analytics permet aux fournisseurs de services gérés (MSP), aux grandes entreprises, aux éditeurs de logiciels indépendants (ISV) et aux fournisseurs de service d’hébergement de gérer et de surveiller les serveurs situés dans l’infrastructure locale ou cloud d’un client.
 services: log-analytics
 documentationcenter: ''
 author: MeirMen
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.openlocfilehash: ac34cc467cc8ff7d231551683da130c0f7565800
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 294dd56a7eb62510c30f4fbb0dbeeafc81b790f2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340536"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264770"
 ---
 # <a name="log-analytics-for-service-providers"></a>Log Analytics pour les fournisseurs de services
 Log Analytics permet aux fournisseurs de services gérés (MSP), grandes entreprises, éditeurs de logiciels indépendants (ISV) et fournisseurs de service d’hébergement de gérer et de surveiller les serveurs situés dans l’infrastructure locale ou cloud d’un client. 

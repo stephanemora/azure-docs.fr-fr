@@ -1,11 +1,11 @@
 ---
-title: Configurer des environnements intermédiaires pour les applications web - Azure App Service | Microsoft Docs
+title: Configurer des environnements intermédiaires pour les applications web dans Azure App Service | Microsoft Docs
 description: Découvrez comment utiliser la publication intermédiaire pour les applications web dans Azure App Service.
 services: app-service
 documentationcenter: ''
 author: cephalin
 writer: cephalin
-manager: erikre
+manager: jpconnoc
 editor: mollybos
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.service: app-service
@@ -13,60 +13,67 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/03/2019
 ms.author: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 85fa047fbe94904c2bd665ff0318426920661e76
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1d0f89285095e7edd67883a2bad1411f6e8942d2
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730210"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107196"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
 
-Lorsque vous déployez votre application web, votre application web Linux, votre backend mobile ou votre API dans [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), vous pouvez cibler un autre emplacement de déploiement que l’emplacement de production par défaut lorsque vous exécutez le niveau de plan **Standard**, **Premium** ou **Isolé** d’App Service. Les emplacements de déploiement sont en fait des applications dynamiques pourvues de leur propre nom d’hôte. Les éléments de contenu et de configuration des applications peuvent être échangés entre deux emplacements de déploiement, y compris l’emplacement de production. Le déploiement de votre application sur un emplacement de déploiement présente les avantages suivants :
+> [!NOTE]
+> Ce guide pratique montre comment gérer les emplacements à l’aide d’une nouvelle page de gestion en préversion. Les clients habitués à la page de gestion existante peuvent continuer à utiliser la page de gestion des emplacements existante, comme avant. 
+>
+
+Lorsque vous déployez votre application web, votre application web Linux, votre backend mobile ou votre API dans [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), vous pouvez cibler un autre emplacement de déploiement que l’emplacement de production par défaut lorsque vous exécutez le niveau de plan **Standard**, **Premium** ou **Isolé** d’App Service. Les emplacements de déploiement sont en fait des applications dynamiques pourvues de leur propre nom d’hôte. Les éléments de contenu et de configuration des applications peuvent être échangés entre deux emplacements de déploiement, y compris l’emplacement de production. Le déploiement de votre application sur un emplacement hors production présente les avantages suivants :
 
 * Vous pouvez valider les modifications d’une application dans un emplacement de déploiement intermédiaire avant de l’échanger avec l’emplacement de production.
-* Déployer d’abord une application vers un emplacement et la basculer ensuite en production garantit que toutes les instances de l’emplacement sont initialisées avant d’être basculées en production. Cela permet d’éliminer les temps d’arrêt lors du déploiement de l’application. La redirection du trafic est transparente et aucune demande n'est abandonnée durant les opérations de basculement. Ce flux de travail peut être entièrement automatisé en configurant [Échange automatique](#Auto-Swap) lorsqu’aucune validation n’est requise avant l’échange.
-* Après basculement, la précédente application de production se retrouve dans l’emplacement de l’application précédemment intermédiaire. Si les modifications basculées en production ne vous conviennent pas, vous pouvez effectuer le même basculement afin de récupérer immédiatement le contenu du précédent site qui vous plaisait.
+* Déployer d’abord une application dans un emplacement et la basculer ensuite en production permet de vous assurer que toutes les instances de l’emplacement sont initialisées avant d’être basculées en production. Cela permet d’éliminer les temps d’arrêt lors du déploiement de l’application. La redirection du trafic est transparente et aucune requête n’est abandonnée du fait d’opérations de permutation. Ce flux de travail peut être entièrement automatisé en configurant l’[Échange automatique](#Auto-Swap) lorsqu’aucune validation n’est nécessaire avant l’échange.
+* Après basculement, la précédente application de production se retrouve dans l’emplacement de l’application précédemment intermédiaire. Si les modifications permutées en production ne vous conviennent pas, vous pouvez effectuer la même permutation afin de récupérer immédiatement le contenu du précédent site qui vous plaisait.
 
-Chaque niveau de plan App Service prend en charge un nombre différent d’emplacements de déploiement. Pour connaître le nombre d’emplacements pris en charge par le plan de votre application, consultez [Limites App Service](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). Pour mettre votre application à l’échelle vers un niveau différent, le niveau cible doit prendre en charge le nombre d’emplacements déjà utilisés par votre application. Par exemple, si votre application possède plus de 5 emplacements, vous ne pouvez pas redéfinir le niveau **Standard**, car le niveau **Standard** prend uniquement en charge 5 emplacements.
+Chaque niveau de plan App Service prend en charge un nombre différent d’emplacements de déploiement. Pour connaître le nombre d’emplacements pris en charge par le plan de votre application, consultez [Limites App Service](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). Pour mettre votre application à l’échelle vers un niveau différent, le niveau cible doit prendre en charge le nombre d’emplacements déjà utilisés par votre application. Par exemple, si votre application possède plus de cinq emplacements, vous ne pouvez pas effectuer de scale-down vers le niveau **Standard**, car **ce niveau** ne prend en charge que cinq emplacements de déploiement.
 
 <a name="Add"></a>
 
-## <a name="add-a-deployment-slot"></a>Ajouter un emplacement de déploiement
-Pour que vous puissiez activer plusieurs emplacements de déploiement, l’application doit s’exécuter au niveau **Standard**, **Premium** ou **Isolé*.
+## <a name="add-slot"></a>Ajouter un emplacement
+Pour que vous puissiez activer plusieurs emplacements de déploiement, l’application doit s’exécuter au niveau **Standard**, **Premium** ou **Isolé**.
 
-1. Dans le [portail Azure](https://portal.azure.com/), ouvrez le [panneau de ressources](../azure-resource-manager/resource-group-portal.md#manage-resources) de votre application.
-2. Choisissez l’option **Emplacements de déploiement**, puis cliquez sur **Ajouter un emplacement**.
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à la [page de ressources](../azure-resource-manager/resource-group-portal.md#manage-resources) de votre application.
+
+2. Dans le volet de navigation gauche, choisissez l’option **Emplacements de déploiement (préversion)**, puis cliquez sur **Ajouter un emplacement**.
    
-    ![Add a new deployment slot][QGAddNewDeploymentSlot]
+    ![Add a new deployment slot](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
-   > Si l’application ne s’exécute pas au niveau **Standard**, **Premium** ou **Isolé*, vous recevez un message indiquant les niveaux pris en charge pour l’activation de la publication intermédiaire. À ce stade, vous pouvez sélectionner **Mettre à niveau** et accéder à l’onglet **Mettre à l’échelle** de votre application avant de continuer.
+   > Si l’application ne s’exécute pas au niveau **Standard**, **Premium** ou **Isolé**, vous recevez un message précisant les niveaux pris en charge pour l’activation de la publication intermédiaire. À ce stade, vous pouvez sélectionner **Mettre à niveau** et accéder à l’onglet **Mettre à l’échelle** de votre application avant de continuer.
    > 
-   > 
-3. Dans le panneau **Ajouter un emplacement**, nommez l’emplacement, puis indiquez si vous souhaitez cloner la configuration de l’application à partir d’un autre emplacement de déploiement. Cliquez sur la coche pour continuer.
-   
-    ![Source de configuration][ConfigurationSource1]
-   
-    La première fois que vous ajoutez un emplacement, vous avez uniquement deux choix : cloner la configuration à partir de l’emplacement par défaut en production ou ne rien cloner du tout.
-    Après avoir créé plusieurs emplacements, vous pourrez cloner la configuration depuis un emplacement autre que l'emplacement de production :
-   
-    ![Sources de configuration][MultipleConfigurationSources]
-4. Dans le panneau des ressources de votre application, cliquez sur **Emplacements de déploiement**, puis cliquez sur un emplacement de déploiement pour ouvrir le panneau des ressources correspondant. Comme pour toute autre application, celui-ci contient un ensemble de mesures et de paramètres de configuration. Le nom de l’emplacement est indiqué en haut du panneau pour vous rappeler que c’est l’emplacement de déploiement qui affiché.
-   
-    ![Titre de l'emplacement de déploiement][StagingTitle]
-5. Cliquez sur l’URL de l’application dans le panneau de l’emplacement. Notez que l’emplacement de déploiement possède son propre nom d’hôte et qu’il s’agit d’une application dynamique. Pour limiter l’accès public à l’emplacement de déploiement, consultez la page [Application web App Service : bloquer l’accès web aux emplacements de déploiement autres que de production](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
-Il n’existe pas de contenu après la création de l’emplacement de déploiement. Vous pouvez effectuer un déploiement sur l'emplacement d'une autre branche référentielle, ou d'un référentiel complètement différent. Vous pouvez également modifier la configuration de l'emplacement. Utilisez le profil de publication ou les informations d'identification associées à l'emplacement de déploiement pour les mises à jour de contenu.  Par exemple, vous pouvez [publier sur cet emplacement avec Git](deploy-local-git.md).
+3. Dans la boîte de dialogue **Ajouter un emplacement**, nommez l’emplacement, puis indiquez si vous souhaitez cloner la configuration de l’application à partir d’un autre emplacement de déploiement. Cliquez sur **Ajouter** pour continuer.
+   
+    ![Source de configuration](./media/web-sites-staged-publishing/ConfigurationSource1.png)
+   
+    Vous pouvez cloner la configuration à partir d’un emplacement existant. Parmi les paramètres pouvant être clonés figurent des paramètres de l’application, des chaînes de connexion, des versions du framework de langage, des sockets web, la version HTTP et le nombre de bits de la plateforme.
+
+4. Une fois l’emplacement ajouté, cliquez sur **Fermer** pour fermer la boîte de dialogue. Le nouvel emplacement est désormais affiché dans la page **Emplacements de déploiement (préversion)**. Par défaut, l’option **% de trafic** est définie sur 0 pour le nouvel emplacement, avec tout le trafic client acheminé vers l’emplacement de production.
+
+5. Cliquez sur le nouvel emplacement de déploiement pour ouvrir la page des ressources de cet emplacement.
+   
+    ![Titre de l'emplacement de déploiement](./media/web-sites-staged-publishing/StagingTitle.png)
+
+    L’emplacement intermédiaire dispose d’une page de gestion, comme n’importe quelle application App Service. Vous pouvez modifier la configuration de l’emplacement. Le nom de l’emplacement est indiqué en haut de la page, pour vous rappeler que c’est l’emplacement de déploiement qui est affiché.
+
+6. Cliquez sur l’URL de l’application dans la page des ressources de l’emplacement. L’emplacement de déploiement possède son propre nom d’hôte ; il s’agit d’une application dynamique. Pour limiter l’accès public à l’emplacement de déploiement, consultez [Restrictions d’adresse IP avec Azure App Service](app-service-ip-restrictions.md).
+
+Le nouvel emplacement de déploiement n’a aucun contenu, même si vous clonez les paramètres à partir d’un autre emplacement. Par exemple, vous pouvez [publier sur cet emplacement avec Git](app-service-deploy-local-git.md). Vous pouvez effectuer un déploiement sur l’emplacement à partir d’une autre branche du dépôt, ou d’un dépôt différent. 
 
 <a name="AboutConfiguration"></a>
 
 ## <a name="which-settings-are-swapped"></a>Quels sont les paramètres échangés ?
-Lorsque vous clonez la configuration depuis un autre emplacement de déploiement, celle-ci est modifiable. Par ailleurs, après un échange, certains éléments de configuration suivent le contenu (éléments non propres à un emplacement) tandis que d’autres restent dans le même emplacement (éléments propres à un emplacement). Les listes suivantes représentent les paramètres qui évoluent lorsque vous échangez les emplacements.
+Lorsque vous clonez la configuration depuis un autre emplacement de déploiement, celle-ci est modifiable. Par ailleurs, au cours d’un échange, certains éléments de configuration suivent le contenu (éléments non propres à un emplacement) tandis que d’autres restent dans le même emplacement après l’échange (éléments propres à un emplacement). Les listes suivantes représentent les paramètres qui évoluent lorsque vous échangez les emplacements.
 
 **Paramètres échangés**:
 
@@ -75,102 +82,121 @@ Lorsque vous clonez la configuration depuis un autre emplacement de déploiement
 * Chaînes de connexion (peuvent être configurées pour respecter un emplacement)
 * Mappages de gestionnaires
 * Paramètres de surveillance et de diagnostics
+* Certificats publics
 * Contenu WebJobs
 * Connexions hybrides
 
-**Paramètres non échangés**:
+**Paramètres non échangés** :
 
 * Points de terminaison de publication
 * Noms de domaine personnalisés
-* Certificats SSL et liaisons
+* Certificats privés et liaisons SSL
 * Paramètres de mise à l'échelle
 * Planificateurs WebJobs
 
-Pour lier un paramètre d’application ou une chaîne de connexion à un emplacement (aucun échange), accédez au panneau **Paramètres de l’application** d’un emplacement, puis cochez la case **Paramètre d’emplacement** correspondant aux éléments de configuration à lier à cet emplacement. Si vous marquez un élément de configuration comme propre à un emplacement, cet élément ne pourra pas être échangé entre tous les emplacements de déploiement associés à l’application.
+<!-- VNET, IP restrictions, CORS, hybrid connections? -->
 
-![Paramètres d’emplacement][SlotSettings]
+Pour lier un paramètre d’application ou une chaîne de connexion à un emplacement particulier (non permuté), accédez à la page **Paramètres de l’application** de cet emplacement, puis cochez la case **Paramètre d’emplacement** correspondant aux éléments de configuration à lier à cet emplacement. Le fait de marquer un élément de configuration comme propre à un emplacement indique à App Service qu’il n’est pas permutable.
+
+![Paramètre de l’emplacement](./media/web-sites-staged-publishing/SlotSetting.png)
 
 <a name="Swap"></a>
 
-## <a name="swap-deployment-slots"></a>Échanger des emplacements de déploiement 
-Vous pouvez échanger des emplacements de déploiement dans la vue **Vue d’ensemble** ou **Emplacements de déploiement** du panneau de ressources de votre application.
+## <a name="swap-two-slots"></a>Permuter deux emplacements 
+Vous pouvez permuter des emplacements de déploiement dans la page **Emplacements de déploiement (préversion)** de votre application. 
+
+Vous pouvez également permuter des emplacements depuis les pages **Vue d’ensemble** et **Emplacements de déploiement**, mais l’ancienne expérience d’interface vous est actuellement proposée. Ce guide montre comment utiliser la nouvelle interface utilisateur dans la page **Emplacements de déploiement (préversion)**.
 
 > [!IMPORTANT]
-> Avant de basculer une application à partir d’un emplacement de déploiement vers un emplacement de production, assurez-vous que tous les paramètres non propres à un emplacement sont configurés comme vous le souhaitez dans la cible de l’échange.
+> Avant de permuter une application depuis un emplacement de déploiement sur un emplacement de production, assurez-vous que tous les paramètres sont configurés exactement comme vous le souhaitez dans la cible de l’échange.
 > 
 > 
 
-1. Pour échanger des emplacements de déploiement, cliquez sur le bouton **Échanger** dans la barre de commandes de l’application ou dans celle d’un emplacement de déploiement.
+Pour échanger les emplacements de déploiement, suivez ces étapes :
+
+1. Accédez à la page **Emplacements de déploiement (préversion)** de votre application et cliquez sur **Permuter**.
    
-    ![Bouton Swap][SwapButtonBar]
+    ![Bouton Swap](./media/web-sites-staged-publishing/SwapButtonBar.png)
 
-2. Assurez-vous que la source et la cible de l’échange sont définies correctement. En règle générale, la cible de l’échange correspond à l’emplacement de production. Cliquez sur **OK** pour terminer l’opération. À l’issue de l’opération, les emplacements de déploiement ont été échangés.
+    La boîte de dialogue **Échanger** regroupe les paramètres des emplacements source et cible sélectionnés qui vont être permutés.
+
+2. Sélectionnez les emplacements **Source** et **Cible** souhaités. En général, la cible correspond à l’emplacement de production. Cliquez également sur les onglets **Modifications sources** et **Modifications cibles** pour vérifier que les changements de configuration à opérer correspondent à ce que vous attendez. Lorsque vous avez terminé, vous pouvez permuter les emplacements immédiatement en cliquant sur **Permuter**.
 
     ![Échange effectué](./media/web-sites-staged-publishing/SwapImmediately.png)
 
-    Pour le type d’échange **Échange avec aperçu**, consultez [Échange avec aperçu (échange multiphase)](#Multi-Phase).  
+    Pour voir comment votre emplacement cible s’exécuterait avec les nouveaux paramètres, avant que l’échange soit réellement effectué, ne cliquez pas sur **Permuter**, mais suivez les instructions dans [Échange avec aperçu](#Multi-Phase).
+
+3. Lorsque vous avez terminé, fermez la boîte de dialogue en cliquant sur **Fermer**.
 
 <a name="Multi-Phase"></a>
 
-## <a name="swap-with-preview-multi-phase-swap"></a>Échange avec aperçu (échange multiphase)
-
-L’échange avec l’aperçu, ou échange multiphase, simplifie la validation des éléments de configuration spécifiques d’un emplacement, tels que les chaînes de connexion.
-Pour les charges de travail stratégiques, il est souhaitable de vérifier que l’application se comporte comme prévu lorsque la configuration de l’emplacement de production est appliquée, et cette vérification doit être effectuée *avant* le basculement de l’application en production. C’est précisément ce que l’échange avec aperçu permet de faire.
+### <a name="swap-with-preview-multi-phase-swap"></a>Échange avec aperçu (échange multiphase)
 
 > [!NOTE]
-> L’échange avec l’aperçu n’est pas pris en charge dans les applications web sous Linux.
+> L’échange avec aperçu n’est pas pris en charge dans les applications web sur Linux.
 
-Lorsque vous utilisez l’option **Échange avec aperçu** (voir [Échanger des emplacements de déploiement](#Swap)), App Service :
+Avant de passer la production en emplacement cible, contrôlez l’exécution de l’application avec les paramètres permutés, préalablement à l’échange. L’emplacement source est également initialisé avant la fin de l’échange, ce qui est aussi souhaitable pour les applications stratégiques.
 
-- Laisse l’emplacement de destination inchangé, de sorte que la charge de travail existante dans cet emplacement (de production, par exemple) n’est pas affectée.
-- Applique les éléments de configuration de l’emplacement de destination à l’emplacement source, y compris les chaînes de connexion spécifiques de l’emplacement et les paramètres de l’application.
-- Redémarre les processus de travail dans l’emplacement source à l’aide des éléments de configuration mentionnés ci-dessus.
-- Lorsque vous effectuez l’échange : transfère l’emplacement source préinitialisé vers l’emplacement de destination. L’emplacement de destination est transféré dans l’emplacement source, comme dans le cadre d’un échange manuel.
-- Lorsque vous annulez l’échange : réapplique les éléments de configuration de l’emplacement source à l’emplacement source.
+Lorsque vous effectuez un échange avec aperçu, App Service effectue les opérations suivantes lorsque vous démarrez l’échange :
 
-Vous pouvez prévisualiser le comportement précis de l’application avec la configuration de l’emplacement de destination. Une fois la validation terminée, vous effectuez l’échange dans le cadre d’une étape distincte. L’avantage de cette étape est que l’emplacement source est déjà initialisé avec la configuration souhaitée et que les clients ne sont pas confrontés à des temps d’arrêt.  
+- Maintien de l’emplacement cible inchangé, de manière à ne pas influer sur la charge de travail existante dans cet emplacement (de production, par exemple).
+- Application des éléments de configuration de l’emplacement cible à l’emplacement source, dont les chaînes de connexion spécifiques de l’emplacement et les paramètres de l’application.
+- Redémarrage des processus Worker dans l’emplacement source à l’aide de ces éléments de configuration. Vous pouvez accéder à l’emplacement source et voir l’exécution de l’application avec les changements de configuration.
 
-Des exemples pour les applets de commande Azure PowerShell disponibles pour l’échange multiphase figurent dans les applets de commande Azure PowerShell de la section des emplacements de déploiement.
+Si vous procédez à l’échange dans une étape distincte, App Service déplace l’emplacement source initialisée dans l’emplacement cible, et l’emplacement cible dans l’emplacement source. Si vous annulez l’échange, App Service réapplique les éléments de configuration de l’emplacement source à l’emplacement source.
+
+Pour opérer un échange avec aperçu, suivez ces étapes.
+
+1. Procédez comme indiqué dans [Échanger des emplacements de déploiement](#Swap), mais sélectionnez **Effectuer l’échange avec aperçu**.
+
+    ![Échange avec aperçu](./media/web-sites-staged-publishing/SwapWithPreview.png)
+
+    La boîte de dialogue montre comment la configuration de l’emplacement source est modifiée dans la phase 1, et comment les emplacements source et cible sont modifiés dans la phase 2.
+
+2. Lorsque vous êtes prêt à démarrer l’échange, cliquez sur **Démarrer l’échange**.
+
+    Lorsque la phase 1 est terminée, vous en êtes averti dans la boîte de dialogue. Affichez l’aperçu de l’échange dans l’emplacement source en accédant à `https://<app_name>-<source-slot-name>.azurewebsites.net`. 
+
+3. Lorsque vous êtes prêt à effectuer l’échange en attente, sélectionnez **Terminer l’échange** dans **Action d’échange** et cliquez sur **Terminer l’échange**.
+
+    Pour annuler un échange en attente, sélectionnez plutôt **Annuler l’échange** et cliquez sur **Annuler l’échange**.
+
+4. Lorsque vous avez terminé, fermez la boîte de dialogue en cliquant sur **Fermer**.
+
+Pour automatiser un échange multiphase, consultez [Automatiser avec PowerShell](#automate-with-azure-powershell).
+
+<a name="Rollback"></a>
+
+## <a name="roll-back-swap"></a>Restaurer l’échange
+Si des erreurs se produisent dans l’emplacement cible (par exemple, l’emplacement de production) après une permutation d’emplacements, rétablissez ces deux emplacements comme ils étaient avant l’opération, en les intervertissant immédiatement.
 
 <a name="Auto-Swap"></a>
 
 ## <a name="configure-auto-swap"></a>Configurer l’échange automatique
-L’échange automatique simplifie les scénarios d’opérations de développement impliquant un déploiement de l’application en continu sans démarrage à froid ni temps d’arrêt pour les clients finaux. Si un emplacement de déploiement est configuré pour l’échange automatique en production, chaque fois que vous envoyez une mise à jour de votre code par une transmission de type push vers cet emplacement, App Service échange automatiquement l’application en production après l’avoir initialisée dans l’emplacement.
-
-> [!IMPORTANT]
-> Lorsque vous activez l’échange automatique pour un emplacement, vérifiez que la configuration de l’emplacement est exactement celle que vous souhaitez pour l’emplacement cible (en général, l’emplacement de production).
-> 
-> 
 
 > [!NOTE]
-> L’échange automatique n’est pas pris en charge dans les applications web sous Linux.
+> L’échange automatique n’est pas pris en charge dans les applications web sur Linux.
 
-La configuration de l’échange automatique pour un emplacement est facile. Procédez comme suit :
+L’échange automatique simplifie les scénarios DevOps impliquant un déploiement de l’application en continu, sans démarrage à froid ni temps d’arrêt pour les clients finals de l’application. Lorsque l’échange automatique d’un emplacement s’effectue en production, chaque fois que vous envoyez (push) des modifications de votre code à cet emplacement, App Service échange automatiquement l’application en production après son initialisation dans l’emplacement source.
 
-1. Dans **Emplacements de déploiement**, sélectionnez un emplacement autre que de production et choisissez **Paramètres de l’application** dans le panneau de ressources de cet emplacement.  
-   
-    ![][Autoswap1]
-2. Sélectionnez **Activé** dans **Échange automatique**, ainsi que l’emplacement cible souhaité dans **Emplacement d’échange automatique**, puis cliquez sur **Enregistrer** dans la barre de commandes. Assurez-vous que la configuration de l’emplacement est celle que vous souhaitez pour l’emplacement cible.
-   
-    Dans l’onglet **Notifications**, la mention **RÉUSSITE** clignote en vert une fois l’opération terminée.
-   
-    ![][Autoswap2]
-   
    > [!NOTE]
-   > Pour tester l’échange automatique avec votre application, commencez par sélectionner un emplacement cible autre que de production dans **Emplacement d’échange automatique** afin de vous familiariser avec la fonctionnalité.  
+   > Avant de configurer l’échange automatique pour l’emplacement de production, envisagez tout d’abord de tester l’échange automatique sur un emplacement cible hors production.
    > 
-   > 
-3. Exécutez une transmission de code de type push vers cet emplacement de déploiement. L’échange automatique se produit peu après, et la mise à jour est appliquée dans l’URL de votre emplacement cible.
 
-<a name="Rollback"></a>
+Pour configurer la fonction Échange automatique, procédez comme suit :
 
-## <a name="roll-back-a-production-app-after-swap"></a>Rétablir une application de production après un échange
-Si vous identifiez des erreurs de production après un basculement d'emplacements, rétablissez ces deux emplacements comme ils étaient, en les intervertissant immédiatement.
+1. Accédez à la page des ressources de votre application. Sélectionnez **Emplacements de déploiement (préversion)** > *\<emplacement source souhaité >* > **Paramètres de l’application**.
+   
+2. Dans **Échange automatique**, sélectionnez **Activé**, ainsi que l’emplacement cible souhaité dans **Emplacement d’échange automatique**, puis cliquez sur **Enregistrer** dans la barre de commandes. 
+   
+    ![](./media/web-sites-staged-publishing/AutoSwap02.png)
+
+3. Exécutez un push de code sur l’emplacement source. L’échange automatique se produit peu après, et la mise à jour est appliquée dans l’URL de votre emplacement cible.
 
 <a name="Warm-up"></a>
 
-## <a name="custom-warm-up-before-swap"></a>Mise en route personnalisée avant la permutation
-Quand vous utilisez [Échange-automatique](#Auto-Swap), certaines applications peuvent nécessiter des actions personnalisées de préchauffage. L’élément de configuration `applicationInitialization` du fichier web.config vous permet de spécifier les actions d’initialisation personnalisées à exécuter avant la réception d’une demande. L'opération d’échange attend la fin de cette mise en route personnalisée. Voici un exemple de fragment web.config.
+## <a name="custom-warm-up"></a>Personnaliser l’initialisation
+Quand vous utilisez [Échange automatique](#Auto-Swap), certaines applications peuvent nécessiter quelques actions préparatoires personnalisées avant l’échange. L’élément de configuration `applicationInitialization` du fichier web.config vous permet de spécifier les actions d’initialisation personnalisées à exécuter. L’opération d’échange attend la fin de cette mise en route personnalisée pour procéder à la permutation avec l’emplacement cible. Voici un exemple de fragment web.config.
 
     <system.webServer>
         <applicationInitialization>
@@ -179,54 +205,89 @@ Quand vous utilisez [Échange-automatique](#Auto-Swap), certaines applications p
         </applicationInitialization>
     </system.webServer>
 
-## <a name="monitor-swap-progress"></a>Surveiller l’avancement de l’échange
+## <a name="monitor-swap"></a>Superviser l’échange
 
-Parfois, l’opération d’échange prend un certain temps à s’exécuter, comme quand l’application qui est échangée affiche un long délai de mise en route. Pour en savoir plus sur les opérations d’échange, accédez au [journal d’activité](../azure-monitor/platform/activity-logs-overview.md) dans le [portail Azure](https://portal.azure.com).
+Si l’exécution de l’opération d’échange prend beaucoup de temps, vous pouvez obtenir des informations sur cette opération dans le [journal d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
-Sur la page de votre application dans le portail, dans le volet de navigation gauche, sélectionnez **Journal d’activité**.
+Dans la page des ressources de votre application sur le portail, sélectionnez **Journal d’activité** dans le volet de navigation gauche.
 
-Une opération d’échange s’affiche dans la requête de journal en tant que `Slotsswap`. Vous pouvez la développer et sélectionner l’une des sous-opérations ou erreurs afin d’afficher le contenu en détail.
+Une opération d’échange s’affiche dans la requête de journal en tant que `Swap Web App Slots`. Vous pouvez la développer et sélectionner l’une des sous-opérations ou erreurs afin d’afficher le contenu en détail.
 
-![Journal d’activité dédié aux échanges d’emplacements](media/web-sites-staged-publishing/activity-log.png)
+## <a name="route-traffic"></a>Acheminer le trafic
+
+Par défaut, toutes les requêtes clientes vers les URL de production de l’application (`http://<app_name>.azurewebsites.net`) sont acheminées vers l’emplacement de production. Vous pouvez acheminer une partie du trafic vers un autre emplacement. Cette fonctionnalité est utile si vous avez besoin d’un retour d’expérience utilisateur pour une nouvelle mise à jour, mais que vous n’êtes pas prêt à la publier en production.
+
+### <a name="route-production-traffic-automatically"></a>Acheminer le trafic de production automatiquement
+
+Pour router le trafic de production automatiquement, suivez ces étapes :
+
+1. Accédez à la page des ressources de votre application et sélectionnez **Emplacements de déploiement (préversion)**.
+
+2. Dans la colonne **% de trafic** de l’emplacement vers lequel vous souhaitez acheminer le trafic, spécifiez un pourcentage (compris entre 0 et 100) pour représenter la quantité totale de trafic à diriger. Cliquez sur **Enregistrer**.
+
+    ![](./media/web-sites-staged-publishing/RouteTraffic.png)
+
+Une fois le paramètre enregistré, le pourcentage de clients spécifié est acheminé de manière aléatoire vers l’emplacement hors production. 
+
+Lorsqu’un client est automatiquement acheminé vers un emplacement particulier, il est « épinglé » à cet emplacement pendant la durée de cette session cliente. Dans le navigateur client, vous pouvez voir à quel emplacement votre session est épinglée en examinant le cookie `x-ms-routing-name` dans les en-têtes HTTP. Une requête qui est acheminée vers l’emplacement « intermédiaire » contient le cookie `x-ms-routing-name=staging`. Une requête qui est acheminée vers l’emplacement de production a le cookie `x-ms-routing-name=self`.
+
+### <a name="route-production-traffic-manually"></a>Acheminer le trafic de production manuellement
+
+Parallèlement au routage automatique du trafic, App Service peut acheminer les requêtes vers un emplacement particulier. Cela est utile lorsque vous souhaitez que vos utilisateurs puissent choisir d’accepter ou de refuser votre application bêta. Pour router le trafic de production manuellement, vous utilisez le paramètre de requête `x-ms-routing-name`.
+
+Par exemple, pour permettre aux utilisateurs de refuser votre application bêta, vous pouvez placer ce lien sur votre page web :
+
+```HTML
+<a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
+```
+
+La chaîne `x-ms-routing-name=self` spécifie l’emplacement de production. Dès lors que le navigateur client accède au lien, non seulement il est redirigé vers l’emplacement de production, mais chaque requête ultérieure possède le cookie `x-ms-routing-name=self` qui épingle la session à l’emplacement de production.
+
+Pour permettre aux utilisateurs d’accepter votre application bêta, définissez le même paramètre de requête pour le nom de l’emplacement hors production, par exemple :
+
+```
+<webappname>.azurewebsites.net/?x-ms-routing-name=staging
+```
 
 <a name="Delete"></a>
 
-## <a name="delete-a-deployment-slot"></a>Supprimer un emplacement de déploiement
-Ouvrez le panneau d’un emplacement de déploiement, cliquez sur **Vue d’ensemble** (page par défaut), puis cliquez sur **Supprimer** dans la barre de commandes.  
+## <a name="delete-slot"></a>Supprimer l’emplacement
 
-![Supprimer un emplacement de déploiement][DeleteStagingSiteButton]
+Accédez à la page des ressources de votre application. Sélectionnez **Emplacements de déploiement (préversion)** > *\<emplacement à supprimer >* > **Vue d’ensemble**. Cliquez sur **Supprimer** dans la barre de commandes.  
+
+![Supprimer un emplacement de déploiement](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
 <!-- ======== AZURE POWERSHELL CMDLETS =========== -->
 
 <a name="PowerShell"></a>
 
-## <a name="automate-with-azure-powershell"></a>Automatiser avec Azure PowerShell
+## <a name="automate-with-powershell"></a>Automatiser avec PowerShell
 
 Azure PowerShell est un module qui fournit des applets de commande pour gérer Azure via Windows PowerShell, notamment la prise en charge de la gestion des emplacements de déploiement des applications dans Azure App Service.
 
-* Pour plus d’informations sur l’installation et la configuration d’Azure PowerShell et sur l’authentification d’Azure PowerShell avec votre abonnement Azure, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).  
+Pour plus d’informations sur l’installation et la configuration d’Azure PowerShell et sur l’authentification d’Azure PowerShell avec votre abonnement Azure, consultez la page [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).  
 
 - - -
-### <a name="create-a-web-app"></a>Créer une application web
+### <a name="create-web-app"></a>Créer une application web
 ```PowerShell
 New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
 
 - - -
-### <a name="create-a-deployment-slot"></a>Créer un emplacement de déploiement
+### <a name="create-slot"></a>Créer un emplacement
 ```PowerShell
 New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
 ```
 
 - - -
-### <a name="initiate-a-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>Initialiser un échange avec aperçu (échange multiphase) et appliquer la configuration de l’emplacement de destination à l’emplacement source
+### <a name="initiate-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>Initialiser un échange avec aperçu (échange multiphase) et appliquer la configuration de l’emplacement de destination à l’emplacement source
 ```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 - - -
-### <a name="cancel-a-pending-swap-swap-with-review-and-restore-source-slot-configuration"></a>Annuler un échange en attente (échange avec aperçu) et restaurer la configuration de l’emplacement source
+### <a name="cancel-pending-swap-swap-with-review-and-restore-source-slot-configuration"></a>Annuler un échange en attente (échange avec aperçu) et restaurer la configuration de l’emplacement source
 ```PowerShell
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
@@ -244,7 +305,7 @@ Get-AzureRmLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Calle
 ```
 
 - - -
-### <a name="delete-deployment-slot"></a>Supprimer un emplacement de déploiement
+### <a name="delete-slot"></a>Supprimer l’emplacement
 ```
 Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
@@ -254,27 +315,9 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 
 <a name="CLI"></a>
 
-## <a name="automate-with-azure-cli"></a>Automatiser avec Azure CLI
+## <a name="automate-with-cli"></a>Automatiser avec CLI
 
 Pour connaître les commandes de l’interface [Azure CLI](https://github.com/Azure/azure-cli) pour les emplacements de déploiement, consultez [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Application web Azure App Service : bloquer l’accès web aux emplacements de déploiement autres que de production](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
-[Présentation d’App Service sur Linux](../app-service/containers/app-service-linux-intro.md)  
-[Version d’évaluation gratuite de Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
-
-<!-- IMAGES -->
-[QGAddNewDeploymentSlot]:  ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png
-[AddNewDeploymentSlotDialog]: ./media/web-sites-staged-publishing/AddNewDeploymentSlotDialog.png
-[ConfigurationSource1]: ./media/web-sites-staged-publishing/ConfigurationSource1.png
-[MultipleConfigurationSources]: ./media/web-sites-staged-publishing/MultipleConfigurationSources.png
-[SiteListWithStagedSite]: ./media/web-sites-staged-publishing/SiteListWithStagedSite.png
-[StagingTitle]: ./media/web-sites-staged-publishing/StagingTitle.png
-[SwapButtonBar]: ./media/web-sites-staged-publishing/SwapButtonBar.png
-[SwapConfirmationDialog]:  ./media/web-sites-staged-publishing/SwapConfirmationDialog.png
-[DeleteStagingSiteButton]: ./media/web-sites-staged-publishing/DeleteStagingSiteButton.png
-[SwapDeploymentsDialog]: ./media/web-sites-staged-publishing/SwapDeploymentsDialog.png
-[Autoswap1]: ./media/web-sites-staged-publishing/AutoSwap01.png
-[Autoswap2]: ./media/web-sites-staged-publishing/AutoSwap02.png
-[SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
-
+[Bloquer l’accès à des emplacements hors production](app-service-ip-restrictions.md)

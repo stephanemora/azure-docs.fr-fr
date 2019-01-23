@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f5ba6a001f8933283e0867367ef7bd8d3918c3fd
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 59a3a92640c7f0bc434881921e520d1b9cb352c3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405376"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265494"
 ---
-# <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Programme Blueprint Security and Compliance Azure : application web IaaS pour FedRAMP
+# <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Blueprint de sécurité et de conformité Azure : Application web IaaS pour FedRAMP
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -63,7 +63,7 @@ Cette solution utilise les services Azure suivants. Les informations détaillée
 - Azure Application Gateway
     - (1) WAF Application Gateway activé
         - mode de pare-feu : prévention
-        - ensemble de règles : OWASP 3.0
+        - Ensemble de règles : OWASP 3.0
         - écouteur : port 443
 - Stockage Azure
     - (7) Comptes de stockage géoredondant
@@ -79,12 +79,12 @@ Cette solution utilise les services Azure suivants. Les informations détaillée
 
 La section suivante décrit en détail les éléments de développement et d’implémentation.
 
-**Hôte bastion** : un hôte bastion désigne le point de contact unique qui fournit une connexion sécurisée permettant aux administrateurs d’accéder aux ressources déployées. Le groupe de sécurité réseau de l’hôte bastion autorise uniquement les connexions au port TCP 3389 du protocole RDP. Les clients peuvent également configurer l’hôte bastion afin de répondre aux exigences de renforcement du système de l’organisation.
+**Hôte bastion** : un hôte bastion désigne le point de contact unique qui fournit une connexion sécurisée permettant aux administrateurs d’accéder aux ressources déployées. Le groupe de sécurité réseau de l’hôte bastion autorise uniquement les connexions au port TCP 3389 du protocole RDP. Les clients peuvent également configurer l’hôte bastion afin de répondre aux exigences de renforcement du système de l’organisation.
 
 ### <a name="virtual-network"></a>Réseau virtuel
 L’architecture définit un réseau privé virtuel avec l’espace d’adressage 10.200.0.0/16.
 
-**Groupes de sécurité réseau** : cette solution déploie des ressources dans une architecture où figurent un sous-réseau web, un sous-réseau de base de données, un sous-réseau Active Directory et un sous-réseau de gestion à l’intérieur d’un réseau virtuel. Des règles de groupe de sécurité réseau appliquées aux différents sous-réseaux permettent de séparer ces derniers logiquement afin de limiter le trafic entre eux au seul trafic nécessaire pour les fonctionnalités système et de gestion.
+**Groupes de sécurité réseau** : Cette solution déploie des ressources dans une architecture où figurent un sous-réseau web, un sous-réseau de base de données, un sous-réseau Active Directory et un sous-réseau de gestion à l’intérieur d’un réseau virtuel. Des règles de groupe de sécurité réseau appliquées aux différents sous-réseaux permettent de séparer ces derniers logiquement afin de limiter le trafic entre eux au seul trafic nécessaire pour les fonctionnalités système et de gestion.
 
 Consultez la configuration des [groupes de sécurité réseau](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) déployés avec cette solution. Les clients peuvent configurer des groupes de sécurité réseau en modifiant le fichier ci-dessus et en suivant [cette documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 
@@ -95,15 +95,15 @@ Chaque sous-réseau dispose d’un groupe de sécurité réseau (NSG) dédié :
 - 1 NSG pour les serveurs SQL (SQLNSG)
 - 1 NSG pour la couche web (WEBNSG)
 
-**Sous-réseaux** : chaque sous-réseau est associé au NSG qui lui correspond.
+**Sous-réseaux** : Chaque sous-réseau est associé à son groupe de sécurité réseau correspondant.
 
 ### <a name="data-at-rest"></a>Données au repos
 
 L’architecture protège les données au repos à l’aide de plusieurs mesures de chiffrement.
 
-**Stockage Azure** : pour répondre aux exigences du chiffrement des données au repos, l’ensemble des comptes de stockage utilisent [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+**Stockage Azure** : Pour répondre aux exigences du chiffrement des données au repos, l’ensemble des comptes de stockage utilisent le [chiffrement du service de stockage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
-**SQL Server** : SQL Server est configuré pour utiliser [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption), qui effectue le chiffrement et le déchiffrement en temps réel des données et fichiers journaux pour protéger les informations au repos. TDE protège les données des accès non autorisés.
+**SQL Server** : SQL Server est configuré pour utiliser [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption), qui effectue le chiffrement et le déchiffrement en temps réel des données et fichiers journaux pour protéger les informations au repos. TDE protège les données des accès non autorisés.
 
 Les clients peuvent également configurer les mesures de sécurité SQL Server suivantes :
 -   La solution [d’authentification et d’autorisation Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) permet la gestion des identités des utilisateurs de bases de données et d’autres services Microsoft dans un emplacement central.
@@ -126,11 +126,11 @@ Les technologies suivantes fournissent des fonctionnalités de gestion des ident
 ### <a name="security"></a>Sécurité
 **Gestion des secrets** : la solution utilise [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) pour gérer les clés et les secrets. Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Azure Key Vault aide à gérer les secrets et clés de chiffrement de disque de machine virtuelle IaaS de cette architecture de référence.
 
-**Gestion des correctifs** : les machines virtuelles Windows déployées par cette solution Azure Security and Compliance Blueprint Automation sont configurées par défaut pour recevoir des mises à jour automatiques du service Windows Update. Cette solution déploie également la solution Azure Automation par le biais de laquelle des déploiements de mise à jour peuvent être créés pour déployer les correctifs sur les serveurs Windows si nécessaire.
+**Gestion des correctifs** : Les machines virtuelles Windows déployées par cette solution Azure Security and Compliance Blueprint Automation sont configurées par défaut pour recevoir des mises à jour automatiques du service Windows Update. Cette solution déploie également la solution Azure Automation par le biais de laquelle des déploiements de mise à jour peuvent être créés pour déployer les correctifs sur les serveurs Windows si nécessaire.
 
-**Protection contre les programmes malveillants** : [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) pour Machines Virtuelles fournit une protection en temps réel qui permet d’identifier et de supprimer des virus, des logiciels espions et d’autres logiciels malveillants grâce à des alertes configurables vous avertissant quand des logiciels malveillants ou indésirables connus tentent de s’installer ou de s’exécuter sur des machines virtuelles protégées.
+**Protection contre les programmes malveillants** : [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) pour Machines Virtuelles fournit une protection en temps réel qui permet d’identifier et de supprimer les virus, les logiciels espions et autres logiciels malveillants grâce à des alertes configurables vous avertissant quand des logiciels malveillants ou indésirables connus tentent de s’installer ou de s’exécuter sur des machines virtuelles protégées.
 
-**Application Gateway** : l’architecture réduit le risque de failles de sécurité à l’aide d’Application Gateway avec le pare-feu d’applications web (WAF) et l’ensemble de règles OWASP activé. Les autres fonctionnalités incluent notamment :
+**Application Gateway** : L’architecture réduit le risque de failles de sécurité à l’aide d’Application Gateway et de son pare-feu d’applications web (WAF), dans lequel est activé l’ensemble de règles OWASP. Les autres fonctionnalités incluent notamment :
 
 - [SSL de bout en bout](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Activation du [déchargement SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
@@ -140,30 +140,30 @@ Les technologies suivantes fournissent des fonctionnalités de gestion des ident
 
 ### <a name="business-continuity"></a>Continuité de l’activité
 
-**Haute disponibilité** : au moins une machine virtuelle est disponible pendant un événement de maintenance planifié ou non, ce qui est conforme au contrat de niveau de service Azure de 99,95 %. La solution déploie toutes les machines virtuelles de la couche web et données sur un [groupe à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Les groupes à haute disponibilité veillent à ce que les machines virtuelles soient distribuées sur plusieurs clusters matériels isolés pour améliorer la disponibilité. De plus, la solution déploie les machines virtuelles SQL Server sur un groupe à haute disponibilité en tant que [groupe de disponibilité AlwaysOn](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview). La fonctionnalité de groupe de disponibilité Always On fournit des fonctionnalités de haute disponibilité et de récupération d’urgence.
+**Haute disponibilité** : Au moins une machine virtuelle est disponible pendant un événement de maintenance planifié ou non, ce qui est conforme au contrat de niveau de service Azure garantissant une disponibilité de 99,95 %. La solution déploie toutes les machines virtuelles de la couche web et données sur un [groupe à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Les groupes à haute disponibilité veillent à ce que les machines virtuelles soient distribuées sur plusieurs clusters matériels isolés pour améliorer la disponibilité. De plus, la solution déploie les machines virtuelles SQL Server sur un groupe à haute disponibilité en tant que [groupe de disponibilité AlwaysOn](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview). La fonctionnalité de groupe de disponibilité Always On fournit des fonctionnalités de haute disponibilité et de récupération d’urgence.
 
-**Coffre Recovery Services** : le [coffre Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) héberge les données de sauvegarde et protège toutes les configurations des machines virtuelles Azure dans cette architecture. Grâce au coffre Recovery Services, les clients peuvent restaurer des fichiers et dossiers d’une machine virtuelle IaaS sans avoir à restaurer l’intégralité de celle-ci, ce qui permet d’accélérer les temps de restauration.
+**Coffre Recovery Services** : le [coffre Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) héberge les données de sauvegarde et protège toutes les configurations des machines virtuelles Azure dans cette architecture. Grâce au coffre Recovery Services, les clients peuvent restaurer des fichiers et dossiers d’une machine virtuelle IaaS sans avoir à restaurer l’intégralité de celle-ci, ce qui permet d’accélérer les temps de restauration.
 
-**Témoin cloud** : le [Témoin cloud](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) est un type de témoin de quorum de cluster de basculement dans Windows Server 2016, qui utilise Azure comme point d’arbitrage. Comme n’importe quel autre témoin de quorum, le Témoin cloud obtient un vote et peut être utilisé dans les calculs de quorum, mais il utilise le stockage Blob Azure standard disponible publiquement. Cela élimine le travail de maintenance supplémentaire des machines virtuelles hébergées dans un cloud public.
+**Témoin cloud** : le [Témoin cloud](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) est un type de témoin de quorum de cluster de basculement dans Windows Server 2016, qui utilise Azure comme point d’arbitrage. Comme n’importe quel autre témoin de quorum, le Témoin cloud obtient un vote et peut être utilisé dans les calculs de quorum, mais il utilise le stockage Blob Azure standard disponible publiquement. Cela élimine le travail de maintenance supplémentaire des machines virtuelles hébergées dans un cloud public.
 
 ### <a name="logging-and-auditing"></a>Journalisation et audit
 
 Log Analytics fournit une journalisation complète de l’activité système et utilisateur, ainsi que de l’intégrité du système. La solution [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) collecte et analyse les données générées par les ressources dans les environnements Azure et locaux.
 
-- **Journaux d'activité :** les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fournissent des informations sur les opérations effectuées sur les ressources d’un abonnement. Les journaux d’activité peuvent aider à déterminer l’initiateur, l’heure d’exécution et l’état d’une opération.
-- **Journaux de diagnostic :** les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) correspondent à l’ensemble des journaux émis par chaque ressource. Ces journaux incluent les journaux système des événements Windows, les journaux de stockage Azure, les journaux d’audit Key Vault, ainsi que les journaux de pare-feu et d’accès Application Gateway.
-- **Archivage des journaux** : tous les journaux de diagnostic sont consignés sur un compte de stockage Azure centralisé et chiffré à des fins d’archivage. L’utilisateur peut configurer la rétention jusqu’à 730 jours pour répondre aux exigences de rétention spécifiques de l’entreprise. Ces journaux se connectent à Azure Log Analytics à des fins de traitement, de stockage et de génération de rapports de tableau de bord.
+- **Journaux d’activité :**  les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fournissent des insights sur les opérations ayant été effectuées sur les ressources d’un abonnement. Les journaux d’activité peuvent aider à déterminer l’initiateur, l’heure d’exécution et l’état d’une opération.
+- **Journaux de diagnostic :**  Les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) correspondent à l’ensemble des journaux émis par chaque ressource. Ces journaux incluent les journaux système des événements Windows, les journaux de stockage Azure, les journaux d’audit Key Vault, ainsi que les journaux de pare-feu et d’accès Application Gateway.
+- **Archivage des journaux** :  Tous les journaux de diagnostic sont consignés dans un compte de stockage Azure centralisé et chiffré pour l’archivage. L’utilisateur peut configurer la rétention jusqu’à 730 jours pour répondre aux exigences de rétention spécifiques de l’entreprise. Ces journaux se connectent à Azure Log Analytics à des fins de traitement, de stockage et de génération de rapports de tableau de bord.
 
 Les solutions de surveillance suivantes sont également incluses dans cette architecture. Notez qu’il incombe au client de configurer ces solutions pour s’aligner avec les contrôles de sécurité FedRAMP :
--   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : la solution Active Directory Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit une liste hiérarchisée de recommandations spécifiques pour l’infrastructure de serveur déployée.
--   [Antimalware Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware) : cette solution signale les programmes malveillants, les menaces et l’état de protection.
--   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) : cette solution stocke, exécute et gère les runbooks.
--   [Security and Audit](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) : le tableau de bord Security and Audit donne une vue d’ensemble de l’état de sécurité des ressources en affichant des métriques concernant des domaines de sécurité, des problèmes notables, des détections, des menaces et des requêtes de sécurité courantes.
--   [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment) : la solution SQL Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit aux clients une liste hiérarchisée de recommandations spécifiques pour l’infrastructure de serveur déployée.
--   [Update Management](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management) : cette solution permet au client de gérer les mises à jour de sécurité du système d’exploitation, notamment en lui indiquant l’état des mises à jour disponibles et le processus d’installation des mises à jour requises.
--   [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth) : cette solution indique le nombre d’agents déployés et leur répartition géographique, ainsi que le nombre d’agents qui ne répondent pas ou qui envoient des données opérationnelles.
--   [Journaux d’activité Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity) : la solution Activity Log Analytics facilite l’analyse des journaux d’activité Azure de tous les abonnements Azure d’un client.
--   [Change Tracking](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity) : la solution de suivi des modifications permet aux clients d’identifier facilement les modifications dans l’environnement.
+-   [AD Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : la solution Active Directory Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit une liste hiérarchisée de suggestions spécifiques pour l’infrastructure de serveur déployée.
+-   [Antimalware Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware) : la solution de logiciel anti-programme malveillant signale les programmes malveillants, les menaces et l’état de protection.
+-   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) : la solution Azure Automation stocke, exécute et gère les runbooks.
+-   [Security and Audit](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) : le tableau de bord Security and Audit donne une vue d’ensemble de l’état de sécurité des ressources en affichant des métriques concernant des domaines de sécurité, des problèmes notables, des détections, des menaces et des requêtes de sécurité courantes.
+-   [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment) : la solution SQL Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit aux clients une liste hiérarchisée de suggestions spécifiques pour l’infrastructure de serveur déployée.
+-   [Update Management](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management) : cette solution de gestion des mises à jour aide les clients à gérer les mises à jour de sécurité du système d’exploitation, notamment en leur indiquant l’état des mises à jour disponibles et le processus d’installation des mises à jour requises.
+-   [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth) : cette solution de contrôle d’intégrité des agents indique le nombre d’agents déployés et leur répartition géographique, ainsi que le nombre d’agents qui ne répondent pas ou qui envoient des données opérationnelles.
+-   [Journaux d’activité Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity) : la solution Activity Log Analytics facilite l’analyse des journaux d’activité Azure de tous les abonnements Azure d’un client.
+-   [Change Tracking](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity) : cette solution de suivi des modifications permet aux clients d’identifier facilement des modifications dans l’environnement.
 
 **Azure Monitor**
 la solution [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) permet aux utilisateurs de suivre les performances, de tenir à jour la sécurité et d’identifier les tendances en permettant aux entreprises d’auditer, de créer des alertes et d’archiver des données, notamment en lien avec le suivi des appels d’API dans les ressources Azure des clients.

@@ -1,5 +1,5 @@
 ---
-title: Configurer la méthode de routage du trafic à valeurs multiples dans Azure Traffic Manager | Microsoft Docs
+title: Configurer la méthode de routage du trafic à valeurs multiples dans Azure Traffic Manager
 description: Cet article explique comment configurer Traffic Manager pour router le trafic vers des points de terminaison A/AAAA.
 services: traffic-manager
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: d4a51551fb0f9067929df1fdf074e7286938004b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 40b266c92a86006746ab5341ac5fa1d785ee6032
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187703"
+ms.locfileid: "54197166"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configurer la méthode de routage à valeurs multiples dans Traffic Manager
 

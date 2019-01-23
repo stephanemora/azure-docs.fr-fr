@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: 44fe262dc28a016af9eb01f28278b2c3d81d9034
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 50e8e63c9508aa9e81222f242ca330637075e42d
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034082"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199066"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Types d'index dans Azure Cosmos DB
 
@@ -29,6 +29,9 @@ Azure Cosmos DB prend en charge les types d’index de hachage et de plage pour 
 
 - **Index de hachage** prend en charge les requêtes d’égalité efficaces et JOIN. Dans la plupart des cas d’utilisation, les index de hachage ne nécessitent pas une précision plus élevée que la valeur par défaut de trois octets. Le type de données peut être Chaîne ou Nombre.
 
+  > [!NOTE]
+  > Les conteneurs Azure Cosmos prennent en charge une nouvelle disposition d’index qui n’utilise plus le type d’index de hachage. Si vous spécifiez un type d’index de hachage sur la stratégie d’indexation, les requêtes CRUD ayant trait au conteneur ignoreront silencieusement ce type d'index et la réponse du conteneur contiendra uniquement le type d'index Plage. Tous les nouveaux conteneurs Cosmos utilisent la nouvelle disposition d'index par défaut. 
+  
 - **Index de plage**  prend en charge les requêtes d’égalité efficaces, les requêtes de plage (avec >, <, >=, <=, !=) et les requêtes ORDER BY. Par défaut, les requêtes ORDER BY nécessitent également une précision d’index maximale (-1). Le type de données peut être Chaîne ou Nombre.
 
 - **Index spatial** prend en charge les requêtes spatiales efficaces (within et distance). Le type de données peut être Point, Polygone ou LineString. Azure Cosmos DB prend également en charge le type d’index spatial pour chaque chemin d'accès qui peut être spécifié pour les types de données Point, Polygone ou LineString. La valeur dans le chemin spécifié doit être un fragment GeoJSON valide, comme {"type": "Point", "coordinates": [0.0, 10.0]}. Azure Cosmos DB prend en charge l’indexation automatique des types de données Points, Polygone et LineString.
@@ -58,6 +61,9 @@ Voici quelques exemples de requêtes d'index de hachage, de portée et spatial �
 - Les index spatiaux utilisent toujours la précision d’index par défaut pour tous les types (Point, LineString et Polygone). La précision d’index par défaut pour les index spatiaux ne peut pas être substituée.
 
 Azure Cosmos DB retourne une erreur quand une requête utilise ORDER BY mais n’a pas d’index de plage pour le chemin avec la précision maximale.
+
+> [!NOTE]
+> Les conteneurs Azure Cosmos prennent en charge une nouvelle disposition d’index qui ne requiert plus une précision d’index personnalisée autre que la valeur de précision maximale (-1). Avec cette méthode, les chemins d’accès sont toujours indexés avec la précision maximale. Si vous spécifiez une valeur de précision sur la stratégie d’indexation, les requêtes CRUD ayant trait au conteneur ignoreront silencieusement la valeur de précision et la réponse du conteneur contiendra uniquement la valeur de précision maximale (-1).  Tous les nouveaux conteneurs Cosmos utilisent la nouvelle disposition d'index par défaut.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

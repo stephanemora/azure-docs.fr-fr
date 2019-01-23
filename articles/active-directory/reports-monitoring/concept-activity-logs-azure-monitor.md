@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 298d4a7a003963e3466b595243c294679f581346
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: b8051ea7f8e7c188e4ed287db626f2a989def619
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582183"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231749"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Journaux d’activité Azure Active Directory dans Azure Monitor (préversion)
 
@@ -116,6 +116,12 @@ Cette section répond aux questions fréquemment posées et traitent des problè
 **Q : Combien de temps après une action les journaux correspondants s’affichent-ils dans mon compte de stockage ?**
 
 **R** : Pour les comptes de stockage Azure, la latence est d’environ 5 à 15 minutes après l’exécution de l’action.
+
+---
+
+**Q : Que se passe-t-il si un administrateur modifie la période de rétention d’un paramètre de diagnostic ?**
+
+**R** : La nouvelle stratégie de rétention sera appliquée aux journaux collectés après la modification. Les journaux collectés avant le changement de stratégie ne seront pas affectés.
 
 ---
 

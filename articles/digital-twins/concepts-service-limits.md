@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: dwalthermsft
-ms.openlocfilehash: 1e7b6ed7c401bed741142dfc02efc7990cf67f6e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: cc873ad441c93a7fce54c275e9f7d52f0b044319
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118812"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302423"
 ---
 # <a name="public-preview-service-limits"></a>Limites de service de la préversion publique
 
@@ -35,7 +35,7 @@ Dans la préversion publique, chaque abonnement Azure ne peut créer ou exécute
 
 Chaque instance d’Azure Digital Twins peut comprendre :
 
-- Exactement une ressource **IotHub**.
+- Une ressource **IoTHub** intégrée créée automatiquement lors de la configuration du service.
 - Exactement un point de terminaison **EventHub** pour le type d’événement **DeviceMessage**.
 - Jusqu’à trois points de terminaison **EventHub**, **ServiceBus** ou **EventGrid** du type d’événement **SensorChange**, **SpaceChange** , **TopologyOperation** ou **UdfCustom**.
 

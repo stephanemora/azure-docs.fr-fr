@@ -12,19 +12,19 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 01/08/2019
-ms.openlocfilehash: 9d5a1493316fbfa9a703655f37a40276ee3ffaf7
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 6b5ff7294735048347c500d64b411f16bda5422f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156814"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212931"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Niveaux de service vCore, Azure Hybrid Benefit et migration
 
 Le modèle d’achat vCore vous permet de mettre à l’échelle les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances d’une exécution locale et d’optimiser les coûts. Il vous permet également de choisir la génération de matériel :
 
 - Gen 4 : jusqu'à 24 processeurs logiques basés sur le processeur Intel E5-2673 v3 (Haswell) de 2,4 GHz, vCore = 1 PP (cœur physique), 7 Go par cœur, disque SSD attaché
-- Gen 5 : jusqu’à 80 processeurs logiques basés sur le processeur Intel E5-2673 v4 (Broadwell) de 2,3 GHz, vCore = 1 LP (hyper-thread), 5.1. Go par cœur, disque SSD fast eNVM
+- Gen 5 : jusqu’à 80 processeurs logiques basés sur le processeur Intel E5-2673 v4 (Broadwell) de 2,3 GHz, vCore = 1 LP (hyper-thread), 5.1 Go par cœur, disque SSD fast eNVM
 
 Le modèle vCore vous permet également d’utiliser [Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) afin de réduire les coûts.
 

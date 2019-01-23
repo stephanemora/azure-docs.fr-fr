@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 41509c1f35d42a1e8558299b4244ad515c36ec17
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 607351718ddffbea5fa4dbbae333d81aac230f9a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816053"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258949"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database : prise en charge des clients de niveau inférieur et modification des points de terminaison IP à des fins d’audit de table
 

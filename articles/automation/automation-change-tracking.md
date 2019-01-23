@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/12/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27bacb12c66ac57a0bf1aea88a447d395b6dde8c
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 1d08471a3e0faa99cb245709cf72f9af097bc495
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408916"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213210"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications
 
@@ -51,15 +51,14 @@ Les distributions Linux suivantes sont officiellement prises en charge. Toutefoi
 * Debian GNU/Linux 8 et 9
 * Ubuntu Linux 14.04 LTS et 16.04 LTS
 
-## <a name="enable-change-tracking-and-inventory"></a>Activer Change Tracking et Inventory
+## <a name="onboard"></a>Activer Change Tracking et l’inventaire
 
-Pour commencer à suivre les modifications, vous devez activer la solution Change Tracking et Inventory pour votre compte Automation.
+Pour commencer à suivre les modifications, vous devez activer la solution Change Tracking et Inventory. Il existe de nombreuses façons d’intégrer les machines à Change Tracking et Inventory. Voici des méthodes recommandées et prises en charge pour intégrer la solution.
 
-1. Dans le Portail Azure, accédez à votre compte Automation.
-2. Sélectionnez **Change Tracking** sous **CONFIGURATION**.
-3. Sélectionnez un espace de travail Log Analytics existant ou **créez un espace de travail** et cliquez sur **Activer**.
-
-La solution est ainsi activée pour votre compte Automation. L’activation de la solution peut prendre jusqu’à 15 minutes. La bannière bleue vous avertit quand la solution est activée. Revenez à la page **Change Tracking** pour gérer la solution.
+* [Depuis une machine virtuelle](automation-onboard-solutions-from-vm.md)
+* [Depuis plusieurs machines](automation-onboard-solutions-from-browse.md)
+* [Depuis votre compte Automation](automation-onboard-solutions-from-automation-account.md)
+* [Avec un runbook Azure Automation](automation-onboard-solutions.md)
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Configuration de Change Tracking et Inventory
 

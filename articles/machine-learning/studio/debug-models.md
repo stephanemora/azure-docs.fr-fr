@@ -1,34 +1,17 @@
 ---
-title: Déboguer votre modèle - Azure Machine Learning Studio | Microsoft Docs
-description: Comment déboguer les erreurs produites par les modules Entraîner le modèle et Noter le modèle dans Azure Machine Learning Studio.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 629dc45e-ac1e-4b7d-b120-08813dc448be
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2017
-ms.openlocfilehash: 0464dec9e747e57e4b95a691aeb5a0992cf8d9cc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268884"
+titre : Déboguer votre modèle - titleSuffix : Description d'Azure Machine Learning Studio : Comment déboguer les erreurs produites par les modules Entraîner le modèle et Noter le modèle dans Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 14/03/2017
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio"></a>Déboguer votre modèle dans Azure Machine Learning Studio
 
-Cet article explique les raisons possibles pour lesquelles l’exécution d’un modèle peut donner lieu à l’un des deux échecs suivants :
+Lors de l’exécution d’un modèle, vous pouvez rencontrer les erreurs suivantes :
 
 * le module [Former le modèle][train-model] génère une erreur ; 
 * le module [Noter le modèle][score-model] produit des résultats incorrects ; 
 
+Cet article explique les causes possibles de ces erreurs.
 
 
 ## <a name="train-model-module-produces-an-error"></a>le module Former le modèle génère une erreur ;
@@ -63,7 +46,7 @@ Même si l’expérience réussit, il est possible que le module [Noter le modè
 
 1. Si l’étiquette spécifiée est catégorielle et qu’un modèle de régression est formé sur les données, le module [Noter le modèle][score-model] produit une sortie incorrecte. Ceci est dû au fait que la régression requiert une variable dépendante continue. Dans ce cas, il est plus judicieux d’utiliser un modèle de classification. 
 
-2. De la même façon, si un modèle de classification est formé sur un jeu de données comportant des nombres à virgule flottante dans la colonne Étiquette, il peut produire des résultats indésirables. Ceci s’explique par le fait que la classification requiert une variable dépendante discontinue qui autorise uniquement les valeurs couvrant un ensemble de classes fini et généralement plutôt restreint.
+2. De la même façon, si un modèle de classification est formé sur un jeu de données comportant des nombres à virgule flottante dans la colonne Étiquette, il peut produire des résultats indésirables. Ceci s’explique par le fait que la classification requiert une variable dépendante discontinue qui autorise uniquement les valeurs couvrant un ensemble de classes fini et restreint.
 
 3. Si le jeu de données de notation ne contient pas toutes les fonctionnalités utilisées pour effectuer l’apprentissage du modèle, le module [Noter le modèle][score-model] génère une erreur.
 

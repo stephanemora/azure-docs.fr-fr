@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: 3ce74cdb610f2902133459b913f53bb7809cb4b7
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: ff068ff5aa4401a80f2220df79fdac93db21cfb3
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982995"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232870"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Ajouter de nouveaux nœuds d’unité d’échelle dans Azure Stack
 
@@ -105,6 +105,7 @@ L’état de l’unité d’échelle et des nœuds de l’unité d’échelle pe
 
 ### <a name="status-for-the-add-node-operation"></a>État de l’opération Ajouter un nœud 
 **Pour une unité d’échelle :**
+
 |Statut               |Description  |
 |---------------------|---------|
 |Exécution              |Tous les nœuds participent de façon active à l’unité d’échelle.|
@@ -115,6 +116,7 @@ L’état de l’unité d’échelle et des nœuds de l’unité d’échelle pe
 
 
 **Pour un nœud de l’unité d’échelle :**
+
 |Statut                |Description  |
 |----------------------|---------|
 |Exécution               |Le nœud participe de façon active à l’unité d’échelle.|
@@ -128,16 +130,16 @@ L’état de l’unité d’échelle et des nœuds de l’unité d’échelle pe
 ## <a name="troubleshooting"></a>Résolution de problèmes
 Voici les problèmes couramment rencontrés lors de l’ajout d’un nœud. 
 
-**Scénario 1 :** L’opération d’ajout de nœud d’unité d’échelle échoue, mais un ou plusieurs nœuds sont répertoriés dans la liste avec l’état Arrêté.  
-- Correction : Exécutez l’opération de réparation afin de réparer un ou plusieurs nœuds. Il n’est possible d’effectuer qu’une seule opération de réparation à la fois.
+**Scénario 1 :**  L'opération d'ajout de nœud d'unité d'échelle échoue, mais un ou plusieurs nœuds sont répertoriés avec l'état Arrêté.  
+- Correction : Exécutez l'opération de réparation afin de réparer un ou plusieurs nœuds. Il n’est possible d’effectuer qu’une seule opération de réparation à la fois.
 
-**Scénario 2 :** Un ou plusieurs nœuds d’unité d’échelle ont été ajoutés, mais l’extension de stockage a échoué. Dans ce scénario, l’objet du nœud de l’unité d’échelle rapporte un état de fonctionnement, mais la tâche de configuration du stockage n’est pas lancée.  
-- Correction : Utilisez le point de terminaison privilégié pour examiner l’intégrité du stockage en exécutant la cmdlet PowerShell suivante :
+**Scénario 2 :** Un ou plusieurs nœuds d'unité d'échelle ont été ajoutés, mais l'extension de stockage a échoué. Dans ce scénario, l’objet du nœud de l’unité d’échelle rapporte un état de fonctionnement, mais la tâche de configuration du stockage n’est pas lancée.  
+- Correction : Utilisez le point de terminaison privilégié pour vérifier l'intégrité du stockage en exécutant la cmdlet PowerShell suivante :
   ```powershell
      Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
   ```
  
-**Scénario 3 :** Vous recevez une alerte indiquant que la tâche d’échelle du stockage a échoué.  
+**Scénario 3 :** Vous recevez une alerte indiquant que le travail de scale-out du stockage a échoué.  
 - Correction : Dans ce cas, la tâche de configuration du stockage a échoué. Ce problème nécessite que vous contactiez le support technique.
 
 

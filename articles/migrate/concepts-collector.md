@@ -4,15 +4,15 @@ description: Fournit des informations sur l’appliance Collector dans Azure Mig
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/14/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 6f843fedafd68d4e04d181af2c6d7542baaf0144
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b9387814b8bdab56117dec27de1e3d5b44ce39b4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104206"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262606"
 ---
 # <a name="about-the-collector-appliance"></a>À propos de l’appliance Collector
 
@@ -126,12 +126,9 @@ Vous validez la vérification de la connectivité en vous connectant à une list
 
 Le Collecteur se connecte à vCenter Server et exécute des requêtes portant sur les métadonnées et les compteurs de performances des machines virtuelles. Voici les éléments à prendre en compte pour la connexion.
 
-- Seules les versions vCenter Server 5.5, 6.0 et 6.5 sont prises en charge.
+- Seules les versions vCenter Server 5.5, 6.0, 6.5 et 6.7 sont prises en charge.
 - Vous avez besoin d’un compte en lecture seule avec les autorisations résumées ci-après pour la découverte. Seuls les centres de données accessibles à l’aide du compte sont accessibles pour la découverte.
 - Par défaut, vous vous connectez à vCenter Server avec une adresse IP ou un nom de domaine complet. Si vCenter Server écoute sur un port différent, vous vous connectez sous la forme *adresse_IP:numéro_port* ou *FQDN:numéro_port*.
-- Pour que les données de performances du stockage et du réseau puissent être collectées, les paramètres de statistiques de vCenter Server doivent être configurés sur le niveau 3.
-- Si le niveau est inférieur à 3, la découverte fonctionne, mais les données de performances ne sont pas collectées. Certains compteurs peuvent être collectées, mais d’autres peuvent être définis sur zéro.
-- Si les données de performances du stockage et du réseau ne sont pas collectées, les recommandations de taille de l’évaluation sont effectuées selon les données de performances du processeur et de la mémoire, et selon les données de configuration des adaptateurs de disque et des cartes réseau.
 - Le Collecteur doit avoir le réseau en ligne de mire jusqu’au serveur vCenter.
 
 #### <a name="account-permissions"></a>Autorisations du compte

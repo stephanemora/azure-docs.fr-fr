@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fd1e2aa5162ce9263d521edf3ae11e0508353b46
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: cd17c146091cd9d35ce35cf2099aa7c6109c9e34
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382632"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303317"
 ---
 # <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique de transformation de revendications dans une stratégie personnalisée Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
- Un profil technique de transformation de revendications permet d’appeler des transformation de revendications de sortie pour manipuler les valeurs de revendications, valider des revendications ou définir des valeurs par défaut pour un ensemble de revendications de sortie.
+Un profil technique de transformation de revendications permet d’appeler des transformation de revendications de sortie pour manipuler les valeurs de revendications, valider des revendications ou définir des valeurs par défaut pour un ensemble de revendications de sortie.
 
 ## <a name="protocol"></a>Protocole
 
@@ -33,7 +33,7 @@ L’exemple suivant montre un profil technique de transformation de revendicatio
 <TechnicalProfile Id="Facebook-OAUTH-UnLink">
     <DisplayName>Unlink Facebook</DisplayName>
     <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-  ...    
+  ...
 ```
 
 ## <a name="output-claims"></a>Revendications de sortie
@@ -53,16 +53,16 @@ L’élément **OutputClaimsTransformations** peut contenir une collection d’�
 
 ```XML
 <ClaimsTransformations>
-  <ClaimsTransformation Id="RemoveAlternativeSecurityIdByIdentityProvider" 
+  <ClaimsTransformation Id="RemoveAlternativeSecurityIdByIdentityProvider"
 TransformationMethod="RemoveAlternativeSecurityIdByIdentityProvider">
     <InputClaims>
       <InputClaim ClaimTypeReferenceId="IdentityProvider2"
 TransformationClaimType="identityProvider" />
-      <InputClaim ClaimTypeReferenceId="AlternativeSecurityIds" 
+      <InputClaim ClaimTypeReferenceId="AlternativeSecurityIds"
 TransformationClaimType="collection" />
     </InputClaims>
     <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="AlternativeSecurityIds" 
+      <OutputClaim ClaimTypeReferenceId="AlternativeSecurityIds"
 TransformationClaimType="collection" />
     </OutputClaims>
   </ClaimsTransformation>
@@ -85,7 +85,7 @@ Le profil technique de transformation de revendications permet d’exécuter une
 
 ```XML
 <UserJourney Id="AccountUnLink">
-  <OrchestrationSteps>    
+  <OrchestrationSteps>
     ...
     <OrchestrationStep Order="8" Type="ClaimsExchange">
       <ClaimsExchanges>
@@ -98,7 +98,6 @@ Le profil technique de transformation de revendications permet d’exécuter une
   </OrchestrationSteps>
 </UserJourney>
 ```
-
 
 ## <a name="use-a-validation-technical-profile"></a>Utiliser un profil technique de validation
 
@@ -122,19 +121,19 @@ Les profil technique de transformation de revendications appelle la transformati
 
 ```XML
 <TechnicalProfile Id="Validate-Email">
-    <DisplayName>Unlink Facebook</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <DisplayName>Unlink Facebook</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="emailRepeat" />
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="email" />
-  </OutputClaims>          
+  </OutputClaims>
   <OutputClaimsTransformations>
-        <OutputClaimsTransformation ReferenceId="AssertEmailAreEqual" />
-    </OutputClaimsTransformations>
-    <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
-</TechnicalProfile> 
+    <OutputClaimsTransformation ReferenceId="AssertEmailAreEqual" />
+  </OutputClaimsTransformations>
+  <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+</TechnicalProfile>
 ```
 
 Un profil technique autodéclaré peut appeler le profil technique de validation et afficher le message d’erreur spécifié dans les métadonnées **UserMessageIfClaimsTransformationStringsAreNotEqual**.
@@ -155,5 +154,5 @@ Un profil technique autodéclaré peut appeler le profil technique de validation
   <ValidationTechnicalProfiles>
     <ValidationTechnicalProfile ReferenceId="Validate-Email" />
   </ValidationTechnicalProfiles>
-</TechnicalProfile>  
+</TechnicalProfile>
 ```

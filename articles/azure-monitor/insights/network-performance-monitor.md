@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 7f7fe545c10d80fc5a201923679b7d61623786fb
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1ba1f11029e98f6bf324466627c465507829dc4d
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193788"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229844"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solution Network Performance Monitor dans Azure
 
@@ -109,7 +109,7 @@ Network Performance Monitor utilise des transactions synthétiques pour analyser
 
 4. Dans la page **Installation**, vous pouvez installer des agents Log Analytics et les configurer à des fins d’analyse dans la vue **Paramètres communs**. Comme expliqué précédemment, si vous avez installé et configuré des agents Log Analytics, sélectionnez la vue **Installation** pour configurer la fonctionnalité que vous souhaitez utiliser. 
 
-   **Analyseur de performances** : Choisissez le protocole qui sera utilisé pour les transactions synthétiques dans la règle **Par défaut** de l’analyseur de performances, puis sélectionnez **Enregistrer et continuer**. Cette sélection de protocole ne conserve que la règle par défaut générée par le système. Vous devez choisir le protocole chaque fois que vous créez une règle de l’Analyseur de performances explicitement. Vous pouvez toujours passer aux paramètres de règle **Par défaut** dans l’onglet **Analyseur de performances** (qui apparaît une fois que vous avez terminé la configuration du jour 0) et modifier le protocole ultérieurement. Si vous n’êtes pas intéressé par la fonctionnalité de l’Analyseur de performances, vous pouvez désactiver la règle par défaut dans les paramètres de règle **Par défaut** de l’onglet **Analyseur de performances**.
+   **Analyseur de performances** : Choisissez le protocole qui sera utilisé pour les transactions synthétiques dans la règle **Par défaut** de l’analyseur de performances, puis sélectionnez **Enregistrer et continuer**. Cette sélection de protocole ne conserve que la règle par défaut générée par le système. Vous devez choisir le protocole chaque fois que vous créez une règle de l’Analyseur de performances explicitement. Vous pouvez toujours passer aux paramètres de règle **Par défaut** dans l’onglet **Analyseur de performances** (qui apparaît une fois que vous avez terminé la configuration du jour 0) et modifier le protocole ultérieurement. Si vous n’êtes pas intéressé par la fonctionnalité de l'Analyseur de performances, vous pouvez désactiver la règle par défaut dans les paramètres de règle **Par défaut** de l’onglet **Analyseur de performances**.
 
    ![Affichage Analyseur de performances](media/network-performance-monitor/npm-synthetic-transactions.png)
     

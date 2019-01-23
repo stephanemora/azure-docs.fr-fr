@@ -1,26 +1,8 @@
 ---
-title: Interpréter les résultats de modèle dans Machine Learning Studio - Azure | Microsoft Docs
-description: Sélection du paramètre optimal défini pour un algorithme en utilisant et visualisant des sorties de modèle de notation.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
-ms.openlocfilehash: 9f8ff93efb74bca427cf74351af9d2442f9ab757
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276483"
+titre : Interpréter les résultats de modèle dans Machine Learning Studio titleSuffix : Description d’Azure Machine Learning Studio : Sélection du paramètre optimal défini pour un algorithme en utilisant et visualisant des sorties de modèle de notation.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 29/11/2017
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Interpréter les résultats de modèle dans Azure Machine Learning Studio
 Cette rubrique vous explique comment visualiser et interpréter les résultats de prédiction dans Azure Machine Learning Studio. Après avoir formé un modèle et effectué des prédictions sur celui-ci (c’est-à-dire « noté le modèle »), vous avez besoin de comprendre et d’interpréter les résultats de prédiction.

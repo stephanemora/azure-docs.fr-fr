@@ -4,17 +4,17 @@ description: Découvrez comment résoudre les problèmes de création et d’aff
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 40668fed2fcc2a04e39fa3a4d7e8e8923c75ae05
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 04c038eb11cc40cec3552feff183bea55b22bb57
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315520"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261925"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Résoudre les erreurs à l’aide de blueprints Azure
 
@@ -52,6 +52,20 @@ Une stratégie peut entrer en conflit avec le déploiement pour plusieurs raison
 #### <a name="resolution"></a>Résolution :
 
 Modifiez le blueprint pour qu’il ne soit pas en conflit avec les stratégies indiquées dans les détails de l’erreur. Si cette modification n’est pas possible, une autre option consiste à changer l’étendue de l’affectation de stratégie de sorte que le blueprint ne soit plus en conflit avec la stratégie.
+
+### <a name="escape-function-parameter"></a>Scénario : le paramètre de blueprint est une fonction
+
+#### <a name="issue"></a>Problème
+
+Les paramètres de blueprint qui sont des fonctions sont traitées avant d’être transmises aux artefacts.
+
+#### <a name="cause"></a>Cause :
+
+En passant un paramètre de blueprint qui utilise une fonction, comme `[resourceGroup().tags.myTag]`, à un artefact fait que le résultat traité de la fonction est défini sur l’artefact et non sur la fonction dynamique.
+
+#### <a name="resolution"></a>Résolution :
+
+Pour passer une fonction en tant que paramètre, ajoutez un caractère d’échappement devant toute la chaîne avec `[` pour que le paramètre de blueprint se présente sous la forme `[[resourceGroup().tags.myTag]`. Le caractère d’échappement fait que les blueprints traitent la valeur comme une chaîne lors du traitement du blueprint. Le blueprint place ensuite la fonction sur l’artefact, ce qui lui permet d’être dynamique comme prévu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

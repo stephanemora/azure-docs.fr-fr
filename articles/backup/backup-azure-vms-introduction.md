@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: cac219414418277ace09ba3a0b442f3bf74e6025
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 09464342bd39e57f6e637ce90adc7190d08340a9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107427"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265411"
 ---
 # <a name="about-azure-vm-backup"></a>À propos de la sauvegarde de machine virtuelle Azure
 
@@ -55,6 +55,10 @@ Quand des applications sont en cours d’exécution, Sauvegarde Azure prend des 
         [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
         ""USEVSSCOPYBACKUP"="TRUE"
         ```
+        - Exécutez la commande ci-dessous à partir d'une invite de commande avec élévation des privilèges (comme administrateur) pour définir la clé de registre ci-dessus :
+          ```
+          REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f
+          ```
 - **Machines virtuelles Linux** : Pour vérifier que vos machines virtuelles Linux respectent la cohérence des applications lors de prise d’instantanés par Sauvegarde Azure, vous pouvez utiliser le framework de pré-scripts et post-scripts Linux. Vous pouvez écrire vos propres scripts personnalisés à des fins de cohérence lors de la prise d’un instantané de machine virtuelle.
     -  Le service Sauvegarde Azure appelle uniquement les pré-scripts et post-scripts écrits par vous.
     - Si les pré-scripts et post-scripts s’exécutent correctement, le service Sauvegarde Azure marque le point de récupération comme étant cohérent dans les applications. Toutefois, vous êtes responsable de la cohérence des applications lors de l’utilisation de scripts personnalisés.
@@ -132,11 +136,10 @@ Une opération de restauration se compose de deux tâches principales : copie d
 
 Nous vous suggérons de suivre ces pratiques pour configurer des sauvegardes de machines virtuelles :
 
-- Mettez à niveau les coffres vers un point de récupération instantané. Passez en revue ces [avantages](backup-upgrade-to-vm-backup-stack-v2.md) et [considérations](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), puis effectuez la mise à niveau en suivant ces [instructions](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
 - Envisagez de modifier l’heure de stratégie par défaut (par exemple, si votre heure de stratégie par défaut est 24:00 heures, envisagez de l’incrémenter de quelques minutes) lorsque les instantanés de données sont pris pour s’assurer que les ressources sont utilisées de manière optimale.
 - Pour une sauvegarde de machine virtuelle Premium sur un point de récupération non instantané, la fonctionnalité alloue environ 50 % de l’espace total du compte de stockage. Le service de sauvegarde requiert cet espace pour copier l’instantané vers le même compte de stockage et le transférer vers le coffre.
 - Pour restaurer des machines virtuelles à partir d’un seul coffre, il est vivement recommandé d’utiliser des  [comptes de stockage v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)  différents pour s’assurer que le compte de stockage cible ne soit pas limité. Par exemple, chaque machine virtuelle doit avoir compte de stockage distincts(si 10 machines virtuelles sont restaurées, utilisez 10 comptes de stockage différents).
-- Les restaurations à partir de la couche de stockage de niveau 1 (instantané) sont effectuées en quelques minutes (dans la mesure où il s’agit du même compte de stockage), par opposition à la couche de stockage de niveau 2 (coffre) qui peut prendre des heures. Nous vous recommandons d’utiliser la fonctionnalité de [Point de récupération instantané](backup-upgrade-to-vm-backup-stack-v2.md) pour accélérer les restaurations quand des données sont disponibles au niveau 1 (sachant que, si les données doit être restaurées à partir du coffre, cela prendra de temps).
+- Les restaurations à partir de la couche de stockage de niveau 1 (instantané) sont effectuées en quelques minutes (dans la mesure où il s’agit du même compte de stockage), par opposition à la couche de stockage de niveau 2 (coffre) qui peut prendre des heures. Nous vous recommandons d’utiliser la fonctionnalité [Restauration instantanée](backup-instant-restore-capability.md) pour accélérer les restaurations quand des données sont disponibles au niveau 1 (sachant que, si les données doit être restaurées à partir du coffre, cela prendra de temps).
 - La limite du nombre de disques par compte de stockage dépend de la lourdeur des disques auxquels accèdent les applications s’exécutant sur la machine virtuelle IaaS. Vérifiez si plusieurs disques sont hébergés sur un seul compte de stockage. En règle générale, si plus de 5 disques sont présents sur un compte de stockage, équilibrez la charge en déplaçant certains disques vers des comptes de stockage distincts.
 
 ## <a name="backup-costs"></a>Coûts de sauvegarde

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 86f4e99401278d13a17f40c4c021060e8bd15f8a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 8d477997e71843307f6c756a6974a23267842015
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754541"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244968"
 ---
 # <a name="azure-stack-1808-update"></a>Mise à jour 1808 d’Azure Stack
 
@@ -254,6 +254,8 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 - En tant qu’opérateur d’Azure Stack, si vous recevez une alerte de mémoire insuffisante et que les machines virtuelles de locataire ne parviennent pas à se déployer à cause d’une **erreur de création de machine virtuelle de structure**, il est possible que l’horodatage d’Azure Stack soit à court de mémoire. Utilisez le [Capacity Planner Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) pour mieux comprendre la capacité disponible pour vos charges de travail.
 
 ### <a name="compute"></a>Calcul
+
+- Lorsque vous créez une [machine virtuelle de série Dv2](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), les machines virtuelles D11-14v2 vous autorisent à créer 4, 8, 16 et 32 disques de données respectivement. Toutefois, le volet Créer une machine virtuelle affiche 8, 16, 32 et 64 disques de données.
 
 <!-- 3164607 – IS, ASDK -->
 - Le rattachement d’un disque détaché à la même machine virtuelle (VM) avec les mêmes nom et numéro d’unité logique échoue et affiche une erreur de type **Impossible d’attacher le disque de données « datadisk » à la machine virtuelle « vm1 »**. Cette erreur est due au fait que le disque est en cours de détachement ou que la dernière opération de détachement a échoué. Veuillez attendre que le disque soit complètement détaché, puis réessayez ou supprimez/détachez explicitement le disque une nouvelle fois. La solution de contournement consiste à le rattacher en utilisant un nom ou un numéro d'unité logique différent. 

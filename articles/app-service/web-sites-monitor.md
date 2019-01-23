@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d9f25b7a10b7a50663198120a895220b02818d7b
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 3a49b30caa087295bbdcffe8762796fdc92f154b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994944"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247250"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Superviser les applications dans Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) fournit des fonctionnalités de supervision intégrées pour les applications web, back-ends mobiles et applications API dans le [portail Azure](https://portal.azure.com).
@@ -72,7 +72,7 @@ Pour une application, les métriques disponibles sont les suivantes :
 | Métrique | Description |
 | --- | --- |
 | **Temps de réponse moyen** | Temps moyen, en millisecondes, nécessaire à l’application pour traiter les requêtes. |
-| **Plage de travail moyenne de la mémoire** | Quantité moyenne de mémoire, en mébioctets (Mio), utilisée par l’application. |
+| **Plage de travail moyenne de la mémoire** | Quantité moyenne de mémoire, en mégaoctets (Mio), utilisée par l’application. |
 | **Temps processeur** | Temps processeur, en secondes, consommée par l’application. Pour plus d’informations sur cette métrique, consultez [Temps processeur et pourcentage processeur](#cpu-time-vs-cpu-percentage). |
 | **Données entrantes** | Quantité de bande passante entrante, en Mio, consommée par l’application. |
 | **Données sortantes** | Quantité de bande passante sortante, en Mio, consommée par l’application. |
@@ -141,14 +141,12 @@ Pour plus d’informations sur les métriques, consultez [Superviser les métriq
 ## <a name="alerts-and-autoscale"></a>Alertes et mise à l’échelle automatique
 Les métriques pour une application ou un plan App Service peuvent être rattachées à des alertes. Pour plus d’informations, consultez [Réception de notifications d’alerte](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Les applications App Service hébergées dans les plans App Service De base, Standard ou Premium prennent en charge la mise à l’échelle automatique. La mise à l’échelle automatique vous permet de configurer des règles qui supervisent les métriques du plan App Service. Les règles peuvent diminuer ou augmenter le nombre d’instances, ce qui permet de fournir des ressources supplémentaires si nécessaire. Les règles peuvent aussi vous permettre d’économiser de l’argent quand l’application est surprovisionnée. 
+Les applications App Service hébergées dans les plans App Service De base, Standard ou Premium prennent en charge la mise à l’échelle automatique. La mise à l’échelle automatique vous permet de configurer des règles qui supervisent les métriques du plan App Service. Les règles peuvent diminuer ou augmenter le nombre d’instances, ce qui permet de fournir des ressources supplémentaires si nécessaire. Les règles peuvent aussi vous permettre d’économiser de l’argent quand l’application est surprovisionnée.
 
 Pour plus d’informations sur la mise à l’échelle automatique, consultez [Guide pratique pour mettre à l’échelle](../monitoring-and-diagnostics/insights-how-to-scale.md) et [Bonnes pratiques pour la mise à l’échelle automatique Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169
-
-
 
 <!-- Images. -->
 [http403]: ./media/web-sites-monitor/http403.png

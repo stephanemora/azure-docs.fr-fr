@@ -1,6 +1,6 @@
 ---
 title: Qu’est-ce qu’Azure Key Vault ? Azure Key Vault | Microsoft Docs
-description: Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. En utilisant Azure Key Vault, les clients peuvent chiffrer les clés et secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers .PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM).
+description: Azure Key Vault protège les clés de chiffrement et les secrets utilisés par les services et applications cloud. Les clients peuvent chiffrer les clés d'authentification, les clés des comptes de stockage, les clés de chiffrement de données, les fichiers .PFX et les mots de passe à l'aide de clés protégées par des modules de sécurité matériels (HSM).
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -11,14 +11,14 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: f3c198ab8a17df019f1735a9b62e27f1051f64c5
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 889f12b935eaad72eb7637524ab578f28fbc412f
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076329"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198488"
 ---
 # <a name="what-is-azure-key-vault"></a>Qu’est-ce qu’Azure Key Vault ?
 
@@ -76,7 +76,7 @@ Toute personne disposant d’un abonnement Azure peut créer et utiliser des cof
 
 Cet administrateur peut ensuite fournir aux développeurs des URI à appeler à partir de leurs applications et fournir à leur administrateur de sécurité des informations de journalisation sur l’utilisation des clés. 
 
-![Vue d’ensemble Azure Key Vault][1]
+![Aperçu du fonctionnement d'Azure Key Vault][1]
 
 Les développeurs peuvent également gérer les clés directement à l’aide d’API. Pour plus d’informations, consultez le [guide du développeur de Key Vault](key-vault-developers-guide.md).
 

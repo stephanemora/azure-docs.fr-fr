@@ -1,21 +1,21 @@
 ---
 title: Créer des révisions de vidéos à l’aide de .NET - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Comment créer des révisions de vidéos à l’aide du SDK Content Moderator pour .NET
+description: Cet article fournit des informations et des exemples de code destinés à vous aider à démarrer rapidement avec le SDK Content Moderator avec C# pour créer des révisions de vidéos.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/18/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 284ee24bbb0a15d107acf85e2d58072a0ecbbc6e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e9fb82c864c721a9df2e3b31d04e68c824404f81
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219038"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262509"
 ---
 # <a name="create-video-reviews-using-net"></a>Créer des révisions de vidéos à l’aide de .NET
 
@@ -35,8 +35,7 @@ Cet article suppose également que vous êtes déjà familiarisé avec Visual St
 
 ## <a name="sign-up-for-content-moderator"></a>S’inscrire à Content Moderator
 
-Avant de pouvoir utiliser les services Content Moderator par le biais de l’API REST ou du kit SDK, vous avez besoin d’une clé d’abonnement.
-Reportez-vous au [démarrage rapide](quick-start.md) pour découvrir comment obtenir la clé.
+Avant de pouvoir utiliser les services Content Moderator par le biais de l’API REST ou du kit SDK, vous avez besoin d’une clé d’abonnement. Suivez les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Content Moderator et obtenir votre clé.
 
 ## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>S’inscrire à un compte d’outil de révision si cela n’a pas été fait à l’étape précédente
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 14b108a836424e92a251f50b42ed93963038a333
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e9fc8351b5e9a4f2274f0906d4071f86dcbcff26
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192054"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259680"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Installer l’agent de machine virtuelle Azure en mode hors connexion 
 
@@ -36,7 +36,15 @@ Installez l’agent de machine virtuelle en mode hors connexion dans les scénar
 
 Procédez comme suit pour installer l’agent de machine virtuelle en mode hors connexion.
 
-### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Étape 1 : attacher le disque du système d’exploitation de la machine virtuelle à une autre machine virtuelle en tant que disque de données
+> [!NOTE]
+> Vous pouvez automatiser le processus d’installation de l'agent de machine virtuelle en mode hors connexion.
+> Pour ce faire, utilisez les [scripts de récupération de machine virtuelle Azure](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md). Si vous choisissez d’utiliser les scripts de récupération de machine virtuelle Azure, vous pouvez utiliser le processus suivant :
+> 1. Ignorez l'étape 1 en utilisant les scripts pour joindre le disque du système d’exploitation de la machine virtuelle affectée à une machine virtuelle de récupération.
+> 2. Suivez les étapes 2 à 10 pour appliquer les atténuations.
+> 3. Ignorez l'étape 11 en utilisant les scripts pour recréer la machine virtuelle.
+> 4. Suivez l’étape 12.
+
+### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Étape 1 : attacher le disque du système d’exploitation de la machine virtuelle à une autre machine virtuelle en tant que disque de données
 
 1.  Supprimez la machine virtuelle. Assurez-vous de sélectionner l’option **Conserver les disques** lorsque vous supprimez la machine virtuelle.
 

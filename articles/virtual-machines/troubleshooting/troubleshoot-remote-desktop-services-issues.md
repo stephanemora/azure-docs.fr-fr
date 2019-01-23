@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 904387def0fd8842f196e80cfcf72d9dd1639458
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 3d747f3b8f54dfefe7e96c378eddbce320bcc8f7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957691"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215114"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Les Services Bureau à distance ne démarrent pas sur une machine virtuelle Azure
 
 Cet article explique comment résoudre les problèmes de connexion à une machine virtuelle Azure quand les Services Bureau à distance, ou TermService, ne démarrent pas ou échouent au démarrage.
 
 > [!NOTE]  
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager et Classic](../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager. Nous vous recommandons d’utiliser ce modèle pour les nouveaux déploiements, plutôt que le modèle de déploiement Classic.
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager et classique](../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager. Nous vous recommandons d’utiliser ce modèle pour les nouveaux déploiements, plutôt que le modèle de déploiement Classic.
 
 ## <a name="symptoms"></a>Symptômes
 
@@ -37,14 +37,14 @@ Lorsque vous essayez de vous connecter à une machine virtuelle, vous rencontrez
 
 - Vous consultez à distance les journaux des événements dans la machine virtuelle avec l’observateur d’événements. Il apparaît que les Services Bureau à distance, TermService, ne démarrent pas ou échouent au démarrage. Voici un exemple de journal :
 
-    **Nom du journal** :      Système </br>
-    **Source** :        Gestionnaire de contrôle des services </br>
-    **Date** :          16/12/2017 11:19:36</br>
-    **ID d’événement** :      7022</br>
-    **Catégorie de tâche** : Aucune</br>
-    **Niveau** :         Erreur</br>
-    **Mots clés** :     Classique</br>
-    **Utilisateur** :          N/A</br>
+    **Nom du journal** :      System </br>
+    **Source** :        Gestionnaire de contrôle des services </br>
+    **Date** :          16/12/2017 11:19:36 AM</br>
+    **ID d’événement** :      7022</br>
+    **Catégorie de tâche** : Aucun</br>
+    **Niveau** :         Error</br>
+    **Mots clés** :      Classique</br>
+    **Utilisateur** :          N/A</br>
     **Ordinateur** :      vm.contoso.com</br>
     **Description** : Le service Services Bureau à distance s’est bloqué au démarrage. 
 
@@ -112,7 +112,7 @@ Pour résoudre ce problème, utilisez la Console série. Vous pouvez également 
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>Le service TermService est arrêté en raison d’un problème d’accès refusé
 
-1. Connectez-vous à la [console série](serial-console-windows.md#) et ouvrez une instance PowerShell.
+1. Connectez-vous à la [console série](serial-console-windows.md) et ouvrez une instance PowerShell.
 2. Téléchargez l’outil Process Monitor en exécutant le script suivant :
 
    ```
@@ -204,7 +204,7 @@ Pour résoudre ce problème, utilisez la Console série. Vous pouvez également 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Attachez le disque du système d’exploitation à une machine virtuelle de récupération
 
 1. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](../windows/troubleshoot-recovery-disks-portal.md).
-2. Établissez une connexion Bureau à distance à la machine virtuelle de récupération. Vérifiez que le disque attaché est marqué comme étant **En ligne** dans la console Gestion des disques. Notez la lettre de lecteur affectée au disque de système d’exploitation attaché.
+2. Établissez une connexion Bureau à distance avec la machine virtuelle de récupération. Vérifiez que le disque attaché est marqué comme étant **En ligne** dans la console Gestion des disques. Notez la lettre de lecteur affectée au disque de système d’exploitation attaché.
 3.  Ouvrez une instance d’invite de commande avec élévation de privilèges (**Exécuter en tant qu’administrateur**). Ensuite, exécutez le script suivant. Supposons que la lettre de lecteur affectée au disque de système d’exploitation attaché est **F**. Remplacez-la par la valeur correspondant à votre machine virtuelle. 
 
    ```

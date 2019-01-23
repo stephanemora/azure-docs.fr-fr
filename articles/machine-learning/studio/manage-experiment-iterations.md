@@ -1,26 +1,8 @@
 ---
-title: Gérer les itérations d’expériences dans Machine Learning Studio - Azure | Microsoft Docs
-description: Gestion des itérations d’expériences dans Azure Machine Learning Studio. Vous pouvez consulter les précédentes exécutions de vos expériences à tout moment pour défier, réexaminer et finalement confirmer ou affiner les hypothèses précédentes.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 6a53530f-20d5-40ae-9b49-7b499ccb44b7
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: ebcae3e8e8f13904936dbe122f285a01a2a71459
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270448"
+titre : Gestion des itérations d’expériences dans Azure Machine Learning Studio - titleSuffix : Description d'Azure Machine Learning Studio : Gestion des itérations d’expériences dans Azure Machine Learning Studio. Vous pouvez consulter les précédentes exécutions de vos expériences à tout moment pour défier, réexaminer et finalement confirmer ou affiner les hypothèses précédentes.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 20/03/2017
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Gestion des itérations d'expériences dans Azure Machine Learning Studio
 Le développement d'un modèle d'analyse prédictive est un processus itératif : lorsque vous modifiez les diverses fonctions et les paramètres de votre expérience, vos résultats convergent jusqu'à ce que l'efficacité du modèle formé vous donne satisfaction. L'élément clé de ce processus est le suivi des différentes itérations de vos paramètres d'expérience et de vos configurations.

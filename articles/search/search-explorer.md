@@ -1,5 +1,5 @@
 ---
-title: Utiliser l’Explorateur de recherche dans le portail Azure pour l’interrogation des index - Recherche Azure
+title: Utiliser l'outil de l'explorateur pour interroger les données dans le portail Azure - Recherche Azure
 description: Utilisez les outils du portail Azure comme l’Explorateur de recherche pour interroger des index dans Recherche Azure. Entrez des termes de recherche ou des chaînes de recherche complètes avec une syntaxe avancée.
 manager: cgronlun
 author: HeidiSteen
@@ -9,48 +9,25 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2aa372d1f917608de753007cc75ab0d608cafbba
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 85e574a56380384b10d0916385a8816fd26c2eeb
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188723"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244798"
 ---
-# <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>Comment utiliser l’Explorateur de recherche pour interroger des index dans Recherche Azure 
+# <a name="search-explorer-for-querying-data-in-azure-search"></a>Utiliser l'explorateur pour interroger les données Recherche Azure 
 
-Cet article vous explique comment interroger un index de Recherche Azure à l’aide de l’**Explorateur de recherche** dans le Portail Azure. Vous pouvez utiliser l’Explorateur de recherche pour envoyer des chaînes de requête Lucene simples ou complètes à un index existant dans votre service.
-
-## <a name="start-search-explorer"></a>Démarrer l’Explorateur de recherche
-
-1. Dans le [portail Azure](https://portal.azure.com), ouvrez la page du service de recherche à partir du tableau de bord, ou [recherchez votre service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans la liste.
-
-2. Dans la page Vue d’ensemble du service, cliquez sur **Explorateur de recherche**.
+Cet article vous explique comment interroger un index de Recherche Azure à l’aide de l’**Explorateur de recherche** dans le Portail Azure. Vous pouvez utiliser l’Explorateur de recherche pour envoyer des chaînes de requête Lucene simples ou complètes à un index existant dans votre service. 
 
    ![Commande Explorateur de recherche dans le portail](./media/search-explorer/search-explorer-cmd2.png "Commande Explorateur de recherche dans le portail")
 
-3. Sélectionnez l’index à interroger.
 
-   ![Sélectionner l’index à interroger](./media/search-explorer/search-explorer-changeindex-se2.png "Sélectionner l’index")
-
-4. Vous pouvez également définir la version d'API. Par défaut, la version d'API actuellement mise à la disposition générale est sélectionnée, mais vous pouvez choisir une préversion ou une API plus ancienne si la syntaxe que vous souhaitez utiliser est spécifique à la version.
-
-5. Une fois l’index et la version d’API sélectionnés, entrez des termes de recherche ou des expressions de requête complètes dans la barre de recherche, puis cliquez sur **Rechercher**.
-
-   ![Entrer des termes de recherche et cliquer sur Rechercher](./media/search-explorer/search-explorer-query-string-example.png "Entrer des termes de recherche et cliquer sur Rechercher")
-
-Conseils de recherche dans l'**Explorateur de recherche** :
-
-+ Les résultats sont renvoyés sous forme de documents JSON détaillés afin de vous permettre de les consulter dans leur intégralité. Vous pouvez utiliser des expressions de requête, comme indiqué dans les exemples, pour limiter les champs renvoyés.
-
-+ Les documents sont composés de tous les champs marqués comme **récupérables** dans l’index. Pour visualiser les attributs d’index dans le portail, cliquez sur *realestate-us-sample* dans la liste **Index** de la page de vue d'ensemble de la recherche.
-
-+ Les requêtes de forme libre, semblables à celles que vous entrez dans un navigateur web commercial, permettent de tester une expérience d'utilisateur final. Par exemple, dans le cas de l'exemple d'index realestate intégré, vous pourriez entrer « Seattle apartments lake washington », puis utiliser Ctrl+F pour rechercher des termes dans les résultats de la recherche. 
-
-+ Les expressions de requête et de filtre doivent être articulées dans une syntaxe prise en charge par la Recherche Azure. Par défaut, cela correspond à une [syntaxe simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), mais vous pouvez également utiliser [Lucene complète](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) pour de plus puissantes requêtes. Les [expressions de filtre](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) présentent une syntaxe OData.
+Pour obtenir de l'aide, consultez [Démarrer l'Explorateur de recherche](#start-search-explorer).
 
 ## <a name="basic-search-strings"></a>Chaînes de recherche de base
 
-Les exemples suivants supposent l’index intégré realestate. Pour plus d’informations sur la création de cet index, consultez [Démarrage rapide : Importer, indexer et interroger dans le portail Azure](search-get-started-portal.md).
+Les exemples suivants supposent l’index intégré realestate. Pour créer cet index, consultez [Démarrage rapide : Importer, indexer et interroger dans le portail Azure](search-get-started-portal.md).
 
 ### <a name="example-1---empty-search"></a>Exemple 1 : recherche vide
 
@@ -128,6 +105,37 @@ Ajoutez **$orderby** pour trier les résultats selon un autre champ, à côté d
    ![Expression OrderBy](./media/search-explorer/search-explorer-example-ordery.png "Modifier l’ordre de tri")
 
 Les expressions **$filter** et **$orderby** sont des constructions OData. Pour plus d’informations, consultez l’article [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) (Syntaxe d’expression de filtre OData).
+
+<a name="start-search-explorer"></a>
+
+## <a name="how-to-start-search-explorer"></a>Démarrer l’Explorateur de recherche
+
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez la page du service de recherche à partir du tableau de bord, ou [recherchez votre service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans la liste.
+
+2. Dans la page Vue d’ensemble du service, cliquez sur **Explorateur de recherche**.
+
+   ![Commande Explorateur de recherche dans le portail](./media/search-explorer/search-explorer-cmd2.png "Commande Explorateur de recherche dans le portail")
+
+3. Sélectionnez l’index à interroger.
+
+   ![Sélectionner l’index à interroger](./media/search-explorer/search-explorer-changeindex-se2.png "Sélectionner l’index")
+
+4. Vous pouvez également définir la version d'API. Par défaut, la version d'API actuellement mise à la disposition générale est sélectionnée, mais vous pouvez choisir une préversion ou une API plus ancienne si la syntaxe que vous souhaitez utiliser est spécifique à la version.
+
+5. Une fois l’index et la version d’API sélectionnés, entrez des termes de recherche ou des expressions de requête complètes dans la barre de recherche, puis cliquez sur **Rechercher**.
+
+   ![Entrer des termes de recherche et cliquer sur Rechercher](./media/search-explorer/search-explorer-query-string-example.png "Entrer des termes de recherche et cliquer sur Rechercher")
+
+Conseils de recherche dans l'**Explorateur de recherche** :
+
++ Les résultats sont renvoyés sous forme de documents JSON détaillés afin de vous permettre de les consulter dans leur intégralité. Vous pouvez utiliser des expressions de requête, comme indiqué dans les exemples, pour limiter les champs renvoyés.
+
++ Les documents sont composés de tous les champs marqués comme **récupérables** dans l’index. Pour visualiser les attributs d’index dans le portail, cliquez sur *realestate-us-sample* dans la liste **Index** de la page de vue d'ensemble de la recherche.
+
++ Les requêtes de forme libre, semblables à celles que vous entrez dans un navigateur web commercial, permettent de tester une expérience d'utilisateur final. Par exemple, dans le cas de l'exemple d'index realestate intégré, vous pourriez entrer « Seattle apartments lake washington », puis utiliser Ctrl+F pour rechercher des termes dans les résultats de la recherche. 
+
++ Les expressions de requête et de filtre doivent être articulées dans une syntaxe prise en charge par la Recherche Azure. Par défaut, cela correspond à une [syntaxe simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), mais vous pouvez également utiliser [Lucene complète](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) pour de plus puissantes requêtes. Les [expressions de filtre](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) présentent une syntaxe OData.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

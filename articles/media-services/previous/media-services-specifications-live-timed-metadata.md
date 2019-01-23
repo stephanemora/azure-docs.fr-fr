@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: johndeu;
-ms.openlocfilehash: b4dec5430d93cd2634fc541ae688a6bc425f5491
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: f29efb9a58c0b269f64d637fa3c5d59bb3610bbc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384681"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265888"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalisation de métadonnées chronométrées dans une vidéo en flux continu
 
@@ -89,7 +89,7 @@ Pour le mode simple RTMP, Media Services prend en charge un message de signal AM
 
 ---------------------------
 
-#### <a name="211-cancelation-and-updates"></a>2.1.1 Annulation et mises à jour
+#### <a name="211-cancellation-and-updates"></a>2.1.1 Annulation et mises à jour
 
 Des messages peuvent être annulés ou mis à jour par l’envoi de plusieurs messages avec les mêmes heure et ID de présentation. L’heure et l’ID de présentation identifient de façon unique l’événement, et le dernier message reçu pour une heure de présentation spécifique qui correspond aux contraintes de décompte est le message traité. L’événement mis à jour remplace tout message reçu précédemment. La contrainte de décompte est de quatre secondes. Les messages reçus au moins quatre secondes avant l’heure de présentation seront traités.
 
@@ -157,7 +157,7 @@ La zone de MediaDataBox (« mdat ») doit avoir le format suivant :
 ------------------------------
 
 
-### <a name="224-cancelation-and-updates"></a>2.2.4 Annulation et mises à jour
+### <a name="224-cancellation-and-updates"></a>2.2.4 Annulation et mises à jour
 Des messages peuvent être annulés ou mis à jour par l’envoi de plusieurs messages avec les mêmes heure et ID de présentation.  L’heure et l’ID de présentation identifient l’événement. Le dernier message reçu pour une heure de présentation spécifique qui répond aux contraintes de décompte est le message traité. Le message mis à jour remplace tous les messages reçus précédemment.  La contrainte de décompte est de quatre secondes. Les messages reçus au moins quatre secondes avant l’heure de présentation seront traités. 
 
 

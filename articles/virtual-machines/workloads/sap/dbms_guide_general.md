@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e514f35567f4be0932c7bcc591cbd0f05cd9814
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 87d3a44b01dff81242f935c7737bd170fe744536
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606756"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246872"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -133,7 +133,11 @@ Azure applique un quota d’E/S par seconde pour chaque disque de données. Ces 
 
 > [!NOTE]
 > Pour tirer parti du [contrat SLA de machine virtuelle unique](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) d’Azure, tous les disques attachés doivent être de type Stockage Premium Azure, notamment le disque dur virtuel de base.
->
+
+
+> [!NOTE]
+> Il n’est pas pris en charge pour héberger les fichiers principaux (fichiers de données et fichiers journaux) des bases de données SAP sur du matériel de stockage situé dans des centres de données colocalisés adjacents aux centres de données Azure. Pour la charge de travail SAP, seul le stockage représenté en tant que service Azure natif est pris en charge pour les fichiers journaux des données et des transactions des bases de données SAP.
+> 
 
 L’emplacement des fichiers de base de données et des fichiers journaux/de restauration, ainsi que le type de stockage Azure utilisé, doivent être dictés par les besoins en E/S par seconde, en latence et en débit. Afin de bénéficier d’un nombre suffisant d’E/S par seconde, il se peut que vous soyez obligé d’utiliser plusieurs disques ou d’utiliser un plus grand disque Stockage Premium. Si vous utilisez plusieurs disques, vous créeriez une frange de logiciels sur les disques qui contiennent les fichiers de données ou les fichiers journaux/de restauration. Dans ce cas, les contrats de niveau de service relatifs aux IOPS et au débit de disque des disques Stockage Premium sous-jacents ou le niveau maximal d’IOPS atteignable des disques Azure Standard Storage se cumulent pour la frange qui en résulte.
 

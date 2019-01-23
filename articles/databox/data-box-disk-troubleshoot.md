@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: 8e75aa31941fe7368ef56f344db14d9b376e6238
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 13e42ae9b25c769a468a8c9839fd1aaf0abf2787
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191698"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213142"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Résoudre les problèmes rencontrés dans Azure Data Box Disk
 
@@ -96,12 +96,11 @@ Cette section détaille certains des principaux problèmes rencontrés lors du d
 
 Cela peut être dû à un système de fichiers qui n’est pas propre. 
 
-- Le remontage d'un lecteur en lecture ne fonctionne pas avec les Data Box Disks. Ce scénario n'est pas pris en charge avec les lecteurs déchiffrés par dislocker. 
-- Le remontage en lecture-écriture ne fonctionnera pas. Vous avez peut-être réussi à remonter le périphérique à l’aide de la commande suivante : 
+Le remontage d'un lecteur en lecture-écriture ne fonctionne pas avec la solution Data Box Disk. Ce scénario n'est pas pris en charge avec les lecteurs déchiffrés par dislocker. Vous avez peut-être réussi à remonter le périphérique à l’aide de la commande suivante : 
 
     `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
 
-   Bien que le remontage ait réussi, les données ne seront pas conservées.
+Bien que le remontage ait réussi, les données ne seront pas conservées.
 
 **Résolution :**
 
@@ -125,11 +124,11 @@ Si vous constatez que votre lecteur est vide après démontage (bien que des don
  
 Si tel est le cas, reportez-vous à la résolution des [Lecteurs montés en lecture seule](#issue-drive-getting-mounted-as-read-only).
 
-Autrement, [téléchargez les journaux de diagnostic](#download-diagnostic-logs) depuis votre système et [contactez le support Microsoft](data-box-disk-contact-microsoft-support.md).
+Si ce n'est pas le cas, copiez les journaux du dossier contenant l'outil de déverrouillage Data Box Disk et [contactez le support Microsoft](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="deployment-issues-for-windows"></a>Problèmes de déploiement pour Windows
 
-Cette section détaille certains des principaux problèmes rencontrés lors du déploiement de Data Box Disk en cas d’utilisation d’un client Linux pour la copie de données
+Cette section détaille certains des principaux problèmes rencontrés lors du déploiement de Data Box Disk en cas d'utilisation d'un client Windows pour la copie de données.
 
 ### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Problème : Impossible de déverrouiller le lecteur depuis BitLocker
  
@@ -139,7 +138,7 @@ Vous avez utilisé le mot de passe dans la boîte de dialogue BitLocker et essay
 
 **Résolution :**
 
-Pour déverrouiller les Data Box Disks, vous devez utiliser l’outil de déverrouillage Data Box Disk et fournir le mot de passe du portail Azure.
+Pour déverrouiller les Data Box Disks, vous devez utiliser l’outil de déverrouillage Data Box Disk et fournir le mot de passe du portail Azure. Pour plus d'informations, consultez [Tutoriel : Déballer, connecter et déverrouiller un disque Azure Data Box](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey).
  
 ### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Problème : Impossible de déverrouiller ou de vérifier certains volumes. Contactez le Support Microsoft.
  
@@ -155,7 +154,7 @@ Cela indique qu’il vous manque probablement la version appropriée de Windows 
 
 Vous pouvez installer [Windows PowerShell v 5.0](https://www.microsoft.com/download/details.aspx?id=54616) et réessayer l'opération.
  
-Si vous ne parvenez toujours pas à déverrouiller les volumes, [contactez le support Microsoft](data-box-disk-contact-microsoft-support.md).
+Si vous ne parvenez toujours pas à déverrouiller les volumes, copiez les journaux du dossier contenant l'outil de déverrouillage Data Box Disk et [contactez le support Microsoft](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,27 +1,8 @@
 ---
-title: Copier des exemples de science des données externes – Azure Machine Learning Studio | Microsoft Docs
-description: 'Une pierre d’angle de la science des données : amener d’autres personnes à faire votre travail. Obtenez des exemples d’apprentissage automatique à partir d’Azure AI Gallery.'
-keywords: exemples de science des données, exemple de machine learning, algorithme de clustering, exemple d’algorithme de clustering
-services: machine-learning
-documentationcenter: na
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cjgronlund
-ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/05/2018
-ms.openlocfilehash: acd0899396ac5a47dade5fac16e451b2029ec0c2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260376"
+titre : Copier des exemples de sciences des données titleSuffix : Description d’Azure Machine Learning Studio : Une pierre d’angle de la science des données : amener d’autres personnes à faire votre travail. Obtenez des exemples d’apprentissage automatique à partir d’Azure AI Gallery.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 05/01/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copier le travail d’autres personnes pour des projets de science des données
 ## <a name="video-5-data-science-for-beginners-series"></a>Vidéo 5 : série Science des données pour les débutants

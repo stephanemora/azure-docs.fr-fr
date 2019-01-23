@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 10/6/2018
+ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 9cb14e5076379e5095ca88dc749a954e9e5d5aa4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d80e1394d4c4159c17eabff93ff44fdefbaf21b7
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994842"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247501"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Forum aux questions pour Azure Application Gateway
 
@@ -53,7 +53,7 @@ Les pools back-end peuvent être composés de cartes d’interface réseau, de g
 
 ### <a name="what-regions-is-the-service-available-in"></a>Dans quelles régions le service est-il disponible ?
 
-Application Gateway est disponible dans toutes les régions de la version globale d’Azure. Il est également disponible dans [Azure en Chine](https://www.azure.cn/) et [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
+Application Gateway est disponible dans toutes les régions de la version globale d’Azure. Il est également disponible dans [Azure - Chine 21Vianet](https://www.azure.cn/) et [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
 
 ### <a name="is-this-a-dedicated-deployment-for-my-subscription-or-is-it-shared-across-customers"></a>S’agit-il d’un déploiement dédié à mon abonnement ou est-il partagé entre les clients ?
 
@@ -126,7 +126,7 @@ Non, mais vous pouvez déployer d’autres passerelles d’application dans le s
 
 Les groupes de sécurité réseau (NSG) sont pris en charge dans le sous-réseau de la passerelle d’application avec les restrictions suivantes :
 
-* Des exceptions doivent être définies pour le trafic entrant sur les ports 65503-65534 pour la référence SKU v1 d’Application Gateway et les ports 65200-65535 pour la référence SKU v2. Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ils sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés, les entités externes (notamment les clients de ces passerelles) ne pourront initier aucun changement sur ces points de terminaison.
+* Des exceptions doivent être définies pour le trafic entrant sur les ports 65503-65534 pour la référence SKU v1 d’Application Gateway et les ports 65200-65535 pour la référence SKU v2. Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ils sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés, les entités externes (notamment les clients de ces passerelles) ne peuvent initier aucun changement sur ces points de terminaison.
 
 * La connectivité Internet sortante ne peut pas être bloquée.
 
@@ -137,6 +137,8 @@ Les groupes de sécurité réseau (NSG) sont pris en charge dans le sous-réseau
 Les itinéraires définis par l’utilisateur (UDR) sont pris en charge sur le sous-réseau d’Application Gateway tant qu’ils n’altèrent pas la communication de requête/réponse de bout en bout.
 
 Par exemple, vous pouvez configurer un UDR dans le sous-réseau d’Application Gateway pour pointer vers une appliance de pare-feu pour l’inspection des paquets, mais vous devez vous assurer que le paquet peut atteindre l’inspection sa destination prévue après l’inspection. Cela peut entraîner un comportement de sonde d’intégrité ou de routage du trafic incorrect. Cela inclut les itinéraires appris ou les itinéraires 0.0.0.0/0 par défaut propagés par ExpressRoute ou des passerelles VPN dans le réseau virtuel.
+
+Les routes définies par l’utilisateur ne sont **pas** prises en charge dans la référence SKU v2. Pour plus d’informations, voir [Passerelle d’application redondante interzone et avec mise à l’échelle automatique (préversion publique)](application-gateway-autoscaling-zone-redundant.md#known-issues-and-limitations).
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Quelles sont les limites d’Application Gateway ? Puis-je augmenter ces limites ?
 
@@ -206,11 +208,11 @@ Oui. La référence SKU v2 d’Application Gateway prend en charge la mise à l�
 
 ### <a name="does-manual-scale-updown-cause-downtime"></a>Les opérations manuelles de scale up/down causent-elles des temps d’arrêt ?
 
-Aucune interruption de service n’a lieu, les instances sont réparties entre les domaines de mise à niveau et les domaines d’erreur.
+Il n’y a pas de temps d’arrêt. Aucun temps d’arrêt n’a lieu, les instances sont réparties entre les domaines de mise à niveau et les domaines d’erreur.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>Application Gateway prend-il en charge le drainage de connexion ?
 
-Oui. Vous pouvez configurer le drainage de connexion afin de modifier des membres au sein d’un pool principal sans interrompre le service. Ainsi, les connexions existantes continueront d’être envoyés à leur destination précédente jusqu'à ce que cette connexion soit fermée ou qu’un délai configurable expire. Ce drainage de connexion attend uniquement la fin des connexions actuellement en transit. Application Gateway ne connaît pas l’état de la session d’application.
+Oui. Vous pouvez configurer le drainage de connexion afin de modifier des membres au sein d’un pool principal sans interrompre le service. Ainsi, les connexions existantes continuent d’être envoyées à leur destination précédente jusqu'à ce que cette connexion soit fermée ou qu’un délai configurable expire. Ce drainage de connexion attend uniquement la fin des connexions actuellement en transit. Application Gateway ne connaît pas l’état de la session d’application.
 
 ### <a name="what-are-application-gateway-sizes"></a>Quelles sont les tailles d’Application Gateway ?
 
@@ -292,7 +294,7 @@ Oui, la [configuration des suites de chiffrement](application-gateway-ssl-policy
 
 ### <a name="how-many-ssl-certificates-are-supported"></a>Quel est le nombre de certificats SSL pris en charge ?
 
-20 certificats SSL maximum sont pris en charge.
+Un maximum de 100 certificats SSL est pris en charge.
 
 ### <a name="how-many-authentication-certificates-for-backend-re-encryption-are-supported"></a>Quel est le nombre de certificats d’authentification pour le nouveau chiffrement du back-end pris en charge ?
 
@@ -374,7 +376,7 @@ Oui. Application Gateway prend en charge les alertes. Les alertes sont configur�
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Comment analyser les statistiques de trafic pour Application Gateway ?
 
-Vous pouvez afficher et analyser les journaux d’accès à l’aide de nombreux outils tels qu’Azure Log Analytics, Excel ou Power BI.
+Vous pouvez voir et analyser les journaux d’accès à l’aide de nombreux outils tels qu’Azure Log Analytics, Excel ou Power BI.
 
 Nous avons également publié un modèle Resource Manager qui installe et exécute le célèbre analyseur de journal [GoAccess](https://goaccess.io/) pour les journaux d’accès Application Gateway. GoAccess fournit des statistiques de trafic HTTP précieuses telles que les visiteurs uniques, les fichiers demandés, les hôtes, les systèmes d’exploitation, les navigateurs ou les codes d’état HTTP. Pour plus d’informations, consultez le [fichier Lisez-moi dans le dossier de modèles Resource Manager dans GitHub](https://aka.ms/appgwgoaccessreadme).
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/15/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 15f358f76504436dd6a3cf6a39b10531a9e1b376
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2d5c658dabd03eb706c24fbe5e8adb0c46fc65cd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055164"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267315"
 ---
 # <a name="azure-stack-1811-update"></a>Mise à jour 1811 d’Azure Stack
 
@@ -40,9 +40,9 @@ Le numéro de build de la mise à jour 1811 d’Azure Stack est **1.1811.0.101**
 Azure Stack publie des correctifs logiciels à intervalles réguliers. Avant d’installer la mise à jour 1811 d’Azure Stack, veillez à installer le [dernier correctif logiciel d’Azure Stack](#azure-stack-hotfixes) pour la build 1809.
 
 > [!TIP]  
-> Pour rester informé des publications des correctifs logiciels d’Azure Stack, abonnez-vous aux flux *RRS* ou *Atom* suivants :
-> - RRS : https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
-> - Atom : https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …
+> Pour rester informé des publications des correctifs logiciels d’Azure Stack, abonnez-vous aux flux *RSS* ou *Atom* suivants :
+> - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
+> - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ### <a name="azure-stack-hotfixes"></a>Correctifs logiciels d’Azure Stack
 
@@ -82,7 +82,7 @@ Azure Stack publie des correctifs logiciels à intervalles réguliers. Avant d�
     then resume the update.
     Exception: The Certificate path does not exist: [certificate path here]` 
  
-    Après avoir correctement importé les certificats d’hôte d’extension obligatoires, vous pouvez relancer la mise à jour 1811 à partir du portail administrateur. Même si Microsoft conseille aux opérateurs Azure Stack de mettre l’unité d’échelle en mode maintenance pendant le processus de mise à jour, une défaillance due à l’absence de certificats d’hôte d’extension ne devrait pas avoir d’incidence sur les charges de travail ou les services existants.  
+    Après avoir correctement importé les certificats d’hôte d’extension obligatoires, vous pouvez relancer la mise à jour 1811 à partir du portail administrateur. Même si Microsoft conseille aux opérateurs Azure Stack de planifier une fenêtre de maintenance pendant le processus de mise à jour, une défaillance due à l’absence de certificats d’hôte d’extension ne devrait pas avoir d’incidence sur les charges de travail ou les services existants.  
 
     Lors de l’installation de cette mise à jour, le portail utilisateur d’Azure Stack est indisponible pendant la configuration de l’hôte d’extension. La configuration de l’hôte d’extension peut prendre jusqu’à 5 heures. Pendant ce temps, vous pouvez vérifier l’état d’une mise à jour ou reprendre l’installation d’une mise à jour ayant échoué à l’aide [d’Azure Stack Administrator PowerShell ou du point de terminaison privilégié](azure-stack-monitor-update.md).
 
@@ -162,7 +162,7 @@ Cette mise à jour inclut les nouvelles fonctionnalités et améliorations suiva
 
 - L’applet de commande PEP existante pour récupérer les clés de récupération BitLocker est renommée de Get-AzsCsvsRecoveryKeys en Get-AzsRecoveryKeys dans la mise à jour 1811. Pour plus d’informations sur la façon d’obtenir les clés de récupération BitLocker, voir les [instructions sur la façon d’obtenir les clés](azure-stack-security-bitlocker.md).
 
-## <a name="common-vulnerabilities-and-exposures"></a>Failles et menaces courantes
+## <a name="common-vulnerabilities-and-exposures"></a>Vulnérabilités et menaces courantes
 
 Cette mise à jour installe les mises à jour de sécurité suivantes :  
 
@@ -254,6 +254,22 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 ### <a name="compute"></a>Calcul
 
 - Lors de la création d’une machine virtuelle Windows, vous devez sélectionner un port d’entrée public dans le panneau **Paramètres** pour pouvoir continuer. Dans la mise à jour 1811, ce paramètre est obligatoire, mais n’a aucun effet. En effet, cette fonctionnalité dépend du Pare-feu Azure qui n’est pas implémenté dans Azure Stack. Vous pouvez sélectionner **Aucun port d’entrée public** ou toute autre option pour poursuivre la création de machine virtuelle. Le paramètre n’a aucun effet.
+
+- Lors de la création d'une machine virtuelle Windows, l’erreur suivante peut s’afficher :
+
+   `'Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'`
+
+   Cette erreur se produit si vous activez les diagnostics de démarrage sur une machine virtuelle alors que vous avez supprimé votre compte de stockage des diagnostics de démarrage. Pour contourner ce problème, recréez le compte de stockage avec le même nom que celui utilisé précédemment.
+
+- Lorsque vous créez une [machine virtuelle de série Dv2](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), les machines virtuelles D11-14v2 vous autorisent à créer 4, 8, 16 et 32 disques de données respectivement. Toutefois, le volet Créer une machine virtuelle affiche 8, 16, 32 et 64 disques de données.
+
+- Les enregistrements d'utilisation sur Azure Stack peuvent contenir des majuscules inattendues ; par exemple :
+
+   `{"Microsoft.Resources":{"resourceUri":"/subscriptions/<subid>/resourceGroups/ANDREWRG/providers/Microsoft.Compute/
+   virtualMachines/andrewVM0002","location":"twm","tags":"null","additionalInfo":
+   "{\"ServiceType\":\"Standard_DS3_v2\",\"ImageType\":\"Windows_Server\"}"}}`
+
+   Dans cet exemple, le nom du groupe de ressources doit être **AndrewRG**. Vous pouvez ignorer cette incohérence.
 
 <!-- 3235634 – IS, ASDK -->
 - Pour déployer des machines virtuelles dont les tailles contiennent un suffixe **v2** (par exemple, **Standard_A2_v2**), spécifiez le suffixe sous la forme **Standard_A2_v2** (v minuscule). N’utilisez pas **Standard_A2_V2** (V majuscule). Cette méthode fonctionne dans Azure global et constitue une incohérence sur Azure Stack.

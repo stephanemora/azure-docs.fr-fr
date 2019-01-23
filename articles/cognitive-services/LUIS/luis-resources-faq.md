@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2018
 ms.author: diberry
-ms.openlocfilehash: 9a8bfa2e89e6bc0cbbd5af2efdff60aa406b3f1d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e75fa6560feb01ae912ad2040df7a8748ed0077b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714200"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246549"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur Language Understanding
 
@@ -84,6 +84,14 @@ Votre système doit utiliser l’intention de score le plus élevée, quelle qu�
 Le nombre total d’accès de point de terminaison est régulièrement mis à jour sur le tableau de bord de l’application, mais la fréquence de mise à jour est plus élevée pour les métriques associées à la clé du point de terminaison LUIS sur le Portail Azure.
 
 Si vous ne voyez pas les accès de point de terminaison mis à jour sur le tableau de bord, connectez-vous au Portail Azure et trouvez la ressource associée à la clé de votre point de terminaison LUIS, puis ouvrez **Métriques** pour sélectionner la métrique **Nombre total d’appels**. Si la clé de point de terminaison est utilisée pour plusieurs applications LUIS, la métrique du Portail Azure indique le nombre agrégé d’appels provenant de toutes les applications LUIS qui l’utilisent.
+
+### <a name="is-there-a-powershell-command-to-the-endpoint-quota"></a>Existe-t-il une commande PowerShell pour connaître le quota de points de terminaison ?
+
+Vous pouvez utiliser une commande PowerShell pour afficher le quota de points de terminaison :
+
+```powershell
+Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
+``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Mon application LUIS fonctionnait hier, et aujourd’hui j’obtiens des erreurs 403. Je n’ai pas modifié l’application. Comment la corriger ?
 En suivant les [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) du FAQ suivant pour créer une clé de point de terminaison LUIS et l’affecter à l’application. Ensuite, vous devez modifier la requête HTTP adressée au point de terminaison de façon à [utiliser la nouvelle clé de point de terminaison](luis-concept-keys.md#use-endpoint-key-in-query).
@@ -194,6 +202,12 @@ Si vous choisissez un modèle LUIS, puis le bouton **Sélectionner** dans le vol
 
 ### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>Quelles régions LUIS prennent en charge la préparation vocale de Bot Framework ?
 La [préparation vocale](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) est prise en charge uniquement pour les applications LUIS dans l’instance centrale (États-Unis).
+
+## <a name="api-programming-strategies"></a>Stratégies de programmation d'API
+
+### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>Comment obtenir par programmation la région LUIS d'une ressource ? 
+
+Utilisez l'exemple LUIS pour [rechercher une région](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) par programmation via C# ou Node.Js. 
 
 ## <a name="luis-service"></a>Service LUIS
 

@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: 161a56a019f8c2c8ce5e3890e73ad5c5710e7b82
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5a5d052052be447ea2ccbd9231d3b03d38c7615c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841613"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266941"
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Configurer Tomcat7 sur une machine virtuelle Linux avec Azure
 Apache Tomcat (ou simplement Tomcat, également appelé Jakarta Tomcat précédemment) est un serveur web open source et un conteneur de servlet développé par Apache Software Foundation (ASF). Tomcat implémente le servlet Java et les spécifications Java Server Pages (JSP) de Sun Microsystems. Tomcat fournit un environnement de serveur web HTTP Java pur dans lequel exécuter le code Java. Dans la configuration la plus simple, Tomcat s’exécute dans un processus de système d’exploitation unique. Ce processus exécute une machine virtuelle Java (JVM). Chaque requête HTTP d’un navigateur vers Tomcat est traitée comme un thread séparé dans le processus de Tomcat.  
 
 > [!IMPORTANT]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager et classique](../../../resource-manager-deployment-model.md). Cet article explique comment utiliser le modèle de déploiement classique. Pour la plupart des nouveaux déploiements, nous recommandons d’utiliser le modèle Resource Manager. Pour utiliser un modèle Resource Manager afin de déployer une machine virtuelle Ubuntu avec Open JDK et Tomcat, lisez [cet article](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
+> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager et classique](../../../resource-manager-deployment-model.md). Cet article explique comment utiliser le modèle de déploiement classique. Pour la plupart des nouveaux déploiements, nous recommandons d’utiliser le modèle Resource Manager. Pour utiliser un modèle Resource Manager afin de déployer une machine virtuelle Ubuntu avec Open JDK et Tomcat, lisez [cet article](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Dans cet article, vous installerez Tomcat7 sur une image Linux et le déploierez dans Azure.  
@@ -37,14 +37,14 @@ Vous apprendrez à effectuer les opérations suivantes :
 * Préparation de la machine virtuelle pour Tomcat7.
 * Installation de Tomcat7.
 
-Nous partons du principe que vous possédez déjà un abonnement Azure.  Si ce n’est pas le cas, vous pouvez vous inscrire sur [le site web Azure](https://azure.microsoft.com/) pour obtenir une évaluation gratuite. Si vous disposez d’un abonnement MSDN, consultez la page présentant les [tarifs préférentiels Microsoft Azure : avantages MSDN, MPN et BizSpark](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Pour en savoir plus sur Azure, consultez [Présentation d’Azure](https://azure.microsoft.com/overview/what-is-azure/).
+Nous partons du principe que vous possédez déjà un abonnement Azure.  Si ce n’est pas le cas, vous pouvez vous inscrire sur [le site web Azure](https://azure.microsoft.com/) pour obtenir une évaluation gratuite. Si vous disposez d’un abonnement MSDN, consultez [Tarification spéciale Microsoft Azure : avantages MSDN, MPN et BizSpark](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Pour en savoir plus sur Azure, consultez [Présentation d’Azure](https://azure.microsoft.com/overview/what-is-azure/).
 
 Cet article suppose que vous avez des connaissances de base relatives à Tomcat et Linux.  
 
-## <a name="phase-1-create-an-image"></a>Phase 1 : Création d’une image
+## <a name="phase-1-create-an-image"></a>Phase 1 : Créer une image
 Lors de cette phase, vous allez créer une machine virtuelle à l’aide d’une image Linux dans Azure.  
 
-### <a name="step-1-generate-an-ssh-authentication-key"></a>Étape 1 : Générer une clé d’authentification SSH
+### <a name="step-1-generate-an-ssh-authentication-key"></a>Étape 1 : Générer une clé d’authentification SSH
 SSH est un outil important pour les administrateurs système. Toutefois, une configuration de la sécurité d’accès basée sur un mot de passe déterminé par l’homme n’est pas recommandée. Les utilisateurs malveillants peuvent s’introduire dans votre système si vous disposez d’un nom d’utilisateur et d’un mot de passe faibles.
 
 Toutefois, il existe un moyen de laisser l’accès à distance ouvert. Vous n’aurez donc pas à vous soucier des mots de passe. Cette méthode se compose d’une authentification avec chiffrement asymétrique. La clé privée de l’utilisateur est celle qui accorde l’authentification. Vous pouvez même verrouiller le compte de l’utilisateur pour interdire l’authentification par mot de passe.
@@ -64,7 +64,7 @@ Pour générer la clé d’authentification SSH, procédez comme suit.
 5. Sélectionnez et copiez la clé publique et enregistrez-la dans un fichier nommé publicKey.pem. Ne cliquez pas sur **Save public key**, car le format de fichier de la clé publique enregistrée est différent de la clé publique que nous voulons.
 6. Cliquez sur **Save private key** et enregistrez-la dans un fichier nommé privateKey.ppk.
 
-### <a name="step-2-create-the-image-in-the-azure-portal"></a>Étape 2 : Créer l’image dans le portail Azure
+### <a name="step-2-create-the-image-in-the-azure-portal"></a>Étape 2 : Créer l’image dans le portail Azure
 1. Dans le [portail](https://portal.azure.com/), cliquez sur **Créer une ressource** dans la barre des tâches pour créer une image. Choisissez ensuite l’image Linux selon vos besoins. L’exemple suivant utilise l’image Ubuntu 14.04.
 ![Capture d’écran du portail montrant le bouton Nouveau][3]
 
@@ -78,7 +78,7 @@ Pour générer la clé d’authentification SSH, procédez comme suit.
 ## <a name="phase-2-prepare-your-virtual-machine-for-tomcat7"></a>Phase 2 : Préparation de la machine virtuelle pour Tomcat7
 Lors de cette phase, vous allez configurer un point de terminaison pour le trafic Tomcat, puis vous connecter à votre nouvelle machine virtuelle.
 
-### <a name="step-1-open-the-http-port-to-allow-web-access"></a>Étape 2 : Ouverture du port HTTP pour autoriser l’accès web
+### <a name="step-1-open-the-http-port-to-allow-web-access"></a>Étape 1 : Ouverture du port HTTP pour autoriser l’accès web
 Les points de terminaison dans Azure se composent d’un protocole TCP ou UDP et d’un port public et privé. Le port privé est celui que le service écoute sur la machine virtuelle. Le port public est celui que le service cloud Azure écoute en externe pour le trafic Internet entrant.  
 
 Le port TCP 8080 est le numéro de port par défaut sur lequel Tomcat écoute. Si ce port est ouvert avec un point de terminaison Azure, vous pouvez (vous et d’autres clients Internet) accéder aux pages Tomcat.  
@@ -98,7 +98,7 @@ Le port TCP 8080 est le numéro de port par défaut sur lequel Tomcat écoute. 
       ![Capture d’écran de l’interface utilisateur montrant la commande Ajouter, Port public et Port privé][7]
 4. Cliquez sur **OK** pour ajouter le point de terminaison à votre machine virtuelle.
 
-### <a name="step-2-connect-to-the-image-you-created"></a>Étape 2 : Connexion à l’image que vous avez créée
+### <a name="step-2-connect-to-the-image-you-created"></a>Étape 2 : Connexion à l’image que vous avez créée
 Vous pouvez choisir n’importe quel outil SSH pour vous connecter à votre machine virtuelle. Dans cet exemple, nous utilisons PuTTY.  
 
 1. Obtenez le nom DNS de votre machine virtuelle à partir du portail.
@@ -126,56 +126,23 @@ Vous pouvez choisir n’importe quel outil SSH pour vous connecter à votre mach
 8. Entrez le nom d’utilisateur que vous avez utilisé pour créer la machine virtuelle dans la section « Phase 1 : Création d'une image » plus haut dans cet article. Vous verrez quelque chose comme suit :   
 ![Capture d’écran montrant la confirmation de l’authentification][13]
 
-## <a name="phase-3-install-software"></a>Phase 3 : Installation du logiciel
+## <a name="phase-3-install-software"></a>Phase 3 : Installer les logiciels
 Dans cette phase, vous installez l’environnement d’exécution Java, Tomcat7 et d’autres composants de Tomcat7.  
 
 ### <a name="java-runtime-environment"></a>Environnement d’exécution Java
-Tomcat est écrit en Java. Il existe deux types de Kits de développement Java (JDK), OpenJDK et JDK Oracle. Vous pouvez choisir celui qui vous intéresse.  
-
-> [!NOTE]
-> Les deux JDK ont pratiquement le même code pour les classes dans l’API Java, mais le code de la machine virtuelle est différent. OpenJDK utilise généralement des bibliothèques libres tandis que celles de JDK Oracle sont fermées. Le JDK Oracle a plus de classes et quelques correctifs et il est plus stable qu’OpenJDK.
-
-#### <a name="install-openjdk"></a>Installer OpenJDK  
-
-Utilisez la commande suivante pour télécharger OpenJDK.   
-
-    sudo apt-get update  
-    sudo apt-get install openjdk-7-jre  
+Tomcat est écrit en Java. Consultez [JDK pris en charge dans Azure](https://aka.ms/azure-jdks) pour plus d’informations sur l’obtention de runtimes Java entièrement pris en charge. Vous pouvez aussi utiliser votre propre JDK, mais le reste de cet article utilise les versions prises en charge dans Azure.
 
 
-* Pour créer un répertoire contenant les fichiers JDK :  
+#### <a name="install-azure-supported-jdk"></a>Installer des JDK pris en charge dans Azure
 
-        sudo mkdir /usr/lib/jvm  
-* Pour extraire les fichiers JDK dans le répertoire /usr/lib/jvm :  
-
-        sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/
-
-#### <a name="install-oracle-jdk"></a>Installer JDK Oracle
-
-
-Utilisez la commande suivante pour télécharger JDK Oracle à partir du site Web d’Oracle.  
-
-     wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.tar.gz  
-* Pour créer un répertoire contenant les fichiers JDK :  
-
-        sudo mkdir /usr/lib/jvm  
-* Pour extraire les fichiers JDK dans le répertoire /usr/lib/jvm :  
-
-        sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/  
-* Pour définir le JDK Oracle comme machine virtuelle Java par défaut :  
-
-        sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_05/bin/java 100  
-
-        sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_05/bin/javac 100  
+Suivez les instructions d’installation d’`apt-get`, que vous trouverez sur le site web [Azul Zulu Enterprise for Azure](https://www.azul.com/downloads/azure-only/zulu/#apt-repo).
 
 #### <a name="confirm-that-java-installation-is-successful"></a>Confirmer que l’installation de Java a réussi
 Vous pouvez utiliser une commande semblable à la suivante pour vérifier si l’environnement d’exécution Java est correctement installé :  
-
     java -version  
 
-Si vous avez installé OpenJDK, vous devez voir un message similaire au suivant : ![Successful OpenJDK installation message][14] (Message d'installation réussie d'OpenJDK)
+Un message similaire au message ci-dessous doit s'afficher : ![Message d’installation réussie de OpenJDK][14]
 
-Si vous avez installé JDK Oracle, vous devez voir un message similaire au suivant : ![Successful Oracle JDK installation message][15] (Message d'installation réussie de JDK Oracle)
 
 ### <a name="install-tomcat7"></a>Installer Tomcat7
 Utilisez la commande suivante pour installer Tomcat7.  
@@ -240,12 +207,12 @@ Une fois connecté, vous devez voir quelque chose de similaire à ce qui suit :
 ## <a name="common-issues"></a>Problèmes courants
 ### <a name="cant-access-the-virtual-machine-with-tomcat-and-moodle-from-the-internet"></a>Impossible d’accéder à une machine virtuelle avec Tomcat et Moodle à partir d’Internet
 #### <a name="symptom"></a>Symptôme  
-  Tomcat est en cours d’exécution, mais vous ne voyez pas la page par défaut Tomcat avec votre navigateur.
+   Tomcat est en cours d’exécution, mais vous ne voyez pas la page par défaut Tomcat avec votre navigateur.
 #### <a name="possible-root-cause"></a>Cause principale possible   
 
   * Le port d’écoute Tomcat n’est pas identique au port privé du point de terminaison de votre machine virtuelle pour le trafic Tomcat.  
 
-     Vérifiez vos paramètres de points de terminaison de port public et de port privé et assurez-vous que le port privé est identique au port d’écoute Tomcat. Consultez la section « Phase 1 : Création d’une image » de cet article pour obtenir des instructions sur la configuration des points de terminaison pour votre machine virtuelle.  
+     Vérifiez vos paramètres de points de terminaison de port public et de port privé et assurez-vous que le port privé est identique au port d’écoute Tomcat. Consultez la section « Phase 1 : Création d’une image » de cet article pour obtenir des instructions sur la configuration des points de terminaison pour votre machine virtuelle.  
 
      Pour déterminer le port d’écoute de Tomcat, ouvrez /etc/httpd/conf/httpd.conf (version Red Hat) ou /etc/tomcat7/server.xml (version Debian). Par défaut, le port d’écoute de Tomcat est 8080. Voici un exemple :   
 

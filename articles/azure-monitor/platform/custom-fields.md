@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 5a97a4e35f4d2a5f8ec2884c93329e180172f9e1
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 11372894e1dbcac6a49205ff56d8b30ffb6ee976
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185220"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261262"
 ---
 # <a name="create-custom-fields-in-log-analytics"></a>Créer des champs personnalisés dans Log Analytics
 
 > [!NOTE]
-> Cet article décrit l’analyse des données de texte dans Log Analytics au moment de leur collecte. Il existe des avantages à l’analyse de texte dans une requête une fois qu’elle a été collectée, comme indiqué dans la section [Analyser les données de texte dans Log Analytics](../log-query/parse-text.md).
+> Cet article décrit l’analyse des données de texte dans Log Analytics au moment de leur collecte. L'analyse des données de texte dans une requête après la collecte de celles-ci présente des avantages, comme indiqué dans la section [Analyser les données de texte dans Log Analytics](../log-query/parse-text.md).
 
 La fonction **Champs personnalisés** de Log Analytics vous permet de compléter les enregistrements existants dans Log Analytics en leur ajoutant vos propres champs de recherche.  Les champs personnalisés sont renseignés automatiquement à partir des données extraites d’autres propriétés du même enregistrement.
 

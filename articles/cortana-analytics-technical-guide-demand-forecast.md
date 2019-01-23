@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: 88f6a27d4092e638403c641d72916ed9d2540708
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d055b6775c9c788ecbb3a868055fa2402a537a83
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427061"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231170"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guide technique de l’utilisation du modèle de solution Cortana Intelligence pour prévoir la demande énergétique
 ## <a name="overview"></a>**Vue d’ensemble**
@@ -163,8 +163,8 @@ Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sor
 
 1. Ajouter une sortie Power BI dans Azure Stream Analytics (ASA).
 
-   * Pour configurer la sortie de votre travail Azure Stream Analytics en tant que tableau de bord Power BI, vous devez suivre les instructions contenues dans [Azure Stream Analytics et Power BI : tableau de bord d’analyse permettant de visualiser en temps réel les données de streaming](stream-analytics/stream-analytics-power-bi-dashboard.md).
-   * Dans votre [portail Azure](https://portal.azure.com), recherchez le travail Stream Analytics. Le nom du travail doit être au format nom_solution+"streamingjob"+nombre_aléatoire+"asapbi" (c’est-à-dire, demostreamingjob123456asapbi).
+   * Vous devez suivre les instructions fournies dans [Azure Stream Analytics et Power BI : tableau de bord d'analyse permettant de visualiser en temps réel les données de diffusion en continu](stream-analytics/stream-analytics-power-bi-dashboard.md) pour configurer la sortie de votre travail Azure Stream Analytics en tant que tableau de bord Power BI.
+   * Dans votre [portail Azure](https://portal.azure.com), recherchez le travail Stream Analytics. Le nom du travail doit être au format : nom_solution+"streamingjob"+nombre_aléatoire+"asapbi" (c'est-à-dire, demostreamingjob123456asapbi).
    * Ajoutez une sortie PowerBI pour le travail ASA. Définissez l’**alias de sortie** sur **PBIoutput**. Dans **Nom du jeu de données** et **Nom de la table**, entrez **EnergyStreamData**. Une fois que vous avez ajouté la sortie, cliquez sur **Démarrer** en bas de la page pour démarrer le travail Stream Analytics. Un message de confirmation doit s’afficher (par exemple : « La tâche Stream Analytics ’myteststreamingjob12345asablob’ a bien démarré »).
 2. Se connecter à [Power BI en ligne](https://www.powerbi.com)
 
@@ -185,7 +185,7 @@ Dans les étapes suivantes, nous allons vous expliquer comment visualiser la sor
 Dans le pipeline de données de chemin à froid, l'objectif principal est d’obtenir la prévision de la demande de chaque région. Power BI se connecte à une base de données SQL Azure en tant que source de données où sont stockés les résultats de la prédiction.
 
 > [!NOTE]
-> 1) Il faut plusieurs heures pour collecter suffisamment de résultats de prévisions pour le tableau de bord. Nous vous recommandons donc de démarrer ce processus 2 à 3 heures après le lancement du Générateur de données. 2) Dans cette étape, la condition préalable consiste à télécharger et installer le logiciel gratuit [Power BI Desktop](https://powerbi.microsoft.com/desktop).
+> 1) Plusieurs heures sont nécessaires afin de collecter suffisamment de résultats de prévisions pour le tableau de bord. Nous vous recommandons donc de démarrer ce processus 2 à 3 heures après le lancement du Générateur de données. 2) Dans cette étape, la condition préalable consiste à télécharger et installer le logiciel gratuit [Power BI Desktop](https://powerbi.microsoft.com/desktop).
 >
 >
 
@@ -200,7 +200,7 @@ Dans le pipeline de données de chemin à froid, l'objectif principal est d’ob
 2. Mettez à jour la source de données du fichier Power BI de chemin à froid.
 
    * Vérifiez que vous avez installé la dernière version de [Power BI Desktop](https://powerbi.microsoft.com/desktop).
-   * Dans le dossier **DemandForecastingDataGeneratorv1.0** que vous avez téléchargé, double-cliquez sur le fichier **Power BI Template\DemandForecastPowerBI.pbix**. Les visualisations initiales sont basées sur des données fictives. **Remarque :** si un message d’erreur s’affiche, vérifiez que vous avez installé la dernière version de Power BI Desktop.
+   * Dans le dossier **DemandForecastingDataGeneratorv1.0** que vous avez téléchargé, double-cliquez sur le fichier **Power BI Template\DemandForecastPowerBI.pbix**. Les visualisations initiales sont basées sur des données fictives. **Remarque :** si un message d'erreur s'affiche, vérifiez que vous avez installé la dernière version de Power BI Desktop.
 
      Après avoir ouvert le fichier, cliquez sur **Modifier les requêtes**dans la partie supérieure. Dans la fenêtre contextuelle, double-cliquez sur **Source** dans le volet droit.
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic1.png)
@@ -218,7 +218,7 @@ Dans le pipeline de données de chemin à froid, l'objectif principal est d’ob
 4. (Facultatif) Planifiez l'actualisation de la source de données.
 
    * Pour planifier l’actualisation des données, pointez votre souris sur le jeu de données **EnergyBPI-Final**, cliquez sur ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic3.png), puis sélectionnez **Planifier l’actualisation**.
-     **Remarque :** si vous voyez un message d’avertissement, cliquez sur **Modifier les informations d’identification** et assurez-vous que vos informations d’identification de base de données sont les mêmes que celles décrites à l’étape 1.
+     **Remarque :** Si vous voyez un message d’avertissement, cliquez sur **Modifier les informations d’identification** et vérifiez que vos informations d’identification de base de données sont les mêmes que celles décrites à l’étape 1.
 
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic4.png)
    * Développez la section **Planifier l’actualisation** . Activez l’option Maintenir vos données à jour.

@@ -1,24 +1,18 @@
 ---
-title: Passerelle d’application redondante interzone et avec mise à l’échelle automatique dans Azure (préversion publique) | Microsoft Docs
+title: Passerelle d’application redondante interzone et avec mise à l’échelle automatique dans Azure (préversion publique)
 description: Cet article fournit des informations sur les limites de la taille des demandes adressées au pare-feu d’applications web et sur les listes d’exclusions dans Application Gateway avec le portail Azure.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
-ms.workload: infrastructure-services
-ms.date: 09/26/2018
+ms.date: 1/10/2019
 ms.author: victorh
-ms.openlocfilehash: 8fb3dce108b59b8df0d330ec642365d2487eae35
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: f5885fd2ac76550990c9a56a1d200bbe11555918
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085459"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213754"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Passerelle d’application redondante interzone et avec mise à l’échelle automatique (préversion publique)
 
@@ -29,7 +23,7 @@ Application Gateway et le pare-feu d’applications web (WAF) sont désormais di
    > [!NOTE]
    > La mise à l’échelle automatique n’est pas disponible actuellement pour la référence SKU du WAF. Configurez le WAF en mode de capacité fixe, plutôt qu’en mode de mise à l’échelle automatique.
 - **Redondance de zone** : un déploiement d’Application Gateway ou de WAF peut désormais couvrir plusieurs zones de disponibilité, ce qui évite d’avoir à provisionner et épingler plusieurs instances d’Application Gateway dans chaque zone à l’aide d’une instance Traffic Manager. Vous pouvez choisir une ou plusieurs zones où les instances d’Application Gateway sont déployées, assurant ainsi une résilience en cas d’échec de la zone. Le pool principal pour les applications peut être distribué de la même façon entre les différentes zones de disponibilité.
-- **Améliorations des performances** : la référence SKU de la mise à l’échelle automatique offre jusqu’à 5 fois plus de déchargement SSL que la référence SKU en disponibilité générale.
+- **Amélioration des performances** : la référence SKU de la mise à l’échelle automatique offre jusqu’à 5 fois plus de déchargement SSL que la référence SKU en disponibilité générale.
 - **Déploiement et mise à jour plus rapides** La référence SKU de la mise à l’échelle automatique fournit un déploiement et une mise à jour plus rapides que la référence SKU en disponibilité générale.
 - **Adresse IP virtuelle statique** : l’adresse IP virtuelle de la passerelle d’application prend désormais exclusivement en charge le type d’adresse IP virtuelle statique. Cela garantit que l’adresse IP virtuelle associée à la passerelle d’application ne change pas même après un redémarrage.
 
@@ -39,10 +33,10 @@ Application Gateway et le pare-feu d’applications web (WAF) sont désormais di
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## <a name="supported-regions"></a>Régions prises en charge
-La référence SKU de la mise à l’échelle automatique est disponible dans les régions USA Est 2, USA Centre, USA Ouest 2, France Centre, Europe Ouest et Asie Sud-Est.
+La référence de mise à l’échelle automatique est disponible dans les régions suivantes : USA Est 2, USA Centre, USA Ouest 2, USA Centre Nord, USA Ouest, USA Centre Sud, France Centre, Europe Ouest, Europe Nord, Royaume-Uni Ouest, Asie Sud-Est et Japon Est.
 
 ## <a name="pricing"></a>Tarifs
-Pendant la préversion, aucuns frais ne s’appliquent. Vous serez facturé pour les ressources autres que la passerelle d’application, telles que le coffre de clés, les machines virtuelles, etc. 
+Pendant la préversion, aucuns frais ne s’appliquent. Vous êtes facturé pour les ressources autres que la passerelle d’application, telles que le coffre de clés, les machines virtuelles, etc. 
 
 ## <a name="known-issues-and-limitations"></a>Problèmes connus et limitations
 

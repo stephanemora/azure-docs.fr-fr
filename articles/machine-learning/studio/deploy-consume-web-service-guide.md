@@ -1,26 +1,7 @@
 ---
-title: Déploiement et consommation - Azure Machine Learning Studio | Microsoft Docs
-description: Vous pouvez utiliser Azure Machine Learning pour déployer des flux de travail et des modèles de machine learning en tant que services web. Ces services web peuvent ensuite servir à appeler les modèles de machine learning à partir d’applications via Internet pour effectuer des prévisions en temps réel ou par lots.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2017
-ms.openlocfilehash: ed57f80a210cdb9c7ff8e77da2269d8494892fcc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268425"
+titre : Déploiement et consommation titleSuffix : Description d'Azure Machine Learning Studio : Vous pouvez utiliser Azure Machine Learning pour déployer des flux de travail et des modèles de machine learning en tant que services web. Ces services web peuvent ensuite servir à appeler les modèles de machine learning à partir d’applications via Internet pour effectuer des prévisions en temps réel ou par lots. services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Services web Azure Machine Learning Studio : Déploiement et consommation
 Vous pouvez utiliser Azure Machine Learning pour déployer des flux de travail et des modèles de machine learning en tant que services web. Ces services web peuvent ensuite servir à appeler les modèles de machine learning à partir d’applications via Internet pour effectuer des prévisions en temps réel ou par lots. Les services web, RESTful, peuvent être appelés avec divers langages et plateformes de programmation, notamment Java, .NET et des applications comme Excel.

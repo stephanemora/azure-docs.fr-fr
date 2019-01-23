@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: d35ac7cac5c14a7bd57913046e8f4c09a22f177a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318535"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267434"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Audit dans Azure SQL Data Warehouse
 
@@ -107,7 +107,7 @@ Avant de configurer l'audit, assurez-vous que vous utilisez bien un [« Client 
 
 5. Cliquez sur le bouton **OK** pour enregistrer la configuration des détails du stockage.
 6. Sous **JOURNALISATION PAR ÉVÈNEMENT**, cliquez sur **SUCCÈS** et sur **ÉCHEC**pour enregistrer tous les événements, ou choisissez des catégories d’événements individuelles.
-7. Si vous configurez l’audit pour une base de données, vous pouvez être amené à modifier la chaîne de connexion de votre client pour garantir que l’audit des données est correctement capturé. Consultez la rubrique [Modifier le nom de domaine complet du serveur dans la chaîne de connexion](sql-data-warehouse-auditing-downlevel-clients.md) , qui traite des connexions de client de niveau inférieur.
+7. Si vous configurez l’audit pour une base de données, vous pouvez être amené à modifier la chaîne de connexion de votre client pour garantir que l’audit des données est correctement capturé. Consultez la rubrique [Modifier le nom de domaine complet du serveur dans la chaîne de connexion](sql-data-warehouse-auditing-downlevel-clients.md), qui traite des connexions client de niveau inférieur.
 8. Cliquez sur **OK**.
 
 ## <a id="subheading-3"></a>Analyse des journaux et des rapports d’audit
@@ -150,7 +150,7 @@ Plusieurs méthodes vous permettent d’afficher des journaux d’audit d’obje
 ### <a name="database-level-policy-audit-logs"></a>Journaux d’audit avec stratégie au niveau de la base de données
 Les journaux d’audit au niveau de la base de données sont agrégés dans une collection de tables de stockage avec un préfixe **SQLDBAuditLogs** au sein du compte de stockage Azure que vous avez choisi lors de la configuration. Vous pouvez afficher les fichiers journaux à l'aide d'un outil tel que l'[Explorateur de stockage Azure](http://azurestorageexplorer.codeplex.com).
 
-Un modèle de rapport de tableau de bord préconfiguré est disponible sous forme de [feuille de calcul Excel téléchargeable](http://go.microsoft.com/fwlink/?LinkId=403540) afin de vous aider à analyser rapidement les données de journal. Pour utiliser le modèle sur vos journaux d’audit, il vous faut Excel 2013 ou une version ultérieure et Power Query, téléchargeable [ici](http://www.microsoft.com/download/details.aspx?id=39379).
+Un modèle de rapport de tableau de bord préconfiguré est disponible sous forme de [feuille de calcul Excel téléchargeable](https://go.microsoft.com/fwlink/?LinkId=403540) afin de vous aider à analyser rapidement les données de journal. Pour utiliser le modèle sur vos journaux d’audit, il vous faut Excel 2013 ou une version ultérieure et Power Query, téléchargeable [ici](https://www.microsoft.com/download/details.aspx?id=39379).
 
 Le modèle contient des données d'exemple fictives. Vous pouvez configurer Power Query de façon à ce qu'il importe votre journal d'audit directement à partir de votre compte de stockage Azure.
 
@@ -196,7 +196,7 @@ Voici une liste non exhaustive de « clients de niveau inférieur » :
 * JDBC (bien que JDBC prenne en charge la version 7.4 de TDS, la fonctionnalité de redirection TDS n’est pas entièrement prise en charge)
 * Tedious (pour Node.JS)
 
-**Remarque :** la modification des noms de domaines complets de serveur précédents peut aussi être utile pour appliquer une stratégie d’audit au niveau de SQL Server sans avoir à configurer chaque base de données (atténuation temporaire).     
+**Remarque :** la modification précédente du nom de domaine complet du serveur peut également être utile pour appliquer une stratégie d'audit au niveau de SQL Server sans passer par la configuration de chacune des bases de données (atténuation temporaire).     
 
 
 

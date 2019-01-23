@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 076df176d7cd40c009aea27004fe0f4415999c80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6466dc1ec0dcaae6045fadfae7f3a552345be2e8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23112277"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267286"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Déploiement de StorSimple Virtual Array - Configuration d’un serveur iSCSI via le portail Azure
 
@@ -36,7 +36,7 @@ Les procédures décrites ici prennent de 30 minutes à 1 heure environ. Les inf
 Avant de configurer votre solution StorSimple Virtual Array, assurez-vous que :
 
 * Vous avez configuré un tableau virtuel et vous êtes connecté à celui-ci, comme décrit dans [Déploiement de StorSimple Virtual Array - Configuration d’un tableau virtuel dans Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) ou [Déploiement de StorSimple Virtual Array - Configuration d’un tableau virtuel dans VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
-* Vous disposez de la clé d’inscription du service StorSimple Device Manager que vous avez créé pour gérer les instances StorSimple Virtual Array. Pour plus d’informations, consultez l’ **étape 2 : Obtention de la clé d’inscription** dans [Déploiement de StorSimple Virtual Array - Préparation du portail](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
+* Vous disposez de la clé d’inscription du service StorSimple Device Manager que vous avez créé pour gérer les instances StorSimple Virtual Array. Pour plus d'informations, consultez **Étape 2 : Obtention de la clé d'inscription** dans [Déploiement de StorSimple Virtual Array - Préparation du portail](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 * S’il s’agit de la deuxième baie virtuelle (ou d’une baie ultérieure) que vous inscrivez auprès d’un service StorSimple Device Manager existant, vous devez disposer de la clé de chiffrement des données du service. Cette clé a été générée lorsque le premier appareil a été correctement inscrit auprès de ce service. Si vous avez perdu cette clé, consultez la rubrique **Obtenir la clé de chiffrement des données de service** dans [Utiliser l’interface utilisateur web pour gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
 
 ## <a name="step-by-step-setup"></a>Configuration étape par étape
@@ -46,9 +46,9 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
 * [Étape 1 : Finalisation de la configuration de l'interface utilisateur web locale et inscription de votre appareil](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
 * [Étape 2 : Finalisation de la configuration requise pour l’appareil](#step-2-complete-the-required-device-setup)
 * [Étape 3 : Ajout d’un volume](#step-3-add-a-volume)
-* [Étape 4 : Montage, initialisation et formatage d’un volume](#step-4-mount-initialize-and-format-a-volume)
+* [Étape 4 : Monter, initialiser et formater un volume](#step-4-mount-initialize-and-format-a-volume)
 
-## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>Étape 1 : Finalisation de la configuration de l'interface utilisateur web locale et inscription de votre appareil
+## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>Étape 1 : Finalisation de la configuration de l'interface utilisateur web locale et inscription de votre appareil
 
 #### <a name="to-complete-the-setup-and-register-the-device"></a>Pour finaliser l'installation et l’inscription de l'appareil
 
@@ -59,10 +59,10 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
     Utilisez l'URL de connexion notée à l'étape précédente. Une erreur vous indique qu'il existe un problème avec le certificat de sécurité du site web. Cliquez sur **Poursuivre sur cette page web**.
    
     ![erreur de certificat de sécurité](./media/storsimple-virtual-array-deploy3-iscsi-setup/image3.png)
-2. Connectez-vous à l'interface utilisateur web de votre appareil virtuel en tant que **StorSimpleAdmin**. Entrez le mot de passe administrateur que vous avez modifié à l’étape 3 : Démarrage de l’appareil virtuel dans [Déploiement de StorSimple Virtual Array - Configuration d’un appareil virtuel dans Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) ou [Déploiement de StorSimple Virtual Array - Configuration d’un appareil virtuel dans VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
+2. Connectez-vous à l'interface utilisateur web de votre appareil virtuel en tant que **StorSimpleAdmin**. Entrez le mot de passe de l'administrateur de l'appareil que vous avez modifié à l'Étape 3 : Démarrage de l’appareil virtuel dans [Déploiement de StorSimple Virtual Array - Configuration d’un appareil virtuel dans Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) ou [Déploiement de StorSimple Virtual Array - Configuration d’un appareil virtuel dans VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
    
     ![page de connexion](./media/storsimple-virtual-array-deploy3-iscsi-setup/image4.png)
-3. Vous accéderez à la page d’ **accueil** . Cette page décrit les différents paramètres requis pour configurer et inscrire l’appareil virtuel auprès du service StorSimple Manager. Notez que les **paramètres réseau**, **les paramètres du proxy web** et les **paramètres horaires** sont facultatifs. Les seuls paramètres requis sont les **paramètres de l’appareil** et les **paramètres du cloud**.
+3. Vous accéderez à la page d’ **accueil** . Cette page décrit les différents paramètres requis pour configurer et inscrire l’appareil virtuel auprès du service StorSimple Manager. Notez que les **paramètres réseau**, **les paramètres du proxy web** et les **paramètres horaires** sont facultatifs. Les seuls paramètres obligatoires sont les **paramètres de l’appareil** et les **paramètres du cloud**.
    
     ![page d'accueil](./media/storsimple-virtual-array-deploy3-iscsi-setup/image5.png)
 4. Dans la page **Paramètres réseau**, sous **Interfaces réseau**, DATA 0 sera automatiquement configuré pour vous. Chaque interface réseau est définie par défaut pour obtenir automatiquement une adresse IP (DHCP). Par conséquent, une adresse IP, un sous-réseau et une passerelle seront automatiquement attribués (pour IPv4 et IPv6).
@@ -75,7 +75,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
 5. Des serveurs DNS sont requis car ils sont utilisés lorsque votre appareil tente de communiquer avec vos fournisseurs de services de stockage cloud ou pour résoudre votre appareil par nom s’il est configuré comme un serveur de fichiers. Dans la page **Paramètres réseau**, sous **Serveurs DNS** :
    
    1. Un serveur DNS principal et un serveur secondaire seront définis automatiquement. Si vous choisissez de configurer des adresses IP statiques, vous pouvez spécifier des serveurs DNS. Pour une haute disponibilité, nous vous recommandons de configurer un serveur DNS principal et un serveur secondaire.
-   2. Cliquez sur **Apply**. Cette opération appliquera et validera les paramètres réseau.
+   2. Cliquez sur **Appliquer**. Cette opération appliquera et validera les paramètres réseau.
 6. Sur la page **Paramètres de l’appareil** :
    
    1. Attribuez un **nom** unique à votre appareil. Ce nom peut contenir 1 à 15 caractères ainsi que des lettres, des chiffres et des traits d'union.
@@ -88,20 +88,20 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
       > Si vous joignez votre serveur iSCSI à un domaine, assurez-vous que votre tableau virtuel est dans sa propre unité organisationnelle (UO) pour Microsoft Azure Active Directory et qu’aucun objet de stratégie de groupe (GPO) ne lui est appliqué.
       > 
       > 
-   4. Une boîte de dialogue s’affiche. Entrez vos informations d'identification de domaine au format spécifié. Cliquez sur l’icône en forme de coche  ![icône en forme de coche](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). Les informations d'identification de domaine seront vérifiées. Un message d'erreur apparaît si les informations d'identification sont incorrectes.
+   4. Une boîte de dialogue s’affiche. Entrez vos informations d'identification de domaine au format spécifié. Cliquez sur l’icône de coche  ![icône en forme de coche](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). Les informations d'identification de domaine seront vérifiées. Un message d'erreur apparaît si les informations d'identification sont incorrectes.
       
        ![credentials](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
-   5. Cliquez sur **Apply**. Cette opération appliquera et validera les paramètres de l’appareil.
+   5. Cliquez sur **Appliquer**. Cette opération appliquera et validera les paramètres de l’appareil.
 7. (Facultatif) Configurez votre serveur proxy web. Bien que la configuration du proxy web soit facultative, si vous en utilisez un, vous pouvez uniquement le configurer ici.
    
     ![configuration du proxy web](./media/storsimple-virtual-array-deploy3-iscsi-setup/image9.png)
    
     Dans la page **Proxy web** :
    
-   1. Indiquez **l’URL du proxy web** au format suivant : *http://adresse IP hôte* ou *Nom de domaine complet:Numéro de port*. Notez que les URL HTTPS ne sont pas prises en charge.
+   1. Indiquez l'**URL du proxy web** au format suivant : *http://host-IPadresse IP* ou *nom de domaine complet de l'hôte:numéro de port*. Notez que les URL HTTPS ne sont pas prises en charge.
    2. Définissez **Authentification** sur le paramètre **De base** ou **Aucune**.
    3. Si vous utilisez une authentification, vous devez également fournir un **nom d’utilisateur** et un **mot de passe**.
-   4. Cliquez sur **Apply**. Cette opération validera et appliquera les paramètres de proxy web configurés.
+   4. Cliquez sur **Appliquer**. Cette opération validera et appliquera les paramètres de proxy web configurés.
 8. (Facultatif) Configurez les paramètres d'heure de votre appareil, notamment le fuseau horaire et les serveurs NTP principal et secondaire. Les serveurs NTP sont requis. En effet, votre appareil doit synchroniser les heures pour pouvoir s’authentifier auprès de vos fournisseurs de services cloud.
    
     ![paramètres horaires](./media/storsimple-virtual-array-deploy3-iscsi-setup/image10.png)
@@ -114,7 +114,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
    4. Cliquez sur **Apply**. Cette opération validera et appliquera les paramètres d’heure configurés.
 9. Configurez les paramètres de cloud de votre appareil. Dans le cadre de cette étape, vous allez effectuer la configuration de l’appareil local, puis inscrire l’appareil auprès de votre service StorSimple Device Manager.
    
-   1. Entrez la **clé d’inscription de service** que vous avez obtenue à l’**étape2 : obtention de la clé d’inscription** dans [Déploiement de StorSimple Virtual Array - Préparation du portail](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
+   1. Entrez la **clé d'inscription au service** obtenue à l'**Étape 2 : Obtention de la clé d'inscription** dans [Déploiement de StorSimple Virtual Array - Préparation du portail](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
    2. S’il ne s’agit pas du premier appareil que vous inscrivez auprès de ce service, vous devrez fournir la **clé de chiffrement de données du service**. Cette clé et la clé d’inscription du service sont requises pour l’inscription d’appareils supplémentaires auprès du service StorSimple Device Manager. Pour plus d’informations, reportez-vous à la section permettant d’obtenir la [clé de chiffrement de données du service](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) sur votre interface utilisateur web locale.
    3. Cliquez sur **S'inscrire**. Cette opération redémarra l’appareil. Vous devrez peut-être attendre 2 à 3 minutes avant que l'appareil soit inscrit. Une fois que l’appareil a redémarré, vous êtes redirigé vers la page de connexion.
       
@@ -125,7 +125,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
     
     ![enregistrer un appareil](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis1m.png)
 
-## <a name="step-2-configure-the-device-as-iscsi-server"></a>Étape 2 : Configurer l’appareil en tant que serveur iSCSI
+## <a name="step-2-configure-the-device-as-iscsi-server"></a>Étape 2 : Configurer l’appareil en tant que serveur iSCSI
 
 Pour exécuter la configuration d’appareil requise, procédez comme suit dans le Portail Azure.
 
@@ -169,7 +169,7 @@ Pour exécuter la configuration d’appareil requise, procédez comme suit dans 
      
      ![Ajout d’un volume](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis12.png)
    * Cliquez sur **Hôtes connectés**, sélectionnez un enregistrement de contrôle d’accès correspondant à l’initiateur iSCSI que vous souhaitez connecter à ce volume, puis cliquez sur **Sélectionner**. <br><br> 
-3. Pour ajouter un hôte connecté, cliquez sur **Ajouter nouveau**, saisissez un nom pour l’hôte et son nom complet iSCSI, puis cliquez sur **Ajouter**. Si vous ne possédez pas le nom IQN, accédez à [l’Annexe A : Obtention du nom qualifié d’un hôte Windows Server](#appendix-a-get-the-iqn-of-a-windows-server-host).
+3. Pour ajouter un hôte connecté, cliquez sur **Ajouter nouveau**, saisissez un nom pour l’hôte et son nom complet iSCSI, puis cliquez sur **Ajouter**. Si vous ne possédez pas le nom qualifié, accédez à l'[Annexe A : Obtention du nom qualifié d’un hôte Windows Server](#appendix-a-get-the-iqn-of-a-windows-server-host).
    
       ![Ajout d’un volume](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis15m.png)
 4. Lorsque vous avez terminé de configurer votre volume, cliquez sur **OK**. Un volume est créé avec les paramètres spécifiés ; une notification s’affiche. Par défaut, la surveillance et la sauvegarde seront activées pour le volume.
@@ -179,7 +179,7 @@ Pour exécuter la configuration d’appareil requise, procédez comme suit dans 
    
    ![Ajout d’un volume](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis20m.png)
 
-## <a name="step-4-mount-initialize-and-format-a-volume"></a>Étape 4 : Montage, initialisation et formatage d’un volume
+## <a name="step-4-mount-initialize-and-format-a-volume"></a>Étape 4 : Monter, initialiser et formater un volume
 
 Procédez comme suit pour monter, initialiser et formater vos volumes StorSimple sur un hôte Windows Server.
 
@@ -228,9 +228,9 @@ Procédez comme suit pour monter, initialiser et formater vos volumes StorSimple
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment utiliser l’interface utilisateur web locale pour [gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Découvrez comment [utiliser l’interface utilisateur web locale pour gérer votre StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
-## <a name="appendix-a-get-the-iqn-of-a-windows-server-host"></a>l’Annexe A : Obtention du nom qualifié d’un hôte Windows Server
+## <a name="appendix-a-get-the-iqn-of-a-windows-server-host"></a>Annexe A : Obtention du nom qualifié d’un hôte Windows Server
 
 Procédez comme suit pour obtenir le nom qualifié iSCSI (IQN) d'un hôte Windows exécutant Windows Server 2012.
 
@@ -239,7 +239,7 @@ Procédez comme suit pour obtenir le nom qualifié iSCSI (IQN) d'un hôte Window
 1. Démarrez l’initiateur Microsoft iSCSI sur l’hôte Windows.
 2. Dans la fenêtre **Propriétés de l’initiateur iSCSI**, sous l’onglet **Configuration**, sélectionnez et copiez la chaîne affichée dans le champ **Nom de l’initiateur**.
    
-    ![Propriétés de l’initiateur iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/image34.png)
+    ![iSCSI Initiator Properties](./media/storsimple-virtual-array-deploy3-iscsi-setup/image34.png)
 3. Enregistrez cette chaîne.
 
 <!--Reference link-->

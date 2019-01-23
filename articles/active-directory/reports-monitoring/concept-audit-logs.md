@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 883f521040c67cb8fe9578bc5c490bc3dfccba28
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 03206baf0e70e7be247e9848bfd5a80a1a1e1b35
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624656"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247756"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité d’audit dans le portail Azure Active Directory 
 
@@ -45,7 +45,7 @@ Cet article présente une vue d’ensemble du rapport d’audit.
 
 ## <a name="audit-logs"></a>Journaux d’audit
 
-Les journaux d’audit Azure AD fournissent des enregistrements des activités du système pour la conformité. Pour accéder au rapport d’audit, sélectionnez **Journaux d’audit** dans la section **Activité** d’**Azure Active Directory**. 
+Les journaux d’audit Azure AD fournissent des enregistrements des activités du système pour la conformité. Pour accéder au rapport d’audit, sélectionnez **Journaux d’audit** dans la section **Activité** d’**Azure Active Directory**. Notez que les journaux d’audit peuvent avoir une latence de jusqu’à une heure, et il peut s’écouler un certain temps avant que les données d’activité d’audit s’affichent dans le portail une fois que vous avez terminé la tâche.
 
 ![Journaux d’audit](./media/concept-audit-logs/61.png "Journaux d’Audit")
 
@@ -178,6 +178,11 @@ Vous pouvez filtrer cette vue jusqu’à **groupes** ou **utilisateurs**.
 
 ![Journaux d’audit](./media/concept-audit-logs/25.png "Journaux d’Audit")
 
+## <a name="office-365-activity-logs"></a>Journaux d’activité Office 365
+
+Vous pouvez consulter les journaux d’activité Office 365 dans le [centre d’administration Office 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Bien que les journaux d’activité d’Office 365 et d’Azure AD partagent une grande partie des ressources du répertoire, seul le centre d’administration Office 365 offre une vue complète des journaux d’activité d’Office 365. 
+
+Vous pouvez également accéder par programme aux journaux d’activité d’Office 365 avec l’[API de gestion Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

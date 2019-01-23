@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d9048ae531abedb89b70989ce1c962357c514cd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2cf9f914aeaee25cda8fd426454cb39a1afa0b4f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357042"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260224"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Résoudre les erreurs liées aux quotas de ressources
 
@@ -97,7 +97,7 @@ Virtual Machines                             0 10000 Count
 Pour demander une augmentation du quota, accédez au portail et soumettez une requête de support. Dans la requête de support, demandez une augmentation de votre quota pour la région dans laquelle vous souhaitez effectuer le déploiement.
 
 > [!NOTE]
-> N’oubliez pas que pour les groupes de ressources, le quota est défini pour chaque région, pas pour tout l’abonnement. Si vous devez déployer 30 cœurs dans l’Ouest des États-Unis, vous devez demander 30 cœurs Resource Manager dans l’Ouest des États-Unis. Si vous devez déployer 30 cœurs dans l’une des régions auxquelles vous avez accès, vous devez demander 30 cœurs Resource Manager dans toutes les régions.
+> N’oubliez pas que pour les groupes de ressources, le quota est défini pour chaque région, pas pour tout l’abonnement. Si vous devez déployer 30 cœurs dans USA Ouest, vous devez demander 30 cœurs Resource Manager dans USA Ouest. Si vous devez déployer 30 cœurs dans l’une des régions auxquelles vous avez accès, vous devez demander 30 cœurs Resource Manager dans toutes les régions.
 >
 >
 

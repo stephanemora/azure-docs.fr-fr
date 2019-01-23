@@ -1,27 +1,7 @@
 ---
-title: Utilisation de la régression linéaire dans Machine Learning Studio - Azure | Microsoft Docs
-description: Une comparaison des modèles de régression linéaire dans Excel et dans Azure Machine Learning Studio
-metakeywords: ''
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: c449e86e1ba33425212313103715b8fe48278496
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276671"
+titre : Utilisation de la régression linéaire dans Machine Learning Studio titleSuffix : Description d’Azure Machine Learning Studio : Comparaison des modèles de régression linéaire dans Excel et dans les services Azure Machine Learning Studio :  machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 20/03/2017
 ---
 # <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Utilisation de la régression linéaire dans Azure Machine Learning Studio
 > *Kate Baroni* et *Ben Boatman* sont des architectes de solution du Data Insights Center of Excellence de Microsoft. Dans cet article, ils décrivent leur expérience de migration d’une suite d’analyse de régression existante vers une solution de cloud à l’aide d’Azure Machine Learning. 

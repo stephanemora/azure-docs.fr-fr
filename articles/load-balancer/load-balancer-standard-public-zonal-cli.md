@@ -1,7 +1,7 @@
 ---
 title: Créer une instance Standard Load Balancer avec un front-end interzone à l’aide d’Azure CLI
 titlesuffix: Azure Load Balancer
-description: Découvrez comment créer une instance publique de Load Balancer Standard avec un front-end d’adresse IP publique zonal à l’aide d’Azure CLI
+description: Découvrez comment créer une instance publique de Standard Load Balancer avec un front-end d’adresse IP publique zonal à l’aide d’Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: f1a6777a99c2237fc4d201fa5c87eaea88117866
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 813f11dae31261b4211480570a4801de19e74437
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185628"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199203"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-cli"></a>Créer une instance publique de Load Balancer Standard avec un front-end zonal à l’aide d’Azure CLI
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Créer une instance Standard Load Balancer avec un front-end interzone à l’aide d’Azure CLI
 
-Cet article décrit les étapes de création d’une instance publique de [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) avec un front-end zonal qui utilise une adresse IP publique Standard. Dans ce scénario, vous pouvez spécifier une zone particulière pour vos instances de serveur frontal et de serveur principal, afin d’aligner votre chemin de données et vos ressources avec une zone spécifique.
+Cet article décrit les étapes de création d’une instance publique de [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) avec un front-end zonal qui utilise une adresse IP publique Standard. Dans ce scénario, vous pouvez spécifier une zone particulière pour vos instances de serveur frontal et de serveur principal, afin d’aligner votre chemin de données et vos ressources avec une zone spécifique.
 
 Pour plus d’informations sur l’utilisation des zones de disponibilité avec Standard Load Balancer, consultez [Standard Load Balancer et zones de disponibilité](load-balancer-standard-availability-zones.md).
 
@@ -61,15 +61,15 @@ az network public-ip create \
 --zone 1
 ```
 
-## <a name="create-azure-load-balancer-standard"></a>Créer un équilibreur Azure Load Balancer Standard
-Cette section explique en détail comment créer et configurer les composants suivants de l’équilibreur de charge :
+## <a name="create-azure-standard-load-balancer"></a>Créer une instance d’Azure Standard Load Balancer
+Cette section explique en détail comment vous pouvez créer et configurer les composants suivants de l’équilibreur de charge :
 - Un pool IP frontal qui reçoit le trafic réseau entrant sur l’équilibreur de charge.
 - Un pool d’IP principal où le pool frontal envoie le trafic réseau dont la charge a été équilibrée.
 - Une sonde d’intégrité qui détermine l’intégrité des instances de machine virtuelle principales.
 - Une règle d’équilibreur de charge qui définit la distribution du trafic vers les machines virtuelles.
 
 ### <a name="create-the-load-balancer"></a>Créer l’équilibreur de charge
-Créez un équilibrage de charge standard avec la commande [az network lb create](/cli/azure/network/lb#az-network-lb-create). L’exemple suivant crée un équilibreur de charge nommé *myLoadBalancer* et affecte l’adresse *myPublicIP* à la configuration IP frontale.
+Créez un Standard Load Balancer avec la commande [az network lb create](/cli/azure/network/lb#az-network-lb-create). L’exemple suivant crée un équilibreur de charge nommé *myLoadBalancer* et affecte l’adresse *myPublicIP* à la configuration IP frontale.
 
 ```azurecli-interactive
 az network lb create \

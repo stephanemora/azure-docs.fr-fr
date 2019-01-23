@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 20311f904356f16b34f64d0aaf6ed438ba692857
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 7e70fe52646c2f61e97b4eee2badd7884d95d5f5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155148"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260462"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Questions courantes : Réplication Azure vers Azure
 
@@ -74,10 +74,16 @@ Un point de récupération cohérent en cas d’incident représente les donnée
 
 Aujourd’hui, la plupart des applications peuvent récupérer correctement à partir de captures instantanées cohérentes en cas d’incident. Un point de récupération cohérent en cas d’incident ne suffit généralement pas pour des systèmes d’exploitation de base de données et des applications telles que des serveurs de fichiers, des serveurs DHCP et des serveurs d’impression.
 
+### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>Quelle est la fréquence de génération de points de récupération cohérents en cas d’incident ?
+Site Recovery crée un point de récupération cohérent en cas d’incident toutes les 5 minutes.
+
 ### <a name="what-is-an-application-consistent-recovery-point"></a>Qu’est-ce qu’un point de récupération cohérent au niveau application ? 
 Les points de récupération cohérents au niveau application sont créés à partir de captures instantanées cohérentes au niveau application. Des points de récupération cohérents au niveau application capturent les mêmes données que des captures instantanées cohérentes en cas d’incident, avec l’ajout de toutes les données en mémoire et de toutes les transactions en cours. 
 
 En raison de leur contenu supplémentaire, les instantanés de cohérence d’application sont davantage impliqués et leur exécution prend plus de temps. Les points de récupération cohérent au niveau application sont recommandés pour des systèmes d’exploitation de base de données et des applications telles que SQL Server.
+
+### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Quelle est la fréquence minimale de génération de points de récupération cohérents en cas d’incident sur les applications ?
+Site Recovery peut créer un point de récupération cohérent d’application avec une fréquence minimale d’une heure.
 
 ### <a name="how-are-recovery-points-generated-and-saved"></a>Comment les points de récupération sont-ils générés et enregistrés ?
 Pour comprendre comment Site Recovery génère des points de récupération, prenons l’exemple de la stratégie de réplication qui a une fenêtre de rétention de point de récupération de 24 heures et une fréquence de capture instantanée de cohérence au niveau application de 1 heure.
@@ -153,6 +159,9 @@ L’option **Dernier point traité** bascule toutes les machines virtuelles du p
 
 ### <a name="if-im-replicating-between-two-azure-regions-what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>Si j’effectue une réplication entre deux régions Azure, que se passe-t-il si ma région primaire subit une panne inattendue ?
 Vous pouvez déclencher un basculement après la panne. Site Recovery n’a pas besoin de connectivité de la région primaire pour opérer le basculement.
+
+### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>Quel est le délai de récupération d’un basculement de machine virtuelle ?
+Le contrat de niveau de service de délai de récupération de Site Recovery est de [2 heures](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Toutefois, la plupart du temps, Site Recovery peut effectuer le basculement des machines virtuelles en quelques minutes. Vous pouvez calculer le délai de récupération en accédant aux tâches de basculement, où est affichée la durée nécessaire pour faire apparaître la machine virtuelle. Pour le délai de récupération du plan de récupération, consultez la section ci-dessous. 
 
 ## <a name="recovery-plan"></a>Plan de récupération
 

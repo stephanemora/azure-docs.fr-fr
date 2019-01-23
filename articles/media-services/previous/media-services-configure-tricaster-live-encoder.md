@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: 8084f32ac8cc2184d93796468ad66fb73398e876
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e3a3a9946c3352be0409d1a773408e17302911fc
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783778"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304803"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Utiliser l’encodeur NewTek TriCaster pour envoyer un flux en direct à débit binaire unique
 > [!div class="op_single_selector"]
@@ -47,11 +47,13 @@ Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil A
 * Lancez l’outil et connectez-vous à votre compte AMS.
 
 ## <a name="tips"></a>Conseils
+
 * Si possible, utilisez une connexion Internet câblée.
 * Une bonne règle pour déterminer les besoins en bande passante consiste à doubler les débits binaires de diffusion en continu. Bien qu’il ne s’agisse pas d’une obligation, cela permet de réduire l’impact de l’encombrement du réseau.
 * Lors de l’utilisation d’encodeurs logiciels, fermez tous les programmes inutiles.
 
 ## <a name="create-a-channel"></a>Créer un canal
+
 1. Dans l’outil AMSE, accédez à l’onglet **Live**, puis cliquez avec le bouton droit dans la zone des canaux. Dans le menu qui s’affiche, sélectionnez **Créer un canal...** .
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
@@ -76,24 +78,26 @@ Pendant le démarrage du canal, vous pouvez [configurer l’encodeur](media-serv
 >
 >
 
-## <a id=configure_tricaster_rtmp></a>Configurer l’encodeur NewTek TriCaster
+## <a name="a-idconfiguretricasterrtmpconfigure-the-newtek-tricaster-encoder"></a><a id="configure_tricaster_rtmp"/>Configurer l’encodeur NewTek TriCaster
+
 Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le reste de cette section décrit la procédure de configuration plus en détail.
 
 **Vidéo**:
 
 * Codec : H.264
 * Profil : Élevé (niveau 4.0)
-* Débit binaire : 5 000 kbit/s
+* Vitesse de transmission : 5 000 Kbits/s
 * Image clé : 2 secondes (60 secondes)
 * Fréquence d’images : 30
 
 **Audio**:
 
 * Codec : AAC (LC)
-* Débit binaire : 192 kbit/s
+* Vitesse de transmission : 192 Kbits/s
 * Taux d’échantillonnage : 44,1 kHz
 
 ### <a name="configuration-steps"></a>Configuration
+
 1. Créez un projet **NewTek TriCaster** en fonction de la source d’entrée vidéo utilisée.
 2. Une fois dans ce projet, recherchez le bouton **Flux** , puis cliquez sur l’icône en forme d’engrenage pour accéder au menu de configuration du flux de données.
 
@@ -132,6 +136,7 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
 >
 
 ## <a name="test-playback"></a>Tester la lecture
+
 Accédez à l’outil AMSE et cliquez avec le bouton droit sur le canal à tester. Dans le menu, placez le pointeur sur **Lire l’aperçu** et sélectionnez **avec Azure Media Player**.  
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
@@ -141,6 +146,7 @@ Si le flux s’affiche dans le lecteur, cela signifie que l’encodeur a été c
 Si vous recevez une erreur, vous devrez réinitialiser le canal et ajuster les paramètres de l’encodeur. Pour obtenir des conseils, consultez l’article sur la [résolution des problèmes](media-services-troubleshooting-live-streaming.md).  
 
 ## <a name="create-a-program"></a>Créer un programme
+
 1. Une fois que vous avez vérifié que la lecture fonctionne sur le canal, créez un programme. Sous l’onglet **Live** de l’outil AMSE, cliquez avec le bouton droit dans la zone des programmes et sélectionnez **Créer un programme**.  
 
     ![Tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
@@ -157,13 +163,15 @@ Si vous recevez une erreur, vous devrez réinitialiser le canal et ajuster les p
 Le flux est maintenant prêt à être incorporé dans un lecteur ou distribué à une audience pour un affichage en direct.  
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
+
 Pour obtenir des conseils, consultez l’article sur la [résolution des problèmes](media-services-troubleshooting-live-streaming.md).
 
-## <a name="next-step"></a>Étapes suivantes
+## <a name="next-step"></a>Étape suivante
 
 Consultez les parcours d’apprentissage de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: dc1de1bb43295d2ff9f260613ae568cdd2fbe6ae
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 624091d4b5c1e17a301d9087f56ec5f9b0fecc5c
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103492"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198777"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Journaux personnalisés dans Log Analytics
 La source de données Journaux personnalisés de Log Analytics vous permet de collecter des événements stockés dans des fichiers texte sur les ordinateurs Windows et Linux. De nombreuses applications consignent des informations dans des fichiers texte au lieu des services de journalisation standard tels que le Journal des événements Windows ou Syslog. Une fois la collecte terminée, vous pouvez analyser les données dans des champs individuels au sein de vos requêtes ou extraire les données lors de la collecte vers des champs individuels.
@@ -164,6 +164,18 @@ Nous utilisons une requête *Type=MyApp_CL* pour retourner tous les enregistreme
 Nous utilisons Champs personnalisés pour définir les champs *EventTime*, *Code*, *Status* et *Message*, et pouvons voir la différence dans les enregistrements retournés par la requête.
 
 ![Requête de journal avec des champs personnalisés](media/data-sources-custom-logs/query-02.png)
+
+## <a name="alternatives-to-custom-logs"></a>Alternatives aux journaux personnalisés
+Les journaux personnalisés sont très utiles lorsque vos données sont conformes aux critères énumérés, mais dans certains cas, une autre stratégie peut être nécessaire :
+
+- Les données ne correspondent pas à la structure requise, par exemple un autre format est requis pour l'horodatage.
+- Le fichier journal n'est pas conforme à certaines exigences (codage du fichier, structure de dossiers non prise en charge, etc.).
+- Les données doivent être prétraitées ou filtrées avant d'être collectées. 
+
+Lorsque vos données ne peuvent pas être collectées à l'aide des journaux personnalisés, vous pouvez avoir recours aux stratégies alternatives suivantes :
+
+- Utilisez un script personnalisé ou une autre méthode pour écrire les données dans [Événements Windows](data-sources-windows-events.md) ou [Syslog](data-sources-syslog.md). Elles seront alors collectées par Log Analytics. 
+- Envoyez directement les données à Log Analytics à l'aide de l'[API Collecte de données HTTP](data-collector-api.md). Un exemple illustrant l'utilisation de runbooks dans Azure Automation est disponible dans l'article [Collecter des données dans Log Analytics avec un runbook Azure Automation](runbook-datacollect.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez [Analyser des données de texte dans Log Analytics](../log-query/parse-text.md) pour prendre connaissance des méthodes permettant d’analyser chaque entrée de journal importée dans plusieurs propriétés.

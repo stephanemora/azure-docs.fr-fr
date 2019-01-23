@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: a78632ed6215c467f53938569621cfb18f9e51ca
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: acc1b9e9561b9468a4638c7073a066e4cb34d911
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352930"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264748"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Utiliser la géorestauration pour récupérer une application SaaS multilocataire à partir de sauvegardes de bases de données
 
@@ -114,7 +114,7 @@ Cette tâche vous permet de démarrer un processus de synchronisation de la conf
 
 3. Spécifiez les paramètres suivants :
 
-    $DemoScenario = 1 : pour démarrer un travail en arrière-plan qui synchronise le serveur de locataire et les informations de configuration des pools dans le catalogue.
+    $DemoScenario = 1 : pour démarrer un travail en arrière-plan qui synchronise le serveur de locataire et les informations de configuration des pools dans le catalogue.
 
 4. Appuyez sur F5 pour exécuter le script de synchronisation. 
 
@@ -174,7 +174,7 @@ Imaginez qu’une panne se produise dans la région où l’application est dép
 
 1. Dans PowerShell ISE, dans le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, définissez la valeur suivante :
 
-    $DemoScenario = 2 : récupérer l’application dans une région de récupération en restaurant à partir de sauvegardes géoredondantes.
+    $DemoScenario = 2 : récupérer l’application dans une région de récupération en restaurant à partir de sauvegardes géoredondantes.
 
 2. Appuyez sur F5 pour exécuter le script.  
 
@@ -209,7 +209,7 @@ Avant même que les bases de données de locataire ne soient restaurées, vous p
 
 1. Dans PowerShell ISE, dans le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, définissez la propriété suivante :
 
-    $DemoScenario = 3 : pour approvisionner un nouveau locataire dans la région de récupération.
+    $DemoScenario = 3 : Approvisionner un nouveau locataire dans la région de récupération.
 
 2. Appuyez sur F5 pour exécuter le script.
 
@@ -262,7 +262,7 @@ Cette tâche permet de mettre à jour l’une des bases de données de locataire
 
 2. Dans PowerShell ISE, dans le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, définissez la valeur suivante :
 
-    $DemoScenario = 4 : pour supprimer un événement d’un locataire dans la région de récupération.
+    $DemoScenario = 4 : pour supprimer un événement d’un locataire dans la région de récupération.
 
 3. Appuyez sur F5 pour exécuter le script.
 
@@ -320,13 +320,13 @@ Si vous avez suivi le tutoriel, le script réactive immédiatement Fabrikam Jazz
   
 1. Dans PowerShell ISE, dans le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, vérifiez que le processus synchronisation de catalogue est toujours en cours d’exécution dans son instance PowerShell. Au besoin, relancez-le en définissant :
 
-    $DemoScenario = 1 : pour démarrer la synchronisation des informations de configuration du serveur de locataire, du pool et de la base de données dans le catalogue.
+    $DemoScenario = 1 : pour démarrer la synchronisation des informations de configuration du serveur de locataire, du pool et de la base de données dans le catalogue.
 
     Appuyez sur F5 pour exécuter le script.
 
 2.  Ensuite, pour lancer le processus de rapatriement, définissez :
 
-    $DemoScenario = 5 : pour rapatrier l’application dans sa région d’origine.
+    $DemoScenario = 5 : pour rapatrier l’application dans sa région d’origine.
 
     Appuyez sur F5 pour exécuter le script de récupération dans une nouvelle fenêtre PowerShell. Le rapatriement prend plusieurs minutes, et vous pouvez le surveiller dans la fenêtre PowerShell.
 
@@ -352,7 +352,7 @@ Le processus de restauration crée toutes les ressources de récupération dans 
 
 1. Dans PowerShell ISE, dans le script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, définissez :
     
-    $DemoScenario = 6 : supprimer les ressources obsolètes de la région de récupération.
+    $DemoScenario = 6 : supprimer les ressources obsolètes de la région de récupération.
 
 2. Appuyez sur F5 pour exécuter le script.
 

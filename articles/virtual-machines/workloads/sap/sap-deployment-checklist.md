@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29ec56f3b360a4a19269555c1504ae7ff6446f8e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 901dfc502470e52600e3a0fafe3f6b91b7686197
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189148"
+ms.locfileid: "54201327"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure 
 
@@ -83,7 +83,7 @@ Au cours de cette phase, une migration de la charge de travail SAP vers le cloud
 La phase pilote peut se dérouler avant la planification et la préparation du projet, ou parallèlement à celles-ci. Cette phase peut également être utilisée pour tester les approches et la conception proposées lors de la phase de planification et de préparation. La phase pilote peut se traduire par une véritable preuve de concepts. Il est recommandé de configurer et de valider une solution complète de haute disponibilité/récupération d'urgence ainsi qu'une conception de sécurité lors d'un déploiement pilote. Pour certains clients, des tests d'extensibilité peuvent également être réalisés au cours de cette phase. D'autres clients ont recours au déploiement de systèmes « bac à sable » SAP pour la phase pilote. Nous supposons donc que vous avez identifié un système que vous souhaitez migrer vers Azure afin d'exécuter un projet pilote.
 
 1.  Optimisez le transfert de données vers Azure. Pour certains clients, le transfert via [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) depuis un emplacement local s'est révélé plus rapide, à condition qu'Express Circuit dispose de suffisamment de bande passante. Pour d'autres clients, il s'est avéré plus rapide de passer par Internet.
-2.  Dans le cas d'une migration de plateforme hétérogène SAP, cela implique l'exportation et l'importation des données de la base de données, un test et l'optimisation des phases d'exportation et d'importation. Pour les migrations de grande envergure avec SQL Server comme plateforme de destination, des recommandations sont disponibles [ici](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). Vous pouvez adopter l'approche Moniteur de migration/SWPM si vous n'avez pas besoin d'une mise à niveau combinée de versions ou un processus [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) si vous combinez la migration avec une mise à niveau de versions SAP et effectuez certaines combinaisons de plateformes SGBD sources et cibles, comme indiqué dans [Outil Database Migration Option (DMO) de SUM 2.0 SP04](https://launchpad.support.sap.com/#/notes/2644872), par exemple. 
+2.  Dans le cas d'une migration de plateforme hétérogène SAP, cela implique l'exportation et l'importation des données de la base de données, un test et l'optimisation des phases d'exportation et d'importation. Pour les migrations de grande envergure avec SQL Server comme plateforme de destination, des recommandations sont disponibles [ici](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). Vous pouvez adopter l'approche Moniteur de migration/SWPM si vous n'avez pas besoin d'une mise à niveau combinée de versions ou un processus [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) si vous combinez la migration avec une mise à niveau de versions SAP et effectuez certaines combinaisons de plateformes SGBD sources et cibles, comme indiqué dans [Outil Database Migration Option (DMO) de SUM 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152), par exemple. 
     1.  Exporter vers la source, Exporter le fichier chargé vers Azure et Performances d'importation.  Optimisez le chevauchement entre l'exportation et l'importation.
     2.  Évaluez le volume de base de données entre la plateforme cible et la plateforme de destination afin de refléter le dimensionnement de l'infrastructure.    
     3.  Validez et optimisez le timing. 

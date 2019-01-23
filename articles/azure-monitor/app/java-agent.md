@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/24/2016
+ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: c0478b320afca1b82a79fa43e7b60c29a2cb2e7c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dbca662f38f13833a4b9e642a4d8f690017d999a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997926"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262130"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Surveiller les dépendances, les exceptions interceptées et les temps d’exécution des méthodes dans les applications web Java
 
@@ -89,6 +89,32 @@ Définissez le contenu du fichier xml. Modifiez l’exemple suivant pour inclure
 Vous devez activer l’exception de rapports et le minutage pour les méthodes individuelles.
 
 Par défaut, `reportExecutionTime` est défini sur true, et `reportCaughtExceptions` sur false.
+
+### <a name="spring-boot-agent-additional-config"></a>Configuration supplémentaire de l'Agent Spring Boot
+
+`java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
+
+> [!NOTE]
+> Le fichier AI-agent.XML et le fichier jar de l’agent doivent se trouver dans le même dossier. Ils sont souvent placés ensemble dans le dossier `/resources` du projet. 
+
+#### <a name="enable-w3c-distributed-tracing"></a>Activer le traçage distribué W3C
+
+Ajoutez le code suivant au fichier AI-Agent.xml :
+
+```xml
+<Instrumentation>
+        <BuiltIn enabled="true">
+            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+        </BuiltIn>
+    </Instrumentation>
+```
+
+> [!NOTE]
+> Le mode de compatibilité descendante est activé par défaut ; le paramètre enableW3CBackCompat est facultatif et ne doit être utilisé que si vous souhaitez désactiver ce mode. 
+
+Idéalement, ce serait le cas si tous vos services avaient été mis à jour vers une version plus récente des SDK prenant en charge le protocole W3C. Il est vivement recommandé de migrer au plus vite vers une version plus récente des SDK prenant en charge le protocole W3C.
+
+Assurez-vous que les **configurations [entrante](correlation.md#w3c-distributed-tracing) et sortante (agent)** sont totalement identiques.
 
 ## <a name="view-the-data"></a>Visualiser les données
 Dans la ressource Application Insights, les temps d’exécution cumulés de la méthode et de la dépendance distante apparaissent [dans la vignette Performances][metrics].

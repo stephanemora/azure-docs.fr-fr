@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5c170fd2871d0e487f705e1e7274fdfdda4049e6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 95e7f5ce52f4bcf45153b4e455c1427f7117641c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276373"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263658"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Prise en charge linguistique pour l’API Content Moderator
 
@@ -30,19 +30,19 @@ ms.locfileid: "52276373"
 | Arabe (romanisé)   | Afrikaans   | Arabe   | Arabe
 | Balinais | Albanais | Chinois (simplifié)    | Danois
 | Bengali | Amharique | Chinois (traditionnel)     | Néerlandais
-| Bugi | Arabe | Tchèque                     | Français
+| Bugi | Arabe | Tchèque                     | Anglais
 | Bouhid | Arménien | Danois                     | Finnois
-| Carien | Assamais | Néerlandais                     | Français
-| Chinois (simplifié) | Azéri | Français  | Grec (moderne)
+| Carien | Assamais | Néerlandais                     | Anglais
+| Chinois (simplifié) | Azéri | Anglais  | Grec (moderne)
 | Chinois (traditionnel) | Bengali - Bangladesh | Finnois  | Italien
-| Slavon d’église (slave) | Bengali - Inde | Français     | Coréen
+| Slavon d’église (slave) | Bengali - Inde | Anglais     | Coréen
 | Copte | Basque | Allemand                      | Norvégien
 | Tchèque |  Biélorusse | Grec (moderne)         | Polonais
 | Maldivien | Bosniaque - cyrillique | Hongrois      | Portugais
 | Néerlandais | Bosniaque - latin | Italien             | Roumain
-| Français | (Créole) | Breton [non géopol] | Japonais  | Russe
+| Anglais | (Créole) | Breton [non géopol] | Japonais  | Russe
 | Farsi | Bulgare | Coréen                        | Slovaque
-| Français | Catalan | Norvégien                        | Espagnol
+| Anglais | Catalan | Norvégien                        | Espagnol
 | Allemand | Kurde central | Polonais        | Turc
 | Grec | Cherokee | Portugais
 | Haïtien | Chinois (simplifié) | Roumain
@@ -53,11 +53,11 @@ ms.locfileid: "52276373"
 | Italien | Danois | Espagnol
 | Japonais | Dari | Suédois
 | Coréen | Néerlandais | Turc
-| Kurde (arabe) | Français
+| Kurde (arabe) | Anglais
 | Kurde (latin) | Estonien
 | Lepcha | Filipino
 | Limbu | Finnois
-| Lu | Français
+| Lu | Anglais
 | Lycien | Galicien
 | Lydien | Géorgien
 | Mycénien (grec) | Allemand

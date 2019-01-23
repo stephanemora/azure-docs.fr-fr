@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 459b06df954d9cc913b6d1503c9f876f93b494e9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bcc39f2d8cf1ca0440f8028464d9041435914477
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082949"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263405"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Intégrer Azure DevTest Labs à votre pipeline de livraison et d’intégration continue Azure DevOps
 Vous pouvez utiliser l’extension *Azure DevTest Labs Tasks* installée dans Azure DevOps pour intégrer facilement votre pipeline de génération et mise en production CI/CD à Azure DevTest Labs. L’extension installe trois tâches : 
@@ -85,7 +85,7 @@ Cette section décrit comment créer le modèle Azure Resource Manager que vous 
 
 1. Archivez le script dans votre système de contrôle de code source. Nommez le, par exemple, **GetLabVMParams.ps1**.
 
-   Quand vous exécutez ce script sur l’agent dans le cadre du pipeline de mise en production et que vous utilisez des tâches telles que *Copie de fichiers Azure* ou *PowerShell sur des ordinateurs cibles*, le script collecte les valeurs dont vous avez besoin pour déployer votre application sur la machine virtuelle. Normalement, vous utilisez ces tâches pour déployer des applications sur une machine virtuelle Azure. Les tâches requièrent des valeurs telles que le nom du groupe de ressources de la machine virtuelle, une adresse IP et un nom de domaine complet (FQDN).
+   Quand vous exécutez ce script sur l’agent dans le cadre du pipeline de mise en production et que vous utilisez des tâches telles que *Copie de fichiers Azure* ou *PowerShell sur des ordinateurs cibles*, le script collecte les valeurs dont vous avez besoin pour déployer votre application sur la machine virtuelle. Normalement, vous utilisez ces tâches pour déployer des applications sur une machine virtuelle Azure. Les tâches requièrent des valeurs telles que le nom du groupe de ressources de la machine virtuelle, une adresse IP et un nom de domaine complet (FQDN).
 
 ## <a name="create-a-release-pipeline-in-release-management"></a>Créer un pipeline de mise en production Release Management
 Pour créer le pipeline de mise en production, effectuez les étapes suivantes :

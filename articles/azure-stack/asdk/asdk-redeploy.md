@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: d166916ca54f3b8c26a418ff83093e53dcdbe515
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 91ac75f3cb41f73ea18595138969dfb7b1444173
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413734"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263509"
 ---
 # <a name="redeploy-the-asdk"></a>Redéployer l’ASDK
 Dans cet article, vous allez découvrir comment redéployer le Kit de développement Azure Stack (ASDK) dans un environnement hors production. La mise à niveau de l’ASDK n’étant pas prise en charge, vous devez le redéployer complètement pour passer à une version plus récente. Vous pouvez également redéployer l’ASDK lorsque vous souhaitez simplement tout reprendre à zéro.
@@ -32,7 +32,7 @@ Dans cet article, vous allez découvrir comment redéployer le Kit de développe
 ## <a name="remove-azure-registration"></a>Supprimer l’inscription auprès d’Azure 
 Si vous avez précédemment inscrit votre installation ASDK auprès d’Azure, vous devez supprimer la ressource d’inscription avant de redéployer l’ASDK. Réinscrivez l’ASDK pour activer la syndication des éléments de marketplace lorsque vous redéployez l’ASDK. Si vous n’avez pas précédemment inscrit l’ASDK auprès de votre abonnement Azure, vous pouvez ignorer cette section.
 
-Pour supprimer la ressource d’inscription, utilisez la cmdlet **Remove-AzsRegistration** pour annuler l’inscription d’Azure Stack. Ensuite, utilisez la cmdlet **Remove-AzureRMRsourceGroup** pour supprimer le groupe de ressources Azure Stack de votre abonnement Azure :
+Pour supprimer la ressource d’inscription, utilisez la cmdlet **Remove-AzsRegistration** pour annuler l’inscription d’Azure Stack. Ensuite, utilisez la cmdlet **Remove-AzureRMResourceGroup** pour supprimer le groupe de ressources Azure Stack de votre abonnement Azure :
 
 1. Ouvrez une console PowerShell en tant qu’administrateur sur un ordinateur qui a accès au point de terminaison privilégié. Pour l’ASDK, il s’agit de l’ordinateur hôte du Kit de développement.
 
@@ -60,7 +60,10 @@ Pour supprimer la ressource d’inscription, utilisez la cmdlet **Remove-AzsRegi
 3. Vous êtes invité à vous connecter à votre abonnement Azure et l’installation ASDK locale lors de l’exécution du script.
 4. Une fois le script exécuté, vous devez voir des messages similaires aux exemples suivants :
 
-    ` De-Activating Azure Stack (this may take up to 10 minutes to complete).` ` Your environment is now unable to syndicate items and is no longer reporting usage data.` ` Remove registration resource from Azure...` ` "Deleting the resource..." on target "/subscriptions/<subscription information>"` ` ********** End Log: Remove-AzsRegistration ********* `
+    ` De-Activating Azure Stack (this may take up to 10 minutes to complete).`` Your environment is now unable to syndicate items and is no longer reporting usage data.`
+    ` Remove registration resource from Azure...`
+    ` "Deleting the resource..." on target "/subscriptions/<subscription information>"`
+    ` ********** End Log: Remove-AzsRegistration ********* `
 
 
 
@@ -95,7 +98,7 @@ Si vous n’avez pas utilisé le script asdk-installer.ps1 pour installer l’AS
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Tâches de configuration après l’installation du kit ASDK](asdk-post-deploy.md)
+[Tâches post-déploiement du Kit de développement Azure Stack](asdk-post-deploy.md)
 
 
 

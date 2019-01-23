@@ -1,5 +1,5 @@
 ---
-title: Azure Traffic Manager - FAQ | Microsoft Docs
+title: Azure Traffic Manager - FAQ
 description: Cet article fournit des réponses aux questions fréquemment posées sur Traffic Manager.
 services: traffic-manager
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: f4c687ff0d02c78b88b24834f6c3acfc563ecbfc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a6a8fee942edf4cec98a6d2f46eb2f63b7595c09
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963570"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200045"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 

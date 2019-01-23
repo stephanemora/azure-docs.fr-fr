@@ -8,41 +8,50 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: conceptual
-ms.date: 11/28/2017
+ms.date: 1/10/2019
 ms.author: v-gedod
-ms.openlocfilehash: 0ed8b9048c04c4aff5214cea697810a0c573559e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: cc38dff7cd3ae8d10d8a20cbf98749d724de1ee6
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800543"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262810"
 ---
-# <a name="bing-news-search-endpoints"></a>Points de terminaison Recherche d’actualités Bing
-**L’API Recherche d’actualités** renvoie des articles, des pages web, des images, des vidéos et des [entités](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) en lien avec des actualités. Les entités contiennent un résumé d’informations sur une personne, un lieu ou un sujet.
-## <a name="endpoints"></a>Points de terminaison
-Pour obtenir des résultats de recherche d'actualités à l’aide de l’API Bing, envoyez une requête `GET` à l’un des points de terminaison suivants. Les en-têtes et les paramètres d’URL définissent d’autres spécifications.
+# <a name="bing-news-search-api-endpoints"></a>Points de terminaison de l'API Recherche d'actualités Bing
 
-**Point de terminaison 1 :** renvoie les éléments d’actualités en fonction de la requête de recherche de l’utilisateur. Si la requête de recherche est vide, l’appel renvoie les articles en lien avec des actualités. L’option `?q=""` de requête peut aussi être utilisée avec l’URL `/news`. Pour la disponibilité, consultez [Supported markets for news search endpoint](language-support.md#supported-markets-for-news-search-endpoint) (Marchés pris en charge pour le point de terminaison Recherche d’actualités).
+**L’API Recherche d’actualités** renvoie des articles, des pages web, des images, des vidéos et des [entités](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) en lien avec des actualités. Les entités contiennent un résumé d’informations sur une personne, un lieu ou un sujet.
+
+## <a name="endpoints"></a>Points de terminaison
+
+Pour obtenir des résultats de recherche d'actualités à l'aide de l'API Recherche d'actualités Bing, envoyez une requête `GET` à l'un des points de terminaison suivants. Les en-têtes et les paramètres d’URL définissent d’autres spécifications.
+
+### <a name="news-items-by-search-query"></a>Articles en lien avec des actualités par requête de recherche
+
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search
 ```
 
-**Point de terminaison 2 :** renvoie les meilleurs articles en lien avec des actualités par catégorie. Vous pouvez demander spécifiquement les meilleurs articles en lien avec l’économie, le sport ou le divertissement à l’aide de `category=business`, `category=sports` ou `category=entertainment`.  Le paramètre `category` peut uniquement être utilisé avec l’URL `/news`. Certaines conditions s’appliquent pour spécifier des catégories ; reportez-vous à `category` dans la documentation sur le [paramètre de requête](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters). Pour la disponibilité, consultez [Supported markets for news search endpoint](language-support.md#supported-markets-for-news-endpoint) (Marchés pris en charge pour le point de terminaison Recherche d’actualités).
+Renvoie des articles en lien avec des actualités basés sur une requête de recherche. Si la requête de recherche est vide, l'API renvoie les meilleurs articles issus de différentes catégories. Envoyez une requête en encodant votre terme de recherche sous forme d'URL et en l'ajoutant au paramètre `q=""`. Pour la disponibilité, consultez [Supported markets for news search endpoint](language-support.md#supported-markets-for-news-search-endpoint) (Marchés pris en charge pour le point de terminaison Recherche d’actualités).
+
+### <a name="top-news-items-by-category"></a>Meilleurs articles en lien avec des actualités par catégorie
+
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/news  
 ```
 
-**Point de terminaison 3 :** renvoie des sujets en lien avec des actualités qui sont actuellement tendance sur les réseaux sociaux. Lorsque l’option `/trendingtopics` est incluse, la recherche Bing ignore plusieurs autres paramètres, tels que `freshness` et `?q=""`. Pour la disponibilité, consultez [Supported markets for news search endpoint](language-support.md#supported-markets-for-news-trending-endpoint) (Marchés pris en charge pour le point de terminaison Recherche d’actualités).
+Renvoie les meilleurs articles en lien avec des actualités par catégorie. Vous pouvez demander spécifiquement les meilleurs articles en lien avec l’économie, le sport ou le divertissement à l’aide de `category=business`, `category=sports` ou `category=entertainment`.  Le paramètre `category` peut uniquement être utilisé avec l’URL `/news`. Certaines conditions s’appliquent pour spécifier des catégories ; reportez-vous à `category` dans la documentation sur le [paramètre de requête](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters). Envoyez une requête en encodant votre terme de recherche sous forme d'URL et en l'ajoutant au paramètre `q=""`. Pour la disponibilité, consultez [Supported markets for news search endpoint](language-support.md#supported-markets-for-news-endpoint) (Marchés pris en charge pour le point de terminaison Recherche d’actualités).
+
+### <a name="trending-news-topics"></a>Sujets d'actualité tendance 
+
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics
 ```
 
-Pour plus d’informations sur les en-têtes, les paramètres, les codes de marché, les objets de réponse, les erreurs, etc., consultez [News Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) (Référence sur l’API Recherche d’actualités Bing v7).
-## <a name="response-json"></a>Réponse JSON
-La réponse à une requête de recherche d’actualités intègre les résultats sous forme d’objets JSON. Analyser les résultats nécessite des procédures qui traitent des éléments de chaque type. Consultez le [didacticiel](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/tutorial-bing-news-search-single-page-app) et le [code source](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/tutorial-bing-news-search-single-page-app-source) pour obtenir des exemples.
+Renvoie des sujets en lien avec des actualités qui sont actuellement populaires sur les réseaux sociaux. Lorsque l’option `/trendingtopics` est incluse, la recherche Bing ignore plusieurs autres paramètres, tels que `freshness` et `?q=""`. Pour la disponibilité, consultez [Supported markets for news search endpoint](language-support.md#supported-markets-for-news-trending-endpoint) (Marchés pris en charge pour le point de terminaison Recherche d’actualités).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Les API **Bing** prennent en charge les actions de recherche qui renvoient des résultats en fonction de leur type. Tous les points de terminaison de recherche renvoient des résultats en tant qu’objets de réponse JSON.  Tous les points de terminaison prennent en charge les requêtes qui renvoient une langue et/ou un emplacement spécifique par longitude, latitude et rayon de recherche.
+
+Pour plus d’informations sur les en-têtes, les paramètres, les codes de marché, les objets de réponse, les erreurs, etc., consultez [News Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) (Référence sur l’API Recherche d’actualités Bing v7).
 
 Pour plus d’informations sur les paramètres pris en charge par chaque point de terminaison, consultez les pages de référence pour chaque type.
 Pour obtenir des exemples de requêtes de base à l’aide de l’API Recherche d’actualités, consultez les [démarrages rapides sur l’API Recherche d'actualités Bing](https://docs.microsoft.com/azure/cognitive-services/bing-news-search).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 71987fcde08c5098d98d21405ce79e61d3094424
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 6c8f48ce71e11d1de0c28b4dab5327ab03e54f28
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186053"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231782"
 ---
 # <a name="manage-workspaces"></a>Gestion des espaces de travail
 
@@ -40,7 +40,7 @@ Aujourd'hui, un espace de travail fournit :
 
 * un emplacement géographique pour le stockage des données ;
 * une isolation des données pour définir différents droits d’accès utilisateur ;
-* une étendue pour la configuration des paramètres, comme la limitation des données et la rétention.
+* une étendue pour la configuration des paramètres, comme le [niveau tarifaire](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [rétention](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) et la [limitation des données](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#daily-cap) 
 
 Du point de vue de la consommation, nous vous recommandons de créer aussi peu d’espaces de travail que possible. L’expérience d’administration et de requête n’en sera que plus simple et rapide. Cependant, compte tenu des caractéristiques précédentes, vous pouvez créer plusieurs espaces de travail si :
 
@@ -145,96 +145,6 @@ Utilisez ces rôles pour accorder aux utilisateurs l’accès à différentes é
 - Ressource : accès uniquement à l’espace de travail spécifié
 
 Nous vous recommandons d’effectuer des affectations au niveau de la ressource (espace de travail) afin d’assurer un contrôle d’accès précis.  Pour créer des rôles avec les autorisations spécifiques nécessaires, utilisez des [rôles personnalisés](../../role-based-access-control/custom-roles.md).
-
-## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Liaison d’un espace de travail existant à un abonnement Azure
-Tous les espaces de travail créés après le 26 septembre 2016 doivent être liés à un abonnement Azure lors de la création. Vous devez lier les espaces de travail créés avant cette date lorsque vous vous connectez. Lorsque vous créez l’espace de travail à partir du portail Azure ou que vous liez votre espace de travail à un abonnement Azure, votre répertoire Azure Active Directory est lié en tant que compte d’organisation.
-
-### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Pour lier un espace de travail à un abonnement Azure dans le portail Azure
-1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.  
-
-2. Dans le volet des abonnements Log Analytics, cliquez sur **Ajouter**.  
-
-    ![liste des espaces de travail](./media/manage-access/workspace-link-existing-01.png)
-
-3. À partir du volet **Espace de travail Log Analytics**, cliquez sur **Lier l’existant**.  
-
-4. Cliquez sur **Configurer les paramètres requis**.  
-
-5. Vous voyez la liste des espaces de travail qui ne sont pas encore liés à votre compte Azure. Sélectionnez l’espace de travail.  
-   
-6. Si nécessaire, vous pouvez modifier les valeurs correspondant aux éléments suivants :
-   * Abonnement
-   * Groupe de ressources
-   * Lieu
-   * Niveau tarifaire  
-
-7. Cliquez sur **OK**. L’espace de travail est maintenant lié à votre compte Azure.
-
-> [!NOTE]
-> Si l’espace de travail que vous souhaitez lier ne s’affiche pas, cela signifie que votre abonnement Azure n’a pas accès à l’espace de travail que vous avez créé sur le portail OMS.  Pour accorder l’accès à ce compte à partir du portail OMS, consultez [Ajout d’un utilisateur à un espace de travail existant](#add-a-user-to-an-existing-workspace).
->
->
-
-## <a name="upgrade-a-workspace-to-a-paid-plan"></a>Mise à niveau de l’espace de travail vers un plan payant
-Il existe trois types d’offre pour les espaces de travail OMS : **Gratuit**, **Autonome** et **OMS**.  Si vous êtes abonné au niveau *Gratuit*, vous pouvez envoyer au maximum 500 Mo de données par jour à Log Analytics.  Si vous dépassez ce volume, vous devez migrer votre espace de travail vers un plan payant pour pouvoir collecter des données au-delà de cette limite. Vous pouvez convertir votre type de plan à tout moment.  Pour en savoir plus sur la tarification d’OMS, consultez la rubrique relative aux [détails de tarification](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-pricing).
-
-### <a name="using-entitlements-from-an-oms-subscription"></a>Utilisation de droits dans le cadre d’un abonnement OMS
-Pour utiliser les droits que vous obtenez à l’achat d’un plan OMS E1, OMS E2 ou Complément OMS pour System Center, choisissez le plan *OMS* d’OMS Log Analytics.
-
-Lorsque vous achetez un abonnement OMS, les droits sont ajoutés à votre Contrat Entreprise. Tout abonnement Azure créé dans le cadre de ce contrat peut faire valoir ces droits. Tous les espaces de travail sur ces abonnements utilisent les droits OMS.
-
-Pour vous assurer que l’utilisation d’un espace de travail est appliquée à vos droits à partir de l’abonnement OMS, vous devez :
-
-1. Créer votre espace de travail dans un abonnement Azure qui fait partie du Contrat Entreprise incluant l’abonnement OMS
-
-2. Sélectionner le plan *OMS* pour l’espace de travail
-
-> [!NOTE]
-> Si votre espace de travail a été créé avant le 26 septembre 2016 et que votre plan de tarification Log Analytics est *Premium*, cet espace de travail utilise les droits du complément OMS pour System Center. Vous pouvez également utiliser vos droits en migrant au niveau de tarification *OMS*.
->
->
-
-Les droits de l’abonnement OMS ne sont pas visibles dans le portail Azure. Vous pouvez les consulter, ainsi que l’utilisation, dans le portail Enterprise Portal.  
-
-Si vous devez modifier l’abonnement Azure auquel votre espace de travail est lié, vous pouvez utiliser l’applet de commande Azure PowerShell [Move-AzureRMResource](https://msdn.microsoft.com/library/mt652516.aspx) .
-
-### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Utilisation de l’engagement Azure d’un Contrat Entreprise
-Si vous n’avez pas d’abonnement OMS, vous payez séparément pour chaque composant OMS et l’utilisation apparaît sur votre facture Azure.
-
-Si vous disposez d’un engagement monétaire Azure dans le cadre de l’inscription d’entreprise à laquelle vos abonnements Azure sont liés, l’utilisation de Log Analytics est automatiquement débitée de votre engagement monétaire restant.
-
-Si vous devez modifier l’abonnement Azure auquel l’espace de travail est lié, vous pouvez utiliser l’applet de commande Azure PowerShell [Move-AzureRMResource](https://msdn.microsoft.com/library/mt652516.aspx) .  
-
-### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Migrer un espace de travail vers un niveau tarifaire payant dans le portail Azure
-1. Dans le portail Azure, à partir du volet des abonnements Log Analytics, sélectionnez un espace de travail.
-
-2. Dans le volet de l’espace de travail, sous **Général**, sélectionnez **Niveau tarifaire**.  
-
-3. Sous **Niveau tarifaire**, sélectionnez un niveau tarifaire et cliquez sur **Sélectionner**.  
-    ![Plan tarifaire sélectionné](./media/manage-access/workspace-pricing-tier-info.png)
-
-> [!NOTE]
-> Si votre espace de travail est lié à un compte Automation, avant de pouvoir sélectionner le niveau tarifaire *Autonome (par Go)*, vous devez supprimer les solutions **Automation and Control** et annuler la liaison avec le compte Automation. Dans le panneau Espace de travail sous **Général**, cliquez sur **Solutions** pour afficher et supprimer des solutions. Pour annuler la liaison avec le compte Automation, cliquez sur le nom du compte Automation dans le panneau **Niveau tarifaire**.
->
->
-
-### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-oms-portal"></a>Migrer un espace de travail vers un niveau tarifaire payant dans le portail OMS
-
-Pour modifier le niveau tarifaire à l’aide du portail OMS, vous devez posséder un abonnement Azure.
-
-1. Dans le portail OMS, cliquez sur la vignette **Paramètres**.
-
-2. Cliquez sur l’onglet **Comptes**, puis sur l’onglet **Azure Subscription & Data Plan** (Forfait de données et abonnement Azure).
-
-3. Cliquez sur le niveau tarifaire que vous souhaitez utiliser.
-
-4. Cliquez sur **Enregistrer**.  
-
-    ![abonnement et forfaits de données](./media/manage-access/subscription-tab.png)
-
-Votre nouveau forfait de données s’affiche dans le ruban du portail OMS, en haut de votre page web.
-
-![Ruban OMS](./media/manage-access/data-plan-changed.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez [Présentation de l’agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) pour collecter des données à partir d’ordinateurs dans votre centre de données ou d’un autre environnement cloud.

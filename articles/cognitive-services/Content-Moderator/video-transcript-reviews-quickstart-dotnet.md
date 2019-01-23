@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 4e862a8b74339bc8dd1de6c0b231ddb15425974c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 672d801b9a6c45a8ab3eb9964b6e061eeee11f59
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220939"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266822"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Révisions de transcriptions de vidéos à l’aide de .NET
 
@@ -33,8 +33,7 @@ Cet article suppose également que vous êtes déjà familiarisé avec Visual St
 
 ## <a name="sign-up-for-content-moderator"></a>S’inscrire à Content Moderator
 
-Avant de pouvoir utiliser les services Content Moderator par le biais de l’API REST ou du kit SDK, vous avez besoin d’une clé d’abonnement.
-Reportez-vous au [démarrage rapide](quick-start.md) pour découvrir comment obtenir la clé.
+Avant de pouvoir utiliser les services Content Moderator par le biais de l’API REST ou du kit SDK, vous avez besoin d’une clé d’abonnement. Suivez les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Content Moderator et obtenir votre clé.
 
 ## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>S’inscrire à un compte d’outil de révision si cela n’a pas été fait à l’étape précédente
 
@@ -215,7 +214,7 @@ Vous ajoutez une transcription à une révision vidéo avec **ContentModeratorCl
 1. L’ID de révision de vidéo renvoyé par **CreateVideoReviews**.
 1. Un objet **Flux** qui contient la transcription.
 
-La transcription doit être au format WebVTT. Pour plus d’informations, consultez [WebVTT: The Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/) (WebVTT : le format Web Video Text Tracks).
+La transcription doit être au format WebVTT. Pour plus d'informations, consultez [WebVTT : le format Web Video Text Tracks](https://www.w3.org/TR/webvtt1/).
 
 > [!NOTE]
 > Le programme utilise un exemple de transcription au format VTT. Dans une solution réelle, vous utilisez le service Azure Media Indexer pour [générer une transcription](https://docs.microsoft.com/azure/media-services/media-services-index-content) à partir d’une vidéo.
@@ -252,7 +251,7 @@ En plus d’ajouter une transcription à une révision de vidéo, vous pouvez é
 - **Terme**. Une chaîne qui contient le terme.
 - **Horodatage** Une chaîne qui contient le moment (exprimé en secondes) où se trouvent les termes dans la transcription.
 
-La transcription doit être au format WebVTT. Pour plus d’informations, consultez [WebVTT: The Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/) (WebVTT : le format Web Video Text Tracks).
+La transcription doit être au format WebVTT. Pour plus d'informations, consultez [WebVTT : le format Web Video Text Tracks](https://www.w3.org/TR/webvtt1/).
 
 Ajoutez la définition de méthode suivante à l’espace de noms VideoTranscriptReview de la classe Program. Cette méthode envoie une transcription à la méthode **ContentModeratorClient.TextModeration.ScreenText**. Elle traduit également le résultat en une IList<TranscriptModerationBodyItem> et l’envoie à **AddVideoTranscriptModerationResult**.
 

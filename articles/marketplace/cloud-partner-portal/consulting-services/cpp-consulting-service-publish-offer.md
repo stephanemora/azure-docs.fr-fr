@@ -14,30 +14,30 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cb3730718c366cbf3fe9caecceeb4e65855ac8c4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: dae86dcdd3ada10164be0120b49a8f5f7b642ccd
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345219"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231629"
 ---
-# <a name="publish-consulting-service-offer"></a>Publier une offre de services de conseil
+# <a name="publish-a-consulting-service-offer"></a>Publier une offre de service de conseil
 
-Après avoir complété les **Paramètres de l'offre**, les **Détails de la vitrine** et les **Coordonnées**, sélectionnez **Publier** et fournissez une adresse e-mail. Quand Microsoft est prêt à publier votre offre, vous recevrez un e-mail pour en afficher un aperçu avant sa mise en service. Vous pouvez revenir au portail pour vérifier l’état de votre offre à tout moment.
+Après avoir complété les **Paramètres de l'offre**, les **Détails de la vitrine** et les **Coordonnées**, sélectionnez **Publier** et fournissez une adresse e-mail. Une fois Microsoft prêt à publier votre offre, vous recevez un e-mail pour en afficher un aperçu avant sa mise en service. Vous pouvez revenir au portail pour vérifier l’état de votre offre à tout moment.
 
-Les offres peuvent apparaître dans l’état « Échec de la publication » ou « Publication annulée » pendant le processus de publication. Cet état est un aspect normal du processus, qui permet à Microsoft d’apporter des modifications à votre offre. Si vous voyez votre offre dans « Publication annulée », laissez-la dans cet état.
+Les offres peuvent apparaître dans l’état « Échec de la publication » ou « Publication annulée » pendant le processus de publication. Ces désignations constituent un aspect normal du processus, qui permet à Microsoft d’apporter des modifications à votre offre. Si vous voyez votre offre dans « Publication annulée », laissez-la dans cet état.
 
-**Destination du prospect**
+## <a name="lead-destination"></a>Destination du prospect
 
-Vous pouvez sélectionner un système CRM dans lequel votre prospect sera stocké. Le système CRM que vous sélectionnez ici est celui dans lequel nous écrirons les détails des utilisateurs finaux qui essaient votre application sur AppSource (prospects).
+Vous pouvez sélectionner un système CRM dans lequel les informations relatives à votre prospect seront stockées. Le système CRM que vous sélectionnez ici est celui dans lequel nous écrirons les détails des utilisateurs finaux qui essaient votre application sur AppSource.
 
-Cliquez ci-dessous sur l’URL correspondant au système CRM que vous sélectionnez pour savoir comment compléter le jeu de champs suivant.
+Selon le système CRM que vous choisissez, sélectionnez l’URL correspondante dans la liste ci-dessous pour savoir comment compléter le jeu de champs suivant.
 
-* Sélectionnez [Table Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) si vous disposez d'un des systèmes CRM suivants : Salesforce, Marketo, Microsoft Dynamics CRM. 
+Sélectionnez [Table Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) si vous disposez d'un des systèmes CRM suivants :  
 * [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo)
 * [Microsoft Dynamics CRM](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)
 * [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce)
 
-**Étapes suivantes**
+## <a name="next-steps"></a>Étapes suivantes
 
-Passez à la publication de l'offre.
+Continuez pour savoir comment publier votre offre.

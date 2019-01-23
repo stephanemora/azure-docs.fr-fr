@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5607dd0f3c682915f1a64edcc5e946491bab5279
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e1b1102594e7e4470c08cb0f18068dd368c0fe7a
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653354"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245087"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
@@ -44,7 +44,7 @@ Cette rubrique présente une vue d’ensemble du rapport de connexions.
 * De plus, tous les utilisateurs (non administrateurs) peuvent accéder à leurs propres connexions 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>De quelle licence Azure AD avez-vous besoin pour accéder à l’activité de connexion ?
-* Votre client doit avoir une licence Azure AD Premium associée pour afficher tous les rapports d’activités de connexion. Consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) pour mettre à niveau votre édition d’Azure Active Directory.
+* Votre client doit avoir une licence Azure AD Premium associée pour afficher tous les rapports d’activités de connexion. Consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) pour mettre à niveau votre édition d’Azure Active Directory. Notez que si vous n’aviez aucune donnée d’activité avant la mise à niveau, l’affichage des données dans les rapports prendra quelques jours une fois la mise à niveau vers une licence premium effectuée.
 
 ## <a name="sign-ins-report"></a>Rapport de connexions
 
@@ -54,7 +54,7 @@ Le rapport de connexions des utilisateurs permet de répondre aux questions suiv
 * Combien d’utilisateurs se sont connectés au cours d’une semaine ?
 * Quel est l’état de ces connexions ?
 
-Vous pouvez accéder au rapport de connexions en sélectionnant **Connexions** dans la section **Activités** du panneau **Azure Active Directory** du [Portail Azure](https://portal.azure.com).
+Vous pouvez accéder au rapport de connexions en sélectionnant **Connexions** dans la section **Activités** du panneau **Azure Active Directory** du [Portail Azure](https://portal.azure.com). Il peut s’écouler jusqu’à deux heures pour que certains enregistrements de connexion s’affichent dans le portail.
 
 ![Activité de connexion](./media/concept-sign-ins/61.png "Activité de connexion")
 
@@ -233,6 +233,12 @@ Lorsque vous cliquez sur un jour dans le graphique d’utilisation des applicati
 L’option **Connexions** vous fournit une vue d’ensemble complète de tous les événements de connexion à vos applications.
 
 ![Activité de connexion](./media/concept-sign-ins/11.png "Activité de connexion")
+
+## <a name="office-365-activity-logs"></a>Journaux d’activité Office 365
+
+Vous pouvez consulter les journaux d’activité Office 365 dans le [centre d’administration Office 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Bien que les journaux d’activité d’Office 365 et d’Azure AD partagent une grande partie des ressources du répertoire, seul le centre d’administration Office 365 offre une vue complète des journaux d’activité d’Office 365. 
+
+Vous pouvez également accéder par programme aux journaux d’activité d’Office 365 avec l’[API de gestion Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

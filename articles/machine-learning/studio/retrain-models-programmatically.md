@@ -1,26 +1,8 @@
 ---
-title: Réentraîner les modèles Machine Learning Studio programmatiquement | Microsoft Docs
-description: Apprenez à réentraîner un modèle par programmatique à l’aide de C# et du service d’exécution par lot Machine Learning.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2017
-ms.openlocfilehash: 7a1381ce43056607486a27710cd6ee6181b9a5c1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257391"
+titre : Réentraîner les modèles Machine Learning Studio programmatiquement - titleSuffix : Description d'Azure Machine Learning Studio : Apprenez à réentraîner un modèle par programmatique à l’aide de C# et du service d’exécution par lot Machine Learning.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 19/04/2017
 ---
 # <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>Réentraîner les modèles Azure Machine Learning Studio programmatiquement
 Cette procédure pas à pas explique comment réentraîner programmatiquement un service web Azure Machine Learning Studio en utilisant C# et le service d’exécution de lot Machine Learning.

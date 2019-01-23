@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/10/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2a842646d2696c0d7d26ad7218d298d2df0be1a1
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 2aab7929539fb4a4b9001da89770730d8afbe286
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187636"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244667"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -192,7 +192,7 @@ Assurez-vous que la machine utilisant le système macOS est jointe à AD. Les in
 
 Si vous avez remplacé les paramètres de stratégie [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) dans votre environnement, veillez à y ajouter également l’URL d’Azure AD (`https://autologon.microsoftazuread-sso.com`).
 
-#### <a name="google-chrome-macos-only"></a>Google Chrome (macOS uniquement)
+#### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome (macOS et autres plateformes non-Windows)
 
 En ce qui concerne Google Chrome sur Mac OS et sur les autres plateformes non-Windows, consultez la [liste de stratégies du site Chromium Projects](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) afin d’obtenir plus d’informations sur la procédure d’ajout à la liste verte de l’URL Azure AD pour l’authentification intégrée.
 

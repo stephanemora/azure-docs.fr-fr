@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 61e85861ab5829620699d07fe24b1ebfdfc7cbdc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 928fb5421297fedbffabc45db35a89a74026477e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839505"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305069"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Recommandations du conseiller en matière de haute disponibilité
 
@@ -35,20 +35,16 @@ Pour assurer la redondance de votre application, nous vous recommandons de regro
 
 Pour assurer la redondance de votre application, nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité. Advisor identifie les groupes à haute disponibilité contenant une seule machine virtuelle et recommande d’y ajouter au moins une machine virtuelle. Cette configuration assure qu’au moins une des machines virtuelles est disponible pendant un événement de maintenance planifié ou non et répond au contrat de niveau de service Azure. Vous pouvez créer une machine virtuelle ou ajouter une machine virtuelle existante au groupe à haute disponibilité.  
 
+## <a name="use-managed-disks-to-improve-data-reliability"></a>Utiliser Managed Disks pour améliorer la fiabilité des données
+Les machines virtuelles situées dans un groupe à haute disponibilité avec disques partageant des comptes de stockage ou des unités d'échelle de stockage ne sont pas résistantes aux échecs des unités d'échelle de stockage en cas de pannes. Advisor identifie ces groupes à haute disponibilité et conseille de migrer vers Azure Managed Disks. Cela permet de s’assurer que les disques des différentes machines virtuelles d’un groupe à haute disponibilité sont suffisamment isolés pour éviter un point de défaillance unique. 
+
 ## <a name="ensure-application-gateway-fault-tolerance"></a>Assurer la tolérance de panne d’une passerelle
+
 Pour garantir la continuité métier des applications stratégiques qui sont alimentées par des passerelles d’application, Advisor identifie les instances de passerelle d’application qui ne sont pas configurées pour la tolérance de panne, et suggère des mesures de mise à jour que vous pouvez prendre. Advisor identifie les passerelles d’application de moyenne ou grande taille à instance unique, et recommande d’ajouter au moins une instance de plus. Il identifie également les petites passerelles d’application à une ou plusieurs instances et recommande de migrer vers des références de moyenne ou grande taille. Advisor recommande ces actions pour assurer que vos instances de passerelle d’application sont configurées pour satisfaire les exigences actuelles du contrat de niveau de service pour ces ressources.
-
-## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks"></a>Améliorer les performances et la fiabilité des disques de machine virtuelle
-
-Advisor identifie les machines virtuelles avec des disques Standard et recommande la mise à niveau vers des disques Premium.
- 
-Azure Premium Storage offre une prise en charge très performante et à faible latence des disques pour les machines virtuelles exécutant des charges de travail qui utilisent beaucoup d'E/S. Les disques de machine virtuelle qui utilisent des comptes Premium Storage stockent les données sur des disques SSD. Pour que votre application bénéficie de performances optimales, nous vous recommandons de migrer les disques de machine virtuelle nécessitant un nombre élevé d’E/S par seconde dans le stockage Premium. 
-
-Si votre disque ne nécessite pas une valeur élevée d’E/S par seconde, vous pouvez limiter les coûts en le maintenant en stockage standard. Le stockage standard stocke les données de disque des machines virtuelles sur des disques durs (HDD) au lieu de disques SSD. Vous pouvez choisir de migrer vos disques de machines virtuelles vers des disques Premium. Les disques Premium sont pris en charge sur la plupart des références de machines virtuelles. Toutefois, dans certains cas, si vous souhaitez utiliser des disques Premium, vous devrez également mettre à niveau la référence de votre machine virtuelle.
 
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>Protégez les données de vos machines virtuelles d’une suppression accidentelle
 
-La configuration de la sauvegarde de machine virtuelle permet de garantir la disponibilité de vos données métier stratégiques et offre une protection contre une suppression accidentelle ou un endommagement des données.  Advisor identifie les machines virtuelles sur lesquelles la sauvegarde n’est pas activée, et recommande l’activation de la sauvegarde. 
+La configuration de la sauvegarde de machine virtuelle permet de garantir la disponibilité de vos données métier stratégiques et offre une protection contre une suppression accidentelle ou un endommagement des données. Advisor identifie les machines virtuelles sur lesquelles la sauvegarde n’est pas activée, et recommande l’activation de la sauvegarde. 
 
 ## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>Assurez-vous d’avoir accès à des experts du cloud Azure chaque fois que vous en avez besoin
 
@@ -69,6 +65,10 @@ Si un profil Traffic Manager est configuré pour le routage géographique, le tr
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-in-the-event-of-accidental-overwrite-or-deletion"></a>Utilisez la suppression réversible sur votre compte de stockage Azure pour enregistrer et récupérer des données en cas de suppression ou de remplacement accidentels
 
 Activez la [suppression réversible](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) sur votre compte de stockage afin que les blobs supprimés passent dans un état de suppression réversible au lieu d’être supprimés de façon permanente. Quand les données sont remplacées, un instantané du blob supprimé de manière réversible est généré pour enregistrer l’état des données remplacées. Cela vous permet de le récupérer en cas de suppression ou de remplacement accidentel. Advisor identifie les comptes de stockage Azure pour lesquels l’option de suppression réversible n’est pas activée et vous suggère de l’activer.
+
+## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configurer votre passerelle VPN en mode actif/actif à des fins de résilience de connexion
+
+En mode actif/actif, les deux instances d’une passerelle VPN établissent des tunnels S2S VPN vers votre appareil VPN sur site. Lorsqu'un événement de maintenant planifié ou non planifié se produit sur une instance de passerelle, le trafic bascule automatiquement vers l'autre tunnel IPsec actif. Azure Advisor identifie les passerelles VPN non configurées en mode actif/actif et vous suggère que les configurer pour la haute disponibilité.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Comment accéder aux recommandations en matière de haute disponibilité dans le conseiller
 

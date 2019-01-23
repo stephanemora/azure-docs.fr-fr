@@ -1,40 +1,41 @@
 ---
-title: Configurer les paramètres de l’outil de révision Content Moderator | Microsoft Docs
-description: Découvrez comment configurer ou gérer votre équipe, vos balises, vos connecteurs, vos flux de travail et vos informations d’identification.
+title: Configurer les paramètres de l’outil de révision Content Moderator - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Découvrez comment configurer ou récupérer votre équipe, vos balises, vos connecteurs, vos flux de travail et vos informations d’identification.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/25/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 2ffed5e561cf9988ec10ecb7e10318d148281057
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 8717eb58538889e99938164f97f10c010f87d6a5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51851535"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262946"
 ---
-# <a name="review-tool-settings"></a>Paramètres de l’outil de révision #
+# <a name="configure-review-tool-settings"></a>Configurer les paramètres de l’outil de révision
 
 Vous pouvez facilement définir et modifier de nombreux composants grâce à l’onglet Paramètres du tableau de bord de l’outil de révision.
 
 ![Paramètres de la révision Content Moderator](images/settings-1.png)
 
-## <a name="team-and-subteams"></a>Équipe et sous-équipes ## 
+## <a name="team-and-subteams"></a>Équipe et sous-équipes
 
 Gérez votre équipe et vos sous-équipes depuis cet onglet. Vous ne pouvez disposer que d’une équipe, mais vous pouvez [créer plusieurs sous-équipes](subteams.md) et envoyer des invitations aux futurs membres. Une fois que vous avez envoyé vos invitations, vous pouvez les surveiller, modifier les autorisations des membres de l’équipe et inviter davantage d’utilisateurs. Une fois que les membres de l’équipe ont accepté votre invitation, vous pouvez affecter ces membres à différentes sous-équipes. Vous pouvez attribuer deux rôles différents aux membres de l’équipe : administrateur ou réviseur. L’administrateur peut inviter d’autres utilisateurs, contrairement aux réviseurs.
 
 ![Paramètres de l’équipe Content Moderator](images/settings-2-team.png)
 
-## <a name="tags"></a>Balises ##
+## <a name="tags"></a>Balises
 
 Cette section vous permet de [définir des balises personnalisées](tags.md) en saisissant un extrait de code, un nom et une description de vos balises. Une fois créée, la balise est disponible lors des révisions. Vous pouvez utiliser différentes balises en fonction des révisions, en activant ou désactivant leur visibilité.
 
 ![Paramètres des balises Content Moderator](images/settings-3-tags.png)
 
-## <a name="connectors"></a>Connecteurs ##
+## <a name="connectors"></a>Connecteurs
 
 Les workflow offrent des fonctionnalités supplémentaires grâce à des connecteurs permettant de communiquer avec l’outil de révision. L’outil de révision appelle les API Content Moderator avec le workflow par défaut pour modérer le contenu. Lors de votre inscription à l’outil de révision, les informations d’identification de l’API Content Moderator sont configurées au préalable. L’outil prend également en charge l’intégration avec d’autres API de connecteurs, dans la mesure où un connecteur est disponible. Plusieurs connecteurs sont disponibles par défaut.
 
@@ -42,13 +43,13 @@ Vous pouvez gérer les connecteurs dans l’onglet [Connecteurs](connectors.md).
 
 ![Paramètres des connecteurs Content Moderator](images/settings-4-connectors.png)
 
-## <a name="workflows"></a>Flux de travail ##
+## <a name="workflows"></a>Flux de travail
 
 Vous pouvez gérer les flux de travail depuis l’onglet Flux de travail. Vous pouvez tester les flux de travail en chargeant un fichier d’exemple. De plus, vous pouvez [définir des flux de travail personnalisés](workflows.md) appliqués à des images et du texte à l’aide des connecteurs d’API disponibles (disponibles dans l’onglet Connecteurs). 
 
 ![Paramètres du flux de travail Content Moderator](images/settings-5-workflows.png)
 
-## <a name="credentials"></a>Informations d'identification ##
+## <a name="credentials"></a>Informations d'identification
 
 Cet onglet fournit un accès rapide à votre clé d’abonnement Content Moderator. Vous en aurez besoin pour utiliser les API incluses avec Content Moderator (API de modération d’images, de modération de texte, de gestion de listes, de flux de travail et de révision).
  

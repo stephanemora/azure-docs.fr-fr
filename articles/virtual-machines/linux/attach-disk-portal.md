@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 2823772787adf56dfbe216a68161f633eadba255
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 519fd063e52d1e202ea76db0fd4be15ebd117cd0
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001614"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214927"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utiliser le portail pour attacher un disque de données à une machine virtuelle Linux 
 Cet article vous explique comment attacher des disques nouveaux et existants à une machine virtuelle Linux par le biais du portail Azure. Vous pouvez également [attacher un disque de données à une machine virtuelle Windows dans le Portail Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -28,7 +28,7 @@ Cet article vous explique comment attacher des disques nouveaux et existants à 
 Avant d’attacher des disques à votre machine virtuelle, lisez les conseils suivants :
 
 * La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher . Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Pour utiliser le stockage Premium, vous avez besoin d’une machine virtuelle de série DS ou GS. Vous pouvez utiliser des disques Premium et Standard avec ces machines virtuelles. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, voir l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../windows/premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Pour utiliser le stockage Premium, vous avez besoin d’une machine virtuelle de série DS ou GS. Vous pouvez utiliser des disques Premium et Standard avec ces machines virtuelles. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, consultez [Stockage Premium : Stockage hautes performances pour les charges de travail de machine virtuelle Azure](../windows/premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Les disques attachés aux machines virtuelles sont en réalité des fichiers .vhd stockés dans Azure. Pour en savoir plus, voir la section [À propos des disques et VHD pour machines virtuelles](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Après avoir attaché le disque, vous devez vous [connecter à la machine virtuelle Linux pour monter le nouveau disque](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
@@ -96,7 +96,12 @@ Le résultat ressemble à l’exemple suivant :
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Ici, *sdc* est le disque que nous recherchons. Partitionnez le disque avec `fdisk`, faites-en le disque principal sur la partition 1 et acceptez les autres valeurs par défaut. L’exemple suivant démarre le processus `fdisk` sur */dev/sdc* :
+Ici, *sdc* est le disque que nous recherchons. 
+
+### <a name="partion-a-new-disk"></a>Partitionner un nouveau disque
+Si vous utilisez un disque existant contenant des données, passez au montage du disque. Si vous attachez un nouveau disque, vous devez partitionner ce disque.
+
+Utilisez `fdisk` pour partitionner le disque, faites-en le disque principal sur la partition 1 et acceptez les autres valeurs par défaut. L’exemple suivant démarre le processus `fdisk` sur */dev/sdc* :
 
 ```bash
 sudo fdisk /dev/sdc
@@ -176,8 +181,8 @@ Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
-
-À présent, créez un répertoire afin de monter le système de fichiers à l’aide de `mkdir`. L’exemple suivant crée un répertoire sous */datadrive* :
+### <a name="mount-the-disk"></a>Monter le disque
+Créez un répertoire afin de monter le système de fichiers à l’aide de `mkdir`. L’exemple suivant crée un répertoire sous */datadrive* :
 
 ```bash
 sudo mkdir /datadrive

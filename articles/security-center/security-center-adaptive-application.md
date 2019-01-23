@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2018
+ms.date: 12/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: b4023d45c3628df5006d076e01f32bb8f3aa80a6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e4538127b39e01f2e30f8b219c2ccee56cb4d2bc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846247"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262895"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Contrôles d’application adaptative dans Azure Security Center
 Découvrez comment configurer le contrôle d’application dans Azure Security Center à l’aide de cette procédure pas à pas.
@@ -122,7 +122,7 @@ Une fois que vous avez sélectionné Créer, Azure Security Center crée automat
    > - Comme nous l’avons indiqué précédemment, une nouvelle stratégie de contrôle d’application est toujours configurée par défaut dans le mode *Audit*. 
    >
 
-4. Dans **Extension de stratégie**, vous pouvez ajouter les chemins d’accès d’application que vous souhaitez autoriser. Une fois que vous ajoutez ces chemins d’accès, Security Center met à jour la stratégie de mise en liste verte d’applications sur les machines virtuelles au sein du groupe de machines virtuelles sélectionnées et crée les règles appropriées pour ces applications, en plus des règles déjà en place.
+4. Dans **Extension de stratégie**, vous pouvez ajouter les chemins d’accès d’application que vous souhaitez autoriser. Une fois ces chemins d'accès ajoutés, Security Center met à jour la stratégie de mise en liste verte des applications sur les machines virtuelles du groupe sélectionné et crée les règles appropriées pour ces applications, en plus des règles déjà en place.
 
 5. Passez en revue les violations en cours répertoriées dans la section **Alertes récentes**. Cliquez sur chaque ligne pour être redirigé vers la page **Alertes** dans Azure Security Center et afficher toutes les alertes qui ont été détectées par Azure Security Center sur les machines virtuelles associées.
   - **Alertes** : toutes les violations enregistrées.

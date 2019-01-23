@@ -11,30 +11,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: georgel
-ms.openlocfilehash: b39cc799218a4c6f865acac8b98f5fb977c83bdc
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.reviewer: jiahan
+ms.openlocfilehash: 00a7644663b4628d20dbe598def158bc120a7aee
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117790"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245459"
 ---
 # <a name="update-the-sql-resource-provider"></a>Mettre à jour le fournisseur de ressources SQL
 
 *S’applique à : systèmes intégrés Azure Stack.*
 
-Un nouveau fournisseur de ressources SQL peut être publié lorsque le build Azure Stack est mis à jour. Même si l’adaptateur existant continue de fonctionner, nous vous recommandons d’effectuer une mise à jour dès que possible vers le build le plus récent.
+Un nouveau fournisseur de ressources SQL peut être publié lorsque le build Azure Stack est mis à jour. Même si le fournisseur de ressources existant continue de fonctionner, nous vous recommandons d’effectuer une mise à jour dès que possible vers le build le plus récent. 
 
-> [!IMPORTANT]
-> Vous devez installer les mises à jour dans l’ordre de leur publication. Vous ne pouvez pas ignorer les versions. Reportez-vous à la liste des versions dans [Déployer les conditions préalables du fournisseur de ressources](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
-
-## <a name="overview"></a>Vue d’ensemble
+À compter de la publication de la version 1.1.33.0 du fournisseur de ressources SQL, les mises à jour sont cumulatives et elles ne doivent pas être installées dans l’ordre où elles ont été publiées dès lors que vous démarrez par la version 1.1.24.0 ou ultérieure. Par exemple, si vous exécutez la version 1.1.24.0 du fournisseur de ressources SQL, vous pouvez mettre à niveau vers la version 1.1.33.0 ou ultérieure sans devoir d’abord installer la version 1.1.30.0. Pour passer en revue les versions disponibles du fournisseur de ressources et la version d’Azure Stack sur laquelle elles sont prises en charge, reportez-vous à la liste des versions dans [Déployer les prérequis du fournisseur de ressources](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
 Pour mettre à jour le fournisseur de ressources, utilisez le script *UpdateSQLProvider.ps1*. Le script est inclus avec le téléchargement du nouveau fournisseur de ressources SQL. Le processus de mise à jour est similaire au processus utilisé pour [déployer le fournisseur de ressources](./azure-stack-sql-resource-provider-deploy.md). Le script de mise à jour utilise les mêmes arguments que le script DeploySqlProvider.ps1. Vous devrez fournir les informations de certificat.
 
-### <a name="update-script-processes"></a>Processus du script de mise à jour
+ > [!IMPORTANT]
+ > Avant de mettre à niveau le fournisseur de ressources, passez en revue les notes de publication pour en savoir plus sur les nouvelles fonctionnalités, les correctifs et les problèmes connus qui pourraient affecter votre déploiement.
+
+## <a name="update-script-processes"></a>Processus du script de mise à jour
 
 Le script *UpdateSQLProvider.ps1* crée une machine virtuelle (VM) avec le tout dernier code de fournisseur de ressources.
 
@@ -47,11 +47,26 @@ Une fois qu’il a créé une machine virtuelle, le script *UpdateSQLProvider.ps
 * les informations sur le serveur d’hébergement
 * l’enregistrement DNS requis
 
-### <a name="update-script-powershell-example"></a>Exemple de script de mise à jour PowerShell
+## <a name="update-script-parameters"></a>Paramètres du script de mise à jour
 
-Vous pouvez modifier et exécuter le script suivant depuis une session PowerShell ISE avec élévation de privilèges. 
+Vous pouvez spécifier les paramètres suivants à partir de la ligne de commande quand vous exécutez le script PowerShell **UpdateSQLProvider.ps1**. Si vous ne le faites pas, ou si la validation d’un paramètre échoue, vous êtes invité à fournir les paramètres requis.
 
-Veillez à modifier les informations de compte et les mots de passe requis par votre environnement, si nécessaire.
+| Nom du paramètre | Description | Commentaire ou valeur par défaut |
+| --- | --- | --- |
+| **CloudAdminCredential** | Informations d’identification de l’administrateur du cloud, nécessaires pour accéder au point de terminaison privilégié. | _Obligatoire_ |
+| **AzCredential** | Informations d’identification du compte d’administration de service Azure Stack. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack. | _Obligatoire_ |
+| **VMLocalCredential** | Informations d’identification du compte d’administrateur local de la machine virtuelle du fournisseur de ressources SQL. | _Obligatoire_ |
+| **PrivilegedEndpoint** | Adresse IP ou nom DNS du point de terminaison privilégié. |  _Obligatoire_ |
+| **AzureEnvironment** | L’environnement Azure du compte administrateur de service que vous avez utilisé pour déployer Azure Stack. Nécessaire uniquement pour les déploiements Azure AD. Les noms d’environnement pris en charge sont **AzureCloud**, **AzureUSGovernment**, ou, si vous utilisez un compte Azure AD en Chine, **AzureChinaCloud**. | AzureCloud |
+| **DependencyFilesLocalPath** | Vous devez également placer le fichier de certificat .pfx dans ce répertoire. | _Facultatif pour un seul nœud, mais obligatoire pour plusieurs nœuds._ |
+| **DefaultSSLCertificatePassword** | Mot de passe pour le certificat .pfx. | _Obligatoire_ |
+| **MaxRetryCount** | Nombre de fois où vous souhaitez réessayer chaque opération en cas d’échec.| 2 |
+| **RetryDuration** |Délai d’attente entre les tentatives, en secondes. | 120 |
+| **Désinstaller** | Supprime le fournisseur de ressources et toutes les ressources associées. | Non  |
+| **DebugMode** | Empêche le nettoyage automatique en cas d’échec. | Non  |
+
+## <a name="update-script-powershell-example"></a>Exemple de script de mise à jour PowerShell
+Voici un exemple d’utilisation du script *UpdateSQLProvider.ps1* que vous pouvez exécuter à partir d’une console PowerShell avec privilèges élevés. Veillez à changer les informations des variables et les mots de passe selon vos besoins :  
 
 > [!NOTE]
 > Ce processus de mise à jour s’applique uniquement aux systèmes Azure Stack intégrés.
@@ -101,24 +116,6 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -DependencyFilesLocalPath $tempDir\cert `
 
  ```
-
-## <a name="updatesqlproviderps1-parameters"></a>UpdateSQLProvider.ps1 parameters
-
-Vous pouvez spécifier les paramètres suivants à partir de la ligne de commande lorsque vous exécutez le script. Si vous ne le faites pas, ou si la validation d’un paramètre échoue, vous êtes invité à fournir les paramètres requis.
-
-| Nom du paramètre | Description | Commentaire ou valeur par défaut |
-| --- | --- | --- |
-| **CloudAdminCredential** | Informations d’identification de l’administrateur du cloud, nécessaires pour accéder au point de terminaison privilégié. | _Obligatoire_ |
-| **AzCredential** | Informations d’identification du compte d’administration de service Azure Stack. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack. | _Obligatoire_ |
-| **VMLocalCredential** | Informations d’identification du compte d’administrateur local de la machine virtuelle du fournisseur de ressources SQL. | _Obligatoire_ |
-| **PrivilegedEndpoint** | Adresse IP ou nom DNS du point de terminaison privilégié. |  _Obligatoire_ |
-| **AzureEnvironment** | L’environnement Azure du compte administrateur de service que vous avez utilisé pour déployer Azure Stack. Nécessaire uniquement pour les déploiements Azure AD. Les noms d’environnement pris en charge sont **AzureCloud**, **AzureUSGovernment**, ou, si vous utilisez un compte Azure AD en Chine, **AzureChinaCloud**. | AzureCloud |
-| **DependencyFilesLocalPath** | Vous devez également placer le fichier de certificat .pfx dans ce répertoire. | _Facultatif pour un seul nœud, mais obligatoire pour plusieurs nœuds._ |
-| **DefaultSSLCertificatePassword** | Mot de passe pour le certificat .pfx. | _Obligatoire_ |
-| **MaxRetryCount** | Nombre de fois où vous souhaitez réessayer chaque opération en cas d’échec.| 2 |
-| **RetryDuration** |Délai d’attente entre les tentatives, en secondes. | 120 |
-| **Désinstaller** | Supprime le fournisseur de ressources et toutes les ressources associées. | Non  |
-| **DebugMode** | Empêche le nettoyage automatique en cas d’échec. | Non  |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

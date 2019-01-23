@@ -12,32 +12,32 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2017
+ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be737550aa1cff22bc413ee8ce243f8d8588f6a5
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3c9fe597957057dc61da5c2b1cf6f9216711764a
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29972338"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247841"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Déploiement de StorSimple Virtual Array - Configuration dans VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
-## <a name="overview"></a>Vue d'ensemble
-Ce didacticiel explique comment configurer et vous connecter à StorSimple Virtual Array sur un système hôte exécutant VMware ESXi 5.0, 5.5 ou 6.0. Cet article concerne le déploiement de StorSimple Virtual Array dans le portail Azure, ainsi que dans Microsoft Azure Government Cloud.
+## <a name="overview"></a>Vue d’ensemble
+Ce didacticiel explique comment configurer et vous connecter à StorSimple Virtual Array sur un système hôte exécutant VMware ESXi 5.0, 5.5, 6.0 ou 6.5. Cet article concerne le déploiement de StorSimple Virtual Array dans le portail Azure, ainsi que dans Microsoft Azure Government Cloud.
 
 Vous aurez besoin de privilèges d’administrateur pour configurer un appareil virtuel et vous y connecter. La configuration initiale peut prendre environ 10 minutes.
 
 ## <a name="provisioning-prerequisites"></a>Configuration des composants requis
-Vous trouverez ici les conditions requises pour provisionner un appareil virtuel sur un système hôte exécutant VMware ESXi 5.0, 5.5 ou 6.0.
+Vous trouverez ici les conditions requises pour configurer un appareil virtuel sur un système hôte exécutant VMware ESXi 5.0, 5.5, 6.0 ou 6.5.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>Pour le service StorSimple Device Manager
 Avant de commencer, assurez-vous que :
 
 * Vous avez terminé toutes les étapes de la rubrique [Préparation du portail pour StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md).
-* Vous avez téléchargé l'image de l’appareil virtuel pour Vmware à partir du portail Azure. Pour plus d’informations, consultez l’**Étape 3 : Téléchargement de l’image de l’appareil virtuel** de [Prepare the portal for StorSimple Virtual Array guide](storsimple-virtual-array-deploy1-portal-prep.md) (Guide de préparation du portail pour StorSimple Virtual Array).
+* Vous avez téléchargé l'image de l’appareil virtuel pour Vmware à partir du portail Azure. Pour plus d'informations, consultez **Étape 3 : Téléchargement de l’image de l’appareil virtuel** de [Guide de préparation du portail pour StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md).
 
 ### <a name="for-the-storsimple-virtual-device"></a>Pour l’appareil virtuel StorSimple
 Avant de déployer un appareil virtuel, assurez-vous que :
@@ -62,10 +62,10 @@ Pour configurer et vous connecter à un appareil virtuel, vous devez effectuer l
 2. Configurez un appareil virtuel dans votre hyperviseur.
 3. Démarrez l’appareil virtuel et obtenez l'adresse IP.
 
-## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>Étape 1 : Vérifier que le système hôte répond aux exigences minimales de l’appareil virtuel
+## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>Étape 1 : Vérifier que le système hôte répond à la configuration minimale requise de l'appareil virtuel
 Pour créer un appareil virtuel, vous avez besoin des éléments suivants :
 
-* Un accès à un système hôte exécutant VMware ESXi Server 5.0, 5.5 ou 6.0.
+* Un accès à un système hôte exécutant VMware ESXi Server 5.0, 5.5, 6.0 ou 6.5.
 * Un client VMware vSphere sur votre système pour gérer l'hôte ESXi.
 
   * Un minimum de 4 cœurs.
@@ -73,7 +73,7 @@ Pour créer un appareil virtuel, vous avez besoin des éléments suivants :
   * Une interface réseau connectée au réseau et capable d’acheminer le trafic vers Internet. La bande passante Internet minimale doit être de 5 Mbits/s pour une utilisation optimale de l'appareil.
   * Un disque virtuel de 500 Go pour les données.
 
-## <a name="step-2-provision-a-virtual-device-in-hypervisor"></a>Étape 2 : Configuration d'un appareil virtuel dans l'hyperviseur
+## <a name="step-2-provision-a-virtual-device-in-hypervisor"></a>Étape 2 : Configurer un appareil virtuel dans l’hyperviseur
 Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 
 1. Copiez l'image de l’appareil virtuel sur votre système. Vous avez téléchargé cette image virtuelle via le portail Azure.
@@ -188,7 +188,7 @@ Votre machine virtuelle est désormais configurée. L'étape suivante consiste �
 > [!NOTE]
 > Nous vous recommandons de ne pas installer les outils VMware sur votre système Virtual Array (provisionné plus haut). Cette configuration avec les outils VMware installés n’est pas prise en charge.
 
-## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>Étape 3 : Démarrer l’appareil virtuel et obtenir l'adresse IP
+## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>Étape 3 : Démarrer l’appareil virtuel et obtenir l’adresse IP
 Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 
 #### <a name="to-start-the-virtual-device"></a>Pour démarrer l’appareil virtuel
@@ -235,7 +235,7 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
        >
        >
 
-Si votre périphérique ne répond pas à la configuration minimale requise, une erreur apparaît dans le texte de bannière (voir ci-dessous). Vous devez modifier la configuration de l'appareil afin qu'il dispose des ressources nécessaires à la configuration minimale. Vous pouvez ensuite redémarrer et vous connecter à l'appareil. Reportez-vous à la configuration minimale requise à l’ [Étape 1 : Vérifier que le système hôte répond aux exigences minimales de l’appareil virtuel](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
+Si votre périphérique ne répond pas à la configuration minimale requise, une erreur apparaît dans le texte de bannière (voir ci-dessous). Vous devez modifier la configuration de l'appareil afin qu'il dispose des ressources nécessaires à la configuration minimale. Vous pouvez ensuite redémarrer et vous connecter à l'appareil. Reportez-vous à la configuration minimale requise dans [Étape 1 : Vérifier que le système hôte répond aux exigences minimales de l’appareil virtuel](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
 
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image46.png)
 

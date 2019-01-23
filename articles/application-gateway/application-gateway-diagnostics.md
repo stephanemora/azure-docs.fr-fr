@@ -1,23 +1,18 @@
 ---
-title: Surveiller les journaux d’accès, les journaux de performances, l’intégrité du serveur principal et les métriques pour Application Gateway
-description: Découvrez comment activer et gérer les journaux d’accès et les journaux des performances pour Application Gateway
+title: Surveiller les journaux d’accès, les journaux de performances, l’intégrité du serveur principal et les métriques pour Azure Application Gateway
+description: Découvrez comment activer et gérer les journaux d’accès et les journaux des performances pour Azure Application Gateway
 services: application-gateway
-author: amitsriva
-manager: rossort
-tags: azure-resource-manager
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 6/20/2018
+ms.date: 1/11/2019
 ms.author: amitsriva
-ms.openlocfilehash: 45a13bca32593895e51fa7fe3c5bd7ce1ba547e6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6cd21448742778b0a2a27aea41f7940b1a216cdc
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437467"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231102"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Intégrité du serveur principal, journaux de diagnostic et métriques pour la passerelle Application Gateway
 
@@ -98,7 +93,7 @@ L’extrait de code suivant montre un exemple de la réponse :
 Vous pouvez utiliser différents types de journaux dans Azure pour gérer les passerelles Application Gateway et résoudre les problèmes associés. Vous pouvez accéder à certains de ces journaux via le portail. Tous les journaux peuvent être extraits à partir d’un stockage Blob Azure et affichés dans différents outils, comme [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel et PowerBI. Pour en savoir plus sur les différents types de journaux, consultez la liste suivante :
 
 * **Journal d’activité** : vous pouvez utiliser le [Journal d’activité Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anciennement journaux des opérations et journaux d’audit) pour voir toutes les opérations soumises à votre abonnement Azure, ainsi que leur état. Les entrées du journal d’activité sont recueillies par défaut et vous pouvez les afficher dans le Portail Azure.
-* **Journal d’accès** : vous pouvez utiliser ce journal pour voir les modèles d’accès Application Gateway et analyser des informations importantes, notamment l’adresse IP de l’appelant, l’URL demandée, la latence de réponse, le code de retour, les octets d’entrée et de sortie. Un journal d’accès est collecté toutes les 300 secondes. Ce journal contient un enregistrement par instance Application Gateway. L’instance de la passerelle Application Gateway peut être identifiée par la propriété instanceId.
+* **Journal d’accès** : Vous pouvez utiliser ce journal pour voir les modèles d’accès Application Gateway et analyser les informations importantes. Ceci comprend l’adresse IP de l’appelant, l’URL demandée, la latence de réponse, le code de retour et les octets d’entrée et de sortie. Un journal d’accès est collecté toutes les 300 secondes. Ce journal contient un enregistrement par instance Application Gateway. L’instance de la passerelle Application Gateway est identifiée par la propriété instanceId.
 * **Journaux de performances** : vous pouvez utiliser ce journal pour afficher les performances des instances de la passerelle Application Gateway. Ce journal capture des informations sur les performances de chaque instance, notamment le nombre total de requêtes traitées, le débit en octets, le nombre total de requêtes présentées, le nombre de requêtes ayant échoué, le nombre d’instances du serveur principal intègres et défectueuses. Le journal des performances est collecté toutes les 60 secondes.
 * **Journal du pare-feu** : vous pouvez utiliser ce journal pour afficher les requêtes consignées via le mode de détection ou de prévention d’une passerelle Application Gateway configuré avec un pare-feu d’applications web.
 
@@ -217,7 +212,7 @@ Le journal des performances n’est généré que si vous l’avez activé sur c
 |healthyHostCount     | Nombre d’hôtes intègres dans le pool principal.        |
 |unHealthyHostCount     | Nombre d’hôtes défaillants dans le pool principal.        |
 |requestCount     | Nombre de requêtes traitées.        |
-|latency | Latence (en millisecondes) des requêtes à partir de l’instance vers le serveur principal qui traite les requêtes. |
+|latency | Latence moyenne (en millisecondes) des requêtes à partir de l’instance vers le serveur principal qui traite les requêtes. |
 |failedRequestCount| Nombre d’échecs de requêtes.|
 |throughput| Débit moyen depuis le dernier journal, mesuré en octets par seconde.|
 

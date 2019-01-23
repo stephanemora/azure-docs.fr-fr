@@ -1,5 +1,6 @@
 ---
-title: Utiliser des connecteurs dans Azure Content Moderator pour accéder à d’autres API | Microsoft Docs
+title: Se connecter à d'autres services tout en modérant du contenu - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Découvrez comment accéder à d’autres API pour vos flux de travail Content Moderator à l’aide de connecteurs.
 services: cognitive-services
 author: sanjeev3
@@ -7,16 +8,16 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: d8114457e7079ca8772cab830bd011dcddf372f5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 99d8b3603278a9c6c432ca32a1d85e9abe34e1da
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367989"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265581"
 ---
-# <a name="connectors"></a>Connecteurs
+# <a name="connect-to-other-cognitive-services"></a>Se connecter à d'autres services Cognitive Services
 
 Les flux de travail Azure Content Moderator peuvent utiliser d’autres API en plus des API de Content Moderator. Vous pouvez accéder à d’autres API à l’aide d’un connecteur de Content Moderator. Le connecteur fournit un lien vers les autres API.
 

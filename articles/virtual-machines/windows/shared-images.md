@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/11/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 1e51d55fcc20230dff20ca18d58a13e6ed32905b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ecac7216582fa07e9c25492ddeb25e9f155da563
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192717"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305148"
 ---
 # <a name="preview-create-a-shared-image-gallery-with-azure-powershell"></a>Aperçu : Créer une galerie d’images partagées avec Azure PowerShell 
 
@@ -31,13 +31,13 @@ La galerie d’images partagées vous permet de partager vos images de machine v
 
 La galerie est une ressource de niveau supérieur qui fournit le contrôle d’accès en fonction du rôle (RBAC) complet. Les versions des images peuvent être gérées, et vous pouvez choisir de répliquer chaque version d’image vers un autre ensemble de régions Azure. La galerie fonctionne uniquement avec les images managées.
 
-La fonctionnalité Galerie d’images partagées a plusieurs types de ressources. Dans cet article, nous allons utiliser ou générer ce qui suit :
+La fonctionnalité Galerie d’images partagées présente plusieurs types de ressources. Dans cet article, nous allons utiliser ou générer ce qui suit :
 
 | Ressource | Description|
 |----------|------------|
-| **Image managée** | Il s’agit d’une image de base pouvant être utilisée seule ou pour créer une **version de l’image**  dans une galerie d’images. Les images gérés sont créés à partir de machines virtuelles généralisées. Une image managée est un type spécial de disque dur virtuel qui peut être utilisée pour définir plusieurs machines virtuelles et qui peut maintenant être utilisé pour créer des versions d’image partagée. |
+| **Image managée** | Il s’agit d’une image de base pouvant être utilisée seule ou pour créer une **version de l’image**  dans une galerie d’images. Les images managées sont créées à partir de machines virtuelles généralisées. Une image managée est un type spécial de disque dur virtuel qui peut être utilisé pour définir plusieurs machines virtuelles et qui peut maintenant être utilisé pour créer des versions d’image partagée. |
 | **Galerie d’images** | Tout comme la Place de marché Azure, une **galerie d’images** est un dépôt permettant de gérer et partager des images, mais vous contrôlez les utilisateurs qui y ont accès. |
-| **Définition d’image** | Les images sont définies dans une galerie et incluent des informations sur l’image et sur les exigences relatives à son utilisation en interne. Ces informations indiquent, par exemple, si l’image est Windows ou Linux, et comprennent les notes de publication et les exigences de mémoire maximale et minimale. Il s’agit d’une définition de type d’image. |
+| **Définition d'image** | Les images sont définies dans une galerie et incluent des informations sur l’image et sur les exigences relatives à son utilisation en interne. Ces informations indiquent, par exemple, si l’image est Windows ou Linux, et comprennent les notes de publication et les exigences de mémoire maximale et minimale. Il s’agit d’une définition de type d’image. |
 | **Version de l’image** | Une **version d’image** est ce qui vous permet de créer une machine virtuelle quand vous utilisez une galerie. Vous pouvez avoir plusieurs versions d’une image en fonction des besoins de votre environnement. Tout comme une image managée, quand vous utilisez une **version d’image** pour créer une machine virtuelle, la version d’image permet de créer des disques pour la machine virtuelle. Les versions d’image peuvent être utilisées plusieurs fois. |
 
 
@@ -49,7 +49,7 @@ Pour suivre l’exemple de cet article, vous devez avoir l’image managée. Vou
  
 ## <a name="create-vms-from-an-image"></a>Créer des machines virtuelles à partir d’une image
 
-Une fois que la version de l’image est complète, vous pouvez créer une ou plusieurs nouvelles machines virtuelles. À l’aide du paramètre simplifié défini pour la cmdlet [New-AzureRMVM](), vous devez simplement fournir l’ID de l’image de la version de l’image. 
+Une fois que la version de l’image est complète, vous pouvez créer une ou plusieurs nouvelles machines virtuelles. À l’aide du paramètre simplifié défini pour la cmdlet [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm), vous devez simplement fournir l’ID de l’image de la version de l’image. 
 
 Cet exemple crée une machine virtuelle nommée *myVMfromImage*, dans le groupe *myResourceGroup* dans le centre de données *USA Est*.
 

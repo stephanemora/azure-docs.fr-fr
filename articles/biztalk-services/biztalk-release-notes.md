@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: f990aa086997d51e59df4285aabeccd31dcce822
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10e790c2edb22b3c7926216535d76c50261589f3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253429"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260329"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notes de publication pour Azure BizTalk Services
 
@@ -38,7 +38,7 @@ Les notes de version des Services Microsoft Azure BizTalk reprennent les problè
   * **Scénario** : vous avez inscrit un déploiement de service BizTalk à l’aide d’un compte Microsoft (par exemple, user@live.com). Dans ce scénario, seuls des utilisateurs de compte Microsoft peuvent gérer le service BizTalk au moyen du portail BizTalk Services. Il est impossible d’utiliser un compte professionnel.  
   * **Scénario** : vous avez inscrit un déploiement de service BizTalk à l’aide d’un compte professionnel dans Azure Active Directory (par exemple user@fabrikam.com ou user@contoso.com). Dans ce scénario, seuls des utilisateurs Azure Active Directory au sein de la même organisation peuvent gérer le service BizTalk par le biais du portail BizTalk Services. Il est impossible d’utiliser un compte Microsoft.  
 * Lorsque vous créez un service BizTalk, vous êtes automatiquement inscrit dans le portail BizTalk Services.
-  * **Scénario** : vous vous connectez à Azure, créez un service BizTalk, puis sélectionnez **Gérer** pour la première fois. Lorsque le portail BizTalk Services s’ouvre, le service BizTalk est automatiquement inscrit et est prêt pour vos déploiements.  
+  * **Scénario** : vous vous connectez à Azure, créez un service BizTalk, puis sélectionnez **Gérer** pour la première fois. Lorsque le portail BizTalk Services s’ouvre, le service BizTalk est automatiquement inscrit et est prêt pour vos déploiements.  
     Consultez [Enregistrement et mise à niveau d’un déploiement de service BizTalk sur le portail BizTalk Services](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### <a name="august-14-update"></a>Mise à jour du 14 août
@@ -175,16 +175,16 @@ Examinez le scénario suivant :
 ### <a name="bridges-do-not-use-updated-certificate-even-after-a-certificate-has-been-updated-in-the-artifact-store"></a>Les ponts n’utilisent pas de certificat mis à jour même après qu’un certificat a été mis à jour dans le magasin d’artefacts
 Examinez les scénarios suivants :  
 
-**Scénario 1 : à l’aide de certificats basés sur l’empreinte numérique pour sécuriser le transfert de message d’un pont vers un point de terminaison**  
-Envisagez un scénario dans lequel vous utilisez les certificats basés sur l’empreinte numérique dans votre projet de BizTalk Service. Vous pouvez mettre à jour le certificat dans le portail BizTalk Services avec le même nom, mais avec une autre empreinte numérique, mais ne mettez pas le projet BizTalk Service à jour en conséquence. Dans un tel scénario, le pont peut continuer de traiter les messages, car les anciennes données de certificat  se trouvent toujours dans la mémoire cache du canal. Après cela, le traitement du message échoue.  
+**Scénario 1 : à l’aide de certificats basés sur l’empreinte numérique pour sécuriser le transfert de message d’un pont vers un point de terminaison**  
+ Envisagez un scénario dans lequel vous utilisez les certificats basés sur l’empreinte numérique dans votre projet de BizTalk Service. Vous pouvez mettre à jour le certificat dans le portail BizTalk Services avec le même nom, mais avec une autre empreinte numérique, mais ne mettez pas le projet BizTalk Service à jour en conséquence. Dans un tel scénario, le pont peut continuer de traiter les messages, car les anciennes données de certificat  se trouvent toujours dans la mémoire cache du canal. Après cela, le traitement du message échoue.  
 
-**Solution de contournement**: mettez à jour le certificat dans le projet BizTalk Service et redéployez le projet.  
+**Solution de contournement** : mettez à jour le certificat dans le projet BizTalk Service et redéployez le projet.  
 
-**Scénario 2 : en utilisant des procédures basées sur des noms pour identifier les certificats pour sécuriser le transfert de message depuis un pont vers un point de terminaison de service**
+**Scénario 2 : en utilisant des procédures basées sur des noms pour identifier les certificats pour sécuriser le transfert de message depuis un pont vers un point de terminaison de service**
 
 Envisagez un scénario dans lequel vous utilisez des procédures basées sur le nom pour identifier des certificats dans votre projet BizTalk Service. Il est possible de mettre à jour le certificat dans le portail BizTalk Services, mais ne mettez pas le projet BizTalk Service à jour en conséquence. Dans un tel scénario, le pont peut continuer de traiter les messages, car les anciennes données de certificat  se trouvent toujours dans la mémoire cache du canal. Après cela, le traitement du message échoue.  
 
-**Solution de contournement**: mettez à jour le certificat dans le projet BizTalk Service et redéployez le projet.  
+**Solution de contournement** : mettez à jour le certificat dans le projet BizTalk Service et redéployez le projet.  
 
 ### <a name="bridges-continue-to-process-messages-even-when-the-sql-database-is-offline"></a>Les ponts continuent de traiter les messages même lorsque la base de données SQL est hors connexion
 Les ponts BizTalk Services continuent de traiter les messages pendant un certain temps, même si Azure SQL Database Microsoft (qui stocke les informations en cours d’exécution telles que les artefacts déployés et les pipelines), est hors connexion, et ce, parce que les Services BizTalk utilisent les artefacts mis en cache et la configuration du pont.
@@ -196,15 +196,15 @@ Imaginez un scénario dans lequel vous souhaitez lire un message XML dans le cod
 ### <a name="sending-messages-to-a-bridge-using-wcf-does-not-scale"></a>L’envoi de messages à un pont à l’aide de WCF n’évolue pas
 Le message envoyé à un pont à l’aide de WCF n’est pas mis à l’échelle. Il est préférable d’utiliser HttpWebRequest si vous souhaitez un client évolutif.
 
-### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-to-general-availability-ga"></a>Mise à niveau : Erreur de fournisseur de jetons après la mise à niveau de la version préliminaire de BizTalk Services vers disponibilité générale
+### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-to-general-availability-ga"></a>MISE À NIVEAU : Erreur de fournisseur de jetons après la mise à niveau de la version préliminaire de BizTalk Services vers disponibilité générale
 Il existe un accord EDI ou AS2 avec des lots actifs. Lorsque le BizTalk Service est mis à niveau de la version préliminaire vers la disponibilité générale, les événements suivants peuvent se produire :
 
-* Erreur : Le fournisseur de jetons n’a pas pu fournir de jeton de sécurité. Le fournisseur de jeton a renvoyé le message : le nom distant ne peut pas être résolu.
+* Error: Le fournisseur de jetons n’a pas pu fournir de jeton de sécurité. Message renvoyé par le fournisseur de jetons : Impossible de résoudre le nom distant.
 * Les tâches de traitement par lots sont annulées.
 
-**Solution de contournement**: une fois le service BizTalk mis à jour vers GA (General Availability), redéployez l’accord.  
+**Solution de contournement** : une fois le service BizTalk mis à jour vers GA (General Availability), redéployez l’accord.  
 
-### <a name="upgrade-toolbox-shows-the-old-bridge-icons-after-upgrading-the-biztalk-services-sdk"></a>MISE À NIVEAU : la boîte à outils affiche les anciennes icônes des ponts après la mise à niveau du kit de développement logiciel BizTalk Services.
+### <a name="upgrade-toolbox-shows-the-old-bridge-icons-after-upgrading-the-biztalk-services-sdk"></a>MISE À NIVEAU : la boîte à outils affiche les anciennes icônes des ponts après la mise à niveau du kit de développement logiciel BizTalk Services
 Une fois que vous avez mis à niveau une version antérieure du kit de développement logiciel BizTalk Services, dont les anciennes icônes représentaient les ponts, la boîte à outils continue d’afficher les anciennes icônes pour les ponts. Toutefois, si vous ajoutez un pont à l’aire de conception du projet BizTalk Service, la surface affiche la nouvelle icône.  
 
 **Solution de contournement**. Vous pouvez contourner ce problème en supprimant les fichiers .tbd sous <system drive> : \Users\<utilisateur>\AppData\Local\Microsoft\VisualStudio\11.0.  
@@ -214,9 +214,9 @@ Si vous êtes connecté au portail de Services BizTalk lors de la mise à jour d
 
 Cette fonctionnalité n’est pas disponible dans le cadre de cette édition des Services Microsoft Azure BizTalk. Pour utiliser ces fonctionnalités de bascule vers une édition adéquate.  
 
-**Résolution**: déconnectez-vous du portail, fermez et ouvrez le navigateur, puis connectez-vous au portail.  
+**Résolution** : déconnectez-vous du portail, fermez et ouvrez le navigateur, puis connectez-vous au portail.  
 
-### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-to-ga"></a>Mise à niveau : les nouvelles données de suivi ne s’affichent pas une fois que BizTalk Services est mis à niveau vers la disponibilité générale
+### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-to-ga"></a>MISE À NIVEAU : les nouvelles données de suivi ne s’affichent pas une fois que BizTalk Services est mis à niveau vers la disponibilité générale
 Prenons un scénario où vous avez un pont XML déployé sur un abonnement BizTalk Services en version préliminaire. Vous envoyez des messages au pont et les données de suivi correspondantes sont disponibles sur le portail BizTalk Services. Maintenant, si les bits de runtime de portail BizTalk Services et BizTalk Services sont mis à niveau vers la disponibilité générale (GA) et si vous envoyez un message au point de terminaison de pont que vous avez déployé précédemment, les données de suivi n’apparaissent pas pour les messages envoyés après la mise à niveau.  
 
 ### <a name="pipelines-versus-bridges"></a>Pipelines et ponts

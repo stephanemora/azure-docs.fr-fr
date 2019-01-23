@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/4/2018
+ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: f9cc6f5c35b528d3a545293b9a946bc3eda3d7ac
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 52af6051b4534ba65b4822205cb5395a59ef9d6a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339330"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259962"
 ---
 # <a name="working-with-security-policies"></a>Utilisation de stratégies de sécurité
 
@@ -28,12 +28,15 @@ Cet article explique comment configurer des stratégies de sécurité et comment
 
 Pour obtenir des instructions sur la façon de définir des stratégies à l’aide de PowerShell, consultez [Démarrage rapide : Créer une affectation de stratégie pour identifier les ressources non conformes à l’aide du module Azure RM PowerShell](../azure-policy/assign-policy-definition-ps.md).
 
+>[!NOTE]
+> L'intégration de Security Center avec Azure Policy a débuté. Les clients existants migreront automatiquement vers la nouvelle initiative intégrée dans Azure Policy, plutôt que vers les stratégies de sécurité précédentes dans Security Center. Cette modification n’affectera ni vos ressources ni votre environnement, exception faite de la présence de la nouvelle initiative dans Azure Policy.
+
 ## <a name="what-are-security-policies"></a>Que sont les stratégies de sécurité ?
 Une stratégie de sécurité définit la configuration souhaitée de vos charges de travail, tout en garantissant leur conformité aux exigences de sécurité réglementaires. Dans Azure Policy, vous pouvez définir des stratégies pour vos abonnements Azure, et les adapter à votre type de charge de travail ou à la sensibilité de vos données. Par exemple, les applications qui utilisent des données réglementées, telles que les informations d’identification personnelle, peuvent nécessiter un niveau de sécurité plus élevé que d’autres charges de travail. Pour définir des stratégies sur des abonnements ou des groupes d’administration, configurez-les dans [Azure Policy](../azure-policy/azure-policy-introduction.md).
 
-
-
 Vos stratégies de sécurité sont à la source des suggestions de sécurité que vous obtenez dans Azure Security Center. Vous pouvez surveiller la conformité avec elles pour mieux identifier les vulnérabilités potentielles et atténuer les menaces. Pour plus d’informations sur la façon de déterminer l’option adaptée à votre situation, consultez la liste des [stratégies de sécurité intégrées](security-center-policy-definitions.md).
+
+Lorsque vous activez Security Center, la stratégie de sécurité intégrée à Security Center est reflétée dans Azure Policy en tant qu’initiative intégrée sous la catégorie Security Center. L’initiative intégrée est automatiquement affectée à tous les abonnements Security Center inscrits (niveaux Gratuit ou Standard). L’initiative intégrée contient uniquement les stratégies d’audit. 
 
 
 ### <a name="management-groups"></a>Groupes d’administration
@@ -57,8 +60,6 @@ Une stratégie Azure est constituée des composants suivants :
 - Une **initiative** est une collection de stratégies.
 - Une **affectation** est l’application d’une initiative ou d’une stratégie à une étendue spécifique (groupe d’administration, abonnement ou groupe de ressources).
 
-Une ressource est évaluée par rapport aux stratégies qui lui sont affectées, et reçoit un taux de conformité en fonction du nombre de stratégies avec lesquelles la ressource est conforme.
-
 ## <a name="view-security-policies"></a>Afficher les stratégies de sécurité
 
 Pour afficher vos stratégies de sécurité dans Security Center :
@@ -76,12 +77,9 @@ Pour afficher vos stratégies de sécurité dans Security Center :
   Le tableau contient les colonnes suivantes :
 
  - **Affectation d’initiative de stratégie** – [Stratégies](security-center-policy-definitions.md) et initiatives intégrées Security Center qui sont affectées à un groupe d’administration ou un abonnement.
- - **Conformité** – Score général de conformité pour un groupe d’administration, un abonnement ou un espace de travail. Le score est la moyenne pondérée des affectations. La moyenne pondérée prend en compte le nombre de stratégies dans une seule affectation et le nombre de ressources auxquelles l’affectation s’applique.
-
- Par exemple, si votre abonnement a deux machines virtuelles et qu’une initiative avec cinq stratégies lui est affectée, vous avez 10 évaluations dans votre abonnement. Si l’une des machines virtuelles n’est pas conforme à deux des stratégies, le score général de conformité de l’affectation de votre abonnement est de 80 %.
-
  - **Couverture** – Identifie le niveau tarifaire (Gratuit ou Standard) sur lequel s’exécute le groupe d’administration, l’abonnement ou l’espace de travail.  Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center.
  - **Paramètres** – Les abonnements disposent du lien **Modifier les paramètres**. En sélectionnant **Modifier les paramètres**, vous pouvez mettre à jour vos [paramètres Security Center](security-center-policies-overview.md) pour chaque groupe d’administration ou abonnement.
+ - **Degré de sécurisation** - Le [degré de sécurisation](security-center-secure-score.md) fournit une mesure relative à la sécurisation de votre charge de travail en termes de posture et vous permet de hiérarchiser les suggestions à des fins d’amélioration.
 
 2. Sélectionnez le groupe d’administration ou l’abonnement dont vous souhaitez afficher les stratégies.
 

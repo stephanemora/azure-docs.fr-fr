@@ -1,26 +1,8 @@
 ---
-title: Utiliser les exemples de jeux de données - Azure Machine Learning Studio | Microsoft Docs
-description: Descriptions des jeux de données utilisés dans les exemples de modèles inclus dans Machine Learning Studio. Vous pouvez utiliser ces exemples de jeux de données pour vos expériences.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
-ms.openlocfilehash: 2fde43417ffc907a93b4e568b90ebbda228c4cfe
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270482"
+titre : Utiliser des exemples de jeux de données titleSuffix : Description d’Azure Machine Learning Studio : Descriptions des jeux de données utilisés dans les exemples de modèles inclus dans Machine Learning Studio. Vous pouvez utiliser ces exemples de jeux de données pour vos expériences.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 19/01/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Utilisation des exemples de jeux de données dans Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets

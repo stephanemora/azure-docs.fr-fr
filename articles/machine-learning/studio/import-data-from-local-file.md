@@ -1,27 +1,8 @@
 ---
-title: Importer des données à partir d’un fichier - Azure Machine Learning Studio | Microsoft Docs
-description: Découvrez comment charger un fichier de données d’apprentissage de votre disque dur sur Azure Machine Learning Studio. Un module de jeu de données est ainsi créé dans l’espace de travail.
-keywords: importer des données, format de données, types de données, sources de données, données d'apprentissage
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: c0dd9e90-23c4-4f64-8b8f-489ad79f047b
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2017
-ms.openlocfilehash: 096d2d4a8c1ee1727b124a5416ec77e8281c97d7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254858"
+titre : Importer des données à partir du fichier titleSuffix : Description d’Azure Machine Learning Studio : Découvrez comment charger un fichier de données d’apprentissage de votre disque dur sur Azure Machine Learning Studio. Un module de jeu de données est ainsi créé dans l’espace de travail.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 20/03/2017
 ---
 # <a name="import-training-data-from-a-file-on-your-hard-drive-into-azure-machine-learning-studio"></a>Importer des données d’apprentissage à partir d’un fichier situé sur votre disque dur dans Azure Machine Learning Studio
 

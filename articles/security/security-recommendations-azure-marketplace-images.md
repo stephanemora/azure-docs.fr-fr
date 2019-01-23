@@ -9,20 +9,20 @@ ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: 9c02dc386852a32814669d38df6260822a5e4f99
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 17372076f06cbaa833c437121a01f0dcaaf0e757
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308789"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243630"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Recommandations de sécurité pour les images Place de marché Microsoft Azure
 
 Nous recommandons que chaque solution respecte les recommandations de configuration de sécurité suivantes. Cela permet de maintenir un niveau élevé de sécurité pour les images de solutions partenaires dans la Place de marché.
 
-Ces recommandations peuvent également être utiles pour les organisations qui n’ont pas d’images dans la Place de marché. Vous voudrez comparer les configurations des images Windows et Linux de votre entreprise aux lignes directrices des tableaux ci-dessous.
+Ces recommandations peuvent également être utiles pour les organisations qui n’ont pas d’images dans la Place de marché. Vous pouvez comparer les configurations des images Windows et Linux de votre entreprise aux informations des tableaux suivants :
 
 ## <a name="open-source-based-images"></a>Images open source
 

@@ -1,5 +1,6 @@
 ---
-title: Informations d’identification dans Azure Content Moderator | Microsoft Docs
+title: Gestion des informations d’identification dans Azure Content Moderator - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Gestion des informations d’identification Content Moderator utilisées avec les API.
 services: cognitive-services
 author: sanjeev3
@@ -7,21 +8,21 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/25/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 911d62fc2baa50cce6d40f8b5bcc455f308d21d7
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 3d183870938f44cd71f1dab4105eec390ba12d94
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309653"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266143"
 ---
-# <a name="manage-credentials"></a>Gérer les informations d’identification
+# <a name="manage-content-moderator-service-credentials"></a>Gestion des informations d’identification de Content Moderator
 
 Vos informations d’identification Content Moderator se trouvent aux emplacements suivants :
 
 - [Le portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)
-- [L’outil de révision de Content Moderator](http://contentmoderator.cognitive.microsoft.com/)
+- [L’outil de révision de Content Moderator](https://contentmoderator.cognitive.microsoft.com/)
 
 Cet article détaille les différents emplacements des informations d’identification ainsi que leur interconnexion.
 

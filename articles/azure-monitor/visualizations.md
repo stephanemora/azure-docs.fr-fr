@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 9b160c011a8a9507698443446ad5fe908b32fb9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: cea5cb924914cff1195520d6bd28a8b62fce8698
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049960"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264408"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisation des données à partir d’Azure Monitor
 Cet article récapitule les méthodes disponibles pour visualiser les métriques et les données de journal stockées dans Azure Monitor.
@@ -32,7 +32,7 @@ Les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md) constit
 ### <a name="advantages"></a>Avantages
 - Intégration approfondie à Azure. Les visualisations peuvent être épinglées aux tableaux de bord à partir de plusieurs pages Azure, notamment Metrics Analytics, Log Analytics et Application Insights.
 - Prend en charge les métriques et les journaux.
-- Combinez des données provenant de plusieurs sources, notamment une sortie [Metrics Explorer](../azure-monitor/platform/metrics-charts.md), les [requêtes Log Analytics](../azure-monitor/log-query/log-query-overview.md), ainsi que les [cartes](../azure-monitor/app/app-map.md) et les [données de disponibilité]() dans Application Insights.
+- Combinez des données provenant de plusieurs sources, notamment une sortie [Metrics Explorer](../azure-monitor/platform/metrics-charts.md), les [requêtes Log Analytics](../azure-monitor/log-query/log-query-overview.md), ainsi que les [cartes](../azure-monitor/app/app-map.md) et les données de disponibilité dans Application Insights.
 - Possibilité de définir des tableaux de bord personnels ou partagés. Intégré à [l’authentification basée sur les rôles (RBAC)](../role-based-access-control/overview.md) Azure.
 - Actualisation automatique. L’actualisation des métriques a lieu selon un intervalle de temps de cinq minutes au minimum. Les journaux sont actualisés chaque minute.
 - Les tableaux de bord de métriques sont paramétrés avec un horodatage et des paramètres personnalisés.

@@ -1,20 +1,21 @@
 ---
-title: Définir et utiliser des flux de travail dans Azure Content Moderator | Microsoft Docs
-description: Découvrez comment créer des flux de travail personnalisés en fonction de vos stratégies de contenu.
+title: Définir et utiliser des flux de travail de modération du contenu - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Vous pouvez utiliser les API et le concepteur de flux de travail Azure Content Moderator pour définir des flux de travail personnalisés et des seuils en fonction de vos stratégies de contenu.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 01/07/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: dfe3ba8a2ef1bcbc69ef585b504a9367d9420bf0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 265d5a2bd6a256d287e6ae164e883ade783f960f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367985"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262402"
 ---
 # <a name="define-test-and-use-workflows"></a>Définir, tester et utiliser des flux de travail
 
@@ -68,7 +69,7 @@ Sélectionnez le bouton **Exécuter le flux de travail** correspondant.
 
 ### <a name="upload-a-file"></a>Charger un fichier
 
-Enregistrer l’[exemple d’image](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png) sur votre disque local. Pour tester le flux de travail, sélectionnez **Choisir le(s) fichier(s)** et chargez l’image.
+Enregistrez l’[exemple d’image](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png) sur votre disque local. Pour tester le flux de travail, sélectionnez **Choisir le(s) fichier(s)** et chargez l’image.
 
   ![Charger le fichier image](images/ocr-workflow-step-7-upload.PNG)
 

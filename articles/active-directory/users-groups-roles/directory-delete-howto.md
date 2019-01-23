@@ -9,18 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 01/07/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: ab752799c9e64e47abe0200a26215f9e01c489f6
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 39682ac04b914809aec36f46889feb5c4b59af51
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139684"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243880"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Supprimer un locataire Azure Active Directory
+
 Quand un locataire est supprimé, toutes les ressources qu’il contient sont également supprimées. Vous devez préparer le locataire en réduisant ses ressources associées avant de le supprimer. Seul un administrateur général Azure Active Directory (Azure AD) peut supprimer un locataire Azure AD à partir du portail.
 
 ## <a name="prepare-the-tenant-for-deletion"></a>Préparer le locataire pour la suppression
@@ -59,17 +60,17 @@ S’il s’agit de l’expiration d’un abonnement d’essai à Office 365 (à 
 Actif (30 jours pour l’essai gratuit)  | Données accessibles à tous    | <li>Les utilisateurs ont un accès normal aux fichiers ou applications Office 365<li>Les administrateurs ont un accès normal au centre d’administration et aux ressources Office 365 
 Expiré (30 jours)   | Données accessibles à tous    | <li>Les utilisateurs ont un accès normal aux fichiers ou applications Office 365<li>Les administrateurs ont un accès normal au centre d’administration et aux ressources Office 365
 Désactivé (30 jours) | Données accessibles à l’administrateur uniquement  | <li>Les utilisateurs ne peuvent pas accéder aux fichiers ou applications Office 365<li>Les administrateurs peuvent accéder au centre d’administration Office 365, mais ne peuvent pas attribuer de licences ou mettre à jour des utilisateurs
-Déprovisionné (30 jours après l’état Désactivé) | Données supprimées (automatiquement supprimées si aucun autre service n’est en cours d’utilisation) | <li>Les utilisateurs ne peuvent pas accéder aux fichiers ou applications Office 365<li>Les administrateurs peuvent accéder au centre d’administration Office 365 pour acheter et gérer d’autres abonnements 
+Déprovisionné (30 jours après l’état Désactivé) | Données supprimées (automatiquement supprimées si aucun autre service n’est en cours d’utilisation) | <li>Les utilisateurs ne peuvent pas accéder aux fichiers ou applications Office 365<li>Les administrateurs peuvent accéder au centre d’administration Office 365 pour acheter et gérer d’autres abonnements
 
 Vous pouvez placer un abonnement dans un état **Déprovisionné** à supprimer 3 jours après à l’aide du centre d’administration du Microsoft Store pour Entreprises. Cette fonctionnalité est bientôt disponible pour le centre d’administration Office 365.
 
 1. Connectez-vous au [centre d’administration du Microsoft Store pour Entreprises](https://businessstore.microsoft.com/manage/) avec un compte d’administrateur général du locataire. Si vous essayez de supprimer le locataire « Contoso » qui a le domaine initial par défaut contoso.onmicrosoft.com, connectez-vous avec un UPN de type admin@contoso.onmicrosoft.com.
 
-2. Accédez à l’onglet **Gérer** et sélectionnez **Produits et services**, puis choisissez l’abonnement à annuler. Après avoir cliqué sur **Annuler**, actualisez la page.
+2. Accédez à l’onglet **Gérer** et sélectionnez **Produits et services**, puis choisissez l’abonnement à annuler et sélectionnez **Supprimer**.
   
   ![Supprimer un lien pour supprimer l’abonnement](./media/directory-delete-howto/delete-command.png)
   
-3. Sélectionnez **Supprimer** pour supprimer l’abonnement et accepter les conditions générales. Toutes les données sont définitivement supprimées dans un délai de trois jours. Vous pouvez réactiver l’abonnement pendant la période de trois jours si vous changez d’avis.
+3. Sélectionnez **Supprimer l’abonnement** pour supprimer l’abonnement et accepter les conditions générales. Toutes les données sont définitivement supprimées dans un délai de trois jours. Vous pouvez réactiver l’abonnement pendant cette période de trois jours si vous changez d’avis.
   
   ![conditions générales](./media/directory-delete-howto/delete-terms.png)
 

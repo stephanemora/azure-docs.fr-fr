@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: e784185cfc7f2c588db354bab1cfb36934b9c417
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 8e577a95fc3cda3aafe1273cbc6b4e3c4fbb0317
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585864"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304352"
 ---
 # <a name="optimize-sql-server-performance"></a>Optimiser les performances de SQL Server
 
@@ -29,7 +29,7 @@ Cet article donne des conseils pour optimiser les performances de SQL Server dan
 Quand vous créez des images SQL Server, [pensez à provisionner vos machines virtuelles dans le portail Azure Stack](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Téléchargez l’extension IaaS SQL à partir de la fonctionnalité de gestion de la Place de marché dans le portail d’administration d’Azure Stack et téléchargez les disques durs virtuels (VHD) de machine virtuelle SQL de votre choix. Ces derniers incluent SQL2014SP2, SQL2016SP1 et SQL2017.
 
 > [!NOTE]  
-> Bien que l’article explique comment provisionner une machine virtuelle SQL Server à l’aide du portail Azure global, les instructions s’appliquent également à Azure Stack avec les différences suivantes : SSD n’est pas disponible pour le disque de système d’exploitation, les disques managés ne sont pas disponibles et la configuration du stockage présente des différences mineures.
+> Bien que l’article explique comment provisionner une machine virtuelle SQL Server à l’aide du portail Azure global, les instructions s’appliquent également à Azure Stack, en tenant compte des différences suivantes : SSD n’est pas disponible pour le disque de système d’exploitation, les disques managés ne sont pas disponibles et la configuration du stockage présente des différences mineures.
 
 Cet article se concentre sur l’obtention des *meilleures* performances pour SQL Server sur des machines virtuelles Azure Stack. Si votre charge de travail est moindre, vous n’aurez peut-être pas besoin de toutes les optimisations recommandées. Tenez compte de vos besoins de performances et de vos modèles de charges de travail lors de l’évaluation de ces recommandations.
 
@@ -55,9 +55,9 @@ Pour plus d’informations sur *comment* et *pourquoi* effectuer ces optimisatio
 
 Pour les applications sensibles aux performances, les [tailles de machines virtuelles](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) suivantes sont recommandées :
 
-- **Édition SQL Server Entreprise** : DS3 ou supérieure
+- **SQL Server Enterprise Edition :** DS3 ou supérieure
 
-- **Édition SQL Server Standard et édition Web** : DS2 ou supérieure
+- **Édition SQL Server Standard et édition Web :** DS2 ou supérieure
 
 Avec Azure Stack, il n’existe aucune différence de performances entre les séries de famille de machines virtuelles DS et DS_v2.
 
@@ -76,11 +76,11 @@ Quand vous créez un compte de stockage dans Azure Stack, l’option de géorép
 
 Il existe trois types de disques principaux sur une machine virtuelle Azure Stack :
 
-- **Disque de système d’exploitation** : quand vous créez une machine virtuelle Azure Stack, la plateforme attache au moins un disque (désigné par la lettre **C**) à la machine virtuelle en tant que disque de système d’exploitation. Ce disque est un disque dur virtuel (VHD) stocké en tant qu’objet blob de pages dans le stockage.
+- **Disque de système d’exploitation :** lorsque vous créez une machine virtuelle Azure Stack, la plateforme attache au moins un disque (désigné par la lettre **C**) à la machine virtuelle en tant que disque de système d’exploitation. Ce disque est un disque dur virtuel (VHD) stocké en tant qu’objet blob de pages dans le stockage.
 
-- **Disque temporaire** : les machines virtuelles Azure Stack contiennent un autre disque, appelé disque temporaire (portant le nom de lecteur **D**). C’est un disque du nœud qui peut être utilisé comme un espace de travail temporaire.
+- **Disque temporaire :** Les machines virtuelles Azure Stack contiennent un autre disque, appelé disque temporaire (portant le nom de lecteur **D**). C’est un disque du nœud qui peut être utilisé comme un espace de travail temporaire.
 
-- **Disques de données** : vous pouvez attacher des disques supplémentaires à votre machine virtuelle en tant que disques de données ; ces disques sont également stockés en tant qu’objets blob de pages.
+- **Disques de données :** vous pouvez attacher des disques supplémentaires à votre machine virtuelle en tant que disques de données ; ces disques sont également stockés en tant qu’objets blob de pages.
 
 Les sections suivantes décrivent des recommandations pour l’utilisation de ces disques différents.
 
@@ -101,7 +101,7 @@ Nous vous recommandons de stocker TempDB sur un disque de données, car chaque d
 > [!NOTE]  
 > Quand vous provisionnez une machine virtuelle SQL Server dans le portail, vous avez la possibilité de modifier votre configuration de stockage. Selon votre configuration, Azure Stack configure un ou plusieurs disques. Plusieurs disques sont combinés en un pool de stockage unique. Les fichiers journaux et de données se trouvent dans cette configuration.
 
-- **Entrelacement de disques**: pour augmenter le débit, vous pouvez ajouter des disques de données et utiliser l’entrelacement de disques. Pour déterminer le nombre de disques de données, vous devez analyser le nombre d’IOPS et la bande passante nécessaires pour vos fichiers journaux, ainsi que pour vos fichiers de données et TempDB. Notez que les limites d’IOPS sont exprimées par disque de données, en fonction de la famille de série de machine virtuelle et non de la taille de la machine virtuelle. Toutefois, les limites de bande passante réseau, sont basées sur la taille de la machine virtuelle. Consultez les tableaux sur les [tailles de machine virtuelle dans Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) pour plus de détails. Respectez les recommandations suivantes :
+- **Entrelacement de disques :** Pour augmenter le débit, vous pouvez ajouter des disques de données et utiliser l’entrelacement de disques. Pour déterminer le nombre de disques de données, vous devez analyser le nombre d’IOPS et la bande passante nécessaires pour vos fichiers journaux, ainsi que pour vos fichiers de données et TempDB. Notez que les limites d’IOPS sont exprimées par disque de données, en fonction de la famille de série de machine virtuelle et non de la taille de la machine virtuelle. Toutefois, les limites de bande passante réseau, sont basées sur la taille de la machine virtuelle. Consultez les tableaux sur les [tailles de machine virtuelle dans Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) pour plus de détails. Respectez les recommandations suivantes :
 
     - Pour Windows Server 2012 ou version ultérieure, utilisez des [espaces de stockage](https://technet.microsoft.com/library/hh831739.aspx) en respectant les consignes suivantes :
 
@@ -120,8 +120,8 @@ Nous vous recommandons de stocker TempDB sur un disque de données, car chaque d
 
 - Déterminez le nombre de disques associés à votre pool de stockage en fonction de vos attentes en matière de charge. N’oubliez pas que les différentes tailles de machines virtuelles autorisent différents nombres de disques de données attachés. Pour plus d’informations, consultez [Tailles de machine virtuelle prises en charge dans Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes).
 - Pour obtenir le nombre maximal d’IOPS possible pour les disques de données, il est recommandé d’ajouter le nombre maximal de disques de données pris en charge par votre [taille de machine virtuelle](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) et d’utiliser l’entrelacement de disques.
-- **Taille d’unité d’allocation NTFS** : durant le formatage du disque de données, il est recommandé d’utiliser une taille d’unité d’allocation de 64 Ko pour les fichiers de données et les fichiers journaux, ainsi que pour TempDB.
-- **Pratiques de gestion des disques** : au moment de la suppression d’un disque de données, arrêtez le service SQL Server. En outre, ne changez pas les paramètres de cache sur les disques, car cette opération n’améliore pas les performances.
+- **Taille d’unité d’allocation NTFS :** Lors du formatage du disque de données, il est recommandé d’utiliser une taille d’unité d’allocation de 64 Ko pour les fichiers de données et les fichiers journaux, ainsi que pour TempDB.
+- **Pratiques de gestion des disques :** lors de la suppression d’un disque de données, arrêtez le service SQL Server. En outre, ne changez pas les paramètres de cache sur les disques, car cette opération n’améliore pas les performances.
 
 > [!WARNING]  
 > Si le service SQL n’est pas arrêté au cours de ces opérations, cela peut provoquer une altération de la base de données.

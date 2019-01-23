@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: 09de0a3aa0303e169d0b90690016909b29dc4a9b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d8ca70efd3b1ba77b1b1bb0e11a9234e5fd440c4
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190966"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201378"
 ---
 # <a name="outbound-connections-in-azure"></a>Connexions sortantes dans Azure
 
@@ -91,9 +91,9 @@ Un exemple est un déploiement Azure Resource Manager où l’application dépen
 
 ### <a name="multife"></a> Plusieurs serveurs frontaux pour les flux sortants
 
-#### <a name="load-balancer-standard"></a>Équilibreur de charge standard
+#### <a name="standard-load-balancer"></a>Standard Load Balancer
 
-L’équilibreur de charge standard utilise tous les candidats pour les flux sortants en même temps lorsque [plusieurs serveurs frontaux IP (publics)](load-balancer-multivip-overview.md) sont présents. Chaque serveur frontal multiplie le nombre de ports SNAT pré-alloués disponibles si une règle d’équilibrage de charge est activée pour les connexions sortantes.
+Standard Load Balancer utilise tous les candidats pour les flux sortants en même temps lorsque [plusieurs serveurs frontaux IP (publics)](load-balancer-multivip-overview.md) sont présents. Chaque serveur frontal multiplie le nombre de ports SNAT pré-alloués disponibles si une règle d’équilibrage de charge est activée pour les connexions sortantes.
 
 Vous pouvez choisir de supprimer l’utilisation d’une adresse IP de serveur frontal pour les connexions sortantes avec une nouvelle option de règle d’équilibrage de charge :
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: 1a1038bec66cd90e2cd0cbc8b125857403317d89
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 61d2c82f875c4f40e370515fd249e23601e91678
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078250"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232054"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infrastructure de mise à jour Red Hat pour machines virtuelles Red Hat Enterprise Linux à la demande dans Azure
  [Infrastructure de mise à jour Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permet aux fournisseurs de cloud, par exemple Azure, de mettre en miroir le contenu du référentiel hébergé par Red Hat, de créer des référentiels personnalisés avec du contenu spécifique à Azure et de rendre ces référentiels accessibles aux machines virtuelles des utilisateurs finaux.
@@ -27,6 +27,8 @@ ms.locfileid: "54078250"
 Les images Red Hat Enterprise Linux (RHEL) Pay-As-You-Go (PAYG, paiement à l’utilisation) sont préconfigurées pour accéder à Azure RHUI. Aucune configuration supplémentaire n’est nécessaire. Pour obtenir les dernières mises à jour, exécutez `sudo yum update` lorsque votre instance RHEL est prête. Ce service est inclus dans le cadre des frais de logiciel RHEL PAYG.
 
 Des informations supplémentaires sur les images RHEL dans Azure, y compris les stratégies de publication et de conservation, sont disponibles [ici](./rhel-images.md).
+
+Vous trouverez des informations sur les stratégies de prise en charge de Red Hat pour toutes les versions de RHEL sur la page [Cycle de vie de Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
 
 ## <a name="important-information-about-azure-rhui"></a>Informations importantes concernant Azure RHUI
 * Azure RHUI prend actuellement en charge uniquement la dernière version mineure de chaque famille RHEL (RHEL6 ou RHEL7). Pour mettre à jour une instance de machine virtuelle RHEL connectée à RHUI avec la dernière version secondaire, exécutez `sudo yum update`.
@@ -42,7 +44,7 @@ Des informations supplémentaires sur les images RHEL dans Azure, y compris les 
 * L’accès à l’infrastructure RHUI hébergée sur Azure est limité aux machines virtuelles figurant dans les [plages IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653). Si vous redirigez à l’aide d’un proxy tout le trafic de la machine virtuelle via une infrastructure réseau locale, vous devrez peut-être configurer des itinéraires définis par l’utilisateur pour permettre aux machines virtuelles RHEL PAYG d’accéder à Azure RHUI.
 
 ### <a name="rhel-eus-and-version-locking-rhel-vms"></a>EUS RHEL et machines virtuelles RHEL avec verrouillage de version
-Certains clients peuvent vouloir verrouiller leurs machines virtuelles RHEL sur une version mineure RHEL en particulier. Vous pouvez verrouiller la version de votre machine virtuelle RHEL sur une version mineure spécifique en mettant à jour les dépôts pour qu’ils pointent vers les dépôts Extended Update Support. Utilisez les instructions suivantes pour verrouiller une machine virtuelle RHEL sur une version mineure particulière :
+Certains clients peuvent vouloir verrouiller leurs machines virtuelles RHEL sur une version mineure RHEL en particulier. Vous pouvez verrouiller la version de votre machine virtuelle RHEL sur une version mineure spécifique en mettant à jour les dépôts pour qu’ils pointent vers les dépôts Extended Update Support. Utilisez les instructions suivantes pour verrouiller une machine virtuelle RHEL sur une version mineure en particulier :
 
 >[!NOTE]
 > Ceci s’applique uniquement aux versions RHEL pour laquelle EUS est disponible. Au moment de rédiger cet article, cela inclut RHEL 7.2-7.6. Pour plus de détails, voir la page [Cycle de vie de Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
@@ -218,4 +220,4 @@ Cette procédure est fournie uniquement à titre de référence. Les images RHEL
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour créer une machine virtuelle Red Hat Enterprise Linux à partir d’une image PAYG dans le service Marketplace Azure et utiliser l’infrastructure RHUI hébergée sur Azure, voir [Place de marché Azure](https://azure.microsoft.com/marketplace/partners/redhat/).
 * Pour en savoir plus sur les images Red Hat dans Azure, accédez à la [page de documentation](./rhel-images.md).
-
+* Vous trouverez des informations sur les stratégies de prise en charge de Red Hat pour toutes les versions de RHEL sur la page [Cycle de vie de Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).

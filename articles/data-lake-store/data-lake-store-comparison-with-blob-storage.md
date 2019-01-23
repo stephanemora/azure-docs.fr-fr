@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a6272f0a6da10075db299d0f8c87f0d748a7a946
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4bdebe415bcd86867bebeb7f03dc6dafa8480169
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996480"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259782"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Comparaison d’Azure Data Lake Storage Gen1 et d’Azure Storage Blob
   >[!NOTE] 
-    >La [préversion d’Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) a été récemment annoncée. La préversion de Data Lake Storage Gen2 rassemble les fonctionnalités de nos deux services de stockage existants : Stockage Blob Azure et [Azure Data Lake Storage Gen1] (https://docs.microsoft.com/azure/data-lake-store/index). Les fonctionnalités d’Azure Data Lake Storage Gen1, comme la sémantique des systèmes de fichiers, la sécurité au niveau du fichier et la mise à l'échelle, sont combinées à celles du [stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction), comme le stockage hiérarchisé à bas coût et la haute disponibilité/reprise après sinistre. <br> Nous vous recommandons vivement de commencer à utiliser la préversion de Data Lake Storage Gen2 comme base pour créer les data lakes de votre entreprise et obtenir le meilleur du stockage Blob Azure ainsi que d’Azure Data Lake Storage Gen1.
+    >La [préversion d’Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) a été récemment annoncée. La préversion de Data Lake Storage Gen2 rassemble les fonctionnalités de nos deux services de stockage existants : Stockage Blob Azure et [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index). Les fonctionnalités d’Azure Data Lake Storage Gen1, comme la sémantique des systèmes de fichiers, la sécurité au niveau du fichier et la mise à l'échelle, sont combinées à celles du [stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction), comme le stockage hiérarchisé à bas coût et la haute disponibilité/reprise après sinistre. <br> Nous vous recommandons vivement de commencer à utiliser la préversion de Data Lake Storage Gen2 comme base pour créer les data lakes de votre entreprise et obtenir le meilleur du stockage Blob Azure ainsi que d’Azure Data Lake Storage Gen1.
 
 Le tableau de cet article résume les différences entre Azure Data Lake Storage Gen1 et Azure Storage Blob pour certains aspects essentiels du traitement des données volumineuses. Azure Blob Storage est un magasin d’objets extensible généraliste conçu pour s’adapter à une large gamme de scénarios de stockage. Azure Data Lake Storage Gen1 est un référentiel à très grande échelle qui est optimisé pour les charges de travail d’analyse du Big Data.
 

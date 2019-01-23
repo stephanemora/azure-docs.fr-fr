@@ -7,14 +7,14 @@ author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 11259b99ea9d2486c8c0afde21398710ccc6ccd8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 81a902c6cf6b9b3491933e4bc14dc1e774185869
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726288"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54305449"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Authentifier des requêtes auprès d’Azure Cognitive Services
 
@@ -58,6 +58,8 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
+La vidéo suivante montre l’utilisation d’une clé Cognitive Services. 
+
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>Authentification avec une clé d’abonnement multiservice
 
 >[!WARNING]
@@ -66,6 +68,8 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 Cette option utilise également une clé d’abonnement pour authentifier les requêtes. La principale différence tient au fait qu’une clé d’abonnement n’est pas liée à un service spécifique. Vous pouvez ainsi utiliser une seule clé pour authentifier des requêtes auprès de plusieurs services Cognitive Services. Pour plus d’informations sur la disponibilité régionale, les fonctionnalités prises en charge et les tarifs, consultez les [tarifs de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
 La clé d’abonnement est fournie dans chaque requête sous la forme de l’en-tête `Ocp-Apim-Subscription-Key`.
+
+[![Démonstration de clé d’abonnement multiservice à Azure Cognitive Services](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
 
 ### <a name="supported-regions"></a>Régions prises en charge
 

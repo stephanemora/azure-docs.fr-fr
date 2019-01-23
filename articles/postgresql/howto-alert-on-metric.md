@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 26b7e92bf8fa6c42320f604643bc996794ed52ca
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/11/2019
+ms.openlocfilehash: a999553d7ba26daba674534b1656e90ad0de4f5f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540722"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243965"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Utiliser le portail Azure pour configurer des alertes sur les métriques pour Azure Database pour PostgreSQL 
 
@@ -25,48 +25,54 @@ Vous pouvez configurer une alerte pour effectuer les actions suivantes lors de s
 * Appeler un webhook.
 
 Vous pouvez configurer et obtenir des informations sur les règles d’alerte à l’aide des ressources suivantes :
-* [Portail Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
-* [Interface de ligne de commande (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
-* [API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Portail Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Interface de ligne de commande Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Créer une règle d’alerte sur une métrique à partir du portail Azure
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez le serveur Azure Database pour PostgreSQL à surveiller.
 
-2. Sous la section **Surveillance** de la barre latérale, sélectionnez **Règles d’alerte**, comme indiqué :
+2. Sous la section **Surveillance** de la barre latérale, sélectionnez **Alertes**, comme illustré :
 
-   ![Sélectionner Règles d’alerte](./media/howto-alert-on-metric/1-alert-rules.png)
+   ![Sélectionner des règles d’alerte](./media/howto-alert-on-metric/2-alert-rules.png)
 
-3. Sélectionnez **Ajouter une alerte de mesure** (icône +). 
+3. Sélectionnez **Ajouter une alerte Métrique** (icône +).
 
-4. La page **Ajouter une règle** s’ouvre, comme illustré ci-dessous.  Entrez les informations obligatoires :
+4. La page **Créer une règle** s’ouvre, comme illustré ci-dessous. Entrez les informations obligatoires :
 
-   ![Formulaire Ajouter une alerte Métrique](./media/howto-alert-on-metric/2-add-rule-form.png)
+   ![Formulaire Ajouter une alerte Métrique](./media/howto-alert-on-metric/4-add-rule-form.png)
 
-   | Paramètre | Description  |
-   |---------|---------|
-   | NOM | Entrez un nom pour la règle d’alerte. Cette valeur est envoyée dans l’e-mail de notification d’alerte. |
-   | Description | Entrez une brève description de la règle d’alerte. Cette valeur est envoyée dans l’e-mail de notification d’alerte. |
-   | Alerte sur | Choisissez **Métriques** pour ce type d’alerte. |
-   | Abonnement | Ce champ est prérempli avec l’abonnement qui héberge votre Azure Database pour PostgreSQL. |
-   | Groupe de ressources | Ce champ est prérempli avec le groupe de ressources de votre Azure Database pour PostgreSQL. |
-   | Ressource | Ce champ est prérempli avec le nom de votre Azure Database pour PostgreSQL. |
-   | Métrique | Sélectionnez la métrique pour laquelle vous souhaitez émettre une alerte. Par exemple, **Pourcentage de stockage**. |
-   | Condition | Choisissez la condition avec laquelle comparer la métrique. Par exemple, **Supérieur à**. |
-   | Seuil | Valeur de seuil pour la métrique, par exemple 85 (en pourcentage). |
-   | Période | Durée pendant laquelle la règle de métrique doit être vérifiée avant que l’alerte se déclenche. Par exemple, **Au cours des 30 dernières minutes**. |
+5. Dans la section **Condition**, sélectionnez **Ajouter une condition**.
 
-   Dans notre exemple, l’alerte recherche un Pourcentage de stockage supérieur à 85 % pendant une période de 30 minutes. Cette alerte se déclenche lorsque le Pourcentage de stockage moyen a été supérieur à 85 % pendant 30 minutes. Après le premier déclenchement, l’alerte se déclenche à nouveau si le Pourcentage de stockage moyen est inférieur à 85 % pendant 30 minutes.
+6. Sélectionnez une métrique dans la liste des signaux d'alerte. Dans cet exemple, sélectionnez « Storage percent ».
+   
+   ![Sélectionner la métrique](./media/howto-alert-on-metric/6-configure-signal-logic.png)
 
-5. Choisissez la méthode de notification pour la règle d’alerte. 
+7. Configurez la logique d’alerte, notamment les éléments **Condition** (par exemple, « Supérieur à »), **Seuil** (par exemple, 85 %), **Agrégation de temps**, **Période** de temps pendant laquelle la règle de métrique doit être satisfaite pour que l’alerte se déclenche (par exemple, « Au cours des 30 dernières minutes ») et **Fréquence**.
+   
+   Sélectionnez **Terminé** lorsque vous avez terminé.
 
-   Activez l’option **Envoyer des e-mails aux propriétaires, contributeurs et lecteurs** si vous souhaitez que les administrateurs et les coadministrateurs de l’abonnement reçoivent un e-mail lorsque l’alerte se déclenche.
+   ![Sélectionner la métrique](./media/howto-alert-on-metric/7-set-threshold-time.png)
 
-   Si vous souhaitez que d’autres adresses e-mail reçoivent une notification lorsque l’alerte se déclenche, ajoutez-les dans le champ **Adresse(s) de messagerie d’administrateur(s) supplémentaire(s)**. Séparez les adresses e-mails par des points-virgules : *email@contoso.com;email2@contoso.com*
+8. Dans la section **Groupes d’actions**, sélectionnez **Créer un nouveau** pour créer un nouveau groupe afin de recevoir des notifications sur l’alerte.
 
+9. Renseignez le formulaire « Ajouter un groupe d'actions » avec un nom, un nom court, un abonnement et un groupe de ressources.
+
+10. Configurez un type d'action **E-mail/SMS/Push/Voix**.
+    
+   Choisissez « Envoyer un e-mail au rôle Azure Resource Manager » pour sélectionner les propriétaires de l'abonnement, les contributeurs et les lecteurs qui recevront les notifications.
+   
    Vous pouvez aussi fournir un URI valide dans le champ **Webhook** si vous souhaitez qu’il soit appelé lorsque l’alerte se déclenche.
 
-6. Sélectionnez **OK** pour créer l’alerte.
+   Sélectionnez **OK** lorsque vous avez terminé.
+
+   ![Groupe d’actions](./media/howto-alert-on-metric/10-action-group-type.png)
+
+11. Spécifiez un nom de règle d’alerte, une description et une gravité.
+
+   ![Groupe d’actions](./media/howto-alert-on-metric/11-name-description-severity.png) 
+
+12. Sélectionnez **Créer une règle d’alerte** pour créer l’alerte.
 
    Après quelques minutes, l’alerte est active et se déclenche comme décrit précédemment.
 

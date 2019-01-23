@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 123365f1aa149c0df158eedcc156280a3fe771d2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 110ba7f13b2a0d44277c881d67f0c794c8658cd1
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106671"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244582"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutoriel : Créer et exécuter un notebook Jupyter avec Python
 
@@ -26,9 +26,9 @@ Ce tutoriel vous guide tout au long du processus d’utilisation d’Azure Noteb
 
 Vous trouverez le notebook terminé sur [GitHub - Exemples Azure Notebooks](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Toutefois, comme ce tutoriel commence avec un nouveau projet et un notebook vide, vous pouvez assister à sa création étape par étape.
 
-## <a name="create-the-project"></a>Création du projet
+## <a name="create-the-project"></a>Créer le projet
 
-1. Accédez à [Azure Notebooks](https://notebooks.azure.com) et connectez-vous. (Pour plus d’informations, consultez [Démarrage rapide : Se connecter à Azure Notebooks](quickstart-sign-in-azure-notebooks.md).)
+1. Accédez à [Azure Notebooks](https://notebooks.azure.com) et connectez-vous. (Pour plus d’informations, consultez la rubrique [Démarrage rapide sur la connexion à Azure Notebooks](quickstart-sign-in-azure-notebooks.md).)
 
 1. En haut de votre page de profil public, sélectionnez **Mes projets** :
 
@@ -411,17 +411,13 @@ Quand vous en avez fini avec un notebook, utilisez la commande **Fichier** > **F
 
 ## <a name="debug-notebooks-using-visual-studio-code"></a>Déboguer des notebooks à l’aide de Visual Studio Code
 
-Si les cellules de code dans votre notebook ne se comportent pas comme vous le souhaitez, vous pouvez être confronté à des bogues de code ou d’autres erreurs. Toutefois, à part l’utilisation d’instructions `print` pour afficher la valeur des variables, un notebook Jupyter n’offre aucune fonctionnalité de débogage.
+Si les cellules de code dans votre notebook ne se comportent pas comme vous le souhaitez, vous pouvez être confronté à des bogues de code ou d’autres erreurs. Toutefois, à part l’utilisation d’instructions `print` pour afficher la valeur des variables, un environnement Jupyter type n’offre aucune fonctionnalité de débogage.
 
-Heureusement, l’extension Python pour Visual Studio Code peut importer directement un notebook Jupyter comme un seul fichier de code avec vos cellules Markdown dans les commentaires. Vous pouvez ensuite exécuter le débogueur Visual Studio Code pour parcourir votre code, définir des points d’arrêt, examiner l’état et ainsi de suite. 
+Cela étant, vous pouvez télécharger le fichier *.ipynb* du notebook, puis l'ouvrir dans Visual Studio Code à l’aide de l’extension Python. L’extension importe directement un notebook sous forme de fichier de code unique, ce qui vous permet de conserver vos cellules Markdown dans les commentaires. Après avoir importé le notebook, vous pouvez exécuter le débogueur Visual Studio Code pour parcourir votre code, définir des points d’arrêt, examiner l’état et ainsi de suite. Une fois votre code corrigé, vous exportez le fichier *.ipynb* à partir de Visual Studio Code et vous le rechargez dans Azure Notebooks.
 
-Une fois que vous avez apporté des corrections à votre code, enregistrez le fichier *.ipynb*, puis chargez-le dans Azure Notebooks.
+Pour plus d’informations, consultez [Déboguer un notebook Jupyter](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) dans la documentation de Visual Studio Code.
 
-Pour plus d’informations, consultez les articles suivants de la documentation de Visual Studio Code :
-
-- [Vue d’ensemble des notebooks Jupyter dans VS Code](https://code.visualstudio.com/docs/languages/python#_jupyter-notebooks)
-- [Tutoriel Python - Configurer et exécuter le débogueur](https://code.visualstudio.com/docs/python/python-tutorial#_configure-and-run-the-debugger)
-- [Modification - Cellules de code Jupyter](https://code.visualstudio.com/docs/python/editing#_jupyter-code-cells)
+Consultez également [Visual Studio Code - Prise en charge de Jupyter](https://code.visualstudio.com/docs/python/jupyter-support) pour découvrir plus fonctionnalités Visual Studio Code pour les notebooks Jupyter.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
