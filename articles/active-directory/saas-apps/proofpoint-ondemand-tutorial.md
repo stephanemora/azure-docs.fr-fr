@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Proofpoint on Demand | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Proofpoint on Demand | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Proofpoint on Demand.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 773e7f7d-ec31-411b-860d-6a6633335d43
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: b0c5440098a135073513037ab1a4956c0aa76d2f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 7392d4dbea0028683342e5ed6ede24f378cc2fdd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975710"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820102"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>Didacticiel : Intégration d’Azure Active Directory à Proofpoint on Demand
 
@@ -106,7 +106,7 @@ Pour configurer l’authentification unique Azure AD avec Proofpoint on Demand, 
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<hostname>.pphosted.com/ppssamlsp_hostname`.
 
-    b. Dans la zone de texte **Identificateur**, saisissez une URL au format suivant : `https://<hostname>.pphosted.com/ppssamlsp`
+    b. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `https://<hostname>.pphosted.com/ppssamlsp`
 
     c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<hostname>.pphosted.com:portnumber/v1/samlauth/samlconsumer`
 

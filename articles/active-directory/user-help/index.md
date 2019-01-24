@@ -1,22 +1,17 @@
 ---
 layout: LandingPage
-title: Aide utilisateur relative à la gestion de l’authentification, des applications et des appareils dans Azure Active Directory | Microsoft Docs
-description: Cette aide s’adresse aux personnes cherchant à configurer et utiliser les informations de sécurité, ainsi que les fonctions de vérification en deux étapes, de réinitialisation de mot de passe en libre-service et de gestion des appareils, l’application Microsoft Authenticator et le portail MyApps.
+title: 'Aide utilisateur relative à la gestion de l’authentification, des applications et des appareils dans Azure Active Directory | Microsoft Docs'
+description: 'Cette aide s’adresse aux personnes cherchant à configurer et utiliser les informations de sécurité, ainsi que les fonctions de vérification en deux étapes, de réinitialisation de mot de passe en libre-service et de gestion des appareils, l’application Microsoft Authenticator et le portail MyApps.'
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 3ee8834a2ff8b9126fea38b19df115474c36a9e9
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41927046"
 ---
+
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Aide utilisateur relative à la gestion de l’authentification, des applications et des appareils
 
 Nous avons créé ce contenu pour vous aider à configurer et utiliser les informations de sécurité et la fonction de vérification en deux étapes, mais aussi à réinitialiser votre propre mot de passe, configurer et joindre vos appareils Azure Active Directory et configurer et utiliser l’application Microsoft Authenticator et le portail MyApps.
@@ -86,7 +81,7 @@ Nous avons créé ce contenu pour vous aider à configurer et utiliser les infor
                     <div class="cardText">
                         <h3>Aide relative à l’application Microsoft Authenticator</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">Démarrer</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">Prise en main</a><br/>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery">Sauvegarder et récupérer les informations d’identification du compte</a>
                         </p>
                     </div>

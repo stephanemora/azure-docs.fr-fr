@@ -4,7 +4,7 @@ description: Découvrez comment intégrer des journaux Azure Active Directory av
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7509081bbf43aeaf39570f84afef81b6dd5a39fe
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8b9189ef3fff75023316d5272bd93c136106cf94
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621664"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824675"
 ---
 # <a name="integrate-azure-ad-logs-with-log-analytics-using-azure-monitor-preview"></a>Intégrer des journaux Azure AD avec Log Analytics à l’aide d’Azure Monitor (préversion)
 
@@ -41,8 +41,8 @@ Cet article explique comment intégrer des journaux Azure Active Directory (Azur
 
 Vous pouvez acheminer les journaux d’activité d’audit et authentifier des journaux d’activité vers Log Analytics en vue d’une analyse ultérieure. 
 
-* **Journaux d’audit** : les [rapports d’activité de journaux d’audit](concept-audit-logs.md) vous permettent d’accéder à l’historique de toutes les tâches effectuées dans votre locataire.
-* **Journaux d’identification** : le [rapport d’activité de connexions](concept-sign-ins.md) vous permet d’identifier qui a effectué les tâches signalées par les journaux d’audit.
+* **Journaux d’audit**: Le [rapport d’activité des journaux d’audit](concept-audit-logs.md) vous permet de consulter l’historique de toutes les tâches effectuées dans votre locataire.
+* **Journaux de connexion** : Le [rapport d’activité de connexion](concept-sign-ins.md) vous permet d’identifier qui a effectué les tâches consignées dans les journaux d’audit.
 
 > [!NOTE]
 > Les journaux d’activité d’audit et de connexions associés à B2C ne sont pas pris en charge pour le moment.

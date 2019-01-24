@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à BlueJeans | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à BlueJeans | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et BlueJeans.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: dfc634fd-1b55-4ba8-94a8-b8288429b6a9
 ms.service: Azure-Active-Directory
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: e92aadd2550e19b97eb94d42a11b76fa0f0cc748
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 12585974cf8e6fcaeee18293038f81989e55dfd6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974537"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824421"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Tutoriel : Intégration d’Azure Active Directory à BlueJeans
+# <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Tutoriel : Intégration d’Azure Active Directory à BlueJeans
 
 Dans ce didacticiel, vous allez apprendre à intégrer BlueJeans à Azure Active Directory (Azure AD).
 L’intégration de BlueJeans à Azure AD vous offre les avantages suivants :

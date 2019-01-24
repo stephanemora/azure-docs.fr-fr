@@ -4,7 +4,7 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: a9d0bbcb-ddb5-473f-a4aa-028ae88ced1a
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 4dc34a390303ffe5e4bafc6b71d77a19e554374c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 29e1fd9999c70ed4a599cbc65d43402088d876e2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052187"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818878"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Tutoriel : Intégration d’Azure Active Directory à SkyDesk Email
+# <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Didacticiel : Intégration d’Azure Active Directory à SkyDesk Email
 
 Dans ce didacticiel, vous allez apprendre à intégrer SkyDesk Email à Azure Active Directory (Azure AD).
 
