@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c8e5f34bb6b38a3f187d86a1ebc0c7019c7f1046
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 6020aa0a770075526d8d07c94b847b5933a26c2a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437016"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428118"
 ---
 # <a name="create-custom-roles-using-azure-powershell"></a>Créer des rôles personnalisés à l’aide d’Azure PowerShell
 
@@ -30,7 +30,7 @@ Si les [rôles intégrés](built-in-roles.md) ne répondent pas aux besoins spé
 Pour créer des rôles personnalisés, vous avez besoin des éléments suivants :
 
 - Autorisations nécessaires pour créer des rôles personnalisés, tels que [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator)
-- [Azure PowerShell](/powershell/azure/install-azurerm-ps) installé localement
+- [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) installé localement
 
 ## <a name="list-custom-roles"></a>Répertorier les rôles personnalisés
 
@@ -296,6 +296,6 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Didacticiel : Créer un rôle personnalisé à l’aide d’Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Tutoriel : Créer un rôle personnalisé à l'aide d'Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Rôles personnalisés dans Azure](custom-roles.md)
 - [Opérations du fournisseur de ressources Azure Resource Manager](resource-provider-operations.md)

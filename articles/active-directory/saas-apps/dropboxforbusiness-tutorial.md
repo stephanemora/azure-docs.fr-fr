@@ -1,10 +1,10 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Dropbox for Business | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Dropbox for Business | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Dropbox for Business.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 63502412-758b-4b46-a580-0e8e130791a1
 ms.service: Azure-Active-Directory
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/20/2018
 ms.author: jeedes
-ms.openlocfilehash: a05a246a3bdf0594484cbbf89998e337d2be5a12
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: cb639f04cec28596c528691066e60b087ca7b09a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974962"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808874"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Tutoriel : Intégration d’Azure Active Directory à Dropbox for Business
+# <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Didacticiel : Intégration d’Azure Active Directory à Dropbox for Business
 
 Dans ce didacticiel, vous allez apprendre à intégrer Dropbox for Business à Azure Active Directory (Azure AD).
 L’intégration de Dropbox for Business à Azure AD vous offre les avantages suivants :
@@ -106,7 +106,7 @@ Pour configurer l’authentification unique Azure AD avec Dropbox for Business,
 
     ![Informations d’authentification unique dans la section Domaine et URL Dropbox for Business](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL en utilisant le modèle suivant : `https://www.dropbox.com/sso/<id>`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://www.dropbox.com/sso/<id>`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une valeur : `Dropbox`
 

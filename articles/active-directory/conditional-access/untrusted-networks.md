@@ -5,7 +5,7 @@ services: active-directory
 keywords: accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.component: conditional-access
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 12/10/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c40db6c253899d7aab21d277e93b23dd0c6feb97
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 7ffb3bfb4985f56e7e2e81a2a6d08a6ff7469fdb
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314004"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445403"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Activation Exiger une authentification multifacteur (MFA) pour l’accès à partir de réseaux non approuvés disposant d’un accès conditionnel   
 
@@ -35,7 +35,7 @@ Cet article vous donne les informations dont vous avez besoin pour configurer un
 Cet article suppose de connaître : 
 
 - Les [concepts de base](overview.md) de l’accès conditionnel Azure AD 
-- Les [meilleures pratiques](best-practices.md) de configuration des stratégies d’accès conditionnel sur le portail Azure
+- Les [meilleures pratiques](best-practices.md) de configuration des stratégies d’accès conditionnel sur le Portail Azure
 
 
 

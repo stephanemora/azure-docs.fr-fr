@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 6b3f862acd5aba39a7ad6eb0ce2f0a9b4a9e5307
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 27cef0287156d4cf76914704b849cb646c21dd7d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973653"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467483"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Créer une machine virtuelle Linux complète avec Azure CLI
 Pour créer rapidement une machine virtuelle dans Azure, vous pouvez utiliser une seule commande Azure CLI qui utilise des valeurs par défaut pour créer toutes les ressources associées requises. Les ressources telles que le réseau virtuel, l’adresse IP publique et les règles de groupe de sécurité réseau sont automatiquement créées. Pour un meilleur contrôle de votre environnement en production, vous pouvez créer ces ressources à l’avance, puis leur ajouter vos machines virtuelles. Cet article vous accompagne dans la création d’une machine virtuelle et de chacune des ressources associées.
@@ -333,7 +333,7 @@ Sortie :
 ```
 
 ## <a name="create-a-virtual-nic"></a>Créer une carte d’interface réseau virtuelle
-La disponibilité des cartes d’interface réseau virtuelles peut être déterminée par programme car vous pouvez définir des règles régissant leur utilisation. En fonction de la [taille de la machine virtuelle](sizes.md), vous pouvez attacher un nombre variable de cartes d’interface réseau virtuelles à une machine virtuelle. Dans la commande [az network nic create](/cli/azure/network/nic#az_network_nic_create) suivante, vous créez une carte d’interface réseau nommée *myNic* et l’associez à votre groupe de sécurité réseau. L’adresse IP publique *myPublicIP* est également associée à la carte d’interface réseau virtuelle.
+La disponibilité des cartes d’interface réseau virtuelles peut être déterminée par programme car vous pouvez définir des règles régissant leur utilisation. En fonction de la [taille de la machine virtuelle](sizes.md), vous pouvez attacher un nombre variable de cartes d’interface réseau virtuelles à une machine virtuelle. Dans la commande [az network nic create](/cli/azure/network/nic) suivante, vous créez une carte d’interface réseau nommée *myNic* et l’associez à votre groupe de sécurité réseau. L’adresse IP publique *myPublicIP* est également associée à la carte d’interface réseau virtuelle.
 
 ```azurecli
 az network nic create \

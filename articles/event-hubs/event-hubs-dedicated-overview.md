@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ed1fedab45ce59af2c67ed8a2ef60714d26d5801
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091024"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402334"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Vue d’ensemble d’Event Hubs Dedicated
 
@@ -32,7 +32,7 @@ Le tableau suivant compare les niveaux de service Event Hubs disponibles. L’of
 | --- |:---:|:---:|:---:|
 | Événements d’entrée | Paiement par million d’événements | Inclus |
 | Unité de débit (1 Mo/s en entrée, 2 Mo/s en sortie) | Paiement par heure | Inclus |
-| Taille des messages | 256 KB | 1 Mo |
+| Taille des messages | 1 Mo | 1 Mo |
 | Stratégies d’éditeur | Oui | Oui |   
 | Groupes de consommateurs | 20 | 20 |
 | Relecture des messages | Oui | Oui |
@@ -47,7 +47,6 @@ Le tableau suivant compare les niveaux de service Event Hubs disponibles. L’of
 Les avantages suivants sont disponibles lorsque vous utilisez Event Hubs Dedicated :
 
 * Hébergement à locataire unique ne subissant pas le bruit d’autres locataires.
-* Augmentation de la taille des messages jusqu’à 1 Mo contre 256 Ko pour les plans Standard.
 * Performances reproductibles chaque fois.
 * Garantie de la capacité à répondre à vos besoins en rafale.
 * Inclut la fonctionnalité [Capture](event-hubs-capture-overview.md) d’Event Hubs, pour permettre l’intégration aux microlots et à la rétention à long terme.

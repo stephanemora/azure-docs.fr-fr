@@ -3,19 +3,19 @@ title: Flux d’utilisateur dans Azure Active Directory B2C | Microsoft Docs
 description: Découvrez plus d’informations sur le framework de stratégie extensible d’Azure Active Directory B2C et la création de différents flux d’utilisateur.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bcbd26c8e78e29daa78a7e50f2f49b095103f696
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 8da3f5b86ccf1d6038ab410fe7fc6e6840fd0404
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351779"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845501"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Flux d’utilisateur dans Azure Active Directory B2C
 

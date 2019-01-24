@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/6/2018
 ms.author: patricka
 ms.reviewer: bryanr
-ms.openlocfilehash: 28bd314e2dd179d83d2880e3acbf39805b54d333
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 2861b0d1b7ac24a8e881ff052b865ca0384a55d6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263964"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464783"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Architecture multilocataire dans Azure Stack
 
@@ -158,3 +158,5 @@ Si vous ne souhaitez plus bénéficier de la mutualisation dans Azure Stack, vou
 
 - [Gérer les fournisseurs délégués](azure-stack-delegated-provider.md)
 - [Concepts clés d’Azure Stack](azure-stack-key-features.md)
+- [Gérer l’utilisation et la facturation pour Azure Stack comme fournisseur de services cloud](azure-stack-add-manage-billing-as-a-csp.md)
+- [Ajouter un locataire pour l’utilisation et la facturation sur Azure Stack](azure-stack-csp-howto-register-tenants.md)

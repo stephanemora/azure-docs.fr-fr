@@ -4,17 +4,17 @@ description: Explique comment Azure Policy utilise une définition de stratégie
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/12/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: f1332e1622c34a33dd264a1115a0fd7f37ee8ba7
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 0fe15cc87e0d30f58dc26ae925efa6d65b243f5b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383967"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851655"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -67,6 +67,8 @@ Par exemple, le code JSON suivant illustre une stratégie qui limite les emplace
 ```
 
 Tous les exemples Azure Policy se trouvent dans [Exemples de stratégies](../samples/index.md).
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="mode"></a>Mode
 
@@ -325,13 +327,13 @@ La liste des alias augmente toujours. Pour trouver les alias actuellement pris e
 - Azure PowerShell
 
   ```azurepowershell-interactive
-  # Login first with Connect-AzureRmAccount if not using Cloud Shell
+  # Login first with Connect-AzAccount if not using Cloud Shell
 
-  # Use Get-AzureRmPolicyAlias to list available providers
-  Get-AzureRmPolicyAlias -ListAvailable
+  # Use Get-AzPolicyAlias to list available providers
+  Get-AzPolicyAlias -ListAvailable
 
-  # Use Get-AzureRmPolicyAlias to list aliases for a Namespace (such as Azure Automation -- Microsoft.Automation)
-  Get-AzureRmPolicyAlias -NamespaceMatch 'automation'
+  # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Automation -- Microsoft.Automation)
+  Get-AzPolicyAlias -NamespaceMatch 'automation'
   ```
 
 - Azure CLI
@@ -508,5 +510,5 @@ L’exemple suivant montre comment créer une initiative pour gérer deux balise
 - Consulter la page [Compréhension des effets d’Azure Policy](effects.md)
 - Savoir comment [créer des stratégies par programmation](../how-to/programmatically-create.md)
 - Découvrir comment [obtenir des données de conformité](../how-to/getting-compliance-data.md)
-- Découvrir comment [corriger la non-conformité des ressources](../how-to/remediate-resources.md)
+- Découvrir comment [corriger les ressources non conformes](../how-to/remediate-resources.md)
 - Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: f1d949c4ea13cd9329f1e1049a1de7778246e7f6
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 3a2e48697efbe0f4969a8fae20c050a38645ed6f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302440"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462077"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Démarrage rapide : Exécuter votre premier programme de traitement par lots avec l’API Python
 
@@ -174,7 +174,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-batch-job"></a>Création d’un travail Batch
 
-Un travail Batch est un regroupement logique d’une ou de plusieurs tâches. Un travail inclut les paramètres communs aux tâches, tels que la priorité et le pool pour exécuter des tâches. L’application utilise la classe [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) pour créer un travail sur votre pool. La méthode [job.add](/python/api/azure.batch.operations.joboperations#azure_batch_operations_JobOperations_add) soumet le pool au service Batch. Dans un premier temps, le travail n’a aucune tâche.
+Un travail Batch est un regroupement logique d’une ou de plusieurs tâches. Un travail inclut les paramètres communs aux tâches, tels que la priorité et le pool pour exécuter des tâches. L’application utilise la classe [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) pour créer un travail sur votre pool. La méthode [job.add](/python/api/azure.batch.operations.joboperations) soumet le pool au service Batch. Dans un premier temps, le travail n’a aucune tâche.
 
 ```python
 job = batch.models.JobAddParameter(

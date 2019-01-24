@@ -2,18 +2,19 @@
 title: Forum Aux Questions (FAQ) sur Azure Service Bus | Microsoft Docs
 description: Répond à certaines questions fréquemment posées sur Azure Service Bus.
 services: service-bus-messaging
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 11/05/2018
-ms.author: spelluru
-ms.openlocfilehash: 8beb372c3fae567b23e51d2776dd9a79d837c657
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 0b419343829e7e7bbbd31260b9cd0c8d93cd255d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313831"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847813"
 ---
 # <a name="service-bus-faq"></a>FAQ Service Bus
 
@@ -39,7 +40,7 @@ Le classement n’est pas garanti lors de l’utilisation d’entités partition
 
  Les entités partitionnées ne sont plus prises en charge dans la [référence SKU Premium](service-bus-premium-messaging.md). 
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Présentation des meilleures pratiques Azure Service Bus
 Consultez [Meilleures pratiques relatives aux améliorations de performances avec Service Bus][Best practices for performance improvements using Service Bus] : cet article explique comment optimiser les performances de l’échange de messages.
 

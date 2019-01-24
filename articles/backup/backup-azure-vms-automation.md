@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 847adc9f304e9da62129948616f0a3485b33ee7b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f0a18931c037a1cf34d8a296a6330264bc8d38af
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199525"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424519"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Utilisation de PowerShell pour sauvegarder et restaurer des machines virtuelles
 
@@ -41,7 +41,7 @@ Pour voir les informations de référence sur l’applet de commande PowerShell 
 
 Pour commencer :
 
-1. [Téléchargez la dernière version de PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (version minimale requise : 1.4.0)
+1. [Téléchargez la dernière version de PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (version minimale requise : 1.4.0)
 
 2. Rechercher les applets de commande PowerShell Azure Backup disponibles en tapant la commande suivante :
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 27102f3523749802dc16a28e28f8859d35814990
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3252395c7a511a00e8da0a31139fce3b2763decb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952747"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461839"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrer le trafic réseau avec un groupe de sécurité réseau à l’aide d’Azure CLI
 
@@ -128,7 +128,7 @@ az network vnet create \
   --address-prefixes 10.0.0.0/16
 ```
 
-Ajoutez un sous-réseau au réseau virtuel avec la commande [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). L’exemple suivant ajoute un sous-réseau nommé *mySubnet* au réseau virtuel et l’associe au groupe de sécurité réseau *myNsg* :
+Ajoutez un sous-réseau au réseau virtuel avec la commande [az network vnet subnet create](/cli/azure/network/vnet/subnet). L’exemple suivant ajoute un sous-réseau nommé *mySubnet* au réseau virtuel et l’associe au groupe de sécurité réseau *myNsg* :
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -232,7 +232,7 @@ curl myVmWeb
 
 Déconnectez-vous de la machine virtuelle *myVmMgmt*. Pour confirmer que vous pouvez accéder au serveur web *myVmWeb* sans être dans Azure, entrez `curl <publicIpAddress>` à partir de votre propre ordinateur. La connexion réussit, car le port 80 autorise le trafic entrant depuis Internet vers le groupe de sécurité d’application *myAsgWebServers* dans lequel se situe l’interface réseau attachée à la machine virtuelle *myVmWeb*.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Quand vous n’avez plus besoin d’un groupe de ressources, utilisez [az group delete](/cli/azure/group#az_group_delete) pour le supprimer, ainsi que toutes les ressources qu’il contient.
 

@@ -2,20 +2,20 @@
 title: Créer une connexion point à site vers Azure à l’aide d’Azure Virtual WAN | Microsoft Docs
 description: Dans ce didacticiel, découvrez comment utiliser Azure Virtual WAN pour créer une connexion VPN point à site vers Azure.
 services: virtual-wan
-author: cherylmc
+author: anzaman
 ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 01/07/2019
-ms.author: cherylmc
+ms.author: alzam
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 05f4b0b7accc3b13984864e82589c6fa639ce88d
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 87b8543d8cb658b46ab5e589a310a17a69508a47
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321651"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411388"
 ---
-# <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Tutoriel : Créer une connexion point à site à l’aide d’Azure Virtual WAN (préversion)
+# <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Didacticiel : Créer une connexion point à site à l’aide d’Azure Virtual WAN (préversion)
 
 Ce didacticiel vous montre comment utiliser Azure Virtual WAN pour vous connecter à vos ressources dans Azure via une connexion VPN IPsec/IKE (IKEv2) ou OpenVPN. Pour utiliser ce type de connexion, un client doit être configuré sur l’ordinateur client. Pour plus d’informations sur Azure Virtual WAN, consultez l’article [Vue d'ensemble d’Azure Virtual WAN](virtual-wan-about.md).
 

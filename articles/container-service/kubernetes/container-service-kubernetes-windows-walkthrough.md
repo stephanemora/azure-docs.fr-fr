@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: dfc1d2128e1cf3b4d6b4d9e5141116a2b2ff9c0d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 90608e95cee6b5b7231419c2c65c39741f106b0f
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000600"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412636"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(DÉPRÉCIÉ) Déployer un cluster Azure Kubernetes pour des conteneurs Windows
 
@@ -65,7 +65,7 @@ Au bout de quelques minutes, la commande s’achève et vous fournit des informa
 
 Pour vous connecter au cluster Kubernetes depuis l’ordinateur client, utilisez l’outil [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), le client de ligne de commande Kubernetes. 
 
-Si vous utilisez Azure CloudShell, l’outil `kubectl` est déjà installé. Si vous souhaitez l’installer en local, vous pouvez utiliser la commande [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli).
+Si vous utilisez Azure CloudShell, l’outil `kubectl` est déjà installé. Si vous souhaitez l’installer en local, vous pouvez utiliser la commande [az acs kubernetes install-cli](/cli/azure/acs/kubernetes).
 
 L’exemple Azure CLI ci-après installe `kubectl` sur votre système. Sur Windows, exécutez cette commande en tant qu’administrateur.
 

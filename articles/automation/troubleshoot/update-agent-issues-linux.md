@@ -7,14 +7,14 @@ ms.author: gwallace
 ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: dff24fb28a4129aa7f29d5f9ed1db10d533d005e
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: e1dca8655c6bf609bee255f183bcd2fe9b56bc55
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53578850"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437491"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Comprendre les résultats de la vérification de l’agent Linux dans Update Management
 
@@ -23,8 +23,8 @@ De nombreuses raisons peuvent expliquer pourquoi votre machine n’est pas dans 
 Voici les trois états de préparation possibles d’une machine :
 
 * **Prête** : l’agent de mise à jour est déployé et a été vu pour la dernière fois il y a moins d’une heure.
-* **Déconnecté** : l’agent de mise à jour est déployé et a été vu pour la dernière fois il y a plus d’une heure.
-* **Non configuré** : l’agent de mise à jour est introuvable ou n’a pas terminé son intégration.
+* **Déconnectée** : l’agent de mise à jour est déployé et a été vu pour la dernière fois il y a plus d’une heure.
+* **Non configurée** : l’agent de mise à jour est introuvable ou n’a pas terminé son intégration.
 
 ## <a name="start-the-troubleshooter"></a>Démarrer l’utilitaire de résolution des problèmes
 
@@ -177,3 +177,4 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour résoudre les autres problèmes de vos Runbooks Workers hybrides, consultez [Résolution des problèmes relatifs aux Runbooks Workers hybrides](hybrid-runbook-worker.md).
+

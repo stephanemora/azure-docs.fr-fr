@@ -3,7 +3,7 @@ title: Dépanner les modifications apportées à une machine virtuelle Azure | M
 description: Utilisez Change Tracking pour dépanner celles apportées à une machine virtuelle Azure.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 keywords: modification, suivi, automatisation
 author: jennyhunter-msft
 ms.author: jehunte
@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 1df3fcad8a30b0d79f40aecc353684b7356fe061
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9fa1e3ffd92b3c375837c7b9a4a0e7fd1a80893a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190014"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433677"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Dépanner les modifications apportées à votre environnement
 
@@ -228,3 +228,4 @@ Accédez ensuite à la vue d’ensemble de la solution de suivi des modification
 
 > [!div class="nextstepaction"]
 > [Solution de gestion des changements et d’inventaire](automation-change-tracking.md)
+

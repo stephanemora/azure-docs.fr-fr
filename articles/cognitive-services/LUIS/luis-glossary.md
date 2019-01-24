@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: b0bbd3300e48e82e44a7b7fac05f89c8d25e007f
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 8ab5000f1f50e10195c02b6198fa0bcffd0408b5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603495"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844757"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossaire Language Understanding des termes et concepts courants
 Le glossaire Language Understanding (LUIS) explique les termes que vous pourriez rencontrer lors de l’utilisation du service API LUIS.
@@ -74,7 +74,7 @@ Dans le contexte de LUIS, un **domaine** est un champ de connaissances propre à
 
 ## <a name="endpoint"></a>Point de terminaison
 
-L’URL du [point de terminaison LUIS](https://aka.ms/luis-endpoint-apis) est celle à laquelle les requêtes LUIS sont envoyées après création et publication de [l’application LUIS](#luis-app). Elle contient la région de l’application publiée, ainsi que l’ID de l’application. Vous trouverez le point de terminaison dans la page **[Keys and endpoints (Clés et points de terminaison)](luis-how-to-manage-keys.md)** de votre application, ou vous pouvez obtenir l’URL de point de terminaison à partir de l’API [Obtenir des informations sur l’application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
+L’URL du [point de terminaison LUIS](https://aka.ms/luis-endpoint-apis) est celle à laquelle les requêtes LUIS sont envoyées après création et publication de [l’application LUIS](#luis-app). Elle contient la région de l’application publiée, ainsi que l’ID de l’application. Vous trouverez le point de terminaison dans la page **[Keys and endpoints (Clés et points de terminaison)](luis-how-to-azure-subscription.md)** de votre application, ou vous pouvez obtenir l’URL de point de terminaison à partir de l’API [Obtenir des informations sur l’application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
 
 Voici un exemple de point de terminaison :
 
@@ -177,7 +177,7 @@ Identique à la [clé programmatique](#programmatic-key), renommée Clé de cré
 
 ## <a name="subscription-key"></a>Clé d’abonnement
 
-La clé d’abonnement est la clé de **point de terminaison** associée au service LUIS [créé dans Azure](luis-how-to-azure-subscription.md). Il ne s’agit pas de la [clé de création](#programmatic-key). Si vous avez une clé de point de terminaison, vous devrez l’utiliser pour toutes les demandes du point de terminaison au lieu de la clé de création. Vous pouvez voir votre clé de point de terminaison actuelle au sein de l’URL du point de terminaison en bas de la [page **Keys and endpoints (Clés et points de terminaison)**](luis-how-to-manage-keys.md) sur le site web [LUIS](luis-reference-regions.md). Il s’agit de la valeur de la paire nom/valeur **subscription-key**.
+La clé d’abonnement est la clé de **point de terminaison** associée au service LUIS [créé dans Azure](luis-how-to-azure-subscription.md). Il ne s’agit pas de la [clé de création](#programmatic-key). Si vous avez une clé de point de terminaison, vous devrez l’utiliser pour toutes les demandes du point de terminaison au lieu de la clé de création. Vous pouvez voir votre clé de point de terminaison actuelle au sein de l’URL du point de terminaison en bas de la [page **Keys and endpoints (Clés et points de terminaison)**](luis-how-to-azure-subscription.md) sur le site web [LUIS](luis-reference-regions.md). Il s’agit de la valeur de la paire nom/valeur **subscription-key**.
 
 ## <a name="test"></a>Test
 

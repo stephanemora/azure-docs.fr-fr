@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: 2f10a231c4edc3e01d3f8c5f7f4db1854f83044d
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: e6d6c47726b21a241b379366bd1fde6c6b90e223
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392400"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462010"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Résoudre les problèmes d’une machine virtuelle Linux en attachant le disque de système d’exploitation à une machine virtuelle de récupération avec Azure CLI
 Si votre machine virtuelle Linux rencontre une erreur de démarrage ou de disque, il vous faudra éventuellement appliquer la procédure de dépannage directement sur le disque dur virtuel. Comme exemple courant, citons une entrée non valide dans `/etc/fstab` qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser l’interface de ligne de commande Azure pour connecter votre disque dur virtuel à une autre machine virtuelle Linux pour corriger les éventuelles erreurs, puis pour régénérer votre machine virtuelle d’origine. 
@@ -35,7 +35,7 @@ Le processus de résolution de problème se présente comme suit :
 
 Pour la machine virtuelle qui utilise le disque managé, consultez [Résoudre les problèmes d’une machine virtuelle avec disque managé en attachant un nouveau disque de système d’exploitation](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
-Pour effectuer ces étapes de dépannage, vous devez installer la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et vous connecter à un compte Azure avec [az login](/cli/azure/reference-index#az_login).
+Pour effectuer ces étapes de dépannage, vous devez installer la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et vous connecter à un compte Azure avec [az login](/cli/azure/reference-index).
 
 Dans les exemples suivants, remplacez les noms de paramètres avec vos propres valeurs. Exemples de noms de paramètre : `myResourceGroup`, `mystorageaccount` et `myVM`.
 
@@ -69,7 +69,7 @@ Les disques durs virtuels et les machines virtuelles sont deux ressources disti
 
 La première étape de la récupération de votre machine virtuelle consiste à supprimer la ressource de machine virtuelle. En supprimant la machine virtuelle, vous ne vous séparez pas des disques durs virtuels de votre compte de stockage. Une fois la machine virtuelle supprimée, vous associez le disque dur virtuel à une autre machine virtuelle afin de réparer et de corriger les erreurs.
 
-Supprimez la machine virtuelle avec la commande [az vm delete](/cli/azure/vm#az_vm_delete). L’exemple suivant supprime la machine virtuelle nommée `myVM` du groupe de ressource nommé `myResourceGroup` :
+Supprimez la machine virtuelle avec la commande [az vm delete](/cli/azure/vm). L’exemple suivant supprime la machine virtuelle nommée `myVM` du groupe de ressource nommé `myResourceGroup` :
 
 ```azurecli
 az vm delete --resource-group myResourceGroup --name myVM 

@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: 88601383df5015f9ea23184d65266974bb0f35e1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.subservice: alerts
+ms.openlocfilehash: 2aa521b0552b60e5a875a5f46ab9887c6e5b6e3e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345069"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472056"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>Gérer les états des alertes et des groupes intelligents
 Les alertes dans Azure Monitor disposent maintenant d’un [état d’alerte et d’une condition de surveillance](https://aka.ms/azure-alerts-overview), même chose pour les groupes intelligents qui ont un [état de groupe intelligent](https://aka.ms/smart-groups). Les changements d’état sont désormais inscrits dans l’historique associé à l’alerte ou au groupe intelligent correspondant. Cet article va vous expliquer comment changer l’état d’une alerte ou d’un groupe intelligent.
@@ -47,3 +47,4 @@ Les alertes dans Azure Monitor disposent maintenant d’un [état d’alerte et 
 
 1. Une fois l’opération terminée, le changement d’état est enregistré dans l’historique du groupe intelligent correspondant. Vous pouvez accéder à cette information en ouvrant la page Détails correspondante et en recherchant dans l’historique.     
 ![Surveillance](./media/alerts-managing-alert-states/state-sg-history.jpg)
+

@@ -14,16 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 87d78178c32aea3ae601983ec14e9df0732b59e2
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.component: disks
+ms.openlocfilehash: 9bc230846714264d514b7e15962a2c99c838c7de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091298"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465103"
 ---
 # <a name="create-a-snapshot"></a>Créer un instantané
 
-Une capture instantanée est une copie complète en lecture seule d’un disque dur virtuel (VHD). Vous pouvez prendre une capture instantanée d’un disque dur virtuel de système d’exploitation ou de données que vous utiliserez comme sauvegarde ou pour résoudre les problèmes de la machine virtuelle. 
+Une capture instantanée est une copie complète en lecture seule d’un disque dur virtuel (VHD). Vous pouvez prendre une capture instantanée d’un disque dur virtuel de système d’exploitation ou de données que vous utiliserez comme sauvegarde ou pour résoudre les problèmes de la machine virtuelle.
+
+Si vous prévoyez d’utiliser la capture instantanée pour créer une machine virtuelle, nous vous recommandons d’arrêter convenablement la machine virtuelle avant de prendre une capture instantanée, de façon à mettre fin à tous les processus en cours.
 
 ## <a name="use-the-azure-portal"></a>Utilisation du portail Azure 
 
@@ -41,7 +44,7 @@ Une capture instantanée est une copie complète en lecture seule d’un disque 
 
 Les étapes suivantes expliquent comment copier le disque dur virtuel, créer la configuration de capture instantanée et prendre une capture instantanée du disque avec l’applet de commande [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot). 
 
-Avant de commencer, veillez à avoir la dernière version du module PowerShell AzureRM.Compute, qui doit être la version 5.7.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell localement, exécutez [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) pour créer une connexion à Azure.
+Avant de commencer, veillez à avoir la dernière version du module PowerShell AzureRM.Compute, qui doit être la version 5.7.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell localement, exécutez [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) pour créer une connexion à Azure.
 
 1. Définissez certains paramètres : 
 

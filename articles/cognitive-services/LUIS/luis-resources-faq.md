@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: diberry
-ms.openlocfilehash: e75fa6560feb01ae912ad2040df7a8748ed0077b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 3c0d7d3aed08c6dbbcac5f25e91edd8e27e64440
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246549"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429359"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur Language Understanding
 
@@ -75,7 +75,7 @@ Pour obtenir d’autres conseils, passez en revue les [bonnes pratiques](luis-co
 LUIS [tokénise](luis-glossary.md#token) l’énoncé en fonction de la [culture](luis-language-support.md#tokenization). Tant la valeur d’origine que la valeur tokénisée sont disponibles pour l’[extraction de données](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Comment faire pour créer et affecter une clé de point de terminaison LUIS ?
-[Créez la clé de point de terminaison](luis-how-to-azure-subscription.md#create-luis-endpoint-key) dans Azure pour votre niveau de [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Affectez la clé](luis-how-to-manage-keys.md#assign-endpoint-key) dans la page **[Keys and endpoints (Clés et points de terminaison)](luis-how-to-manage-keys.md)**. Il n’existe d’API pour cette action. Ensuite, vous devez modifier la requête HTTP adressée au point de terminaison de façon à [utiliser la nouvelle clé de point de terminaison](luis-concept-keys.md#use-endpoint-key-in-query).
+[Créez la clé de point de terminaison](luis-how-to-azure-subscription.md) dans Azure pour votre niveau de [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Affectez la clé](luis-how-to-azure-subscription.md) dans la page **[Keys and endpoints (Clés et points de terminaison)](luis-how-to-azure-subscription.md)**. Il n’existe d’API pour cette action. Ensuite, vous devez modifier la requête HTTP adressée au point de terminaison de façon à [utiliser la nouvelle clé de point de terminaison](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Comment interpréter les scores de LUIS ?
 Votre système doit utiliser l’intention de score le plus élevée, quelle qu’en soit la valeur. Par exemple, un score inférieur à 0,5 (moins de 50 %) ne signifie pas nécessairement que la confiance de LUIS est faible. La fourniture de données d’entraînement supplémentaires peut aider à augmenter le [score](luis-concept-prediction-score.md) de l’intention la plus probable.

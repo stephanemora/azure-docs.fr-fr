@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: anzaman
 ms.custom: seodec18
-ms.openlocfilehash: 7b88ba6e00cbec05263fe5bc8e795cda95beee04
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e94ba2f7f6981355f4736683b891fbdced001d03
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093663"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425337"
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>Réinitialiser un circuit ExpressRoute en échec
 
@@ -21,7 +21,7 @@ Quand une opération sur un circuit ExpressRoute ne se termine pas correctement,
 
 ## <a name="reset-a-circuit"></a>Réinitialiser un circuit
 
-1. Installez la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/install-azurerm-ps).
+1. Installez la dernière version des applets de commande PowerShell Azure Resource Manager. Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 2. Ouvrez la console PowerShell avec des privilèges élevés et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 4ced3aa9b7d37543b4942bbfa9a5605058a614d8
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 508614d2126d95323ce3550954b4b8a7d4d9d7d8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014733"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438809"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Prise en main pour les opérateurs informatiques Azure
 
@@ -169,7 +169,7 @@ En plus de créer, gérer et supprimer des ressources sur le portail Azure, vous
 
 #### <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell est un ensemble de modules fournissant des applets de commande pour gérer Azure. Vous pouvez utiliser les applets de commande pour créer, gérer et supprimer des services Azure. Les applets de commande vous permettent de réaliser des déploiements cohérents et reproductibles sans avoir à intervenir. Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Azure PowerShell est un ensemble de modules fournissant des applets de commande pour gérer Azure. Vous pouvez utiliser les applets de commande pour créer, gérer et supprimer des services Azure. Les applets de commande vous permettent de réaliser des déploiements cohérents et reproductibles sans avoir à intervenir. Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 #### <a name="azure-command-line-interface"></a>Interface de ligne de commande Azure
 

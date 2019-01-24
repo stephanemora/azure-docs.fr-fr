@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: d9afc62b4ab5d5d83394dcaaacf85a7642a2ba22
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 27ba79e9168e098717e91e5a7179b5bc419ef86c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52260594"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438404"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Organisation des ressources Azure à l’aide de balises
 
@@ -31,7 +31,7 @@ Pour appliquer des balises aux ressources, l’utilisateur doit disposer de l’
 
 ## <a name="powershell"></a>PowerShell
 
-Les exemples de cet article nécessitent la version 6.0 ou ultérieure d’Azure PowerShell. Si vous ne disposez pas de la version 6.0 ou ultérieure, [mettez à jour votre version](/powershell/azure/install-azurerm-ps).
+Les exemples de cet article nécessitent la version 6.0 ou ultérieure d’Azure PowerShell. Si vous ne disposez pas de la version 6.0 ou ultérieure, [mettez à jour votre version](/powershell/azure/azurerm/install-azurerm-ps).
 
 Pour afficher les balises existantes pour un *groupe de ressources*, utilisez :
 

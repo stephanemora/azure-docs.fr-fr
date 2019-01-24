@@ -3,7 +3,7 @@ title: Restaurer ou supprimer de façon définitive un utilisateur supprimé - A
 description: Comment afficher les utilisateurs pouvant être restaurés, restaurer un utilisateur supprimé et supprimer de façon définitive un utilisateur avec Azure Active Directory.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 12/17/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 066c9189e0c3cea409a99217e0ab4b46002df1f9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 995a6a9da637c23663c51fe2f4b175741f5849b6
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556779"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450317"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restaurer ou supprimer un utilisateur supprimé à l’aide d’Azure Active Directory
 Lorsque vous supprimez un utilisateur, son compte reste à l’état suspendu pendant 30 jours. Pendant ces 30 jours, le compte de l’utilisateur peut être restauré, avec l’ensemble de ses propriétés. À l’issue de ce délai de 30 jours, l’utilisateur est automatiquement et définitivement supprimé.
@@ -59,9 +59,6 @@ Lorsque le compte d’un utilisateur est suspendu, toutes les informations de r�
 2. Sélectionnez **Restaurer utilisateur**.
 
     ![Page Utilisateurs - Utilisateurs supprimés, avec l’option Restaurer utilisateur mise en surbrillance](media/active-directory-users-restore/users-deleted-users-restore-user.png)
-
->[!NOTE]
->Précédemment quand un utilisateur était retiré de l’étendue de synchronisation locale et supprimé dans le cloud, l’état DirSyncEnabled du compte était erronément défini sur « False ». Si, par la suite, cet utilisateur était restauré manuellement à partir de la Corbeille Azure AD, il présentait un état incorrect de compte « Cloud uniquement ». Ce problème est désormais résolu et la valeur de l’état DirSyncEnabled est toujours « True » quand un utilisateur est retiré de l’étendue de synchronisation, puis supprimé de manière réversible et restauré manuellement à partir de la Corbeille Azure AD.
 
 ## <a name="permanently-delete-a-user"></a>Supprimer définitivement un utilisateur.
 Vous pouvez supprimer définitivement un utilisateur de votre répertoire sans attendre la fin du délai de 30 jours avant la suppression automatique. Un utilisateur supprimé définitivement ne peut pas être restauré, ni par vous, ni par un autre administrateur, ni par le support technique de Microsoft.

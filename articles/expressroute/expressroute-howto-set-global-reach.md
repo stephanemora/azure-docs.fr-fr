@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 3df107f8854469b50c5e8483515388b5c93fb244
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ab1098ca65ad92cffdbe1dfb24fd43fcc8f10eae
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383270"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431674"
 ---
 # <a name="configure-expressroute-global-reach-preview"></a>Configurer ExpressRoute Global Reach (préversion)
 Cet article vous permet de configurer ExpressRoute Global Reach à l’aide de PowerShell. Pour plus d’informations, consultez [ExpressRoute Global Reach](expressroute-global-reach.md).
@@ -26,7 +26,7 @@ Cet article vous permet de configurer ExpressRoute Global Reach à l’aide de P
 
 Avant de commencer la configuration, vérifiez les éléments suivants :
 
-* Vous avez installé la dernière version d’Azure PowerShell. Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/install-azurerm-ps).
+* Vous avez installé la dernière version d’Azure PowerShell. Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 * Vous connaissez les [flux de travail](expressroute-workflows.md) d’approvisionnement du circuit ExpressRoute.
 * L’état de vos circuits ExpressRoute est Approvisionné.
 * L’homologation privée Azure est configurée sur vos circuits ExpressRoute.  

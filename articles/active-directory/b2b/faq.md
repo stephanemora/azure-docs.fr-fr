@@ -8,14 +8,14 @@ ms.topic: reference
 ms.date: 10/29/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 9f82deaa3ca048342c3501e111470eaea2ed9437
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 481fb929a8f937b1d822755e93fae09d9f585fad
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748406"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436822"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>FAQ sur Azure Active Directory B2B Collaboration
 
@@ -55,7 +55,7 @@ Absolument. Pour plus d’informations, consultez [Ajouter des utilisateurs invi
 À moins qu’un rôle Administrateur limité ou Administrateur général ne leur soit assigné, les utilisateurs B2B Collaboration n’ont pas besoin d’accéder au portail Azure. Toutefois, les utilisateurs B2B Collaboration qui ont le rôle Administrateur limité ou Administrateur général peuvent accéder au portail. En outre, si un utilisateur invité qui ne possède aucun de ces rôles Administrateur accède au portail, il peut être en mesure d’accéder à certaines parties de l’expérience. Le rôle utilisateur invité possède quelques autorisations dans le répertoire.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>Puis-je bloquer l’accès au portail Azure pour les utilisateurs invités ?
-Oui. Lorsque vous configurez cette stratégie, faites attention à ne pas bloquer accidentellement l’accès aux membres et aux administrateurs.
+ Oui. Lorsque vous configurez cette stratégie, faites attention à ne pas bloquer accidentellement l’accès aux membres et aux administrateurs.
 Pour bloquer l’accès d’un utilisateur invité au [portail Azure](https://portal.azure.com), utilisez une stratégie d’accès conditionnel dans l’API Modèle de déploiement Azure Classic :
 1. Modifiez le groupe **Tous les utilisateurs** pour qu’il contienne uniquement les membres.
   ![capture d’écran - modifier le groupe](media/faq/modify-all-users-group.png)

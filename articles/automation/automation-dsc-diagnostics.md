@@ -3,18 +3,18 @@ title: Transférer des données de rapport Azure Automation State Configuration 
 description: Cet article montre comment envoyer des données de rapport DSC (Desired State Configuration) d’Azure Automation State Configuration à Log Analytics, pour fournir des insights supplémentaires et simplifier la gestion.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 88805f26869ad75830cef1aa074cd90cb947e76f
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 2450ffcbd9fa7bebd5a1b862aa9c35baa5dbdc95
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681736"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425173"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-log-analytics"></a>Transférer des données de rapport Azure Automation State Configuration à Log Analytics
 

@@ -4,7 +4,7 @@ description: Activez le proxy d’application dans le portail Azure et installez
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.date: 09/06/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: d382a71de34e6c1527d810b0576e518b9101cf7d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6d370f9fb7fc67c9df5e08a06de38db8e97c6fb0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132752"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471903"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy d’application et Qlik Sens 
 Le proxy d’application Azure Active Directory et Qlik Sense se sont associés afin de vous permettre d’utiliser facilement le Proxy d’application pour fournir l’accès à distance à votre déploiement Qlik sens.  
@@ -49,7 +49,7 @@ Suivez ces étapes pour publier votre application. Pour obtenir plus de détails
 4.       (Facultatif) Dans le panneau de gestion de l’application, sélectionnez Authentification unique. Choisissez **Délégation Kerberos contrainte** dans le menu déroulant et renseignez les champs obligatoires en fonction de votre configuration Qlik. Sélectionnez **Enregistrer**. 
 
 ### <a name="application-2"></a>2ème application : 
-Suivez les mêmes étapes que pour la 1re application, avec les exceptions suivantes : 
+Suivez les mêmes étapes que pour la 1ère application, avec les exceptions suivantes : 
 
 **Étape 5** : L’URL interne doit maintenant être l’URL QlikSense avec le port d’authentification utilisé par l’application. La valeur par défaut est **4244** pour HTTPS et 4248 pour HTTP. Par exemple, **https&#58;//demo.qlik.com:4244**</br></br> 
 **Étape 10 :** Ne configurez pas l’authentification unique et laissez **l’authentification unique désactivée**

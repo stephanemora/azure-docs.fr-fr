@@ -4,7 +4,7 @@ description: Fournit des solutions aux erreurs rencontrées lors de l’appel de
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 0030c5a4-16f0-46f4-ad30-782e7fea7e40
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 33c382c8b28549e1b2be83322b910ca1a885e45d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 299c9acb43fd0f3d7284a3b2ffb0c400b96cbc0b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622754"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811687"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Résoudre les erreurs relatives à l’API de création de rapports Azure Active Directory
 
@@ -31,32 +31,32 @@ Cet article répertorie les messages d’erreur courants que vous pouvez rencont
 
 Le point de terminaison Microsoft Graph v2 n’est pas pris en charge. Vous devez accéder aux journaux d’activité à l’aide du point de terminaison Microsoft Graph v1.
 
-### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Erreur : Impossible d’obtenir les rôles d’utilisateur à partir d’AD Graph
+### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Error: Impossible d'obtenir les rôles d'utilisateur à partir d'AD Graph
 
 Vous pouvez obtenir ce message d’erreur lorsque vous tentez d’accéder aux connexions à l’aide de l’Afficheur Graph. Vérifiez que vous êtes bien connecté à votre compte à l’aide des deux boutons de connexion de l’interface utilisateur de l’Afficheur Graph, comme illustré dans l’image suivante. 
 
 ![Afficheur Graph](./media/troubleshoot-graph-api/graph-explorer.png)
 
-### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>Erreur : Impossible d’effectuer la vérification de licence premium à partir d’AD Graph 
+### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>Error: Impossible de vérifier la licence premium à partir d'AD Graph 
 
 Si vous rencontrez ce message d’erreur lorsque vous tentez d’accéder aux connexions à l’aide de l’Afficheur Graph, choisissez **Modifier les autorisations** sous votre compte, dans la barre de navigation gauche, puis sélectionnez **Tasks.ReadWrite** et **Directory.Read.All**. 
 
-![Interface utilisateur Modifier les autorisations](./media/troubleshoot-graph-api/modify-permissions.png)
+![Modifier l’interface utilisateur des autorisations](./media/troubleshoot-graph-api/modify-permissions.png)
 
 
-### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>Erreur : Aucun des locataires n’est B2C ou le locataire ne dispose pas d’une licence Premium
+### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>Error: Aucun des locataires n'est B2C ou le locataire n'a pas de licence premium
 
 L’accès aux rapports de connexion nécessite une licence Azure Active Directory Premium 1 (P1). Si vous voyez ce message d’erreur lorsque vous accédez aux connexions, vérifiez que votre locataire dispose bien d’une licence Azure AD P1.
 
-### <a name="error-user-is-not-in-the-allowed-roles"></a>Erreur : L’utilisateur ne dispose pas d’un rôle autorisé 
+### <a name="error-user-is-not-in-the-allowed-roles"></a>Error: L'utilisateur ne dispose pas d'un rôle autorisé 
 
 Si ce message d’erreur s’affiche quand vous tentez d’accéder aux journaux d’audit ou aux connexions à l’aide de l’API, vérifiez que votre compte est associé au rôle **Lecteur Sécurité** ou **Lecteur de rapport** dans votre locataire Azure Active Directory. 
 
-### <a name="error-application-missing-aad-read-directory-data-permission"></a>Erreur : L’application ne dispose pas de l’autorisation AAD « Lire les données de répertoire » 
+### <a name="error-application-missing-aad-read-directory-data-permission"></a>Error: L'application ne dispose pas de l'autorisation AAD « Lire les données de l'annuaire » 
 
 Pour vérifier que votre application est exécutée avec le bon ensemble d’autorisations, suivez les étapes décrites dans les [Prérequis pour accéder à l’API de création de rapports Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md). 
 
-### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>Erreur : L’application ne dispose pas de l’autorisation de l’API MS Graph « Lire toutes les données du journal d’audit »
+### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>Error: L'application ne dispose pas de l'autorisation de l'API MS Graph « Lire toutes les données du journal d'audit »
 
 Pour vérifier que votre application est exécutée avec le bon ensemble d’autorisations, suivez les étapes décrites dans les [Prérequis pour accéder à l’API de création de rapports Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md). 
 

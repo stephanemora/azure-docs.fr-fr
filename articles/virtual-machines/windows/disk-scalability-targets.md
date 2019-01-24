@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines
 ms.tgt_pltfrm: windows
 ms.component: disks
-ms.openlocfilehash: cd2f73b3fb2a8a3d80586063566fe66c37c26c67
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 005d760f8056169f9897b0f9661859650f057a52
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243451"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468537"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Cibles de scalabilité et de performance des disques de machine virtuelle sur Windows
 
@@ -24,7 +24,7 @@ Consultez [Tailles des machines virtuelles Windows](../../virtual-machines/windo
 
 ## <a name="managed-virtual-machine-disks"></a>Disques de machines virtuelles gérées
 
-Les tailles signalées par un astérisque sont actuellement en préversion. Consultez notre [FAQ](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) pour connaître les régions où ils sont disponibles.
+Les tailles signalées par un astérisque sont actuellement en préversion. Consultez notre [FAQ](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) pour connaître les régions où ces modèles sont disponibles.
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
 

@@ -4,7 +4,7 @@ description: Instructions détaillées pour configurer des identités managées 
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 0a6440b7fffe1aec26ba4755f21fa2f56935887e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: c71663b0e0b569d32aad525be1a89e4824c05280
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377579"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422284"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Configurer des identités managées pour ressources Azure sur un groupe de machines virtuelles identiques en utilisant le portail Azure
 
@@ -72,7 +72,7 @@ Si vous disposez d’un groupe de machines virtuelles identiques qui n’a plus 
 
    ![Capture d’écran de la page Configuration](./media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)
 
-## <a name="user-assigned-managed-identity"></a>Identité managée affectée par l'utilisateur
+## <a name="user-assigned-managed-identity"></a>Identité managée affectée par l’utilisateur
 
 Dans cette section, vous découvrez comment ajouter et supprimer une identité managée attribuée par l’utilisateur à partir d’un groupe de machines virtuelles identiques en utilisant le portail Azure.
 

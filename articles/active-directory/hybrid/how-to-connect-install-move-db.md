@@ -3,19 +3,19 @@ title: Déplacez la base de données Azure AD Connect de SQL Server Express vers
 description: Ce document décrit comment déplacer la base de données Azure AD Connect du serveur local SQL Server Express vers un serveur distant SQL Server.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cbc86405225cca0d5144b48b113cf41607ce16f4
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 8f9d530531d5f72e92bdb7362879199ce6a4853c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434118"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474844"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Déplacer la base de données Azure AD Connect de SQL Server Express vers SQL Server 
 

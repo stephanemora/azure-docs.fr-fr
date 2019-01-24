@@ -3,19 +3,19 @@ title: Configurer la connexion avec un compte LinkedIn dans Azure Active Directo
 description: Configurez la connexion avec un compte LinkedIn dans Azure Active Directory B2C à l’aide de stratégies personnalisées.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b5022e1475b9f15738dd015e16946b754fcd49c9
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d6f1f312e9f23a2996cf0e7604df20d4eb3c4064
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887306"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845742"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte LinkedIn à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -52,11 +52,11 @@ Vous devez stocker la clé secrète client que vous avez enregistrée dans votre
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-3. Dans le coin supérieur gauche du portail Azure, choisissez **Tous les services**, puis recherchez et sélectionnez **Azure Active Directory B2C**.
+3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité - PRÉVERSION**.
 5. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
 6. Pour **Options**, choisissez `Manual`.
-7. Entrez le **nom** de la clé de stratégie. Par exemple : `LinkedInSecret`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
+7. Entrez un **nom** pour la clé de stratégie. Par exemple : `LinkedInSecret`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
 8. Dans **Secret**, entrez la clé secrète client que vous avez enregistrée.
 9. Pour **Utilisation de la clé**, sélectionnez `Signature`.
 10. Cliquez sur **Créer**.
@@ -123,7 +123,7 @@ Vous pouvez définir un compte LinkedIn en tant que fournisseur de revendication
 
 À ce stade, vous avez configuré votre stratégie afin qu’Azure AD B2C sache comment communiquer avec votre compte LinkedIn. Essayez de télécharger le fichier d’extension de votre stratégie juste pour confirmer qu’il ne présente aucun problème pour le moment.
 
-1. Dans la page **Stratégies personnalisées** dans votre locataire Azure AD B2C, sélectionnez **Charger une stratégie**.
+1. Sur la page **Stratégies personnalisées** dans votre locataire Azure AD B2C, sélectionnez **Charger une stratégie**.
 2. Activez **Remplacer la stratégie si elle existe**, puis recherchez et sélectionnez le fichier *TrustFrameworkExtensions.xml*.
 3. Cliquez sur **Télécharger**.
 
@@ -153,13 +153,13 @@ L’élément **ClaimsProviderSelection** est analogue à un bouton de fournisse
 Maintenant que vous avez un bouton en place, vous devez le lier à une action. Dans ce cas, l’action effectuée correspond à la communication entre Azure AD B2C et un compte LinkedIn pour recevoir un jeton.
 
 1. Recherchez l’élément **OrchestrationStep** comprenant `Order="2"` dans le parcours utilisateur.
-2. Ajoutez l’élément **ClaimsExchange** suivant en veillant à utiliser pour **l’ID** la valeur que vous avez utilisée pour **TargetClaimsExchangeId** :
+2. Ajoutez l’élément **ClaimsExchange** suivant en veillant à utiliser pour l’**ID** la même valeur que celle que vous avez utilisée pour **TargetClaimsExchangeId** :
 
     ```XML
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     ```
     
-    Mettez à jour la valeur de **TechnicalProfileReferenceId** sur **l’ID** du profil technique que vous avez créé. Par exemple : `LinkedIn-OAUTH`.
+    Mettez à jour la valeur de **TechnicalProfileReferenceId** sur **l’ID** du profil technique que vous avez créé précédemment. Par exemple : `LinkedIn-OAUTH`.
 
 3. Enregistrez le fichier *TrustFrameworkExtensions.xml* et rechargez-le à des fins de vérification.
 
@@ -169,17 +169,17 @@ La communication avec Azure AD B2C s’effectue via une application que vous cr�
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-3. Dans le coin supérieur gauche du portail Azure, choisissez **Tous les services**, puis recherchez et sélectionnez **Azure Active Directory B2C**.
+3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Sélectionnez **Applications**, puis **Ajouter**.
-5. Entrez un nom pour l’application, par exemple, *testapp1*.
-6. Pour **Application/API web**, sélectionnez `Yes`, puis entrez `https://jwt.ms` pour **l’URL de réponse**.
+5. Entrez un nom pour l’application (par exemple, *testapp1*).
+6. Pour **Application/API web**, sélectionnez `Yes`, puis entrez `https://jwt.ms` pour l’**URL de réponse**.
 7. Cliquez sur **Créer**.
 
 ## <a name="update-and-test-the-relying-party-file"></a>Mettre à jour et tester le fichier de partie de confiance
 
 Mettez à jour le fichier de partie de confiance qui lance le parcours utilisateur que vous avez créé.
 
-1. Faites une copie du fichier *SignUpOrSignIn.xml* dans votre répertoire de travail, puis renommez-le. Par exemple, renommez-le *SignUpSignInLinkedIn.xml*.
+1. Faites une copie de *SignUpOrSignIn.xml* dans votre répertoire de travail, puis renommez-le. Par exemple, renommez-le *SignUpSignInLinkedIn.xml*.
 2. Ouvrez le nouveau fichier et définissez une valeur unique pour l’attribut **PolicyId** de **TrustFrameworkPolicy**. Par exemple : `SignUpSignInLinkedIn`.
 3. Mettez à jour la valeur de **PublicPolicyUri** avec l’URI de la stratégie. Exemple : `http://contoso.com/B2C_1A_signup_signin_linkedin`
 4. Définissez l’attribut **ReferenceId** dans **DefaultUserJourney** sur l’ID du parcours utilisateur que vous avez créé (SignUpSignLinkedIn).

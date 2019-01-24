@@ -3,19 +3,19 @@ title: Exemples de transformations de revendications StringCollection pour le sc
 description: Exemples de transformations de revendications StringCollection pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 924da8c92bad1c5345d5d1833723a0c4e8ad7d29
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 7bec6846a1bb22893beed8086b6d9e88babc1906
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432659"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847942"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformations de revendications StringCollection
 
@@ -49,7 +49,7 @@ La transformation de revendication suivante ajoute le ClaimType **e-mail** au Cl
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 - Revendications d’entrée :
     - **collection** : ["someone@outlook.com"]
@@ -83,7 +83,7 @@ Utilisez cette transformation de revendication pour ajouter une valeur de chaîn
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 - Revendications d’entrée :
     - **collection** : ["someone@outlook.com"]
@@ -99,7 +99,7 @@ Obtient le premier élément de la collection de chaînes fournie.
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | ClaimTypes qui sont utilisés par la transformation de revendication pour obtenir l’élément. |
-| OutputClaim | extractedItem | string | ClaimTypes qui sont générés après l’appel de cette ClaimsTransformation. Premier élément de la collection. |
+| OutputClaim | extractedItem | chaîne | ClaimTypes générés après l’appel de cette ClaimsTransformation. Premier élément de la collection. |
 
 L’exemple suivant lit la revendication **otherMails** et retourne le premier élément dans la revendication **e-mail**. 
 
@@ -114,7 +114,7 @@ L’exemple suivant lit la revendication **otherMails** et retourne le premier �
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 - Revendications d’entrée :
     - **collection** : ["someone@outlook.com", "someone@contoso.com"]

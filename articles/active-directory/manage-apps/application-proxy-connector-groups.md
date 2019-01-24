@@ -3,7 +3,7 @@ title: Publication d’applications sur des réseaux et emplacements distincts �
 description: Explique comment créer et gérer des groupes de connecteurs dans le proxy d’Application Azure AD.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 52dc78b03a1be73763b5a3c494404f4d439d04ca
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2cc624cf47cddfe12532bdc7bf8cdc9a2858bb49
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198029"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468639"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publier des applications sur des réseaux et emplacements distincts à l’aide de groupes de connecteurs
 

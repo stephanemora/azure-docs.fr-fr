@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 52caae38c21fe403735b8479ec2e721ef38f521e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 01/17/2019
+ms.openlocfilehash: f43c2cd5a3c155258cd698f6b55854bc0df9f861
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845788"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388586"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Créer et gérer des serveurs logiques et des singletons dans Azure SQL Database
 
@@ -57,7 +57,7 @@ Pour gérer une base de données existante, accédez à la page **Bases de donn�
 
 ## <a name="powershell-manage-logical-servers-and-databases"></a>PowerShell : gérer des bases de données et des serveurs logiques
 
-Pour créer et gérer des serveurs logiques, des bases de données uniques et en pool ainsi que des pare-feu de serveur logique Azure SQL avec Azure PowerShell, utilisez les applets de commande PowerShell suivants. Si vous devez installer ou mettre à niveau PowerShell, consultez la section relative à [l’installation du module Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Pour créer et gérer des serveurs logiques, des bases de données uniques et en pool ainsi que des pare-feu de serveur logique Azure SQL avec Azure PowerShell, utilisez les applets de commande PowerShell suivants. Si vous devez installer ou mettre à niveau PowerShell, consultez la section relative à [l’installation du module Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!TIP]
 > Pour obtenir des exemples de script PowerShell, consultez [Utiliser PowerShell pour créer une base de données unique Azure SQL et configurer une règle de pare-feu de serveur logique](scripts/sql-database-create-and-configure-database-powershell.md) et [Surveiller et mettre à l’échelle une base de données SQL unique à l’aide de PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).

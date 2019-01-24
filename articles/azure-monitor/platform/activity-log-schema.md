@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
-ms.component: logs
-ms.openlocfilehash: d5e57442a163c8a93adc39517285bd88affab2fe
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.subservice: logs
+ms.openlocfilehash: 9ad3ca2233237c9cb4aea0a7bd0c476f48613a9c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353054"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438233"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
 Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cet article décrit le schéma d’événements par catégorie de données. Le schéma des données varie selon que vous lisez les données dans le portail, dans PowerShell, dans l’interface CLI, ou directement dans l’API REST, au lieu de [diffuser en continu les données vers le stockage ou vers des Event Hubs à l’aide d’un profil de journal](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Les exemples ci-dessous montrent le schéma, tel qu’il se présente dans le portail, PowerShell, l’interface CLI et l’API REST. Un mappage de ces propriétés vers le [schéma des journaux de diagnostic Azure](./tutorial-dashboards.md) est fourni à la fin de cet article.
@@ -738,10 +738,10 @@ Cette catégorie contient les enregistrements de toutes les opérations d’acti
 
 | Nom de l’élément | Description |
 | --- | --- |
-| authorization | Tableau de propriétés RBAC de l’événement. Pour les nouvelles ressources, il s’agit de l’action et de l’étendue de la requête ayant déclenché l’évaluation. Pour les ressources existantes, l’action est « Microsoft.Resources/checkPolicyCompliance/read ». |
+| autorisation | Tableau de propriétés RBAC de l’événement. Pour les nouvelles ressources, il s’agit de l’action et de l’étendue de la requête ayant déclenché l’évaluation. Pour les ressources existantes, l’action est « Microsoft.Resources/checkPolicyCompliance/read ». |
 | caller | Pour les nouvelles ressources, il s’agit de l’identité qui a lancé un déploiement. Pour les ressources existantes, il s’agit du GUID du fournisseur de ressources Microsoft Azure Policy Insights. |
 | channels | Les événements Azure Policy utilisent uniquement le canal « Operation ». |
-| claims | Le jeton JWT utilisé par Active Directory pour authentifier l’utilisateur ou l’application afin d’effectuer cette opération dans Resource Manager. |
+| réclamations | Le jeton JWT utilisé par Active Directory pour authentifier l’utilisateur ou l’application afin d’effectuer cette opération dans Resource Manager. |
 | correlationId | Généralement un GUID au format chaîne. Les événements qui partagent un correlationId appartiennent à la même action uber. |
 | description | Ce champ est vide pour les événements Azure Policy. |
 | eventDataId | Identificateur unique d’un événement. |
@@ -795,3 +795,4 @@ Lorsque vous diffusez en continu le contenu du journal d’activité Azure vers 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur le journal d’activité (autrefois appelé journal d’audit)](../../azure-monitor/platform/activity-logs-overview.md)
 * [Stream the Azure Activity Log to Event Hubs (Diffuser en continu le journal d’activités Azure vers Event Hubs)](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+

@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 0c819e4efb158baa2150b00368c618c5467a01e0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/17/2019
+ms.openlocfilehash: 60c7483e698a07fcf86438798f6bb5013a7417ce
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966770"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391137"
 ---
 # <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Azure SQL Transparent Data Encryption : support Bring Your Own Key
 
@@ -116,7 +116,7 @@ La section suivante aborde plus en détails les étapes d’installation et de c
 
 ### <a name="azure-key-vault-configuration-steps"></a>Étapes de configuration de Azure Key Vault
 
-- Installer [PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0)
+- Installer [PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-5.6.0)
 - Créez deux Azure Key Vault dans deux régions différentes en utilisant [PowerShell pour activer la propriété « soft-delete »](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) sur le coffre de clés (cette option n’est pas encore disponible à partir du portail AKV, mais elle est exigée par SQL).
 - Les deux coffres Azure Key Vault doivent se trouver dans les deux régions disponibles au sein de la même zone géographique Azure pour que la sauvegarde et restauration des clés fonctionnent.  Si vous avez besoin que les deux coffres de clés soient situés dans des zones géographiques différentes pour répondre aux exigences de géo-récupération d’urgence de SQL, suivez le [processus BYOK](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) qui permet l’importation des clés à partir d’un module HSM local.
 - Créer une nouvelle clé dans le premier coffre de clés :  

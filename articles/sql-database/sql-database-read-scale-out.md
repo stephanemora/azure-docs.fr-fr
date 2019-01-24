@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 12/05/2018
-ms.openlocfilehash: e0a5d6180c7dfa94abf8dd738c8017a3b332dfd8
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/17/2019
+ms.openlocfilehash: 9d7131c6ed1808725f59e53488bedb5ef81a77c3
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598802"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389416"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Utiliser des réplicas en lecture seule pour équilibrer des charges de travail de requêtes en lecture seule (version préliminaire)
 
@@ -80,7 +80,7 @@ L’échelle horizontale en lecture est activée par défaut dans le niveau Crit
 
 ### <a name="powershell-enable-and-disable-read-scale-out"></a>PowerShell : Activer et désactiver l’échelle horizontale en lecture
 
-La gestion de la lecture du Scale-out dans Azure PowerShell nécessite la version d’Azure PowerShell de décembre 2016 ou plus récente. Pour obtenir la version de PowerShell la plus récente, consultez [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+La gestion de la lecture du Scale-out dans Azure PowerShell nécessite la version d’Azure PowerShell de décembre 2016 ou plus récente. Pour obtenir la version de PowerShell la plus récente, consultez [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 Activez ou désactivez la lecture du Scale-out dans Azure PowerShell en appelant l’applet de commande [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) et en passant la valeur souhaitée, `Enabled` ou `Disabled` pour le paramètre `-ReadScale`. Vous pouvez également utiliser l’applet de commande [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) pour créer une nouvelle base de données avec la lecture du Scale-out activée.
 

@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
-ms.component: metrics
-ms.openlocfilehash: ac2987b6329d85c06d78d93341fe71f5c9120fcd
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: metrics
+ms.openlocfilehash: df26547132403bfe2f3fb3be74e5d1a3d9400967
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105455"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433031"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Créer une alerte de mesure classique avec un modèle Resource Manager
 Cet article explique comment vous pouvez utiliser un [modèle Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) pour configurer les alertes de mesures Azure. Cela vous permet de configurer automatiquement des alertes sur vos ressources lorsqu’elles sont créées pour vous assurer que toutes les ressources sont analysées correctement.
@@ -405,3 +405,4 @@ Une alerte sur un modèle Resource Manager est le plus souvent utile lors de la 
 * [En savoir plus sur les alertes](alerts-overview.md)
 * [Ajout de paramètres de diagnostic](../../azure-monitor/platform/diagnostic-logs-stream-template.md) à votre modèle Resource Manager
 * Pour les propriétés et la syntaxe JSON, consultez la référence de modèle [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules).
+

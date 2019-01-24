@@ -1,10 +1,10 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory avec Innoverse | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory avec Innoverse | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Innoverse.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: d72e4da0-0123-409b-96c2-e613f3f83fb1
 ms.service: Azure-Active-Directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/14/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 293c08a81ba675d42cd0e9f715e988b2186deb3d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 07385089e64977243929de15ab53f84520029495
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794071"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54806880"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-innoverse"></a>Didacticiel : Intégration d’Azure Active Directory avec Innoverse
+# <a name="tutorial-azure-active-directory-integration-with-innoverse"></a>Tutoriel : Intégration d’Azure Active Directory avec Innoverse
 
 Dans ce didacticiel, vous allez apprendre à intégrer lnnoverse avec Azure Active Directory (Azure AD).
 L’intégration d’Innoverse dans Azure AD vous offre les avantages suivants :
@@ -79,8 +79,8 @@ Pour configurer et tester l’authentification unique Azure AD avec Innoverse, v
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Configurer l’authentification unique Innoverse](#configure-innoverse-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Créer un utilisateur de test Innoverse](#create-innoverse-test-user)** pour avoir dans Innoverse un équivalent de Britta Simon lié à la représentation Azure AD associée.
-5. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test Innoverse](#create-innoverse-test-user)** pour avoir dans Innoverse un équivalent de Britta Simon lié à la représentation Azure AD associée.
 6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -114,7 +114,7 @@ Pour configurer l’authentification unique Azure AD avec Innoverse, procédez c
     ![Informations d’authentification unique dans Domaine et URL Innoverse](common/metadata_upload_additional_signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<domainname>.innover.se/auth/saml2/login`
-    
+
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique Innoverse](mailto:support@readify.net). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 

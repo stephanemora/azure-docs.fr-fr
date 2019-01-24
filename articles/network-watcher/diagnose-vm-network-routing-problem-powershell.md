@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: f793a201b3fbf57ac2f420c4f4e57a230bc11468
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 89ace5901012c5bc66a560dafd3a403183d6ce8c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299022"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422829"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnostiquer un problème de routage réseau d’une machine virtuelle - Azure PowerShell
 
@@ -32,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module AzureRM PowerShell version 5.4.1 ou version ultérieure pour les besoins de cet article. Pour trouver la version installée, exécutez `Get-Module -ListAvailable AzureRM`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure.
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module AzureRM PowerShell version 5.4.1 ou version ultérieure pour les besoins de cet article. Pour trouver la version installée, exécutez `Get-Module -ListAvailable AzureRM`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure.
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
@@ -59,7 +59,7 @@ Pour tester une communication réseau avec Network Watcher, commencez par active
 
 ## <a name="enable-network-watcher"></a>Activer Network Watcher
 
-Si vous avez déjà un observateur réseau activé dans la région de l’est des États-Unis, utilisez [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher) pour le récupérer. L’exemple suivant récupère un observateur réseau existant nommé *NetworkWatcher_eastus* se trouvant dans le groupe de ressources *NetworkWatcherRG* :
+Si vous avez déjà un observateur réseau activé dans la région USA Est, utilisez [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher) pour le récupérer. L’exemple suivant récupère un observateur réseau existant nommé *NetworkWatcher_eastus* se trouvant dans le groupe de ressources *NetworkWatcherRG* :
 
 ```azurepowershell-interactive
 $networkWatcher = Get-AzureRmNetworkWatcher `
@@ -67,7 +67,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher `
   -ResourceGroupName NetworkWatcherRG
 ```
 
-Si vous n’avez pas encore d’observateur réseau activé dans la région de l’est des États-Unis, utilisez [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher) pour créer un observateur réseau dans cette région :
+Si vous n’avez pas encore d’observateur réseau activé dans la région USA Est, utilisez [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher) pour créer un observateur réseau dans cette région :
 
 ```azurepowershell-interactive
 $networkWatcher = New-AzureRmNetworkWatcher `
@@ -129,7 +129,7 @@ Name State  Source  AddressPrefix           NextHopType NextHopIpAddress
 
 Comme vous pouvez le voir dans la sortie précédente, l’itinéraire avec **AaddressPrefix** défini sur **0.0.0.0/0** achemine tout le trafic non destiné aux adresses dans les préfixes d’adresses d’un autre itinéraire avec un tronçon suivant défini sur **Internet**. Comme vous pouvez le voir aussi dans la sortie, même s’il existe un itinéraire par défaut pour le préfixe 172.16.0.0/12, qui inclut l’adresse 172.31.0.100, **NextHopType** est défini sur **Aucun**. Azure crée un itinéraire par défaut pour 172.16.0.0/12, mais ne spécifie pas de type de tronçon suivant tant qu’aucune raison ne motive cette spécification. Si, par exemple, vous avez ajouté la plage d’adresses 172.16.0.0/12 à l’espace d’adressage du réseau virtuel, Azure modifie **NextHopType** pour le définir sur **Réseau virtuel** pour l’itinéraire. Une vérification permet ensuite d’afficher **Réseau virtuel** en tant que **NextHopType**.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Quand vous n’avez plus besoin d’un groupe de ressources, vous pouvez utiliser [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour le supprimer et toutes les ressources qu’il contient :
 

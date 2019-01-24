@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 980470c0f1d24bde52f29c4cd3579e2337898f88
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9542fe14cc262731ca0f2ade65e6e4dfafbc34d7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138821"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427506"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guide de migration d’API v1 vers v2 pour les applications LUIS
 Les API de [point de terminaison](https://aka.ms/v1-endpoint-api-docs) et de [création](https://aka.ms/v1-authoring-api-docs) de version 1 sont dépréciées. Utilisez ce guide pour comprendre comment migrer vers la version 2 des API de [point de terminaison](https://aka.ms/luis-endpoint-apis) et de [création](https://aka.ms/luis-authoring-apis). 
@@ -112,7 +112,7 @@ Les API de la clé du point de terminaison de l’abonnement sont déconseillée
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Les [clés de point de terminaison](luis-how-to-azure-subscription.md) Azure sont générées sur le Portail Azure. Vous affectez la clé à une application LUIS à la page **[Publier](luis-how-to-manage-keys.md)**. Vous n’avez pas besoin de connaître la valeur de clé réelle. LUIS utilise le nom de l’abonnement pour effectuer l’affectation. 
+Les [clés de point de terminaison](luis-how-to-azure-subscription.md) Azure sont générées sur le Portail Azure. Vous affectez la clé à une application LUIS à la page **[Publier](luis-how-to-azure-subscription.md)**. Vous n’avez pas besoin de connaître la valeur de clé réelle. LUIS utilise le nom de l’abonnement pour effectuer l’affectation. 
 
 ## <a name="new-versioning-route"></a>Nouvel itinéraire de contrôle de version
 Le modèle v2 est maintenant contenu dans une [version](luis-how-to-manage-versions.md). Un nom de version a 10 caractères dans l’itinéraire. La version par défaut est « 0.1 ».

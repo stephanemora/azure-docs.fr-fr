@@ -5,7 +5,7 @@ services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.component: identity-protection
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 3ba8c93d158a6ff80c3db788924503e9d4e87242
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 3f9a3746417e278b720230b6125650c4a86557de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378117"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466819"
 ---
-# <a name="how-to-configure-the-user-risk-policy"></a>Procédure : Configurer la stratégie de risque utilisateur
+# <a name="how-to-configure-the-user-risk-policy"></a>Procédure : Configurer la stratégie en matière de risque à l’utilisateur
 
 Avec le risque utilisateur, Azure AD détecte la probabilité selon laquelle un compte utilisateur a été compromis. En tant qu’administrateur, vous pouvez configurer une stratégie d’accès conditionnel de risque utilisateur pour répondre automatiquement à un niveau de risque utilisateur spécifique.
  
@@ -85,7 +85,7 @@ Le blocage d’une connexion :
 * empêche la génération de nouveaux événements à risque pour l’utilisateur concerné ;
 * permet aux administrateurs de corriger manuellement les événements à risques affectant l’identité de l’utilisateur pour sécuriser à nouveau cette dernière.
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 
 La sélection d’un niveau de risque **Élevé** réduit la fréquence de déclenchement d’une stratégie et minimise l’impact sur les utilisateurs.
 Cependant, cela a pour effet d’exclure les utilisateurs associés à un indicateur de risque **Faible** et **Moyen**. Par conséquent, il se peut que des identités ou des appareils déjà identifiés comme potentiellement ou effectivement compromis ne soient pas sécurisés.

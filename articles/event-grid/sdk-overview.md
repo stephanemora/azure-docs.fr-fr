@@ -2,18 +2,18 @@
 title: Kits SDK Azure Event Grid
 description: Décrit les Kits de développement logiciel (SDK) d’Azure Event Grid. Ils assurent la gestion, la publication et la consommation.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 06/29/2018
-ms.author: tomfitz
-ms.openlocfilehash: 3c085074863aa166a5766116b6c63b7dc341ad96
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.date: 01/19/2019
+ms.author: spelluru
+ms.openlocfilehash: 53a1f50647e05b71afe6accb85f8a90cd8b7e253
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130833"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470398"
 ---
 # <a name="event-grid-sdks-for-management-and-publishing"></a>Kits SDK Event Grid de gestion et de publication
 

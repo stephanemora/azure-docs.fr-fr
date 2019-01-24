@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bd1bb1dc6222e5abdc03bb9dc5da93751c54da77
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 5459ba31d30a86efbe40239f9531298c10cf9d98
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932304"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413598"
 ---
 # <a name="troubleshoot-a-vms-operating-system-disk"></a>Résoudre les problèmes liés au disque du système d’exploitation de machines virtuelles
 
@@ -43,8 +43,8 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 |---|---|
 | [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) | Renvoie la liste des machines virtuelles. Dans ce cas, l’option de requête permet de renvoyer le disque de système d’exploitation de la machine virtuelle. Cette valeur est ensuite ajoutée à un nom de variable « uri ». |
 | [az vm delete](https://docs.microsoft.com/cli/azure/vm#az_vm_delete) | Supprime une machine virtuelle. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Crée une machine virtuelle.  |
-| [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) | Attache un disque à une machine virtuelle. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Crée une machine virtuelle.  |
+| [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk) | Attache un disque à une machine virtuelle. |
 | [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list_ip_addresses) | Renvoie les adresses IP d’une machine virtuelle. |
 
 ## <a name="next-steps"></a>Étapes suivantes

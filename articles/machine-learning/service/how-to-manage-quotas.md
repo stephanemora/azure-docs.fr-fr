@@ -11,12 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1ef0fc9037548a58d9b0a4f46c212a43796d529b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 6a08a5a79a8a072bd4621a7e200e84c2c71c9cd4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231595"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475065"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gérer et demander des quotas pour les ressources Azure
 
@@ -46,7 +46,7 @@ Il est important de noter qu’une limite totale régionale et une limite régio
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-Pour obtenir une liste plus détaillée et à jour des limites de quota, consultez l’article sur les quotas à l’échelle d’Azure [ici](https://docs.microsoft.com/azure/azure-subscription-service-limits#subscription-limits-1).
+Pour obtenir une liste plus détaillée et à jour des limites de quota, consultez l’article sur les quotas à l’échelle d’Azure [ici](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
 ### <a name="azure-machine-learning-compute"></a>Capacité de calcul Azure Machine Learning
 La Capacité de calcul Azure Machine Learning fixe une limite de quota par défaut sur le nombre de cœurs et le nombre de ressources de calcul autorisées par région dans un abonnement. Ce quota est distinct du quota de cœurs de machine virtuelle ci-dessus ; par ailleurs, les limites des cœurs ne sont pour l’instant pas partagées entre les deux types de ressources.

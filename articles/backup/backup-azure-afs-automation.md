@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pullabhk
 ms.assetid: 80da8ece-2cce-40dd-8dce-79960b6ae073
-ms.openlocfilehash: 4ead84ef415dcb85682b15414380055d8799b54c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: bbeccd03fffb699c95d52d50ec5c45e38b43ef51
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051218"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430396"
 ---
 # <a name="use-powershell-to-back-up-and-restore-azure-file-shares"></a>Utiliser PowerShell pour sauvegarder et restaurer des partages de fichiers Azure
 
@@ -34,7 +34,7 @@ Pour voir les informations de référence sur la cmdlet PowerShell **AzureRmReco
 ## <a name="setup-and-registration"></a>Installation et inscription
 
 > [!NOTE]
-> Comme indiqué dans [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), la prise en charge des nouvelles fonctionnalités du module AzureRM a pris fin en novembre 2018. La prise en charge est fournie pour la sauvegarde de partages de fichiers Azure avec le nouveau module Az PowerShell qui est à présent en disponibilité générale.
+> Comme indiqué dans [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0), la prise en charge des nouvelles fonctionnalités du module AzureRM a pris fin en novembre 2018. La prise en charge est fournie pour la sauvegarde de partages de fichiers Azure avec le nouveau module Az PowerShell qui est à présent en disponibilité générale.
 
 Pour commencer, procédez comme suit.
 

@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
-ms.component: ''
-ms.openlocfilehash: 2143ebdddc71973b64b8b77be55b4d0c2b84df64
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: ''
+ms.openlocfilehash: 1ef779e64995c6996538b68b892cb45f11788067
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53578986"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477462"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Diffuser en continu les journaux de diagnostic Azure vers un hub d’événements
 Les **[journaux de diagnostic Azure](diagnostic-logs-overview.md)** peuvent être diffusés quasiment en temps réel vers n’importe quelle application à l’aide de l’option « Exporter vers Event Hubs » intégrée au portail, ou en activant l’ID de règle d’autorisation Event Hubs dans un paramètre de diagnostic via les cmdlets Azure PowerShell ou l’interface de ligne de commande Azure.
@@ -198,3 +198,4 @@ Vous pouvez également diffuser en continu des journaux de diagnostic à partir 
 * [Diffuser en continu des journaux Azure Active Directory avec Azure Monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [En savoir plus sur les journaux de diagnostic Azure](diagnostic-logs-overview.md)
 * [Prise en main des hubs d’événements](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+

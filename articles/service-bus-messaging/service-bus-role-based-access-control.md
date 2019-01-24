@@ -3,9 +3,9 @@ title: Contrôle d’accès en fonction du rôle Azure Service Bus (version pré
 description: Contrôle d’accès en fonction du rôle Azure Service Bus
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
-ms.author: spelluru
-ms.openlocfilehash: c2a0fdd9fc006a9c849a71d6064959759886d920
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.author: aschhab
+ms.openlocfilehash: a4d1c143b7d3277715386b43511ac908a36f85f0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309465"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844855"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Contrôle d’accès en fonction du rôle Azure Active Directory (version préliminaire)
 
@@ -49,7 +49,7 @@ Si vous souhaitez toujours créer un compte spécifique pour ce scénario, [proc
 
 Ensuite, [créez un espace de noms de messagerie Service Bus](service-bus-create-namespace-portal.md) dans l’une des régions Azure prenant en charge la préversion du contrôle d’accès en fonction du rôle : **USA Est**, **USA Est 2** ou **Europe Ouest**.
 
-Une fois l’espace de noms créé, accédez à la page **Contrôle d’accès (IAM)** correspondante sur le portail, puis cliquez sur **Ajouter une attribution de rôle** pour ajouter le compte d’utilisateur Azure AD au rôle de propriétaire. Si vous utilisez votre propre compte d’utilisateur et que vous avez créé l’espace de noms, vous êtes déjà dans le rôle de propriétaire. Pour ajouter un autre compte au rôle, recherchez le nom de l’application web dans le champ **Sélectionner** du panneau **Ajouter des autorisations**, puis cliquez sur l’entrée. Cliquez ensuite sur **Enregistrer**.
+Une fois l’espace de noms créé, accédez à la page **Contrôle d’accès (IAM)** correspondante sur le portail, puis cliquez sur **Ajouter une attribution de rôle** pour ajouter le compte d’utilisateur Azure AD au rôle de propriétaire. Si vous utilisez votre propre compte d’utilisateur et que vous avez créé l’espace de noms, vous êtes déjà dans le rôle de propriétaire. Pour ajouter un autre compte au rôle, recherchez le nom de l’application web dans le champ **Sélectionner** du panneau **Ajouter des autorisations**, puis cliquez sur l’entrée. Cliquez ensuite sur **Enregistrer**.
 
 Le compte d’utilisateur a désormais accès à l’espace de noms Service Bus et à la file d’attente que vous avez précédemment créé.
 
