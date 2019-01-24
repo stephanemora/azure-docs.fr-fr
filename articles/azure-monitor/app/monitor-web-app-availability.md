@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 480edbb508b875d53d972e9ac93fd4d119c7e54a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ca266df563cb7e50463548dd0e786cec8e886ec4
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119660"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359695"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Analyse de la disponibilité et de la réactivité d'un site Web
 Après avoir déployé votre application web ou votre site web sur un serveur, vous pouvez configurer des tests pour surveiller sa disponibilité et sa réactivité. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envoie des requêtes web à votre application à intervalles réguliers à partir de différents points du monde, et vous alerte si votre application réagit lentement ou pas du tout.
@@ -208,7 +208,7 @@ La règle d’alerte pour les emplacements de X en dehors de Y est activée par 
 ![Créer l’expérience](./media/monitor-web-app-availability/appinsights-71webtestUpload.png)
 
 > [!NOTE]
->  Avec les [nouvelles alertes unifiées](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups), le niveau de gravité et les préférences de notification des règles d’alerte des **groupes d’actions** doivent être configurés dans l’expérience d’alertes. Sans les étapes suivantes, vous recevrez les notifications dans le portail uniquement.
+>  Avec les [nouvelles alertes unifiées](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), le niveau de gravité et les préférences de notification des règles d’alerte des [groupes d’actions](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **doivent être** configurés dans l’expérience d’alertes. Sans les étapes suivantes, vous recevrez les notifications dans le portail uniquement.
 
 1. Après avoir enregistré le test de disponibilité, sous l’onglet des détails, cliquez sur les points de suspension à côté du test que vous venez de faire. Cliquez sur « Modifier l’alerte ».
 ![Modifier après l’enregistrement](./media/monitor-web-app-availability/9editalert.png)
@@ -258,7 +258,7 @@ Voici un exemple de test web d’une application web Azure à l’aide d’une c
 2. Extrayez le jeton porteur de la réponse.
 3. Appelez l’API à l’aide du jeton porteur de l’en-tête d’autorisation.
 
-Assurez-vous que le test web est un client réel, qu’il possède sa propre application dans AAD, puis utilisé son ID client et sa clé d’application. Votre service testé possède également sa propre application dans AAD : l’URI appID de cette application se retrouve dans le champ �ressource� du test web.
+Assurez-vous que le test web est un client réel, qu’il possède sa propre application dans AAD, puis utilisé son ID client et sa clé d’application. Votre service soumis à un test possède également sa propre application dans AAD : l’URI ID d’application se retrouve dans le champ dédié aux ressources du test web.
 
 ### <a name="open-authentication"></a>Authentification ouverte
 Comme exemple d’authentification ouverte, citons la connexion avec votre compte Microsoft ou Google. De nombreuses applications utilisant OAuth fournissent l’alternative de la clé secrète client ; commencez donc par rechercher cet élément.
@@ -295,7 +295,7 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 
 * *Le site me semble OK, mais j’observe des échecs de tests. Pourquoi Application Insights m’envoie-t-il des alertes ?*
 
-    * Est-ce que l’option « Analyser les requêtes dépendantes » est activée pour le test ? Cela entraîne une vérification stricte des ressources telles que les scripts, les images, etc. Ces types de d’échecs peuvent être difficiles à remarquer sur un navigateur.  Vérifiez toutes les images, les scripts, les feuilles de style et tout autre fichier chargé par la page. Si l’un d’eux échoue, le test signale une erreur, même si la page html principale se charge correctement. Pour désensibiliser le test à ces échecs de ressource, il vous suffit de décocher la case « Analyser les requêtes dépendantes » dans la configuration du test. 
+    * Est-ce que l’option « Analyser les requêtes dépendantes » est activée pour le test ? Cela entraîne une vérification stricte des ressources telles que les scripts, les images, etc. Ces types de d’échecs peuvent être difficiles à remarquer sur un navigateur. Vérifiez toutes les images, les scripts, les feuilles de style et tout autre fichier chargé par la page. Si l’un d’eux échoue, le test signale une erreur, même si la page html principale se charge correctement. Pour désensibiliser le test à ces échecs de ressource, il vous suffit de décocher la case « Analyser les requêtes dépendantes » dans la configuration du test. 
 
     * Pour réduire la probabilité de bruit des spots réseau temporaires, etc., vérifiez que la case à cocher de configuration « Permettre les nouvelles tentatives pour les échecs des tests web » est activée. Vous pouvez également procéder aux tests à partir de plusieurs emplacements et gérer le seuil de la règle d’alerte en conséquence afin d’empêcher des problèmes propres aux emplacements provoquant des alertes injustifiées.
 
@@ -325,7 +325,7 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 
 * *Puis-je appeler du code à partir de mon test web ?*
 
-     Non. Les étapes du test doivent se trouver dans le fichier .webtest. Et vous ne pouvez pas appeler d’autres tests web ou utiliser des boucles. En revanche, il existe un certain nombre de plug-ins qui peuvent s’avérer utiles.
+    Non. Les étapes du test doivent se trouver dans le fichier .webtest. Et vous ne pouvez pas appeler d’autres tests web ou utiliser des boucles. En revanche, il existe un certain nombre de plug-ins qui peuvent s’avérer utiles.
 
 * *Le protocole HTTPS est-il pris en charge ?*
 
